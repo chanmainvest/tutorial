@@ -1,0 +1,546 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ESG Lab - Interactive (Side 12)</title>
+<script src="https://cdn.plot.ly/plotly-2.35.2.min.js" charset="utf-8"></script>
+<style>
+html, body { margin: 0; padding: 0; background: var(--el-bg); }
+:root {
+    --el-bg: #fdfbf5;
+    --el-text: #1a2332;
+    --el-muted: #6b7280;
+    --el-border: #d6d3c4;
+    --el-card: #fdfbf5;
+    --el-accent: #b8860b;
+    --el-blue: #0d47a1;
+    --el-red: #b71c1c;
+    --el-green: #2e7d32;
+    --el-purple: #6a1b9a;
+    --el-orange: #e65100;
+    --el-grey: #5a5a5a;
+}
+html[data-theme="dark"] .el-root,
+.el-root[data-theme="dark"] {
+    --el-bg: #0f1724;
+    --el-text: #e6e6e6;
+    --el-muted: #9aa3b2;
+    --el-border: #2a3441;
+    --el-card: #0f1724;
+    --el-blue: #5a8dee;
+    --el-red: #ef5350;
+    --el-green: #66bb6a;
+    --el-purple: #ba68c8;
+    --el-orange: #ffa726;
+    --el-grey: #aaaaaa;
+}
+.el-root {
+    font-family: 'Segoe UI', Helvetica, Arial, sans-serif;
+    background: var(--el-bg);
+    color: var(--el-text);
+    padding: 12px;
+    margin: 0;
+}
+.el-controls {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 12px;
+    margin-bottom: 14px;
+    padding: 12px;
+    background: var(--el-card);
+    border: 1px solid var(--el-border);
+    border-radius: 8px;
+}
+.el-slider-wrap {
+    display: flex; flex-direction: column; gap: 4px;
+    font-size: 0.82rem; color: var(--el-muted);
+}
+.el-slider-wrap .el-row { display: flex; align-items: center; gap: 10px; }
+.el-slider-wrap input[type="range"] { flex: 1; accent-color: var(--el-accent); }
+.el-slider-wrap .el-val {
+    white-space: nowrap; color: var(--el-text); font-weight: 700;
+    font-variant-numeric: tabular-nums; min-width: 64px; text-align: right;
+}
+.el-slider-wrap .el-name { font-weight: 600; color: var(--el-text); }
+.el-bigrow {
+    display: grid; grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 8px; margin-bottom: 14px;
+}
+.el-big {
+    background: var(--el-card);
+    border: 1px solid var(--el-border);
+    border-left: 4px solid var(--el-accent);
+    border-radius: 8px;
+    padding: 10px 12px;
+}
+.el-big.el-b-te   { border-left-color: var(--el-orange); }
+.el-big.el-b-rs   { border-left-color: var(--el-blue); }
+.el-big.el-b-tw   { border-left-color: var(--el-purple); }
+.el-big .el-big-name {
+    font-size: 0.72rem; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.5px;
+    color: var(--el-muted);
+}
+.el-big .el-big-val {
+    font-size: 1.4rem; font-weight: 800; margin-top: 4px;
+    font-variant-numeric: tabular-nums; color: var(--el-text);
+}
+.el-big .el-big-detail {
+    font-size: 0.72rem; color: var(--el-muted); margin-top: 2px;
+}
+.el-charts {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 12px;
+}
+.el-chart {
+    width: 100%; height: 360px;
+    background: var(--el-card);
+    border-radius: 8px;
+    border: 1px solid var(--el-border);
+}
+.el-caption {
+    margin-top: 10px;
+    font-size: 0.78rem; color: var(--el-muted); line-height: 1.45;
+}
+@media (max-width: 1000px) {
+    .el-charts { grid-template-columns: 1fr; }
+    .el-controls { grid-template-columns: 1fr; }
+    .el-bigrow { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<div class="el-root" id="el-root">
+    <div class="el-controls">
+        <div class="el-slider-wrap">
+            <div class="el-name" id="el-name-EN">Tilt away from energy</div>
+            <div class="el-row">
+                <input type="range" id="el-EN" min="0" max="100" step="1" value="50">
+                <span class="el-val" id="el-val-EN">50%</span>
+            </div>
+        </div>
+        <div class="el-slider-wrap">
+            <div class="el-name" id="el-name-UT">Tilt away from utilities</div>
+            <div class="el-row">
+                <input type="range" id="el-UT" min="0" max="100" step="1" value="20">
+                <span class="el-val" id="el-val-UT">20%</span>
+            </div>
+        </div>
+        <div class="el-slider-wrap">
+            <div class="el-name" id="el-name-DR">Expected ESG drag (%/yr)</div>
+            <div class="el-row">
+                <input type="range" id="el-DR" min="-1" max="1" step="0.05" value="0.4">
+                <span class="el-val" id="el-val-DR">+0.40%</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="el-bigrow">
+        <div class="el-big el-b-te">
+            <div class="el-big-name" id="el-bn-te">Tracking error vs market</div>
+            <div class="el-big-val" id="el-bv-te">-</div>
+            <div class="el-big-detail" id="el-bd-te">annualised, model-implied</div>
+        </div>
+        <div class="el-big el-b-rs">
+            <div class="el-big-name" id="el-bn-rs">Expected return shortfall</div>
+            <div class="el-big-val" id="el-bv-rs">-</div>
+            <div class="el-big-detail" id="el-bd-rs">vs cap-weighted market, %/yr</div>
+        </div>
+        <div class="el-big el-b-tw">
+            <div class="el-big-name" id="el-bn-tw">20-yr terminal wealth gap</div>
+            <div class="el-big-val" id="el-bv-tw">-</div>
+            <div class="el-big-detail" id="el-bd-tw">$100k start, ESG vs market</div>
+        </div>
+    </div>
+
+    <div class="el-charts">
+        <div id="el-chart-w" class="el-chart"></div>
+        <div id="el-chart-s" class="el-chart"></div>
+    </div>
+
+    <p class="el-caption" id="el-caption">
+        Model. Sector weights anchored on April 2026 S&amp;P 500 (tech 30%, financials 13%, health 12%, discretionary 11%, communications 9%, industrials 8%, staples 6%, energy 4%, utilities 2.4%, real estate 2.6%, materials 2%). Cap-weighted expected return = sum(w_s * mu_s) with sector mus calibrated to long-run total return: tech 11%, fin 9.5%, health 9%, discr 9.5%, comm 9%, indus 8.5%, stap 7%, energy 8%, utils 6.5%, RE 7.5%, mat 7.5%. Cap-weighted vol 16%. ESG portfolio re-weights energy and utilities by (1 - tilt) and re-distributes the freed weight pro-rata across remaining sectors. Tracking error from active sector weights vs sector covariance with market = 0.65 plus idio sector vol of 7.5%/yr. Expected return shortfall = (mu_market - mu_esg) + drag. Terminal wealth = $100k * (1 + mu)^20 for each.
+    </p>
+</div>
+
+<script>
+(function () {
+    var I18N = {
+        en: {
+            name_EN: "Tilt away from energy",
+            name_UT: "Tilt away from utilities",
+            name_DR: "Expected ESG drag (%/yr)",
+            bn_te: "Tracking error vs market",
+            bn_rs: "Expected return shortfall",
+            bn_tw: "20-yr terminal wealth gap",
+            bd_te: "annualised, model-implied",
+            bd_rs: "vs cap-weighted market, %/yr",
+            bd_tw: "$100k start, ESG vs market",
+            chart_w_title: "20-yr wealth path on $100k: market vs ESG-tilted",
+            x_w: "Year",
+            y_w: "Portfolio value ($)",
+            tr_mkt: "Cap-weighted market",
+            tr_esg: "ESG-tilted",
+            chart_s_title: "Active sector weights: ESG vs cap-weighted (Apr 2026)",
+            x_s: "Active weight (ESG - market, pp)",
+            y_s: "",
+            sectors: {
+                tech:   "Technology",
+                fin:    "Financials",
+                health: "Health care",
+                discr:  "Cons. discretionary",
+                comm:   "Communications",
+                indus:  "Industrials",
+                stap:   "Cons. staples",
+                energy: "Energy",
+                utils:  "Utilities",
+                re:     "Real estate",
+                mat:    "Materials",
+            },
+            caption: "Model. Sector weights anchored on April 2026 S&P 500. ESG portfolio re-weights energy and utilities by (1 - tilt) and re-distributes the freed weight pro-rata across remaining sectors. Tracking error from active sector weights with idio sector vol 7.5%/yr. Expected shortfall = (mu_market - mu_esg) + drag. Terminal wealth = $100k * (1 + mu)^20.",
+        },
+        hk: {
+            name_EN: "從能源板塊偏離",
+            name_UT: "從公用板塊偏離",
+            name_DR: "預期 ESG 拖累(%/年)",
+            bn_te: "對市場追蹤誤差",
+            bn_rs: "預期回報缺口",
+            bn_tw: "20 年期末財富缺口",
+            bd_te: "年化,模型推算",
+            bd_rs: "對市值加權市場(%/年)",
+            bd_tw: "10 萬美元起始,ESG vs 市場",
+            chart_w_title: "20 年 10 萬美元財富路徑:市場 vs ESG 偏離組合",
+            x_w: "年份",
+            y_w: "組合價值($)",
+            tr_mkt: "市值加權市場",
+            tr_esg: "ESG 偏離組合",
+            chart_s_title: "主動板塊權重:ESG vs 市值(2026 年 4 月)",
+            x_s: "主動權重(ESG - 市場,百分點)",
+            y_s: "",
+            sectors: {
+                tech:   "科技",
+                fin:    "金融",
+                health: "醫療",
+                discr:  "非必需消費",
+                comm:   "通訊",
+                indus:  "工業",
+                stap:   "必需消費",
+                energy: "能源",
+                utils:  "公用",
+                re:     "房地產",
+                mat:    "原物料",
+            },
+            caption: "模型。板塊權重以 2026 年 4 月標普 500 為錨。ESG 組合將能源與公用權重乘以(1 - 偏離),釋出權重按剩餘板塊比例分配。追蹤誤差以主動權重與板塊個別波動 7.5%/年計算。預期缺口 =(市場 mu - ESG mu)+ 拖累。期末財富 = 10 萬美元 *(1 + mu)^20。",
+        },
+        tw: {
+            name_EN: "從能源類股偏離",
+            name_UT: "從公用類股偏離",
+            name_DR: "預期 ESG 拖累(%/年)",
+            bn_te: "對市場追蹤誤差",
+            bn_rs: "預期報酬缺口",
+            bn_tw: "20 年期末財富缺口",
+            bd_te: "年化,模型推算",
+            bd_rs: "對市值加權市場(%/年)",
+            bd_tw: "10 萬美元起始,ESG vs 市場",
+            chart_w_title: "20 年 10 萬美元財富路徑:市場 vs ESG 偏離組合",
+            x_w: "年份",
+            y_w: "組合價值($)",
+            tr_mkt: "市值加權市場",
+            tr_esg: "ESG 偏離組合",
+            chart_s_title: "主動類股權重:ESG vs 市值(2026 年 4 月)",
+            x_s: "主動權重(ESG - 市場,百分點)",
+            y_s: "",
+            sectors: {
+                tech:   "科技",
+                fin:    "金融",
+                health: "醫療",
+                discr:  "非必需消費",
+                comm:   "通訊",
+                indus:  "工業",
+                stap:   "必需消費",
+                energy: "能源",
+                utils:  "公用",
+                re:     "不動產",
+                mat:    "原物料",
+            },
+            caption: "模型。類股權重以 2026 年 4 月標普 500 為錨。ESG 組合將能源與公用權重乘以(1 - 偏離),釋出權重按剩餘類股比例分配。追蹤誤差以主動權重與類股個別波動 7.5%/年計算。預期缺口 =(市場 mu - ESG mu)+ 拖累。期末財富 = 10 萬美元 *(1 + mu)^20。",
+        },
+        cn: {
+            name_EN: "从能源板块偏离",
+            name_UT: "从公用板块偏离",
+            name_DR: "预期 ESG 拖累(%/年)",
+            bn_te: "对市场跟踪误差",
+            bn_rs: "预期回报缺口",
+            bn_tw: "20 年期末财富缺口",
+            bd_te: "年化,模型推算",
+            bd_rs: "对市值加权市场(%/年)",
+            bd_tw: "10 万美元起始,ESG vs 市场",
+            chart_w_title: "20 年 10 万美元财富路径:市场 vs ESG 偏离组合",
+            x_w: "年份",
+            y_w: "组合价值($)",
+            tr_mkt: "市值加权市场",
+            tr_esg: "ESG 偏离组合",
+            chart_s_title: "主动板块权重:ESG vs 市值(2026 年 4 月)",
+            x_s: "主动权重(ESG - 市场,百分点)",
+            y_s: "",
+            sectors: {
+                tech:   "科技",
+                fin:    "金融",
+                health: "医疗",
+                discr:  "非必需消费",
+                comm:   "通讯",
+                indus:  "工业",
+                stap:   "必需消费",
+                energy: "能源",
+                utils:  "公用",
+                re:     "房地产",
+                mat:    "原材料",
+            },
+            caption: "模型。板块权重以 2026 年 4 月标普 500 为锚。ESG 组合将能源与公用权重乘以(1 - 偏离),释出权重按剩余板块比例分配。跟踪误差以主动权重与板块个别波动 7.5%/年计算。预期缺口 =(市场 mu - ESG mu)+ 拖累。期末财富 = 10 万美元 *(1 + mu)^20。",
+        },
+    };
+    function currentLang() {
+        var p = new URLSearchParams(window.location.search);
+        var l = (p.get("lang") || "en").toLowerCase();
+        return I18N.hasOwnProperty(l) ? l : "en";
+    }
+    var T = I18N[currentLang()];
+
+    // Sector model. Apr 2026 cap weights + long-run mu + idio sector vol.
+    // ORDER drives chart row order.
+    var SECTORS = {
+        tech:   { w: 0.300, mu: 0.110 },
+        fin:    { w: 0.130, mu: 0.095 },
+        health: { w: 0.120, mu: 0.090 },
+        discr:  { w: 0.110, mu: 0.095 },
+        comm:   { w: 0.090, mu: 0.090 },
+        indus:  { w: 0.080, mu: 0.085 },
+        stap:   { w: 0.060, mu: 0.070 },
+        energy: { w: 0.040, mu: 0.080 },
+        utils:  { w: 0.024, mu: 0.065 },
+        re:     { w: 0.026, mu: 0.075 },
+        mat:    { w: 0.020, mu: 0.075 },
+    };
+    var ORDER = ["tech","fin","health","discr","comm","indus","stap",
+                 "energy","utils","re","mat"];
+    var SECTOR_IDIO_VOL = 0.075;  // idio annual sector vol vs market
+
+    var ROOT = document.getElementById("el-root");
+    var EN_EL = document.getElementById("el-EN");
+    var UT_EL = document.getElementById("el-UT");
+    var DR_EL = document.getElementById("el-DR");
+    var CHART_W = document.getElementById("el-chart-w");
+    var CHART_S = document.getElementById("el-chart-s");
+
+    function darkMode() {
+        return document.documentElement.getAttribute("data-theme") === "dark";
+    }
+    function getCssVar(name) {
+        return getComputedStyle(ROOT).getPropertyValue(name).trim();
+    }
+    function fmtMoney(n) {
+        if (!isFinite(n)) return "-";
+        var sign = n < 0 ? "-" : "";
+        var a = Math.abs(n);
+        if (a >= 1000) return sign + "$" + a.toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+        if (a >= 100) return sign + "$" + a.toFixed(1);
+        return sign + "$" + a.toFixed(2);
+    }
+    function fmtPct(n, d) {
+        if (!isFinite(n)) return "-";
+        var sign = n >= 0 ? "+" : "";
+        return sign + (n * 100).toFixed(d == null ? 2 : d) + "%";
+    }
+    function fmtBps(n) {
+        if (!isFinite(n)) return "-";
+        var sign = n >= 0 ? "+" : "";
+        return sign + (n * 1e4).toFixed(0) + " bp";
+    }
+
+    function applyI18n() {
+        document.getElementById("el-name-EN").textContent = T.name_EN;
+        document.getElementById("el-name-UT").textContent = T.name_UT;
+        document.getElementById("el-name-DR").textContent = T.name_DR;
+        document.getElementById("el-bn-te").textContent = T.bn_te;
+        document.getElementById("el-bn-rs").textContent = T.bn_rs;
+        document.getElementById("el-bn-tw").textContent = T.bn_tw;
+        document.getElementById("el-bd-te").textContent = T.bd_te;
+        document.getElementById("el-bd-rs").textContent = T.bd_rs;
+        document.getElementById("el-bd-tw").textContent = T.bd_tw;
+        document.getElementById("el-caption").textContent = T.caption;
+    }
+
+    function computeESGWeights(tEnergy, tUtils) {
+        // Reduce energy and utilities weights by tilt fraction; redistribute
+        // freed weight pro-rata to other sectors.
+        var freed = SECTORS.energy.w * tEnergy + SECTORS.utils.w * tUtils;
+        var keepers = ORDER.filter(function (k) { return k !== "energy" && k !== "utils"; });
+        var keepSum = keepers.reduce(function (a, k) { return a + SECTORS[k].w; }, 0);
+        var w = {};
+        ORDER.forEach(function (k) {
+            if (k === "energy") w[k] = SECTORS[k].w * (1 - tEnergy);
+            else if (k === "utils") w[k] = SECTORS[k].w * (1 - tUtils);
+            else w[k] = SECTORS[k].w + freed * (SECTORS[k].w / keepSum);
+        });
+        return w;
+    }
+
+    function portfolioMu(w) {
+        var s = 0;
+        ORDER.forEach(function (k) { s += w[k] * SECTORS[k].mu; });
+        return s;
+    }
+
+    function trackingError(wEsg) {
+        // Approximate: TE^2 = sum(active^2) * sigma_idio^2 (ignore cross-corr).
+        var ssq = 0;
+        ORDER.forEach(function (k) {
+            var dw = wEsg[k] - SECTORS[k].w;
+            ssq += dw * dw;
+        });
+        return Math.sqrt(ssq) * SECTOR_IDIO_VOL;
+    }
+
+    function render() {
+        var tE = parseFloat(EN_EL.value) / 100.0;
+        var tU = parseFloat(UT_EL.value) / 100.0;
+        var drag = parseFloat(DR_EL.value) / 100.0;
+
+        document.getElementById("el-val-EN").textContent = (tE * 100).toFixed(0) + "%";
+        document.getElementById("el-val-UT").textContent = (tU * 100).toFixed(0) + "%";
+        document.getElementById("el-val-DR").textContent =
+            (drag >= 0 ? "+" : "") + (drag * 100).toFixed(2) + "%";
+
+        var wEsg = computeESGWeights(tE, tU);
+        var muMkt = portfolioMu(SECTORS_AS_W());
+        var muEsg = portfolioMu(wEsg) - drag;
+        var te = trackingError(wEsg);
+        var rs = muMkt - muEsg;
+
+        var YRS = 20;
+        var START = 100000;
+        var endMkt = START * Math.pow(1.0 + muMkt, YRS);
+        var endEsg = START * Math.pow(1.0 + muEsg, YRS);
+        var twGap = endEsg - endMkt;
+
+        document.getElementById("el-bv-te").textContent = (te * 100).toFixed(2) + "%";
+        document.getElementById("el-bv-rs").textContent = fmtPct(-rs, 2);
+        document.getElementById("el-bv-rs").style.color = rs > 0
+            ? getCssVar("--el-red") : getCssVar("--el-green");
+        document.getElementById("el-bv-tw").textContent = fmtMoney(twGap);
+        document.getElementById("el-bv-tw").style.color = twGap < 0
+            ? getCssVar("--el-red") : getCssVar("--el-green");
+
+        var colorBlue = getCssVar("--el-blue");
+        var colorGreen = getCssVar("--el-green");
+        var colorRed = getCssVar("--el-red");
+        var colorPurple = getCssVar("--el-purple");
+        var colorText = getCssVar("--el-text");
+        var colorMuted = getCssVar("--el-muted");
+        var colorBg = getCssVar("--el-card");
+        var colorGrid = darkMode() ? "rgba(255,255,255,0.08)" : "rgba(0,0,0,0.07)";
+
+        // Wealth chart.
+        var xs = [], yMkt = [], yEsg = [];
+        for (var t = 0; t <= YRS; t++) {
+            xs.push(t);
+            yMkt.push(START * Math.pow(1.0 + muMkt, t));
+            yEsg.push(START * Math.pow(1.0 + muEsg, t));
+        }
+        var traceM = {
+            x: xs, y: yMkt, type: "scatter", mode: "lines",
+            name: T.tr_mkt,
+            line: { color: colorBlue, width: 2.6 },
+            hovertemplate: "yr %{x}<br>" + T.tr_mkt + ": $%{y:,.0f}<extra></extra>",
+        };
+        var traceE = {
+            x: xs, y: yEsg, type: "scatter", mode: "lines",
+            name: T.tr_esg,
+            line: { color: colorPurple, width: 2.6, dash: "dash" },
+            hovertemplate: "yr %{x}<br>" + T.tr_esg + ": $%{y:,.0f}<extra></extra>",
+        };
+        var layoutW = {
+            margin: { l: 70, r: 16, t: 40, b: 46 },
+            paper_bgcolor: colorBg, plot_bgcolor: colorBg,
+            font: { family: "Segoe UI, Helvetica, Arial, sans-serif", color: colorText, size: 12 },
+            xaxis: { title: { text: T.x_w, font: { color: colorMuted, size: 11 } },
+                     gridcolor: colorGrid, color: colorText },
+            yaxis: { title: { text: T.y_w, font: { color: colorMuted, size: 11 } },
+                     tickprefix: "$", gridcolor: colorGrid,
+                     zerolinecolor: colorMuted, color: colorText },
+            title: { text: T.chart_w_title, x: 0, xanchor: "left",
+                     font: { color: colorText, size: 13, weight: 700 } },
+            legend: { orientation: "h", x: 0, y: 1.08, xanchor: "left",
+                      font: { color: colorText } },
+            hovermode: "x unified",
+        };
+        Plotly.react(CHART_W, [traceM, traceE], layoutW, { displayModeBar: false, responsive: true });
+
+        // Sector active-weight chart, sorted by active weight ascending.
+        var rows = ORDER.map(function (k) {
+            return { k: k, dw: wEsg[k] - SECTORS[k].w };
+        }).sort(function (a, b) { return a.dw - b.dw; });
+        var ynames = rows.map(function (r) { return T.sectors[r.k]; });
+        var xvals = rows.map(function (r) { return r.dw * 100.0; });
+        var bcolors = xvals.map(function (v) {
+            return v < 0 ? colorRed : (v > 0 ? colorGreen : colorMuted);
+        });
+        var traceS = {
+            x: xvals, y: ynames, type: "bar", orientation: "h",
+            marker: { color: bcolors, line: { color: colorBg, width: 1 } },
+            hovertemplate: "%{y}<br>active: %{x:+.2f} pp<extra></extra>",
+            text: xvals.map(function (v) { return (v >= 0 ? "+" : "") + v.toFixed(2) + " pp"; }),
+            textposition: "outside",
+            textfont: { color: colorText, size: 10 },
+            cliponaxis: false,
+        };
+        var layoutS = {
+            margin: { l: 130, r: 60, t: 40, b: 46 },
+            paper_bgcolor: colorBg, plot_bgcolor: colorBg,
+            font: { family: "Segoe UI, Helvetica, Arial, sans-serif", color: colorText, size: 11 },
+            xaxis: { title: { text: T.x_s, font: { color: colorMuted, size: 11 } },
+                     ticksuffix: " pp", gridcolor: colorGrid,
+                     zerolinecolor: colorMuted, color: colorText },
+            yaxis: { color: colorText, automargin: true },
+            title: { text: T.chart_s_title, x: 0, xanchor: "left",
+                     font: { color: colorText, size: 13, weight: 700 } },
+        };
+        Plotly.react(CHART_S, [traceS], layoutS, { displayModeBar: false, responsive: true });
+    }
+
+    function SECTORS_AS_W() {
+        var w = {};
+        ORDER.forEach(function (k) { w[k] = SECTORS[k].w; });
+        return w;
+    }
+
+    applyI18n();
+    EN_EL.addEventListener("input", render);
+    UT_EL.addEventListener("input", render);
+    DR_EL.addEventListener("input", render);
+
+    function reportHeight() {
+        try {
+            var h = Math.ceil(document.documentElement.scrollHeight);
+            parent.postMessage({ type: "lesson-interactive-resize", height: h }, "*");
+        } catch (e) { /* ignore */ }
+    }
+    if (typeof ResizeObserver !== "undefined") {
+        new ResizeObserver(reportHeight).observe(document.body);
+    }
+    window.addEventListener("resize", reportHeight);
+    setTimeout(reportHeight, 50);
+    setTimeout(reportHeight, 500);
+
+    var themeObserver = new MutationObserver(render);
+    themeObserver.observe(document.documentElement, {
+        attributes: true, attributeFilter: ["data-theme"],
+    });
+
+    render();
+})();
+</script>
+
+</body>
+</html>

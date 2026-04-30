@@ -1,0 +1,588 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>VRP Lab - Interactive (Week 49)</title>
+<script src="https://cdn.plot.ly/plotly-2.35.2.min.js" charset="utf-8"></script>
+<style>
+html, body { margin: 0; padding: 0; background: var(--vp-bg); }
+:root {
+    --vp-bg: #fdfbf5;
+    --vp-text: #1a2332;
+    --vp-muted: #6b7280;
+    --vp-border: #d6d3c4;
+    --vp-card: #fdfbf5;
+    --vp-accent: #b8860b;
+    --vp-blue: #0d47a1;
+    --vp-red: #b71c1c;
+    --vp-green: #2e7d32;
+    --vp-purple: #6a1b9a;
+    --vp-orange: #e65100;
+}
+html[data-theme="dark"] .vp-root,
+.vp-root[data-theme="dark"] {
+    --vp-bg: #0f1724;
+    --vp-text: #e6e6e6;
+    --vp-muted: #9aa3b2;
+    --vp-border: #2a3441;
+    --vp-card: #0f1724;
+    --vp-blue: #5a8dee;
+    --vp-red: #ef5350;
+    --vp-green: #66bb6a;
+    --vp-purple: #ba68c8;
+    --vp-orange: #ffa726;
+}
+.vp-root {
+    font-family: 'Segoe UI', Helvetica, Arial, sans-serif;
+    background: var(--vp-bg);
+    color: var(--vp-text);
+    padding: 12px;
+    margin: 0;
+}
+.vp-controls {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 12px;
+    margin-bottom: 12px;
+    padding: 12px;
+    background: var(--vp-card);
+    border: 1px solid var(--vp-border);
+    border-radius: 8px;
+}
+.vp-slider-wrap { display: flex; flex-direction: column; gap: 4px;
+    font-size: 0.82rem; color: var(--vp-muted); }
+.vp-slider-wrap .vp-row { display: flex; align-items: center; gap: 10px; }
+.vp-slider-wrap input[type="range"] { flex: 1; accent-color: var(--vp-accent); }
+.vp-slider-wrap .vp-val { white-space: nowrap; color: var(--vp-text);
+    font-weight: 700; font-variant-numeric: tabular-nums;
+    min-width: 80px; text-align: right; }
+.vp-slider-wrap .vp-name { font-weight: 600; color: var(--vp-text); }
+.vp-bigrow {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 8px;
+    margin-bottom: 12px;
+}
+.vp-big {
+    background: var(--vp-card);
+    border: 1px solid var(--vp-border);
+    border-left: 4px solid var(--vp-accent);
+    border-radius: 8px;
+    padding: 10px 12px;
+}
+.vp-big.vp-b-pnl   { border-left-color: var(--vp-blue); }
+.vp-big.vp-b-vrp   { border-left-color: var(--vp-green); }
+.vp-big.vp-b-shp   { border-left-color: var(--vp-purple); }
+.vp-big.vp-b-gam   { border-left-color: var(--vp-orange); }
+.vp-big .vp-bn {
+    font-size: 0.72rem; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.5px; color: var(--vp-muted);
+}
+.vp-big .vp-bv {
+    font-size: 1.45rem; font-weight: 800; margin-top: 4px;
+    font-variant-numeric: tabular-nums; color: var(--vp-text);
+}
+.vp-big .vp-bd { font-size: 0.72rem; color: var(--vp-muted); margin-top: 2px; }
+.vp-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+}
+.vp-chart {
+    width: 100%;
+    height: 360px;
+    background: var(--vp-card);
+    border-radius: 8px;
+    border: 1px solid var(--vp-border);
+}
+.vp-caption {
+    margin-top: 10px;
+    font-size: 0.78rem;
+    color: var(--vp-muted);
+    line-height: 1.45;
+}
+.vp-verdict {
+    margin-top: 8px;
+    padding: 10px 12px;
+    background: var(--vp-card);
+    border: 1px solid var(--vp-border);
+    border-left: 4px solid var(--vp-accent);
+    border-radius: 8px;
+    font-size: 0.85rem;
+    color: var(--vp-text);
+    line-height: 1.5;
+}
+@media (max-width: 900px) {
+    .vp-controls { grid-template-columns: 1fr 1fr; }
+    .vp-bigrow   { grid-template-columns: 1fr 1fr; }
+    .vp-grid     { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+<div class="vp-root" id="vp-root">
+
+    <div class="vp-controls">
+        <div class="vp-slider-wrap">
+            <div class="vp-name" id="vp-name-iv">Implied vol IV (annualised %)</div>
+            <div class="vp-row">
+                <input type="range" id="vp-iv" min="10" max="50" step="0.5" value="19">
+                <span class="vp-val" id="vp-val-iv">19.0%</span>
+            </div>
+        </div>
+        <div class="vp-slider-wrap">
+            <div class="vp-name" id="vp-name-rv">Realised vol RV (annualised %)</div>
+            <div class="vp-row">
+                <input type="range" id="vp-rv" min="5" max="50" step="0.5" value="15">
+                <span class="vp-val" id="vp-val-rv">15.0%</span>
+            </div>
+        </div>
+        <div class="vp-slider-wrap">
+            <div class="vp-name" id="vp-name-dte">Days to expiry (DTE)</div>
+            <div class="vp-row">
+                <input type="range" id="vp-dte" min="7" max="90" step="1" value="30">
+                <span class="vp-val" id="vp-val-dte">30 d</span>
+            </div>
+        </div>
+        <div class="vp-slider-wrap">
+            <div class="vp-name" id="vp-name-cap">Capital deployed (USD)</div>
+            <div class="vp-row">
+                <input type="range" id="vp-cap" min="10000" max="1000000" step="5000" value="100000">
+                <span class="vp-val" id="vp-val-cap">$100,000</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="vp-bigrow">
+        <div class="vp-big vp-b-vrp">
+            <div class="vp-bn" id="vp-bn-vrp">VRP (IV - RV)</div>
+            <div class="vp-bv" id="vp-bv-vrp">+4.0</div>
+            <div class="vp-bd" id="vp-bd-vrp">vol points</div>
+        </div>
+        <div class="vp-big vp-b-pnl">
+            <div class="vp-bn" id="vp-bn-pnl">Theoretical PnL (period)</div>
+            <div class="vp-bv" id="vp-bv-pnl">+$0</div>
+            <div class="vp-bd" id="vp-bd-pnl">short straddle delta-hedged</div>
+        </div>
+        <div class="vp-big vp-b-shp">
+            <div class="vp-bn" id="vp-bn-shp">Vega-Sharpe (annualised)</div>
+            <div class="vp-bv" id="vp-bv-shp">0.50</div>
+            <div class="vp-bd" id="vp-bd-shp">VRP / sigma_VRP * sqrt(12)</div>
+        </div>
+        <div class="vp-big vp-b-gam">
+            <div class="vp-bn" id="vp-bn-gam">Gamma exposure</div>
+            <div class="vp-bv" id="vp-bv-gam">$-200</div>
+            <div class="vp-bd" id="vp-bd-gam">USD per 1% SPX move (-/+)</div>
+        </div>
+    </div>
+
+    <div class="vp-grid">
+        <div id="vp-chart-pnl" class="vp-chart"></div>
+        <div id="vp-chart-scen" class="vp-chart"></div>
+    </div>
+
+    <div class="vp-verdict" id="vp-verdict">
+        VRP positive: short straddle has positive expected PnL.
+    </div>
+
+    <p class="vp-caption" id="vp-caption">
+        Educational model. Short ATM SPX straddle delta-hedged daily PnL approximately equals vega * (IV - RV) - convex penalty when RV >> IV. Vega = 0.4 * S * sqrt(T_years) per straddle. Vega-Sharpe annualises VRP / sigma_VRP with the long-run sigma_VRP = 4 vol points.
+    </p>
+</div>
+
+<script>
+(function () {
+    var I18N = {
+        en: {
+            name_iv:  "Implied vol IV (annualised %)",
+            name_rv:  "Realised vol RV (annualised %)",
+            name_dte: "Days to expiry (DTE)",
+            name_cap: "Capital deployed (USD)",
+            bn_vrp:   "VRP (IV - RV)",
+            bn_pnl:   "Theoretical PnL (period)",
+            bn_shp:   "Vega-Sharpe (annualised)",
+            bn_gam:   "Gamma exposure",
+            bd_vrp:   "vol points",
+            bd_pnl:   "short straddle delta-hedged",
+            bd_shp:   "VRP / sigma_VRP * sqrt(12)",
+            bd_gam:   "USD per 1% SPX move (-/+)",
+            chart_pnl_title: "Period PnL vs realised vol",
+            chart_pnl_x:  "Realised vol RV (%)",
+            chart_pnl_y:  "Period PnL (USD)",
+            chart_pnl_break: "Break-even at RV = IV",
+            chart_pnl_now: "Your point",
+            chart_scen_title: "Distribution of monthly PnL outcomes (long-run)",
+            chart_scen_x: "Monthly PnL (USD)",
+            chart_scen_y: "Frequency",
+            verdict_pos: "VRP positive: short straddle has positive expected PnL. Mean +5%/yr, but heavy left tail. Size at 1/3 Kelly.",
+            verdict_neg: "VRP NEGATIVE: realised vol exceeds implied. Short-vol books bleed here. This is the Volmageddon / COVID / 2022-grind regime.",
+            verdict_zero: "VRP near zero: trade is roughly fair. Wait for richer IV before sizing up.",
+            caption: "Educational model. Short ATM SPX straddle delta-hedged daily PnL approximately equals vega * (IV - RV) - convex penalty when RV >> IV. Vega = 0.4 * S * sqrt(T_years) per straddle. Vega-Sharpe annualises VRP / sigma_VRP with the long-run sigma_VRP = 4 vol points.",
+        },
+        hk: {
+            name_iv:  "隱含波幅 IV(年化 %)",
+            name_rv:  "已實現波幅 RV(年化 %)",
+            name_dte: "距到期日(DTE)",
+            name_cap: "投入資本(美元)",
+            bn_vrp:   "VRP(IV - RV)",
+            bn_pnl:   "理論 PnL(期間)",
+            bn_shp:   "Vega-Sharpe(年化)",
+            bn_gam:   "Gamma 暴露",
+            bd_vrp:   "vol 點",
+            bd_pnl:   "沽空跨式期權,delta 對沖",
+            bd_shp:   "VRP / sigma_VRP * sqrt(12)",
+            bd_gam:   "SPX 每 1% 變動的美元(-/+)",
+            chart_pnl_title: "期間 PnL 對已實現波幅",
+            chart_pnl_x:  "已實現波幅 RV(%)",
+            chart_pnl_y:  "期間 PnL(美元)",
+            chart_pnl_break: "RV = IV 損益平衡",
+            chart_pnl_now: "你的位置",
+            chart_scen_title: "每月 PnL 分布(長期模擬)",
+            chart_scen_x: "每月 PnL(美元)",
+            chart_scen_y: "次數",
+            verdict_pos: "VRP 為正:沽空跨式期望為正。平均 +5%/年,但左尾極重。建議按 1/3 Kelly 配額。",
+            verdict_neg: "VRP 為負:已實現波幅超過隱含波幅。沽空波幅將大幅虧損。這是 Volmageddon / COVID / 2022 拖磨模式。",
+            verdict_zero: "VRP 接近零:交易大致公平。等待更高 IV 再加倉。",
+            caption: "教學用模型。沽空 ATM SPX 跨式期權每日 delta 對沖,PnL 約等於 vega *(IV - RV)- 當 RV >> IV 時的凸性懲罰。Vega = 0.4 * S * sqrt(T_年) per straddle。Vega-Sharpe 將 VRP / sigma_VRP 年化,長期 sigma_VRP = 4 vol 點。",
+        },
+        tw: {
+            name_iv:  "隱含波動率 IV(年化 %)",
+            name_rv:  "已實現波動率 RV(年化 %)",
+            name_dte: "距到期日(DTE)",
+            name_cap: "投入資本(美元)",
+            bn_vrp:   "VRP(IV - RV)",
+            bn_pnl:   "理論 PnL(期間)",
+            bn_shp:   "Vega-Sharpe(年化)",
+            bn_gam:   "Gamma 曝險",
+            bd_vrp:   "vol 點",
+            bd_pnl:   "作空跨式選擇權,delta 避險",
+            bd_shp:   "VRP / sigma_VRP * sqrt(12)",
+            bd_gam:   "SPX 每 1% 變動的美元(-/+)",
+            chart_pnl_title: "期間 PnL 對已實現波動率",
+            chart_pnl_x:  "已實現波動率 RV(%)",
+            chart_pnl_y:  "期間 PnL(美元)",
+            chart_pnl_break: "RV = IV 損益兩平",
+            chart_pnl_now: "你的位置",
+            chart_scen_title: "每月 PnL 分布(長期模擬)",
+            chart_scen_x: "每月 PnL(美元)",
+            chart_scen_y: "次數",
+            verdict_pos: "VRP 為正:作空跨式期望為正。平均 +5%/年,但左尾極重。建議按 1/3 Kelly 配額。",
+            verdict_neg: "VRP 為負:已實現波動率超過隱含波動率。作空波動率將大幅虧損。這是 Volmageddon / COVID / 2022 拖磨模式。",
+            verdict_zero: "VRP 接近零:交易大致公平。等待更高 IV 再加碼。",
+            caption: "教學用模型。作空 ATM SPX 跨式選擇權每日 delta 避險,PnL 約等於 vega *(IV - RV)- 當 RV >> IV 時的凸性懲罰。Vega = 0.4 * S * sqrt(T_年) per straddle。Vega-Sharpe 將 VRP / sigma_VRP 年化,長期 sigma_VRP = 4 vol 點。",
+        },
+        cn: {
+            name_iv:  "隐含波动率 IV(年化 %)",
+            name_rv:  "已实现波动率 RV(年化 %)",
+            name_dte: "距到期日(DTE)",
+            name_cap: "投入资本(美元)",
+            bn_vrp:   "VRP(IV - RV)",
+            bn_pnl:   "理论 PnL(期间)",
+            bn_shp:   "Vega-Sharpe(年化)",
+            bn_gam:   "Gamma 暴露",
+            bd_vrp:   "vol 点",
+            bd_pnl:   "做空跨式期权,delta 对冲",
+            bd_shp:   "VRP / sigma_VRP * sqrt(12)",
+            bd_gam:   "SPX 每 1% 变动的美元(-/+)",
+            chart_pnl_title: "期间 PnL 对已实现波动率",
+            chart_pnl_x:  "已实现波动率 RV(%)",
+            chart_pnl_y:  "期间 PnL(美元)",
+            chart_pnl_break: "RV = IV 盈亏平衡",
+            chart_pnl_now: "你的位置",
+            chart_scen_title: "每月 PnL 分布(长期模拟)",
+            chart_scen_x: "每月 PnL(美元)",
+            chart_scen_y: "次数",
+            verdict_pos: "VRP 为正:做空跨式期望为正。平均 +5%/年,但左尾极重。建议按 1/3 Kelly 配额。",
+            verdict_neg: "VRP 为负:已实现波动率超过隐含波动率。做空波动率将大幅亏损。这是 Volmageddon / COVID / 2022 拖磨模式。",
+            verdict_zero: "VRP 接近零:交易大致公平。等待更高 IV 再加仓。",
+            caption: "教学用模型。做空 ATM SPX 跨式期权每日 delta 对冲,PnL 约等于 vega *(IV - RV)- 当 RV >> IV 时的凸性惩罚。Vega = 0.4 * S * sqrt(T_年) per straddle。Vega-Sharpe 将 VRP / sigma_VRP 年化,长期 sigma_VRP = 4 vol 点。",
+        },
+    };
+    function currentLang() {
+        var p = new URLSearchParams(window.location.search);
+        var l = (p.get("lang") || "en").toLowerCase();
+        return I18N.hasOwnProperty(l) ? l : "en";
+    }
+    var T = I18N[currentLang()];
+
+    // ---------- Constants ----------
+    // SPX spot at the time of writing (educational anchor).
+    var SPX = 5400.0;
+    // Long-run sigma of VRP in vol points.
+    var SIG_VRP = 4.0;
+
+    // ---------- Model ----------
+    // Vega per straddle: dV/dsigma = 2 * S * sqrt(T) * phi(d1).
+    // For ATM, d1 ~ 0.5*sigma*sqrt(T), phi(d1) ~ 0.4. So vega ~ 0.4 * S * sqrt(T)
+    // in dollars per (1.0 vol unit). We want dollars per vol POINT (= 1%) so
+    // divide by 100. Per straddle (one call + one put), double:
+    //    vega_per_straddle = 0.8 * S * sqrt(T_years) / 100 USD per vol-pt
+    function straddleVega(spot, dteDays) {
+        var T = dteDays / 365.0;
+        return 0.8 * spot * Math.sqrt(T) / 100.0;
+    }
+
+    // Position size: contracts so total notional capital = N * (premium/contract).
+    // For ATM straddle, premium ~ 0.8 * S * sigma * sqrt(T). At sigma=0.19,
+    // T=30/365, S=5400, premium = 0.8 * 5400 * 0.19 * sqrt(0.0822) = 235.
+    // We assume capital deployed = margin requirement of 1 SPX straddle ~ 25k USD
+    // (portfolio-margin estimate). So contracts = capital / 25000.
+    function contractCount(capital) {
+        return Math.max(0.5, capital / 25000.0);
+    }
+
+    // Period (DTE) PnL in dollars. Approximate: vega * (IV - RV) - convex
+    // penalty when RV >> IV (stress).
+    function periodPnl(ivPct, rvPct, dteDays, capital) {
+        var v = straddleVega(SPX, dteDays);  // USD per vol pt per straddle
+        var n = contractCount(capital);
+        var spread = ivPct - rvPct;
+        var basic = v * spread * n;
+        // Convex penalty: stress when RV exceeds IV.
+        var stress = Math.max(0.0, rvPct - ivPct);
+        var penalty = 0.6 * v * stress * stress * n;
+        // Time scaling: PnL is for a single DTE period. Already correct.
+        return basic - penalty;
+    }
+
+    // Annualised vega-Sharpe: VRP / sigma_VRP, 12 periods/yr -> sqrt(12).
+    function vegaSharpe(ivPct, rvPct) {
+        var spread = ivPct - rvPct;
+        return spread / SIG_VRP * Math.sqrt(12);
+    }
+
+    // Gamma exposure in USD per 1% SPX move (signed, short straddle is -).
+    // For ATM short straddle, dollar-gamma per 1% move:
+    //    PnL_2nd = -1/2 * Gamma * S^2 * (dr)^2
+    // ATM gamma = phi(d1)/(S*sigma*sqrt(T)) ~ 0.4 / (S*sigma*sqrt(T)).
+    // Per straddle, 2x: gamma_per_straddle = 0.8/(S*sigma*sqrt(T)).
+    // dollar-gamma for 1% S move: 0.5 * gamma * S^2 * (0.01)^2 * 100 (cents-of-share)
+    function gammaExposure(ivPct, dteDays, capital) {
+        var sigma = ivPct / 100.0;
+        var T = dteDays / 365.0;
+        var n = contractCount(capital);
+        var gamma_pp = 0.8 / (SPX * sigma * Math.sqrt(T));   // per share, per $
+        var dollarGamma1pct = 0.5 * gamma_pp * SPX * SPX * (0.01) * (0.01) * 100; // 100 multiplier
+        return -dollarGamma1pct * n;  // short
+    }
+
+    // ---------- DOM refs ----------
+    var ROOT = document.getElementById("vp-root");
+    var IV_EL  = document.getElementById("vp-iv");
+    var RV_EL  = document.getElementById("vp-rv");
+    var DTE_EL = document.getElementById("vp-dte");
+    var CAP_EL = document.getElementById("vp-cap");
+    var PNL_CHART = document.getElementById("vp-chart-pnl");
+    var SCEN_CHART = document.getElementById("vp-chart-scen");
+
+    function getCssVar(n){ return getComputedStyle(ROOT).getPropertyValue(n).trim(); }
+    function darkMode(){ return document.documentElement.getAttribute("data-theme") === "dark"; }
+
+    function fmtUSD(x) {
+        var sign = x >= 0 ? "+" : "-";
+        var v = Math.abs(x);
+        if (v >= 1e6) return sign + "$" + (v/1e6).toFixed(2) + "M";
+        if (v >= 1e3) return sign + "$" + (v/1e3).toFixed(1) + "k";
+        return sign + "$" + v.toFixed(0);
+    }
+    function fmtUSDPlain(x) {
+        return "$" + Math.round(x).toLocaleString();
+    }
+
+    function applyI18n() {
+        document.getElementById("vp-name-iv").textContent  = T.name_iv;
+        document.getElementById("vp-name-rv").textContent  = T.name_rv;
+        document.getElementById("vp-name-dte").textContent = T.name_dte;
+        document.getElementById("vp-name-cap").textContent = T.name_cap;
+        document.getElementById("vp-bn-vrp").textContent = T.bn_vrp;
+        document.getElementById("vp-bn-pnl").textContent = T.bn_pnl;
+        document.getElementById("vp-bn-shp").textContent = T.bn_shp;
+        document.getElementById("vp-bn-gam").textContent = T.bn_gam;
+        document.getElementById("vp-bd-vrp").textContent = T.bd_vrp;
+        document.getElementById("vp-bd-pnl").textContent = T.bd_pnl;
+        document.getElementById("vp-bd-shp").textContent = T.bd_shp;
+        document.getElementById("vp-bd-gam").textContent = T.bd_gam;
+        document.getElementById("vp-caption").textContent = T.caption;
+    }
+
+    function postResize() {
+        try {
+            var h = ROOT.scrollHeight + 12;
+            parent.postMessage({type:'lesson-interactive-resize', height:h}, '*');
+        } catch (e) {}
+    }
+
+    function render() {
+        var iv = parseFloat(IV_EL.value);
+        var rv = parseFloat(RV_EL.value);
+        var dte = parseFloat(DTE_EL.value);
+        var cap = parseFloat(CAP_EL.value);
+
+        document.getElementById("vp-val-iv").textContent  = iv.toFixed(1) + "%";
+        document.getElementById("vp-val-rv").textContent  = rv.toFixed(1) + "%";
+        document.getElementById("vp-val-dte").textContent = dte.toFixed(0) + " d";
+        document.getElementById("vp-val-cap").textContent = fmtUSDPlain(cap);
+
+        var vrp = iv - rv;
+        var pnl = periodPnl(iv, rv, dte, cap);
+        var shp = vegaSharpe(iv, rv);
+        var gam = gammaExposure(iv, dte, cap);
+
+        document.getElementById("vp-bv-vrp").textContent = (vrp >= 0 ? "+" : "") + vrp.toFixed(1);
+        document.getElementById("vp-bv-pnl").textContent = fmtUSD(pnl);
+        document.getElementById("vp-bv-shp").textContent = (shp >= 0 ? "+" : "") + shp.toFixed(2);
+        document.getElementById("vp-bv-gam").textContent = fmtUSD(gam);
+
+        // Verdict
+        var v = document.getElementById("vp-verdict");
+        if (vrp > 1.5)      v.textContent = T.verdict_pos;
+        else if (vrp < -1.5) v.textContent = T.verdict_neg;
+        else                v.textContent = T.verdict_zero;
+
+        var col_text  = getCssVar("--vp-text");
+        var col_muted = getCssVar("--vp-muted");
+        var col_card  = getCssVar("--vp-card");
+        var col_grid  = darkMode() ? "rgba(255,255,255,0.08)" : "rgba(0,0,0,0.07)";
+        var col_red   = getCssVar("--vp-red");
+        var col_green = getCssVar("--vp-green");
+        var col_blue  = getCssVar("--vp-blue");
+        var col_acc   = getCssVar("--vp-accent");
+
+        // ---------- Chart 1: PnL vs RV scenario ----------
+        var rvs = [];
+        var pnls = [];
+        for (var r = 5; r <= 50; r += 0.5) {
+            rvs.push(r);
+            pnls.push(periodPnl(iv, r, dte, cap));
+        }
+        var pnlTraces = [{
+            type: "scatter",
+            mode: "lines",
+            x: rvs, y: pnls,
+            line: { color: col_blue, width: 2.5 },
+            hovertemplate: "RV %{x:.1f}% -> PnL " + (col_blue ? "" : "") + "%{y:$,.0f}<extra></extra>",
+            name: "PnL",
+            showlegend: false,
+        }, {
+            type: "scatter",
+            mode: "markers",
+            x: [rv], y: [pnl],
+            marker: { color: col_acc, size: 11, line: { color: col_text, width: 1.5 } },
+            name: T.chart_pnl_now,
+            hovertemplate: T.chart_pnl_now + "<extra></extra>",
+            showlegend: false,
+        }];
+        var pnlLayout = {
+            margin: { l: 70, r: 30, t: 36, b: 48 },
+            paper_bgcolor: col_card, plot_bgcolor: col_card,
+            font: { family: "Segoe UI, Helvetica, Arial, sans-serif",
+                    color: col_text, size: 12 },
+            title: { text: T.chart_pnl_title, x: 0, xanchor: "left",
+                     font: { color: col_text, size: 13 } },
+            xaxis: { title: { text: T.chart_pnl_x, font: { color: col_muted, size: 11 } },
+                     gridcolor: col_grid, color: col_text, ticksuffix: "%",
+                     zerolinecolor: col_muted },
+            yaxis: { title: { text: T.chart_pnl_y, font: { color: col_muted, size: 11 } },
+                     gridcolor: col_grid, color: col_text,
+                     zerolinecolor: col_muted, tickformat: "$,.0s" },
+            shapes: [
+                { type: "line", x0: iv, x1: iv, y0: 0, y1: 1, yref: "paper",
+                  line: { color: col_muted, width: 1, dash: "dot" } },
+                { type: "line", x0: 5, x1: 50, y0: 0, y1: 0,
+                  line: { color: col_muted, width: 0.6 } },
+            ],
+            annotations: [
+                { x: iv, y: 1, yref: "paper", xanchor: "left", yanchor: "top",
+                  text: T.chart_pnl_break, showarrow: false,
+                  font: { color: col_muted, size: 10 }, xshift: 4 },
+            ],
+            hovermode: "x unified",
+        };
+        Plotly.react(PNL_CHART, pnlTraces, pnlLayout, { displayModeBar:false, responsive:true });
+
+        // ---------- Chart 2: Distribution of monthly PnL ----------
+        // Long-run synthetic distribution: VRP ~ N(+4, 4) most months,
+        // with 10% mass in left tail (Volmageddon-like).
+        // Generate a deterministic 600-sample histogram seeded on parameters.
+        var samples = [];
+        var seed = Math.floor((iv * 100) ^ (dte * 17) ^ (cap / 100)) + 20260429;
+        function lcg() {
+            seed = (seed * 1103515245 + 12345) & 0x7fffffff;
+            return seed / 0x7fffffff;
+        }
+        function gauss() {
+            var u1 = Math.max(1e-12, lcg());
+            var u2 = lcg();
+            return Math.sqrt(-2*Math.log(u1)) * Math.cos(2*Math.PI*u2);
+        }
+        for (var i = 0; i < 600; i++) {
+            var z = gauss();
+            var u = lcg();
+            // 92% body, 8% left tail.
+            var rv_sample;
+            if (u < 0.92) {
+                rv_sample = Math.max(2.0, iv - 4.0 + 4.0 * z);
+            } else {
+                // Left tail: realised much higher than implied.
+                rv_sample = iv + 8.0 + 12.0 * Math.abs(z);
+            }
+            var pnl_sample = periodPnl(iv, rv_sample, 30, cap);
+            samples.push(pnl_sample);
+        }
+        var scenTraces = [{
+            type: "histogram",
+            x: samples,
+            nbinsx: 40,
+            marker: { color: col_blue, line: { color: col_card, width: 0.5 } },
+            hovertemplate: "PnL %{x:$,.0f}: %{y}<extra></extra>",
+            opacity: 0.85,
+        }];
+        var scenLayout = {
+            margin: { l: 60, r: 30, t: 36, b: 48 },
+            paper_bgcolor: col_card, plot_bgcolor: col_card,
+            font: { family: "Segoe UI, Helvetica, Arial, sans-serif",
+                    color: col_text, size: 12 },
+            title: { text: T.chart_scen_title, x: 0, xanchor: "left",
+                     font: { color: col_text, size: 13 } },
+            xaxis: { title: { text: T.chart_scen_x, font: { color: col_muted, size: 11 } },
+                     gridcolor: col_grid, color: col_text,
+                     zerolinecolor: col_muted, tickformat: "$,.0s" },
+            yaxis: { title: { text: T.chart_scen_y, font: { color: col_muted, size: 11 } },
+                     gridcolor: col_grid, color: col_text },
+            shapes: [
+                { type: "line", x0: 0, x1: 0, y0: 0, y1: 1, yref: "paper",
+                  line: { color: col_muted, width: 1, dash: "dash" } },
+            ],
+        };
+        Plotly.react(SCEN_CHART, scenTraces, scenLayout, { displayModeBar:false, responsive:true });
+
+        postResize();
+    }
+
+    // ---------- Wire up ----------
+    function init() {
+        applyI18n();
+        IV_EL.addEventListener("input", render);
+        RV_EL.addEventListener("input", render);
+        DTE_EL.addEventListener("input", render);
+        CAP_EL.addEventListener("input", render);
+        render();
+
+        // Theme observer
+        var obs = new MutationObserver(function(){ render(); });
+        obs.observe(document.documentElement, { attributes:true, attributeFilter:["data-theme"] });
+
+        window.addEventListener("resize", postResize);
+        setTimeout(postResize, 200);
+    }
+
+    if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", init);
+    } else {
+        init();
+    }
+})();
+</script>
+</body>
+</html>

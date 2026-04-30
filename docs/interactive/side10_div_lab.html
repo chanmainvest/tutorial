@@ -1,0 +1,604 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Dividend Growth Lab — Interactive (Side 10)</title>
+<script src="https://cdn.plot.ly/plotly-2.35.2.min.js" charset="utf-8"></script>
+<style>
+html, body { margin: 0; padding: 0; background: var(--dv-bg); }
+:root {
+    --dv-bg: #fdfbf5;
+    --dv-text: #1a2332;
+    --dv-muted: #6b7280;
+    --dv-border: #d6d3c4;
+    --dv-card: #fdfbf5;
+    --dv-accent: #b8860b;
+    --dv-blue: #0d47a1;
+    --dv-green: #2e7d32;
+    --dv-red: #b71c1c;
+}
+html[data-theme="dark"] .dv-root,
+.dv-root[data-theme="dark"] {
+    --dv-bg: #0f1724;
+    --dv-text: #e6e6e6;
+    --dv-muted: #9aa3b2;
+    --dv-border: #2a3441;
+    --dv-card: #0f1724;
+    --dv-accent: #d4a02b;
+    --dv-blue: #5a8dee;
+    --dv-green: #66bb6a;
+    --dv-red: #ef5350;
+}
+.dv-root {
+    font-family: 'Segoe UI', Helvetica, Arial, sans-serif;
+    background: var(--dv-bg);
+    color: var(--dv-text);
+    padding: 12px;
+    margin: 0;
+}
+.dv-toolbar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    align-items: center;
+    margin-bottom: 12px;
+}
+.dv-bracket-group {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.dv-bracket-group .dv-lbl {
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--dv-muted);
+}
+.dv-pills {
+    display: inline-flex;
+    border: 1px solid var(--dv-border);
+    border-radius: 999px;
+    overflow: hidden;
+    background: var(--dv-card);
+}
+.dv-pills button {
+    border: none;
+    background: transparent;
+    color: var(--dv-muted);
+    padding: 5px 11px;
+    font: inherit;
+    font-size: 0.82rem;
+    font-weight: 600;
+    cursor: pointer;
+}
+.dv-pills button:hover { color: var(--dv-text); }
+.dv-pills button.active {
+    background: var(--dv-accent);
+    color: #fff;
+}
+.dv-controls {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+    margin-bottom: 14px;
+    padding: 12px;
+    background: var(--dv-card);
+    border: 1px solid var(--dv-border);
+    border-radius: 8px;
+}
+.dv-slider-wrap {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    font-size: 0.82rem;
+    color: var(--dv-muted);
+}
+.dv-slider-wrap .dv-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.dv-slider-wrap input[type="range"] { flex: 1; accent-color: var(--dv-blue); }
+.dv-slider-wrap .dv-val {
+    white-space: nowrap;
+    color: var(--dv-text);
+    font-weight: 700;
+    font-variant-numeric: tabular-nums;
+    min-width: 56px;
+    text-align: right;
+}
+.dv-slider-wrap .dv-name { font-weight: 600; color: var(--dv-text); }
+.dv-stats {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 10px;
+    margin-bottom: 14px;
+}
+.dv-stat {
+    background: var(--dv-card);
+    border: 1px solid var(--dv-border);
+    border-left: 4px solid var(--dv-muted);
+    border-radius: 8px;
+    padding: 10px 12px;
+}
+.dv-stat.dv-stat-yoc  { border-left-color: var(--dv-blue); }
+.dv-stat.dv-stat-cum  { border-left-color: var(--dv-green); }
+.dv-stat.dv-stat-aft  { border-left-color: var(--dv-accent); }
+.dv-stat.dv-stat-tax  { border-left-color: var(--dv-red); }
+.dv-stat .dv-stat-name {
+    font-size: 0.74rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--dv-muted);
+}
+.dv-stat .dv-stat-val {
+    font-size: 1.45rem;
+    font-weight: 700;
+    margin-top: 4px;
+    font-variant-numeric: tabular-nums;
+}
+.dv-stat .dv-stat-detail {
+    font-size: 0.78rem;
+    color: var(--dv-muted);
+    margin-top: 2px;
+    font-variant-numeric: tabular-nums;
+}
+.dv-chart {
+    width: 100%;
+    height: 360px;
+    background: var(--dv-card);
+    border-radius: 8px;
+    border: 1px solid var(--dv-border);
+}
+.dv-section-title {
+    margin: 6px 4px;
+    font-size: 0.82rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--dv-muted);
+}
+.dv-caption {
+    margin-top: 10px;
+    font-size: 0.78rem;
+    color: var(--dv-muted);
+    line-height: 1.45;
+}
+@media (max-width: 720px) {
+    .dv-controls { grid-template-columns: 1fr; }
+    .dv-stats { grid-template-columns: repeat(2, 1fr); }
+    .dv-chart { height: 300px; }
+}
+</style>
+</head>
+<body>
+
+<div class="dv-root" id="dv-root">
+    <div class="dv-toolbar">
+        <div class="dv-bracket-group">
+            <span class="dv-lbl" id="dv-lbl-bracket">Federal bracket</span>
+            <div class="dv-pills" id="dv-bracket-pills" role="tablist">
+                <button type="button" data-b="0.12">12%</button>
+                <button type="button" data-b="0.22">22%</button>
+                <button type="button" data-b="0.32" class="active">32%</button>
+                <button type="button" data-b="0.37">37%</button>
+            </div>
+        </div>
+        <div class="dv-bracket-group">
+            <span class="dv-lbl" id="dv-lbl-state">State rate</span>
+            <div class="dv-pills" id="dv-state-pills" role="tablist">
+                <button type="button" data-s="0.00">0%</button>
+                <button type="button" data-s="0.05" class="active">5%</button>
+                <button type="button" data-s="0.10">10%</button>
+            </div>
+        </div>
+        <div class="dv-bracket-group">
+            <span class="dv-lbl" id="dv-lbl-divtype">Dividend type</span>
+            <div class="dv-pills" id="dv-divtype-pills" role="tablist">
+                <button type="button" data-t="qd" class="active" id="dv-type-qd">Qualified</button>
+                <button type="button" data-t="ord" id="dv-type-ord">Ordinary</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="dv-controls">
+        <div class="dv-slider-wrap">
+            <div class="dv-name" id="dv-name-cap">Initial investment</div>
+            <div class="dv-row">
+                <input type="range" id="dv-cap" min="1000" max="1000000" step="1000" value="100000">
+                <span class="dv-val" id="dv-val-cap">$100,000</span>
+            </div>
+        </div>
+        <div class="dv-slider-wrap">
+            <div class="dv-name" id="dv-name-y0">Starting yield</div>
+            <div class="dv-row">
+                <input type="range" id="dv-y0" min="0.5" max="12" step="0.1" value="3.6">
+                <span class="dv-val" id="dv-val-y0">3.6%</span>
+            </div>
+        </div>
+        <div class="dv-slider-wrap">
+            <div class="dv-name" id="dv-name-g">Dividend growth rate</div>
+            <div class="dv-row">
+                <input type="range" id="dv-g" min="0" max="15" step="0.1" value="10.0">
+                <span class="dv-val" id="dv-val-g">10.0%</span>
+            </div>
+        </div>
+        <div class="dv-slider-wrap">
+            <div class="dv-name" id="dv-name-n">Holding years</div>
+            <div class="dv-row">
+                <input type="range" id="dv-n" min="1" max="40" step="1" value="20">
+                <span class="dv-val" id="dv-val-n">20</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="dv-stats">
+        <div class="dv-stat dv-stat-yoc">
+            <div class="dv-stat-name" id="dv-name-stat-yoc">Yield-on-cost at year N</div>
+            <div class="dv-stat-val" id="dv-stat-yoc">—</div>
+            <div class="dv-stat-detail" id="dv-det-yoc">—</div>
+        </div>
+        <div class="dv-stat dv-stat-cum">
+            <div class="dv-stat-name" id="dv-name-stat-cum">Cumulative pre-tax dividends</div>
+            <div class="dv-stat-val" id="dv-stat-cum">—</div>
+            <div class="dv-stat-detail" id="dv-det-cum">—</div>
+        </div>
+        <div class="dv-stat dv-stat-aft">
+            <div class="dv-stat-name" id="dv-name-stat-aft">Cumulative after-tax dividends</div>
+            <div class="dv-stat-val" id="dv-stat-aft">—</div>
+            <div class="dv-stat-detail" id="dv-det-aft">—</div>
+        </div>
+        <div class="dv-stat dv-stat-tax">
+            <div class="dv-stat-name" id="dv-name-stat-tax">Lifetime tax paid</div>
+            <div class="dv-stat-val" id="dv-stat-tax">—</div>
+            <div class="dv-stat-detail" id="dv-det-tax">—</div>
+        </div>
+    </div>
+
+    <div class="dv-section-title" id="dv-chart-title">Annual dividend income — pre-tax vs after-tax</div>
+    <div id="dv-chart" class="dv-chart"></div>
+
+    <p class="dv-caption" id="dv-caption">
+        Yield-on-cost = starting yield × (1 + growth)^N. Cumulative dividends sum the year-by-year cash payment from year 1 to year N (no reinvestment); annual cash = initial × y0 × (1+g)^(t-1). Tax: qualified dividends use the LTCG schedule (12% bracket = 0%, 22-32% = 15%, 37% = 20%) plus state rate; ordinary dividends use the full bracket plus state. Share-price growth is held flat for clarity — the point is to isolate the income compounding, not the total return.
+    </p>
+</div>
+
+<script>
+(function () {
+    const I18N = {
+        en: {
+            lbl_bracket: "Federal bracket", lbl_state: "State rate", lbl_divtype: "Dividend type",
+            type_qd: "Qualified", type_ord: "Ordinary",
+            name_cap: "Initial investment",
+            name_y0: "Starting yield",
+            name_g: "Dividend growth rate",
+            name_n: "Holding years",
+            stat_yoc: "Yield-on-cost at year N",
+            stat_cum: "Cumulative pre-tax dividends",
+            stat_aft: "Cumulative after-tax dividends",
+            stat_tax: "Lifetime tax paid",
+            det_yoc: "starting yield {y0} compounded at {g} for {n} yrs",
+            det_cum: "sum of years 1 to {n} cash dividends",
+            det_aft: "after {b} federal + {s} state, treated as {t}",
+            det_tax: "{eff} effective rate",
+            tax_qd:  "qualified",
+            tax_ord: "ordinary",
+            chart_title: "Annual dividend income — pre-tax vs after-tax",
+            x_title: "Year",
+            y_title: "Annual dividend (currency)",
+            tr_pre: "Pre-tax annual dividend",
+            tr_aft: "After-tax annual dividend",
+            caption: "Yield-on-cost = starting yield × (1 + growth)^N. Cumulative dividends sum the year-by-year cash payment from year 1 to year N (no reinvestment); annual cash = initial × y0 × (1+g)^(t-1). Tax: qualified dividends use the LTCG schedule (12% bracket = 0%, 22-32% = 15%, 37% = 20%) plus state rate; ordinary dividends use the full bracket plus state. Share-price growth is held flat for clarity — the point is to isolate the income compounding, not the total return.",
+        },
+        hk: {
+            lbl_bracket: "聯邦稅階", lbl_state: "州稅率", lbl_divtype: "股息類別",
+            type_qd: "合格", type_ord: "普通",
+            name_cap: "起始投資",
+            name_y0: "起始收益率",
+            name_g: "股息年增長率",
+            name_n: "持有年數",
+            stat_yoc: "第 N 年 Yield-on-Cost",
+            stat_cum: "累積稅前股息",
+            stat_aft: "累積稅後股息",
+            stat_tax: "累積已繳稅",
+            det_yoc: "{y0} 起始 × ({g} 年增 × {n} 年)",
+            det_cum: "第 1 至 {n} 年現金股息合計",
+            det_aft: "扣 {b} 聯邦 + {s} 州稅,按{t}計算",
+            det_tax: "有效稅率 {eff}",
+            tax_qd:  "合格",
+            tax_ord: "普通",
+            chart_title: "每年股息收入 — 稅前及稅後",
+            x_title: "年",
+            y_title: "每年股息(貨幣)",
+            tr_pre: "稅前年股息",
+            tr_aft: "稅後年股息",
+            caption: "Yield-on-Cost = 起始收益率 ×(1 + 增長率)^N。累積股息為第 1 至 N 年的現金股息合計(無再投資);每年現金 = 起始 × y0 × (1+g)^(t-1)。稅務:合格股息按 LTCG 表(12% 稅階=0%、22-32%=15%、37%=20%)+ 州稅;普通股息按全額稅階 + 州稅。股價增長按結構保持平穩,以聚焦於股息複利。",
+        },
+        tw: {
+            lbl_bracket: "聯邦稅階", lbl_state: "州稅率", lbl_divtype: "股利類型",
+            type_qd: "合格", type_ord: "普通",
+            name_cap: "起始投資",
+            name_y0: "起始殖利率",
+            name_g: "股利年增率",
+            name_n: "持有年數",
+            stat_yoc: "第 N 年 Yield-on-Cost",
+            stat_cum: "累計稅前股利",
+            stat_aft: "累計稅後股利",
+            stat_tax: "累計已繳稅",
+            det_yoc: "{y0} 起始 × ({g} 年增 × {n} 年)",
+            det_cum: "第 1 至 {n} 年現金股利合計",
+            det_aft: "扣 {b} 聯邦 + {s} 州稅,以{t}計算",
+            det_tax: "有效稅率 {eff}",
+            tax_qd:  "合格",
+            tax_ord: "普通",
+            chart_title: "每年股利收入 — 稅前與稅後",
+            x_title: "年",
+            y_title: "每年股利(貨幣)",
+            tr_pre: "稅前年股利",
+            tr_aft: "稅後年股利",
+            caption: "Yield-on-Cost = 起始殖利率 ×(1 + 增長率)^N。累計股利為第 1 至 N 年的現金股利合計(無再投資);每年現金 = 起始 × y0 × (1+g)^(t-1)。稅務:合格股利依 LTCG 表(12% 稅階=0%、22-32%=15%、37%=20%)+ 州稅;普通股利依全額稅階 + 州稅。為聚焦股利複利,股價增長保持平穩。",
+        },
+        cn: {
+            lbl_bracket: "联邦税阶", lbl_state: "州税率", lbl_divtype: "分红类型",
+            type_qd: "合格", type_ord: "普通",
+            name_cap: "起始投资",
+            name_y0: "起始收益率",
+            name_g: "分红年增长率",
+            name_n: "持有年数",
+            stat_yoc: "第 N 年 Yield-on-Cost",
+            stat_cum: "累计税前分红",
+            stat_aft: "累计税后分红",
+            stat_tax: "累计已纳税",
+            det_yoc: "{y0} 起始 × ({g} 年增 × {n} 年)",
+            det_cum: "第 1 至 {n} 年现金分红合计",
+            det_aft: "扣 {b} 联邦 + {s} 州税,按{t}计算",
+            det_tax: "有效税率 {eff}",
+            tax_qd:  "合格",
+            tax_ord: "普通",
+            chart_title: "每年分红收入 — 税前与税后",
+            x_title: "年",
+            y_title: "每年分红(货币)",
+            tr_pre: "税前年分红",
+            tr_aft: "税后年分红",
+            caption: "Yield-on-Cost = 起始收益率 ×(1 + 增长率)^N。累计分红为第 1 至 N 年的现金分红合计(无再投资);每年现金 = 起始 × y0 × (1+g)^(t-1)。税务:合格分红按 LTCG 表(12% 税阶=0%、22-32%=15%、37%=20%)+ 州税;普通分红按全额税阶 + 州税。为聚焦分红复利,股价增长保持平稳。",
+        },
+    };
+    function currentLang() {
+        const p = new URLSearchParams(window.location.search);
+        const l = (p.get("lang") || "en").toLowerCase();
+        return I18N.hasOwnProperty(l) ? l : "en";
+    }
+    const T = I18N[currentLang()];
+
+    let bracket = 0.32;
+    let stateRate = 0.05;
+    let divType = "qd";
+
+    const ROOT = document.getElementById("dv-root");
+    const CHART = document.getElementById("dv-chart");
+    const SL = {
+        cap: document.getElementById("dv-cap"),
+        y0:  document.getElementById("dv-y0"),
+        g:   document.getElementById("dv-g"),
+        n:   document.getElementById("dv-n"),
+    };
+    const VAL = {
+        cap: document.getElementById("dv-val-cap"),
+        y0:  document.getElementById("dv-val-y0"),
+        g:   document.getElementById("dv-val-g"),
+        n:   document.getElementById("dv-val-n"),
+    };
+
+    function getCss(name) { return getComputedStyle(ROOT).getPropertyValue(name).trim(); }
+    function darkMode() { return document.documentElement.getAttribute("data-theme") === "dark"; }
+    function pct(v, d) {
+        if (!isFinite(v)) return "—";
+        return (v * 100).toFixed(d == null ? 2 : d) + "%";
+    }
+    function bracketStr(b) { return (b * 100).toFixed(0) + "%"; }
+    function fmtMoney(v) {
+        if (!isFinite(v)) return "—";
+        const sign = v < 0 ? "-" : "";
+        const a = Math.abs(v);
+        if (a >= 1e9) return sign + "$" + (a / 1e9).toFixed(2) + "B";
+        if (a >= 1e6) return sign + "$" + (a / 1e6).toFixed(2) + "M";
+        if (a >= 1e3) return sign + "$" + (a / 1e3).toFixed(1) + "K";
+        return sign + "$" + a.toFixed(0);
+    }
+    function fmtCap(v) {
+        if (v >= 1e6) return "$" + (v / 1e6).toFixed(2) + "M";
+        if (v >= 1e3) return "$" + (v / 1e3).toFixed(0) + "K";
+        return "$" + v.toFixed(0);
+    }
+
+    // LTCG schedule: 12% bracket -> 0% federal, 22% & 32% -> 15%, 37% -> 20%.
+    function ltcgFromBracket(b) {
+        if (b <= 0.13) return 0.00;
+        if (b <= 0.33) return 0.15;
+        return 0.20;
+    }
+    function effectiveTax() {
+        if (divType === "qd")  return ltcgFromBracket(bracket) + stateRate;
+        return bracket + stateRate;   // ordinary
+    }
+
+    function readInputs() {
+        return {
+            cap: parseFloat(SL.cap.value),
+            y0:  parseFloat(SL.y0.value)  / 100,
+            g:   parseFloat(SL.g.value)   / 100,
+            n:   parseInt(SL.n.value, 10),
+        };
+    }
+    function setLabels(x) {
+        VAL.cap.textContent = fmtCap(x.cap);
+        VAL.y0.textContent  = (x.y0 * 100).toFixed(1) + "%";
+        VAL.g.textContent   = (x.g  * 100).toFixed(1) + "%";
+        VAL.n.textContent   = x.n.toString();
+    }
+
+    function render() {
+        const x = readInputs();
+        setLabels(x);
+
+        const eff = effectiveTax();
+        const annualPre = [];
+        const annualAft = [];
+        const years = [];
+        let cumPre = 0;
+        let cumAft = 0;
+        for (let t = 1; t <= x.n; t++) {
+            const cash = x.cap * x.y0 * Math.pow(1 + x.g, t - 1);
+            annualPre.push(cash);
+            annualAft.push(cash * (1 - eff));
+            years.push(t);
+            cumPre += cash;
+            cumAft += cash * (1 - eff);
+        }
+        const yocN = x.y0 * Math.pow(1 + x.g, x.n);
+        const taxPaid = cumPre - cumAft;
+
+        document.getElementById("dv-stat-yoc").textContent = pct(yocN, 1);
+        document.getElementById("dv-det-yoc").textContent =
+            T.det_yoc.replace("{y0}", pct(x.y0, 1))
+                     .replace("{g}",  pct(x.g, 1))
+                     .replace("{n}",  x.n.toString());
+
+        document.getElementById("dv-stat-cum").textContent = fmtMoney(cumPre);
+        document.getElementById("dv-det-cum").textContent =
+            T.det_cum.replace("{n}", x.n.toString());
+
+        document.getElementById("dv-stat-aft").textContent = fmtMoney(cumAft);
+        document.getElementById("dv-det-aft").textContent =
+            T.det_aft.replace("{b}", bracketStr(bracket))
+                     .replace("{s}", bracketStr(stateRate))
+                     .replace("{t}", divType === "qd" ? T.tax_qd : T.tax_ord);
+
+        document.getElementById("dv-stat-tax").textContent = fmtMoney(taxPaid);
+        document.getElementById("dv-det-tax").textContent =
+            T.det_tax.replace("{eff}", pct(eff, 1));
+
+        renderChart(years, annualPre, annualAft);
+    }
+
+    function renderChart(years, pre, aft) {
+        const colorBg   = getCss("--dv-bg");
+        const colorCard = getCss("--dv-card");
+        const colorText = getCss("--dv-text");
+        const colorMu   = getCss("--dv-muted");
+        const grid      = darkMode() ? "rgba(255,255,255,0.08)" : "rgba(0,0,0,0.07)";
+        const blue      = getCss("--dv-blue");
+        const accent    = getCss("--dv-accent");
+
+        const traces = [
+            {
+                type: "bar", name: T.tr_pre, x: years, y: pre,
+                marker: { color: blue, opacity: 0.55 },
+                hovertemplate: T.tr_pre + ": $%{y:,.0f}<extra></extra>",
+            },
+            {
+                type: "bar", name: T.tr_aft, x: years, y: aft,
+                marker: { color: accent },
+                hovertemplate: T.tr_aft + ": $%{y:,.0f}<extra></extra>",
+            },
+        ];
+
+        Plotly.react(CHART, traces, {
+            barmode: "overlay",
+            margin: { l: 70, r: 24, t: 18, b: 50 },
+            paper_bgcolor: colorCard,
+            plot_bgcolor: colorCard,
+            font: { family: "Segoe UI, Helvetica, Arial, sans-serif", color: colorText, size: 12 },
+            xaxis: {
+                title: { text: T.x_title, font: { color: colorMu, size: 11 } },
+                gridcolor: grid,
+                color: colorText,
+                zerolinecolor: colorMu,
+            },
+            yaxis: {
+                title: { text: T.y_title, font: { color: colorMu, size: 11 } },
+                gridcolor: grid,
+                color: colorText,
+                zerolinecolor: colorMu,
+                tickprefix: "$",
+                rangemode: "tozero",
+            },
+            legend: {
+                orientation: "h",
+                x: 0, y: -0.22,
+                bgcolor: "rgba(0,0,0,0)",
+                font: { color: colorText, size: 11 },
+            },
+            hovermode: "x unified",
+            showlegend: true,
+        }, { displayModeBar: false, responsive: true });
+
+        sendResize();
+    }
+
+    function applyI18n() {
+        document.getElementById("dv-lbl-bracket").textContent = T.lbl_bracket;
+        document.getElementById("dv-lbl-state").textContent   = T.lbl_state;
+        document.getElementById("dv-lbl-divtype").textContent = T.lbl_divtype;
+        document.getElementById("dv-type-qd").textContent     = T.type_qd;
+        document.getElementById("dv-type-ord").textContent    = T.type_ord;
+        document.getElementById("dv-name-cap").textContent    = T.name_cap;
+        document.getElementById("dv-name-y0").textContent     = T.name_y0;
+        document.getElementById("dv-name-g").textContent      = T.name_g;
+        document.getElementById("dv-name-n").textContent      = T.name_n;
+        document.getElementById("dv-name-stat-yoc").textContent = T.stat_yoc;
+        document.getElementById("dv-name-stat-cum").textContent = T.stat_cum;
+        document.getElementById("dv-name-stat-aft").textContent = T.stat_aft;
+        document.getElementById("dv-name-stat-tax").textContent = T.stat_tax;
+        document.getElementById("dv-chart-title").textContent   = T.chart_title;
+        document.getElementById("dv-caption").textContent       = T.caption;
+    }
+
+    function bindPills(id, key, parser, callback) {
+        const el = document.getElementById(id);
+        el.addEventListener("click", e => {
+            const b = e.target.closest("button");
+            if (!b) return;
+            el.querySelectorAll("button").forEach(x => x.classList.remove("active"));
+            b.classList.add("active");
+            const v = parser(b.dataset[key]);
+            callback(v);
+            render();
+        });
+    }
+    bindPills("dv-bracket-pills", "b", v => parseFloat(v), v => { bracket = v; });
+    bindPills("dv-state-pills",   "s", v => parseFloat(v), v => { stateRate = v; });
+    bindPills("dv-divtype-pills", "t", v => v,             v => { divType = v; });
+
+    Object.values(SL).forEach(s => s.addEventListener("input", render));
+
+    // Theme observer: re-render Plotly with new palette
+    const obs = new MutationObserver(muts => {
+        for (const m of muts) {
+            if (m.attributeName === "data-theme") {
+                render();
+                break;
+            }
+        }
+    });
+    obs.observe(document.documentElement, { attributes: true });
+
+    function sendResize() {
+        try {
+            const h = document.documentElement.scrollHeight;
+            parent.postMessage({ type: "lesson-interactive-resize", height: h }, "*");
+        } catch (e) { /* ignore */ }
+    }
+    window.addEventListener("resize", sendResize);
+
+    applyI18n();
+    render();
+    sendResize();
+})();
+</script>
+
+</body>
+</html>

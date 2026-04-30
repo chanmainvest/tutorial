@@ -1,0 +1,681 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>10-K Navigator -- Interactive (Side 02)</title>
+<script src="https://cdn.plot.ly/plotly-2.35.2.min.js" charset="utf-8"></script>
+<style>
+html, body { margin: 0; padding: 0; background: var(--tn-bg); }
+:root {
+    --tn-bg: #fdfbf5;
+    --tn-text: #1a2332;
+    --tn-muted: #6b7280;
+    --tn-border: #d6d3c4;
+    --tn-card: #fdfbf5;
+    --tn-accent: #b8860b;
+    --tn-mid: #0d47a1;
+    --tn-pos: #2e7d32;
+    --tn-neg: #b71c1c;
+    --tn-purple: #6a1b9a;
+    --tn-grey: #5a5a5a;
+}
+html[data-theme="dark"] .tn-root,
+.tn-root[data-theme="dark"] {
+    --tn-bg: #0f1724;
+    --tn-text: #e6e6e6;
+    --tn-muted: #9aa3b2;
+    --tn-border: #2a3441;
+    --tn-card: #0f1724;
+    --tn-accent: #d4a437;
+    --tn-mid: #5a8dee;
+    --tn-pos: #66bb6a;
+    --tn-neg: #ef5350;
+    --tn-purple: #9c4dcc;
+    --tn-grey: #a0a0a0;
+}
+.tn-root {
+    font-family: 'Segoe UI', Helvetica, Arial, sans-serif;
+    background: var(--tn-bg);
+    color: var(--tn-text);
+    padding: 12px;
+    margin: 0;
+}
+.tn-pillrow {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 12px;
+    padding: 10px 12px;
+    background: var(--tn-card);
+    border: 1px solid var(--tn-border);
+    border-radius: 8px;
+    align-items: center;
+}
+.tn-pillrow-label {
+    font-size: 0.78rem;
+    color: var(--tn-muted);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-right: 4px;
+}
+.tn-pill {
+    border: 1px solid var(--tn-border);
+    background: var(--tn-card);
+    color: var(--tn-text);
+    padding: 6px 12px;
+    font-family: inherit;
+    font-size: 0.85rem;
+    font-weight: 700;
+    border-radius: 999px;
+    cursor: pointer;
+    transition: background 0.15s, color 0.15s, border-color 0.15s;
+}
+.tn-pill:hover { border-color: var(--tn-accent); }
+.tn-pill.active {
+    background: var(--tn-accent);
+    color: #fff;
+    border-color: var(--tn-accent);
+}
+.tn-header {
+    background: var(--tn-card);
+    border: 1px solid var(--tn-border);
+    border-left: 4px solid var(--tn-accent);
+    border-radius: 8px;
+    padding: 12px 14px;
+    margin-bottom: 12px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+}
+.tn-header-name {
+    font-size: 1.05rem;
+    font-weight: 700;
+}
+.tn-header-meta {
+    font-size: 0.78rem;
+    color: var(--tn-muted);
+    margin-top: 2px;
+}
+.tn-edgar-link {
+    background: var(--tn-mid);
+    color: #fff !important;
+    text-decoration: none;
+    padding: 8px 14px;
+    border-radius: 6px;
+    font-weight: 700;
+    font-size: 0.85rem;
+    border: 1px solid var(--tn-mid);
+    transition: opacity 0.15s;
+}
+.tn-edgar-link:hover { opacity: 0.85; }
+.tn-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-bottom: 12px;
+}
+.tn-card {
+    background: var(--tn-card);
+    border: 1px solid var(--tn-border);
+    border-radius: 8px;
+    padding: 12px;
+}
+.tn-card-title {
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--tn-muted);
+    margin-bottom: 10px;
+}
+#tn-chart-segments { height: 320px; }
+.tn-risk-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.tn-risk-item {
+    padding: 10px 0;
+    border-bottom: 1px solid var(--tn-border);
+}
+.tn-risk-item:last-child { border-bottom: none; }
+.tn-risk-rank {
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    line-height: 24px;
+    text-align: center;
+    background: var(--tn-accent);
+    color: #fff;
+    border-radius: 50%;
+    font-weight: 700;
+    font-size: 0.78rem;
+    margin-right: 8px;
+    vertical-align: middle;
+}
+.tn-risk-title {
+    font-weight: 700;
+    font-size: 0.92rem;
+    color: var(--tn-text);
+    vertical-align: middle;
+}
+.tn-risk-body {
+    font-size: 0.84rem;
+    color: var(--tn-muted);
+    line-height: 1.5;
+    margin-top: 6px;
+    margin-left: 32px;
+}
+.tn-caption {
+    margin-top: 10px;
+    font-size: 0.78rem;
+    color: var(--tn-muted);
+    line-height: 1.5;
+}
+@media (max-width: 760px) {
+    .tn-grid { grid-template-columns: 1fr; }
+    #tn-chart-segments { height: 280px; }
+}
+</style>
+</head>
+<body>
+
+<div class="tn-root" id="tn-root">
+    <div class="tn-pillrow" id="tn-pillrow">
+        <span class="tn-pillrow-label" id="tn-pillrow-label">Ticker</span>
+    </div>
+
+    <div class="tn-header">
+        <div>
+            <div class="tn-header-name" id="tn-header-name">--</div>
+            <div class="tn-header-meta" id="tn-header-meta">--</div>
+        </div>
+        <a id="tn-edgar-link" class="tn-edgar-link" href="#" target="_blank" rel="noopener">Open most recent 10-K on EDGAR</a>
+    </div>
+
+    <div class="tn-grid">
+        <div class="tn-card">
+            <div class="tn-card-title" id="tn-segments-title">Revenue by segment (most recent fiscal year, USD billions)</div>
+            <div id="tn-chart-segments"></div>
+        </div>
+        <div class="tn-card">
+            <div class="tn-card-title" id="tn-risks-title">Top 3 risk factors (Item 1A, summarized)</div>
+            <ul class="tn-risk-list" id="tn-risk-list"></ul>
+        </div>
+    </div>
+
+    <p class="tn-caption" id="tn-caption">
+        Pick a ticker. The button opens the company's most recent 10-K filing on SEC EDGAR. Segment revenue is from the most recent fiscal-year 10-K (Note on Segment Information). Risk-factor summaries are condensed restatements of Item 1A in the same filing -- read the full text on EDGAR before drawing conclusions.
+    </p>
+</div>
+
+<script>
+(function () {
+    const I18N = {
+        en: {
+            row_label: "Ticker",
+            edgar_btn: "Open most recent 10-K on EDGAR",
+            seg_title: "Revenue by segment (most recent fiscal year, USD billions)",
+            risk_title: "Top 3 risk factors (Item 1A, summarized)",
+            seg_x: "Revenue (USD billions)",
+            yoy: "YoY",
+            cap: "Pick a ticker. The button opens the company's most recent 10-K filing on SEC EDGAR. Segment revenue is from the most recent fiscal-year 10-K (Note on Segment Information). Risk-factor summaries are condensed restatements of Item 1A -- read the full text on EDGAR before drawing conclusions.",
+        },
+        hk: {
+            row_label: "股票代號",
+            edgar_btn: "開啟 EDGAR 最新 10-K",
+            seg_title: "最新財年分部營收(十億美元)",
+            risk_title: "三大風險因素(項目 1A 摘要)",
+            seg_x: "營收(十億美元)",
+            yoy: "按年",
+            cap: "選擇股票代號。按鈕會開啟該公司在 SEC EDGAR 上的最新 10-K。分部營收來自最新財年 10-K(分部資料附註)。風險摘要是項目 1A 的精簡複述 -- 在下結論前請閱讀 EDGAR 上的完整文字。",
+        },
+        tw: {
+            row_label: "股票代號",
+            edgar_btn: "開啟 EDGAR 最新 10-K",
+            seg_title: "最新會計年度分部營收(十億美元)",
+            risk_title: "三大風險因素(項目 1A 摘要)",
+            seg_x: "營收(十億美元)",
+            yoy: "年增",
+            cap: "選擇股票代號。按鈕會開啟該公司在 SEC EDGAR 上的最新 10-K。分部營收來自最新財報 10-K(分部資料附註)。風險摘要是項目 1A 的精簡複述 -- 在下結論前請閱讀 EDGAR 上的完整文字。",
+        },
+        cn: {
+            row_label: "股票代码",
+            edgar_btn: "打开 EDGAR 最新 10-K",
+            seg_title: "最新财年分部营收(十亿美元)",
+            risk_title: "三大风险因素(项目 1A 摘要)",
+            seg_x: "营收(十亿美元)",
+            yoy: "同比",
+            cap: "选择股票代码。按钮会打开该公司在 SEC EDGAR 上的最新 10-K。分部营收来自最新财年 10-K(分部资料附注)。风险摘要是项目 1A 的精简复述 -- 在下结论前请阅读 EDGAR 上的完整文字。",
+        },
+    };
+
+    function currentLang() {
+        const p = new URLSearchParams(window.location.search);
+        const l = (p.get("lang") || "en").toLowerCase();
+        return I18N.hasOwnProperty(l) ? l : "en";
+    }
+    const T = I18N[currentLang()];
+
+    // Per-company data: most recent 10-K segment revenue and Item 1A top-3.
+    // Sources: each company's most recent 10-K as of April 2026.
+    const COMPANIES = {
+        AAPL: {
+            name: "Apple Inc.",
+            cik:  "320193",
+            fy:   "FY2024 (Sep 28, 2024)",
+            segments: [
+                ["iPhone",    201.2,  0.3],
+                ["Services",   96.2, 13.0],
+                ["Wearables",  37.0, -7.0],
+                ["Mac",        30.0,  2.0],
+                ["iPad",       26.7,  5.0],
+            ],
+            risks: {
+                en: [
+                    ["Highly competitive markets",
+                     "Apple's industries are intensely competitive, characterized by frequent innovation, aggressive pricing, and rapid product cycles. Failure to maintain technology leadership or appeal to evolving consumer tastes could materially affect operating results."],
+                    ["Concentration of revenue in a small number of products",
+                     "iPhone, Services, and Mac account for the majority of net sales. Reduced demand for any major product, supply disruption, or quality issue affecting one of them could disproportionately impact total revenue."],
+                    ["Global operations and supply chain dependencies",
+                     "Manufacturing is concentrated outside the United States, with significant exposure to single-source component suppliers. Geopolitical tensions, tariffs, or supplier disruptions could constrain availability of finished products and raise costs."],
+                ],
+                hk: [
+                    ["市場競爭激烈", "蘋果所處行業競爭激烈,創新頻密、定價進取、產品周期短。若未能保持技術領先或迎合消費者偏好,將實質影響業績。"],
+                    ["營收高度集中於少數產品", "iPhone、服務及 Mac 佔淨銷售大部分。任一主要產品需求下滑、供應中斷或品質問題,都可能對總營收造成不成比例的衝擊。"],
+                    ["全球營運及供應鏈依賴", "製造主要集中於美國境外,並依賴部分單一來源零件供應商。地緣政治緊張、關稅或供應商中斷都會限制成品供應並推高成本。"],
+                ],
+                tw: [
+                    ["市場競爭激烈", "蘋果所處產業競爭激烈,創新頻繁、定價積極、產品週期短。若未能保持技術領先或迎合消費者偏好,將實質影響營運成果。"],
+                    ["營收高度集中於少數產品", "iPhone、服務及 Mac 佔淨銷售大部分。任一主要產品需求下滑、供應中斷或品質問題,都可能對總營收造成不成比例的衝擊。"],
+                    ["全球營運及供應鏈依賴", "製造主要集中於美國境外,並依賴部分單一來源零件供應商。地緣政治緊張、關稅或供應商中斷都會限制成品供應並推高成本。"],
+                ],
+                cn: [
+                    ["市场竞争激烈", "苹果所处行业竞争激烈,创新频繁、定价积极、产品周期短。若未能保持技术领先或迎合消费者偏好,将实质影响经营成果。"],
+                    ["营收高度集中于少数产品", "iPhone、服务及 Mac 占净销售大部分。任一主要产品需求下滑、供应中断或品质问题,都可能对总营收造成不成比例的冲击。"],
+                    ["全球运营及供应链依赖", "制造主要集中于美国境外,并依赖部分单一来源零件供应商。地缘政治紧张、关税或供应商中断都会限制成品供应并推高成本。"],
+                ],
+            },
+        },
+        MSFT: {
+            name: "Microsoft Corp.",
+            cik:  "789019",
+            fy:   "FY2024 (Jun 30, 2024)",
+            segments: [
+                ["Productivity & Business Processes",  77.7, 12.0],
+                ["Intelligent Cloud",                 105.4, 20.0],
+                ["More Personal Computing",            62.0, 13.0],
+            ],
+            risks: {
+                en: [
+                    ["Cybersecurity, data privacy, and AI safety",
+                     "As Microsoft scales cloud and AI services, breaches, leaks, or misuse of generative AI tools could lead to litigation, regulatory action, customer churn, and reputational harm. The cost and complexity of defending these systems is increasing."],
+                    ["Intense competition in cloud and AI",
+                     "Hyperscaler rivals (AWS, Google) and emerging AI-first entrants compete for enterprise workloads. Pricing pressure, capacity constraints, and customer concentration could compress margins despite topline growth."],
+                    ["Capital intensity of AI infrastructure",
+                     "Build-out of AI-capable data centers requires unprecedented capital expenditure on GPUs, power, and real estate. Returns depend on sustained AI demand; an air-pocket in monetization could leave under-utilized assets on the balance sheet."],
+                ],
+                hk: [
+                    ["網絡安全、私隱及 AI 風險", "微軟在擴展雲及 AI 服務時,任何洩漏、遭入侵或生成式 AI 被濫用,均可導致訴訟、監管行動、客戶流失及聲譽損害。維護成本及複雜度日漸上升。"],
+                    ["雲及 AI 競爭激烈", "AWS、Google 等超大規模對手及 AI-first 新進業者爭奪企業負載。定價壓力、產能限制及客戶集中度可能在營收增長同時壓縮邊際利潤。"],
+                    ["AI 基建資本密集", "建設 AI 數據中心需要前所未見的 GPU、電力及地產投入。回報取決於 AI 需求是否持續,變現一旦出現缺口,資產可能閒置。"],
+                ],
+                tw: [
+                    ["網路安全、隱私及 AI 風險", "微軟在擴展雲及 AI 服務時,任何洩漏、遭入侵或生成式 AI 被濫用,均可導致訴訟、監管行動、客戶流失及聲譽損害。維護成本及複雜度日漸上升。"],
+                    ["雲及 AI 競爭激烈", "AWS、Google 等超大規模對手及 AI-first 新進業者爭奪企業負載。定價壓力、產能限制及客戶集中度可能在營收成長同時壓縮邊際利潤。"],
+                    ["AI 基建資本密集", "建設 AI 資料中心需要前所未見的 GPU、電力及地產投入。回報取決於 AI 需求是否持續,變現一旦出現缺口,資產可能閒置。"],
+                ],
+                cn: [
+                    ["网络安全、隐私及 AI 风险", "微软在扩展云及 AI 服务时,任何泄漏、遭入侵或生成式 AI 被滥用,均可导致诉讼、监管行动、客户流失及声誉损害。维护成本及复杂度日渐上升。"],
+                    ["云及 AI 竞争激烈", "AWS、Google 等超大规模对手及 AI-first 新进者争夺企业负载。定价压力、产能限制及客户集中度可能在营收增长同时压缩边际利润。"],
+                    ["AI 基建资本密集", "建设 AI 数据中心需要前所未见的 GPU、电力及地产投入。回报取决于 AI 需求是否持续,变现一旦出现缺口,资产可能闲置。"],
+                ],
+            },
+        },
+        KO: {
+            name: "Coca-Cola Co.",
+            cik:  "21344",
+            fy:   "FY2024 (Dec 31, 2024)",
+            segments: [
+                ["North America",        17.4, 3.0],
+                ["Latin America",         5.4, 8.0],
+                ["EMEA",                  7.6, 2.0],
+                ["Asia Pacific",          5.6, 4.0],
+                ["Bottling Investments",  9.5, -2.0],
+                ["Global Ventures",       2.7, 5.0],
+            ],
+            risks: {
+                en: [
+                    ["Changes in consumer preferences and health concerns",
+                     "Demand for sugar-sweetened beverages may decline as consumers shift toward perceived healthier alternatives. Reformulation, new product introduction, and marketing must keep pace or volumes will erode."],
+                    ["Regulation and excise taxes on sugar-sweetened beverages",
+                     "Sugar taxes, marketing restrictions, packaging rules, and warning-label requirements continue to expand in jurisdictions worldwide. These materially raise costs and may reduce consumption of core products."],
+                    ["Foreign-currency translation",
+                     "More than 60% of revenue is generated outside the United States. A strengthening US dollar materially reduces reported revenue and operating income, even when local-currency volumes and prices are unchanged."],
+                ],
+                hk: [
+                    ["消費者偏好及健康關注變化", "含糖飲品需求可能因消費者轉向較健康替代品而下降。配方改造、新產品推出及行銷須跟上,否則銷量會持續流失。"],
+                    ["含糖飲品監管及消費稅", "全球各地糖稅、行銷限制、包裝規定及警示標籤要求持續擴張。這些將實質提高成本並可能減少核心產品消費。"],
+                    ["外幣折算", "超過六成收入來自美國境外。美元走強會在當地價量未變下實質壓低報表營收及經營利潤。"],
+                ],
+                tw: [
+                    ["消費者偏好及健康關注變化", "含糖飲品需求可能因消費者轉向較健康替代品而下降。配方改造、新產品推出及行銷須跟上,否則銷量會持續流失。"],
+                    ["含糖飲品監管及消費稅", "全球各地糖稅、行銷限制、包裝規定及警示標籤要求持續擴張。這些將實質提高成本並可能減少核心產品消費。"],
+                    ["外幣換算", "超過六成營收來自美國境外。美元走強會在當地價量未變下實質壓低報表營收及營運利潤。"],
+                ],
+                cn: [
+                    ["消费者偏好及健康关注变化", "含糖饮料需求可能因消费者转向较健康替代品而下降。配方改造、新产品推出及营销须跟上,否则销量会持续流失。"],
+                    ["含糖饮料监管及消费税", "全球各地糖税、营销限制、包装规定及警示标签要求持续扩张。这些将实质提高成本并可能减少核心产品消费。"],
+                    ["外币折算", "超过六成收入来自美国境外。美元走强会在当地价量未变下实质压低报表营收及经营利润。"],
+                ],
+            },
+        },
+        JPM: {
+            name: "JPMorgan Chase & Co.",
+            cik:  "19617",
+            fy:   "FY2024 (Dec 31, 2024)",
+            segments: [
+                ["Consumer & Community Banking",     74.0,  4.0],
+                ["Corporate & Investment Bank",      57.0, 12.0],
+                ["Commercial Banking",               16.0,  6.0],
+                ["Asset & Wealth Management",        21.0,  9.0],
+            ],
+            risks: {
+                en: [
+                    ["Macroeconomic and credit cycle risk",
+                     "Deterioration in the US or global economy could materially increase credit losses, depress capital-markets activity, and reduce consumer spending. The bank's earnings are highly sensitive to the credit and rate cycle."],
+                    ["Regulatory capital, liquidity, and supervisory action",
+                     "Basel III endgame, stress testing, G-SIB surcharges, and ongoing CFPB and OCC supervisory expectations restrict capital deployment and impose substantial compliance cost. Adverse rulings can compel forced divestitures or activity restrictions."],
+                    ["Cybersecurity and operational resilience",
+                     "As one of the world's most-attacked institutions, the firm faces persistent attempts to penetrate its systems, defraud customers, and disrupt operations. A successful intrusion could lead to large customer losses, regulatory penalties, and reputational damage."],
+                ],
+                hk: [
+                    ["宏觀經濟及信貸週期風險", "美國或全球經濟惡化可能實質推升信貸損失、壓抑資本市場活動,並減少消費支出。銀行盈利對信貸及利率週期非常敏感。"],
+                    ["監管資本、流動性及監督行動", "Basel III endgame、壓力測試、G-SIB 附加要求及 CFPB / OCC 持續監管預期限制資本部署,並帶來大量合規成本。不利裁決可逼使強制剝離或活動限制。"],
+                    ["網絡安全及營運韌性", "作為全球最常被攻擊的機構之一,本行不斷面對入侵系統、客戶詐騙及干擾營運的企圖。一次成功入侵可導致大規模客戶損失、監管罰款及聲譽損害。"],
+                ],
+                tw: [
+                    ["總體經濟及信用週期風險", "美國或全球經濟惡化可能實質推升信用損失、壓抑資本市場活動,並減少消費支出。銀行盈利對信用及利率週期非常敏感。"],
+                    ["監管資本、流動性及監督行動", "Basel III endgame、壓力測試、G-SIB 附加要求及 CFPB / OCC 持續監管預期限制資本部署,並帶來大量法遵成本。不利裁決可迫使強制剝離或業務限制。"],
+                    ["網路安全及營運韌性", "作為全球最常被攻擊的機構之一,本行不斷面對入侵系統、客戶詐騙及干擾營運的企圖。一次成功入侵可導致大規模客戶損失、監管罰款及聲譽損害。"],
+                ],
+                cn: [
+                    ["宏观经济及信贷周期风险", "美国或全球经济恶化可能实质推升信贷损失、压抑资本市场活动,并减少消费支出。银行盈利对信贷及利率周期非常敏感。"],
+                    ["监管资本、流动性及监督行动", "Basel III endgame、压力测试、G-SIB 附加要求及 CFPB / OCC 持续监管预期限制资本部署,并带来大量合规成本。不利裁决可迫使强制剥离或业务限制。"],
+                    ["网络安全及运营韧性", "作为全球最常被攻击的机构之一,本行不断面对入侵系统、客户欺诈及干扰运营的企图。一次成功入侵可导致大规模客户损失、监管罚款及声誉损害。"],
+                ],
+            },
+        },
+        F: {
+            name: "Ford Motor Co.",
+            cik:  "37996",
+            fy:   "FY2024 (Dec 31, 2024)",
+            segments: [
+                ["Ford Blue (ICE)",   101.0,  3.0],
+                ["Ford Model e (EV)",   5.5, -3.0],
+                ["Ford Pro (Commercial)", 67.0, 15.0],
+                ["Ford Credit",          12.5,  4.0],
+            ],
+            risks: {
+                en: [
+                    ["Cyclicality of automotive demand",
+                     "Auto sales are highly correlated with macroeconomic conditions, consumer confidence, interest rates, and incentive levels. A downturn can rapidly compress unit volumes, fixed-cost absorption, and dealer inventory."],
+                    ["EV transition and capital intensity",
+                     "Capital deployed to electric-vehicle platforms, battery plants, and software has produced operating losses in the Model e segment. Pace of EV adoption, battery cost trajectory, and competitive intensity from Tesla and Chinese OEMs determine whether returns ever materialize."],
+                    ["Supply chain disruption and commodity exposure",
+                     "Reliance on single-source semiconductor and battery-material suppliers, plus exposure to steel, aluminum, lithium, and cobalt prices, makes margins vulnerable to events outside management's control."],
+                ],
+                hk: [
+                    ["汽車需求週期性", "汽車銷售與宏觀經濟、消費信心、利率及補貼水平高度相關。下行週期可迅速壓低銷量、固定成本攤銷及經銷商庫存。"],
+                    ["電動車轉型及資本密集", "投入電動車平台、電池廠及軟件的資本造成 Model e 分部營運虧損。電動車滲透速度、電池成本走勢及來自 Tesla 與中國車廠的競爭強度決定回報能否實現。"],
+                    ["供應鏈中斷及商品價格", "依賴單一來源半導體及電池材料供應商,加上鋼鐵、鋁、鋰及鈷價格波動,令邊際利潤易受管理層無法控制的事件影響。"],
+                ],
+                tw: [
+                    ["汽車需求週期性", "汽車銷售與總體經濟、消費信心、利率及優惠水準高度相關。下行週期可迅速壓低銷量、固定成本攤銷及經銷商庫存。"],
+                    ["電動車轉型及資本密集", "投入電動車平台、電池廠及軟體的資本造成 Model e 分部營運虧損。電動車滲透速度、電池成本走勢及來自 Tesla 與中國車廠的競爭強度決定回報能否實現。"],
+                    ["供應鏈中斷及原物料風險", "依賴單一來源半導體及電池材料供應商,加上鋼鐵、鋁、鋰及鈷價格波動,使利潤率易受管理層無法控制的事件影響。"],
+                ],
+                cn: [
+                    ["汽车需求周期性", "汽车销售与宏观经济、消费信心、利率及补贴水平高度相关。下行周期可迅速压低销量、固定成本摊销及经销商库存。"],
+                    ["电动车转型及资本密集", "投入电动车平台、电池厂及软件的资本造成 Model e 分部经营亏损。电动车渗透速度、电池成本走势及来自 Tesla 与中国车企的竞争强度决定回报能否实现。"],
+                    ["供应链中断及大宗商品风险", "依赖单一来源半导体及电池材料供应商,加上钢、铝、锂及钴价格波动,使利润率易受管理层无法控制的事件影响。"],
+                ],
+            },
+        },
+        META: {
+            name: "Meta Platforms Inc.",
+            cik:  "1326801",
+            fy:   "FY2024 (Dec 31, 2024)",
+            segments: [
+                ["Family of Apps",     162.0, 22.0],
+                ["Reality Labs",         2.1,  4.0],
+            ],
+            risks: {
+                en: [
+                    ["Advertising-revenue concentration and platform dependence",
+                     "Substantially all revenue comes from advertising. Changes to mobile-OS privacy frameworks (Apple ATT), competitive ad platforms (TikTok, Amazon), and macro-driven ad budget cuts can materially impact growth."],
+                    ["Regulation, antitrust, and content liability",
+                     "Multi-jurisdictional investigations and enforcement actions on competition, child safety, data privacy (GDPR, EU DMA, state laws) could result in fines, structural remedies, or operational restrictions on core advertising and integration features."],
+                    ["AI and Reality Labs capital allocation",
+                     "Sustained large-scale investment in AI infrastructure and the metaverse / AR-VR division (Reality Labs) is currently producing significant operating losses. Returns depend on adoption that has not yet materialized at scale."],
+                ],
+                hk: [
+                    ["廣告收入集中及平台依賴", "幾乎全部營收來自廣告。手機 OS 私隱框架變動(Apple ATT)、競爭廣告平台(TikTok、Amazon)及宏觀廣告預算削減,均可實質影響增長。"],
+                    ["監管、反壟斷及內容責任", "跨司法管轄的競爭、兒童安全、數據私隱(GDPR、歐盟 DMA、州法)調查及執法行動,可造成罰款、結構性補救或對核心廣告及整合功能的營運限制。"],
+                    ["AI 及 Reality Labs 資本配置", "對 AI 基建及元宇宙 / AR-VR 部門(Reality Labs)的持續大規模投資,目前產生顯著營運虧損。回報取決於目前尚未大規模出現的採用。"],
+                ],
+                tw: [
+                    ["廣告營收集中及平台依賴", "幾乎全部營收來自廣告。手機作業系統隱私框架變動(Apple ATT)、競爭廣告平台(TikTok、Amazon)及總體廣告預算削減,均可實質影響成長。"],
+                    ["監管、反壟斷及內容責任", "跨司法管轄的競爭、兒童安全、資料隱私(GDPR、歐盟 DMA、州法)調查及執法行動,可造成罰款、結構性補救或對核心廣告及整合功能的營運限制。"],
+                    ["AI 及 Reality Labs 資本配置", "對 AI 基建及元宇宙 / AR-VR 部門(Reality Labs)的持續大規模投資,目前產生顯著營運虧損。回報取決於目前尚未大規模出現的採用。"],
+                ],
+                cn: [
+                    ["广告收入集中及平台依赖", "几乎全部营收来自广告。手机 OS 隐私框架变动(Apple ATT)、竞争广告平台(TikTok、Amazon)及宏观广告预算削减,均可实质影响增长。"],
+                    ["监管、反垄断及内容责任", "跨司法管辖的竞争、儿童安全、数据隐私(GDPR、欧盟 DMA、州法)调查及执法行动,可造成罚款、结构性补救或对核心广告及整合功能的运营限制。"],
+                    ["AI 及 Reality Labs 资本配置", "对 AI 基建及元宇宙 / AR-VR 部门(Reality Labs)的持续大规模投资,目前产生显著经营亏损。回报取决于目前尚未大规模出现的采用。"],
+                ],
+            },
+        },
+        NVDA: {
+            name: "NVIDIA Corp.",
+            cik:  "1045810",
+            fy:   "FY2025 (Jan 26, 2025)",
+            segments: [
+                ["Data Center",     115.2, 142.0],
+                ["Gaming",           11.4,  10.0],
+                ["Professional Viz", 1.9,   18.0],
+                ["Automotive",       1.7,   55.0],
+            ],
+            risks: {
+                en: [
+                    ["Customer concentration in the Data Center segment",
+                     "A small number of hyperscale cloud customers account for the majority of Data Center revenue. Reduced AI investment by, or capacity transition away from, any of these customers could materially impact revenue and operating margin."],
+                    ["Export controls and geopolitical restrictions",
+                     "US Department of Commerce export controls on advanced AI chips to China and other restricted destinations, plus reciprocal foreign measures, can compel redesigns, foreclose markets, and create excess inventory exposure."],
+                    ["Competition and rapid product cycles",
+                     "Competing accelerators from AMD, in-house silicon at hyperscalers (Google TPU, AWS Trainium, Microsoft Maia), and emerging AI-chip startups, combined with annual product cadence, require continuous heavy R&D and create the risk of obsolescence on prior generations."],
+                ],
+                hk: [
+                    ["數據中心客戶集中", "少數超大規模雲客戶佔數據中心營收大部分。任一客戶減少 AI 投資或轉用自研產品,均可實質影響營收及營運利潤率。"],
+                    ["出口管制及地緣政治限制", "美國商務部對先進 AI 晶片出口至中國及其他受限地區的管制,以及對等的外國措施,可迫使重新設計、封閉市場並造成庫存過剩風險。"],
+                    ["競爭及產品週期", "AMD 的競品、超大規模廠的自研晶片(Google TPU、AWS Trainium、Microsoft Maia)及新興 AI 晶片新創,加上年度產品節奏,要求持續高研發投入,並對前代產品造成淘汰風險。"],
+                ],
+                tw: [
+                    ["資料中心客戶集中", "少數超大規模雲客戶佔資料中心營收大部分。任一客戶減少 AI 投資或轉用自研產品,均可實質影響營收及營業利益率。"],
+                    ["出口管制及地緣政治限制", "美國商務部對先進 AI 晶片出口至中國及其他受限地區的管制,以及對等的外國措施,可迫使重新設計、封閉市場並造成庫存過剩風險。"],
+                    ["競爭及產品週期", "AMD 的競品、超大規模廠的自研晶片(Google TPU、AWS Trainium、Microsoft Maia)及新興 AI 晶片新創,加上年度產品節奏,要求持續高研發投入,並對前代產品造成淘汰風險。"],
+                ],
+                cn: [
+                    ["数据中心客户集中", "少数超大规模云客户占数据中心营收大部分。任一客户减少 AI 投资或转用自研产品,均可实质影响营收及经营利润率。"],
+                    ["出口管制及地缘政治限制", "美国商务部对先进 AI 芯片出口至中国及其他受限地区的管制,以及对等的外国措施,可迫使重新设计、封闭市场并造成库存过剩风险。"],
+                    ["竞争及产品周期", "AMD 的竞品、超大规模厂的自研芯片(Google TPU、AWS Trainium、Microsoft Maia)及新兴 AI 芯片初创,加上年度产品节奏,要求持续高研发投入,并对前代产品造成淘汰风险。"],
+                ],
+            },
+        },
+    };
+    const TICKS = ["AAPL", "MSFT", "KO", "JPM", "F", "META", "NVDA"];
+    let active = "AAPL";
+
+    const ROOT     = document.getElementById("tn-root");
+    const PILLROW  = document.getElementById("tn-pillrow");
+    const HDR_NAME = document.getElementById("tn-header-name");
+    const HDR_META = document.getElementById("tn-header-meta");
+    const EDGAR    = document.getElementById("tn-edgar-link");
+    const RISK_UL  = document.getElementById("tn-risk-list");
+    const CHART    = document.getElementById("tn-chart-segments");
+    const CAPTION  = document.getElementById("tn-caption");
+    const SEG_TITLE  = document.getElementById("tn-segments-title");
+    const RISK_TITLE = document.getElementById("tn-risks-title");
+
+    document.getElementById("tn-pillrow-label").textContent = T.row_label;
+    EDGAR.textContent = T.edgar_btn;
+    SEG_TITLE.textContent  = T.seg_title;
+    RISK_TITLE.textContent = T.risk_title;
+    CAPTION.textContent    = T.cap;
+
+    function buildPills() {
+        TICKS.forEach(tk => {
+            const b = document.createElement("button");
+            b.className = "tn-pill";
+            b.type = "button";
+            b.textContent = tk;
+            if (tk === active) b.classList.add("active");
+            b.addEventListener("click", () => {
+                active = tk;
+                document.querySelectorAll(".tn-pill").forEach(p => p.classList.remove("active"));
+                b.classList.add("active");
+                render();
+            });
+            PILLROW.appendChild(b);
+        });
+    }
+    buildPills();
+
+    function getCssVar(name) {
+        return getComputedStyle(ROOT).getPropertyValue(name).trim();
+    }
+    function darkMode() {
+        return document.documentElement.getAttribute("data-theme") === "dark";
+    }
+    function edgarUrl(cik) {
+        // EDGAR form-type filtered company-page URL.
+        return "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=" + cik
+             + "&type=10-K&dateb=&owner=include&count=10";
+    }
+
+    function render() {
+        const c = COMPANIES[active];
+        HDR_NAME.textContent = active + " -- " + c.name;
+        HDR_META.textContent = c.fy;
+        EDGAR.href = edgarUrl(c.cik);
+
+        const colorMid   = getCssVar("--tn-mid");
+        const colorAcc   = getCssVar("--tn-accent");
+        const colorPos   = getCssVar("--tn-pos");
+        const colorNeg   = getCssVar("--tn-neg");
+        const colorText  = getCssVar("--tn-text");
+        const colorMuted = getCssVar("--tn-muted");
+        const colorBg    = getCssVar("--tn-card");
+        const colorGrid  = darkMode() ? "rgba(255,255,255,0.08)" : "rgba(0,0,0,0.07)";
+
+        // --- segments chart (horizontal bars) ---
+        const names = c.segments.map(s => s[0]);
+        const rev   = c.segments.map(s => s[1]);
+        const yoy   = c.segments.map(s => s[2]);
+
+        // Find largest (the "story" bar): use accent gold; others mid; negative growth red.
+        const maxRev = Math.max.apply(null, rev);
+        const colors = c.segments.map((s, i) => {
+            if (s[2] < 0) return colorNeg;
+            if (s[1] === maxRev) return colorAcc;
+            return colorMid;
+        });
+        const text = c.segments.map((s, i) => {
+            const sign = s[2] > 0 ? "+" : (s[2] < 0 ? "" : "");
+            return "$" + s[1].toFixed(1) + "B (" + T.yoy + " " + sign + s[2].toFixed(1) + "%)";
+        });
+        // Reverse so largest at top in plotly (because barh stacks from bottom).
+        const order = rev.map((_, i) => i).sort((a, b) => rev[a] - rev[b]);
+        const namesO = order.map(i => names[i]);
+        const revO   = order.map(i => rev[i]);
+        const colorsO = order.map(i => colors[i]);
+        const textO   = order.map(i => text[i]);
+
+        const traces = [{
+            type: "bar",
+            orientation: "h",
+            x: revO, y: namesO,
+            marker: { color: colorsO, line: { width: 0 } },
+            text: textO,
+            textposition: "outside",
+            textfont: { color: colorText, size: 11 },
+            hovertemplate: "%{y}: %{text}<extra></extra>",
+        }];
+        const layout = {
+            margin: { l: 150, r: 24, t: 12, b: 44 },
+            paper_bgcolor: colorBg, plot_bgcolor: colorBg,
+            font: { family: "Segoe UI, Helvetica, Arial, sans-serif", color: colorText, size: 12 },
+            xaxis: {
+                title: { text: T.seg_x, font: { color: colorMuted, size: 11 } },
+                gridcolor: colorGrid, color: colorText,
+                rangemode: "tozero",
+            },
+            yaxis: {
+                gridcolor: colorGrid, color: colorText, automargin: true,
+            },
+            showlegend: false,
+            bargap: 0.35,
+        };
+        Plotly.react(CHART, traces, layout, { displayModeBar: false, responsive: true });
+
+        // --- risk-factor list ---
+        const lang = currentLang();
+        const risks = c.risks[lang] || c.risks.en;
+        RISK_UL.innerHTML = "";
+        risks.forEach((r, i) => {
+            const li = document.createElement("li");
+            li.className = "tn-risk-item";
+            const head = document.createElement("div");
+            const rank = document.createElement("span");
+            rank.className = "tn-risk-rank";
+            rank.textContent = (i + 1).toString();
+            const title = document.createElement("span");
+            title.className = "tn-risk-title";
+            title.textContent = r[0];
+            head.appendChild(rank);
+            head.appendChild(title);
+            const body = document.createElement("div");
+            body.className = "tn-risk-body";
+            body.textContent = r[1];
+            li.appendChild(head);
+            li.appendChild(body);
+            RISK_UL.appendChild(li);
+        });
+    }
+
+    function reportHeight() {
+        try {
+            const h = Math.ceil(document.documentElement.scrollHeight);
+            parent.postMessage({ type: 'lesson-interactive-resize', height: h }, '*');
+        } catch (e) { /* ignore */ }
+    }
+    if (typeof ResizeObserver !== 'undefined') {
+        new ResizeObserver(reportHeight).observe(document.body);
+    }
+    window.addEventListener('resize', reportHeight);
+    setTimeout(reportHeight, 50);
+    setTimeout(reportHeight, 500);
+
+    const themeObserver = new MutationObserver(render);
+    themeObserver.observe(document.documentElement, { attributes: true, attributeFilter: ["data-theme"] });
+
+    render();
+})();
+</script>
+
+</body>
+</html>

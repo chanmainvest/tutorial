@@ -1,0 +1,597 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Stock Screener — Interactive (Side 27)</title>
+<script src="https://cdn.plot.ly/plotly-2.35.2.min.js" charset="utf-8"></script>
+<style>
+html, body { margin: 0; padding: 0; background: var(--sc-bg); }
+:root {
+    --sc-bg: #fdfbf5;
+    --sc-text: #1a2332;
+    --sc-muted: #6b7280;
+    --sc-border: #d6d3c4;
+    --sc-card: #fdfbf5;
+    --sc-pos: #2e7d32;
+    --sc-neg: #b71c1c;
+    --sc-mid: #0d47a1;
+    --sc-accent: #b8860b;
+    --sc-purple: #6a1b9a;
+    --sc-row-pass: rgba(46, 125, 50, 0.10);
+    --sc-row-fail: rgba(183, 28, 28, 0.06);
+}
+html[data-theme="dark"] .sc-root,
+.sc-root[data-theme="dark"] {
+    --sc-bg: #0f1724;
+    --sc-text: #e6e6e6;
+    --sc-muted: #9aa3b2;
+    --sc-border: #2a3441;
+    --sc-card: #161f2e;
+    --sc-pos: #66bb6a;
+    --sc-neg: #ef5350;
+    --sc-mid: #5a8dee;
+    --sc-accent: #d4a534;
+    --sc-row-pass: rgba(102, 187, 106, 0.12);
+    --sc-row-fail: rgba(239, 83, 80, 0.08);
+}
+.sc-root {
+    font-family: 'Segoe UI', Helvetica, Arial, sans-serif;
+    background: var(--sc-bg);
+    color: var(--sc-text);
+    padding: 12px;
+    margin: 0;
+}
+.sc-controls {
+    background: var(--sc-card);
+    border: 1px solid var(--sc-border);
+    border-radius: 8px;
+    padding: 10px 14px 12px;
+    margin-bottom: 12px;
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 14px;
+}
+.sc-slider-wrap {
+    display: flex; flex-direction: column; gap: 4px;
+    font-size: 0.82rem; color: var(--sc-muted);
+}
+.sc-slider-wrap .sc-lbl {
+    font-weight: 700; color: var(--sc-text); display: flex;
+    justify-content: space-between; align-items: baseline;
+}
+.sc-slider-wrap .sc-name { font-size: 0.78rem; }
+.sc-slider-wrap .sc-val {
+    font-variant-numeric: tabular-nums;
+    color: var(--sc-accent);
+    font-size: 0.95rem;
+    font-weight: 700;
+}
+.sc-slider-wrap input[type="range"] { accent-color: var(--sc-accent); width: 100%; }
+.sc-stats {
+    display: grid; grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 10px; margin-bottom: 12px;
+}
+.sc-stat {
+    background: var(--sc-card);
+    border: 1px solid var(--sc-border);
+    border-left: 4px solid var(--sc-muted);
+    border-radius: 8px;
+    padding: 10px 12px;
+}
+.sc-stat.sc-stat-pos { border-left-color: var(--sc-pos); }
+.sc-stat.sc-stat-neg { border-left-color: var(--sc-neg); }
+.sc-stat.sc-stat-mid { border-left-color: var(--sc-mid); }
+.sc-stat.sc-stat-acc { border-left-color: var(--sc-accent); }
+.sc-stat .sc-stat-name {
+    font-size: 0.74rem; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.5px;
+    color: var(--sc-muted);
+}
+.sc-stat .sc-stat-val {
+    font-size: 1.40rem; font-weight: 700; margin-top: 4px;
+    font-variant-numeric: tabular-nums;
+}
+.sc-stat .sc-stat-detail {
+    font-size: 0.74rem; color: var(--sc-muted);
+    margin-top: 2px;
+}
+.sc-grid {
+    display: grid; grid-template-columns: 3fr 2fr; gap: 14px;
+}
+.sc-chart {
+    width: 100%; height: 420px;
+    background: var(--sc-card);
+    border-radius: 8px; border: 1px solid var(--sc-border);
+}
+.sc-tablewrap {
+    background: var(--sc-card);
+    border: 1px solid var(--sc-border);
+    border-radius: 8px;
+    padding: 8px 10px 6px;
+    height: 420px;
+    overflow-y: auto;
+}
+.sc-tablewrap table {
+    border-collapse: collapse; width: 100%;
+    font-size: 0.82rem;
+    font-variant-numeric: tabular-nums;
+}
+.sc-tablewrap th {
+    text-align: left;
+    font-size: 0.72rem; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.4px;
+    color: var(--sc-muted);
+    padding: 6px 6px;
+    border-bottom: 1px solid var(--sc-border);
+    position: sticky; top: 0;
+    background: var(--sc-card);
+}
+.sc-tablewrap td {
+    padding: 5px 6px;
+    border-bottom: 1px solid var(--sc-border);
+    color: var(--sc-text);
+}
+.sc-tablewrap tr.sc-pass { background: var(--sc-row-pass); }
+.sc-tablewrap tr.sc-fail { background: var(--sc-row-fail); opacity: 0.55; }
+.sc-tablewrap td.sc-tk { font-weight: 700; }
+.sc-tablewrap td.sc-fail-cell { color: var(--sc-neg); }
+.sc-tablewrap td.sc-pass-cell { color: var(--sc-pos); }
+.sc-table-title {
+    font-size: 0.85rem; font-weight: 700;
+    margin: 0 0 6px;
+    color: var(--sc-text);
+}
+.sc-caption {
+    margin-top: 12px; font-size: 0.78rem;
+    color: var(--sc-muted); line-height: 1.45;
+}
+@media (max-width: 860px) {
+    .sc-controls { grid-template-columns: repeat(2, 1fr); }
+    .sc-grid { grid-template-columns: 1fr; }
+    .sc-stats { grid-template-columns: repeat(2, 1fr); }
+    .sc-chart { height: 320px; }
+    .sc-tablewrap { height: 360px; }
+}
+</style>
+</head>
+<body>
+
+<div class="sc-root" id="sc-root">
+
+    <div class="sc-controls">
+        <div class="sc-slider-wrap">
+            <div class="sc-lbl">
+                <span class="sc-name" id="sc-lbl-pe">Max P/E</span>
+                <span class="sc-val" id="sc-val-pe">25</span>
+            </div>
+            <input type="range" id="sc-sl-pe" min="5" max="60" step="1" value="25">
+        </div>
+        <div class="sc-slider-wrap">
+            <div class="sc-lbl">
+                <span class="sc-name" id="sc-lbl-roe">Min ROE (%)</span>
+                <span class="sc-val" id="sc-val-roe">20</span>
+            </div>
+            <input type="range" id="sc-sl-roe" min="0" max="80" step="1" value="20">
+        </div>
+        <div class="sc-slider-wrap">
+            <div class="sc-lbl">
+                <span class="sc-name" id="sc-lbl-rg">Min revenue growth (%)</span>
+                <span class="sc-val" id="sc-val-rg">5</span>
+            </div>
+            <input type="range" id="sc-sl-rg" min="0" max="40" step="1" value="5">
+        </div>
+        <div class="sc-slider-wrap">
+            <div class="sc-lbl">
+                <span class="sc-name" id="sc-lbl-de">Max debt / equity</span>
+                <span class="sc-val" id="sc-val-de">1.5</span>
+            </div>
+            <input type="range" id="sc-sl-de" min="0" max="40" step="1" value="15">
+        </div>
+    </div>
+
+    <div class="sc-stats">
+        <div class="sc-stat sc-stat-mid">
+            <div class="sc-stat-name" id="sc-name-uni">Universe</div>
+            <div class="sc-stat-val" id="sc-stat-uni">30</div>
+            <div class="sc-stat-detail" id="sc-det-uni">embedded large-caps</div>
+        </div>
+        <div class="sc-stat sc-stat-pos">
+            <div class="sc-stat-name" id="sc-name-pass">Pass</div>
+            <div class="sc-stat-val" id="sc-stat-pass">—</div>
+            <div class="sc-stat-detail" id="sc-det-pass">survives all 4 filters</div>
+        </div>
+        <div class="sc-stat sc-stat-neg">
+            <div class="sc-stat-name" id="sc-name-pct">Hit rate</div>
+            <div class="sc-stat-val" id="sc-stat-pct">—</div>
+            <div class="sc-stat-detail" id="sc-det-pct">% of universe</div>
+        </div>
+        <div class="sc-stat sc-stat-acc">
+            <div class="sc-stat-name" id="sc-name-tier">Screen tier</div>
+            <div class="sc-stat-val" id="sc-stat-tier">—</div>
+            <div class="sc-stat-detail" id="sc-det-tier">tightness check</div>
+        </div>
+    </div>
+
+    <div class="sc-grid">
+        <div id="sc-chart" class="sc-chart"></div>
+        <div class="sc-tablewrap">
+            <div class="sc-table-title" id="sc-table-title">Filtered list</div>
+            <table>
+                <thead>
+                    <tr>
+                        <th id="sc-th-tk">Ticker</th>
+                        <th id="sc-th-pe">P/E</th>
+                        <th id="sc-th-roe">ROE</th>
+                        <th id="sc-th-rg">Rev g</th>
+                        <th id="sc-th-de">D/E</th>
+                    </tr>
+                </thead>
+                <tbody id="sc-tbody"></tbody>
+            </table>
+        </div>
+    </div>
+
+    <p class="sc-caption" id="sc-caption">
+        Embedded set of 30 well-known US-listed large-cap stocks with approximate April 2026 figures (P/E, ROE, 5-year revenue CAGR, debt-to-equity). Drag a slider to tighten or loosen any filter; the scatter highlights the GARP zone (low P/E + high ROE) and the table on the right lists every name with row-shading for pass/fail. The figures are illustrative for the screen frame, not a buy list.
+    </p>
+</div>
+
+<script>
+(function () {
+    const I18N = {
+        en: {
+            lbl_pe:  "Max P/E",
+            lbl_roe: "Min ROE (%)",
+            lbl_rg:  "Min revenue growth (%)",
+            lbl_de:  "Max debt / equity",
+            name_uni: "Universe",   det_uni: "embedded large-caps",
+            name_pass:"Pass",       det_pass:"survives all 4 filters",
+            name_pct: "Hit rate",   det_pct: "% of universe",
+            name_tier:"Screen tier",det_tier:"tightness check",
+            tier_loose:"Loose",     tier_normal:"Normal",
+            tier_tight:"Tight",     tier_empty:"Empty",
+            chart_title: "P/E vs ROE - 30 US large-caps, Apr 2026",
+            chart_x:    "Trailing P/E",
+            chart_y:    "Return on equity (%)",
+            zone:       "GARP zone",
+            table_title: "Filtered list",
+            th_tk:"Ticker", th_pe:"P/E", th_roe:"ROE", th_rg:"Rev g", th_de:"D/E",
+            empty_row:  "No names match. Loosen a filter.",
+            caption:    "Embedded set of 30 well-known US-listed large-cap stocks with approximate April 2026 figures (P/E, ROE, 5-year revenue CAGR, debt-to-equity). Drag a slider to tighten or loosen any filter; the scatter highlights the GARP zone (low P/E + high ROE) and the table on the right lists every name with row-shading for pass/fail. The figures are illustrative for the screen frame, not a buy list.",
+        },
+        hk: {
+            lbl_pe:  "P/E 上限",
+            lbl_roe: "ROE 下限(%)",
+            lbl_rg:  "營收增長下限(%)",
+            lbl_de:  "負債/股東權益上限",
+            name_uni: "股池",       det_uni: "嵌入大型股 30 隻",
+            name_pass:"通過",       det_pass:"全部 4 條都過",
+            name_pct: "命中率",     det_pct: "佔全池百分比",
+            name_tier:"篩選緊度",   det_tier:"緊鬆程度",
+            tier_loose:"鬆",        tier_normal:"正常",
+            tier_tight:"緊",        tier_empty:"零",
+            chart_title: "P/E 對 ROE - 30 隻美股大型股,2026 年 4 月",
+            chart_x:    "市盈率(TTM)",
+            chart_y:    "股本回報率(%)",
+            zone:       "GARP 區",
+            table_title: "篩選結果",
+            th_tk:"代碼", th_pe:"P/E", th_roe:"ROE", th_rg:"營收增長", th_de:"D/E",
+            empty_row:  "沒有股票通過篩選。請放寬條件。",
+            caption:    "嵌入 30 隻美股大型股的 2026 年 4 月近似數據(P/E、ROE、5 年營收年化增長、負債/股東權益)。拖動任一滑桿即可收緊或放寬條件;散點圖標出 GARP 區(低 P/E + 高 ROE),右側表格逐一列出全部 30 隻並以底色顯示通過/未通過。數字為示範,並非買賣建議。",
+        },
+        tw: {
+            lbl_pe:  "P/E 上限",
+            lbl_roe: "ROE 下限(%)",
+            lbl_rg:  "營收成長下限(%)",
+            lbl_de:  "負債/股東權益上限",
+            name_uni: "股池",       det_uni: "內建大型股 30 檔",
+            name_pass:"通過",       det_pass:"全部 4 條都過",
+            name_pct: "命中率",     det_pct: "佔全池比例",
+            name_tier:"篩選緊度",   det_tier:"鬆緊程度",
+            tier_loose:"鬆",        tier_normal:"正常",
+            tier_tight:"緊",        tier_empty:"零",
+            chart_title: "P/E 對 ROE - 30 檔美股大型股,2026 年 4 月",
+            chart_x:    "本益比(TTM)",
+            chart_y:    "股東權益報酬率(%)",
+            zone:       "GARP 區",
+            table_title: "篩選結果",
+            th_tk:"代碼", th_pe:"P/E", th_roe:"ROE", th_rg:"營收成長", th_de:"D/E",
+            empty_row:  "沒有股票通過篩選。請放寬條件。",
+            caption:    "內建 30 檔美股大型股的 2026 年 4 月近似數據(P/E、ROE、5 年營收年化成長、負債/股東權益)。拖動任一滑桿即可收緊或放寬條件;散點圖標示 GARP 區(低 P/E + 高 ROE),右側表格逐一列出全部 30 檔並以底色顯示通過/未通過。數字為示範,並非買賣建議。",
+        },
+        cn: {
+            lbl_pe:  "P/E 上限",
+            lbl_roe: "ROE 下限(%)",
+            lbl_rg:  "营收增长下限(%)",
+            lbl_de:  "负债/股东权益上限",
+            name_uni: "股池",       det_uni: "内嵌大盘股 30 只",
+            name_pass:"通过",       det_pass:"全部 4 条都过",
+            name_pct: "命中率",     det_pct: "占全池比例",
+            name_tier:"筛选紧度",   det_tier:"松紧程度",
+            tier_loose:"松",        tier_normal:"正常",
+            tier_tight:"紧",        tier_empty:"零",
+            chart_title: "P/E 对 ROE - 30 只美股大盘股,2026 年 4 月",
+            chart_x:    "市盈率(TTM)",
+            chart_y:    "净资产收益率(%)",
+            zone:       "GARP 区",
+            table_title: "筛选结果",
+            th_tk:"代码", th_pe:"P/E", th_roe:"ROE", th_rg:"营收增长", th_de:"D/E",
+            empty_row:  "没有股票通过筛选。请放宽条件。",
+            caption:    "内嵌 30 只美股大盘股的 2026 年 4 月近似数据(P/E、ROE、5 年营收年化增长、负债/股东权益)。拖动任一滑块即可收紧或放宽条件;散点图标出 GARP 区(低 P/E + 高 ROE),右侧表格逐一列出全部 30 只并以底色显示通过/未通过。数字为示范,并非买卖建议。",
+        },
+    };
+    function currentLang() {
+        const p = new URLSearchParams(window.location.search);
+        const l = (p.get("lang") || "en").toLowerCase();
+        return I18N.hasOwnProperty(l) ? l : "en";
+    }
+    const T = I18N[currentLang()];
+
+    // ---- Embedded universe: 30 US large-caps, April 2026 figures ----
+    // Fields: ticker, sector, PE, ROE%, 5y rev CAGR%, Debt/Equity
+    const STOCKS = [
+        ["AAPL",  "Tech",       28, 145,  6, 1.7],
+        ["MSFT",  "Tech",       32,  38, 14, 0.4],
+        ["GOOGL", "Tech",       22,  28, 13, 0.1],
+        ["AMZN",  "Disc",       38,  22, 11, 0.6],
+        ["META",  "Comm",       24,  32, 12, 0.3],
+        ["NVDA",  "Tech",       36,  90, 55, 0.4],
+        ["TSLA",  "Disc",       60,  18, 30, 0.2],
+        ["BRK.B", "Fin",        22,  12,  6, 0.2],
+        ["JPM",   "Fin",        12,  16,  8, 1.3],
+        ["V",     "Fin",        28,  50, 11, 0.6],
+        ["JNJ",   "Health",     16,  24,  4, 0.5],
+        ["UNH",   "Health",     18,  26, 10, 0.7],
+        ["PG",    "Staples",    24,  35,  4, 0.7],
+        ["KO",    "Staples",    24,  42,  5, 1.6],
+        ["PEP",   "Staples",    22,  50,  6, 1.9],
+        ["WMT",   "Staples",    28,  22,  5, 0.6],
+        ["COST",  "Staples",    48,  30,  9, 0.4],
+        ["NEE",   "Utility",    20,  12,  7, 1.2],
+        ["XOM",   "Energy",     13,  18,  5, 0.2],
+        ["CVX",   "Energy",     14,  14,  4, 0.2],
+        ["BAC",   "Fin",        11,  10,  5, 1.0],
+        ["WFC",   "Fin",        12,  11,  3, 1.1],
+        ["AVGO",  "Tech",       30,  32, 18, 1.5],
+        ["CRM",   "Tech",       34,  12, 13, 0.2],
+        ["ADBE",  "Tech",       28,  36, 11, 0.3],
+        ["NFLX",  "Comm",       30,  30, 11, 0.7],
+        ["TXN",   "Tech",       24,  38,  4, 0.8],
+        ["LIN",   "Materials",  30,  17,  9, 0.6],
+        ["TMO",   "Health",     26,  16,  7, 0.7],
+        ["ABBV",  "Health",     14,  60,  6, 3.0],
+    ];
+
+    // ---- DOM refs ----
+    const ROOT = document.getElementById("sc-root");
+    const SL = {
+        pe:  document.getElementById("sc-sl-pe"),
+        roe: document.getElementById("sc-sl-roe"),
+        rg:  document.getElementById("sc-sl-rg"),
+        de:  document.getElementById("sc-sl-de"),
+    };
+    const VAL = {
+        pe:  document.getElementById("sc-val-pe"),
+        roe: document.getElementById("sc-val-roe"),
+        rg:  document.getElementById("sc-val-rg"),
+        de:  document.getElementById("sc-val-de"),
+    };
+    const STAT_PASS = document.getElementById("sc-stat-pass");
+    const STAT_PCT  = document.getElementById("sc-stat-pct");
+    const STAT_TIER = document.getElementById("sc-stat-tier");
+    const STAT_UNI  = document.getElementById("sc-stat-uni");
+    const CHART = document.getElementById("sc-chart");
+    const TBODY = document.getElementById("sc-tbody");
+
+    function deVal() { return parseInt(SL.de.value, 10) / 10.0; }
+    function getCssVar(name) {
+        return getComputedStyle(ROOT).getPropertyValue(name).trim();
+    }
+    function darkMode() {
+        return document.documentElement.getAttribute("data-theme") === "dark";
+    }
+
+    function passes(s, f) {
+        const [, , pe, roe, rg, de] = s;
+        return pe <= f.pe && roe >= f.roe && rg >= f.rg && de <= f.de;
+    }
+
+    function render() {
+        const f = {
+            pe:  parseInt(SL.pe.value, 10),
+            roe: parseInt(SL.roe.value, 10),
+            rg:  parseInt(SL.rg.value, 10),
+            de:  deVal(),
+        };
+        VAL.pe.textContent  = f.pe.toString();
+        VAL.roe.textContent = f.roe.toString();
+        VAL.rg.textContent  = f.rg.toString();
+        VAL.de.textContent  = f.de.toFixed(1);
+
+        const passList = STOCKS.filter(s => passes(s, f));
+        const failList = STOCKS.filter(s => !passes(s, f));
+        const passN = passList.length;
+        const pct = passN / STOCKS.length;
+
+        STAT_UNI.textContent  = STOCKS.length.toString();
+        STAT_PASS.textContent = passN.toString();
+        STAT_PCT.textContent  = (pct * 100).toFixed(0) + "%";
+
+        let tier = T.tier_normal;
+        if (passN === 0) tier = T.tier_empty;
+        else if (passN <= 5) tier = T.tier_tight;
+        else if (passN >= 18) tier = T.tier_loose;
+        STAT_TIER.textContent = tier;
+
+        // ---- Scatter ----
+        const colorPos = getCssVar("--sc-pos");
+        const colorMid = getCssVar("--sc-mid");
+        const colorMuted = getCssVar("--sc-muted");
+        const colorAcc = getCssVar("--sc-accent");
+        const colorText = getCssVar("--sc-text");
+        const colorBg = getCssVar("--sc-card");
+        const colorGrid = darkMode() ? "rgba(255,255,255,0.08)" : "rgba(0,0,0,0.07)";
+        const colorZone = darkMode() ? "rgba(102,187,106,0.16)" : "rgba(46,125,50,0.13)";
+
+        // Clip outliers visually for ROE (AAPL=145).
+        const xMax = 65, yMax = 100;
+        const clip = v => Math.min(v, yMax);
+
+        // GARP zone shading from (5, f.roe) to (f.pe, yMax) when both filters active.
+        const shapes = [];
+        if (f.roe < yMax && f.pe > 5) {
+            shapes.push({
+                type: "rect", xref: "x", yref: "y",
+                x0: 5, x1: f.pe, y0: f.roe, y1: yMax,
+                fillcolor: colorZone, line: { width: 0 }, layer: "below",
+            });
+        }
+        // Cut lines.
+        shapes.push({
+            type: "line", xref: "x", yref: "y",
+            x0: f.pe, x1: f.pe, y0: 0, y1: yMax,
+            line: { color: colorMuted, width: 1, dash: "dash" },
+        });
+        shapes.push({
+            type: "line", xref: "x", yref: "y",
+            x0: 5, x1: xMax, y0: f.roe, y1: f.roe,
+            line: { color: colorMuted, width: 1, dash: "dash" },
+        });
+
+        const passX = passList.map(s => Math.min(s[2], xMax - 1));
+        const passY = passList.map(s => clip(s[3]));
+        const passText = passList.map(s => s[0]);
+        const failX = failList.map(s => Math.min(s[2], xMax - 1));
+        const failY = failList.map(s => clip(s[3]));
+        const failText = failList.map(s => s[0]);
+
+        const traces = [
+            {
+                x: failX, y: failY, mode: "markers+text", type: "scatter",
+                marker: { color: colorMid, size: 9, opacity: 0.45,
+                          line: { color: colorText, width: 0.5 } },
+                text: failText, textposition: "top center",
+                textfont: { size: 9, color: colorMuted },
+                hovertemplate: "%{text}<br>P/E %{x:.0f}<br>ROE %{y:.0f}%<extra></extra>",
+                name: "fail", showlegend: false,
+            },
+            {
+                x: passX, y: passY, mode: "markers+text", type: "scatter",
+                marker: { color: colorPos, size: 14, opacity: 0.95,
+                          line: { color: colorText, width: 0.8 } },
+                text: passText, textposition: "top center",
+                textfont: { size: 10, color: colorText, family: "Segoe UI" },
+                hovertemplate: "%{text}<br>P/E %{x:.0f}<br>ROE %{y:.0f}%<extra></extra>",
+                name: "pass", showlegend: false,
+            },
+        ];
+
+        const annotations = [];
+        if (f.roe < yMax && f.pe > 5) {
+            annotations.push({
+                x: 5 + (f.pe - 5) * 0.04,
+                y: yMax - 3,
+                xref: "x", yref: "y",
+                text: T.zone,
+                showarrow: false,
+                font: { color: colorPos, size: 11, family: "Segoe UI" },
+                xanchor: "left", yanchor: "top",
+            });
+        }
+
+        const layout = {
+            margin: { l: 56, r: 16, t: 40, b: 44 },
+            paper_bgcolor: colorBg, plot_bgcolor: colorBg,
+            font: { family: "Segoe UI, Helvetica, Arial, sans-serif", color: colorText, size: 11 },
+            title: { text: T.chart_title, x: 0, xanchor: "left",
+                     font: { size: 12.5, color: colorText } },
+            xaxis: { title: { text: T.chart_x, font: { color: colorMuted } },
+                     gridcolor: colorGrid, color: colorText, range: [5, xMax],
+                     zerolinecolor: colorGrid },
+            yaxis: { title: { text: T.chart_y, font: { color: colorMuted } },
+                     gridcolor: colorGrid, color: colorText, range: [0, yMax],
+                     zerolinecolor: colorGrid },
+            shapes: shapes,
+            annotations: annotations,
+            hovermode: "closest",
+        };
+        Plotly.react(CHART, traces, layout, { displayModeBar: false, responsive: true });
+
+        // ---- Table ----
+        // Sort: pass first (by ROE desc), then fail (by ROE desc)
+        const sorted = [
+            ...passList.slice().sort((a, b) => b[3] - a[3]),
+            ...failList.slice().sort((a, b) => b[3] - a[3]),
+        ];
+        const rows = sorted.map(s => {
+            const [tk, , pe, roe, rg, de] = s;
+            const ok = passes(s, f);
+            const cls = ok ? "sc-pass" : "sc-fail";
+            const pec  = pe  <= f.pe  ? "sc-pass-cell" : "sc-fail-cell";
+            const roec = roe >= f.roe ? "sc-pass-cell" : "sc-fail-cell";
+            const rgc  = rg  >= f.rg  ? "sc-pass-cell" : "sc-fail-cell";
+            const dec  = de  <= f.de  ? "sc-pass-cell" : "sc-fail-cell";
+            return `<tr class="${cls}"><td class="sc-tk">${tk}</td>` +
+                   `<td class="${pec}">${pe}</td>` +
+                   `<td class="${roec}">${roe}</td>` +
+                   `<td class="${rgc}">${rg}%</td>` +
+                   `<td class="${dec}">${de.toFixed(1)}</td></tr>`;
+        }).join("");
+        TBODY.innerHTML = rows;
+    }
+
+    function applyI18n() {
+        document.getElementById("sc-lbl-pe").textContent  = T.lbl_pe;
+        document.getElementById("sc-lbl-roe").textContent = T.lbl_roe;
+        document.getElementById("sc-lbl-rg").textContent  = T.lbl_rg;
+        document.getElementById("sc-lbl-de").textContent  = T.lbl_de;
+        document.getElementById("sc-name-uni").textContent  = T.name_uni;
+        document.getElementById("sc-det-uni").textContent   = T.det_uni;
+        document.getElementById("sc-name-pass").textContent = T.name_pass;
+        document.getElementById("sc-det-pass").textContent  = T.det_pass;
+        document.getElementById("sc-name-pct").textContent  = T.name_pct;
+        document.getElementById("sc-det-pct").textContent   = T.det_pct;
+        document.getElementById("sc-name-tier").textContent = T.name_tier;
+        document.getElementById("sc-det-tier").textContent  = T.det_tier;
+        document.getElementById("sc-table-title").textContent = T.table_title;
+        document.getElementById("sc-th-tk").textContent  = T.th_tk;
+        document.getElementById("sc-th-pe").textContent  = T.th_pe;
+        document.getElementById("sc-th-roe").textContent = T.th_roe;
+        document.getElementById("sc-th-rg").textContent  = T.th_rg;
+        document.getElementById("sc-th-de").textContent  = T.th_de;
+        document.getElementById("sc-caption").textContent = T.caption;
+    }
+
+    // ---- Wire up ----
+    for (const k of ["pe", "roe", "rg", "de"]) {
+        SL[k].addEventListener("input", render);
+    }
+    applyI18n();
+    render();
+
+    // ---- postMessage resize ----
+    function reportHeight() {
+        try {
+            var h = Math.ceil(document.documentElement.scrollHeight);
+            parent.postMessage({ type: 'lesson-interactive-resize', height: h }, '*');
+        } catch (e) { /* ignore */ }
+    }
+    if (typeof ResizeObserver !== 'undefined') {
+        new ResizeObserver(reportHeight).observe(document.body);
+    }
+    window.addEventListener('resize', reportHeight);
+    setTimeout(reportHeight, 50);
+    setTimeout(reportHeight, 500);
+
+    // ---- Theme observer ----
+    const themeObserver = new MutationObserver(render);
+    themeObserver.observe(document.documentElement, {
+        attributes: true,
+        attributeFilter: ["data-theme"],
+    });
+})();
+</script>
+
+</body>
+</html>

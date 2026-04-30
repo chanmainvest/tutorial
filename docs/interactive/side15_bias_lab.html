@@ -1,0 +1,673 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Bias Lab - Interactive (Side 15)</title>
+<script src="https://cdn.plot.ly/plotly-2.35.2.min.js" charset="utf-8"></script>
+<style>
+html, body { margin: 0; padding: 0; background: var(--bl-bg); }
+:root {
+    --bl-bg: #fdfbf5;
+    --bl-text: #1a2332;
+    --bl-muted: #6b7280;
+    --bl-border: #d6d3c4;
+    --bl-card: #fdfbf5;
+    --bl-accent: #b8860b;
+    --bl-blue: #0d47a1;
+    --bl-red: #b71c1c;
+    --bl-green: #2e7d32;
+    --bl-purple: #6a1b9a;
+    --bl-orange: #e65100;
+    --bl-grey: #5a5a5a;
+}
+html[data-theme="dark"] .bl-root,
+.bl-root[data-theme="dark"] {
+    --bl-bg: #0f1724;
+    --bl-text: #e6e6e6;
+    --bl-muted: #9aa3b2;
+    --bl-border: #2a3441;
+    --bl-card: #0f1724;
+    --bl-blue: #5a8dee;
+    --bl-red: #ef5350;
+    --bl-green: #66bb6a;
+    --bl-purple: #ba68c8;
+    --bl-orange: #ffa726;
+    --bl-grey: #aaaaaa;
+}
+.bl-root {
+    font-family: 'Segoe UI', Helvetica, Arial, sans-serif;
+    background: var(--bl-bg);
+    color: var(--bl-text);
+    padding: 12px;
+    margin: 0;
+}
+.bl-pickerlabel {
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: var(--bl-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+    margin-bottom: 6px;
+}
+.bl-scenarios {
+    display: flex; flex-wrap: wrap; gap: 6px;
+    margin-bottom: 12px;
+}
+.bl-pill {
+    border: 1px solid var(--bl-border);
+    background: var(--bl-card);
+    color: var(--bl-text);
+    padding: 6px 12px;
+    border-radius: 999px;
+    cursor: pointer;
+    font: inherit;
+    font-size: 0.82rem;
+    font-weight: 600;
+}
+.bl-pill:hover { background: var(--bl-accent); color: #fff; }
+.bl-pill.bl-active {
+    background: var(--bl-accent);
+    color: #fff;
+    border-color: var(--bl-accent);
+}
+.bl-question {
+    background: var(--bl-card);
+    border: 1px solid var(--bl-border);
+    border-left: 4px solid var(--bl-accent);
+    border-radius: 8px;
+    padding: 12px 14px;
+    margin-bottom: 14px;
+}
+.bl-q-title {
+    font-size: 1.02rem;
+    font-weight: 700;
+    color: var(--bl-text);
+    margin-bottom: 4px;
+}
+.bl-q-desc {
+    font-size: 0.85rem;
+    color: var(--bl-muted);
+    line-height: 1.45;
+}
+.bl-choices {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-bottom: 14px;
+}
+.bl-choice {
+    background: var(--bl-card);
+    border: 1px solid var(--bl-border);
+    border-radius: 8px;
+    padding: 12px 14px;
+    cursor: pointer;
+    transition: border-color 0.15s, box-shadow 0.15s;
+}
+.bl-choice:hover { border-color: var(--bl-accent); }
+.bl-choice.bl-picked {
+    border-color: var(--bl-accent);
+    box-shadow: 0 0 0 2px var(--bl-accent) inset;
+}
+.bl-choice-name {
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: var(--bl-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+    margin-bottom: 4px;
+}
+.bl-choice-action {
+    font-size: 1.0rem;
+    font-weight: 700;
+    color: var(--bl-text);
+    margin-bottom: 4px;
+}
+.bl-choice-bias {
+    font-size: 0.78rem;
+    color: var(--bl-muted);
+    line-height: 1.4;
+}
+.bl-bigrow {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 10px;
+    margin-bottom: 14px;
+}
+.bl-big {
+    background: var(--bl-card);
+    border: 1px solid var(--bl-border);
+    border-left: 4px solid var(--bl-accent);
+    border-radius: 8px;
+    padding: 10px 12px;
+}
+.bl-big.bl-b-rat   { border-left-color: var(--bl-green); }
+.bl-big.bl-b-bias  { border-left-color: var(--bl-red); }
+.bl-big.bl-b-gap   { border-left-color: var(--bl-orange); }
+.bl-big .bl-big-name {
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--bl-muted);
+}
+.bl-big .bl-big-val {
+    font-size: 1.4rem;
+    font-weight: 800;
+    margin-top: 4px;
+    font-variant-numeric: tabular-nums;
+    color: var(--bl-text);
+}
+.bl-big .bl-big-detail {
+    font-size: 0.72rem;
+    color: var(--bl-muted);
+    margin-top: 2px;
+}
+.bl-chart {
+    width: 100%;
+    height: 360px;
+    background: var(--bl-card);
+    border-radius: 8px;
+    border: 1px solid var(--bl-border);
+}
+.bl-verdict {
+    margin-top: 12px;
+    padding: 10px 14px;
+    border: 1px solid var(--bl-border);
+    border-left: 4px solid var(--bl-orange);
+    background: var(--bl-card);
+    border-radius: 8px;
+    font-size: 0.88rem;
+    color: var(--bl-text);
+    line-height: 1.5;
+}
+.bl-verdict.good { border-left-color: var(--bl-green); }
+.bl-verdict.bad  { border-left-color: var(--bl-red); }
+.bl-caption {
+    margin-top: 10px;
+    font-size: 0.78rem;
+    color: var(--bl-muted);
+    line-height: 1.45;
+}
+@media (max-width: 760px) {
+    .bl-choices { grid-template-columns: 1fr; }
+    .bl-bigrow  { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<div class="bl-root" id="bl-root">
+    <div class="bl-pickerlabel" id="bl-pickerlabel">Pick a scenario</div>
+    <div class="bl-scenarios" id="bl-scenarios"></div>
+
+    <div class="bl-question">
+        <div class="bl-q-title" id="bl-q-title">—</div>
+        <div class="bl-q-desc"  id="bl-q-desc">—</div>
+    </div>
+
+    <div class="bl-choices">
+        <div class="bl-choice" id="bl-choice-A" data-pick="A">
+            <div class="bl-choice-name"   id="bl-cA-name">Choice A</div>
+            <div class="bl-choice-action" id="bl-cA-action">—</div>
+            <div class="bl-choice-bias"   id="bl-cA-bias">—</div>
+        </div>
+        <div class="bl-choice" id="bl-choice-B" data-pick="B">
+            <div class="bl-choice-name"   id="bl-cB-name">Choice B</div>
+            <div class="bl-choice-action" id="bl-cB-action">—</div>
+            <div class="bl-choice-bias"   id="bl-cB-bias">—</div>
+        </div>
+    </div>
+
+    <div class="bl-bigrow">
+        <div class="bl-big bl-b-rat">
+            <div class="bl-big-name"   id="bl-bn-rat">Rational outcome (12mo)</div>
+            <div class="bl-big-val"    id="bl-bv-rat">—</div>
+            <div class="bl-big-detail" id="bl-bd-rat">forward expected return</div>
+        </div>
+        <div class="bl-big bl-b-bias">
+            <div class="bl-big-name"   id="bl-bn-bias">Behavioural outcome (12mo)</div>
+            <div class="bl-big-val"    id="bl-bv-bias">—</div>
+            <div class="bl-big-detail" id="bl-bd-bias">typical bias-driven path</div>
+        </div>
+        <div class="bl-big bl-b-gap">
+            <div class="bl-big-name"   id="bl-bn-gap">Behavioural cost</div>
+            <div class="bl-big-val"    id="bl-bv-gap">—</div>
+            <div class="bl-big-detail" id="bl-bd-gap">$ rational - $ behavioural</div>
+        </div>
+    </div>
+
+    <div id="bl-chart" class="bl-chart"></div>
+
+    <div class="bl-verdict" id="bl-verdict">—</div>
+
+    <p class="bl-caption" id="bl-caption">
+        Each scenario shows a typical path over the 12 months following the decision. The "rational" choice follows the SOUL #12 rule -- forward expected return from here, not anchored to the buy price. The "behavioural" choice is the one most retail brokerage data shows the average investor making (loss aversion, recency, FOMO). Paths are stylised but consistent with empirical post-event drift in 1928-2024 US equity data and Shefrin-Statman disposition-effect findings.
+    </p>
+</div>
+
+<script>
+(function () {
+    var I18N = {
+        en: {
+            picker: "Pick a scenario",
+            scen_down30:  "Stock down 30% -- sell or hold?",
+            scen_up50:    "Stock up 50% -- sell or hold?",
+            scen_missed:  "Missed the rally -- chase or wait?",
+            q_down30_title: "Your stock is down 30% from your buy price.",
+            q_down30_desc:  "You bought at $100. It is now $70. The fundamentals have not changed; the market mood has. What do you do?",
+            q_up50_title:   "Your stock is up 50% from your buy price.",
+            q_up50_desc:    "You bought at $100. It is now $150. Earnings are still growing; the thesis has played out roughly half-way. What do you do?",
+            q_missed_title: "The market is up 30% in three months and you are in cash.",
+            q_missed_desc:  "You stayed on the sidelines waiting for a pullback that never came. The S&P is at all-time highs. What do you do now?",
+            cA_name: "Rational",
+            cB_name: "Behavioural",
+            // down30
+            d30_rat_action:  "Hold (or add) if thesis intact",
+            d30_rat_bias:    "Reset to forward expected return -- buy price is irrelevant. Mean-reversion historical: -20% years average +14%/yr next 5y.",
+            d30_bias_action: "Sell to avoid further pain",
+            d30_bias_bias:   "Loss aversion (lambda 2.25) + disposition effect: realise loss to escape the felt pain. Locks in the bottom roughly 60% of the time.",
+            // up50
+            u50_rat_action:  "Hold or trim only if size > 5%",
+            u50_rat_bias:    "Forward expected return is unchanged by your gain. Trimming is for risk control (sizing), not for locking in feelings.",
+            u50_bias_action: "Sell to lock in the gain",
+            u50_bias_bias:   "Disposition effect: realise gains 1.5x as often as equal-sized losses. Cuts winners early and orphans the compounding tail.",
+            // missed
+            ms_rat_action:   "Wait + DCA over 6-12 months",
+            ms_rat_bias:     "Vanguard 2012/2023: lump-sum wins ~67% of the time, BUT after a 30% three-month rally the conditional expected return is -2 to +4%. DCA into strength is fine.",
+            ms_bias_action:  "Chase -- buy at the high",
+            ms_bias_bias:    "FOMO + recency bias: extrapolating last 3 months. Median 12mo return after a 3-month +30% sprint is roughly flat with -10% drawdown risk.",
+            // KPI labels
+            kp_rat:   "Rational outcome (12mo)",
+            kp_bias:  "Behavioural outcome (12mo)",
+            kp_gap:   "Behavioural cost",
+            kp_rat_d:  "forward expected return",
+            kp_bias_d: "typical bias-driven path",
+            kp_gap_d:  "$ rational - $ behavioural",
+            // chart
+            chart_title:     "12-month wealth path on $10,000 starting from the decision date",
+            chart_x:         "Months from decision",
+            chart_y:         "Wealth ($)",
+            tr_rat:          "Rational path",
+            tr_bias:         "Behavioural path",
+            // verdict
+            verdict_d30_rat:  "You picked the rational hold. Empirically, holding through a 30% non-thesis-broken drawdown recovers in roughly 70% of cases within 12-24 months (US large-cap, 1928-2024). The remaining 30% requires the kill switch -- not loss aversion -- to exit.",
+            verdict_d30_bias: "You picked the behavioural sell. Loss aversion just paid for itself. The empirical 12-month gap on a $10k position is ~$1,200 in forfeited mean-reversion. Pre-commit to the sell rule before the drawdown next time.",
+            verdict_u50_rat:  "You picked the rational hold. Disposition effect avoided. Winners that kept compounding past +50% historically delivered another +12-18% per year on average. Trim only if the position is now > 5% of the portfolio.",
+            verdict_u50_bias: "You picked the behavioural sell. The good feeling of locking in the gain costs roughly +12% of forward expected return in the median case. The portfolio of stocks-you-never-sold-too-early beats the portfolio of stocks-you-cut-at-+50% by 3-4 pp/yr.",
+            verdict_ms_rat:   "You picked the rational wait + DCA. Conditional expected return after a 3-month +30% sprint is statistically poor; DCA over 6-12 months captures most of the long-run premium without taking the timing risk of a top.",
+            verdict_ms_bias:  "You picked the behavioural chase. FOMO sized at the strength of the feeling tends to over-allocate at exactly the worst entry point. Median 12-month outcome from a +30% three-month sprint is flat with -10% drawdown risk. The behavioural cost is real.",
+            footer: "Each scenario shows a typical path over the 12 months following the decision. The 'rational' choice follows the SOUL #12 rule -- forward expected return from here, not anchored to the buy price. The 'behavioural' choice is the one most retail brokerage data shows the average investor making (loss aversion, recency, FOMO). Paths are stylised but consistent with empirical post-event drift in 1928-2024 US equity data and Shefrin-Statman disposition-effect findings.",
+        },
+        hk: {
+            picker: "選擇情景",
+            scen_down30:  "股票跌 30% -- 賣定揸?",
+            scen_up50:    "股票升 50% -- 賣定揸?",
+            scen_missed:  "錯過反彈 -- 追定等?",
+            q_down30_title: "你的股票較買入價跌咗 30%。",
+            q_down30_desc:  "你 100 元買入,現價 70 元。基本面冇變,市場情緒變咗。你會點?",
+            q_up50_title:   "你的股票較買入價升咗 50%。",
+            q_up50_desc:    "你 100 元買入,現價 150 元。盈利仍在增長,論述大約走咗一半。你會點?",
+            q_missed_title: "市場 3 個月升咗 30%,你揸現金。",
+            q_missed_desc:  "你坐在場邊等回落,但回落冇出現。標普創新高。你而家會點?",
+            cA_name: "理性",
+            cB_name: "行為",
+            d30_rat_action:  "若論述完好則揸/加",
+            d30_rat_bias:    "重設為向前期望回報 -- 買入價無關。歷史均值回歸:-20% 之年其後 5 年平均 +14%/年。",
+            d30_bias_action: "為免再痛而沽出",
+            d30_bias_bias:   "損失厭惡(lambda 2.25)+ 處置效應:沽出實現損失以逃避痛感。約 60% 機會鎖定底部。",
+            u50_rat_action:  "揸,僅當倉位 >5% 才減",
+            u50_rat_bias:    "你的盈利不會改變向前期望回報。減倉只是風控(規模),不是鎖定感覺。",
+            u50_bias_action: "沽出鎖定盈利",
+            u50_bias_bias:   "處置效應:實現盈利的頻率為等額損失之 1.5 倍。過早砍贏家,失去複利長尾。",
+            ms_rat_action:   "等 + 6-12 個月分批入",
+            ms_rat_bias:     "Vanguard 2012/2023:單筆約 67% 機會勝出。但 3 個月 +30% 之後,條件期望回報只有 -2 至 +4%。順勢分批入無問題。",
+            ms_bias_action:  "追 -- 高位買入",
+            ms_bias_bias:    "FOMO + 近因偏誤:外推最近 3 個月。3 個月 +30% 衝刺後,12 個月中位回報接近持平,有 -10% 回撤風險。",
+            kp_rat:   "理性結局(12 個月)",
+            kp_bias:  "行為結局(12 個月)",
+            kp_gap:   "行為代價",
+            kp_rat_d:  "向前期望回報",
+            kp_bias_d: "典型偏誤驅動路徑",
+            kp_gap_d:  "$ 理性 - $ 行為",
+            chart_title:     "決策日起 1 萬美元的 12 個月財富路徑",
+            chart_x:         "決策後月份",
+            chart_y:         "財富 ($)",
+            tr_rat:          "理性路徑",
+            tr_bias:         "行為路徑",
+            verdict_d30_rat:  "你揀咗理性揸。實證上,論述未破之 30% 回撤後,約 70% 個案 12-24 個月內可收復(美國大型股 1928-2024)。其餘 30% 要靠 kill switch 退場 -- 唔係損失厭惡。",
+            verdict_d30_bias: "你揀咗行為沽。損失厭惡剛剛收費。1 萬美元倉位 12 個月實證落差約 1,200 美元,被沽走嘅均值回歸。下次回撤前先預先承諾沽出規則。",
+            verdict_u50_rat:  "你揀咗理性揸。避開處置效應。歷史上 +50% 後仍持續複利的贏家,平均年化再升 +12-18%。僅當倉位 > 投組 5% 才減。",
+            verdict_u50_bias: "你揀咗行為沽。鎖定盈利的好感覺,中位數約犧牲 +12% 向前期望回報。從不過早砍贏家的投組,每年勝過 +50% 即砍的投組 3-4 個百分點。",
+            verdict_ms_rat:   "你揀咗理性等 + 分批入。3 個月 +30% 衝刺後條件期望回報統計上偏差;6-12 個月分批入捕捉大部分長線溢價,避免高點進場風險。",
+            verdict_ms_bias:  "你揀咗行為追。FOMO 按感覺強度落注,正好在最差入場點過度配置。3 個月 +30% 後 12 個月中位接近持平,有 -10% 回撤風險。行為代價真實存在。",
+            footer: "每個情景展示決策後 12 個月之典型路徑。「理性」選擇遵循 SOUL #12 規則 -- 向前期望回報,不錨定買入價。「行為」選擇即多數零售券商數據顯示之平均投資者選擇(損失厭惡、近因、FOMO)。路徑經過樣式化,但與 1928-2024 美股實證事件後漂移及 Shefrin-Statman 處置效應一致。",
+        },
+        tw: {
+            picker: "選擇情境",
+            scen_down30:  "股票跌 30% -- 賣或抱?",
+            scen_up50:    "股票漲 50% -- 賣或抱?",
+            scen_missed:  "錯過反彈 -- 追或等?",
+            q_down30_title: "你的股票較買入價下跌 30%。",
+            q_down30_desc:  "你 100 元買入,現價 70 元。基本面未變,市場情緒變了。你會怎麼做?",
+            q_up50_title:   "你的股票較買入價上漲 50%。",
+            q_up50_desc:    "你 100 元買入,現價 150 元。盈餘仍在成長,論點大約走了一半。你會怎麼做?",
+            q_missed_title: "市場 3 個月漲了 30%,你抱現金。",
+            q_missed_desc:  "你站在場邊等回檔,但回檔沒有出現。標普創新高。你現在會怎麼做?",
+            cA_name: "理性",
+            cB_name: "行為",
+            d30_rat_action:  "若論點完好則抱/加",
+            d30_rat_bias:    "重設為向前預期報酬 -- 買入價無關。歷史均值回歸:-20% 之年其後 5 年平均 +14%/年。",
+            d30_bias_action: "為免再痛而賣出",
+            d30_bias_bias:   "損失趨避(lambda 2.25)+ 處置效應:賣出實現損失以逃避痛感。約 60% 機率鎖定底部。",
+            u50_rat_action:  "抱,僅當部位 >5% 才減",
+            u50_rat_bias:    "你的獲利不會改變向前預期報酬。減倉只是風控(規模),不是鎖定感覺。",
+            u50_bias_action: "賣出鎖定獲利",
+            u50_bias_bias:   "處置效應:實現獲利的頻率為等額損失之 1.5 倍。過早砍贏家,失去複利長尾。",
+            ms_rat_action:   "等 + 6-12 個月分批入",
+            ms_rat_bias:     "Vanguard 2012/2023:單筆約 67% 機率勝出。但 3 個月 +30% 之後,條件預期報酬只有 -2 至 +4%。順勢分批入無問題。",
+            ms_bias_action:  "追 -- 高點買入",
+            ms_bias_bias:    "FOMO + 近因偏誤:外推最近 3 個月。3 個月 +30% 衝刺後,12 個月中位數接近持平,有 -10% 回撤風險。",
+            kp_rat:   "理性結局(12 個月)",
+            kp_bias:  "行為結局(12 個月)",
+            kp_gap:   "行為代價",
+            kp_rat_d:  "向前預期報酬",
+            kp_bias_d: "典型偏誤驅動路徑",
+            kp_gap_d:  "$ 理性 - $ 行為",
+            chart_title:     "決策日起 1 萬美元的 12 個月財富路徑",
+            chart_x:         "決策後月份",
+            chart_y:         "財富 ($)",
+            tr_rat:          "理性路徑",
+            tr_bias:         "行為路徑",
+            verdict_d30_rat:  "你選了理性抱。實證上,論點未破之 30% 回撤後,約 70% 個案 12-24 個月內可收復(美國大型股 1928-2024)。其餘 30% 要靠 kill switch 退場 -- 不是損失趨避。",
+            verdict_d30_bias: "你選了行為賣。損失趨避剛剛收費。1 萬美元部位 12 個月實證落差約 1,200 美元,被賣走的均值回歸。下次回撤前先預先承諾賣出規則。",
+            verdict_u50_rat:  "你選了理性抱。避開處置效應。歷史上 +50% 後仍持續複利的贏家,平均年化再漲 +12-18%。僅當部位 > 投組 5% 才減。",
+            verdict_u50_bias: "你選了行為賣。鎖定獲利的好感覺,中位數約犧牲 +12% 向前預期報酬。從不過早砍贏家的投組,每年勝過 +50% 即砍的投組 3-4 個百分點。",
+            verdict_ms_rat:   "你選了理性等 + 分批入。3 個月 +30% 衝刺後條件預期報酬統計上偏差;6-12 個月分批入捕捉大部分長線溢價,避免高點進場風險。",
+            verdict_ms_bias:  "你選了行為追。FOMO 按感覺強度下注,正好在最差進場點過度配置。3 個月 +30% 後 12 個月中位接近持平,有 -10% 回撤風險。行為代價真實存在。",
+            footer: "每個情境呈現決策後 12 個月之典型路徑。「理性」選擇遵循 SOUL #12 規則 -- 向前預期報酬,不錨定買入價。「行為」選擇即多數零售券商資料顯示之平均投資人選擇(損失趨避、近因、FOMO)。路徑經過樣式化,但與 1928-2024 美股實證事件後漂移及 Shefrin-Statman 處置效應一致。",
+        },
+        cn: {
+            picker: "选择情景",
+            scen_down30:  "股票跌 30% -- 卖或持?",
+            scen_up50:    "股票涨 50% -- 卖或持?",
+            scen_missed:  "错过反弹 -- 追或等?",
+            q_down30_title: "你的股票较买入价下跌 30%。",
+            q_down30_desc:  "你 100 元买入,现价 70 元。基本面未变,市场情绪变了。你会怎么做?",
+            q_up50_title:   "你的股票较买入价上涨 50%。",
+            q_up50_desc:    "你 100 元买入,现价 150 元。盈利仍在增长,论点大约走了一半。你会怎么做?",
+            q_missed_title: "市场 3 个月涨了 30%,你持现金。",
+            q_missed_desc:  "你站在场边等回调,但回调没有出现。标普创新高。你现在会怎么做?",
+            cA_name: "理性",
+            cB_name: "行为",
+            d30_rat_action:  "若论点完好则持/加",
+            d30_rat_bias:    "重设为向前预期回报 -- 买入价无关。历史均值回归:-20% 之年其后 5 年平均 +14%/年。",
+            d30_bias_action: "为免再痛而卖出",
+            d30_bias_bias:   "损失厌恶(lambda 2.25)+ 处置效应:卖出实现损失以逃避痛感。约 60% 概率锁定底部。",
+            u50_rat_action:  "持,仅当仓位 >5% 才减",
+            u50_rat_bias:    "你的盈利不会改变向前预期回报。减仓只是风控(规模),不是锁定感觉。",
+            u50_bias_action: "卖出锁定盈利",
+            u50_bias_bias:   "处置效应:实现盈利的频率为等额损失之 1.5 倍。过早砍赢家,失去复利长尾。",
+            ms_rat_action:   "等 + 6-12 个月分批入",
+            ms_rat_bias:     "Vanguard 2012/2023:单笔约 67% 概率胜出。但 3 个月 +30% 之后,条件预期回报只有 -2 至 +4%。顺势分批入无问题。",
+            ms_bias_action:  "追 -- 高点买入",
+            ms_bias_bias:    "FOMO + 近因偏误:外推最近 3 个月。3 个月 +30% 冲刺后,12 个月中位接近持平,有 -10% 回撤风险。",
+            kp_rat:   "理性结局(12 个月)",
+            kp_bias:  "行为结局(12 个月)",
+            kp_gap:   "行为代价",
+            kp_rat_d:  "向前预期回报",
+            kp_bias_d: "典型偏误驱动路径",
+            kp_gap_d:  "$ 理性 - $ 行为",
+            chart_title:     "决策日起 1 万美元的 12 个月财富路径",
+            chart_x:         "决策后月份",
+            chart_y:         "财富 ($)",
+            tr_rat:          "理性路径",
+            tr_bias:         "行为路径",
+            verdict_d30_rat:  "你选了理性持。实证上,论点未破之 30% 回撤后,约 70% 个案 12-24 个月内可收复(美国大盘 1928-2024)。其余 30% 要靠 kill switch 退场 -- 不是损失厌恶。",
+            verdict_d30_bias: "你选了行为卖。损失厌恶刚刚收费。1 万美元仓位 12 个月实证落差约 1,200 美元,被卖走的均值回归。下次回撤前先预先承诺卖出规则。",
+            verdict_u50_rat:  "你选了理性持。避开处置效应。历史上 +50% 后仍持续复利的赢家,平均年化再涨 +12-18%。仅当仓位 > 投组 5% 才减。",
+            verdict_u50_bias: "你选了行为卖。锁定盈利的好感觉,中位数约牺牲 +12% 向前预期回报。从不过早砍赢家的投组,每年胜过 +50% 即砍的投组 3-4 个百分点。",
+            verdict_ms_rat:   "你选了理性等 + 分批入。3 个月 +30% 冲刺后条件预期回报统计上偏差;6-12 个月分批入捕捉大部分长线溢价,避免高点进场风险。",
+            verdict_ms_bias:  "你选了行为追。FOMO 按感觉强度下注,正好在最差进场点过度配置。3 个月 +30% 后 12 个月中位接近持平,有 -10% 回撤风险。行为代价真实存在。",
+            footer: "每个情景展示决策后 12 个月之典型路径。「理性」选择遵循 SOUL #12 规则 -- 向前预期回报,不锚定买入价。「行为」选择即多数零售券商数据显示之平均投资者选择(损失厌恶、近因、FOMO)。路径经过样式化,但与 1928-2024 美股实证事件后漂移及 Shefrin-Statman 处置效应一致。",
+        },
+    };
+    function currentLang() {
+        var p = new URLSearchParams(window.location.search);
+        var l = (p.get("lang") || "en").toLowerCase();
+        return I18N.hasOwnProperty(l) ? l : "en";
+    }
+    var T = I18N[currentLang()];
+
+    // Scenario definitions: each scenario specifies the rational and behavioural
+    // 12-month wealth paths starting at $10,000 from the decision date.
+    // Anchors are picked to be empirically defensible and consistent with the
+    // markdown narrative. Path values are wealth multiples relative to t=0.
+    var INITIAL = 10000;
+    var SCENARIOS = {
+        down30: {
+            // Stock down 30% non-thesis-broken: rational HOLD recovers
+            // partially over 12 months (mean-reversion), behavioural SELL
+            // sits in cash earning T-bill 4.3%/yr.
+            rat:  [1.00, 1.02, 0.99, 1.03, 1.07, 1.09, 1.12, 1.10, 1.13, 1.15, 1.16, 1.18, 1.20],
+            bias: [1.00, 1.004, 1.008, 1.011, 1.015, 1.019, 1.023, 1.027, 1.031, 1.035, 1.039, 1.043, 1.043],
+            kpA: "rat", kpB: "bias",
+        },
+        up50: {
+            // Stock up 50%, thesis still half-played: rational HOLD
+            // continues to compound at ~14%/yr, behavioural SELL sits in
+            // cash at T-bill.
+            rat:  [1.00, 1.012, 1.025, 1.022, 1.040, 1.055, 1.065, 1.075, 1.090, 1.100, 1.110, 1.125, 1.140],
+            bias: [1.00, 1.004, 1.008, 1.011, 1.015, 1.019, 1.023, 1.027, 1.031, 1.035, 1.039, 1.043, 1.043],
+            kpA: "rat", kpB: "bias",
+        },
+        missed: {
+            // After a +30% three-month sprint: rational WAIT+DCA gets
+            // moderate exposure into a flat-to-down median path,
+            // behavioural CHASE goes 100% in at the local top.
+            rat:  [1.00, 1.005, 1.010, 1.015, 1.020, 1.018, 1.022, 1.025, 1.028, 1.030, 1.035, 1.040, 1.045],
+            bias: [1.00, 1.005, 0.99, 0.97, 0.94, 0.92, 0.95, 0.97, 0.96, 0.98, 1.00, 0.99, 1.005],
+            kpA: "rat", kpB: "bias",
+        },
+    };
+    var DEFAULT_SCEN = "down30";
+
+    var ROOT = document.getElementById("bl-root");
+    var SCEN_EL = document.getElementById("bl-scenarios");
+    var CHART = document.getElementById("bl-chart");
+    var VERDICT = document.getElementById("bl-verdict");
+    var Q_TITLE = document.getElementById("bl-q-title");
+    var Q_DESC  = document.getElementById("bl-q-desc");
+    var CHOICE_A = document.getElementById("bl-choice-A");
+    var CHOICE_B = document.getElementById("bl-choice-B");
+
+    var activeScen = DEFAULT_SCEN;
+    var pickedChoice = null;  // "A" (rational) or "B" (behavioural)
+
+    function darkMode() {
+        return document.documentElement.getAttribute("data-theme") === "dark";
+    }
+    function getCssVar(name) {
+        return getComputedStyle(ROOT).getPropertyValue(name).trim();
+    }
+    function fmtMoney(n) {
+        if (!isFinite(n)) return "—";
+        var sign = n < 0 ? "-" : "";
+        var abs = Math.abs(n);
+        return sign + "$" + abs.toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    }
+    function fmtSignedMoney(n) {
+        if (!isFinite(n)) return "—";
+        return (n >= 0 ? "+" : "-") + "$" +
+            Math.abs(n).toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    }
+
+    function applyI18n() {
+        document.getElementById("bl-pickerlabel").textContent = T.picker;
+        document.getElementById("bl-bn-rat").textContent  = T.kp_rat;
+        document.getElementById("bl-bn-bias").textContent = T.kp_bias;
+        document.getElementById("bl-bn-gap").textContent  = T.kp_gap;
+        document.getElementById("bl-bd-rat").textContent  = T.kp_rat_d;
+        document.getElementById("bl-bd-bias").textContent = T.kp_bias_d;
+        document.getElementById("bl-bd-gap").textContent  = T.kp_gap_d;
+        document.getElementById("bl-cA-name").textContent = T.cA_name;
+        document.getElementById("bl-cB-name").textContent = T.cB_name;
+        document.getElementById("bl-caption").textContent = T.footer;
+    }
+
+    function buildScenarios() {
+        SCEN_EL.innerHTML = "";
+        var keys = ["down30", "up50", "missed"];
+        keys.forEach(function (key) {
+            var btn = document.createElement("button");
+            btn.type = "button";
+            btn.className = "bl-pill" + (key === activeScen ? " bl-active" : "");
+            btn.textContent = T["scen_" + key];
+            btn.dataset.scen = key;
+            btn.addEventListener("click", function () { applyScenario(key); });
+            SCEN_EL.appendChild(btn);
+        });
+    }
+
+    function applyScenario(key) {
+        activeScen = key;
+        pickedChoice = null;
+        Array.prototype.forEach.call(
+            SCEN_EL.querySelectorAll(".bl-pill"),
+            function (b) {
+                b.classList.toggle("bl-active", b.dataset.scen === key);
+            });
+        // Apply scenario-specific texts.
+        Q_TITLE.textContent = T["q_" + key + "_title"];
+        Q_DESC.textContent  = T["q_" + key + "_desc"];
+        var prefixMap = { down30: "d30", up50: "u50", missed: "ms" };
+        var p = prefixMap[key];
+        document.getElementById("bl-cA-action").textContent = T[p + "_rat_action"];
+        document.getElementById("bl-cA-bias").textContent   = T[p + "_rat_bias"];
+        document.getElementById("bl-cB-action").textContent = T[p + "_bias_action"];
+        document.getElementById("bl-cB-bias").textContent   = T[p + "_bias_bias"];
+        CHOICE_A.classList.remove("bl-picked");
+        CHOICE_B.classList.remove("bl-picked");
+        VERDICT.classList.remove("good", "bad");
+        VERDICT.textContent = "—";
+        render();
+    }
+
+    function pickChoice(which) {
+        pickedChoice = which;
+        CHOICE_A.classList.toggle("bl-picked", which === "A");
+        CHOICE_B.classList.toggle("bl-picked", which === "B");
+        VERDICT.classList.remove("good", "bad");
+        var prefixMap = { down30: "d30", up50: "u50", missed: "ms" };
+        var p = prefixMap[activeScen];
+        if (which === "A") {
+            VERDICT.classList.add("good");
+            VERDICT.textContent = T["verdict_" + p + "_rat"];
+        } else {
+            VERDICT.classList.add("bad");
+            VERDICT.textContent = T["verdict_" + p + "_bias"];
+        }
+    }
+
+    CHOICE_A.addEventListener("click", function () { pickChoice("A"); });
+    CHOICE_B.addEventListener("click", function () { pickChoice("B"); });
+
+    function render() {
+        var sc = SCENARIOS[activeScen];
+        var months = [];
+        for (var i = 0; i < sc.rat.length; i++) months.push(i);
+        var rat = sc.rat.map(function (m) { return m * INITIAL; });
+        var bias = sc.bias.map(function (m) { return m * INITIAL; });
+
+        var ratEnd = rat[rat.length - 1];
+        var biasEnd = bias[bias.length - 1];
+        var gap = ratEnd - biasEnd;
+
+        document.getElementById("bl-bv-rat").textContent  = fmtMoney(ratEnd);
+        document.getElementById("bl-bv-rat").style.color  = ratEnd >= INITIAL ? getCssVar("--bl-green") : getCssVar("--bl-red");
+        document.getElementById("bl-bv-bias").textContent = fmtMoney(biasEnd);
+        document.getElementById("bl-bv-bias").style.color = biasEnd >= INITIAL ? getCssVar("--bl-green") : getCssVar("--bl-red");
+        document.getElementById("bl-bv-gap").textContent  = fmtSignedMoney(gap);
+        document.getElementById("bl-bv-gap").style.color  = gap >= 0 ? getCssVar("--bl-orange") : getCssVar("--bl-blue");
+
+        var colorGreen = getCssVar("--bl-green");
+        var colorRed   = getCssVar("--bl-red");
+        var colorMuted = getCssVar("--bl-muted");
+        var colorText  = getCssVar("--bl-text");
+        var colorBg    = getCssVar("--bl-card");
+        var colorGrid  = darkMode() ? "rgba(255,255,255,0.08)" : "rgba(0,0,0,0.07)";
+
+        var traceRat = {
+            x: months, y: rat, type: "scatter", mode: "lines+markers",
+            name: T.tr_rat,
+            line: { color: colorGreen, width: 2.8 },
+            marker: { color: colorGreen, size: 6 },
+            hovertemplate: "month %{x}<br>$%{y:,.0f}<extra></extra>",
+        };
+        var traceBias = {
+            x: months, y: bias, type: "scatter", mode: "lines+markers",
+            name: T.tr_bias,
+            line: { color: colorRed, width: 2.8, dash: "dot" },
+            marker: { color: colorRed, size: 6 },
+            hovertemplate: "month %{x}<br>$%{y:,.0f}<extra></extra>",
+        };
+
+        var layout = {
+            margin: { l: 65, r: 30, t: 50, b: 50 },
+            paper_bgcolor: colorBg, plot_bgcolor: colorBg,
+            font: { family: "Segoe UI, Helvetica, Arial, sans-serif", color: colorText, size: 12 },
+            xaxis: {
+                title: { text: T.chart_x, font: { color: colorMuted, size: 11 } },
+                gridcolor: colorGrid, color: colorText,
+                dtick: 2,
+            },
+            yaxis: {
+                title: { text: T.chart_y, font: { color: colorMuted, size: 11 } },
+                gridcolor: colorGrid, color: colorText,
+                tickformat: "$,.0f",
+            },
+            title: {
+                text: T.chart_title, x: 0, xanchor: "left",
+                font: { color: colorText, size: 13, weight: 700 },
+            },
+            shapes: [
+                { type: "line", xref: "paper", yref: "y",
+                  x0: 0, x1: 1, y0: INITIAL, y1: INITIAL,
+                  line: { color: colorMuted, width: 0.8, dash: "dot" } },
+            ],
+            legend: { orientation: "h", x: 0, y: 1.10, xanchor: "left",
+                      font: { color: colorText } },
+            hovermode: "x unified",
+        };
+        Plotly.react(CHART, [traceRat, traceBias], layout,
+                     { displayModeBar: false, responsive: true });
+    }
+
+    applyI18n();
+    buildScenarios();
+    applyScenario(DEFAULT_SCEN);
+
+    function reportHeight() {
+        try {
+            var h = Math.ceil(document.documentElement.scrollHeight);
+            parent.postMessage({ type: "lesson-interactive-resize", height: h }, "*");
+        } catch (e) { /* ignore */ }
+    }
+    if (typeof ResizeObserver !== "undefined") {
+        new ResizeObserver(reportHeight).observe(document.body);
+    }
+    window.addEventListener("resize", reportHeight);
+    setTimeout(reportHeight, 50);
+    setTimeout(reportHeight, 500);
+
+    var themeObserver = new MutationObserver(render);
+    themeObserver.observe(document.documentElement, {
+        attributes: true, attributeFilter: ["data-theme"],
+    });
+
+    render();
+})();
+</script>
+
+</body>
+</html>

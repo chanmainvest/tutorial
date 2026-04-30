@@ -1,0 +1,704 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Factor Blender Lab — Interactive (Week 23)</title>
+<script src="https://cdn.plot.ly/plotly-2.35.2.min.js" charset="utf-8"></script>
+<style>
+html, body { margin: 0; padding: 0; background: var(--fb-bg); }
+:root {
+    --fb-bg: #fdfbf5;
+    --fb-text: #1a2332;
+    --fb-muted: #6b7280;
+    --fb-border: #d6d3c4;
+    --fb-card: #fdfbf5;
+    --fb-pos: #2e7d32;
+    --fb-neg: #b71c1c;
+    --fb-mid: #0d47a1;
+    --fb-accent: #b8860b;
+    --fb-purple: #6a1b9a;
+}
+html[data-theme="dark"] .fb-root,
+.fb-root[data-theme="dark"] {
+    --fb-bg: #0f1724;
+    --fb-text: #e6e6e6;
+    --fb-muted: #9aa3b2;
+    --fb-border: #2a3441;
+    --fb-card: #0f1724;
+    --fb-pos: #66bb6a;
+    --fb-neg: #ef5350;
+    --fb-mid: #5a8dee;
+    --fb-purple: #ce93d8;
+}
+.fb-root {
+    font-family: 'Segoe UI', Helvetica, Arial, sans-serif;
+    background: var(--fb-bg);
+    color: var(--fb-text);
+    padding: 12px;
+    margin: 0;
+}
+.fb-presets {
+    display: flex; flex-wrap: wrap; gap: 8px;
+    margin-bottom: 10px; align-items: center;
+}
+.fb-presets-label {
+    font-size: 0.78rem; color: var(--fb-muted);
+    margin-right: 4px; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+.fb-preset {
+    background: var(--fb-card);
+    border: 1px solid var(--fb-border);
+    color: var(--fb-text);
+    padding: 5px 11px;
+    font-size: 0.82rem;
+    border-radius: 999px;
+    cursor: pointer;
+    font-family: inherit;
+}
+.fb-preset:hover { border-color: var(--fb-accent); }
+.fb-preset.fb-active {
+    background: var(--fb-accent); color: #fff; border-color: var(--fb-accent);
+}
+.fb-controls {
+    background: var(--fb-card);
+    border: 1px solid var(--fb-border);
+    border-radius: 8px;
+    padding: 10px 14px 12px;
+    margin-bottom: 14px;
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 14px;
+}
+.fb-slider-wrap {
+    display: flex; flex-direction: column; gap: 4px;
+    font-size: 0.82rem; color: var(--fb-muted);
+}
+.fb-slider-wrap .fb-fac-label {
+    font-weight: 700; color: var(--fb-text); display: flex;
+    justify-content: space-between; align-items: baseline;
+}
+.fb-slider-wrap .fb-fac-name { font-size: 0.78rem; }
+.fb-slider-wrap .fb-fac-val {
+    font-variant-numeric: tabular-nums;
+    color: var(--fb-accent);
+    font-size: 0.95rem;
+}
+.fb-slider-wrap input[type="range"] { accent-color: var(--fb-accent); width: 100%; }
+.fb-sum-bar {
+    display: flex; align-items: center; gap: 10px;
+    margin-top: 6px; font-size: 0.82rem; color: var(--fb-muted);
+    grid-column: 1 / -1;
+}
+.fb-sum-val { font-weight: 700; font-variant-numeric: tabular-nums; color: var(--fb-text); }
+.fb-sum-warn { color: var(--fb-neg); font-weight: 700; }
+.fb-norm-btn {
+    background: var(--fb-card); border: 1px solid var(--fb-border);
+    color: var(--fb-text); padding: 4px 10px; font-size: 0.78rem;
+    border-radius: 6px; cursor: pointer; font-family: inherit;
+    margin-left: auto;
+}
+.fb-norm-btn:hover { border-color: var(--fb-accent); }
+.fb-charts {
+    display: grid; grid-template-columns: 3fr 2fr; gap: 14px;
+}
+.fb-chart {
+    width: 100%; height: 360px;
+    background: var(--fb-card);
+    border-radius: 8px; border: 1px solid var(--fb-border);
+}
+.fb-stats {
+    display: grid; grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 10px; margin-top: 14px;
+}
+.fb-stat {
+    background: var(--fb-card);
+    border: 1px solid var(--fb-border);
+    border-left: 4px solid var(--fb-muted);
+    border-radius: 8px;
+    padding: 10px 12px;
+}
+.fb-stat.fb-stat-pos { border-left-color: var(--fb-pos); }
+.fb-stat.fb-stat-neg { border-left-color: var(--fb-neg); }
+.fb-stat.fb-stat-mid { border-left-color: var(--fb-mid); }
+.fb-stat.fb-stat-acc { border-left-color: var(--fb-accent); }
+.fb-stat .fb-stat-name {
+    font-size: 0.74rem; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.5px;
+    color: var(--fb-muted);
+}
+.fb-stat .fb-stat-val {
+    font-size: 1.25rem; font-weight: 700; margin-top: 4px;
+    font-variant-numeric: tabular-nums;
+}
+.fb-stat .fb-stat-detail {
+    font-size: 0.75rem; color: var(--fb-muted);
+    margin-top: 2px; font-variant-numeric: tabular-nums;
+}
+.fb-caption {
+    margin-top: 12px; font-size: 0.78rem;
+    color: var(--fb-muted); line-height: 1.45;
+}
+@media (max-width: 860px) {
+    .fb-controls { grid-template-columns: repeat(3, 1fr); }
+    .fb-charts { grid-template-columns: 1fr; }
+    .fb-stats { grid-template-columns: repeat(2, 1fr); }
+    .fb-chart { height: 300px; }
+}
+@media (max-width: 480px) {
+    .fb-controls { grid-template-columns: repeat(2, 1fr); }
+}
+</style>
+</head>
+<body>
+
+<div class="fb-root" id="fb-root">
+
+    <div class="fb-presets">
+        <span class="fb-presets-label" id="fb-presets-label">Presets</span>
+        <button class="fb-preset" data-preset="custom" id="fb-pre-custom">Custom</button>
+        <button class="fb-preset" data-preset="value" id="fb-pre-value">Pure Value</button>
+        <button class="fb-preset" data-preset="momentum" id="fb-pre-momentum">Pure Momentum</button>
+        <button class="fb-preset" data-preset="ql" id="fb-pre-ql">Quality + Low-Vol</button>
+        <button class="fb-preset" data-preset="gmo" id="fb-pre-gmo">GMO 60/40-style</button>
+    </div>
+
+    <div class="fb-controls">
+        <div class="fb-slider-wrap">
+            <div class="fb-fac-label">
+                <span class="fb-fac-name" id="fb-lbl-mkt">MKT-RF</span>
+                <span class="fb-fac-val" id="fb-val-mkt">50%</span>
+            </div>
+            <input type="range" id="fb-sl-mkt" min="0" max="100" step="5" value="50">
+        </div>
+        <div class="fb-slider-wrap">
+            <div class="fb-fac-label">
+                <span class="fb-fac-name" id="fb-lbl-smb">SMB</span>
+                <span class="fb-fac-val" id="fb-val-smb">0%</span>
+            </div>
+            <input type="range" id="fb-sl-smb" min="0" max="100" step="5" value="0">
+        </div>
+        <div class="fb-slider-wrap">
+            <div class="fb-fac-label">
+                <span class="fb-fac-name" id="fb-lbl-hml">HML</span>
+                <span class="fb-fac-val" id="fb-val-hml">25%</span>
+            </div>
+            <input type="range" id="fb-sl-hml" min="0" max="100" step="5" value="25">
+        </div>
+        <div class="fb-slider-wrap">
+            <div class="fb-fac-label">
+                <span class="fb-fac-name" id="fb-lbl-umd">UMD</span>
+                <span class="fb-fac-val" id="fb-val-umd">15%</span>
+            </div>
+            <input type="range" id="fb-sl-umd" min="0" max="100" step="5" value="15">
+        </div>
+        <div class="fb-slider-wrap">
+            <div class="fb-fac-label">
+                <span class="fb-fac-name" id="fb-lbl-rmw">RMW</span>
+                <span class="fb-fac-val" id="fb-val-rmw">10%</span>
+            </div>
+            <input type="range" id="fb-sl-rmw" min="0" max="100" step="5" value="10">
+        </div>
+        <div class="fb-sum-bar">
+            <span id="fb-sum-label">Weights sum</span>
+            <span class="fb-sum-val" id="fb-sum-val">100%</span>
+            <span class="fb-sum-warn" id="fb-sum-warn" style="display:none;"></span>
+            <button class="fb-norm-btn" id="fb-norm-btn">Normalise to 100%</button>
+        </div>
+    </div>
+
+    <div class="fb-charts">
+        <div id="fb-chart-wealth" class="fb-chart"></div>
+        <div id="fb-chart-bars"   class="fb-chart"></div>
+    </div>
+
+    <div class="fb-stats">
+        <div class="fb-stat fb-stat-acc">
+            <div class="fb-stat-name" id="fb-name-cagr">Geo. ann return</div>
+            <div class="fb-stat-val" id="fb-stat-cagr">—</div>
+            <div class="fb-stat-detail" id="fb-det-cagr">1963-2024, 62 years</div>
+        </div>
+        <div class="fb-stat fb-stat-mid">
+            <div class="fb-stat-name" id="fb-name-vol">Volatility</div>
+            <div class="fb-stat-val" id="fb-stat-vol">—</div>
+            <div class="fb-stat-detail" id="fb-det-vol">annual std dev</div>
+        </div>
+        <div class="fb-stat fb-stat-pos">
+            <div class="fb-stat-name" id="fb-name-sharpe">Sharpe</div>
+            <div class="fb-stat-val" id="fb-stat-sharpe">—</div>
+            <div class="fb-stat-detail" id="fb-det-sharpe">mean / std (no T-Bill)</div>
+        </div>
+        <div class="fb-stat fb-stat-neg">
+            <div class="fb-stat-name" id="fb-name-mdd">Max drawdown</div>
+            <div class="fb-stat-val" id="fb-stat-mdd">—</div>
+            <div class="fb-stat-detail" id="fb-det-mdd">peak-to-trough</div>
+        </div>
+    </div>
+
+    <p class="fb-caption" id="fb-caption">
+        Approximate annual aggregates of the Kenneth French five-factor + momentum series, 1963-2024. Weights sum to 100%; the blend backtest takes a weighted sum of the five academic long-short factor returns each year, compounds it, and reports geometric return, volatility, Sharpe (mean/std), and max drawdown. Pure Value flatlines after 2007. Pure Momentum has the 2009 cliff. The diversified blends ride above any single factor's drawdown.
+    </p>
+</div>
+
+<script>
+(function () {
+    const I18N = {
+        en: {
+            presets:    "Presets",
+            p_custom:   "Custom",
+            p_value:    "Pure Value",
+            p_momentum: "Pure Momentum",
+            p_ql:       "Quality + Low-Vol",
+            p_gmo:      "GMO 60/40-style",
+            lbl_mkt: "MKT-RF (market)", lbl_smb: "SMB (size)", lbl_hml: "HML (value)",
+            lbl_umd: "UMD (momentum)", lbl_rmw: "RMW (quality)",
+            sum_label:  "Weights sum",
+            sum_warn:   " (must equal 100%)",
+            norm_btn:   "Normalise to 100%",
+            name_cagr:  "Geo. ann return",
+            det_cagr:   "1963-2024, 62 years",
+            name_vol:   "Volatility",
+            det_vol:    "annual std dev",
+            name_sharpe:"Sharpe",
+            det_sharpe: "mean / std (no T-Bill)",
+            name_mdd:   "Max drawdown",
+            det_mdd:    "peak-to-trough",
+            wealth_title:"Cumulative growth of $1 in your factor blend, 1963-2024",
+            wealth_x:   "Year",
+            wealth_y:   "Wealth ($, log)",
+            blend_label:"Your blend",
+            mkt_label:  "MKT-RF (reference)",
+            bars_title: "Annual blend return, 1963-2024",
+            bars_y:     "Annual return",
+            caption:    "Approximate annual aggregates of the Kenneth French five-factor + momentum series, 1963-2024. Weights sum to 100%; the blend backtest takes a weighted sum of the five academic long-short factor returns each year, compounds it, and reports geometric return, volatility, Sharpe (mean/std), and max drawdown. Pure Value flatlines after 2007. Pure Momentum has the 2009 cliff. The diversified blends ride above any single factor's drawdown.",
+        },
+        hk: {
+            presets:    "預設組合",
+            p_custom:   "自訂",
+            p_value:    "純價值",
+            p_momentum: "純動量",
+            p_ql:       "品質 + 低波",
+            p_gmo:      "GMO 60/40 風格",
+            lbl_mkt: "MKT-RF(市場)", lbl_smb: "SMB(規模)", lbl_hml: "HML(價值)",
+            lbl_umd: "UMD(動量)", lbl_rmw: "RMW(品質)",
+            sum_label:  "權重總和",
+            sum_warn:   "(必須為 100%)",
+            norm_btn:   "歸一至 100%",
+            name_cagr:  "幾何年化回報",
+            det_cagr:   "1963-2024,共 62 年",
+            name_vol:   "波動率",
+            det_vol:    "年化標準差",
+            name_sharpe:"夏普",
+            det_sharpe: "平均/標準差(不扣 T-Bill)",
+            name_mdd:   "最大回撚",
+            det_mdd:    "前高至谷底",
+            wealth_title:"$1 在因子組合中的累計增長,1963-2024",
+            wealth_x:   "年份",
+            wealth_y:   "財富(美元,對數軸)",
+            blend_label:"你的組合",
+            mkt_label:  "MKT-RF(參考)",
+            bars_title: "組合的逐年回報,1963-2024",
+            bars_y:     "年化回報",
+            caption:    "Kenneth French 五因子 + 動量的近似年度聚合,1963-2024。權重總和為 100%;組合回測對五個學術多空因子取加權和,複利累計,並計算幾何回報、波動率、夏普(平均/標準差)、最大回撚。純價值在 2007 後走平,純動量在 2009 出現懸崖。分散組合則騎在單因子回撚之上。",
+        },
+        tw: {
+            presets:    "預設組合",
+            p_custom:   "自訂",
+            p_value:    "純價值",
+            p_momentum: "純動量",
+            p_ql:       "品質 + 低波",
+            p_gmo:      "GMO 60/40 風格",
+            lbl_mkt: "MKT-RF(市場)", lbl_smb: "SMB(規模)", lbl_hml: "HML(價值)",
+            lbl_umd: "UMD(動量)", lbl_rmw: "RMW(獲利)",
+            sum_label:  "權重總和",
+            sum_warn:   "(必須為 100%)",
+            norm_btn:   "歸一至 100%",
+            name_cagr:  "幾何年化報酬",
+            det_cagr:   "1963-2024,共 62 年",
+            name_vol:   "波動率",
+            det_vol:    "年化標準差",
+            name_sharpe:"夏普",
+            det_sharpe: "平均/標準差(不扣 T-Bill)",
+            name_mdd:   "最大回檔",
+            det_mdd:    "前高至谷底",
+            wealth_title:"$1 在因子組合中的累計成長,1963-2024",
+            wealth_x:   "年份",
+            wealth_y:   "財富(美元,對數軸)",
+            blend_label:"你的組合",
+            mkt_label:  "MKT-RF(參考)",
+            bars_title: "組合的逐年報酬,1963-2024",
+            bars_y:     "年化報酬",
+            caption:    "Kenneth French 五因子 + 動量的近似年度聚合,1963-2024。權重總和為 100%;組合回測對五個學術多空因子取加權和,複利累計,並計算幾何報酬、波動率、夏普(平均/標準差)、最大回檔。純價值在 2007 後走平,純動量在 2009 出現懸崖。分散組合則騎在單因子回檔之上。",
+        },
+        cn: {
+            presets:    "预设组合",
+            p_custom:   "自定义",
+            p_value:    "纯价值",
+            p_momentum: "纯动量",
+            p_ql:       "质量 + 低波",
+            p_gmo:      "GMO 60/40 风格",
+            lbl_mkt: "MKT-RF(市场)", lbl_smb: "SMB(规模)", lbl_hml: "HML(价值)",
+            lbl_umd: "UMD(动量)", lbl_rmw: "RMW(质量)",
+            sum_label:  "权重总和",
+            sum_warn:   "(必须为 100%)",
+            norm_btn:   "归一至 100%",
+            name_cagr:  "几何年化回报",
+            det_cagr:   "1963-2024,共 62 年",
+            name_vol:   "波动率",
+            det_vol:    "年化标准差",
+            name_sharpe:"夏普",
+            det_sharpe: "均值/标准差(不扣 T-Bill)",
+            name_mdd:   "最大回撚",
+            det_mdd:    "前高至谷底",
+            wealth_title:"$1 在因子组合中的累计增长,1963-2024",
+            wealth_x:   "年份",
+            wealth_y:   "财富(美元,对数轴)",
+            blend_label:"你的组合",
+            mkt_label:  "MKT-RF(参考)",
+            bars_title: "组合的逐年回报,1963-2024",
+            bars_y:     "年化回报",
+            caption:    "Kenneth French 五因子 + 动量的近似年度聚合,1963-2024。权重总和为 100%;组合回测对五个学术多空因子取加权和,复利累计,并计算几何回报、波动率、夏普(均值/标准差)、最大回撚。纯价值在 2007 后走平,纯动量在 2009 出现悬崖。分散组合则骑在单因子回撚之上。",
+        },
+    };
+
+    function currentLang() {
+        const p = new URLSearchParams(window.location.search);
+        const l = (p.get("lang") || "en").toLowerCase();
+        return I18N.hasOwnProperty(l) ? l : "en";
+    }
+    const T = I18N[currentLang()];
+
+    // ---- Embedded data: approximate annual factor returns 1963-2024 ----
+    const YEARS = [];
+    for (let y = 1963; y <= 2024; y++) YEARS.push(y);
+
+    // MKT-RF (annualised excess of T-Bill).
+    const MKT = [
+        0.16, 0.14, 0.11,-0.11, 0.21, 0.10,-0.14,-0.02, 0.14, 0.16,
+       -0.22,-0.33, 0.31, 0.19,-0.10, 0.05, 0.18, 0.23,-0.13, 0.14,
+        0.18,-0.04, 0.24, 0.11,-0.01, 0.13, 0.22,-0.09, 0.26, 0.05,
+        0.07,-0.04, 0.33, 0.17, 0.27, 0.21, 0.21,-0.16,-0.15,-0.22,
+        0.31, 0.11, 0.04, 0.11, 0.01,-0.38, 0.28, 0.18, 0.01, 0.16,
+        0.35, 0.11, 0.00, 0.13, 0.21,-0.07, 0.28, 0.23, 0.24,-0.19,
+        0.22, 0.18
+    ];
+    // SMB
+    const SMB = [
+       -0.03,-0.03, 0.11,-0.03, 0.35, 0.24,-0.22,-0.16, 0.05,-0.16,
+       -0.25,-0.02, 0.15, 0.18, 0.14, 0.07, 0.14, 0.01, 0.08, 0.12,
+        0.08,-0.07,-0.02,-0.08,-0.08, 0.05,-0.10,-0.16, 0.07, 0.10,
+        0.07, 0.00,-0.03,-0.03,-0.02,-0.19, 0.13,-0.07, 0.22, 0.06,
+        0.26, 0.04,-0.02, 0.01,-0.07, 0.04, 0.08, 0.13,-0.06,-0.01,
+        0.07,-0.08,-0.04, 0.07,-0.05,-0.03,-0.05, 0.12,-0.05,-0.07,
+       -0.05,-0.03
+    ];
+    // HML
+    const HML = [
+        0.04, 0.01,-0.02,-0.01,-0.07, 0.06, 0.04, 0.08, 0.01, 0.00,
+        0.11, 0.01, 0.18, 0.17, 0.14, 0.06, 0.11,-0.07, 0.12, 0.08,
+        0.14, 0.09, 0.04,-0.03,-0.05, 0.13, 0.01,-0.07, 0.01, 0.13,
+        0.18,-0.01,-0.02, 0.01, 0.12,-0.08,-0.15, 0.21, 0.18, 0.08,
+        0.04, 0.07, 0.09, 0.13,-0.10, 0.02,-0.10,-0.04,-0.08, 0.10,
+        0.01,-0.01,-0.10, 0.24,-0.14,-0.09,-0.10,-0.47, 0.28, 0.21,
+       -0.08, 0.00
+    ];
+    // UMD
+    const UMD = [
+        0.14, 0.11, 0.16, 0.07, 0.22, 0.18, 0.06, 0.05, 0.15, 0.04,
+       -0.02, 0.16, 0.06, 0.19, 0.14, 0.22, 0.23, 0.16, 0.11, 0.14,
+        0.08, 0.06, 0.18, 0.10, 0.14, 0.04, 0.18, 0.16, 0.06, 0.07,
+        0.25, 0.00, 0.17, 0.07, 0.16, 0.22, 0.24, 0.19, 0.07, 0.25,
+       -0.02, 0.04, 0.18, 0.09, 0.15, 0.17,-0.45,-0.07,-0.07, 0.01,
+        0.08, 0.05, 0.09,-0.10, 0.11,-0.03, 0.08, 0.22, 0.01, 0.17,
+        0.09, 0.14
+    ];
+    // RMW (quality).
+    const RMW = [
+        0.03, 0.06, 0.01, 0.04,-0.02, 0.01, 0.02, 0.09, 0.04, 0.05,
+        0.07, 0.00,-0.02,-0.03, 0.03, 0.00, 0.00, 0.05, 0.04, 0.00,
+       -0.03, 0.00,-0.01, 0.05, 0.04,-0.01, 0.04, 0.06,-0.07, 0.05,
+        0.01, 0.04, 0.04, 0.00, 0.08, 0.09,-0.06, 0.17, 0.11,-0.01,
+       -0.08, 0.05, 0.09, 0.00, 0.05, 0.05,-0.07, 0.01, 0.06,-0.01,
+       -0.01, 0.04, 0.07,-0.02,-0.01, 0.09, 0.04,-0.15, 0.00, 0.18,
+       -0.02, 0.05
+    ];
+    const FACTOR_DATA = { mkt: MKT, smb: SMB, hml: HML, umd: UMD, rmw: RMW };
+    const FACTOR_KEYS = ["mkt", "smb", "hml", "umd", "rmw"];
+
+    // ---- DOM refs ----
+    const ROOT = document.getElementById("fb-root");
+    const SLIDERS = {
+        mkt: document.getElementById("fb-sl-mkt"),
+        smb: document.getElementById("fb-sl-smb"),
+        hml: document.getElementById("fb-sl-hml"),
+        umd: document.getElementById("fb-sl-umd"),
+        rmw: document.getElementById("fb-sl-rmw"),
+    };
+    const VALS = {
+        mkt: document.getElementById("fb-val-mkt"),
+        smb: document.getElementById("fb-val-smb"),
+        hml: document.getElementById("fb-val-hml"),
+        umd: document.getElementById("fb-val-umd"),
+        rmw: document.getElementById("fb-val-rmw"),
+    };
+    const SUM_VAL = document.getElementById("fb-sum-val");
+    const SUM_WARN = document.getElementById("fb-sum-warn");
+    const NORM_BTN = document.getElementById("fb-norm-btn");
+    const PRESET_BTNS = ROOT.querySelectorAll(".fb-preset");
+    const CHART_W = document.getElementById("fb-chart-wealth");
+    const CHART_B = document.getElementById("fb-chart-bars");
+
+    // ---- Presets ----
+    const PRESETS = {
+        custom:   { mkt: 50, smb: 0,  hml: 25, umd: 15, rmw: 10 },
+        value:    { mkt: 0,  smb: 0,  hml:100, umd: 0,  rmw: 0  },
+        momentum: { mkt: 0,  smb: 0,  hml: 0,  umd:100, rmw: 0  },
+        ql:       { mkt: 0,  smb: 0,  hml: 0,  umd: 0,  rmw:100 },  // RMW proxy for low-vol
+        gmo:      { mkt: 50, smb: 0,  hml: 30, umd: 10, rmw: 10 },
+    };
+    let activePreset = "custom";
+
+    // ---- Helpers ----
+    function fmtPct(v, places) {
+        if (v === null || v === undefined || !isFinite(v)) return "—";
+        const sign = v >= 0 ? "+" : "";
+        return sign + (v * 100).toFixed(places === undefined ? 1 : places) + "%";
+    }
+    function fmtNum(v, places) {
+        if (v === null || v === undefined || !isFinite(v)) return "—";
+        return v.toFixed(places === undefined ? 2 : places);
+    }
+    function getCssVar(name) {
+        return getComputedStyle(ROOT).getPropertyValue(name).trim();
+    }
+    function darkMode() {
+        return document.documentElement.getAttribute("data-theme") === "dark";
+    }
+
+    function getWeights() {
+        const w = {};
+        for (const k of FACTOR_KEYS) {
+            w[k] = parseInt(SLIDERS[k].value, 10) / 100;
+        }
+        return w;
+    }
+    function getSum(w) { return FACTOR_KEYS.reduce((a, k) => a + w[k], 0); }
+
+    function backtest(w) {
+        const r = [];
+        for (let i = 0; i < YEARS.length; i++) {
+            let yr = 0;
+            for (const k of FACTOR_KEYS) yr += w[k] * FACTOR_DATA[k][i];
+            r.push(yr);
+        }
+        let cum = 1.0; const wealth = []; let peak = 1.0; let mdd = 0.0;
+        for (const x of r) {
+            cum *= (1 + x); wealth.push(cum);
+            if (cum > peak) peak = cum;
+            const cur = cum / peak - 1;
+            if (cur < mdd) mdd = cur;
+        }
+        const n = r.length;
+        const mean = a => a.reduce((x, y) => x + y, 0) / a.length;
+        const stdSample = a => {
+            const m = mean(a);
+            return Math.sqrt(a.reduce((acc, x) => acc + (x - m) ** 2, 0) / (a.length - 1));
+        };
+        const m = mean(r);
+        const sd = stdSample(r);
+        const sharpe = sd > 0 ? m / sd : NaN;
+        const cagr = wealth[n - 1] > 0 ? Math.pow(wealth[n - 1], 1 / n) - 1 : NaN;
+        return { r, wealth, mean: m, vol: sd, sharpe, cagr, mdd };
+    }
+
+    function mktReference() {
+        let cum = 1.0; const wealth = [];
+        for (const x of MKT) { cum *= (1 + x); wealth.push(cum); }
+        return wealth;
+    }
+    const MKT_WEALTH = mktReference();
+
+    // ---- Render ----
+    function render() {
+        const w = getWeights();
+        const total = getSum(w);
+        SUM_VAL.textContent = Math.round(total * 100) + "%";
+        if (Math.abs(total - 1.0) > 0.001) {
+            SUM_WARN.style.display = "";
+            SUM_WARN.textContent = T.sum_warn;
+        } else {
+            SUM_WARN.style.display = "none";
+        }
+        for (const k of FACTOR_KEYS) {
+            VALS[k].textContent = Math.round(w[k] * 100) + "%";
+        }
+        // Update preset button highlighting
+        PRESET_BTNS.forEach(b => {
+            if (b.dataset.preset === activePreset) b.classList.add("fb-active");
+            else b.classList.remove("fb-active");
+        });
+
+        const m = backtest(w);
+
+        const colorPos = getCssVar("--fb-pos");
+        const colorNeg = getCssVar("--fb-neg");
+        const colorMid = getCssVar("--fb-mid");
+        const colorAcc = getCssVar("--fb-accent");
+        const colorText = getCssVar("--fb-text");
+        const colorMuted = getCssVar("--fb-muted");
+        const colorGrid = darkMode() ? "rgba(255,255,255,0.08)" : "rgba(0,0,0,0.07)";
+        const colorBg = getCssVar("--fb-card");
+
+        // Wealth chart
+        const wTraces = [
+            {
+                x: YEARS, y: m.wealth, type: "scatter", mode: "lines",
+                line: { color: colorAcc, width: 2.6 },
+                name: T.blend_label,
+                hovertemplate: "%{x}: $%{y:.2f}<extra></extra>",
+            },
+            {
+                x: YEARS, y: MKT_WEALTH, type: "scatter", mode: "lines",
+                line: { color: colorMid, width: 1.4, dash: "dot" },
+                name: T.mkt_label,
+                hovertemplate: "%{x}: $%{y:.2f}<extra></extra>",
+            },
+        ];
+        const wLayout = {
+            margin: { l: 56, r: 16, t: 36, b: 40 },
+            paper_bgcolor: colorBg, plot_bgcolor: colorBg,
+            font: { family: "Segoe UI, Helvetica, Arial, sans-serif", color: colorText, size: 11 },
+            title: { text: T.wealth_title, x: 0, xanchor: "left",
+                     font: { size: 12.5, color: colorText } },
+            xaxis: { title: { text: T.wealth_x, font: { color: colorMuted } },
+                     gridcolor: colorGrid, color: colorText, zerolinecolor: colorGrid },
+            yaxis: { title: { text: T.wealth_y, font: { color: colorMuted } },
+                     gridcolor: colorGrid, color: colorText, type: "log" },
+            legend: { orientation: "h", y: -0.18, x: 0, font: { color: colorText, size: 10 } },
+            hovermode: "x unified",
+        };
+        Plotly.react(CHART_W, wTraces, wLayout, { displayModeBar: false, responsive: true });
+
+        // Bars chart
+        const colors = m.r.map(v => v >= 0 ? colorPos : colorNeg);
+        const bTraces = [{
+            x: YEARS, y: m.r, type: "bar",
+            marker: { color: colors },
+            hovertemplate: "%{x}: %{y:.1%}<extra></extra>",
+        }];
+        const bLayout = {
+            margin: { l: 56, r: 16, t: 36, b: 40 },
+            paper_bgcolor: colorBg, plot_bgcolor: colorBg,
+            font: { family: "Segoe UI, Helvetica, Arial, sans-serif", color: colorText, size: 11 },
+            title: { text: T.bars_title, x: 0, xanchor: "left",
+                     font: { size: 12.5, color: colorText } },
+            xaxis: { gridcolor: colorGrid, color: colorText, zerolinecolor: colorGrid },
+            yaxis: { title: { text: T.bars_y, font: { color: colorMuted } },
+                     gridcolor: colorGrid, color: colorText,
+                     zerolinecolor: colorMuted, tickformat: ".0%" },
+            showlegend: false,
+        };
+        Plotly.react(CHART_B, bTraces, bLayout, { displayModeBar: false, responsive: true });
+
+        // Stats
+        document.getElementById("fb-stat-cagr").textContent = fmtPct(m.cagr, 2);
+        document.getElementById("fb-stat-vol").textContent = fmtPct(m.vol, 1).replace("+", "");
+        document.getElementById("fb-stat-sharpe").textContent = fmtNum(m.sharpe, 2);
+        document.getElementById("fb-stat-mdd").textContent = fmtPct(m.mdd, 1);
+    }
+
+    function applyPreset(name) {
+        const p = PRESETS[name];
+        if (!p) return;
+        activePreset = name;
+        for (const k of FACTOR_KEYS) {
+            SLIDERS[k].value = String(p[k]);
+        }
+        render();
+    }
+
+    function applyI18n() {
+        document.getElementById("fb-presets-label").textContent = T.presets;
+        document.getElementById("fb-pre-custom").textContent    = T.p_custom;
+        document.getElementById("fb-pre-value").textContent     = T.p_value;
+        document.getElementById("fb-pre-momentum").textContent  = T.p_momentum;
+        document.getElementById("fb-pre-ql").textContent        = T.p_ql;
+        document.getElementById("fb-pre-gmo").textContent       = T.p_gmo;
+        document.getElementById("fb-lbl-mkt").textContent = T.lbl_mkt;
+        document.getElementById("fb-lbl-smb").textContent = T.lbl_smb;
+        document.getElementById("fb-lbl-hml").textContent = T.lbl_hml;
+        document.getElementById("fb-lbl-umd").textContent = T.lbl_umd;
+        document.getElementById("fb-lbl-rmw").textContent = T.lbl_rmw;
+        document.getElementById("fb-sum-label").textContent = T.sum_label;
+        document.getElementById("fb-norm-btn").textContent  = T.norm_btn;
+        document.getElementById("fb-name-cagr").textContent  = T.name_cagr;
+        document.getElementById("fb-det-cagr").textContent   = T.det_cagr;
+        document.getElementById("fb-name-vol").textContent   = T.name_vol;
+        document.getElementById("fb-det-vol").textContent    = T.det_vol;
+        document.getElementById("fb-name-sharpe").textContent= T.name_sharpe;
+        document.getElementById("fb-det-sharpe").textContent = T.det_sharpe;
+        document.getElementById("fb-name-mdd").textContent   = T.name_mdd;
+        document.getElementById("fb-det-mdd").textContent    = T.det_mdd;
+        document.getElementById("fb-caption").textContent    = T.caption;
+    }
+
+    // ---- Wire up events ----
+    for (const k of FACTOR_KEYS) {
+        SLIDERS[k].addEventListener("input", () => {
+            activePreset = "custom";
+            render();
+        });
+    }
+    PRESET_BTNS.forEach(b => {
+        b.addEventListener("click", () => applyPreset(b.dataset.preset));
+    });
+    NORM_BTN.addEventListener("click", () => {
+        const w = getWeights();
+        const total = getSum(w);
+        if (total <= 0) {
+            SLIDERS.mkt.value = "100";
+            for (const k of ["smb", "hml", "umd", "rmw"]) SLIDERS[k].value = "0";
+        } else {
+            for (const k of FACTOR_KEYS) {
+                const v = Math.round((w[k] / total) * 100 / 5) * 5;
+                SLIDERS[k].value = String(v);
+            }
+            // Fix any rounding by adjusting MKT.
+            const after = getSum(getWeights());
+            const diff = Math.round((1.0 - after) * 100 / 5) * 5;
+            SLIDERS.mkt.value = String(Math.max(0, Math.min(100,
+                parseInt(SLIDERS.mkt.value, 10) + diff)));
+        }
+        activePreset = "custom";
+        render();
+    });
+
+    applyI18n();
+    render();
+
+    // ---- postMessage resize ----
+    function reportHeight() {
+        try {
+            var h = Math.ceil(document.documentElement.scrollHeight);
+            parent.postMessage({ type: 'lesson-interactive-resize', height: h }, '*');
+        } catch (e) { /* ignore */ }
+    }
+    if (typeof ResizeObserver !== 'undefined') {
+        new ResizeObserver(reportHeight).observe(document.body);
+    }
+    window.addEventListener('resize', reportHeight);
+    setTimeout(reportHeight, 50);
+    setTimeout(reportHeight, 500);
+
+    // ---- Theme observer ----
+    const themeObserver = new MutationObserver(render);
+    themeObserver.observe(document.documentElement, {
+        attributes: true,
+        attributeFilter: ["data-theme"],
+    });
+})();
+</script>
+
+</body>
+</html>

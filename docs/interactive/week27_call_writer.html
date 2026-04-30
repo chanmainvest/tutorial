@@ -1,0 +1,474 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Covered Call Writer — Interactive (Week 27)</title>
+<script src="https://cdn.plot.ly/plotly-2.35.2.min.js" charset="utf-8"></script>
+<style>
+html, body { margin: 0; padding: 0; background: var(--cw-bg); }
+:root {
+    --cw-bg: #fdfbf5;
+    --cw-text: #1a2332;
+    --cw-muted: #6b7280;
+    --cw-border: #d6d3c4;
+    --cw-card: #fdfbf5;
+    --cw-pos: #2e7d32;
+    --cw-neg: #b71c1c;
+    --cw-mid: #0d47a1;
+    --cw-accent: #b8860b;
+    --cw-purple: #6a1b9a;
+}
+html[data-theme="dark"] .cw-root,
+.cw-root[data-theme="dark"] {
+    --cw-bg: #0f1724;
+    --cw-text: #e6e6e6;
+    --cw-muted: #9aa3b2;
+    --cw-border: #2a3441;
+    --cw-card: #0f1724;
+    --cw-pos: #66bb6a;
+    --cw-neg: #ef5350;
+    --cw-mid: #5a8dee;
+    --cw-accent: #d4a02b;
+    --cw-purple: #a774d6;
+}
+.cw-root {
+    font-family: 'Segoe UI', Helvetica, Arial, sans-serif;
+    background: var(--cw-bg);
+    color: var(--cw-text);
+    padding: 12px;
+    margin: 0;
+}
+.cw-controls {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    margin-bottom: 14px;
+    padding: 10px 12px;
+    background: var(--cw-card);
+    border: 1px solid var(--cw-border);
+    border-radius: 8px;
+}
+.cw-group {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+.cw-group-label {
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--cw-muted);
+}
+.cw-pills {
+    display: inline-flex;
+    border: 1px solid var(--cw-border);
+    border-radius: 999px;
+    overflow: hidden;
+    background: var(--cw-card);
+}
+.cw-pills button {
+    border: none;
+    background: transparent;
+    color: var(--cw-muted);
+    padding: 6px 12px;
+    font: inherit;
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.15s, color 0.15s;
+}
+.cw-pills button:hover { color: var(--cw-text); }
+.cw-pills button.active {
+    background: var(--cw-accent);
+    color: #fff;
+}
+.cw-pills.cw-pills-blue button.active { background: var(--cw-mid); }
+.cw-pills.cw-pills-purple button.active { background: var(--cw-purple); }
+
+.cw-stats {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 10px;
+    margin-bottom: 14px;
+}
+.cw-stat {
+    background: var(--cw-card);
+    border: 1px solid var(--cw-border);
+    border-left: 4px solid var(--cw-muted);
+    border-radius: 8px;
+    padding: 10px 12px;
+}
+.cw-stat.cw-stat-pos { border-left-color: var(--cw-pos); }
+.cw-stat.cw-stat-neg { border-left-color: var(--cw-neg); }
+.cw-stat.cw-stat-mid { border-left-color: var(--cw-mid); }
+.cw-stat.cw-stat-acc { border-left-color: var(--cw-accent); }
+.cw-stat .cw-stat-name {
+    font-size: 0.74rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--cw-muted);
+}
+.cw-stat .cw-stat-val {
+    font-size: 1.45rem;
+    font-weight: 700;
+    margin-top: 4px;
+    font-variant-numeric: tabular-nums;
+}
+.cw-stat .cw-stat-detail {
+    font-size: 0.78rem;
+    color: var(--cw-muted);
+    margin-top: 2px;
+    font-variant-numeric: tabular-nums;
+}
+.cw-chart {
+    width: 100%;
+    height: 360px;
+    background: var(--cw-card);
+    border-radius: 8px;
+    border: 1px solid var(--cw-border);
+}
+.cw-section-title {
+    margin: 6px 4px;
+    font-size: 0.84rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--cw-muted);
+}
+.cw-caption {
+    margin-top: 10px;
+    font-size: 0.78rem;
+    color: var(--cw-muted);
+    line-height: 1.45;
+}
+@media (max-width: 700px) {
+    .cw-stats { grid-template-columns: repeat(2, 1fr); }
+    .cw-chart { height: 320px; }
+    .cw-pills button { padding: 5px 9px; font-size: 0.78rem; }
+}
+</style>
+</head>
+<body>
+
+<div class="cw-root" id="cw-root">
+    <div class="cw-controls">
+        <div class="cw-group">
+            <span class="cw-group-label" id="cw-lbl-und">Underlying</span>
+            <div class="cw-pills cw-pills-blue" id="cw-und-pills" role="tablist">
+                <button type="button" data-und="SPY" class="active">SPY</button>
+                <button type="button" data-und="QQQ">QQQ</button>
+                <button type="button" data-und="IWM">IWM</button>
+            </div>
+        </div>
+        <div class="cw-group">
+            <span class="cw-group-label" id="cw-lbl-delta">Target delta</span>
+            <div class="cw-pills" id="cw-delta-pills" role="tablist">
+                <button type="button" data-d="0.10">10Δ</button>
+                <button type="button" data-d="0.16">16Δ</button>
+                <button type="button" data-d="0.30" class="active">30Δ</button>
+                <button type="button" data-d="0.50">50Δ</button>
+            </div>
+        </div>
+        <div class="cw-group">
+            <span class="cw-group-label" id="cw-lbl-dte">Days to expiry</span>
+            <div class="cw-pills cw-pills-purple" id="cw-dte-pills" role="tablist">
+                <button type="button" data-t="7">7</button>
+                <button type="button" data-t="14">14</button>
+                <button type="button" data-t="30" class="active">30</button>
+                <button type="button" data-t="45">45</button>
+                <button type="button" data-t="60">60</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="cw-stats">
+        <div class="cw-stat cw-stat-acc">
+            <div class="cw-stat-name" id="cw-name-prem">Premium</div>
+            <div class="cw-stat-val" id="cw-val-prem">—</div>
+            <div class="cw-stat-detail" id="cw-det-prem">—</div>
+        </div>
+        <div class="cw-stat cw-stat-pos">
+            <div class="cw-stat-name" id="cw-name-yield">Annualised yield</div>
+            <div class="cw-stat-val" id="cw-val-yield">—</div>
+            <div class="cw-stat-detail" id="cw-det-yield">—</div>
+        </div>
+        <div class="cw-stat cw-stat-mid">
+            <div class="cw-stat-name" id="cw-name-be">Breakeven</div>
+            <div class="cw-stat-val" id="cw-val-be">—</div>
+            <div class="cw-stat-detail" id="cw-det-be">—</div>
+        </div>
+        <div class="cw-stat cw-stat-neg">
+            <div class="cw-stat-name" id="cw-name-otm">Prob OTM at expiry</div>
+            <div class="cw-stat-val" id="cw-val-otm">—</div>
+            <div class="cw-stat-detail" id="cw-det-otm">—</div>
+        </div>
+    </div>
+
+    <div class="cw-section-title" id="cw-ladder-title">Delta ladder — same underlying, same DTE</div>
+    <div id="cw-chart" class="cw-chart"></div>
+
+    <p class="cw-caption" id="cw-caption">
+        Premium computed by Black-Scholes using the trailing 1-year implied volatility for each underlying. Risk-free rate 4.0%. Annualised yield = premium / spot × 365 / DTE. Probability OTM uses N(-d2) under the lognormal model.
+    </p>
+</div>
+
+<script>
+(function () {
+    const I18N = {
+        en: {
+            lbl_und: "Underlying", lbl_delta: "Target delta", lbl_dte: "Days to expiry",
+            name_prem: "Premium / contract", name_yield: "Annualised yield-on-cash",
+            name_be: "Breakeven", name_otm: "Prob OTM at expiry",
+            ladder_title: "Delta ladder — same underlying, same DTE",
+            premium_per_share: "{p}/share",
+            strike_label: "Strike", premium_label: "Premium",
+            x_title: "Delta target", y_title: "Annualised yield (%)",
+            assigned_label: "Prob assigned",
+            caption: "Premium computed by Black-Scholes using the trailing 1-year implied volatility embedded for each ticker. Risk-free rate 4.0%. Annualised yield = (premium / spot) × (365 / DTE). Probability OTM uses N(-d2) under the lognormal model. The delta ladder shows the five conventional strikes side by side so you can see the trade-off between yield and assignment odds.",
+        },
+        hk: {
+            lbl_und: "標的", lbl_delta: "目標 delta", lbl_dte: "到期天數",
+            name_prem: "權利金 / 合約", name_yield: "年化現金收益率",
+            name_be: "盈虧平衡", name_otm: "到期 OTM 機率",
+            ladder_title: "Delta 階梯 — 同一標的、同一 DTE",
+            premium_per_share: "每股 {p}",
+            strike_label: "行使價", premium_label: "權利金",
+            x_title: "目標 delta", y_title: "年化收益率(%)",
+            assigned_label: "被指派機率",
+            caption: "以 Black-Scholes 計算權利金,引用每隻 ETF 過去一年隱含波幅。無風險利率 4.0%。年化收益 = 權利金 / 現價 × 365 / DTE。OTM 機率以對數常態 N(-d2)。下方的 delta 階梯把五個常用行使價並列,看清收益與被指派之間的取捨。",
+        },
+        tw: {
+            lbl_und: "標的", lbl_delta: "目標 delta", lbl_dte: "到期天數",
+            name_prem: "權利金 / 合約", name_yield: "年化現金收益率",
+            name_be: "損益平衡", name_otm: "到期 OTM 機率",
+            ladder_title: "Delta 階梯 — 同一標的、同一 DTE",
+            premium_per_share: "每股 {p}",
+            strike_label: "履約價", premium_label: "權利金",
+            x_title: "目標 delta", y_title: "年化收益率(%)",
+            assigned_label: "被指派機率",
+            caption: "Black-Scholes 計算權利金,使用每檔 ETF 過去一年隱含波動。無風險利率 4.0%。年化收益 = 權利金 / 現價 × 365 / DTE。OTM 機率以對數常態 N(-d2)。下方階梯並列五個常用履約價,讓你看清收益與被指派的取捨。",
+        },
+        cn: {
+            lbl_und: "标的", lbl_delta: "目标 delta", lbl_dte: "到期天数",
+            name_prem: "权利金 / 合约", name_yield: "年化现金收益率",
+            name_be: "盈亏平衡", name_otm: "到期 OTM 概率",
+            ladder_title: "Delta 阶梯 — 同一标的、同一 DTE",
+            premium_per_share: "每股 {p}",
+            strike_label: "执行价", premium_label: "权利金",
+            x_title: "目标 delta", y_title: "年化收益率(%)",
+            assigned_label: "被指派概率",
+            caption: "以 Black-Scholes 计算权利金,使用每只 ETF 过去一年的隐含波动率。无风险利率 4.0%。年化收益 = 权利金 / 现价 × 365 / DTE。OTM 概率用对数正态 N(-d2)。下方 delta 阶梯并排显示五个常用执行价,直观看到收益与被指派之间的权衡。",
+        },
+    };
+    function currentLang() {
+        const p = new URLSearchParams(window.location.search);
+        const l = (p.get("lang") || "en").toLowerCase();
+        return I18N.hasOwnProperty(l) ? l : "en";
+    }
+    const T = I18N[currentLang()];
+
+    // Underlying spot + 1-yr implied vol (April 2026 snapshot, rounded).
+    const UNDS = {
+        SPY: { spot: 510.00, sigma: 0.16, label: "SPY" },
+        QQQ: { spot: 440.00, sigma: 0.20, label: "QQQ" },
+        IWM: { spot: 220.00, sigma: 0.22, label: "IWM" },
+    };
+    const R = 0.04;
+    const DELTAS = [0.10, 0.16, 0.30, 0.50];
+    const LADDER_DELTAS = [0.10, 0.16, 0.30, 0.50, 0.70];
+
+    let und = "SPY";
+    let dteDelta = 0.30;
+    let dte = 30;
+
+    function ndf(x) { return Math.exp(-0.5*x*x) / Math.sqrt(2*Math.PI); }
+    function ncdf(x) {
+        // Abramowitz & Stegun 7.1.26
+        const b1=0.319381530, b2=-0.356563782, b3=1.781477937,
+              b4=-1.821255978, b5=1.330274429, p=0.2316419;
+        const sgn = x<0 ? -1 : 1;
+        const ax = Math.abs(x);
+        const k = 1/(1+p*ax);
+        const w = 1 - ndf(ax) * (b1*k + b2*k*k + b3*k*k*k + b4*Math.pow(k,4) + b5*Math.pow(k,5));
+        return 0.5*(1 + sgn*(2*w - 1));
+    }
+    function bsCall(s, k, r, sigma, t) {
+        if (t <= 0) {
+            const intrinsic = Math.max(0, s-k);
+            const d = s>k ? 1 : 0;
+            return { prem: intrinsic, delta: d, probOTM: d===0 ? 1 : 0 };
+        }
+        const sq = sigma*Math.sqrt(t);
+        const d1 = (Math.log(s/k) + (r + 0.5*sigma*sigma)*t) / sq;
+        const d2 = d1 - sq;
+        const prem = s*ncdf(d1) - k*Math.exp(-r*t)*ncdf(d2);
+        const delta = ncdf(d1);
+        const probOTM = ncdf(-d2);
+        return { prem, delta, probOTM };
+    }
+    function strikeForDelta(s, sigma, t, target) {
+        let lo = s*0.6, hi = s*1.8;
+        for (let i=0; i<80; i++) {
+            const mid = 0.5*(lo+hi);
+            const { delta } = bsCall(s, mid, R, sigma, t);
+            if (delta > target) lo = mid; else hi = mid;
+        }
+        return 0.5*(lo+hi);
+    }
+
+    function fmtPct(v, dp=1) { return (v*100).toFixed(dp) + "%"; }
+    function fmtMoney(v) { return "$" + v.toFixed(2); }
+
+    const ROOT = document.getElementById("cw-root");
+    const CHART = document.getElementById("cw-chart");
+
+    function getCss(name) { return getComputedStyle(ROOT).getPropertyValue(name).trim(); }
+    function darkMode() { return document.documentElement.getAttribute("data-theme") === "dark"; }
+
+    function applyI18n() {
+        document.getElementById("cw-lbl-und").textContent = T.lbl_und;
+        document.getElementById("cw-lbl-delta").textContent = T.lbl_delta;
+        document.getElementById("cw-lbl-dte").textContent = T.lbl_dte;
+        document.getElementById("cw-name-prem").textContent = T.name_prem;
+        document.getElementById("cw-name-yield").textContent = T.name_yield;
+        document.getElementById("cw-name-be").textContent = T.name_be;
+        document.getElementById("cw-name-otm").textContent = T.name_otm;
+        document.getElementById("cw-ladder-title").textContent = T.ladder_title;
+        document.getElementById("cw-caption").textContent = T.caption;
+    }
+
+    function compute() {
+        const u = UNDS[und];
+        const t = dte/365;
+        const k = strikeForDelta(u.spot, u.sigma, t, dteDelta);
+        const r = bsCall(u.spot, k, R, u.sigma, t);
+        const yieldAnn = (r.prem / u.spot) * (365/dte);
+        const breakeven = u.spot + r.prem;  // for the writer's combined position
+        return { spot: u.spot, sigma: u.sigma, k, prem: r.prem, delta: r.delta, probOTM: r.probOTM, yieldAnn, breakeven };
+    }
+
+    function update() {
+        const c = compute();
+        document.getElementById("cw-val-prem").textContent = fmtMoney(c.prem * 100);
+        document.getElementById("cw-det-prem").textContent =
+            T.premium_per_share.replace("{p}", fmtMoney(c.prem))
+            + " · " + T.strike_label + " " + fmtMoney(c.k);
+        document.getElementById("cw-val-yield").textContent = fmtPct(c.yieldAnn, 1);
+        document.getElementById("cw-det-yield").textContent =
+            fmtPct(c.prem/c.spot, 2) + " / " + dte + "d";
+        document.getElementById("cw-val-be").textContent = fmtMoney(c.k + c.prem);
+        document.getElementById("cw-det-be").textContent =
+            "Δ = " + c.delta.toFixed(2) + " · σ = " + (c.sigma*100).toFixed(0) + "%";
+        document.getElementById("cw-val-otm").textContent = fmtPct(c.probOTM, 0);
+        document.getElementById("cw-det-otm").textContent =
+            T.assigned_label + " ≈ " + fmtPct(1-c.probOTM, 0);
+
+        renderLadder();
+    }
+
+    function renderLadder() {
+        const u = UNDS[und];
+        const t = dte/365;
+        const xs = [], ys = [], texts = [], colors = [], markerSize = [];
+        const palette = {
+            0.10: getCss("--cw-purple"),
+            0.16: getCss("--cw-mid"),
+            0.30: getCss("--cw-accent"),
+            0.50: getCss("--cw-neg"),
+            0.70: getCss("--cw-muted"),
+        };
+        const labels = { 0.10:"10Δ", 0.16:"16Δ", 0.30:"30Δ", 0.50:"50Δ", 0.70:"70Δ" };
+        for (const tgt of LADDER_DELTAS) {
+            const k = strikeForDelta(u.spot, u.sigma, t, tgt);
+            const r = bsCall(u.spot, k, R, u.sigma, t);
+            const yAnn = (r.prem/u.spot) * (365/dte) * 100;
+            xs.push(labels[tgt]);
+            ys.push(yAnn);
+            texts.push(
+                T.strike_label + ": " + fmtMoney(k) + "<br>" +
+                T.premium_label + ": " + fmtMoney(r.prem) + "<br>" +
+                T.assigned_label + ": " + fmtPct(1-r.probOTM, 0)
+            );
+            colors.push(palette[tgt]);
+            markerSize.push(Math.abs(tgt - dteDelta) < 0.01 ? 28 : 18);
+        }
+
+        const text = getCss("--cw-text");
+        const muted = getCss("--cw-muted");
+        const grid = darkMode() ? "rgba(255,255,255,0.06)" : "rgba(0,0,0,0.06)";
+        const bg = getCss("--cw-card");
+
+        Plotly.react(CHART, [
+            {
+                type: "bar",
+                x: xs,
+                y: ys,
+                marker: { color: colors, line: { width: 0 } },
+                text: ys.map(v => v.toFixed(1) + "%"),
+                textposition: "outside",
+                textfont: { color: text, size: 11 },
+                hovertemplate: "%{x}<br>%{text}<extra></extra>",
+                customdata: texts,
+                hovertext: texts,
+                hoverinfo: "x+text",
+            }
+        ], {
+            paper_bgcolor: bg,
+            plot_bgcolor: bg,
+            margin: { l: 56, r: 16, t: 18, b: 44 },
+            xaxis: {
+                title: { text: T.x_title, font:{color:muted, size:11}},
+                tickfont:{color:text, size:11},
+                showgrid: false,
+                linecolor: muted,
+            },
+            yaxis: {
+                title: { text: T.y_title, font:{color:muted, size:11}},
+                tickfont:{color:text, size:11},
+                gridcolor: grid,
+                zerolinecolor: grid,
+                rangemode: "tozero",
+            },
+            showlegend: false,
+        }, { displayModeBar: false, responsive: true });
+        sendResize();
+    }
+
+    function bindPills(id, key, parser, callback) {
+        const el = document.getElementById(id);
+        el.addEventListener("click", e => {
+            const b = e.target.closest("button");
+            if (!b) return;
+            el.querySelectorAll("button").forEach(x => x.classList.remove("active"));
+            b.classList.add("active");
+            const v = parser(b.dataset[key]);
+            callback(v);
+            update();
+        });
+    }
+    bindPills("cw-und-pills",   "und", v => v,             v => { und = v; });
+    bindPills("cw-delta-pills", "d",   v => parseFloat(v), v => { dteDelta = v; });
+    bindPills("cw-dte-pills",   "t",   v => parseInt(v,10),v => { dte = v; });
+
+    // theme observer
+    const themeObs = new MutationObserver(() => renderLadder());
+    themeObs.observe(document.documentElement, { attributes: true, attributeFilter: ["data-theme"] });
+
+    // postMessage resize
+    function sendResize() {
+        const h = document.documentElement.scrollHeight;
+        try { window.parent.postMessage({type:"lesson-interactive-resize", height: h}, "*"); } catch (_) {}
+    }
+    window.addEventListener("resize", () => { sendResize(); });
+
+    applyI18n();
+    update();
+    setTimeout(sendResize, 80);
+})();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,862 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Backtest Validator - Interactive (Week 46)</title>
+<script src="https://cdn.plot.ly/plotly-2.35.2.min.js" charset="utf-8"></script>
+<style>
+html, body { margin: 0; padding: 0; background: var(--bv-bg); }
+:root {
+    --bv-bg: #fdfbf5;
+    --bv-text: #1a2332;
+    --bv-muted: #6b7280;
+    --bv-border: #d6d3c4;
+    --bv-card: #fdfbf5;
+    --bv-accent: #b8860b;
+    --bv-blue: #0d47a1;
+    --bv-red: #b71c1c;
+    --bv-green: #2e7d32;
+    --bv-purple: #6a1b9a;
+    --bv-orange: #e65100;
+}
+html[data-theme="dark"] .bv-root,
+.bv-root[data-theme="dark"] {
+    --bv-bg: #0f1724;
+    --bv-text: #e6e6e6;
+    --bv-muted: #9aa3b2;
+    --bv-border: #2a3441;
+    --bv-card: #0f1724;
+    --bv-blue: #5a8dee;
+    --bv-red: #ef5350;
+    --bv-green: #66bb6a;
+    --bv-purple: #ba68c8;
+    --bv-orange: #ffa726;
+}
+.bv-root {
+    font-family: 'Segoe UI', Helvetica, Arial, sans-serif;
+    background: var(--bv-bg);
+    color: var(--bv-text);
+    padding: 12px;
+    margin: 0;
+}
+.bv-presets-wrap {
+    margin-bottom: 12px;
+    padding: 10px 12px;
+    background: var(--bv-card);
+    border: 1px solid var(--bv-border);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+.bv-label {
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--bv-muted);
+}
+.bv-pillbar {
+    display: inline-flex;
+    border: 1px solid var(--bv-border);
+    border-radius: 999px;
+    overflow: hidden;
+    background: var(--bv-card);
+    flex-wrap: wrap;
+}
+.bv-pillbar button {
+    border: none;
+    background: transparent;
+    color: var(--bv-muted);
+    padding: 6px 14px;
+    font: inherit;
+    font-size: 0.85rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.15s, color 0.15s;
+}
+.bv-pillbar button:hover { color: var(--bv-text); }
+.bv-pillbar button.active {
+    background: var(--bv-accent);
+    color: #fff;
+}
+.bv-controls {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 12px;
+    margin-bottom: 14px;
+    padding: 12px;
+    background: var(--bv-card);
+    border: 1px solid var(--bv-border);
+    border-radius: 8px;
+}
+.bv-slider-wrap {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    font-size: 0.82rem;
+    color: var(--bv-muted);
+}
+.bv-slider-wrap .bv-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.bv-slider-wrap input[type="range"] {
+    flex: 1;
+    accent-color: var(--bv-accent);
+}
+.bv-slider-wrap .bv-val {
+    white-space: nowrap;
+    color: var(--bv-text);
+    font-weight: 700;
+    font-variant-numeric: tabular-nums;
+    min-width: 80px;
+    text-align: right;
+}
+.bv-slider-wrap .bv-name {
+    font-weight: 600;
+    color: var(--bv-text);
+}
+.bv-kpis {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 10px;
+    margin-bottom: 14px;
+}
+.bv-kpi {
+    background: var(--bv-card);
+    border: 1px solid var(--bv-border);
+    border-left: 4px solid var(--bv-accent);
+    border-radius: 8px;
+    padding: 10px 12px;
+}
+.bv-kpi.bv-k-dsr   { border-left-color: var(--bv-blue); }
+.bv-kpi.bv-k-oos   { border-left-color: var(--bv-purple); }
+.bv-kpi.bv-k-cost  { border-left-color: var(--bv-orange); }
+.bv-kpi.bv-k-prob  { border-left-color: var(--bv-green); }
+.bv-kpi-label {
+    font-size: 0.74rem;
+    font-weight: 700;
+    color: var(--bv-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+    margin-bottom: 3px;
+}
+.bv-kpi-value {
+    font-size: 1.55rem;
+    font-weight: 800;
+    color: var(--bv-text);
+    font-variant-numeric: tabular-nums;
+    line-height: 1.1;
+}
+.bv-kpi-value.bv-pos { color: var(--bv-green); }
+.bv-kpi-value.bv-neg { color: var(--bv-red); }
+.bv-kpi-sub {
+    margin-top: 3px;
+    font-size: 0.74rem;
+    color: var(--bv-muted);
+}
+.bv-chart {
+    width: 100%;
+    height: 380px;
+    background: var(--bv-card);
+    border-radius: 8px;
+    border: 1px solid var(--bv-border);
+}
+.bv-verdict {
+    margin-top: 10px;
+    padding: 10px 12px;
+    background: var(--bv-card);
+    border: 1px solid var(--bv-border);
+    border-left: 4px solid var(--bv-muted);
+    border-radius: 8px;
+    font-size: 0.88rem;
+    color: var(--bv-text);
+    line-height: 1.45;
+}
+.bv-verdict.bv-good   { border-left-color: var(--bv-green); }
+.bv-verdict.bv-meh    { border-left-color: var(--bv-orange); }
+.bv-verdict.bv-bad    { border-left-color: var(--bv-red); }
+.bv-verdict-tag {
+    display: inline-block;
+    font-weight: 800;
+    margin-right: 8px;
+    text-transform: uppercase;
+    font-size: 0.78rem;
+    letter-spacing: 0.4px;
+}
+.bv-verdict.bv-good .bv-verdict-tag { color: var(--bv-green); }
+.bv-verdict.bv-meh  .bv-verdict-tag { color: var(--bv-orange); }
+.bv-verdict.bv-bad  .bv-verdict-tag { color: var(--bv-red); }
+.bv-caption {
+    margin-top: 10px;
+    font-size: 0.78rem;
+    color: var(--bv-muted);
+    line-height: 1.45;
+}
+@media (max-width: 900px) {
+    .bv-controls { grid-template-columns: 1fr 1fr; }
+    .bv-kpis { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 600px) {
+    .bv-controls { grid-template-columns: 1fr; }
+    .bv-kpis { grid-template-columns: 1fr; }
+    .bv-chart { height: 320px; }
+}
+</style>
+</head>
+<body>
+
+<div class="bv-root" id="bv-root">
+    <div class="bv-presets-wrap">
+        <span class="bv-label" id="bv-presets-label">Presets</span>
+        <div class="bv-pillbar" id="bv-presets" role="tablist">
+            <button type="button" data-pre="great">Great backtest</button>
+            <button type="button" data-pre="ok">OK backtest</button>
+            <button type="button" data-pre="phacked">P-hacked</button>
+            <button type="button" data-pre="hft">HFT trap</button>
+            <button type="button" data-pre="custom" class="active">Custom</button>
+        </div>
+    </div>
+
+    <div class="bv-controls">
+        <div class="bv-slider-wrap">
+            <div class="bv-name" id="bv-name-sr">In-sample Sharpe ratio</div>
+            <div class="bv-row">
+                <input type="range" id="bv-sr" min="0" max="4" step="0.05" value="1.5">
+                <span class="bv-val" id="bv-val-sr">1.50</span>
+            </div>
+        </div>
+        <div class="bv-slider-wrap">
+            <div class="bv-name" id="bv-name-yrs">Years of backtest</div>
+            <div class="bv-row">
+                <input type="range" id="bv-yrs" min="1" max="30" step="1" value="5">
+                <span class="bv-val" id="bv-val-yrs">5 yrs</span>
+            </div>
+        </div>
+        <div class="bv-slider-wrap">
+            <div class="bv-name" id="bv-name-trials">Strategy variants tried (N)</div>
+            <div class="bv-row">
+                <input type="range" id="bv-trials" min="1" max="2000" step="1" value="100">
+                <span class="bv-val" id="bv-val-trials">100</span>
+            </div>
+        </div>
+        <div class="bv-slider-wrap">
+            <div class="bv-name" id="bv-name-cost">Round-trip cost (bps)</div>
+            <div class="bv-row">
+                <input type="range" id="bv-cost" min="0" max="100" step="1" value="10">
+                <span class="bv-val" id="bv-val-cost">10 bps</span>
+            </div>
+        </div>
+        <div class="bv-slider-wrap">
+            <div class="bv-name" id="bv-name-tpy">Trades per year (turnover)</div>
+            <div class="bv-row">
+                <input type="range" id="bv-tpy" min="1" max="252" step="1" value="12">
+                <span class="bv-val" id="bv-val-tpy">12</span>
+            </div>
+        </div>
+        <div class="bv-slider-wrap">
+            <div class="bv-name" id="bv-hint-name">Tip</div>
+            <div class="bv-row">
+                <span class="bv-val" id="bv-hint-val" style="text-align:left;color:var(--bv-muted);font-weight:500;font-size:0.78rem;line-height:1.35;min-width:0;">Try preset "P-hacked" then drag trials slider down to see how N kills DSR.</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="bv-kpis">
+        <div class="bv-kpi bv-k-dsr">
+            <div class="bv-kpi-label" id="bv-k-dsr-label">Deflated Sharpe (after MTP)</div>
+            <div class="bv-kpi-value" id="bv-k-dsr-val">—</div>
+            <div class="bv-kpi-sub" id="bv-k-dsr-sub">—</div>
+        </div>
+        <div class="bv-kpi bv-k-oos">
+            <div class="bv-kpi-label" id="bv-k-oos-label">Expected OOS Sharpe</div>
+            <div class="bv-kpi-value" id="bv-k-oos-val">—</div>
+            <div class="bv-kpi-sub" id="bv-k-oos-sub">—</div>
+        </div>
+        <div class="bv-kpi bv-k-cost">
+            <div class="bv-kpi-label" id="bv-k-cost-label">Sharpe after costs</div>
+            <div class="bv-kpi-value" id="bv-k-cost-val">—</div>
+            <div class="bv-kpi-sub" id="bv-k-cost-sub">—</div>
+        </div>
+        <div class="bv-kpi bv-k-prob">
+            <div class="bv-kpi-label" id="bv-k-prob-label">Probability strategy is real</div>
+            <div class="bv-kpi-value" id="bv-k-prob-val">—</div>
+            <div class="bv-kpi-sub" id="bv-k-prob-sub">P(true SR &gt; 0)</div>
+        </div>
+    </div>
+
+    <div id="bv-chart" class="bv-chart"></div>
+
+    <div class="bv-verdict" id="bv-verdict">
+        <span class="bv-verdict-tag" id="bv-verdict-tag">—</span>
+        <span id="bv-verdict-text">—</span>
+    </div>
+
+    <p class="bv-caption" id="bv-caption">
+        The chart shows the null distribution of the maximum-of-N Sharpe ratios (left curve) versus the standard error of your in-sample Sharpe estimate (right curve). Your observed Sharpe is the dashed vertical line. Deflated Sharpe is the gap between your line and the null max, normalized by the SE. Cost drag = (trades-per-year x cost) / 15% assumed vol.
+    </p>
+</div>
+
+<script>
+(function () {
+    var I18N = {
+        en: {
+            presets_label: "Presets",
+            pre_great: "Great backtest", pre_ok: "OK backtest",
+            pre_phacked: "P-hacked", pre_hft: "HFT trap", pre_custom: "Custom",
+            sr_name: "In-sample Sharpe ratio",
+            yrs_name: "Years of backtest",
+            trials_name: "Strategy variants tried (N)",
+            cost_name: "Round-trip cost (bps)",
+            tpy_name: "Trades per year (turnover)",
+            hint_name: "Tip",
+            hint_val: "Try preset \"P-hacked\" then drag trials slider down to see how N kills DSR.",
+            k_dsr: "Deflated Sharpe (after MTP)",
+            k_oos: "Expected OOS Sharpe",
+            k_cost: "Sharpe after costs",
+            k_prob: "Probability strategy is real",
+            prob_sub: "P(true SR > 0)",
+            null_max: "Expected max under null (N trials)",
+            obs_se: "Observed Sharpe ± 1 SE",
+            obs_line: "In-sample Sharpe",
+            chart_title: "Multiple-testing geometry: how your Sharpe compares to chance",
+            x_axis: "Annualised Sharpe ratio",
+            y_axis: "Density",
+            cost_drag_sub: "= turnover x cost / 15% vol",
+            mtp_haircut: "MTP haircut: ",
+            yrs_unit: "yrs",
+            bps_unit: "bps",
+            verdict_good: "DEPLOYABLE",
+            verdict_good_text: "After multiple-testing penalty AND realistic costs, this strategy still has a meaningfully positive expected Sharpe. SOUL #14: size it small and put it in the L4 opportunity sleeve.",
+            verdict_meh: "QUESTIONABLE",
+            verdict_meh_text: "The deflated Sharpe is positive but barely. Out of sample, this is a coin flip. Either run more years of data, or shrink your search space, or reduce turnover.",
+            verdict_bad: "DO NOT DEPLOY",
+            verdict_bad_text: "After the multiple-testing penalty and costs, expected out-of-sample Sharpe is at or below zero. SOUL #1: alpha is rare. This backtest is most likely noise.",
+            caption: "The chart shows the null distribution of the maximum-of-N Sharpe ratios (left curve) versus the standard error of your in-sample Sharpe estimate (right curve). Your observed Sharpe is the dashed vertical line. Deflated Sharpe is the gap between your line and the null max, normalized by the SE. Cost drag = (trades-per-year x cost) / 15% assumed vol.",
+        },
+        hk: {
+            presets_label: "預設",
+            pre_great: "優秀回測", pre_ok: "尚可回測",
+            pre_phacked: "P-hacked", pre_hft: "高頻陷阱", pre_custom: "自訂",
+            sr_name: "樣本內夏普比",
+            yrs_name: "回測年數",
+            trials_name: "試過的策略變體數(N)",
+            cost_name: "每筆來回成本(bps)",
+            tpy_name: "每年交易次數(換手)",
+            hint_name: "提示",
+            hint_val: "選「P-hacked」後拖低 N 滑桿,看 DSR 如何崩潰。",
+            k_dsr: "緊縮夏普(已扣多重檢驗)",
+            k_oos: "預期樣本外夏普",
+            k_cost: "扣成本後夏普",
+            k_prob: "策略為真的機率",
+            prob_sub: "P(真實 SR > 0)",
+            null_max: "虛無分佈下的最大值(N 次試驗)",
+            obs_se: "觀測夏普 ± 1 SE",
+            obs_line: "樣本內夏普",
+            chart_title: "多重檢驗幾何:你的夏普與隨機相比",
+            x_axis: "年化夏普比",
+            y_axis: "密度",
+            cost_drag_sub: "= 換手 x 成本 / 15% 波幅",
+            mtp_haircut: "多重檢驗扣減:",
+            yrs_unit: "年",
+            bps_unit: "bps",
+            verdict_good: "可部署",
+            verdict_good_text: "扣除多重檢驗及實際成本後,此策略仍有顯著正的預期夏普。SOUL #14:小注押在 L4 機會層。",
+            verdict_meh: "存疑",
+            verdict_meh_text: "緊縮夏普僅勉強為正。樣本外屬擲幣狀態。延長數據、縮小搜尋空間或降低換手。",
+            verdict_bad: "不可部署",
+            verdict_bad_text: "扣除多重檢驗與成本後,預期樣本外夏普已歸零或更差。SOUL #1:阿爾法稀有,此回測多半是雜訊。",
+            caption: "圖表顯示 N 次試驗下虛無分佈的最大值分布(左曲線)與你樣本內夏普的標準誤(右曲線)。你的觀測值為虛線。緊縮夏普 = (你的值 - 虛無最大) / SE。成本拖累 = (年交易次數 x 成本) / 15% 假設波幅。",
+        },
+        tw: {
+            presets_label: "預設",
+            pre_great: "優秀回測", pre_ok: "尚可回測",
+            pre_phacked: "P-hacked", pre_hft: "高頻陷阱", pre_custom: "自訂",
+            sr_name: "樣本內夏普比",
+            yrs_name: "回測年數",
+            trials_name: "嘗試的策略變體數(N)",
+            cost_name: "每筆來回成本(bps)",
+            tpy_name: "每年交易次數(週轉)",
+            hint_name: "提示",
+            hint_val: "選「P-hacked」後拉低 N 滑桿,觀察 DSR 如何崩潰。",
+            k_dsr: "緊縮夏普(已扣多重檢驗)",
+            k_oos: "預期樣本外夏普",
+            k_cost: "扣成本後夏普",
+            k_prob: "策略為真的機率",
+            prob_sub: "P(真實 SR > 0)",
+            null_max: "虛無分佈下的最大值(N 次試驗)",
+            obs_se: "觀測夏普 ± 1 SE",
+            obs_line: "樣本內夏普",
+            chart_title: "多重檢驗幾何:你的夏普 vs 隨機",
+            x_axis: "年化夏普比",
+            y_axis: "密度",
+            cost_drag_sub: "= 週轉 x 成本 / 15% 波動率",
+            mtp_haircut: "多重檢驗扣減:",
+            yrs_unit: "年",
+            bps_unit: "bps",
+            verdict_good: "可部署",
+            verdict_good_text: "扣除多重檢驗與實際成本後,此策略仍有顯著正的預期夏普。SOUL #14:小額押在 L4 機會層。",
+            verdict_meh: "存疑",
+            verdict_meh_text: "緊縮夏普僅勉強為正,樣本外屬擲幣狀態。請延長資料、縮小搜尋空間或降低週轉率。",
+            verdict_bad: "不可部署",
+            verdict_bad_text: "扣除多重檢驗與成本後,預期樣本外夏普已歸零或更差。SOUL #1:alpha 稀有,此回測多半為雜訊。",
+            caption: "圖表顯示 N 次試驗下虛無分布的最大值分布(左曲線)與你樣本內夏普的標準誤(右曲線)。你的觀測值為虛線。緊縮夏普 = (你的值 - 虛無最大) / SE。成本拖累 = (年交易次數 x 成本) / 15% 假設波動率。",
+        },
+        cn: {
+            presets_label: "预设",
+            pre_great: "优秀回测", pre_ok: "尚可回测",
+            pre_phacked: "P-hacked", pre_hft: "高频陷阱", pre_custom: "自定义",
+            sr_name: "样本内夏普比",
+            yrs_name: "回测年数",
+            trials_name: "尝试的策略变体数(N)",
+            cost_name: "单笔来回成本(bps)",
+            tpy_name: "每年交易次数(换手)",
+            hint_name: "提示",
+            hint_val: "选「P-hacked」再拉低 N 滑杆,看 DSR 如何崩塌。",
+            k_dsr: "紧缩夏普(已扣多重检验)",
+            k_oos: "预期样本外夏普",
+            k_cost: "扣成本后夏普",
+            k_prob: "策略为真的概率",
+            prob_sub: "P(真实 SR > 0)",
+            null_max: "虚无分布下的最大值(N 次试验)",
+            obs_se: "观测夏普 ± 1 SE",
+            obs_line: "样本内夏普",
+            chart_title: "多重检验几何:你的夏普 vs 随机",
+            x_axis: "年化夏普比",
+            y_axis: "密度",
+            cost_drag_sub: "= 换手 x 成本 / 15% 波动率",
+            mtp_haircut: "多重检验扣减:",
+            yrs_unit: "年",
+            bps_unit: "bps",
+            verdict_good: "可部署",
+            verdict_good_text: "扣除多重检验与实际成本后,该策略仍有显著正的预期夏普。SOUL #14:小额押在 L4 机会层。",
+            verdict_meh: "存疑",
+            verdict_meh_text: "紧缩夏普勉强为正,样本外属掷币状态。请延长数据、缩小搜索空间或降低换手率。",
+            verdict_bad: "不可部署",
+            verdict_bad_text: "扣除多重检验与成本后,预期样本外夏普已归零或更差。SOUL #1:alpha 稀有,此回测多半为噪声。",
+            caption: "图表显示 N 次试验下虚无分布的最大值分布(左曲线)与你样本内夏普的标准误(右曲线)。你的观测值为虚线。紧缩夏普 = (你的值 - 虚无最大) / SE。成本拖累 = (年交易次数 x 成本) / 15% 假设波动率。",
+        },
+    };
+
+    function currentLang() {
+        var p = new URLSearchParams(window.location.search);
+        var l = (p.get("lang") || "en").toLowerCase();
+        return I18N.hasOwnProperty(l) ? l : "en";
+    }
+    var T = I18N[currentLang()];
+
+    var PRESETS = {
+        great:   { sr: 1.20, yrs: 20, trials: 5,    cost: 5,  tpy: 12 },
+        ok:      { sr: 1.50, yrs: 10, trials: 50,   cost: 15, tpy: 24 },
+        phacked: { sr: 2.00, yrs: 3,  trials: 1000, cost: 10, tpy: 12 },
+        hft:     { sr: 1.80, yrs: 5,  trials: 200,  cost: 30, tpy: 200 },
+    };
+
+    // Standard normal CDF and PDF
+    function erf(x) {
+        var sign = x < 0 ? -1 : 1;
+        x = Math.abs(x);
+        var a1=0.254829592, a2=-0.284496736, a3=1.421413741;
+        var a4=-1.453152027, a5=1.061405429, p=0.3275911;
+        var t = 1.0 / (1.0 + p * x);
+        var y = 1.0 - (((((a5*t + a4)*t) + a3)*t + a2)*t + a1)*t * Math.exp(-x*x);
+        return sign * y;
+    }
+    function Phi(z) { return 0.5 * (1.0 + erf(z / Math.SQRT2)); }
+    function phi(z) { return Math.exp(-0.5*z*z) / Math.sqrt(2*Math.PI); }
+    // Inverse standard-normal CDF (Beasley-Springer-Moro)
+    function PhiInv(p) {
+        if (p <= 0) return -10;
+        if (p >= 1) return 10;
+        // rational approximation by Acklam
+        var a = [-3.969683028665376e+01,  2.209460984245205e+02,
+                 -2.759285104469687e+02,  1.383577518672690e+02,
+                 -3.066479806614716e+01,  2.506628277459239e+00];
+        var b = [-5.447609879822406e+01,  1.615858368580409e+02,
+                 -1.556989798598866e+02,  6.680131188771972e+01,
+                 -1.328068155288572e+01];
+        var c = [-7.784894002430293e-03, -3.223964580411365e-01,
+                 -2.400758277161838e+00, -2.549732539343734e+00,
+                  4.374664141464968e+00,  2.938163982698783e+00];
+        var d = [ 7.784695709041462e-03,  3.224671290700398e-01,
+                  2.445134137142996e+00,  3.754408661907416e+00];
+        var pl = 0.02425, ph = 1 - pl;
+        var q, r;
+        if (p < pl) {
+            q = Math.sqrt(-2 * Math.log(p));
+            return (((((c[0]*q+c[1])*q+c[2])*q+c[3])*q+c[4])*q+c[5]) /
+                   ((((d[0]*q+d[1])*q+d[2])*q+d[3])*q+1);
+        } else if (p <= ph) {
+            q = p - 0.5;
+            r = q*q;
+            return (((((a[0]*r+a[1])*r+a[2])*r+a[3])*r+a[4])*r+a[5])*q /
+                   (((((b[0]*r+b[1])*r+b[2])*r+b[3])*r+b[4])*r+1);
+        } else {
+            q = Math.sqrt(-2 * Math.log(1-p));
+            return -(((((c[0]*q+c[1])*q+c[2])*q+c[3])*q+c[4])*q+c[5]) /
+                    ((((d[0]*q+d[1])*q+d[2])*q+d[3])*q+1);
+        }
+    }
+
+    var ROOT = document.getElementById("bv-root");
+    var CHART = document.getElementById("bv-chart");
+    var EL = {
+        sr: document.getElementById("bv-sr"),
+        yrs: document.getElementById("bv-yrs"),
+        trials: document.getElementById("bv-trials"),
+        cost: document.getElementById("bv-cost"),
+        tpy: document.getElementById("bv-tpy"),
+    };
+    var PRESETS_BAR = document.getElementById("bv-presets");
+
+    function getCssVar(name) {
+        return getComputedStyle(ROOT).getPropertyValue(name).trim();
+    }
+    function darkMode() {
+        return document.documentElement.getAttribute("data-theme") === "dark";
+    }
+
+    // Core compute. All Sharpe quantities ANNUALISED.
+    // Modeling assumptions:
+    //   T (effective years) = backtest years.
+    //   SE of estimated annual Sharpe ≈ sqrt((1 + 0.5*SR^2)/T_years)  [Lo 2002]
+    //   Expected max-of-N null Sharpe (annualised) ≈ Phi^-1(1 - 1/N) * SE_under_null
+    //     where SE_under_null = sqrt(1/T_years) (since SR=0 inside the SE formula).
+    //     For large N, ~ sqrt(2 ln N / T_years).
+    //   Deflated SR = SR_obs - SR_null_max  (point-estimate haircut)
+    //   PSR = Phi((SR_obs - SR_null_max) / SE_obs)  -- probability true SR > MTP threshold
+    //   Cost drag (annual return) = trades_per_year * cost_bps/10000
+    //   Cost drag in Sharpe = cost_drag / vol_assumed (15%).
+    //   OOS Sharpe estimate = Deflated SR (after MTP haircut)
+    //   Sharpe-after-costs = SR_obs - cost_drag/vol (raw)
+    //   Realistic OOS = max(0, Deflated SR) - cost_drag/vol
+    //   ProbReal = Phi(Realistic_OOS / SE_obs)  -- probability that net-of-costs true SR > 0
+    var VOL_ASSUMED = 0.15;
+
+    function compute(p) {
+        var SR = p.sr;
+        var T = Math.max(p.yrs, 0.5);
+        var N = Math.max(p.trials, 1);
+        var cost_bps = p.cost;
+        var tpy = p.tpy;
+
+        var SE_obs = Math.sqrt((1 + 0.5*SR*SR) / T);
+        // Expected max under null (annualised): Phi^-1(1 - 1/(N+1)) * sqrt(1/T)
+        var null_z = (N >= 2) ? PhiInv(1 - 1/(N+1)) : 0;
+        var SR_null_max = null_z / Math.sqrt(T);
+
+        var dsr_point = SR - SR_null_max;
+        var cost_drag_ret = tpy * (cost_bps / 10000.0);
+        var cost_drag_sr = cost_drag_ret / VOL_ASSUMED;
+
+        var SR_after_costs = SR - cost_drag_sr;
+        var OOS_estimate = dsr_point;             // pre-cost OOS expectation
+        var realistic_OOS = dsr_point - cost_drag_sr;
+        var prob_real = Phi(realistic_OOS / SE_obs);
+
+        return {
+            SR: SR, T: T, N: N, cost_bps: cost_bps, tpy: tpy,
+            SE_obs: SE_obs, SR_null_max: SR_null_max,
+            dsr_point: dsr_point,
+            cost_drag_ret: cost_drag_ret, cost_drag_sr: cost_drag_sr,
+            SR_after_costs: SR_after_costs,
+            OOS_estimate: OOS_estimate,
+            realistic_OOS: realistic_OOS,
+            prob_real: prob_real,
+        };
+    }
+
+    function fmtSR(v) { if (!isFinite(v)) return "—"; return (v >= 0 ? "+" : "") + v.toFixed(2); }
+    function fmtPct(v, d) { if (d == null) d = 0; return (v*100).toFixed(d) + "%"; }
+
+    function readInputs() {
+        return {
+            sr:     parseFloat(EL.sr.value),
+            yrs:    parseFloat(EL.yrs.value),
+            trials: parseInt(EL.trials.value, 10),
+            cost:   parseFloat(EL.cost.value),
+            tpy:    parseInt(EL.tpy.value, 10),
+        };
+    }
+
+    function updateLabels(p) {
+        document.getElementById("bv-val-sr").textContent = p.sr.toFixed(2);
+        document.getElementById("bv-val-yrs").textContent = p.yrs.toFixed(0) + " " + T.yrs_unit;
+        document.getElementById("bv-val-trials").textContent = p.trials.toString();
+        document.getElementById("bv-val-cost").textContent = p.cost.toFixed(0) + " " + T.bps_unit;
+        document.getElementById("bv-val-tpy").textContent = p.tpy.toString();
+    }
+
+    function updateKPIs(r) {
+        var dsrEl = document.getElementById("bv-k-dsr-val");
+        dsrEl.textContent = fmtSR(r.dsr_point);
+        dsrEl.classList.toggle("bv-pos", r.dsr_point > 0.5);
+        dsrEl.classList.toggle("bv-neg", r.dsr_point < 0);
+        document.getElementById("bv-k-dsr-sub").textContent =
+            T.mtp_haircut + "-" + r.SR_null_max.toFixed(2);
+
+        var oosEl = document.getElementById("bv-k-oos-val");
+        oosEl.textContent = fmtSR(r.OOS_estimate);
+        oosEl.classList.toggle("bv-pos", r.OOS_estimate > 0.5);
+        oosEl.classList.toggle("bv-neg", r.OOS_estimate < 0);
+        document.getElementById("bv-k-oos-sub").textContent =
+            "SE = ±" + r.SE_obs.toFixed(2);
+
+        var costEl = document.getElementById("bv-k-cost-val");
+        costEl.textContent = fmtSR(r.SR_after_costs);
+        costEl.classList.toggle("bv-pos", r.SR_after_costs > 0.5);
+        costEl.classList.toggle("bv-neg", r.SR_after_costs < 0);
+        document.getElementById("bv-k-cost-sub").textContent =
+            "drag -" + (r.cost_drag_ret*100).toFixed(2) + "% / yr";
+
+        var probEl = document.getElementById("bv-k-prob-val");
+        probEl.textContent = (r.prob_real*100).toFixed(0) + "%";
+        probEl.classList.toggle("bv-pos", r.prob_real > 0.7);
+        probEl.classList.toggle("bv-neg", r.prob_real < 0.3);
+        document.getElementById("bv-k-prob-sub").textContent = T.prob_sub;
+    }
+
+    function updateVerdict(r) {
+        var v = document.getElementById("bv-verdict");
+        var tag = document.getElementById("bv-verdict-tag");
+        var txt = document.getElementById("bv-verdict-text");
+        v.classList.remove("bv-good", "bv-meh", "bv-bad");
+        if (r.prob_real >= 0.75 && r.realistic_OOS >= 0.5) {
+            v.classList.add("bv-good");
+            tag.textContent = T.verdict_good;
+            txt.textContent = T.verdict_good_text;
+        } else if (r.prob_real >= 0.5) {
+            v.classList.add("bv-meh");
+            tag.textContent = T.verdict_meh;
+            txt.textContent = T.verdict_meh_text;
+        } else {
+            v.classList.add("bv-bad");
+            tag.textContent = T.verdict_bad;
+            txt.textContent = T.verdict_bad_text;
+        }
+    }
+
+    function renderChart(r) {
+        var colorText = getCssVar("--bv-text");
+        var colorMuted = getCssVar("--bv-muted");
+        var colorBg = getCssVar("--bv-card");
+        var colorBlue = getCssVar("--bv-blue");
+        var colorRed = getCssVar("--bv-red");
+        var colorAcc = getCssVar("--bv-accent");
+        var colorOrange = getCssVar("--bv-orange");
+        var colorGrid = darkMode() ? "rgba(255,255,255,0.08)" : "rgba(0,0,0,0.07)";
+
+        // X range: cover from (-1) to (max(SR, SR_null+SE)+1)
+        var xmax = Math.max(4.0, r.SR + 1.5, r.SR_null_max + 1.0);
+        var xmin = -1.0;
+        var xs = [];
+        var step = (xmax - xmin) / 240;
+        for (var x = xmin; x <= xmax; x += step) xs.push(x);
+
+        // Null density at point estimator under null is approximately
+        // distribution of max-of-N normals scaled by 1/sqrt(T).
+        // We approximate by a normal centred at SR_null_max with SD = 1/sqrt(T)/sqrt(2*ln(max(N,2))) * 1
+        // For visualisation we just use a normal centred at SR_null_max with width sigma_null
+        // = 1/sqrt(T) (rough — narrows with T).
+        var sigma_null = 1.0 / Math.sqrt(r.T);
+        var null_pdf = xs.map(function(x) {
+            return phi((x - r.SR_null_max) / sigma_null) / sigma_null;
+        });
+        // Observation density: normal centred at SR with SE_obs.
+        var obs_pdf = xs.map(function(x) {
+            return phi((x - r.SR) / r.SE_obs) / r.SE_obs;
+        });
+
+        var traces = [
+            {
+                x: xs, y: null_pdf, type: "scatter", mode: "lines",
+                name: T.null_max + " (N=" + r.N + ")",
+                line: { color: colorRed, width: 2.2 },
+                fill: "tozeroy", fillcolor: hexToRgba(colorRed, 0.18),
+                hovertemplate: "SR %{x:.2f}<extra></extra>",
+            },
+            {
+                x: xs, y: obs_pdf, type: "scatter", mode: "lines",
+                name: T.obs_se,
+                line: { color: colorBlue, width: 2.2 },
+                fill: "tozeroy", fillcolor: hexToRgba(colorBlue, 0.18),
+                hovertemplate: "SR %{x:.2f}<extra></extra>",
+            },
+        ];
+
+        var ymax = Math.max.apply(null, null_pdf.concat(obs_pdf)) * 1.15;
+
+        var shapes = [
+            // observed Sharpe vertical
+            {
+                type: "line", xref: "x", yref: "paper",
+                x0: r.SR, x1: r.SR, y0: 0, y1: 1,
+                line: { color: colorBlue, width: 2.0, dash: "dash" },
+            },
+            // null max vertical
+            {
+                type: "line", xref: "x", yref: "paper",
+                x0: r.SR_null_max, x1: r.SR_null_max, y0: 0, y1: 1,
+                line: { color: colorRed, width: 1.5, dash: "dot" },
+            },
+            // sharpe-after-costs vertical
+            {
+                type: "line", xref: "x", yref: "paper",
+                x0: r.SR_after_costs, x1: r.SR_after_costs, y0: 0, y1: 1,
+                line: { color: colorOrange, width: 1.5, dash: "dashdot" },
+            },
+        ];
+
+        var annots = [
+            {
+                x: r.SR, y: 1.0, xref: "x", yref: "paper",
+                xanchor: "left", yanchor: "top",
+                text: T.obs_line + " " + r.SR.toFixed(2),
+                showarrow: false,
+                font: { color: colorBlue, size: 11, weight: 700 },
+                bgcolor: colorBg, borderpad: 2,
+            },
+            {
+                x: r.SR_null_max, y: 0.9, xref: "x", yref: "paper",
+                xanchor: "right", yanchor: "top",
+                text: T.null_max.split(" ")[0] + " " + r.SR_null_max.toFixed(2),
+                showarrow: false,
+                font: { color: colorRed, size: 10.5, weight: 700 },
+                bgcolor: colorBg, borderpad: 2,
+            },
+        ];
+
+        var layout = {
+            margin: { l: 60, r: 24, t: 36, b: 50 },
+            paper_bgcolor: colorBg, plot_bgcolor: colorBg,
+            font: { family: "Segoe UI, Helvetica, Arial, sans-serif",
+                    color: colorText, size: 12 },
+            xaxis: {
+                title: { text: T.x_axis, font: { color: colorMuted, size: 11 } },
+                gridcolor: colorGrid, color: colorText,
+                zerolinecolor: colorMuted,
+                range: [xmin, xmax],
+            },
+            yaxis: {
+                title: { text: T.y_axis, font: { color: colorMuted, size: 11 } },
+                gridcolor: colorGrid, zerolinecolor: colorMuted, color: colorText,
+                range: [0, ymax],
+            },
+            title: {
+                text: T.chart_title, x: 0, xanchor: "left",
+                font: { color: colorText, size: 13, weight: 700 },
+            },
+            shapes: shapes,
+            annotations: annots,
+            legend: { orientation: "h", x: 0, y: -0.18,
+                      font: { size: 10.5 } },
+            hovermode: "x unified",
+        };
+        Plotly.react(CHART, traces, layout, {
+            displayModeBar: false, responsive: true,
+        });
+    }
+
+    function hexToRgba(hex, alpha) {
+        if (!hex || hex.indexOf("#") !== 0) return "rgba(0,0,0," + alpha + ")";
+        var h = hex.slice(1);
+        if (h.length === 3) {
+            h = h.split("").map(function(c) { return c+c; }).join("");
+        }
+        var r = parseInt(h.substr(0,2),16),
+            g = parseInt(h.substr(2,2),16),
+            b = parseInt(h.substr(4,2),16);
+        return "rgba("+r+","+g+","+b+","+alpha+")";
+    }
+
+    function applyI18n() {
+        document.getElementById("bv-presets-label").textContent = T.presets_label;
+        var btns = PRESETS_BAR.querySelectorAll("button");
+        var labels = { great: T.pre_great, ok: T.pre_ok, phacked: T.pre_phacked, hft: T.pre_hft, custom: T.pre_custom };
+        btns.forEach(function(b) {
+            b.textContent = labels[b.dataset.pre] || b.textContent;
+        });
+        document.getElementById("bv-name-sr").textContent = T.sr_name;
+        document.getElementById("bv-name-yrs").textContent = T.yrs_name;
+        document.getElementById("bv-name-trials").textContent = T.trials_name;
+        document.getElementById("bv-name-cost").textContent = T.cost_name;
+        document.getElementById("bv-name-tpy").textContent = T.tpy_name;
+        document.getElementById("bv-hint-name").textContent = T.hint_name;
+        document.getElementById("bv-hint-val").textContent = T.hint_val;
+        document.getElementById("bv-k-dsr-label").textContent = T.k_dsr;
+        document.getElementById("bv-k-oos-label").textContent = T.k_oos;
+        document.getElementById("bv-k-cost-label").textContent = T.k_cost;
+        document.getElementById("bv-k-prob-label").textContent = T.k_prob;
+        document.getElementById("bv-caption").textContent = T.caption;
+    }
+
+    function applyPreset(name) {
+        if (name === "custom") return;
+        var pre = PRESETS[name];
+        if (!pre) return;
+        EL.sr.value = pre.sr;
+        EL.yrs.value = pre.yrs;
+        EL.trials.value = pre.trials;
+        EL.cost.value = pre.cost;
+        EL.tpy.value = pre.tpy;
+    }
+    function setPresetActive(name) {
+        PRESETS_BAR.querySelectorAll("button").forEach(function(b) {
+            b.classList.toggle("active", b.dataset.pre === name);
+        });
+    }
+
+    function render() {
+        var p = readInputs();
+        var r = compute(p);
+        updateLabels(p);
+        updateKPIs(r);
+        updateVerdict(r);
+        renderChart(r);
+    }
+
+    PRESETS_BAR.querySelectorAll("button").forEach(function(b) {
+        b.addEventListener("click", function() {
+            var name = b.dataset.pre;
+            setPresetActive(name);
+            applyPreset(name);
+            render();
+        });
+    });
+    Object.values(EL).forEach(function(el) {
+        el.addEventListener("input", function() {
+            setPresetActive("custom");
+            render();
+        });
+    });
+
+    applyI18n();
+
+    function reportHeight() {
+        try {
+            var h = Math.ceil(document.documentElement.scrollHeight);
+            parent.postMessage({ type: "lesson-interactive-resize", height: h }, "*");
+        } catch (e) { /* ignore */ }
+    }
+    if (typeof ResizeObserver !== "undefined") {
+        new ResizeObserver(reportHeight).observe(document.body);
+    }
+    window.addEventListener("resize", reportHeight);
+    setTimeout(reportHeight, 50);
+    setTimeout(reportHeight, 500);
+
+    var themeObserver = new MutationObserver(render);
+    themeObserver.observe(document.documentElement, {
+        attributes: true, attributeFilter: ["data-theme"],
+    });
+
+    render();
+})();
+</script>
+
+</body>
+</html>

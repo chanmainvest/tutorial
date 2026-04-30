@@ -1,0 +1,1018 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>BA II Plus — Interactive (Side 1)</title>
+<style>
+html, body { margin: 0; padding: 0; background: var(--bc-bg); }
+:root {
+    --bc-bg: #fdfbf5;
+    --bc-text: #1a2332;
+    --bc-muted: #6b7280;
+    --bc-border: #d6d3c4;
+    --bc-card: #ffffff;
+    --bc-accent: #b8860b;
+    /* Real BA II Plus palette (standard model) */
+    --bc-shell-outer: #1a1a1a;
+    --bc-shell-face:  #9aa0a4;
+    --bc-shell-keypad:#1f1f1f;
+    --bc-key-bg:    #2c2c2c;   /* dark function keys */
+    --bc-key-fg:    #f0f0f0;
+    --bc-key-hover: #4a4a4a;
+    --bc-key-num:   #b6b8b1;   /* light silver-grey numerics */
+    --bc-key-num-fg:#1a1a1a;
+    --bc-key-op:    #2c2c2c;
+    --bc-key-cf:    #2c2c2c;
+    --bc-key-mem:   #2c2c2c;
+    --bc-key-cpt:   #2c2c2c;
+    --bc-key-tvm:   #b6b8b1;   /* TVM keys are silver, not amber */
+    --bc-key-tvm-fg:#1a1a1a;
+    --bc-key-2nd:   #caa645;   /* gold/tan 2ND key */
+    --bc-key-2nd-fg:#1a1207;
+    --bc-key-clr:   #a02020;
+    --bc-second:    #ffffff;   /* white secondary labels on real device */
+    --bc-second-img:#ffffff;
+    --bc-lcd:       #bfc4a6;
+    --bc-lcd-fg:    #0c1207;
+    --bc-brand-gold:#ffffff;
+    --bc-brand-grey:#202020;
+}
+html[data-theme="dark"] .bc-root,
+.bc-root[data-theme="dark"] {
+    --bc-bg: #0f1724;
+    --bc-text: #e6e6e6;
+    --bc-muted: #9aa3b2;
+    --bc-border: #2a3441;
+    --bc-card: #15202b;
+}
+.bc-root {
+    font-family: 'Segoe UI', Helvetica, Arial, sans-serif;
+    background: var(--bc-bg);
+    color: var(--bc-text);
+    padding: 16px;
+    margin: 0;
+}
+.bc-wrap {
+    display: grid;
+    grid-template-columns: minmax(340px, 410px) 1fr;
+    gap: 18px;
+    align-items: start;
+}
+@media (max-width: 760px) {
+    .bc-wrap { grid-template-columns: 1fr; }
+    .bc-calc { max-width: 410px; margin: 0 auto; }
+}
+
+/* Calculator chassis ---------------------------------------------------- */
+.bc-calc {
+    background: var(--bc-shell-outer);
+    border-radius: 22px;
+    padding: 14px 12px 18px;
+    box-shadow: 0 10px 28px rgba(0,0,0,0.35);
+}
+.bc-face {
+    background: var(--bc-shell-face);
+    border-radius: 12px;
+    padding: 14px 14px 16px;
+    margin-bottom: 8px;
+    position: relative;
+}
+.bc-brand-1 {
+    text-align: center;
+    font-size: 12px;
+    letter-spacing: 0.18em;
+    color: #ffffff;
+    font-weight: 700;
+    margin-top: 2px;
+}
+.bc-brand-2 {
+    text-align: center;
+    font-size: 26px;
+    letter-spacing: 0.06em;
+    color: #ffffff;
+    font-weight: 800;
+    margin: 4px 0 1px;
+}
+.bc-brand-3 {
+    text-align: center;
+    font-size: 10px;
+    color: #2a2a2a;
+    font-weight: 700;
+    letter-spacing: 0.20em;
+    margin-top: 4px;
+}
+.bc-onoff {
+    position: absolute;
+    top: 14px; right: 14px;
+    background: var(--bc-key-clr);
+    color: #fff;
+    border: 1px solid #1a1a1a;
+    border-radius: 4px;
+    padding: 4px 10px;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    cursor: pointer;
+}
+.bc-lcd-shell {
+    background: var(--bc-lcd);
+    border: 1.5px solid #5a5a5a;
+    border-radius: 6px;
+    padding: 6px 10px 4px;
+    color: var(--bc-lcd-fg);
+    font-family: "Consolas", "Lucida Console", "Courier New", monospace;
+    box-shadow: inset 0 2px 6px rgba(0,0,0,0.3);
+    margin-top: 8px;
+    width: 100%;
+}
+.bc-lcd-flags {
+    display: flex;
+    gap: 12px;
+    font-size: 9.5px;
+    font-weight: 700;
+    color: rgba(0,0,0,0.40);
+    letter-spacing: 0.10em;
+    height: 12px;
+}
+.bc-lcd-flags .on { color: rgba(0,0,0,0.92); }
+.bc-lcd-main {
+    text-align: right;
+    font-size: 26px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    margin-top: 2px;
+    min-height: 32px;
+    font-variant-numeric: tabular-nums;
+}
+.bc-lcd-status {
+    display: flex;
+    justify-content: space-between;
+    font-size: 9.5px;
+    margin-top: 2px;
+    color: rgba(0,0,0,0.55);
+}
+
+/* Keypad (5 cols x 9 rows) --------------------------------------------- */
+.bc-keypad {
+    background: var(--bc-shell-keypad);
+    border-radius: 10px;
+    padding: 10px 8px;
+}
+.bc-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 14px 5px;
+    padding-top: 6px;
+}
+.bc-key {
+    position: relative;
+    background: var(--bc-key-bg);
+    color: var(--bc-key-fg);
+    border: 1px solid #0d0d0d;
+    border-radius: 5px;
+    padding: 6px 2px 5px;
+    font-size: 12px;
+    font-weight: 700;
+    cursor: pointer;
+    text-align: center;
+    transition: background 0.1s, transform 0.05s;
+    user-select: none;
+    min-height: 42px;
+    box-shadow: 0 2px 0 rgba(0,0,0,0.45);
+    line-height: 1.05;
+}
+.bc-key:hover { filter: brightness(1.25); }
+.bc-key:active { transform: translateY(1px); box-shadow: 0 1px 0 rgba(0,0,0,0.45); }
+.bc-key.tvm { background: var(--bc-key-tvm); color: var(--bc-key-tvm-fg); }
+.bc-key.num { background: var(--bc-key-num); color: var(--bc-key-num-fg); }
+.bc-key.op  { background: var(--bc-key-op); }
+.bc-key.cpt { background: var(--bc-key-cpt); color: #fff; }
+.bc-key.cf  { background: var(--bc-key-cf); }
+.bc-key.mem { background: var(--bc-key-mem); }
+.bc-key.clr { background: var(--bc-key-clr); color: #fff; }
+.bc-key.second { background: var(--bc-key-2nd); color: var(--bc-key-2nd-fg); }
+.bc-key.second.active { background: #e8c065; color: #000; }
+.bc-key.wide { grid-column: span 2; }
+.bc-key.tall { grid-row: span 2; }
+.bc-key .second-label {
+    position: absolute;
+    top: -10px; left: 0; right: 0;
+    font-size: 8.5px;
+    font-weight: 700;
+    color: var(--bc-second);
+    letter-spacing: 0.02em;
+    line-height: 1;
+}
+.bc-key.tvm .second-label,
+.bc-key.num .second-label { color: var(--bc-second); }
+.bc-key .main-label {
+    margin-top: 2px;
+}
+
+/* Help panel ----------------------------------------------------------- */
+.bc-help {
+    background: var(--bc-card);
+    border: 1px solid var(--bc-border);
+    border-radius: 10px;
+    padding: 14px 16px;
+    color: var(--bc-text);
+    line-height: 1.55;
+    font-size: 13px;
+}
+.bc-help h3 {
+    margin: 0 0 8px 0;
+    font-size: 14px;
+    color: var(--bc-accent);
+    letter-spacing: 0.04em;
+}
+.bc-presets {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin: 6px 0 14px 0;
+}
+.bc-preset {
+    background: var(--bc-bg);
+    border: 1px solid var(--bc-border);
+    border-radius: 6px;
+    padding: 8px 10px;
+    text-align: left;
+    cursor: pointer;
+    font: inherit;
+    color: var(--bc-text);
+    transition: border-color 0.15s, background 0.15s;
+}
+.bc-preset:hover { border-color: var(--bc-accent); background: rgba(184,134,11,0.06); }
+.bc-preset .ttl { font-weight: 700; display: block; margin-bottom: 2px; }
+.bc-preset .sub { color: var(--bc-muted); font-size: 11.5px; }
+.bc-tape {
+    background: var(--bc-card);
+    border: 1px solid var(--bc-border);
+    border-radius: 6px;
+    padding: 8px 10px;
+    margin-top: 4px;
+    font-family: "Consolas", monospace;
+    font-size: 11.5px;
+    color: var(--bc-text);
+    min-height: 60px;
+    max-height: 140px;
+    overflow-y: auto;
+}
+.bc-tape .line { color: var(--bc-muted); }
+.bc-tape .line.result { color: var(--bc-accent); font-weight: 700; }
+.bc-keymap {
+    margin-top: 10px;
+    font-size: 11.5px;
+    color: var(--bc-muted);
+}
+.bc-keymap kbd {
+    background: var(--bc-bg);
+    border: 1px solid var(--bc-border);
+    border-radius: 3px;
+    padding: 1px 5px;
+    font: inherit;
+    font-size: 10.5px;
+    margin: 0 2px;
+}
+</style>
+</head>
+<body class="bc-root" id="bc-root">
+
+<div class="bc-wrap">
+  <div class="bc-calc" id="bc-calc">
+    <div class="bc-face">
+      <div class="bc-brand-2">BA&nbsp;II&nbsp;PLUS</div>
+      <div class="bc-brand-1">TEXAS INSTRUMENTS</div>
+      <div class="bc-lcd-shell">
+        <div class="bc-lcd-flags">
+          <span id="bc-flag-2nd">2ND</span>
+          <span id="bc-flag-bgn">BGN</span>
+          <span id="bc-flag-cpt">CPT</span>
+          <span id="bc-flag-enter">ENTER</span>
+        </div>
+        <div class="bc-lcd-main" id="bc-lcd">0.00</div>
+        <div class="bc-lcd-status">
+          <span id="bc-lcd-py">P/Y=1</span>
+          <span id="bc-lcd-mode">END</span>
+        </div>
+      </div>
+      <div class="bc-brand-3" id="bc-subtitle">BUSINESS ANALYST</div>
+    </div>
+    <div class="bc-keypad">
+      <div class="bc-grid" id="bc-grid"></div>
+    </div>
+  </div>
+
+  <div class="bc-help">
+    <h3 id="bc-help-title">Try these examples</h3>
+    <div class="bc-presets" id="bc-presets"></div>
+    <div id="bc-tape-label" style="font-size:11.5px;color:var(--bc-muted);margin-bottom:4px;">Tape</div>
+    <div class="bc-tape" id="bc-tape"></div>
+    <div class="bc-keymap" id="bc-keymap-box"></div>
+  </div>
+</div>
+
+<script>
+(function () {
+"use strict";
+
+/* ---------- I18N ---------------------------------------------------- */
+/*  Pure mathematical/financial notation (N, I/Y, PV, PMT, FV, NPV, IRR,
+    P/Y, AMORT, y^x, LN, sqrt, x^2, digits and operators) stays as the
+    universal symbol since Chinese finance textbooks and the
+    Chinese-market BA II Plus units print exactly the same marks.
+    Every English word on the device, every blue 2ND-secondary label
+    and all UI chrome translate.                                       */
+var I18N = {
+  en: {
+    subtitle: "Advanced Financial Calculator",
+    help_title: "Try these examples",
+    tape: "Tape",
+    keymap_label: "Keyboard",
+    /* keypad face labels */
+    K: { "2ND":"2ND","CPT":"CPT","ENTER":"ENTER","CE/C":"CE/C","ON/OFF":"ON/OFF",
+         "CF":"CF","STO":"STO","RCL":"RCL" },
+    /* secondary blue labels (above each key) */
+    SEC: {
+      "ENTER":"SET","UP":"INS","DOWN":"DEL",
+      "N":"xP/Y","I/Y":"P/Y","PV":"AMORT","PMT":"BGN","FV":"CLR TVM",
+      "CF":"RESET","NPV":"MEM","IRR":"BOND",
+      "P/Y":"ICONV","AMORT":"DEPR",
+      "y^x":"e^x","1/x":"HYP","√x":"x²","LN":"LOG","%":"Δ%",
+      "(":"x!",")":"nCr","+/-":"RAND","DIV":"ROUND","MUL":"INT",
+      "7":"DATA","8":"STAT","9":"P/Y",
+      "4":"BOND","5":"DEPR","6":"DATE",
+      "1":"ICONV","2":"PROFIT","3":"BREAK",
+      "0":"MEM",".":"FORMAT","=":"ANS",
+      "+":"Σ","SUB":"Σx","x²":"√x"
+    },
+    flag_2nd:"2ND", flag_bgn:"BGN", flag_cpt:"CPT", flag_enter:"ENTER",
+    mode_end:"END", mode_bgn:"BGN", mode_cf:"CF",
+    line_set:"set", line_cpt:"CPT", line_clr:"cleared",
+    line_npv:"NPV", line_irr:"IRR", line_armed:"CPT armed",
+    line_clr_all:"cleared ALL", line_clr_tvm:"cleared TVM",
+    line_clr_work:"cleared WORK",
+    line_bgn_on:"BGN = ON", line_bgn_off:"BGN = OFF",
+    line_py:"P/Y =", line_cf_idx:"CF idx =",
+    line_cf_open:"CF worksheet (CF0...)",
+    p1_t:"1) FV of a lump sum",
+    p1_s:"$10,000 invested at 8% per year for 20 years. Solve FV → 46,609.57",
+    p2_t:"2) Mortgage payment",
+    p2_s:"Borrow $300,000 for 30 years at 6.5% APR, monthly. Solve PMT → -1,896.20",
+    p3_t:"3) Bond yield-to-maturity",
+    p3_s:"Pay 950, receive 50/year for 10y plus 1000 at maturity. Solve I/Y → 5.66",
+    p4_t:"4) NPV @ 10%",
+    p4_s:"CF0=-1000; C01=300, C02=400, C03=500. NPV at 10% → ~36.91",
+    prompt_py:"Payments per year (P/Y):",
+    prompt_npv:"Discount rate (annual %, e.g. 10):",
+    keymap_html:'<kbd>0-9</kbd> <kbd>.</kbd> <kbd>+ - * /</kbd> <kbd>Enter</kbd>= '
+              +'<kbd>Backspace</kbd>CE/C <kbd>Esc</kbd>CLR <kbd>n</kbd>N '
+              +'<kbd>i</kbd>I/Y <kbd>v</kbd>PV <kbd>m</kbd>PMT <kbd>f</kbd>FV '
+              +'<kbd>c</kbd>CPT <kbd>s</kbd>2ND'
+  },
+  hk: {
+    subtitle: "高階財務計算機",
+    help_title: "試試這些範例",
+    tape: "計算紀錄",
+    keymap_label: "鍵盤",
+    K: { "2ND":"2ND","CPT":"計算","ENTER":"輸入","CE/C":"清除","ON/OFF":"開關",
+         "CF":"現金流","STO":"存","RCL":"取" },
+    SEC: {
+      "ENTER":"設定","UP":"插入","DOWN":"刪除",
+      "N":"期×P/Y","I/Y":"期/年","PV":"攤還","PMT":"期初","FV":"清TVM",
+      "CF":"重設","NPV":"記憶","IRR":"債券",
+      "P/Y":"利率換","AMORT":"折舊",
+      "y^x":"e^x","1/x":"雙曲","√x":"x²","LN":"對數","%":"Δ%",
+      "(":"x!",")":"nCr","+/-":"亂數","DIV":"捨入","MUL":"整數",
+      "7":"數據","8":"統計","9":"期/年",
+      "4":"債券","5":"折舊","6":"日期",
+      "1":"利率換","2":"損益","3":"盈虧",
+      "0":"記憶",".":"格式","=":"答案",
+      "+":"Σ","SUB":"Σx","x²":"√x"
+    },
+    flag_2nd:"2ND", flag_bgn:"期初", flag_cpt:"計算", flag_enter:"輸入",
+    mode_end:"期末", mode_bgn:"期初", mode_cf:"現金流",
+    line_set:"輸入", line_cpt:"計算", line_clr:"清除",
+    line_npv:"NPV", line_irr:"IRR", line_armed:"已啟動 CPT",
+    line_clr_all:"全部清除", line_clr_tvm:"清除 TVM",
+    line_clr_work:"清除工作表",
+    line_bgn_on:"期初 = 開", line_bgn_off:"期初 = 關",
+    line_py:"P/Y =", line_cf_idx:"現金流序號 =",
+    line_cf_open:"開啟現金流工作表 (CF0...)",
+    p1_t:"1) 一筆過的終值",
+    p1_s:"10,000 美元 8% 年利率 20 年。計算 FV → 46,609.57",
+    p2_t:"2) 按揭月供",
+    p2_s:"借 300,000 美元 30 年 6.5% 年息按月供。計算 PMT → -1,896.20",
+    p3_t:"3) 債券到期收益率",
+    p3_s:"支付 950,每年收 50 共 10 年,到期收回 1000。計算 I/Y → 5.66",
+    p4_t:"4) 折現率 10% 的 NPV",
+    p4_s:"CF0=-1000; C01=300, C02=400, C03=500。10% 的 NPV → 約 36.91",
+    prompt_py:"每年付款次數 (P/Y):",
+    prompt_npv:"折現率(年化 %,例如 10):",
+    keymap_html:'<kbd>0-9</kbd> <kbd>.</kbd> <kbd>+ - * /</kbd> <kbd>Enter</kbd>= '
+              +'<kbd>Backspace</kbd>清除 <kbd>Esc</kbd>全清 <kbd>n</kbd>N '
+              +'<kbd>i</kbd>I/Y <kbd>v</kbd>PV <kbd>m</kbd>PMT <kbd>f</kbd>FV '
+              +'<kbd>c</kbd>計算 <kbd>s</kbd>2ND'
+  },
+  tw: {
+    subtitle: "進階財務計算機",
+    help_title: "試試這些範例",
+    tape: "計算紀錄",
+    keymap_label: "鍵盤",
+    K: { "2ND":"2ND","CPT":"計算","ENTER":"輸入","CE/C":"清除","ON/OFF":"開關",
+         "CF":"現金流","STO":"儲存","RCL":"取回" },
+    SEC: {
+      "ENTER":"設定","UP":"插入","DOWN":"刪除",
+      "N":"期×P/Y","I/Y":"期/年","PV":"攤還","PMT":"期初","FV":"清TVM",
+      "CF":"重設","NPV":"記憶","IRR":"公債",
+      "P/Y":"利率換","AMORT":"折舊",
+      "y^x":"e^x","1/x":"雙曲","√x":"x²","LN":"對數","%":"Δ%",
+      "(":"x!",")":"nCr","+/-":"亂數","DIV":"捨入","MUL":"整數",
+      "7":"資料","8":"統計","9":"期/年",
+      "4":"公債","5":"折舊","6":"日期",
+      "1":"利率換","2":"損益","3":"損平",
+      "0":"記憶",".":"格式","=":"答案",
+      "+":"Σ","SUB":"Σx","x²":"√x"
+    },
+    flag_2nd:"2ND", flag_bgn:"期初", flag_cpt:"計算", flag_enter:"輸入",
+    mode_end:"期末", mode_bgn:"期初", mode_cf:"現金流",
+    line_set:"輸入", line_cpt:"計算", line_clr:"清除",
+    line_npv:"NPV", line_irr:"IRR", line_armed:"已啟動 CPT",
+    line_clr_all:"全部清除", line_clr_tvm:"清除 TVM",
+    line_clr_work:"清除工作表",
+    line_bgn_on:"期初 = 開", line_bgn_off:"期初 = 關",
+    line_py:"P/Y =", line_cf_idx:"現金流序號 =",
+    line_cf_open:"開啟現金流工作表 (CF0...)",
+    p1_t:"1) 一次投入的終值",
+    p1_s:"10,000 美元、8% 年利率、20 年。計算 FV → 46,609.57",
+    p2_t:"2) 房貸月付金",
+    p2_s:"借 300,000 美元 30 年 6.5% 年息按月付款。計算 PMT → -1,896.20",
+    p3_t:"3) 債券到期殖利率",
+    p3_s:"支付 950,每年收 50 共 10 年,到期收回 1000。計算 I/Y → 5.66",
+    p4_t:"4) 折現率 10% 的 NPV",
+    p4_s:"CF0=-1000; C01=300, C02=400, C03=500。10% 的 NPV → 約 36.91",
+    prompt_py:"每年付款次數 (P/Y):",
+    prompt_npv:"折現率(年化 %,例如 10):",
+    keymap_html:'<kbd>0-9</kbd> <kbd>.</kbd> <kbd>+ - * /</kbd> <kbd>Enter</kbd>= '
+              +'<kbd>Backspace</kbd>清除 <kbd>Esc</kbd>全清 <kbd>n</kbd>N '
+              +'<kbd>i</kbd>I/Y <kbd>v</kbd>PV <kbd>m</kbd>PMT <kbd>f</kbd>FV '
+              +'<kbd>c</kbd>計算 <kbd>s</kbd>2ND'
+  },
+  cn: {
+    subtitle: "高级财务计算器",
+    help_title: "试试这些示例",
+    tape: "计算记录",
+    keymap_label: "键盘",
+    K: { "2ND":"2ND","CPT":"计算","ENTER":"输入","CE/C":"清除","ON/OFF":"开关",
+         "CF":"现金流","STO":"存储","RCL":"调用" },
+    SEC: {
+      "ENTER":"设定","UP":"插入","DOWN":"删除",
+      "N":"期×P/Y","I/Y":"期/年","PV":"摊还","PMT":"期初","FV":"清TVM",
+      "CF":"重置","NPV":"记忆","IRR":"债券",
+      "P/Y":"利率换","AMORT":"折旧",
+      "y^x":"e^x","1/x":"双曲","√x":"x²","LN":"对数","%":"Δ%",
+      "(":"x!",")":"nCr","+/-":"随机","DIV":"舍入","MUL":"整数",
+      "7":"数据","8":"统计","9":"期/年",
+      "4":"债券","5":"折旧","6":"日期",
+      "1":"利率换","2":"损益","3":"盈亏",
+      "0":"记忆",".":"格式","=":"答案",
+      "+":"Σ","SUB":"Σx","x²":"√x"
+    },
+    flag_2nd:"2ND", flag_bgn:"期初", flag_cpt:"计算", flag_enter:"输入",
+    mode_end:"期末", mode_bgn:"期初", mode_cf:"现金流",
+    line_set:"输入", line_cpt:"计算", line_clr:"清除",
+    line_npv:"NPV", line_irr:"IRR", line_armed:"已启动 CPT",
+    line_clr_all:"全部清除", line_clr_tvm:"清除 TVM",
+    line_clr_work:"清除工作表",
+    line_bgn_on:"期初 = 开", line_bgn_off:"期初 = 关",
+    line_py:"P/Y =", line_cf_idx:"现金流序号 =",
+    line_cf_open:"打开现金流工作表 (CF0...)",
+    p1_t:"1) 一次投入的终值",
+    p1_s:"10,000 美元、8% 年利率、20 年。计算 FV → 46,609.57",
+    p2_t:"2) 房贷月供",
+    p2_s:"借 300,000 美元 30 年 6.5% 年息按月供。计算 PMT → -1,896.20",
+    p3_t:"3) 债券到期收益率",
+    p3_s:"支付 950,每年收 50 共 10 年,到期收回 1000。计算 I/Y → 5.66",
+    p4_t:"4) 折现率 10% 的 NPV",
+    p4_s:"CF0=-1000; C01=300, C02=400, C03=500。10% 的 NPV → 约 36.91",
+    prompt_py:"每年付款次数 (P/Y):",
+    prompt_npv:"折现率(年化 %,例如 10):",
+    keymap_html:'<kbd>0-9</kbd> <kbd>.</kbd> <kbd>+ - * /</kbd> <kbd>Enter</kbd>= '
+              +'<kbd>Backspace</kbd>清除 <kbd>Esc</kbd>全清 <kbd>n</kbd>N '
+              +'<kbd>i</kbd>I/Y <kbd>v</kbd>PV <kbd>m</kbd>PMT <kbd>f</kbd>FV '
+              +'<kbd>c</kbd>计算 <kbd>s</kbd>2ND'
+  }
+};
+function currentLang(){
+  var p = new URLSearchParams(location.search);
+  var l = (p.get("lang") || "en").toLowerCase();
+  return I18N[l] ? l : "en";
+}
+var T = I18N[currentLang()];
+
+/* ---------- State --------------------------------------------------- */
+var S = {
+  N: 0, IY: 0, PV: 0, PMT: 0, FV: 0,
+  PY: 1,
+  bgn: false,
+  display: "0",
+  hasEdit: false,
+  showVal: 0,
+  second: false,
+  cptArmed: false,
+  pendOp: null, pendVal: 0,
+  cf: { mode:false, idx:0, cf0:0, cs:[], fs:[] },
+  mem: 0,
+  tape: []
+};
+
+/* ---------- Helpers ------------------------------------------------- */
+function fmt(v){
+  if (!isFinite(v)) return "Error";
+  var sign = v<0 ? "-" : "";
+  var a = Math.abs(v);
+  var s = a.toFixed(2);
+  var parts = s.split(".");
+  parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  return sign + parts.join(".");
+}
+function pushTape(s, isResult){
+  S.tape.push({s:s, r:!!isResult});
+  if (S.tape.length>40) S.tape.shift();
+  renderTape();
+}
+function renderTape(){
+  var box = document.getElementById("bc-tape");
+  box.innerHTML = "";
+  for (var i=0;i<S.tape.length;i++){
+    var d = document.createElement("div");
+    d.className = "line" + (S.tape[i].r ? " result" : "");
+    d.textContent = S.tape[i].s;
+    box.appendChild(d);
+  }
+  box.scrollTop = box.scrollHeight;
+}
+function curValue(){
+  if (S.hasEdit){
+    var v = parseFloat(S.display);
+    return isNaN(v) ? 0 : v;
+  }
+  return S.showVal;
+}
+function setShow(v){ S.showVal = v; S.display=""; S.hasEdit=false; render(); }
+function regKey(r){ return r==="I/Y" ? "IY" : r; }
+
+/* ---------- TVM math ----------------------------------------------- */
+/* Sign convention:
+     PV*(1+i)^N + PMT*((1+i)^N - 1)/i*(1+i*BGN) + FV = 0           */
+function tvmF(i, N, PV, PMT, FV, bgn){
+  if (Math.abs(i) < 1e-12){
+    return PV + PMT*N*(1 + (bgn?i:0)) + FV;
+  }
+  var k = Math.pow(1+i, N);
+  var ann = (k - 1)/i;
+  var due = 1 + i*(bgn?1:0);
+  return PV*k + PMT*ann*due + FV;
+}
+function solveFor(which){
+  var i = (S.IY/100)/S.PY;
+  var N = S.N, PV = S.PV, PMT = S.PMT, FV = S.FV;
+  var b = S.bgn ? 1 : 0;
+  var k, ann, due;
+  if (which==="FV"){
+    k = Math.pow(1+i, N); ann = Math.abs(i)<1e-12 ? N : (k-1)/i; due = 1+i*b;
+    S.FV = -(PV*k + PMT*ann*due);
+    setShow(S.FV); pushTape(T.line_cpt+" FV  =  "+fmt(S.FV), true);
+  } else if (which==="PV"){
+    k = Math.pow(1+i, N); ann = Math.abs(i)<1e-12 ? N : (k-1)/i; due = 1+i*b;
+    S.PV = -(PMT*ann*due + FV)/k;
+    setShow(S.PV); pushTape(T.line_cpt+" PV  =  "+fmt(S.PV), true);
+  } else if (which==="PMT"){
+    k = Math.pow(1+i, N); ann = Math.abs(i)<1e-12 ? N : (k-1)/i; due = 1+i*b;
+    if (Math.abs(ann*due) < 1e-14){ S.PMT = -(PV*k + FV)/Math.max(N,1); }
+    else { S.PMT = -(PV*k + FV)/(ann*due); }
+    setShow(S.PMT); pushTape(T.line_cpt+" PMT =  "+fmt(S.PMT), true);
+  } else if (which==="N"){
+    if (Math.abs(i) < 1e-12){
+      S.N = -(PV+FV)/PMT;
+    } else {
+      var due2 = 1+i*b;
+      var A = PMT*due2/i;
+      var num = A - FV, den = PV + A;
+      if (num/den > 0 && (1+i) > 0){
+        S.N = Math.log(num/den)/Math.log(1+i);
+      } else {
+        var x=10;
+        for (var t=0;t<200;t++){
+          var f = tvmF(i,x,PV,PMT,FV,b);
+          var h=1e-6;
+          var df=(tvmF(i,x+h,PV,PMT,FV,b)-f)/h;
+          if (!isFinite(df) || Math.abs(df)<1e-14) break;
+          var nx=x-f/df;
+          if (!isFinite(nx)) break;
+          if (Math.abs(nx-x)<1e-9){ x=nx; break; }
+          x=nx;
+        }
+        S.N=x;
+      }
+    }
+    setShow(S.N); pushTape(T.line_cpt+" N   =  "+fmt(S.N), true);
+  } else if (which==="I/Y"){
+    var lo=-0.99, hi=10, ig=0.05;
+    for (var t2=0;t2<200;t2++){
+      var fv=tvmF(ig,N,PV,PMT,FV,b), hh=1e-7;
+      var dfv=(tvmF(ig+hh,N,PV,PMT,FV,b)-fv)/hh;
+      if (!isFinite(dfv)||Math.abs(dfv)<1e-16) break;
+      var ni=ig-fv/dfv;
+      if (!isFinite(ni)) break;
+      if (ni<lo) ni=(ig+lo)/2;
+      if (ni>hi) ni=(ig+hi)/2;
+      if (Math.abs(ni-ig)<1e-12){ ig=ni; break; }
+      ig=ni;
+    }
+    S.IY=ig*100*S.PY;
+    setShow(S.IY); pushTape(T.line_cpt+" I/Y =  "+fmt(S.IY), true);
+  }
+}
+
+/* ---------- NPV / IRR ---------------------------------------------- */
+function buildCFArrays(){
+  var seq=[S.cf.cf0];
+  for (var i=0;i<S.cf.cs.length;i++){
+    var c=S.cf.cs[i], f=S.cf.fs[i]||1;
+    for (var j=0;j<f;j++) seq.push(c);
+  }
+  return seq;
+}
+function npvAt(rate, seq){
+  var s=0;
+  for (var t=0;t<seq.length;t++) s += seq[t]/Math.pow(1+rate,t);
+  return s;
+}
+function computeNPV(rateAnnualPct){
+  var seq=buildCFArrays();
+  var r=(rateAnnualPct/100)/S.PY;
+  var v=npvAt(r,seq);
+  setShow(v); pushTape(T.line_npv+" @ "+fmt(rateAnnualPct)+"% = "+fmt(v), true);
+}
+function computeIRR(){
+  var seq=buildCFArrays();
+  if (seq.length<2){ setShow(NaN); return; }
+  var lo=-0.99, hi=10;
+  var flo=npvAt(lo,seq), fhi=npvAt(hi,seq);
+  if (flo*fhi>0) for (var k=0;k<5 && flo*fhi>0;k++){ hi*=2; fhi=npvAt(hi,seq); }
+  if (flo*fhi>0){ setShow(NaN); pushTape(T.line_irr+" = Error", true); return; }
+  for (var t=0;t<200;t++){
+    var mid=(lo+hi)/2, fm=npvAt(mid,seq);
+    if (fm*flo<0){ hi=mid; fhi=fm; } else { lo=mid; flo=fm; }
+    if (hi-lo<1e-10) break;
+  }
+  var irr=(lo+hi)/2*100*S.PY;
+  setShow(irr); pushTape(T.line_irr+" = "+fmt(irr), true);
+}
+
+/* ---------- Key handling ------------------------------------------- */
+function pressDigit(d){
+  if (S.cptArmed) S.cptArmed=false;
+  if (!S.hasEdit){ S.display=""; S.hasEdit=true; }
+  if (d==="." && S.display.indexOf(".")>=0) return;
+  if (S.display.length>14) return;
+  if (d==="." && S.display==="") S.display="0";
+  if (S.display==="0" && d!==".") S.display=d;
+  else S.display+=d;
+  render();
+}
+function pressSign(){
+  if (!S.hasEdit){ S.showVal = -S.showVal; render(); return; }
+  if (S.display.charAt(0)==="-") S.display=S.display.slice(1);
+  else if (S.display && S.display!=="0") S.display="-"+S.display;
+  render();
+}
+function commitToReg(reg){
+  var v=curValue();
+  if (S.cptArmed){ S.cptArmed=false; solveFor(reg); return; }
+  S[regKey(reg)]=v;
+  pushTape(reg+" = "+fmt(v));
+  setShow(v);
+}
+function pressArith(op){
+  var v=curValue();
+  if (S.pendOp){ v=applyOp(S.pendVal,v,S.pendOp); setShow(v); }
+  else { S.showVal=v; S.display=""; S.hasEdit=false; }
+  S.pendOp=op; S.pendVal=v;
+  render();
+}
+function applyOp(a,b,op){
+  if (op==="+") return a+b;
+  if (op==="-") return a-b;
+  if (op==="*") return a*b;
+  if (op==="/") return b===0?NaN:a/b;
+  return b;
+}
+function pressEquals(){
+  if (!S.pendOp) return;
+  var v=applyOp(S.pendVal,curValue(),S.pendOp);
+  setShow(v); pushTape("= "+fmt(v),true);
+  S.pendOp=null; S.pendVal=0;
+}
+function pressUnary(fn, label){
+  var v=curValue(), r;
+  switch(fn){
+    case "1/x":  r = v===0 ? NaN : 1/v; break;
+    case "sqrt": r = Math.sqrt(v); break;
+    case "x2":   r = v*v; break;
+    case "ln":   r = v>0 ? Math.log(v) : NaN; break;
+    case "ex":   r = Math.exp(v); break;
+    case "pct":  r = v/100; break;
+    default:     r = v;
+  }
+  setShow(r); pushTape(label+"("+fmt(v)+") = "+fmt(r), true);
+}
+
+function press(key){
+  /* Numeric */
+  if (/^[0-9]$/.test(key) || key==="."){
+    if (S.second && key==="."){ S.second=false; render(); return; }
+    pressDigit(key); return;
+  }
+  if (key==="+/-"){ pressSign(); return; }
+
+  /* 2ND-modified */
+  if (S.second){ handleSecond(key); S.second=false; render(); return; }
+
+  switch(key){
+    case "2ND": S.second=!S.second; render(); return;
+    case "CE/C":
+      if (S.hasEdit){ S.display=""; S.hasEdit=false; render(); }
+      else { S.showVal=0; S.pendOp=null; render(); }
+      return;
+    case "ON/OFF":
+      S.N=S.IY=S.PV=S.PMT=S.FV=0; S.PY=1; S.bgn=false;
+      S.showVal=0; S.display=""; S.hasEdit=false; S.pendOp=null;
+      S.cf={mode:false,idx:0,cf0:0,cs:[],fs:[]};
+      pushTape(T.line_clr_all,true); render(); return;
+    case "ENTER":
+      if (S.cf.mode){
+        var v=curValue();
+        if (S.cf.idx===0){ S.cf.cf0=v; pushTape("CF0 = "+fmt(v)); }
+        else {
+          var ci=S.cf.idx-1;
+          while (S.cf.cs.length<=ci){ S.cf.cs.push(0); S.cf.fs.push(1); }
+          S.cf.cs[ci]=v;
+          pushTape("C0"+S.cf.idx+" = "+fmt(v));
+        }
+        setShow(v); return;
+      }
+      pressEquals(); return;
+    case "↑":
+      if (S.cf.mode){ S.cf.idx=Math.max(0,S.cf.idx-1); pushTape(T.line_cf_idx+" "+S.cf.idx); }
+      return;
+    case "↓":
+      if (S.cf.mode){ S.cf.idx+=1; pushTape(T.line_cf_idx+" "+S.cf.idx); }
+      return;
+    case "N": case "I/Y": case "PV": case "PMT": case "FV":
+      commitToReg(key); return;
+    case "CPT": S.cptArmed=true; pushTape(T.line_armed); render(); return;
+    case "+": case "-": case "*": case "/": pressArith(key); return;
+    case "=": pressEquals(); return;
+    case "CF":
+      S.cf.mode=true; S.cf.idx=0;
+      pushTape(T.line_cf_open);
+      setShow(S.cf.cf0); return;
+    case "NPV": {
+      var rate=parseFloat(prompt(T.prompt_npv,"10"));
+      if (isNaN(rate)) return;
+      computeNPV(rate); return;
+    }
+    case "IRR": computeIRR(); return;
+    case "P/Y": commitToReg("PMT"); return; /* placeholder ignore */
+    case "AMORT": return;
+    case "STO": S.mem=curValue(); pushTape("STO M = "+fmt(S.mem)); return;
+    case "RCL": setShow(S.mem); pushTape("RCL M = "+fmt(S.mem)); return;
+    case "(": case ")": return;
+    case "1/x":  pressUnary("1/x","1/x"); return;
+    case "√x":   pressUnary("sqrt","√"); return;
+    case "x²":   pressUnary("x2","x²"); return;
+    case "LN":   pressUnary("ln","LN"); return;
+    case "e^x":  pressUnary("ex","e^x"); return;
+    case "%":    pressUnary("pct","%"); return;
+    case "y^x":  pressArith("^"); return;
+  }
+}
+function handleSecond(key){
+  if (key==="FV"){ S.N=S.IY=S.PV=S.PMT=S.FV=0; pushTape(T.line_clr_tvm,true); setShow(0); return; }
+  if (key==="PMT"){ S.bgn=!S.bgn; pushTape(S.bgn?T.line_bgn_on:T.line_bgn_off); render(); return; }
+  if (key==="I/Y"){
+    var p=parseInt(prompt(T.prompt_py,String(S.PY)),10);
+    if (!isNaN(p)&&p>0){ S.PY=p; pushTape(T.line_py+" "+p); render(); }
+    return;
+  }
+  if (key==="CE/C"){
+    if (S.cf.mode){ S.cf={mode:true,idx:0,cf0:0,cs:[],fs:[]}; pushTape(T.line_clr_work); setShow(0); }
+    return;
+  }
+}
+
+/* ---------- Layout (5 cols x 9 rows) -------------------------------- */
+/* Mirrors the static image: rows correspond exactly to side01_calculator.py
+   Each entry: { k: action key, sec: secondary key for SEC lookup, c: kind,
+                 wide: bool, l: optional override face label }            */
+function buildKeys(){
+  /* Real BA II Plus 9-row x 5-col layout. `sec` is a literal secondary
+     label (rendered above the key as on the real device). */
+  var rows = [
+    /* Row 1: CPT | ENTER | up | down | ON/OFF */
+    [ {k:"CPT",   sec:"QUIT", t:T.K["CPT"]},
+      {k:"ENTER", sec:"SET",  t:T.K["ENTER"]},
+      {k:"↑",     sec:"DEL"},
+      {k:"↓",     sec:"INS"},
+      {k:"ON/OFF", c:"", t:T.K["ON/OFF"]} ],
+    /* Row 2: 2nd | CF | NPV | IRR | -> */
+    [ {k:"2ND", c:"second", id:"k-2nd", t:T.K["2ND"]},
+      {k:"CF",  sec:"RESET", t:T.K["CF"]},
+      {k:"NPV", sec:"MEM"},
+      {k:"IRR", sec:"BOND"},
+      {k:"→"} ],
+    /* Row 3: TVM (silver) */
+    [ {k:"N",   c:"tvm", sec:"xP/Y"},
+      {k:"I/Y", c:"tvm", sec:"P/Y"},
+      {k:"PV",  c:"tvm", sec:"AMORT"},
+      {k:"PMT", c:"tvm", sec:"BGN"},
+      {k:"FV",  c:"tvm", sec:"CLR TVM"} ],
+    /* Row 4: % | sqrt | x^2 | 1/x | / */
+    [ {k:"%",   sec:"K"},
+      {k:"√x"},
+      {k:"x²"},
+      {k:"1/x"},
+      {k:"/", c:"op", sec:"RAND", l:"÷"} ],
+    /* Row 5: HYP | ( | ) | y^x | * */
+    [ {k:"HYP", sec:"INV"},
+      {k:"(",   sec:"SIN"},
+      {k:")",   sec:"COS"},
+      {k:"y^x", sec:"TAN"},
+      {k:"*", c:"op", sec:"x!", l:"×"} ],
+    /* Row 6: LN | 7 | 8 | 9 | - */
+    [ {k:"LN"},
+      {k:"7", c:"num", sec:"DATA"},
+      {k:"8", c:"num", sec:"STAT"},
+      {k:"9", c:"num", sec:"BOND"},
+      {k:"-", c:"op", sec:"nPr", l:"−"} ],
+    /* Row 7: STO | 4 | 5 | 6 | + */
+    [ {k:"STO", c:"mem", sec:"RND", t:T.K["STO"]},
+      {k:"4", c:"num"},
+      {k:"5", c:"num", sec:"Δ%"},
+      {k:"6", c:"num", sec:"BRKEVN"},
+      {k:"+", c:"op", sec:"nCr", l:"+"} ],
+    /* Row 8: RCL | 1 | 2 | 3 | = (= spans rows 8-9) */
+    [ {k:"RCL", c:"mem", sec:"CLR WORK", t:T.K["RCL"]},
+      {k:"1", c:"num", sec:"ICONV"},
+      {k:"2", c:"num", sec:"PROFIT"},
+      {k:"3", c:"num", sec:"DEPR"},
+      {k:"=", c:"op tall", sec:"ANS"} ],
+    /* Row 9: CE/C | 0 | . | +/- | (= continues here) */
+    [ {k:"CE/C", c:"clr", sec:"OFF", t:T.K["CE/C"]},
+      {k:"0", c:"num", sec:"MEM"},
+      {k:".", c:"num", sec:"FORMAT"},
+      {k:"+/-", c:"num", sec:"RESET"} ]
+  ];
+
+  var grid=document.getElementById("bc-grid");
+  grid.innerHTML="";
+  rows.forEach(function(row){
+    row.forEach(function(b){
+      var btn=document.createElement("button");
+      btn.type="button";
+      btn.className="bc-key "+(b.c||"")+(b.wide?" wide":"");
+      btn.dataset.key=b.k;
+      if (b.id) btn.id=b.id;
+      if (b.sec){
+        var sl=document.createElement("div");
+        sl.className="second-label";
+        sl.textContent=b.sec;
+        btn.appendChild(sl);
+      }
+      var ml=document.createElement("div");
+      ml.className="main-label";
+      ml.textContent = b.l || b.t || b.k;
+      btn.appendChild(ml);
+      btn.addEventListener("click", function(){ press(b.k); });
+      grid.appendChild(btn);
+    });
+  });
+}
+
+/* ---------- Render -------------------------------------------------- */
+function render(){
+  document.getElementById("bc-lcd").textContent =
+    S.hasEdit ? (S.display==="" ? "0" : S.display) : fmt(S.showVal);
+  document.getElementById("bc-flag-2nd").className = S.second ? "on" : "";
+  document.getElementById("bc-flag-bgn").className = S.bgn ? "on" : "";
+  document.getElementById("bc-flag-cpt").className = S.cptArmed ? "on" : "";
+  document.getElementById("bc-flag-enter").className = S.cf.mode ? "on" : "";
+  document.getElementById("bc-lcd-py").textContent = "P/Y="+S.PY;
+  document.getElementById("bc-lcd-mode").textContent =
+    S.cf.mode ? (T.mode_cf+" #"+S.cf.idx) : (S.bgn ? T.mode_bgn : T.mode_end);
+  var s2=document.getElementById("k-2nd"); if (s2) s2.classList.toggle("active", S.second);
+  reportHeight();
+}
+
+/* ---------- Presets ------------------------------------------------- */
+var PRESETS = [
+  { run: function(){
+      S.N=S.IY=S.PV=S.PMT=S.FV=0; S.PY=1; pushTape("--- "+T.p1_t+" ---");
+      S.N=20;     pushTape("N = 20");
+      S.IY=8;     pushTape("I/Y = 8");
+      S.PV=-10000;pushTape("PV = -10,000");
+      S.PMT=0;    pushTape("PMT = 0");
+      solveFor("FV");
+    }},
+  { run: function(){
+      S.N=S.IY=S.PV=S.PMT=S.FV=0; S.PY=12; pushTape(T.line_py+" 12");
+      pushTape("--- "+T.p2_t+" ---");
+      S.N=360;    pushTape("N = 360");
+      S.IY=6.5;   pushTape("I/Y = 6.5");
+      S.PV=300000;pushTape("PV = 300,000");
+      S.FV=0;     pushTape("FV = 0");
+      solveFor("PMT");
+    }},
+  { run: function(){
+      S.N=S.IY=S.PV=S.PMT=S.FV=0; S.PY=1; pushTape("--- "+T.p3_t+" ---");
+      S.N=10;   pushTape("N = 10");
+      S.PV=-950;pushTape("PV = -950");
+      S.PMT=50; pushTape("PMT = 50");
+      S.FV=1000;pushTape("FV = 1000");
+      solveFor("I/Y");
+    }},
+  { run: function(){
+      S.cf={mode:true,idx:0,cf0:-1000,cs:[300,400,500],fs:[1,1,1]}; S.PY=1;
+      pushTape("--- "+T.p4_t+" ---");
+      pushTape("CF0=-1000  C01=300  C02=400  C03=500");
+      computeNPV(10);
+    }}
+];
+function buildPresets(){
+  var box=document.getElementById("bc-presets");
+  box.innerHTML="";
+  PRESETS.forEach(function(p,i){
+    var b=document.createElement("button"); b.type="button"; b.className="bc-preset";
+    var ttl=document.createElement("span"); ttl.className="ttl"; ttl.textContent=T["p"+(i+1)+"_t"];
+    var sub=document.createElement("span"); sub.className="sub"; sub.textContent=T["p"+(i+1)+"_s"];
+    b.appendChild(ttl); b.appendChild(sub);
+    b.addEventListener("click", p.run);
+    box.appendChild(b);
+  });
+}
+
+function applyI18n(){
+  document.getElementById("bc-subtitle").textContent = T.subtitle;
+  document.getElementById("bc-help-title").textContent = T.help_title;
+  document.getElementById("bc-tape-label").textContent = T.tape;
+  document.getElementById("bc-flag-2nd").textContent = T.flag_2nd;
+  document.getElementById("bc-flag-bgn").textContent = T.flag_bgn;
+  document.getElementById("bc-flag-cpt").textContent = T.flag_cpt;
+  document.getElementById("bc-flag-enter").textContent = T.flag_enter;
+  document.getElementById("bc-keymap-box").innerHTML =
+    '<span>'+T.keymap_label+': </span>' + T.keymap_html;
+}
+
+/* ---------- Keyboard ----------------------------------------------- */
+document.addEventListener("keydown", function(e){
+  var k=e.key;
+  if (/^[0-9]$/.test(k)) { press(k); e.preventDefault(); return; }
+  if (k==="."){ press("."); e.preventDefault(); return; }
+  if (k==="+"){ press("+"); e.preventDefault(); return; }
+  if (k==="-"){ press("-"); e.preventDefault(); return; }
+  if (k==="*"){ press("*"); e.preventDefault(); return; }
+  if (k==="/"){ press("/"); e.preventDefault(); return; }
+  if (k==="="){ press("="); e.preventDefault(); return; }
+  if (k==="Enter"){ press("ENTER"); e.preventDefault(); return; }
+  if (k==="Backspace"){ press("CE/C"); e.preventDefault(); return; }
+  if (k==="Escape"){ press("ON/OFF"); e.preventDefault(); return; }
+  var lk=k.toLowerCase();
+  var map={n:"N", i:"I/Y", v:"PV", m:"PMT", f:"FV", c:"CPT", s:"2ND"};
+  if (map[lk]){ press(map[lk]); e.preventDefault(); }
+});
+
+/* ---------- Theme/height bootstrap --------------------------------- */
+function reportHeight(){
+  try{
+    var h=Math.ceil(document.documentElement.scrollHeight);
+    parent.postMessage({ type:'lesson-interactive-resize', height:h }, '*');
+  }catch(e){}
+}
+if (typeof ResizeObserver !== "undefined") new ResizeObserver(reportHeight).observe(document.body);
+window.addEventListener("resize", reportHeight);
+new MutationObserver(reportHeight).observe(document.documentElement, {attributes:true, attributeFilter:["data-theme"]});
+
+buildKeys();
+buildPresets();
+applyI18n();
+render();
+setTimeout(reportHeight, 50);
+setTimeout(reportHeight, 500);
+
+})();
+</script>
+</body>
+</html>

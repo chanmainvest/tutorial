@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Side Lesson 24: Portfolio Monitoring Tools and Resources - Chanma Investment Tutorial</title>
+    <title>Side Lesson 24: Portfolio Monitoring Tools - Chanma Investment Tutorial</title>
     <script>(function(){try{var t=localStorage.getItem('preferred-theme');if(!t){t=window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();</script>
     <style>
 :root, html[data-theme="light"] {
@@ -1247,318 +1247,352 @@ html[data-theme="dark"] .nav-btn:hover .btn-label { color: rgba(15,23,36,0.7); }
     <main class="main-wrap">
         <div class="content-area">
             <div id="content-en" class="lang-content active">
-                <h1>Side Lesson 24: Portfolio Monitoring Tools and Resources</h1>
+                <h1>Side Lesson 24: Portfolio Monitoring Tools</h1>
 <hr>
-<h2>Reading Section</h2>
+<h3>1. Why This Is Important</h3>
 <p>
-Building a great portfolio is only half the battle. Monitoring it -- tracking performance, measuring risk, rebalancing when necessary, and staying informed without becoming obsessive -- is the other half. Fortunately, investors today have access to an extraordinary range of tools, from free spreadsheet templates and open-source calculators to professional-grade analytics platforms that were once available only to institutional investors. This lesson surveys the most useful monitoring tools available to individual investors, explains what each is best suited for, and provides practical guidance on building a monitoring workflow that keeps you informed without driving you crazy. The goal is to spend the minimum time necessary to maintain a well-managed portfolio, freeing you to focus on the rest of your life.
+The model from Week 52 ends at "build the portfolio." Real life starts there. A
+portfolio you cannot see clearly is a portfolio you cannot run. The job after
+the IPS is signed is to inspect — at most monthly, never daily — whether the
+thing you wrote down is the thing you actually own. That is what monitoring
+tools do.
 </p>
-<hr>
-<h3>a) Why This Is Important</h3>
+<li><strong>Drift kills good plans.</strong> A 35/25/15/5/10/5/5 model L4 portfolio rebuilt</li>
 <p>
-<strong>Performance Measurement.</strong> How do you know if your investment strategy is actually working? Raw returns are misleading without context. A 12% annual return sounds great, but if the market returned 20%, you underperformed significantly. If you took twice the risk of the market to achieve that 12%, your risk-adjusted performance is poor. Proper performance measurement requires benchmarking, risk adjustment, and time-weighted return calculations that account for the timing of cash flows.
+from Week 52 will drift on its own. After one strong equity year the growth
+tranche bulges to 42% and the cash sleeve thins to 3%. Without a tool that
+measures drift against target — sleeve by sleeve — you cannot tell whether
+you have crossed the +/-5pp band that triggers a trim.
 </p>
+<li><strong>You cannot see overlap by squinting.</strong> Holding VTI, VOO, SPY, QQQ, and</li>
 <p>
-<strong>Drift Detection.</strong> Over time, your portfolio's asset allocation drifts from your targets as different assets perform differently. A portfolio that started as 70% stocks and 30% bonds might drift to 80/20 after a strong bull market. Without monitoring, this drift can expose you to more risk than you intended. Regular monitoring identifies when rebalancing is needed.
+SCHD looks like five funds. The X-Ray says it is mostly one fund: AAPL,
+MSFT, NVDA, AMZN, META, GOOG appear in all five at high weight. Sector
+double-counting is the most common silent failure of retail portfolios, and
+it is invisible without a holdings-level pass-through.
 </p>
+<li><strong>Fees are flat-rate compounding tax (SOUL #1).</strong> A 0.50% expense ratio on a</li>
 <p>
-<strong>Tax Management.</strong> In taxable accounts, monitoring tools help you identify tax-loss harvesting opportunities, track cost basis, manage wash sale rules, and estimate year-end tax liabilities. The tax savings from effective management can add 0.5-1% per year to after-tax returns -- a significant sum over a lifetime.
+$500k portfolio is $2,500 a year, every year, automatically — silently
+debited and never invoiced. The tools that aggregate every account and
+compute <em>expense-weighted average ER</em> are the ones that turn the abstract
+"fees matter" into a specific dollar number you can decide whether to pay.
 </p>
+<li><strong>Behavioural guardrails come from automation.</strong> Paradoxically, having</li>
 <p>
-<strong>Behavioral Guardrails.</strong> Paradoxically, having good monitoring tools can help you check your portfolio less frequently while staying better informed. When you have automated alerts for rebalancing triggers, performance thresholds, and dividend payments, you do not need to anxiously check your accounts daily. The tools do the watching for you.
-</p>
-<p>
-<strong>Fee Awareness.</strong> Investment fees compound just like returns, but in the wrong direction. Monitoring tools that aggregate your holdings and calculate total fees across funds, advisory fees, and transaction costs help you identify unnecessary cost drags and optimize your expense structure.
-</p>
-<hr>
-<h3>b) What You Need to Know</h3>
-<h4>Portfolio Visualizer</h4>
-<p>
-Portfolio Visualizer (portfoliovisualizer.com) is one of the most powerful free analytics tools available to individual investors. It offers sophisticated analysis that was once available only through expensive professional terminals.
-</p>
-<p>
-<strong>Key Features:</strong>
-</p>
-<p>
-<strong>Backtest Portfolio.</strong> Input your asset allocation, select a time period, and see how the portfolio would have performed historically. The tool calculates total return, annualized return, standard deviation, Sharpe ratio, Sortino ratio, maximum drawdown, and other risk metrics. You can compare multiple portfolios side by side to evaluate different allocation strategies.
-</p>
-<p>
-<strong>Asset Correlations.</strong> View the correlation matrix between any combination of assets over custom time periods. This is invaluable for portfolio construction -- it shows you which assets actually provide diversification and how correlations change across different market environments.
-</p>
-<p>
-<strong>Monte Carlo Simulation.</strong> Run thousands of simulated future scenarios based on historical return distributions to estimate the probability of meeting your financial goals. For example, you can input your current portfolio value, annual contributions, time horizon, and spending needs, and the simulator will show you the probability of success across different market conditions.
-</p>
-<p>
-<strong>Factor Analysis.</strong> Decompose your portfolio's returns into factor exposures (market, size, value, momentum, quality) using regression analysis. This tells you whether your portfolio's performance comes from factor tilts or genuine alpha.
-</p>
-<p>
-<strong>Efficient Frontier.</strong> Plot the efficient frontier for your selected assets and see where your current portfolio falls relative to the optimal risk-return trade-off. This visual tool helps you identify whether your portfolio is efficiently constructed or if adjustments could improve your risk-adjusted returns.
-</p>
-<p>
-<strong>Limitations:</strong> Portfolio Visualizer uses historical data, which may not predict future performance. The free tier has usage limits, and advanced features require a subscription (approximately $30-50 per month). It does not connect directly to your brokerage accounts -- you input allocations manually.
-</p>
-<h4>Google Sheets for Portfolio Tracking</h4>
-<p>
-Google Sheets (and Excel) provide flexible, customizable tools for portfolio tracking. The GOOGLEFINANCE function pulls real-time and historical stock data directly into your spreadsheet.
-</p>
-<p>
-<strong>Essential GOOGLEFINANCE Functions:</strong>
-</p>
-<ul><li><code>=GOOGLEFINANCE("VTI","price")</code> -- Returns the current price of VTI.</li>
-<li><code>=GOOGLEFINANCE("VTI","changepct")</code> -- Returns the daily percentage change.</li>
-<li><code>=GOOGLEFINANCE("VTI","pe")</code> -- Returns the price-to-earnings ratio.</li>
-<li><code>=GOOGLEFINANCE("VTI","yield")</code> -- Returns the dividend yield.</li>
-<li><code>=GOOGLEFINANCE("VTI","marketcap")</code> -- Returns the market capitalization.</li>
-<li><code>=GOOGLEFINANCE("VTI","price","1/1/2023","12/31/2023","DAILY")</code> -- Returns historical daily prices for the specified date range.</li>
-<p>
-</ul>
-<strong>Building a Portfolio Tracker:</strong>
-</p>
-<p>
-A basic portfolio tracking spreadsheet includes:
-</p>
-<li><strong>Holdings Tab:</strong> Columns for Ticker, Name, Shares, Purchase Price, Purchase Date, Current Price (using GOOGLEFINANCE), Current Value (Shares * Current Price), Gain/Loss (Current Value - Cost Basis), Gain/Loss Percentage, Target Allocation, Current Allocation, and Drift from Target.</li>
-<li><strong>Performance Tab:</strong> Track monthly or quarterly portfolio values, calculate time-weighted returns, and compare against benchmarks. Use the XIRR function for accurate return calculations that account for the timing of deposits and withdrawals.</li>
-<li><strong>Rebalancing Tab:</strong> Calculate how many shares of each holding to buy or sell to return to target allocations. Include logic that considers tax implications (prefer rebalancing through new contributions rather than selling appreciated assets).</li>
-<li><strong>Dividend Tab:</strong> Track dividend payments, reinvestment, and yield calculations. Use GOOGLEFINANCE to pull current yields and calculate projected annual income.</li>
-<li><strong>Tax Tab:</strong> Track cost basis by lot, identify tax-loss harvesting opportunities (positions with unrealized losses), and flag potential wash sale issues.</li>
-<p>
-<strong>Tips for Google Sheets:</strong>
-</p>
-<ul><li>GOOGLEFINANCE can be unreliable during market hours due to data delays and outages. Do not rely on it for real-time trading decisions.</li>
-<li>Historical data from GOOGLEFINANCE may not include dividends in price returns. For total return calculations, use an external data source.</li>
-<li>Google Sheets has a built-in sparkline function (<code>=SPARKLINE(GOOGLEFINANCE(...))</code>) that can create mini charts within cells for visual portfolio monitoring.</li>
-<p>
-</ul>
-</p>
-<h4>Brokerage Platform Tools</h4>
-<p>
-Modern brokerage platforms offer increasingly sophisticated built-in analytics.
-</p>
-<p>
-<strong>Fidelity:</strong>
-</p>
-<ul><li><strong>Full View / eMoney:</strong> Aggregates accounts from multiple institutions for a complete financial picture.</li>
-<li><strong>Portfolio Analysis:</strong> Shows asset allocation, sector exposure, geographic breakdown, and portfolio overlap between funds.</li>
-<li><strong>Planning and Guidance Center:</strong> Retirement planning calculator with Monte Carlo simulation.</li>
-<li><strong>Tax Lot Management:</strong> Detailed cost basis tracking with the ability to specify lots for tax-optimized selling.</li>
-<li><strong>Active Trader Pro:</strong> Advanced charting and technical analysis for active traders.</li>
-<p>
-</ul>
-<strong>Charles Schwab (including former TD Ameritrade/Thinkorswim):</strong>
-</p>
-<ul><li><strong>Schwab Portfolio Checkup:</strong> Analyzes asset allocation, diversification, and provides recommendations.</li>
-<li><strong>Thinkorswim Platform:</strong> Industry-leading options analysis, charting, and paper trading capabilities. The platform's risk profile tool shows the Greeks for your entire portfolio.</li>
-<li><strong>Schwab Intelligent Portfolios:</strong> Automated investing with tax-loss harvesting (for portfolios over $50,000).</li>
-<p>
-</ul>
-<strong>Interactive Brokers (IBKR):</strong>
-</p>
-<ul><li><strong>Portfolio Analyst:</strong> The most comprehensive built-in analytics of any brokerage. Provides detailed performance attribution, risk analysis, sector/geographic breakdowns, and factor exposure analysis.</li>
-<li><strong>Risk Navigator:</strong> Real-time risk analysis showing your portfolio's exposure to market movements, interest rates, and volatility changes. Essential for options-heavy portfolios.</li>
-<li><strong>TWS (Trader Workstation):</strong> Professional-grade trading platform with advanced analytics.</li>
-<li>**Lowest margin rates and widest range of tradable instruments among retail brokers.</li>
-<p>
-</ul>
-<strong>Vanguard:</strong>
-</p>
-<ul><li><strong>Portfolio Watch:</strong> Analyzes asset allocation against Vanguard's recommendations.</li>
-<li><strong>Retirement Income Calculator:</strong> Projects income in retirement based on current savings and asset allocation.</li>
-<li><strong>Lower-cost platform with emphasis on long-term, passive investing.</strong></li>
-<li>Historically less feature-rich for active monitoring but continuously improving.</li>
-<p>
-</ul>
-</p>
-<h4>Third-Party Monitoring Tools</h4>
-<p>
-<strong>Morningstar (morningstar.com):</strong>
-</p>
-<ul><li><strong>Portfolio X-Ray:</strong> Aggregates holdings across all your funds and ETFs to show true underlying asset allocation, sector exposure, geographic distribution, and stock overlap. This is essential because many investors hold overlapping funds without realizing it.</li>
-<li><strong>Fund/ETF Research:</strong> Detailed analysis of funds including expense ratios, tax efficiency, manager tenure, and Morningstar ratings.</li>
-<li><strong>Premium Membership:</strong> Includes analyst reports, fair value estimates for stocks, and enhanced portfolio tools. Approximately $35/month.</li>
-<p>
-</ul>
-<strong>Personal Capital (now Empower):</strong>
-</p>
-<ul><li><strong>Free Dashboard:</strong> Aggregates all financial accounts (brokerage, banking, retirement, credit cards) for a complete net worth view.</li>
-<li><strong>Investment Checkup:</strong> Analyzes your portfolio's asset allocation, fee costs, and risk exposure, comparing them against recommended allocations.</li>
-<li><strong>Retirement Planner:</strong> Monte Carlo simulation-based retirement projections.</li>
-<li><strong>Fee Analyzer:</strong> Calculates the total annual fees across all your investments, including fund expense ratios and advisor fees. This tool has helped many investors discover they are paying far more in fees than they realized.</li>
-<li>Note: Empower uses free tools as a marketing channel for its wealth management services. You may receive solicitations for their advisory service.</li>
-<p>
-</ul>
-<strong>Stock Events / Dividend Tracking Apps:</strong>
-</p>
-<ul><li><strong>Stock Events:</strong> Mobile app that tracks dividend payments, ex-dates, and projected annual income. Useful for income-focused investors.</li>
-<li><strong>Simply Wall St:</strong> Visual stock analysis using infographics. Shows valuation metrics, financial health indicators, and dividend history in an accessible format.</li>
-<li><strong>Seeking Alpha:</strong> Investment research platform with community analysis, earnings call transcripts, and portfolio tracking. Free tier available with premium options.</li>
-<p>
-</ul>
-</p>
-<h4>Setting Up Alerts</h4>
-<p>
-Effective alerts reduce the need for manual checking while ensuring you do not miss important events.
-</p>
-<p>
-<strong>Price Alerts:</strong>
-</p>
-<ul><li>Set alerts for significant moves (more than 5% in a day) in your holdings.</li>
-<li>Set alerts when key holdings approach your target buy prices.</li>
-<li>Set alerts when portfolio drift exceeds your rebalancing threshold (typically 5 percentage points from target).</li>
-<p>
-</ul>
-<strong>Dividend Alerts:</strong>
-</p>
-<ul><li>Track ex-dividend dates to manage timing of purchases and sales.</li>
-<li>Monitor for dividend cuts or increases in your income holdings.</li>
-<p>
-</ul>
-<strong>News Alerts:</strong>
-</p>
-<ul><li>Google Alerts for company names and ticker symbols of your largest holdings.</li>
-<li>Earnings date reminders for holdings you want to monitor closely.</li>
-<li>SEC filing alerts (13F, 10-K, 10-Q) for holdings where you follow insider activity or financial statements.</li>
-<p>
-</ul>
-<strong>Economic Calendar Alerts:</strong>
-</p>
-<ul><li>FOMC meeting dates and rate decisions.</li>
-<li>Employment reports, inflation data (CPI, PCE), GDP releases.</li>
-<li>Earnings season dates for portfolio-relevant companies.</li>
-<p>
-</ul>
-<strong>Rebalancing Alerts:</strong>
-</p>
-<ul><li>Calendar reminders for periodic rebalancing reviews (quarterly or semi-annually).</li>
-<li>Threshold alerts when any asset class deviates more than 5 percentage points from its target allocation.</li>
-<p>
-</ul>
-</p>
-<h4>Key Performance Metrics to Track</h4>
-<p>
-Understanding which metrics to monitor helps you evaluate your portfolio objectively rather than relying on gut feelings.
-</p>
-<p>
-<strong>Time-Weighted Return (TWR).</strong> Measures portfolio performance independent of the timing and size of cash flows. This is the standard for comparing your performance to a benchmark. Most brokerage platforms report TWR.
-</p>
-<p>
-<strong>Money-Weighted Return (MWR / XIRR).</strong> Measures your personal return accounting for the timing and size of your deposits and withdrawals. If you invested a large sum right before a rally, your MWR will be higher than your TWR. XIRR captures your actual experience as an investor.
-</p>
-<p>
-<strong>Sharpe Ratio.</strong> Measures risk-adjusted return: (Portfolio Return - Risk-Free Rate) / Portfolio Standard Deviation. A Sharpe ratio above 0.5 is decent, above 1.0 is good, and above 1.5 is excellent. Compare your portfolio's Sharpe ratio to your benchmark's to determine if you are being compensated for the risk you are taking.
-</p>
-<p>
-<strong>Maximum Drawdown.</strong> The largest peak-to-trough decline in your portfolio. This measures the worst-case scenario you have experienced. If your maximum drawdown exceeds your pain threshold, your portfolio may be too risky. Portfolio Visualizer calculates this automatically for backtested portfolios.
-</p>
-<p>
-<strong>Sortino Ratio.</strong> Similar to the Sharpe ratio but penalizes only downside volatility (not upside). This is arguably a better measure of risk-adjusted return because investors do not mind upside volatility. A Sortino ratio above 1.0 indicates good risk-adjusted performance.
-</p>
-<p>
-<strong>Expense Ratio.</strong> The total annual cost of your investments as a percentage of assets. For index fund portfolios, this should be below 0.10%. For actively managed portfolios, total costs including fund fees, advisory fees, and transaction costs should ideally be below 0.50%. Every basis point of fee saved compounds over decades.
-</p>
-<h4>Common Tracking Mistakes to Avoid</h4>
-<p>
-<strong>Comparing to the Wrong Benchmark.</strong> A conservative 60/40 portfolio should be compared to a 60/40 benchmark, not the S&P 500. Comparing a diversified portfolio to a single asset class will always make you feel like you are underperforming when that particular asset class is doing well.
-</p>
-<p>
-<strong>Ignoring Taxes in Performance Calculations.</strong> Pre-tax returns overstate your actual wealth accumulation. For taxable accounts, tracking after-tax returns gives a more accurate picture. This is particularly important for strategies that generate significant short-term capital gains.
-</p>
-<p>
-<strong>Anchoring to Purchase Price.</strong> Many investors obsess over whether each individual holding is above or below their purchase price. What matters is whether the holding is likely to provide good forward returns relative to alternatives. A stock that has declined 30% from your purchase price may be an excellent value or a value trap -- the purchase price itself is irrelevant to that analysis.
-</p>
-<p>
-<strong>Frequency Bias in Performance Evaluation.</strong> If you evaluate your strategy after only six months, you do not have enough data to determine if it is working. Most investment strategies should be evaluated over complete market cycles (3-5 years minimum). Abandoning a sound strategy after a short period of underperformance is one of the most common investor mistakes.
-</p>
-<h4>Building an Effective Monitoring Workflow</h4>
-<p>
-The goal is to find the minimum effective monitoring frequency that keeps your portfolio well-managed without consuming excessive time or triggering emotional reactions.
-</p>
-<p>
-<strong>Daily (5 minutes or less):</strong>
-</p>
-<ul><li>Skim financial headlines for major market-moving events.</li>
-<li>Check portfolio value only if you have a specific reason (e.g., rebalancing day, significant market event).</li>
-<li>Do NOT check daily during normal market conditions. This triggers loss aversion and leads to overtrading.</li>
-<p>
-</ul>
-<strong>Weekly (15-30 minutes):</strong>
-</p>
-<ul><li>Review your watchlist and any alerts that triggered during the week.</li>
-<li>Check for any upcoming ex-dividend dates or earnings announcements for your holdings.</li>
-<p>
-</ul>
-<strong>Monthly (30-60 minutes):</strong>
-</p>
-<ul><li>Review portfolio performance and compare against benchmarks.</li>
-<li>Check asset allocation drift and determine if rebalancing is needed.</li>
-<li>Review income received (dividends, interest) and verify reinvestment or allocation.</li>
-<li>In taxable accounts, scan for tax-loss harvesting opportunities.</li>
-<p>
-</ul>
-<strong>Quarterly (1-2 hours):</strong>
-</p>
-<ul><li>Comprehensive portfolio review. Evaluate each holding's thesis and determine if it still holds.</li>
-<li>Update your Investment Policy Statement if circumstances have changed (job change, inheritance, shifting time horizon).</li>
-<li>Review investment journal entries and identify behavioral patterns.</li>
-<li>Rebalance if drift exceeds your threshold and was not addressed during monthly reviews.</li>
-<p>
-</ul>
-<strong>Annually (2-4 hours):</strong>
-</p>
-<ul><li>Full portfolio audit. Review total return, risk-adjusted return, and comparison to benchmarks.</li>
-<li>Review and update your financial plan. Recalculate whether you are on track for your goals.</li>
-<li>Tax planning: Estimate capital gains distributions, plan year-end harvesting, and consider Roth conversions.</li>
-<li>Review all investment fees and determine if cheaper alternatives exist.</li>
-<li>Evaluate whether your risk tolerance has changed based on your experience during the year.</li>
-<p>
-</ul>
+<em>better</em> monitoring lets you check <em>less</em>. When alerts fire only on band
+breaches and the dashboard lives on a fixed monthly cadence, the urge to log
+into your brokerage every morning fades. The tool watches; you live your
+life. That is exactly the discipline SOUL #12 demands — staying solvent
+long enough for the strategy to compound.
 </p>
 <hr>
-<h3>c) Common Misconceptions</h3>
+<h3>2. What You Need to Know</h3>
+<h4>2.1 Portfolio Visualizer — the free institutional terminal</h4>
 <p>
-<strong>"Checking my portfolio more often makes me a better investor."</strong> Research consistently shows the opposite. Investors who check less frequently make fewer impulsive trades and achieve better long-term returns. Daily checking exposes you to loss aversion -- you see daily noise that is meaningless over a 20-year time horizon but that emotionally feels significant. Monthly or quarterly monitoring is sufficient for most investors.
+<a href="https://www.portfoliovisualizer.com">portfoliovisualizer.com</a> is the single
+most useful free tool in the retail kit. Five modules deserve your attention:
+</p>
+<ul><li><strong>Backtest Portfolio.</strong> Enter weights and ticker list, pick a start date,</li>
+<p>
+</ul>  and the tool returns annualised return, vol, max drawdown, Sharpe, Sortino,
+Calmar, and a year-by-year table. It runs against monthly data back to 1985
+for most ETFs, with mutual fund proxies extending some series further. You
+can compare three portfolios side by side — exactly what Week 04 / Week 15 /
+Week 52 expect you to do before changing weights.
+</p>
+<ul><li><strong>Asset Class Backtest.</strong> Same engine, but with reconstructed broad asset</li>
+<p>
+</ul>  classes (US large, US small value, intl developed, EM, REITs, gold,
+long-bond, T-bill) reaching back to 1972. This is how you stress-test a
+60/40 or All-Weather sleeve against the 1970s inflation regime that doesn't
+exist in the ETF window.
+</p>
+<ul><li><strong>Factor Regression.</strong> Runs Fama-French 3, Carhart 4, and FF 5 + momentum</li>
+<p>
+</ul>  on any ticker or portfolio. Output: alpha (with t-stat), beta exposures to
+market / size / value / momentum / quality / low-vol. This is how you
+<em>prove</em> your factor tilt is doing what you paid the higher ER for.
+</p>
+<ul><li><strong>Monte Carlo.</strong> Forward simulation with capital-market assumptions you can</li>
+<p>
+</ul>  override. Useful for SWR stress and sequence-of-returns tail testing.
+</p>
+<ul><li><strong>Asset Correlations.</strong> Rolling and full-period matrices, with</li>
+<p>
+</ul>  user-controllable window. Quick eyeball of the correlation collapse problem
+from Week 19.
 </p>
 <p>
-<strong>"I need expensive tools to manage my portfolio well."</strong> The most important portfolio management tools are free or very low cost. Google Sheets, Portfolio Visualizer's free tier, your brokerage's built-in analytics, and Empower's free dashboard cover the needs of the vast majority of individual investors. Premium tools are nice-to-have, not need-to-have.
+The free tier covers all of the above. The paid tier ($30/month) adds
+optimization and historical Sharpe rolling charts; for a retail investor the
+free tier is enough indefinitely.
+</p>
+<h4>2.2 Morningstar Instant X-Ray — the overlap detector</h4>
+<p>
+X-Ray is the free tool buried inside a Morningstar account. Paste your
+ticker list and weights and it returns:
+</p>
+<ul><li><strong>Asset-class breakdown</strong> — how much US stock, intl stock, bond, cash, other</li>
+<p>
+</ul>  you actually own once funds are flattened to holdings.
+</p>
+<ul><li><strong>Sector allocation</strong> — eleven GICS sectors, with the S&P 500 reference</li>
+<p>
+</ul>  alongside.
+</p>
+<ul><li><strong>Region allocation</strong> — North America / Europe / Japan / Asia ex-Japan /</li>
+<p>
+</ul>  Latin America / Middle East / Africa.
+</p>
+<ul><li><strong>Top 10 holdings</strong> — across the <em>entire</em> portfolio after fund pass-through.</li>
+<p>
+</ul>  This is where "I own VTI and SCHD" turns into "27% of my equity is in seven
+US mega-caps."
+</p>
+<ul><li><strong>Stock overlap</strong> — a number between 0% and 100% that quantifies how much</li>
+<p>
+</ul>  of two funds' weighted holdings are the same names.
 </p>
 <p>
-<strong>"Real-time data is important for long-term investors."</strong> If your investment horizon is 20-30 years, whether you see your portfolio value at 10:15 AM or 4:00 PM makes zero difference. Real-time data is necessary for day traders but counterproductive for long-term investors because it creates urgency that leads to poor decisions.
+If you take only one thing from this lesson it is the overlap number. A retail
+portfolio of VTI + VOO + SPY + IVV reads as four funds and is in fact one fund
+with a 99.5% overlap. The image script <code>side24_overlap_detection.py</code> walks
+through a 5-fund example where the pairwise overlap heatmap shows ~60% top-ten
+overlap on the diagonal cluster.
+</p>
+<h4>2.3 Empower (formerly Personal Capital) — the aggregator</h4>
+<p>
+Empower's free tools include an account aggregator that pulls from most US
+brokerages, banks, and 401(k) providers via Plaid. Once linked it runs three
+analytics that matter:
+</p>
+<ul><li><strong>Retirement Planner.</strong> Monte Carlo forward projection from your actual</li>
+<p>
+</ul>  current balances and contribution rates.
+</p>
+<ul><li><strong>Investment Checkup.</strong> Asset-class breakdown across <em>all</em> accounts at once</li>
+<p>
+</ul>  — the cross-account view that no single brokerage gives you. Compares to a
+target allocation and flags the gap.
+</p>
+<ul><li><strong>Fee Analyzer.</strong> The killer feature. Aggregates every fund's expense ratio</li>
+<p>
+</ul>  weighted by holding size and reports the dollar fee impact over your time
+horizon. The version that surfaces the difference between a 0.65% advisor
+fee and a 0.05% DIY portfolio over thirty years has converted more retail
+investors away from full-service advisors than any blog post ever has.
 </p>
 <p>
-<strong>"My brokerage's performance numbers are all I need."</strong> Brokerage performance calculations can be misleading because they show simple returns that do not account for the timing of deposits. An investor who deposited money right before a rally will appear to have a higher return than one who deposited the same amount right after a rally, even if they hold identical investments. Use XIRR or time-weighted returns for accurate performance measurement.
+The catch: Empower's business model is a wealth-management lead funnel.
+Expect calls. Decline politely; the tools remain free.
+</p>
+<h4>2.4 Brokerage built-ins — Schwab, Fidelity, Vanguard</h4>
+<p>
+Every major US brokerage has shipped a portfolio-analytics dashboard in the
+2020-2025 wave:
+</p>
+<ul><li><strong>Schwab Portfolio Checkup</strong> — pulls into the X-Ray engine via partnership</li>
+<p>
+</ul>  and surfaces sector / asset class / overlap views inside your Schwab login.
+</p>
+<ul><li><strong>Fidelity Portfolio Analysis</strong> — strong on tax-lot view and unrealised</li>
+<p>
+</ul>  gain/loss reporting. Their "Compare to Benchmark" panel produces a clean
+rolling-return comparison vs. any index.
+</p>
+<ul><li><strong>Vanguard Portfolio Watch</strong> — basic but free; useful if your portfolio is</li>
+<p>
+</ul>  Vanguard-only.
 </p>
 <p>
-<strong>"Portfolio monitoring is set-it-and-forget-it."</strong> While excessive monitoring is harmful, complete neglect is also problematic. Asset allocation drift, fee changes, tax opportunities, and evolving personal circumstances all require periodic attention. The sweet spot is systematic, scheduled reviews rather than reactive daily checking or total avoidance.
+Use the brokerage tool when you want to look at the accounts at <em>that</em>
+brokerage. Use Empower or X-Ray when you need the full cross-account view.
+</p>
+<h4>2.5 The DIY spreadsheet — the tool you actually run</h4>
+<p>
+Despite the polished web tools, most disciplined retail investors I know run
+a Google Sheet or Excel workbook as their primary monthly dashboard. Three
+reasons: it owns no opinions about your asset categories, it never changes
+its UX out from under you, and it works offline.
+</p>
+<p>
+A minimum-viable monthly sheet has six columns: ticker, target weight, target
+dollars, current dollars, drift in pp, action (trim / add / hold). Underneath
+that, three computed cells: total portfolio value, expense-weighted ER, and
+trailing-twelve-month return vs. a 60/40 reference. That's it. The image
+script <code>side24_dashboard_template.py</code> shows what this looks like rendered as
+four panels: wealth path, drawdown, asset-class breakdown, and rolling fee
+spend.
+</p>
+<code>GOOGLEFINANCE("VTI", "price")</code> and friends pull live prices into Google
+<p>
+Sheets at 20-minute delay, free, forever. There is nothing the paid tools do
+in their dashboard panes that a column of <code>=GOOGLEFINANCE()</code> calls cannot
+replicate.
+</p>
+<h4>2.6 The monthly review checklist</h4>
+<p>
+The tool is useless without the cadence. Once a month, on a fixed day:
+</p>
+<li><strong>Total return YTD and trailing 12m.</strong> Vs. the 60/40 reference. One</li>
+<p>
+sentence written in a notes column.
+</p>
+<li><strong>Realised volatility and trailing peak drawdown.</strong> From the spreadsheet</li>
+<p>
+or PV. Compare against the IPS-stated maximum drawdown.
+</p>
+<li><strong>Sleeve drift.</strong> For each of the seven Week-52 sleeves: is it within +/-5</li>
+<p>
+percentage points of target? Any breach triggers a trim/add of <em>just</em> that
+sleeve, ideally directed via new contributions before any sales.
+</p>
+<li><strong>Factor exposures.</strong> Quarterly is enough here — run the PV factor</li>
+<p>
+regression on your tilt sleeves (MTUM, AVUV, QUAL, USMV) and confirm beta
+to the named factor is still > 0.5 and t-stat > 2. Decay below that
+threshold for two consecutive quarters triggers the half-weight stop-rule.
+</p>
+<li><strong>Fees paid year-to-date.</strong> Expense-weighted ER * portfolio value, prorated</li>
+<p>
+for the year. Watch for advisor-managed accounts and fund-of-fund wrappers
+that slip in via 401(k) target-date defaults.
+</p>
+<li><strong>Rebalancing band breaches.</strong> Anything over the 5pp band gets actioned</li>
+<p>
+<em>that day</em>. Anything under stays untouched until next month.
+</p>
+<p>
+The interactive <code>side24_dashboard.html</code> lets you build a 5-ETF portfolio from
+a 12-fund dropdown and see asset-class breakdown, expense-weighted average,
+and pairwise top-10 overlap in real time — a working miniature of the retail
+toolkit described above.
 </p>
 <hr>
-<h3>d) Q&A</h3>
+<h3>3. Common Misconceptions</h3>
+<li><strong>"More tools means more insight."</strong> No. Five overlapping dashboards is</li>
 <p>
-<strong>Q: What is the single most important metric to track?</strong>
-A: For most investors, asset allocation drift is the most actionable metric. If your target is 70% stocks and 30% bonds, knowing when that has drifted to 80/20 or 60/40 tells you when to rebalance. Performance metrics are informative, but asset allocation is what you actually act on. Track it monthly and rebalance when drift exceeds 5 percentage points.
+five different framings of the same numbers, and the dashboard you check
+at 9am gets read; the four others rot. Pick one primary (spreadsheet or
+Empower), one analytics deep-dive (Portfolio Visualizer), and one overlap
+checker (Morningstar X-Ray). Stop there.
+</p>
+<li><strong>"My brokerage already shows me everything."</strong> Only for accounts at <em>that</em></li>
+<p>
+brokerage. The cross-account view — including the spouse's IRA, the prior
+employer's 401(k), and the HSA — is exactly what no single brokerage gives
+you. Aggregator or spreadsheet is the only way.
+</p>
+<li><strong>"Daily checking keeps me informed."</strong> It keeps you anxious. Studies of</li>
+<p>
+active retail traders find a near-monotonic relationship between login
+frequency and underperformance (Barber & Odean 2000). Set a fixed monthly
+day, do the checklist, close the tab.
+</p>
+<li><strong>"X-Ray is for fund-of-funds, my ETF portfolio is clean."</strong> Wrong. SCHD,</li>
+<p>
+VYM, DGRO, and NOBL look like four different income strategies. Run them
+through X-Ray: 50%+ holdings overlap because they all filter the same S&P
+500 universe for dividend characteristics.
+</p>
+<li><strong>"The expense ratio is the only fee I pay."</strong> No. The full menu is ER +</li>
+<p>
+12b-1 + transaction costs inside the fund + bid-ask + advisory fee +
+account fees. Empower's fee analyzer surfaces the first; only Form ADV
+reading and tax-return inspection surfaces the rest.
+</p>
+<li><strong>"Monte Carlo says 87% success — I'm safe."</strong> Monte Carlo assumes the</li>
+<p>
+future return distribution looks like the historical one. SOUL #2 says it
+<em>won't</em>. Treat the simulation as a sensitivity tool, not a probability
+forecast.
+</p>
+<li><strong>"Free tools are limited; the paid versions show the truth."</strong> The paid</li>
+<p>
+tier of Portfolio Visualizer adds optimization (which over-fits) and a few
+convenience features. The truth is in the free tier. Pay only when you've
+exhausted what it gives you.
+</p>
+<li><strong>"Rebalancing bands are arbitrary; I'll just rebalance annually."</strong></li>
+<p>
+Calendar-only rebalancing is fine in calm markets. In 2008 or 2020 a
+strict-calendar portfolio missed the 25-30% mid-year band breach where the
+real rebalancing premium lives. Hybrid (annual + 5pp band) captures both.
+</p>
+<hr>
+<h3>4. Q&A Section</h3>
+<p>
+<strong>Q1. How often should I actually log in?</strong>
+A. Once a month for the dashboard checklist. Once a quarter for the deeper
+factor regression and stop-rule check. Annually for the full IPS rewrite.
+That's it. More than this is cost without benefit.
 </p>
 <p>
-<strong>Q: How do I calculate my true investment return?</strong>
-A: Use the XIRR function in Excel or Google Sheets. XIRR calculates the internal rate of return based on a series of cash flows and their dates. List every deposit, withdrawal, and the current portfolio value with their respective dates. The XIRR result is your personal rate of return, properly accounting for the timing and size of all cash flows.
+<strong>Q2. Is Portfolio Visualizer's data accurate?</strong>
+A. For monthly total returns of US-listed ETFs back to inception, yes — it
+sources from CRSP and the funds' own filings. The asset-class reconstructions
+back to 1972 use academic indices (Fama-French, Damodaran-style splices) that
+are accurate in shape but not investable in real life. Use them for shape, not
+forecast.
 </p>
 <p>
-<strong>Q: Are robo-advisors good monitoring tools?</strong>
-A: Robo-advisors like Wealthfront, Betterment, and Schwab Intelligent Portfolios handle much of the monitoring automatically -- rebalancing, tax-loss harvesting, and performance reporting are built in. For investors who want a truly hands-off approach, robo-advisors provide effective monitoring and management at relatively low cost (typically 0.25-0.50% per year). The trade-off is less customization and control compared to self-directed portfolios.
+<strong>Q3. Empower or a spreadsheet?</strong>
+A. Both. Empower for the cross-account aggregation and fee analyzer.
+Spreadsheet for the monthly drift check and sleeve action plan. They serve
+different purposes; the spreadsheet is your operating tool, Empower is your
+audit tool.
 </p>
 <p>
-<strong>Q: How do I track the performance of a portfolio that spans multiple accounts?</strong>
-A: Use an account aggregation tool like Empower (Personal Capital), Morningstar's Portfolio Manager, or a Google Sheets model that combines data from all accounts. The key is to view your portfolio holistically -- your IRA, 401(k), taxable brokerage account, and any other investment accounts should be analyzed as a single portfolio to understand your true asset allocation and risk exposure. Many investors discover they are far less diversified than they thought when they finally aggregate all their accounts.
+<strong>Q4. What overlap percentage is too much?</strong>
+A. As a working rule, any pair of funds with > 50% top-10 holdings overlap is
+double-counting. Either drop one or accept that you have one larger position
+in the shared names. The five-S&P-500-ETF portfolio is the reductio: 99.5%
+overlap, paying 4x the ER for the same exposure.
 </p>
 <p>
-<strong>Q: What should I do if I discover I have been significantly underperforming my benchmark?</strong>
-A: First, verify the comparison is fair -- are you comparing against the right benchmark? A conservative 60/40 portfolio should not be compared to a 100% equity index. Second, identify the source of underperformance: Is it high fees? Poor timing (buying high, selling low)? Lack of diversification? Concentrated positions that did not work out? Third, make systematic changes rather than emotional ones. If fees are the problem, switch to lower-cost funds. If behavioral issues are the cause, implement automation and reduce your checking frequency. Avoid the temptation to make dramatic portfolio changes all at once.
+<strong>Q5. Should I pay for Morningstar Premium?</strong>
+A. No, for monitoring purposes. The X-Ray tool is free with a basic account.
+Premium adds analyst star ratings (which Morningstar's own studies show have
+little forward predictive power) and screener access. The free X-Ray pane is
+the only Morningstar product that earns a regular spot in the workflow.
 </p>
 <p>
-<strong>Q: How much time should I spend on portfolio monitoring?</strong>
-A: For a well-constructed, diversified portfolio using index funds or ETFs, 2-4 hours per quarter is sufficient. This includes checking drift, reviewing performance, scanning for tax opportunities, and updating your financial plan. If you find yourself spending more than an hour per week on monitoring, you are likely over-monitoring and at risk of making impulsive decisions. The best portfolios require minimal maintenance -- that is a feature, not a bug.
+<strong>Q6. Does the brokerage's "risk score" mean anything?</strong>
+A. No. Schwab, Fidelity, and Empower each have a proprietary "risk score"
+that combines vol, beta, and concentration into a single 0-100 number. The
+weights are opaque, the methodology is unverified, and the score is mainly a
+sales tool to flag accounts as candidates for managed services. Ignore.
 </p>
 <p>
-<strong>Q: What are the best free resources for staying informed about markets?</strong>
-A: For broad market awareness: CNBC.com and Bloomberg.com for news; the Federal Reserve's FRED database (fred.stlouisfed.org) for economic data; finviz.com for stock screening and market heatmaps. For research: SEC.gov EDGAR for company filings; Macrotrends.net for long-term financial data; Portfolio Visualizer for portfolio analysis. For education: Investopedia for concept explanations; Bogleheads.org forum for practical investing discussion. Avoid sources that promote frequent trading or sensationalize market events.
+<strong>Q7. How do I track tax-loss harvesting opportunities?</strong>
+A. Brokerage tax-lot view + spreadsheet. Sort lots by unrealised loss
+descending; any lot below cost by more than $500 and held outside the 30-day
+wash-sale window is a candidate. See Side Lesson 04 for the full TLH
+mechanics. No mainstream monitoring tool surfaces TLH well — the brokerage
+tax-lot screen is your primary source.
+</p>
+<p>
+<strong>Q8. Can I automate alerts?</strong>
+A. Yes. Most brokerages let you set price alerts; combine with a Google
+Sheet that flags drift > 5pp in conditional formatting and emails you on
+trigger via a 10-line Apps Script. That's the entire automation budget. Going
+beyond it (real-time triggers, mobile push) is exactly the dopamine pump that
+SOUL #12 warns against.
+</p>
+<p>
+<strong>Q9. What about crypto holdings — none of these tools handle BTC?</strong>
+A. Empower aggregates Coinbase. Most others ignore crypto. The simplest fix:
+a manual cell in your spreadsheet for the BTC sleeve, refreshed monthly. The
+5% sizing from Side Lesson 09 doesn't need second-by-second precision.
+</p>
+<p>
+<strong>Q10. The dashboard says I'm 8pp overweight equity. Do I sell or wait?</strong>
+A. Sell — partially. The 5pp band trigger means action <em>now</em>, not "wait for
+year-end." Direct new contributions to the under-target sleeves first; if
+that doesn't close the gap within one month, sell down enough of the
+overweight sleeve to land back inside the band. Tax-lot pick the highest
+basis lots in taxable accounts; in IRAs there is no tax cost so trim freely.
 </p>
             </div>
             <div id="content-hk" class="lang-content">

@@ -1,0 +1,501 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Volatility Lab - Interactive (Week 40)</title>
+<script src="https://cdn.plot.ly/plotly-2.35.2.min.js" charset="utf-8"></script>
+<style>
+html, body { margin: 0; padding: 0; background: var(--vl-bg); }
+:root {
+    --vl-bg: #fdfbf5;
+    --vl-text: #1a2332;
+    --vl-muted: #6b7280;
+    --vl-border: #d6d3c4;
+    --vl-card: #fdfbf5;
+    --vl-accent: #b8860b;
+    --vl-blue: #0d47a1;
+    --vl-red: #b71c1c;
+    --vl-green: #2e7d32;
+    --vl-purple: #6a1b9a;
+    --vl-orange: #e65100;
+}
+html[data-theme="dark"] .vl-root,
+.vl-root[data-theme="dark"] {
+    --vl-bg: #0f1724;
+    --vl-text: #e6e6e6;
+    --vl-muted: #9aa3b2;
+    --vl-border: #2a3441;
+    --vl-card: #0f1724;
+    --vl-blue: #5a8dee;
+    --vl-red: #ef5350;
+    --vl-green: #66bb6a;
+    --vl-purple: #ba68c8;
+    --vl-orange: #ffa726;
+}
+.vl-root {
+    font-family: 'Segoe UI', Helvetica, Arial, sans-serif;
+    background: var(--vl-bg);
+    color: var(--vl-text);
+    padding: 12px;
+    margin: 0;
+}
+.vl-controls {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+    margin-bottom: 12px;
+    padding: 12px;
+    background: var(--vl-card);
+    border: 1px solid var(--vl-border);
+    border-radius: 8px;
+}
+.vl-slider-wrap { display: flex; flex-direction: column; gap: 4px;
+    font-size: 0.82rem; color: var(--vl-muted); }
+.vl-slider-wrap .vl-row { display: flex; align-items: center; gap: 10px; }
+.vl-slider-wrap input[type="range"] { flex: 1; accent-color: var(--vl-accent); }
+.vl-slider-wrap .vl-val { white-space: nowrap; color: var(--vl-text);
+    font-weight: 700; font-variant-numeric: tabular-nums;
+    min-width: 70px; text-align: right; }
+.vl-slider-wrap .vl-name { font-weight: 600; color: var(--vl-text); }
+.vl-bigrow {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 8px;
+    margin-bottom: 12px;
+}
+.vl-big {
+    background: var(--vl-card);
+    border: 1px solid var(--vl-border);
+    border-left: 4px solid var(--vl-accent);
+    border-radius: 8px;
+    padding: 10px 12px;
+}
+.vl-big.vl-b-vix  { border-left-color: var(--vl-red); }
+.vl-big.vl-b-vxx  { border-left-color: var(--vl-orange); }
+.vl-big.vl-b-svxy { border-left-color: var(--vl-green); }
+.vl-big.vl-b-reg  { border-left-color: var(--vl-blue); }
+.vl-big .vl-bn {
+    font-size: 0.72rem; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.5px; color: var(--vl-muted);
+}
+.vl-big .vl-bv {
+    font-size: 1.45rem; font-weight: 800; margin-top: 4px;
+    font-variant-numeric: tabular-nums; color: var(--vl-text);
+}
+.vl-big .vl-bd { font-size: 0.72rem; color: var(--vl-muted); margin-top: 2px; }
+.vl-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+}
+.vl-chart {
+    width: 100%;
+    height: 360px;
+    background: var(--vl-card);
+    border-radius: 8px;
+    border: 1px solid var(--vl-border);
+}
+.vl-caption {
+    margin-top: 10px;
+    font-size: 0.78rem;
+    color: var(--vl-muted);
+    line-height: 1.45;
+}
+@media (max-width: 900px) {
+    .vl-controls { grid-template-columns: 1fr; }
+    .vl-bigrow   { grid-template-columns: 1fr 1fr; }
+    .vl-grid     { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+<div class="vl-root" id="vl-root">
+
+    <div class="vl-controls">
+        <div class="vl-slider-wrap">
+            <div class="vl-name" id="vl-name-spx">SPX 1-month move (%)</div>
+            <div class="vl-row">
+                <input type="range" id="vl-spx" min="-10" max="10" step="0.25" value="0">
+                <span class="vl-val" id="vl-val-spx">+0.00%</span>
+            </div>
+        </div>
+        <div class="vl-slider-wrap">
+            <div class="vl-name" id="vl-name-slope">Term-structure slope (vol pts, M2 - M1)</div>
+            <div class="vl-row">
+                <input type="range" id="vl-slope" min="-15" max="15" step="0.25" value="1.5">
+                <span class="vl-val" id="vl-val-slope">+1.50</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="vl-bigrow">
+        <div class="vl-big vl-b-reg">
+            <div class="vl-bn" id="vl-bn-reg">Regime</div>
+            <div class="vl-bv" id="vl-bv-reg">Calm</div>
+            <div class="vl-bd" id="vl-bd-reg">From slope sign</div>
+        </div>
+        <div class="vl-big vl-b-vix">
+            <div class="vl-bn" id="vl-bn-vix">VIX move (vol pts)</div>
+            <div class="vl-bv" id="vl-bv-vix">+0.0</div>
+            <div class="vl-bd" id="vl-bd-vix">Convex at tails</div>
+        </div>
+        <div class="vl-big vl-b-vxx">
+            <div class="vl-bn" id="vl-bn-vxx">VXX 1-month return</div>
+            <div class="vl-bv" id="vl-bv-vxx">-3.5%</div>
+            <div class="vl-bd" id="vl-bd-vxx">Long 1x VIX futures</div>
+        </div>
+        <div class="vl-big vl-b-svxy">
+            <div class="vl-bn" id="vl-bn-svxy">SVXY 1-month return</div>
+            <div class="vl-bv" id="vl-bv-svxy">+1.7%</div>
+            <div class="vl-bd" id="vl-bd-svxy">Short 0.5x VIX futures</div>
+        </div>
+    </div>
+
+    <div class="vl-grid">
+        <div id="vl-chart-bars" class="vl-chart"></div>
+        <div id="vl-chart-scatter" class="vl-chart"></div>
+    </div>
+
+    <p class="vl-caption" id="vl-caption">
+        Empirical model. VIX response uses a convex SPX-VIX rule (linear in calm regimes, quadratic at tails). VXX 1m return = vega-driven VIX move - roll cost from contango. SVXY = -0.5x VXX. Right-hand scatter is monthly VIX vs SPX synthetic data calibrated to long-run distribution.
+    </p>
+</div>
+
+<script>
+(function () {
+    var I18N = {
+        en: {
+            name_spx:  "SPX 1-month move (%)",
+            name_slope:"Term-structure slope (vol pts, M2 - M1)",
+            bn_reg:    "Regime",
+            bn_vix:    "VIX move (vol pts)",
+            bn_vxx:    "VXX 1-month return",
+            bn_svxy:   "SVXY 1-month return",
+            bd_reg_calm:    "Contango: short-vol pays",
+            bd_reg_panic:   "Backwardation: short-vol dies",
+            bd_vix:    "Convex at the tails",
+            bd_vxx:    "Long 1x VIX futures",
+            bd_svxy:   "Short 0.5x VIX futures",
+            reg_calm:  "Calm",
+            reg_panic: "Panic",
+            reg_normal:"Normal",
+            chart_bar_title: "Estimated 1-month return by product",
+            chart_bar_x:  "Return (%)",
+            chart_bar_vxx:"VXX",
+            chart_bar_svxy:"SVXY",
+            chart_bar_uvxy:"UVXY (1.5x)",
+            chart_scatter_title: "VIX vs SPX monthly (synthetic, long-run)",
+            chart_scatter_x: "SPX 1-month return (%)",
+            chart_scatter_y: "VIX 1-month change (vol pts)",
+            caption: "Empirical model. VIX response uses a convex SPX-VIX rule (linear in calm regimes, quadratic at tails). VXX 1m return = vega-driven VIX move - roll cost from contango. SVXY = -0.5x VXX. Right-hand scatter is monthly VIX vs SPX synthetic data calibrated to long-run distribution.",
+        },
+        hk: {
+            name_spx:  "SPX 一個月變動(%)",
+            name_slope:"期限結構斜率(vol 點,M2 - M1)",
+            bn_reg:    "市場狀態",
+            bn_vix:    "VIX 變動(vol 點)",
+            bn_vxx:    "VXX 一個月回報",
+            bn_svxy:   "SVXY 一個月回報",
+            bd_reg_calm:    "Contango:做空波幅有正報酬",
+            bd_reg_panic:   "Backwardation:做空波幅必爆",
+            bd_vix:    "尾端凸性",
+            bd_vxx:    "1x 多 VIX 期貨",
+            bd_svxy:   "0.5x 空 VIX 期貨",
+            reg_calm:  "平靜",
+            reg_panic: "恐慌",
+            reg_normal:"正常",
+            chart_bar_title: "估算一個月回報(各產品)",
+            chart_bar_x:  "回報(%)",
+            chart_bar_vxx:"VXX",
+            chart_bar_svxy:"SVXY",
+            chart_bar_uvxy:"UVXY(1.5x)",
+            chart_scatter_title: "VIX 對 SPX 月度(合成長期樣本)",
+            chart_scatter_x: "SPX 月度回報(%)",
+            chart_scatter_y: "VIX 月度變動(vol 點)",
+            caption: "經驗模型。VIX 反應採用對 SPX 的凸性規則(平靜期線性,尾端為二次方)。VXX 一個月回報 = vega 驅動的 VIX 變動 - contango 滾倉成本。SVXY = -0.5x 的 VXX。右側散布圖為長期分佈校準的 VIX 與 SPX 月度合成樣本。",
+        },
+        tw: {
+            name_spx:  "SPX 一個月變動(%)",
+            name_slope:"期限結構斜率(vol 點,M2 - M1)",
+            bn_reg:    "市場狀態",
+            bn_vix:    "VIX 變動(vol 點)",
+            bn_vxx:    "VXX 一個月報酬",
+            bn_svxy:   "SVXY 一個月報酬",
+            bd_reg_calm:    "Contango:作空波動有正報酬",
+            bd_reg_panic:   "Backwardation:作空波動必爆",
+            bd_vix:    "尾端凸性",
+            bd_vxx:    "1x 多 VIX 期貨",
+            bd_svxy:   "0.5x 空 VIX 期貨",
+            reg_calm:  "平靜",
+            reg_panic: "恐慌",
+            reg_normal:"正常",
+            chart_bar_title: "估算一個月報酬(各商品)",
+            chart_bar_x:  "報酬(%)",
+            chart_bar_vxx:"VXX",
+            chart_bar_svxy:"SVXY",
+            chart_bar_uvxy:"UVXY(1.5x)",
+            chart_scatter_title: "VIX 對 SPX 月度(合成長期樣本)",
+            chart_scatter_x: "SPX 月度報酬(%)",
+            chart_scatter_y: "VIX 月度變動(vol 點)",
+            caption: "經驗模型。VIX 反應採用對 SPX 的凸性規則(平靜期線性,尾端為二次)。VXX 一個月報酬 = vega 驅動之 VIX 變動 - contango 換倉成本。SVXY = -0.5x 之 VXX。右側散布圖為長期分布校準之 VIX 與 SPX 月度合成樣本。",
+        },
+        cn: {
+            name_spx:  "SPX 一个月变动(%)",
+            name_slope:"期限结构斜率(vol 点,M2 - M1)",
+            bn_reg:    "市场状态",
+            bn_vix:    "VIX 变动(vol 点)",
+            bn_vxx:    "VXX 一个月回报",
+            bn_svxy:   "SVXY 一个月回报",
+            bd_reg_calm:    "Contango:做空波动有正回报",
+            bd_reg_panic:   "Backwardation:做空波动必爆",
+            bd_vix:    "尾部凸性",
+            bd_vxx:    "1x 多 VIX 期货",
+            bd_svxy:   "0.5x 空 VIX 期货",
+            reg_calm:  "平静",
+            reg_panic: "恐慌",
+            reg_normal:"正常",
+            chart_bar_title: "估算一个月回报(各产品)",
+            chart_bar_x:  "回报(%)",
+            chart_bar_vxx:"VXX",
+            chart_bar_svxy:"SVXY",
+            chart_bar_uvxy:"UVXY(1.5x)",
+            chart_scatter_title: "VIX 对 SPX 月度(合成长期样本)",
+            chart_scatter_x: "SPX 月度回报(%)",
+            chart_scatter_y: "VIX 月度变动(vol 点)",
+            caption: "经验模型。VIX 反应采用对 SPX 的凸性规则(平静期线性,尾端为二次)。VXX 一个月回报 = vega 驱动的 VIX 变动 - contango 滚仓成本。SVXY = -0.5x 的 VXX。右侧散布图为长期分布校准的 VIX 与 SPX 月度合成样本。",
+        },
+    };
+    function currentLang() {
+        var p = new URLSearchParams(window.location.search);
+        var l = (p.get("lang") || "en").toLowerCase();
+        return I18N.hasOwnProperty(l) ? l : "en";
+    }
+    var T = I18N[currentLang()];
+
+    // ---------- Synthetic monthly VIX-vs-SPX scatter (long-run cloud) -----
+    // Calibrated to mu_SPX=0.7%/mo, sigma=4.4%, corr(VIX_change, SPX) = -0.72
+    // with convex tail. Generated offline; embedded inline (no fetch).
+    var SCATTER = [
+        {sx:  3.2, vy: -2.1}, {sx:  1.5, vy: -0.6}, {sx:  4.0, vy: -3.1},
+        {sx:  2.1, vy: -1.4}, {sx:  0.4, vy:  0.4}, {sx: -1.2, vy:  1.7},
+        {sx: -0.8, vy:  1.0}, {sx:  2.8, vy: -1.9}, {sx:  3.6, vy: -2.4},
+        {sx:  1.0, vy: -0.5}, {sx: -2.4, vy:  3.6}, {sx: -3.5, vy:  5.2},
+        {sx: -5.1, vy: 10.4}, {sx: -7.2, vy: 18.5}, {sx: -8.5, vy: 25.0},
+        {sx: -1.6, vy:  2.3}, {sx:  0.2, vy: -0.1}, {sx:  5.4, vy: -3.6},
+        {sx:  6.2, vy: -3.8}, {sx:  4.4, vy: -2.7}, {sx: -0.3, vy:  0.7},
+        {sx: -4.2, vy:  7.1}, {sx: -6.0, vy: 13.8}, {sx: -2.0, vy:  2.9},
+        {sx:  1.8, vy: -0.9}, {sx:  2.5, vy: -1.6}, {sx: -1.0, vy:  1.5},
+        {sx:  3.1, vy: -2.0}, {sx:  4.7, vy: -2.9}, {sx: -3.0, vy:  4.5},
+        {sx: -9.5, vy: 32.1}, {sx: -2.7, vy:  3.9}, {sx:  5.8, vy: -3.7},
+        {sx:  0.9, vy: -0.4}, {sx:  2.3, vy: -1.5}, {sx: -1.4, vy:  2.0},
+        {sx: -4.8, vy:  8.9}, {sx:  3.4, vy: -2.2}, {sx:  1.2, vy: -0.7},
+        {sx: -0.6, vy:  0.9}, {sx:  4.1, vy: -2.6}, {sx: -2.3, vy:  3.4},
+        {sx:  2.0, vy: -1.3}, {sx: -1.8, vy:  2.6}, {sx:  0.6, vy: -0.2},
+        {sx:  3.9, vy: -2.5}, {sx: -3.8, vy:  6.0}, {sx:  1.7, vy: -0.8},
+        {sx:  5.0, vy: -3.3}, {sx: -2.5, vy:  3.7}, {sx:  0.0, vy:  0.3},
+        {sx:  2.9, vy: -1.8}, {sx: -1.1, vy:  1.6}, {sx:  4.3, vy: -2.7},
+        {sx: -5.6, vy: 11.7}, {sx:  3.0, vy: -1.9}, {sx:  1.4, vy: -0.7},
+        {sx: -0.4, vy:  0.6}, {sx:  2.4, vy: -1.5}, {sx: -2.1, vy:  3.0},
+    ];
+
+    // ---------- Model ----------
+    // Convex SPX -> VIX response. Linear inside +-3%, quadratic outside.
+    function vixMove(spxPct) {
+        var x = spxPct;
+        if (x <= 0) {
+            // Negative SPX: convex-up
+            return -1.0 * x + 0.20 * x * x;  // -1% -> +1.2 vol pt; -5% -> +10
+        } else {
+            // Positive SPX: VIX falls but with diminishing scale (convex)
+            return -0.55 * x - 0.05 * x * x; // +1% -> -0.6 vp; +5% -> -4
+        }
+    }
+
+    // Roll cost (per month) approximately equals the slope minus a small
+    // gamma scaling. Slope = M2 - M1 in vol points; positive -> long pays.
+    // Convert vol-point slope to monthly return bleed using vega leverage
+    // around assumed VIX_front of 18.
+    function vxxReturn(spxPct, slopeVp) {
+        var dvix = vixMove(spxPct);
+        // VXX vega: ~5.5% return per +1 vol-point change in front-month
+        // VIX futures, scaled down for futures-vs-spot beta (~0.55).
+        var vegaRet = dvix * 0.55 * 0.055;          // fraction
+        // Monthly roll cost = -slope / VIX_front (~18) per month, dampened.
+        var roll = -slopeVp / 18.0 * 0.55;          // fraction
+        return vegaRet + roll;
+    }
+    function svxyReturn(spxPct, slopeVp) {
+        // SVXY = short 0.5x daily; mirror VXX roughly at -0.5 leverage but
+        // with a small compounding penalty proportional to |dvix|.
+        var v = vxxReturn(spxPct, slopeVp);
+        var compoundDrag = -0.001 * vixMove(spxPct) * vixMove(spxPct);
+        return -0.5 * v + compoundDrag;
+    }
+    function uvxyReturn(spxPct, slopeVp) {
+        var v = vxxReturn(spxPct, slopeVp);
+        return 1.5 * v - 0.0005 * vixMove(spxPct) * vixMove(spxPct);
+    }
+
+    // ---------- DOM refs ----------
+    var ROOT = document.getElementById("vl-root");
+    var BAR  = document.getElementById("vl-chart-bars");
+    var SCAT = document.getElementById("vl-chart-scatter");
+    var SPX_EL = document.getElementById("vl-spx");
+    var SLP_EL = document.getElementById("vl-slope");
+
+    function getCssVar(n){ return getComputedStyle(ROOT).getPropertyValue(n).trim(); }
+    function darkMode(){ return document.documentElement.getAttribute("data-theme") === "dark"; }
+    function fmtPct(x, d) {
+        if (!isFinite(x)) return "-";
+        var sign = x >= 0 ? "+" : "";
+        return sign + (x * 100).toFixed(d) + "%";
+    }
+    function fmtVp(x, d) {
+        if (!isFinite(x)) return "-";
+        var sign = x >= 0 ? "+" : "";
+        return sign + x.toFixed(d);
+    }
+
+    function applyI18n() {
+        document.getElementById("vl-name-spx").textContent = T.name_spx;
+        document.getElementById("vl-name-slope").textContent = T.name_slope;
+        document.getElementById("vl-bn-reg").textContent  = T.bn_reg;
+        document.getElementById("vl-bn-vix").textContent  = T.bn_vix;
+        document.getElementById("vl-bn-vxx").textContent  = T.bn_vxx;
+        document.getElementById("vl-bn-svxy").textContent = T.bn_svxy;
+        document.getElementById("vl-bd-vix").textContent  = T.bd_vix;
+        document.getElementById("vl-bd-vxx").textContent  = T.bd_vxx;
+        document.getElementById("vl-bd-svxy").textContent = T.bd_svxy;
+        document.getElementById("vl-caption").textContent = T.caption;
+    }
+
+    function render() {
+        var spx = parseFloat(SPX_EL.value);
+        var slope = parseFloat(SLP_EL.value);
+
+        document.getElementById("vl-val-spx").textContent =
+            (spx >= 0 ? "+" : "") + spx.toFixed(2) + "%";
+        document.getElementById("vl-val-slope").textContent = fmtVp(slope, 2);
+
+        var dvix = vixMove(spx);
+        var vxx = vxxReturn(spx, slope);
+        var svxy = svxyReturn(spx, slope);
+        var uvxy = uvxyReturn(spx, slope);
+
+        // Regime label.
+        var regKey, regDetail;
+        if (slope < -0.5) { regKey = T.reg_panic; regDetail = T.bd_reg_panic; }
+        else if (slope > 0.5) { regKey = T.reg_calm; regDetail = T.bd_reg_calm; }
+        else { regKey = T.reg_normal; regDetail = T.bd_reg_calm; }
+        document.getElementById("vl-bv-reg").textContent = regKey;
+        document.getElementById("vl-bd-reg").textContent = regDetail;
+
+        document.getElementById("vl-bv-vix").textContent  = fmtVp(dvix, 1);
+        document.getElementById("vl-bv-vxx").textContent  = fmtPct(vxx, 1);
+        document.getElementById("vl-bv-svxy").textContent = fmtPct(svxy, 1);
+
+        var col_text  = getCssVar("--vl-text");
+        var col_muted = getCssVar("--vl-muted");
+        var col_card  = getCssVar("--vl-card");
+        var col_grid  = darkMode() ? "rgba(255,255,255,0.08)" : "rgba(0,0,0,0.07)";
+        var col_red   = getCssVar("--vl-red");
+        var col_green = getCssVar("--vl-green");
+        var col_orange= getCssVar("--vl-orange");
+        var col_blue  = getCssVar("--vl-blue");
+
+        // Bar chart: 3 products
+        var rets = [vxx * 100, svxy * 100, uvxy * 100];
+        var labels = [T.chart_bar_vxx, T.chart_bar_svxy, T.chart_bar_uvxy];
+        var colors = rets.map(function(r){
+            return r >= 0 ? col_green : col_red;
+        });
+        var barTraces = [{
+            type: "bar",
+            orientation: "h",
+            x: rets,
+            y: labels,
+            marker: { color: colors, line: { width: 0 } },
+            text: rets.map(function(r){ return (r>=0?"+":"") + r.toFixed(1) + "%"; }),
+            textposition: "outside",
+            hovertemplate: "%{y}: %{x:.2f}%<extra></extra>",
+            cliponaxis: false,
+        }];
+        var barLayout = {
+            margin: { l: 70, r: 60, t: 36, b: 38 },
+            paper_bgcolor: col_card,
+            plot_bgcolor:  col_card,
+            font: { family: "Segoe UI, Helvetica, Arial, sans-serif",
+                    color: col_text, size: 12 },
+            title: { text: T.chart_bar_title, x: 0, xanchor: "left",
+                     font: { color: col_text, size: 13 } },
+            xaxis: { title: { text: T.chart_bar_x, font: { color: col_muted, size: 11 } },
+                     gridcolor: col_grid, color: col_text, ticksuffix: "%",
+                     zerolinecolor: col_muted },
+            yaxis: { color: col_text, automargin: true },
+        };
+        Plotly.react(BAR, barTraces, barLayout, { displayModeBar:false, responsive:true });
+
+        // Scatter chart: synthetic + live point
+        var scatTraces = [{
+            x: SCATTER.map(function(p){ return p.sx; }),
+            y: SCATTER.map(function(p){ return p.vy; }),
+            mode: "markers",
+            type: "scatter",
+            marker: { color: col_blue, size: 7, opacity: 0.55 },
+            name: "synthetic monthly",
+            hovertemplate: "SPX %{x:.1f}% -> dVIX %{y:.1f}<extra></extra>",
+            showlegend: false,
+        }, {
+            x: [spx], y: [dvix],
+            mode: "markers", type: "scatter",
+            marker: { color: col_orange, size: 14, line: { color: "#fff", width: 2 } },
+            name: "live",
+            hovertemplate: "live: SPX %{x:.2f}% -> dVIX %{y:.2f}<extra></extra>",
+            showlegend: false,
+        }];
+        var scatLayout = {
+            margin: { l: 60, r: 24, t: 36, b: 50 },
+            paper_bgcolor: col_card,
+            plot_bgcolor:  col_card,
+            font: { family: "Segoe UI, Helvetica, Arial, sans-serif",
+                    color: col_text, size: 12 },
+            title: { text: T.chart_scatter_title, x: 0, xanchor: "left",
+                     font: { color: col_text, size: 13 } },
+            xaxis: { title: { text: T.chart_scatter_x, font: { color: col_muted, size: 11 } },
+                     gridcolor: col_grid, color: col_text, ticksuffix: "%",
+                     zerolinecolor: col_muted },
+            yaxis: { title: { text: T.chart_scatter_y, font: { color: col_muted, size: 11 } },
+                     gridcolor: col_grid, color: col_text, zerolinecolor: col_muted },
+            hovermode: "closest",
+        };
+        Plotly.react(SCAT, scatTraces, scatLayout, { displayModeBar:false, responsive:true });
+    }
+
+    SPX_EL.addEventListener("input", render);
+    SLP_EL.addEventListener("input", render);
+
+    applyI18n();
+
+    function reportHeight() {
+        try {
+            var h = Math.ceil(document.documentElement.scrollHeight);
+            parent.postMessage({ type: "lesson-interactive-resize", height: h }, "*");
+        } catch (e) {}
+    }
+    if (typeof ResizeObserver !== "undefined") {
+        new ResizeObserver(reportHeight).observe(document.body);
+    }
+    window.addEventListener("resize", reportHeight);
+    setTimeout(reportHeight, 50);
+    setTimeout(reportHeight, 500);
+
+    var themeObserver = new MutationObserver(render);
+    themeObserver.observe(document.documentElement,
+        { attributes: true, attributeFilter: ["data-theme"] });
+
+    render();
+})();
+</script>
+</body>
+</html>

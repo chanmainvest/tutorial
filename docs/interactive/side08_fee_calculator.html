@@ -1,0 +1,581 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Fee Calculator -- Interactive (Side 08)</title>
+<script src="https://cdn.plot.ly/plotly-2.35.2.min.js" charset="utf-8"></script>
+<style>
+html, body { margin: 0; padding: 0; background: var(--fc-bg); }
+:root {
+    --fc-bg: #fdfbf5;
+    --fc-text: #1a2332;
+    --fc-muted: #6b7280;
+    --fc-border: #d6d3c4;
+    --fc-card: #fdfbf5;
+    --fc-pos: #2e7d32;
+    --fc-neg: #b71c1c;
+    --fc-mid: #0d47a1;
+    --fc-accent: #b8860b;
+    --fc-grey: #5a5a5a;
+}
+html[data-theme="dark"] .fc-root,
+.fc-root[data-theme="dark"] {
+    --fc-bg: #0f1724;
+    --fc-text: #e6e6e6;
+    --fc-muted: #9aa3b2;
+    --fc-border: #2a3441;
+    --fc-card: #0f1724;
+    --fc-pos: #66bb6a;
+    --fc-neg: #ef5350;
+    --fc-mid: #5a8dee;
+    --fc-grey: #a0a0a0;
+}
+.fc-root {
+    font-family: 'Segoe UI', Helvetica, Arial, sans-serif;
+    background: var(--fc-bg);
+    color: var(--fc-text);
+    padding: 12px;
+    margin: 0;
+}
+.fc-controls {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 10px;
+    margin-bottom: 12px;
+    padding: 12px;
+    background: var(--fc-card);
+    border: 1px solid var(--fc-border);
+    border-radius: 8px;
+}
+.fc-ctl-label {
+    font-size: 0.74rem;
+    color: var(--fc-muted);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 4px;
+}
+.fc-ctl-val {
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 4px;
+    font-variant-numeric: tabular-nums;
+}
+.fc-ctl input[type="range"] {
+    width: 100%;
+    accent-color: var(--fc-accent);
+}
+.fc-kpis {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 10px;
+    margin-bottom: 12px;
+}
+.fc-kpi {
+    background: var(--fc-card);
+    border: 1px solid var(--fc-border);
+    border-left: 4px solid var(--fc-mid);
+    border-radius: 8px;
+    padding: 10px 12px;
+}
+.fc-kpi.k-tw   { border-left-color: var(--fc-pos); }
+.fc-kpi.k-fees { border-left-color: var(--fc-neg); }
+.fc-kpi.k-pct  { border-left-color: var(--fc-accent); }
+.fc-kpi.k-gap  { border-left-color: var(--fc-mid); }
+.fc-kpi-name {
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--fc-muted);
+}
+.fc-kpi-val {
+    font-size: 1.45rem;
+    font-weight: 700;
+    margin-top: 4px;
+    font-variant-numeric: tabular-nums;
+}
+.fc-kpi-sub {
+    font-size: 0.74rem;
+    color: var(--fc-muted);
+    margin-top: 2px;
+}
+.fc-chart {
+    background: var(--fc-card);
+    border: 1px solid var(--fc-border);
+    border-radius: 8px;
+    height: 380px;
+}
+.fc-presets {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 12px;
+    padding: 10px 12px;
+    background: var(--fc-card);
+    border: 1px solid var(--fc-border);
+    border-radius: 8px;
+    align-items: center;
+}
+.fc-presets-label {
+    font-size: 0.78rem;
+    color: var(--fc-muted);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-right: 4px;
+}
+.fc-pill {
+    border: 1px solid var(--fc-border);
+    background: var(--fc-card);
+    color: var(--fc-text);
+    padding: 6px 12px;
+    font-family: inherit;
+    font-size: 0.85rem;
+    font-weight: 700;
+    border-radius: 999px;
+    cursor: pointer;
+    transition: background 0.15s, color 0.15s, border-color 0.15s;
+}
+.fc-pill:hover { border-color: var(--fc-accent); }
+.fc-pill.active {
+    background: var(--fc-accent);
+    color: #fff;
+    border-color: var(--fc-accent);
+}
+.fc-caption {
+    margin-top: 10px;
+    font-size: 0.78rem;
+    color: var(--fc-muted);
+    line-height: 1.5;
+}
+@media (max-width: 900px) {
+    .fc-controls { grid-template-columns: repeat(2, 1fr); }
+    .fc-kpis     { grid-template-columns: repeat(2, 1fr); }
+    .fc-chart    { height: 320px; }
+}
+</style>
+</head>
+<body>
+
+<div class="fc-root" id="fc-root">
+
+    <div class="fc-presets" id="fc-presets">
+        <span class="fc-presets-label" id="fc-presets-label">PRESET</span>
+    </div>
+
+    <div class="fc-controls">
+        <div class="fc-ctl">
+            <div class="fc-ctl-label" id="fc-lbl-start">Starting balance</div>
+            <div class="fc-ctl-val"   id="fc-val-start">$100,000</div>
+            <input type="range" id="fc-sl-start" min="0" max="500000" step="5000" value="100000">
+        </div>
+        <div class="fc-ctl">
+            <div class="fc-ctl-label" id="fc-lbl-mo">Monthly contribution</div>
+            <div class="fc-ctl-val"   id="fc-val-mo">$500</div>
+            <input type="range" id="fc-sl-mo" min="0" max="5000" step="50" value="500">
+        </div>
+        <div class="fc-ctl">
+            <div class="fc-ctl-label" id="fc-lbl-ret">Gross return</div>
+            <div class="fc-ctl-val"   id="fc-val-ret">8.0%</div>
+            <input type="range" id="fc-sl-ret" min="3" max="12" step="0.1" value="8">
+        </div>
+        <div class="fc-ctl">
+            <div class="fc-ctl-label" id="fc-lbl-fee">Expense ratio</div>
+            <div class="fc-ctl-val"   id="fc-val-fee">1.00%</div>
+            <input type="range" id="fc-sl-fee" min="0" max="3" step="0.01" value="1">
+        </div>
+        <div class="fc-ctl">
+            <div class="fc-ctl-label" id="fc-lbl-yr">Horizon (years)</div>
+            <div class="fc-ctl-val"   id="fc-val-yr">30</div>
+            <input type="range" id="fc-sl-yr" min="5" max="50" step="1" value="30">
+        </div>
+    </div>
+
+    <div class="fc-kpis">
+        <div class="fc-kpi k-tw">
+            <div class="fc-kpi-name" id="fc-name-tw">Terminal wealth</div>
+            <div class="fc-kpi-val"  id="fc-val-tw">--</div>
+            <div class="fc-kpi-sub"  id="fc-sub-tw">After fees</div>
+        </div>
+        <div class="fc-kpi k-fees">
+            <div class="fc-kpi-name" id="fc-name-fees">Total fees paid</div>
+            <div class="fc-kpi-val"  id="fc-val-fees">--</div>
+            <div class="fc-kpi-sub"  id="fc-sub-fees">Cumulative dollars</div>
+        </div>
+        <div class="fc-kpi k-pct">
+            <div class="fc-kpi-name" id="fc-name-pct">Fees as % of gross gain</div>
+            <div class="fc-kpi-val"  id="fc-val-pct">--</div>
+            <div class="fc-kpi-sub"  id="fc-sub-pct">How much the manager kept</div>
+        </div>
+        <div class="fc-kpi k-gap">
+            <div class="fc-kpi-name" id="fc-name-gap">Gap vs 5 bp ETF</div>
+            <div class="fc-kpi-val"  id="fc-val-gap">--</div>
+            <div class="fc-kpi-sub"  id="fc-sub-gap">Foregone wealth</div>
+        </div>
+    </div>
+
+    <div id="fc-chart" class="fc-chart"></div>
+
+    <p class="fc-caption" id="fc-caption">
+        Drag the sliders. The chart shows the wealth path with your fee versus a 5 bp index-ETF baseline.
+        Try the 30-year, 8% gross, 1.0% fee combination -- that is John Bogle's canonical example.
+        The "Fees as % of gross gain" KPI is the one to remember: it is the share of your investment gain
+        that flowed to the fund company instead of staying with you.
+    </p>
+</div>
+
+<script>
+(function () {
+    const I18N = {
+        en: {
+            preset_label: "PRESET",
+            presets: {
+                bogle:   "Bogle 30y / 1%",
+                index:   "Index ETF / 5 bp",
+                active:  "Typical active / 1%",
+                hedge:   "Hedge fund / 2%",
+                fof:     "Fund of funds / 1.5%",
+                custom:  "Custom",
+            },
+            lbl_start: "Starting balance",
+            lbl_mo:    "Monthly contribution",
+            lbl_ret:   "Gross return",
+            lbl_fee:   "Expense ratio",
+            lbl_yr:    "Horizon (years)",
+            kpi_tw:    "Terminal wealth",
+            kpi_fees:  "Total fees paid",
+            kpi_pct:   "Fees as % of gross gain",
+            kpi_gap:   "Gap vs 5 bp ETF",
+            sub_tw:    "After fees",
+            sub_fees:  "Cumulative dollars",
+            sub_pct:   "How much the manager kept",
+            sub_gap:   "Foregone wealth",
+            chart_title:  "Wealth path: your fee vs 5 bp index ETF baseline",
+            chart_x:      "Year",
+            chart_y:      "Wealth (USD)",
+            trace_yours:  "Your fee ({fee:.2f}%)",
+            trace_base:   "5 bp index ETF baseline",
+            trace_nofee:  "No-fee benchmark",
+            cap:          "Drag the sliders. The chart shows the wealth path with your fee versus a 5 bp index-ETF baseline. Try the 30-year, 8% gross, 1.0% fee combination -- that is John Bogle's canonical example. The 'Fees as % of gross gain' KPI is the one to remember: it is the share of your investment gain that flowed to the fund company instead of staying with you.",
+        },
+        hk: {
+            preset_label: "預設",
+            presets: {
+                bogle:   "博格 30 年/1%",
+                index:   "指數 ETF/5 基點",
+                active:  "典型主動/1%",
+                hedge:   "對沖基金/2%",
+                fof:     "基金中基金/1.5%",
+                custom:  "自訂",
+            },
+            lbl_start: "起始金額",
+            lbl_mo:    "每月供款",
+            lbl_ret:   "毛回報率",
+            lbl_fee:   "管理費",
+            lbl_yr:    "投資年期",
+            kpi_tw:    "期末財富",
+            kpi_fees:  "累計付出費用",
+            kpi_pct:   "費用佔毛收益百分比",
+            kpi_gap:   "與 5 基點 ETF 差距",
+            sub_tw:    "扣費後",
+            sub_fees:  "累計美元",
+            sub_pct:   "基金公司拿走多少",
+            sub_gap:   "失去的財富",
+            chart_title:  "財富路徑:您的費率 vs 5 基點指數 ETF 基準",
+            chart_x:      "年份",
+            chart_y:      "財富(美元)",
+            trace_yours:  "您的費率({fee:.2f}%)",
+            trace_base:   "5 基點指數 ETF 基準",
+            trace_nofee:  "零費用基準",
+            cap:          "拖動滑桿。圖表顯示您費率下的財富路徑與 5 基點指數 ETF 基準的對照。試試 30 年/8% 毛回報/1.0% 費率組合 -- 即博格的經典示例。「費用佔毛收益百分比」是要記住的關鍵指標:這是您投資收益中流向基金公司的份額。",
+        },
+        tw: {
+            preset_label: "預設",
+            presets: {
+                bogle:   "博格 30 年/1%",
+                index:   "指數 ETF/5 基點",
+                active:  "典型主動/1%",
+                hedge:   "避險基金/2%",
+                fof:     "基金中基金/1.5%",
+                custom:  "自訂",
+            },
+            lbl_start: "起始金額",
+            lbl_mo:    "每月扣款",
+            lbl_ret:   "毛報酬率",
+            lbl_fee:   "管理費",
+            lbl_yr:    "投資年期",
+            kpi_tw:    "期末財富",
+            kpi_fees:  "累計付出費用",
+            kpi_pct:   "費用佔毛收益百分比",
+            kpi_gap:   "與 5 基點 ETF 差距",
+            sub_tw:    "扣費後",
+            sub_fees:  "累計美元",
+            sub_pct:   "基金公司拿走多少",
+            sub_gap:   "失去的財富",
+            chart_title:  "財富路徑:您的費率 vs 5 基點指數 ETF 基準",
+            chart_x:      "年份",
+            chart_y:      "財富(美元)",
+            trace_yours:  "您的費率({fee:.2f}%)",
+            trace_base:   "5 基點指數 ETF 基準",
+            trace_nofee:  "零費用基準",
+            cap:          "拖動滑桿。圖表顯示您費率下的財富路徑與 5 基點指數 ETF 基準的對照。試試 30 年/8% 毛報酬/1.0% 費率組合 -- 即博格的經典示例。「費用佔毛收益百分比」是要記住的關鍵指標:這是您投資收益中流向基金公司的份額。",
+        },
+        cn: {
+            preset_label: "预设",
+            presets: {
+                bogle:   "博格 30 年/1%",
+                index:   "指数 ETF/5 基点",
+                active:  "典型主动/1%",
+                hedge:   "对冲基金/2%",
+                fof:     "基金中基金/1.5%",
+                custom:  "自定义",
+            },
+            lbl_start: "起始金额",
+            lbl_mo:    "每月供款",
+            lbl_ret:   "毛回报率",
+            lbl_fee:   "管理费",
+            lbl_yr:    "投资年期",
+            kpi_tw:    "期末财富",
+            kpi_fees:  "累计费用",
+            kpi_pct:   "费用占毛收益百分比",
+            kpi_gap:   "与 5 基点 ETF 差距",
+            sub_tw:    "扣费后",
+            sub_fees:  "累计美元",
+            sub_pct:   "基金公司拿走多少",
+            sub_gap:   "失去的财富",
+            chart_title:  "财富路径:您的费率 vs 5 基点指数 ETF 基准",
+            chart_x:      "年份",
+            chart_y:      "财富(美元)",
+            trace_yours:  "您的费率({fee:.2f}%)",
+            trace_base:   "5 基点指数 ETF 基准",
+            trace_nofee:  "零费用基准",
+            cap:          "拖动滑杆。图表显示您费率下的财富路径与 5 基点指数 ETF 基准的对照。试试 30 年/8% 毛回报/1.0% 费率组合 -- 即博格的经典示例。「费用占毛收益百分比」是要记住的关键指标:这是您投资收益中流向基金公司的份额。",
+        },
+    };
+
+    function currentLang() {
+        const p = new URLSearchParams(window.location.search);
+        const l = (p.get("lang") || "en").toLowerCase();
+        return I18N.hasOwnProperty(l) ? l : "en";
+    }
+    const T = I18N[currentLang()];
+
+    const PRESETS = {
+        bogle:  { start: 100000, mo: 0,    ret: 8,  fee: 1.0,  yr: 30 },
+        index:  { start: 100000, mo: 500,  ret: 8,  fee: 0.05, yr: 30 },
+        active: { start: 100000, mo: 500,  ret: 8,  fee: 1.0,  yr: 30 },
+        hedge:  { start: 100000, mo: 500,  ret: 10, fee: 2.0,  yr: 30 },
+        fof:    { start: 100000, mo: 500,  ret: 7,  fee: 1.5,  yr: 30 },
+    };
+    const PRESET_ORDER = ["bogle", "index", "active", "hedge", "fof", "custom"];
+    let activePreset = "active";
+
+    const ROOT = document.getElementById("fc-root");
+    const PRESET_ROW = document.getElementById("fc-presets");
+    document.getElementById("fc-presets-label").textContent = T.preset_label;
+
+    // Bind labels
+    document.getElementById("fc-lbl-start").textContent = T.lbl_start;
+    document.getElementById("fc-lbl-mo").textContent    = T.lbl_mo;
+    document.getElementById("fc-lbl-ret").textContent   = T.lbl_ret;
+    document.getElementById("fc-lbl-fee").textContent   = T.lbl_fee;
+    document.getElementById("fc-lbl-yr").textContent    = T.lbl_yr;
+    document.getElementById("fc-name-tw").textContent   = T.kpi_tw;
+    document.getElementById("fc-name-fees").textContent = T.kpi_fees;
+    document.getElementById("fc-name-pct").textContent  = T.kpi_pct;
+    document.getElementById("fc-name-gap").textContent  = T.kpi_gap;
+    document.getElementById("fc-sub-tw").textContent    = T.sub_tw;
+    document.getElementById("fc-sub-fees").textContent  = T.sub_fees;
+    document.getElementById("fc-sub-pct").textContent   = T.sub_pct;
+    document.getElementById("fc-sub-gap").textContent   = T.sub_gap;
+    document.getElementById("fc-caption").textContent   = T.cap;
+
+    // Build preset pills
+    PRESET_ORDER.forEach(key => {
+        const b = document.createElement("button");
+        b.className = "fc-pill";
+        b.type = "button";
+        b.textContent = T.presets[key];
+        b.dataset.preset = key;
+        if (key === activePreset) b.classList.add("active");
+        b.addEventListener("click", () => {
+            activePreset = key;
+            document.querySelectorAll(".fc-pill").forEach(p => p.classList.remove("active"));
+            b.classList.add("active");
+            if (key !== "custom" && PRESETS[key]) {
+                const v = PRESETS[key];
+                document.getElementById("fc-sl-start").value = v.start;
+                document.getElementById("fc-sl-mo").value    = v.mo;
+                document.getElementById("fc-sl-ret").value   = v.ret;
+                document.getElementById("fc-sl-fee").value   = v.fee;
+                document.getElementById("fc-sl-yr").value    = v.yr;
+            }
+            render();
+        });
+        PRESET_ROW.appendChild(b);
+    });
+
+    const SLIDERS = ["start", "mo", "ret", "fee", "yr"];
+    SLIDERS.forEach(name => {
+        document.getElementById("fc-sl-" + name).addEventListener("input", () => {
+            // Switch preset to custom on manual change
+            activePreset = "custom";
+            document.querySelectorAll(".fc-pill").forEach(p => {
+                p.classList.toggle("active", p.dataset.preset === "custom");
+            });
+            render();
+        });
+    });
+
+    function readInputs() {
+        return {
+            start: +document.getElementById("fc-sl-start").value,
+            mo:    +document.getElementById("fc-sl-mo").value,
+            ret:   +document.getElementById("fc-sl-ret").value,
+            fee:   +document.getElementById("fc-sl-fee").value,
+            yr:    +document.getElementById("fc-sl-yr").value,
+        };
+    }
+
+    function fmtUSD(v) {
+        if (Math.abs(v) >= 1e6) return "$" + (v / 1e6).toFixed(2) + "M";
+        if (Math.abs(v) >= 1e3) return "$" + (v / 1e3).toFixed(0) + "k";
+        return "$" + v.toFixed(0);
+    }
+    function fmtUSDfull(v) {
+        const sign = v < 0 ? "-" : "";
+        return sign + "$" + Math.abs(Math.round(v)).toLocaleString("en-US");
+    }
+
+    // Simulate annual compounding with monthly contributions and an ER charged
+    // monthly. Returns { path, totalContrib, totalFees }.
+    function simulate(start, mo, gross, fee, years) {
+        const r_m_gross = Math.pow(1 + gross / 100, 1 / 12) - 1;
+        // Net monthly return = ((1 + g)(1 - fee_m))^(1/12)? Simpler: pre-fee
+        // monthly compound, then deduct fee_m * NAV at end of month.
+        const fee_m = (fee / 100) / 12;
+        let bal = start;
+        let contrib = start;
+        let fees = 0;
+        const annualPath = [start];
+        const months = years * 12;
+        for (let m = 1; m <= months; m++) {
+            // grow at gross
+            bal = bal * (1 + r_m_gross);
+            // add contribution at end of month
+            bal = bal + mo;
+            contrib = contrib + mo;
+            // deduct fee
+            const f = bal * fee_m;
+            fees = fees + f;
+            bal = bal - f;
+            if (m % 12 === 0) annualPath.push(bal);
+        }
+        return { path: annualPath, totalContrib: contrib, totalFees: fees, terminal: bal };
+    }
+
+    function render() {
+        const inp = readInputs();
+        document.getElementById("fc-val-start").textContent = fmtUSD(inp.start);
+        document.getElementById("fc-val-mo").textContent    = fmtUSD(inp.mo);
+        document.getElementById("fc-val-ret").textContent   = inp.ret.toFixed(1) + "%";
+        document.getElementById("fc-val-fee").textContent   = inp.fee.toFixed(2) + "%";
+        document.getElementById("fc-val-yr").textContent    = inp.yr.toFixed(0);
+
+        const yours = simulate(inp.start, inp.mo, inp.ret, inp.fee, inp.yr);
+        const base  = simulate(inp.start, inp.mo, inp.ret, 0.05,    inp.yr);
+        const nofee = simulate(inp.start, inp.mo, inp.ret, 0.00,    inp.yr);
+
+        const grossGain = nofee.terminal - yours.totalContrib;
+        const feePct = grossGain > 0 ? (yours.totalFees / grossGain) * 100 : 0;
+        const gap = base.terminal - yours.terminal;
+
+        document.getElementById("fc-val-tw").textContent   = fmtUSDfull(yours.terminal);
+        document.getElementById("fc-val-fees").textContent = fmtUSDfull(yours.totalFees);
+        document.getElementById("fc-val-pct").textContent  = feePct.toFixed(1) + "%";
+        document.getElementById("fc-val-gap").textContent  = "-" + fmtUSDfull(Math.max(0, gap));
+
+        // Chart
+        const x = [];
+        for (let y = 0; y <= inp.yr; y++) x.push(y);
+        const colorMid   = getCssVar("--fc-mid");
+        const colorPos   = getCssVar("--fc-pos");
+        const colorNeg   = getCssVar("--fc-neg");
+        const colorAcc   = getCssVar("--fc-accent");
+        const colorMuted = getCssVar("--fc-muted");
+        const colorText  = getCssVar("--fc-text");
+        const colorBg    = getCssVar("--fc-card");
+        const colorGrid  = darkMode() ? "rgba(255,255,255,0.08)" : "rgba(0,0,0,0.07)";
+
+        const tracesArr = [
+            {
+                x: x, y: nofee.path, type: "scatter", mode: "lines",
+                name: T.trace_nofee,
+                line: { color: colorMuted, width: 1.6, dash: "dot" },
+                hovertemplate: "%{x}y: %{y:$,.0f}<extra>" + T.trace_nofee + "</extra>",
+            },
+            {
+                x: x, y: base.path, type: "scatter", mode: "lines",
+                name: T.trace_base,
+                line: { color: colorPos, width: 2.4 },
+                hovertemplate: "%{x}y: %{y:$,.0f}<extra>" + T.trace_base + "</extra>",
+            },
+            {
+                x: x, y: yours.path, type: "scatter", mode: "lines",
+                name: T.trace_yours.replace("{fee:.2f}", inp.fee.toFixed(2)),
+                line: { color: inp.fee >= 1 ? colorNeg : colorMid, width: 2.8 },
+                hovertemplate: "%{x}y: %{y:$,.0f}<extra>" + T.trace_yours.replace("{fee:.2f}", inp.fee.toFixed(2)) + "</extra>",
+            },
+        ];
+        const layout = {
+            margin: { l: 64, r: 18, t: 38, b: 50 },
+            paper_bgcolor: colorBg, plot_bgcolor: colorBg,
+            font: { family: "Segoe UI, Helvetica, Arial, sans-serif", color: colorText, size: 12 },
+            title: { text: T.chart_title, font: { color: colorText, size: 13 }, x: 0, xanchor: "left" },
+            hovermode: "x unified",
+            xaxis: {
+                title: { text: T.chart_x, font: { color: colorMuted, size: 11 } },
+                gridcolor: colorGrid, zeroline: false, color: colorText,
+            },
+            yaxis: {
+                title: { text: T.chart_y, font: { color: colorMuted, size: 11 } },
+                gridcolor: colorGrid, zeroline: true, zerolinecolor: colorMuted, color: colorText,
+                tickformat: "$,.0f",
+            },
+            legend: { orientation: "h", y: -0.18, x: 0, font: { size: 10.5, color: colorText } },
+        };
+        Plotly.react(document.getElementById("fc-chart"), tracesArr, layout,
+            { displayModeBar: false, responsive: true });
+    }
+
+    function getCssVar(name) {
+        return getComputedStyle(ROOT).getPropertyValue(name).trim();
+    }
+    function darkMode() {
+        return document.documentElement.getAttribute("data-theme") === "dark";
+    }
+
+    function reportHeight() {
+        try {
+            const h = Math.ceil(document.documentElement.scrollHeight);
+            parent.postMessage({ type: 'lesson-interactive-resize', height: h }, '*');
+        } catch (e) { /* ignore */ }
+    }
+    if (typeof ResizeObserver !== 'undefined') {
+        new ResizeObserver(reportHeight).observe(document.body);
+    }
+    window.addEventListener('resize', reportHeight);
+    setTimeout(reportHeight, 50);
+    setTimeout(reportHeight, 500);
+
+    const themeObserver = new MutationObserver(render);
+    themeObserver.observe(document.documentElement, { attributes: true, attributeFilter: ["data-theme"] });
+
+    render();
+})();
+</script>
+
+</body>
+</html>

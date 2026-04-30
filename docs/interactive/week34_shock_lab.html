@@ -1,0 +1,578 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Rate Shock Lab — Interactive (Week 34)</title>
+<script src="https://cdn.plot.ly/plotly-2.35.2.min.js" charset="utf-8"></script>
+<style>
+html, body { margin: 0; padding: 0; background: var(--sl2-bg); }
+:root {
+    --sl2-bg: #fdfbf5;
+    --sl2-text: #1a2332;
+    --sl2-muted: #6b7280;
+    --sl2-border: #d6d3c4;
+    --sl2-card: #fdfbf5;
+    --sl2-pos: #2e7d32;
+    --sl2-neg: #b71c1c;
+    --sl2-mid: #0d47a1;
+    --sl2-orange: #e65100;
+    --sl2-accent: #b8860b;
+}
+html[data-theme="dark"] .sl2-root,
+.sl2-root[data-theme="dark"] {
+    --sl2-bg: #0f1724;
+    --sl2-text: #e6e6e6;
+    --sl2-muted: #9aa3b2;
+    --sl2-border: #2a3441;
+    --sl2-card: #0f1724;
+    --sl2-pos: #66bb6a;
+    --sl2-neg: #ef5350;
+    --sl2-mid: #5a8dee;
+    --sl2-orange: #ffa726;
+    --sl2-accent: #ffca28;
+}
+.sl2-root {
+    font-family: 'Segoe UI', Helvetica, Arial, sans-serif;
+    background: var(--sl2-bg);
+    color: var(--sl2-text);
+    padding: 12px;
+    margin: 0;
+}
+.sl2-controls {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 12px;
+    padding: 12px;
+    background: var(--sl2-card);
+    border: 1px solid var(--sl2-border);
+    border-radius: 8px;
+    margin-bottom: 12px;
+}
+.sl2-slider {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    font-size: 0.82rem;
+    color: var(--sl2-muted);
+}
+.sl2-slider .sl2-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+}
+.sl2-slider .sl2-name {
+    font-weight: 600;
+    color: var(--sl2-text);
+}
+.sl2-slider .sl2-val {
+    color: var(--sl2-text);
+    font-weight: 700;
+    font-variant-numeric: tabular-nums;
+}
+.sl2-slider input[type="range"] {
+    width: 100%;
+    accent-color: var(--sl2-accent);
+}
+.sl2-presets {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    padding: 8px 12px 12px;
+    background: var(--sl2-card);
+    border: 1px solid var(--sl2-border);
+    border-radius: 8px;
+    margin-bottom: 12px;
+    align-items: center;
+}
+.sl2-presets-label {
+    font-size: 0.78rem;
+    color: var(--sl2-muted);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-right: 4px;
+}
+.sl2-preset-btn {
+    background: transparent;
+    border: 1px solid var(--sl2-border);
+    border-radius: 999px;
+    padding: 5px 12px;
+    font: inherit;
+    font-size: 0.82rem;
+    color: var(--sl2-text);
+    cursor: pointer;
+    transition: background 0.15s, color 0.15s, border-color 0.15s;
+}
+.sl2-preset-btn:hover {
+    background: var(--sl2-accent);
+    color: #fff;
+    border-color: var(--sl2-accent);
+}
+.sl2-preset-btn.active {
+    background: var(--sl2-accent);
+    color: #fff;
+    border-color: var(--sl2-accent);
+}
+.sl2-chart {
+    width: 100%;
+    height: 460px;
+    background: var(--sl2-card);
+    border-radius: 8px;
+    border: 1px solid var(--sl2-border);
+}
+.sl2-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 10px;
+    margin-top: 12px;
+}
+.sl2-stat {
+    background: var(--sl2-card);
+    border: 1px solid var(--sl2-border);
+    border-left: 4px solid var(--sl2-muted);
+    border-radius: 8px;
+    padding: 10px 12px;
+}
+.sl2-stat.sl2-stat-port { border-left-color: var(--sl2-mid); }
+.sl2-stat.sl2-stat-best { border-left-color: var(--sl2-pos); }
+.sl2-stat.sl2-stat-worst { border-left-color: var(--sl2-neg); }
+.sl2-stat.sl2-stat-spread { border-left-color: var(--sl2-accent); }
+.sl2-stat .sl2-stat-name {
+    font-size: 0.74rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--sl2-muted);
+}
+.sl2-stat .sl2-stat-val {
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-top: 4px;
+    font-variant-numeric: tabular-nums;
+}
+.sl2-stat .sl2-stat-detail {
+    font-size: 0.74rem;
+    color: var(--sl2-muted);
+    margin-top: 2px;
+}
+.sl2-caption {
+    margin-top: 10px;
+    font-size: 0.78rem;
+    color: var(--sl2-muted);
+    line-height: 1.45;
+}
+@media (max-width: 640px) {
+    .sl2-chart { height: 380px; }
+}
+</style>
+</head>
+<body>
+
+<div class="sl2-root" id="sl2-root">
+    <div class="sl2-controls">
+        <div class="sl2-slider">
+            <div class="sl2-row">
+                <span class="sl2-name" id="sl2-l-r">Rate shock</span>
+                <span class="sl2-val" id="sl2-v-r">+100 bps</span>
+            </div>
+            <input type="range" id="sl2-s-r" min="-300" max="300" step="25" value="100">
+        </div>
+        <div class="sl2-slider">
+            <div class="sl2-row">
+                <span class="sl2-name" id="sl2-l-i">Inflation shock</span>
+                <span class="sl2-val" id="sl2-v-i">+0.0%</span>
+            </div>
+            <input type="range" id="sl2-s-i" min="-3" max="3" step="0.25" value="0">
+        </div>
+        <div class="sl2-slider">
+            <div class="sl2-row">
+                <span class="sl2-name" id="sl2-l-u">USD shock</span>
+                <span class="sl2-val" id="sl2-v-u">+0.0%</span>
+            </div>
+            <input type="range" id="sl2-s-u" min="-10" max="10" step="0.5" value="0">
+        </div>
+    </div>
+
+    <div class="sl2-presets" id="sl2-presets">
+        <span class="sl2-presets-label" id="sl2-presets-label">Stress presets</span>
+        <button class="sl2-preset-btn" data-preset="1981" id="sl2-p-1981">1981 Volcker</button>
+        <button class="sl2-preset-btn" data-preset="2008" id="sl2-p-2008">2008 GFC</button>
+        <button class="sl2-preset-btn" data-preset="2020" id="sl2-p-2020">2020 COVID</button>
+        <button class="sl2-preset-btn" data-preset="2022" id="sl2-p-2022">2022 inflation</button>
+        <button class="sl2-preset-btn" data-preset="2026" id="sl2-p-2026">2026 mild</button>
+    </div>
+
+    <div id="sl2-chart" class="sl2-chart"></div>
+
+    <div class="sl2-stats">
+        <div class="sl2-stat sl2-stat-port">
+            <div class="sl2-stat-name" id="sl2-name-port">60/40 portfolio</div>
+            <div class="sl2-stat-val" id="sl2-val-port">—</div>
+            <div class="sl2-stat-detail" id="sl2-det-port">SP500 60% + UST10Y 40%</div>
+        </div>
+        <div class="sl2-stat sl2-stat-best">
+            <div class="sl2-stat-name" id="sl2-name-best">Best asset</div>
+            <div class="sl2-stat-val" id="sl2-val-best">—</div>
+            <div class="sl2-stat-detail" id="sl2-det-best">—</div>
+        </div>
+        <div class="sl2-stat sl2-stat-worst">
+            <div class="sl2-stat-name" id="sl2-name-worst">Worst asset</div>
+            <div class="sl2-stat-val" id="sl2-val-worst">—</div>
+            <div class="sl2-stat-detail" id="sl2-det-worst">—</div>
+        </div>
+        <div class="sl2-stat sl2-stat-spread">
+            <div class="sl2-stat-name" id="sl2-name-spread">Best minus worst</div>
+            <div class="sl2-stat-val" id="sl2-val-spread">—</div>
+            <div class="sl2-stat-detail" id="sl2-det-spread" >cross-asset spread</div>
+        </div>
+    </div>
+
+    <p class="sl2-caption" id="sl2-caption">
+        Linear sensitivity model. Each asset's response = rate_sens × (Δr / 100bps) + infl_sens × Δinfl% + usd_sens × ΔUSD%. Constants are calibrated to the 2022 case study and standard duration estimates. Real markets are nonlinear; this lab is for intuition, not precision.
+    </p>
+</div>
+
+<script>
+(function () {
+    const I18N = {
+        en: {
+            l_r: "Rate shock",
+            l_i: "Inflation shock",
+            l_u: "USD shock",
+            presets_label: "Stress presets",
+            p_1981: "1981 Volcker",
+            p_2008: "2008 GFC",
+            p_2020: "2020 COVID",
+            p_2022: "2022 inflation",
+            p_2026: "2026 mild",
+            chart_title: "Estimated price response by asset class",
+            x_label: "Estimated return (%)",
+            y_label: "",
+            n_port: "60/40 portfolio",
+            n_best: "Best asset",
+            n_worst: "Worst asset",
+            n_spread: "Best minus worst",
+            d_port: "SP500 60% + UST10Y 40%",
+            d_spread: "cross-asset spread",
+            caption: "Linear sensitivity model. Each asset's response = rate_sens x (delta_r / 100bps) + infl_sens x delta_infl% + usd_sens x delta_USD%. Constants are calibrated to the 2022 case and standard duration estimates. Real markets are nonlinear; this lab is for intuition, not precision.",
+            assets: {
+                B5:    "5y Treasury",
+                B10:   "10y Treasury",
+                B30:   "30y Treasury",
+                VAL:   "Value equity (VTV)",
+                GRW:   "Growth equity (QQQ)",
+                REIT:  "REITs (VNQ)",
+                GOLD:  "Gold",
+                USD:   "US Dollar (DXY)"
+            }
+        },
+        hk: {
+            l_r: "利率衝擊",
+            l_i: "通脹衝擊",
+            l_u: "美元衝擊",
+            presets_label: "情景預設",
+            p_1981: "1981 沃爾克",
+            p_2008: "2008 金融危機",
+            p_2020: "2020 疫情",
+            p_2022: "2022 通脹",
+            p_2026: "2026 溫和",
+            chart_title: "各資產類別估算價格反應",
+            x_label: "估算回報(%)",
+            y_label: "",
+            n_port: "60/40 組合",
+            n_best: "最佳資產",
+            n_worst: "最差資產",
+            n_spread: "最佳減最差",
+            d_port: "標普 500 60% + 10 年國債 40%",
+            d_spread: "跨資產差距",
+            caption: "線性敏感度模型。每項資產回報 = 利率敏感度 x(利率變化/100bps)+ 通脹敏感度 x 通脹變化% + 美元敏感度 x 美元變化%。常數依 2022 年案例與標準久期估算校準。實際市場屬非線性,本實驗室僅作直覺參考,非精準預測。",
+            assets: {
+                B5:    "5 年國債",
+                B10:   "10 年國債",
+                B30:   "30 年國債",
+                VAL:   "價值股(VTV)",
+                GRW:   "成長股(QQQ)",
+                REIT:  "房託(VNQ)",
+                GOLD:  "黃金",
+                USD:   "美元(DXY)"
+            }
+        },
+        tw: {
+            l_r: "利率衝擊",
+            l_i: "通膨衝擊",
+            l_u: "美元衝擊",
+            presets_label: "情境預設",
+            p_1981: "1981 沃爾克",
+            p_2008: "2008 金融危機",
+            p_2020: "2020 疫情",
+            p_2022: "2022 通膨",
+            p_2026: "2026 溫和",
+            chart_title: "各資產類別估算價格反應",
+            x_label: "估算報酬(%)",
+            y_label: "",
+            n_port: "60/40 組合",
+            n_best: "最佳資產",
+            n_worst: "最差資產",
+            n_spread: "最佳減最差",
+            d_port: "標普 500 60% + 10 年公債 40%",
+            d_spread: "跨資產差距",
+            caption: "線性敏感度模型。每項資產報酬 = 利率敏感度 x(利率變化/100bps)+ 通膨敏感度 x 通膨變化% + 美元敏感度 x 美元變化%。常數以 2022 年案例與標準存續期估算校準。實際市場屬非線性,本實驗室僅供直覺參考,非精準預測。",
+            assets: {
+                B5:    "5 年公債",
+                B10:   "10 年公債",
+                B30:   "30 年公債",
+                VAL:   "價值股(VTV)",
+                GRW:   "成長股(QQQ)",
+                REIT:  "REITs(VNQ)",
+                GOLD:  "黃金",
+                USD:   "美元(DXY)"
+            }
+        },
+        cn: {
+            l_r: "利率冲击",
+            l_i: "通胀冲击",
+            l_u: "美元冲击",
+            presets_label: "情景预设",
+            p_1981: "1981 沃尔克",
+            p_2008: "2008 金融危机",
+            p_2020: "2020 疫情",
+            p_2022: "2022 通胀",
+            p_2026: "2026 温和",
+            chart_title: "各资产类别估算价格反应",
+            x_label: "估算回报(%)",
+            y_label: "",
+            n_port: "60/40 组合",
+            n_best: "最佳资产",
+            n_worst: "最差资产",
+            n_spread: "最佳减最差",
+            d_port: "标普 500 60% + 10 年国债 40%",
+            d_spread: "跨资产差距",
+            caption: "线性敏感度模型。每项资产回报 = 利率敏感度 x(利率变化/100bps)+ 通胀敏感度 x 通胀变化% + 美元敏感度 x 美元变化%。常数依 2022 年案例与标准久期估算校准。实际市场属非线性,本实验室仅作直觉参考,非精准预测。",
+            assets: {
+                B5:    "5 年国债",
+                B10:   "10 年国债",
+                B30:   "30 年国债",
+                VAL:   "价值股(VTV)",
+                GRW:   "成长股(QQQ)",
+                REIT:  "房托(VNQ)",
+                GOLD:  "黄金",
+                USD:   "美元(DXY)"
+            }
+        }
+    };
+
+    function currentLang() {
+        const p = new URLSearchParams(window.location.search);
+        const l = (p.get("lang") || "en").toLowerCase();
+        return I18N.hasOwnProperty(l) ? l : "en";
+    }
+    const T = I18N[currentLang()];
+
+    // Asset rows: [key, rate_sens (per 100bps), infl_sens (per 1%), usd_sens (per 1%)]
+    const ASSETS = [
+        ["B5",    -4.5,  -1.5,  0.0],
+        ["B10",   -8.0,  -2.5,  0.0],
+        ["B30",  -16.0,  -4.0,  0.0],
+        ["VAL",   -3.0,  -1.0, -0.2],
+        ["GRW",  -12.0,  -4.0, -0.4],
+        ["REIT", -10.0,  -2.0, -0.1],
+        ["GOLD",  -2.0,  +6.0, -1.5],
+        ["USD",   +1.5,  -0.5,  +1.0]
+    ];
+
+    const PRESETS = {
+        "1981": { r: 300, i: -3,    u: 10  },
+        "2008": { r: -300, i: -3,   u: 6   },
+        "2020": { r: -150, i: -1,   u: -3  },
+        "2022": { r: 300, i: 3,     u: 8   },
+        "2026": { r: 50,  i: 0,     u: 2   }
+    };
+
+    const ROOT = document.getElementById("sl2-root");
+    const CHART = document.getElementById("sl2-chart");
+    const S_R = document.getElementById("sl2-s-r");
+    const S_I = document.getElementById("sl2-s-i");
+    const S_U = document.getElementById("sl2-s-u");
+    const V_R = document.getElementById("sl2-v-r");
+    const V_I = document.getElementById("sl2-v-i");
+    const V_U = document.getElementById("sl2-v-u");
+
+    function getCssVar(name) {
+        return getComputedStyle(ROOT).getPropertyValue(name).trim();
+    }
+    function darkMode() {
+        return document.documentElement.getAttribute("data-theme") === "dark";
+    }
+    function pct(v, d) {
+        if (!isFinite(v)) return "—";
+        const dec = d === undefined ? 1 : d;
+        const sign = v >= 0 ? "+" : "";
+        return sign + v.toFixed(dec) + "%";
+    }
+    function bps(v) {
+        const sign = v >= 0 ? "+" : "";
+        return sign + v.toFixed(0) + " bps";
+    }
+
+    function compute(r_bps, infl_pct, usd_pct) {
+        const out = {};
+        for (const row of ASSETS) {
+            const k = row[0];
+            const rs = row[1] * (r_bps / 100.0);
+            const is = row[2] * infl_pct;
+            const us = row[3] * usd_pct;
+            out[k] = rs + is + us;
+        }
+        return out;
+    }
+
+    function render() {
+        const r = parseFloat(S_R.value);
+        const i = parseFloat(S_I.value);
+        const u = parseFloat(S_U.value);
+        V_R.textContent = bps(r);
+        V_I.textContent = pct(i, 1);
+        V_U.textContent = pct(u, 1);
+
+        const responses = compute(r, i, u);
+
+        const labels = ASSETS.map(a => T.assets[a[0]]);
+        const vals = ASSETS.map(a => responses[a[0]]);
+
+        const colorPos = getCssVar("--sl2-pos");
+        const colorNeg = getCssVar("--sl2-neg");
+        const colorText = getCssVar("--sl2-text");
+        const colorMuted = getCssVar("--sl2-muted");
+        const colorBg = getCssVar("--sl2-card");
+        const colorGrid = darkMode() ? "rgba(255,255,255,0.08)" : "rgba(0,0,0,0.07)";
+
+        const colors = vals.map(v => v >= 0 ? colorPos : colorNeg);
+
+        const trace = {
+            type: "bar",
+            orientation: "h",
+            x: vals,
+            y: labels,
+            marker: { color: colors, line: { color: colorText, width: 0.5 } },
+            text: vals.map(v => pct(v, 1)),
+            textposition: "outside",
+            textfont: { color: colorText, size: 11 },
+            hovertemplate: "%{y}: %{x:+.2f}%<extra></extra>",
+            cliponaxis: false
+        };
+
+        const xMax = Math.max(8, Math.ceil(Math.max(...vals.map(Math.abs)) * 1.25));
+        const layout = {
+            margin: { l: 150, r: 60, t: 36, b: 40 },
+            paper_bgcolor: colorBg,
+            plot_bgcolor: colorBg,
+            font: { family: "Segoe UI, Helvetica, Arial, sans-serif", color: colorText, size: 11 },
+            title: { text: T.chart_title, font: { color: colorText, size: 13 }, x: 0.01, xanchor: "left" },
+            xaxis: {
+                title: { text: T.x_label, font: { color: colorMuted, size: 10 } },
+                gridcolor: colorGrid, zerolinecolor: colorMuted, zerolinewidth: 1.2,
+                color: colorText,
+                ticksuffix: "%",
+                range: [-xMax, xMax]
+            },
+            yaxis: {
+                gridcolor: colorGrid, color: colorText,
+                autorange: "reversed"
+            },
+            showlegend: false
+        };
+
+        Plotly.react(CHART, [trace], layout, { displayModeBar: false, responsive: true });
+
+        // Stats: 60/40 = 0.6 * SP500 broad. We don't have SP500 broad; approximate
+        // SP500 broad as the average of VAL and GRW (rate_sens -7.5/-2.5/-0.3),
+        // i.e., halfway. Compute via existing weights for an honest read.
+        const sp_resp = 0.5 * responses.VAL + 0.5 * responses.GRW;
+        const port = 0.6 * sp_resp + 0.4 * responses.B10;
+
+        // best/worst across all 8
+        let bestK = ASSETS[0][0], bestV = responses[bestK];
+        let worstK = ASSETS[0][0], worstV = responses[worstK];
+        for (const a of ASSETS) {
+            const k = a[0], v = responses[k];
+            if (v > bestV) { bestV = v; bestK = k; }
+            if (v < worstV) { worstV = v; worstK = k; }
+        }
+        document.getElementById("sl2-val-port").textContent = pct(port, 1);
+        document.getElementById("sl2-val-best").textContent = pct(bestV, 1);
+        document.getElementById("sl2-det-best").textContent = T.assets[bestK];
+        document.getElementById("sl2-val-worst").textContent = pct(worstV, 1);
+        document.getElementById("sl2-det-worst").textContent = T.assets[worstK];
+        document.getElementById("sl2-val-spread").textContent = pct(bestV - worstV, 1);
+
+        reportHeight();
+    }
+
+    function applyPreset(key) {
+        const p = PRESETS[key];
+        if (!p) return;
+        S_R.value = p.r;
+        S_I.value = p.i;
+        S_U.value = p.u;
+        document.querySelectorAll(".sl2-preset-btn").forEach(b => b.classList.remove("active"));
+        const btn = document.querySelector('.sl2-preset-btn[data-preset="' + key + '"]');
+        if (btn) btn.classList.add("active");
+        render();
+    }
+
+    function clearPreset() {
+        document.querySelectorAll(".sl2-preset-btn").forEach(b => b.classList.remove("active"));
+    }
+
+    [S_R, S_I, S_U].forEach(el => el.addEventListener("input", () => { clearPreset(); render(); }));
+    document.querySelectorAll(".sl2-preset-btn").forEach(b => {
+        b.addEventListener("click", () => applyPreset(b.dataset.preset));
+    });
+
+    function applyI18n() {
+        document.getElementById("sl2-l-r").textContent = T.l_r;
+        document.getElementById("sl2-l-i").textContent = T.l_i;
+        document.getElementById("sl2-l-u").textContent = T.l_u;
+        document.getElementById("sl2-presets-label").textContent = T.presets_label;
+        document.getElementById("sl2-p-1981").textContent = T.p_1981;
+        document.getElementById("sl2-p-2008").textContent = T.p_2008;
+        document.getElementById("sl2-p-2020").textContent = T.p_2020;
+        document.getElementById("sl2-p-2022").textContent = T.p_2022;
+        document.getElementById("sl2-p-2026").textContent = T.p_2026;
+        document.getElementById("sl2-name-port").textContent = T.n_port;
+        document.getElementById("sl2-name-best").textContent = T.n_best;
+        document.getElementById("sl2-name-worst").textContent = T.n_worst;
+        document.getElementById("sl2-name-spread").textContent = T.n_spread;
+        document.getElementById("sl2-det-port").textContent = T.d_port;
+        document.getElementById("sl2-det-spread").textContent = T.d_spread;
+        document.getElementById("sl2-caption").textContent = T.caption;
+    }
+
+    function reportHeight() {
+        try {
+            var h = Math.ceil(document.documentElement.scrollHeight);
+            parent.postMessage({ type: 'lesson-interactive-resize', height: h }, '*');
+        } catch (e) { /* ignore */ }
+    }
+
+    applyI18n();
+    if (typeof ResizeObserver !== 'undefined') {
+        new ResizeObserver(reportHeight).observe(document.body);
+    }
+    window.addEventListener('resize', reportHeight);
+    setTimeout(reportHeight, 50);
+    setTimeout(reportHeight, 500);
+
+    const themeObserver = new MutationObserver(render);
+    themeObserver.observe(document.documentElement, {
+        attributes: true,
+        attributeFilter: ["data-theme"]
+    });
+
+    render();
+})();
+</script>
+
+</body>
+</html>

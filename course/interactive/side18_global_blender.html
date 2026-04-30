@@ -1,0 +1,701 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Global Blender - Interactive (Side 18)</title>
+<script src="https://cdn.plot.ly/plotly-2.35.2.min.js" charset="utf-8"></script>
+<style>
+html, body { margin: 0; padding: 0; background: var(--gb-bg); }
+:root {
+    --gb-bg: #fdfbf5;
+    --gb-text: #1a2332;
+    --gb-muted: #6b7280;
+    --gb-border: #d6d3c4;
+    --gb-card: #fdfbf5;
+    --gb-accent: #b8860b;
+    --gb-blue: #0d47a1;
+    --gb-red: #b71c1c;
+    --gb-green: #2e7d32;
+    --gb-purple: #6a1b9a;
+    --gb-orange: #e65100;
+}
+html[data-theme="dark"] .gb-root,
+.gb-root[data-theme="dark"] {
+    --gb-bg: #0f1724;
+    --gb-text: #e6e6e6;
+    --gb-muted: #9aa3b2;
+    --gb-border: #2a3441;
+    --gb-card: #0f1724;
+    --gb-blue: #5a8dee;
+    --gb-red: #ef5350;
+    --gb-green: #66bb6a;
+    --gb-purple: #ba68c8;
+    --gb-orange: #ffa726;
+}
+.gb-root {
+    font-family: 'Segoe UI', Helvetica, Arial, sans-serif;
+    background: var(--gb-bg);
+    color: var(--gb-text);
+    padding: 12px;
+    margin: 0;
+}
+.gb-presets-wrap {
+    margin-bottom: 12px;
+    padding: 10px 12px;
+    background: var(--gb-card);
+    border: 1px solid var(--gb-border);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+.gb-label {
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--gb-muted);
+}
+.gb-pillbar {
+    display: inline-flex;
+    border: 1px solid var(--gb-border);
+    border-radius: 999px;
+    overflow: hidden;
+    background: var(--gb-card);
+    flex-wrap: wrap;
+}
+.gb-pillbar button {
+    border: none;
+    background: transparent;
+    color: var(--gb-muted);
+    padding: 6px 14px;
+    font: inherit;
+    font-size: 0.85rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.15s, color 0.15s;
+}
+.gb-pillbar button:hover { color: var(--gb-text); }
+.gb-pillbar button.active {
+    background: var(--gb-accent);
+    color: #fff;
+}
+.gb-controls {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 12px;
+    margin-bottom: 14px;
+    padding: 12px;
+    background: var(--gb-card);
+    border: 1px solid var(--gb-border);
+    border-radius: 8px;
+}
+.gb-slider-wrap {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    font-size: 0.82rem;
+    color: var(--gb-muted);
+}
+.gb-slider-wrap .gb-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.gb-slider-wrap input[type="range"] {
+    flex: 1;
+}
+.gb-slider-wrap.gb-w-vti input[type="range"] { accent-color: var(--gb-red); }
+.gb-slider-wrap.gb-w-vxus input[type="range"] { accent-color: var(--gb-blue); }
+.gb-slider-wrap.gb-w-vwo input[type="range"] { accent-color: var(--gb-accent); }
+.gb-slider-wrap .gb-val {
+    white-space: nowrap;
+    color: var(--gb-text);
+    font-weight: 700;
+    font-variant-numeric: tabular-nums;
+    min-width: 50px;
+    text-align: right;
+}
+.gb-slider-wrap .gb-name {
+    font-weight: 600;
+    color: var(--gb-text);
+}
+.gb-bigrow {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 8px;
+    margin-bottom: 14px;
+}
+.gb-big {
+    background: var(--gb-card);
+    border: 1px solid var(--gb-border);
+    border-left: 4px solid var(--gb-accent);
+    border-radius: 8px;
+    padding: 10px 12px;
+}
+.gb-big.gb-b-cagr  { border-left-color: var(--gb-blue); }
+.gb-big.gb-b-vol   { border-left-color: var(--gb-orange); }
+.gb-big.gb-b-shr   { border-left-color: var(--gb-purple); }
+.gb-big.gb-b-mdd   { border-left-color: var(--gb-red); }
+.gb-big .gb-big-name {
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--gb-muted);
+}
+.gb-big .gb-big-val {
+    font-size: 1.3rem;
+    font-weight: 800;
+    margin-top: 4px;
+    font-variant-numeric: tabular-nums;
+    color: var(--gb-text);
+}
+.gb-big .gb-big-detail {
+    font-size: 0.72rem;
+    color: var(--gb-muted);
+    margin-top: 2px;
+}
+.gb-bottom {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 12px;
+}
+.gb-chart {
+    width: 100%;
+    height: 380px;
+    background: var(--gb-card);
+    border-radius: 8px;
+    border: 1px solid var(--gb-border);
+}
+.gb-corr-card {
+    background: var(--gb-card);
+    border: 1px solid var(--gb-border);
+    border-radius: 8px;
+    padding: 12px;
+    font-size: 0.8rem;
+}
+.gb-corr-title {
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--gb-muted);
+    margin-bottom: 8px;
+}
+.gb-corr-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-variant-numeric: tabular-nums;
+}
+.gb-corr-table th, .gb-corr-table td {
+    padding: 4px 6px;
+    text-align: center;
+    border-bottom: 1px solid var(--gb-border);
+    color: var(--gb-text);
+}
+.gb-corr-table th { color: var(--gb-muted); font-weight: 700; }
+.gb-warn {
+    margin-top: 6px;
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: var(--gb-red);
+    min-height: 1.2em;
+}
+.gb-caption {
+    margin-top: 10px;
+    font-size: 0.78rem;
+    color: var(--gb-muted);
+    line-height: 1.45;
+}
+@media (max-width: 1100px) {
+    .gb-bigrow { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .gb-bottom { grid-template-columns: 1fr; }
+}
+@media (max-width: 700px) {
+    .gb-controls { grid-template-columns: 1fr; }
+    .gb-chart    { height: 320px; }
+}
+</style>
+</head>
+<body>
+
+<div class="gb-root" id="gb-root">
+    <div class="gb-presets-wrap">
+        <span class="gb-label" id="gb-presets-label">Presets</span>
+        <div class="gb-pillbar" id="gb-presets" role="tablist">
+            <button type="button" data-w="100,0,0" class="active">100% VTI (course default)</button>
+            <button type="button" data-w="80,15,5">80/15/5 home-bias</button>
+            <button type="button" data-w="60,28,12">Cap-weight (60/28/12)</button>
+            <button type="button" data-w="50,30,20">50/30/20 textbook</button>
+            <button type="button" data-w="0,75,25">No-US (75/25)</button>
+            <button type="button" data-w="33,33,34">Equal-weight</button>
+        </div>
+    </div>
+
+    <div class="gb-controls">
+        <div class="gb-slider-wrap gb-w-vti">
+            <div class="gb-name" id="gb-name-vti">% VTI (US total)</div>
+            <div class="gb-row">
+                <input type="range" id="gb-vti" min="0" max="100" step="1" value="100">
+                <span class="gb-val" id="gb-val-vti">100%</span>
+            </div>
+        </div>
+        <div class="gb-slider-wrap gb-w-vxus">
+            <div class="gb-name" id="gb-name-vxus">% VXUS (Developed ex-US)</div>
+            <div class="gb-row">
+                <input type="range" id="gb-vxus" min="0" max="100" step="1" value="0">
+                <span class="gb-val" id="gb-val-vxus">0%</span>
+            </div>
+        </div>
+        <div class="gb-slider-wrap gb-w-vwo">
+            <div class="gb-name" id="gb-name-vwo">% VWO (Emerging)</div>
+            <div class="gb-row">
+                <input type="range" id="gb-vwo" min="0" max="100" step="1" value="0">
+                <span class="gb-val" id="gb-val-vwo">0%</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="gb-bigrow">
+        <div class="gb-big gb-b-cagr">
+            <div class="gb-big-name" id="gb-bn-cagr">CAGR</div>
+            <div class="gb-big-val" id="gb-bv-cagr">—</div>
+            <div class="gb-big-detail" id="gb-bd-cagr">1990-2024 annualised</div>
+        </div>
+        <div class="gb-big gb-b-vol">
+            <div class="gb-big-name" id="gb-bn-vol">Volatility</div>
+            <div class="gb-big-val" id="gb-bv-vol">—</div>
+            <div class="gb-big-detail" id="gb-bd-vol">annual stdev</div>
+        </div>
+        <div class="gb-big gb-b-shr">
+            <div class="gb-big-name" id="gb-bn-shr">Sharpe</div>
+            <div class="gb-big-val" id="gb-bv-shr">—</div>
+            <div class="gb-big-detail" id="gb-bd-shr">vs T-bill</div>
+        </div>
+        <div class="gb-big gb-b-mdd">
+            <div class="gb-big-name" id="gb-bn-mdd">Max DD</div>
+            <div class="gb-big-val" id="gb-bv-mdd">—</div>
+            <div class="gb-big-detail" id="gb-bd-mdd">annual peak-to-trough</div>
+        </div>
+    </div>
+
+    <div class="gb-bottom">
+        <div id="gb-chart" class="gb-chart"></div>
+        <div class="gb-corr-card">
+            <div class="gb-corr-title" id="gb-corr-title">Correlation matrix (annual, 1990-2024)</div>
+            <table class="gb-corr-table" id="gb-corr-table">
+                <thead>
+                    <tr><th></th><th id="gb-h-vti">VTI</th><th id="gb-h-vxus">VXUS</th><th id="gb-h-vwo">VWO</th></tr>
+                </thead>
+                <tbody id="gb-corr-body"></tbody>
+            </table>
+            <div class="gb-warn" id="gb-warn"></div>
+        </div>
+    </div>
+
+    <p class="gb-caption" id="gb-caption">
+        Backtest uses real annual returns 1990-2024. VTI = S&P 500 TR (Damodaran). VXUS = MSCI EAFE NR USD. VWO = MSCI EM NR USD. Pre-ETF-inception years use the underlying index. Sharpe uses annualised T-bill series (Damodaran TBill3M). Max DD computed on annual wealth series. Weights are normalised to sum to 100% if needed.
+    </p>
+</div>
+
+<script>
+(function () {
+    var I18N = {
+        en: {
+            presets_label: "Presets",
+            name_vti:  "% VTI (US total)",
+            name_vxus: "% VXUS (Developed ex-US)",
+            name_vwo:  "% VWO (Emerging)",
+            bn_cagr: "CAGR",
+            bn_vol:  "Volatility",
+            bn_shr:  "Sharpe",
+            bn_mdd:  "Max DD",
+            bd_cagr: "1990-2024 annualised",
+            bd_vol:  "annual stdev",
+            bd_shr:  "vs T-bill",
+            bd_mdd:  "annual peak-to-trough",
+            corr_title: "Correlation matrix (annual, 1990-2024)",
+            chart_title: "Growth of $1, 1990-2024",
+            x_title: "Year",
+            y_title: "Wealth ($, log scale)",
+            tag_yours: "Your blend",
+            tag_us:    "100% VTI",
+            tag_cap:   "Cap-weight (60/28/12)",
+            warn:      "Weights sum != 100% - normalised.",
+            caption:   "Backtest uses real annual returns 1990-2024. VTI = S&P 500 TR (Damodaran). VXUS = MSCI EAFE NR USD. VWO = MSCI EM NR USD. Pre-ETF-inception years use the underlying index. Sharpe uses annualised T-bill series. Max DD computed on annual wealth series. Weights are normalised to sum to 100% if needed.",
+        },
+        hk: {
+            presets_label: "預設",
+            name_vti:  "% VTI(美股總體)",
+            name_vxus: "% VXUS(已開發除美)",
+            name_vwo:  "% VWO(新興市場)",
+            bn_cagr: "年化",
+            bn_vol:  "波動率",
+            bn_shr:  "Sharpe",
+            bn_mdd:  "最大回撚",
+            bd_cagr: "1990-2024 年化",
+            bd_vol:  "年波動",
+            bd_shr:  "對短期國庫券",
+            bd_mdd:  "年度峰谷",
+            corr_title: "相關係數矩陣(年度,1990-2024)",
+            chart_title: "1 美元成長,1990-2024",
+            x_title: "年份",
+            y_title: "財富(美元,對數刻度)",
+            tag_yours: "你的組合",
+            tag_us:    "100% VTI",
+            tag_cap:   "市值權重(60/28/12)",
+            warn:      "權重合計非 100% - 已歸一化。",
+            caption:   "回測使用 1990-2024 真實年度回報。VTI = 標普 500 TR(Damodaran)。VXUS = MSCI EAFE NR USD。VWO = MSCI EM NR USD。ETF 成立前年份使用底層指數。Sharpe 對短期國庫券。最大回撚以年度財富序列計算。權重合計非 100% 時自動歸一化。",
+        },
+        tw: {
+            presets_label: "預設",
+            name_vti:  "% VTI(美股總體)",
+            name_vxus: "% VXUS(已開發除美)",
+            name_vwo:  "% VWO(新興市場)",
+            bn_cagr: "年化",
+            bn_vol:  "波動率",
+            bn_shr:  "Sharpe",
+            bn_mdd:  "最大回檔",
+            bd_cagr: "1990-2024 年化",
+            bd_vol:  "年波動",
+            bd_shr:  "對短期國庫券",
+            bd_mdd:  "年度峰谷",
+            corr_title: "相關係數矩陣(年度,1990-2024)",
+            chart_title: "1 美元成長,1990-2024",
+            x_title: "年份",
+            y_title: "財富(美元,對數刻度)",
+            tag_yours: "你的組合",
+            tag_us:    "100% VTI",
+            tag_cap:   "市值權重(60/28/12)",
+            warn:      "權重合計非 100% - 已歸一化。",
+            caption:   "回測使用 1990-2024 真實年度報酬。VTI = 標普 500 TR(Damodaran)。VXUS = MSCI EAFE NR USD。VWO = MSCI EM NR USD。ETF 成立前年份使用底層指數。Sharpe 對短期國庫券。最大回檔以年度財富序列計算。權重合計非 100% 時自動歸一化。",
+        },
+        cn: {
+            presets_label: "预设",
+            name_vti:  "% VTI(美股总体)",
+            name_vxus: "% VXUS(发达除美)",
+            name_vwo:  "% VWO(新兴市场)",
+            bn_cagr: "年化",
+            bn_vol:  "波动率",
+            bn_shr:  "Sharpe",
+            bn_mdd:  "最大回撤",
+            bd_cagr: "1990-2024 年化",
+            bd_vol:  "年波动",
+            bd_shr:  "对短期国库券",
+            bd_mdd:  "年度峰谷",
+            corr_title: "相关系数矩阵(年度,1990-2024)",
+            chart_title: "1 美元成长,1990-2024",
+            x_title: "年份",
+            y_title: "财富(美元,对数刻度)",
+            tag_yours: "你的组合",
+            tag_us:    "100% VTI",
+            tag_cap:   "市值权重(60/28/12)",
+            warn:      "权重合计非 100% - 已归一化。",
+            caption:   "回测使用 1990-2024 真实年度回报。VTI = 标普 500 TR(Damodaran)。VXUS = MSCI EAFE NR USD。VWO = MSCI EM NR USD。ETF 成立前年份使用底层指数。Sharpe 对短期国库券。最大回撤以年度财富序列计算。权重合计非 100% 时自动归一化。",
+        },
+    };
+    function currentLang() {
+        var p = new URLSearchParams(window.location.search);
+        var l = (p.get("lang") || "en").toLowerCase();
+        return I18N.hasOwnProperty(l) ? l : "en";
+    }
+    var T = I18N[currentLang()];
+
+    // ---- Annual returns 1990-2024. ----
+    // [year, vti=SP500TR, vxus=EAFE, vwo=EM, tbill]
+    // Mirror values used by image script side18_us_vs_world.py.
+    var DATA = [
+        [1990,-0.0310,-0.2320,-0.1060,0.0781],
+        [1991, 0.3047, 0.1220, 0.5940,0.0560],
+        [1992, 0.0762,-0.1190, 0.1140,0.0351],
+        [1993, 0.1008, 0.3280, 0.7480,0.0290],
+        [1994, 0.0132, 0.0780,-0.0720,0.0390],
+        [1995, 0.3758, 0.1140,-0.0520,0.0560],
+        [1996, 0.2296, 0.0610, 0.0610,0.0521],
+        [1997, 0.3336, 0.0180,-0.1170,0.0526],
+        [1998, 0.2858, 0.2000,-0.2520,0.0486],
+        [1999, 0.2104, 0.2700, 0.6650,0.0468],
+        [2000,-0.0910,-0.1400,-0.3050,0.0589],
+        [2001,-0.1189,-0.2140,-0.0250,0.0383],
+        [2002,-0.2210,-0.1590,-0.0600,0.0165],
+        [2003, 0.2868, 0.3860, 0.5610,0.0102],
+        [2004, 0.1088, 0.2020, 0.2600,0.0120],
+        [2005, 0.0491, 0.1350, 0.3420,0.0298],
+        [2006, 0.1579, 0.2630, 0.3230,0.0479],
+        [2007, 0.0549, 0.1120, 0.3950,0.0466],
+        [2008,-0.3700,-0.4340,-0.5340,0.0160],
+        [2009, 0.2646, 0.3180, 0.7890,0.0010],
+        [2010, 0.1506, 0.0780, 0.1880,0.0012],
+        [2011, 0.0211,-0.1210,-0.1830,0.0004],
+        [2012, 0.1600, 0.1730, 0.1830,0.0006],
+        [2013, 0.3239, 0.2280,-0.0260,0.0002],
+        [2014, 0.1369,-0.0490,-0.0220,0.0002],
+        [2015, 0.0138,-0.0080,-0.1490,0.0002],
+        [2016, 0.1196, 0.0100, 0.1140,0.0020],
+        [2017, 0.2183, 0.2500, 0.3730,0.0080],
+        [2018,-0.0438,-0.1380,-0.1440,0.0193],
+        [2019, 0.3149, 0.2200, 0.1840,0.0206],
+        [2020, 0.1840, 0.0780, 0.1830,0.0036],
+        [2021, 0.2871, 0.1130,-0.0250,0.0006],
+        [2022,-0.1811,-0.1450,-0.2000,0.0202],
+        [2023, 0.2629, 0.1820, 0.0990,0.0511],
+        [2024, 0.2502, 0.0400, 0.0800,0.0495],
+    ];
+
+    var YEARS = DATA.map(function (r) { return r[0]; });
+    var VTI   = DATA.map(function (r) { return r[1]; });
+    var VXUS  = DATA.map(function (r) { return r[2]; });
+    var VWO   = DATA.map(function (r) { return r[3]; });
+    var TBL   = DATA.map(function (r) { return r[4]; });
+
+    // ---- helpers ----
+    function mean(a) { var s = 0; for (var i=0;i<a.length;i++) s += a[i]; return s / a.length; }
+    function stdev(a) {
+        var m = mean(a), s = 0;
+        for (var i=0;i<a.length;i++) s += (a[i] - m) * (a[i] - m);
+        return Math.sqrt(s / (a.length - 1));
+    }
+    function corr(a, b) {
+        var ma = mean(a), mb = mean(b), num = 0, da = 0, db = 0;
+        for (var i=0;i<a.length;i++) {
+            num += (a[i]-ma)*(b[i]-mb);
+            da  += (a[i]-ma)*(a[i]-ma);
+            db  += (b[i]-mb)*(b[i]-mb);
+        }
+        return num / Math.sqrt(da*db);
+    }
+    function combine(w_vti, w_vxus, w_vwo) {
+        var out = new Array(YEARS.length);
+        for (var i=0;i<YEARS.length;i++) {
+            out[i] = w_vti * VTI[i] + w_vxus * VXUS[i] + w_vwo * VWO[i];
+        }
+        return out;
+    }
+    function wealth(rets) {
+        var w = [1.0];
+        for (var i=0;i<rets.length;i++) w.push(w[w.length-1] * (1 + rets[i]));
+        return w;
+    }
+    function maxDD(w) {
+        var peak = w[0], dd = 0;
+        for (var i=0;i<w.length;i++) {
+            if (w[i] > peak) peak = w[i];
+            var d = w[i] / peak - 1;
+            if (d < dd) dd = d;
+        }
+        return dd;
+    }
+    function stats(rets) {
+        var n = rets.length;
+        var prod = 1;
+        for (var i=0;i<n;i++) prod *= (1 + rets[i]);
+        var cagr = Math.pow(prod, 1/n) - 1;
+        var vol = stdev(rets);
+        var rf = mean(TBL);
+        var sharpe = (mean(rets) - rf) / vol;
+        var w = wealth(rets);
+        var mdd = maxDD(w);
+        return { cagr: cagr, vol: vol, sharpe: sharpe, mdd: mdd, wealth: w };
+    }
+    function fmtPct(n, d) {
+        if (!isFinite(n)) return "—";
+        return (n * 100).toFixed(d == null ? 1 : d) + "%";
+    }
+    function fmtNum(n, d) {
+        if (!isFinite(n)) return "—";
+        return n.toFixed(d == null ? 2 : d);
+    }
+    function getCssVar(name) {
+        return getComputedStyle(document.getElementById("gb-root")).getPropertyValue(name).trim();
+    }
+    function darkMode() {
+        return document.documentElement.getAttribute("data-theme") === "dark";
+    }
+
+    // ---- DOM ----
+    var VTI_EL  = document.getElementById("gb-vti");
+    var VXUS_EL = document.getElementById("gb-vxus");
+    var VWO_EL  = document.getElementById("gb-vwo");
+    var PRESETS = document.getElementById("gb-presets");
+    var CHART   = document.getElementById("gb-chart");
+
+    function applyI18n() {
+        document.getElementById("gb-presets-label").textContent = T.presets_label;
+        document.getElementById("gb-name-vti").textContent  = T.name_vti;
+        document.getElementById("gb-name-vxus").textContent = T.name_vxus;
+        document.getElementById("gb-name-vwo").textContent  = T.name_vwo;
+        document.getElementById("gb-bn-cagr").textContent = T.bn_cagr;
+        document.getElementById("gb-bn-vol").textContent  = T.bn_vol;
+        document.getElementById("gb-bn-shr").textContent  = T.bn_shr;
+        document.getElementById("gb-bn-mdd").textContent  = T.bn_mdd;
+        document.getElementById("gb-bd-cagr").textContent = T.bd_cagr;
+        document.getElementById("gb-bd-vol").textContent  = T.bd_vol;
+        document.getElementById("gb-bd-shr").textContent  = T.bd_shr;
+        document.getElementById("gb-bd-mdd").textContent  = T.bd_mdd;
+        document.getElementById("gb-corr-title").textContent = T.corr_title;
+        document.getElementById("gb-caption").textContent = T.caption;
+    }
+
+    function readWeights() {
+        var v  = parseFloat(VTI_EL.value);
+        var x  = parseFloat(VXUS_EL.value);
+        var e  = parseFloat(VWO_EL.value);
+        var sum = v + x + e;
+        var warn = "";
+        if (sum <= 0) {
+            return { vti: 1, vxus: 0, vwo: 0, warn: "" };
+        }
+        if (Math.abs(sum - 100) > 0.5) {
+            warn = T.warn;
+        }
+        return {
+            vti: v / sum, vxus: x / sum, vwo: e / sum,
+            warn: warn,
+        };
+    }
+    function updateLabels() {
+        document.getElementById("gb-val-vti").textContent  = VTI_EL.value + "%";
+        document.getElementById("gb-val-vxus").textContent = VXUS_EL.value + "%";
+        document.getElementById("gb-val-vwo").textContent  = VWO_EL.value + "%";
+    }
+    function fillCorrTable() {
+        var body = document.getElementById("gb-corr-body");
+        var c_vx = corr(VTI, VXUS);
+        var c_vw = corr(VTI, VWO);
+        var c_xw = corr(VXUS, VWO);
+
+        function cell(v, isDiag) {
+            if (isDiag) return '<td>1.00</td>';
+            var col;
+            if (v < 0.3) col = getCssVar("--gb-green");
+            else if (v > 0.75) col = getCssVar("--gb-red");
+            else col = getCssVar("--gb-text");
+            return '<td style="color:' + col + ';font-weight:700">' + v.toFixed(2) + '</td>';
+        }
+        body.innerHTML =
+            '<tr><th>VTI</th>'  + cell(1, true)  + cell(c_vx, false) + cell(c_vw, false) + '</tr>' +
+            '<tr><th>VXUS</th>' + cell(c_vx, false) + cell(1, true)  + cell(c_xw, false) + '</tr>' +
+            '<tr><th>VWO</th>'  + cell(c_vw, false) + cell(c_xw, false) + cell(1, true)  + '</tr>';
+    }
+
+    function render() {
+        updateLabels();
+        var w = readWeights();
+        document.getElementById("gb-warn").textContent = w.warn;
+
+        var rets = combine(w.vti, w.vxus, w.vwo);
+        var st = stats(rets);
+
+        var st_us  = stats(combine(1, 0, 0));
+        var st_cap = stats(combine(0.60, 0.28, 0.12));
+
+        document.getElementById("gb-bv-cagr").textContent = fmtPct(st.cagr, 2);
+        document.getElementById("gb-bv-vol").textContent  = fmtPct(st.vol, 2);
+        document.getElementById("gb-bv-shr").textContent  = fmtNum(st.sharpe, 2);
+        document.getElementById("gb-bv-mdd").textContent  = fmtPct(st.mdd, 1);
+        document.getElementById("gb-bv-mdd").style.color  = getCssVar("--gb-red");
+
+        // Chart
+        var xs = [YEARS[0] - 1].concat(YEARS).map(function (y) { return String(y); });
+        var traces = [
+            { x: xs, y: st_us.wealth, type: "scatter", mode: "lines",
+              name: T.tag_us,
+              line: { color: getCssVar("--gb-red"), width: 1.6, dash: "dot" },
+              hovertemplate: T.tag_us + " %{x}<br>$%{y:.2f}<extra></extra>" },
+            { x: xs, y: st_cap.wealth, type: "scatter", mode: "lines",
+              name: T.tag_cap,
+              line: { color: getCssVar("--gb-blue"), width: 1.6, dash: "dot" },
+              hovertemplate: T.tag_cap + " %{x}<br>$%{y:.2f}<extra></extra>" },
+            { x: xs, y: st.wealth, type: "scatter", mode: "lines",
+              name: T.tag_yours,
+              line: { color: getCssVar("--gb-green"), width: 3.0 },
+              hovertemplate: T.tag_yours + " %{x}<br>$%{y:.2f}<extra></extra>" },
+        ];
+        var colorBg = getCssVar("--gb-card");
+        var colorText = getCssVar("--gb-text");
+        var colorMuted = getCssVar("--gb-muted");
+        var colorGrid = darkMode() ? "rgba(255,255,255,0.08)" : "rgba(0,0,0,0.07)";
+        var layout = {
+            margin: { l: 65, r: 24, t: 40, b: 50 },
+            paper_bgcolor: colorBg, plot_bgcolor: colorBg,
+            font: { family: "Segoe UI, Helvetica, Arial, sans-serif",
+                    color: colorText, size: 12 },
+            xaxis: {
+                title: { text: T.x_title, font: { color: colorMuted, size: 11 } },
+                gridcolor: colorGrid, color: colorText,
+            },
+            yaxis: {
+                title: { text: T.y_title, font: { color: colorMuted, size: 11 } },
+                type: "log",
+                gridcolor: colorGrid, color: colorText,
+            },
+            title: {
+                text: T.chart_title,
+                x: 0, xanchor: "left",
+                font: { color: colorText, size: 13, weight: 700 },
+            },
+            legend: { orientation: "h", x: 0, y: 1.08, xanchor: "left",
+                      font: { color: colorText } },
+            hovermode: "x unified",
+        };
+        Plotly.react(CHART, traces, layout, {
+            displayModeBar: false, responsive: true,
+        });
+
+        fillCorrTable();
+    }
+
+    function setPreset(v, x, e, btnEl) {
+        VTI_EL.value  = v;
+        VXUS_EL.value = x;
+        VWO_EL.value  = e;
+        PRESETS.querySelectorAll("button").forEach(function (b2) {
+            b2.classList.remove("active");
+        });
+        if (btnEl) btnEl.classList.add("active");
+        render();
+    }
+    PRESETS.querySelectorAll("button").forEach(function (btn) {
+        btn.addEventListener("click", function () {
+            var ws = btn.dataset.w.split(",").map(Number);
+            setPreset(ws[0], ws[1], ws[2], btn);
+        });
+    });
+    [VTI_EL, VXUS_EL, VWO_EL].forEach(function (el) {
+        el.addEventListener("input", function () {
+            PRESETS.querySelectorAll("button").forEach(function (b) {
+                b.classList.remove("active");
+            });
+            render();
+        });
+    });
+
+    applyI18n();
+
+    function reportHeight() {
+        try {
+            var h = Math.ceil(document.documentElement.scrollHeight);
+            parent.postMessage({ type: "lesson-interactive-resize", height: h }, "*");
+        } catch (e) { /* ignore */ }
+    }
+    if (typeof ResizeObserver !== "undefined") {
+        new ResizeObserver(reportHeight).observe(document.body);
+    }
+    window.addEventListener("resize", reportHeight);
+    setTimeout(reportHeight, 50);
+    setTimeout(reportHeight, 500);
+
+    var themeObserver = new MutationObserver(render);
+    themeObserver.observe(document.documentElement, {
+        attributes: true, attributeFilter: ["data-theme"],
+    });
+
+    render();
+})();
+</script>
+
+</body>
+</html>

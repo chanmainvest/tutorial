@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Week 45: Quantitative Methods for Investors - Chanma Investment Tutorial</title>
+    <title>Week 45: Quantitative Methods for Investors — Regression, Time Series, ML Signals - Chanma Investment Tutorial</title>
     <script>(function(){try{var t=localStorage.getItem('preferred-theme');if(!t){t=window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();</script>
     <style>
 :root, html[data-theme="light"] {
@@ -1247,1099 +1247,496 @@ html[data-theme="dark"] .nav-btn:hover .btn-label { color: rgba(15,23,36,0.7); }
     <main class="main-wrap">
         <div class="content-area">
             <div id="content-en" class="lang-content active">
-                <h1>Week 45: Quantitative Methods for Investors</h1>
+                <h1>Week 45: Quantitative Methods for Investors — Regression, Time Series, ML Signals</h1>
 <hr>
-<h2>Reading Section</h2>
-<h3>a) Why This Is Important</h3>
-<p>
-Behind every investment decision lies a number, a relationship, or a pattern that someone claims to have discovered. Fund managers say their strategy "generates alpha." Financial advisors show charts proving that their method "works." Bloggers proclaim that gold prices predict stock market crashes, or that the January effect guarantees profits. But how do you know if any of these claims are real?
-</p>
-<p>
-Quantitative methods -- the application of statistical and mathematical tools to financial data -- are the investor's defense against being fooled by randomness, sold on spurious patterns, and misled by well-intentioned but statistically illiterate analysis. Understanding these tools is critical because:
-</p>
-<ul><li><strong>Most claimed patterns in financial data are false</strong>: With thousands of researchers testing millions of combinations of variables, many "discoveries" are statistical noise that masqueraded as signal. The practice of p-hacking -- running analysis after analysis until something passes the significance threshold -- produces a steady stream of published "findings" that fail to replicate. The replication crisis in finance is severe: studies suggest that at least 50% of published anomalies in financial journals do not hold up out of sample.</li>
-<li><strong>Linear regression is the workhorse of factor analysis</strong>: When someone says "value stocks outperform growth stocks," they are implicitly describing a regression result. When your fund manager claims to generate 3% alpha per year, that claim is based on a regression of fund returns against benchmark returns. If you cannot interpret a regression -- understand its coefficients, assess its significance, and evaluate its limitations -- you cannot critically evaluate these claims.</li>
-<li><strong>R-squared is the most misunderstood statistic in finance</strong>: Investors routinely confuse R-squared (the percentage of variance explained by a model) with predictive power or quality of fit. An R-squared of 0.90 does not mean a model is good. An R-squared of 0.05 does not mean a model is useless. Understanding what R-squared does and does not tell you prevents costly misinterpretation.</li>
-<li><strong>Time series behavior determines which strategies can work</strong>: Financial data is ordered in time, and its behavior over time -- whether it trends, reverts to a mean, or wanders randomly -- determines which strategies are viable. If a stock price follows a random walk, then mean-reversion strategies cannot work. If it trends, then momentum strategies have an edge. Understanding stationarity, autocorrelation, and mean reversion is fundamental to strategy selection.</li>
-<li><strong>Correlation is not causation, and everyone knows this, and nobody acts on it</strong>: Every investor has heard that correlation does not imply causation. Yet every day, investment decisions are made on the basis of observed correlations treated as causal relationships. Understanding the difference -- and the specific mechanisms by which correlations mislead -- is essential to avoiding costly errors.</li>
-<li><strong>Statistical pitfalls can cost you your entire investment thesis</strong>: Survivorship bias, look-ahead bias, multiple comparisons, data snooping, overfitting, small sample sizes -- each of these can make a worthless strategy look brilliant on paper. A single statistical mistake can cause you to deploy real capital on a strategy that never had a genuine edge.</li>
-<p>
-</ul>
-This lesson will equip you with the statistical toolkit needed to separate genuine investment insights from statistical mirages.
-</p>
-<hr>
-<h3>b) What You Need to Know</h3>
-<h4>1. Linear Regression for Factor Analysis</h4>
-<p>
-Linear regression is the foundation of nearly all empirical finance. At its core, regression asks: "How does one variable (the dependent variable) change when another variable (the independent variable) changes?"
-</p>
-<pre><code class="language-">LINEAR REGRESSION: THE BASICS
-<p>
-THE MODEL:
-Y = a + b * X + error
-</p>
-<p>
-Y = dependent variable (what you are trying to explain)
-X = independent variable (the explanatory factor)
-a = intercept (value of Y when X is zero)
-b = slope (how much Y changes for a one-unit change in X)
-error = what the model cannot explain (residual)
-</p>
-<p>
-EXAMPLE: CAPM REGRESSION
-</p>
-<p>
-Fund Return = Alpha + Beta * Market Return + Error
-</p>
-<p>
-Y = Fund monthly return
-X = Market monthly return (e.g., S&amp;P 500)
-a = Alpha (excess return not explained by market)
-b = Beta (sensitivity to the market)
-</p>
-<p>
-If regression yields:
-Alpha = 0.25% per month (3% annualized)
-Beta = 1.15
-</p>
-<p>
-Interpretation:
-</p>
-<ul><li>For every 1% the market moves, this fund moves 1.15%</li>
-<li>The fund generates 0.25% per month ABOVE what</li>
-<p>
-</ul>    its market exposure would predict
-</p>
-<ul><li>This alpha is the "skill" of the manager (if real)</li>
-<p>
-</ul>
-VISUAL REPRESENTATION:
-</p>
-<p>
-Fund
-Return
-(%)
-8 |                               *
-6 |                         <em>  </em>
-4 |                   <em>  </em>
-2 |             <em>  </em> /
-0 |-------<em>--</em>-/--------------------
--2 |     <em> /  </em>
--4 |   * /
--6 | * /
--8 |/  *
-|________________________________
--8  -6  -4  -2   0   2   4   6   8
-Market Return (%)
-</p>
-<p>
-The line is the regression line.
-The slope = beta = 1.15
-The intercept = alpha = 0.25%
-Points above the line = positive residuals
-Points below the line = negative residuals
-</code></pre>
-</p>
-<pre><code class="language-">MULTIPLE REGRESSION: FAMA-FRENCH FACTORS
-<p>
-Single regression uses ONE factor. Multiple regression
-uses SEVERAL factors simultaneously:
-</p>
-<p>
-Return = Alpha + b1<em>Market + b2</em>Size + b3*Value + Error
-</p>
-<p>
-FAMA-FRENCH THREE-FACTOR MODEL:
-</p>
-<p>
-Ri - Rf = ai + bi<em>(Rm-Rf) + si</em>SMB + hi*HML + ei
-</p>
-<p>
-Where:
-Ri - Rf  = Fund excess return (above risk-free rate)
-Rm - Rf  = Market excess return
-SMB      = Small Minus Big (small-cap premium)
-HML      = High Minus Low (value premium)
-ai       = Alpha (true skill after adjusting for factors)
-bi,si,hi = Factor loadings (sensitivities)
-</p>
-<p>
-EXAMPLE OUTPUT:
-</p>
-<p>
-Factor       Coefficient   t-stat   p-value
-──────────────────────────────────────────────
-Alpha        0.15%/mo      1.8      0.072
-Market       1.05          28.3     0.000
-SMB (Size)   0.35          4.2      0.000
-HML (Value)  0.22          2.9      0.004
-</p>
-<p>
-Interpretation:
-</p>
-<ul><li>Manager has beta of 1.05 (slightly above market)</li>
-<li>Tilts toward small caps (SMB loading = 0.35)</li>
-<li>Tilts toward value stocks (HML loading = 0.22)</li>
-<li>Alpha of 0.15%/month is NOT statistically significant</li>
-<p>
-</ul>    (p-value = 0.072 &gt; 0.05 threshold)
-</p>
-<p>
-CONCLUSION: This manager's returns are EXPLAINED by
-exposure to market, size, and value factors. There
-is no statistically significant evidence of skill.
-The "alpha" from a single-factor model was actually
-compensation for taking size and value risk.
-</p>
-<p>
-┌──────────────────────────────────────────────┐
-│  WHY THIS MATTERS:                           │
-│  Many "alpha-generating" managers are simply  │
-│  taking factor exposures that can be obtained │
-│  cheaply through index funds. You should not  │
-│  pay 1-2% fees for factor exposure you can    │
-│  get for 0.05-0.20%.                          │
-└──────────────────────────────────────────────┘
-</code></pre>
-</p>
-<h4>2. R-Squared and Statistical Significance</h4>
-<p>
-R-squared and p-values are the two most commonly cited statistics in financial research. Both are routinely misunderstood.
-</p>
-<pre><code class="language-">R-SQUARED (COEFFICIENT OF DETERMINATION)
-<p>
-DEFINITION:
-R-squared = 1 - (Sum of Squared Residuals / Total Sum of Squares)
-</p>
-<p>
-In plain language:
-"What fraction of the variation in Y is explained by X?"
-</p>
-<p>
-R-squared = 0.00: X explains nothing about Y
-R-squared = 1.00: X explains everything about Y
-R-squared = 0.65: X explains 65% of Y's variation
-</p>
-<p>
-EXAMPLE:
-</p>
-<p>
-Model: Fund Return = Alpha + Beta * Market Return
-</p>
-<p>
-R-squared = 0.85
-</p>
-<p>
-Meaning: 85% of this fund's return variation is
-explained by market movements. 15% comes from
-stock selection, sector bets, or randomness.
-</p>
-<p>
-┌────────────────────────────────────────┐
-│  TOTAL VARIATION IN FUND RETURNS       │
-│                                        │
-│  ████████████████████████████████████  │
-│  ████████████████████░░░░░░░░░░░░░░░  │
-│  ▲                    ▲                │
-│  Explained by         Unexplained      │
-│  market (85%)         (15%)            │
-└────────────────────────────────────────┘
-</p>
-<p>
-COMMON R-SQUARED VALUES IN FINANCE:
-</p>
-<p>
-Model                                 Typical R-sq
-──────────────────────────────────────────────────
-S&amp;P 500 index fund vs. S&amp;P 500       0.999
-Large-cap active fund vs. S&amp;P 500    0.85-0.95
-Hedge fund vs. S&amp;P 500               0.30-0.70
-Individual stock vs. S&amp;P 500         0.10-0.50
-Stock returns vs. GDP growth         0.03-0.08
-Monthly return predictions            0.01-0.05
-Daily return predictions              0.00-0.02
-</p>
-<p>
-THE R-SQUARED TRAP:
-</p>
-<p>
-TRAP 1: "High R-squared = good model"
-A stock's regression on the market with R-sq = 0.92
-does NOT mean you can predict the stock's returns.
-It means the stock moves WITH the market.
-The 8% unexplained variance can still be huge.
-</p>
-<p>
-TRAP 2: "Low R-squared = useless model"
-A model predicting monthly returns with R-sq = 0.02
-seems pathetically weak. But 2% predictability in
-financial returns is ENORMOUSLY valuable.
-</p>
-<p>
-If you can predict 2% of return variance consistently,
-you can make billions of dollars in the markets.
-Renaissance Technologies allegedly operates with
-predictive R-squared values of 0.01-0.05.
-</p>
-<p>
-TRAP 3: "R-squared can only go up"
-Adding more variables to a model ALWAYS increases
-R-squared. This does NOT mean the model is better.
-Use adjusted R-squared, which penalizes for the
-number of variables:
-</p>
-<p>
-Adjusted R-sq = 1 - [(1-R-sq)(n-1)/(n-k-1)]
-</p>
-<p>
-Where n = observations, k = number of variables
-</code></pre>
-</p>
-<pre><code class="language-">STATISTICAL SIGNIFICANCE AND P-VALUES
-<p>
-THE P-VALUE:
-"If the true effect were ZERO, what is the probability
-of observing a result as extreme as what we found?"
-</p>
-<p>
-p-value = 0.05 means: There is a 5% chance of seeing
-this result if there were truly no effect.
-</p>
-<p>
-Convention:
-p &lt; 0.05  -&gt; "Statistically significant" (reject null)
-p &gt;= 0.05 -&gt; "Not significant" (fail to reject null)
-</p>
-<p>
-THE T-STATISTIC:
-t-stat = coefficient / standard error
-</p>
-<p>
-Rule of thumb:
-|t-stat| &gt; 2.0  -&gt; approximately significant at 5% level
-|t-stat| &gt; 2.6  -&gt; approximately significant at 1% level
-|t-stat| &gt; 3.3  -&gt; approximately significant at 0.1% level
-</p>
-<p>
-Higher t-stat = more confident the coefficient is real
-</p>
-<p>
-EXAMPLE: IS THIS FUND'S ALPHA REAL?
-</p>
-<p>
-Regression result: Alpha = 0.30% per month
-</p>
-<p>
-Scenario A: t-stat = 0.8, p-value = 0.42
-NOT significant. Alpha could easily be zero.
-We cannot distinguish 0.30% from noise.
-DO NOT pay high fees for this "alpha."
-</p>
-<p>
-Scenario B: t-stat = 2.5, p-value = 0.014
-Significant at 5% level. Fairly confident alpha
-is not zero. But could still be overstated.
-Consider the fund, but verify out of sample.
-</p>
-<p>
-Scenario C: t-stat = 4.2, p-value = 0.0001
-Highly significant. Very unlikely to be zero.
-Strong evidence of genuine skill.
-But still check: is the track record long enough?
-Are there hidden risks? Survivorship bias?
-</p>
-<p>
-CRITICAL WARNING:
-┌──────────────────────────────────────────────┐
-│  STATISTICAL SIGNIFICANCE != PRACTICAL       │
-│  SIGNIFICANCE                                │
-│                                              │
-│  With enough data, even a tiny, meaningless  │
-│  effect becomes "statistically significant." │
-│                                              │
-│  A fund with alpha = 0.01% per month         │
-│  (0.12%/year) with t-stat = 3.5 is           │
-│  statistically significant but practically   │
-│  meaningless. After fees, the alpha is gone.  │
-│                                              │
-│  Always ask: Is the effect LARGE ENOUGH       │
-│  to matter after fees and costs?              │
-└──────────────────────────────────────────────┘
-</code></pre>
-</p>
-<h4>3. Time Series Basics: Stationarity and Autocorrelation</h4>
-<p>
-Financial data is ordered in time. This temporal structure has profound implications for analysis and strategy design.
-</p>
-<pre><code class="language-">STATIONARITY
-<p>
-DEFINITION:
-A time series is stationary if its statistical
-properties (mean, variance, autocorrelation) do not
-change over time.
-</p>
-<p>
-STATIONARY SERIES:
-┌──────────────────────────────────────────────┐
-│           <em>   </em>       <em>     </em>                 │
-│   <em>    </em>     <em> </em>   <em>    </em>      <em>    </em>         │
-│ ----<em>----------</em>---<em>------</em>-----*----- mean   │
-│    <em>  </em>     <em>    </em>     <em>    </em>      *          │
-│        <em>            </em>        *               │
-└──────────────────────────────────────────────┘
-Properties stay constant. Fluctuates around a
-fixed mean. Good for statistical analysis.
-</p>
-<p>
-NON-STATIONARY SERIES (trending):
-┌──────────────────────────────────────────────┐
-│                                         *    │
-│                                      <em>   </em>   │
-│                                <em>  </em>          │
-│                          <em>  </em>                │
-│                    <em>  </em>                      │
-│              <em>  </em>                            │
-│        <em>  </em>                                  │
-│  <em>  </em>                                        │
-└──────────────────────────────────────────────┘
-Mean changes over time. Standard regression
-produces SPURIOUS results on trending data.
-</p>
-<p>
-NON-STATIONARY SERIES (random walk):
-┌──────────────────────────────────────────────┐
-│        *                                     │
-│       <em> </em>                               *    │
-│      <em>   </em>                             <em> </em>   │
-│  <em>  </em>     <em>                </em>  <em>       </em>      │
-│ <em> </em>        <em>    </em>       <em> </em>    <em>    </em>         │
-│             <em>  </em> <em>   </em> <em>        </em> *          │
-│              <em>    </em> *                        │
-│                    *                         │
-└──────────────────────────────────────────────┘
-Wanders without returning to any mean.
-Stock prices are approximately random walks.
-Each step is independent of previous steps.
-</p>
-<p>
-WHY STATIONARITY MATTERS:
-</p>
-<p>
-STOCK PRICES are non-stationary (random walk-ish).
-STOCK RETURNS are approximately stationary.
-</p>
-<p>
-WRONG: Regress stock PRICE on GDP level.
-Both trend upward over time.
-You will find a "significant" relationship
-that is entirely spurious.
-R-squared will be very high (0.90+) and
-completely meaningless.
-</p>
-<p>
-RIGHT: Regress stock RETURNS on GDP GROWTH.
-Both are (approximately) stationary.
-Any relationship found is more likely genuine.
-</p>
-<p>
-RULE: Always work with RETURNS (or changes),
-not LEVELS, when doing regression analysis
-on financial data.
-</code></pre>
-</p>
-<pre><code class="language-">AUTOCORRELATION
-<p>
-DEFINITION:
-Autocorrelation measures how much a time series
-is correlated with its own past values.
-</p>
-<p>
-Autocorrelation at lag k =
-Correlation between Y(t) and Y(t-k)
-</p>
-<p>
-INTERPRETATION:
-</p>
-<p>
-Positive autocorrelation (momentum):
-If today's return is positive, tomorrow's return
-is more likely to be positive.
-</p>
-<p>
-+ + + + - - - - + + + + - - - -
-(Runs of same sign)
-</p>
-<p>
-Negative autocorrelation (mean reversion):
-If today's return is positive, tomorrow's return
-is more likely to be negative.
-</p>
-<p>
-+ - + - + - + - + - + - + - + -
-(Alternating signs)
-</p>
-<p>
-Zero autocorrelation (random walk):
-Today's return tells you nothing about tomorrow.
-</p>
-<p>
-+ - - + + - + - - - + + - + - +
-(No pattern)
-</p>
-<p>
-AUTOCORRELATION IN FINANCIAL MARKETS:
-</p>
-<p>
-Asset/Timeframe          Autocorrelation  Implication
-──────────────────────────────────────────────────────
-Daily stock returns      ~0 to slightly   Approx random
-negative         walk
-Monthly stock returns    Slightly         Weak short-term
-positive         momentum
-1-year stock returns     Negative at      Long-term mean
-3-5 year lags    reversion
-Daily bond returns       Slightly         Weak momentum
-positive
-Currency returns         Mixed            Varies by pair
-Commodity returns        Positive at      Momentum in
-medium term      trends
-</p>
-<p>
-KEY INSIGHT:
-</p>
-<ul><li>Short-term (days): Markets are nearly random</li>
-<li>Medium-term (3-12 months): Weak momentum exists</li>
-<li>Long-term (3-5 years): Mean reversion appears</li>
-<p>
-</ul>
-This pattern supports both momentum strategies
-(medium horizon) and value/mean-reversion strategies
-(long horizon), and neither contradicts efficient
-markets at short horizons.
-</p>
-<p>
-LJUNG-BOX TEST:
-Tests whether a set of autocorrelations are jointly
-zero (i.e., whether ANY predictability exists).
-</p>
-<p>
-p-value &lt; 0.05: Significant autocorrelation exists
-p-value &gt; 0.05: No significant autocorrelation
-</p>
-<p>
-Most daily stock return series fail to reject the
-null of zero autocorrelation. They are approximately
-random walks at the daily frequency.
-</code></pre>
-</p>
-<h4>4. Mean Reversion Testing</h4>
-<p>
-Mean reversion -- the tendency of a variable to return to its average over time -- is one of the most important concepts in finance and the basis for many investment strategies.
-</p>
-<pre><code class="language-">MEAN REVERSION
-<p>
-CONCEPT:
-If a variable tends to return to its long-term
-average, it exhibits mean reversion.
-</p>
-<p>
-┌──────────────────────────────────────────────┐
-│                                              │
-│      <em>                          </em>            │
-│     <em> </em>                        <em> </em>           │
-│    <em>   </em>            <em>         </em>   *          │
-│ --<em>-----</em>----<em>-----</em>-<em>-------</em>-----*--- mean │
-│          <em>  </em> <em>   </em>   <em>     </em>       *        │
-│           <em>    </em> <em>     </em>   <em>         </em>       │
-│                 <em>       </em> <em>           </em>      │
-│                          *                   │
-└──────────────────────────────────────────────┘
-</p>
-<p>
-Mean reverting: Variable oscillates around a
-stable mean and tends to return when displaced.
-</p>
-<p>
-WHAT MEAN REVERTS IN FINANCE:
-</p>
-<p>
-Strong evidence of mean reversion:
-</p>
-<ul><li>Valuation ratios (P/E, P/B, CAPE)</li>
-<li>Interest rate spreads (credit, term)</li>
-<li>Volatility (VIX, realized vol)</li>
-<li>Currency relative to purchasing power parity</li>
-<li>Profit margins (sector-level, economy-wide)</li>
-<p>
-</ul>
-Weak or no evidence of mean reversion:
-</p>
-<ul><li>Stock PRICES (approximately random walk)</li>
-<li>GDP levels (trending upward)</li>
-<li>Technological disruption effects</li>
-<p>
-</ul>
-┌──────────────────────────────────────────────┐
-│  CRITICAL DISTINCTION:                       │
-│                                              │
-│  Stock PRICES do NOT mean revert.            │
-│  Stock VALUATIONS do mean revert.            │
-│                                              │
-│  A stock at $100 does NOT tend to return     │
-│  to $100 after falling to $50.               │
-│                                              │
-│  But a stock with P/E of 40 does tend to     │
-│  return toward a P/E of 15-20 over time      │
-│  (through price decline or earnings growth). │
-└──────────────────────────────────────────────┘
-</p>
-<p>
-TESTING FOR MEAN REVERSION:
-</p>
-<p>
-METHOD 1: AUGMENTED DICKEY-FULLER (ADF) TEST
-Tests whether a time series has a unit root
-(i.e., is a random walk).
-</p>
-<p>
-Null hypothesis: Series has a unit root (no mean reversion)
-Alternative: Series is stationary (mean reverting)
-</p>
-<p>
-If p-value &lt; 0.05: Reject null -&gt; evidence of mean reversion
-If p-value &gt; 0.05: Fail to reject -&gt; no evidence
-</p>
-<p>
-Typical results:
-Stock prices: p = 0.80 (NOT mean reverting)
-Stock returns: p = 0.001 (stationary)
-CAPE ratio: p = 0.04 (weakly mean reverting)
-VIX: p = 0.001 (strongly mean reverting)
-</p>
-<p>
-METHOD 2: VARIANCE RATIO TEST
-If returns are random walk:
-Variance of k-period returns = k * Variance of 1-period returns
-</p>
-<p>
-If variance ratio &lt; 1: Mean reversion (returns "cancel out")
-If variance ratio &gt; 1: Momentum (returns "build up")
-If variance ratio = 1: Random walk
-</p>
-<p>
-Typical variance ratios for S&amp;P 500:
-2-day vs. 1-day:   ~1.00 (random at short horizon)
-1-month vs. 1-week: ~0.98 (slight mean reversion)
-1-year vs. 1-month: ~0.95 (moderate mean reversion)
-5-year vs. 1-year:  ~0.80 (meaningful mean reversion)
-</p>
-<p>
-METHOD 3: HALF-LIFE OF MEAN REVERSION
-How long does it take for a deviation from the
-mean to be reduced by half?
-</p>
-<p>
-Short half-life (days/weeks): Fast mean reversion,
-tradable with short-term strategies
-Long half-life (years): Slow mean reversion,
-relevant for long-term asset allocation
-Infinite half-life: No mean reversion (random walk)
-</p>
-<p>
-Typical half-lives:
-VIX:                ~2-4 weeks
-Interest rate spreads: ~3-6 months
-CAPE ratio:         ~3-7 years
-Currency PPP:       ~3-5 years
-</code></pre>
-</p>
-<h4>5. Common Statistical Pitfalls</h4>
-<p>
-These are the errors that cause investors to deploy real capital on strategies that never had a genuine edge.
-</p>
-<pre><code class="language-">PITFALL 1: P-HACKING (DATA SNOOPING)
-<p>
-DEFINITION:
-Running many tests on the same data until one
-produces a "significant" result by chance.
-</p>
-<p>
-EXAMPLE:
-You test 100 different "signals" for predicting
-stock returns. By chance alone, 5 will be
-"significant" at the 5% level (0.05 * 100 = 5).
-</p>
-<p>
-These 5 "significant" signals are false positives.
-They look real but are purely random.
-</p>
-<p>
-┌──────────────────────────────────────────────┐
-│  WHAT THE RESEARCHER REPORTS:                │
-│                                              │
-│  "We found that the ratio of CEO surname     │
-│  length to company name length predicts      │
-│  stock returns with t-stat = 2.3 (p = 0.02)"│
-│                                              │
-│  WHAT ACTUALLY HAPPENED:                     │
-│                                              │
-│  They tested 200 variables. This was the     │
-│  one that happened to be "significant."      │
-│  The other 199 failures are never reported.  │
-│  This is the FILE DRAWER PROBLEM.            │
-└──────────────────────────────────────────────┘
-</p>
-<p>
-HOW TO DETECT P-HACKING:
-</p>
-<ul><li>Does the paper test only ONE hypothesis?</li>
-<p>
-</ul>    Suspicious if "we tested only this one thing"
-</p>
-<ul><li>Is there an economic rationale for the signal?</li>
-<p>
-</ul>    If not, it is likely data-mined.
-</p>
-<ul><li>Does it replicate out of sample?</li>
-<li>Apply Bonferroni correction or similar:</li>
-<p>
-</ul>    Required p-value = 0.05 / number of tests
-100 tests -&gt; need p &lt; 0.0005 to be credible
-</p>
-<p>
-PITFALL 2: MULTIPLE COMPARISONS
-</p>
-<p>
-Related to p-hacking but more subtle.
-</p>
-<p>
-EXAMPLE: Backtesting factor strategies
-</p>
-<p>
-You test these factors for US stocks 1990-2020:
-</p>
-<ul><li>Price/Earnings (4 variants)</li>
-<li>Price/Book (3 variants)</li>
-<li>Momentum (6 variants: different lookbacks)</li>
-<li>Quality metrics (5 variants)</li>
-<li>Low volatility (3 variants)</li>
-<li>Size (2 variants)</li>
-<li>Dividend yield (3 variants)</li>
-<li>Technical signals (10 variants)</li>
-<p>
-</ul>  ─────────────────────────────────
-Total: 36 independent tests
-</p>
-<p>
-At 5% significance: 36 * 0.05 = 1.8 expected
-false positives. Nearly 2 "significant" factors
-that are actually noise.
-</p>
-<p>
-BONFERRONI CORRECTION:
-Required p-value = 0.05 / 36 = 0.0014
-Required t-stat approximately 3.2
-</p>
-<p>
-HARVEY, LIU, AND ZHU (2016):
-In finance, the threshold for a new factor should be
-t-stat &gt; 3.0, not the traditional 2.0, because of
-the massive number of factors already tested across
-all published research.
-</p>
-<p>
-PITFALL 3: OVERFITTING
-</p>
-<p>
-Building a model so complex that it fits the noise
-in historical data, not the signal.
-</p>
-<p>
-IN-SAMPLE vs. OUT-OF-SAMPLE:
-</p>
-<p>
-┌──────────────────────────────────────────────┐
-│  IN-SAMPLE (training data):                  │
-│                                              │
-│  Simple model:  <em> </em>  <em> </em>  <em> </em>                │
-│                /  \ / \ / \                  │
-│  Good fit but  not perfect. R-sq = 0.65      │
-│                                              │
-│  Complex model: <strong><em><em></em></strong><strong><em></em></em></strong><strong><em><em></em></strong><strong><em></em></em></strong>  │
-│  Hits every point perfectly. R-sq = 0.99     │
-│                                              │
-│  OUT-OF-SAMPLE (new data):                   │
-│                                              │
-│  Simple model:  Still works. R-sq = 0.55     │
-│  Complex model: Falls apart. R-sq = 0.10    │
-│                                              │
-│  The complex model memorized the noise.      │
-│  The simple model captured the signal.       │
-└──────────────────────────────────────────────┘
-</p>
-<p>
-RULE OF THUMB (DEGREES OF FREEDOM):
-Minimum observations per parameter:
-10:1 is bare minimum
-20:1 is reasonable
-50:1 is good
-</p>
-<p>
-If you have 60 months of data and a model
-with 10 parameters, you have 6:1 ratio.
-This is almost certainly overfit.
-</code></pre>
-</p>
-<pre><code class="language-">PITFALL 4: SURVIVORSHIP BIAS
-<p>
-Analyzing only the data that "survived" -- ignoring
-the data that was removed due to failure.
-</p>
-<p>
-MUTUAL FUND EXAMPLE:
-You study fund returns from 2000-2020.
-Your database has 3,000 funds.
-But 2,000 funds that existed in 2000 have since
-closed (most due to poor performance).
-</p>
-<p>
-Your analysis includes only the 3,000 survivors.
-Average return appears higher than reality because
-the failures are excluded.
-</p>
-<p>
-True average annual return: 7.5%
-Survivorship-biased average: 9.2%
-Bias: +1.7% per year
-</p>
-<p>
-STOCK INDEX EXAMPLE:
-"S&amp;P 500 stocks returned 10% per year since 1990."
-But the current S&amp;P 500 constituents are DIFFERENT
-from the 1990 constituents. Failed companies were
-removed. Winners were added. Using CURRENT members
-retroactively overstates historical returns.
-</p>
-<p>
-HEDGE FUND EXAMPLE:
-Hedge fund databases are self-reported and voluntary.
-Funds that perform badly stop reporting.
-This creates survivorship bias estimated at
-3-5% per year in hedge fund databases.
-</p>
-<p>
-┌──────────────────────────────────────────┐
-│  "Hedge funds returned 12% per year"     │
-│                                          │
-│  After survivorship bias: ~8% per year   │
-│  After fees (2/20): ~5% per year         │
-│  After backfill bias: ~4% per year       │
-│  Risk-adjusted: Worse than index funds   │
-└──────────────────────────────────────────┘
-</p>
-<p>
-PITFALL 5: SMALL SAMPLE SIZE
-</p>
-<p>
-Financial data has far fewer independent
-observations than people realize.
-</p>
-<p>
-"I backtested 30 years of data!"
-</p>
-<p>
-30 years of DAILY data = 7,500 observations.
-Sounds like a lot. But:
-</p>
-<ul><li>Daily returns are not independent</li>
-<p>
-</ul>    (autocorrelation, clustering)
-</p>
-<ul><li>Different market regimes reduce effective</li>
-<p>
-</ul>    sample size (maybe 4-6 truly independent
-market environments in 30 years)
-</p>
-<ul><li>Monthly data: 360 observations</li>
-<li>Annual recessions: maybe 4-5 in sample</li>
-<li>Crashes: 2-3 major events</li>
-<p>
-</ul>
-For strategies that depend on rare events
-(crashes, regime changes), 30 years gives you
-only 2-5 observations of the relevant event.
-</p>
-<p>
-Standard error scales with 1/sqrt(n).
-With only 5 crash observations, your estimate
-of crash behavior has a standard error of
-1/sqrt(5) = 45% of the true value.
-Essentially meaningless precision.
-</code></pre>
-</p>
-<h4>6. Correlation vs. Causation</h4>
-<pre><code class="language-">CORRELATION vs. CAUSATION
-<p>
-CORRELATION:
-Two variables tend to move together.
-Says nothing about WHY.
-</p>
-<p>
-CAUSATION:
-One variable CAUSES changes in the other.
-Requires a mechanism, not just co-movement.
-</p>
-<p>
-TYPES OF SPURIOUS CORRELATION:
-</p>
-<li>COINCIDENCE (pure randomness)</li>
-<p>
-"The number of films Nicolas Cage appeared in
-correlates with swimming pool drownings."
-Correlation: r = 0.87
-Causation: None. Random coincidence.
-</p>
-<li>CONFOUNDING VARIABLE (common cause)</li>
-<p>
-"Ice cream sales correlate with drowning deaths."
-</p>
-<p>
-Ice cream sales ←─── HEAT ───→ Drowning deaths
-(confounding variable)
-</p>
-<p>
-Heat causes both. Ice cream does not cause drowning.
-</p>
-<p>
-FINANCIAL EXAMPLE:
-"Countries with more McDonald's have higher GDPs."
-</p>
-<p>
-McDonald's ←── DEVELOPMENT ──→ GDP
-</p>
-<p>
-Both are caused by economic development.
-Opening more McDonald's will not raise GDP.
-</p>
-<li>REVERSE CAUSATION</li>
-<p>
-"Companies that advertise more have higher revenues."
-</p>
-<p>
-Maybe advertising causes revenue.
-Or maybe high revenue enables advertising spending.
-Or both.
-</p>
-<p>
-FINANCIAL EXAMPLE:
-"High P/E stocks have faster earnings growth."
-Maybe high P/E reflects EXPECTED future growth
-(the market anticipates growth and bids up price).
-The high P/E did not CAUSE the growth.
-</p>
-<li>DATA MINING (ex-post pattern fitting)</li>
-<p>
-"Super Bowl winner (NFC vs. AFC) predicts
-stock market direction."
-</p>
-<p>
-This "worked" for decades by coincidence.
-It has no mechanism. It has since stopped working.
-</p>
-<p>
-CORRELATION IN FINANCE - PRACTICAL CONCERNS:
-</p>
-<p>
-UNSTABLE CORRELATIONS:
-┌──────────────────────────────────────────────┐
-│  Stock-Bond Correlation Over Time:           │
-│                                              │
-│  1960-2000: Positive (+0.2 to +0.5)         │
-│  2000-2020: Negative (-0.3 to -0.1)         │
-│  2022:      Positive again (+0.3)            │
-│                                              │
-│  If you built a portfolio assuming negative   │
-│  stock-bond correlation, 2022 was painful.   │
-│  Correlations CHANGE over time.              │
-└──────────────────────────────────────────────┘
-</p>
-<p>
-CRISIS CORRELATIONS:
-During market crises, correlations among risky
-assets spike toward 1.0. The diversification you
-thought you had disappears exactly when you need
-it most.
-</p>
-<p>
-Normal times:  Stock-Commodity corr = 0.15
-Crisis (2008): Stock-Commodity corr = 0.85
-</p>
-<p>
-This is the "correlation breakdown" problem.
-Diversification benefits are overstated by
-average correlation figures because averages
-include calm periods when you do not need
-diversification.
-</code></pre>
-</p>
-<h4>7. Practical Tools</h4>
-<pre><code class="language-">PRACTICAL QUANTITATIVE TOOLS FOR INVESTORS
-<p>
-TOOL 1: PYTHON + STATSMODELS
-Most common platform for financial analysis.
-</p>
-<p>
-Key functions:
-</p>
-<ul><li>OLS regression: sm.OLS(y, X).fit()</li>
-<li>ADF test: adfuller(series)</li>
-<li>Autocorrelation: acf(series, nlags=20)</li>
-<li>Variance ratio: manual calculation</li>
-<p>
-</ul>
-TOOL 2: EXCEL / GOOGLE SHEETS
-For simple regression and correlation:
-</p>
-<ul><li>LINEST() function for regression</li>
-<li>CORREL() for correlation</li>
-<li>RSQ() for R-squared</li>
-<li>T.TEST() for significance testing</li>
-<p>
-</ul>
-Limitation: Cannot handle complex time series
-analysis, bootstrapping, or rolling regressions.
-</p>
-<p>
-TOOL 3: KEY LIBRARIES FOR PYTHON
-</p>
-<p>
-import pandas as pd          # Data manipulation
-import numpy as np           # Numerical computing
-import statsmodels.api as sm # Regression, time series
-from scipy import stats      # Statistical tests
-import matplotlib.pyplot as plt  # Visualization
-</p>
-<p>
-PRACTICAL CHECKLIST FOR EVALUATING CLAIMS:
-</p>
-<p>
-1. What is the sample period and size?
-[ ] At least 20 years of monthly data?
-[ ] Multiple market cycles included?
-</p>
-<p>
-2. Is the data clean?
-[ ] Survivorship bias addressed?
-[ ] Look-ahead bias eliminated?
-[ ] Total return (including dividends)?
-</p>
-<p>
-3. Is the analysis appropriate?
-[ ] Stationary variables used?
-[ ] Appropriate significance tests?
-[ ] Multiple comparisons adjusted for?
-</p>
-<p>
-4. Is it economically sensible?
-[ ] Does the effect have a logical mechanism?
-[ ] Is the magnitude plausible?
-[ ] Why would the effect persist?
-</p>
-<p>
-5. Does it replicate?
-[ ] Out-of-sample test performed?
-[ ] Different time periods?
-[ ] Different markets/geographies?
-[ ] Transaction costs deducted?
-</p>
-<p>
-If ANY of these fail, treat the claim with
-extreme skepticism.
-</code></pre>
+<h3>1. Why This Is Important</h3>
+<p>
+This is the week where the toolkit gets real. For forty-three weeks
+we have leaned on intuition, history, and a handful of identities —
+duration, the dividend-discount equation, the four-tranche sketch,
+the barbell. From here on, anyone you meet who is <em>paid</em> to find
+alpha — the fund manager you might fire, the quant shop pitching you
+a sleeve, the LinkedIn-posting "AI signal" guy — is going to wave
+some combination of regression coefficients, t-stats, R-squared,
+walk-forward validation curves, and machine-learning out-of-sample
+charts in your face. Quantitative methods are the language. If you
+do not speak the language at a passable level, every claim of skill
+sounds equally credible, and you will end up paying 1.5% per year
+for a regression a junior analyst could have run in an afternoon.
+</p>
+<p>
+This matters for four reasons.
+</p>
+<li><strong>It separates structural exposure from genuine skill.</strong> The</li>
+<p>
+single most important sentence in modern empirical finance is
+*"alpha is what is left over after a regression on the right
+factors."* A manager who beats the S&P by 3% per year is, until
+you regress their returns on MKT/SMB/HML/UMD/RMW, indistinguishable
+from one who simply tilted small-value-momentum and rode the
+well-known premia. Two-thirds of the post-1990 mutual-fund alpha
+anomaly literature evaporated the moment the right benchmarks
+went into the regression. SOUL #5 says information edge is the
+hardest of the five alpha lanes; the regression is the test that
+tells you whether anyone has it.
+</p>
+<li><strong>It is the dividing line between data and superstition.</strong></li>
+<p>
+Investors are pattern-recognition machines, and markets generate
+roughly 10 million testable patterns a year. The "January effect,"
+the "Super Bowl indicator," "sell in May," the dozens of
+"presidential cycle" charts — every one of them looks like a real
+signal because, in any large enough dataset, <em>something</em> will look
+like a real signal. The multiple-testing correction (Bonferroni,
+Benjamini-Hochberg, Lopez de Prado's deflated Sharpe) is the
+mathematical statement of "if you tested 100 strategies at p<0.05,
+you should expect roughly 5 false positives." Without that frame,
+every backtest is a confession of survivorship bias.
+</p>
+<li><strong>It tells you which strategies a price series can support.</strong> A</li>
+<p>
+pure random walk admits no momentum strategy, no mean-reversion
+strategy, and no forecasting model better than the unconditional
+mean. A trending series with positive autocorrelation rewards
+momentum; a mean-reverting series rewards spread trading. The
+tests for stationarity, autocorrelation, and cointegration are
+not academic exercises — they answer the question *can I extract
+anything from this data, in principle?* before you spend a year
+tuning a signal that the underlying process never had.
+</p>
+<li><strong>It is the only honest defense against the ML-alpha pitch.</strong></li>
+<p>
+The most dangerous sentence in 2026 finance is "we use machine
+learning to find non-linear patterns in market data." Most ML
+alpha pitches are 80% feature engineering, 15% labelling, and 5%
+model. If you understand train/validation/test splits, walk-forward
+evaluation, and the difference between in-sample and out-of-sample
+Sharpe, you can ask the three questions that pop the bubble:
+*what was the holdout window? how was it chosen? what is the
+strategy's Sharpe on data after the model was last retrained?*
+The answers, more often than not, kill the pitch.
 </p>
 <hr>
-<h3>c) Common Misconceptions</h3>
+<h3>2. What You Need to Know</h3>
+<h4>2.1 Linear regression as the alpha-attribution machine</h4>
 <p>
-<strong>Misconception 1: "A high R-squared means the model is good and predictive."</strong>
+The single-factor CAPM regression is the simplest version of the
+machine. You take a portfolio's monthly excess return $R_p - R_f$
+and the market's excess return $R_m - R_f$, fit the line
 </p>
 <p>
-R-squared measures how much variation is explained by the model on the data it was fitted to. It says nothing about out-of-sample predictive power. A model with 50 parameters fitted to 60 data points can achieve R-squared of 0.99 while having zero predictive ability. Conversely, a model with R-squared of 0.02 that genuinely predicts 2% of return variance is extraordinarily valuable. In finance, R-squared should be used to understand how much of a fund's returns are attributable to factor exposures, not to assess whether a model will predict the future.
+$$R_p - R_f = \alpha + \beta \cdot (R_m - R_f) + \varepsilon,$$
 </p>
 <p>
-<strong>Misconception 2: "If a correlation is statistically significant, the relationship is real and useful."</strong>
+and read off two numbers. $\beta$ is the slope: a one-percent move
+in the market produces, on average, a $\beta$-percent move in the
+portfolio. $\alpha$ is the intercept: the portfolio's average
+excess return <em>after</em> you strip out everything its market exposure
+already explained. The residual $\varepsilon$ is the part the model
+gives up — what is left after $\beta$ has done its work.
 </p>
 <p>
-Statistical significance tells you that an observed correlation is unlikely to have occurred by chance alone. It does not tell you that the correlation is stable over time, that it will persist in the future, or that it reflects a causal relationship you can exploit. A correlation between two variables computed over 50 years of data may be driven by a specific sub-period, may be caused by a third variable, or may have already been arbitraged away by other investors who noticed it earlier. Significant correlations in financial data are common; reliably profitable correlations are rare.
+The chart in §2.1 shows what this looks like in practice on five
+years of monthly data calibrated to a portfolio with $\alpha = 2\%$
+per year and $\beta = 0.85$. The dots scatter, the line slopes up,
+and the intercept reads about 17 basis points per month — exactly
+the 2%-annualised alpha we baked in. The cloud of dots above and
+below the line is $\varepsilon$: the part this single factor cannot
+explain, which is where multi-factor regressions go to work.
+</p>
+<img src="image/week45_regression_alpha.png" alt="Single-factor regression with alpha and beta">
+<p>
+The Fama-French extension simply adds more right-hand-side terms:
 </p>
 <p>
-<strong>Misconception 3: "More data always leads to better analysis."</strong>
+$$R_p - R_f = \alpha + \beta_1 \cdot \text{MKT} + \beta_2 \cdot \text{SMB} + \beta_3 \cdot \text{HML} + \beta_4 \cdot \text{UMD} + \varepsilon.$$
 </p>
 <p>
-More data helps only if the data is relevant and the underlying process is stable. Using 100 years of stock market data to calibrate a model sounds rigorous, but if the market's structure has fundamentally changed -- as it did with the shift from physical trading floors to electronic markets, or the rise of passive investing -- old data may be more misleading than helpful. Using data from 1930 to predict behavior in 2025 assumes a stable data-generating process that almost certainly does not exist. The right amount of data is enough to cover multiple market cycles while remaining in a reasonably consistent structural regime.
+Run this regression on a small-cap value fund and you will discover
+that its "alpha" from the one-factor model — say 4% per year — was
+actually a $\beta_2$ loading of 0.40 on size and a $\beta_3$ loading
+of 0.30 on value, multiplied by the 1963-2024 SMB and HML premia we
+catalogued in Week 23. Subtract those and the residual alpha is
+near zero, and not statistically distinguishable from it. Three
+percent of the four was <em>factor compensation</em>, not skill. That is
+the same finding S&P SPIVA prints every year; the regression is
+just the mathematical statement of why.
+</p>
+<h4>2.2 Residuals as the working definition of alpha</h4>
+<p>
+The intercept is alpha-on-paper; the residuals are alpha-in-process.
+A skilled manager generates not just a positive intercept but a
+residual series whose <em>t-statistic</em> survives the noise. If a fund
+has alpha of 0.20% per month with a residual standard deviation of
+2% per month over 60 months, the t-stat is
 </p>
 <p>
-<strong>Misconception 4: "If a strategy worked in a backtest, it should work going forward."</strong>
+$$t = \frac{0.20\%}{2\%/\sqrt{60}} = \frac{0.20\%}{0.258\%} \approx 0.78.$$
 </p>
 <p>
-Backtests are subject to at least a dozen biases including survivorship bias, look-ahead bias, overfitting, data snooping, and transaction cost underestimation. The gap between backtested performance and live performance is consistently negative -- strategies perform worse live than in backtests. A responsible evaluation of a backtested strategy requires out-of-sample testing, realistic transaction costs, slippage estimates, and a credible economic rationale for why the edge exists and why it has not been arbitraged away.
+That is <em>not</em> statistically significant — there is no way to
+distinguish that intercept from zero with sixty data points and that
+much noise. You need either a longer window, a higher alpha, or a
+lower residual vol — typically all three — for the t-stat to clear
+the conventional 2.0 threshold. SOUL #1 says alpha is rare; the
+t-stat is the arithmetic of how rare. A 2% alpha at 5% residual vol
+needs roughly 25 years of monthly data before its t-stat trips 2.0.
+Twenty-five years. That is how long it takes to <em>prove</em> skill at
+that magnitude — not detect it, prove it. Most managers have not
+been managing money for twenty-five years.
+</p>
+<h4>2.3 Cross-sectional regression for stock picking</h4>
+<p>
+The CAPM regression is <em>time-series</em>: one fund, T monthly returns,
+one slope. The other family is <em>cross-sectional</em>: one date, N
+stocks, fit returns against current-snapshot characteristics.
 </p>
 <p>
-<strong>Misconception 5: "Correlation between two assets is a fixed number."</strong>
+$$r_{i,t+1} = \gamma_0 + \gamma_1 \cdot \text{B/M}_{i,t} + \gamma_2 \cdot \text{Size}_{i,t} + \gamma_3 \cdot \text{Mom}_{i,t} + u_{i,t+1}.$$
 </p>
 <p>
-Correlations are not constants -- they are summary statistics of a particular sample period that change dramatically over time. Stock-bond correlations have been positive for decades, negative for decades, and then positive again. Correlations among equity markets spike during crises, precisely when diversification is most needed. Any portfolio construction or risk management built on the assumption of stable correlations will eventually fail when correlations shift.
+You run this for every month, collect the time series of
+$\gamma_1, \gamma_2, \gamma_3$ slopes, and average them. The
+average $\gamma_j$ is the realised premium per unit of factor
+exposure, and its t-stat tells you whether the factor pays. This
+is the Fama-MacBeth procedure (1973), and it is still the
+workhorse of academic factor research half a century later. Every
+"barra-style risk model" you have ever seen on a sell-side desk is
+some flavour of cross-sectional regression.
 </p>
 <p>
-<strong>Misconception 6: "I found a pattern that works, so I should trade on it."</strong>
+The retail use-case is signal building. You take a universe of
+500 stocks, score each on (book-to-market, profitability, 12-month
+momentum), regress <em>next-month</em> returns against those scores,
+form the long-short portfolio implied by the slopes, and rebalance.
+That is the inside of every smart-beta ETF.
+</p>
+<h4>2.4 Time series: AR, MA, ARMA, and the random walk benchmark</h4>
+<p>
+For pricing series, the unconditional first question is: is this a
+random walk, or is there persistence? An AR(1) model
 </p>
 <p>
-Finding a pattern in data is the easiest part of quantitative investing. The hard part is determining whether the pattern is real or spurious. Before trading on any pattern, you must answer: Does it have a logical economic mechanism? Does it survive out-of-sample testing? Does it survive after transaction costs? Would it survive if other investors discovered it? Has it been documented in academic literature (if so, it may have already been arbitraged)? If any answer is "no," the pattern is likely noise.
+$$r_t = \phi \cdot r_{t-1} + \epsilon_t$$
+</p>
+<p>
+estimates the autocorrelation $\phi$ at lag one. If $\phi > 0$,
+returns trend (this week's move predicts next week's). If $\phi < 0$,
+returns mean-revert. For US monthly equity returns the realised
+$\phi$ is about $+0.10$ — barely distinguishable from zero, which is
+why monthly stock returns are essentially impossible to forecast
+from their own history. For <em>daily</em> equity returns $\phi$ is mildly
+<em>negative</em> (microstructure mean-reversion); for cross-sectional
+relative returns at the <em>6 to 12-month</em> horizon $\phi$ is mildly
+<em>positive</em> (Jegadeesh-Titman momentum, SOUL #8). Where $\phi$ is
+zero, no model that takes only past prices as input can win.
+</p>
+<p>
+MA(q) and ARMA(p,q) models layer in moving-average residual terms
+to capture the news-arrival shock structure. In practice, for
+liquid equity returns, the best ARMA fits beat the
+zero-mean-random-walk benchmark by a few basis points of monthly
+RMSE — economically irrelevant after costs. For <em>volatility</em>
+series, on the other hand, AR-style models are wildly successful:
+volatility is highly persistent ($\phi \approx 0.95$ on daily VIX),
+which is why GARCH and HAR-RV models genuinely forecast tomorrow's
+volatility from today's. SOUL #6 — the volatility tail wags the
+return dog — gets a lot of its leverage from this asymmetry. You
+cannot forecast next month's return; you absolutely can forecast
+next month's variance.
+</p>
+<h4>2.5 Rolling vs expanding windows, and the parameter-stability problem</h4>
+<p>
+Once you commit to fitting a model on history, the next choice is
+whether to use <em>all</em> of history (expanding window: at month $t$,
+fit on data from inception through $t-1$) or only the recent past
+(rolling window: at month $t$, fit on the last 60 months).
+Expanding windows have more data and therefore tighter estimates,
+<em>if</em> the underlying parameter is stable. Rolling windows adapt when
+the parameter changes, <em>if</em> the regime change is real and not noise.
+</p>
+<p>
+There is no theoretically correct answer; there is only a
+parameter-stability test. For a CAPM beta on a megacap stock,
+expanding-window estimates from 1990-2024 give a roughly fixed
+beta — the parameter is stable and rolling adds noise. For the
+HML factor's market beta, on the other hand, expanding-window
+estimates are nonsense — the factor's beta on the market shifted
+sign in 2007. There the rolling window is mandatory. The
+practical default is a rolling 36-60 month window for monthly
+data, with a Chow break test for whether the parameter has shifted.
+</p>
+<h4>2.6 Train/validation/test, and the walk-forward defence</h4>
+<p>
+Every machine-learning pitch you will ever hear in finance involves
+the same vulnerability: the model was tuned on the same data its
+out-of-sample performance is reported against. The standard
+defense is a three-way split.
+</p>
+<ul><li><strong>Train</strong> (e.g. 1990-2010): fit model parameters.</li>
+<li><strong>Validation</strong> (e.g. 2011-2017): tune hyperparameters — number of</li>
+<p>
+</ul>  features, regularisation strength, depth of tree, etc. The model
+is <em>re-fit</em> with each hyperparameter setting on train, scored on
+validation, and the best hyperparameter chosen.
+</p>
+<ul><li><strong>Test</strong> (e.g. 2018-2024): the model is evaluated <em>exactly once</em></li>
+<p>
+</ul>  with its frozen hyperparameters. No re-tuning.
+</p>
+<p>
+The brutal fact is that the test set, in an honest pipeline, is
+used once and then discarded. You cannot iterate on a strategy
+against the test set without it becoming a second validation set.
+<em>Walk-forward validation</em> generalises this: at every point in time
+$t$, the model is fit on data through $t-1$, used to predict $t$,
+and the next $t$ is appended to the training set. The realised
+out-of-sample performance is the only honest performance estimate.
+</p>
+<p>
+The danger is the opposite of what most retail investors think.
+Overfitting does not look like a slightly-too-good in-sample
+result; it looks like a <em>spectacularly good</em> in-sample result that
+collapses to nothing — or worse, to <em>negative</em> — on the test set.
+The chart in §2.7 shows the canonical hump.
+</p>
+<h4>2.7 Overfitting, multiple testing, and the false-alpha mill</h4>
+<img src="image/week45_overfit_curve.png" alt="In-sample vs out-of-sample Sharpe across model complexity">
+<p>
+The classical curve has in-sample Sharpe rising monotonically with
+model complexity (more parameters, deeper trees, more features) —
+because with enough free parameters you can memorise the noise.
+Out-of-sample Sharpe rises briefly, peaks at some moderate
+complexity, and then <em>collapses</em>. The gap between the two curves
+is the overfitting tax. It is the single most reproducible
+phenomenon in empirical machine learning, and it is universal: it
+shows up in equity prediction, options pricing, credit scoring,
+and ad-click models alike.
+</p>
+<p>
+The financial twist on top of this is <em>multiple testing</em>. Every
+researcher who tries a strategy and abandons it without publishing
+contributes to the survivorship of the strategies that happened to
+look good. If a hundred quants each try fifty signal variants on
+the same dataset, the combined family-wise error rate at $p < 0.05$
+is essentially one. Marcos Lopez de Prado's <em>Deflated Sharpe Ratio</em>
+formalises this: the Sharpe at which a strategy must come in to
+beat the noise of having tried <em>N</em> alternatives is roughly
+$\sqrt{2 \log N}$ standard deviations of the null. Try a thousand
+strategies and the bar is roughly $\sqrt{2 \log 1000} \approx 3.7$
+standard deviations of the unconditional Sharpe-noise — which on
+a 5-year backtest is a Sharpe of about 1.6 just to clear the bar
+of having looked. Most published anomalies do not clear it.
+</p>
+<h4>2.8 Why most ML alpha is feature engineering</h4>
+<p>
+Lopez de Prado's <em>Advances in Financial Machine Learning</em> (2018)
+makes the point in two slogans. <em>"The model is the easy part."</em>
+*"Most of the work is in labelling the target and engineering the
+features."* The reason is that financial data has a vanishingly
+low signal-to-noise ratio (about 0.05 R-squared per month for the
+best-fit linear model on equity returns), severe non-stationarity
+(the signal you found in 2010 may not work in 2020), and a
+labelling problem (was that price move a regime change, or
+microstructure noise?). The model — random forest, XGBoost,
+neural network — is largely a commoditised step. The differentiation
+sits in the features (which transformations of price/volume/order
+flow you fed in) and the labels (whether a 1% move counts as
+"+1" or you weighted by triple-barrier exits).
+</p>
+<p>
+For the retail investor, the consequence is uncomfortable: the
+serious money in quant alpha is almost never made by training
+yet another XGBoost on yet another OHLCV dataset. It is made by
+sourcing or constructing features no one else has — alternative
+data, satellite imagery, credit-card panels, supply-chain text
+embeddings. SOUL #5's "information edge" lane is real but
+expensive. The "structural" lanes (liquidity, factor compression,
+vol-tail mispricing) remain the cheaper and more durable game for
+a single account.
 </p>
 <hr>
-<h3>d) Common Questions and Answers</h3>
+<h3>3. Common Misconceptions</h3>
+<li><strong>"R-squared 0.9 means the model is good."</strong> R-squared measures</li>
 <p>
-<strong>Q1: How many observations do I need for a reliable regression?</strong>
+variance explained, not predictive power. A regression of fund
+returns on the S&P with R-squared = 0.95 just means the fund is
+correlated with the market. It tells you nothing about whether
+the fund's alpha is real or whether you can <em>forecast</em> either
+series from anything.
 </p>
+<li><strong>"My backtest Sharpe is 2.5 in-sample, so the strategy works."</strong></li>
 <p>
-A: The minimum depends on the number of parameters in your model. A conservative rule is 50 observations per parameter. For a single-factor regression, 50 monthly observations (about 4 years) is a bare minimum, and 120 (10 years) is much better. For a five-factor model, you want at least 250 monthly observations (20+ years). These minimums assume stationary data with reasonably stable relationships. For non-stationary data or unstable relationships, no sample size is sufficient -- you need to fix the data issues first. Remember that the effective sample size may be smaller than the number of observations due to autocorrelation and regime changes.
+In-sample Sharpe is, on average, optimistically biased by roughly
+$\sqrt{N}$ standard deviations where N is the number of variants
+you tried. A 2.5 in-sample Sharpe routinely walks forward to 0.3.
 </p>
+<li><strong>"P-value below 0.05 means the result is real."</strong> A p-value below</li>
 <p>
-<strong>Q2: What is the difference between the Sharpe ratio and statistical significance of alpha?</strong>
+0.05 means the probability of observing this result *given the null
+is true* is below 5%. With a thousand simultaneous tests, the
+expected number of false positives at p < 0.05 is fifty. Without
+a multiple-testing correction, "p<0.05" is barely an anchor.
 </p>
+<li><strong>"More data is always better."</strong> More data is better only if the</li>
 <p>
-A: The Sharpe ratio measures risk-adjusted return: excess return divided by standard deviation. It does not require a regression or a benchmark. Statistical significance of alpha, measured by the t-statistic from a regression, tests whether the fund's return above its benchmark exposure is distinguishable from zero. A fund can have a high Sharpe ratio but insignificant alpha if its returns are explained by factor exposures. Conversely, a fund with low Sharpe ratio could have significant alpha if it generates consistent returns uncorrelated with its benchmark. For evaluating manager skill, the t-statistic of alpha is more informative. For evaluating a standalone investment, the Sharpe ratio is more relevant.
+underlying data-generating process is stable. Adding 1990s data
+to your TIPS-breakeven model when TIPS did not exist before 1997
+is not "more data," it is contamination.
 </p>
+<li><strong>"Out-of-sample Sharpe of 1.0 = great."</strong> Out-of-sample Sharpe of</li>
 <p>
-<strong>Q3: How do I test whether a series is mean reverting?</strong>
+1.0 net of transaction cost on a strategy whose features were
+chosen in 2010 and tested through 2024 is great. Out-of-sample
+Sharpe of 1.0 <em>gross</em> of cost on a six-month holdout that the
+researcher iterated against forty times is meaningless.
 </p>
+<li><strong>"Machine learning finds patterns humans miss."</strong> Machine</li>
 <p>
-A: Use the Augmented Dickey-Fuller (ADF) test. In Python: <code>from statsmodels.tsa.stattools import adfuller; result = adfuller(series)</code>. If the p-value is below 0.05, you have evidence of mean reversion. You can also calculate the half-life of mean reversion by fitting an AR(1) model: Y(t) - Y(t-1) = a + b*Y(t-1) + error. The half-life = -ln(2)/ln(1+b). If b is close to zero, mean reversion is slow; if b is close to -1, mean reversion is fast. Be cautious: mean reversion tests have low power with short samples, meaning they frequently fail to detect mean reversion that actually exists. Use 10+ years of data if possible.
+learning fits flexible functions to whatever you feed it. With
+N parameters, an unregularised model can fit any pattern in
+N-1 data points — including the noise. Whether the <em>pattern</em>
+it found is real is a question the model itself cannot answer.
 </p>
+<li><strong>"Cross-validation eliminates overfitting."</strong> K-fold cross</li>
 <p>
-<strong>Q4: Why is time series regression different from cross-sectional regression?</strong>
+validation does not work for time series — it leaks future
+information into the training fold. The only valid CV for
+financial data is walk-forward with embargo (Lopez de Prado
+§7), and even then the test set is consumed once.
 </p>
+<li><strong>"Beta is constant."</strong> Beta is a regression slope on a finite</li>
 <p>
-A: In cross-sectional regression, you compare different entities at one point in time (e.g., the returns of 500 stocks in January 2025). In time series regression, you follow one entity over many time periods (e.g., the returns of one fund over 120 months). Time series data has temporal dependencies -- today's observation is related to yesterday's -- which violates the independence assumption of standard regression. This means standard errors may be too small, making results look more significant than they are. Time series regression requires checks for autocorrelation (Durbin-Watson or Breusch-Godfrey test), heteroscedasticity (ARCH effects in financial data), and stationarity. Use Newey-West standard errors or HAC (heteroscedasticity and autocorrelation consistent) standard errors to correct for these issues.
+window. It is <em>estimated</em> with error and changes through time.
+Famously, the beta of value stocks against the market shifted
+from positive to roughly zero around 2007.
 </p>
+<li><strong>"My factor exposure regression has alpha. I have skill."</strong></li>
 <p>
-<strong>Q5: How can I tell if a factor (like value or momentum) is actually being compensated by the market?</strong>
+Statistically-significant alpha in a five-factor regression on a
+60-month window is not, on its own, a skill demonstration. You
+need the t-stat, the residual diagnostics, and ideally a separate
+holdout. Twenty-five years of data, if not more.
 </p>
+<li><strong>"Quant models replaced traders."</strong> In aggregate, quant equity</li>
 <p>
-A: A factor is considered "compensated" if it has a persistent, positive risk premium with a plausible economic explanation. Test this by examining: (1) the average return of a long-short portfolio sorted on the factor over a long period (50+ years, multiple countries), (2) the t-statistic of this average return (should be above 3.0 given the multiple testing problem), (3) whether the factor survives after transaction costs, (4) whether it has an economic rationale (risk-based: investors are compensated for bearing a risk; behavioral: investors systematically make errors), and (5) whether it persists out of sample and in international markets. Value and momentum pass all five tests. Most other factors fail at least one.
-</p>
-<p>
-<strong>Q6: What is the practical relevance of quantitative methods for a buy-and-hold index investor?</strong>
-</p>
-<p>
-A: Even if you never run a regression, understanding quantitative methods protects you from being misled. When an advisor shows you a "proven" strategy, you can ask about out-of-sample testing, survivorship bias, and transaction costs. When a fund manager claims alpha, you can assess whether the t-statistic is meaningful. When financial media promotes a correlation (e.g., "the January effect," "sell in May"), you can evaluate whether it is statistically robust or data-mined noise. Quantitative literacy is defense against the constant stream of spurious claims in the financial industry. It is also essential for understanding factor investing and making informed decisions about factor tilts in your portfolio.
-</p>
-<p>
-<strong>Q7: How should I handle the fact that financial data has fat tails and is not normally distributed?</strong>
-</p>
-<p>
-A: Standard regression assumes normally distributed errors. Financial returns have fat tails (extreme events occur much more frequently than a normal distribution predicts) and sometimes skewness. This means standard significance tests can be unreliable. Practical remedies include: (1) using robust standard errors (HAC, bootstrapped), (2) checking results with non-parametric tests that do not assume normality, (3) being especially cautious about results that depend on extreme observations (remove them and see if results hold), and (4) recognizing that models calibrated to "average" market conditions will underestimate tail risk. For portfolio construction, consider using the t-distribution or historical simulation rather than assuming normal distributions.
+market share has been about 30-40% of US dollar volume for the
+past decade. The remainder is humans, and a great deal of the
+quant share is execution, not signal generation. The interesting
+money is split.
 </p>
 <hr>
+<h3>4. Q&A Section</h3>
+<p>
+**Q1. If a regression gives my fund alpha = 1.5% per year and t-stat
+= 1.4, what should I conclude?**
+Nothing. T-stat 1.4 corresponds to a one-tailed p-value of about 8%,
+two-tailed about 16%. You cannot reject the null that the true alpha
+is zero. The estimate is consistent with skill <em>and</em> consistent with
+luck. You need more data, a higher alpha, or both before you can
+draw any conclusion.
+</p>
+<p>
+<strong>Q2. How long do I need to evaluate a manager?</strong>
+Roughly 25 years for monthly data if the alpha is 2% per year and
+the residual vol is 5% per year — at which point the t-stat just
+clears 2.0. If the residual vol is higher (a typical hedge fund),
+multiply. The implication is uncomfortable: most "great" track
+records are not statistically distinguishable from luck.
+</p>
+<p>
+**Q3. What R-squared should I expect on a single-factor CAPM regression
+of a US large-cap fund versus the S&P 500?**
+0.85 to 0.95 is normal. An R-squared of 0.99 means the fund is a
+closet indexer (you should pay nothing). An R-squared of 0.50 means
+the fund is taking large factor or sector bets and you should run a
+multi-factor regression to see what they are.
+</p>
+<p>
+<strong>Q4. Why is autocorrelation of monthly equity returns near zero?</strong>
+Because if it were materially positive, momentum strategies would
+arbitrage it away to zero, and if it were materially negative,
+mean-reversion strategies would do the same. The residual
+near-zero is the equilibrium. It survives at the <em>cross-sectional</em>
+level (relative momentum across stocks at 6-12-month horizons)
+where the arbitrageable shape is messier and slower.
+</p>
+<p>
+<strong>Q5. What is "look-ahead bias" in practice?</strong>
+Using information you would not have had at the moment you traded.
+Common examples: backtesting a "buy when P/E < 15" rule using the
+P/E based on full-year reported earnings (which were only known
+months later), using GDP-revision data (revised down years after
+the fact) as if it were the print, or using reconstructed index
+constituents that exclude companies that went bankrupt
+mid-history. Survivorship bias is a special case.
+</p>
+<p>
+**Q6. What is the difference between in-sample, validation, and
+out-of-sample?**
+In-sample: data the model was fit on. The fit is, mechanically,
+good. Validation: data used to choose hyperparameters. Independent
+of training but consumed in the tuning step. Out-of-sample / test:
+data the model has never seen. A correctly-built pipeline runs the
+test set exactly once, after the entire model — including
+hyperparameters — is frozen.
+</p>
+<p>
+<strong>Q7. How many parameters can I use before overfitting?</strong>
+The rule of thumb on linear models is 10-20 observations per
+parameter as a <em>minimum</em>. For non-linear models with many degrees
+of freedom (random forests, neural nets) the answer depends on
+regularisation; the empirical defense is walk-forward Sharpe — if
+adding parameters does not improve walk-forward Sharpe, the
+in-sample improvement is overfitting.
+</p>
+<p>
+<strong>Q8. Should I use ML or linear regression for stock prediction?</strong>
+Linear regression first, always. If a linear model on
+well-engineered features cannot find a signal, an ML model on the
+same features will not find one either; it will just overfit
+faster and feel like skill. ML earns its keep when the underlying
+relationship is actually non-linear, <em>and</em> you have enough data
+to estimate the non-linearity, <em>and</em> you have a feature set that
+the linear model cannot exploit. That is a small intersection.
+</p>
+<p>
+<strong>Q9. What is "data mining" and what is wrong with it?</strong>
+Data mining is searching a large space of strategies for what
+fits past data. Mathematically it is fine; what is wrong is
+<em>reporting the best one as if it had been the only one tried</em>.
+Without a multiple-testing correction, the reported Sharpe is
+biased upward by the size of the search. Lopez de Prado's deflated
+Sharpe is the standard fix.
+</p>
+<p>
+<strong>Q10. Why is feature engineering more important than the model?</strong>
+Because financial data is low signal-to-noise and the marginal
+return on model complexity is sharply diminishing. Two competing
+shops with the same features and different ML models tend to
+converge to similar Sharpe ratios; two shops with the same ML
+model but materially different feature sets diverge sharply. The
+features are where the information sits.
+</p>
+<p>
+<strong>Q11. Can I run these regressions myself?</strong>
+Yes. Python's <code>statsmodels</code> or <code>scikit-learn</code>, or R's <code>lm()</code>, run
+a five-factor regression in two lines. Kenneth French's data
+library publishes the FF5 + UMD monthly factor returns for free,
+1963 to present. Subscript the time series, regress, read off
+alpha and t-stat. The week's interactive lab does the basic
+single-factor version inline.
+</p>
+<p>
+<strong>Q12. What is the single most important habit?</strong>
+Always reserve a holdout. Always. Whatever fraction of your data
+you can spare — 20%, 30%, the last three years — reserve it before
+you do anything else, and do not look at it. When the strategy is
+final, <em>exactly once</em>, score it on the holdout. The number you get
+is the only honest number you will have. SOUL #1's "alpha is rare"
+becomes intuitive the first time you watch a strategy's
+in-sample Sharpe of 2.5 walk forward to 0.4.
+</p>
             </div>
             <div id="content-hk" class="lang-content">
                 <h1>第45週：投資者量化方法</h1>

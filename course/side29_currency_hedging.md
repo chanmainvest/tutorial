@@ -1,4 +1,4 @@
-# Side Lesson 29: Currency Hedging for International Investors
+# Side Lesson 29: Currency Hedging — When to Hedge, How to Hedge, and the Cost of Insurance
 
 ---
 
@@ -6,226 +6,411 @@
 
 ---
 
-### Introduction
+### 1. Why This Is Important
 
-When you invest in international stocks or bonds, you are making two bets simultaneously: one on the foreign asset and one on the foreign currency. A Japanese stock might gain 15% in yen terms, but if the yen falls 10% against the US dollar during that period, your dollar-denominated return is only about 5%. Currency movements can amplify or erase the returns of your underlying investments. Understanding foreign exchange exposure, how hedging works, the tools available to manage it, and when hedging makes sense versus when it does not is essential for any investor with international holdings. This is not an exotic topic reserved for institutional investors; anyone who owns an international ETF is exposed to currency risk. The good news is that managing this risk has never been easier, thanks to the availability of hedged ETFs that handle all the complexity for you.
+Side lesson 18 told you the punchline first: this course's recommended
+portfolio is U.S.-listed equities only. So why is there a whole side
+lesson on currency hedging? Because **the SOUL #16 rule is about
+equities, not bonds, and it has exceptions.** The moment you reach
+outside the United States for *anything* — an EAFE sleeve, an
+international bond fund, a foreign-currency cash deposit, a Swiss
+holding company that owns a U.S. ADR — currency arithmetic is back in
+your portfolio whether you wanted it or not.
+
+There are four reasons this is worth a full side lesson rather than a
+footnote:
+
+1. **The "leave international unhedged" reflex is the wrong default
+   for international bonds.** For stocks the conventional wisdom is
+   roughly defensible (currency vol ~7-9%/yr is small relative to
+   equity vol ~16%/yr, and over 10+ years the FX leg has roughly
+   zero expected return). For investment-grade ex-U.S. bonds the
+   currency vol *exceeds the asset vol* — a 4% yielding German bund
+   with 8% currency volatility is a worse Sharpe ratio than a U.S.
+   T-note. If you own non-U.S. bonds and you don't hedge, you have
+   accidentally turned a fixed-income sleeve into an FX trade.
+2. **Hedging cost is not trivia, it is a measurable price.**
+   Covered-interest-parity makes the cost of a one-year currency
+   hedge approximately equal to the *interest rate differential*.
+   When U.S. T-bills yield 4.3% and Japanese T-bills yield 0.3%, the
+   one-year USD/JPY hedge *earns* you about 4 percentage points; when
+   euro rates briefly exceeded U.S. rates in 2008-2009, the hedge
+   *cost* you ~50bp. Knowing this number turns "should I hedge"
+   into a calculation, not a vibe.
+3. **Hedged ETFs exist and are cheap.** HEFA (iShares EAFE hedged)
+   charges 35bp; HEDJ (Europe hedged) and HEWJ (Japan hedged) are in
+   the same range. The hedge mechanic — rolling one-month forwards
+   — is not exotic, it is a baked-in feature you can buy or skip
+   with one ticker change. The retail toolkit is fully built out.
+4. **The dollar regime moves in long swings, not noise.** The DXY
+   spent 2002-2008 falling, 2008-2014 ranging, 2014-2022 rising
+   sharply, and 2024-2026 retracing. These are *six- to ten-year*
+   regimes — long enough that being wrong-footed once costs you a
+   chunk of an investing lifetime. You do not have to predict the
+   next regime to size around the last three.
+
+This lesson is not telling you to hedge. It is telling you what the
+trade-off looks like, where the corner cases are, and which ETFs to
+use when you decide it is worth doing.
 
 ---
 
-### A) Why Important
+### 2. What You Need to Know
 
-**Return impact.** Currency fluctuations can account for a significant portion of international investment returns. In some years, currency movements add 10% or more to returns; in others, they subtract 10% or more. Over the past decade, the strengthening US dollar reduced returns for American investors in foreign assets by several percentage points annually in many markets. Ignoring currency risk means ignoring a major driver of your returns.
+#### 2.1 The Two-Bet Decomposition
 
-**Volatility impact.** Adding unhedged currency exposure to a portfolio increases volatility. For international bond investments, currency risk can actually exceed the bond's own price risk. A stable European government bond becomes a volatile investment when you layer on euro/dollar exchange rate fluctuations. For equities, currency adds a secondary source of volatility on top of already-volatile stock prices.
+Every dollar you put into a foreign asset is two bets:
 
-**Portfolio construction.** The decision to hedge or not to hedge foreign currency exposure is one of the most important portfolio construction choices for international investors. It affects expected returns, portfolio volatility, correlation with other assets, and drawdown characteristics. Making this decision deliberately rather than by default improves your portfolio.
+1. **The local-currency return on the asset** — the stock or bond
+   priced in its home currency.
+2. **The currency return** — the change in exchange rate between
+   that home currency and the U.S. dollar over the holding period.
 
-**Cost awareness.** Hedging is not free. The cost of hedging depends on interest rate differentials between countries. When US interest rates are higher than foreign rates, hedging foreign currencies into dollars generates a positive carry, effectively earning you extra return. When US rates are lower, hedging costs money. Understanding these costs helps you decide when hedging is economically attractive. The current rate environment, with US rates significantly above European and Japanese rates, makes hedging unusually attractive for US investors.
+The exact dollar-denominated return is the product:
 
-**Product selection.** Many international ETFs are available in both hedged and unhedged versions. Choosing between them requires understanding currency dynamics, hedging mechanics, and your own investment horizon. This knowledge directly influences which specific products you buy. Making an informed choice between, say, EFA and HEFA could mean a difference of 5-10 percentage points in returns in any given year, which is a far larger impact than most other portfolio decisions.
+$$
+1 + R_{\text{USD}} \;=\; (1 + R_{\text{local}}) \times (1 + R_{\text{FX}})
+$$
 
-**Retirement income stability.** For retirees drawing income from international investments, currency fluctuations can create unwelcome volatility in their income stream. A hedged international portfolio provides more predictable dollar-denominated cash flows, which is especially important when those flows are funding living expenses.
+For small returns the cross-product is negligible and the decomposition
+is approximately additive: $R_{\text{USD}} \approx R_{\text{local}} +
+R_{\text{FX}}$. A worked example: in 2024 the Nikkei 225 returned about
++19.2% in yen terms; the yen depreciated about 11% against the dollar;
+the unhedged USD return was therefore $(1.192)(0.89) - 1 \approx +6.1\%$.
+A Japanese investor saw +19%, an American who held the same stock
+unhedged saw +6%, and an American who held it hedged saw approximately
++19% minus the hedge cost.
 
-**Economic literacy.** Currency markets are the largest financial markets in the world, with daily turnover exceeding $7 trillion. Understanding exchange rate dynamics improves your comprehension of global economics, trade, monetary policy, and geopolitical events, all of which affect your broader portfolio.
+The volatility decomposition under the assumption of independent FX
+and local returns is:
+
+$$
+\sigma^2_{\text{USD}} \;=\; \sigma^2_{\text{local}} + \sigma^2_{\text{FX}}
+$$
+
+For an unhedged developed-market equity, this is roughly $16^2 + 8^2 =
+17.9\%$ — about 12% higher portfolio vol than the local. For an
+unhedged developed-market 7-year bond it is $5^2 + 8^2 = 9.4\%$ — vol
+is **double** the underlying. The FX leg matters categorically more for
+bonds than for stocks.
+
+#### 2.2 What a Hedged ETF Actually Does
+
+A "currency-hedged" ETF holds the foreign basket *and* sells a series
+of one-month foreign-currency forwards equal in notional to the basket.
+At each month-end the forward expires, the realised FX P&L is settled
+in dollars, and a new forward is opened. The mechanical effect: for the
+one month between rolls, the dollar return tracks the local-currency
+return almost exactly, less a small drag from forward pricing.
+
+The drag is the **interest-rate differential**, which by
+covered-interest-parity equals the percentage difference between the
+spot rate and the forward rate:
+
+$$
+\text{Forward}/\text{Spot} \;\approx\; \frac{1 + r_{\text{foreign}}}
+{1 + r_{\text{US}}}
+$$
+
+Re-arranged for an annualised hedge cost:
+
+$$
+\text{Hedge cost (per year)} \;\approx\; r_{\text{US}} - r_{\text{foreign}}
+$$
+
+This is a sign-honest number. If U.S. short-term rates exceed foreign
+rates (the situation in April 2026: U.S. 4.3%, EUR 2.0%, JPY 0.5%, GBP
+4.0%), the hedge **earns positive carry** of ~2.3% against the euro and
+~3.8% against the yen *before* the ETF's expense ratio. If the spread
+inverts (the U.S. ZIRP era 2009-2015 against most of the world), the
+hedge bleeds carry — but this is rare and shallow, typically 0-50bp
+against major currencies.
+
+Three vehicles to know:
+
+- **HEFA** — iShares Currency Hedged MSCI EAFE. 35bp ER. AUM ~$8B.
+  The hedged twin of EFA. Pairs cleanly with the unhedged sibling for
+  comparison.
+- **HEDJ** — WisdomTree Europe Hedged Equity. 58bp ER. AUM ~$2B.
+  Tilts toward export-heavy Europe (Siemens, ASML, LVMH, Sanofi).
+- **HEWJ** — iShares Currency Hedged MSCI Japan. 35bp ER. AUM ~$0.4B.
+  The hedged twin of EWJ.
+
+The 35bp ER is on top of the underlying basket's natural cost. The
+hedge mechanic itself adds approximately 5-10bp of frictional cost
+(monthly roll, bid-ask on forwards) on top of any carry signal.
+
+![Wealth path of $1 invested 2010 through April 2026 in EFA (unhedged EAFE) versus HEFA (hedged EAFE). HEFA backfilled with EAFE-local returns pre-inception (2014). The two paths diverge in 2014-2015 (hedged wins as USD rallies), reconverge 2017 (unhedged wins as EUR strengthens), separate again 2022 (hedged wins as USD spikes), and finish near each other.](image/side29_hedged_vs_unhedged.png)
+
+#### 2.3 The Long-Run Equivalence Theorem
+
+A robust empirical regularity: over rolling 10- to 20-year windows,
+**hedged and unhedged international equity returns are within roughly
+10-30bp/yr of each other.** The mechanism is straightforward — over
+long enough horizons real exchange rates revert to purchasing power
+parity, so the cumulative FX contribution to the unhedged return
+averages roughly zero, leaving you with just the asset return either
+way.
+
+What does *not* equalise: **volatility and drawdowns.** The hedged
+sleeve has consistently lower realised vol (about 16% vs 18% on EAFE
+since 2002) and shallower max drawdowns. So the long-run trade-off
+collapses to: same expected return, lower vol — i.e., a higher Sharpe
+ratio for the hedged sleeve. This is the rare case where there is a
+free lunch in the data, and the cost of getting it is just the 35bp ER.
+
+The reason most retail advisors still recommend "leave international
+unhedged" is behavioural rather than mathematical. Holding HEFA against
+a falling dollar means *underperforming* the headline EFA in a
+dollar-bear regime, and clients fire advisors who underperform the
+benchmark even when total-return Sharpe is better. Institutional money
+that does not have that constraint hedges roughly 50-75% of its
+ex-U.S. equity exposure.
+
+#### 2.4 Short-Run: Five Regimes That Mattered
+
+Sub-decade windows are where the hedge/unhedge decision actually shows
+up in your statement. The post-1990 record:
+
+- **1995-2002 — strong dollar.** DXY ran from 80 to 120. Unhedged
+  ex-U.S. bled relative to hedged. Net cost of being unhedged: ~3-4%
+  per year for seven years.
+- **2002-2008 — weak dollar.** DXY dropped from 120 to 71. Unhedged
+  *won* by ~3-4% per year. This is the regime that locked in the
+  textbook recommendation to leave international unhedged.
+- **2014-2016 — strong dollar 2.0.** DXY surged from 80 to 100 over
+  18 months as the Fed taper diverged from ECB QE. HEFA outperformed
+  EFA by about 9 percentage points cumulative.
+- **2017 — weak dollar.** DXY fell 10% as Trump-tax-cut optimism
+  faded. Unhedged EFA returned 25%; HEFA returned 17%. The unhedged
+  sleeve won by 8 percentage points in a single year.
+- **2022 — strong dollar 3.0.** DXY hit 114, the highest since 2002,
+  as the Fed hiked 525bp into a global recession. HEFA -7.8%; EFA
+  -16.8%. The hedge saved 9 points of drawdown.
+- **2024-2026 — dollar retracement.** DXY drifted from 107 to 99.
+  Unhedged EFA modestly outperformed. The current April-2026 setup
+  is the kind of regime where *neither* side has a clear edge.
+
+The pattern: regimes are long (5-10 years), the magnitudes within them
+are large (3-4%/yr cumulative), and they do not telegraph in advance.
+That is what makes hedging a real allocation question rather than a
+pure "always" or "never."
+
+![Trade-Weighted U.S. Dollar Index (FRED DTWEXBGS, broad goods+services, monthly average) from 1990 through April 2026 with shaded regimes. Five labelled episodes: 1995-2002 strong-dollar, 2002-2008 weak-dollar, 2014-2016 strong-dollar 2.0, 2022 strong-dollar 3.0, 2024-2026 retracement.](image/side29_dxy_history.png)
+
+#### 2.5 The SOUL #16 Carve-Out: International Bonds
+
+The U.S.-only equity rule from side lesson 18 has one quietly important
+exception: **if you hold non-U.S. fixed income at all, you should
+hedge it.**
+
+The math from §2.1: a 4-5% yielding ex-U.S. investment-grade bond
+sleeve has roughly 5% local-price volatility and 8% currency
+volatility. Combined, the unhedged sleeve has *more* volatility than
+the bond's running yield — meaning the FX leg dominates. You are
+holding a vehicle that the marketing material calls "fixed income" but
+that behaves like an FX trade with a coupon strapped to it.
+
+Hedged international bond ETFs:
+
+- **BNDX** — Vanguard Total International Bond. 7bp ER. ~$50B AUM.
+  Hedged USD. The default if you want any non-U.S. fixed income at
+  all.
+- **IAGG** — iShares Core International Aggregate Bond. 7bp ER.
+  Hedged USD. BNDX's main competitor.
+
+Note both are *hedged by default* at the product level — there are no
+significant unhedged international IG bond ETFs trading at meaningful
+AUM, because the buyers of these products are the institutions that
+already did the math in this section.
+
+The course's actual position: own VGIT / IEF / TLT for duration, and
+own BNDX only if you want explicit non-U.S. credit/duration
+diversification. For most retail portfolios, the answer is "skip BNDX
+entirely; the diversification benefit is small once both vehicles are
+USD-hedged duration." But if you do reach for it, do not hold the
+unhedged version. There is no scenario in which an unhedged ex-U.S. IG
+bond sleeve is the optimal choice for a USD-spending investor.
+
+#### 2.6 Optimal Hedge Ratio: The Decision Tree
+
+You do not have to choose 0% hedged or 100% hedged. The hedge ratio
+$h$ that minimises portfolio volatility is given by the regression
+coefficient of unhedged return on FX return — which has a closed form:
+
+$$
+h^* \;=\; 1 + \rho \cdot \frac{\sigma_{\text{local}}}{\sigma_{\text{FX}}}
+$$
+
+where $\rho$ is the correlation between the local-currency asset return
+and the FX return. For developed-market equities $\rho$ is typically
+slightly positive (about +0.1 to +0.2), so $h^*$ comes out a little
+above 1.0 — fully hedge. For commodities and EM equities $\rho$ is
+typically negative (the local market sells off when its currency
+weakens), so $h^*$ is well below 1.0 — partial hedge or skip.
+
+The pragmatic decision rule the course uses:
+
+| Sleeve | Recommended hedge ratio | Vehicle |
+| --- | --- | --- |
+| U.S.-listed equity (per SOUL #16) | n/a | VTI/SPY |
+| U.S.-listed ADRs | 0% | TSM, ASML, etc. |
+| Ex-U.S. IG bonds | **100%** | BNDX, IAGG |
+| Ex-U.S. developed-market equity | 50-100% | HEFA + EFA mix |
+| Emerging-market equity | 0-50% | EEM unhedged or HDEM partial |
+| Commodities (priced in USD) | 0% | DBC, PDBC |
+| Gold (USD price) | 0% | GLD, IAU |
+
+The 50-100% ex-U.S. equity range is wide on purpose. It reflects that
+inside this course's framework you should not have a large ex-U.S.
+sleeve at all — and if you do, the choice between 50/50 and 100/0 is
+mostly about behavioural tracking-error tolerance, not about
+expected returns.
 
 ---
 
-### B) What You Need to Know
-
-#### Understanding Foreign Exchange Exposure
-
-Every international investment creates currency exposure. If you, as a US-based investor, buy shares of a European company listed on a European exchange, you must first convert US dollars to euros. When you sell, you convert euros back to dollars. The exchange rate at the time of sale may differ from the rate at the time of purchase, creating a currency gain or loss independent of the stock's performance.
-
-The math works as follows. Suppose you invest $10,000 in a European stock when the exchange rate is 1.10 dollars per euro (you get approximately 9,091 euros). The stock rises 10% in euro terms to 10,000 euros. If the exchange rate has changed to 1.00 dollars per euro, your 10,000 euros converts back to only $10,000. Despite the stock gaining 10%, your dollar return is zero because the euro weakened by approximately 9%.
-
-The formula for the dollar return on a foreign investment is approximately: Dollar Return = Local Currency Return + Currency Return + (Local Return x Currency Return). The cross-product term is small and often ignored, but the key insight is that dollar returns equal local returns plus currency returns.
-
-Currency risk is asymmetric in a subtle way. Because currency movements are multiplicative rather than additive, a 20% currency decline requires a 25% currency appreciation to break even. This mathematical asymmetry means that over time, currency volatility can create a drag on returns even if the expected currency movement is zero, similar to how portfolio volatility creates a drag on compound returns.
-
-For US investors, the US dollar's behavior relative to a basket of foreign currencies is a systematic risk factor. When the dollar strengthens, it acts as a headwind for all unhedged international investments. When it weakens, it provides a tailwind.
-
-**Translation exposure** arises from converting financial statements of foreign subsidiaries into the parent company's reporting currency. This affects multinational corporations and their reported earnings.
-
-**Transaction exposure** arises from outstanding obligations denominated in foreign currency, such as accounts receivable or payable. This affects companies engaged in international trade.
-
-**Economic exposure** is the broadest concept, encompassing the impact of exchange rate changes on a firm's future cash flows and competitive position. A US exporter becomes less competitive when the dollar strengthens because its products become more expensive for foreign buyers.
-
-Understanding these different types of exposure helps explain why the relationship between exchange rates and stock prices is complex. Even within a single stock market, some companies benefit from a strong domestic currency (importers, companies with foreign debt) while others are hurt (exporters, companies with foreign revenue). This heterogeneity means that currency hedging at the index level is a blunt tool that does not perfectly match the true economic exposure of the underlying companies.
-
-#### How Forward Contracts Work
-
-A forward contract is the primary tool for hedging currency risk. It is an agreement to exchange a specified amount of one currency for another at a predetermined rate on a future date.
-
-For example, if you own 100,000 euros worth of European stocks and want to hedge the currency risk for three months, you enter a forward contract to sell 100,000 euros and buy dollars at today's three-month forward rate. At the end of three months, regardless of what happens to the spot exchange rate, you exchange your euros at the pre-agreed forward rate.
-
-The forward rate is not a prediction of the future spot rate. Instead, it is determined by the interest rate differential between the two countries. This relationship is called covered interest rate parity. It is one of the most robust relationships in finance because any deviation would create a risk-free arbitrage opportunity that market participants would immediately exploit.
-
-If US interest rates are 5% and European rates are 3%, the dollar forward rate will be at a discount to the spot rate (the dollar is worth slightly less in the forward market). This means a US investor selling euros forward receives slightly more dollars than the current spot rate would suggest. The extra return, approximately 2% annualized in this example, is called the "forward premium" or "carry."
-
-Conversely, if US rates are lower than foreign rates, the US investor pays a premium to hedge, reducing returns.
-
-The formula for the annualized hedging cost or benefit is approximately: US interest rate minus Foreign interest rate. When this number is positive, hedging pays you. When negative, hedging costs you.
-
-To put this in concrete terms: with US short-term rates at 5% and eurozone rates at 3%, a US investor hedging euro exposure earns approximately 2% annually from the hedge itself. On a $100,000 position in European stocks, this forward premium generates roughly $2,000 per year in additional return, on top of whatever the European stocks themselves return. This is not a small number: it is comparable to the dividend yield on many equity portfolios. However, this benefit is not permanent. It exists only because of the current interest rate differential and will change as rates evolve in both countries.
-
-#### Hedged vs. Unhedged ETFs
-
-The ETF industry offers investors a clear choice between hedged and unhedged international exposure.
-
-**Unhedged ETFs** are the default. Major international equity ETFs like VXUS (Vanguard Total International Stock), EFA (iShares MSCI EAFE), and VWO (Vanguard Emerging Markets) are all unhedged. Your returns include both the local market return and the currency return. These ETFs are simpler, cheaper (lower expense ratios), and more common.
-
-**Hedged ETFs** use forward contracts (typically one-month forwards, rolled monthly) to neutralize currency exposure. Examples include HEFA (iShares Currency Hedged MSCI EAFE), HEZU (iShares Currency Hedged MSCI Eurozone), and HEWJ (iShares Currency Hedged MSCI Japan). Your returns approximate the local market return only, with currency effects removed. These ETFs have slightly higher expense ratios (typically 0.05-0.15% more) due to the cost of managing the hedge.
-
-**Performance comparison depends on the period.** During periods of dollar strength (like 2014-2016 and 2021-2022), hedged international ETFs significantly outperformed their unhedged counterparts because they avoided the drag of a rising dollar. During periods of dollar weakness (like 2017 and 2020), unhedged ETFs outperformed because they benefited from currency tailwinds. The magnitude of the difference can be striking: in 2022, HEFA outperformed EFA by over 6 percentage points, driven almost entirely by the strong dollar. In 2017, the reverse occurred with EFA outperforming by a similar margin as the dollar weakened.
-
-**Expense ratio comparison.** The cost difference between hedged and unhedged versions of the same index is typically modest. For example, EFA charges 0.32% while HEFA charges 0.35%, a difference of only 3 basis points. Given the significant impact currency can have on returns, this small fee premium for hedging is trivial relative to the potential risk reduction benefit.
-
-Over very long periods (20+ years), hedging tends to wash out for equities because currency movements are roughly mean-reverting. The dollar does not strengthen indefinitely. However, over shorter periods (1-5 years), the choice between hedged and unhedged can make a difference of 5-10% or more.
-
-**For international bonds, hedging is almost always recommended.** Bond returns are much smaller than equity returns, so currency volatility can easily overwhelm the bond return. A hedged international bond fund behaves like a stable fixed income investment. An unhedged international bond fund behaves more like a currency speculation with some bond characteristics.
-
-#### The Cost of Hedging
-
-Hedging costs deserve careful analysis because they directly affect the relative attractiveness of hedged versus unhedged investments.
-
-**Interest rate differential.** As discussed, the primary cost or benefit of hedging is determined by the difference in short-term interest rates. When US rates are higher, hedging foreign currencies into dollars generates positive carry. When US rates are lower, hedging costs money.
-
-In recent years, with US rates higher than rates in Europe and Japan, hedging the euro and yen into dollars has actually generated positive carry of 2-4% annualized. This made hedged international investments particularly attractive.
-
-**Transaction costs.** Rolling forward contracts monthly creates transaction costs. These are small for major currencies (basis points) but can be significant for emerging market currencies (sometimes 1-2% annually). This is why hedging emerging market currency exposure is less common and more expensive.
-
-**Tracking error.** Hedged ETFs do not perfectly eliminate currency risk. Because the hedge is set at the beginning of each month based on the portfolio value at that time, changes in the portfolio value during the month create a gap between the hedge amount and the actual exposure. This "over-hedge" or "under-hedge" creates tracking error relative to a perfectly hedged portfolio. In months with large market moves, this tracking error can be meaningful. For example, if international stocks rally 8% during the month, the hedge covers only the original portfolio value, leaving the 8% gain unhedged.
-
-**Counterparty risk.** Forward contracts are over-the-counter agreements between the ETF and a bank counterparty. If the counterparty defaults, the hedge may be lost. ETF managers mitigate this by using multiple counterparties and requiring collateral. This risk is small but not zero, as demonstrated during the 2008 crisis when counterparty concerns affected derivative contracts broadly.
-
-**Opportunity cost.** By hedging, you give up the potential benefit of favorable currency movements. If you hedge your yen exposure and the yen subsequently strengthens 15%, you miss out on that tailwind. The cost is not monetary but is the foregone upside. This opportunity cost is difficult to quantify in advance because it depends on future currency movements that are inherently uncertain. However, for risk-averse investors, giving up unpredictable upside in exchange for removing unpredictable downside is a worthwhile trade.
-
-**Basis risk.** In practice, hedging is imperfect. The hedge covers the benchmark currency exposure, but individual stock movements during the month create a gap between the hedge and the actual exposure. Additionally, if your ETF holds stocks from multiple countries, the hedge may be set at the benchmark currency weights, which differ slightly from the actual portfolio weights at any given time. These basis risks are small but contribute to tracking error.
-
-**Fund expense ratio differential.** Hedged ETFs typically charge 0.05-0.15% more in annual expense ratio than their unhedged counterparts. Over long periods, this fee difference compounds.
-
-#### When to Hedge and When Not To
-
-The academic and practitioner literature offers several guidelines for when hedging makes sense.
-
-**Hedge international bonds.** This is the most clear-cut recommendation. Currency risk dominates bond returns and adds unrewarded volatility. Most institutional investors hedge 100% of their international bond currency exposure.
-
-**Consider hedging international equities partially.** A 50% hedge is a common compromise that reduces currency volatility while preserving some diversification benefit. Full hedging is reasonable during periods of expected dollar strength; no hedging is reasonable during periods of expected dollar weakness.
-
-**Time horizon matters.** Short-term investors should hedge more aggressively because currency movements can be large relative to expected returns over months or quarters. Long-term investors (10+ years) can tolerate more currency risk because currencies tend to mean-revert over long periods.
-
-**The dollar as a safe haven.** The US dollar tends to strengthen during global crises (flight to safety). This means unhedged international investments suffer a double blow during crises: foreign assets fall AND the currency weakens. Hedging removes this pro-cyclical currency drag, providing better crisis protection.
-
-**Portfolio share matters.** If international investments represent 5% of your portfolio, currency risk is a minor concern. If they represent 40%, currency movements can significantly affect total portfolio returns, making hedging more important.
-
-**Valuation signals.** Currencies that are significantly undervalued based on purchasing power parity or other valuation measures may have higher expected appreciation, making hedging less attractive. Overvalued currencies have higher expected depreciation, making hedging more attractive.
-
-**Natural hedging.** Many international companies earn substantial revenue in dollars. A European pharmaceutical company that earns 40% of revenue in the US has natural dollar exposure. Hedging the euro exposure of this company may over-hedge because the company's earnings are already partially dollar-denominated. Index-level hedging does not account for this.
-
-**Regime analysis.** Major currency trends tend to persist for years. The dollar strengthened from 2011 to 2022, benefiting hedged positions throughout. Before that, the dollar weakened from 2002 to 2011, benefiting unhedged positions. While timing the exact turning point is impossible, recognizing extreme valuations and interest rate cycle shifts can help you tilt your hedging ratio gradually over time.
-
-**Correlation considerations.** In some periods, foreign currency exposure actually reduces total portfolio volatility because currency movements partially offset equity movements. This "natural hedge" effect means that unhedged international equity exposure can provide better diversification than hedged exposure. The strength of this effect varies over time, which is another reason why a 50/50 hedged/unhedged split is a reasonable default for equities.
-
-#### Practical Implementation
-
-**For most individual investors,** the simplest approach is to choose between hedged and unhedged ETFs based on the guidelines above. No forward contracts, options, or currency accounts are needed.
-
-**A simple framework:**
-- International bonds: use hedged ETFs (e.g., BNDX, which is hedged by default)
-- International developed market equities: use a combination of hedged and unhedged, or choose based on your view of the dollar (if unsure, 50/50 is a reasonable default)
-- Emerging market equities: use unhedged (hedging costs are too high and EM currencies provide diversification)
-
-**Rebalancing considerations.** If you hold both hedged and unhedged versions of international equity ETFs, rebalancing between them based on currency valuations or interest rate differentials can add value. This is a more active approach that requires monitoring exchange rates and rate differentials.
-
-**Multi-currency diversification.** Even without explicit hedging, holding international investments across many countries provides natural currency diversification. When the euro weakens, the yen might strengthen. When emerging market currencies decline, the Swiss franc might appreciate. This diversification across many currencies reduces the impact of any single currency move on your portfolio. A broad international index fund exposes you to 20+ currencies simultaneously, which is inherently less risky than concentrated exposure to a single foreign currency.
-
-**Dollar cost averaging effect.** If you regularly invest in international funds (through automatic monthly contributions, for example), you naturally dollar-cost-average into different exchange rates over time. This smooths out the impact of currency volatility, similar to how regular investing smooths out the impact of stock price volatility. This time diversification of currency exposure reduces the importance of the hedging decision for long-term regular investors.
-
-**Tax implications.** In taxable accounts, switching between hedged and unhedged ETFs triggers capital gains taxes. Consider the tax cost before making changes. In tax-advantaged accounts (IRA, 401k), switching is tax-free and can be done more freely.
-
-#### Currency Impact on Different Asset Classes
-
-The effect of currency movements varies significantly by asset class, and this should inform your hedging decisions.
-
-**International equities.** Currency impact is meaningful but secondary to stock returns. Over one year, currency can easily add or subtract 10-15% from returns. Over 20 years, the cumulative impact is smaller because currencies tend to mean-revert. The natural revenue diversification of large multinational companies also provides a partial offset: a European company earning 40% of revenue in dollars benefits from dollar strength even as the euro weakens.
-
-**International bonds.** Currency impact often exceeds the bond return itself. A German government bond yielding 2% can easily have a 10% currency swing, making the bond return almost irrelevant compared to the currency movement. This is why hedging is essential for international fixed income.
-
-**International real estate (REITs).** Real estate has both local and currency exposures. Property values and rents are denominated in local currency, creating full currency exposure. REIT dividends converted back to dollars fluctuate with exchange rates. Hedging is valuable for REIT allocations, though fewer hedged international REIT ETFs are available.
-
-**Commodities.** Most globally traded commodities are priced in US dollars, creating a natural inverse relationship between the dollar and commodity prices. A stronger dollar tends to push commodity prices lower and vice versa. This means unhedged commodity investments already have embedded dollar exposure. Hedging is less relevant for commodity positions.
-
-#### Historical Perspective on Major Currency Moves
-
-Understanding past currency regimes helps calibrate expectations for the future.
-
-The US dollar index (DXY) has experienced several major cycles since the end of Bretton Woods in 1971. The dollar surged approximately 50% from 1980 to 1985, driven by high US interest rates under Fed Chairman Volcker. It then declined roughly 40% from 1985 to 1992 following the Plaza Accord. Another strong period occurred from 2011 to 2022 as US economic outperformance and higher interest rates attracted global capital.
-
-The Japanese yen has moved from 360 per dollar in 1971 to a high of 75 per dollar in 2011, before weakening back above 150 per dollar by 2023 as the Bank of Japan maintained ultra-low interest rates. This massive range illustrates the potential impact of yen exposure on Japanese investments.
-
-The euro has traded between roughly $0.82 and $1.60 since its inception in 1999, a range of nearly 100%. A US investor with unhedged European investments would have experienced dramatically different returns depending on the currency regime.
+### 3. Common Misconceptions
+
+1. **"Hedging is expensive."** When U.S. rates exceed foreign rates
+   (the modal regime since 2008), hedging *earns* positive carry.
+   The "expense" is just the ETF's own ~35bp expense ratio.
+2. **"Hedging is gambling on the dollar."** It is the opposite.
+   *Not* hedging is taking a position on the dollar. Hedging removes
+   the FX bet so you only own the underlying asset.
+3. **"Forward rates predict future spot rates."** They do not. The
+   forward rate equals the interest-rate differential by
+   covered-interest-parity. Empirically, the spot rate at expiration
+   has zero correlation to the forward — the "forward premium puzzle."
+4. **"Currency volatility averages out over 10 years."** The
+   *cumulative* return contribution averages to roughly zero over 10+
+   years. The *volatility contribution* does not — it adds to your
+   monthly drawdowns the entire time.
+5. **"International bonds give you currency diversification."** They
+   give you currency *risk*. If you wanted currency diversification
+   you would buy an FX product directly, not bond-FX combo.
+6. **"Hedged ETFs are leveraged."** They are not. The forward leg is
+   fully collateralised by the underlying basket. Counterparty risk
+   exists but is a fraction of a percent of NAV.
+7. **"DXY measures the dollar against everything."** It is a
+   trade-weighted index of six currencies (EUR 57.6%, JPY 13.6%,
+   GBP 11.9%, CAD 9.1%, SEK 4.2%, CHF 3.6%). The Fed's broader
+   DTWEXBGS includes 26 trading partners and is what hedging cost
+   actually tracks.
+8. **"If I'm a long-term investor I don't need to hedge."** Only true
+   for ex-U.S. equities, and only because the asset vol dominates the
+   FX vol on long horizons. False for ex-U.S. bonds, where FX vol is
+   the *larger* component at every horizon.
+9. **"Hedging removes the interest-rate-differential pickup."** It
+   does the opposite. The differential becomes the hedge carry. You
+   cannot collect a higher foreign yield without taking the FX
+   exposure that on average kills it.
+10. **"Just buy a few foreign stocks directly to keep it simple."**
+    You will under-diversify, pay foreign withholding tax, and have
+    no easy way to layer a hedge. Use a U.S.-listed ETF (hedged or
+    unhedged) for any non-U.S. exposure.
 
 ---
 
-### C) Common Misconceptions
+### 4. Q&A Section
 
-**Misconception 1: "International diversification automatically means currency diversification."**
-While it is true that owning foreign assets exposes you to foreign currencies, this "diversification" can increase rather than decrease portfolio risk. Currency movements add volatility, and during crises, the dollar tends to strengthen while foreign assets fall, creating a double negative for unhedged international investors. Currency exposure is a separate risk factor that should be managed deliberately, not assumed to be beneficial.
+**Q1: I own VXUS in my 401(k). Should I switch to a hedged
+alternative?**
+For an equity sleeve held 10+ years the long-run expected returns of
+hedged vs unhedged are nearly identical. If your 401(k) offers a
+hedged developed-market option at <50bp ER, the Sharpe ratio is
+modestly better hedged. If it does not, leaving VXUS alone is fine —
+the inferior option is "sell to chase the recent winner." The course
+position remains: minimise the ex-U.S. equity sleeve in the first
+place.
 
-**Misconception 2: "Hedging always costs money."**
-When US interest rates exceed foreign rates, hedging actually generates positive carry. A US investor hedging yen exposure when US rates are 5% and Japanese rates are 0% earns approximately 5% annualized from the hedge itself, on top of the Japanese equity return. The "cost" of hedging can be a benefit depending on the interest rate environment.
+**Q2: U.S. rates are 4.3% and Japanese rates are 0.5%. Is now a great
+time to hedge yen exposure?**
+Yes, in a narrow sense — the carry is roughly +3.8%/yr in your favour.
+But the carry is *already priced into the forward rate*, which is what
+the hedged ETF buys. The carry shows up as the hedge ratio
+mechanically working in your favour each month, and is the reason
+HEWJ has tracked EWJ-in-yen so closely since the BOJ kept rates near
+zero.
 
-**Misconception 3: "Currency movements are random and unpredictable, so hedging is pointless."**
-While short-term currency movements are difficult to predict, long-term trends driven by interest rate differentials, inflation differentials, and current account balances are more predictable. Moreover, hedging is not about prediction. It is about risk management. You do not need to predict currency movements to benefit from reducing currency volatility in your portfolio.
+**Q3: What is the difference between DTWEXBGS and DXY?**
+DXY is the ICE Dollar Index, six currencies, ~58% euro by weight,
+launched 1973. DTWEXBGS is the Fed's Trade-Weighted Broad Goods +
+Services index, 26 currencies including CNY and MXN, recalibrated
+annually. DTWEXBGS is the better measure of the dollar's economic
+strength; DXY is the better measure of what financial markets watch
+(and what hedged-EAFE ETF managers actually trade).
 
-**Misconception 4: "I do not need to worry about currency risk because I invest in US-listed international ETFs."**
-The listing currency of the ETF does not matter. A US-listed ETF that holds Japanese stocks has full yen exposure regardless of being listed in dollars. The ETF simply converts yen-denominated holdings to dollars at the current exchange rate for pricing purposes. You bear the same currency risk as if you bought Japanese stocks directly on the Tokyo Stock Exchange.
+**Q4: Can I hedge currency exposure myself with futures?**
+You can, but it is not worth it. /6E (euro futures) is $125k notional
+per contract; rolling quarterly produces tracking error and has tax
+treatment under §1256 (60/40 LTCG/STCG, see week 39). For sleeves
+under $5-10M, the 35bp HEFA expense ratio is cheaper than the
+operational drag of doing it yourself.
 
-**Misconception 5: "Hedging eliminates all currency risk."**
-Practical hedging using monthly-rolled forward contracts leaves residual currency exposure. The hedge amount is set at the beginning of each month based on portfolio value, but the portfolio value changes during the month. This creates slight over-hedges or under-hedges. Additionally, some hedged ETFs only hedge the major currencies in their benchmark, leaving exposure to minor currencies unhedged.
+**Q5: Why do hedged ETFs sometimes underperform their unhedged twin
+even when the dollar is rising?**
+Three reasons: (1) the hedge resets monthly, so intra-month FX moves
+inside the dollar's overall trend can show up wrong-footed; (2) the
+ETF's expense ratio is 30-40bp higher than the unhedged version; (3)
+the forward roll incurs small bid-ask costs.
 
-**Misconception 6: "A strong dollar is always bad for international investments."**
-A strong dollar hurts unhedged returns but does not affect hedged returns. Moreover, a strong dollar can benefit foreign exporters whose products become cheaper in dollar terms, potentially boosting their earnings and stock prices. The relationship between exchange rates and foreign stock returns is more nuanced than a simple negative correlation.
+**Q6: SOUL #16 says U.S.-only. Why are you teaching me how to hedge?**
+SOUL #16 is about equity recommendations. The carve-outs are (a)
+U.S.-listed ADRs (already in U.S. dollars, no FX exposure to hedge);
+(b) international IG bonds *if you choose to own them*, where you
+should always hedge; (c) the rare investor who insists on a 10-20%
+ex-U.S. equity sleeve, where the hedge decision matters. The lesson
+exists for completeness, not as a recommendation to add ex-U.S.
+exposure.
 
-**Misconception 7: "I should wait for the dollar to weaken before investing internationally."**
-Timing currency movements is extremely difficult, even for professional currency traders. The dollar can remain strong or weak for years, and waiting for a regime change means missing dividends, earnings growth, and potential capital appreciation in foreign stocks. If you believe international diversification is valuable, implement it consistently rather than trying to time currency cycles. Use hedging to manage the currency risk rather than trying to avoid it through market timing.
+**Q7: What about emerging-market currencies — INR, BRL, ZAR?**
+Most major EM currencies do not have liquid forward markets at retail
+sizes. EM-equity ETFs like EEM are unhedged by structural necessity.
+The few hedged EM products (HEEM was de-listed in 2018) failed
+because EM currency carry against USD is *positive* — i.e., hedging
+costs you 3-5%/yr of yield, and the EM equity correlation with EM FX
+is strongly negative, meaning the unhedged position partly diversifies
+itself.
 
-**Misconception 8: "Currency hedging is too complicated for individual investors."**
-While managing currency forwards directly is complex, the ETF industry has made hedging trivially simple. Buying HEFA instead of EFA, or holding BNDX (which is hedged by default), requires zero understanding of forward contracts, interest rate parity, or forex markets. The fund managers handle all the hedging mechanics internally. Your only decision is whether to buy the hedged or unhedged version of the fund.
+**Q8: Does Berkshire Hathaway hedge its foreign-currency exposure?**
+Famously almost never. Buffett's view is that PPP (purchasing power
+parity) reverts on long horizons and the hedge cost over BRK's
+multi-decade holding period is therefore a deadweight loss. This is
+defensible at BRK's scale and time horizon. It is not defensible for
+a retail investor with a 10-year horizon and a finite tolerance for
+intra-decade drawdowns.
 
----
+**Q9: What happens to my hedge when there is a currency crisis?**
+The forward leg pays out in dollars at maturity even if the foreign
+currency has depreciated 50%. Counterparty risk is small (forwards
+are collateralised at major dealers). The bigger risk is that during
+the crisis the underlying foreign asset also crashes — the 1998 Asia
+crisis hit EM bonds (-30%) regardless of hedge status, because the
+local-currency leg was the disaster.
 
-### D) Q&A Section
+**Q10: Why doesn't covered-interest-parity break in extreme stress?**
+It does. In late 2008 USD funding stress widened the deviation from
+CIP to several hundred basis points (the "USD basis"). It does not
+matter for retail because the hedged ETF's market price reflects the
+strain in real-time and you can sell out at NAV without rolling
+forwards yourself. It matters for prime brokers running cross-currency
+repo books, which is not your problem.
 
-**Q1: Should I hedge my entire international allocation?**
-A1: It depends on the asset class and your time horizon. For international bonds, yes, hedge fully. Bond returns are small relative to currency volatility, so unhedged international bonds behave more like a currency bet than a bond investment. For international equities, partial hedging (50%) is a reasonable default if you are unsure. Fully hedge if you expect significant dollar strengthening, or leave unhedged if you expect dollar weakening. For very long holding periods (15+ years), hedging matters less because currencies tend to mean-revert.
+**Q11: How does §1256 tax treatment apply to currency hedges?**
+For the *futures* used by some hedged ETFs internally, yes — but the
+ETF wrapper handles all of it. Your 1099 from a hedged ETF reports
+ordinary distributions and capital gains the same as any other ETF.
+You do not see the §1256 mechanics directly. (See week 39 for the
+direct-futures version of the same trade.)
 
-**Q2: How do I know if the dollar is likely to strengthen or weaken?**
-A2: No one can predict currencies reliably in the short term. However, some indicators provide long-term guidance. Purchasing power parity (PPP) suggests where currencies should trade based on relative price levels. The dollar has frequently been overvalued relative to PPP, suggesting long-term depreciation potential. Interest rate differentials drive medium-term trends. Current account balances indicate structural pressures. Rather than making binary predictions, consider these factors when deciding how much to hedge.
-
-**Q3: Is BNDX (Vanguard Total International Bond) already hedged?**
-A3: Yes. BNDX hedges its currency exposure back to the US dollar using forward contracts. This is one of the reasons it is the most popular international bond ETF. The hedging makes it behave like a stable bond fund rather than a volatile currency play. If you want unhedged international bond exposure (which few investors should), you would need a different fund.
-
-**Q4: What is the carry trade and how does it relate to currency hedging?**
-A4: The carry trade involves borrowing in a low-interest-rate currency and investing in a high-interest-rate currency, profiting from the interest rate differential. Currency hedging is essentially the opposite: you are paying or receiving the interest rate differential to eliminate exchange rate risk. When US rates exceed foreign rates, a US investor who hedges foreign currency exposure effectively earns the carry. The carry trade is profitable on average but can suffer sudden losses when carry trade currencies crash during risk-off events.
-
-**Q5: Do emerging market ETFs offer hedged versions?**
-A5: Hedged emerging market ETFs exist but are less common and less popular for several reasons. Hedging costs for EM currencies are much higher due to wide interest rate differentials and less liquid forward markets. Transaction costs for rolling EM currency forwards are substantial. And EM currencies provide genuine diversification that investors often want to retain. Most investors and advisors recommend leaving EM equity exposure unhedged.
-
-**Q6: How does currency hedging affect my tax situation?**
-A6: In taxable accounts, gains and losses from currency forward contracts within hedged ETFs are generally treated as ordinary income rather than capital gains. This can create a slightly less tax-efficient structure compared to unhedged ETFs. However, the difference is usually small. In tax-advantaged accounts, this distinction does not matter. If you are making large allocations in taxable accounts, consult a tax advisor about the specific implications.
-
-**Q7: Can I hedge currency risk myself using forex accounts or options?**
-A7: Technically yes, but it is impractical for most individual investors. Managing currency forwards requires rolling contracts monthly, monitoring exposure amounts, and maintaining margin accounts. Currency options provide hedging but at a visible premium cost. For nearly all individual investors, simply choosing between hedged and unhedged ETFs is far simpler, cheaper, and more effective than attempting to hedge directly.
-
-**Q8: If I hold a global stock ETF like VT, what is my currency exposure?**
-A8: VT (Vanguard Total World Stock) holds approximately 60% US stocks and 40% international stocks. The 60% in US stocks has no foreign currency exposure. The 40% in international stocks has full exposure to a basket of foreign currencies, primarily the euro, yen, British pound, and various emerging market currencies. Your net foreign currency exposure is approximately 40% of the portfolio. If this concerns you, you could replace the international portion with a hedged alternative or accept the currency risk as part of long-term global diversification.
-
-**Q9: Does the US dollar always strengthen during crises?**
-A9: Historically, yes, in most global crises the dollar has strengthened as investors seek safety. This was true in 2008, the 2011 European debt crisis, the 2015-2016 China slowdown, and the 2020 COVID crash. However, this pattern is not guaranteed. In a crisis caused by US-specific factors (fiscal crisis, political instability, loss of reserve currency status), the dollar could weaken. Additionally, the dollar's safe-haven role may evolve over time as other currencies or assets gain prominence. For now, assuming dollar strength during crises is reasonable, which argues for hedging international positions as crisis protection.
-
-**Q10: How do currency movements affect international dividend yields?**
-A10: Currency movements directly affect the dollar value of foreign dividends. If a European stock pays a 2-euro dividend and the euro weakens 10% against the dollar, your dividend in dollar terms drops by 10%. This makes unhedged international dividend strategies less predictable in terms of dollar income. If you rely on international dividends for income, using hedged ETFs provides more stable dollar-denominated cash flows. For long-term investors reinvesting dividends, currency fluctuations in dividend payments are less concerning because they are reinvested at prevailing exchange rates.
+**Q12: Is there a "hedged S&P 500" for non-USD investors that I
+should know about?**
+Yes — IWDA-hedged variants exist on European exchanges, and similar
+USD-hedged S&P products exist for Asian investors who want U.S.
+equities translated back to home currency. Mirror image of HEFA. Not
+relevant if you are a U.S.-domiciled investor (your spending is in
+USD), but useful to know if you are advising a non-U.S. friend who
+holds U.S. stocks.
 
 ---
 
@@ -233,169 +418,223 @@ A10: Currency movements directly affect the dollar value of foreign dividends. I
 
 ---
 
-**TITLE: Currency Hedging Explained: Protect Your International Investments**
+**VIDEO TITLE:** Currency Hedging — When the FX Tail Wags the Bond Dog
 
-**LENGTH: Approximately 17 minutes**
+**RUNTIME TARGET:** ~14 minutes
+
+**HOSTS:** Horace, Stella
 
 ---
 
-**[VISUAL: World map with currency symbols floating above different regions: $, EUR, GBP, JPY, CNY. Exchange rate tickers scrolling]**
-
-**Horace:** Stella, I own an international stock ETF. My friend told me I am making a "currency bet" without realizing it. What does that mean? Should I be worried?
-
-**Stella:** Your friend raises a great point that most investors overlook.
-
-**Stella:** Your friend is right. When you buy international stocks, you are actually making two bets. One on the foreign stocks going up. And one on the foreign currency holding its value against the dollar.
-
-**[ANIMATION: Single arrow splitting into two arrows. Arrow 1 labeled "Stock Return" pointing to a stock chart. Arrow 2 labeled "Currency Return" pointing to an exchange rate chart. Both arrows merge into "Your Total Return"]**
-
-**Horace:** Can you show me how this works in practice?
-
-**Stella:** Sure. Let us say you invest ten thousand dollars in a Japanese stock ETF. The exchange rate is one hundred ten yen per dollar.
-
-**[ANIMATION: $10,000 converting to 1,100,000 yen at the 110 rate. Japanese stock rising 15%. Value becomes 1,265,000 yen]**
-
-**Stella:** The Japanese stocks rise fifteen percent. Great news, right? Your investment is now worth one million two hundred sixty-five thousand yen.
-
-**Horace:** That sounds like a solid return.
-
-**Stella:** But wait. While you were invested, the yen weakened. The exchange rate moved from one hundred ten to one hundred thirty yen per dollar. Now let us convert back.
-
-**[ANIMATION: 1,265,000 yen converting back to dollars at 130 rate = $9,731. Red text showing "-2.7% dollar return" despite "+15% yen return"]**
-
-**Horace:** I lost money?! The stock went up fifteen percent and I LOST money?
-
-**Stella:** In dollar terms, yes. The yen weakened by about fifteen percent, more than wiping out your stock gains. This is currency risk in action.
-
-**[VISUAL: Side-by-side bars showing: Local Return +15%, Currency Return -15.4%, Dollar Return -2.7%]**
-
-**Horace:** That is painful. How do I protect myself?
-
-**Stella:** That is where currency hedging comes in. You can neutralize the currency effect so your returns match the local stock market return.
-
-**[ANIMATION: Same scenario replayed but with a "HEDGE" shield blocking the currency arrow. Final dollar return now showing approximately +15% matching the local return]**
-
-**Horace:** How does the hedge actually work?
-
-**Stella:** The main tool is called a forward contract. It locks in an exchange rate for a future date. When you buy a hedged ETF, the fund manager enters forward contracts to sell foreign currency and buy dollars at a predetermined rate.
-
-**[ANIMATION: Timeline showing: Today - enter forward contract to sell yen at rate 110. One month later - regardless of spot rate, exchange at 110. New forward contract entered. Process repeats monthly]**
-
-**Stella:** Every month, the fund rolls the forward contract. This effectively removes currency fluctuations from your return. Whether the yen goes up or down, the hedge locks in approximately the same exchange rate.
-
-**Horace:** Does this cost anything?
-
-**Stella:** This is where it gets interesting. The cost of hedging is determined by the interest rate difference between the two countries.
-
-**[VISUAL: Balance scale with "US Interest Rate 5%" on one side and "Japanese Interest Rate 0%" on the other. Arrow pointing down to "Hedging Benefit: ~5% per year"]**
-
-**Stella:** Right now, US rates are much higher than Japanese rates. When you hedge yen back to dollars, you actually EARN the interest rate difference. That is approximately five percent per year in extra return.
-
-**Horace:** Wait, hedging MAKES me money?
-
-**Stella:** In this interest rate environment, yes. This is called the "forward premium" or "carry." When US rates are higher than foreign rates, hedging generates positive carry. But it works both ways. If US rates drop below Japanese rates, hedging would cost you.
-
-**[ANIMATION: See-saw showing US rates on one side and foreign rates on the other. When US side is higher, hedging pays. When foreign side is higher, hedging costs]**
-
-**Horace:** So the choice between hedged and unhedged is not straightforward.
-
-**Stella:** Not at all. Let me show you the practical difference using real ETFs.
-
-**[VISUAL: Performance comparison chart showing EFA (unhedged EAFE) vs HEFA (hedged EAFE) over 5 years, with periods of dollar strength and weakness marked]**
-
-**Stella:** During periods of dollar strength, like 2021 and 2022, the hedged version crushed the unhedged version. During dollar weakness, like 2017, the unhedged version won. Over very long periods, the difference tends to even out.
-
-**Horace:** So how do I decide?
-
-**Stella:** Let me give you a simple framework.
-
-**[ANIMATION: Decision tree appearing step by step]**
-
-**Stella:** First question: are you investing in international bonds or stocks?
-
-**Horace:** Why does that matter?
-
-**Stella:** For bonds, always hedge. Bond returns are small, maybe three to four percent. Currency volatility can be ten to fifteen percent. Unhedged international bonds are basically a currency bet with some bond income sprinkled on top.
-
-**[VISUAL: Risk comparison showing International Bond Return (3-4%) vs Currency Volatility (10-15%), with the currency risk dwarfing the bond return]**
-
-**Stella:** That is why Vanguard's international bond ETF, BNDX, is hedged by default. It just makes sense for bonds.
-
-**Horace:** And for stocks?
-
-**Stella:** For equities, it is more nuanced because stock returns are larger, so currency is a smaller proportion of total risk. Here is my framework.
-
-**[ANIMATION: Framework card showing three scenarios:
-1. Short time horizon (1-3 years): Hedge more (75-100%)
-2. Medium time horizon (3-10 years): Partial hedge (50%)
-3. Long time horizon (10+ years): Less hedging needed (0-50%)]**
-
-**Stella:** If you need the money in one to three years, hedge aggressively. Currency can move ten to fifteen percent in a year. Over three to ten years, a fifty percent hedge is a reasonable compromise. Over ten-plus years, currencies tend to mean-revert, so hedging matters less.
-
-**Horace:** What about emerging markets?
-
-**Stella:** Generally, leave them unhedged. Hedging emerging market currencies is expensive because the interest rate differentials are large and the forward markets are less liquid. Plus, EM currency exposure provides genuine diversification benefit.
-
-**[VISUAL: Cost comparison showing hedging costs: Euro (~2-3% benefit currently), Yen (~4-5% benefit currently), Brazilian Real (~8-10% cost), Indian Rupee (~5-7% cost)]**
-
-**Horace:** That is a huge difference in cost.
-
-**Stella:** Exactly. Hedging the yen actually earns you money right now, but hedging the Brazilian real could cost you eight to ten percent annually. The economics are completely different.
-
-**Horace:** Let me make sure I understand the practical steps. If I want to hedge my international developed market stocks, what do I actually do?
-
-**Stella:** Simply buy a hedged ETF instead of an unhedged one.
-
-**[VISUAL: Table comparing popular ETFs:
-Unhedged: EFA, VEA, IEFA (EAFE equities)
-Hedged: HEFA, HEZU (Eurozone), HEWJ (Japan)
-Unhedged: BNDX? No - BNDX is already hedged!
-Unhedged International Bonds: Not recommended for most investors]**
-
-**Stella:** For EAFE equities, you can use HEFA instead of EFA. For Japan specifically, HEWJ instead of EWJ. For the Eurozone, HEZU instead of EZU. It is literally just buying a different ticker.
-
-**Horace:** That is surprisingly simple.
-
-**Stella:** The ETF handles all the forward contract management internally. You do not need to open a forex account or manage any contracts yourself.
-
-**Horace:** One thing I am confused about. If I own VT, the total world stock ETF, what is my currency exposure?
-
-**Stella:** VT is about sixty percent US stocks and forty percent international. The US portion has no foreign currency exposure. The international portion has full exposure. So roughly forty percent of your VT position is exposed to foreign currencies.
-
-**[ANIMATION: Pie chart of VT showing 60% US (no FX risk) and 40% International (full FX risk), with the 40% section broken down by currency: Euro, Yen, Pound, Others]**
-
-**Horace:** Is that something I should worry about?
-
-**Stella:** For a long-term investor, probably not too much. Over twenty-plus years, currency effects tend to be relatively small compared to equity returns. But if you want to reduce volatility or you have a shorter time horizon, consider replacing some of that forty percent with hedged international ETFs.
-
-**Horace:** Any final advice?
-
-**Stella:** Three things. First, always hedge international bonds. There is almost no argument against it.
-
-**[ANIMATION: Three final takeaway cards appearing]**
-
-**Stella:** Second, for international stocks, make a conscious choice. Do not default to unhedged just because it is the most common. Look at the interest rate environment. If US rates are significantly higher, hedging not only reduces risk but earns you extra return.
-
-**Horace:** And third?
-
-**Stella:** Do not over-complicate it. For most investors, a simple split between hedged and unhedged international equity ETFs, plus hedged international bonds, captures most of the benefit. You do not need to trade currencies or manage forward contracts yourself.
-
-**[VISUAL: Summary card showing recommended approach: International Bonds = 100% Hedged, International Developed Stocks = 50% Hedged / 50% Unhedged, Emerging Market Stocks = 100% Unhedged]**
-
-**Horace:** Clean and simple. Thanks Stella.
-
-**Stella:** Currency risk is one of those things that is invisible until it hits you. Now that you understand it, you can manage it instead of being surprised by it.
-
-**Horace:** And the good news is that with current interest rate differentials, hedging the euro and yen actually earns us extra return.
-
-**Stella:** Right. That will not always be the case, but right now the math strongly favors hedging developed market currencies. Take advantage of it while it lasts, and monitor the interest rate environment for changes.
-
-**Horace:** I think my action item is clear: hedge my international bonds, consider hedging half my international developed market stocks, and leave emerging markets unhedged.
-
-**Stella:** That is a solid, well-reasoned approach. Simple, defensible, and appropriate for most long-term investors.
-
-**[VISUAL: End screen with channel subscribe button and links to related lessons on international investing and portfolio construction]**
+**[INTRO]**
+
+Stella: Welcome back. Today's side lesson is currency hedging — when
+to hedge, how to hedge, and what it actually costs. Horace, you've
+been telling us for 28 weeks that this course is U.S.-listed only.
+So why are we doing a whole lesson on hedging foreign exposure?
+
+Horace: Two reasons. First, the U.S.-only rule from SOUL #16 is
+about *equities*. The carve-out is bonds — if anyone watching has
+international fixed income in their portfolio, they need to hear the
+math we're about to walk through. Second, even within the U.S.-only
+universe, you'll occasionally end up with non-USD exposure: a Swiss
+holding company, a Japanese ADR with a yen revenue base, a foreign
+property. The mental model from this lesson lets you size that risk
+honestly.
+
+Stella: So this is the "rare cases" lesson, not the "build a global
+portfolio" lesson.
+
+Horace: Exactly. We're not contradicting side 18. We're giving you
+the toolkit for the corner cases.
 
 ---
 
-*End of Side Lesson 29*
+**[SECTION 1: THE TWO-BET DECOMPOSITION]**
+
+Stella: Walk me through the math first. I buy a Japanese stock.
+
+Horace: You're making two bets. One on the stock, one on the yen.
+The dollar return decomposes as one plus local return, times one
+plus FX return, minus one. For 2024: Nikkei was up 19% in yen. Yen
+fell 11% against the dollar. So unhedged USD return was 1.19 times
+0.89 minus 1, which is +6.1%. The Japanese investor saw 19, the
+American saw 6, the gap was the FX leg.
+
+Stella: That's a thirteen-point swing from currency alone.
+
+Horace: In one year, on a developed-market stock. And the
+volatilities decompose the same way. Add the variances if the two
+legs are roughly independent. For developed-market equity, local vol
+is 16, FX vol is 8, total vol is square root of 16 squared plus 8
+squared, about 17.9. About 12% higher than the local vol. For an
+investment-grade foreign bond, it's 5 squared plus 8 squared, which
+is 9.4. The FX leg *doubles* the bond's volatility.
+
+Stella: So for stocks, currency is a side dish. For bonds, it's the
+main course.
+
+Horace: That's the punchline. Anyone holding ex-U.S. bonds unhedged
+has accidentally turned a fixed-income sleeve into an FX trade. The
+ratio of FX vol to asset vol is the only thing that matters here.
+
+---
+
+**[SECTION 2: WHAT A HEDGED ETF DOES]**
+
+Stella: How does a hedged ETF actually work? Like, plumbing-wise.
+
+Horace: It holds the foreign basket — same stocks as EFA — and at
+month-end it sells one-month forwards on each foreign currency
+weighted to the basket. Forward expires, FX P&L settled in dollars,
+new forward opened. Mechanically the dollar return tracks the
+local-currency return for that month, give or take a few basis
+points.
+
+Stella: And the cost?
+
+Horace: That's the elegant part. Covered-interest-parity says the
+forward price equals the spot price times the ratio of one-plus-foreign-rate
+over one-plus-U.S.-rate. Re-arranged, the annualised hedge cost is
+just U.S. rate minus foreign rate. April 2026 numbers: U.S. T-bill at
+4.3%, EUR rate 2.0%, JPY rate 0.5%. Hedging EUR earns +2.3% carry.
+Hedging JPY earns +3.8% carry. Plus the ETF's expense ratio of 35bp.
+Net positive carry is the modal regime since 2008.
+
+Stella: Wait — the hedge *earns* money?
+
+Horace: When U.S. rates exceed foreign rates, yes. The misconception
+"hedging is expensive" assumes a regime where U.S. rates are below
+foreign rates. That regime existed briefly — 2008-2009 against the
+euro, when EUR rates were 50bp above U.S. rates. Costs were maybe
+50bp/yr. Trivial.
+
+Stella: And the products?
+
+Horace: HEFA for EAFE, HEDJ for Europe, HEWJ for Japan. All in the
+35-58bp range. BNDX and IAGG for international IG bonds — both
+hedged by default at 7bp.
+
+[VISUAL: image/side29_hedged_vs_unhedged.png]
+
+Stella: This chart compares EFA and HEFA from 2010 forward. What do
+I see?
+
+Horace: Two divergence-convergence cycles. 2014-2015, USD rallies
+from 80 to 100 on the DXY. HEFA outperforms by about 9 percentage
+points cumulative. Then 2017, EUR rallies, HEFA underperforms by 8
+points in a single year. Then 2022, USD crisis spike to 114, HEFA
+saves you about 9 points of drawdown. By April 2026 the two paths
+end roughly within a couple percent of each other. Lower vol the
+whole way, but the path matters.
+
+---
+
+**[SECTION 3: THE DXY HISTORY LESSON]**
+
+[VISUAL: image/side29_dxy_history.png]
+
+Stella: This is the long view of the dollar. 1990 through April 2026.
+
+Horace: Five regimes. Strong-dollar 1995 to 2002, peak around 120 on
+the broad index. Weak-dollar 2002 to 2008, all the way down to 71 —
+this is the textbook's case for unhedged. Range-bound 2008 to 2014.
+Strong-dollar 2.0 from 2014 through 2016 — the Fed taper / ECB QE
+divergence. Then the 2022 spike to 114 on the rate-hike cycle. Now
+2024-2026 retracement. The point: regimes are *long*. Five to ten
+years. Magnitudes are big — three to four percent per year. And
+they don't telegraph in advance.
+
+Stella: So the strategic question is "which regime are we entering
+now."
+
+Horace: That's the bet you're making whether or not you realise it.
+The hedge ratio decision is the only way to size that bet
+deliberately.
+
+---
+
+**[SECTION 4: THE BOND CARVE-OUT]**
+
+Stella: Section 2.5 of the reading is the operational punchline.
+What's the rule?
+
+Horace: If you hold any non-U.S. investment-grade bond, hedge it.
+100% hedged. BNDX or IAGG, both 7bp. There is no scenario where
+unhedged ex-U.S. IG bonds are the right answer for a USD-spending
+investor.
+
+Stella: And the rest of the matrix?
+
+Horace: U.S. equity — not relevant, you're already in dollars. ADRs
+— already in dollars, nothing to hedge. EM equity — the correlation
+between the local market and the local currency is so negative that
+the unhedged position partly diversifies itself; 0 to 50% hedge is
+defensible. Commodities priced in USD, gold priced in USD — already
+in dollars. Developed-market ex-U.S. equity if you insist on owning
+it — 50 to 100% hedge, and within this course's framework you
+shouldn't have a large sleeve of it anyway.
+
+Stella: Let me push back. The textbook says "leave international
+unhedged for the equity sleeve." Is the textbook wrong?
+
+Horace: The textbook is right on long-run expected returns and wrong
+on Sharpe. Hedged and unhedged converge on total return over 10-20
+years. Hedged has *lower vol* the entire time. Higher Sharpe. The
+reason advisors recommend unhedged is behavioural — clients fire you
+for tracking error, not for low Sharpe. Institutional money that
+doesn't have that constraint hedges 50-75%. Follow the institutions,
+not the retail brochure.
+
+---
+
+**[SECTION 5: THE INTERACTIVE]**
+
+Stella: Walk through the interactive lab.
+
+Horace: Four sliders: foreign-asset weight in your portfolio,
+expected USD trend, foreign rate, U.S. rate. The lab gives you four
+outputs: hedged return, unhedged return, hedge cost or carry, and
+the volatility-minimising hedge ratio. Drag the foreign rate below
+the U.S. rate and you'll see the carry flip positive — that's the
+modal 2026 regime. Drag the USD trend strong-positive and the
+unhedged path collapses; drag it negative and unhedged wins. Drag
+the foreign-asset weight to zero and the whole calculation goes to
+zero because there's nothing to hedge.
+
+Stella: What's the takeaway from playing with it?
+
+Horace: Two things. First, the hedge-cost line is approximately
+linear in the rate differential — that's covered-interest-parity
+made visible. Second, the optimal hedge ratio is mostly insensitive
+to your *expectation* of the dollar — it's driven by *volatility*,
+not by directional view. People think hedging is a bet on the
+dollar. The math says hedging is a bet on *less variance*.
+
+---
+
+**[OUTRO]**
+
+Stella: Synthesise it for me. Three rules.
+
+Horace: One — for U.S. equity and U.S.-listed ADRs, hedge ratio is
+zero because there is nothing to hedge. Two — for ex-U.S.
+investment-grade bonds, hedge ratio is 100% always; the FX leg is
+bigger than the asset leg. Three — for ex-U.S. developed-market
+equity, the answer is 50 to 100% if you have to own it, but per SOUL
+#16 you mostly shouldn't.
+
+Stella: And the cost.
+
+Horace: Approximately the interest-rate differential. April 2026,
+that's positive carry of 2-4% per year against the major foreign
+currencies. Hedging is not just free — for the modal regime since
+2008 it has been a small positive carry. The 35bp ETF expense ratio
+is a rounding error against that.
+
+Stella: Side lesson 30 next.
+
+Horace: That's the capstone — survivorship bias and the things that
+have *not* been said in this course. See you there.
+
+[END]

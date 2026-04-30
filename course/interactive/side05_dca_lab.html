@@ -1,0 +1,580 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>DCA vs. Lump Sum Lab — Interactive (Side 5)</title>
+<script src="https://cdn.plot.ly/plotly-2.35.2.min.js" charset="utf-8"></script>
+<style>
+html, body { margin: 0; padding: 0; background: var(--dc-bg); }
+:root {
+    --dc-bg: #fdfbf5;
+    --dc-text: #1a2332;
+    --dc-muted: #6b7280;
+    --dc-border: #d6d3c4;
+    --dc-card: #fdfbf5;
+    --dc-pos: #2e7d32;
+    --dc-neg: #b71c1c;
+    --dc-mid: #0d47a1;
+    --dc-accent: #b8860b;
+}
+html[data-theme="dark"] .dc-root,
+.dc-root[data-theme="dark"] {
+    --dc-bg: #0f1724;
+    --dc-text: #e6e6e6;
+    --dc-muted: #9aa3b2;
+    --dc-border: #2a3441;
+    --dc-card: #0f1724;
+    --dc-pos: #66bb6a;
+    --dc-neg: #ef5350;
+    --dc-mid: #5a8dee;
+}
+.dc-root {
+    font-family: 'Segoe UI', Helvetica, Arial, sans-serif;
+    background: var(--dc-bg);
+    color: var(--dc-text);
+    padding: 12px;
+    margin: 0;
+}
+.dc-controls {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 14px;
+    padding: 10px 12px;
+    background: var(--dc-card);
+    border: 1px solid var(--dc-border);
+    border-radius: 8px;
+}
+.dc-pills {
+    display: inline-flex;
+    border: 1px solid var(--dc-border);
+    border-radius: 999px;
+    overflow: hidden;
+    background: var(--dc-card);
+}
+.dc-pills button {
+    border: none;
+    background: transparent;
+    color: var(--dc-muted);
+    padding: 6px 14px;
+    font: inherit;
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.15s, color 0.15s;
+}
+.dc-pills button:hover { color: var(--dc-text); }
+.dc-pills button.active { background: var(--dc-accent); color: #fff; }
+.dc-slider-wrap {
+    flex: 1;
+    min-width: 220px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.85rem;
+    color: var(--dc-muted);
+}
+.dc-slider-wrap input[type="range"] {
+    flex: 1;
+    accent-color: var(--dc-accent);
+}
+.dc-slider-wrap .dc-h-label {
+    white-space: nowrap;
+    color: var(--dc-text);
+    font-weight: 600;
+    font-variant-numeric: tabular-nums;
+    min-width: 64px;
+    text-align: right;
+}
+.dc-slider-wrap input[type="number"] {
+    width: 90px;
+    background: var(--dc-card);
+    color: var(--dc-text);
+    border: 1px solid var(--dc-border);
+    border-radius: 6px;
+    padding: 4px 6px;
+    font: inherit;
+    font-variant-numeric: tabular-nums;
+}
+.dc-chart {
+    width: 100%;
+    height: 380px;
+    background: var(--dc-card);
+    border-radius: 8px;
+    border: 1px solid var(--dc-border);
+}
+.dc-stats {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 10px;
+    margin-top: 14px;
+}
+.dc-stat {
+    background: var(--dc-card);
+    border: 1px solid var(--dc-border);
+    border-left: 4px solid var(--dc-muted);
+    border-radius: 8px;
+    padding: 10px 12px;
+}
+.dc-stat.dc-stat-pos { border-left-color: var(--dc-pos); }
+.dc-stat.dc-stat-neg { border-left-color: var(--dc-neg); }
+.dc-stat.dc-stat-mid { border-left-color: var(--dc-mid); }
+.dc-stat.dc-stat-acc { border-left-color: var(--dc-accent); }
+.dc-stat .dc-stat-name {
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--dc-muted);
+}
+.dc-stat .dc-stat-val {
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin-top: 4px;
+    font-variant-numeric: tabular-nums;
+}
+.dc-stat .dc-stat-detail {
+    font-size: 0.78rem;
+    color: var(--dc-muted);
+    margin-top: 2px;
+    font-variant-numeric: tabular-nums;
+}
+.dc-verdict {
+    margin-top: 12px;
+    padding: 10px 14px;
+    border-radius: 8px;
+    background: var(--dc-card);
+    border: 1px solid var(--dc-border);
+    font-size: 0.92rem;
+    line-height: 1.45;
+}
+.dc-verdict.dc-v-pos { border-left: 4px solid var(--dc-pos); }
+.dc-verdict.dc-v-neg { border-left: 4px solid var(--dc-neg); }
+.dc-caption {
+    margin-top: 10px;
+    font-size: 0.78rem;
+    color: var(--dc-muted);
+    line-height: 1.45;
+}
+@media (max-width: 640px) {
+    .dc-stats { grid-template-columns: repeat(2, 1fr); }
+    .dc-chart { height: 320px; }
+    .dc-pills button { padding: 5px 10px; font-size: 0.8rem; }
+}
+</style>
+</head>
+<body>
+
+<div class="dc-root" id="dc-root">
+    <div class="dc-controls">
+        <div class="dc-slider-wrap">
+            <span id="dc-amt-label">Amount</span>
+            <input type="number" id="dc-amt" min="1000" max="10000000" step="1000" value="120000">
+        </div>
+        <div class="dc-pills" id="dc-period" role="tablist" aria-label="DCA period">
+            <button type="button" data-n="3">3M</button>
+            <button type="button" data-n="6">6M</button>
+            <button type="button" data-n="12" class="active">12M</button>
+            <button type="button" data-n="24">24M</button>
+        </div>
+        <div class="dc-slider-wrap">
+            <span id="dc-year-label">Start year</span>
+            <input type="range" id="dc-year" min="1928" max="2024" step="1" value="2008">
+            <span class="dc-h-label" id="dc-year-value">2008</span>
+        </div>
+    </div>
+
+    <div id="dc-chart" class="dc-chart"></div>
+
+    <div class="dc-stats">
+        <div class="dc-stat dc-stat-neg">
+            <div class="dc-stat-name" id="dc-name-lump">Lump-sum terminal</div>
+            <div class="dc-stat-val" id="dc-val-lump">—</div>
+            <div class="dc-stat-detail" id="dc-det-lump">—</div>
+        </div>
+        <div class="dc-stat dc-stat-mid">
+            <div class="dc-stat-name" id="dc-name-dca">DCA terminal</div>
+            <div class="dc-stat-val" id="dc-val-dca">—</div>
+            <div class="dc-stat-detail" id="dc-det-dca">—</div>
+        </div>
+        <div class="dc-stat dc-stat-acc">
+            <div class="dc-stat-name" id="dc-name-diff">Lump - DCA</div>
+            <div class="dc-stat-val" id="dc-val-diff">—</div>
+            <div class="dc-stat-detail" id="dc-det-diff">—</div>
+        </div>
+        <div class="dc-stat dc-stat-pos">
+            <div class="dc-stat-name" id="dc-name-mdd">Max DD during deploy</div>
+            <div class="dc-stat-val" id="dc-val-mdd">—</div>
+            <div class="dc-stat-detail" id="dc-det-mdd">—</div>
+        </div>
+    </div>
+
+    <div class="dc-verdict" id="dc-verdict">—</div>
+    <p class="dc-caption" id="dc-caption">
+        Backtest uses Damodaran annual S&P 500 returns 1928-2024, split into 12 deterministic monthly returns per year so the calendar-year geometric return matches the historical print exactly.
+    </p>
+</div>
+
+<script>
+(function () {
+    const I18N = {
+        en: {
+            amt_label:    "Amount (USD)",
+            year_label:   "Start year",
+            n_label:      "DCA period",
+            name_lump:    "Lump-sum terminal",
+            name_dca:     "DCA terminal",
+            name_diff:    "Lump - DCA",
+            name_mdd:     "Max DD during deploy",
+            x_title:      "Months from start",
+            y_title:      "Account value",
+            lump_trace:   "Lump-sum",
+            dca_trace:    "DCA",
+            verdict_lump_big:  "Lump wins by {d} ({p}%). This is the typical 67% case: positive returns over the deploy window mean every dollar invested earlier compounded longer.",
+            verdict_lump_sm:   "Lump wins by {d} ({p}%). Tight outcome.",
+            verdict_dca_big:   "DCA wins by {d} ({p}%). Down market - holding cash through part of the deploy window saved real money.",
+            verdict_dca_sm:    "DCA wins by {d} ({p}%). Tight outcome.",
+            cap:          "Backtest uses Damodaran annual S&P 500 returns 1928-2024, split into 12 deterministic monthly returns per year so the calendar-year geometric return matches the historical print exactly. Cash earns 0% during the deploy window.",
+            mdd_path:     "Lump path",
+        },
+        hk: {
+            amt_label:    "金額(美元)",
+            year_label:   "起始年份",
+            n_label:      "平均成本法期間",
+            name_lump:    "一筆過終值",
+            name_dca:     "平均成本法終值",
+            name_diff:    "一筆過 - 平均成本法",
+            name_mdd:     "部署期最大回撚",
+            x_title:      "距離起始月份數",
+            y_title:      "帳戶價值",
+            lump_trace:   "一筆過",
+            dca_trace:    "平均成本法",
+            verdict_lump_big:  "一筆過勝出 {d}({p}%)。典型 67% 情境:部署期內市場上漲,愈早投入愈早複利。",
+            verdict_lump_sm:   "一筆過勝出 {d}({p}%)。差距不大。",
+            verdict_dca_big:   "平均成本法勝出 {d}({p}%)。下跌市況——部署期間持有現金保住真錢。",
+            verdict_dca_sm:    "平均成本法勝出 {d}({p}%)。差距不大。",
+            cap:          "回測採用 Damodaran 1928-2024 年標普 500 年度回報,按確定性算法拆分成每年 12 個月度回報,確保年度幾何回報精確配對歷史數值。部署期內現金 0% 利息。",
+            mdd_path:     "一筆過走勢",
+        },
+        tw: {
+            amt_label:    "金額(美元)",
+            year_label:   "起始年份",
+            n_label:      "定期定額期間",
+            name_lump:    "一次投入終值",
+            name_dca:     "定期定額終值",
+            name_diff:    "一次投入 - 定期定額",
+            name_mdd:     "部署期間最大回檔",
+            x_title:      "距離起始月份數",
+            y_title:      "帳戶價值",
+            lump_trace:   "一次投入",
+            dca_trace:    "定期定額",
+            verdict_lump_big:  "一次投入勝出 {d}({p}%)。典型 67% 情境:部署期間市場上漲,愈早投入愈早複利。",
+            verdict_lump_sm:   "一次投入勝出 {d}({p}%)。差距不大。",
+            verdict_dca_big:   "定期定額勝出 {d}({p}%)。下跌市況——部署期間持有現金省下實際金錢。",
+            verdict_dca_sm:    "定期定額勝出 {d}({p}%)。差距不大。",
+            cap:          "回測採用 Damodaran 1928-2024 年標普 500 年度報酬,按確定性演算法拆分成每年 12 個月度報酬,確保年度幾何報酬精確配對歷史數值。部署期內現金 0% 利息。",
+            mdd_path:     "一次投入走勢",
+        },
+        cn: {
+            amt_label:    "金额(美元)",
+            year_label:   "起始年份",
+            n_label:      "定投期间",
+            name_lump:    "一次性终值",
+            name_dca:     "定投终值",
+            name_diff:    "一次性 - 定投",
+            name_mdd:     "部署期最大回撚",
+            x_title:      "距离起始月份数",
+            y_title:      "账户价值",
+            lump_trace:   "一次性",
+            dca_trace:    "定投",
+            verdict_lump_big:  "一次性胜出 {d}({p}%)。典型 67% 情境:部署期市场上涨,越早投入越早复利。",
+            verdict_lump_sm:   "一次性胜出 {d}({p}%)。差距不大。",
+            verdict_dca_big:   "定投胜出 {d}({p}%)。下跌市况——部署期间持有现金保住真金。",
+            verdict_dca_sm:    "定投胜出 {d}({p}%)。差距不大。",
+            cap:          "回测采用 Damodaran 1928-2024 年标普 500 年度回报,按确定性算法拆分成每年 12 个月度回报,确保年度几何回报精确匹配历史数值。部署期内现金 0% 利息。",
+            mdd_path:     "一次性走势",
+        },
+    };
+    function currentLang() {
+        const p = new URLSearchParams(window.location.search);
+        const l = (p.get("lang") || "en").toLowerCase();
+        return I18N.hasOwnProperty(l) ? l : "en";
+    }
+    const T = I18N[currentLang()];
+
+    // Damodaran annual S&P 500 returns 1928-2024 (decimals).
+    const ANNUAL = [
+        [1928,0.4381],[1929,-0.0830],[1930,-0.2512],[1931,-0.4384],[1932,-0.0864],
+        [1933,0.4998],[1934,-0.0119],[1935,0.4674],[1936,0.3194],[1937,-0.3534],
+        [1938,0.2928],[1939,-0.0110],[1940,-0.1067],[1941,-0.1277],[1942,0.1917],
+        [1943,0.2506],[1944,0.1903],[1945,0.3582],[1946,-0.0843],[1947,0.0520],
+        [1948,0.0570],[1949,0.1830],[1950,0.3081],[1951,0.2368],[1952,0.1815],
+        [1953,-0.0121],[1954,0.5256],[1955,0.3260],[1956,0.0744],[1957,-0.1046],
+        [1958,0.4372],[1959,0.1206],[1960,0.0034],[1961,0.2664],[1962,-0.0881],
+        [1963,0.2280],[1964,0.1648],[1965,0.1245],[1966,-0.1006],[1967,0.2398],
+        [1968,0.1106],[1969,-0.0850],[1970,0.0386],[1971,0.1430],[1972,0.1899],
+        [1973,-0.1469],[1974,-0.2647],[1975,0.3723],[1976,0.2393],[1977,-0.0716],
+        [1978,0.0657],[1979,0.1861],[1980,0.3250],[1981,-0.0492],[1982,0.2155],
+        [1983,0.2256],[1984,0.0627],[1985,0.3173],[1986,0.1867],[1987,0.0525],
+        [1988,0.1661],[1989,0.3169],[1990,-0.0310],[1991,0.3047],[1992,0.0762],
+        [1993,0.1008],[1994,0.0132],[1995,0.3758],[1996,0.2296],[1997,0.3336],
+        [1998,0.2858],[1999,0.2104],[2000,-0.0910],[2001,-0.1189],[2002,-0.2210],
+        [2003,0.2868],[2004,0.1088],[2005,0.0491],[2006,0.1579],[2007,0.0549],
+        [2008,-0.3700],[2009,0.2646],[2010,0.1506],[2011,0.0211],[2012,0.1600],
+        [2013,0.3239],[2014,0.1369],[2015,0.0138],[2016,0.1196],[2017,0.2183],
+        [2018,-0.0438],[2019,0.3149],[2020,0.1840],[2021,0.2871],[2022,-0.1811],
+        [2023,0.2629],[2024,0.2502]
+    ];
+
+    // Deterministic LCG + Box-Muller normal draws.
+    function lcgNormals(seed, n) {
+        const a = 1664525, c = 1013904223, m = 4294967296;
+        let x = seed >>> 0;
+        const out = [];
+        while (out.length < n) {
+            x = (Math.imul(a, x) + c) >>> 0;
+            const u1 = (x + 1) / (m + 1);
+            x = (Math.imul(a, x) + c) >>> 0;
+            const u2 = (x + 1) / (m + 1);
+            const r = Math.sqrt(-2 * Math.log(u1));
+            out.push(r * Math.cos(2 * Math.PI * u2));
+            if (out.length < n) out.push(r * Math.sin(2 * Math.PI * u2));
+        }
+        return out.slice(0, n);
+    }
+
+    // Build the full monthly return series 1928-01..2024-12 deterministically.
+    const SIGMA_M = 0.045;
+    const MONTHLY = [];      // length 12 * len(ANNUAL)
+    const MONTHLY_YEAR = []; // year tag for index lookup
+    for (const [yr, R] of ANNUAL) {
+        const z = lcgNormals(yr * 7919, 11);
+        const logShocks = z.map(v => v * SIGMA_M);
+        let sumLog = 0;
+        for (const v of logShocks) sumLog += v;
+        const log12 = Math.log(1 + R) - sumLog;
+        const allLog = logShocks.concat([log12]);
+        for (let i = 0; i < 12; i++) {
+            MONTHLY.push(Math.exp(allLog[i]) - 1);
+            MONTHLY_YEAR.push(yr);
+        }
+    }
+    function startIdxForYear(year) {
+        const i = MONTHLY_YEAR.indexOf(year);
+        return i < 0 ? 0 : i;
+    }
+
+    // Backtest: amount A deployed over N months starting at month index i0.
+    // Total horizon for chart = max(N, 12) months.
+    function backtest(A, N, i0) {
+        const slice = A / N;
+        const horizon = Math.max(N, 12);
+        const lumpPath = [A];
+        let lumpV = A;
+        const dcaPath = [A];           // total wealth = invested + cash
+        let dcaInv = 0;
+        let dcaCash = A;
+        for (let m = 0; m < horizon; m++) {
+            // At start of month m+1, DCA invests another tranche if any left.
+            if (m < N) {
+                const buy = Math.min(slice, dcaCash);
+                dcaInv += buy;
+                dcaCash -= buy;
+            }
+            const r = (i0 + m < MONTHLY.length) ? MONTHLY[i0 + m] : 0;
+            lumpV *= (1 + r);
+            dcaInv *= (1 + r);
+            lumpPath.push(lumpV);
+            dcaPath.push(dcaInv + dcaCash);
+        }
+        // Max drawdown of LUMP path during deploy window (first N months)
+        let peak = lumpPath[0];
+        let mdd = 0;
+        for (let m = 0; m <= Math.min(N, horizon); m++) {
+            peak = Math.max(peak, lumpPath[m]);
+            const dd = lumpPath[m] / peak - 1;
+            if (dd < mdd) mdd = dd;
+        }
+        return { lumpPath, dcaPath, lumpV, dcaV: dcaInv + dcaCash, mdd, horizon };
+    }
+
+    const ROOT = document.getElementById("dc-root");
+    const CHART = document.getElementById("dc-chart");
+    const PERIOD = document.getElementById("dc-period");
+    const AMT = document.getElementById("dc-amt");
+    const YEAR = document.getElementById("dc-year");
+    const YEAR_VAL = document.getElementById("dc-year-value");
+
+    let state = { A: 120000, N: 12, year: 2008 };
+
+    function fmtUSD(v) {
+        if (Math.abs(v) >= 1e6) return (v / 1e6).toFixed(2) + "M";
+        if (Math.abs(v) >= 1e3) return (v / 1e3).toFixed(1) + "k";
+        return Math.round(v).toString();
+    }
+    function fmtSignedUSD(v) {
+        const sign = v >= 0 ? "+" : "-";
+        return sign + fmtUSD(Math.abs(v));
+    }
+    function pct(v) {
+        const sign = v >= 0 ? "+" : "";
+        return sign + (v * 100).toFixed(1) + "%";
+    }
+    function getCssVar(name) {
+        return getComputedStyle(ROOT).getPropertyValue(name).trim();
+    }
+    function darkMode() {
+        return document.documentElement.getAttribute("data-theme") === "dark";
+    }
+
+    function render() {
+        const i0 = startIdxForYear(state.year);
+        const { lumpPath, dcaPath, lumpV, dcaV, mdd, horizon } =
+            backtest(state.A, state.N, i0);
+        const xs = [];
+        for (let i = 0; i <= horizon; i++) xs.push(i);
+
+        const colNeg = getCssVar("--dc-neg");
+        const colMid = getCssVar("--dc-mid");
+        const colMuted = getCssVar("--dc-muted");
+        const colText = getCssVar("--dc-text");
+        const colBg = getCssVar("--dc-card");
+        const colGrid = darkMode() ? "rgba(255,255,255,0.08)" : "rgba(0,0,0,0.07)";
+
+        const traces = [
+            {
+                x: xs, y: lumpPath, mode: "lines",
+                line: { color: colNeg, width: 2.6 },
+                name: T.lump_trace,
+                hovertemplate: "%{y:$,.0f}<extra>" + T.lump_trace + "</extra>",
+            },
+            {
+                x: xs, y: dcaPath, mode: "lines",
+                line: { color: colMid, width: 2.6 },
+                name: T.dca_trace,
+                hovertemplate: "%{y:$,.0f}<extra>" + T.dca_trace + "</extra>",
+            },
+        ];
+
+        const layout = {
+            margin: { l: 64, r: 24, t: 36, b: 44 },
+            paper_bgcolor: colBg,
+            plot_bgcolor: colBg,
+            font: { family: "Segoe UI, Helvetica, Arial, sans-serif", color: colText, size: 12 },
+            xaxis: {
+                title: { text: T.x_title, font: { color: colMuted, size: 11 } },
+                gridcolor: colGrid,
+                zerolinecolor: colMuted,
+                color: colText,
+            },
+            yaxis: {
+                title: { text: T.y_title, font: { color: colMuted, size: 11 } },
+                gridcolor: colGrid,
+                zerolinecolor: colGrid,
+                color: colText,
+                tickformat: "$,.0f",
+            },
+            shapes: [
+                {
+                    type: "line", xref: "x", yref: "paper",
+                    x0: state.N, x1: state.N, y0: 0, y1: 1,
+                    line: { color: colMuted, width: 1.2, dash: "dot" },
+                },
+                {
+                    type: "line", xref: "x", yref: "y",
+                    x0: 0, x1: horizon, y0: state.A, y1: state.A,
+                    line: { color: colMuted, width: 0.8, dash: "dot" },
+                },
+            ],
+            hovermode: "x unified",
+            legend: { orientation: "h", x: 0.02, y: 1.08 },
+        };
+        Plotly.react(CHART, traces, layout, { displayModeBar: false, responsive: true });
+
+        // Stats
+        const diff = lumpV - dcaV;
+        const diffPctOfAmt = diff / state.A;
+        const lumpPct = (lumpV - state.A) / state.A;
+        const dcaPct = (dcaV - state.A) / state.A;
+
+        document.getElementById("dc-val-lump").textContent = "$" + fmtUSD(lumpV);
+        document.getElementById("dc-det-lump").textContent = pct(lumpPct);
+        document.getElementById("dc-val-dca").textContent = "$" + fmtUSD(dcaV);
+        document.getElementById("dc-det-dca").textContent = pct(dcaPct);
+        document.getElementById("dc-val-diff").textContent =
+            (diff >= 0 ? "+" : "-") + "$" + fmtUSD(Math.abs(diff));
+        document.getElementById("dc-det-diff").textContent = pct(diffPctOfAmt);
+        document.getElementById("dc-val-mdd").textContent = pct(mdd);
+        document.getElementById("dc-det-mdd").textContent = T.mdd_path;
+
+        // Verdict
+        const verdict = document.getElementById("dc-verdict");
+        const dStr = "$" + fmtUSD(Math.abs(diff));
+        const pStr = (Math.abs(diffPctOfAmt) * 100).toFixed(1);
+        const big = Math.abs(diffPctOfAmt) > 0.03;
+        let key;
+        if (diff >= 0) key = big ? "verdict_lump_big" : "verdict_lump_sm";
+        else key = big ? "verdict_dca_big" : "verdict_dca_sm";
+        verdict.textContent = T[key].replace("{d}", dStr).replace("{p}", pStr);
+        verdict.classList.toggle("dc-v-pos", diff >= 0);
+        verdict.classList.toggle("dc-v-neg", diff < 0);
+    }
+
+    // Wire up controls
+    PERIOD.querySelectorAll("button").forEach(btn => {
+        btn.addEventListener("click", () => {
+            PERIOD.querySelectorAll("button").forEach(b => b.classList.remove("active"));
+            btn.classList.add("active");
+            state.N = parseInt(btn.dataset.n, 10);
+            render();
+        });
+    });
+    AMT.addEventListener("input", () => {
+        const v = parseFloat(AMT.value);
+        if (isFinite(v) && v > 0) { state.A = v; render(); }
+    });
+    YEAR.addEventListener("input", () => {
+        state.year = parseInt(YEAR.value, 10);
+        YEAR_VAL.textContent = String(state.year);
+        render();
+    });
+
+    function applyI18n() {
+        document.getElementById("dc-amt-label").textContent = T.amt_label;
+        document.getElementById("dc-year-label").textContent = T.year_label;
+        document.getElementById("dc-name-lump").textContent = T.name_lump;
+        document.getElementById("dc-name-dca").textContent = T.name_dca;
+        document.getElementById("dc-name-diff").textContent = T.name_diff;
+        document.getElementById("dc-name-mdd").textContent = T.name_mdd;
+        document.getElementById("dc-caption").textContent = T.cap;
+    }
+    applyI18n();
+    YEAR_VAL.textContent = String(state.year);
+
+    function reportHeight() {
+        try {
+            const h = Math.ceil(document.documentElement.scrollHeight);
+            parent.postMessage({ type: 'lesson-interactive-resize', height: h }, '*');
+        } catch (e) { /* ignore */ }
+    }
+    if (typeof ResizeObserver !== 'undefined') {
+        new ResizeObserver(reportHeight).observe(document.body);
+    }
+    window.addEventListener('resize', reportHeight);
+    setTimeout(reportHeight, 50);
+    setTimeout(reportHeight, 500);
+
+    const themeObserver = new MutationObserver(render);
+    themeObserver.observe(document.documentElement, {
+        attributes: true,
+        attributeFilter: ["data-theme"],
+    });
+
+    render();
+})();
+</script>
+
+</body>
+</html>

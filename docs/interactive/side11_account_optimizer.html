@@ -1,0 +1,898 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Account Optimizer - Interactive (Side 11)</title>
+<script src="https://cdn.plot.ly/plotly-2.35.2.min.js" charset="utf-8"></script>
+<style>
+html, body { margin: 0; padding: 0; background: var(--ao-bg); }
+:root {
+    --ao-bg: #fdfbf5;
+    --ao-text: #1a2332;
+    --ao-muted: #6b7280;
+    --ao-border: #d6d3c4;
+    --ao-card: #fdfbf5;
+    --ao-accent: #b8860b;
+    --ao-blue: #0d47a1;
+    --ao-red: #b71c1c;
+    --ao-green: #2e7d32;
+    --ao-purple: #6a1b9a;
+    --ao-orange: #e65100;
+    --ao-teal: #00695c;
+    --ao-grey: #5a5a5a;
+}
+html[data-theme="dark"] .ao-root,
+.ao-root[data-theme="dark"] {
+    --ao-bg: #0f1724;
+    --ao-text: #e6e6e6;
+    --ao-muted: #9aa3b2;
+    --ao-border: #2a3441;
+    --ao-card: #0f1724;
+    --ao-blue: #5a8dee;
+    --ao-red: #ef5350;
+    --ao-green: #66bb6a;
+    --ao-purple: #ba68c8;
+    --ao-orange: #ffa726;
+    --ao-teal: #4db6ac;
+    --ao-grey: #aaaaaa;
+}
+.ao-root {
+    font-family: 'Segoe UI', Helvetica, Arial, sans-serif;
+    background: var(--ao-bg);
+    color: var(--ao-text);
+    padding: 12px;
+    margin: 0;
+}
+.ao-controls {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 12px;
+    margin-bottom: 14px;
+    padding: 12px;
+    background: var(--ao-card);
+    border: 1px solid var(--ao-border);
+    border-radius: 8px;
+}
+.ao-slider-wrap {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    font-size: 0.82rem;
+    color: var(--ao-muted);
+}
+.ao-slider-wrap .ao-row {
+    display: flex; align-items: center; gap: 10px;
+}
+.ao-slider-wrap input[type="range"] {
+    flex: 1;
+    accent-color: var(--ao-accent);
+}
+.ao-slider-wrap .ao-val {
+    white-space: nowrap;
+    color: var(--ao-text);
+    font-weight: 700;
+    font-variant-numeric: tabular-nums;
+    min-width: 80px;
+    text-align: right;
+}
+.ao-slider-wrap .ao-name {
+    font-weight: 600; color: var(--ao-text);
+}
+.ao-pillrow {
+    display: flex; flex-direction: column; gap: 4px;
+    font-size: 0.82rem; color: var(--ao-muted);
+}
+.ao-pills {
+    display: flex; gap: 6px; flex-wrap: wrap;
+}
+.ao-pill {
+    border: 1px solid var(--ao-border);
+    background: var(--ao-card);
+    color: var(--ao-text);
+    padding: 5px 11px;
+    border-radius: 999px;
+    cursor: pointer;
+    font: inherit;
+    font-size: 0.82rem;
+    font-variant-numeric: tabular-nums;
+}
+.ao-pill:hover { background: rgba(184,134,11,0.08); }
+.ao-pill.ao-on {
+    background: var(--ao-accent); color: #ffffff; border-color: var(--ao-accent);
+}
+.ao-bigrow {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 8px;
+    margin-bottom: 14px;
+}
+.ao-big {
+    background: var(--ao-card);
+    border: 1px solid var(--ao-border);
+    border-left: 4px solid var(--ao-accent);
+    border-radius: 8px;
+    padding: 10px 12px;
+}
+.ao-big.ao-b-total { border-left-color: var(--ao-blue); }
+.ao-big.ao-b-match { border-left-color: var(--ao-green); }
+.ao-big.ao-b-roth { border-left-color: var(--ao-purple); }
+.ao-big.ao-b-wealth { border-left-color: var(--ao-orange); }
+.ao-big .ao-big-name {
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--ao-muted);
+}
+.ao-big .ao-big-val {
+    font-size: 1.4rem;
+    font-weight: 800;
+    margin-top: 4px;
+    font-variant-numeric: tabular-nums;
+    color: var(--ao-text);
+}
+.ao-big .ao-big-detail {
+    font-size: 0.72rem;
+    color: var(--ao-muted);
+    margin-top: 2px;
+}
+.ao-tablewrap {
+    margin-bottom: 14px;
+    padding: 12px;
+    background: var(--ao-card);
+    border: 1px solid var(--ao-border);
+    border-radius: 8px;
+    overflow-x: auto;
+}
+.ao-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.85rem;
+}
+.ao-table th, .ao-table td {
+    text-align: left;
+    padding: 7px 10px;
+    border-bottom: 1px solid var(--ao-border);
+    font-variant-numeric: tabular-nums;
+}
+.ao-table th {
+    background: rgba(184,134,11,0.06);
+    font-weight: 700;
+    color: var(--ao-text);
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+}
+.ao-table td.ao-num { text-align: right; }
+.ao-tier-dot {
+    display: inline-block;
+    width: 10px; height: 10px; border-radius: 50%;
+    margin-right: 6px; vertical-align: middle;
+}
+.ao-table tr.ao-empty td { color: var(--ao-muted); opacity: 0.55; }
+.ao-table tr.ao-active td { font-weight: 700; }
+.ao-charts {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-bottom: 14px;
+}
+.ao-chart {
+    width: 100%;
+    height: 320px;
+    background: var(--ao-card);
+    border-radius: 8px;
+    border: 1px solid var(--ao-border);
+}
+.ao-caption {
+    margin-top: 4px;
+    font-size: 0.78rem;
+    color: var(--ao-muted);
+    line-height: 1.45;
+}
+@media (max-width: 1000px) {
+    .ao-charts { grid-template-columns: 1fr; }
+    .ao-controls { grid-template-columns: 1fr 1fr; }
+    .ao-bigrow { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 600px) {
+    .ao-controls { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<div class="ao-root" id="ao-root">
+    <div class="ao-controls">
+        <div class="ao-slider-wrap">
+            <div class="ao-name" id="ao-name-AGE">Age</div>
+            <div class="ao-row">
+                <input type="range" id="ao-AGE" min="22" max="64" step="1" value="35">
+                <span class="ao-val" id="ao-val-AGE">35</span>
+            </div>
+        </div>
+        <div class="ao-slider-wrap">
+            <div class="ao-name" id="ao-name-SAL">Annual salary</div>
+            <div class="ao-row">
+                <input type="range" id="ao-SAL" min="30000" max="500000" step="5000" value="200000">
+                <span class="ao-val" id="ao-val-SAL">$200,000</span>
+            </div>
+        </div>
+        <div class="ao-slider-wrap">
+            <div class="ao-name" id="ao-name-MATCH">Employer match (% of salary, 100% match formula)</div>
+            <div class="ao-row">
+                <input type="range" id="ao-MATCH" min="0" max="10" step="0.5" value="4">
+                <span class="ao-val" id="ao-val-MATCH">4.0%</span>
+            </div>
+        </div>
+        <div class="ao-slider-wrap">
+            <div class="ao-name" id="ao-name-CASH">Annual cash flow available to save</div>
+            <div class="ao-row">
+                <input type="range" id="ao-CASH" min="5000" max="120000" step="500" value="50000">
+                <span class="ao-val" id="ao-val-CASH">$50,000</span>
+            </div>
+        </div>
+        <div class="ao-pillrow">
+            <div class="ao-name" id="ao-name-TNOW">Current federal bracket</div>
+            <div class="ao-pills" id="ao-pills-TNOW"></div>
+        </div>
+        <div class="ao-pillrow">
+            <div class="ao-name" id="ao-name-TRET">Expected retirement bracket</div>
+            <div class="ao-pills" id="ao-pills-TRET"></div>
+        </div>
+    </div>
+
+    <div class="ao-bigrow">
+        <div class="ao-big ao-b-total">
+            <div class="ao-big-name" id="ao-bn-total">Total annual contribution</div>
+            <div class="ao-big-val" id="ao-bv-total">—</div>
+            <div class="ao-big-detail" id="ao-bd-total">across all 6 tiers, your $ + match</div>
+        </div>
+        <div class="ao-big ao-b-match">
+            <div class="ao-big-name" id="ao-bn-match">Employer match captured</div>
+            <div class="ao-big-val" id="ao-bv-match">—</div>
+            <div class="ao-big-detail" id="ao-bd-match">free dollars; do not skip</div>
+        </div>
+        <div class="ao-big ao-b-roth">
+            <div class="ao-big-name" id="ao-bn-roth">Roth share of contributions</div>
+            <div class="ao-big-val" id="ao-bv-roth">—</div>
+            <div class="ao-big-detail" id="ao-bd-roth">tax-free wrapper allocation</div>
+        </div>
+        <div class="ao-big ao-b-wealth">
+            <div class="ao-big-name" id="ao-bn-wealth">Projected after-tax wealth at 65</div>
+            <div class="ao-big-val" id="ao-bv-wealth">—</div>
+            <div class="ao-big-detail" id="ao-bd-wealth">7% growth, taxed at retirement bracket</div>
+        </div>
+    </div>
+
+    <div class="ao-tablewrap">
+        <table class="ao-table" id="ao-table">
+            <thead>
+                <tr>
+                    <th id="ao-th-tier">Tier</th>
+                    <th id="ao-th-name">Account</th>
+                    <th id="ao-th-flavor">Flavour</th>
+                    <th class="ao-num" id="ao-th-cap">2026 cap</th>
+                    <th class="ao-num" id="ao-th-alloc">Allocation</th>
+                    <th class="ao-num" id="ao-th-fv">FV at 65 (after-tax)</th>
+                </tr>
+            </thead>
+            <tbody id="ao-tbody"></tbody>
+        </table>
+    </div>
+
+    <div class="ao-charts">
+        <div id="ao-chart-alloc" class="ao-chart"></div>
+        <div id="ao-chart-wealth" class="ao-chart"></div>
+    </div>
+
+    <p class="ao-caption" id="ao-caption">
+        Allocation is strict-priority: each tier is filled to its cap before the next opens. Tier 1 (match) capacity = salary x match%. Tier 2 (HSA) = $4,300 single. Tier 3 (Roth IRA) = $7,000 ($8,000 if 50+); above the income phaseout ($165k single in 2026), via backdoor. Tier 4 (401(k) deferral) = $23,500 ($31,000 if 50+); flavour Trad if current bracket > expected retirement bracket, else Roth. Tier 5 (mega-backdoor) = ($70,000 + 50+ catch-up) - employee deferral - employer match. Tier 6 (taxable) = unlimited remainder. Wealth at 65 assumes 7% growth, ordinary tax on Trad+match at retirement bracket, capital-gains/qualified-dividend drag of ~0.7%/yr on taxable. Tier 1 match-only future value: assumes you fund the deferral required to capture it.
+    </p>
+</div>
+
+<script>
+(function () {
+    var I18N = {
+        en: {
+            name_AGE: "Age",
+            name_SAL: "Annual salary",
+            name_MATCH: "Employer match (% of salary, 100% match formula)",
+            name_CASH: "Annual cash flow available to save",
+            name_TNOW: "Current federal bracket",
+            name_TRET: "Expected retirement bracket",
+            bn_total: "Total annual contribution",
+            bn_match: "Employer match captured",
+            bn_roth: "Roth share of contributions",
+            bn_wealth: "Projected after-tax wealth at 65",
+            bd_total: "across all 6 tiers, your $ + match",
+            bd_match: "free dollars; do not skip",
+            bd_roth: "tax-free wrapper allocation",
+            bd_wealth: "7% growth, taxed at retirement bracket",
+            th_tier: "Tier",
+            th_name: "Account",
+            th_flavor: "Flavour",
+            th_cap: "2026 cap",
+            th_alloc: "Allocation",
+            th_fv: "FV at 65 (after-tax)",
+            tier_names: [
+                "1 - Employer 401(k) match",
+                "2 - HSA",
+                "3 - Roth IRA (or backdoor)",
+                "4 - 401(k) employee deferral",
+                "5 - Mega-backdoor Roth",
+                "6 - Taxable brokerage",
+            ],
+            chart_alloc_title: "Allocation by tier",
+            chart_alloc_x: "Annual $",
+            chart_wealth_title: "After-tax wealth growth ($, future)",
+            chart_wealth_x: "Year",
+            chart_wealth_y: "Wealth ($k)",
+            tr_taxable: "Taxable",
+            tr_tradnp: "Tax-deferred (Trad)",
+            tr_roth: "Tax-free (Roth/HSA)",
+            flavor_match: "Trad (employer)",
+            flavor_hsa: "Triple-tax",
+            flavor_roth: "Roth",
+            flavor_trad: "Trad",
+            flavor_taxable: "Post-tax",
+            unlimited: "unlimited",
+            caption: "Allocation is strict-priority: each tier is filled to its cap before the next opens. Tier 1 (match) capacity = salary x match%. Tier 2 (HSA) = $4,300 single. Tier 3 (Roth IRA) = $7,000 ($8,000 if 50+); above the income phaseout ($165k single in 2026), via backdoor. Tier 4 (401(k) deferral) = $23,500 ($31,000 if 50+); flavour Trad if current bracket > expected retirement bracket, else Roth. Tier 5 (mega-backdoor) = ($70,000 + 50+ catch-up) - employee deferral - employer match. Tier 6 (taxable) = unlimited remainder. Wealth at 65 assumes 7% growth, ordinary tax on Trad+match at retirement bracket, capital-gains drag of ~0.7%/yr on taxable.",
+        },
+        hk: {
+            name_AGE: "年齡",
+            name_SAL: "年薪",
+            name_MATCH: "雇主配對(薪酬 %,100% 配對)",
+            name_CASH: "每年可儲蓄現金流",
+            name_TNOW: "當前聯邦稅階",
+            name_TRET: "預期退休稅階",
+            bn_total: "年度總供款",
+            bn_match: "已抓取雇主配對",
+            bn_roth: "Roth 佔比",
+            bn_wealth: "65 歲預期稅後財富",
+            bd_total: "六層合計,自付 + 配對",
+            bd_match: "免費的錢,務必拿到",
+            bd_roth: "免稅工具佔比",
+            bd_wealth: "7% 增長,退休稅階課稅",
+            th_tier: "層",
+            th_name: "帳戶",
+            th_flavor: "屬性",
+            th_cap: "2026 上限",
+            th_alloc: "分配",
+            th_fv: "65 歲稅後終值",
+            tier_names: [
+                "1 - 雇主 401(k) 配對",
+                "2 - HSA",
+                "3 - Roth IRA(或後門)",
+                "4 - 401(k) 員工自提",
+                "5 - 巨型後門 Roth",
+                "6 - 應稅帳戶",
+            ],
+            chart_alloc_title: "各層分配",
+            chart_alloc_x: "每年 $",
+            chart_wealth_title: "稅後財富累積($,未來值)",
+            chart_wealth_x: "年份",
+            chart_wealth_y: "財富(千元)",
+            tr_taxable: "應稅",
+            tr_tradnp: "稅延(傳統)",
+            tr_roth: "免稅(Roth/HSA)",
+            flavor_match: "傳統(雇主)",
+            flavor_hsa: "三重免稅",
+            flavor_roth: "Roth",
+            flavor_trad: "傳統",
+            flavor_taxable: "稅後",
+            unlimited: "無上限",
+            caption: "嚴格優先級分配:每層滿額後才進入下一層。第 1 層配對 = 薪資 x 配對%。第 2 層 HSA $4,300 單身。第 3 層 Roth IRA $7,000(50+ $8,000);超過 $165k 單身的收入上限走後門。第 4 層 401(k) $23,500(50+ $31,000);若當前稅階高於退休則用傳統,否則用 Roth。第 5 層巨型後門 = $70,000 - 自提 - 配對。第 6 層應稅。65 歲財富假設 7% 增長,傳統+配對按退休稅階課稅,應稅每年約 0.7% 稅損。",
+        },
+        tw: {
+            name_AGE: "年齡",
+            name_SAL: "年薪",
+            name_MATCH: "雇主配對(薪資 %,100% 配對)",
+            name_CASH: "每年可儲蓄現金流",
+            name_TNOW: "當前聯邦稅階",
+            name_TRET: "預期退休稅階",
+            bn_total: "年度總提撥",
+            bn_match: "已取得雇主配對",
+            bn_roth: "Roth 佔比",
+            bn_wealth: "65 歲預期稅後財富",
+            bd_total: "六層合計,自付 + 配對",
+            bd_match: "免費的錢,務必拿到",
+            bd_roth: "免稅工具佔比",
+            bd_wealth: "7% 成長,退休稅階課稅",
+            th_tier: "層",
+            th_name: "帳戶",
+            th_flavor: "屬性",
+            th_cap: "2026 上限",
+            th_alloc: "分配",
+            th_fv: "65 歲稅後終值",
+            tier_names: [
+                "1 - 雇主 401(k) 配對",
+                "2 - HSA",
+                "3 - Roth IRA(或後門)",
+                "4 - 401(k) 員工提撥",
+                "5 - 巨型後門 Roth",
+                "6 - 應稅帳戶",
+            ],
+            chart_alloc_title: "各層分配",
+            chart_alloc_x: "每年 $",
+            chart_wealth_title: "稅後財富累積($,未來值)",
+            chart_wealth_x: "年份",
+            chart_wealth_y: "財富(千元)",
+            tr_taxable: "應稅",
+            tr_tradnp: "遞延(傳統)",
+            tr_roth: "免稅(Roth/HSA)",
+            flavor_match: "傳統(雇主)",
+            flavor_hsa: "三重免稅",
+            flavor_roth: "Roth",
+            flavor_trad: "傳統",
+            flavor_taxable: "稅後",
+            unlimited: "無上限",
+            caption: "嚴格優先級分配:每層滿額後才進下一層。第 1 層配對 = 薪資 x 配對%。第 2 層 HSA $4,300 單身。第 3 層 Roth IRA $7,000(50+ $8,000);超過 $165k 單身的收入上限走後門。第 4 層 401(k) $23,500(50+ $31,000);若當前稅階高於退休則用傳統,否則用 Roth。第 5 層巨型後門 = $70,000 - 自提 - 配對。第 6 層應稅。65 歲財富假設 7% 成長,傳統+配對按退休稅階課稅,應稅每年約 0.7% 稅損。",
+        },
+        cn: {
+            name_AGE: "年龄",
+            name_SAL: "年薪",
+            name_MATCH: "雇主匹配(薪资 %,100% 匹配)",
+            name_CASH: "每年可储蓄现金流",
+            name_TNOW: "当前联邦税阶",
+            name_TRET: "预期退休税阶",
+            bn_total: "年度总缴款",
+            bn_match: "已获得雇主匹配",
+            bn_roth: "Roth 占比",
+            bn_wealth: "65 岁预期税后财富",
+            bd_total: "六层合计,自付 + 匹配",
+            bd_match: "免费的钱,务必拿到",
+            bd_roth: "免税工具占比",
+            bd_wealth: "7% 增长,退休税阶征税",
+            th_tier: "层",
+            th_name: "账户",
+            th_flavor: "属性",
+            th_cap: "2026 上限",
+            th_alloc: "分配",
+            th_fv: "65 岁税后终值",
+            tier_names: [
+                "1 - 雇主 401(k) 匹配",
+                "2 - HSA",
+                "3 - Roth IRA(或后门)",
+                "4 - 401(k) 员工自付",
+                "5 - 巨型后门 Roth",
+                "6 - 应税账户",
+            ],
+            chart_alloc_title: "各层分配",
+            chart_alloc_x: "每年 $",
+            chart_wealth_title: "税后财富累积($,未来值)",
+            chart_wealth_x: "年份",
+            chart_wealth_y: "财富(千元)",
+            tr_taxable: "应税",
+            tr_tradnp: "递延(传统)",
+            tr_roth: "免税(Roth/HSA)",
+            flavor_match: "传统(雇主)",
+            flavor_hsa: "三重免税",
+            flavor_roth: "Roth",
+            flavor_trad: "传统",
+            flavor_taxable: "税后",
+            unlimited: "无限额",
+            caption: "严格优先级分配:每层满额后才进入下一层。第 1 层匹配 = 薪资 x 匹配%。第 2 层 HSA $4,300 单身。第 3 层 Roth IRA $7,000(50+ $8,000);超过 $165k 单身的收入上限走后门。第 4 层 401(k) $23,500(50+ $31,000);若当前税阶高于退休则用传统,否则用 Roth。第 5 层巨型后门 = $70,000 - 自付 - 匹配。第 6 层应税。65 岁财富假设 7% 增长,传统+匹配按退休税阶征税,应税每年约 0.7% 税损。",
+        },
+    };
+    function currentLang() {
+        var p = new URLSearchParams(window.location.search);
+        var l = (p.get("lang") || "en").toLowerCase();
+        return I18N.hasOwnProperty(l) ? l : "en";
+    }
+    var T = I18N[currentLang()];
+
+    // 2026 limits.
+    var CAP_HSA           = 4300;
+    var CAP_IRA           = 7000;
+    var CAP_IRA_50        = 8000;
+    var CAP_401K_DEFERRAL = 23500;
+    var CAP_401K_50       = 31000;        // 23500 + 7500 catch-up
+    var CAP_TOTAL_415     = 70000;
+    var CAP_TOTAL_415_50  = 77500;        // 70000 + 7500
+    var ROTH_PHASEOUT     = 165000;
+    var GROWTH            = 0.07;
+    var TAXABLE_DRAG      = 0.007;        // ~70 bp/yr after-tax drag
+    var COLORS = {
+        match:   "blue",
+        hsa:     "green",
+        roth:    "purple",
+        k401:    "accent",
+        mega:    "orange",
+        taxable: "grey",
+    };
+
+    var BRACKETS = [0.10, 0.12, 0.22, 0.24, 0.32, 0.35, 0.37];
+
+    var ROOT = document.getElementById("ao-root");
+    var AGE_EL   = document.getElementById("ao-AGE");
+    var SAL_EL   = document.getElementById("ao-SAL");
+    var MATCH_EL = document.getElementById("ao-MATCH");
+    var CASH_EL  = document.getElementById("ao-CASH");
+
+    var TNOW_PILLS = document.getElementById("ao-pills-TNOW");
+    var TRET_PILLS = document.getElementById("ao-pills-TRET");
+
+    var state = { tnow: 0.32, tret: 0.22 };
+
+    function buildPills() {
+        TNOW_PILLS.innerHTML = "";
+        TRET_PILLS.innerHTML = "";
+        BRACKETS.forEach(function (b) {
+            var bn = (b * 100).toFixed(0) + "%";
+            var p1 = document.createElement("button");
+            p1.type = "button"; p1.className = "ao-pill";
+            p1.textContent = bn;
+            if (Math.abs(b - state.tnow) < 0.001) p1.classList.add("ao-on");
+            p1.addEventListener("click", function () {
+                state.tnow = b; updatePillStates(); render();
+            });
+            TNOW_PILLS.appendChild(p1);
+            var p2 = document.createElement("button");
+            p2.type = "button"; p2.className = "ao-pill";
+            p2.textContent = bn;
+            if (Math.abs(b - state.tret) < 0.001) p2.classList.add("ao-on");
+            p2.addEventListener("click", function () {
+                state.tret = b; updatePillStates(); render();
+            });
+            TRET_PILLS.appendChild(p2);
+        });
+    }
+    function updatePillStates() {
+        var pi = 0;
+        Array.prototype.forEach.call(TNOW_PILLS.children, function (p) {
+            p.classList.toggle("ao-on", Math.abs(BRACKETS[pi] - state.tnow) < 0.001);
+            pi++;
+        });
+        pi = 0;
+        Array.prototype.forEach.call(TRET_PILLS.children, function (p) {
+            p.classList.toggle("ao-on", Math.abs(BRACKETS[pi] - state.tret) < 0.001);
+            pi++;
+        });
+    }
+
+    function fmtMoney(n) {
+        if (!isFinite(n)) return "-";
+        var sign = n < 0 ? "-" : "";
+        n = Math.abs(n);
+        if (n >= 1e6) return sign + "$" + (n / 1e6).toFixed(2) + "M";
+        if (n >= 1e3) return sign + "$" + Math.round(n).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+        return sign + "$" + n.toFixed(0);
+    }
+    function fmtMoneyExact(n) {
+        if (!isFinite(n)) return "-";
+        return "$" + Math.round(n).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    }
+    function fmtPct(n, d) { return (n * 100).toFixed(d == null ? 1 : d) + "%"; }
+    function darkMode() { return document.documentElement.getAttribute("data-theme") === "dark"; }
+    function getCssVar(name) { return getComputedStyle(ROOT).getPropertyValue(name).trim(); }
+
+    function applyI18n() {
+        document.getElementById("ao-name-AGE").textContent   = T.name_AGE;
+        document.getElementById("ao-name-SAL").textContent   = T.name_SAL;
+        document.getElementById("ao-name-MATCH").textContent = T.name_MATCH;
+        document.getElementById("ao-name-CASH").textContent  = T.name_CASH;
+        document.getElementById("ao-name-TNOW").textContent  = T.name_TNOW;
+        document.getElementById("ao-name-TRET").textContent  = T.name_TRET;
+        document.getElementById("ao-bn-total").textContent   = T.bn_total;
+        document.getElementById("ao-bn-match").textContent   = T.bn_match;
+        document.getElementById("ao-bn-roth").textContent    = T.bn_roth;
+        document.getElementById("ao-bn-wealth").textContent  = T.bn_wealth;
+        document.getElementById("ao-bd-total").textContent   = T.bd_total;
+        document.getElementById("ao-bd-match").textContent   = T.bd_match;
+        document.getElementById("ao-bd-roth").textContent    = T.bd_roth;
+        document.getElementById("ao-bd-wealth").textContent  = T.bd_wealth;
+        document.getElementById("ao-th-tier").textContent    = T.th_tier;
+        document.getElementById("ao-th-name").textContent    = T.th_name;
+        document.getElementById("ao-th-flavor").textContent  = T.th_flavor;
+        document.getElementById("ao-th-cap").textContent     = T.th_cap;
+        document.getElementById("ao-th-alloc").textContent   = T.th_alloc;
+        document.getElementById("ao-th-fv").textContent      = T.th_fv;
+        document.getElementById("ao-caption").textContent    = T.caption;
+    }
+
+    function compute() {
+        var age   = parseInt(AGE_EL.value, 10);
+        var sal   = parseFloat(SAL_EL.value);
+        var match = parseFloat(MATCH_EL.value) / 100.0;
+        var cash  = parseFloat(CASH_EL.value);
+        var is50  = age >= 50;
+
+        // Caps.
+        var capMatch = Math.max(0, sal * match);                  // employee $ to capture full match
+        var capHsa   = CAP_HSA;                                    // single coverage
+        var capIra   = is50 ? CAP_IRA_50 : CAP_IRA;
+        var cap401k  = is50 ? CAP_401K_50 : CAP_401K_DEFERRAL;
+        var capTotal = is50 ? CAP_TOTAL_415_50 : CAP_TOTAL_415;
+        // Mega-backdoor lane = totalCap - 401k deferral - employer match.
+        var employerMatchDollars = capMatch;  // assume 100% match formula
+        var capMega  = Math.max(0, capTotal - cap401k - employerMatchDollars);
+
+        // Roth-IRA flavour: backdoor required if salary > phaseout, but allocation logic same.
+        var iraIsBackdoor = sal > ROTH_PHASEOUT;
+
+        // 401(k) flavour: Trad if t_now > t_ret (high now, low later); else Roth.
+        var k401Flavour = state.tnow > state.tret ? "trad" : "roth";
+
+        // Strict-priority allocation.
+        var remain = cash;
+        var allocs = [];
+        // Tier 1 - match
+        var a1 = Math.min(remain, capMatch);
+        allocs.push({key:"match", flavor: T.flavor_match, cap: capMatch, alloc: a1, taxbucket: "trad"});
+        remain -= a1;
+        // Tier 2 - HSA
+        var a2 = Math.min(remain, capHsa);
+        allocs.push({key:"hsa", flavor: T.flavor_hsa, cap: capHsa, alloc: a2, taxbucket: "roth"});
+        remain -= a2;
+        // Tier 3 - Roth IRA
+        var a3 = Math.min(remain, capIra);
+        allocs.push({key:"roth", flavor: iraIsBackdoor ? T.flavor_roth + " (backdoor)" : T.flavor_roth,
+                     cap: capIra, alloc: a3, taxbucket: "roth"});
+        remain -= a3;
+        // Tier 4 - 401(k) deferral remainder (we already used capMatch of it)
+        var cap4_remaining = Math.max(0, cap401k - capMatch);
+        var a4 = Math.min(remain, cap4_remaining);
+        allocs.push({key:"k401",
+                     flavor: k401Flavour === "roth" ? T.flavor_roth : T.flavor_trad,
+                     cap: cap4_remaining, alloc: a4,
+                     taxbucket: k401Flavour === "roth" ? "roth" : "trad"});
+        remain -= a4;
+        // Tier 5 - mega-backdoor
+        var a5 = Math.min(remain, capMega);
+        allocs.push({key:"mega", flavor: T.flavor_roth, cap: capMega, alloc: a5, taxbucket: "roth"});
+        remain -= a5;
+        // Tier 6 - taxable, unlimited
+        var a6 = Math.max(0, remain);
+        allocs.push({key:"taxable", flavor: T.flavor_taxable, cap: Infinity, alloc: a6, taxbucket: "taxable"});
+
+        // FV at 65 per tier, after-tax.
+        var years = Math.max(0, 65 - age);
+        var growthMul = Math.pow(1 + GROWTH, years);
+        var taxableMul = Math.pow(1 + GROWTH - TAXABLE_DRAG, years);
+        var fvAnnuityFactor = years === 0 ? 0 : (Math.pow(1 + GROWTH, years) - 1) / GROWTH;
+        var fvAnnuityFactorTaxable = years === 0 ? 0 :
+            (Math.pow(1 + GROWTH - TAXABLE_DRAG, years) - 1) / (GROWTH - TAXABLE_DRAG);
+
+        // Totals (for KPIs and chart)
+        var totalEmployerMatch = a1 > 0 ? Math.min(employerMatchDollars, a1) : 0;
+        // Each $1 of "match-capture" deferral is matched 1:1 (assumption).
+        // Total annual money flowing in:
+        var totalAnnual = a1 + a2 + a3 + a4 + a5 + a6 + totalEmployerMatch;
+        // Roth-bucket annual = a2 + a3 + a5 + (a4 if Roth elected) + ZERO of match (match always Trad)
+        var rothAnnual = a2 + a3 + a5 + (k401Flavour === "roth" ? a4 : 0);
+        var rothShare = totalAnnual > 0 ? rothAnnual / totalAnnual : 0;
+
+        // FV per tier (after-tax at 65)
+        // Roth/HSA buckets: alloc * fvAnnuityFactor (no tax at withdrawal)
+        // Trad bucket: alloc * fvAnnuityFactor * (1 - t_ret)
+        // Taxable: alloc * fvAnnuityFactorTaxable (already post-tax basis)
+        // Match: trad bucket plus the matched dollars themselves.
+        function fvAfterTax(alloc, bucket, isMatch) {
+            if (alloc <= 0) return 0;
+            var pretaxFV;
+            if (bucket === "taxable") return alloc * fvAnnuityFactorTaxable;
+            if (bucket === "roth")    return alloc * fvAnnuityFactor;
+            // trad
+            pretaxFV = alloc * fvAnnuityFactor;
+            return pretaxFV * (1 - state.tret);
+        }
+        var fvByTier = allocs.map(function (a) {
+            var fv = fvAfterTax(a.alloc, a.taxbucket, a.key === "match");
+            // For tier-1 match, also add the employer match itself (taxed as Trad at retirement).
+            if (a.key === "match" && a.alloc > 0) {
+                var matchedDollars = Math.min(employerMatchDollars, a.alloc);
+                fv += matchedDollars * fvAnnuityFactor * (1 - state.tret);
+            }
+            return fv;
+        });
+        var totalFV = fvByTier.reduce(function (s, v) { return s + v; }, 0);
+
+        // Wealth path (sum across tiers, year by year)
+        var path = [];
+        for (var t = 0; t <= years; t++) {
+            var w = 0;
+            allocs.forEach(function (a, i) {
+                if (a.alloc <= 0) return;
+                var f = t === 0 ? 0 :
+                    (a.taxbucket === "taxable" ?
+                        (Math.pow(1 + GROWTH - TAXABLE_DRAG, t) - 1) / (GROWTH - TAXABLE_DRAG) :
+                        (Math.pow(1 + GROWTH, t) - 1) / GROWTH);
+                var fv;
+                if (a.taxbucket === "taxable") fv = a.alloc * f;
+                else if (a.taxbucket === "roth") fv = a.alloc * f;
+                else fv = a.alloc * f * (1 - state.tret);
+                w += fv;
+                if (a.key === "match") {
+                    var matchedDollars = Math.min(employerMatchDollars, a.alloc);
+                    w += matchedDollars * f * (1 - state.tret);
+                }
+            });
+            path.push({ t: age + t, w: w });
+        }
+
+        return {
+            age: age, years: years, sal: sal, cash: cash, match: match,
+            allocs: allocs, fvByTier: fvByTier, totalFV: totalFV,
+            totalEmployerMatch: totalEmployerMatch,
+            totalAnnual: totalAnnual, rothShare: rothShare,
+            iraIsBackdoor: iraIsBackdoor, k401Flavour: k401Flavour,
+            path: path,
+        };
+    }
+
+    function renderTable(R) {
+        var tbody = document.getElementById("ao-tbody");
+        tbody.innerHTML = "";
+        for (var i = 0; i < R.allocs.length; i++) {
+            var a = R.allocs[i];
+            var tr = document.createElement("tr");
+            if (a.alloc < 0.5) tr.classList.add("ao-empty");
+            else tr.classList.add("ao-active");
+            var color = getCssVar("--ao-" + COLORS[a.key]);
+            var capStr = a.cap === Infinity ? T.unlimited : fmtMoneyExact(a.cap);
+            tr.innerHTML =
+                '<td><span class="ao-tier-dot" style="background:' + color + '"></span>' + T.tier_names[i] + '</td>' +
+                '<td>' + tierAccountName(a.key) + '</td>' +
+                '<td>' + a.flavor + '</td>' +
+                '<td class="ao-num">' + capStr + '</td>' +
+                '<td class="ao-num">' + fmtMoneyExact(a.alloc) + '</td>' +
+                '<td class="ao-num">' + fmtMoney(R.fvByTier[i]) + '</td>';
+            tbody.appendChild(tr);
+        }
+    }
+    function tierAccountName(k) {
+        switch (k) {
+            case "match":   return "401(k) match";
+            case "hsa":     return "HSA";
+            case "roth":    return "Roth IRA";
+            case "k401":    return "401(k) deferral";
+            case "mega":    return "Mega-backdoor";
+            case "taxable": return "Taxable";
+        }
+        return k;
+    }
+
+    function renderCharts(R) {
+        var colorText = getCssVar("--ao-text");
+        var colorMuted = getCssVar("--ao-muted");
+        var colorBg = getCssVar("--ao-card");
+        var colorGrid = darkMode() ? "rgba(255,255,255,0.08)" : "rgba(0,0,0,0.07)";
+
+        // Allocation horizontal bar chart, one bar per tier.
+        var names = T.tier_names;
+        var allocs = R.allocs.map(function (a) { return a.alloc; });
+        var employerExtra = R.allocs.map(function (a) {
+            return a.key === "match" ? Math.min(R.totalEmployerMatch, a.alloc) : 0;
+        });
+        var colors = R.allocs.map(function (a) { return getCssVar("--ao-" + COLORS[a.key]); });
+        var hatchColors = colors.map(function (c) { return c; });
+
+        var traceA1 = {
+            x: allocs, y: names, type: "bar", orientation: "h",
+            name: T.tr_taxable, // overridden via legendgroup; we won't show legend
+            marker: { color: colors, line: { color: colorBg, width: 1 } },
+            text: allocs.map(function (v) { return v > 0 ? fmtMoneyExact(v) : ""; }),
+            textposition: "outside", cliponaxis: false,
+            textfont: { color: colorText, size: 10 },
+            hovertemplate: "%{y}<br>your $: %{x:,.0f}<extra></extra>",
+            showlegend: false,
+        };
+        var traceA2 = {
+            x: employerExtra, y: names, type: "bar", orientation: "h",
+            marker: { color: hatchColors, opacity: 0.45,
+                      pattern: { shape: "/", size: 8, solidity: 0.5 },
+                      line: { color: colorBg, width: 1 } },
+            base: allocs,
+            text: employerExtra.map(function (v) { return v > 0 ? "+ match " + fmtMoneyExact(v) : ""; }),
+            textposition: "outside", cliponaxis: false,
+            textfont: { color: colorMuted, size: 9 },
+            hovertemplate: "%{y}<br>employer match: %{x:,.0f}<extra></extra>",
+            showlegend: false,
+        };
+        var layoutA = {
+            margin: { l: 220, r: 90, t: 36, b: 36 },
+            paper_bgcolor: colorBg, plot_bgcolor: colorBg,
+            font: { family: "Segoe UI, Helvetica, Arial, sans-serif", color: colorText, size: 11 },
+            xaxis: { title: { text: T.chart_alloc_x, font: { color: colorMuted, size: 11 } },
+                     tickprefix: "$", gridcolor: colorGrid, color: colorText },
+            yaxis: { color: colorText, automargin: true, autorange: "reversed" },
+            title: { text: T.chart_alloc_title, x: 0, xanchor: "left",
+                     font: { color: colorText, size: 13, weight: 700 } },
+            barmode: "stack",
+        };
+        Plotly.react(document.getElementById("ao-chart-alloc"),
+                     [traceA1, traceA2], layoutA,
+                     { displayModeBar: false, responsive: true });
+
+        // Wealth path line chart.
+        var xs = R.path.map(function (p) { return p.t; });
+        var ys = R.path.map(function (p) { return p.w / 1000; });
+        var colorBlue = getCssVar("--ao-blue");
+        var colorOrange = getCssVar("--ao-orange");
+        var traceW = {
+            x: xs, y: ys, type: "scatter", mode: "lines",
+            line: { color: colorBlue, width: 2.6, shape: "spline" },
+            fill: "tozeroy",
+            fillcolor: (darkMode() ? "rgba(90,141,238,0.15)" : "rgba(13,71,161,0.10)"),
+            hovertemplate: "age %{x}<br>$%{y:,.0f}k<extra></extra>",
+        };
+        var layoutW = {
+            margin: { l: 60, r: 16, t: 36, b: 46 },
+            paper_bgcolor: colorBg, plot_bgcolor: colorBg,
+            font: { family: "Segoe UI, Helvetica, Arial, sans-serif", color: colorText, size: 11 },
+            xaxis: { title: { text: T.chart_wealth_x, font: { color: colorMuted, size: 11 } },
+                     gridcolor: colorGrid, color: colorText },
+            yaxis: { title: { text: T.chart_wealth_y, font: { color: colorMuted, size: 11 } },
+                     gridcolor: colorGrid, color: colorText },
+            title: { text: T.chart_wealth_title, x: 0, xanchor: "left",
+                     font: { color: colorText, size: 13, weight: 700 } },
+            shapes: [{
+                type: "line", xref: "x", yref: "paper",
+                x0: 65, x1: 65, y0: 0, y1: 1,
+                line: { color: colorOrange, width: 1.2, dash: "dot" }
+            }],
+            annotations: [{
+                x: 65, y: 0.96, xref: "x", yref: "paper",
+                text: "65", showarrow: false,
+                font: { color: colorOrange, size: 10, weight: 700 },
+                xanchor: "left", xshift: 4,
+            }],
+        };
+        Plotly.react(document.getElementById("ao-chart-wealth"),
+                     [traceW], layoutW,
+                     { displayModeBar: false, responsive: true });
+    }
+
+    function render() {
+        // Update slider value labels.
+        document.getElementById("ao-val-AGE").textContent   = String(parseInt(AGE_EL.value, 10));
+        document.getElementById("ao-val-SAL").textContent   = "$" + Number(SAL_EL.value).toLocaleString();
+        document.getElementById("ao-val-MATCH").textContent = parseFloat(MATCH_EL.value).toFixed(1) + "%";
+        document.getElementById("ao-val-CASH").textContent  = "$" + Number(CASH_EL.value).toLocaleString();
+
+        var R = compute();
+
+        document.getElementById("ao-bv-total").textContent  = fmtMoneyExact(R.totalAnnual);
+        document.getElementById("ao-bv-match").textContent  = fmtMoneyExact(R.totalEmployerMatch);
+        document.getElementById("ao-bv-roth").textContent   = fmtPct(R.rothShare, 0);
+        document.getElementById("ao-bv-wealth").textContent = fmtMoney(R.totalFV);
+
+        renderTable(R);
+        renderCharts(R);
+    }
+
+    buildPills();
+    applyI18n();
+    AGE_EL.addEventListener("input", render);
+    SAL_EL.addEventListener("input", render);
+    MATCH_EL.addEventListener("input", render);
+    CASH_EL.addEventListener("input", render);
+
+    // Postmessage resize.
+    function reportHeight() {
+        try {
+            var h = Math.ceil(document.documentElement.scrollHeight);
+            parent.postMessage({ type: "lesson-interactive-resize", height: h }, "*");
+        } catch (e) { /* ignore */ }
+    }
+    if (typeof ResizeObserver !== "undefined") {
+        new ResizeObserver(reportHeight).observe(document.body);
+    }
+    window.addEventListener("resize", reportHeight);
+    setTimeout(reportHeight, 50);
+    setTimeout(reportHeight, 500);
+
+    // Theme observer.
+    var themeObserver = new MutationObserver(render);
+    themeObserver.observe(document.documentElement, {
+        attributes: true, attributeFilter: ["data-theme"],
+    });
+
+    render();
+})();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,557 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Sector Lab — Interactive (Week 16)</title>
+<script src="https://cdn.plot.ly/plotly-2.35.2.min.js" charset="utf-8"></script>
+<style>
+html, body { margin: 0; padding: 0; background: var(--sr-bg); }
+:root {
+    --sr-bg: #fdfbf5;
+    --sr-text: #1a2332;
+    --sr-muted: #6b7280;
+    --sr-border: #d6d3c4;
+    --sr-card: #fdfbf5;
+    --sr-pos: #2e7d32;
+    --sr-neg: #b71c1c;
+    --sr-mid: #0d47a1;
+    --sr-accent: #b8860b;
+    --sr-grey: #5a5a5a;
+    --sr-spy:  #5a5a5a;
+}
+html[data-theme="dark"] .sr-root,
+.sr-root[data-theme="dark"] {
+    --sr-bg: #0f1724;
+    --sr-text: #e6e6e6;
+    --sr-muted: #9aa3b2;
+    --sr-border: #2a3441;
+    --sr-card: #0f1724;
+    --sr-pos: #66bb6a;
+    --sr-neg: #ef5350;
+    --sr-mid: #5a8dee;
+    --sr-spy:  #b0b0b0;
+}
+.sr-root {
+    font-family: 'Segoe UI', Helvetica, Arial, sans-serif;
+    background: var(--sr-bg);
+    color: var(--sr-text);
+    padding: 12px;
+    margin: 0;
+}
+.sr-controls {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 12px;
+    padding: 10px 12px;
+    background: var(--sr-card);
+    border: 1px solid var(--sr-border);
+    border-radius: 8px;
+}
+.sr-controls .sr-label {
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: var(--sr-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+    margin-right: 6px;
+}
+.sr-pillrow {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+.sr-pill {
+    border: 1px solid var(--sr-border);
+    background: var(--sr-card);
+    color: var(--sr-muted);
+    padding: 5px 11px;
+    font: inherit;
+    font-size: 0.82rem;
+    font-weight: 700;
+    border-radius: 999px;
+    cursor: pointer;
+    transition: background 0.15s, color 0.15s, border-color 0.15s;
+    font-variant-numeric: tabular-nums;
+}
+.sr-pill:hover { color: var(--sr-text); border-color: var(--sr-text); }
+.sr-pill.active {
+    color: #fff;
+    border-color: transparent;
+}
+.sr-pill.disabled {
+    opacity: 0.45;
+    cursor: not-allowed;
+}
+.sr-counter {
+    margin-left: auto;
+    font-size: 0.82rem;
+    color: var(--sr-muted);
+    font-weight: 700;
+    font-variant-numeric: tabular-nums;
+}
+.sr-counter span { color: var(--sr-text); }
+.sr-chart {
+    width: 100%;
+    height: 380px;
+    background: var(--sr-card);
+    border-radius: 8px;
+    border: 1px solid var(--sr-border);
+}
+.sr-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 10px;
+    margin-top: 12px;
+}
+.sr-stat {
+    background: var(--sr-card);
+    border: 1px solid var(--sr-border);
+    border-left: 4px solid var(--sr-muted);
+    border-radius: 8px;
+    padding: 10px 12px;
+}
+.sr-stat .sr-stat-name {
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+    color: var(--sr-muted);
+}
+.sr-stat .sr-stat-name span.sr-tk {
+    color: var(--sr-text);
+    margin-right: 6px;
+    font-size: 0.92rem;
+}
+.sr-stat-row {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 4px;
+    font-size: 0.86rem;
+    font-variant-numeric: tabular-nums;
+}
+.sr-stat-row .sr-k {
+    color: var(--sr-muted);
+}
+.sr-stat-row .sr-v {
+    color: var(--sr-text);
+    font-weight: 700;
+}
+.sr-caption {
+    margin-top: 10px;
+    font-size: 0.78rem;
+    color: var(--sr-muted);
+    line-height: 1.45;
+}
+@media (max-width: 640px) {
+    .sr-chart { height: 320px; }
+}
+</style>
+</head>
+<body>
+
+<div class="sr-root" id="sr-root">
+    <div class="sr-controls">
+        <span class="sr-label" id="sr-controls-label">Sectors</span>
+        <div class="sr-pillrow" id="sr-pills"></div>
+        <span class="sr-counter" id="sr-counter">0 / 4</span>
+    </div>
+    <div id="sr-chart" class="sr-chart"></div>
+    <div class="sr-stats" id="sr-stats"></div>
+    <p class="sr-caption" id="sr-caption">
+        Pick up to four SPDR sector ETFs. Lines show $1 invested at the
+        start of 2010 reinvested annually. SPY is always plotted as the
+        S&P 500 baseline. XLRE began trading Oct 2015; XLC began Jun 2018
+        — earlier years are treated as cash for those ETFs.
+    </p>
+</div>
+
+<script>
+(function () {
+    const I18N = {
+        en: {
+            controls_label:  "Sectors",
+            counter:         "{n} / 4",
+            limit_msg:       "Max 4 sectors selected",
+            spy_label:       "SPY (S&P 500)",
+            chart_title:     "Cumulative growth of $1 — selected sectors vs SPY (2010-2024)",
+            chart_xtitle:    "Year",
+            chart_ytitle:    "Cumulative growth of $1",
+            stat_ann:        "Geom. ann. return",
+            stat_vol:        "Annual vol",
+            stat_mdd:        "Max drawdown",
+            stat_end:        "End wealth",
+            sector_names: {
+                XLY: "Cons. Discretionary",
+                XLP: "Cons. Staples",
+                XLE: "Energy",
+                XLF: "Financials",
+                XLV: "Health Care",
+                XLI: "Industrials",
+                XLB: "Materials",
+                XLRE: "Real Estate",
+                XLK: "Technology",
+                XLC: "Communication",
+                XLU: "Utilities",
+            },
+            caption: "Pick up to four SPDR sector ETFs. Lines show $1 invested at the start of 2010 with annual rebalancing. SPY is always plotted as the S&P 500 baseline. XLRE began trading Oct 2015; XLC began Jun 2018 \u2014 earlier years are treated as 0% return for those ETFs.",
+        },
+        hk: {
+            controls_label:  "行業",
+            counter:         "{n} / 4",
+            limit_msg:       "最多選 4 個行業",
+            spy_label:       "SPY(標普 500)",
+            chart_title:     "1 美元的累計成長 \u2014 所選行業對 SPY(2010-2024)",
+            chart_xtitle:    "年份",
+            chart_ytitle:    "1 美元的累計成長",
+            stat_ann:        "幾何年化回報",
+            stat_vol:        "年波動率",
+            stat_mdd:        "最大回撤",
+            stat_end:        "期末財富",
+            sector_names: {
+                XLY: "非必需消費",
+                XLP: "必需消費",
+                XLE: "能源",
+                XLF: "金融",
+                XLV: "醫療",
+                XLI: "工業",
+                XLB: "原材料",
+                XLRE: "房地產",
+                XLK: "科技",
+                XLC: "通信服務",
+                XLU: "公用事業",
+            },
+            caption: "可選最多 4 個 SPDR 行業 ETF。線條代表 2010 年初投入 1 美元、每年再平衡的累計值。SPY 為標普 500 基準,固定顯示。XLRE 始於 2015 年 10 月;XLC 始於 2018 年 6 月,在此之前以 0% 回報處理。",
+        },
+        tw: {
+            controls_label:  "行業",
+            counter:         "{n} / 4",
+            limit_msg:       "最多選 4 個行業",
+            spy_label:       "SPY(標普 500)",
+            chart_title:     "1 美元的累計成長 \u2014 所選行業對 SPY(2010-2024)",
+            chart_xtitle:    "年份",
+            chart_ytitle:    "1 美元的累計成長",
+            stat_ann:        "幾何年化報酬",
+            stat_vol:        "年波動率",
+            stat_mdd:        "最大回檔",
+            stat_end:        "期末財富",
+            sector_names: {
+                XLY: "非必需消費",
+                XLP: "必需消費",
+                XLE: "能源",
+                XLF: "金融",
+                XLV: "醫療",
+                XLI: "工業",
+                XLB: "原物料",
+                XLRE: "房地產",
+                XLK: "科技",
+                XLC: "通訊服務",
+                XLU: "公用事業",
+            },
+            caption: "可選最多 4 個 SPDR 行業 ETF。線條代表 2010 年初投入 1 美元、每年再平衡的累計值。SPY 為標普 500 基準,固定顯示。XLRE 始於 2015 年 10 月;XLC 始於 2018 年 6 月,在此之前以 0% 回報處理。",
+        },
+        cn: {
+            controls_label:  "行业",
+            counter:         "{n} / 4",
+            limit_msg:       "最多选 4 个行业",
+            spy_label:       "SPY(标普 500)",
+            chart_title:     "1 美元的累计增长 \u2014 所选行业对 SPY(2010-2024)",
+            chart_xtitle:    "年份",
+            chart_ytitle:    "1 美元的累计增长",
+            stat_ann:        "几何年化回报",
+            stat_vol:        "年波动率",
+            stat_mdd:        "最大回撤",
+            stat_end:        "期末财富",
+            sector_names: {
+                XLY: "非必需消费",
+                XLP: "必需消费",
+                XLE: "能源",
+                XLF: "金融",
+                XLV: "医疗",
+                XLI: "工业",
+                XLB: "原材料",
+                XLRE: "房地产",
+                XLK: "科技",
+                XLC: "通信服务",
+                XLU: "公用事业",
+            },
+            caption: "可选最多 4 个 SPDR 行业 ETF。线条代表 2010 年初投入 1 美元、每年再平衡的累计值。SPY 为标普 500 基准,固定显示。XLRE 始于 2015 年 10 月;XLC 始于 2018 年 6 月,之前以 0% 回报处理。",
+        },
+    };
+
+    function currentLang() {
+        const p = new URLSearchParams(window.location.search);
+        const l = (p.get("lang") || "en").toLowerCase();
+        return I18N.hasOwnProperty(l) ? l : "en";
+    }
+    const T = I18N[currentLang()];
+
+    // ---- Data: annual total returns (decimal), 2010..2024 ----
+    const YEARS = [2010,2011,2012,2013,2014,2015,2016,2017,2018,2019,
+                   2020,2021,2022,2023,2024];
+
+    // null = ETF not yet trading; treated as 0% return (cash)
+    const RET = {
+        XLY: [0.277, 0.061, 0.239, 0.431, 0.097, 0.100, 0.060, 0.229, 0.001, 0.279, 0.333, 0.244,-0.362, 0.424, 0.301],
+        XLP: [0.141, 0.140, 0.108, 0.261, 0.160, 0.069, 0.054, 0.135,-0.084, 0.276, 0.101, 0.186,-0.006, 0.005, 0.146],
+        XLE: [0.217, 0.028, 0.048, 0.251,-0.087,-0.215, 0.274,-0.010,-0.182, 0.118,-0.326, 0.533, 0.642,-0.013, 0.057],
+        XLF: [0.120,-0.173, 0.288, 0.355, 0.150,-0.015, 0.228, 0.222,-0.130, 0.321,-0.017, 0.350,-0.105, 0.120, 0.306],
+        XLV: [0.044, 0.127, 0.179, 0.414, 0.253, 0.069,-0.027, 0.221, 0.065, 0.205, 0.135, 0.260,-0.019, 0.021, 0.026],
+        XLI: [0.268,-0.006, 0.154, 0.406, 0.098,-0.040, 0.189, 0.233,-0.133, 0.294, 0.109, 0.211,-0.055, 0.181, 0.175],
+        XLB: [0.225,-0.097, 0.150, 0.256, 0.074,-0.083, 0.167, 0.238,-0.147, 0.246, 0.205, 0.273,-0.123, 0.126, 0.000],
+        XLRE:[null,  null,  null,  null,  null,  0.025, 0.066, 0.108,-0.020, 0.290,-0.022, 0.462,-0.262, 0.123, 0.052],
+        XLK: [0.117, 0.026, 0.148, 0.262, 0.179, 0.055, 0.148, 0.339,-0.016, 0.503, 0.436, 0.345,-0.277, 0.561, 0.216],
+        XLC: [null,  null,  null,  null,  null,  null,  null,  null, -0.160, 0.327, 0.269, 0.156,-0.376, 0.558, 0.389],
+        XLU: [0.056, 0.199, 0.013, 0.132, 0.287,-0.048, 0.163, 0.121, 0.041, 0.264, 0.005, 0.177, 0.016,-0.071, 0.234],
+        SPY: [0.151, 0.021, 0.160, 0.323, 0.135, 0.014, 0.120, 0.217,-0.046, 0.312, 0.184, 0.287,-0.182, 0.262, 0.250],
+    };
+
+    const SECTOR_ORDER = ["XLY","XLC","XLK","XLI","XLF","XLB","XLE","XLRE","XLV","XLP","XLU"];
+
+    // distinct color per sector (cycle of 11)
+    const SECTOR_COLOR = {
+        XLY: "#e65100",
+        XLC: "#6a1b9a",
+        XLK: "#0d47a1",
+        XLI: "#00695c",
+        XLF: "#b71c1c",
+        XLB: "#5d4037",
+        XLE: "#37474f",
+        XLRE:"#9c27b0",
+        XLV: "#2e7d32",
+        XLP: "#827717",
+        XLU: "#1565c0",
+    };
+
+    const ROOT = document.getElementById("sr-root");
+    const PILLS = document.getElementById("sr-pills");
+    const CHART = document.getElementById("sr-chart");
+    const STATS = document.getElementById("sr-stats");
+    const COUNTER = document.getElementById("sr-counter");
+    const CTRL_LABEL = document.getElementById("sr-controls-label");
+
+    // Default selection: XLK + XLE
+    let selected = ["XLK", "XLE"];
+    const LIMIT = 4;
+
+    CTRL_LABEL.textContent = T.controls_label;
+
+    // Build pills
+    SECTOR_ORDER.forEach(tk => {
+        const b = document.createElement("button");
+        b.type = "button";
+        b.className = "sr-pill";
+        b.dataset.tk = tk;
+        b.textContent = tk + "  " + T.sector_names[tk];
+        b.addEventListener("click", () => togglePill(tk));
+        PILLS.appendChild(b);
+    });
+
+    function togglePill(tk) {
+        const i = selected.indexOf(tk);
+        if (i >= 0) {
+            selected.splice(i, 1);
+        } else {
+            if (selected.length >= LIMIT) return;
+            selected.push(tk);
+        }
+        render();
+    }
+
+    function getCssVar(name) {
+        return getComputedStyle(ROOT).getPropertyValue(name).trim();
+    }
+
+    function darkMode() {
+        return document.documentElement.getAttribute("data-theme") === "dark";
+    }
+
+    function fmtPct(v) {
+        if (!isFinite(v)) return "\u2014";
+        const sign = v >= 0 ? "+" : "";
+        return sign + (v * 100).toFixed(1) + "%";
+    }
+    function fmtMul(v) {
+        if (!isFinite(v)) return "\u2014";
+        return "$" + v.toFixed(2);
+    }
+
+    function cumulative(returns) {
+        const out = [1.0];
+        for (let i = 0; i < returns.length; i++) {
+            const r = returns[i] === null ? 0 : returns[i];
+            out.push(out[out.length - 1] * (1 + r));
+        }
+        return out;
+    }
+
+    function stats(tk) {
+        const r = RET[tk].map(v => v === null ? 0 : v);
+        const cum = cumulative(r);
+        const end = cum[cum.length - 1];
+        const n = r.length;
+        const ann = Math.pow(end, 1 / n) - 1;
+        const mean = r.reduce((a,b) => a + b, 0) / n;
+        const variance = r.reduce((a,b) => a + (b - mean) * (b - mean), 0) / (n - 1);
+        const vol = Math.sqrt(variance);
+        // max drawdown on annual cum series
+        let peak = cum[0], mdd = 0;
+        for (const v of cum) {
+            if (v > peak) peak = v;
+            const dd = v / peak - 1;
+            if (dd < mdd) mdd = dd;
+        }
+        return { end, ann, vol, mdd };
+    }
+
+    function updatePills() {
+        const buttons = PILLS.querySelectorAll(".sr-pill");
+        const isFull = selected.length >= LIMIT;
+        buttons.forEach(b => {
+            const tk = b.dataset.tk;
+            const active = selected.indexOf(tk) >= 0;
+            b.classList.toggle("active", active);
+            if (active) {
+                b.style.background = SECTOR_COLOR[tk];
+                b.style.color = "#fff";
+            } else {
+                b.style.background = "";
+                b.style.color = "";
+            }
+            b.classList.toggle("disabled", !active && isFull);
+        });
+        COUNTER.textContent = T.counter.replace("{n}", selected.length);
+    }
+
+    function buildTraces() {
+        const traces = [];
+        // SPY baseline always
+        const spyCum = cumulative(RET.SPY);
+        const xs = [2009, ...YEARS];
+        traces.push({
+            x: xs,
+            y: spyCum,
+            type: "scatter",
+            mode: "lines",
+            name: T.spy_label,
+            line: { color: getCssVar("--sr-spy"), width: 2.4, dash: "dot" },
+            hovertemplate: T.spy_label + ": $%{y:.2f}<extra></extra>",
+        });
+        for (const tk of selected) {
+            const cum = cumulative(RET[tk].map(v => v === null ? 0 : v));
+            traces.push({
+                x: xs,
+                y: cum,
+                type: "scatter",
+                mode: "lines",
+                name: tk + " " + T.sector_names[tk],
+                line: { color: SECTOR_COLOR[tk], width: 2.6 },
+                hovertemplate: tk + ": $%{y:.2f}<extra></extra>",
+            });
+        }
+        return traces;
+    }
+
+    function plotChart() {
+        const text  = getCssVar("--sr-text");
+        const muted = getCssVar("--sr-muted");
+        const grid  = darkMode() ? "rgba(255,255,255,0.06)" : "rgba(0,0,0,0.06)";
+        const bg    = getCssVar("--sr-card");
+
+        const layout = {
+            title: {
+                text: T.chart_title,
+                font: { color: text, size: 14 },
+                x: 0.02, xanchor: "left",
+            },
+            paper_bgcolor: bg,
+            plot_bgcolor:  bg,
+            font: { color: text, family: "Segoe UI, Helvetica, Arial, sans-serif" },
+            margin: { l: 56, r: 24, t: 50, b: 44 },
+            xaxis: {
+                title: { text: T.chart_xtitle, font: { color: muted } },
+                gridcolor: grid, zeroline: false, color: text,
+                tickfont: { color: text }, tickformat: "d",
+            },
+            yaxis: {
+                title: { text: T.chart_ytitle, font: { color: muted } },
+                gridcolor: grid, zeroline: false, color: text,
+                tickfont: { color: text }, tickprefix: "$",
+            },
+            hovermode: "x unified",
+            legend: {
+                orientation: "h", x: 0, y: 1.08, xanchor: "left",
+                font: { color: text, size: 11 },
+                bgcolor: "rgba(0,0,0,0)",
+            },
+            showlegend: true,
+        };
+        Plotly.react(CHART, buildTraces(), layout,
+                     { displayModeBar: false, responsive: true });
+    }
+
+    function renderStats() {
+        STATS.innerHTML = "";
+        const list = ["SPY", ...selected];
+        list.forEach(tk => {
+            const s = stats(tk);
+            const card = document.createElement("div");
+            card.className = "sr-stat";
+            const colorVar = (tk === "SPY") ? getCssVar("--sr-spy") : SECTOR_COLOR[tk];
+            card.style.borderLeftColor = colorVar;
+            const longName = (tk === "SPY") ? T.spy_label : T.sector_names[tk];
+            card.innerHTML =
+                '<div class="sr-stat-name"><span class="sr-tk">' + tk +
+                '</span>' + longName + '</div>' +
+                '<div class="sr-stat-row"><span class="sr-k">' + T.stat_end +
+                '</span><span class="sr-v">' + fmtMul(s.end) + '</span></div>' +
+                '<div class="sr-stat-row"><span class="sr-k">' + T.stat_ann +
+                '</span><span class="sr-v">' + fmtPct(s.ann) + '</span></div>' +
+                '<div class="sr-stat-row"><span class="sr-k">' + T.stat_vol +
+                '</span><span class="sr-v">' + fmtPct(s.vol) + '</span></div>' +
+                '<div class="sr-stat-row"><span class="sr-k">' + T.stat_mdd +
+                '</span><span class="sr-v" style="color:var(--sr-neg)">' + fmtPct(s.mdd) + '</span></div>';
+            STATS.appendChild(card);
+        });
+    }
+
+    function postResize() {
+        const h = document.documentElement.scrollHeight;
+        try {
+            window.parent.postMessage(
+                { type: "lesson-interactive-resize", height: h }, "*");
+        } catch (e) { /* noop */ }
+    }
+
+    function render() {
+        updatePills();
+        plotChart();
+        renderStats();
+        // caption from i18n
+        const cap = document.getElementById("sr-caption");
+        cap.textContent = T.caption;
+        setTimeout(postResize, 50);
+    }
+
+    // Theme observer: re-plot on data-theme attribute change on <html>
+    const obs = new MutationObserver((muts) => {
+        for (const m of muts) {
+            if (m.type === "attributes" && m.attributeName === "data-theme") {
+                plotChart();
+                break;
+            }
+        }
+    });
+    obs.observe(document.documentElement, { attributes: true });
+
+    window.addEventListener("resize", postResize);
+
+    render();
+    setTimeout(postResize, 200);
+})();
+</script>
+
+</body>
+</html>

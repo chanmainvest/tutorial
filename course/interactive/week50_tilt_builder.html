@@ -1,0 +1,747 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Tilt Builder Lab — Interactive (Week 50)</title>
+<script src="https://cdn.plot.ly/plotly-2.35.2.min.js" charset="utf-8"></script>
+<style>
+html, body { margin: 0; padding: 0; background: var(--tb-bg); }
+:root {
+    --tb-bg: #fdfbf5;
+    --tb-text: #1a2332;
+    --tb-muted: #6b7280;
+    --tb-border: #d6d3c4;
+    --tb-card: #fdfbf5;
+    --tb-pos: #2e7d32;
+    --tb-neg: #b71c1c;
+    --tb-mid: #0d47a1;
+    --tb-accent: #b8860b;
+    --tb-purple: #6a1b9a;
+    --tb-teal: #00695c;
+    --tb-orange: #e65100;
+}
+html[data-theme="dark"] .tb-root,
+.tb-root[data-theme="dark"] {
+    --tb-bg: #0f1724;
+    --tb-text: #e6e6e6;
+    --tb-muted: #9aa3b2;
+    --tb-border: #2a3441;
+    --tb-card: #0f1724;
+    --tb-pos: #66bb6a;
+    --tb-neg: #ef5350;
+    --tb-mid: #5a8dee;
+    --tb-purple: #ce93d8;
+    --tb-teal: #4db6ac;
+    --tb-orange: #ffa733;
+}
+.tb-root {
+    font-family: 'Segoe UI', Helvetica, Arial, sans-serif;
+    background: var(--tb-bg);
+    color: var(--tb-text);
+    padding: 12px;
+    margin: 0;
+}
+.tb-presets {
+    display: flex; flex-wrap: wrap; gap: 8px;
+    margin-bottom: 10px; align-items: center;
+}
+.tb-presets-label {
+    font-size: 0.78rem; color: var(--tb-muted);
+    margin-right: 4px; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+.tb-preset {
+    background: var(--tb-card);
+    border: 1px solid var(--tb-border);
+    color: var(--tb-text);
+    padding: 5px 11px;
+    font-size: 0.82rem;
+    border-radius: 999px;
+    cursor: pointer;
+    font-family: inherit;
+}
+.tb-preset:hover { border-color: var(--tb-accent); }
+.tb-preset.tb-active {
+    background: var(--tb-accent); color: #fff; border-color: var(--tb-accent);
+}
+.tb-controls {
+    background: var(--tb-card);
+    border: 1px solid var(--tb-border);
+    border-radius: 8px;
+    padding: 10px 14px 12px;
+    margin-bottom: 14px;
+    display: grid;
+    grid-template-columns: repeat(7, minmax(0, 1fr));
+    gap: 12px;
+}
+.tb-slider-wrap {
+    display: flex; flex-direction: column; gap: 4px;
+    font-size: 0.82rem; color: var(--tb-muted);
+}
+.tb-slider-wrap .tb-fac-label {
+    font-weight: 700; color: var(--tb-text); display: flex;
+    justify-content: space-between; align-items: baseline;
+}
+.tb-slider-wrap .tb-fac-name {
+    font-size: 0.78rem;
+}
+.tb-slider-wrap .tb-fac-name .tb-tag {
+    font-size: 0.68rem; color: var(--tb-muted);
+    font-weight: 500; margin-left: 2px;
+}
+.tb-slider-wrap .tb-fac-val {
+    font-variant-numeric: tabular-nums;
+    color: var(--tb-accent);
+    font-size: 0.95rem;
+}
+.tb-slider-wrap input[type="range"] {
+    accent-color: var(--tb-accent); width: 100%;
+}
+.tb-sum-bar {
+    display: flex; align-items: center; gap: 10px;
+    margin-top: 6px; font-size: 0.82rem; color: var(--tb-muted);
+    grid-column: 1 / -1;
+}
+.tb-sum-val { font-weight: 700; font-variant-numeric: tabular-nums; color: var(--tb-text); }
+.tb-sum-warn { color: var(--tb-neg); font-weight: 700; }
+.tb-norm-btn {
+    background: var(--tb-card); border: 1px solid var(--tb-border);
+    color: var(--tb-text); padding: 4px 10px; font-size: 0.78rem;
+    border-radius: 6px; cursor: pointer; font-family: inherit;
+    margin-left: auto;
+}
+.tb-norm-btn:hover { border-color: var(--tb-accent); }
+.tb-stats {
+    display: grid; grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 10px; margin-bottom: 14px;
+}
+.tb-stat {
+    background: var(--tb-card);
+    border: 1px solid var(--tb-border);
+    border-left: 4px solid var(--tb-muted);
+    border-radius: 8px;
+    padding: 10px 12px;
+}
+.tb-stat.tb-stat-pos { border-left-color: var(--tb-pos); }
+.tb-stat.tb-stat-neg { border-left-color: var(--tb-neg); }
+.tb-stat.tb-stat-mid { border-left-color: var(--tb-mid); }
+.tb-stat.tb-stat-acc { border-left-color: var(--tb-accent); }
+.tb-stat .tb-stat-name {
+    font-size: 0.74rem; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.5px;
+    color: var(--tb-muted);
+}
+.tb-stat .tb-stat-val {
+    font-size: 1.35rem; font-weight: 700; margin-top: 4px;
+    font-variant-numeric: tabular-nums;
+}
+.tb-stat .tb-stat-detail {
+    font-size: 0.75rem; color: var(--tb-muted);
+    margin-top: 2px; font-variant-numeric: tabular-nums;
+}
+.tb-chart {
+    width: 100%; height: 360px;
+    background: var(--tb-card);
+    border-radius: 8px; border: 1px solid var(--tb-border);
+}
+.tb-caption {
+    margin-top: 12px; font-size: 0.78rem;
+    color: var(--tb-muted); line-height: 1.45;
+}
+@media (max-width: 980px) {
+    .tb-controls { grid-template-columns: repeat(4, 1fr); }
+    .tb-stats { grid-template-columns: repeat(2, 1fr); }
+    .tb-chart { height: 320px; }
+}
+@media (max-width: 540px) {
+    .tb-controls { grid-template-columns: repeat(2, 1fr); }
+}
+</style>
+</head>
+<body>
+<div class="tb-root" id="tb-root">
+
+    <div class="tb-presets">
+        <span class="tb-presets-label" id="tb-presets-label">Presets</span>
+        <button class="tb-preset" data-preset="custom" id="tb-pre-custom">Custom</button>
+        <button class="tb-preset" data-preset="vti100" id="tb-pre-vti100">100% VTI</button>
+        <button class="tb-preset" data-preset="core_tilt" id="tb-pre-core_tilt">70/30 Core+Tilt</button>
+        <button class="tb-preset" data-preset="value" id="tb-pre-value">80/20 Value</button>
+        <button class="tb-preset" data-preset="momentum" id="tb-pre-momentum">80/20 Momentum</button>
+        <button class="tb-preset" data-preset="smallv" id="tb-pre-smallv">80/20 Small-Value</button>
+        <button class="tb-preset" data-preset="multi" id="tb-pre-multi">60/40 Multi-factor</button>
+        <button class="tb-preset" data-preset="equal" id="tb-pre-equal">Equal Weight</button>
+    </div>
+
+    <div class="tb-controls">
+        <div class="tb-slider-wrap">
+            <div class="tb-fac-label">
+                <span class="tb-fac-name" id="tb-lbl-vti">VTI <span class="tb-tag">core</span></span>
+                <span class="tb-fac-val" id="tb-val-vti">70%</span>
+            </div>
+            <input type="range" id="tb-sl-vti" min="0" max="100" step="5" value="70">
+        </div>
+        <div class="tb-slider-wrap">
+            <div class="tb-fac-label">
+                <span class="tb-fac-name" id="tb-lbl-vtv">VTV <span class="tb-tag">value</span></span>
+                <span class="tb-fac-val" id="tb-val-vtv">0%</span>
+            </div>
+            <input type="range" id="tb-sl-vtv" min="0" max="100" step="5" value="0">
+        </div>
+        <div class="tb-slider-wrap">
+            <div class="tb-fac-label">
+                <span class="tb-fac-name" id="tb-lbl-vbr">VBR <span class="tb-tag">small-val</span></span>
+                <span class="tb-fac-val" id="tb-val-vbr">0%</span>
+            </div>
+            <input type="range" id="tb-sl-vbr" min="0" max="100" step="5" value="0">
+        </div>
+        <div class="tb-slider-wrap">
+            <div class="tb-fac-label">
+                <span class="tb-fac-name" id="tb-lbl-mtum">MTUM <span class="tb-tag">mom</span></span>
+                <span class="tb-fac-val" id="tb-val-mtum">10%</span>
+            </div>
+            <input type="range" id="tb-sl-mtum" min="0" max="100" step="5" value="10">
+        </div>
+        <div class="tb-slider-wrap">
+            <div class="tb-fac-label">
+                <span class="tb-fac-name" id="tb-lbl-qual">QUAL <span class="tb-tag">quality</span></span>
+                <span class="tb-fac-val" id="tb-val-qual">10%</span>
+            </div>
+            <input type="range" id="tb-sl-qual" min="0" max="100" step="5" value="10">
+        </div>
+        <div class="tb-slider-wrap">
+            <div class="tb-fac-label">
+                <span class="tb-fac-name" id="tb-lbl-usmv">USMV <span class="tb-tag">low-vol</span></span>
+                <span class="tb-fac-val" id="tb-val-usmv">10%</span>
+            </div>
+            <input type="range" id="tb-sl-usmv" min="0" max="100" step="5" value="10">
+        </div>
+        <div class="tb-slider-wrap">
+            <div class="tb-fac-label">
+                <span class="tb-fac-name" id="tb-lbl-avuv">AVUV <span class="tb-tag">SV+prof</span></span>
+                <span class="tb-fac-val" id="tb-val-avuv">0%</span>
+            </div>
+            <input type="range" id="tb-sl-avuv" min="0" max="100" step="5" value="0">
+        </div>
+        <div class="tb-sum-bar">
+            <span id="tb-sum-label">Weights sum</span>
+            <span class="tb-sum-val" id="tb-sum-val">100%</span>
+            <span class="tb-sum-warn" id="tb-sum-warn" style="display:none;"></span>
+            <button class="tb-norm-btn" id="tb-norm-btn">Normalise to 100%</button>
+        </div>
+    </div>
+
+    <div class="tb-stats">
+        <div class="tb-stat tb-stat-acc">
+            <div class="tb-stat-name" id="tb-name-cagr">CAGR</div>
+            <div class="tb-stat-val" id="tb-stat-cagr">—</div>
+            <div class="tb-stat-detail" id="tb-det-cagr">2014-2024 (11 yrs)</div>
+        </div>
+        <div class="tb-stat tb-stat-mid">
+            <div class="tb-stat-name" id="tb-name-vol">Volatility</div>
+            <div class="tb-stat-val" id="tb-stat-vol">—</div>
+            <div class="tb-stat-detail" id="tb-det-vol">monthly std × √12</div>
+        </div>
+        <div class="tb-stat tb-stat-pos">
+            <div class="tb-stat-name" id="tb-name-sharpe">Sharpe</div>
+            <div class="tb-stat-val" id="tb-stat-sharpe">—</div>
+            <div class="tb-stat-detail" id="tb-det-sharpe">(CAGR − 4%) / vol</div>
+        </div>
+        <div class="tb-stat tb-stat-neg">
+            <div class="tb-stat-name" id="tb-name-mdd">Max drawdown</div>
+            <div class="tb-stat-val" id="tb-stat-mdd">—</div>
+            <div class="tb-stat-detail" id="tb-det-mdd">monthly wealth path</div>
+        </div>
+    </div>
+
+    <div id="tb-chart-wealth" class="tb-chart"></div>
+
+    <p class="tb-caption" id="tb-caption">
+        Approximate annual total returns for VTI / VTV / VBR / MTUM / QUAL / USMV / AVUV, 2014-2024, expanded into monthly returns by deterministic LCG+Box-Muller synthesis (seed = year × ETF-index), constrained so each year's monthly returns compound to the published annual figure. AVUV pre-Sep-2019 is filled with VBR. The blend rebalances monthly. Stats are CAGR, annualised vol (monthly std × √12), Sharpe vs. 4% T-bill, and max drawdown over the monthly wealth path.
+    </p>
+</div>
+
+<script>
+(function () {
+    const I18N = {
+        en: {
+            presets:    "Presets",
+            p_custom:   "Custom",
+            p_vti100:   "100% VTI",
+            p_core_tilt:"70/30 Core+Tilt",
+            p_value:    "80/20 Value",
+            p_momentum: "80/20 Momentum",
+            p_smallv:   "80/20 Small-Value",
+            p_multi:    "60/40 Multi-factor",
+            p_equal:    "Equal Weight",
+            lbl_vti: "VTI", tag_vti: "core",
+            lbl_vtv: "VTV", tag_vtv: "value",
+            lbl_vbr: "VBR", tag_vbr: "small-val",
+            lbl_mtum:"MTUM", tag_mtum:"momentum",
+            lbl_qual:"QUAL", tag_qual:"quality",
+            lbl_usmv:"USMV", tag_usmv:"low-vol",
+            lbl_avuv:"AVUV", tag_avuv:"SV+prof",
+            sum_label:  "Weights sum",
+            sum_warn:   " (must equal 100%)",
+            norm_btn:   "Normalise to 100%",
+            name_cagr:  "CAGR",
+            det_cagr:   "2014-2024 (11 yrs)",
+            name_vol:   "Volatility",
+            det_vol:    "monthly std × √12",
+            name_sharpe:"Sharpe",
+            det_sharpe: "(CAGR − 4%) / vol",
+            name_mdd:   "Max drawdown",
+            det_mdd:    "monthly wealth path",
+            wealth_title:"Cumulative growth of $1, 2014-2024 (monthly)",
+            wealth_x:   "Year",
+            wealth_y:   "Wealth ($, log)",
+            blend_label:"Your blend",
+            vti_label:  "VTI (reference)",
+            caption:    "Approximate annual total returns for VTI / VTV / VBR / MTUM / QUAL / USMV / AVUV, 2014-2024, expanded into monthly returns by deterministic LCG+Box-Muller synthesis (seed = year × ETF-index), constrained so each year's monthly returns compound to the published annual figure. AVUV pre-Sep-2019 is filled with VBR. The blend rebalances monthly. Stats are CAGR, annualised vol (monthly std × √12), Sharpe vs. 4% T-bill, and max drawdown over the monthly wealth path.",
+        },
+        hk: {
+            presets:    "預設組合",
+            p_custom:   "自訂",
+            p_vti100:   "100% VTI",
+            p_core_tilt:"70/30 核心+傾斜",
+            p_value:    "80/20 價值",
+            p_momentum: "80/20 動量",
+            p_smallv:   "80/20 小型價值",
+            p_multi:    "60/40 多因子",
+            p_equal:    "等權",
+            lbl_vti: "VTI", tag_vti: "核心",
+            lbl_vtv: "VTV", tag_vtv: "價值",
+            lbl_vbr: "VBR", tag_vbr: "小型價值",
+            lbl_mtum:"MTUM", tag_mtum:"動量",
+            lbl_qual:"QUAL", tag_qual:"品質",
+            lbl_usmv:"USMV", tag_usmv:"低波",
+            lbl_avuv:"AVUV", tag_avuv:"SV+獲利",
+            sum_label:  "權重總和",
+            sum_warn:   "(必須為 100%)",
+            norm_btn:   "歸一至 100%",
+            name_cagr:  "年化複合回報",
+            det_cagr:   "2014-2024(共 11 年)",
+            name_vol:   "波動率",
+            det_vol:    "月度標準差 × √12",
+            name_sharpe:"夏普",
+            det_sharpe: "(CAGR − 4%) / 波動",
+            name_mdd:   "最大回撚",
+            det_mdd:    "月度財富曲線",
+            wealth_title:"$1 的累計增長,2014-2024(月度)",
+            wealth_x:   "年份",
+            wealth_y:   "財富(美元,對數軸)",
+            blend_label:"你的組合",
+            vti_label:  "VTI(參考)",
+            caption:    "VTI / VTV / VBR / MTUM / QUAL / USMV / AVUV 在 2014-2024 的近似年度總回報,以確定性 LCG+Box-Muller(種子=年×ETF 索引)合成為每月回報,並約束令每年逐月回報複利等於公佈的年回報。AVUV 於 2019 年 9 月前以 VBR 填補。組合每月重新平衡。統計值為 CAGR、年化波動率(月度標準差 × √12)、相對 4% 國債的夏普、月度財富曲線最大回撚。",
+        },
+        tw: {
+            presets:    "預設組合",
+            p_custom:   "自訂",
+            p_vti100:   "100% VTI",
+            p_core_tilt:"70/30 核心+傾斜",
+            p_value:    "80/20 價值",
+            p_momentum: "80/20 動量",
+            p_smallv:   "80/20 小型價值",
+            p_multi:    "60/40 多因子",
+            p_equal:    "等權",
+            lbl_vti: "VTI", tag_vti: "核心",
+            lbl_vtv: "VTV", tag_vtv: "價值",
+            lbl_vbr: "VBR", tag_vbr: "小型價值",
+            lbl_mtum:"MTUM", tag_mtum:"動量",
+            lbl_qual:"QUAL", tag_qual:"品質",
+            lbl_usmv:"USMV", tag_usmv:"低波",
+            lbl_avuv:"AVUV", tag_avuv:"SV+獲利",
+            sum_label:  "權重總和",
+            sum_warn:   "(必須為 100%)",
+            norm_btn:   "歸一至 100%",
+            name_cagr:  "年化複合報酬",
+            det_cagr:   "2014-2024(共 11 年)",
+            name_vol:   "波動率",
+            det_vol:    "月度標準差 × √12",
+            name_sharpe:"夏普",
+            det_sharpe: "(CAGR − 4%) / 波動",
+            name_mdd:   "最大回檔",
+            det_mdd:    "月度財富曲線",
+            wealth_title:"$1 的累計成長,2014-2024(月度)",
+            wealth_x:   "年份",
+            wealth_y:   "財富(美元,對數軸)",
+            blend_label:"你的組合",
+            vti_label:  "VTI(參考)",
+            caption:    "VTI / VTV / VBR / MTUM / QUAL / USMV / AVUV 在 2014-2024 的近似年度總報酬,以確定性 LCG+Box-Muller(種子=年×ETF 索引)合成為每月報酬,並約束令每年逐月報酬複利等於公布的年報酬。AVUV 於 2019 年 9 月前以 VBR 填補。組合每月再平衡。統計值為 CAGR、年化波動率(月度標準差 × √12)、相對 4% 國債的夏普、月度財富曲線最大回檔。",
+        },
+        cn: {
+            presets:    "预设组合",
+            p_custom:   "自定义",
+            p_vti100:   "100% VTI",
+            p_core_tilt:"70/30 核心+倾斜",
+            p_value:    "80/20 价值",
+            p_momentum: "80/20 动量",
+            p_smallv:   "80/20 小型价值",
+            p_multi:    "60/40 多因子",
+            p_equal:    "等权",
+            lbl_vti: "VTI", tag_vti: "核心",
+            lbl_vtv: "VTV", tag_vtv: "价值",
+            lbl_vbr: "VBR", tag_vbr: "小型价值",
+            lbl_mtum:"MTUM", tag_mtum:"动量",
+            lbl_qual:"QUAL", tag_qual:"质量",
+            lbl_usmv:"USMV", tag_usmv:"低波",
+            lbl_avuv:"AVUV", tag_avuv:"SV+盈利",
+            sum_label:  "权重总和",
+            sum_warn:   "(必须为 100%)",
+            norm_btn:   "归一至 100%",
+            name_cagr:  "年化复合回报",
+            det_cagr:   "2014-2024(共 11 年)",
+            name_vol:   "波动率",
+            det_vol:    "月度标准差 × √12",
+            name_sharpe:"夏普",
+            det_sharpe: "(CAGR − 4%) / 波动",
+            name_mdd:   "最大回撚",
+            det_mdd:    "月度财富曲线",
+            wealth_title:"$1 的累计增长,2014-2024(月度)",
+            wealth_x:   "年份",
+            wealth_y:   "财富(美元,对数轴)",
+            blend_label:"你的组合",
+            vti_label:  "VTI(参考)",
+            caption:    "VTI / VTV / VBR / MTUM / QUAL / USMV / AVUV 在 2014-2024 的近似年度总回报,以确定性 LCG+Box-Muller(种子=年×ETF 索引)合成为每月回报,并约束令每年逐月回报复利等于公布的年回报。AVUV 在 2019 年 9 月之前以 VBR 填补。组合每月再平衡。统计值为 CAGR、年化波动率(月度标准差 × √12)、相对 4% 国债的夏普、月度财富曲线最大回撚。",
+        },
+    };
+
+    function currentLang() {
+        const p = new URLSearchParams(window.location.search);
+        const l = (p.get("lang") || "en").toLowerCase();
+        return I18N.hasOwnProperty(l) ? l : "en";
+    }
+    const T = I18N[currentLang()];
+
+    // ---- Embedded data: annual returns 2014-2024 ----
+    const YEARS = [2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024];
+    const ETFS = ["vti","vtv","vbr","mtum","qual","usmv","avuv"];
+    // AVUV pre-Sep-2019: filled with VBR.
+    const ANN_RET = {
+        vti:  [ 0.125, 0.004, 0.127, 0.212,-0.052, 0.310, 0.210, 0.257,-0.195, 0.260, 0.238],
+        vtv:  [ 0.131,-0.010, 0.173, 0.170,-0.054, 0.265, 0.023, 0.270,-0.023, 0.094, 0.147],
+        vbr:  [ 0.074,-0.074, 0.245, 0.115,-0.126, 0.226, 0.056, 0.283,-0.107, 0.162, 0.080],
+        mtum: [ 0.146, 0.089, 0.046, 0.373,-0.020, 0.259, 0.293, 0.137,-0.174, 0.188, 0.315],
+        qual: [ 0.137, 0.017, 0.121, 0.236,-0.055, 0.337, 0.232, 0.274,-0.194, 0.260, 0.225],
+        usmv: [ 0.164, 0.052, 0.102, 0.180,-0.014, 0.280,-0.000, 0.242,-0.094, 0.088, 0.135],
+        avuv: [ 0.074,-0.074, 0.245, 0.115,-0.126, 0.226, 0.036, 0.427,-0.054, 0.180, 0.109],
+    };
+    // Approximate annualised vol per ETF, for monthly synthesis.
+    const ANN_VOL = {
+        vti:  0.155,
+        vtv:  0.150,
+        vbr:  0.205,
+        mtum: 0.180,
+        qual: 0.155,
+        usmv: 0.130,
+        avuv: 0.230,
+    };
+    const ETF_IDX = { vti:1, vtv:2, vbr:3, mtum:4, qual:5, usmv:6, avuv:7 };
+
+    // Deterministic LCG.
+    function lcg(seed) {
+        let s = seed >>> 0;
+        return function () {
+            s = (Math.imul(1664525, s) + 1013904223) >>> 0;
+            return s / 4294967296;
+        };
+    }
+    function boxMuller(rng) {
+        let u1 = 0, u2 = 0;
+        while (u1 === 0) u1 = rng();
+        while (u2 === 0) u2 = rng();
+        return Math.sqrt(-2.0 * Math.log(u1)) * Math.cos(2.0 * Math.PI * u2);
+    }
+
+    // Build 132 monthly returns per ETF such that each year's prod(1+r) = 1+ann_ret.
+    // Method: sample 11 months from N(mu_m, sigma_m^2), compute residual to hit the
+    // annual target, place residual in month index = (etf_idx + year) % 12.
+    function synthMonthly(etf, year, ann_ret, ann_vol) {
+        const sigma_m = ann_vol / Math.sqrt(12);
+        const mu_m = Math.log(1 + ann_ret) / 12;
+        const seed = (year * 7919) ^ (ETF_IDX[etf] * 1009);
+        const rng = lcg(seed);
+        const log_rets = [];
+        for (let i = 0; i < 12; i++) {
+            log_rets.push(mu_m + sigma_m * boxMuller(rng));
+        }
+        // Renormalise so sum(log_rets) = log(1+ann_ret).
+        const targetSum = Math.log(1 + ann_ret);
+        const cur = log_rets.reduce((a,b) => a+b, 0);
+        const adj = (targetSum - cur) / 12;
+        for (let i = 0; i < 12; i++) log_rets[i] += adj;
+        return log_rets.map(lr => Math.exp(lr) - 1);
+    }
+    // Pre-compute monthly returns per ETF (132 months total).
+    const MONTHLY = {};
+    for (const etf of ETFS) {
+        MONTHLY[etf] = [];
+        for (let yi = 0; yi < YEARS.length; yi++) {
+            const y = YEARS[yi];
+            const ann = ANN_RET[etf][yi];
+            const m = synthMonthly(etf, y, ann, ANN_VOL[etf]);
+            for (const x of m) MONTHLY[etf].push(x);
+        }
+    }
+    const N_MONTHS = 132; // 11 yrs * 12
+
+    // Month tick labels (year-fractional).
+    const MONTH_X = [];
+    for (let yi = 0; yi < YEARS.length; yi++) {
+        for (let m = 0; m < 12; m++) MONTH_X.push(YEARS[yi] + (m + 1) / 12);
+    }
+
+    // ---- DOM refs ----
+    const ROOT = document.getElementById("tb-root");
+    const SLIDERS = {};
+    const VALS = {};
+    for (const k of ETFS) {
+        SLIDERS[k] = document.getElementById("tb-sl-" + k);
+        VALS[k] = document.getElementById("tb-val-" + k);
+    }
+    const SUM_VAL = document.getElementById("tb-sum-val");
+    const SUM_WARN = document.getElementById("tb-sum-warn");
+    const NORM_BTN = document.getElementById("tb-norm-btn");
+    const PRESET_BTNS = ROOT.querySelectorAll(".tb-preset");
+    const CHART_W = document.getElementById("tb-chart-wealth");
+
+    // ---- Presets ----
+    const PRESETS = {
+        custom:    { vti: 70, vtv: 0,  vbr: 0,  mtum: 10, qual: 10, usmv: 10, avuv: 0  },
+        vti100:    { vti:100, vtv: 0,  vbr: 0,  mtum: 0,  qual: 0,  usmv: 0,  avuv: 0  },
+        core_tilt: { vti: 70, vtv: 0,  vbr: 0,  mtum: 8,  qual: 6,  usmv: 6,  avuv:10  },
+        value:     { vti: 80, vtv:20,  vbr: 0,  mtum: 0,  qual: 0,  usmv: 0,  avuv: 0  },
+        momentum:  { vti: 80, vtv: 0,  vbr: 0,  mtum:20,  qual: 0,  usmv: 0,  avuv: 0  },
+        smallv:    { vti: 80, vtv: 0,  vbr: 0,  mtum: 0,  qual: 0,  usmv: 0,  avuv:20  },
+        multi:     { vti: 60, vtv:10,  vbr: 0,  mtum:10,  qual:10,  usmv:10,  avuv: 0  },
+        equal:     { vti: 14, vtv:14,  vbr:14,  mtum:14,  qual:15,  usmv:14,  avuv:15  }, // 7 sums to 100
+    };
+    let activePreset = "custom";
+
+    // ---- Helpers ----
+    function fmtPct(v, places) {
+        if (v === null || v === undefined || !isFinite(v)) return "—";
+        const sign = v >= 0 ? "+" : "";
+        return sign + (v * 100).toFixed(places === undefined ? 1 : places) + "%";
+    }
+    function fmtPctAbs(v, places) {
+        if (v === null || v === undefined || !isFinite(v)) return "—";
+        return Math.abs(v * 100).toFixed(places === undefined ? 1 : places) + "%";
+    }
+    function fmtNum(v, places) {
+        if (v === null || v === undefined || !isFinite(v)) return "—";
+        return v.toFixed(places === undefined ? 2 : places);
+    }
+    function getCssVar(name) {
+        return getComputedStyle(ROOT).getPropertyValue(name).trim();
+    }
+    function darkMode() {
+        return document.documentElement.getAttribute("data-theme") === "dark";
+    }
+
+    function getWeights() {
+        const w = {};
+        for (const k of ETFS) w[k] = parseInt(SLIDERS[k].value, 10) / 100;
+        return w;
+    }
+    function getSum(w) { return ETFS.reduce((a, k) => a + w[k], 0); }
+
+    function backtest(w) {
+        const r = new Array(N_MONTHS);
+        for (let i = 0; i < N_MONTHS; i++) {
+            let m = 0;
+            for (const k of ETFS) m += w[k] * MONTHLY[k][i];
+            r[i] = m;
+        }
+        let cum = 1.0; const wealth = new Array(N_MONTHS); let peak = 1.0; let mdd = 0.0;
+        for (let i = 0; i < N_MONTHS; i++) {
+            cum *= (1 + r[i]); wealth[i] = cum;
+            if (cum > peak) peak = cum;
+            const cur = cum / peak - 1;
+            if (cur < mdd) mdd = cur;
+        }
+        const mean = a => a.reduce((x, y) => x + y, 0) / a.length;
+        const stdSample = a => {
+            const m = mean(a);
+            return Math.sqrt(a.reduce((acc, x) => acc + (x - m) ** 2, 0) / (a.length - 1));
+        };
+        const m_mean = mean(r);
+        const m_sd = stdSample(r);
+        const ann_vol = m_sd * Math.sqrt(12);
+        const cagr = wealth[N_MONTHS - 1] > 0 ? Math.pow(wealth[N_MONTHS - 1], 12 / N_MONTHS) - 1 : NaN;
+        const rf = 0.04;
+        const sharpe = ann_vol > 0 ? (cagr - rf) / ann_vol : NaN;
+        return { r, wealth, mean: m_mean, vol: ann_vol, sharpe, cagr, mdd };
+    }
+
+    // VTI reference path.
+    function vtiReference() {
+        let cum = 1.0; const wealth = new Array(N_MONTHS);
+        for (let i = 0; i < N_MONTHS; i++) {
+            cum *= (1 + MONTHLY.vti[i]); wealth[i] = cum;
+        }
+        return wealth;
+    }
+    const VTI_WEALTH = vtiReference();
+
+    // ---- Render ----
+    function render() {
+        const w = getWeights();
+        const total = getSum(w);
+        SUM_VAL.textContent = Math.round(total * 100) + "%";
+        if (Math.abs(total - 1.0) > 0.001) {
+            SUM_WARN.style.display = "";
+            SUM_WARN.textContent = T.sum_warn;
+        } else {
+            SUM_WARN.style.display = "none";
+        }
+        for (const k of ETFS) {
+            VALS[k].textContent = Math.round(w[k] * 100) + "%";
+        }
+        PRESET_BTNS.forEach(b => {
+            if (b.dataset.preset === activePreset) b.classList.add("tb-active");
+            else b.classList.remove("tb-active");
+        });
+
+        const m = backtest(w);
+
+        const colorPos = getCssVar("--tb-pos");
+        const colorNeg = getCssVar("--tb-neg");
+        const colorMid = getCssVar("--tb-mid");
+        const colorAcc = getCssVar("--tb-accent");
+        const colorText = getCssVar("--tb-text");
+        const colorMuted = getCssVar("--tb-muted");
+        const colorGrid = darkMode() ? "rgba(255,255,255,0.08)" : "rgba(0,0,0,0.07)";
+        const colorBg = getCssVar("--tb-card");
+
+        const wTraces = [
+            {
+                x: MONTH_X, y: m.wealth, type: "scatter", mode: "lines",
+                line: { color: colorAcc, width: 2.6 },
+                name: T.blend_label,
+                hovertemplate: "%{x:.2f}: $%{y:.2f}<extra></extra>",
+            },
+            {
+                x: MONTH_X, y: VTI_WEALTH, type: "scatter", mode: "lines",
+                line: { color: colorMid, width: 1.4, dash: "dot" },
+                name: T.vti_label,
+                hovertemplate: "%{x:.2f}: $%{y:.2f}<extra></extra>",
+            },
+        ];
+        const wLayout = {
+            margin: { l: 56, r: 16, t: 36, b: 40 },
+            paper_bgcolor: colorBg, plot_bgcolor: colorBg,
+            font: { family: "Segoe UI, Helvetica, Arial, sans-serif", color: colorText, size: 11 },
+            title: { text: T.wealth_title, x: 0, xanchor: "left",
+                     font: { size: 12.5, color: colorText } },
+            xaxis: { title: { text: T.wealth_x, font: { color: colorMuted } },
+                     gridcolor: colorGrid, color: colorText, zerolinecolor: colorGrid },
+            yaxis: { title: { text: T.wealth_y, font: { color: colorMuted } },
+                     gridcolor: colorGrid, color: colorText, type: "log" },
+            legend: { orientation: "h", y: -0.18, x: 0, font: { color: colorText, size: 10 } },
+            hovermode: "x unified",
+        };
+        Plotly.react(CHART_W, wTraces, wLayout, { displayModeBar: false, responsive: true });
+
+        document.getElementById("tb-stat-cagr").textContent  = fmtPct(m.cagr, 2);
+        document.getElementById("tb-stat-vol").textContent   = fmtPctAbs(m.vol, 1);
+        document.getElementById("tb-stat-sharpe").textContent= fmtNum(m.sharpe, 2);
+        document.getElementById("tb-stat-mdd").textContent   = fmtPct(m.mdd, 1);
+    }
+
+    function applyPreset(name) {
+        const p = PRESETS[name];
+        if (!p) return;
+        activePreset = name;
+        for (const k of ETFS) SLIDERS[k].value = String(p[k]);
+        render();
+    }
+
+    function applyI18n() {
+        document.getElementById("tb-presets-label").textContent = T.presets;
+        document.getElementById("tb-pre-custom").textContent    = T.p_custom;
+        document.getElementById("tb-pre-vti100").textContent    = T.p_vti100;
+        document.getElementById("tb-pre-core_tilt").textContent = T.p_core_tilt;
+        document.getElementById("tb-pre-value").textContent     = T.p_value;
+        document.getElementById("tb-pre-momentum").textContent  = T.p_momentum;
+        document.getElementById("tb-pre-smallv").textContent    = T.p_smallv;
+        document.getElementById("tb-pre-multi").textContent     = T.p_multi;
+        document.getElementById("tb-pre-equal").textContent     = T.p_equal;
+        for (const k of ETFS) {
+            const el = document.getElementById("tb-lbl-" + k);
+            if (el) {
+                el.innerHTML = T["lbl_"+k] + ' <span class="tb-tag">' + T["tag_"+k] + '</span>';
+            }
+        }
+        document.getElementById("tb-sum-label").textContent = T.sum_label;
+        document.getElementById("tb-norm-btn").textContent  = T.norm_btn;
+        document.getElementById("tb-name-cagr").textContent  = T.name_cagr;
+        document.getElementById("tb-det-cagr").textContent   = T.det_cagr;
+        document.getElementById("tb-name-vol").textContent   = T.name_vol;
+        document.getElementById("tb-det-vol").textContent    = T.det_vol;
+        document.getElementById("tb-name-sharpe").textContent= T.name_sharpe;
+        document.getElementById("tb-det-sharpe").textContent = T.det_sharpe;
+        document.getElementById("tb-name-mdd").textContent   = T.name_mdd;
+        document.getElementById("tb-det-mdd").textContent    = T.det_mdd;
+        document.getElementById("tb-caption").textContent    = T.caption;
+    }
+
+    // ---- Wire events ----
+    for (const k of ETFS) {
+        SLIDERS[k].addEventListener("input", () => {
+            activePreset = "custom";
+            render();
+        });
+    }
+    PRESET_BTNS.forEach(b => {
+        b.addEventListener("click", () => applyPreset(b.dataset.preset));
+    });
+    NORM_BTN.addEventListener("click", () => {
+        const w = getWeights();
+        const total = getSum(w);
+        if (total <= 0) {
+            SLIDERS.vti.value = "100";
+            for (const k of ETFS) if (k !== "vti") SLIDERS[k].value = "0";
+        } else {
+            for (const k of ETFS) {
+                const v = Math.round((w[k] / total) * 100 / 5) * 5;
+                SLIDERS[k].value = String(v);
+            }
+            const after = getSum(getWeights());
+            const diff = Math.round((1.0 - after) * 100 / 5) * 5;
+            SLIDERS.vti.value = String(Math.max(0, Math.min(100,
+                parseInt(SLIDERS.vti.value, 10) + diff)));
+        }
+        activePreset = "custom";
+        render();
+    });
+
+    applyI18n();
+    render();
+
+    // ---- postMessage resize ----
+    function reportHeight() {
+        try {
+            var h = Math.ceil(document.documentElement.scrollHeight);
+            parent.postMessage({ type: 'lesson-interactive-resize', height: h }, '*');
+        } catch (e) { /* ignore */ }
+    }
+    if (typeof ResizeObserver !== 'undefined') {
+        new ResizeObserver(reportHeight).observe(document.body);
+    }
+    window.addEventListener('resize', reportHeight);
+    setTimeout(reportHeight, 50);
+    setTimeout(reportHeight, 500);
+
+    // ---- Theme observer ----
+    const themeObserver = new MutationObserver(render);
+    themeObserver.observe(document.documentElement, {
+        attributes: true,
+        attributeFilter: ["data-theme"],
+    });
+})();
+</script>
+
+</body>
+</html>

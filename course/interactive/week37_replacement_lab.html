@@ -1,0 +1,717 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Replacement Lab - Interactive (Week 37)</title>
+<script src="https://cdn.plot.ly/plotly-2.35.2.min.js" charset="utf-8"></script>
+<style>
+html, body { margin: 0; padding: 0; background: var(--rl2-bg); }
+:root {
+    --rl2-bg: #fdfbf5;
+    --rl2-text: #1a2332;
+    --rl2-muted: #6b7280;
+    --rl2-border: #d6d3c4;
+    --rl2-card: #fdfbf5;
+    --rl2-accent: #b8860b;
+    --rl2-blue: #0d47a1;
+    --rl2-red: #b71c1c;
+    --rl2-green: #2e7d32;
+    --rl2-purple: #6a1b9a;
+    --rl2-orange: #e65100;
+}
+html[data-theme="dark"] .rl2-root,
+.rl2-root[data-theme="dark"] {
+    --rl2-bg: #0f1724;
+    --rl2-text: #e6e6e6;
+    --rl2-muted: #9aa3b2;
+    --rl2-border: #2a3441;
+    --rl2-card: #0f1724;
+    --rl2-blue: #5a8dee;
+    --rl2-red: #ef5350;
+    --rl2-green: #66bb6a;
+    --rl2-purple: #ba68c8;
+    --rl2-orange: #ffa726;
+}
+.rl2-root {
+    font-family: 'Segoe UI', Helvetica, Arial, sans-serif;
+    background: var(--rl2-bg);
+    color: var(--rl2-text);
+    padding: 12px;
+    margin: 0;
+}
+.rl2-pillbar-wrap {
+    margin-bottom: 12px;
+    padding: 10px 12px;
+    background: var(--rl2-card);
+    border: 1px solid var(--rl2-border);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+.rl2-label {
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--rl2-muted);
+}
+.rl2-pillbar {
+    display: inline-flex;
+    border: 1px solid var(--rl2-border);
+    border-radius: 999px;
+    overflow: hidden;
+    background: var(--rl2-card);
+}
+.rl2-pillbar button {
+    border: none;
+    background: transparent;
+    color: var(--rl2-muted);
+    padding: 6px 14px;
+    font: inherit;
+    font-size: 0.85rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.15s, color 0.15s;
+}
+.rl2-pillbar button:hover { color: var(--rl2-text); }
+.rl2-pillbar button.active {
+    background: var(--rl2-accent);
+    color: #fff;
+}
+.rl2-controls {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 12px;
+    margin-bottom: 14px;
+    padding: 12px;
+    background: var(--rl2-card);
+    border: 1px solid var(--rl2-border);
+    border-radius: 8px;
+}
+.rl2-slider-wrap {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    font-size: 0.82rem;
+    color: var(--rl2-muted);
+}
+.rl2-slider-wrap .rl2-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.rl2-slider-wrap input[type="range"] {
+    flex: 1;
+    accent-color: var(--rl2-accent);
+}
+.rl2-slider-wrap .rl2-val {
+    white-space: nowrap;
+    color: var(--rl2-text);
+    font-weight: 700;
+    font-variant-numeric: tabular-nums;
+    min-width: 88px;
+    text-align: right;
+}
+.rl2-slider-wrap .rl2-name {
+    font-weight: 600;
+    color: var(--rl2-text);
+}
+.rl2-table-wrap {
+    overflow-x: auto;
+    background: var(--rl2-card);
+    border: 1px solid var(--rl2-border);
+    border-radius: 8px;
+    margin-bottom: 14px;
+}
+table.rl2-tbl {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.86rem;
+    color: var(--rl2-text);
+    font-variant-numeric: tabular-nums;
+}
+table.rl2-tbl th, table.rl2-tbl td {
+    padding: 9px 10px;
+    text-align: right;
+    border-bottom: 1px solid var(--rl2-border);
+    white-space: nowrap;
+}
+table.rl2-tbl th { color: var(--rl2-muted); font-weight: 700; font-size: 0.76rem; text-transform: uppercase; letter-spacing: 0.4px; }
+table.rl2-tbl td.rl2-strat { text-align: left; font-weight: 700; }
+table.rl2-tbl td.rl2-strat .rl2-mark { display: inline-block; width: 9px; height: 9px; border-radius: 2px; margin-right: 8px; vertical-align: middle; }
+table.rl2-tbl tr.rl2-row-shares td.rl2-strat .rl2-mark { background: var(--rl2-blue); }
+table.rl2-tbl tr.rl2-row-leaps90 td.rl2-strat .rl2-mark { background: var(--rl2-green); }
+table.rl2-tbl tr.rl2-row-call70 td.rl2-strat .rl2-mark { background: var(--rl2-accent); }
+table.rl2-tbl tr.rl2-row-call30 td.rl2-strat .rl2-mark { background: var(--rl2-red); }
+table.rl2-tbl tr.rl2-row-sso td.rl2-strat .rl2-mark { background: var(--rl2-purple); }
+table.rl2-tbl td.rl2-pos { color: var(--rl2-green); font-weight: 700; }
+table.rl2-tbl td.rl2-neg { color: var(--rl2-red); font-weight: 700; }
+table.rl2-tbl tr:last-child td { border-bottom: none; }
+.rl2-chart {
+    width: 100%;
+    height: 360px;
+    background: var(--rl2-card);
+    border-radius: 8px;
+    border: 1px solid var(--rl2-border);
+}
+.rl2-caption {
+    margin-top: 10px;
+    font-size: 0.78rem;
+    color: var(--rl2-muted);
+    line-height: 1.45;
+}
+@media (max-width: 900px) {
+    .rl2-controls { grid-template-columns: 1fr 1fr; }
+    table.rl2-tbl { font-size: 0.78rem; }
+}
+@media (max-width: 600px) {
+    .rl2-controls { grid-template-columns: 1fr; }
+    .rl2-chart { height: 320px; }
+}
+</style>
+</head>
+<body>
+
+<div class="rl2-root" id="rl2-root">
+    <div class="rl2-pillbar-wrap">
+        <span class="rl2-label" id="rl2-und-label">Underlying</span>
+        <div class="rl2-pillbar" id="rl2-und-pills" role="tablist">
+            <button type="button" data-und="SPY" class="active">SPY</button>
+            <button type="button" data-und="QQQ">QQQ</button>
+            <button type="button" data-und="AAPL">AAPL</button>
+            <button type="button" data-und="MSFT">MSFT</button>
+            <button type="button" data-und="NVDA">NVDA</button>
+        </div>
+    </div>
+
+    <div class="rl2-controls">
+        <div class="rl2-slider-wrap">
+            <div class="rl2-name" id="rl2-name-N">Target equity exposure ($)</div>
+            <div class="rl2-row">
+                <input type="range" id="rl2-N" min="5000" max="500000" step="1000" value="50000">
+                <span class="rl2-val" id="rl2-val-N">$50,000</span>
+            </div>
+        </div>
+        <div class="rl2-slider-wrap">
+            <div class="rl2-name" id="rl2-name-move">Underlying 1-yr move (%)</div>
+            <div class="rl2-row">
+                <input type="range" id="rl2-move" min="-40" max="60" step="1" value="10">
+                <span class="rl2-val" id="rl2-val-move">+10.0%</span>
+            </div>
+        </div>
+        <div class="rl2-slider-wrap">
+            <div class="rl2-name" id="rl2-name-tbill">T-bill yield (%)</div>
+            <div class="rl2-row">
+                <input type="range" id="rl2-tbill" min="0" max="8" step="0.1" value="4.3">
+                <span class="rl2-val" id="rl2-val-tbill">4.30%</span>
+            </div>
+        </div>
+        <div class="rl2-slider-wrap">
+            <div class="rl2-name" id="rl2-name-sigma">Implied vol (%)</div>
+            <div class="rl2-row">
+                <input type="range" id="rl2-sigma" min="8" max="60" step="0.5" value="19">
+                <span class="rl2-val" id="rl2-val-sigma">19.0%</span>
+            </div>
+        </div>
+        <div class="rl2-slider-wrap">
+            <div class="rl2-name" id="rl2-name-div">Dividend yield (%)</div>
+            <div class="rl2-row">
+                <input type="range" id="rl2-div" min="0" max="6" step="0.1" value="1.3">
+                <span class="rl2-val" id="rl2-val-div">1.30%</span>
+            </div>
+        </div>
+        <div class="rl2-slider-wrap">
+            <div class="rl2-name" id="rl2-hint-name">Tip</div>
+            <div class="rl2-row">
+                <span class="rl2-val" id="rl2-hint-val" style="text-align:left;color:var(--rl2-muted);font-weight:500;font-size:0.78rem;line-height:1.35;min-width:0;">Drag the move slider to see who wins on each path.</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="rl2-table-wrap">
+        <table class="rl2-tbl" id="rl2-tbl">
+            <thead>
+                <tr>
+                    <th id="rl2-h-strat" style="text-align:left;">Strategy</th>
+                    <th id="rl2-h-cap">Capital</th>
+                    <th id="rl2-h-freed">Freed cash</th>
+                    <th id="rl2-h-tbill">T-bill earn</th>
+                    <th id="rl2-h-be">Breakeven</th>
+                    <th id="rl2-h-up">Move PnL</th>
+                    <th id="rl2-h-maxup">Max upside</th>
+                    <th id="rl2-h-maxdn">Max downside</th>
+                    <th id="rl2-h-net">Net total</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="rl2-row-shares" data-strat="shares"></tr>
+                <tr class="rl2-row-leaps90" data-strat="leaps90"></tr>
+                <tr class="rl2-row-call70" data-strat="call70"></tr>
+                <tr class="rl2-row-call30" data-strat="call30"></tr>
+                <tr class="rl2-row-sso" data-strat="sso"></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div id="rl2-chart" class="rl2-chart"></div>
+    <p class="rl2-caption" id="rl2-caption">
+        Each strategy is sized to control the same target equity exposure. Capital, breakeven, and PnL come from Black-Scholes pricing for the option rows; SSO is modeled as 2x daily-reset with sigma squared decay and 0.9% expense ratio. The chart on the bottom shows the 1-year PnL profile across underlying moves from -40% to +60%.
+    </p>
+</div>
+
+<script>
+(function () {
+    var I18N = {
+        en: {
+            und_label: "Underlying", N_name: "Target equity exposure ($)",
+            move_name: "Underlying 1-yr move (%)", tbill_name: "T-bill yield (%)",
+            sigma_name: "Implied vol (%)", div_name: "Dividend yield (%)",
+            hint_name: "Tip",
+            hint_val: "Drag the move slider to see who wins on each path.",
+            h_strat: "Strategy", h_cap: "Capital", h_freed: "Freed cash",
+            h_tbill: "T-bill earn", h_be: "Breakeven", h_up: "Move PnL",
+            h_maxup: "Max upside", h_maxdn: "Max downside", h_net: "Net total",
+            row_shares: "100 shares", row_leaps90: "0.90D LEAPS (12mo, K=80%)",
+            row_call70: "0.70D call (6mo, K=92%)", row_call30: "0.30D call (3mo, K=106%)",
+            row_sso: "SSO (2x ETF)",
+            x_title: "Underlying move over 1 year (%)",
+            y_title: "Total PnL ($)",
+            chart_title: "1-year PnL profile by underlying move",
+            unlimited: "unlimited",
+            caption: "Each strategy is sized to control the same target equity exposure. Capital, breakeven, and PnL come from Black-Scholes pricing for the option rows; SSO is modeled as 2x daily-reset with sigma squared decay and 0.9% expense ratio. The chart on the bottom shows the 1-year PnL profile across underlying moves from -40% to +60%.",
+        },
+        hk: {
+            und_label: "標的", N_name: "目標股票敞口(美元)",
+            move_name: "標的 1 年漲幅(%)", tbill_name: "國庫券利率(%)",
+            sigma_name: "隱含波幅(%)", div_name: "股息率(%)",
+            hint_name: "提示",
+            hint_val: "拖動漲幅滑桿,看誰在不同情境下勝出。",
+            h_strat: "策略", h_cap: "投入資金", h_freed: "未動用現金",
+            h_tbill: "國庫券收益", h_be: "盈虧平衡", h_up: "情境損益",
+            h_maxup: "最大上行", h_maxdn: "最大下行", h_net: "淨總額",
+            row_shares: "100 股股票", row_leaps90: "0.90D LEAPS(12 月, K=80%)",
+            row_call70: "0.70D 認購(6 月, K=92%)", row_call30: "0.30D 認購(3 月, K=106%)",
+            row_sso: "SSO(2 倍 ETF)",
+            x_title: "標的 1 年走勢(%)",
+            y_title: "總損益(美元)",
+            chart_title: "1 年損益曲線",
+            unlimited: "無上限",
+            caption: "每個策略均按相同的目標敞口配置。期權使用 Black-Scholes 定價;SSO 以 2 倍每日重設、sigma 平方衰減加 0.9% 費用建模。底部圖表顯示在 -40% 至 +60% 區間的 1 年損益曲線。",
+        },
+        tw: {
+            und_label: "標的", N_name: "目標股票部位(美元)",
+            move_name: "標的 1 年漲幅(%)", tbill_name: "國庫券利率(%)",
+            sigma_name: "隱含波動率(%)", div_name: "股息率(%)",
+            hint_name: "提示",
+            hint_val: "拖動漲幅滑桿,觀察各情境下的勝出者。",
+            h_strat: "策略", h_cap: "投入資金", h_freed: "未動用現金",
+            h_tbill: "國庫券收益", h_be: "損益平衡", h_up: "情境損益",
+            h_maxup: "最大上行", h_maxdn: "最大下行", h_net: "淨總額",
+            row_shares: "100 股股票", row_leaps90: "0.90D LEAPS(12 月,K=80%)",
+            row_call70: "0.70D 買權(6 月,K=92%)", row_call30: "0.30D 買權(3 月,K=106%)",
+            row_sso: "SSO(2 倍 ETF)",
+            x_title: "標的 1 年走勢(%)",
+            y_title: "總損益(美元)",
+            chart_title: "1 年損益曲線",
+            unlimited: "無上限",
+            caption: "每個策略均按相同的目標部位配置。期權使用 Black-Scholes 定價;SSO 採每日重設 2 倍、sigma 平方衰減加 0.9% 費用建模。底部圖示為 -40% 至 +60% 的 1 年損益曲線。",
+        },
+        cn: {
+            und_label: "标的", N_name: "目标股票敞口(美元)",
+            move_name: "标的 1 年涨幅(%)", tbill_name: "国库券利率(%)",
+            sigma_name: "隐含波动率(%)", div_name: "股息率(%)",
+            hint_name: "提示",
+            hint_val: "拖动涨幅滑杆,看不同情境下谁胜出。",
+            h_strat: "策略", h_cap: "投入资金", h_freed: "闲置现金",
+            h_tbill: "国库券收益", h_be: "盈亏平衡", h_up: "情境盈亏",
+            h_maxup: "最大上行", h_maxdn: "最大下行", h_net: "净总额",
+            row_shares: "100 股股票", row_leaps90: "0.90D LEAPS(12 月, K=80%)",
+            row_call70: "0.70D 看涨(6 月, K=92%)", row_call30: "0.30D 看涨(3 月, K=106%)",
+            row_sso: "SSO(2 倍 ETF)",
+            x_title: "标的 1 年走势(%)",
+            y_title: "总盈亏(美元)",
+            chart_title: "1 年盈亏曲线",
+            unlimited: "无上限",
+            caption: "每个策略按相同目标敞口配置。期权使用 Black-Scholes 定价;SSO 以每日重置 2 倍、sigma 平方衰减加 0.9% 费用建模。底部图示为 -40% 至 +60% 区间的 1 年盈亏曲线。",
+        },
+    };
+
+    function currentLang() {
+        var p = new URLSearchParams(window.location.search);
+        var l = (p.get("lang") || "en").toLowerCase();
+        return I18N.hasOwnProperty(l) ? l : "en";
+    }
+    var T = I18N[currentLang()];
+
+    // Underlying presets (April 2026 anchors).
+    var UNDERLYINGS = {
+        SPY:  { spot: 520, sigma: 19, div: 1.3 },
+        QQQ:  { spot: 520, sigma: 22, div: 0.6 },
+        AAPL: { spot: 230, sigma: 26, div: 0.5 },
+        MSFT: { spot: 460, sigma: 24, div: 0.7 },
+        NVDA: { spot: 130, sigma: 45, div: 0.0 },
+    };
+
+    // ---------------- Black-Scholes ----------------
+    function erf(x) {
+        var sign = x < 0 ? -1 : 1;
+        x = Math.abs(x);
+        var a1 = 0.254829592, a2 = -0.284496736, a3 = 1.421413741;
+        var a4 = -1.453152027, a5 = 1.061405429, p = 0.3275911;
+        var t = 1.0 / (1.0 + p * x);
+        var y = 1.0 - (((((a5*t + a4)*t) + a3)*t + a2)*t + a1)*t * Math.exp(-x*x);
+        return sign * y;
+    }
+    function Phi(x) { return 0.5 * (1.0 + erf(x / Math.SQRT2)); }
+    function bsmCall(S, K, T, sig, r, q) {
+        var sqrtT = Math.sqrt(T);
+        var d1 = (Math.log(S/K) + (r - q + 0.5*sig*sig)*T) / (sig*sqrtT);
+        var d2 = d1 - sig*sqrtT;
+        var price = S * Math.exp(-q*T) * Phi(d1) - K * Math.exp(-r*T) * Phi(d2);
+        var delta = Math.exp(-q*T) * Phi(d1);
+        return { price: price, delta: delta };
+    }
+
+    // ---------------- DOM ----------------
+    var ROOT = document.getElementById("rl2-root");
+    var CHART = document.getElementById("rl2-chart");
+    var TBL = document.getElementById("rl2-tbl");
+    var UND_PILLS = document.getElementById("rl2-und-pills");
+    var N_EL = document.getElementById("rl2-N");
+    var MOVE_EL = document.getElementById("rl2-move");
+    var TBILL_EL = document.getElementById("rl2-tbill");
+    var SIGMA_EL = document.getElementById("rl2-sigma");
+    var DIV_EL = document.getElementById("rl2-div");
+
+    var underlying = "SPY";
+
+    function getCssVar(name) {
+        return getComputedStyle(ROOT).getPropertyValue(name).trim();
+    }
+    function darkMode() {
+        return document.documentElement.getAttribute("data-theme") === "dark";
+    }
+    function fmtUsd(n, d) {
+        if (!isFinite(n)) return "—";
+        d = (d == null) ? 0 : d;
+        var abs = Math.abs(n);
+        var sign = n < 0 ? "-" : "";
+        return sign + "$" + abs.toLocaleString(undefined, {
+            minimumFractionDigits: d, maximumFractionDigits: d });
+    }
+    function fmtPct(n, d) {
+        if (!isFinite(n)) return "—";
+        d = (d == null) ? 1 : d;
+        return (n >= 0 ? "+" : "") + n.toFixed(d) + "%";
+    }
+
+    // Compute strategy parameters for a single move scenario.
+    // Returns { capital, freed, tbillEarn, breakevenPct, movePnl, maxUp, maxDn, net }
+    function strategy(name, params) {
+        var S = params.spot;
+        var sig = params.sigma / 100.0;
+        var r = params.tbill / 100.0;
+        var q = params.div / 100.0;
+        var N = params.N;            // target exposure $
+        var movePct = params.move;   // 1-yr move %
+        var Sf = S * (1.0 + movePct / 100.0);
+        var tbill = r;
+
+        if (name === "shares") {
+            // Buy N/S shares.
+            var shares = N / S;
+            var capital = N;
+            var freed = 0.0;
+            var tbillEarn = 0.0;
+            var breakevenPct = -q * 100.0; // dividend cushion
+            var priceMove = shares * (Sf - S);
+            var divEarn = N * q;             // 1-yr div
+            var movePnl = priceMove + divEarn;
+            return {
+                capital: capital, freed: freed, tbillEarn: tbillEarn,
+                breakevenPct: breakevenPct, movePnl: movePnl,
+                maxUp: Infinity, maxDn: -N,
+                net: movePnl + tbillEarn,
+            };
+        }
+
+        if (name === "leaps90") {
+            var K = 0.80 * S, T = 1.0;
+            var bs = bsmCall(S, K, T, sig, r, q);
+            // Per share premium; scale to N exposure.
+            var nShares = N / S;
+            var premium = bs.price * nShares;
+            var capital = premium;
+            var freed = N - premium;
+            var tbillEarn = freed * tbill;
+            // Payoff at expiration: max(Sf - K, 0) per share.
+            var payoff = Math.max(Sf - K, 0) * nShares;
+            var movePnl = payoff - premium;
+            // Breakeven: Sf - K = premium per share, ie Sf = K + premium/nShares
+            var beS = K + bs.price;
+            var breakevenPct = (beS - S) / S * 100.0;
+            return {
+                capital: capital, freed: freed, tbillEarn: tbillEarn,
+                breakevenPct: breakevenPct, movePnl: movePnl,
+                maxUp: Infinity, maxDn: -premium,
+                net: movePnl + tbillEarn,
+            };
+        }
+        if (name === "call70") {
+            var K = 0.92 * S, T = 0.5;
+            var bs = bsmCall(S, K, T, sig, r, q);
+            var nShares = N / S;
+            var premium = bs.price * nShares;
+            var capital = premium;
+            var freed = N - premium;
+            // Holding period 6 months -> half year T-bill.
+            var tbillEarn = freed * tbill * 0.5;
+            // Payoff at 6mo expiration; Sf interpreted as price at 6mo (proportional half-move).
+            // Use half the annual move for fair comparison.
+            var Smid = S * (1.0 + movePct / 100.0 * 0.5);
+            var payoff = Math.max(Smid - K, 0) * nShares;
+            var movePnl = payoff - premium;
+            var beS = K + bs.price;
+            var breakevenPct = (beS - S) / S * 100.0 * 2.0; // annualized
+            return {
+                capital: capital, freed: freed, tbillEarn: tbillEarn,
+                breakevenPct: breakevenPct, movePnl: movePnl,
+                maxUp: Infinity, maxDn: -premium,
+                net: movePnl + tbillEarn,
+            };
+        }
+        if (name === "call30") {
+            var K = 1.06 * S, T = 0.25;
+            var bs = bsmCall(S, K, T, sig, r, q);
+            var nShares = N / S;
+            var premium = bs.price * nShares;
+            var capital = premium;
+            var freed = N - premium;
+            var tbillEarn = freed * tbill * 0.25;
+            var Smid = S * (1.0 + movePct / 100.0 * 0.25);
+            var payoff = Math.max(Smid - K, 0) * nShares;
+            var movePnl = payoff - premium;
+            var beS = K + bs.price;
+            var breakevenPct = (beS - S) / S * 100.0 * 4.0; // annualized
+            return {
+                capital: capital, freed: freed, tbillEarn: tbillEarn,
+                breakevenPct: breakevenPct, movePnl: movePnl,
+                maxUp: Infinity, maxDn: -premium,
+                net: movePnl + tbillEarn,
+            };
+        }
+        if (name === "sso") {
+            // 2x ETF: half the capital for full exposure.
+            var capital = N / 2.0;
+            var freed = N / 2.0;
+            var tbillEarn = freed * tbill;
+            // SSO 1-yr return: 2*r - sigma^2 - 0.009 (fee/swap drag)
+            var sigA = sig;
+            var rEq = movePct / 100.0;
+            var sso_ret = 2.0 * rEq - sigA * sigA - 0.009;
+            sso_ret = Math.max(sso_ret, -0.95);
+            var movePnl = capital * sso_ret;
+            // Breakeven: 2*r - sigma^2 - 0.009 = 0 => r = (sigma^2 + 0.009)/2
+            var beR = (sigA*sigA + 0.009) / 2.0 * 100.0;
+            return {
+                capital: capital, freed: freed, tbillEarn: tbillEarn,
+                breakevenPct: beR, movePnl: movePnl,
+                maxUp: Infinity, maxDn: -capital,
+                net: movePnl + tbillEarn,
+            };
+        }
+        return null;
+    }
+
+    function readInputs() {
+        var u = UNDERLYINGS[underlying];
+        return {
+            spot:  u.spot,
+            sigma: parseFloat(SIGMA_EL.value),
+            div:   parseFloat(DIV_EL.value),
+            tbill: parseFloat(TBILL_EL.value),
+            N:     parseFloat(N_EL.value),
+            move:  parseFloat(MOVE_EL.value),
+        };
+    }
+
+    function applyUnderlyingDefaults() {
+        var u = UNDERLYINGS[underlying];
+        SIGMA_EL.value = u.sigma;
+        DIV_EL.value = u.div;
+    }
+
+    var STRATS = ["shares", "leaps90", "call70", "call30", "sso"];
+
+    function applyI18n() {
+        document.getElementById("rl2-und-label").textContent = T.und_label;
+        document.getElementById("rl2-name-N").textContent = T.N_name;
+        document.getElementById("rl2-name-move").textContent = T.move_name;
+        document.getElementById("rl2-name-tbill").textContent = T.tbill_name;
+        document.getElementById("rl2-name-sigma").textContent = T.sigma_name;
+        document.getElementById("rl2-name-div").textContent = T.div_name;
+        document.getElementById("rl2-hint-name").textContent = T.hint_name;
+        document.getElementById("rl2-hint-val").textContent = T.hint_val;
+        document.getElementById("rl2-h-strat").textContent = T.h_strat;
+        document.getElementById("rl2-h-cap").textContent = T.h_cap;
+        document.getElementById("rl2-h-freed").textContent = T.h_freed;
+        document.getElementById("rl2-h-tbill").textContent = T.h_tbill;
+        document.getElementById("rl2-h-be").textContent = T.h_be;
+        document.getElementById("rl2-h-up").textContent = T.h_up;
+        document.getElementById("rl2-h-maxup").textContent = T.h_maxup;
+        document.getElementById("rl2-h-maxdn").textContent = T.h_maxdn;
+        document.getElementById("rl2-h-net").textContent = T.h_net;
+        document.getElementById("rl2-caption").textContent = T.caption;
+    }
+
+    function rowName(s) {
+        return ({ shares: T.row_shares, leaps90: T.row_leaps90,
+                  call70: T.row_call70, call30: T.row_call30,
+                  sso: T.row_sso })[s];
+    }
+
+    function updateLabels(p) {
+        document.getElementById("rl2-val-N").textContent = "$" + p.N.toLocaleString();
+        document.getElementById("rl2-val-move").textContent = fmtPct(p.move, 1);
+        document.getElementById("rl2-val-tbill").textContent = p.tbill.toFixed(2) + "%";
+        document.getElementById("rl2-val-sigma").textContent = p.sigma.toFixed(1) + "%";
+        document.getElementById("rl2-val-div").textContent = p.div.toFixed(2) + "%";
+    }
+
+    function fillTable(p) {
+        STRATS.forEach(function (name) {
+            var row = TBL.querySelector("tr.rl2-row-" + name);
+            var s = strategy(name, p);
+            var pnlClass = s.net >= 0 ? "rl2-pos" : "rl2-neg";
+            var maxUp = isFinite(s.maxUp) ? fmtUsd(s.maxUp, 0) : T.unlimited;
+            row.innerHTML =
+                '<td class="rl2-strat"><span class="rl2-mark"></span>' + rowName(name) + '</td>' +
+                '<td>' + fmtUsd(s.capital, 0) + '</td>' +
+                '<td>' + fmtUsd(s.freed, 0) + '</td>' +
+                '<td>' + fmtUsd(s.tbillEarn, 0) + '</td>' +
+                '<td>' + fmtPct(s.breakevenPct, 1) + '</td>' +
+                '<td class="' + (s.movePnl >= 0 ? "rl2-pos" : "rl2-neg") + '">' + fmtUsd(s.movePnl, 0) + '</td>' +
+                '<td>' + maxUp + '</td>' +
+                '<td class="rl2-neg">' + fmtUsd(s.maxDn, 0) + '</td>' +
+                '<td class="' + pnlClass + '">' + fmtUsd(s.net, 0) + '</td>';
+        });
+    }
+
+    function renderChart(p) {
+        var moves = [];
+        for (var m = -40; m <= 60; m += 1) moves.push(m);
+        var traces = [];
+        var colorMap = {
+            shares:  getCssVar("--rl2-blue"),
+            leaps90: getCssVar("--rl2-green"),
+            call70:  getCssVar("--rl2-accent"),
+            call30:  getCssVar("--rl2-red"),
+            sso:     getCssVar("--rl2-purple"),
+        };
+        STRATS.forEach(function (name) {
+            var ys = moves.map(function (m) {
+                var pp = Object.assign({}, p, { move: m });
+                return strategy(name, pp).net;
+            });
+            traces.push({
+                x: moves, y: ys, type: "scatter", mode: "lines",
+                line: { color: colorMap[name], width: 2.4 },
+                name: rowName(name),
+                hovertemplate: rowName(name) + "<br>%{x}% -> $%{y:,.0f}<extra></extra>",
+            });
+        });
+        // Vertical marker at current move.
+        var liveMove = p.move;
+
+        var colorText = getCssVar("--rl2-text");
+        var colorMuted = getCssVar("--rl2-muted");
+        var colorBg = getCssVar("--rl2-card");
+        var colorGrid = darkMode() ? "rgba(255,255,255,0.08)" : "rgba(0,0,0,0.07)";
+
+        var layout = {
+            margin: { l: 70, r: 24, t: 36, b: 50 },
+            paper_bgcolor: colorBg, plot_bgcolor: colorBg,
+            font: { family: "Segoe UI, Helvetica, Arial, sans-serif",
+                    color: colorText, size: 12 },
+            xaxis: {
+                title: { text: T.x_title, font: { color: colorMuted, size: 11 } },
+                gridcolor: colorGrid, color: colorText,
+                ticksuffix: "%", zerolinecolor: colorMuted,
+            },
+            yaxis: {
+                title: { text: T.y_title, font: { color: colorMuted, size: 11 } },
+                gridcolor: colorGrid, zerolinecolor: colorMuted, color: colorText,
+                tickprefix: "$",
+            },
+            title: {
+                text: T.chart_title, x: 0, xanchor: "left",
+                font: { color: colorText, size: 13, weight: 700 },
+            },
+            shapes: [{
+                type: "line", xref: "x", yref: "paper",
+                x0: liveMove, x1: liveMove, y0: 0, y1: 1,
+                line: { color: colorMuted, width: 1, dash: "dash" },
+            }],
+            legend: { orientation: "h", x: 0, y: -0.18,
+                      font: { size: 10.5 } },
+            hovermode: "x unified",
+        };
+        Plotly.react(CHART, traces, layout, {
+            displayModeBar: false, responsive: true,
+        });
+    }
+
+    function render() {
+        var p = readInputs();
+        updateLabels(p);
+        fillTable(p);
+        renderChart(p);
+    }
+
+    // ---------------- bindings ----------------
+    UND_PILLS.querySelectorAll("button").forEach(function (btn) {
+        btn.addEventListener("click", function () {
+            UND_PILLS.querySelectorAll("button").forEach(function (b) {
+                b.classList.remove("active");
+            });
+            btn.classList.add("active");
+            underlying = btn.dataset.und;
+            applyUnderlyingDefaults();
+            render();
+        });
+    });
+    [N_EL, MOVE_EL, TBILL_EL, SIGMA_EL, DIV_EL].forEach(function (el) {
+        el.addEventListener("input", render);
+    });
+
+    applyI18n();
+
+    // postMessage resize.
+    function reportHeight() {
+        try {
+            var h = Math.ceil(document.documentElement.scrollHeight);
+            parent.postMessage({ type: "lesson-interactive-resize", height: h }, "*");
+        } catch (e) { /* ignore */ }
+    }
+    if (typeof ResizeObserver !== "undefined") {
+        new ResizeObserver(reportHeight).observe(document.body);
+    }
+    window.addEventListener("resize", reportHeight);
+    setTimeout(reportHeight, 50);
+    setTimeout(reportHeight, 500);
+
+    // Theme observer.
+    var themeObserver = new MutationObserver(render);
+    themeObserver.observe(document.documentElement, {
+        attributes: true, attributeFilter: ["data-theme"],
+    });
+
+    render();
+})();
+</script>
+
+</body>
+</html>

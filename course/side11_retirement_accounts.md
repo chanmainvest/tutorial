@@ -1,443 +1,709 @@
-# Side Lesson 11: Retirement Accounts - 401k, IRA, Roth
+# Side Lesson 11: Retirement Accounts — 401(k), IRA, Roth, HSA, and the Optimal Contribution Stack
 
 ---
 
-## Reading Section
-
-The U.S. tax code provides a variety of tax-advantaged accounts designed to encourage retirement savings. Understanding these accounts -- how they work, their contribution limits, their tax implications, and how to use them strategically -- is one of the most impactful financial skills you can develop. The difference between using retirement accounts well and using them poorly can easily amount to hundreds of thousands of dollars over a lifetime. This lesson covers the major account types, their rules, and strategies for maximizing their benefits at every life stage.
+## Part 1: Reading Section
 
 ---
 
-### a) Why This Is Important
+### 1. Why This Is Important
 
-**Tax savings are guaranteed returns.** Unlike market performance, which is uncertain, tax savings are guaranteed. Every dollar you save in taxes through proper use of retirement accounts is a dollar that compounds for you. Over 30 years, even modest annual tax savings can grow into substantial wealth.
+The US tax code hands every working household a stack of tax-advantaged
+wrappers — a 401(k), an IRA in two flavours, a Roth, an HSA, and (for
+some plans) a mega-backdoor channel — and the dollar limits go up
+nearly every year. In 2026 the headline numbers are: **$23,500** in a
+401(k) ($31,000 if you're 50+), **$7,000** in an IRA ($8,000 if 50+),
+**$4,300** in an HSA single ($8,550 family), and a total 401(k) cap of
+**$70,000** when you stack employee deferral, employer match, and
+after-tax mega-backdoor contributions. Used in the right order, these
+wrappers shelter roughly six figures per year of pre-tax income for a
+high-earner household.
 
-**The government is incentivizing you to save.** Through tax deductions, tax-free growth, and employer matches, the government and your employer are essentially giving you free money to save for retirement. Not taking full advantage of these incentives is leaving money on the table.
+Four reasons this lesson matters more than any equivalent hour of fund
+selection:
 
-**The rules are complex and expensive to ignore.** Contribution limits, income phase-outs, required minimum distributions, early withdrawal penalties, and Roth conversion strategies all have specific rules. Mistakes can result in penalties, unnecessary taxes, or missed opportunities that compound over decades.
+1. **The match is a 50-100% guaranteed return.** A 401(k) employer
+   match of 50¢ on the dollar up to 6% of salary is a 50% instant
+   return on the marginal dollar. No equity strategy on Earth pays
+   that. Skipping the match is the single most expensive mistake in
+   retail finance, and roughly one in five eligible workers does it
+   anyway.
 
-**Your choice of account type affects decades of returns.** Whether you save in a Traditional or Roth account has implications that play out over 20-40 years. Making the right choice (or strategically using both) depends on your current tax bracket, expected future tax bracket, and retirement plans.
+2. **The HSA is the only triple-tax-advantaged wrapper.** Deductible
+   going in, growth tax-free, withdrawals tax-free for qualifying
+   medical expenses. Save the receipts and reimburse yourself decades
+   later and the HSA functions as a stealth Roth IRA with a deduction
+   on top.
 
-**Employer matches are the highest-return investment available.** A 401(k) employer match -- say, 50% of your contributions up to 6% of salary -- represents an immediate 50% return on your money. No investment in the market can guarantee that. Understanding how to capture the full match is priority number one.
+3. **The Roth-vs-Traditional choice compounds for 30+ years.** Pick
+   wrong and the cost is 10-20% of your terminal wealth. The decision
+   reduces to one comparison: **your current bracket vs. your expected
+   retirement bracket.** Get that comparison right and the rest is
+   bookkeeping.
 
----
+4. **The order matters more than the level.** Two identical earners
+   contributing the same total dollars get *different* terminal wealth
+   if they fund the wrappers in a different order. The interactive on
+   the website ranks the stack and tells you the marginal dollar's
+   home.
 
-### b) What You Need to Know
+Horace's view from `course/SOUL.md` #15 ("tax via options and margin")
+sits beneath this entire lesson: every dollar that lands inside the
+right wrapper is a dollar the IRS *cannot* tax, ever, at the right
+endpoint. The stack is the cheapest alpha you will ever find — written
+into the code, public, mechanical.
 
-#### The Two Tax Models: Traditional vs. Roth
-
-Every retirement account follows one of two tax models:
-
-**Traditional (Tax-Deferred):**
-- Contributions may be tax-deductible (you pay less tax today).
-- Money grows tax-deferred (no annual taxes on gains or income).
-- Withdrawals in retirement are taxed as ordinary income.
-- Think of it as: "Tax break now, pay taxes later."
-
-**Roth (Tax-Free Growth):**
-- Contributions are made with after-tax money (no tax break today).
-- Money grows tax-free.
-- Qualified withdrawals in retirement are completely tax-free.
-- Think of it as: "Pay taxes now, never pay taxes again."
-
-The fundamental question is: will your tax rate be higher now or in retirement? If higher now, Traditional saves you more. If higher in retirement, Roth saves you more. If you are unsure (which most people are), having money in both Traditional and Roth accounts provides tax diversification -- the ability to choose which bucket to withdraw from in retirement to minimize taxes.
-
-#### 401(k) Plans
-
-The 401(k) is an employer-sponsored retirement plan. It is the most common retirement savings vehicle for American workers.
-
-**Key features:**
-
-- **Contribution limits (2024-2025):** $23,000 per year for employees under 50. $30,500 for employees 50 and older (includes a $7,500 catch-up contribution). These limits are adjusted periodically for inflation.
-- **Employer match:** Many employers match a portion of your contributions. Common formulas include 50% match on the first 6% of salary, or dollar-for-dollar match on the first 3-4%. The match is essentially free money and should always be captured in full.
-- **Investment options:** 401(k) plans offer a menu of investment options selected by the employer, typically including a mix of index funds, actively managed funds, target-date funds, and sometimes company stock. The quality and cost of these options vary dramatically between plans.
-- **Vesting:** Your own contributions are always 100% vested (they belong to you immediately). Employer match contributions may be subject to a vesting schedule -- meaning you must work for the employer for a certain number of years before the match is fully yours. Common vesting schedules range from immediate vesting to 4-6 year graduated vesting.
-- **Loans and hardship withdrawals:** Most 401(k) plans allow loans (you borrow from yourself and repay with interest) and hardship withdrawals (subject to penalties and taxes). These should be last resorts.
-- **Early withdrawal penalty:** Withdrawals before age 59 1/2 generally incur a 10% penalty on top of ordinary income taxes. Exceptions include the Rule of 55 (penalty-free withdrawals if you leave your employer at age 55 or later) and substantially equal periodic payments (72(t) distributions).
-
-**Traditional 401(k) vs. Roth 401(k):**
-
-Many employers now offer both options:
-
-- **Traditional 401(k):** Contributions reduce your taxable income today. A $23,000 contribution in the 24% bracket saves you $5,520 in taxes this year. Withdrawals in retirement are taxed as ordinary income.
-- **Roth 401(k):** Contributions do not reduce your taxable income. You pay taxes on the full amount today. But withdrawals in retirement -- including all growth -- are tax-free. The contribution limits are the same for both.
-
-The employer match, regardless of whether you choose Traditional or Roth for your contributions, always goes into a Traditional (pre-tax) bucket. So even if you contribute entirely to a Roth 401(k), the match will be Traditional and taxable upon withdrawal.
-
-#### Individual Retirement Accounts (IRAs)
-
-IRAs are retirement accounts you open yourself, independent of an employer. They provide additional tax-advantaged savings beyond your 401(k).
-
-**Traditional IRA:**
-
-- **Contribution limit (2024-2025):** $7,000 per year ($8,000 if age 50+).
-- **Tax deductibility:** If you are not covered by an employer plan, contributions are fully deductible regardless of income. If you are covered by an employer plan, deductibility phases out at higher incomes (the exact phase-out range is adjusted annually and depends on filing status).
-- **Growth:** Tax-deferred.
-- **Withdrawals:** Taxed as ordinary income. 10% early withdrawal penalty before age 59 1/2 (with some exceptions).
-- **Required Minimum Distributions (RMDs):** Must begin taking distributions at age 73 (increasing to 75 in 2033 under SECURE 2.0). RMDs ensure the government eventually collects taxes on tax-deferred money.
-
-**Roth IRA:**
-
-- **Contribution limit:** Same as Traditional IRA ($7,000/$8,000 if 50+).
-- **Income limits:** You cannot contribute directly to a Roth IRA if your modified adjusted gross income (MAGI) exceeds certain thresholds. For 2024, the phase-out begins at $146,000 for single filers and $230,000 for married filing jointly. Above these limits, you must use the "backdoor Roth" strategy (discussed below).
-- **Tax treatment:** No deduction for contributions. Tax-free growth. Tax-free withdrawals in retirement (after age 59 1/2 and the account has been open for 5 years).
-- **Contribution withdrawals:** You can withdraw your contributions (but not earnings) at any time, tax-free and penalty-free. This makes the Roth IRA more flexible than a Traditional IRA.
-- **No RMDs:** Unlike Traditional IRAs, Roth IRAs have no required minimum distributions during the owner's lifetime. Money can grow tax-free indefinitely and be passed to heirs.
-
-#### The Backdoor Roth IRA
-
-High-income earners who exceed Roth IRA income limits can still get money into a Roth IRA through the backdoor strategy:
-
-1. Make a non-deductible contribution to a Traditional IRA ($7,000).
-2. Convert the Traditional IRA to a Roth IRA (ideally before it earns any gains).
-3. Pay taxes on any gains (minimal if converted quickly).
-
-This is legal and has been widely used. However, if you have existing Traditional IRA balances, the pro-rata rule applies -- the IRS treats all your Traditional IRA balances as one pot, and the taxable portion of the conversion is based on the ratio of pre-tax to after-tax money across all your Traditional IRAs.
-
-**Mega Backdoor Roth:** Some 401(k) plans allow after-tax contributions above the standard limit, which can then be converted to Roth. The total 401(k) limit (employee + employer contributions) is $69,000 (2024). If your employer contributions and regular 401(k) contributions total $30,000, you might be able to contribute an additional $39,000 in after-tax contributions and convert them to Roth. This is not available in all plans but is highly valuable where offered.
-
-#### Required Minimum Distributions (RMDs)
-
-The government allows tax-deferred growth in Traditional accounts but eventually wants its tax revenue. RMDs are the mechanism:
-
-- **Starting age:** 73 for those turning 73 in 2023 or later. This will increase to 75 starting in 2033.
-- **Calculation:** RMD = Account balance at end of prior year / IRS life expectancy factor. The life expectancy factor decreases as you age, meaning RMDs represent a growing percentage of your account each year.
-- **Penalty for missing RMDs:** 25% excise tax on the amount not distributed (reduced from the previous 50% penalty by SECURE 2.0). This penalty can be reduced to 10% if corrected within two years.
-- **Applies to:** Traditional IRAs, Traditional 401(k)s, and other tax-deferred accounts.
-- **Does NOT apply to:** Roth IRAs (during the owner's lifetime). Roth 401(k)s previously required RMDs, but SECURE 2.0 eliminated this requirement starting in 2024.
-
-RMDs can create a significant tax burden if Traditional accounts have grown very large. This is one reason Roth conversions before RMD age can be strategically valuable -- you pay taxes now at potentially lower rates to avoid forced distributions later at potentially higher rates.
-
-#### Roth Conversion Strategies
-
-A Roth conversion involves moving money from a Traditional IRA or 401(k) to a Roth IRA. You pay ordinary income taxes on the converted amount in the year of conversion, but all future growth and withdrawals are tax-free.
-
-**When Roth conversions make the most sense:**
-
-- **Low-income years:** Between jobs, early retirement (before Social Security and RMDs begin), sabbaticals, or years with unusually low income. You can convert at a lower tax rate than you would otherwise pay.
-- **The "gap years" between retirement and RMDs:** If you retire at 60 and RMDs do not start until 73, you have 13 years where you might be in a lower tax bracket. Systematically converting Traditional IRA money to Roth during this window can dramatically reduce future RMDs and lifetime taxes.
-- **When you expect higher future tax rates:** If tax rates rise (as they may when current rates expire) or if your future income will be high, converting now locks in today's lower rates.
-- **Estate planning:** Roth IRAs pass to heirs with no income tax due on withdrawals (though heirs must deplete the account within 10 years under current rules). Converting to Roth before death allows you to prepay the taxes and leave a larger, tax-free inheritance.
-
-**Roth Conversion Ladder:** This is a strategy for early retirees (before age 59 1/2) to access retirement funds without penalty. You convert Traditional IRA money to Roth each year. After a 5-year waiting period, each conversion's principal can be withdrawn penalty-free. By doing conversions every year, you create a "ladder" of accessible funds.
-
-**Important consideration:** Converting too much in one year can push you into a higher tax bracket, triggering additional Medicare premiums (IRMAA), reducing ACA health insurance subsidies, or creating other tax complications. Conversions should be planned carefully, ideally with a tax professional.
-
-#### Contribution Priority: Where to Put Your Money First
-
-Given limited dollars, here is the generally recommended order of contributions:
-
-1. **401(k) up to the employer match.** This is the highest-return investment available -- immediate 50-100% return on matched dollars. Never leave match money on the table.
-2. **Pay off high-interest debt.** Credit card debt at 20%+ interest earns a guaranteed "return" when eliminated. No investment reliably beats this.
-3. **Max out Roth IRA or Traditional IRA** ($7,000/$8,000). IRAs typically offer more investment choices and lower fees than 401(k) plans.
-4. **Max out remaining 401(k) contributions** ($23,000/$30,500 total).
-5. **HSA (Health Savings Account)** if eligible. An HSA is a triple-tax-advantaged account (tax-deductible contributions, tax-free growth, tax-free withdrawals for medical expenses). It is the only account with all three benefits.
-6. **Mega Backdoor Roth** if available in your 401(k) plan.
-7. **Taxable brokerage account.** After maxing all tax-advantaged options, invest in a regular brokerage account using tax-efficient strategies.
-
-This order maximizes the value of tax-advantaged space. However, individual circumstances may warrant adjustments -- for example, if your 401(k) plan has terrible investment options, you might prioritize the IRA over the 401(k) beyond the match.
-
-#### Which Account Type for Which Life Stage
-
-**Early career (20s, lower income):**
-- Roth contributions are often ideal because you are likely in a lower tax bracket. The tax deduction from Traditional contributions saves less at low tax rates.
-- Roth 401(k) and Roth IRA are strong choices.
-- Always capture the full employer match.
-
-**Mid-career (30s-40s, growing income):**
-- As income and tax rates rise, the tax deduction from Traditional contributions becomes more valuable.
-- A split strategy -- some Traditional, some Roth -- provides tax diversification.
-- Max out all available tax-advantaged space if possible.
-
-**Peak earning years (40s-50s, highest income):**
-- Traditional 401(k) contributions save the most in taxes at high brackets.
-- Backdoor Roth IRA for additional tax-free savings.
-- Mega Backdoor Roth if your plan allows it.
-- HSA contributions if eligible.
-
-**Pre-retirement (50s-60s):**
-- Catch-up contributions become available ($7,500 extra in 401(k), $1,000 extra in IRA).
-- Consider whether Roth conversions make sense before RMDs begin.
-- Start planning withdrawal strategies for different account types.
-
-**Retirement (60s+):**
-- Strategic withdrawals from the right accounts in the right order to minimize lifetime taxes.
-- Roth conversions during low-income years before Social Security and RMDs.
-- RMDs begin at 73 -- plan for the tax impact.
-- Consider qualified charitable distributions (QCDs) from IRAs after age 70 1/2 to satisfy RMDs while reducing taxable income.
+![Pyramid diagram of the 2026 contribution priority stack: tier 1 employer match, tier 2 HSA $4,300, tier 3 Roth IRA $7,000, tier 4 401(k) max $23,500, tier 5 mega-backdoor up to $70,000 total, tier 6 taxable brokerage. Each tier sized by typical annual dollar amount with the priority number on the left.](image/side11_account_stack.png)
 
 ---
 
-### c) Common Misconceptions
+### 2. What You Need to Know
 
-**Misconception 1: "I should always choose Roth because tax-free money is better."**
-Tax-free growth is powerful, but it is not always the best choice. If you are in the 32% tax bracket, a Traditional 401(k) contribution saves you $0.32 per dollar contributed. If you retire in the 22% bracket, you pay only $0.22 per dollar withdrawn. You save $0.10 per dollar -- and that savings compounds over decades. The right choice depends on your current vs. future tax rates, not on a blanket rule.
+#### 2.1 The 2026 Contribution Limits — One Page
 
-**Misconception 2: "I cannot afford to save for retirement."**
-A Traditional 401(k) contribution reduces your take-home pay by less than the contribution amount because of the tax deduction. A $500/month contribution in the 24% bracket only reduces your paycheck by $380. The remaining $120 comes from tax savings. Additionally, employer matches multiply your savings for free. Even small contributions are better than none.
+Every wrapper has a **separate** annual limit. Filling all of them is
+not double-counting; it is the optimal stack.
 
-**Misconception 3: "I should wait until I make more money to start saving."**
-Time in the market is more powerful than the amount you invest. Someone who saves $200/month starting at age 25 will have more at age 65 than someone who saves $400/month starting at age 35, assuming the same returns. Starting early -- even with small amounts -- gives compounding more time to work.
+| Wrapper | 2026 limit | 50+ catch-up | Income limit? |
+|---|---|---|---|
+| 401(k) employee deferral | $23,500 | +$7,500 = $31,000 | none |
+| 401(k) total (incl. match + after-tax) | $70,000 | +$7,500 = $77,500 | none |
+| IRA (Traditional or Roth) | $7,000 | +$1,000 = $8,000 | Roth phases out $165-180k single / $246-256k MFJ |
+| HSA, single coverage | $4,300 | +$1,000 at 55+ | HDHP required |
+| HSA, family coverage | $8,550 | +$1,000 at 55+ | HDHP required |
+| 457(b) (govt / non-profit) | $23,500 | +$7,500 | sometimes stackable with 401(k) |
 
-**Misconception 4: "My employer match means I am saving enough."**
-The employer match is a starting point, not a destination. If your employer matches 3% and you contribute 3%, you are saving 6% of your salary. Most financial planners recommend saving 15-20% of gross income for retirement (including the match). The match gets you partway there, but you likely need to contribute well beyond the match level.
+Two operational notes. First, the **catch-up** (age 50+) is allowed
+only if your plan permits it; almost all do for the 401(k), the IRA
+catch-up is statutory. Second, the **HSA** requires you to be enrolled
+in a High-Deductible Health Plan (HDHP). If your employer offers a
+PPO and an HDHP, the HDHP usually pairs with an HSA — and most years,
+for healthy savers under 50, the HDHP plus maxed HSA is the
+mathematically dominant choice.
 
-**Misconception 5: "I can always contribute to a Roth IRA."**
-Roth IRA contributions have income limits. If your income exceeds the threshold, you cannot contribute directly. You can use the backdoor Roth strategy, but you need to be aware of the pro-rata rule and plan accordingly. Additionally, some proposed legislation has sought to limit or eliminate the backdoor Roth, so the strategy's future is not guaranteed.
+The total 401(k) cap of $70,000 — sometimes called the §415 limit —
+is the most under-used dollar in the code. It includes your $23,500
+employee deferral, your employer match, and any after-tax non-Roth
+contributions your plan permits. The space between (deferral + match)
+and $70,000 is the **mega-backdoor Roth lane**: contribute after-tax
+dollars into the gap, immediately convert to Roth via in-service
+rollover, and another $30,000-$45,000 per year flows into the tax-free
+wrapper that is otherwise capped at $7,000.
 
-**Misconception 6: "My 401(k) is my whole retirement plan."**
-A 401(k) is an important piece, but comprehensive retirement planning includes Social Security optimization, healthcare cost planning (including Medicare), potential long-term care needs, pension benefits (if any), home equity, and taxable investment accounts. Viewing the 401(k) in isolation can lead to incomplete planning.
+#### 2.2 Traditional vs. Roth — The Single Decision That Matters
 
-**Misconception 7: "I should never touch retirement accounts before age 59 1/2."**
-While early withdrawals generally incur a 10% penalty, there are important exceptions: the Rule of 55 (for 401(k)s upon leaving an employer), substantially equal periodic payments (72(t)), Roth contribution withdrawals (always penalty-free), first-time home purchase (IRA, up to $10,000), and the Roth conversion ladder for early retirees. These provisions provide more flexibility than most people realize.
+Every wrapper in the stack is one of two flavours.
+
+**Traditional (tax-deferred).** Pre-tax going in (deduction today),
+tax-deferred growth, taxed as ordinary income on withdrawal. Think:
+"tax break now, pay later."
+
+**Roth (tax-free at the back end).** Post-tax going in (no deduction
+today), tax-free growth, tax-free withdrawals after 59½ and a
+five-year holding window. Think: "pay now, never again."
+
+The fundamental decision is bracket arbitrage. Hold today's $1 of
+contribution constant; the after-tax wealth at retirement is:
+
+$$ W_{\text{Roth}} = (1 - t_{\text{now}}) \cdot (1 + r)^{N} $$
+
+$$ W_{\text{Trad}} = (1 + r)^{N} \cdot (1 - t_{\text{ret}}) $$
+
+The two are **algebraically identical when $t_{\text{now}} =
+t_{\text{ret}}$**. Roth wins when your retirement bracket is higher;
+Traditional wins when your retirement bracket is lower. The image
+below makes the parity visible.
+
+![Bar chart showing terminal after-tax wealth at age 65 from $7,000 per year contributed for 30 years at 7% growth, comparing Roth and Traditional outcomes across four current = retirement bracket scenarios (12, 22, 32, 37 percent). The two columns are equal in every scenario, illustrating the parity condition; an additional panel shows divergence when current and retirement brackets differ by 10 percentage points.](image/side11_roth_vs_trad.png)
+
+Three working rules.
+
+- **High earner, expecting to spend down hard in retirement → Trad.**
+  A 37% bracket today and a 22% bracket at 70 (after Social Security,
+  no wages) is a 15-percentage-point arbitrage. Take the deduction
+  now, pay the lower rate later.
+- **Young, modest income, expecting to be richer later → Roth.** A
+  22% bracket at 28 with a 32% expected bracket at 50 is the inverse
+  arbitrage. Pay now while the rate is low, lock in tax-free growth
+  forever.
+- **Don't know? Split.** A 50/50 Roth/Traditional 401(k) hedges the
+  uncertainty. The split also gives you "tax diversification" — in
+  retirement you choose which bucket to draw from based on each
+  year's bracket.
+
+The often-overlooked bonus for Roth: **no Required Minimum
+Distributions during the original owner's lifetime**. A 75-year-old
+with $2M in Traditional IRAs is forced to withdraw roughly $80,000
+each year (taxed at ordinary rates), regardless of need. The same
+$2M in a Roth IRA can sit untouched, compounding tax-free, and pass
+to heirs. For high-net-worth households, the no-RMD feature alone
+tilts the math toward Roth even at parity brackets.
+
+#### 2.3 The Optimal Contribution Stack — Six Tiers
+
+The image at the top of this lesson is the cheat sheet. The logic
+under each tier is what makes it stick.
+
+**Tier 1 — Capture the employer 401(k) match in full.** The most
+expensive mistake in retail finance is leaving match dollars on the
+table. A typical formula is "50% match on the first 6% of salary"
+(a 3% gift if you contribute 6%) or "100% match on the first 4%."
+Whatever your formula, the marginal return on the dollar that
+captures the last bit of match is 50-100% *guaranteed*. No
+investment beats that. Even if you have credit-card debt, even if
+your plan's fund menu is mediocre, *capture the match first*.
+
+**Tier 2 — Max the HSA if you have an HDHP.** Triple-tax-advantaged.
+$4,300 single / $8,550 family in 2026. Pay for current medical out of
+cash flow when possible, save the receipts, and let the HSA
+compound. After 65 the HSA can be withdrawn for *any* purpose at
+ordinary rate (like a Traditional IRA), with the medical-tax-free
+option preserved indefinitely. There is no other wrapper in the
+code with this profile.
+
+**Tier 3 — Max the Roth IRA (or backdoor it).** $7,000 a year. If
+your income is above the phaseout ($165,000-$180,000 single in 2026),
+the **backdoor Roth** route still works: contribute non-deductible
+to a Traditional IRA, immediately convert to Roth, pay zero tax on
+the (zero) gain. The catch is the **pro-rata rule** — if you have
+existing pre-tax balances in any Traditional IRA, the IRS treats
+every conversion as a proportional mix of pre-tax and after-tax
+across all your IRAs. The fix is to roll any pre-tax IRA balances
+into your current 401(k) first, leaving the Traditional IRA empty
+for the backdoor operation.
+
+**Tier 4 — Max the 401(k) employee deferral up to $23,500.** Whether
+you contribute to the Traditional or Roth bucket within the 401(k)
+follows §2.2's bracket logic. The employer match always lands in the
+Traditional bucket regardless of your election.
+
+**Tier 5 — Mega-backdoor Roth, if your plan permits.** Verify two
+plan features: (a) after-tax (non-Roth) employee contributions are
+allowed above the $23,500 deferral, and (b) **in-service Roth
+rollover** is allowed (sometimes called "in-plan Roth conversion").
+If both are present, contribute up to (Total Cap − Deferral − Match)
+in after-tax dollars and immediately convert. Math example: $70,000
+total cap − $23,500 deferral − $11,500 match = **$35,000 mega-backdoor
+lane**. That is $35,000 a year flowing into a Roth wrapper that the
+IRA's $7,000 limit would otherwise cap.
+
+**Tier 6 — Taxable brokerage.** The wrappers are full. Now
+asset-location and SOUL #15 (tax via options) become the levers.
+Side Lesson 4 covers this layer.
+
+The stack is **strict priority**: empty Tier 1 before opening Tier 2,
+empty Tier 2 before Tier 3, etc. The interactive on the website
+allocates a user-supplied annual cash-flow figure across all six
+tiers in this order and reports the projected after-tax wealth at 65.
+
+#### 2.4 The Backdoor and Mega-Backdoor in Detail
+
+**Backdoor Roth IRA (high-income earners).** Required when your
+income exceeds the Roth IRA direct-contribution phaseout.
+
+1. Contribute $7,000 (or $8,000 if 50+) **non-deductible** to a
+   Traditional IRA. There is no income limit on non-deductible
+   Traditional contributions.
+2. Convert the entire balance to a Roth IRA, ideally within days of
+   the contribution and before any gains accrue.
+3. File Form 8606 with your tax return to document the
+   non-deductible basis.
+
+The conversion is taxable on any pre-tax basis or accrued earnings;
+zero in the clean case. The pro-rata rule (§2.3) makes this messy if
+you have other pre-tax IRA balances — clean those out first by
+rolling into a 401(k) that accepts incoming rollovers.
+
+**Mega-backdoor Roth (plan-dependent).** A separate operation that
+uses the §415 total cap.
+
+1. Verify your 401(k) plan supports **after-tax non-Roth**
+   contributions and **in-service rollovers** (look at the SPD or
+   call HR).
+2. After hitting the $23,500 employee deferral, instruct payroll to
+   contribute additional **after-tax** dollars up to the gap between
+   (deferral + match) and $70,000.
+3. Configure an **automatic in-plan Roth conversion** so each
+   after-tax contribution flips to Roth on the next pay cycle. If
+   automatic isn't available, do quarterly manual conversions to
+   minimise pre-conversion gains.
+
+A plan that allows the mega-backdoor has effectively raised your
+annual Roth contribution ceiling from $7,000 to $30,000-$45,000.
+For high earners, this is the largest single-wrapper opportunity in
+the code.
+
+#### 2.5 The 5-Year Rules (Plural) and Roth Conversion Ladders
+
+There are **two distinct five-year rules** for Roth IRAs, and they
+trip up almost everyone.
+
+**Rule A — the five-year holding period for *earnings*.** Before age
+59½, your Roth contributions can be withdrawn anytime tax- and
+penalty-free. The *earnings* on those contributions are a different
+story: to withdraw earnings tax-free, the Roth IRA must be at least
+five years old (measured from the *first* Roth contribution to *any*
+Roth IRA you own — once the clock starts, it never resets). Otherwise
+earnings withdrawals before 59½ are taxable plus 10% penalty.
+
+**Rule B — the five-year holding period for *converted amounts*.**
+Each Roth *conversion* starts its own five-year clock. Withdrawing a
+converted amount before five years have passed (and before 59½)
+triggers the 10% early-withdrawal penalty on the conversion principal.
+
+**Roth conversion ladder.** A retirement-distribution strategy that
+exploits Rule B. Steps:
+
+1. Retire early, say at age 50. Begin annual Roth conversions of
+   ~$50,000 from your Traditional IRA, paying ordinary income tax on
+   each conversion (in the low income-window of early retirement).
+2. Wait five years for each conversion to "ripen." A conversion done
+   at 50 is withdrawable penalty-free at 55. A conversion done at 51
+   is withdrawable at 56. And so on.
+3. Starting at age 55, withdraw the *converted principal* annually,
+   tax- and penalty-free. (You already paid tax at conversion; it's
+   Roth dollars now.)
+4. By 59½ all rules collapse — everything in the Roth is fully
+   accessible tax- and penalty-free regardless of conversion date.
+
+This is the standard FIRE-movement bridge between early retirement
+(50-59) and traditional retirement-account access (59½+). The 5-year
+ladder transforms a "locked until 59½" Traditional IRA into spendable
+cash starting at 55.
+
+#### 2.6 Required Minimum Distributions (RMDs) — The Back-End Tax
+
+For Traditional 401(k)s and Traditional IRAs, the IRS eventually
+collects. **SECURE Act 2.0** (passed 2022) raised the RMD age:
+
+- Born 1951-1959: RMDs begin at **age 73**.
+- Born 1960 or later: RMDs begin at **age 75**.
+
+The annual required amount is your prior-year-end balance divided by
+the IRS Uniform Lifetime Table life-expectancy factor. At 75 the
+factor is ~24.6, so the RMD is roughly **4.1% of the balance** that
+year, rising to about 6.1% at 85 and 10% at 92. RMDs are taxed at
+ordinary rates.
+
+**Roth IRAs have no RMDs during the owner's lifetime.** Roth 401(k)s
+also no longer have RMDs as of 2024 (a SECURE 2.0 change). Inherited
+Roth IRAs do have a 10-year payout rule for non-spouse beneficiaries,
+but the distributions are still tax-free.
+
+**Penalty for missing an RMD.** SECURE 2.0 lowered the penalty from
+50% (savage) to **25%** (still savage), reducible to 10% if corrected
+within two years. Set a calendar reminder on December 1st of every
+RMD year.
 
 ---
 
-### d) Common Questions and Answers
+### 3. Common Misconceptions
 
-**Q: Traditional or Roth -- which is better?**
-A: Neither is universally better. The answer depends on your current marginal tax rate, your expected tax rate in retirement, and your personal financial situation. As a rough guide: if your current marginal rate is 22% or lower, Roth is often favorable. If it is 32% or higher, Traditional is often favorable. At 24%, it could go either way. When in doubt, split contributions between both for tax diversification.
+**Misconception 1: "The 401(k) and IRA limits are combined; I can
+only contribute one or the other."**
 
-**Q: What happens to my 401(k) when I leave my job?**
-A: You have several options. (1) Leave it in the former employer's plan (if the plan allows). (2) Roll it over to your new employer's 401(k). (3) Roll it over to a Traditional IRA (no tax impact if done correctly). (4) Cash it out (triggering taxes and a 10% penalty if under 59 1/2 -- almost always a bad idea). For most people, rolling to an IRA offers the most investment flexibility and lowest fees.
+False. They are *separate* limits. A 50-year-old in 2026 can
+contribute $31,000 to a 401(k) *and* $8,000 to an IRA in the same
+year, totalling $39,000 across the two wrappers — plus HSA, plus
+mega-backdoor.
 
-**Q: Can I have both a 401(k) and an IRA?**
-A: Yes. The 401(k) is employer-sponsored; the IRA is individual. You can contribute to both in the same year, up to their respective limits. However, if you have a 401(k), your ability to deduct Traditional IRA contributions may be limited based on your income. Roth IRA contributions are subject to separate income limits regardless of 401(k) participation.
+**Misconception 2: "Roth always wins because tax-free growth is
+better than tax-deferred."**
 
-**Q: What if my 401(k) has terrible investment options?**
-A: Contribute at least enough to get the full employer match -- the match return outweighs high fund fees. Beyond the match, consider directing additional savings to an IRA (which you control) or a taxable account with better investment options. Also, advocate to your HR department for better plan options -- many companies have improved their plans in response to employee feedback.
+It is the same number when current bracket = retirement bracket. The
+algebra in §2.2 is exact. Roth wins only when retirement bracket is
+*higher* than current bracket.
 
-**Q: How does the Health Savings Account (HSA) fit in?**
-A: The HSA is uniquely powerful. Contributions are tax-deductible, growth is tax-free, and withdrawals for qualified medical expenses are tax-free -- triple tax advantage. If you have a high-deductible health plan, you can contribute up to $4,150 (individual) or $8,300 (family) in 2024. The optimal strategy is to contribute the maximum, invest the funds for growth, pay current medical expenses out of pocket, and let the HSA grow for decades. After age 65, you can withdraw HSA funds for any purpose (not just medical) -- non-medical withdrawals are taxed as ordinary income, similar to a Traditional IRA.
+**Misconception 3: "I make too much for a Roth IRA."**
 
-**Q: What is the Rule of 55?**
-A: If you leave your employer in the year you turn 55 or later, you can take penalty-free withdrawals from that employer's 401(k). This does not apply to IRAs or 401(k)s from previous employers. It is particularly useful for people who retire between 55 and 59 1/2. Note: you must separate from service during or after the year you turn 55 -- you cannot quit at 54 and wait until 55 to start withdrawing.
+The income phaseout blocks *direct* Roth contributions. The backdoor
+Roth (§2.4) is fully legal and has been blessed by Congress (the 2018
+TCJA technical-corrections language explicitly acknowledged it). Most
+high earners are using it.
 
-**Q: Should I take a 401(k) loan?**
-A: Generally no, but there are situations where it makes sense. 401(k) loans must be repaid within 5 years (or upon leaving the employer), and the borrowed money misses out on market growth during the loan period. However, in emergencies, a 401(k) loan is usually better than a hardship withdrawal (which triggers taxes and penalties) or high-interest credit card debt. If you take a 401(k) loan, prioritize rapid repayment.
+**Misconception 4: "The 401(k) match goes into my Roth bucket if I
+elect Roth."**
 
-**Q: When should I start Roth conversions?**
-A: The ideal window for Roth conversions is often early retirement -- after you stop earning a salary but before Social Security and RMDs begin. During these years, your taxable income may be very low, allowing you to convert at the lowest possible tax rates. The key is to fill up the lower tax brackets each year without pushing into higher ones. A tax professional can help optimize conversion amounts annually.
+No. The employer match always lands in the **Traditional** (pre-tax)
+bucket regardless of your contribution election. You will pay
+ordinary tax on the match dollars at withdrawal.
 
-**Q: What about retirement accounts for the self-employed?**
-A: Self-employed individuals have access to several powerful options. The Solo 401(k) allows contributions of up to $69,000 (2024) and includes both employee and employer contribution components. The SEP IRA allows contributions of up to 25% of net self-employment income, with a maximum of $69,000. The SIMPLE IRA is designed for small businesses with 100 or fewer employees. The Solo 401(k) is generally the most flexible and generous option for self-employed individuals.
+**Misconception 5: "I should max my 401(k) before capturing the
+match — I'll get to the match anyway."**
+
+No. The match is per-paycheck in most plans, with no annual true-up.
+If you front-load contributions and hit the $23,500 cap by July, you
+forfeit the match for the rest of the year. Spread contributions
+across the full 12 paychecks to capture every match dollar.
+
+**Misconception 6: "The HSA is just for medical expenses; I should
+use it as a checking account for prescriptions."**
+
+The HSA is an *investment account* with optional medical-expense
+withdrawal. Pay current medical out of pocket if your cash flow
+allows, save the receipts, let the HSA compound for 30 years, and
+reimburse yourself the receipt amount at any time tax-free. The
+optimal use of the HSA is to *not* spend it.
+
+**Misconception 7: "Mega-backdoor is only for tech bros at FAANGs."**
+
+It depends on whether your plan supports after-tax contributions and
+in-service rollovers. Many plans do (read the SPD or call HR), and
+the share is rising as more plans adopt the feature. Public-sector
+and small-business plans tend to lack it; mid-large corporate plans
+often have it.
+
+**Misconception 8: "I'll convert everything to Roth in retirement."**
+
+Each conversion is taxable as ordinary income in the year of
+conversion. Converting $500,000 of Traditional IRA in a single year
+will push almost all of it into the 32-37% bracket, plus IRMAA
+Medicare surcharges, plus possibly state tax. The mechanical rule is
+**convert only enough to fill the next bracket edge each year** —
+spread over a decade if needed.
+
+**Misconception 9: "If I leave my employer I lose the 401(k) money."**
+
+Your own contributions are 100% vested (yours forever). The employer
+match may be on a vesting schedule (typically 3-6 years graded or
+cliff). On separation you can leave the 401(k) where it is, roll it
+to your new 401(k), or roll it to an IRA. Don't *cash it out* — that
+triggers ordinary tax + 10% penalty + the loss of decades of
+compounding.
+
+**Misconception 10: "Roth conversions in retirement are pointless;
+I'll never spend the converted amount."**
+
+The point is to **drain the Traditional balance into the Roth wrapper
+before RMDs hit at 75**. Each conversion in your low-bracket years
+60-74 reduces the future RMD denominator. A $100,000 conversion at 65
+in the 22% bracket costs $22,000 in tax and removes ~$4,100/year of
+mandatory ordinary-rate withdrawals starting at 75.
 
 ---
 
-## YouTube Script
+### 4. Q&A
 
-**Side Lesson 11: Retirement Accounts - 401k, IRA, Roth**
+**Q1: My 401(k) has a $23,500 employee limit and a $70,000 total
+cap. What happens between those numbers?**
+
+That gap is the **after-tax non-Roth contribution** lane. If your
+plan permits it, you can contribute additional after-tax dollars up
+to the total cap, then immediately convert each contribution to Roth
+via in-service rollover (the mega-backdoor). If the plan doesn't
+permit it, the gap is filled only by employer contributions.
+
+**Q2: I'm 28 and in the 22% bracket. Roth or Traditional 401(k)?**
+
+Almost certainly Roth. At 28 your wage trajectory probably points up,
+and 22% is near the bottom of the schedule. Lock in tax-free growth
+now while the rate is cheap. Reconsider when your bracket crosses 32%.
+
+**Q3: I'm 52, in the 32% bracket, with $1.5M in a Traditional 401(k)
+and $250k in cash. Anything I should be doing?**
+
+Three things. (a) Continue maxing the 401(k) at 32% — Trad probably
+right given your bracket. (b) Add $8,000/year to a backdoor Roth IRA.
+(c) Investigate whether your plan permits the mega-backdoor —
+$35,000+ a year of after-tax-to-Roth at your stage materially
+changes the retirement tax picture.
+
+**Q4: I have an old 401(k) from a previous employer and a Traditional
+IRA. How do I do a clean backdoor Roth?**
+
+Roll the *Traditional IRA* (and any pre-tax balances) into your
+*current* 401(k) first. Most plans accept incoming rollovers from
+both other 401(k)s and IRAs. Once your Traditional IRA balance is
+zero, the backdoor (non-deductible Traditional contribution +
+immediate conversion) is clean: pro-rata applies to a $7,000 base of
+$7,000 = 0% taxable.
+
+**Q5: My wife stays home with the kids; can she contribute to an IRA?**
+
+Yes. The **Spousal IRA** rule lets a non-working spouse contribute up
+to the IRA limit ($7,000, or $8,000 if 50+) using the working
+spouse's earned income, as long as the couple files jointly and the
+working spouse has at least that much earned income. The spousal IRA
+can be Traditional or Roth, subject to the same income phaseouts.
+
+**Q6: Can I use a Roth IRA to buy a house?**
+
+You can withdraw your **contributions** (not earnings) at any time,
+tax- and penalty-free. Additionally, $10,000 of *earnings* can be
+withdrawn for a "first-time" home purchase (defined liberally — no
+home in the prior 2 years counts) tax- and penalty-free, provided
+the Roth has been open at least 5 years. Above that, the early-
+withdrawal rules apply.
+
+**Q7: I'm self-employed. What's my retirement-account stack?**
+
+The two main wrappers are the **Solo 401(k)** (employee deferral
+$23,500 + employer profit-sharing up to 25% of net SE income, total
+cap $70,000 — same as a regular 401(k)) and the **SEP-IRA** (up to
+25% of net SE income, capped at $70,000, no separate employee
+deferral). Self-employed individuals often pair a Solo 401(k) with a
+backdoor Roth IRA. The HSA still applies if you have an HDHP.
+
+**Q8: I'm in a high-tax state (CA, NY, NJ). Does that change the
+math?**
+
+Slightly. State income tax adds 5-13% to the ordinary rate,
+amplifying the gap between current and retirement brackets *if* you
+plan to retire in a no-tax state (FL, TX, NV, WA, TN, NH, SD, WY,
+AK). A Californian at the 32% federal + 9.3% state bracket retiring
+to Florida arbitrages **9.3 percentage points of state tax** by
+choosing Trad over Roth and *also* by deferring conversions until
+after the move. Tax-domicile planning is a real lever.
+
+**Q9: At age 75 I'm forced to take RMDs from my Traditional IRA but
+I don't need the cash. What do I do?**
+
+Two clean options. (a) Take the RMD as a **Qualified Charitable
+Distribution (QCD)** — direct from the IRA to a qualified charity,
+counts toward the RMD, and is *excluded from your AGI*. The 2026 QCD
+limit is roughly $108,000. (b) Take the RMD as cash, pay the tax,
+and reinvest in a taxable brokerage account using Side Lesson 4's
+asset-location playbook.
+
+**Q10: What's the actual after-tax benefit of contributing to a 401(k)
+match instead of just a taxable account?**
+
+For a 32% bracket worker contributing $5,000 with a 100% match, here
+are the dollar paths over 30 years at 7% growth, after-tax at 32%
+ordinary withdrawal:
+
+- **Match'd Trad 401(k):** $10,000 contributed → $76,123 future
+  value × (1−0.32) = **$51,764**
+- **Taxable instead:** $5,000 (after-tax already) → contributing
+  $5,000 in taxable, growing at ~5.5% net of tax drag → **$24,800**
+
+The match alone *doubles* the lifetime after-tax outcome. Capture
+it.
 
 ---
 
-**Horace:** Stella, today we are covering what might be the most financially impactful topic in our entire series -- retirement accounts. This is where the tax code actually works in your favor.
-
-**Stella:** I have to be honest, Horace. The alphabet soup of 401(k), IRA, Roth, HSA -- it makes my head spin. I have a 401(k) at work, but I am not even sure I understand how it works.
-
-**Horace:** You are not alone. Most people set up their 401(k) on their first day of work, pick some funds at random, and never think about it again. But understanding these accounts can easily be worth hundreds of thousands of dollars over your career. Let us break it down.
-
-[VISUAL: The three main retirement account types displayed as three doors. Door 1: 401(k) -- "Your employer's plan." Door 2: Traditional IRA -- "Your own pre-tax account." Door 3: Roth IRA -- "Your own after-tax account."]
-
-**Stella:** Let us start with the most basic question. Why do retirement accounts exist?
-
-**Horace:** The government wants people to save for retirement so they do not become dependent on Social Security or welfare programs. To encourage saving, they offer tax incentives. These incentives come in two flavors -- and understanding them is the foundation of everything else.
-
-[ANIMATION: Two paths diverging from a single contribution.
-Path 1 -- Traditional: Money goes in pre-tax. Grows without taxes. Gets taxed when you take it out in retirement.
-Path 2 -- Roth: Money goes in after-tax. Grows without taxes. Comes out completely tax-free in retirement.]
-
-**Stella:** So Traditional means I get a tax break now and pay later. Roth means I pay taxes now and never pay again.
-
-**Horace:** Exactly. That is the single most important concept. Everything else is details and strategy built on top of that foundation.
-
-**Stella:** Which one is better?
-
-**Horace:** That is the million-dollar question, and the answer is -- it depends. If your tax rate is higher now than it will be in retirement, Traditional saves you more because you are avoiding high taxes today and paying low taxes later. If your tax rate is lower now than it will be in retirement, Roth saves you more because you are paying low taxes today and avoiding high taxes later.
-
-[VISUAL: Tax bracket comparison.
-Scenario A: Person in 24% bracket now, expects 22% in retirement. Arrow points to Traditional -- "Save at 24%, pay at 22% = net savings."
-Scenario B: Person in 12% bracket now, expects 22% in retirement. Arrow points to Roth -- "Pay at 12%, save at 22% = net savings."
-Scenario C: Person in 24% bracket now, unsure about retirement rates. Arrow points to Both -- "Split contributions for tax diversification."]
-
-**Stella:** What if I have no idea what my tax rate will be in 30 years?
-
-**Horace:** Great question, and honestly, nobody knows for sure. Tax rates could change, your income could change, your filing status could change. That is why many financial planners recommend having money in both Traditional and Roth accounts. This is called tax diversification. In retirement, you can pull from whichever bucket minimizes your tax bill each year.
-
-**Stella:** That makes sense. Okay, let us talk about the 401(k). That is the one most people encounter first.
-
-**Horace:** Right. A 401(k) is an employer-sponsored plan. Your employer sets it up, chooses the investment options, and -- critically -- may match some of your contributions.
-
-**Stella:** Tell me about the match. That is the free money part, right?
-
-**Horace:** This is the most important part of any 401(k) discussion. A common match formula is: the employer matches 50% of your contributions up to 6% of your salary. Let us say you make $80,000 per year.
-
-[ANIMATION: Salary: $80,000. You contribute 6% = $4,800. Employer matches 50% of that = $2,400. Total going into your account: $7,200. That $2,400 match is a 50% instant return on your $4,800 contribution. No investment in the world guarantees a 50% return.]
-
-**Stella:** So if I do not contribute at least 6%, I am literally leaving free money on the table?
-
-**Horace:** Exactly. If your employer offers a match, contributing enough to get the full match should be your absolute number one financial priority. Before paying off low-interest debt, before investing in a taxable account, before anything else. There is no investment that can match a guaranteed 50% or 100% return.
-
-**Stella:** How much can I put into a 401(k)?
-
-**Horace:** For 2024-2025, the employee contribution limit is $23,000. If you are 50 or older, you can add a $7,500 catch-up contribution, bringing the total to $30,500. The employer match is on top of these limits.
-
-**Stella:** $23,000 is a lot of money. What if I cannot afford to max it out?
-
-**Horace:** Then contribute what you can, but always at least enough to get the full employer match. And remember, if you choose Traditional (pre-tax) contributions, the impact on your paycheck is less than the contribution amount because of the tax savings.
-
-[ANIMATION: Paycheck impact calculation.
-Contributing $500/month to Traditional 401(k).
-In the 24% tax bracket.
-Tax savings: $500 x 24% = $120.
-Actual paycheck reduction: $500 - $120 = $380.
-"You save $500, but your paycheck only drops by $380. The other $120 comes from tax savings."]
-
-**Stella:** So it costs me $380 to save $500? That is actually quite affordable.
-
-**Horace:** Right. Many people overestimate the cost of 401(k) contributions because they forget the tax benefit. Now, many employers also offer a Roth 401(k) option. Same contribution limits, but no tax deduction. You pay taxes on the full $500, but it grows and comes out tax-free.
-
-**Stella:** Let us move to IRAs. How are they different from 401(k)s?
-
-**Horace:** IRAs are individual accounts you open yourself at any brokerage. They are independent of your employer. The main advantages of IRAs over 401(k)s are more investment choices and typically lower fees.
-
-[VISUAL: Comparison table.
-401(k): Employer-sponsored. Limited investment menu. $23,000 limit. May have employer match.
-IRA: You open it yourself. Unlimited investment choices. $7,000 limit. No employer match.
-Both available as Traditional or Roth.]
-
-**Stella:** The contribution limit is much lower -- only $7,000.
-
-**Horace:** Yes, and there is another catch with IRAs. Income limits affect whether you can contribute and whether contributions are deductible. For Roth IRAs, if your income exceeds roughly $146,000 as a single filer or $230,000 as a married couple, you cannot contribute directly.
-
-**Stella:** So high earners are locked out of Roth IRAs?
-
-**Horace:** Not entirely. There is a legal workaround called the backdoor Roth IRA.
-
-[ANIMATION: Three-step process illustrated as a pipeline.
-Step 1: Contribute $7,000 to a non-deductible Traditional IRA.
-Step 2: Convert the Traditional IRA to a Roth IRA.
-Step 3: Pay taxes on any gains (minimal if done quickly).
-Result: $7,000 in your Roth IRA, regardless of income.]
-
-**Stella:** Is that really legal?
-
-**Horace:** Completely legal and widely used. The IRS has never challenged it. However, there is a complication called the pro-rata rule. If you have existing Traditional IRA balances, the conversion is partially taxable based on the ratio of pre-tax money in all your IRAs. The cleanest way to do a backdoor Roth is to have zero balance in Traditional IRAs -- which might mean rolling them into your 401(k) first.
-
-**Stella:** This is getting strategic. Let us talk about Roth conversions more broadly.
-
-**Horace:** Roth conversions are one of the most powerful tax planning tools available. The idea is simple: move money from a Traditional account to a Roth account, pay taxes on the conversion, and enjoy tax-free growth and withdrawals going forward.
-
-**Stella:** But why would I voluntarily pay taxes?
-
-**Horace:** Because you might pay less now than later. The golden window for Roth conversions is often early retirement. Let me illustrate.
-
-[ANIMATION: Timeline of a person's financial life.
-Age 55-65: Early retirement. No salary. Low income. Low tax bracket.
-Age 65-70: Social Security begins. Income increases.
-Age 73+: RMDs from Traditional accounts begin. Income increases more.
-The "conversion window" between 55-65 is highlighted -- this is when tax rates are lowest and conversions are cheapest.]
-
-**Horace:** Between retirement and when Social Security and RMDs start, you might be in the 10% or 12% tax bracket. If you convert Traditional IRA money to Roth during this window, you pay a low rate now and avoid paying a potentially much higher rate later when RMDs pile on top of Social Security income.
-
-**Stella:** What are RMDs exactly?
-
-**Horace:** Required Minimum Distributions. Starting at age 73, the government forces you to withdraw a minimum amount from your Traditional IRA and 401(k) each year. They let you defer taxes for decades, but they want their money eventually.
-
-[VISUAL: RMD table showing approximate percentages:
-Age 73: ~3.8% of balance
-Age 75: ~4.1%
-Age 80: ~5.0%
-Age 85: ~6.3%
-Age 90: ~8.2%
-Text: "The percentage increases each year, forcing out more money and more taxes."]
-
-**Stella:** And if I do not take my RMD?
-
-**Horace:** There is a 25% penalty on the amount you should have taken but did not. That is on top of the ordinary income tax you still owe.
-
-**Stella:** Ouch. What about Roth IRAs? Do they have RMDs?
-
-**Horace:** No, and this is a huge advantage of Roth accounts. Roth IRAs have no RMDs during the owner's lifetime. Your money can grow tax-free for as long as you live. If you do not need the money, you can leave it growing for your heirs.
-
-**Stella:** So there is a planning advantage to getting money into Roth accounts before RMDs start.
-
-**Horace:** Absolutely. Every dollar you convert to Roth before age 73 is a dollar that does not contribute to your RMD calculation. This can keep your future income lower, potentially reducing taxes on Social Security benefits and Medicare premiums.
-
-**Stella:** I have also heard about something called a Roth conversion ladder for early retirees.
-
-**Horace:** This is a strategy for people who retire before age 59 1/2. Normally, you cannot access retirement funds without a 10% penalty. But with a Roth conversion ladder, you convert a portion of your Traditional IRA to Roth each year. After a 5-year waiting period, the converted principal can be withdrawn penalty-free.
-
-[ANIMATION: Ladder diagram.
-Year 1 (age 45): Convert $40,000. Must wait 5 years.
-Year 2 (age 46): Convert $40,000. Must wait 5 years.
-...continues each year...
-Year 6 (age 50): Year 1's conversion is now accessible penalty-free.
-Year 7 (age 51): Year 2's conversion is accessible.
-"By year 6, you have a continuous ladder of accessible funds."]
-
-**Stella:** That is clever. But you need 5 years of living expenses from other sources to bridge the gap.
-
-**Horace:** Correct. Taxable accounts, Roth contributions (which can always be withdrawn penalty-free), or other savings can cover the gap. This strategy requires planning but can be extremely effective.
-
-**Stella:** Let us talk about priority. If I have limited dollars, where should they go first?
-
-**Horace:** Here is the generally recommended priority.
-
-[VISUAL: A numbered pyramid/staircase.
-Step 1: 401(k) up to employer match (free money -- always first)
-Step 2: Pay off high-interest debt (guaranteed return)
-Step 3: Max out IRA (Roth or Traditional, $7,000)
-Step 4: Max out remaining 401(k) ($23,000 total)
-Step 5: HSA if eligible (triple tax advantage)
-Step 6: Mega Backdoor Roth if available
-Step 7: Taxable brokerage account]
-
-**Stella:** Why does the IRA come before maxing out the 401(k)?
-
-**Horace:** Because IRAs give you complete control over investment choices and fees. Many 401(k) plans have limited menus and higher-cost funds. Your IRA can hold any index fund or ETF at rock-bottom costs. However, if your 401(k) plan has excellent low-cost options -- like many large employer plans do -- this ordering becomes less important.
-
-**Stella:** Where does the HSA fit in? I have heard it called the best retirement account.
-
-**Horace:** The HSA is uniquely powerful because it offers triple tax benefits. Contributions are tax-deductible, growth is tax-free, and withdrawals for medical expenses are tax-free. No other account offers all three. And after age 65, you can withdraw HSA funds for any purpose -- non-medical withdrawals are simply taxed as ordinary income, like a Traditional IRA.
-
-**Stella:** So it is basically a super-IRA for healthcare.
-
-**Horace:** Exactly. The optimal strategy, if you can afford it, is to contribute the maximum, invest the funds for long-term growth, and pay current medical expenses out of pocket. This lets the HSA compound for decades.
-
-**Stella:** Now, at different life stages, the strategy changes, right?
-
-**Horace:** Absolutely. Let me walk through the general framework.
-
-[ANIMATION: Four life stage panels, each showing recommended account strategy:
-Panel 1 -- Early Career (20s, lower income): "Roth is king. Tax rates are low now. Capture the employer match. Start small but start NOW."
-Panel 2 -- Mid-Career (30s-40s, rising income): "Mix of Traditional and Roth. Max out all accounts if possible. Tax diversification becomes important."
-Panel 3 -- Peak Earnings (40s-50s): "Traditional 401(k) for maximum tax deduction. Backdoor Roth IRA. Catch-up contributions after 50."
-Panel 4 -- Retirement: "Strategic Roth conversions during low-income years. Careful withdrawal sequencing. RMD planning."]
-
-**Stella:** So the strategy evolves as your income and tax situation change over your career.
-
-**Horace:** Exactly. There is no single right answer for everyone at every stage. The key principles are: always capture the match, maximize tax-advantaged space when possible, choose Traditional vs. Roth based on your current tax bracket, and plan ahead for the conversion and withdrawal strategies that minimize lifetime taxes.
-
-**Stella:** Let me summarize. Traditional accounts give you a tax break now and you pay taxes later. Roth accounts take no break now but are tax-free forever. The 401(k) is employer-sponsored with higher contribution limits and potential matching. The IRA is individual with more investment freedom. The backdoor Roth lets high earners get into Roth IRAs. Roth conversions during low-income years can save enormous amounts in taxes. And RMDs force you to take money from Traditional accounts starting at 73 -- another reason to convert to Roth earlier.
-
-**Horace:** That is an excellent summary. The single biggest mistake people make is not understanding these tools and leaving tax savings on the table. The second biggest mistake is not starting early enough. Even small contributions at age 25 dramatically outgrow larger contributions starting at age 35.
-
-[ANIMATION: Final comparison.
-Person A: Contributes $300/month starting at age 25. Stops at age 35 (10 years, $36,000 total contributed).
-Person B: Contributes $300/month starting at age 35. Continues to age 65 (30 years, $108,000 total contributed).
-At age 65, assuming 8% returns:
-Person A: ~$490,000.
-Person B: ~$440,000.
-Person A contributed THREE TIMES LESS but ended up with MORE money because of the 10-year head start.]
-
-**Stella:** That is the power of compounding right there. Starting early really does matter.
-
-**Horace:** It is the single most important decision you can make for your financial future. The best time to start was 10 years ago. The second best time is today.
-
-**Stella:** Next lesson, we are looking at something that has been growing fast in the investment world -- ESG and sustainable investing.
-
-**Horace:** Right. We will cover whether investing with environmental and social principles in mind helps or hurts your returns, and how to navigate the growing world of ESG funds.
+## Part 2: YouTube Script
 
 ---
 
-*End of Side Lesson 11*
+**VIDEO TITLE:** Retirement Accounts, the Complete Stack — 401(k), IRA, Roth, HSA, and the Optimal Order
+**RUNTIME TARGET:** ~13 minutes (side-lesson length)
+**HOSTS:** Horace, Stella
+
+---
+
+**[INTRO — 0:00]**
+
+**Stella:** Welcome back. This is Side Lesson 11. I'm Stella, and
+today we're walking through every retirement-account wrapper in the
+US tax code, the 2026 contribution limits, and the order in which
+you should fund them.
+
+**Horace:** This is the cheapest alpha on this channel. The IRS
+publishes the rules. You don't need to predict anything. You don't
+need to pick a stock. You follow a six-tier stack and the wrappers
+do the work.
+
+**Stella:** And the difference between the right order and the wrong
+order, over a 30-year career, is six figures.
+
+**Horace:** Easily. Let's start with the limits.
+
+---
+
+**[SECTION 1: THE 2026 LIMITS — 0:50]**
+
+**Horace:** Five wrappers, separate limits.
+
+**Stella:** 401(k), employee deferral — $23,500. If you're 50 or
+older, $31,000.
+
+**Horace:** IRA, Traditional or Roth — $7,000. $8,000 if 50+.
+
+**Stella:** HSA — $4,300 single, $8,550 family. You need an HDHP to
+contribute.
+
+**Horace:** And the total 401(k) cap, including employer match and
+after-tax contributions — $70,000. That's the §415 limit. Most
+people don't realise that number even exists.
+
+**Stella:** They're separate, by the way. You can max all of them in
+the same year. A 50-year-old maxing 401(k) plus IRA plus HSA family,
+without the mega-backdoor, is shoveling $47,500 into tax-advantaged
+wrappers in 2026.
+
+**Horace:** With the mega-backdoor, the cap goes to roughly $85,000
+before you start hitting taxable. The wrappers are big.
+
+---
+
+**[SECTION 2: ROTH VS. TRADITIONAL — 2:00]**
+
+[VISUAL: image/side11_roth_vs_trad.png]
+
+**Stella:** This is the one decision that matters. Pull up the
+chart.
+
+**Horace:** Four scenarios, current bracket equals retirement
+bracket — 12, 22, 32, 37 percent. Roth column and Traditional column.
+Starting with $7,000 a year, 30 years, 7% growth.
+
+**Stella:** And in every single bracket, the two columns are equal.
+
+**Horace:** Mathematically identical. That's the parity result. If
+your current bracket equals your retirement bracket, Roth and
+Traditional give you the same after-tax dollars at the back end.
+
+**Stella:** The right panel shows what happens when they diverge. If
+your retirement bracket is 10 points lower than today, Traditional
+wins by 10-15%. If it's 10 points higher, Roth wins.
+
+**Horace:** Three working rules. High earner, expecting to spend
+down hard in retirement — Traditional. Young, low bracket, expecting
+to be richer later — Roth. Don't know — split fifty-fifty.
+
+**Stella:** And one bonus for Roth — no Required Minimum
+Distributions during your lifetime. At 75, a Traditional IRA forces
+roughly 4% of the balance out every year, taxed at ordinary rates.
+Roth doesn't force anything. For high-net-worth households, that
+no-RMD feature alone tilts the math toward Roth even at parity.
+
+---
+
+**[SECTION 3: THE STACK — 4:30]**
+
+[VISUAL: image/side11_account_stack.png]
+
+**Horace:** Six tiers. Strict priority. Empty tier 1 before tier 2.
+
+**Stella:** Tier 1 — capture the employer 401(k) match in full. If
+your formula is "50% on the first 6% of salary," contribute exactly
+6% to capture the maximum match. That's a 50% guaranteed return on
+the marginal dollar. Nothing else in finance pays that.
+
+**Horace:** Tier 2 — max the HSA if you have an HDHP. Triple-tax-
+advantaged. $4,300 single, $8,550 family. The HSA is the only
+wrapper that's deductible going in, tax-free growing, *and* tax-free
+coming out for medical. Save the receipts. Reimburse yourself
+decades later. It functions as a stealth Roth IRA with a deduction
+on top.
+
+**Stella:** Tier 3 — max the Roth IRA. $7,000, or $8,000 if 50+. If
+your income is above $165,000 single in 2026, use the backdoor: non-
+deductible Traditional contribution, immediate conversion to Roth.
+Watch the pro-rata rule.
+
+**Horace:** Tier 4 — max the 401(k) deferral up to $23,500. Pick
+Traditional or Roth bucket using the bracket logic from section 2.
+
+**Stella:** Tier 5 — mega-backdoor. If your plan permits after-tax
+non-Roth contributions and in-service rollovers, fill the gap
+between $23,500 plus your match and the $70,000 total cap. That's
+typically another $30,000 to $45,000 a year flowing into the Roth
+wrapper.
+
+**Horace:** Tier 6 — taxable brokerage. The wrappers are full. Now
+asset location and SOUL fifteen become the levers. Side Lesson 4
+covers that layer.
+
+---
+
+**[SECTION 4: THE INTERACTIVE — 7:30]**
+
+[VISUAL: interactive/side11_account_optimizer.html]
+
+**Stella:** Pull up the optimiser on the website.
+
+**Horace:** Six inputs. Age, salary, employer match percentage,
+current bracket, expected retirement bracket, and your available
+annual cash flow for retirement savings.
+
+**Stella:** Output — the dollar amount that goes into each tier in
+the right order, the total annual contribution captured, the
+employer match captured, and the projected after-tax wealth at age
+65.
+
+**Horace:** Try a 35-year-old engineer making $200,000 with a 4%
+employer match in the 32% bracket, expecting 22% in retirement, with
+$50,000 a year available to save.
+
+**Stella:** Tier 1, $8,000 to capture the match. Tier 2, $4,300 to
+the HSA. Tier 3, $7,000 to backdoor Roth. Tier 4, $15,500 more to
+the Traditional 401(k) to hit $23,500. Tier 5, $15,200 to mega-
+backdoor if available. Total wrapper-side contribution, $50,000 — no
+taxable bucket needed this year. Projected wealth at 65, roughly $5
+million after-tax.
+
+**Horace:** Move the bracket assumptions and the dollar allocations
+to Trad versus Roth shift in real time. Move the salary up to
+$300,000 and the match capture goes up. The interactive is the
+calculator I want everyone to run before December 31st of every
+year.
+
+---
+
+**[SECTION 5: THE 5-YEAR RULES AND THE LADDER — 10:00]**
+
+**Stella:** Two five-year rules for Roth, and they're different.
+
+**Horace:** Rule A — five years from your first Roth contribution
+before earnings can be withdrawn tax-free. Once the clock starts, it
+never resets.
+
+**Stella:** Rule B — each Roth conversion has its own five-year
+clock. Withdrawing converted principal before five years and before
+59½ triggers the 10% penalty.
+
+**Horace:** And the Roth conversion ladder — Rule B in action.
+Retire at 50. Convert $50,000 a year from Traditional to Roth,
+paying ordinary tax in your low-income early-retirement years. Each
+conversion ripens five years later. Starting at 55, you withdraw the
+conversion principal tax- and penalty-free. By 59½ all rules
+collapse.
+
+**Stella:** That's the standard FIRE-movement bridge between early
+retirement and traditional account access. Convert at 50, spend at
+55. Repeat for nine years.
+
+---
+
+**[SECTION 6: RMDs — 11:30]**
+
+**Horace:** Required Minimum Distributions. Traditional 401(k) and
+Traditional IRA force you to take money out — and pay ordinary tax —
+starting at age 73 if you were born 1951-1959, or age 75 if you were
+born 1960 or later.
+
+**Stella:** SECURE Act 2.0 raised the age. Roth IRAs have no RMDs
+during the owner's lifetime. Roth 401(k)s no longer have RMDs as of
+2024.
+
+**Horace:** Annual amount is roughly 4.1% of the balance at 75,
+rising to 6% at 85. Penalty for missing an RMD is 25%, reducible to
+10% if you correct within two years. Set a December 1st calendar
+reminder.
+
+**Stella:** And for households with large Traditional balances, the
+years between retirement and 75 are a Roth conversion window — drain
+the Traditional balance into the Roth wrapper at low brackets before
+RMDs hit at full force.
+
+---
+
+**[OUTRO — 12:30]**
+
+**Horace:** Three operational takeaways. One — the limits are
+separate, not combined. Max all of them. Two — Roth versus
+Traditional is one comparison: current bracket versus expected
+retirement bracket. Three — fund the wrappers in the order on the
+chart, strictly.
+
+**Stella:** And the bonus, SOUL fifteen — every dollar inside a Roth
+wrapper is a dollar the IRS will *never* tax again at the right
+endpoint. The stack is the cheapest alpha on this channel. Run the
+optimiser, plug in your numbers, and you'll have a one-page action
+list for December 28th of this year.
+
+**Horace:** See you next time.
+
+**[END — 13:00]**

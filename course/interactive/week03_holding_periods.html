@@ -1,0 +1,571 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Holding-Period Explorer — Interactive (Week 3)</title>
+<script src="https://cdn.plot.ly/plotly-2.35.2.min.js" charset="utf-8"></script>
+<style>
+html, body { margin: 0; padding: 0; background: var(--hp-bg); }
+:root {
+    --hp-bg: #fdfbf5;
+    --hp-text: #1a2332;
+    --hp-muted: #6b7280;
+    --hp-border: #d6d3c4;
+    --hp-card: #fdfbf5;
+    --hp-pos: #2e7d32;
+    --hp-neg: #b71c1c;
+    --hp-mid: #0d47a1;
+    --hp-accent: #b8860b;
+}
+html[data-theme="dark"] .hp-root,
+.hp-root[data-theme="dark"] {
+    --hp-bg: #0f1724;
+    --hp-text: #e6e6e6;
+    --hp-muted: #9aa3b2;
+    --hp-border: #2a3441;
+    --hp-card: #0f1724;
+    --hp-pos: #66bb6a;
+    --hp-neg: #ef5350;
+    --hp-mid: #5a8dee;
+}
+.hp-root {
+    font-family: 'Segoe UI', Helvetica, Arial, sans-serif;
+    background: var(--hp-bg);
+    color: var(--hp-text);
+    padding: 12px;
+    margin: 0;
+}
+.hp-controls {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 14px;
+    padding: 10px 12px;
+    background: var(--hp-card);
+    border: 1px solid var(--hp-border);
+    border-radius: 8px;
+}
+.hp-presets {
+    display: inline-flex;
+    border: 1px solid var(--hp-border);
+    border-radius: 999px;
+    overflow: hidden;
+    background: var(--hp-card);
+}
+.hp-presets button {
+    border: none;
+    background: transparent;
+    color: var(--hp-muted);
+    padding: 6px 14px;
+    font: inherit;
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.15s, color 0.15s;
+}
+.hp-presets button:hover { color: var(--hp-text); }
+.hp-presets button.active {
+    background: var(--hp-accent);
+    color: #fff;
+}
+.hp-slider-wrap {
+    flex: 1;
+    min-width: 240px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.85rem;
+    color: var(--hp-muted);
+}
+.hp-slider-wrap input[type="range"] {
+    flex: 1;
+    accent-color: var(--hp-accent);
+}
+.hp-slider-wrap .hp-h-label {
+    white-space: nowrap;
+    color: var(--hp-text);
+    font-weight: 600;
+    font-variant-numeric: tabular-nums;
+    min-width: 80px;
+    text-align: right;
+}
+.hp-toggle {
+    display: inline-flex;
+    border: 1px solid var(--hp-border);
+    border-radius: 999px;
+    overflow: hidden;
+    background: var(--hp-card);
+}
+.hp-toggle button {
+    border: none;
+    background: transparent;
+    color: var(--hp-muted);
+    padding: 6px 14px;
+    font: inherit;
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.15s, color 0.15s;
+}
+.hp-toggle button.active {
+    background: var(--hp-mid);
+    color: #fff;
+}
+.hp-chart {
+    width: 100%;
+    height: 420px;
+    background: var(--hp-card);
+    border-radius: 8px;
+    border: 1px solid var(--hp-border);
+}
+.hp-stats {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 10px;
+    margin-top: 14px;
+}
+.hp-stat {
+    background: var(--hp-card);
+    border: 1px solid var(--hp-border);
+    border-left: 4px solid var(--hp-muted);
+    border-radius: 8px;
+    padding: 10px 12px;
+}
+.hp-stat.hp-stat-pos { border-left-color: var(--hp-pos); }
+.hp-stat.hp-stat-neg { border-left-color: var(--hp-neg); }
+.hp-stat.hp-stat-mid { border-left-color: var(--hp-mid); }
+.hp-stat.hp-stat-acc { border-left-color: var(--hp-accent); }
+.hp-stat .hp-stat-name {
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--hp-muted);
+}
+.hp-stat .hp-stat-val {
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin-top: 4px;
+    font-variant-numeric: tabular-nums;
+}
+.hp-stat .hp-stat-detail {
+    font-size: 0.78rem;
+    color: var(--hp-muted);
+    margin-top: 2px;
+    font-variant-numeric: tabular-nums;
+}
+.hp-caption {
+    margin-top: 10px;
+    font-size: 0.78rem;
+    color: var(--hp-muted);
+    line-height: 1.45;
+}
+@media (max-width: 640px) {
+    .hp-stats { grid-template-columns: repeat(2, 1fr); }
+    .hp-chart { height: 340px; }
+    .hp-presets button, .hp-toggle button { padding: 5px 10px; font-size: 0.8rem; }
+}
+</style>
+</head>
+<body>
+
+<div class="hp-root" id="hp-root">
+    <div class="hp-controls">
+        <div class="hp-presets" id="hp-presets" role="tablist" aria-label="Holding period">
+            <button type="button" data-h="1">1Y</button>
+            <button type="button" data-h="5">5Y</button>
+            <button type="button" data-h="10" class="active">10Y</button>
+            <button type="button" data-h="20">20Y</button>
+            <button type="button" data-h="30">30Y</button>
+        </div>
+        <div class="hp-slider-wrap">
+            <span id="hp-slider-label">Holding period</span>
+            <input type="range" id="hp-slider" min="1" max="30" step="1" value="10">
+            <span class="hp-h-label" id="hp-h-value">10 years</span>
+        </div>
+        <div class="hp-toggle" id="hp-toggle" role="tablist" aria-label="Return basis">
+            <button type="button" data-real="true" class="active" id="hp-toggle-real">Real</button>
+            <button type="button" data-real="false" id="hp-toggle-nominal">Nominal</button>
+        </div>
+    </div>
+    <div id="hp-chart" class="hp-chart"></div>
+    <div class="hp-stats">
+        <div class="hp-stat hp-stat-neg">
+            <div class="hp-stat-name" id="hp-name-worst">Worst window</div>
+            <div class="hp-stat-val" id="hp-val-worst">—</div>
+            <div class="hp-stat-detail" id="hp-det-worst">—</div>
+        </div>
+        <div class="hp-stat hp-stat-mid">
+            <div class="hp-stat-name" id="hp-name-median">Median</div>
+            <div class="hp-stat-val" id="hp-val-median">—</div>
+            <div class="hp-stat-detail" id="hp-det-median">—</div>
+        </div>
+        <div class="hp-stat hp-stat-pos">
+            <div class="hp-stat-name" id="hp-name-best">Best window</div>
+            <div class="hp-stat-val" id="hp-val-best">—</div>
+            <div class="hp-stat-detail" id="hp-det-best">—</div>
+        </div>
+        <div class="hp-stat hp-stat-acc">
+            <div class="hp-stat-name" id="hp-name-loss">Pct of windows below zero</div>
+            <div class="hp-stat-val" id="hp-val-loss">—</div>
+            <div class="hp-stat-detail" id="hp-det-loss">—</div>
+        </div>
+    </div>
+    <p class="hp-caption" id="hp-caption">
+        Each bar of the histogram is one rolling holding window of the chosen length.
+    </p>
+</div>
+
+<script>
+(function () {
+    const I18N = {
+        en: {
+            slider_label:   "Holding period",
+            years:          "years",
+            year:           "year",
+            real:           "Real",
+            nominal:        "Nominal",
+            name_worst:     "Worst window",
+            name_median:    "Median",
+            name_best:      "Best window",
+            name_loss:      "Windows below zero",
+            x_title:        "Annualised total return",
+            y_title:        "Number of rolling windows",
+            window_count:   "{n} rolling windows",
+            ann_real:       "S&P 500 total return less CPI (real)",
+            ann_nom:        "S&P 500 total return (nominal)",
+            caption:        "Each bar is one rolling holding window starting at year Y, ending at year Y+H, on the Damodaran 1928–2024 dataset. Drag the slider, or click a preset, to watch the distribution narrow. The 'real' view subtracts CPI; the 'nominal' view shows raw S&P 500 returns. Time crushes the range; it does not crush the cumulative wealth gap between a good sequence and a bad one.",
+            zero_line:      "0%",
+            median_line:    "median",
+        },
+        hk: {
+            slider_label:   "持有期",
+            years:          "年",
+            year:           "年",
+            real:           "實質",
+            nominal:        "名義",
+            name_worst:     "最差窗口",
+            name_median:    "中位數",
+            name_best:      "最佳窗口",
+            name_loss:      "回報低於零的窗口比例",
+            x_title:        "年化總回報",
+            y_title:        "滾動窗口數",
+            window_count:   "共 {n} 個滾動窗口",
+            ann_real:       "標普 500 總回報減 CPI(實質)",
+            ann_nom:        "標普 500 總回報(名義)",
+            caption:        "每根柱對應一個從 Y 年開始、到 Y+H 年結束的滾動持有期窗口,基於 Damodaran 1928–2024 數據集。拖動滑桿或點擊預設,觀察分布如何收窄。「實質」減去 CPI;「名義」顯示原始標普回報。時間壓縮的是區間,不會壓縮好序列與壞序列之間累積財富的差距。",
+            zero_line:      "0%",
+            median_line:    "中位數",
+        },
+        tw: {
+            slider_label:   "持有期",
+            years:          "年",
+            year:           "年",
+            real:           "實質",
+            nominal:        "名義",
+            name_worst:     "最差窗口",
+            name_median:    "中位數",
+            name_best:      "最佳窗口",
+            name_loss:      "報酬低於零的窗口比例",
+            x_title:        "年化總報酬",
+            y_title:        "滾動窗口數",
+            window_count:   "共 {n} 個滾動窗口",
+            ann_real:       "標普 500 總報酬減 CPI(實質)",
+            ann_nom:        "標普 500 總報酬(名義)",
+            caption:        "每根柱對應一個從 Y 年開始、到 Y+H 年結束的滾動持有期窗口,基於 Damodaran 1928–2024 資料。拖動滑桿或點擊預設,觀察分布如何收窄。「實質」減去 CPI;「名義」顯示原始標普報酬。時間壓縮的是區間,不會壓縮好序列與壞序列之間累積財富的差距。",
+            zero_line:      "0%",
+            median_line:    "中位數",
+        },
+        cn: {
+            slider_label:   "持有期",
+            years:          "年",
+            year:           "年",
+            real:           "实质",
+            nominal:        "名义",
+            name_worst:     "最差窗口",
+            name_median:    "中位数",
+            name_best:      "最佳窗口",
+            name_loss:      "回报低于零的窗口比例",
+            x_title:        "年化总回报",
+            y_title:        "滚动窗口数",
+            window_count:   "共 {n} 个滚动窗口",
+            ann_real:       "标普 500 总回报减 CPI(实质)",
+            ann_nom:        "标普 500 总回报(名义)",
+            caption:        "每根柱对应一个从 Y 年开始、到 Y+H 年结束的滚动持有期窗口,基于 Damodaran 1928–2024 数据。拖动滑杆或点击预设,观察分布如何收窄。「实质」减去 CPI;「名义」显示原始标普回报。时间压缩的是区间,不会压缩好序列与坏序列之间累积财富的差距。",
+            zero_line:      "0%",
+            median_line:    "中位数",
+        },
+    };
+    function currentLang() {
+        const p = new URLSearchParams(window.location.search);
+        const l = (p.get("lang") || "en").toLowerCase();
+        return I18N.hasOwnProperty(l) ? l : "en";
+    }
+    const T = I18N[currentLang()];
+
+    // Damodaran annual dataset, 1928..2024 (decimals).
+    const YEARS = [];
+    for (let y = 1928; y <= 2024; y++) YEARS.push(y);
+    const SP500 = [
+        0.4381,-0.0830,-0.2512,-0.4384,-0.0864,0.4998,-0.0119,0.4674,0.3194,-0.3534,
+        0.2928,-0.0110,-0.1067,-0.1277,0.1917,0.2506,0.1903,0.3582,-0.0843,0.0520,
+        0.0570,0.1830,0.3081,0.2368,0.1815,-0.0121,0.5256,0.3260,0.0744,-0.1046,
+        0.4372,0.1206,0.0034,0.2664,-0.0881,0.2280,0.1648,0.1245,-0.1006,0.2398,
+        0.1106,-0.0850,0.0386,0.1430,0.1899,-0.1469,-0.2647,0.3723,0.2393,-0.0716,
+        0.0657,0.1861,0.3250,-0.0492,0.2155,0.2256,0.0627,0.3173,0.1867,0.0525,
+        0.1661,0.3169,-0.0310,0.3047,0.0762,0.1008,0.0132,0.3758,0.2296,0.3336,
+        0.2858,0.2104,-0.0910,-0.1189,-0.2210,0.2868,0.1088,0.0491,0.1579,0.0549,
+       -0.3700,0.2646,0.1506,0.0211,0.1600,0.3239,0.1369,0.0138,0.1196,0.2183,
+       -0.0438,0.3149,0.1840,0.2871,-0.1811,0.2629,0.2502
+    ];
+    const CPI = [
+       -0.0117,0.0058,-0.0640,-0.0932,-0.1027,0.0076,0.0152,0.0299,0.0145,0.0286,
+       -0.0278,-0.0048,0.0096,0.0972,0.0929,0.0316,0.0211,0.0225,0.1817,0.0901,
+        0.0271,-0.0180,0.0579,0.0587,0.0088,0.0062,-0.0050,0.0037,0.0286,0.0302,
+        0.0176,0.0150,0.0148,0.0067,0.0122,0.0165,0.0119,0.0192,0.0335,0.0304,
+        0.0472,0.0611,0.0549,0.0336,0.0341,0.0880,0.1220,0.0701,0.0481,0.0677,
+        0.0903,0.1331,0.1240,0.0894,0.0387,0.0380,0.0395,0.0377,0.0113,0.0441,
+        0.0442,0.0465,0.0611,0.0306,0.0290,0.0275,0.0267,0.0254,0.0332,0.0170,
+        0.0161,0.0268,0.0339,0.0155,0.0238,0.0188,0.0326,0.0342,0.0254,0.0408,
+        0.0009,0.0272,0.0150,0.0296,0.0174,0.0150,0.0076,0.0073,0.0207,0.0211,
+        0.0191,0.0229,0.0136,0.0703,0.0645,0.0341,0.0289
+    ];
+
+    const ROOT = document.getElementById("hp-root");
+    const CHART = document.getElementById("hp-chart");
+    const PRESETS = document.getElementById("hp-presets");
+    const SLIDER = document.getElementById("hp-slider");
+    const H_VALUE = document.getElementById("hp-h-value");
+    const TOGGLE = document.getElementById("hp-toggle");
+
+    let horizon = 10;
+    let useReal = true;
+
+    function rollingAnn(h, real) {
+        const out = [];
+        const n = SP500.length;
+        for (let i = 0; i + h <= n; i++) {
+            let g = 1.0;
+            for (let k = 0; k < h; k++) {
+                if (real) {
+                    g *= (1 + SP500[i + k]) / (1 + CPI[i + k]);
+                } else {
+                    g *= (1 + SP500[i + k]);
+                }
+            }
+            const ann = Math.pow(g, 1 / h) - 1;
+            out.push({ start: YEARS[i], end: YEARS[i + h - 1], ann: ann });
+        }
+        return out;
+    }
+
+    function pct(v) {
+        if (!isFinite(v)) return "—";
+        const sign = v >= 0 ? "+" : "";
+        return sign + (v * 100).toFixed(1) + "%";
+    }
+
+    function getCssVar(name) {
+        return getComputedStyle(ROOT).getPropertyValue(name).trim();
+    }
+    function darkMode() {
+        return document.documentElement.getAttribute("data-theme") === "dark";
+    }
+
+    function quantile(arr, q) {
+        const a = arr.slice().sort((x, y) => x - y);
+        const pos = (a.length - 1) * q;
+        const base = Math.floor(pos);
+        const rest = pos - base;
+        return a[base + 1] !== undefined ? a[base] + rest * (a[base + 1] - a[base]) : a[base];
+    }
+
+    function render() {
+        const data = rollingAnn(horizon, useReal);
+        const vals = data.map(d => d.ann);
+        const lo = Math.min(...vals);
+        const hi = Math.max(...vals);
+        const med = quantile(vals, 0.5);
+        const worst = data.find(d => d.ann === lo);
+        const best = data.find(d => d.ann === hi);
+        const lossCount = vals.filter(v => v < 0).length;
+        const lossPct = vals.length > 0 ? lossCount / vals.length : 0;
+
+        // Bin width adapts to horizon (longer horizon → tighter range → smaller bins)
+        let bw;
+        if (horizon <= 2) bw = 0.05;
+        else if (horizon <= 5) bw = 0.025;
+        else if (horizon <= 15) bw = 0.01;
+        else bw = 0.005;
+
+        const colorPos = getCssVar("--hp-pos");
+        const colorNeg = getCssVar("--hp-neg");
+        const colorMid = getCssVar("--hp-mid");
+        const colorAcc = getCssVar("--hp-accent");
+        const colorText = getCssVar("--hp-text");
+        const colorMuted = getCssVar("--hp-muted");
+        const colorGrid = darkMode() ? "rgba(255,255,255,0.08)" : "rgba(0,0,0,0.07)";
+        const colorBg = getCssVar("--hp-card");
+
+        // Color each bar by sign: red below zero, green above
+        const startBin = Math.floor(lo / bw) * bw - bw;
+        const endBin = Math.ceil(hi / bw) * bw + bw;
+        const bins = [];
+        for (let b = startBin; b <= endBin + 1e-9; b += bw) bins.push(b);
+        const counts = new Array(bins.length - 1).fill(0);
+        const centers = bins.slice(0, -1).map((b, i) => (b + bins[i + 1]) / 2);
+        for (const v of vals) {
+            const idx = Math.min(Math.floor((v - bins[0]) / bw), counts.length - 1);
+            if (idx >= 0 && idx < counts.length) counts[idx] += 1;
+        }
+        const colors = centers.map(c => c < 0 ? colorNeg : colorPos);
+
+        const traces = [{
+            x: centers,
+            y: counts,
+            type: "bar",
+            marker: { color: colors, line: { width: 0 } },
+            width: bw * 0.95,
+            hovertemplate: T.x_title + ": %{x:.1%}<br>Count: %{y}<extra></extra>",
+        }];
+
+        const layout = {
+            margin: { l: 56, r: 24, t: 36, b: 44 },
+            paper_bgcolor: colorBg,
+            plot_bgcolor: colorBg,
+            font: { family: "Segoe UI, Helvetica, Arial, sans-serif", color: colorText, size: 12 },
+            bargap: 0.05,
+            xaxis: {
+                title: { text: T.x_title, font: { color: colorMuted, size: 11 } },
+                gridcolor: colorGrid,
+                zerolinecolor: colorMuted,
+                color: colorText,
+                tickformat: ".0%",
+            },
+            yaxis: {
+                title: { text: T.y_title, font: { color: colorMuted, size: 11 } },
+                gridcolor: colorGrid,
+                zerolinecolor: colorGrid,
+                color: colorText,
+            },
+            shapes: [
+                {
+                    type: "line", xref: "x", yref: "paper",
+                    x0: 0, x1: 0, y0: 0, y1: 1,
+                    line: { color: colorMuted, width: 1.5, dash: "dot" },
+                },
+                {
+                    type: "line", xref: "x", yref: "paper",
+                    x0: med, x1: med, y0: 0, y1: 1,
+                    line: { color: colorMid, width: 2, dash: "solid" },
+                },
+            ],
+            annotations: [
+                {
+                    x: med, y: 1, xref: "x", yref: "paper",
+                    text: T.median_line + " " + pct(med),
+                    showarrow: false, yanchor: "bottom",
+                    font: { color: colorMid, size: 11, weight: "bold" },
+                    bgcolor: colorBg,
+                },
+                {
+                    x: 0.99, y: 0.98, xref: "paper", yref: "paper",
+                    text: (useReal ? T.ann_real : T.ann_nom) + "<br>"
+                        + T.window_count.replace("{n}", vals.length),
+                    showarrow: false, xanchor: "right", yanchor: "top",
+                    font: { color: colorMuted, size: 10 },
+                    bgcolor: "rgba(0,0,0,0)",
+                },
+            ],
+            showlegend: false,
+            hovermode: "closest",
+        };
+
+        Plotly.react(CHART, traces, layout, {
+            displayModeBar: false,
+            responsive: true,
+        });
+
+        // Stats
+        document.getElementById("hp-val-worst").textContent = pct(lo);
+        document.getElementById("hp-det-worst").textContent = worst ? `${worst.start}–${worst.end}` : "—";
+        document.getElementById("hp-val-median").textContent = pct(med);
+        document.getElementById("hp-det-median").textContent = `n = ${vals.length}`;
+        document.getElementById("hp-val-best").textContent = pct(hi);
+        document.getElementById("hp-det-best").textContent = best ? `${best.start}–${best.end}` : "—";
+        document.getElementById("hp-val-loss").textContent = (lossPct * 100).toFixed(1) + "%";
+        document.getElementById("hp-det-loss").textContent = `${lossCount} / ${vals.length}`;
+    }
+
+    function updateHLabel() {
+        const unit = horizon === 1 ? T.year : T.years;
+        H_VALUE.textContent = `${horizon} ${unit}`;
+    }
+
+    PRESETS.querySelectorAll("button").forEach(btn => {
+        btn.addEventListener("click", () => {
+            PRESETS.querySelectorAll("button").forEach(b => b.classList.remove("active"));
+            btn.classList.add("active");
+            horizon = parseInt(btn.dataset.h, 10);
+            SLIDER.value = String(horizon);
+            updateHLabel();
+            render();
+        });
+    });
+    SLIDER.addEventListener("input", () => {
+        horizon = parseInt(SLIDER.value, 10);
+        PRESETS.querySelectorAll("button").forEach(b => {
+            b.classList.toggle("active", parseInt(b.dataset.h, 10) === horizon);
+        });
+        updateHLabel();
+        render();
+    });
+    TOGGLE.querySelectorAll("button").forEach(btn => {
+        btn.addEventListener("click", () => {
+            TOGGLE.querySelectorAll("button").forEach(b => b.classList.remove("active"));
+            btn.classList.add("active");
+            useReal = btn.dataset.real === "true";
+            render();
+        });
+    });
+
+    function applyI18n() {
+        document.getElementById("hp-slider-label").textContent = T.slider_label;
+        document.getElementById("hp-toggle-real").textContent = T.real;
+        document.getElementById("hp-toggle-nominal").textContent = T.nominal;
+        document.getElementById("hp-name-worst").textContent = T.name_worst;
+        document.getElementById("hp-name-median").textContent = T.name_median;
+        document.getElementById("hp-name-best").textContent = T.name_best;
+        document.getElementById("hp-name-loss").textContent = T.name_loss;
+        document.getElementById("hp-caption").textContent = T.caption;
+    }
+    applyI18n();
+    updateHLabel();
+
+    function reportHeight() {
+        try {
+            var h = Math.ceil(document.documentElement.scrollHeight);
+            parent.postMessage({ type: 'lesson-interactive-resize', height: h }, '*');
+        } catch (e) { /* ignore */ }
+    }
+    if (typeof ResizeObserver !== 'undefined') {
+        new ResizeObserver(reportHeight).observe(document.body);
+    }
+    window.addEventListener('resize', reportHeight);
+    setTimeout(reportHeight, 50);
+    setTimeout(reportHeight, 500);
+
+    const themeObserver = new MutationObserver(render);
+    themeObserver.observe(document.documentElement, {
+        attributes: true,
+        attributeFilter: ["data-theme"],
+    });
+
+    render();
+})();
+</script>
+
+</body>
+</html>

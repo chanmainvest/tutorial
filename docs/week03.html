@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Week 3: Understanding Risk and Return - Chanma Investment Tutorial</title>
+    <title>Week 3: Risk and Return — The Two Forces, Honestly Measured - Chanma Investment Tutorial</title>
     <script>(function(){try{var t=localStorage.getItem('preferred-theme');if(!t){t=window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();</script>
     <style>
 :root, html[data-theme="light"] {
@@ -1247,726 +1247,645 @@ html[data-theme="dark"] .nav-btn:hover .btn-label { color: rgba(15,23,36,0.7); }
     <main class="main-wrap">
         <div class="content-area">
             <div id="content-en" class="lang-content active">
-                <h1>Week 3: Understanding Risk and Return</h1>
+                <h1>Week 3: Risk and Return — The Two Forces, Honestly Measured</h1>
 <hr>
-<h2>Reading Section</h2>
-<h3>a) Why This Is Important</h3>
+<h3>1. Why This Is Important</h3>
 <p>
-Risk and return are the two fundamental forces that govern every investment decision you will ever make. They are inseparable -- like gravity and motion in physics. You cannot understand one without understanding the other, and ignoring either one will cost you money.
+Last week we landed on a simple prescription: index ETF, automatic
+monthly transfer, close the app. It works. It also obscures the
+machinery underneath, and the machinery is what stops you panic-selling
+the next time the market hands you a 40% drawdown and a dinner-party
+guest tells you "this time it's different."
 </p>
 <p>
-Most beginners focus entirely on return. They ask, "How much can I make?" This is the wrong first question. The right first question is, "How much can I lose, and am I comfortable with that?" Every asset that offers the possibility of high returns also carries the possibility of significant loss. Understanding this tradeoff is the single most important concept in finance.
+Risk and return are the two forces that drive every investment outcome.
+Most beginners spend all their attention on return — *"how much can I
+make?"<em> The professional question is the inverse: </em>"how much can I
+lose, how often, and is that loss survivable?"* If your answer to the
+second question is "I don't know," you are not investing. You are
+gambling with extra steps.
 </p>
 <p>
-Here is why mastering risk and return matters:
-</p>
-<li><strong>It determines your portfolio's destiny.</strong> The mix of risk and return you choose today will shape your wealth trajectory for decades. An investor who takes too little risk will not accumulate enough to retire. An investor who takes too much risk may panic during a downturn and sell at the worst possible moment, locking in devastating losses.</li>
-<li><strong>It protects you from emotional decisions.</strong> When the stock market drops 30%, uninformed investors panic. Investors who understand risk recognize that such drops are a normal, expected feature of equity markets -- they happen roughly once per decade. This knowledge transforms panic into opportunity.</li>
-<li><strong>It helps you evaluate any investment.</strong> Whether someone is pitching you a stock, a real estate deal, a cryptocurrency, or a structured product, you can cut through the noise by asking two questions: What is the expected return? What are the risks? If the answers are vague or one-sided, walk away.</li>
-<li><strong>It is the foundation of portfolio construction.</strong> Every lesson from here forward -- diversification, asset allocation, rebalancing -- builds on the principles of risk and return. Without this foundation, everything else is just decoration.</li>
-<li><strong>It is what separates investing from gambling.</strong> A gambler chases returns without understanding probabilities. An investor takes calculated risks where the expected payoff justifies the downside exposure. The difference is entirely in how you think about risk.</li>
-<p>
-This lesson covers how risk is measured, what historical data tells us about the returns of different asset classes, the concept of the risk premium, the critical distinction between systematic and unsystematic risk, and the risk-return tradeoff that governs all of modern finance.
-</p>
-<hr>
-<h3>b) What You Need to Know</h3>
-<h4>1. What Is Risk? Defining It Precisely</h4>
-<p>
-In everyday language, risk means "the chance something bad happens." In finance, risk has a more precise and somewhat different meaning: risk is the uncertainty of outcomes. A risky asset is not necessarily one that will lose money -- it is one whose future return is unpredictable.
+This lesson is the foundation for everything that follows. We will
+look at what risk actually is (and the three things people confuse
+with it), how to measure it without lying to ourselves, why higher
+expected return <em>requires</em> higher risk, why the same risk number
+behaves entirely differently over different horizons, and how the
+distinction between risk <em>capacity</em> and risk <em>tolerance</em> is the one
+that gets retirees blown up.
 </p>
 <p>
-A U.S. Treasury bill is considered nearly risk-free not because its return is high (it is low), but because you know almost exactly what you will get. A stock is risky not because it will definitely lose value, but because its return next year could be +40% or -30% -- you simply do not know.
-</p>
-<pre><code class="language-">RISK = UNCERTAINTY OF OUTCOMES
-<p>
-===================================
-</p>
-<p>
-T-Bill             Stock
-------             -----
-Return   +4.5%              ???
-Range    [+4.4% to +4.6%]   [-35% to +55%]
-</p>
-<p>
-LOW RISK            HIGH RISK
-(Outcome is         (Outcome is
-nearly certain)     highly uncertain)
-</code></pre>
+The honest disclaimer up front: **standard textbook treatments of risk
+assume return distributions look like a bell curve, and they don't.**
+Markets have fat tails — extreme events happen far more often than the
+math says they should. We will spend the second half of this lesson on
+why "5σ event" is a phrase to laugh at, not to plan around.
 </p>
 <hr>
-<h4>2. Measuring Risk: Volatility and Standard Deviation</h4>
+<h3>2. What You Need to Know</h3>
+<h4>2.1 Risk Is Uncertainty of Outcomes — Not Just "Bad"</h4>
 <p>
-The most common measure of investment risk is <strong>volatility</strong>, expressed as the <strong>standard deviation</strong> of returns. Standard deviation tells you how widely an asset's returns are spread around its average.
+In everyday English, risk means <em>the chance something bad happens</em>.
+In finance, risk has a more precise meaning: **risk is the uncertainty
+of the outcome**. A risky asset is not necessarily one that will lose
+you money. It is one whose future return you cannot predict.
 </p>
 <p>
-<strong>How standard deviation works:</strong>
+A three-month US Treasury bill yielding 4.3% is considered nearly
+risk-free not because the yield is high — it isn't — but because the
+range of plausible outcomes one quarter from now is essentially
+"4.3%, plus or minus a fraction of a percent." A single biotech stock
+is risky because the range one year from now might run from "−90%
+because the trial failed" to "+400% because the trial succeeded." The
+T-bill has <em>low uncertainty</em>. The biotech has <em>enormous uncertainty</em>
+in both directions.
 </p>
 <p>
-If an asset has an average annual return of 10% and a standard deviation of 15%, this means:
+Three things people confuse with risk that aren't:
 </p>
-<ul><li>About 68% of the time (1 standard deviation), returns fall between -5% and +25%</li>
-<li>About 95% of the time (2 standard deviations), returns fall between -20% and +40%</li>
-<li>About 99.7% of the time (3 standard deviations), returns fall between -35% and +55%</li>
+<li><strong>Volatility</strong>. Volatility is one <em>measure</em> of risk — the most</li>
+<p>
+commonly used — but volatility ≠ risk. A position can be quiet for
+five years and then blow up in a month (think Long-Term Capital
+Management, 1998). A position can be loud every day and be
+structurally bounded (think a deeply hedged options book).
+<em>Realised price wiggles</em> and <em>risk</em> are not the same thing.
+</p>
+<li><strong>Probability of loss</strong>. A coin flip with payouts of −$1 / +$1 has</li>
+<p>
+a 50% probability of loss. A coin flip with payouts of −$1 / +$100
+has the same 50% probability of loss but is wildly different in
+risk-adjusted terms. The probability of loss alone tells you
+nothing about the <em>size</em> of the loss when it comes.
+</p>
+<li><strong>The headline number on the news</strong>. "Markets are crashing" is not</li>
+<p>
+a quantification of anything. Crashes are a feature of equity
+markets — they happen roughly once per decade, sometimes twice —
+and an investor who treats every crash as an emergency is going to
+spend their life selling the bottom.
+</p>
+<blockquote><em>"Risk comes from not knowing what you're doing."</em> — Warren Buffett</blockquote>
+<h4>2.2 Standard Deviation — The Workhorse Measure</h4>
+<p>
+The most common measure of risk is the <strong>standard deviation</strong> of
+returns, often called <strong>volatility</strong> or "<strong>vol</strong>." It tells you how
+widely an asset's actual returns have varied around its mean.
+</p>
+<p>
+For an asset with average annual return $\mu$ and standard deviation
+$\sigma$, <em>if</em> returns were normally distributed (a big if; see §2.6):
+</p>
+<ul><li>About <strong>68%</strong> of years would fall in $[\mu - \sigma,\ \mu + \sigma]$.</li>
+<li>About <strong>95%</strong> of years would fall in $[\mu - 2\sigma,\ \mu + 2\sigma]$.</li>
+<li>About <strong>99.7%</strong> of years would fall in $[\mu - 3\sigma,\ \mu + 3\sigma]$.</li>
 <p>
 </ul>
+Run that on the actual S&P 500 dataset since 1928 and what you get is
+this:
 </p>
-<pre><code class="language-">STANDARD DEVIATION AND THE BELL CURVE
+<img src="image/week03_return_distribution.png" alt="Histogram of S&P 500 annual total returns, 1928 through 2024 (Damodaran annual dataset). The empirical mean is roughly 11.5% and the standard deviation is roughly 19.5%. A normal distribution with the same mean and standard deviation is overlaid as a smooth curve. The histogram has visibly fatter tails than the normal curve — both the worst years (1931, 1937, 2008) and the best (1933, 1954, 1958) are far further from the centre than a normal distribution predicts.">
 <p>
-=======================================
+Three things to read off this chart:
 </p>
+<ul><li><strong>The centre is roughly 11% per year.</strong> That is the long-run nominal</li>
 <p>
-Probability
-of Outcome
-|
-|              <strong>*</strong>
-|           <strong><em>     </em></strong>
-|         <strong>           </strong>
-|       <strong>               </strong>
-|     <strong>                   </strong>
-|   <strong>                       </strong>
-|  <em>                           </em>
-| <em>                             </em>
-|<em>                               </em>
-+-----|-------|-------|-------|------&gt; Return
--2sd    -1sd    Mean    +1sd   +2sd
--20%    -5%     10%     25%    40%
+</ul>  S&P 500 total-return average. The "real" number, after inflation, is
+closer to 7% — and the textbook's smooth 8% promise has the same
+status as Santa Claus.
 </p>
+<ul><li><strong>The standard deviation is roughly 20%.</strong> Sixty-eight percent of</li>
 <p>
-|&lt;------------- 68% ------------&gt;|
-(within 1 standard deviation)
+</ul>  years fall between −9% and +30%. Plan for the <em>range</em>, not the
+average.
 </p>
+<ul><li><strong>The distribution is wider than a normal curve in both tails.</strong></li>
 <p>
-|&lt;------------------ 95% -------------------&gt;|
-(within 2 standard deviations)
-</code></pre>
+</ul>  −44% in 1931, −37% in 2008, +54% in 1933, +52% in 1954. None of
+these should be possible under the bell-curve model. They happened.
+The market has <em>fat tails</em>.
 </p>
 <p>
-<strong>Interpreting standard deviation in practice:</strong>
+The headline rule of thumb for asset-class volatility:
 </p>
-<pre><code class="language-">ASSET CLASS VOLATILITY COMPARISON (APPROXIMATE)
+<table><thead><tr><th>Asset class</th><th>Historical annual σ</th></tr></thead><tbody><tr><td>US Treasury bills</td><td>~1%</td></tr><tr><td>Investment-grade bonds</td><td>~6%</td></tr><tr><td>US large-cap stocks</td><td>~16–20%</td></tr><tr><td>US small-cap stocks</td><td>~22–28%</td></tr><tr><td>Emerging market stocks</td><td>~24–30%</td></tr><tr><td>Single individual stock</td><td>~30%+</td></tr><tr><td>Bitcoin</td><td>~70%+</td></tr></tbody></table>
 <p>
-=================================================
+Read the table from the bottom up. Bitcoin is roughly four times as
+volatile as the S&P 500 — meaning whatever drawdown a bell-curve model
+says is "extreme" for the index, you should expect roughly four times
+that for BTC. That is a lot more risk than the headline-friendly "BTC
+is up 200% this year" suggests.
 </p>
+<h4>2.3 Equity Risk Premium — The Compensation for Bearing Risk</h4>
 <p>
-Asset Class                  Avg Return   Std Dev   Range (68%)
--------------------          ----------   -------   -----------
-Treasury Bills                   3%          1%      2% to 4%
-Investment-Grade Bonds           5%          6%     -1% to 11%
-Balanced Fund (60/40)            8%         10%     -2% to 18%
-U.S. Large Cap Stocks           10%         16%     -6% to 26%
-U.S. Small Cap Stocks           12%         20%     -8% to 32%
-International Developed          9%         17%     -8% to 26%
-Emerging Market Stocks          11%         24%    -13% to 35%
-Individual Stock (typical)      ??%         30%+   Very wide
+The <strong>risk premium</strong> is the extra return you earn above the risk-free
+rate for accepting uncertainty. The most-cited number in all of
+finance is the <strong>equity risk premium (ERP)</strong>: how much more, on
+average, US stocks return above US Treasury bills.
 </p>
 <p>
-Note: These are long-run historical approximations.
-Actual figures vary by time period measured.
-</code></pre>
+Long-run, post-1928, that number has been roughly <strong>5–7% per year</strong>.
+At a long-run T-bill mean of ~3.4% and a long-run S&P 500 mean of
+~11%, the gap is around 7–8 points of nominal return — a gap that
+compounded over a century turns $1 of T-bills into ~$23 and $1 of
+stocks into ~$11,000 (in nominal dollars; the real numbers are
+smaller but the <em>ratio</em> is essentially preserved).
 </p>
 <p>
-<strong>Key insight:</strong> Notice that as expected returns increase, standard deviation increases too. This pattern is not a coincidence -- it is the fundamental law of investing.
+Why must the ERP exist? Two equilibrium arguments:
 </p>
-<hr>
-<h4>3. Historical Returns of Major Asset Classes</h4>
+<li><strong>Investors are loss-averse.</strong> Given two assets with the same</li>
 <p>
-Understanding what different asset classes have returned historically gives you a baseline for setting expectations. The data below is drawn primarily from U.S. markets going back to 1926 (the Ibbotson dataset) and from global data where available.
+expected return, almost everyone prefers the less volatile one.
+For investors to <em>willingly</em> hold the volatile one, the price has
+to fall until the <em>forward</em> expected return is high enough to
+compensate. That gap is the risk premium.
 </p>
-<pre><code class="language-">HISTORICAL ASSET CLASS RETURNS (1926-2024, APPROXIMATE)
+<li><strong>Without it, the asset can't clear.</strong> If stocks and T-bills</li>
 <p>
-========================================================
+offered the same expected return, no rational investor would hold
+stocks; everyone would sell into bonds, prices on stocks would
+fall, and forward returns would rise — until the gap re-opens.
+Risk premium is not a moral payment for "being brave"; it is the
+mechanical equilibrium price of clearing the volatile asset.
 </p>
 <p>
-Asset Class              Nominal     Real       Worst       Best
-Return    (after       Single      Single
-(Ann.)    inflation)   Year        Year
---------------------     ------    ----------   ------      ------
-Treasury Bills            3.3%       0.3%       -0.0%       14.7%
-Long-Term Gov Bonds       5.5%       2.5%      -14.9%       40.4%
-Corporate Bonds           5.9%       2.9%       -8.1%       42.6%
-U.S. Large Cap Stocks    10.3%       7.1%      -43.3%       54.0%
-U.S. Small Cap Stocks    11.8%       8.6%      -58.0%      142.9%
-International Stocks      8.5%       5.3%      -43.4%       69.0%
+Two cautions, both important:
 </p>
+<ul><li><strong>The premium is an <em>average over very long horizons</em>.</strong> In any</li>
 <p>
-Inflation (CPI)           2.9%        --         -10%        18%
-</code></pre>
+</ul>  single year, stocks routinely <em>under</em>-perform T-bills. The ERP is
+the compensation for sticking with stocks <em>through</em> the years where
+T-bills win.
 </p>
-<pre><code class="language-">GROWTH OF $1 INVESTED IN 1926 (NOMINAL, LOG SCALE)
+<ul><li><strong>The premium can compress.</strong> When stocks have already run up a long</li>
 <p>
-====================================================
+</ul>  way, <em>forward</em> expected returns are lower; the premium implied by
+current prices may be much smaller than the historical average. Bob
+Shiller's CAPE ratio is one common attempt to put a number on this.
+In 2026, with CAPE around the high 30s, the implied forward ERP is
+closer to 3–4% than to 7%. That is not a prediction the next
+decade <em>will</em> be poor — it is a warning that the historical average
+is a different statistic from the current expected value.
 </p>
+<h4>2.4 Systematic vs. Unsystematic Risk</h4>
 <p>
-Value
-(Log)
-|
-$50K+                                              * Small Stocks
-|                                             *
-|                                          *
-$10K+                                     *
-|                                   <em>     </em> Large Stocks
-|                               <em>      </em>
-$1K +                         <em>       </em>
-|                       <em>        </em>
-|                   <em>         </em>
-$100 +             <em>         </em>
-|            <em>          </em>
-|        <em>           </em>         * Bonds
-$10 +   <em>           </em>        *
-|  <em>           </em>        <em>        </em> T-Bills
-| <em>         </em>       <em>         </em>
-$1 +------<em>-------</em>------<em>-----------</em>----------&gt;
-1926    1950    1975    2000    2024
+This distinction is the single most important conceptual move in risk
+management. It determines which risks the market pays you to bear and
+which risks you are bearing for free.
 </p>
+<ul><li><strong>Unsystematic (idiosyncratic) risk.</strong> Specific to one company, one</li>
 <p>
-Small Stocks: ~$50,000+
-Large Stocks: ~$12,000+
-Government Bonds: ~$100
-Treasury Bills: ~$22
-Inflation: ~$17
-</code></pre>
+</ul>  industry, or one position. Examples: a CEO scandal, a product recall,
+a fire at a single factory, a regulatory action against one firm,
+a mining accident. <strong>Diversification eliminates this risk.</strong> Hold
+500 names instead of 5, and a CEO scandal at any one of them moves
+your portfolio by a fraction of a percent rather than 20%.
 </p>
+<ul><li><strong>Systematic (market) risk.</strong> Affects the whole economy or whole</li>
 <p>
-<strong>The power of compounding:</strong> The difference between 10% and 12% seems small, but over 98 years, $1 growing at 10% becomes about $12,000, while $1 growing at 12% becomes about $50,000. Small differences in return compound into enormous differences in wealth over long periods.
+</ul>  market: recession, rate moves, inflation, war, pandemic. **You
+cannot diversify this away.** Even a perfectly diversified equity
+portfolio loses 35–55% in a 1929, a 1973–74, a 2008, or a 2020.
+Systematic risk is what the market <em>pays</em> you to bear via the equity
+risk premium.
 </p>
-<hr>
-<h4>4. The Risk Premium: Your Compensation for Bearing Risk</h4>
 <p>
-The <strong>risk premium</strong> is the extra return you earn above the risk-free rate for taking on additional risk. It is your compensation for accepting uncertainty.
+The "free lunch" insight that won Markowitz the Nobel Prize: **since
+unsystematic risk can be eliminated for free through diversification,
+the market does not pay you to bear it.** Holding a concentrated
+five-stock portfolio gives you much higher total risk than holding the
+S&P 500, but the <em>expected return</em> is essentially the same as the index
+(~10% nominal in long-run averages, by definition). The extra
+volatility is uncompensated. You are taking risk <em>for free</em>.
 </p>
-<pre><code class="language-">RISK PREMIUM BREAKDOWN
 <p>
-========================
+This is the entire argument for index funds rendered as a single
+sentence: an index fund holds enough names that idiosyncratic risk is
+essentially zero, leaving you with only the systematic risk that the
+market actually pays you for. Concentrated stock-picking, *unless you
+have a real edge*, is voluntarily eating risk you don't get paid for.
 </p>
+<h4>2.5 Drawdowns — The Risk That Actually Tests You</h4>
 <p>
-Historical
-Asset Class                 Risk Premium     Calculation
------------                 ------------     -----------
-Risk-Free Rate (T-Bills)        0.0%         Baseline
-Long-Term Gov Bonds            ~2.2%         5.5% - 3.3%
-Corporate Bonds                ~2.6%         5.9% - 3.3%
-U.S. Large Cap Stocks          ~7.0%         10.3% - 3.3%
-U.S. Small Cap Stocks          ~8.5%         11.8% - 3.3%
-</code></pre>
+Standard deviation is a textbook measure. <strong>Maximum drawdown</strong> —
+the peak-to-trough decline of an equity curve — is the measure your
+nervous system is going to use, whether you like it or not.
 </p>
 <p>
-<strong>The Equity Risk Premium (ERP)</strong> is the most important number in all of finance. It tells you how much extra return stocks deliver over risk-free bonds. Historically, this has been about 5-7% per year in the U.S.
+Below is the actual S&P 500 drawdown chart from 1950 onward. The
+shaded peaks are the major bear markets. The number that matters in
+each case is not the size of the drawdown so much as the *time it
+took to recover* and the temperament that survival required.
 </p>
+<img src="image/week03_drawdowns.png" alt="S&P 500 total-return drawdown chart, monthly, 1985–2026 (Yahoo Finance ^GSPC). Each shaded region is a peak-to-recovery drawdown. The four largest visible in the modern data are 1987 Black Monday (-34%), 2000–2002 dot-com (-49%), 2007–2009 GFC (-55%), and the 2020 COVID crash (-34%). The 2022 selloff (-25%) and the post-2018 vol shock appear as smaller indentations. The 1973–74 oil-shock bear (-48%) predates this monthly series but lives in the recovery-time table below.">
 <p>
-Why does the risk premium exist? Because investors are risk-averse. Given two investments with the same expected return, investors prefer the less risky one. To entice investors into risky assets, those assets must offer higher expected returns. If stocks returned the same as Treasury bills, nobody would bear the volatility.
+Recovery times (peak-to-new-high), by event:
 </p>
-<pre><code class="language-">WHY THE RISK PREMIUM MUST EXIST
+<table><thead><tr><th>Event</th><th>Drawdown</th><th>Months to bottom</th><th>Total round-trip recovery</th></tr></thead><tbody><tr><td>1973–74 (oil shock)</td><td>−48%</td><td>21</td><td>7.5 years</td></tr><tr><td>1987 Black Monday</td><td>−34%</td><td>3</td><td>2 years</td></tr><tr><td>2000–02 dot-com</td><td>−49%</td><td>30</td><td>7 years</td></tr><tr><td>2007–09 GFC</td><td>−55%</td><td>17</td><td>5.5 years</td></tr><tr><td>2020 COVID</td><td>−34%</td><td>1</td><td>5 months</td></tr><tr><td>2022 selloff</td><td>−25%</td><td>10</td><td>2 years</td></tr></tbody></table>
 <p>
-==================================
+Two observations from this table that the standard-deviation number
+does not capture:
 </p>
+<ul><li><strong>The drawdowns are deeply asymmetric to the up-years.</strong> A single</li>
 <p>
-Scenario A: Stocks and bonds offer the same 5% return
+</ul>  −48% year requires +92% just to break even. A bell-curve model that
+averages your good and bad years symmetrically misses this entirely.
 </p>
+<ul><li><strong>Recovery time matters as much as drawdown depth.</strong> The 2020 COVID</li>
 <p>
-Rational investor thinks:
-"Why would I accept -30% possibility from stocks
-when bonds give me the same 5% with almost no risk?"
-=&gt; Everyone sells stocks, buys bonds
-=&gt; Stock prices drop, bond prices rise
-=&gt; Stock future returns increase, bond future returns decrease
-=&gt; A gap (risk premium) naturally emerges
+</ul>  crash was the same size as the 1987 crash — but the 1987 took two
+years to recover; 2020 took five months. The Federal Reserve's
+active intervention is the mechanical reason. A retiree in
+decumulation through 1973–74 had to live for *seven and a half
+years* without their portfolio recovering, while still drawing
+income from it. That is a different problem from the same drawdown
+in 2020 with a 5-month bounce.
 </p>
 <p>
-Scenario B: Equilibrium
+The behavioural lesson is simple. If your investment plan does not
+survive a 50% drawdown — meaning, you would sell — your plan is
+already broken. The plan must be <em>built around</em> the drawdown, not
+<em>despite</em> it.
 </p>
+<h4>2.6 Beta — The Slope, Not the Whole Picture</h4>
 <p>
-Stocks: ~10% expected return  (risk premium = ~5-7%)
-Bonds:  ~4-5% expected return
-T-Bills: ~3% expected return  (risk-free baseline)
+While standard deviation measures <em>total</em> risk, <strong>beta</strong> measures
+<em>systematic</em> risk only — the portion of risk that moves with the
+market.
 </p>
 <p>
-The risk premium is the market's price for bearing uncertainty.
-</code></pre>
+A formal definition: beta is the slope of the regression of the
+asset's returns against the market's returns.
 </p>
 <p>
-<strong>Critical nuance:</strong> The risk premium is an average over long periods. In any given year, stocks can and do underperform bonds. The risk premium is compensation for sticking with stocks through the bad years.
+$$ \beta_i = \frac{\text{Cov}(r_i, r_M)}{\text{Var}(r_M)} $$
 </p>
-<hr>
-<h4>5. Systematic vs. Unsystematic Risk</h4>
 <p>
-This distinction is one of the most important in all of finance. It determines which risks are rewarded with higher returns and which risks are pointless to take.
+Read the slope, not the formula:
 </p>
+<table><thead><tr><th>Beta</th><th>What it means</th></tr></thead><tbody><tr><td>1.0</td><td>Moves with the market — index funds, by construction</td></tr><tr><td>1.5</td><td>Moves 50% more than market — typical tech / cyclical stock</td></tr><tr><td>0.5</td><td>Moves 50% less — utilities, consumer staples</td></tr><tr><td>0.0</td><td>Uncorrelated to market — short-term Treasury bills</td></tr><tr><td>< 0</td><td>Moves <em>opposite</em> to market — gold sometimes, long volatility</td></tr></tbody></table>
 <p>
-<strong>Unsystematic Risk (Diversifiable Risk)</strong>
+The <strong>Capital Asset Pricing Model (CAPM)</strong> uses beta to compute an
+expected return:
 </p>
-<ul><li>Risk specific to a single company or industry</li>
-<li>Examples: CEO scandal, product recall, factory fire, regulatory action against one firm</li>
-<li>Can be eliminated through diversification</li>
-<li>The market does NOT compensate you for bearing this risk</li>
 <p>
-</ul>
-<strong>Systematic Risk (Market Risk, Non-Diversifiable Risk)</strong>
+$$ E[r_i] = r_f + \beta_i \cdot (E[r_M] - r_f) $$
 </p>
-<ul><li>Risk that affects the entire market or economy</li>
-<li>Examples: recession, interest rate changes, inflation, pandemic, geopolitical crisis</li>
-<li>Cannot be eliminated through diversification</li>
-<li>The market DOES compensate you for bearing this risk</li>
 <p>
-</ul>
+In English: an asset's expected return equals the risk-free rate
+plus the asset's beta times the equity risk premium. CAPM is on
+every CFA exam and in every textbook. **It is also a description
+that does not work very well in practice.** Real-world cross-sections
+of expected return are explained better by other factors (size,
+value, profitability, momentum) than by beta alone — a finding that
+launched the entire factor-investing literature, which we cover in
+Week 23. Treat CAPM as the orthodox starting point that every
+finance professional understands; treat the factor models as the
+empirical refinements.
 </p>
-<pre><code class="language-">DIVERSIFICATION AND RISK REDUCTION
+<h4>2.7 Time Horizon — Why "Risk" Means Something Different at 1y vs. 30y</h4>
 <p>
-======================================
+One of the most-debated topics in finance is whether stocks become
+<em>less risky</em> over longer holding periods. The data has a nuanced
+answer.
 </p>
 <p>
-Portfolio     Number of         Unsystematic     Systematic     Total
-Stocks            Risk             Risk           Risk
------------   ---------         ------------     ----------     -----
-1 stock           VERY HIGH        Normal         ~40%+
-5 stocks          HIGH             Normal         ~30%
-10 stocks         MODERATE         Normal         ~23%
-20 stocks         LOW              Normal         ~20%
-30 stocks         VERY LOW         Normal         ~19%
-50 stocks         MINIMAL          Normal         ~18%
-500+ (index)      ~ZERO            Normal         ~16%
+Run the historical S&P 500 dataset and compute the <em>worst</em> and <em>best</em>
+annualised return over rolling holding periods of 1, 5, 10, 20, and
+30 years. The picture is striking.
 </p>
+<figure class="lesson-interactive" data-asset="week03_holding_periods"><div class="lesson-interactive-modeswitch" role="tablist" aria-label="Chart display mode"><span class="lesson-interactive-mslabel" data-side="left">Static</span><button type="button" class="lesson-interactive-msbutton" role="switch" aria-checked="true" data-mode="interactive" onclick="toggleInteractive(this)" aria-label="Toggle between static image and interactive demo"><span class="lesson-interactive-msthumb"></span></button><span class="lesson-interactive-mslabel" data-side="right" data-active="true">Interactive</span></div><div class="lesson-interactive-frame-wrap"><iframe class="lesson-interactive-frame" src="interactive/week03_holding_periods.html?lang=en" loading="lazy" title="Range of annualised real returns for rolling holding periods on the S&P 500, 1928–2024 (Damodaran annual data, total return less CPI). Each line/band shows the worst (red), best (green), and 10th–90th-percentile range (blue band) for that holding length. The 1-year window runs from -38% to +53% — a 91-point range. The 30-year window runs from +4% to +10%. Time does not eliminate risk, but it dramatically shrinks the <em>range</em> of plausible annualised outcomes."></iframe></div><img class="lesson-interactive-fallback" hidden src="image/week03_holding_periods_en.png" alt="Range of annualised real returns for rolling holding periods on the S&P 500, 1928–2024 (Damodaran annual data, total return less CPI). Each line/band shows the worst (red), best (green), and 10th–90th-percentile range (blue band) for that holding length. The 1-year window runs from -38% to +53% — a 91-point range. The 30-year window runs from +4% to +10%. Time does not eliminate risk, but it dramatically shrinks the <em>range</em> of plausible annualised outcomes."></figure>
 <p>
-Total Risk (Std Dev)
-|
-40%  |*
-| *
-30%  |  *
-|   *
-25%  |    **
-|      **
-20%  |        <em>*</em>*                         Unsystematic
-|            <strong><em><em></em></strong></em>                 Risk (goes
-16%  |--------------------<strong>*</strong>--------    toward zero)
-|
-|    Systematic Risk (cannot be
-|    eliminated by diversification)
-+------|------|------|------|-------&gt;
-5     10     20     30    50+
-Number of Stocks
-</code></pre>
+Two true things that look contradictory:
 </p>
+<ul><li><strong>The range of rolling returns narrows dramatically with horizon.</strong></li>
 <p>
-<strong>The powerful implication:</strong> Since unsystematic risk can be diversified away for free, the market does not pay you for bearing it. Holding a concentrated portfolio of 3-5 stocks gives you much more risk than holding an index fund, but no additional expected return. You are taking risk for nothing.
+</ul>  At 1 year, anything from −38% to +52% is on the historical menu. At
+30 years, the menu collapses to roughly +3% to +10% annualised. By
+the time you are 30 years out, "stocks have always made money" is
+a defensible statement about the past.
 </p>
+<ul><li><em>*The </em>cumulative* dollar consequence of a bad sequence still</li>
 <p>
-This is why index funds are so popular: they eliminate unsystematic risk entirely, leaving you with only the systematic risk that the market actually compensates you for.
+</ul>  compounds.** A 30-year period that annualises to "only" +3% real
+ends up <em>materially</em> poorer than one that annualises to +9% real.
+Time narrows the <em>rate</em>, not the <em>spread of cumulative wealth</em>.
 </p>
-<hr>
-<h4>6. Beta: Measuring Systematic Risk</h4>
 <p>
-While standard deviation measures total risk (systematic plus unsystematic), <strong>beta</strong> measures only systematic risk -- the portion of risk that the market rewards.
+The practical implication: **horizon expands what risk you can
+afford to bear.** A 25-year-old with a stable income and a 40-year
+investment horizon can run a much higher equity weight than a
+65-year-old with a portfolio that has to fund the next 25 years of
+groceries. The 25-year-old has time to wait out a 50% drawdown; the
+65-year-old does not.
 </p>
 <p>
-<strong>Beta tells you how sensitive a stock is to overall market movements:</strong>
+That is the sequence-of-returns risk that the next paragraph
+captures. A retiree who experiences a 1973–74 in the <em>first</em> two
+years of retirement is permanently impaired — every dollar withdrawn
+during the drawdown removes shares that don't get to compound back.
+A retiree who experiences the same drawdown 15 years into retirement
+is barely affected. **Same drawdown. Same return distribution.
+Different sequence. Different outcome.**
 </p>
-<pre><code class="language-">UNDERSTANDING BETA
+<h4>2.8 Risk Capacity vs. Risk Tolerance — The Mismatch That Kills</h4>
 <p>
-=====================
+One last distinction. It is the one most often missed, and it is the
+one that actually blows up retail portfolios.
 </p>
 <p>
-Beta = 1.0   Stock moves exactly with the market
-Market up 10% =&gt; Stock up ~10%
-Market down 10% =&gt; Stock down ~10%
-</p>
-<p>
-Beta = 1.5   Stock is 50% MORE volatile than market
-Market up 10% =&gt; Stock up ~15%
-Market down 10% =&gt; Stock down ~15%
-</p>
-<p>
-Beta = 0.5   Stock is 50% LESS volatile than market
-Market up 10% =&gt; Stock up ~5%
-Market down 10% =&gt; Stock down ~5%
-</p>
-<p>
-Beta = 0.0   Stock is unrelated to market movements
-(Very rare for stocks)
-</p>
-<p>
-Beta &lt; 0     Stock moves OPPOSITE to the market
-(Extremely rare, gold sometimes)
-</p>
-<p>
-TYPICAL BETAS BY SECTOR
-========================
-</p>
-<p>
-Sector                 Typical Beta
-------                 ------------
-Utilities                  0.4
-Consumer Staples           0.7
-Healthcare                 0.8
-S&amp;P 500 Index              1.0
-Financials                 1.1
-Technology                 1.2
-Consumer Discretionary     1.3
-Energy                     1.4
-Biotech / Startups         1.5+
-</code></pre>
-</p>
-<p>
-<strong>The Capital Asset Pricing Model (CAPM):</strong>
-</p>
-<p>
-Beta is the key input to the CAPM, which calculates the expected return of any asset:
-</p>
-<pre><code class="language-">CAPM FORMULA
-<p>
-==============
-</p>
-<p>
-Expected Return = Risk-Free Rate + Beta x (Market Return - Risk-Free Rate)
-</p>
-<p>
-Example:
-Risk-Free Rate = 4%
-Market Return = 10%
-Stock Beta = 1.3
-</p>
-<p>
-Expected Return = 4% + 1.3 x (10% - 4%)
-= 4% + 1.3 x 6%
-= 4% + 7.8%
-= 11.8%
-</p>
-<p>
-Interpretation: This stock has more systematic risk than the
-market (beta &gt; 1), so it should deliver a higher return as
-compensation.
-</code></pre>
-</p>
-<hr>
-<h4>7. The Risk-Return Tradeoff: The Efficient Frontier</h4>
-<p>
-The risk-return tradeoff is the central organizing principle of modern portfolio theory. It says that to get higher expected returns, you must accept higher risk. But the relationship is not linear -- through diversification, you can build portfolios that offer the best possible return for each level of risk.
-</p>
-<p>
-<strong>The Efficient Frontier</strong> is the set of portfolios that offer the highest expected return for each level of risk. Any portfolio below the frontier is suboptimal -- you could get more return for the same risk, or the same return with less risk.
-</p>
-<pre><code class="language-">THE EFFICIENT FRONTIER
-<p>
-=========================
-</p>
-<p>
-Expected
-Return
-|                                           * 100% Small Cap
-|                                        *
-12%|                                     *
-|                                  *   &lt;- Efficient Frontier
-11%|                               *         (optimal portfolios)
-|                            *
-10%|                         * 100% Large Cap
-|                      *
-9%|                   *
-|                *
-8%|             *    &lt;- 60/40 Portfolio
-|          *
-7%|       *
-|     *
-6%|   *
-|  * 100% Bonds                 x  Concentrated stock
-5%| *                                (below frontier =
-|*                                  inefficient)
-4%+* T-Bills
-|
-+---|---|---|---|---|---|---|---|---&gt; Risk (Std Dev)
-0   5  10  15  20  25  30  35
-</p>
-<p>
-Points BELOW the frontier are inefficient:
-</p>
-<ul><li>You could get more return for the same risk, OR</li>
-<li>The same return with less risk</li>
-<p>
-</ul>
-The frontier itself represents the BEST possible
-combinations of risk and return through diversification.
-</code></pre>
-</p>
-<p>
-<strong>Key observations about the frontier:</strong>
-</p>
-<li>It curves upward and to the right -- higher return requires higher risk</li>
-<li>The curve is concave -- each additional unit of risk buys less additional return</li>
-<li>Diversification is what creates the curve (without diversification, it would be a straight line)</li>
-<li>Every rational investor should be on the frontier, not below it</li>
-<li>Where you sit on the frontier depends on your risk tolerance</li>
-<hr>
-<h4>8. Drawdowns: The Risk That Matters Most Psychologically</h4>
-<p>
-While standard deviation is the textbook measure of risk, many investors find <strong>maximum drawdown</strong> more intuitive and more frightening. A drawdown is the peak-to-trough decline in an investment's value.
-</p>
-<pre><code class="language-">MAXIMUM DRAWDOWNS BY ASSET CLASS
-<p>
-====================================
-</p>
-<p>
-Asset Class                  Worst Drawdown      Period
------------                  --------------      ------
-U.S. Treasury Bills               ~0%            N/A
-Intermediate Bonds               -11%            2022
-Long-Term Bonds                  -33%            2020-2023
-Balanced 60/40                   -33%            2008-2009
-U.S. Large Cap Stocks            -51%            2007-2009
-U.S. Small Cap Stocks            -54%            2007-2009
-Emerging Markets                 -61%            2007-2009
-Nasdaq Composite                 -78%            2000-2002
-</p>
-<p>
-ANATOMY OF A DRAWDOWN
-========================
-</p>
-<p>
-Portfolio
-Value
-|
-|           Peak
-$100K |-------*
-|          / \
-|         /   \
-|        /     \       &lt;- Drawdown
-$80K |               \         (20% decline)
-|                 \
-|                  \
-$70K |                   *  Trough
-|                    \
-|                     \
-|                      \--------*  Recovery
-|
-+---|---|---|---|---|---|---|---|---&gt; Time
-t0  t1  t2  t3  t4  t5  t6  t7
-</p>
-<p>
-Drawdown duration = Peak to Trough (t0 to t3)
-Recovery time = Trough to new high (t3 to t7)
-</code></pre>
-</p>
-<pre><code class="language-">RECOVERY TIMES FROM MAJOR MARKET DECLINES
-<p>
-============================================
-</p>
-<p>
-Event                    Decline    Time to    Total Round
-Bottom     Trip Recovery
------------              -------   --------   ------------
-Black Monday 1987         -34%     2 months    2 years
-Asian Crisis 1997         -19%     2 months    4 months
-Dot-Com Crash 2000-02     -49%     30 months   7 years
-Financial Crisis 2007-09  -57%     17 months   5.5 years
-COVID Crash 2020          -34%     1 month     5 months
-2022 Bear Market          -25%     10 months   2 years
-</code></pre>
-</p>
-<p>
-<strong>The behavioral lesson:</strong> The biggest risk is not volatility itself -- it is your reaction to volatility. An investor who stayed fully invested through the 2008-2009 crisis recovered within six years and went on to massive gains. An investor who panicked and sold near the bottom may have permanently impaired their wealth.
-</p>
-<hr>
-<h4>9. Time Horizon and Risk</h4>
-<p>
-One of the most debated topics in finance is whether stocks become less risky over longer holding periods. The data suggests a nuanced answer.
-</p>
-<pre><code class="language-">RANGE OF ANNUALIZED RETURNS (U.S. STOCKS, 1926-2024)
-<p>
-======================================================
-</p>
-<p>
-Holding       Worst        Best         Range      Probability
-Period        Annualized   Annualized               of Loss
----------     ----------   ----------   -----      -----------
-1 year         -43.3%       +54.0%      97.3%         ~30%
-5 years        -12.5%       +28.6%      41.1%         ~15%
-10 years        -1.4%       +20.1%      21.5%          ~5%
-15 years        +0.6%       +18.9%      18.3%          ~0%
-20 years        +1.9%       +17.9%      16.0%          ~0%
-30 years        +7.8%       +14.8%       7.0%           0%
-</p>
-<p>
-Key insight: The range of outcomes NARROWS with time.
-Over 20+ years, stocks have NEVER produced a negative
-real return in U.S. history. But "never" in the past
-does not guarantee "never" in the future.
-</code></pre>
-</p>
-<pre><code class="language-">VISUALIZING TIME DIVERSIFICATION
-<p>
-===================================
-</p>
-<p>
-Annualized
-Return
-|
-+54%  *
-|
-+40%  |  *
-|   |   *
-+30%  |    | *
-|   |    |  *
-+20%  |    |   <em> </em>  <em>  </em>  *  &lt;- Best outcomes
-|   |    |              *      converge over time
-+10%  |----|---|--<em>--</em>--<em>--</em>--<em>--</em>
-|   |    |           <em>  </em>  *
-0%  |----|---|--<em>--</em>
-|   |    |  *
--10%  |    | *
-|   |   *
--20%  |  *
-|
--43%  *
-+---|---|---|---|---|---|---|---&gt; Holding Period
-1yr 3yr 5yr 10yr 15yr 20yr 30yr
-</code></pre>
-</p>
-<p>
-<strong>The practical takeaway:</strong> If you have a long time horizon (20+ years), you can afford to take more risk because the probability of a negative outcome shrinks dramatically. If you need the money in 1-2 years, stocks are genuinely dangerous.
-</p>
-<hr>
-<h4>10. Risk Capacity vs. Risk Tolerance</h4>
-<p>
-Understanding risk requires separating two distinct concepts:
-</p>
-<p>
-<strong>Risk Capacity</strong> -- How much risk you can afford to take, based on objective factors:
+<strong>Risk capacity</strong> — how much risk you can <em>afford</em> to bear, based on
+objective conditions:
 </p>
 <ul><li>Time horizon</li>
-<li>Income stability</li>
-<li>Net worth relative to goals</li>
-<li>Insurance coverage</li>
-<li>Dependency on the portfolio for living expenses</li>
+<li>Stability of income</li>
+<li>Net worth relative to lifestyle costs</li>
+<li>Insurance and other buffers</li>
+<li>Whether the portfolio funds your living expenses</li>
 <p>
 </ul>
-<strong>Risk Tolerance</strong> -- How much risk you are psychologically comfortable with:
+<strong>Risk tolerance</strong> — how much risk you are <em>psychologically</em>
+comfortable bearing:
 </p>
-<ul><li>How you react to seeing losses</li>
-<li>Whether you can sleep at night during market drops</li>
-<li>Your emotional relationship with money</li>
+<ul><li>How you actually react when you see your account down 30%</li>
+<li>Whether you can sleep through a bear market</li>
+<li>Whether bad portfolio days affect your relationships, your sleep,</li>
 <p>
-</ul>
-</p>
-<pre><code class="language-">RISK CAPACITY vs. RISK TOLERANCE
-<p>
-===================================
+</ul>  your work
 </p>
 <p>
-HIGH Risk Tolerance    LOW Risk Tolerance
-------------------     ------------------
-HIGH Risk          |  IDEAL MATCH           EDUCATION NEEDED
-Capacity           |  Take appropriate      Capacity allows risk
-|  risk, sleep well      but emotions resist.
-|                        May need gradual
-|                        exposure to volatility.
-|
--------------------+--------------------------------------------------
-|
-LOW Risk           |  DANGER ZONE           IDEAL MATCH
-Capacity           |  Wants to take risk    Take conservative
-|  but cannot afford     approach, comfortable
-|  to lose. May need     with lower returns.
-|  reality check.        Appropriate positioning.
-</code></pre>
+The mismatch quadrant is the dangerous one:
+</p>
+<table><thead><tr><th>High capacity</th><th>Low capacity</th></tr></thead><tbody><tr><td><strong>High tolerance</strong></td><td><em>Match.</em> Take appropriate risk, sleep fine.</td><td><strong>Danger zone.</strong> "I can handle volatility" + portfolio funds your rent = one bad year wipes you out.</td></tr><tr><td><strong>Low tolerance</strong></td><td>Education problem — you have the time horizon, but emotion drives you out at the bottom.</td><td><em>Match.</em> Conservative positioning is the right answer.</td></tr></tbody></table>
+<p>
+The two failure modes:
+</p>
+<ul><li><strong>High tolerance, low capacity.</strong> The 67-year-old retiree who</li>
+<p>
+</ul>  watched 2009–2024 melt up and decided he <em>believes in stocks</em>. He
+is now 100% equities, two years into a drawdown, drawing 4% a year
+to live on. The 30% drawdown forces him to sell shares at the
+bottom to fund living expenses; those shares never recover for him.
+Three more bad years and the portfolio is permanently impaired.
+This is <em>the</em> most common way retired retail investors blow up —
+treating their tolerance as if it were also their capacity.
+</p>
+<ul><li><strong>Low tolerance, high capacity.</strong> The 28-year-old engineer with a</li>
+<p>
+</ul>  20-year horizon and a healthy salary who keeps her savings in a
+high-yield savings account because "I don't trust the market." She
+has the capacity to ride a 50% drawdown — the income is coming in
+every two weeks regardless. What she lacks is the <em>experience</em> that
+lets her sit through one. The fix is not "be braver." The fix is
+graduated exposure: small allocation, watch a drawdown, see it
+recover, increase, repeat. Build the tolerance over time.
 </p>
 <p>
-<strong>The mismatch problem:</strong> The most dangerous situation is high risk tolerance with low risk capacity. This is the retiree who lives on their portfolio but wants to be 100% in stocks because they "believe in the market." A single bad year can be catastrophic. Conversely, a 25-year-old with a stable job and a 40-year horizon who is afraid of any stock market exposure has the capacity for risk but not the tolerance -- they need education and gradual exposure.
+The single most useful question to ask yourself before sizing a
+position: **"If this position dropped 50% next month, would I be a
+forced seller?"** If the honest answer is yes, the position is too
+large. Cut it until the answer is no, regardless of what your
+"tolerance" tells you.
 </p>
+<blockquote><em>"The market can stay irrational longer than you can stay solvent."</em> — John Maynard Keynes (attributed)</blockquote>
 <hr>
-<h3>c) Common Misconceptions</h3>
+<h3>3. Common Misconceptions</h3>
 <p>
-<strong>Misconception 1: "Higher risk always means higher returns."</strong>
+<strong>Misconception 1: "Higher risk always means higher return."</strong>
 </p>
 <p>
-Reality: Higher risk means higher EXPECTED returns over long periods, but risk can also mean permanent loss of capital. A single biotech stock might be extremely risky but return nothing if its drug trial fails. The risk premium only applies to well-diversified portfolios bearing systematic risk. Concentrated bets in individual stocks or speculative assets carry enormous risk with no guarantee of commensurate return.
+Higher risk means higher <em>expected</em> return *for the asset class as a
+whole*, on long horizons. It does not mean higher return for any
+individual position. A single biotech stock is extremely risky and
+may return nothing if its trial fails. The risk premium applies to
+diversified bearers of <em>systematic</em> risk; concentrated positions in
+single names accept enormous <em>idiosyncratic</em> risk that the market
+does not pay you to bear. Risk and expected return scale together
+<em>at the asset-class level</em>, not at the single-position level.
 </p>
 <p>
 <strong>Misconception 2: "If I just hold long enough, stocks always go up."</strong>
 </p>
 <p>
-Reality: U.S. stocks have always recovered eventually, but "eventually" can mean 7-15 years. Japanese stocks peaked in 1989 and did not surpass that level until 2024 -- a 35-year wait. Survivors bias also plays a role: we study the U.S. because it was the most successful stock market of the 20th century. Not every country's market has delivered the same results. Past performance, even over very long periods, does not guarantee future results.
+US stocks have always recovered eventually, but "eventually" can mean
+seven to fifteen years. Japanese stocks peaked in 1989 and did not
+surpass that level until 2024 — a 35-year wait. There is also a
+<strong>survivorship bias</strong> problem: we study the US market because it
+became the most successful equity market of the 20th century. China,
+Russia, Argentina, Egypt all had thriving exchanges in 1900 and
+delivered −100% real returns over the subsequent century. "Stocks for
+the long run" is true on the <em>measured sample</em>. The sample is
+US-conditional.
 </p>
 <p>
-<strong>Misconception 3: "Standard deviation captures all risk."</strong>
+<strong>Misconception 3: "Standard deviation captures all the risk."</strong>
 </p>
 <p>
-Reality: Standard deviation assumes returns follow a normal (bell curve) distribution. In reality, extreme events -- crashes, panics -- happen far more often than a normal distribution predicts. The 2008 crash was a roughly 5-standard-deviation event, which should happen once every 14,000 years according to the bell curve. Markets have "fat tails," meaning extreme outcomes are more likely than standard models suggest.
+It captures <em>Gaussian</em> risk under the assumption that returns are
+normally distributed. They are not. Markets have <strong>fat tails</strong> —
+extreme moves happen far more often than the bell-curve model
+predicts. The 2008 crash was, by Gaussian arithmetic, a roughly 5σ
+event, which a normal distribution says should occur once every
+~14,000 years. It happened. So did 1987 (a 22σ event under the
+prevailing models). The standard deviation of the <em>body</em> of the
+distribution does not predict the size or frequency of the <em>tails</em>.
+This is why we will spend Week 47 on tail-risk hedging instead of
+trusting the bell curve to size positions.
 </p>
 <p>
 <strong>Misconception 4: "Bonds are safe."</strong>
 </p>
 <p>
-Reality: Bonds are less volatile than stocks, but they are not risk-free. Long-term bonds can lose 20-30% of their value when interest rates rise sharply (as they did in 2022). Bond investors also face inflation risk -- if inflation exceeds the bond yield, you lose purchasing power even while receiving positive nominal returns. And corporate bonds carry credit risk -- the issuer can default.
+Bonds are <em>less volatile</em> than stocks. They are not risk-free. Long
+bonds lost roughly 30% of their value in 2022 alone — that is a
+larger drawdown than the median equity bear market. Bond holders also
+face inflation risk (a 4% bond in a 6% real-inflation environment
+loses purchasing power even while paying a positive nominal yield)
+and credit risk (the issuer defaults). The 1982–2020 bond bull market
+trained an entire generation of investors and advisors to think of
+"bonds" and "safety" as synonyms. They are not, and the regime that
+made them feel synonymous has reversed.
 </p>
 <p>
-<strong>Misconception 5: "Low volatility means low risk."</strong>
+<strong>Misconception 5: "Low realised volatility means low risk."</strong>
 </p>
 <p>
-Reality: Some investments appear to have low volatility because they are not priced frequently (real estate, private equity) or because their risks are hidden. Bernie Madoff's fund showed incredibly low volatility and steady returns -- because it was a fraud. Some strategies show low volatility until they blow up spectacularly (see: Long-Term Capital Management, 1998). Volatility is one measure of risk, not the only one.
+Sometimes. Sometimes not. Bernie Madoff's fund showed implausibly
+low volatility and steady returns from 1992 onward — *because the
+returns were fabricated*. Long-Term Capital Management's strategy
+ran with extremely low realised volatility for years before blowing
+up over a single quarter in 1998 and requiring a Federal Reserve-
+coordinated bailout. <em>Realised</em> volatility is one observation
+window; <em>risk</em> is the full distribution of possible outcomes,
+including the ones that haven't happened yet. Low vol can be a
+trap — the calm before the regime break.
 </p>
 <p>
 <strong>Misconception 6: "Risk tolerance is a fixed personality trait."</strong>
 </p>
 <p>
-Reality: Risk tolerance is highly situational and changes over time. After a bull market, everyone feels risk-tolerant. After a crash, everyone feels risk-averse. Your true risk tolerance is revealed during periods of stress, not calm. The questionnaire you fill out at your brokerage when markets are hitting all-time highs bears little resemblance to how you actually feel when your portfolio drops 30%.
+It moves with experience, with portfolio size, and with life stage.
+A 25-year-old who has never seen a bear market often discovers, in
+their first one, that the tolerance they self-reported on their
+brokerage's questionnaire was theoretical. The same person ten years
+later, having watched two drawdowns recover, sleeps through a third
+without thinking about it. Tolerance is built, not declared.
+</p>
+<p>
+**Misconception 7: "Diversification means owning lots of different
+funds."**
+</p>
+<p>
+Diversification is about owning <em>uncorrelated exposures</em>. Owning ten
+US large-cap funds run by ten different managers gives you almost
+nothing — they all hold roughly the same names with the same betas
+and they all fall together. Owning a US equity fund, a long Treasury
+fund, gold, and a long-volatility hedge gives you <em>real</em>
+diversification because the assets respond differently to the same
+macro shocks. Number-of-funds is a vanity metric. Number-of-distinct-
+risk-factors is the real one.
 </p>
 <hr>
-<h3>d) Common Questions and Answers</h3>
+<h3>4. Q&A</h3>
 <p>
-<strong>Q1: What is the single best measure of risk?</strong>
+**Q1: If I can never get rid of systematic risk, why bother
+diversifying within equities?**
 </p>
 <p>
-A: There is no single best measure. Standard deviation captures the range of typical outcomes. Maximum drawdown captures the worst-case scenario. Beta captures sensitivity to market movements. Shortfall probability captures the odds of losing money over a given time frame. Use all of them. Each tells you something different. If forced to choose just one for a long-term investor, maximum drawdown is arguably the most practically relevant because it determines whether you will stay the course or bail out.
+A: To eliminate the <em>unsystematic</em> risk you are not paid to bear.
+Holding 500 names instead of 5 reduces idiosyncratic risk to nearly
+zero, leaving the systematic risk that the equity premium is
+compensation <em>for</em>. The five-stock portfolio has more <em>total</em> risk
+but the same expected return as the index — the extra risk is the
+free lunch you are eating in reverse.
 </p>
 <p>
-<strong>Q2: Is a standard deviation of 15% high or low?</strong>
+**Q2: Bitcoin's volatility is 70%+. Does the same risk-premium logic
+apply?**
 </p>
 <p>
-A: It depends on context. For a stock index fund, 15% is about average. For a bond fund, 15% would be extremely high. For a single stock, 15% would be unusually low. Always compare standard deviation within the same asset class or investment category. Also consider what you are getting for that volatility -- a fund with 15% standard deviation and 12% expected return is a much better deal than one with 15% standard deviation and 6% expected return.
+A: In principle yes — bitcoin's expected return must be high enough
+to clear at its volatility. In practice, bitcoin's expected return
+is <em>not knowable</em> from price history alone because the asset is too
+young and its monetary regime is still being negotiated. Standard
+risk-premium math uses 100 years of data to triangulate the equity
+premium; for bitcoin you have 15 years, of which the first 8 were
+near-zero adoption and the last 7 are the entire price history. Apply
+the framework, but don't pretend the standard error on the estimate
+is small.
 </p>
 <p>
-<strong>Q3: If stocks outperform bonds over long periods, why would anyone hold bonds?</strong>
+<strong>Q3: How do I estimate my own risk tolerance honestly?</strong>
 </p>
 <p>
-A: Several reasons. First, not everyone has a long time horizon -- if you need money in 2-5 years, stocks are too risky. Second, bonds provide stability and income, which helps you stay invested during stock market panics. Third, bonds historically have been negatively correlated with stocks during crises, meaning they rise when stocks fall, providing a hedge. Fourth, for retirees drawing down their portfolio, the sequence of returns matters -- a 30% drop early in retirement can be devastating even if markets eventually recover.
+A: Two steps, in order. First, take an honest <em>capacity</em> assessment:
+horizon, income stability, dependence of living expenses on the
+portfolio. Second, take a small allocation to a volatile asset and
+<em>see how you actually feel</em> during a drawdown. Self-reported risk
+tolerance from a brokerage questionnaire correlates poorly with
+behaviour in a real bear market. Tolerance is observed, not
+declared.
 </p>
 <p>
-<strong>Q4: What is the difference between volatility and risk?</strong>
+**Q4: Why is 60/40 the conventional portfolio if bonds aren't a
+reliable inflation hedge anymore?**
 </p>
 <p>
-A: Volatility is one type of risk -- the risk of price fluctuation. But there are other risks that volatility does not capture: inflation risk (purchasing power erosion), liquidity risk (inability to sell when you need to), credit risk (default by a borrower), concentration risk (too much in one position), longevity risk (outliving your money), and behavioral risk (your own emotional reactions undermining your strategy). A truly comprehensive risk assessment considers all of these, not just volatility.
+A: 60/40 was built around a specific 40-year window (1982–2020) in
+which (a) bonds yielded above inflation and (b) bonds rallied when
+stocks fell. Both broke in 2022, when stocks and bonds fell roughly
+20% together. The conventional 60/40 is a <em>legacy</em> allocation
+matching a legacy regime. Modern equivalents replace some or all of
+the bond sleeve with cash, gold, and long-volatility hedges (Week 47,
+Level 5).
 </p>
 <p>
-<strong>Q5: How much risk should I take?</strong>
+**Q5: What is the most useful single risk number for a retail
+investor?**
 </p>
 <p>
-A: This depends on your risk capacity (objective ability to bear losses) and risk tolerance (subjective comfort with uncertainty). A common rule of thumb is that you should be able to tolerate a 50% drawdown in the equity portion of your portfolio without panicking. If your portfolio is 60% stocks, that means a 30% total portfolio decline. If that thought makes you physically uncomfortable, you probably need less stock exposure. Time horizon is also critical -- the longer your horizon, the more risk you can afford because you have more time to recover from downturns.
+A: <strong>Maximum drawdown</strong> of the strategy you are running, sized to
+<em>your</em> portfolio. Multiply your portfolio value by 0.5 (a plausible
+once-per-decade equity drawdown), and ask whether the dollar amount
+that you would see in red on the screen would force you into bad
+decisions. If yes, you are over-allocated to risk. If no, you can
+proceed.
 </p>
 <p>
-<strong>Q6: Does diversification eliminate risk?</strong>
+**Q6: Why does the textbook keep using the standard deviation if it's
+not great?**
 </p>
 <p>
-A: Diversification eliminates unsystematic (company-specific) risk but not systematic (market-wide) risk. A portfolio of 500 stocks still dropped 50% in 2008 because the entire market fell. Diversification across asset classes (stocks, bonds, real estate, commodities) can reduce overall portfolio volatility, but it cannot eliminate it entirely. During severe crises, correlations between asset classes tend to increase -- everything falls together -- which is precisely when you most want diversification to work.
+A: Because it has nice mathematical properties (additive under linear
+combinations, easy to estimate from data, well-behaved in models),
+not because it captures the risk that matters. The standard deviation
+is a useful <em>summary</em> of the central body of the distribution. It is
+inadequate as a descriptor of the <em>tails</em>, which is exactly where the
+losses you remember actually live. The honest professional uses
+standard deviation <em>plus</em> drawdown <em>plus</em> tail-event analysis — never
+any one alone.
 </p>
 <p>
-<strong>Q7: Is volatility always bad?</strong>
+<strong>Q7: Is volatility a good or bad thing for an investor?</strong>
 </p>
 <p>
-A: No. Volatility creates opportunity. If stock prices never fluctuated, there would be no possibility of buying undervalued companies or earning risk premiums. Volatility is the price you pay for the opportunity to earn returns above the risk-free rate. For long-term investors who are net buyers of stocks (accumulating for retirement), volatility is actually beneficial because it allows you to buy more shares during dips through dollar-cost averaging.
+A: For a <em>buyer</em> who is dollar-cost averaging in over years, mild
+volatility is mildly good (you buy at a discount during dips). For a
+<em>holder</em> who is sitting on accumulated wealth, volatility is mostly
+the cost of doing business — not "bad" in expectation, but the
+emotional load you carry. For a <em>seller</em> in decumulation,
+volatility is genuinely costly because of sequence-of-returns risk.
+The same number means different things at different life stages.
 </p>
 <p>
-<strong>Q8: What is the Sharpe Ratio?</strong>
+<strong>Q8: What does "fat tails" actually mean for sizing my positions?</strong>
 </p>
 <p>
-A: The Sharpe Ratio measures risk-adjusted return -- how much excess return you earn per unit of risk. It is calculated as (Portfolio Return - Risk-Free Rate) / Standard Deviation. A Sharpe Ratio above 0.5 is decent, above 1.0 is very good, and above 1.5 is exceptional. It allows you to compare investments on an apples-to-apples basis: a fund returning 15% with 20% volatility (Sharpe 0.55) is less efficient than a fund returning 10% with 8% volatility (Sharpe 0.75), assuming a 4% risk-free rate.
+A: Whatever drawdown a normal-distribution model says is "extreme" —
+size as if a drawdown twice that depth is genuinely possible. The
+2008 GFC was a 5σ event under the prevailing risk models; planning
+to survive a 5σ event of the right magnitude (so, ~50% on US large
+cap rather than ~25% the model predicted) is what kept investors in
+the game. The shorthand: *plan for half-off, every decade, no
+warning.*
 </p>
 <p>
-<strong>Q9: Can I get high returns with low risk?</strong>
+**Q9: How does the SOUL.md "barbell" shape relate to standard
+deviation?**
 </p>
 <p>
-A: Generally, no -- that is the fundamental tradeoff. Any investment claiming high returns with low risk should be viewed with extreme skepticism. Such claims are usually associated with fraud (Ponzi schemes), hidden risks (strategies that work until they catastrophically fail), or illiquid investments whose risk is masked by infrequent pricing. There are ways to improve your risk-return efficiency through diversification and factor investing, but you cannot fundamentally escape the tradeoff.
+A: The barbell <em>exploits</em> the fat-tailed distribution. By holding
+high-conviction safety on one end (short-Treasuries, gold, cash) and
+asymmetric speculation with capped downside on the other (long calls,
+long-vol structures), the resulting portfolio has a <em>higher</em>
+arithmetic standard deviation than a passively-diversified core but
+a <em>better</em> drawdown profile and a <em>better</em> response to tail events.
+The standard deviation alone makes it look "riskier"; the drawdown
+distribution shows it actually isn't. This is a Week 14 / Level 5
+topic but the framing matters for how you read this lesson.
 </p>
 <p>
-<strong>Q10: How should I think about risk at different life stages?</strong>
+<strong>Q10: How does this lesson connect to the rest of the course?</strong>
 </p>
 <p>
-A: Generally, younger investors with stable income and long horizons can afford to take more risk (higher stock allocation) because they have decades to recover from downturns and benefit from the equity risk premium. As you approach retirement, you should gradually reduce risk because you have less time to recover and you begin drawing on the portfolio. In retirement, the primary risk shifts from market volatility to inflation and longevity -- outliving your money. The appropriate risk level is always a function of your specific circumstances, not a generic rule.
+A: Risk and return are the foundation under everything that follows.
+Week 4 (60/40) and Week 7 (rebalancing) are exercises in shaping the
+risk profile of a multi-asset portfolio. Week 13 onwards (long/short,
+pair trading) are about removing systematic risk and isolating
+specific bets. Weeks 25–30 (options) are the toolkit for <em>expressing</em>
+risk asymmetrically. Week 47 (tail risk) is the explicit treatment of
+the fat-tail problem this lesson opened. Every subsequent strategy
+will be evaluated on its risk profile — not just its return.
+</p>
+<p>
+The interactive demo on the website extends this lesson with a
+<strong>holding-period explorer</strong>: a slider lets you choose any rolling
+window from 1 to 30 years, and the chart shows the historical
+distribution of annualised real returns for that window — best,
+worst, median, and the odds of ending up below zero. The shape of
+the distribution at 1 year and 20 years is essentially the §2.7
+chart, but you can slide between them and watch the tails close.
 </p>
             </div>
             <div id="content-hk" class="lang-content">

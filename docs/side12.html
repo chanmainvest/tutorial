@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Side Lesson 12: ESG and Sustainable Investing - Chanma Investment Tutorial</title>
+    <title>Side Lesson 12: ESG Investing — Values, Alpha, or Marketing? - Chanma Investment Tutorial</title>
     <script>(function(){try{var t=localStorage.getItem('preferred-theme');if(!t){t=window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();</script>
     <style>
 :root, html[data-theme="light"] {
@@ -1247,288 +1247,444 @@ html[data-theme="dark"] .nav-btn:hover .btn-label { color: rgba(15,23,36,0.7); }
     <main class="main-wrap">
         <div class="content-area">
             <div id="content-en" class="lang-content active">
-                <h1>Side Lesson 12: ESG and Sustainable Investing</h1>
+                <h1>Side Lesson 12: ESG Investing — Values, Alpha, or Marketing?</h1>
 <hr>
-<h2>Reading Section</h2>
+<h3>1. Why This Is Important</h3>
 <p>
-Environmental, Social, and Governance (ESG) investing has grown from a niche approach into one of the most debated topics in the investment world. With trillions of dollars now flowing into funds marketed as sustainable, responsible, or ESG-focused, every investor needs to understand what ESG actually means, how it is measured, whether it affects returns, and how to separate genuine sustainable investing from marketing hype. This lesson provides a balanced, evidence-based look at the ESG landscape.
+ESG — environmental, social, governance — is the largest category of
+"branded" indexing to emerge since the index fund itself. Over fifty
+trillion dollars of global assets carry an ESG, sustainable, or
+responsible label by April 2026. Every prospectus you read now includes
+a sustainability paragraph. Every robo-adviser offers a "values"
+portfolio toggle. The question every honest investor has to answer is
+the same one SOUL #1 forces on any active product: *is this a real
+source of alpha, or am I paying twenty basis points for someone else's
+preferences dressed up as performance?*
+</p>
+<p>
+Four reasons this lesson deserves a side slot rather than a paragraph:
+</p>
+<li><strong>The ratings disagree.</strong> The same company will be rated "leader" by</li>
+<p>
+one ESG provider and "laggard" by another, on the same data, in the
+same week. Cross-provider correlations on identical companies run
+roughly 0.40-0.55 — barely better than a coin flip on the tails. If
+the input is noise, the output cannot be alpha.
+</p>
+<li><strong>The performance debate is mostly noise.</strong> ESG funds and their</li>
+<p>
+plain-vanilla siblings (<code>ESGV</code> vs <code>VTI</code>, <code>SUSL</code> vs <code>IVV</code>) track
+each other within 50-100 basis points per year, with the sign of
+the gap flipping by sector regime. 2022 energy rally hurts ESG;
+2020 and 2023 tech rallies help it. Net over eight years: roughly
+tied. There is no "ESG premium" and no "ESG penalty" — there is
+sector tilt noise.
+</p>
+<li><strong>The fees are real.</strong> A Vanguard total-market ETF charges 3 bps.</li>
+<code>ESGV</code> charges 9 bps. <code>SUSL</code> charges 10 bps. <code>DSI</code> charges 25 bps.
+<p>
+Active ESG mutual funds routinely charge 60-100 bps. The premium is
+small in absolute terms but it is <em>certain</em>, and it accrues every
+year. SOUL #1: the cost is the only part you can predict.
+</p>
+<li><strong>Your values still matter, and they are allowed to cost something.</strong></li>
+<p>
+Nothing in this lesson argues against ESG investing. The argument
+is <em>don't buy it as alpha</em>. Buy it because the externalities matter
+to you, and treat the ~15-25 bps of fee plus ~50 bps of tracking
+error as the dollar cost of expressing those values. That is a
+coherent, adult position. Pretending it pays for itself in returns
+is not.
+</p>
+<img src="image/side12_rating_disagreement.png" alt="Scatter of MSCI ESG score vs Sustainalytics ESG score for 30 large US companies. Correlation is roughly 0.45 — the two providers agree directionally but disagree sharply on individual names. AAPL, MSFT, JPM, XOM and TSLA are labelled to show the spread.">
+<hr>
+<h3>2. What You Need to Know</h3>
+<h4>2.1 What ESG Actually Measures (And Doesn't)</h4>
+<p>
+ESG is three independent pillars stapled into one acronym:
+</p>
+<ul><li><strong>Environmental.</strong> Carbon emissions (Scope 1, 2, 3), energy and water</li>
+<p>
+</ul>  intensity, waste, land use, climate-transition risk. The pillar with
+the most quantitative data and the most measurable disagreement.
+</p>
+<ul><li><strong>Social.</strong> Labour practices, supply-chain audits, diversity metrics,</li>
+<p>
+</ul>  community impact, product safety. Mostly qualitative, mostly
+self-reported.
+</p>
+<ul><li><strong>Governance.</strong> Board composition and independence, executive</li>
+<p>
+</ul>  compensation alignment, accounting transparency, audit quality,
+shareholder rights. The pillar with the strongest financial-materiality
+evidence — bad governance reliably destroys shareholder capital.
+</p>
+<p>
+The big providers — MSCI ESG, Sustainalytics (Morningstar), S&P Global,
+Bloomberg — each bake the three pillars into one composite score using
+their own weights, materiality maps, and company-disclosure adjustments.
+The recipes are proprietary, the inputs are partly self-reported, and
+the weightings change as methodology updates roll out. There is no
+GAAP for ESG.
+</p>
+<p>
+That does not mean it's worthless. Governance scores in particular
+show real cross-sectional power on default risk, restatement frequency,
+and fraud detection. But the <em>composite</em> ESG score is a black box
+weighted sum of three different signals from one of four different
+vendors, and expecting it to be a clean alpha signal is a category
+error.
+</p>
+<h4>2.2 The Ratings Disagreement Problem</h4>
+<p>
+This is the single most important fact in ESG and the one most often
+buried. Pairwise correlation of overall ESG scores across the four
+major providers ranges from 0.38 (S&P vs Sustainalytics) to 0.71 (MSCI
+vs Bloomberg) on the same companies in the same year. The widely-cited
+Berg-Kolbel-Rigobon (MIT, 2022) study put the average pairwise
+correlation at 0.54.
+</p>
+<p>
+Compare that to credit ratings. Moody's vs S&P on long-term issuer
+ratings correlate at roughly 0.99. Two analysts looking at the same
+balance sheet with the same default-rate history land in essentially
+the same place. ESG providers do not.
+</p>
+<p>
+Three sources of the divergence:
+</p>
+<ul><li><strong>Scope.</strong> Different vendors define different sets of issues as</li>
+<p>
+</ul>  "material." MSCI weights climate risk heavily for energy companies;
+S&P weights human capital more in tech. The same company is being
+scored against different rubrics.
+</p>
+<ul><li><strong>Measurement.</strong> Some vendors mainly use company self-disclosures;</li>
+<p>
+</ul>  others scrape news, regulatory filings, and NGO reports. The same
+carbon footprint comes out differently depending on whether you
+trust the company's number or build your own.
+</p>
+<ul><li><strong>Aggregation.</strong> The pillar weights and the within-pillar weightings</li>
+<p>
+</ul>  vary across providers. There is no consensus on how to weigh "Scope
+3 emissions" against "board diversity" against "data privacy."
+</p>
+<p>
+The practical implication: never make a portfolio decision off a single
+ESG score. If <code>XOM</code> is 4th-percentile at MSCI and 60th-percentile at
+S&P (this happens), what you actually have is <em>no opinion</em>.
+</p>
+<h4>2.3 The Common ESG ETF Menu</h4>
+<p>
+The retail ESG menu in April 2026 is dominated by three products plus
+a long tail of niche thematic funds:
+</p>
+<table><thead><tr><th>Ticker</th><th>Sponsor</th><th>Index</th><th>ER</th><th>AUM (Apr 2026)</th></tr></thead><tbody><tr><td><code>ESGV</code></td><td>Vanguard</td><td>FTSE US All-Cap Choice</td><td>0.09%</td><td>~$13 B</td></tr><tr><td><code>SUSL</code></td><td>iShares</td><td>MSCI USA Extended ESG Leaders</td><td>0.10%</td><td>~$8 B</td></tr><tr><td><code>DSI</code></td><td>iShares</td><td>MSCI KLD 400 Social</td><td>0.25%</td><td>~$5 B</td></tr><tr><td><code>EFIV</code></td><td>SPDR</td><td>S&P 500 ESG</td><td>0.10%</td><td>~$2 B</td></tr><tr><td><code>SUSA</code></td><td>iShares</td><td>MSCI USA ESG Select</td><td>0.25%</td><td>~$4 B</td></tr></tbody></table>
+<p>
+The exclusions are mostly the same across products: tobacco, civilian
+firearms, controversial weapons, thermal coal, and the worst-rated
+company in each industry. The <em>inclusion</em> methodologies vary more —
+</p>
+<code>DSI</code> is a curated 400-name list; <code>ESGV</code> excludes by category and
+<p>
+keeps about 1,400 names; <code>SUSL</code> is closer to optimised re-weighting of
+the parent index.
+</p>
+<p>
+Two patterns to notice. First, the fee premium over plain <code>VTI</code> (3 bps)
+is 6-22 bps for the systematic ESG ETFs and much more for active ESG
+mutual funds. Second, all of these products are <em>underweight</em> energy
+and <em>overweight</em> technology relative to the cap-weighted market —
+this is the structural sector tilt that drives most of the tracking
+error.
+</p>
+<h4>2.4 Performance — <code>ESGV</code> vs <code>VTI</code> Since Inception</h4>
+<code>ESGV</code> launched in September 2018, giving us roughly seven and a half
+<p>
+years of out-of-sample data through April 2026. That is enough to make
+some claims and not enough to make others.
+</p>
+<p>
+What we can say:
+</p>
+<ul><li>Annualised total returns are within 50 bps of each other. <code>VTI</code></li>
+<p>
+</ul>  ~12.4%/yr, <code>ESGV</code> ~12.0%/yr over the full window — a 40 bp gap that
+is approximately equal to the difference in fees plus the structural
+sector tilt drag.
+</p>
+<ul><li>The year-by-year sign flips on regime. 2020 (tech rally): <code>ESGV</code></li>
+<p>
+</ul>  ahead by ~150 bps. 2022 (energy rally, tech rout): <code>ESGV</code> behind by
+~250 bps. 2023 (tech rally): <code>ESGV</code> ahead by ~80 bps. 2024-25
+(broadening): roughly tied.
+</p>
+<ul><li>Tracking error vs <code>VTI</code> runs 50-80 bps annualised. Less than a</li>
+<p>
+</ul>  small-cap tilt, more than a sector-neutral tilt.
+</p>
+<p>
+What we cannot say:
+</p>
+<ul><li>Whether ESG screening <em>improved</em> risk-adjusted returns. The Sharpe</li>
+<p>
+</ul>  ratios are statistically indistinguishable on this sample.
+</p>
+<ul><li>Whether ESG will outperform over the next decade. The drivers are</li>
+<p>
+</ul>  sector composition and momentum-of-tech, not the ESG signal itself.
+</p>
+<img src="image/side12_esgv_vs_vti.png" alt="Wealth path of $1 invested in ESGV vs VTI from September 2018 to April 2026, both reinvesting dividends. The two lines run roughly parallel with mild divergence in 2020 (ESG up), 2022 (ESG down) and 2023 (ESG up). Terminal wealth ~$2.55 vs ~$2.62 — within fee + tracking-error noise.">
+<h4>2.5 Greenwashing and the Marketing Problem</h4>
+<p>
+Greenwashing is the practice of slapping ESG labels on products with
+minimal change to their actual investment process. Three flavours
+worth knowing:
+</p>
+<ul><li><strong>Repackaging.</strong> A fund company renames an existing global equity</li>
+<p>
+</ul>  fund "Sustainable Global Equity," adjusts a few percent of holdings,
+and raises the fee by 15-20 bps. The 2021-2022 SEC enforcement wave
+hit several large complexes for exactly this.
+</p>
+<ul><li><strong>Best-in-class washing.</strong> A fund holds the <em>least bad</em> company in</li>
+<p>
+</ul>  every sector. So "ESG energy fund" still holds <code>XOM</code> and <code>CVX</code>,
+because they have to hold <em>something</em> in the energy bucket. Your
+exposure to the externality you wanted to avoid is barely changed.
+</p>
+<ul><li><strong>Theme dilution.</strong> A "clean energy" fund whose top holdings are</li>
+<p>
+</ul>  utility companies with marginal renewables exposure. The label
+promises one thing; the holdings deliver another.
+</p>
+<p>
+The defence is mechanical: read the holdings list. If your
+"fossil-fuel-free" fund's top-25 includes any of <code>XOM</code>, <code>CVX</code>, <code>COP</code>,
+</p>
+<code>OXY</code>, <code>EOG</code>, you are not in a fossil-fuel-free fund. The brochure is
+<p>
+wrong; the holdings are right.
+</p>
+<h4>2.6 Engagement vs Divestment</h4>
+<p>
+Two coherent ESG philosophies, with different mechanics:
+</p>
+<ul><li><strong>Divestment.</strong> Sell the offending companies. Reduce your exposure</li>
+<p>
+</ul>  to zero. The argument is moral (no dollars to bad actors) and
+signalling (fewer buyers raises the cost of capital). The
+counter-argument is that for every seller there is a buyer, and the
+marginal buyer is typically less constrained than you were — so the
+stock ends up in hands that <em>don't</em> engage.
+</p>
+<ul><li><strong>Engagement.</strong> Hold the offending companies <em>and vote</em>. Submit</li>
+<p>
+</ul>  shareholder proposals, vote against bad boards, push for disclosure.
+The argument is leverage — Vanguard, BlackRock and State Street
+collectively control about 20% of the S&P 500 vote, and engaged
+voting changes corporate behaviour. The counter-argument is that
+the Big Three's actual voting record is conservative and the
+leverage often goes unused.
+</p>
+<p>
+Most retail ESG ETFs are pure divestment products. Engagement-driven
+strategies are concentrated in active managers (Engine No. 1 famously
+elected three directors to the <code>XOM</code> board in 2021) and in some
+pension funds. Neither approach has demonstrated clean alpha; both
+have a coherent theory of impact.
+</p>
+<h4>2.7 Where ESG Sits in the Four-Tranche Frame</h4>
+<p>
+If ESG matters to you, where does it fit in the SOUL #13 four-tranche
+portfolio?
+</p>
+<ul><li><strong>Growth tranche</strong> — substitute <code>ESGV</code> for <code>VTI</code>, accept ~40 bp</li>
+<p>
+</ul>  drag, done. This is where ESG ETFs are most useful: passive, broad,
+low fee, transparent exclusions.
+</p>
+<ul><li><strong>Income tranche</strong> — substitute <code>SUSC</code> (sustainable corporate bonds)</li>
+<p>
+</ul>  for <code>LQD</code>, or <code>EFAX</code> for ex-tobacco international. Effects are
+smaller still.
+</p>
+<ul><li><strong>Stores of value</strong> — gold and Treasuries are not ESG-screenable.</li>
+<p>
+</ul>  Gold mining companies <em>are</em> (<code>SBSW</code>, <code>NEM</code>) but mining is rarely a
+long-only ESG fit. Skip the screen here.
+</p>
+<ul><li><strong>Opportunistic</strong> — most of the alpha sources in SOUL #5 (vol</li>
+<p>
+</ul>  harvesting, factor tilts, options yield) are not naturally ESG
+products. If you run an active sleeve, treat it as orthogonal to
+the ESG question.
+</p>
+<p>
+Don't ESG every dollar. The screen has its strongest case in the
+broadest, most liquid, lowest-fee parts of the portfolio — and its
+weakest case in the alpha tranches where you are paying for skill,
+not exclusion.
 </p>
 <hr>
-<h3>a) Why This Is Important</h3>
+<h3>3. Common Misconceptions</h3>
+<li><strong>"ESG funds outperform because well-run companies do better."</strong></li>
 <p>
-<strong>ESG is now mainstream.</strong> Global ESG assets have grown from approximately $22 trillion in 2016 to over $35 trillion by the mid-2020s. According to various estimates, ESG-related assets could reach $50 trillion by 2030. Whether you actively seek ESG investments or not, you are likely already exposed to ESG considerations through your existing funds. Understanding what drives this movement helps you make informed decisions.
+The evidence does not support this. The eight-year <code>ESGV</code> vs <code>VTI</code>
+record is within fee-plus-noise. Whatever modest "good companies do
+better" effect exists is offset by the higher fee and the
+structural sector tilt.
 </p>
+<li><strong>"All ESG ratings basically agree."</strong> They emphatically do not.</li>
 <p>
-<strong>The debate is polarized and confusing.</strong> ESG investing has become politically charged. Some view it as essential for addressing climate change and social inequality. Others see it as ideological interference in markets. The truth is more nuanced than either extreme, and investors need facts rather than slogans to make good decisions.
+Average pairwise correlation across the four major providers is
+~0.54, vs ~0.99 for credit ratings. Same company, same year,
+sharply different scores.
 </p>
+<li><strong>"ESG is a free lunch — values plus returns."</strong> It is a *small,</li>
 <p>
-<strong>Greenwashing is a real risk.</strong> As ESG has become marketable, some fund companies have slapped ESG labels on products with minimal changes to their actual investment approach. Understanding what genuine ESG integration looks like helps you avoid paying premium fees for ordinary funds dressed in green clothing.
+measurable cost* (~15-25 bps fees plus ~50 bps tracking error) for
+the ability to align holdings with stated values. Treat it as such.
 </p>
+<li><strong>"Divesting from energy hurts the bad actors."</strong> Marginally. The</li>
 <p>
-<strong>Materiality matters for returns.</strong> Research has shown that some ESG factors -- particularly governance quality and environmental risk management -- are financially material, meaning they affect a company's bottom line and stock performance. Understanding which ESG factors are financially relevant helps you distinguish between ESG as a values-based choice and ESG as a risk management tool.
+shares re-clear at a slightly lower price to a less constrained
+buyer. Capital cost effects are real but small. The dominant
+effect is on <em>your</em> portfolio, not on <code>XOM</code>.
 </p>
+<li><strong>"ESG ETFs are fossil-fuel-free."</strong> Most are not. They are</li>
 <p>
-<strong>Your values and your portfolio do not have to conflict.</strong> Many investors want their money to align with their values but worry about sacrificing returns. Understanding the evidence on ESG and performance allows you to make an informed trade-off -- or discover that the trade-off may be smaller than you feared.
+"best-in-class" or "exclude thermal coal," which still leaves
+significant fossil-fuel exposure. Read the holdings list.
 </p>
-<hr>
-<h3>b) What You Need to Know</h3>
-<h4>What Does ESG Stand For?</h4>
+<li><strong>"My ESG fund's high fee is paying for engagement."</strong> Usually</li>
 <p>
-ESG evaluates companies on three broad categories of non-financial factors:
+not. Most large ESG ETFs (<code>ESGV</code>, <code>SUSL</code>, <code>DSI</code>) are passive index
+trackers that vote with management on most resolutions. You are
+paying for index licensing, not activism.
 </p>
+<li><strong>"Active ESG managers can find the sustainable winners."</strong> SPIVA</li>
 <p>
-<strong>Environmental (E):</strong>
+data on ESG-labelled active funds looks the same as SPIVA on
+non-ESG active funds: 60-85% trail their benchmark over 5+ years.
 </p>
-<ul><li>Carbon emissions and climate change exposure</li>
-<li>Energy efficiency and renewable energy use</li>
-<li>Water usage and pollution</li>
-<li>Waste management and recycling</li>
-<li>Biodiversity impact</li>
-<li>Environmental regulation compliance</li>
+<li>**"Avoiding fossil fuels is the only way to express climate</li>
 <p>
-</ul>
-<strong>Social (S):</strong>
+concerns."** Holding cap-weighted broad market plus engaging via
+vote, plus directly funding climate solutions outside the
+portfolio, is also coherent and arguably more impactful per dollar.
 </p>
-<ul><li>Employee treatment, wages, and working conditions</li>
-<li>Diversity, equity, and inclusion practices</li>
-<li>Supply chain labor standards</li>
-<li>Community relations and impact</li>
-<li>Customer privacy and data security</li>
-<li>Product safety and quality</li>
+<li>**"Sin-stock funds (<code>VICEX</code>, etc.) outperform because of the</li>
 <p>
-</ul>
-<strong>Governance (G):</strong>
+reverse-ESG premium."** The historical edge was small and is not
+showing up post-2018. Whatever excess existed has been arbitraged
+by the growth of ESG flows themselves.
 </p>
-<ul><li>Board composition and independence</li>
-<li>Executive compensation alignment with shareholder interests</li>
-<li>Accounting transparency and financial reporting quality</li>
-<li>Shareholder rights and voting structure</li>
-<li>Anti-corruption policies</li>
-<li>Business ethics and regulatory compliance</li>
+<li><strong>"My index fund does ESG screening for me."</strong> Plain <code>VTI</code>,</li>
+<code>VOO</code>, <code>SPY</code> do <em>no</em> ESG screening. They hold whatever is in the
 <p>
-</ul>
-These three pillars capture a wide range of considerations that go beyond traditional financial analysis. The idea is that companies managing these factors well are better positioned for long-term success, while companies that ignore them face risks that may not be visible in standard financial statements.
-</p>
-<h4>ESG Ratings Agencies</h4>
-<p>
-Several organizations rate companies on ESG criteria, but their approaches and conclusions often differ:
-</p>
-<p>
-<strong>MSCI ESG Ratings:</strong> The most widely used ESG rating system. Rates companies on a scale from AAA (leader) to CCC (laggard) based on exposure to industry-specific ESG risks and how well companies manage those risks. Over 8,500 companies are rated.
-</p>
-<p>
-<strong>Sustainalytics (owned by Morningstar):</strong> Measures ESG risk using an absolute scale. Lower scores mean lower risk. Focuses on unmanaged ESG risk -- the gap between a company's exposure to ESG issues and how well it manages them.
-</p>
-<p>
-<strong>S&P Global ESG Scores:</strong> Based on the Corporate Sustainability Assessment (CSA). Companies receive scores from 0-100 across various ESG criteria.
-</p>
-<p>
-<strong>ISS ESG (Institutional Shareholder Services):</strong> Focuses heavily on governance factors and proxy voting recommendations.
-</p>
-<p>
-<strong>A critical problem: low correlation between raters.</strong> Research has consistently shown that ESG ratings from different agencies are poorly correlated with each other. Two rating agencies might give the same company a top ESG rating and a below-average ESG rating, respectively. This happens because:
-</p>
-<ul><li>They weight the E, S, and G pillars differently.</li>
-<li>They measure different underlying metrics.</li>
-<li>They use different methodologies (some assess risk exposure, others assess management quality).</li>
-<li>They may have different views on what constitutes "good" ESG performance.</li>
-<p>
-</ul>
-This low correlation is fundamentally different from credit ratings, where agencies like Moody's, S&P, and Fitch show high correlation. It means that ESG ratings are more subjective and less reliable as a single measure of sustainability.
-</p>
-<p>
-For investors, the practical implication is clear: do not rely on a single ESG rating. Understand what the rating is actually measuring and whether it aligns with what you care about.
-</p>
-<h4>Approaches to ESG Investing</h4>
-<p>
-There are several distinct approaches to incorporating ESG into investment decisions:
-</p>
-<p>
-<strong>1. Negative Screening (Exclusion)</strong>
-The oldest and simplest approach. Exclude entire industries or companies that conflict with your values:
-</p>
-<ul><li>No tobacco companies</li>
-<li>No weapons manufacturers</li>
-<li>No fossil fuel producers</li>
-<li>No companies involved in gambling or alcohol</li>
-<p>
-</ul>
-Pros: Simple to implement. Clear values alignment.
-Cons: Reduces investment universe. May exclude well-managed companies in "sin" sectors. May miss that some excluded companies are transitioning to better practices.
-</p>
-<p>
-<strong>2. Positive Screening (Best-in-Class)</strong>
-Instead of excluding entire sectors, select the best ESG performers within each sector. A best-in-class fund might hold oil companies -- but only the ones with the strongest environmental practices and transition plans.
-</p>
-<p>
-Pros: Maintains sector diversification. Rewards corporate improvement.
-Cons: May still hold companies in controversial industries. The "best" oil company is still an oil company.
-</p>
-<p>
-<strong>3. ESG Integration</strong>
-Incorporates ESG factors into traditional financial analysis as additional data points -- not as moral judgments, but as risk factors. An analyst might downgrade a company because poor environmental practices create regulatory risk, or upgrade one because strong governance reduces the likelihood of fraud.
-</p>
-<p>
-Pros: Focused on financial materiality. Compatible with any investment style.
-Cons: May not satisfy investors seeking strong values alignment. Can be difficult to verify how deeply ESG is actually integrated.
-</p>
-<p>
-<strong>4. Impact Investing</strong>
-Targets investments that generate measurable positive social or environmental outcomes alongside financial returns. Examples include green bonds financing renewable energy projects, community development financial institutions, or funds investing in clean water technology.
-</p>
-<p>
-Pros: Direct, measurable impact. Strong values alignment.
-Cons: Often available only in private markets. May involve lower returns or higher fees. Measuring impact is challenging.
-</p>
-<p>
-<strong>5. Shareholder Engagement (Active Ownership)</strong>
-Uses ownership stakes to influence corporate behavior through proxy voting, shareholder resolutions, and direct dialogue with management. Rather than divesting from problematic companies, engaged investors use their power as owners to push for change from within.
-</p>
-<p>
-Pros: Can drive real corporate change. Maintains investment exposure.
-Cons: Requires scale and resources. Change is slow. Outcomes are uncertain.
-</p>
-<p>
-Most ESG funds and ETFs use some combination of these approaches. Understanding which approach a fund takes is essential for evaluating whether it matches your objectives.
-</p>
-<h4>Does ESG Hurt or Help Returns?</h4>
-<p>
-This is the central question, and the evidence is more nuanced than either ESG advocates or critics suggest:
-</p>
-<p>
-<strong>The academic evidence:</strong>
-</p>
-<ul><li><strong>Meta-analyses are generally positive.</strong> A landmark 2015 meta-study by Friede, Busch, and Bassen analyzed over 2,200 studies and found that roughly 90% showed a non-negative relationship between ESG and financial performance, with the majority showing a positive relationship. However, this does not mean ESG strategies consistently outperform -- it means they do not consistently underperform.</li>
-<li><strong>Governance factors have the strongest link to performance.</strong> Companies with strong governance -- independent boards, aligned executive compensation, transparent accounting -- tend to outperform. This is not controversial; good management has always been a sign of a good investment.</li>
-<li><strong>Environmental factors show mixed results.</strong> Companies managing environmental risks well may outperform in the long run, particularly as regulation increases. But in the short term, fossil fuel companies have sometimes outperformed, especially during energy price spikes.</li>
-<li><strong>Social factors are the hardest to link to performance.</strong> Employee satisfaction, diversity, and community engagement are important values, but their direct connection to stock returns is less clear and more dependent on industry context.</li>
-<p>
-</ul>
-<strong>Practical performance:</strong>
-</p>
-<ul><li>Over the 2015-2020 period, many ESG funds outperformed traditional benchmarks. This was partly because ESG funds were overweight in technology stocks (which tend to score well on ESG) and underweight in energy (which scores poorly). When tech stocks led the market, ESG looked great.</li>
-<li>In 2021-2022, when energy prices surged, ESG funds that excluded fossil fuels underperformed benchmarks. This highlighted that ESG performance is partly driven by sector bets, not necessarily by the ESG approach itself.</li>
-<li>Over very long periods, the difference between ESG and non-ESG fund performance is generally small -- often smaller than the difference in fees charged.</li>
-<p>
-</ul>
-<strong>The balanced conclusion:</strong> ESG investing neither clearly helps nor clearly hurts returns compared to conventional investing, after accounting for sector exposure and fees. The claim that ESG always outperforms is wrong. The claim that ESG always sacrifices returns is also wrong. What matters most is fees, diversification, and the specific implementation of the ESG strategy.
-</p>
-<h4>Greenwashing: When ESG Is Just Marketing</h4>
-<p>
-Greenwashing is the practice of making misleading claims about the environmental or social benefits of an investment product. As ESG has become commercially popular, greenwashing has become a significant problem:
-</p>
-<p>
-<strong>Common forms of greenwashing:</strong>
-</p>
-<ul><li><strong>Relabeling existing funds.</strong> A conventional fund adds "ESG" or "Sustainable" to its name with minimal changes to its holdings. The top holdings might be identical to a non-ESG fund.</li>
-<li><strong>Vague ESG criteria.</strong> A fund claims to "consider" ESG factors without specifying how or what impact this has on portfolio construction.</li>
-<li><strong>Cherry-picking metrics.</strong> Highlighting a company's environmental initiatives while ignoring its poor labor practices or governance issues.</li>
-<li><strong>Exclusion of only the most obvious offenders.</strong> A fund excludes tobacco and weapons but holds everything else, claiming to be "ESG-focused."</li>
-<li><strong>Misleading marketing materials.</strong> Using images of wind turbines and solar panels in marketing for a fund that has no meaningful clean energy exposure.</li>
-<p>
-</ul>
-<strong>How to identify genuine ESG funds:</strong>
-</p>
-<li><strong>Read the methodology.</strong> A genuine ESG fund will clearly explain its screening criteria, the ESG data sources it uses, and how ESG factors influence security selection.</li>
-<li><strong>Check the holdings.</strong> Look at the fund's top 10 and full holdings list. Do they actually differ meaningfully from a conventional index fund? If an "ESG fund" holds all the same stocks as the S&P 500, it may be greenwashing.</li>
-<li><strong>Compare to benchmarks.</strong> Some ESG indices (like the MSCI ESG Leaders Index) have specific inclusion criteria. Funds tracking these indices are more transparent than those with vague ESG claims.</li>
-<li><strong>Look at the expense ratio.</strong> Some funds charge a premium for the ESG label. If the fund is doing nothing meaningfully different from a low-cost index fund, the premium is not justified.</li>
-<li><strong>Check regulatory filings.</strong> In the EU, funds must classify under SFDR (Sustainable Finance Disclosure Regulation) categories -- Article 6, 8, or 9 -- with increasing levels of sustainability commitment. Article 9 funds have the strictest requirements.</li>
-<h4>The Materiality Concept</h4>
-<p>
-Not all ESG factors are equally relevant to all companies. Materiality refers to which ESG issues are most likely to affect a company's financial performance:
-</p>
-<ul><li><strong>For an oil company:</strong> Carbon emissions, environmental accidents, and regulatory risk are highly material. Employee diversity, while socially important, is less likely to affect the stock price.</li>
-<li><strong>For a tech company:</strong> Data privacy, cybersecurity, and employee retention are highly material. Carbon emissions are less critical (though not irrelevant).</li>
-<li><strong>For a bank:</strong> Governance, lending practices, and anti-money laundering compliance are highly material. Water usage is not.</li>
-<p>
-</ul>
-The Sustainability Accounting Standards Board (SASB) has developed materiality maps for 77 industries, identifying which ESG issues are financially relevant for each. Funds that focus on financially material ESG factors tend to show stronger performance connections than those applying the same ESG criteria uniformly across all sectors.
-</p>
-<p>
-This concept is important because it separates two distinct motivations for ESG investing:
-</p>
-<li><strong>Values-based:</strong> "I want my money to reflect my ethical beliefs, regardless of financial impact."</li>
-<li><strong>Financially material:</strong> "I believe ESG risk management makes companies better long-term investments."</li>
-<p>
-Both motivations are valid, but they lead to different investment approaches and expectations.
-</p>
-<h4>Major ESG Funds and ETFs</h4>
-<p>
-For investors who want ESG exposure, several well-established options exist:
-</p>
-<ul><li><strong>Vanguard ESG U.S. Stock ETF (ESGV):</strong> Excludes companies involved in adult entertainment, alcohol, tobacco, weapons, fossil fuels, gambling, and nuclear power. Also screens for certain UN Global Compact violations. Expense ratio: 0.09%.</li>
-<li><strong>iShares ESG Aware MSCI USA ETF (ESGU):</strong> Uses MSCI ESG ratings to overweight higher-rated companies and underweight lower-rated ones, while maintaining broad market exposure. Expense ratio: 0.15%.</li>
-<li><strong>iShares MSCI USA ESG Select ETF (SUSA):</strong> Selects companies with high ESG ratings from the MSCI USA Index. More concentrated approach. Expense ratio: 0.25%.</li>
-<li><strong>Parnassus Core Equity Fund (PRBLX):</strong> One of the oldest and largest actively managed ESG funds. Integrates ESG analysis with fundamental stock selection. Expense ratio: 0.82%.</li>
-<li><strong>SPDR S&P 500 ESG ETF (EFIV):</strong> Tracks an ESG-screened version of the S&P 500. Excludes tobacco, controversial weapons, and UN Global Compact violators, then selects the top 75% by ESG score. Expense ratio: 0.10%.</li>
-<p>
-</ul>
-When selecting an ESG fund, always check: what exactly does the fund exclude or include, and does that align with your specific values and financial goals?
+index. If you want screening, you have to ask for it explicitly.
 </p>
 <hr>
-<h3>c) Common Misconceptions</h3>
+<h3>4. Q&A Section</h3>
 <p>
-<strong>Misconception 1: "ESG investing means sacrificing returns."</strong>
-The evidence does not support this as a blanket statement. Meta-analyses of thousands of studies show that ESG integration is generally neutral to slightly positive for returns. Some ESG strategies have outperformed in some periods and underperformed in others, largely driven by sector exposures rather than the ESG approach itself. The key determinants of returns are still fees, diversification, and time horizon -- not whether the fund has an ESG label.
+<strong>Q: Should I use ESG ETFs or build my own screen?</strong>
+A: Use ETFs unless you have a very specific exclusion list that no ETF
+matches. The tax efficiency, low fee, and diversification of <code>ESGV</code>
+or <code>SUSL</code> are hard to replicate in a self-directed account. DIY
+screens also subject you to tax-lot turnover every time a company
+drops off your list.
 </p>
 <p>
-<strong>Misconception 2: "ESG ratings are objective and reliable."</strong>
-ESG ratings are highly subjective and vary dramatically between rating agencies. The same company can receive a top rating from one agency and a mediocre rating from another. This lack of standardization means investors should understand what specific methodology a rating uses rather than treating any single ESG score as gospel.
+<strong>Q: Will ESG investing hurt my retirement returns?</strong>
+A: On the eight-year <code>ESGV</code> vs <code>VTI</code> record, by ~40 bps a year,
+mostly fee plus sector tilt. Compounded over 30 years on $500k, that
+is ~$60-90k of forgone wealth — meaningful, not catastrophic. If the
+values matter to you, that is the price of the ticket.
 </p>
 <p>
-<strong>Misconception 3: "ESG means only investing in wind turbines and solar panels."</strong>
-ESG is much broader than environmental issues. It includes corporate governance, labor practices, data privacy, supply chain management, and many other factors. Most ESG funds hold a broad cross-section of the economy, including technology, healthcare, financial services, and consumer goods companies -- not just renewable energy firms.
+<strong>Q: Which ESG rating provider should I trust?</strong>
+A: None of them in isolation. If you must pick one, MSCI ESG is the
+most widely benchmarked and the most transparent on methodology
+updates. But the right answer is "look at scores from at least two
+providers and treat large disagreements as a signal that the rating
+itself is unreliable for that name."
 </p>
 <p>
-<strong>Misconception 4: "If I buy an ESG fund, I am making a direct positive impact on the world."</strong>
-Buying shares in the secondary market does not directly provide capital to the companies you buy. If you purchase shares of a solar company through an ETF, the solar company does not receive your money -- a previous shareholder does. Your impact as a shareholder comes through voting rights, shareholder engagement, and signaling demand for ESG products -- not through direct capital allocation. For direct impact, look at green bonds, community development investments, or impact investing in private markets.
+<strong>Q: Are ESG ETFs more tax-efficient than active ESG funds?</strong>
+A: Yes, by a lot. ETFs use the in-kind creation/redemption mechanism
+(see Side 03) and rarely distribute capital gains. Active ESG mutual
+funds distribute gains at typical mutual-fund rates. In a taxable
+account, the ETF wrapper is a 30-80 bp tax-drag advantage.
 </p>
 <p>
-<strong>Misconception 5: "ESG is just political correctness in investing."</strong>
-While ESG has become politically polarized, many ESG factors are simply good risk management. Evaluating a company's governance quality, regulatory compliance, environmental liabilities, and customer data protection are not political acts -- they are standard due diligence. The governance pillar, in particular, has long been recognized as a fundamental aspect of investment analysis, regardless of one's political views.
+<strong>Q: Does the SEC regulate ESG fund labelling?</strong>
+A: Increasingly. The SEC's Names Rule (1940 Act 35d-1) was extended
+in 2023 to require funds with "ESG", "sustainable" or similar in
+their name to invest at least 80% of assets in line with the implied
+policy. Enforcement actions have already hit several large complexes.
 </p>
 <p>
-<strong>Misconception 6: "All ESG funds are the same."</strong>
-ESG funds vary enormously in their approaches. Some exclude entire industries. Others use best-in-class selection. Some integrate ESG into financial analysis without excluding anything. The term "ESG fund" tells you almost nothing about what the fund actually does. Always read the methodology before investing.
+**Q: What about "greenwashing" risk in my retirement plan's default
+ESG fund?**
+A: Read the holdings. If the top-25 holdings of your "sustainable US
+equity" fund look essentially identical to the top-25 of <code>VTI</code>, you
+are paying ESG fees for closet indexing. Ask your plan administrator
+for a fee comparison.
 </p>
 <p>
-<strong>Misconception 7: "Companies with high ESG scores are automatically good investments."</strong>
-A high ESG score reflects how well a company manages ESG risks -- it does not address valuation, earnings growth, competitive position, or other fundamental investment factors. An overvalued company with a perfect ESG score is still a bad investment. ESG analysis should complement, not replace, traditional financial analysis.
-</p>
-<hr>
-<h3>d) Common Questions and Answers</h3>
-<p>
-<strong>Q: Should I invest in ESG funds?</strong>
-A: It depends on your priorities. If aligning your investments with your values is important to you and you find an ESG fund that matches your specific concerns at a reasonable cost, go ahead. If your primary goal is maximizing returns at the lowest cost, a standard low-cost index fund will serve you well -- and its ESG performance will not be dramatically different. The most important decision is between investing and not investing, not between ESG and non-ESG.
+<strong>Q: Do ESG-screened bond funds make sense?</strong>
+A: Less than equity ESG funds. Sovereign and Treasury bonds are not
+ESG-screenable in any meaningful way. Corporate bond ESG screens add
+cost for marginal exclusion benefit. If you want sustainability in
+fixed income, green bonds (<code>BGRN</code>) are a clearer instrument than
+broad ESG bond funds.
 </p>
 <p>
-<strong>Q: Do ESG funds cost more?</strong>
-A: They tend to charge slightly higher fees than equivalent non-ESG index funds, but the gap has narrowed considerably. The Vanguard ESG U.S. Stock ETF (ESGV) charges 0.09%, compared to 0.03% for Vanguard's Total Stock Market ETF (VTI). This 0.06% difference is modest. However, some actively managed ESG funds charge 0.50-1.00% or more, which may not be justified purely on ESG grounds.
+**Q: How does ESG interact with factor tilts (value, quality,
+momentum)?**
+A: Mostly as a sector tilt. Quality and ESG overlap meaningfully —
+both prefer profitable, well-governed firms. Value and ESG correlate
+weakly negative — value tilts toward cheap, often controversial
+sectors. Momentum and ESG are largely orthogonal. Combining ESG with
+factor tilts works but expect higher tracking error.
 </p>
 <p>
-<strong>Q: If I own a total stock market index fund, am I already exposed to ESG-friendly companies?</strong>
-A: Yes. A total stock market index fund holds every publicly traded company, including the highest-rated ESG performers. You also hold the lowest-rated ones. The difference with an ESG fund is the weighting -- ESG funds overweight companies with strong ESG profiles and underweight or exclude those with poor profiles. But a total market fund already gives you significant exposure to ESG leaders.
+**Q: Is "thematic" ESG (clean energy, water, gender) better than
+broad ESG?**
+A: Worse, on average. Thematic ESG funds (<code>ICLN</code>, <code>PHO</code>, <code>SHE</code>) carry
+much higher tracking error, much higher fees, and worse
+diversification. The 2020-2022 clean-energy boom-bust cycle is a
+textbook case: <code>ICLN</code> peaked February 2021, dropped 60%, and has not
+recovered. Broad ESG ETFs were almost unaffected.
 </p>
 <p>
-<strong>Q: How do I know if a fund is genuinely ESG or just greenwashing?</strong>
-A: Check the fund's prospectus for specific ESG criteria and methodology. Compare the fund's holdings to a standard index fund -- if they are nearly identical, the ESG label may be cosmetic. Look for third-party certifications or adherence to recognized ESG frameworks. Check whether the fund tracks a well-defined ESG index with transparent rules. Be skeptical of vague claims like "we consider ESG factors" without specific details.
+<strong>Q: If ESG ratings are unreliable, why do they move stock prices?</strong>
+A: Index inclusion does. When MSCI adds a stock to its ESG Leaders
+index, ESG ETFs like <code>SUSL</code> have to buy it, regardless of whether the
+rating itself is "right." This is the same passive-flow mechanism
+that drives any index reconstitution. The price effect is real; the
+rating that triggered it may still be noise.
 </p>
 <p>
-<strong>Q: Can I do ESG investing in my 401(k)?</strong>
-A: It depends on your plan's investment options. Some 401(k) plans include ESG-focused target-date funds or ESG index funds. If your plan does not offer ESG options, you could request them through your HR department. Alternatively, you can focus your ESG investing in your IRA or taxable account, where you have full control over fund selection, and use whatever options are best in your 401(k).
+<strong>Q: What's a reasonable summary position?</strong>
+A: If values matter to you, use a low-fee broad ESG ETF (<code>ESGV</code> or
+</p>
+<code>SUSL</code>) for your core US equity exposure. Accept the ~15-25 bps fee
+<p>
+premium and ~50 bps tracking error as the cost of expression. Do not
+expect alpha. Do not pay active fees for ESG. Read your holdings list
+twice a year. SOUL #1 still applies.
 </p>
 <p>
-<strong>Q: What about fossil fuel divestment? Does it work?</strong>
-A: The effectiveness of fossil fuel divestment is debated. From an investment perspective, divesting from fossil fuels has had mixed results -- it helped during periods of low oil prices but hurt during energy booms. From an impact perspective, selling your shares does not reduce a company's revenue or operations -- it simply transfers ownership to a different investor. The impact argument for divestment rests primarily on stigmatization and signaling, rather than direct financial pressure. Shareholder engagement (pushing for change from within) may be more effective at influencing corporate behavior.
-</p>
-<p>
-<strong>Q: What is the difference between ESG, SRI, and impact investing?</strong>
-A: These terms are related but distinct. <strong>ESG (Environmental, Social, Governance)</strong> integrating refers to considering these factors in investment analysis -- it can range from light integration to heavy screening. <strong>SRI (Socially Responsible Investing)</strong> is an older term that typically involves negative screening -- excluding "sin stocks" or industries that conflict with values. <strong>Impact investing</strong> specifically targets investments that generate measurable positive social or environmental outcomes, often in private markets. ESG is the broadest term and most commonly used today.
-</p>
-<p>
-<strong>Q: Will ESG regulations change how I invest?</strong>
-A: Regulatory trends are pushing toward more ESG disclosure by companies and stricter standards for funds marketing themselves as ESG. In the EU, the SFDR already classifies funds by their sustainability claims. In the U.S., the SEC has proposed enhanced climate disclosure rules and scrutinized funds making ESG claims. These regulations should benefit investors by reducing greenwashing and improving transparency, but they may also lead to some funds dropping the ESG label rather than meeting stricter requirements. For individual investors, the practical impact is better information to make informed choices.
+<strong>Q: What does Horace personally do?</strong>
+A: He doesn't ESG his core. He runs <code>VTI</code> plus the four-tranche
+sleeves. The values expression happens outside the portfolio — in
+direct charitable giving, in voting his proxies, and in choosing not
+to short companies he has ethical objections to. The portfolio is for
+maximising risk-adjusted return; the values are a separate ledger.
+Both ledgers matter; mixing them just makes both harder to read.
 </p>
             </div>
             <div id="content-hk" class="lang-content">

@@ -1,0 +1,723 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Greeks Lab - Interactive (Week 29)</title>
+<script src="https://cdn.plot.ly/plotly-2.35.2.min.js" charset="utf-8"></script>
+<style>
+html, body { margin: 0; padding: 0; background: var(--gl-bg); }
+:root {
+    --gl-bg: #fdfbf5;
+    --gl-text: #1a2332;
+    --gl-muted: #6b7280;
+    --gl-border: #d6d3c4;
+    --gl-card: #fdfbf5;
+    --gl-accent: #b8860b;
+    --gl-blue: #0d47a1;
+    --gl-red: #b71c1c;
+    --gl-green: #2e7d32;
+    --gl-purple: #6a1b9a;
+    --gl-orange: #e65100;
+}
+html[data-theme="dark"] .gl-root,
+.gl-root[data-theme="dark"] {
+    --gl-bg: #0f1724;
+    --gl-text: #e6e6e6;
+    --gl-muted: #9aa3b2;
+    --gl-border: #2a3441;
+    --gl-card: #0f1724;
+    --gl-blue: #5a8dee;
+    --gl-red: #ef5350;
+    --gl-green: #66bb6a;
+    --gl-purple: #ba68c8;
+    --gl-orange: #ffa726;
+}
+.gl-root {
+    font-family: 'Segoe UI', Helvetica, Arial, sans-serif;
+    background: var(--gl-bg);
+    color: var(--gl-text);
+    padding: 12px;
+    margin: 0;
+}
+.gl-pillbar-wrap {
+    margin-bottom: 12px;
+    padding: 10px 12px;
+    background: var(--gl-card);
+    border: 1px solid var(--gl-border);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+.gl-label {
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--gl-muted);
+}
+.gl-pillbar {
+    display: inline-flex;
+    border: 1px solid var(--gl-border);
+    border-radius: 999px;
+    overflow: hidden;
+    background: var(--gl-card);
+}
+.gl-pillbar button {
+    border: none;
+    background: transparent;
+    color: var(--gl-muted);
+    padding: 6px 14px;
+    font: inherit;
+    font-size: 0.85rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.15s, color 0.15s;
+}
+.gl-pillbar button:hover { color: var(--gl-text); }
+.gl-pillbar button.active {
+    background: var(--gl-accent);
+    color: #fff;
+}
+.gl-controls {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 12px;
+    margin-bottom: 14px;
+    padding: 12px;
+    background: var(--gl-card);
+    border: 1px solid var(--gl-border);
+    border-radius: 8px;
+}
+.gl-slider-wrap {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    font-size: 0.82rem;
+    color: var(--gl-muted);
+}
+.gl-slider-wrap .gl-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.gl-slider-wrap input[type="range"] {
+    flex: 1;
+    accent-color: var(--gl-accent);
+}
+.gl-slider-wrap .gl-val {
+    white-space: nowrap;
+    color: var(--gl-text);
+    font-weight: 700;
+    font-variant-numeric: tabular-nums;
+    min-width: 64px;
+    text-align: right;
+}
+.gl-slider-wrap .gl-name {
+    font-weight: 600;
+    color: var(--gl-text);
+}
+.gl-bigrow {
+    display: grid;
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    gap: 8px;
+    margin-bottom: 14px;
+}
+.gl-big {
+    background: var(--gl-card);
+    border: 1px solid var(--gl-border);
+    border-left: 4px solid var(--gl-accent);
+    border-radius: 8px;
+    padding: 10px 12px;
+}
+.gl-big.gl-b-d  { border-left-color: var(--gl-blue); }
+.gl-big.gl-b-g  { border-left-color: var(--gl-accent); }
+.gl-big.gl-b-th { border-left-color: var(--gl-red); }
+.gl-big.gl-b-v  { border-left-color: var(--gl-green); }
+.gl-big.gl-b-r  { border-left-color: var(--gl-purple); }
+.gl-big.gl-b-px { border-left-color: var(--gl-orange); }
+.gl-big .gl-big-name {
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--gl-muted);
+}
+.gl-big .gl-big-val {
+    font-size: 1.45rem;
+    font-weight: 800;
+    margin-top: 4px;
+    font-variant-numeric: tabular-nums;
+    color: var(--gl-text);
+}
+.gl-big .gl-big-detail {
+    font-size: 0.72rem;
+    color: var(--gl-muted);
+    margin-top: 2px;
+}
+.gl-chart {
+    width: 100%;
+    height: 380px;
+    background: var(--gl-card);
+    border-radius: 8px;
+    border: 1px solid var(--gl-border);
+}
+.gl-caption {
+    margin-top: 10px;
+    font-size: 0.78rem;
+    color: var(--gl-muted);
+    line-height: 1.45;
+}
+@media (max-width: 900px) {
+    .gl-controls { grid-template-columns: 1fr 1fr; }
+    .gl-bigrow   { grid-template-columns: 1fr 1fr 1fr; }
+}
+@media (max-width: 600px) {
+    .gl-controls { grid-template-columns: 1fr; }
+    .gl-bigrow   { grid-template-columns: 1fr 1fr; }
+    .gl-chart { height: 320px; }
+}
+</style>
+</head>
+<body>
+
+<div class="gl-root" id="gl-root">
+    <div class="gl-pillbar-wrap">
+        <span class="gl-label" id="gl-cp-label">Type</span>
+        <div class="gl-pillbar" id="gl-cp-pills" role="tablist">
+            <button type="button" data-cp="call" class="active">Call</button>
+            <button type="button" data-cp="put">Put</button>
+        </div>
+        <span class="gl-label" id="gl-show-label">Show</span>
+        <div class="gl-pillbar" id="gl-show-pills" role="tablist">
+            <button type="button" data-show="delta" class="active">Delta</button>
+            <button type="button" data-show="gamma">Gamma</button>
+            <button type="button" data-show="theta">Theta</button>
+            <button type="button" data-show="vega">Vega</button>
+            <button type="button" data-show="rho">Rho</button>
+            <button type="button" data-show="price">Premium</button>
+        </div>
+    </div>
+
+    <div class="gl-controls">
+        <div class="gl-slider-wrap">
+            <div class="gl-name" id="gl-name-S">Spot price ($)</div>
+            <div class="gl-row">
+                <input type="range" id="gl-S" min="40" max="200" step="0.5" value="100">
+                <span class="gl-val" id="gl-val-S">100.00</span>
+            </div>
+        </div>
+        <div class="gl-slider-wrap">
+            <div class="gl-name" id="gl-name-K">Strike ($)</div>
+            <div class="gl-row">
+                <input type="range" id="gl-K" min="40" max="200" step="0.5" value="100">
+                <span class="gl-val" id="gl-val-K">100.00</span>
+            </div>
+        </div>
+        <div class="gl-slider-wrap">
+            <div class="gl-name" id="gl-name-T">Days to expiration</div>
+            <div class="gl-row">
+                <input type="range" id="gl-T" min="1" max="365" step="1" value="30">
+                <span class="gl-val" id="gl-val-T">30</span>
+            </div>
+        </div>
+        <div class="gl-slider-wrap">
+            <div class="gl-name" id="gl-name-sig">Implied volatility (%)</div>
+            <div class="gl-row">
+                <input type="range" id="gl-sig" min="5" max="100" step="0.5" value="20">
+                <span class="gl-val" id="gl-val-sig">20.0%</span>
+            </div>
+        </div>
+        <div class="gl-slider-wrap">
+            <div class="gl-name" id="gl-name-r">Risk-free rate (%)</div>
+            <div class="gl-row">
+                <input type="range" id="gl-r" min="0" max="10" step="0.05" value="4">
+                <span class="gl-val" id="gl-val-r">4.00%</span>
+            </div>
+        </div>
+        <div class="gl-slider-wrap">
+            <div class="gl-name" id="gl-hint-name">Tip</div>
+            <div class="gl-row">
+                <span class="gl-val" id="gl-hint-val" style="text-align:left;color:var(--gl-muted);font-weight:500;font-size:0.78rem;line-height:1.35;min-width:0;">Drag a slider, then click any Greek pill to see how it changes shape.</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="gl-bigrow">
+        <div class="gl-big gl-b-px">
+            <div class="gl-big-name" id="gl-bn-px">Premium</div>
+            <div class="gl-big-val" id="gl-bv-px">—</div>
+            <div class="gl-big-detail" id="gl-bd-px">$ per share</div>
+        </div>
+        <div class="gl-big gl-b-d">
+            <div class="gl-big-name" id="gl-bn-d">Delta</div>
+            <div class="gl-big-val" id="gl-bv-d">—</div>
+            <div class="gl-big-detail" id="gl-bd-d">dP / dS</div>
+        </div>
+        <div class="gl-big gl-b-g">
+            <div class="gl-big-name" id="gl-bn-g">Gamma</div>
+            <div class="gl-big-val" id="gl-bv-g">—</div>
+            <div class="gl-big-detail" id="gl-bd-g">d^2P / dS^2</div>
+        </div>
+        <div class="gl-big gl-b-th">
+            <div class="gl-big-name" id="gl-bn-th">Theta / day</div>
+            <div class="gl-big-val" id="gl-bv-th">—</div>
+            <div class="gl-big-detail" id="gl-bd-th">dP / dt</div>
+        </div>
+        <div class="gl-big gl-b-v">
+            <div class="gl-big-name" id="gl-bn-v">Vega / 1 vol-pt</div>
+            <div class="gl-big-val" id="gl-bv-v">—</div>
+            <div class="gl-big-detail" id="gl-bd-v">dP / d(sigma)</div>
+        </div>
+        <div class="gl-big gl-b-r">
+            <div class="gl-big-name" id="gl-bn-r">Rho / 1%</div>
+            <div class="gl-big-val" id="gl-bv-r">—</div>
+            <div class="gl-big-detail" id="gl-bd-r">dP / dr</div>
+        </div>
+    </div>
+
+    <div id="gl-chart" class="gl-chart"></div>
+    <p class="gl-caption" id="gl-caption">
+        Closed-form Black-Scholes for a European call or put. The chart sweeps the selected Greek (or the premium itself) across spot prices from 0.5x to 1.5x of the current strike, holding DTE, vol, and rate fixed at the slider values. The orange marker shows the live point at the current spot.
+    </p>
+</div>
+
+<script>
+(function () {
+    // ---------------- I18N ----------------
+    var I18N = {
+        en: {
+            cp_label:  "Type",
+            show_label:"Show",
+            cp_call:   "Call",
+            cp_put:    "Put",
+            show_d:    "Delta",
+            show_g:    "Gamma",
+            show_t:    "Theta",
+            show_v:    "Vega",
+            show_r:    "Rho",
+            show_p:    "Premium",
+            name_S:    "Spot price ($)",
+            name_K:    "Strike ($)",
+            name_T:    "Days to expiration",
+            name_sig:  "Implied volatility (%)",
+            name_r:    "Risk-free rate (%)",
+            hint_name: "Tip",
+            hint_val:  "Drag a slider, then click any Greek pill to see how it changes shape.",
+            bn_px:     "Premium",
+            bn_d:      "Delta",
+            bn_g:      "Gamma",
+            bn_th:     "Theta / day",
+            bn_v:      "Vega / 1 vol-pt",
+            bn_r:      "Rho / 1%",
+            bd_px:     "$ per share",
+            bd_d:      "dP / dS",
+            bd_g:      "d^2P / dS^2",
+            bd_th:     "dP / dt",
+            bd_v:      "dP / d(sigma)",
+            bd_r:      "dP / dr",
+            x_title:   "Spot price ($)",
+            y_titles: { delta: "Delta", gamma: "Gamma", theta: "Theta / day ($)",
+                        vega: "Vega / vol-pt ($)", rho: "Rho / 1% ($)", price: "Premium ($)" },
+            chart_titles: { delta: "Delta vs spot", gamma: "Gamma vs spot",
+                            theta: "Theta vs spot (per calendar day)",
+                            vega: "Vega vs spot (per 1 vol-point)",
+                            rho: "Rho vs spot (per 1% rate)",
+                            price: "Premium vs spot" },
+            live:      "live",
+            caption:   "Closed-form Black-Scholes for a European call or put. The chart sweeps the selected Greek (or the premium itself) across spot prices from 0.5x to 1.5x of the current strike, holding DTE, vol, and rate fixed at the slider values. The orange marker shows the live point at the current spot.",
+        },
+        hk: {
+            cp_label:  "類型",
+            show_label:"顯示",
+            cp_call:   "認購",
+            cp_put:    "認沽",
+            show_d:    "Delta",
+            show_g:    "Gamma",
+            show_t:    "Theta",
+            show_v:    "Vega",
+            show_r:    "Rho",
+            show_p:    "權利金",
+            name_S:    "現價(美元)",
+            name_K:    "執行價(美元)",
+            name_T:    "距到期日(日)",
+            name_sig:  "隱含波幅(%)",
+            name_r:    "無風險利率(%)",
+            hint_name: "提示",
+            hint_val:  "拖動滑桿,再點一個 Greek 按鈕看曲線形狀。",
+            bn_px:     "權利金",
+            bn_d:      "Delta",
+            bn_g:      "Gamma",
+            bn_th:     "Theta / 日",
+            bn_v:      "Vega / 1 vol 點",
+            bn_r:      "Rho / 1%",
+            bd_px:     "每股美元",
+            bd_d:      "dP / dS",
+            bd_g:      "d^2P / dS^2",
+            bd_th:     "dP / dt",
+            bd_v:      "dP / d(sigma)",
+            bd_r:      "dP / dr",
+            x_title:   "現價(美元)",
+            y_titles: { delta: "Delta", gamma: "Gamma", theta: "每日 Theta(美元)",
+                        vega: "每 vol 點 Vega(美元)", rho: "每 1% Rho(美元)", price: "權利金(美元)" },
+            chart_titles: { delta: "Delta 對現價", gamma: "Gamma 對現價",
+                            theta: "Theta 對現價(每曆日)",
+                            vega: "Vega 對現價(每 1 vol 點)",
+                            rho: "Rho 對現價(每 1% 利率)",
+                            price: "權利金對現價" },
+            live:      "現值",
+            caption:   "Black-Scholes 封閉解。圖表掃描所選 Greek(或權利金)在執行價 0.5 至 1.5 倍範圍的現價,DTE、波幅、利率以滑桿值固定。橙色標記為當前現價對應點。",
+        },
+        tw: {
+            cp_label:  "類型",
+            show_label:"顯示",
+            cp_call:   "買權",
+            cp_put:    "賣權",
+            show_d:    "Delta",
+            show_g:    "Gamma",
+            show_t:    "Theta",
+            show_v:    "Vega",
+            show_r:    "Rho",
+            show_p:    "權利金",
+            name_S:    "現價(美元)",
+            name_K:    "履約價(美元)",
+            name_T:    "距到期日(日)",
+            name_sig:  "隱含波動率(%)",
+            name_r:    "無風險利率(%)",
+            hint_name: "提示",
+            hint_val:  "拖動滑桿,再點一個 Greek 按鈕看曲線形狀。",
+            bn_px:     "權利金",
+            bn_d:      "Delta",
+            bn_g:      "Gamma",
+            bn_th:     "Theta / 日",
+            bn_v:      "Vega / 1 vol 點",
+            bn_r:      "Rho / 1%",
+            bd_px:     "每股美元",
+            bd_d:      "dP / dS",
+            bd_g:      "d^2P / dS^2",
+            bd_th:     "dP / dt",
+            bd_v:      "dP / d(sigma)",
+            bd_r:      "dP / dr",
+            x_title:   "現價(美元)",
+            y_titles: { delta: "Delta", gamma: "Gamma", theta: "每日 Theta(美元)",
+                        vega: "每 vol 點 Vega(美元)", rho: "每 1% Rho(美元)", price: "權利金(美元)" },
+            chart_titles: { delta: "Delta 對現價", gamma: "Gamma 對現價",
+                            theta: "Theta 對現價(每日曆日)",
+                            vega: "Vega 對現價(每 1 vol 點)",
+                            rho: "Rho 對現價(每 1% 利率)",
+                            price: "權利金對現價" },
+            live:      "現值",
+            caption:   "Black-Scholes 封閉解。圖表在履約價 0.5 至 1.5 倍區間掃描所選 Greek(或權利金),DTE、波動率、利率取滑桿值。橙色標記為當前現價對應點。",
+        },
+        cn: {
+            cp_label:  "类型",
+            show_label:"显示",
+            cp_call:   "看涨",
+            cp_put:    "看跌",
+            show_d:    "Delta",
+            show_g:    "Gamma",
+            show_t:    "Theta",
+            show_v:    "Vega",
+            show_r:    "Rho",
+            show_p:    "权利金",
+            name_S:    "现价(美元)",
+            name_K:    "行权价(美元)",
+            name_T:    "距到期日(日)",
+            name_sig:  "隐含波动率(%)",
+            name_r:    "无风险利率(%)",
+            hint_name: "提示",
+            hint_val:  "拖动滑杆,再点击一个 Greek 按钮看曲线形状。",
+            bn_px:     "权利金",
+            bn_d:      "Delta",
+            bn_g:      "Gamma",
+            bn_th:     "Theta / 日",
+            bn_v:      "Vega / 1 vol 点",
+            bn_r:      "Rho / 1%",
+            bd_px:     "每股美元",
+            bd_d:      "dP / dS",
+            bd_g:      "d^2P / dS^2",
+            bd_th:     "dP / dt",
+            bd_v:      "dP / d(sigma)",
+            bd_r:      "dP / dr",
+            x_title:   "现价(美元)",
+            y_titles: { delta: "Delta", gamma: "Gamma", theta: "每日 Theta(美元)",
+                        vega: "每 vol 点 Vega(美元)", rho: "每 1% Rho(美元)", price: "权利金(美元)" },
+            chart_titles: { delta: "Delta 对现价", gamma: "Gamma 对现价",
+                            theta: "Theta 对现价(每日历日)",
+                            vega: "Vega 对现价(每 1 vol 点)",
+                            rho: "Rho 对现价(每 1% 利率)",
+                            price: "权利金对现价" },
+            live:      "现值",
+            caption:   "Black-Scholes 闭式解。图表在行权价 0.5 至 1.5 倍区间扫描所选 Greek(或权利金),DTE、波动率、利率取滑杆值。橙色标记为当前现价对应点。",
+        },
+    };
+    function currentLang() {
+        var p = new URLSearchParams(window.location.search);
+        var l = (p.get("lang") || "en").toLowerCase();
+        return I18N.hasOwnProperty(l) ? l : "en";
+    }
+    var T = I18N[currentLang()];
+
+    // ---------------- Black-Scholes ----------------
+    function erf(x) {
+        // Abramowitz-Stegun approximation, |err| < 1.5e-7.
+        var sign = x < 0 ? -1 : 1;
+        x = Math.abs(x);
+        var a1 = 0.254829592, a2 = -0.284496736, a3 = 1.421413741;
+        var a4 = -1.453152027, a5 = 1.061405429, p = 0.3275911;
+        var t = 1.0 / (1.0 + p * x);
+        var y = 1.0 - (((((a5 * t + a4) * t) + a3) * t + a2) * t + a1) * t
+                     * Math.exp(-x * x);
+        return sign * y;
+    }
+    function Phi(x) { return 0.5 * (1.0 + erf(x / Math.SQRT2)); }
+    function phi(x) { return Math.exp(-0.5 * x * x) / Math.sqrt(2 * Math.PI); }
+
+    function greeks(S, K, dteDays, sigPct, rPct, kind) {
+        var Tt = Math.max(dteDays, 0.5) / 365.0;
+        var sig = sigPct / 100.0;
+        var r = rPct / 100.0;
+        var sqrtT = Math.sqrt(Tt);
+        var d1 = (Math.log(S / K) + (r + 0.5 * sig * sig) * Tt) / (sig * sqrtT);
+        var d2 = d1 - sig * sqrtT;
+        var pdf1 = phi(d1);
+        var disc = Math.exp(-r * Tt);
+        var price, delta, theta_year, rho;
+        if (kind === "call") {
+            price = S * Phi(d1) - K * disc * Phi(d2);
+            delta = Phi(d1);
+            theta_year = -S * pdf1 * sig / (2.0 * sqrtT) - r * K * disc * Phi(d2);
+            rho = K * Tt * disc * Phi(d2) / 100.0;
+        } else {
+            price = K * disc * Phi(-d2) - S * Phi(-d1);
+            delta = Phi(d1) - 1.0;
+            theta_year = -S * pdf1 * sig / (2.0 * sqrtT) + r * K * disc * Phi(-d2);
+            rho = -K * Tt * disc * Phi(-d2) / 100.0;
+        }
+        var gamma = pdf1 / (S * sig * sqrtT);
+        var vega = S * pdf1 * sqrtT / 100.0;
+        var theta = theta_year / 365.0;
+        return { price: price, delta: delta, gamma: gamma,
+                 theta: theta, vega: vega, rho: rho };
+    }
+
+    // ---------------- DOM ----------------
+    var ROOT = document.getElementById("gl-root");
+    var CHART = document.getElementById("gl-chart");
+    var CP_PILLS = document.getElementById("gl-cp-pills");
+    var SHOW_PILLS = document.getElementById("gl-show-pills");
+    var S_EL = document.getElementById("gl-S");
+    var K_EL = document.getElementById("gl-K");
+    var T_EL = document.getElementById("gl-T");
+    var SIG_EL = document.getElementById("gl-sig");
+    var R_EL = document.getElementById("gl-r");
+
+    var kind = "call";
+    var showWhich = "delta";
+
+    function getCssVar(name) {
+        return getComputedStyle(ROOT).getPropertyValue(name).trim();
+    }
+    function darkMode() {
+        return document.documentElement.getAttribute("data-theme") === "dark";
+    }
+    function fmt(n, d) {
+        if (!isFinite(n)) return "—";
+        return n.toLocaleString(undefined, {
+            minimumFractionDigits: d, maximumFractionDigits: d,
+        });
+    }
+    function colorFor(which) {
+        return {
+            delta: getCssVar("--gl-blue"),
+            gamma: getCssVar("--gl-accent"),
+            theta: getCssVar("--gl-red"),
+            vega:  getCssVar("--gl-green"),
+            rho:   getCssVar("--gl-purple"),
+            price: getCssVar("--gl-orange"),
+        }[which];
+    }
+    function applyI18n() {
+        document.getElementById("gl-cp-label").textContent = T.cp_label;
+        document.getElementById("gl-show-label").textContent = T.show_label;
+        var btnsCP = CP_PILLS.querySelectorAll("button");
+        btnsCP[0].textContent = T.cp_call;
+        btnsCP[1].textContent = T.cp_put;
+        var labelsShow = [T.show_d, T.show_g, T.show_t, T.show_v, T.show_r, T.show_p];
+        SHOW_PILLS.querySelectorAll("button").forEach(function(b, i) {
+            b.textContent = labelsShow[i];
+        });
+        document.getElementById("gl-name-S").textContent = T.name_S;
+        document.getElementById("gl-name-K").textContent = T.name_K;
+        document.getElementById("gl-name-T").textContent = T.name_T;
+        document.getElementById("gl-name-sig").textContent = T.name_sig;
+        document.getElementById("gl-name-r").textContent = T.name_r;
+        document.getElementById("gl-hint-name").textContent = T.hint_name;
+        document.getElementById("gl-hint-val").textContent = T.hint_val;
+        document.getElementById("gl-bn-px").textContent = T.bn_px;
+        document.getElementById("gl-bn-d").textContent  = T.bn_d;
+        document.getElementById("gl-bn-g").textContent  = T.bn_g;
+        document.getElementById("gl-bn-th").textContent = T.bn_th;
+        document.getElementById("gl-bn-v").textContent  = T.bn_v;
+        document.getElementById("gl-bn-r").textContent  = T.bn_r;
+        document.getElementById("gl-bd-px").textContent = T.bd_px;
+        document.getElementById("gl-bd-d").textContent  = T.bd_d;
+        document.getElementById("gl-bd-g").textContent  = T.bd_g;
+        document.getElementById("gl-bd-th").textContent = T.bd_th;
+        document.getElementById("gl-bd-v").textContent  = T.bd_v;
+        document.getElementById("gl-bd-r").textContent  = T.bd_r;
+        document.getElementById("gl-caption").textContent = T.caption;
+    }
+
+    function readSliders() {
+        return {
+            S:   parseFloat(S_EL.value),
+            K:   parseFloat(K_EL.value),
+            dte: parseFloat(T_EL.value),
+            sig: parseFloat(SIG_EL.value),
+            r:   parseFloat(R_EL.value),
+        };
+    }
+    function updateLabels(s) {
+        document.getElementById("gl-val-S").textContent = fmt(s.S, 2);
+        document.getElementById("gl-val-K").textContent = fmt(s.K, 2);
+        document.getElementById("gl-val-T").textContent = String(Math.round(s.dte));
+        document.getElementById("gl-val-sig").textContent = s.sig.toFixed(1) + "%";
+        document.getElementById("gl-val-r").textContent = s.r.toFixed(2) + "%";
+    }
+
+    function render() {
+        var s = readSliders();
+        updateLabels(s);
+        var live = greeks(s.S, s.K, s.dte, s.sig, s.r, kind);
+
+        document.getElementById("gl-bv-px").textContent = "$" + fmt(live.price, 3);
+        document.getElementById("gl-bv-d").textContent  = fmt(live.delta, 4);
+        document.getElementById("gl-bv-g").textContent  = fmt(live.gamma, 5);
+        document.getElementById("gl-bv-th").textContent = "$" + fmt(live.theta, 4);
+        document.getElementById("gl-bv-v").textContent  = "$" + fmt(live.vega, 4);
+        document.getElementById("gl-bv-r").textContent  = "$" + fmt(live.rho, 4);
+
+        // Sweep spot from 0.5K..1.5K.
+        var lo = Math.max(1.0, s.K * 0.5);
+        var hi = s.K * 1.5;
+        var N = 161;
+        var xs = new Array(N), ys = new Array(N);
+        for (var i = 0; i < N; i++) {
+            var Si = lo + (hi - lo) * i / (N - 1);
+            xs[i] = Si;
+            ys[i] = greeks(Si, s.K, s.dte, s.sig, s.r, kind)[showWhich];
+        }
+        var liveY = live[showWhich];
+
+        var col = colorFor(showWhich);
+        var colorText = getCssVar("--gl-text");
+        var colorMuted = getCssVar("--gl-muted");
+        var colorAcc = getCssVar("--gl-orange");
+        var colorBg = getCssVar("--gl-card");
+        var colorGrid = darkMode() ? "rgba(255,255,255,0.08)" : "rgba(0,0,0,0.07)";
+
+        var traces = [{
+            x: xs, y: ys, type: "scatter", mode: "lines",
+            line: { color: col, width: 2.4 },
+            fill: "tozeroy",
+            fillcolor: col + "22",
+            name: T.y_titles[showWhich],
+            hovertemplate: "S=$%{x:.2f}<br>%{y:.5f}<extra></extra>",
+            showlegend: false,
+        }, {
+            x: [s.S], y: [liveY], type: "scatter", mode: "markers",
+            marker: { color: colorAcc, size: 10, line: { color: "#fff", width: 1.5 } },
+            name: T.live,
+            hovertemplate: T.live + ": $%{x:.2f} -> %{y:.5f}<extra></extra>",
+            showlegend: false,
+        }];
+
+        var layout = {
+            margin: { l: 60, r: 24, t: 40, b: 50 },
+            paper_bgcolor: colorBg,
+            plot_bgcolor: colorBg,
+            font: { family: "Segoe UI, Helvetica, Arial, sans-serif",
+                    color: colorText, size: 12 },
+            xaxis: {
+                title: { text: T.x_title, font: { color: colorMuted, size: 11 } },
+                gridcolor: colorGrid, color: colorText, tickprefix: "$",
+            },
+            yaxis: {
+                title: { text: T.y_titles[showWhich],
+                         font: { color: colorMuted, size: 11 } },
+                gridcolor: colorGrid, zerolinecolor: colorMuted, color: colorText,
+            },
+            title: {
+                text: T.chart_titles[showWhich] + "  -  " +
+                      (kind === "call" ? T.cp_call : T.cp_put),
+                x: 0, xanchor: "left",
+                font: { color: colorText, size: 13, weight: 700 },
+            },
+            shapes: [{
+                type: "line", xref: "x", yref: "paper",
+                x0: s.K, x1: s.K, y0: 0, y1: 1,
+                line: { color: colorMuted, width: 1, dash: "dash" },
+            }],
+            hovermode: "closest",
+        };
+        Plotly.react(CHART, traces, layout, {
+            displayModeBar: false, responsive: true,
+        });
+    }
+
+    // ---------------- bind ----------------
+    CP_PILLS.querySelectorAll("button").forEach(function (btn) {
+        btn.addEventListener("click", function () {
+            CP_PILLS.querySelectorAll("button").forEach(function (b) {
+                b.classList.remove("active");
+            });
+            btn.classList.add("active");
+            kind = btn.dataset.cp;
+            render();
+        });
+    });
+    SHOW_PILLS.querySelectorAll("button").forEach(function (btn) {
+        btn.addEventListener("click", function () {
+            SHOW_PILLS.querySelectorAll("button").forEach(function (b) {
+                b.classList.remove("active");
+            });
+            btn.classList.add("active");
+            showWhich = btn.dataset.show;
+            render();
+        });
+    });
+    [S_EL, K_EL, T_EL, SIG_EL, R_EL].forEach(function (el) {
+        el.addEventListener("input", render);
+    });
+
+    applyI18n();
+
+    // postMessage resize.
+    function reportHeight() {
+        try {
+            var h = Math.ceil(document.documentElement.scrollHeight);
+            parent.postMessage({ type: "lesson-interactive-resize", height: h }, "*");
+        } catch (e) { /* ignore */ }
+    }
+    if (typeof ResizeObserver !== "undefined") {
+        new ResizeObserver(reportHeight).observe(document.body);
+    }
+    window.addEventListener("resize", reportHeight);
+    setTimeout(reportHeight, 50);
+    setTimeout(reportHeight, 500);
+
+    // Theme observer.
+    var themeObserver = new MutationObserver(render);
+    themeObserver.observe(document.documentElement, {
+        attributes: true, attributeFilter: ["data-theme"],
+    });
+
+    render();
+})();
+</script>
+
+</body>
+</html>

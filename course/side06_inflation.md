@@ -1,455 +1,674 @@
-# Side Lesson 06: Inflation -- The Silent Thief and How to Protect Your Portfolio
+# Side Lesson 06: Inflation — What Kills Cash, and What (Sometimes) Protects You
 
 ---
 
-## PART 1: READING SECTION
+## Part 1: Reading Section
 
 ---
 
-### Why This Is Important
+### 1. Why This Is Important
 
-Inflation is the one risk that affects every single investor, saver, and retiree on the planet. It does not discriminate by income level, investment skill, or geography. It silently erodes the purchasing power of every dollar you hold, every bond coupon you receive, and every salary you earn.
+Every other risk in this tutorial — drawdowns, default, volatility,
+correlation breaks — *announces itself*. Inflation does not. Inflation
+is the only risk that bills you continuously, in a unit (purchasing
+power) that does not appear on any account statement and that no broker
+sends you a 1099 for. You can lose half of your real wealth to a
+fifteen-year inflation regime and never see a single negative number on
+a brokerage screen.
 
-Most people understand inflation in the abstract -- "things get more expensive over time." But very few investors understand how inflation is measured, why the official numbers might not match their personal experience, how it devastates fixed-income investments, and what specific tools exist to protect against it. This gap in understanding causes real harm. Retirees who plan for nominal returns instead of real returns run out of money. Investors who keep excessive cash "for safety" watch their purchasing power decay by 2-3% per year. Savers who celebrate a 5% CD yield do not realize they are barely keeping up with inflation after taxes.
+Three things make this lesson worth a full side slot rather than a
+paragraph stapled into the bond chapter:
 
-Understanding inflation transforms how you think about every financial decision: savings rates, asset allocation, retirement planning, and debt management.
+1. **The 1970s are not an artefact of an old textbook — they are the
+   live worst-case for every retirement plan.** US headline CPI peaked
+   at 14.8% in March 1980; the real (inflation-adjusted) S&P 500
+   delivered roughly minus-50% from the 1968 high to the 1982 low. The
+   nominal index was *flat* over fourteen years. Anyone who measured
+   their wealth in dollars looked fine. Anyone who measured it in
+   groceries was getting destroyed.
+2. **The 2021–2022 episode reminded the system that the 1970s are not
+   only history.** US headline CPI hit 9.1% in June 2022 — a forty-year
+   high. Long-duration Treasuries fell about thirty per cent peak to
+   trough. Gold, which the textbooks promised would protect you, did
+   *nothing* in the first year of the spike. Most of the inflation
+   playbook the post-2008 generation had memorised was wrong.
+3. **The asset-class ranking under inflation is sharply different from
+   the ranking everyone over-fits to.** Bonds, the "safe" leg of the
+   60/40, are catastrophic. Stocks are weak in real terms because
+   margins compress. Gold is *unreliable* — sometimes magnificent
+   (1971–1980), sometimes useless (2022). Commodities and real estate
+   are decent. TIPS are the one mechanically-reliable hedge. Cash is the
+   guaranteed loser. SOUL #3 calls these "stores of value" but reminds
+   us that a store of value is whatever the next generation *believes*
+   is one — which is why the answer rotates.
+
+The goal of this side lesson is to give you the half-dozen numbers and
+the one regime-change frame (SOUL #2) that turn inflation from a vague
+fear into a sized, hedgeable risk in the four-tranche portfolio.
+
+![CPI year-over-year, 1914 to April 2026, with the WW1, WW2, 1970s, March 1980 peak (14.8%), 2008 spike, and June 2022 peak (9.1%) annotated. The 2% Fed target line and the 5% high-inflation threshold are shown as dashed references.](image/side06_cpi_history.png)
 
 ---
 
-### What You Need to Know
-
-#### What Inflation Is and Why It Happens
-
-Inflation is the sustained increase in the general price level of goods and services over time. When inflation is 3%, a basket of goods that cost $100 this year will cost $103 next year. Your dollar buys less.
-
-**Causes of inflation:**
-
-1. **Demand-pull inflation** -- Too much money chasing too few goods. When consumers and businesses have abundant cash (from loose monetary policy, fiscal stimulus, or strong economic growth) and spend aggressively, prices rise. This was a significant factor in the 2021-2023 inflation surge.
-
-2. **Cost-push inflation** -- Rising production costs force businesses to raise prices. Higher energy costs, wages, raw materials, or supply chain disruptions increase the cost of making goods. The 1970s oil crises are the classic example.
-
-3. **Monetary inflation** -- Central banks increasing the money supply faster than the economy grows. More dollars in circulation relative to goods and services means each dollar is worth less. This is the "money printing" narrative.
-
-4. **Built-in (expectations-based) inflation** -- When people expect prices to rise, they demand higher wages, which increases business costs, which leads to higher prices, which confirms the expectation. This self-reinforcing cycle is why central banks care intensely about "inflation expectations."
-
-In reality, inflation episodes usually involve multiple causes simultaneously. The post-2020 inflation combined supply chain disruptions (cost-push), massive fiscal stimulus (demand-pull), and aggressive monetary expansion (monetary inflation).
-
-#### How Inflation Is Measured: CPI and Beyond
-
-**Consumer Price Index (CPI):** The most widely reported inflation measure in the United States. The Bureau of Labor Statistics (BLS) tracks the prices of approximately 80,000 items across 200 categories, weighted by how much a typical urban consumer spends on each category.
-
-CPI component weights (approximate):
-- Housing (shelter): 36%
-- Transportation: 16%
-- Food: 13%
-- Medical care: 7%
-- Education and communication: 6%
-- Recreation: 5%
-- Apparel: 2%
-- Other: 15%
-
-**CPI-U** -- The standard CPI, covering all urban consumers (about 93% of the US population).
-
-**CPI-W** -- Covers urban wage earners and clerical workers. Used to adjust Social Security benefits.
-
-**Core CPI** -- Excludes food and energy prices, which are volatile. Economists and the Federal Reserve focus on core CPI because it better reflects underlying inflation trends rather than temporary commodity price swings. However, consumers feel food and energy costs acutely, which is why "core CPI" can seem disconnected from reality.
-
-**PCE (Personal Consumption Expenditures) Price Index** -- The Federal Reserve's preferred inflation measure. It covers a broader range of expenditures, uses different weights, and accounts for consumers substituting cheaper goods when prices rise. PCE typically runs 0.3-0.5 percentage points lower than CPI.
-
-**Limitations of CPI:**
-- **Substitution bias** -- If steak prices rise, consumers buy chicken instead. CPI partially adjusts for this, but critics argue the adjustment understates the true impact on living standards.
-- **Quality adjustment (hedonic adjustments)** -- If a $30,000 car has more features than last year's $28,000 car, the BLS may record a smaller price increase (or even a decrease) because you are getting "more car." Critics argue this understates the cost of simply having a car.
-- **Owner's Equivalent Rent (OER)** -- Rather than using actual home prices, CPI uses an estimate of what homeowners would pay to rent their own homes. This can lag actual housing costs significantly during periods of rapid home price appreciation.
-- **Personal inflation rate** -- Your individual inflation experience depends on your spending patterns. If you spend heavily on healthcare and education (which inflate faster than average), your personal inflation is higher than CPI. If you are a homebody who does not drive much, your inflation may be lower.
-
-#### Inflation Across Different Spending Categories
-
-Not all prices inflate at the same rate. Understanding the variation helps you assess your personal exposure:
-
-**Faster than overall CPI:**
-- College tuition: approximately 5-7% annually over the past two decades
-- Healthcare/medical services: approximately 4-5% annually
-- Childcare: approximately 4-5% annually
-- Housing in high-demand urban areas: highly variable but often well above CPI
-
-**Roughly in line with CPI:**
-- Food at home: approximately 2-3% annually (with spikes during supply disruptions)
-- Rent (nationally): approximately 3-4% annually
-- Transportation: approximately 2-3% annually (heavily influenced by fuel prices)
-
-**Slower than CPI (or deflationary):**
-- Technology (computers, electronics, software): prices fall consistently as capability increases
-- Clothing: roughly flat to slightly increasing, driven by cheap global manufacturing
-- Communication (phone, internet): adjusted for quality, prices have fallen dramatically
-
-This variation means that a young family paying for childcare and saving for college faces a personal inflation rate well above CPI. A retiree paying for healthcare faces the same problem. Investors should plan for their personal inflation rate, not the headline number.
-
-#### Nominal vs. Real Returns
-
-**Nominal return** -- The raw percentage your investment earns, without adjusting for inflation. If your portfolio grows from $100,000 to $108,000, your nominal return is 8%.
-
-**Real return** -- The return after adjusting for inflation. If inflation was 3%, your real return is approximately 5%.
-
-**The exact formula:** Real Return = ((1 + Nominal Return) / (1 + Inflation Rate)) - 1
-
-So: (1.08 / 1.03) - 1 = 4.85%. The approximation (nominal minus inflation = 5%) is close enough for most purposes.
-
-**Why real returns matter:** Nominal returns are an illusion. If you earn 6% on your portfolio but inflation is 6%, your purchasing power has not changed. You have more dollars but they buy the same amount of goods. Real returns measure actual wealth creation.
-
-**Historical real returns (US, 1926-2024, approximate):**
-- Stocks (S&P 500): ~7% real
-- Long-term government bonds: ~2% real
-- Treasury bills (cash proxy): ~0.4% real
-- Gold: ~1% real
-- Residential real estate (national average): ~1% real
-
-The dominance of stocks becomes even more apparent when viewed in real terms. Bonds barely outpace inflation. Cash essentially treads water. Stocks are the primary vehicle for building real wealth over long periods.
-
-#### The Rule of 72 for Inflation
-
-The Rule of 72 works for inflation erosion too. Divide 72 by the inflation rate to estimate how many years it takes for prices to double (or equivalently, for the purchasing power of a fixed sum to be cut in half).
-
-- At 2% inflation: purchasing power halves in 36 years
-- At 3% inflation: purchasing power halves in 24 years
-- At 4% inflation: purchasing power halves in 18 years
-- At 6% inflation: purchasing power halves in 12 years
-- At 8% inflation: purchasing power halves in 9 years
-
-This means a retiree withdrawing a fixed dollar amount from their portfolio faces a purchasing power decline of roughly 50% over a 24-year retirement at 3% inflation. This is why retirement planning must incorporate inflation adjustments to withdrawal amounts.
-
-#### TIPS: Treasury Inflation-Protected Securities
-
-TIPS are US government bonds that adjust their principal value based on changes in CPI. They provide a direct hedge against inflation.
-
-**How TIPS work:**
-- You buy a TIPS bond with a stated real yield (e.g., 2%)
-- The principal adjusts semi-annually based on CPI changes
-- Interest payments are calculated on the inflation-adjusted principal
-- At maturity, you receive the greater of the inflation-adjusted principal or the original face value (deflation protection)
-
-**Example:**
-You buy $10,000 in TIPS with a 2% real yield. Inflation is 3% in the first year.
-
-- Adjusted principal after year 1: $10,000 x 1.03 = $10,300
-- Interest payment: $10,300 x 2% = $206
-- You have received $206 in interest and your principal has grown to $10,300
-- Your total return is approximately 5% (2% real yield + 3% inflation), which is 2% in real terms -- exactly the stated real yield
-
-**TIPS vs. nominal Treasuries:**
-The difference between a nominal Treasury yield and a same-maturity TIPS yield is called the **breakeven inflation rate**. If a 10-year Treasury yields 4.5% and a 10-year TIPS yields 2.0%, the breakeven inflation rate is 2.5%. If actual inflation over the next 10 years averages more than 2.5%, TIPS will outperform. If less than 2.5%, nominal Treasuries win.
-
-**Practical considerations:**
-- TIPS interest is taxable annually, including the inflation adjustment to principal (even though you do not receive the principal adjustment until maturity). This creates "phantom income" that is taxed. For this reason, TIPS are best held in tax-advantaged accounts.
-- TIPS prices fluctuate with changes in real interest rates. If real rates rise, TIPS prices fall (like all bonds). TIPS protect against inflation, not against rising real rates.
-- I-Bonds (Series I savings bonds) offer similar inflation protection for retail investors, with the added benefit of tax deferral until redemption. Annual purchase limits ($10,000 per person per year electronically, plus up to $5,000 in paper bonds via tax refund) make them useful but limited.
-
-#### I-Bonds: The Retail Investor's Inflation Shield
-
-I-Bonds deserve dedicated attention because they combine several advantages that TIPS lack:
-
-**Rate structure:** I-Bond rates have two components. A fixed rate (set at purchase, permanent for the life of the bond) plus an inflation rate (adjusted every six months based on CPI). The composite rate equals the fixed rate plus twice the semiannual inflation rate, plus a cross-product term. The composite rate can never go below zero -- I-Bonds will never lose nominal value.
-
-**Tax advantages:** Unlike TIPS, I-Bond interest is not taxed until redemption. This eliminates the phantom income problem entirely. Interest is also exempt from state and local taxes. If used for qualified higher education expenses (subject to income limits), the interest can be completely tax-free at the federal level as well.
-
-**No market risk:** I-Bonds are not traded on the secondary market, so there is no price volatility. You redeem them directly with the US Treasury at their full accrued value. This means rising real interest rates do not cause I-Bond prices to fall, unlike TIPS.
-
-**Limitations:** The $10,000 annual electronic purchase limit per person (plus $5,000 in paper form via tax refund) caps the total amount you can accumulate. You must hold for at least one year, and redemption before five years forfeits the last three months of interest. You cannot sell them to another investor.
-
-**When I-Bonds are most valuable:** During periods of elevated inflation with a positive fixed rate, I-Bonds become one of the best risk-free investments available. During the 2022 inflation spike, I-Bond composite rates briefly exceeded 9%. Even in lower-inflation environments, a positive fixed rate ensures a guaranteed real return with no credit risk, no market risk, and favorable tax treatment.
-
-#### Inflation Hedges: What Actually Works
-
-**Equities (stocks):** Over the long term, stocks are the best inflation hedge because companies can raise prices, cut costs, and grow earnings in nominal terms. Revenue and profits rise with inflation, supporting stock prices. However, stocks are a poor short-term inflation hedge -- unexpected inflation spikes often cause stock market declines as discount rates rise and economic uncertainty increases. The 1970s saw poor real stock returns despite stocks' long-term inflation-hedging properties.
-
-**Real estate:** Physical real estate is a natural inflation hedge because rental income and property values tend to rise with inflation. Landlords can raise rents, and replacement costs for buildings increase with construction costs. Mortgages become easier to service as income inflates while fixed-rate payments remain constant. However, real estate is illiquid, capital-intensive, and subject to local market conditions. REITs provide liquid real estate exposure but trade like stocks in the short term.
-
-**Commodities:** Direct commodity exposure (through futures or commodity ETFs) provides an inflation hedge because commodity prices are a component of inflation. Energy, food, and metals prices rise during inflationary periods. However, commodity returns over the long term have been modest, and commodity futures involve roll costs that can drag performance. Commodities are volatile and do not produce income.
-
-**TIPS and I-Bonds:** The most direct inflation hedge, as discussed above. They guarantee a real return. Their limitation is that real yields are modest (often below 2%), so they protect purchasing power but do not build significant real wealth.
-
-**Gold:** Often called the ultimate inflation hedge, but the evidence is mixed. Gold held its value during the extreme 1970s inflation and surged during the post-2020 inflation. But gold also had long periods of poor performance during moderate inflation (1980-2000). Gold produces no income, has storage costs, and is highly volatile. It is better characterized as a hedge against extreme monetary debasement or crisis rather than a reliable hedge against moderate, steady inflation.
-
-**Floating-rate instruments:** Floating-rate bonds and bank loans have interest rates that reset periodically based on benchmark rates. When inflation rises and the Fed raises rates, floating-rate income rises too. These provide some inflation protection but carry credit risk.
-
-**Infrastructure:** Toll roads, pipelines, utilities, and airports often have revenues tied to inflation through contractual escalators or regulatory frameworks. Infrastructure assets can provide inflation-linked income streams with lower volatility than equities. Listed infrastructure funds and REITs provide liquid access.
-
-**What does NOT hedge inflation:**
-- Long-term fixed-rate bonds -- the worst asset class during inflation, as fixed coupon payments lose purchasing power and rising rates cause price declines
-- Cash and money market funds -- real returns are often negative during inflationary periods, even when nominal rates rise, because rates tend to lag inflation
-- Growth stocks with no current earnings -- valued on distant future cash flows that are heavily discounted when rates rise
-- Fixed annuities without inflation riders -- similar to fixed bonds, the purchasing power of fixed payments erodes over time
-
-#### Historical Inflation Episodes: Lessons Learned
-
-Understanding past inflation helps calibrate expectations:
-
-**The Great Inflation (1965-1982):** CPI averaged roughly 7% per year for nearly two decades. The peak came in 1980 at 13.5%. Causes included the Vietnam War spending, loose monetary policy under Fed Chair Arthur Burns, two oil embargoes (1973 and 1979), and wage-price spirals. Stocks delivered poor real returns during this period. Bonds were devastated. Real estate and commodities thrived. The era ended only when Fed Chair Paul Volcker raised the federal funds rate to 20%, triggering a severe recession but finally breaking inflationary expectations.
-
-**The Great Moderation (1983-2019):** After Volcker's intervention, inflation averaged about 2.5% for nearly four decades. Central bank independence, globalization (cheap labor and goods from emerging markets), technology-driven productivity gains, and credible inflation targeting kept prices stable. Many investors became complacent, assuming inflation was permanently subdued.
-
-**The Post-Pandemic Surge (2021-2023):** CPI reached 9.1% in June 2022, the highest since 1981. Causes included massive fiscal stimulus ($5+ trillion in COVID relief), supply chain disruptions, labor shortages, pent-up demand, and energy price spikes from the Russia-Ukraine conflict. The Fed raised rates aggressively from 0% to 5.25-5.50%. Inflation returned to the 3-4% range by late 2023 but proved stickier than initially expected.
-
-**Key lessons:** Inflation can emerge suddenly after long periods of stability. Central banks can control inflation but at the cost of recession and financial market pain. Investors who are positioned for a single inflation regime (either permanently low or permanently high) are vulnerable to regime changes.
-
-#### Inflation and Retirement Planning
-
-Inflation is the most underestimated risk in retirement planning. The combination of a fixed (or slowly growing) income stream, a multi-decade time horizon, and rising healthcare costs (which inflate faster than general CPI) creates a dangerous environment.
-
-**Key considerations:**
-
-1. **Social Security is inflation-adjusted** -- Benefits are increased annually by the CPI-W Cost of Living Adjustment (COLA). This makes Social Security one of the most valuable assets a retiree has, as it provides a real (inflation-adjusted) income floor.
-
-2. **Most pensions are not fully inflation-adjusted** -- Some government pensions include COLAs, but many private pensions pay a fixed nominal amount forever. A $50,000 annual pension loses half its purchasing power over 24 years at 3% inflation.
-
-3. **The 4% rule assumes inflation adjustments** -- The Trinity Study's 4% withdrawal rule assumes you withdraw 4% in year one and then increase the dollar amount by inflation each year. This means your withdrawal rate relative to the portfolio actually increases over time, which is why the rule requires a substantial equity allocation to generate real growth.
-
-4. **Healthcare inflation runs 2-3x general inflation** -- For retirees, healthcare is typically a growing share of spending. Using general CPI to plan healthcare costs will lead to significant underestimation.
-
-5. **Sequence of returns risk is amplified by inflation** -- A bear market early in retirement is bad. A bear market combined with high inflation early in retirement is devastating, because you are withdrawing larger nominal amounts from a declining portfolio.
+### 2. What You Need to Know
+
+#### 2.1 CPI vs PCE vs Core — the Three Numbers That Aren't the Same
+
+The headline number you see in the news is **CPI** (Consumer Price
+Index, published by the Bureau of Labor Statistics). The number the Fed
+actually targets is **core PCE** (Personal Consumption Expenditures
+ex-food-and-energy, published by the BEA). They disagree, persistently,
+by about 30–50 basis points per year, and the difference matters.
+
+CPI uses a *fixed basket* updated every two years; PCE re-weights the
+basket every quarter to follow what households actually buy. When beef
+gets expensive, CPI keeps pricing the old basket and reports a higher
+number; PCE notices that consumers switched to chicken and reports a
+lower one. PCE also has a much larger healthcare weight (because it
+includes employer-paid insurance) and a smaller housing weight.
+
+Then there is "core" — the same index minus food and energy, the two
+most volatile components. The Fed targets core because it tells you the
+trend signal; the news reports headline because it tells you what the
+voter feels at the gas pump. Both numbers are real; both matter; they
+are answers to different questions.
+
+The third measure worth knowing is **trimmed-mean PCE** (Dallas Fed),
+which throws out the most extreme components in each direction every
+month. It moves slowest of all and is the cleanest read on the
+underlying drift. In April 2026, with headline CPI around 3.2%, core
+PCE around 2.8%, and trimmed-mean around 2.6%, the Fed is comfortable;
+in mid-2022, with all three pinned above 5%, it was not.
+
+The investing point: **never compare a real-return number quoted in CPI
+terms to one quoted in PCE terms without adjusting**. Damodaran's
+historical equity premium is a CPI-deflated series. The Fed's preferred
+inflation chart is PCE-deflated. They will be off by 0.4% per year over
+multi-decade windows — a real difference at twenty-year compounding.
+
+#### 2.2 The 1970s — the Canonical Inflation Trauma
+
+The single regime every long-horizon investor should be mentally
+calibrated against is the **1970s United States**. The reason it shows
+up over and over in this tutorial is that it broke every prevailing
+asset-allocation orthodoxy of the day in a way that the 2008 financial
+crisis and the 2020 COVID crash did not.
+
+The numbers, in round form: headline CPI averaged 7.8% per year from
+1970 through 1982. It peaked at 14.8% in March 1980 (that is the single
+data point Volcker pinned his entire chair to). The S&P 500 returned
+about 6% per year *nominally* over the period; subtracting inflation
+leaves roughly a minus-2% real return, with a peak-to-trough real
+drawdown of about minus-50% from the 1968 high to the 1982 low. Long
+Treasuries lost about 3% per year in real terms — fifteen consecutive
+years of negative real fixed-income returns. The "balanced" 60/40
+portfolio that defines the modern retirement default delivered roughly
+*zero* real return for the entire decade.
+
+Two assets won. Gold, freed from the 1971 dollar peg, ran from $35 to
+$850 — about an eighteen-per-cent annual *real* return over the twelve
+years. Commodities broadly returned 12–13% per year real. Both were
+emerging from a regime where they had been suppressed (gold by Bretton
+Woods, commodities by post-war price controls), which is exactly the
+SOUL #2 forty-year-regime-change set-up: when a regime breaks, the
+asset that gets re-rated is the one that was forced to be cheap *under*
+the old regime.
+
+That last point is the trap. The 1970s gold story is not "gold protects
+against inflation". The 1970s gold story is "gold *got out of jail* the
+year inflation started". When inflation came back in 2022 with no
+similar regime breakage in the gold market, gold *did nothing in the
+first year*. SOUL #3 is the cleaner frame: a store of value is whatever
+the next generation believes is one. In 1972 that was gold. In 2022 it
+was, briefly, Bitcoin (then it wasn't). The mechanism is *belief
+re-rating*, not metal.
+
+#### 2.3 The 2021–2022 Spike — What the Modern Playbook Got Wrong
+
+Headline US CPI hit 9.1% in June 2022, the highest reading since
+November 1981. Three things made it different from the textbook
+inflation chapter that most active investors had been working from:
+
+First, **bonds were destroyed in the conventional way the textbook
+predicts** — long Treasuries (TLT) fell about 31% peak to trough, the
+worst calendar year for the asset class on record. That part of the
+playbook worked. The 60/40 portfolio lost about 17% in real terms,
+which is its worst real-return year in modern history.
+
+Second, **stocks fell with bonds, breaking the "stocks-and-bonds-are-a
+hedge" assumption that had defined the 2009–2021 regime**. The
+stock-bond correlation flipped from negative (the post-2000 default) to
+positive (the pre-2000 default, which is also the inflation-regime
+default). The diversification benefit of 60/40 disappears precisely
+when you need it. SOUL #6: the vol tail wags the dog.
+
+Third, **gold did not work** — at least not in 2022. With the 10-year
+real yield rising from minus-1% to plus-2%, the opportunity cost of
+holding a non-yielding metal soared, and gold finished 2022 essentially
+flat in nominal terms — meaningfully *down* in real terms. The 1970s
+playbook of "inflation = buy gold" failed in its first live test in
+forty years. Gold did eventually rerate, in 2024–2025, but the
+investors who had bought it in 2021 specifically as inflation insurance
+sat through three years of carrying cost first.
+
+What *did* work in 2022: short-dated TIPS, broad commodities (the
+Bloomberg Commodity Index returned about +14% on the year), oil
+producers, and certain pockets of real estate where rents reset
+quickly. What did not: long bonds, long-duration tech, fixed-rate
+mortgages bought in 2021 at 3% (these were a fantastic *liability* but
+a terrible *asset*), and gold-as-inflation-hedge.
+
+#### 2.4 Asset Performance Under Inflation — the Honest Ranking
+
+Pull together the 1970–1982 record (the long inflation regime), the
+2021–2023 spike (the short inflation regime), and the academic
+real-return literature. The honest ranking, expressed as approximate
+real annualised return *during* high-inflation regimes:
+
+- **TIPS / inflation-linked bonds:** roughly 0% real, *guaranteed by
+  contract*. Boring but mechanically reliable.
+- **Commodities (broad index):** historically +6–12% real during
+  inflation, because the inputs *are* inflation. Volatile in normal
+  regimes, which is why few investors hold them.
+- **Real estate (direct, not REITs):** +0–4% real, with large
+  geographic dispersion. Sun Belt outperforms Rust Belt. Rents reset
+  with leases, so the lag matters.
+- **Gold:** mixed. +18% per year real in 1970–1980; roughly 0% real in
+  2021–2023; small positive 2024–2025 catch-up. Treat as a *belief*
+  asset, not a mechanical hedge.
+- **Stocks:** weak in real terms during the spike (margin compression),
+  then strong once inflation rolls over (operating leverage). Net of a
+  full inflation regime, roughly minus-1% to plus-2% real, with brutal
+  path dependence.
+- **T-bills (cash):** approximately 0% real if the Fed is hiking
+  aggressively, *deeply* negative real if it is not. The 2021–2022 cash
+  position lost about 6% in real terms in twelve months.
+- **Long Treasuries:** the worst major asset class. Roughly minus-3%
+  per year real over 1970–1982, minus-30% drawdown in 2022.
+
+The line that captures it: **inflation is the one regime where the
+"safe" leg of every textbook portfolio is the leg that gets you killed,
+and the "risky" leg (real assets) is what saves you**. SOUL #14 (the
+barbell) and SOUL #13 (four tranches with an explicit Stores-of-Value
+sleeve) are designed for exactly this.
+
+![Real annualised returns by asset class during 1970-1982, the canonical US high-inflation regime. CPI averaged 7.8 per cent per year over the window. Stocks roughly broke even, T-bills barely kept up, long Treasuries lost three per cent per year, while gold (+18) and commodities (+12) carried the period.](image/side06_real_returns_inflation.png)
+
+#### 2.5 Wages Lag Prices, Geography Disperses Both
+
+Two micro-mechanics every investor should internalise before designing
+an inflation hedge.
+
+**Wages lag prices by twelve to eighteen months.** The 2021–2022
+inflation spike pushed CPI to 9.1% in June 2022; nominal hourly earnings
+did not catch up until late 2023. The implication for an investor is
+that real wages *fall* during the early innings of an inflation regime —
+that is the period when consumer-discretionary companies miss earnings,
+and when the "consumer-staples-as-defensive" trade actually works,
+because households cut back on the marginal purchase first. The
+implication for an *employee* (which most investors also are) is that
+your real income is contracting even as the news talks about
+"resilient consumer spending." Plan accordingly: ratchet your savings
+*rate* up during the spike year, before your nominal salary catches up.
+
+**Geography matters more than the headline number.** US headline CPI
+was 9.1% in June 2022; that single number averaged a Phoenix housing
+market growing 30% year-on-year against a San Francisco market that
+was *falling*. In the 1970s, energy-producing regions (Texas, Alberta)
+had positive real wage growth; manufacturing belt regions (Detroit,
+Cleveland) had real wage growth that was meaningfully *more negative*
+than the national figure. Regional dispersion in housing inflation,
+healthcare inflation, and wage inflation is now several times the size
+of any year-on-year change in the national headline number. The
+practical takeaway: the inflation rate that affects *your* portfolio
+plan is your local CPI, not the federal print.
+
+The interactive panel at the bottom of this lesson (`side06_inflation_lab`)
+lets you set a personal inflation rate and watch what it does to your
+real ending wealth across an arbitrary mix of stocks, bonds, gold,
+commodities, real estate, TIPS, and cash. Before you decide that 2% CPI
+"doesn't matter," set the slider to 4% and let it run thirty years.
 
 ---
 
-### Common Misconceptions
+### 3. Common Misconceptions
 
-**"Inflation is always bad."**
-Moderate, stable inflation (around 2%) is actually considered healthy for an economy. It encourages spending and investment (why sit on cash that loses value?), allows real wages to adjust downward without nominal wage cuts (which are psychologically devastating for workers), and gives central banks room to cut interest rates during recessions. Deflation -- falling prices -- is far more dangerous because it causes consumers to delay purchases, increases the real burden of debt, and can spiral into economic depression.
+1. **"Inflation is the same number for everyone."** No. Headline CPI is
+   a national average across an urban basket. Your personal inflation
+   rate depends on your housing situation, your healthcare exposure,
+   and your geography, and can easily run two to three percentage
+   points above or below the national figure for years.
 
-**"The government manipulates CPI to understate inflation."**
-While CPI methodology has changed over time (substitution adjustments, hedonic quality adjustments, changes in housing measurement), these changes were made by career statisticians for defensible methodological reasons, not to suppress the number for political purposes. Alternative measures like the Billion Prices Project (which tracked millions of online prices) have generally confirmed that CPI is a reasonable, if imperfect, measure. Your personal inflation may differ from CPI, but that does not mean CPI is manipulated.
+2. **"Stocks are an inflation hedge."** Only on long horizons, and only
+   weakly. During the *spike* phase of an inflation regime, stocks lose
+   in real terms (margin compression, multiple compression as discount
+   rates rise). The hedge story works if you can hold for fifteen-plus
+   years through the spike, the rollover, and the post-inflation
+   recovery. Most investors cannot.
 
-**"Gold is the best inflation hedge."**
-Gold's track record as an inflation hedge is inconsistent. It performed spectacularly during the 1970s stagflation and the post-2020 inflation. But from 1980 to 2000, gold lost 70% of its value in real terms while inflation averaged about 3.5% per year. Stocks, real estate, and TIPS have more consistent inflation-hedging properties. Gold is better understood as a hedge against extreme monetary disorder, not against routine 2-4% annual inflation.
+3. **"Gold protects against inflation."** Gold protected against
+   inflation in the 1970s because it had been forcibly suppressed by
+   the Bretton Woods peg until 1971 and was getting re-rated. That
+   re-rating happened to coincide with inflation. In 2022, gold did
+   nothing for twelve months while CPI ran at 9%. Treat gold as a
+   *belief* asset (SOUL #3), not as a mechanical hedge.
 
-**"If inflation is 3%, I need my investments to return at least 3% to break even."**
-Actually, you need to earn more than 3% because investment returns are taxed. If you are in the 25% combined tax bracket and earn 4% on a CD, your after-tax return is 3%. If inflation is 3%, your real after-tax return is approximately zero. To earn a positive real after-tax return of 2%, you would need a pre-tax nominal return of about 6.7%. This is why holding cash or low-yielding bonds in taxable accounts during inflationary periods can be a losing strategy in real terms.
+4. **"TIPS just give you the inflation rate."** TIPS give you the
+   real yield you bought them at, *plus* CPI adjustments. If you buy
+   TIPS at minus-1% real (which was the case for most of 2020–2021),
+   you are guaranteed minus-1% real even during an inflation spike. The
+   timing of when you buy matters as much as which asset you buy.
 
-**"Inflation hurts everyone equally."**
-Inflation has distributional effects. It hurts savers, bondholders, retirees on fixed incomes, and workers whose wages lag price increases. It helps borrowers (whose debt is repaid in cheaper dollars), owners of real assets (whose property values rise), and companies with pricing power (who can pass costs to consumers). If you have a large fixed-rate mortgage, moderate inflation is actually beneficial because your home value and income rise while your mortgage payment stays the same.
+5. **"My salary will keep up."** Wages lag prices by twelve to
+   eighteen months in every documented inflation episode. Your *real*
+   take-home pay falls during the first year of any spike, regardless
+   of nominal raises.
 
-**"Cryptocurrency is a good inflation hedge."**
-Despite the "digital gold" narrative, Bitcoin and other cryptocurrencies have shown little correlation with inflation in their short history. During the 2022 inflation spike, Bitcoin fell more than 60% from its highs. Crypto prices are driven primarily by speculation, adoption narratives, and risk appetite -- not by inflation expectations. It may evolve into an inflation hedge over time as the asset class matures, but the evidence is not there yet.
+6. **"Cash is safe."** Cash is the asset that loses guaranteed in any
+   regime where inflation runs above the T-bill rate. In 2021, that
+   gap was about 6%; cash holders lost six per cent of real wealth in
+   twelve months while feeling perfectly safe.
 
-**"We can just look at the 10-Year Treasury yield to know expected inflation."**
-The 10-Year Treasury yield incorporates expected inflation, but also includes a real yield component and a term premium (compensation for duration risk). A better measure of expected inflation is the breakeven rate (nominal Treasury yield minus TIPS yield), which isolates the inflation component. Even breakeven rates are imperfect because they include an inflation risk premium and a liquidity premium.
+7. **"Hyperinflation is the only inflation that matters."** False.
+   Five per cent annual inflation for ten years halves your purchasing
+   power. You do not need Weimar; you need a slow steady regime change.
 
----
+8. **"The Fed will fix it."** Eventually, yes. The Fed fixed the
+   1970s by hiking the funds rate to 19% in 1981 and inducing a deep
+   recession. That fix took fifteen years and two recessions. "The Fed
+   will fix it" is a long-horizon statement, not a portfolio one.
 
-### Q&A Section
+9. **"Real estate always wins under inflation."** Real estate wins if
+   rents reset faster than financing costs and if the local supply is
+   constrained. Where supply is unconstrained (much of the US sun
+   belt) and rates rise sharply, real estate can fall in real terms
+   even during a CPI spike.
 
-**Q: If stocks are the best long-term inflation hedge, why did they perform so poorly in the 1970s?**
-A: The 1970s were a period of "stagflation" -- high inflation combined with low economic growth. Stocks can handle moderate inflation (companies adjust prices, revenues grow), but extreme, unexpected inflation combined with recession is toxic for equity valuations. P/E ratios compressed dramatically because investors demanded higher returns to compensate for inflation risk. Once inflation was tamed in the early 1980s, stock valuations expanded and produced enormous returns. The key lesson: stocks hedge inflation over the long term but can suffer significantly during inflation shocks.
-
-**Q: Should I adjust my asset allocation based on inflation expectations?**
-A: Modestly. If you believe inflation will be persistently higher, tilting toward TIPS, commodities, real estate (REITs), and short-duration bonds can help. Avoid long-duration fixed-rate bonds during rising inflation. But do not make dramatic changes based on inflation forecasts, which are notoriously inaccurate. A well-diversified portfolio with a meaningful equity allocation provides reasonable inflation protection without requiring you to predict inflation accurately.
-
-**Q: How much of my portfolio should be in TIPS?**
-A: There is no universal answer, but a common approach is to allocate 20-30% of the fixed-income portion to TIPS. For a 60/40 portfolio, that means 8-12% of the total portfolio. Some financial planners recommend enough TIPS (or I-Bonds) to cover essential living expenses in real terms for the first 5-10 years of retirement, with the remaining portfolio in equities for long-term growth.
-
-**Q: Are I-Bonds better than TIPS?**
-A: For most retail investors, I-Bonds have some advantages: they are tax-deferred (TIPS are not), they never lose nominal value (TIPS can trade below par before maturity), and they can be redeemed after one year (with a three-month interest penalty if redeemed before five years). The main disadvantage is the $10,000 annual purchase limit. For amounts exceeding the I-Bond limit, TIPS are the alternative.
-
-**Q: What is the difference between "expected" and "unexpected" inflation?**
-A: Expected inflation is already priced into asset values, interest rates, and wages. If everyone expects 3% inflation, nominal Treasury yields include a 3% inflation premium. Unexpected inflation -- the portion that surprises markets -- is what causes disruption. Rising inflation from 3% to 6% when markets expected 3% causes bond prices to fall, stock multiples to compress, and portfolios to suffer. Inflation hedging is primarily about protecting against unexpected inflation.
-
-**Q: How does the Federal Reserve target inflation?**
-A: The Fed has a 2% annual inflation target (measured by PCE, not CPI). It uses interest rate policy (the federal funds rate) as its primary tool. When inflation is above target, the Fed raises rates to cool economic activity and reduce spending. When inflation is below target or the economy is weak, it cuts rates to stimulate borrowing and spending. The Fed can also use quantitative easing (buying bonds to inject money into the system) or quantitative tightening (reducing its bond holdings) to influence longer-term rates and financial conditions.
-
-**Q: What should I do with my portfolio during a high-inflation period?**
-A: Resist the urge to make dramatic changes. Ensure you have adequate exposure to real assets (equities, real estate, commodities) and inflation-linked bonds (TIPS, I-Bonds). Shorten the duration of your fixed-income holdings to reduce sensitivity to rising rates. Review your retirement spending plan and adjust withdrawal assumptions for higher inflation. And remember that high-inflation periods eventually end -- the last thing you want is to abandon your long-term strategy based on a short-term environment.
-
-**Q: What is the difference between disinflation, deflation, and stagflation?**
-A: Disinflation is a decrease in the inflation rate -- prices are still rising, just more slowly (e.g., inflation falling from 5% to 2%). This is generally positive for financial assets. Deflation is an actual decline in the price level -- prices are falling. This sounds beneficial for consumers but is economically dangerous because it increases the real burden of debt, discourages spending ("why buy today if it will be cheaper tomorrow"), and is associated with depression. Stagflation is the combination of stagnant economic growth, high unemployment, and high inflation -- the worst of all worlds. Both stocks and bonds tend to perform poorly during stagflation. The 1970s are the classic example.
-
-**Q: Are I-Bonds better than TIPS for most investors?**
-A: For amounts up to the $10,000 annual limit, I-Bonds have several advantages over TIPS: tax deferral (no phantom income), no market price risk, and a deflation floor that protects nominal value. The main disadvantage is the purchase limit and the one-year lock-up period. For investors who need more than $10,000 of inflation protection annually, TIPS fill the gap. The optimal approach is to max out I-Bonds first, then use TIPS (held in tax-advantaged accounts) for additional inflation-protected fixed income.
-
-**Q: How does inflation affect mortgage decisions?**
-A: Inflation is generally favorable for fixed-rate mortgage holders because your mortgage payment remains constant while your income and home value rise with inflation. Over time, the real cost of your mortgage payments declines. This is one reason homeownership is often cited as an inflation hedge -- not just because home values appreciate, but because the debt used to purchase the home becomes cheaper in real terms. Conversely, adjustable-rate mortgages lose this advantage because their payments rise with interest rates during inflationary periods.
-
-**Q: What is the relationship between the Federal Reserve and inflation?**
-A: The Fed has a dual mandate: maximum employment and price stability. It targets 2% annual inflation as measured by the PCE index. When inflation exceeds the target, the Fed raises the federal funds rate to cool economic activity, making borrowing more expensive and slowing spending. When inflation is too low or the economy is weak, it cuts rates to stimulate growth. The Fed can also use balance sheet tools -- quantitative easing (buying bonds to inject money) or quantitative tightening (letting bonds mature to reduce money supply). Fed credibility in fighting inflation is crucial because if markets believe the Fed will tolerate higher inflation, expectations become self-fulfilling.
-
----
-
-## PART 2: YOUTUBE SCRIPT
+10. **"Bitcoin is digital gold and will hedge inflation."** It did not
+    in 2022. Bitcoin fell about 65% from peak to trough in the same
+    year CPI hit 9.1%. Whether or not it eventually becomes a
+    store-of-value asset, the 2022 episode is the one and only
+    out-of-sample test it has had so far, and it failed. Belief asset,
+    not mechanical hedge.
 
 ---
 
-### "Inflation: The Tax You Cannot Vote On (And How to Beat It)"
+### 4. Q&A
 
-**Target Length:** 18-22 minutes
-**Tone:** Urgent but not alarmist, educational, empowering
+**Q: What is the simplest portfolio change a normal investor should
+make to be inflation-prepared?**
+A: Move some of the bond allocation from nominal Treasuries (TLT, IEF)
+to short-dated TIPS (VTIP, STIP). VTIP is a one-line trade, has no
+duration risk, and locks in whatever real yield is being offered. In
+April 2026 that is roughly +1.5% real, which is a perfectly serviceable
+inflation hedge.
+
+**Q: Why TIPS instead of gold?**
+A: TIPS pay you *the actual CPI print*, by contract, on top of a known
+real yield. Gold pays you whatever the next generation decides to pay
+for it, which is structurally a SOUL #3 belief bet. For the part of
+your portfolio that is supposed to *guarantee* inflation protection
+(typically the bond sleeve), TIPS are the right answer. Gold belongs
+in the Stores-of-Value tranche, sized at five to ten per cent.
+
+**Q: Why didn't the 60/40 work in 2022?**
+A: The 60/40 relies on stocks and bonds being negatively correlated.
+That correlation has historically been *positive* during inflation
+regimes (1970s) and *negative* during deflation/disinflation regimes
+(2000s and 2010s). In 2022, inflation broke the post-2000 negative
+correlation, both legs fell together, and 60/40 had its worst real
+year on record. SOUL #6: the regime change is the risk.
+
+**Q: Should I have predicted 2022 from the 2021 money supply data?**
+A: M2 grew about 26% from February 2020 to February 2021 — the largest
+single-year jump since World War II. That was a real signal. The
+post-2008 episode of similar QE *did not* produce CPI inflation,
+because banks parked the reserves rather than lending them out. So the
+M2 signal had a 14-year track record of false positives before the
+2021 true positive. "Predict it from M2" is hard precisely because the
+transmission depends on the velocity of money, which depends on
+behaviour. Hedge structurally rather than predict.
+
+**Q: What is the difference between TIPS and I-bonds?**
+A: I-bonds are US Treasury savings bonds with a fixed real coupon
+plus the CPI adjustment, capped at $10,000 per person per year, with a
+one-year lockup and a five-year early-redemption penalty. They are
+*better* than TIPS within that cap (you typically get a slightly higher
+fixed real rate, and the tax treatment is friendlier). TIPS scale to
+unlimited size and trade on the open market. The right answer for most
+households is *both*: max out I-bonds first, then layer TIPS on top.
+
+**Q: How did the 1970s end? What signal flipped it?**
+A: The 10-year Treasury yield peaked at 15.8% in September 1981. The
+fed funds rate peaked at 19%. Volcker held those levels through two
+recessions until inflation expectations broke. The investing signal
+that the regime had flipped was the bond market: long bonds rallied
+violently in late 1981 as the market priced in lower future inflation,
+and that rally turned into a *forty-year bull market* in fixed income
+that ended only in 2021. SOUL #2 is the framing: you are not betting
+*on* inflation; you are recognising that you live inside a regime, and
+you should know what would mark the next regime flip.
+
+**Q: Are TIPS taxed weirdly?**
+A: Yes — and badly. The CPI adjustment to principal is taxed as
+ordinary income *in the year it accrues*, even though you do not
+receive the cash until the bond matures. This is called "phantom
+income." The honest answer for most households is: hold TIPS in an
+IRA or 401(k) (where the phantom income does not matter), and use
+I-bonds for the taxable account. SOUL #15 (location-not-allocation)
+applies cleanly here.
+
+**Q: What about real estate as an inflation hedge?**
+A: Direct real estate (your house, a rental property) is a decent
+inflation hedge if you own it with a long-duration *fixed-rate*
+mortgage. In that configuration, you are short cash and long the
+underlying real asset; inflation erodes the liability while the asset
+keeps pace. Public REITs are *worse* — they trade like long-duration
+bonds and got hit in 2022 along with the rest of the rate-sensitive
+complex. The 1970s playbook of "real estate hedges inflation" is about
+the *direct* version, not the REIT version.
+
+**Q: How much of my portfolio should be in inflation hedges?**
+A: For a default investor with a thirty-year horizon: 5–10% TIPS or
+I-bonds in the bond sleeve, 5% gold or commodities in the Stores-of-
+Value sleeve, and a deliberate tilt toward companies with pricing
+power (consumer staples, energy, infrastructure). This is the
+side-of-the-barbell that gets activated in a regime change rather
+than the side that holds index funds during normal regimes. Sized
+small; sized always.
+
+**Q: Should I just buy a "real assets" ETF and be done with it?**
+A: Maybe. Funds like RAAX, INFL, or PRPFX bundle commodities,
+precious metals, energy infrastructure, and TIPS into a single ticket.
+They are reasonable for someone who does not want to manage the parts
+individually. Read the holdings sheet before you buy: some "inflation
+ETFs" are 60% energy stocks, which is mostly an oil bet, not an
+inflation bet.
+
+**Q: When is the inflation lab interactive useful?**
+A: When someone tells you "2% inflation doesn't matter," push the
+slider to 4% for thirty years and show them the real-wealth difference.
+When someone tells you "I'm safe in cash," set inflation to 4% and
+their real wealth shrinks by 70% over thirty years. The lab is built to
+make purchasing-power decay legible at the scale at which it actually
+operates — which is geological, not weekly.
 
 ---
 
-**[VISUAL: Time-lapse of a price tag on a gallon of milk changing from $1.50 to $2.00 to $3.00 to $4.50 over decades. Title card: "Understanding Inflation"]**
-
-**Horace:** Here is a question. If I told you there was a tax that took two to three percent of your savings every year, that you could not vote against, that had no exemption, and that most people ignored -- would you want to know about it?
-
-**Stella:** Obviously. What is it?
-
-**Horace:** Inflation. The silent thief.
-
-**[ANIMATION: Stack of dollar bills. Each year, a few bills from the stack disappear. After 30 years, roughly half the stack is gone. Label: "Purchasing power of $100 at 3% annual inflation: $41 after 30 years."]**
-
-**Stella:** Two to three percent per year does not sound like much, though.
-
-**Horace:** That is exactly what makes it dangerous. It is invisible on a day-to-day basis. You do not notice that your coffee costs twenty cents more this year. But compound that over twenty or thirty years, and you have lost half your purchasing power. A hundred dollars today buys about forty-one dollars worth of goods in thirty years at three percent inflation.
-
-**Stella:** How is inflation actually measured?
-
-**Horace:** The main measure in the US is the Consumer Price Index, or CPI. The Bureau of Labor Statistics tracks the prices of about eighty thousand items across two hundred categories. They weight them based on how the average urban consumer spends money.
-
-**[VISUAL: Pie chart of CPI components with weights: Housing 36%, Transportation 16%, Food 13%, Medical 7%, Education 6%, Recreation 5%, Apparel 2%, Other 15%]**
-
-**Horace:** Housing is the biggest component at thirty-six percent. Then transportation, food, and medical care. So when people say "inflation is three percent," they mean this weighted average of all these categories went up three percent.
-
-**Stella:** But my personal experience of inflation might be very different from the official number.
-
-**Horace:** Exactly. If you are a young renter in an expensive city spending a lot on housing and education, your personal inflation rate is probably higher than CPI. If you are a retiree with a paid-off house spending heavily on healthcare, your inflation is also probably higher because medical costs inflate faster than average. CPI is an average, and few people are perfectly average.
-
-**[VISUAL: Three icons -- young renter, suburban family, retiree. Each with their own "personal CPI" showing different rates: 4.2%, 2.8%, 4.5%]**
-
-**Stella:** I hear people say the government manipulates CPI to make inflation look lower. Is that true?
-
-**Horace:** There are legitimate debates about CPI methodology -- things like how they account for quality improvements in technology, how they measure housing costs, and how they handle consumers switching to cheaper alternatives. These methodological choices do affect the number. But calling it "manipulation" implies bad faith, and the evidence does not support that. Independent price indices, like academic projects tracking millions of online prices, have generally confirmed that CPI is in the right ballpark.
-
-**Horace:** Now let me explain something that changes how you should think about every investment return you ever see.
-
-**[VISUAL: Title card: "Nominal vs. Real Returns"]**
-
-**Horace:** When someone says "the stock market returned ten percent last year," that is the nominal return. It is the raw number. But if inflation was three percent, your real return -- the actual increase in your purchasing power -- was only about seven percent.
-
-**[ANIMATION: Thermometer graphic. Nominal return = 10% (top of thermometer). Inflation = 3% (red zone subtracted from top). Real return = ~7% (what remains). Clear visual that inflation "eats" part of your return.]**
-
-**Stella:** So real returns are what actually matter.
-
-**Horace:** Always. Let me show you what this means for different asset classes over the long run.
-
-**[VISUAL: Bar chart of historical real returns (after inflation): Stocks ~7%, Long-term Government Bonds ~2%, Treasury Bills (Cash) ~0.4%, Gold ~1%]**
-
-**Horace:** Stocks have returned about seven percent per year in real terms since 1926. Government bonds, about two percent. Cash -- Treasury bills -- about zero point four percent. Barely above zero. Gold about one percent.
-
-**Stella:** Cash is basically treading water.
-
-**Horace:** And that is before taxes. If you earn four percent on a savings account and pay twenty-five percent in taxes, your after-tax return is three percent. If inflation is three percent, your real after-tax return is zero. You have worked all year to earn interest that exactly offsets inflation. Nothing gained.
-
-**[ANIMATION: Person running on a treadmill. The speed increases labeled "Inflation 3%." The person speeds up to match, labeled "Savings account 4%, after tax 3%." Net progress: zero. Treadmill labeled "Cash trap."]**
-
-**Stella:** This is why people say cash is a losing investment.
-
-**Horace:** Over the long term, yes. Which is why every portfolio needs assets that can beat inflation. And the champion of beating inflation is equities.
-
-**Stella:** But stocks got crushed in the 1970s when inflation was high.
-
-**Horace:** True. In the short term, unexpected inflation is terrible for stocks. When inflation spikes, the Federal Reserve raises interest rates, which increases the discount rate on future earnings, which compresses valuations. The S&P 500 had an awful real return in the 1970s. But from 1970 through 2000 -- a thirty-year period that included the entire inflationary era -- stocks still returned about seven percent real per year.
-
-**[VISUAL: Chart showing S&P 500 real returns by decade. 1970s: poor. 1980s: excellent. 1990s: excellent. The 30-year average smooths to approximately historical norms.]**
-
-**Horace:** The lesson: stocks are a terrible short-term inflation hedge but an excellent long-term one. Companies can raise prices, innovate, cut costs, and grow earnings in nominal terms. Given enough time, equity returns overwhelm inflation.
-
-**Stella:** What about something designed specifically to protect against inflation? TIPS?
-
-**Horace:** Treasury Inflation-Protected Securities. These are government bonds whose principal adjusts with CPI. If inflation is three percent, your principal goes up three percent, and your interest is calculated on the higher amount.
-
-**[ANIMATION: Bond certificate with face value $10,000. Year 1: CPI up 3%, principal becomes $10,300, interest paid on $10,300. Year 2: CPI up 2.5%, principal becomes $10,558, interest on $10,558. The principal staircase graphic climbing with inflation.]**
-
-**Horace:** TIPS guarantee a real return. If you buy a TIPS yielding two percent, you will earn two percent above inflation, no matter what inflation does. That is powerful certainty.
-
-**Stella:** What is the catch?
-
-**Horace:** Two things. First, the real yield is modest -- often below two percent. TIPS protect your purchasing power but will not make you wealthy. Second, the inflation adjustment is taxable annually even though you do not receive it in cash until maturity. This "phantom income" tax makes TIPS less efficient in taxable accounts. Hold them in an IRA if possible.
-
-**[VISUAL: Comparison table: TIPS -- Pros: Inflation protection, government backed, real return guaranteed. Cons: Low real yield, phantom income tax, still has interest rate risk.]**
-
-**Stella:** What about real estate and commodities as inflation hedges?
-
-**Horace:** Real estate is excellent because rents and property values tend to rise with inflation. If you own rental property, you can raise rents. Your fixed-rate mortgage becomes cheaper in real terms as inflation erodes the real value of your debt. The challenge is that real estate is illiquid and requires active management.
-
-**[ANIMATION: House with rent sign. Arrow showing rent increasing with CPI. Mortgage payment staying flat. The gap between rent and mortgage widening over time = growing real income.]**
-
-**Horace:** Commodities -- oil, metals, agricultural products -- provide direct inflation exposure because commodity prices are literally a component of CPI. When commodity prices rise, inflation rises. The problem is that long-term commodity returns have been unimpressive, and commodity futures involve complex roll dynamics that can drag returns.
-
-**Stella:** And gold? Everyone talks about gold during inflation.
-
-**Horace:** Gold's track record is mixed. It was spectacular in the 1970s and during the post-2020 inflation. But from 1980 to 2000, gold lost seventy percent of its real value while inflation averaged three and a half percent. Gold is less an inflation hedge and more a crisis hedge -- it shines when people lose faith in the monetary system, not during routine two-to-three percent inflation.
-
-**[VISUAL: Gold real price chart from 1970-present. Massive spike in late 1970s, long decline 1980-2000, rise 2000-2012, flat 2012-2018, surge 2019-present. Inconsistent pattern highlighted.]**
-
-**Stella:** What about I-Bonds? You mentioned those alongside TIPS.
-
-**Horace:** I-Bonds are savings bonds from the Treasury that are, in my opinion, one of the best-kept secrets in personal finance for small investors. They combine a fixed rate with an inflation adjustment every six months. The interest is tax-deferred until you cash them in. State taxes are exempt entirely. And the composite rate can never go below zero, so you have deflation protection built in.
-
-**[VISUAL: I-Bond structure. "Fixed Rate (permanent) + Inflation Rate (adjusts every 6 months) = Composite Rate." Benefits listed: tax-deferred, no market risk, deflation floor. Limit: $10,000/year per person.]**
-
-**Stella:** What is the limit?
-
-**Horace:** Ten thousand dollars per person per year in electronic form, plus up to five thousand in paper bonds through a tax refund. You must hold for at least one year, and if you cash out before five years you lose three months of interest. But within those constraints, I-Bonds are hard to beat. During the 2022 inflation spike, composite rates hit over nine percent. Nine percent, guaranteed by the US government, with tax deferral. That was arguably the best risk-free investment available anywhere.
-
-**[ANIMATION: I-Bond rate chart showing composite rates spiking above 9% in late 2022, then gradually declining as inflation eased. Annotation: "Still an excellent deal whenever the fixed rate is positive."]**
-
-**Stella:** How should this change the way people plan for retirement?
-
-**Horace:** Dramatically. Let me show you the single biggest mistake retirees make.
-
-**[VISUAL: Two retirement scenarios side by side]**
-
-**Horace:** Scenario one: a retiree with a million-dollar portfolio withdrawing forty thousand dollars per year, flat, not adjusted for inflation. In year one, that is four percent. Fine. But in year twenty, after three percent annual inflation, that forty thousand dollars has the purchasing power of only twenty-two thousand in today's dollars. They have effectively cut their standard of living in half.
-
-**[ANIMATION: Bar chart showing $40,000 flat withdrawal each year. A second overlay shows the real purchasing power declining each year. By year 20, the bars are nearly half height.]**
-
-**Horace:** Scenario two: same portfolio, but withdrawals increase by three percent per year to keep up with inflation. Year one: forty thousand. Year ten: fifty-four thousand. Year twenty: seventy-two thousand. Now purchasing power is maintained, but the portfolio is under much more strain.
-
-**Stella:** Which is why the four percent rule assumes inflation-adjusted withdrawals, right?
-
-**Horace:** Right. And it requires a meaningful equity allocation -- typically fifty to sixty percent stocks -- to generate the real growth needed to sustain rising withdrawals over a thirty-year retirement. An all-bond portfolio cannot keep up.
-
-**[VISUAL: Portfolio survival chart. 100% bonds fails after ~18 years with inflation-adjusted withdrawals. 50/50 survives 30 years in most scenarios. 60/40 or 70/30 provides margin of safety.]**
-
-**Stella:** What about Social Security?
-
-**Horace:** Social Security is one of the best inflation hedges a retiree has because benefits are adjusted annually for CPI. It provides a real income floor that no private investment can exactly replicate. This is one reason delaying Social Security to maximize the benefit is so valuable -- you are increasing the size of your inflation-protected income stream.
-
-**[VISUAL: Social Security benefit with annual COLA adjustments shown. Starting at $2,500/month, rising to $3,360/month after 10 years at 3% annual COLA. Purchasing power maintained.]**
-
-**Stella:** Let us bring it all together. What should a practical investor do about inflation?
-
-**Horace:** Five things.
-
-**[VISUAL: Five-point framework appearing one by one]**
-
-**Horace:** First, think in real terms. Whenever you see an investment return, mentally subtract inflation. That five percent CD is really two percent real, and after taxes maybe one percent. Train yourself to think in real returns.
-
-**Stella:** Number two?
-
-**Horace:** Hold equities for the long term. Stocks are the best long-term inflation hedge because companies grow revenues and earnings in nominal terms. Do not abandon stocks because inflation is elevated -- that is exactly when you need their inflation-hedging properties most.
-
-**Horace:** Three -- include TIPS or I-Bonds in your fixed-income allocation. Allocate twenty to thirty percent of your bond portfolio to inflation-protected securities. This ensures that at least part of your portfolio is explicitly guaranteed to keep up with CPI.
-
-**Horace:** Four -- be cautious with long-duration fixed-rate bonds. These are the most vulnerable asset class during inflation. When rates rise, long bonds get crushed. Shorten your bond duration during inflationary environments.
-
-**Horace:** And five -- plan retirement withdrawals in real terms. Your spending needs will grow with inflation. Model your retirement plan with inflation-adjusted withdrawals, not flat dollar amounts. Use conservative inflation assumptions -- three percent or higher -- rather than hoping for the Fed's two percent target.
-
-**[ANIMATION: Portfolio pie chart showing recommended allocation with inflation awareness: Broad equities (50-60%), TIPS (10-15%), Short/intermediate bonds (15-20%), Real estate/REITs (5-10%), Commodities (0-5%), Cash for near-term needs (5-10%)]**
-
-**Stella:** The bottom line is that inflation is not something to fear -- it is something to plan for.
-
-**Horace:** Exactly. You cannot control inflation. But you can build a portfolio that is resilient to it, plan your retirement in real terms, and make sure your purchasing power grows over time rather than erodes. That is the whole game.
-
-**Stella:** One last thing. People use words like disinflation, deflation, and stagflation interchangeably. Can you clarify?
-
-**Horace:** Very different things. Disinflation means inflation is slowing down -- prices are still rising but more slowly. That is generally good for investments. Deflation means prices are actually falling. It sounds nice but it is economically dangerous -- it increases the real burden of debt, discourages spending, and can spiral into depression. Japan experienced deflation for much of the 1990s and 2000s and it was devastating. And stagflation is the nightmare scenario: stagnant growth, high unemployment, and high inflation all at the same time. The 1970s were the classic example. Both stocks and bonds suffer during stagflation.
-
-**[VISUAL: Three scenarios on a spectrum. Left: "Disinflation (2015-2019): Inflation falling from 3% to 1.5%. Generally positive for assets." Center: "Deflation (Japan 1990s): Prices falling. Dangerous." Right: "Stagflation (US 1970s): High inflation + recession. Worst case for investors."]**
-
-**[VISUAL: Recap: "Think in Real Returns | Equities for Long-Term Hedge | TIPS/I-Bonds for Guaranteed Real Returns | I-Bonds for Tax-Deferred Protection | Shorten Bond Duration | Plan Retirement in Real Terms"]**
-
-**Stella:** Go check your portfolio. How much is in cash earning below inflation? How much is in long-duration bonds? What is your real after-tax return? These are the questions that matter.
-
-**Horace:** See you in the next one.
-
-**[VISUAL: End card with channel info and "Explore More: Full Course Curriculum"]**
+## Part 2: YouTube Script
 
 ---
 
-**END OF SIDE LESSON 06**
+**VIDEO TITLE:** Inflation — What Kills Cash, and What (Sometimes) Saves You | Side Lesson 6
+
+**RUNTIME TARGET:** ~16 minutes
+
+**HOSTS:**
+- **Horace** (teacher): Career investor, has lived through 2008, 2020, and 2022.
+- **Stella** (student): Risk-aware retail investor, holding cash she is starting to think might not be safe.
+
+---
+
+**[INTRO SEQUENCE]**
+
+[VISUAL: Animated logo "Side Lesson 6 — Inflation"]
+
+[VISUAL: image/side06_cpi_history.png — 112-year CPI chart with WW1, WW2, 1970s, 2008, and 2022 spikes annotated.]
+
+**Horace:** *(holding up a 2019 grocery receipt and a 2024 grocery
+receipt, same items)* Same brand. Same store. Same items. Top
+receipt is December 2019. Bottom is December 2024. The bottom one is
+twenty-six per cent more expensive. The number on the bank balance
+that bought the top receipt looks identical to the one that bought
+the bottom. So tell me, Stella — did anything happen?
+
+**Stella:** Well, my account looks the same.
+
+**Horace:** Right. That's the entire problem with inflation as a
+risk. Every other thing we cover in this tutorial — drawdowns,
+defaults, volatility — *announces itself* on your screen. Inflation
+sends you a bill for half your wealth and never debits the account.
+
+**Stella:** So how do you measure it.
+
+**Horace:** Three numbers. Headline CPI is the one in the news. Core
+PCE is the one the Fed actually targets. Trimmed-mean PCE is the one
+the people who live and die by this stuff watch. They disagree by
+thirty to fifty basis points a year, persistently. We'll come back to
+that. First, let's look at the chart that should be tattooed on every
+investor's forearm.
+
+---
+
+**[SEGMENT 1: THE 112-YEAR CPI CHART]**
+
+[VISUAL: image/side06_cpi_history.png — full screen.]
+
+**Horace:** US headline CPI, year over year, from 1914 to last month.
+Six annotated peaks. World War One — supply chain, conscription, and
+the dollar leaving gold. World War Two — same story. The 1970s,
+which we are about to spend a lot of time on. Nineteen-eighty's
+fourteen-point-eight per cent peak, the single number Volcker
+broke his career to defeat. The 2008 oil spike. And the modern entry —
+June 2022, nine-point-one per cent.
+
+**Stella:** Why is it spiky? It looks like nothing for thirty years
+and then a giant lump.
+
+**Horace:** Exactly the right read. Inflation is *regime-ish*. It
+spends most of its time between zero and three per cent, and then a
+regime change — a war, a currency reset, a supply shock — and it
+spends ten or fifteen years above five. That's SOUL number two: the
+forty-year regime. You don't *predict* the regime change; you
+recognise the regime you're in.
+
+**Stella:** Where is the Fed target on this chart?
+
+**Horace:** That dashed line at two per cent. The five per cent dashed
+line above it is the threshold above which finance professionals
+agree, retroactively, that inflation is "high." Below five, the Fed
+can probably manage it. Above five, the Fed has to break something to
+manage it. That's roughly the line Volcker crossed in 1979.
+
+---
+
+**[SEGMENT 2: THE 1970s — THE CANONICAL TRAUMA]**
+
+[VISUAL: image/side06_real_returns_inflation.png — 1970–1982 real returns by asset class.]
+
+**Horace:** This is what the 1970s looked like for an investor.
+Nineteen-seventy through nineteen-eighty-two. CPI averaged seven-
+point-eight per cent per year for the whole window. Look at where
+each asset class landed in *real* terms.
+
+**Stella:** S&P at minus one per cent? But I thought stocks always
+won.
+
+**Horace:** They eventually do. Path through the 1970s is brutal.
+The nominal index was flat from 1968 to 1982 — fourteen years.
+Subtract inflation and you've lost about half your purchasing power
+at the trough. Long Treasuries are the worst — minus three per cent
+per year for thirteen straight years. Cash about kept up because the
+Fed was hiking. The two winners? Gold, plus eighteen per cent real
+per year. Commodities, plus twelve.
+
+**Stella:** So gold is the answer.
+
+**Horace:** Hold that thought for sixty seconds. We'll come back to
+why gold is *not* the answer.
+
+[VISUAL: bar bracket on the chart highlighting gold and commodities.]
+
+**Horace:** The pattern in this chart is the most important pattern
+in this entire tutorial. The "safe" leg of the textbook portfolio —
+bonds — is the leg that gets you killed under inflation. The "risky"
+leg of real assets is the leg that saves you. SOUL number fourteen,
+the barbell, is built specifically for this.
+
+---
+
+**[SEGMENT 3: THE 2022 SPIKE — WHY GOLD ISN'T A MECHANICAL HEDGE]**
+
+**Stella:** OK so back to gold.
+
+**Horace:** Gold ran from thirty-five dollars an ounce in 1971 to
+eight-hundred-fifty in 1980. Eighteen per cent real per year, like
+the chart says. *Why* did it work? Not because of inflation. Because
+in August 1971 Nixon ended the dollar's gold peg. Gold had been
+forcibly held at thirty-five dollars by Bretton Woods for thirty
+years. The peg broke in 1971; the price was finding its new level for
+the next nine years. *The inflation happened to coincide with that
+re-rating.* You are looking at a one-time release of forty years of
+suppressed price.
+
+**Stella:** That's not really inflation hedging.
+
+**Horace:** Right. It's regime change — SOUL number two — combined
+with belief — SOUL number three. A store of value is whatever the
+next generation believes is one. In 1971, that was gold getting out
+of jail. The proof that the 1970s gold story is *not* generic
+inflation hedging is what happened in 2022.
+
+[VISUAL: a bar showing gold's 2022 nominal return — roughly zero.]
+
+**Horace:** Twenty-twenty-two. Headline CPI at nine-point-one per
+cent in June. Highest since 1981. Gold returned roughly *zero* for
+the year. Slightly negative in nominal terms, meaningfully negative
+in real terms. Why? Real yields. The 10-year TIPS yield went from
+minus-one per cent to plus-two per cent over the year — gold pays no
+coupon, so when the alternative starts paying two per cent real, gold
+gets dumped. Gold worked in the 1970s because real yields were
+*falling*. It didn't work in 2022 because real yields were *rising*.
+
+**Stella:** So what *did* work in 2022?
+
+**Horace:** TIPS — boring, contractually-guaranteed real return.
+Broad commodities — Bloomberg Commodity Index up about fourteen per
+cent. Energy producers. Short-duration anything. What didn't work:
+long bonds (TLT down thirty-one), gold (flat to down), tech (down
+forty), Bitcoin (down sixty-five). The post-2008 inflation playbook
+that everyone had been mentally rehearsing — *buy gold and Bitcoin* —
+failed its first live test.
+
+---
+
+**[SEGMENT 4: STOCKS, WAGES, AND THE LAG]**
+
+**Stella:** Why are stocks weak in real terms during inflation
+spikes? They're real assets too.
+
+**Horace:** Two reasons. Short-run, *price-margin compression*.
+Companies can pass through inputs on a lag, but inputs rise faster
+than prices for the first twelve to eighteen months. Margins compress.
+Earnings drop. Multiple compresses on top, because the discount rate
+rises with rates. You get a double hit — earnings down and multiple
+down — at the same time. That's why 2022 stocks fell so hard.
+
+**Stella:** And the long run?
+
+**Horace:** Long run, companies do reset prices. They earn back the
+margin. The S&P generally compounds slightly above CPI on a fifteen-
+plus-year horizon. The catch is that you have to *survive* the spike
+phase. In 2022, the average retail account drawdown was about
+twenty-five per cent — that's the threshold beyond which most
+retail investors capitulate. So the textbook hedge of "stocks beat
+inflation long-run" only works if you stay in your seat. Which most
+people don't.
+
+**Stella:** What about wages?
+
+**Horace:** Wages lag prices by twelve to eighteen months. The
+2021–2022 spike pushed CPI to nine-point-one in June 2022; nominal
+hourly earnings didn't catch up until late 2023. The implication for
+employees: your *real* income is shrinking during the early innings
+of an inflation regime, even if you're getting a raise. Plan for
+that. Ratchet your savings rate up *during* the spike, before your
+nominal salary catches up.
+
+---
+
+**[SEGMENT 5: THE INFLATION LAB INTERACTIVE]**
+
+[VISUAL: cut to interactive panel `interactive/side06_inflation_lab.html`.]
+
+**Horace:** All of this lives in the interactive at the bottom of the
+lesson. Three sliders. Top one, your assumed inflation rate. From
+minus two — that's deflation, like Japan in the 2000s — up to fifteen,
+that's worse than 1980. Middle one, your holding horizon. Bottom set,
+your portfolio mix across stocks, bonds, gold, commodities, real
+estate, TIPS, and cash.
+
+**Stella:** What does it spit out?
+
+**Horace:** Three numbers. Nominal ending wealth — the number you'd
+see on your statement. Real ending wealth — the number that actually
+matters. And the breakeven inflation rate at which your specific mix
+loses real value.
+
+[VISUAL: presenter sets inflation to 4%, horizon 30y, mix 100% cash.]
+
+**Horace:** Hundred per cent cash, four per cent inflation, thirty
+years. The bank statement triples. Real wealth shrinks to thirty
+cents on the dollar. *That's* the silent thief.
+
+[VISUAL: presenter switches to 60% stocks, 30% TIPS, 10% gold.]
+
+**Horace:** Same inflation, same horizon. Real wealth quadruples.
+The mix matters more than the absolute number on any given day.
+
+---
+
+**[SEGMENT 6: THE PORTFOLIO RULE]**
+
+**Stella:** So what's the take-home rule?
+
+**Horace:** Three rules. One: in any bond sleeve, replace some
+fraction with TIPS. Five to ten per cent of total portfolio. Mechanical
+hedge, contractually guaranteed. Locate them in tax-advantaged accounts
+because the phantom income gets taxed annually — SOUL fifteen,
+location-not-allocation.
+
+**Stella:** Two?
+
+**Horace:** Stores-of-Value sleeve at five to ten per cent. Gold,
+commodities, maybe a little Bitcoin if you must. Treat as belief
+assets — SOUL three — not mechanical hedges. They might be
+magnificent. They might do nothing. Size accordingly.
+
+**Stella:** Three?
+
+**Horace:** Don't sit in cash. Cash loses guaranteed in any regime
+where inflation runs above the T-bill rate. Park your settlement
+balance in a money-market fund yielding the T-bill rate, not a
+checking account yielding zero. Do that today. It's the single
+highest-leverage thing most retail investors aren't doing.
+
+**Stella:** That's it?
+
+**Horace:** That's it. Inflation is the one risk that doesn't
+announce itself, so you have to *structurally* defend before it
+arrives. After it arrives, the prices have already moved, and you
+will be buying TIPS at a real yield of minus one per cent because
+that's what is on offer. The time to buy inflation insurance is when
+it is cheap, which is when nobody believes inflation will return.
+That window is right now.
+
+---
+
+**[OUTRO SEQUENCE]**
+
+**Stella:** And the calculator?
+
+**Horace:** Same one. Plug your inflation assumption into the
+discount rate. The BA II Plus does not care whether you call the
+nine-per-cent rate an inflation rate, a discount rate, or a
+hurdle rate. The math is the same. The decision changes.
+
+[VISUAL: end card with three references — `image/side06_cpi_history.png`,
+`image/side06_real_returns_inflation.png`, `interactive/side06_inflation_lab.html`.]
+
+**Horace:** Three references for this lesson. Two charts. One lab.
+Inflation is a *regime*, not a number. Recognise it. Hedge it
+structurally. And never confuse the bank balance with the wealth.
+
+[END]

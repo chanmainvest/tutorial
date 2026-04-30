@@ -1,0 +1,648 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>DCF Lab — Interactive (Week 21)</title>
+<script src="https://cdn.plot.ly/plotly-2.35.2.min.js" charset="utf-8"></script>
+<style>
+html, body { margin: 0; padding: 0; background: var(--dl-bg); }
+:root {
+    --dl-bg: #fdfbf5;
+    --dl-text: #1a2332;
+    --dl-muted: #6b7280;
+    --dl-border: #d6d3c4;
+    --dl-card: #fdfbf5;
+    --dl-pos: #2e7d32;
+    --dl-neg: #b71c1c;
+    --dl-mid: #0d47a1;
+    --dl-accent: #b8860b;
+}
+html[data-theme="dark"] .dl-root,
+.dl-root[data-theme="dark"] {
+    --dl-bg: #0f1724;
+    --dl-text: #e6e6e6;
+    --dl-muted: #9aa3b2;
+    --dl-border: #2a3441;
+    --dl-card: #0f1724;
+    --dl-pos: #66bb6a;
+    --dl-neg: #ef5350;
+    --dl-mid: #5a8dee;
+}
+.dl-root {
+    font-family: 'Segoe UI', Helvetica, Arial, sans-serif;
+    background: var(--dl-bg);
+    color: var(--dl-text);
+    padding: 12px;
+    margin: 0;
+}
+.dl-pillbar-wrap {
+    margin-bottom: 12px;
+    padding: 10px 12px;
+    background: var(--dl-card);
+    border: 1px solid var(--dl-border);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+.dl-label {
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--dl-muted);
+}
+.dl-pillbar {
+    display: inline-flex;
+    border: 1px solid var(--dl-border);
+    border-radius: 999px;
+    overflow: hidden;
+    background: var(--dl-card);
+}
+.dl-pillbar button {
+    border: none;
+    background: transparent;
+    color: var(--dl-muted);
+    padding: 6px 14px;
+    font: inherit;
+    font-size: 0.85rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.15s, color 0.15s;
+}
+.dl-pillbar button:hover { color: var(--dl-text); }
+.dl-pillbar button.active {
+    background: var(--dl-accent);
+    color: #fff;
+}
+.dl-controls {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 12px;
+    margin-bottom: 14px;
+    padding: 12px;
+    background: var(--dl-card);
+    border: 1px solid var(--dl-border);
+    border-radius: 8px;
+}
+.dl-slider-wrap {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    font-size: 0.82rem;
+    color: var(--dl-muted);
+}
+.dl-slider-wrap .dl-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.dl-slider-wrap input[type="range"] {
+    flex: 1;
+    accent-color: var(--dl-accent);
+}
+.dl-slider-wrap .dl-val {
+    white-space: nowrap;
+    color: var(--dl-text);
+    font-weight: 700;
+    font-variant-numeric: tabular-nums;
+    min-width: 64px;
+    text-align: right;
+}
+.dl-slider-wrap .dl-name {
+    font-weight: 600;
+    color: var(--dl-text);
+}
+.dl-bigrow {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 10px;
+    margin-bottom: 14px;
+}
+.dl-big {
+    background: var(--dl-card);
+    border: 1px solid var(--dl-border);
+    border-left: 4px solid var(--dl-accent);
+    border-radius: 8px;
+    padding: 12px 14px;
+}
+.dl-big.dl-big-mid { border-left-color: var(--dl-mid); }
+.dl-big.dl-big-pos { border-left-color: var(--dl-pos); }
+.dl-big.dl-big-neg { border-left-color: var(--dl-neg); }
+.dl-big .dl-big-name {
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--dl-muted);
+}
+.dl-big .dl-big-val {
+    font-size: 1.7rem;
+    font-weight: 800;
+    margin-top: 4px;
+    font-variant-numeric: tabular-nums;
+    color: var(--dl-text);
+}
+.dl-big .dl-big-detail {
+    font-size: 0.78rem;
+    color: var(--dl-muted);
+    margin-top: 2px;
+    font-variant-numeric: tabular-nums;
+}
+.dl-chart {
+    width: 100%;
+    height: 380px;
+    background: var(--dl-card);
+    border-radius: 8px;
+    border: 1px solid var(--dl-border);
+}
+.dl-caption {
+    margin-top: 10px;
+    font-size: 0.78rem;
+    color: var(--dl-muted);
+    line-height: 1.45;
+}
+@media (max-width: 720px) {
+    .dl-controls { grid-template-columns: 1fr; }
+    .dl-bigrow { grid-template-columns: 1fr; }
+    .dl-chart { height: 320px; }
+}
+</style>
+</head>
+<body>
+
+<div class="dl-root" id="dl-root">
+    <div class="dl-pillbar-wrap">
+        <span class="dl-label" id="dl-co-label">Stock</span>
+        <div class="dl-pillbar" id="dl-co-pills" role="tablist">
+            <button type="button" data-co="AAPL" class="active">AAPL</button>
+            <button type="button" data-co="MSFT">MSFT</button>
+            <button type="button" data-co="GOOGL">GOOGL</button>
+            <button type="button" data-co="JPM">JPM</button>
+            <button type="button" data-co="KO">KO</button>
+        </div>
+        <span class="dl-label" id="dl-hint"></span>
+    </div>
+
+    <div class="dl-controls">
+        <div class="dl-slider-wrap">
+            <div class="dl-name" id="dl-name-fcf">Starting FCF ($M)</div>
+            <div class="dl-row">
+                <input type="range" id="dl-fcf" min="500" max="150000" step="500" value="109000">
+                <span class="dl-val" id="dl-val-fcf">109,000</span>
+            </div>
+        </div>
+        <div class="dl-slider-wrap">
+            <div class="dl-name" id="dl-name-shares">Shares outstanding (M)</div>
+            <div class="dl-row">
+                <input type="range" id="dl-shares" min="100" max="20000" step="50" value="14500">
+                <span class="dl-val" id="dl-val-shares">14,500</span>
+            </div>
+        </div>
+        <div class="dl-slider-wrap">
+            <div class="dl-name" id="dl-name-g15">Growth Y1-Y5 (%)</div>
+            <div class="dl-row">
+                <input type="range" id="dl-g15" min="0" max="25" step="0.5" value="6">
+                <span class="dl-val" id="dl-val-g15">6.0%</span>
+            </div>
+        </div>
+        <div class="dl-slider-wrap">
+            <div class="dl-name" id="dl-name-gterm">Terminal growth (%)</div>
+            <div class="dl-row">
+                <input type="range" id="dl-gterm" min="0" max="5" step="0.1" value="3.0">
+                <span class="dl-val" id="dl-val-gterm">3.0%</span>
+            </div>
+        </div>
+        <div class="dl-slider-wrap">
+            <div class="dl-name" id="dl-name-wacc">Discount rate / WACC (%)</div>
+            <div class="dl-row">
+                <input type="range" id="dl-wacc" min="5" max="15" step="0.1" value="9.0">
+                <span class="dl-val" id="dl-val-wacc">9.0%</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="dl-bigrow">
+        <div class="dl-big">
+            <div class="dl-big-name" id="dl-bn-iv">Intrinsic value per share</div>
+            <div class="dl-big-val" id="dl-bv-iv">—</div>
+            <div class="dl-big-detail" id="dl-bd-iv">—</div>
+        </div>
+        <div class="dl-big dl-big-mid">
+            <div class="dl-big-name" id="dl-bn-px">Current price</div>
+            <div class="dl-big-val" id="dl-bv-px">—</div>
+            <div class="dl-big-detail" id="dl-bd-px">—</div>
+        </div>
+        <div class="dl-big dl-big-pos">
+            <div class="dl-big-name" id="dl-bn-rev">Reverse-DCF implied growth</div>
+            <div class="dl-big-val" id="dl-bv-rev">—</div>
+            <div class="dl-big-detail" id="dl-bd-rev">—</div>
+        </div>
+    </div>
+
+    <div id="dl-chart" class="dl-chart"></div>
+    <p class="dl-caption" id="dl-caption">
+        Each pair of bars compares DCF intrinsic value per share (gold) against the current market price (navy) for the five preset stocks at their own baseline FCF and shares; intrinsic uses the slider growth, terminal-growth, and WACC settings applied uniformly to every stock.
+    </p>
+</div>
+
+<script>
+(function () {
+
+    // ----------------------------------------------------------------
+    // Stock presets (April 2026 approximate values).
+    // fcf_m = trailing FCF in $ millions
+    // shares_m = diluted shares outstanding in millions
+    // px = approximate current share price
+    // g15, gterm, wacc = sensible default DCF assumptions per name
+    // ----------------------------------------------------------------
+    const PRESETS = {
+        AAPL:  { fcf_m: 109000, shares_m: 14500, px: 215, g15: 6.0,  gterm: 3.0, wacc: 9.0 },
+        MSFT:  { fcf_m: 70000,  shares_m: 7430,  px: 420, g15: 9.0,  gterm: 3.0, wacc: 8.5 },
+        GOOGL: { fcf_m: 69000,  shares_m: 12400, px: 170, g15: 8.0,  gterm: 3.0, wacc: 9.0 },
+        JPM:   { fcf_m: 47000,  shares_m: 2820,  px: 210, g15: 4.0,  gterm: 3.0, wacc: 10.0 },
+        KO:    { fcf_m: 9600,   shares_m: 4310,  px: 70,  g15: 4.0,  gterm: 3.0, wacc: 7.0 },
+    };
+    const TICKERS = ["AAPL", "MSFT", "GOOGL", "JPM", "KO"];
+
+    const I18N = {
+        en: {
+            co_label:     "Stock",
+            hint:         "Click a ticker to load its preset, then drag the sliders.",
+            name_fcf:     "Starting FCF ($M)",
+            name_shares:  "Shares outstanding (M)",
+            name_g15:     "Growth Y1-Y5 (%)",
+            name_gterm:   "Terminal growth (%)",
+            name_wacc:    "Discount rate / WACC (%)",
+            bn_iv:        "Intrinsic value per share",
+            bn_px:        "Current price",
+            bn_rev:       "Reverse-DCF implied 5-yr growth",
+            iv_detail:    "{tick} - DCF at WACC {w}, terminal {g}",
+            px_detail:    "{tick} - market, Apr 2026",
+            rev_detail:   "Growth that makes intrinsic = price",
+            chart_title:  "Intrinsic value vs current price ($/share)",
+            x_title:      "Stock",
+            y_title:      "$ per share",
+            trace_iv:     "DCF intrinsic",
+            trace_px:     "Current price",
+            premium:      "Price / intrinsic = {x}",
+            caption:      "Each pair of bars compares DCF intrinsic value per share (gold) against the current market price (navy). The slider growth, terminal-growth, and WACC settings are applied to every stock's own baseline FCF and shares. The reverse-DCF readout shows the explicit-period growth rate that would make intrinsic exactly equal to the current price - that is the growth the market is pricing in.",
+        },
+        hk: {
+            co_label:     "股票",
+            hint:         "點擊股票代號載入預設,再拖動滑桿。",
+            name_fcf:     "起始自由現金流(百萬美元)",
+            name_shares:  "流通股數(百萬)",
+            name_g15:     "Y1-Y5 成長率(%)",
+            name_gterm:   "永續成長率(%)",
+            name_wacc:    "折現率 / WACC(%)",
+            bn_iv:        "每股內在價值",
+            bn_px:        "目前股價",
+            bn_rev:       "反向 DCF 隱含 5 年成長率",
+            iv_detail:    "{tick} - DCF,WACC {w},永續 {g}",
+            px_detail:    "{tick} - 市場價,2026 年 4 月",
+            rev_detail:   "使內在價值等於股價的成長率",
+            chart_title:  "內在價值 vs 目前股價(美元/每股)",
+            x_title:      "股票",
+            y_title:      "每股美元",
+            trace_iv:     "DCF 內在價值",
+            trace_px:     "目前股價",
+            premium:      "股價 / 內在價值 = {x}",
+            caption:      "每組柱對比 DCF 內在價值(金色)與目前市場股價(深藍)。滑桿的成長、永續成長與 WACC 設定會套用於每隻股票自身的 FCF 與股數。反向 DCF 顯示讓內在價值正好等於股價所需的明確期成長率 — 那就是市場已定價的成長率。",
+        },
+        tw: {
+            co_label:     "股票",
+            hint:         "點擊股票代號載入預設,再拖動滑桿。",
+            name_fcf:     "起始自由現金流(百萬美元)",
+            name_shares:  "流通股數(百萬)",
+            name_g15:     "Y1-Y5 成長率(%)",
+            name_gterm:   "永續成長率(%)",
+            name_wacc:    "折現率 / WACC(%)",
+            bn_iv:        "每股內在價值",
+            bn_px:        "目前股價",
+            bn_rev:       "反向 DCF 隱含 5 年成長率",
+            iv_detail:    "{tick} - DCF,WACC {w},永續 {g}",
+            px_detail:    "{tick} - 市場價,2026 年 4 月",
+            rev_detail:   "使內在價值等於股價的成長率",
+            chart_title:  "內在價值 vs 目前股價(美元/每股)",
+            x_title:      "股票",
+            y_title:      "每股美元",
+            trace_iv:     "DCF 內在價值",
+            trace_px:     "目前股價",
+            premium:      "股價 / 內在價值 = {x}",
+            caption:      "每組柱對比 DCF 內在價值(金色)與目前市場股價(深藍)。滑桿的成長、永續成長與 WACC 設定會套用於每支股票自身的 FCF 與股數。反向 DCF 顯示讓內在價值剛好等於股價所需的明確期成長率 — 那就是市場已定價的成長率。",
+        },
+        cn: {
+            co_label:     "股票",
+            hint:         "点击股票代码载入预设,再拖动滑杆。",
+            name_fcf:     "起始自由现金流(百万美元)",
+            name_shares:  "流通股数(百万)",
+            name_g15:     "Y1-Y5 增长率(%)",
+            name_gterm:   "永续增长率(%)",
+            name_wacc:    "折现率 / WACC(%)",
+            bn_iv:        "每股内在价值",
+            bn_px:        "当前股价",
+            bn_rev:       "反向 DCF 隐含 5 年增长率",
+            iv_detail:    "{tick} - DCF,WACC {w},永续 {g}",
+            px_detail:    "{tick} - 市场价,2026 年 4 月",
+            rev_detail:   "使内在价值等于股价的增长率",
+            chart_title:  "内在价值 vs 当前股价(美元/每股)",
+            x_title:      "股票",
+            y_title:      "每股美元",
+            trace_iv:     "DCF 内在价值",
+            trace_px:     "当前股价",
+            premium:      "股价 / 内在价值 = {x}",
+            caption:      "每组柱对比 DCF 内在价值(金色)与当前市场股价(深蓝)。滑杆的增长、永续增长与 WACC 设定会套用于每只股票自身的 FCF 与股数。反向 DCF 显示让内在价值正好等于股价所需的显式期增长率 — 那就是市场已定价的增长率。",
+        },
+    };
+
+    function currentLang() {
+        const p = new URLSearchParams(window.location.search);
+        const l = (p.get("lang") || "en").toLowerCase();
+        return I18N.hasOwnProperty(l) ? l : "en";
+    }
+    const T = I18N[currentLang()];
+
+    // ----------------------------------------------------------------
+    // DCF math.
+    // Five-year explicit period at growth g15 (constant), then Gordon
+    // growth perpetuity at gterm. Discount rate w. Returns enterprise
+    // value in same units as starting FCF (i.e. $M).
+    // ----------------------------------------------------------------
+    function dcfValue(fcf0, g15, gterm, wacc) {
+        const g = g15 / 100, gt = gterm / 100, w = wacc / 100;
+        if (w <= gt) return Number.POSITIVE_INFINITY;
+        let pv = 0;
+        let f = fcf0;
+        for (let t = 1; t <= 5; t++) {
+            f = f * (1 + g);
+            pv += f / Math.pow(1 + w, t);
+        }
+        // Terminal value at end of year 5, using FCF6 = FCF5 * (1+gt).
+        const tv = (f * (1 + gt)) / (w - gt);
+        pv += tv / Math.pow(1 + w, 5);
+        return pv;
+    }
+    function intrinsicPerShare(p, g15, gterm, wacc) {
+        const ev = dcfValue(p.fcf_m, g15, gterm, wacc);
+        if (!isFinite(ev)) return Infinity;
+        return ev / p.shares_m;
+    }
+    // Bisect for the g15 that makes intrinsic == price (with given fcf, shares,
+    // gterm, wacc).
+    function impliedG(p, gterm, wacc) {
+        const target = p.px;
+        const f = (g) => intrinsicPerShare(p, g, gterm, wacc) - target;
+        let lo = -5, hi = 25;
+        // If even hi=25 underprices, return hi; if even lo=-5 overprices, return lo.
+        const fLo = f(lo), fHi = f(hi);
+        if (fLo > 0) return lo;
+        if (fHi < 0) return hi;
+        for (let i = 0; i < 60; i++) {
+            const mid = 0.5 * (lo + hi);
+            const fm = f(mid);
+            if (fm < 0) lo = mid; else hi = mid;
+        }
+        return 0.5 * (lo + hi);
+    }
+
+    // ----------------------------------------------------------------
+    // DOM.
+    // ----------------------------------------------------------------
+    const ROOT = document.getElementById("dl-root");
+    const CHART = document.getElementById("dl-chart");
+    const CO_PILLS = document.getElementById("dl-co-pills");
+    const FCF = document.getElementById("dl-fcf");
+    const SHARES = document.getElementById("dl-shares");
+    const G15 = document.getElementById("dl-g15");
+    const GTERM = document.getElementById("dl-gterm");
+    const WACC = document.getElementById("dl-wacc");
+
+    let active = "AAPL";
+
+    function getCssVar(name) {
+        return getComputedStyle(ROOT).getPropertyValue(name).trim();
+    }
+    function darkMode() {
+        return document.documentElement.getAttribute("data-theme") === "dark";
+    }
+
+    function fmtNum(n, d) {
+        if (!isFinite(n)) return "—";
+        return n.toLocaleString(undefined, {
+            minimumFractionDigits: d, maximumFractionDigits: d,
+        });
+    }
+    function fmtMoney(n) {
+        if (!isFinite(n)) return "—";
+        return "$" + fmtNum(n, 2);
+    }
+    function fmtPct(n, d) {
+        if (!isFinite(n)) return "—";
+        const s = n >= 0 ? "" : "";
+        return s + n.toFixed(d == null ? 1 : d) + "%";
+    }
+
+    function loadPreset(tick) {
+        const p = PRESETS[tick];
+        FCF.value = String(p.fcf_m);
+        SHARES.value = String(p.shares_m);
+        G15.value = String(p.g15);
+        GTERM.value = String(p.gterm);
+        WACC.value = String(p.wacc);
+        active = tick;
+    }
+
+    function readSliders() {
+        return {
+            fcf_m: parseFloat(FCF.value),
+            shares_m: parseFloat(SHARES.value),
+            g15: parseFloat(G15.value),
+            gterm: parseFloat(GTERM.value),
+            wacc: parseFloat(WACC.value),
+        };
+    }
+
+    function updateValueLabels(s) {
+        document.getElementById("dl-val-fcf").textContent = fmtNum(s.fcf_m, 0);
+        document.getElementById("dl-val-shares").textContent = fmtNum(s.shares_m, 0);
+        document.getElementById("dl-val-g15").textContent = s.g15.toFixed(1) + "%";
+        document.getElementById("dl-val-gterm").textContent = s.gterm.toFixed(1) + "%";
+        document.getElementById("dl-val-wacc").textContent = s.wacc.toFixed(1) + "%";
+    }
+
+    function render() {
+        const s = readSliders();
+        updateValueLabels(s);
+
+        // Big-number panel: live intrinsic from sliders (using 'active' stock's price for context).
+        const liveStock = { fcf_m: s.fcf_m, shares_m: s.shares_m, px: PRESETS[active].px };
+        const ivLive = intrinsicPerShare(liveStock, s.g15, s.gterm, s.wacc);
+        const px = PRESETS[active].px;
+        const impG = impliedG(PRESETS[active], s.gterm, s.wacc);
+
+        document.getElementById("dl-bv-iv").textContent = fmtMoney(ivLive);
+        document.getElementById("dl-bd-iv").textContent =
+            T.iv_detail.replace("{tick}", active)
+                       .replace("{w}", s.wacc.toFixed(1) + "%")
+                       .replace("{g}", s.gterm.toFixed(1) + "%");
+        document.getElementById("dl-bv-px").textContent = fmtMoney(px);
+        document.getElementById("dl-bd-px").textContent =
+            T.px_detail.replace("{tick}", active);
+        document.getElementById("dl-bv-rev").textContent = fmtPct(impG, 1);
+        document.getElementById("dl-bd-rev").textContent = T.rev_detail;
+
+        // Color the intrinsic-value box border based on premium/discount.
+        const ivBox = document.getElementById("dl-bv-iv").parentElement;
+        ivBox.classList.remove("dl-big-pos", "dl-big-neg");
+        if (isFinite(ivLive)) {
+            if (ivLive >= px) ivBox.classList.add("dl-big-pos");
+            else ivBox.classList.add("dl-big-neg");
+        }
+
+        // Bar chart: for each ticker, intrinsic at slider g15/gterm/wacc using
+        // that ticker's own FCF/shares; current price as second bar.
+        const intrinsics = TICKERS.map(t => {
+            const p = PRESETS[t];
+            return intrinsicPerShare(p, s.g15, s.gterm, s.wacc);
+        });
+        const prices = TICKERS.map(t => PRESETS[t].px);
+
+        const colorAcc = getCssVar("--dl-accent");
+        const colorMid = getCssVar("--dl-mid");
+        const colorText = getCssVar("--dl-text");
+        const colorMuted = getCssVar("--dl-muted");
+        const colorGrid = darkMode() ? "rgba(255,255,255,0.08)" : "rgba(0,0,0,0.07)";
+        const colorBg = getCssVar("--dl-card");
+
+        const traces = [
+            {
+                x: TICKERS,
+                y: intrinsics,
+                name: T.trace_iv,
+                type: "bar",
+                marker: { color: colorAcc, line: { width: 0 } },
+                hovertemplate: T.trace_iv + ": $%{y:.2f}<extra></extra>",
+            },
+            {
+                x: TICKERS,
+                y: prices,
+                name: T.trace_px,
+                type: "bar",
+                marker: { color: colorMid, line: { width: 0 } },
+                hovertemplate: T.trace_px + ": $%{y:.2f}<extra></extra>",
+            },
+        ];
+
+        // Highlight active ticker by adding a small annotation.
+        const activeIdx = TICKERS.indexOf(active);
+        const activePremium = isFinite(intrinsics[activeIdx]) && intrinsics[activeIdx] > 0
+            ? (prices[activeIdx] / intrinsics[activeIdx]).toFixed(2) + "x"
+            : "—";
+
+        const layout = {
+            barmode: "group",
+            margin: { l: 60, r: 24, t: 36, b: 56 },
+            paper_bgcolor: colorBg,
+            plot_bgcolor: colorBg,
+            font: { family: "Segoe UI, Helvetica, Arial, sans-serif", color: colorText, size: 12 },
+            xaxis: {
+                title: { text: T.x_title, font: { color: colorMuted, size: 11 } },
+                gridcolor: colorGrid,
+                color: colorText,
+            },
+            yaxis: {
+                title: { text: T.y_title, font: { color: colorMuted, size: 11 } },
+                gridcolor: colorGrid,
+                zerolinecolor: colorMuted,
+                color: colorText,
+                tickprefix: "$",
+            },
+            title: {
+                text: T.chart_title,
+                x: 0, xanchor: "left",
+                font: { color: colorText, size: 13, weight: 700 },
+            },
+            legend: {
+                orientation: "h", x: 1, xanchor: "right", y: 1.08,
+                font: { color: colorText, size: 11 },
+                bgcolor: "rgba(0,0,0,0)",
+            },
+            annotations: [
+                {
+                    x: active, y: Math.max(intrinsics[activeIdx] || 0, prices[activeIdx]) * 1.04,
+                    xref: "x", yref: "y", showarrow: false,
+                    text: T.premium.replace("{x}", activePremium),
+                    font: { color: colorAcc, size: 11, weight: 700 },
+                    bgcolor: colorBg,
+                },
+            ],
+            hovermode: "x unified",
+        };
+
+        Plotly.react(CHART, traces, layout, {
+            displayModeBar: false,
+            responsive: true,
+        });
+    }
+
+    // ----------------------------------------------------------------
+    // Bind events.
+    // ----------------------------------------------------------------
+    CO_PILLS.querySelectorAll("button").forEach(btn => {
+        btn.addEventListener("click", () => {
+            CO_PILLS.querySelectorAll("button").forEach(b => b.classList.remove("active"));
+            btn.classList.add("active");
+            loadPreset(btn.dataset.co);
+            render();
+        });
+    });
+    [FCF, SHARES, G15, GTERM, WACC].forEach(el => {
+        el.addEventListener("input", render);
+    });
+
+    function applyI18n() {
+        document.getElementById("dl-co-label").textContent = T.co_label;
+        document.getElementById("dl-hint").textContent = T.hint;
+        document.getElementById("dl-name-fcf").textContent = T.name_fcf;
+        document.getElementById("dl-name-shares").textContent = T.name_shares;
+        document.getElementById("dl-name-g15").textContent = T.name_g15;
+        document.getElementById("dl-name-gterm").textContent = T.name_gterm;
+        document.getElementById("dl-name-wacc").textContent = T.name_wacc;
+        document.getElementById("dl-bn-iv").textContent = T.bn_iv;
+        document.getElementById("dl-bn-px").textContent = T.bn_px;
+        document.getElementById("dl-bn-rev").textContent = T.bn_rev;
+        document.getElementById("dl-caption").textContent = T.caption;
+    }
+    applyI18n();
+    loadPreset("AAPL");
+
+    // postMessage resize.
+    function reportHeight() {
+        try {
+            var h = Math.ceil(document.documentElement.scrollHeight);
+            parent.postMessage({ type: 'lesson-interactive-resize', height: h }, '*');
+        } catch (e) { /* ignore */ }
+    }
+    if (typeof ResizeObserver !== 'undefined') {
+        new ResizeObserver(reportHeight).observe(document.body);
+    }
+    window.addEventListener('resize', reportHeight);
+    setTimeout(reportHeight, 50);
+    setTimeout(reportHeight, 500);
+
+    // Theme observer.
+    const themeObserver = new MutationObserver(render);
+    themeObserver.observe(document.documentElement, {
+        attributes: true,
+        attributeFilter: ["data-theme"],
+    });
+
+    render();
+})();
+</script>
+
+</body>
+</html>

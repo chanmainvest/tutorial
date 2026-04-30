@@ -1,1107 +1,509 @@
-# Week 4: The 60/40 Portfolio
+# Week 4: The 60/40 Portfolio — Why It Worked and Why 2022 Broke It
 
 ---
 
-## Reading Section
-
-### a) Why This Is Important
-
-The 60/40 portfolio -- 60% stocks and 40% bonds -- is the most famous asset allocation in the history of investing. It has been the default recommendation of financial advisors for decades, the benchmark against which balanced funds are measured, and the starting point for almost every serious conversation about portfolio construction. If you invest in a target-date retirement fund, you are likely in some variation of 60/40 right now.
-
-Understanding the 60/40 portfolio matters for every investor, whether you ultimately adopt it, modify it, or reject it entirely:
-
-1. **It is the baseline.** In the same way that a doctor needs to understand the human body before diagnosing disease, an investor needs to understand 60/40 before evaluating more complex strategies. It is the control group against which everything else is measured. When a hedge fund manager says they beat "the benchmark," they often mean they outperformed a 60/40 portfolio on a risk-adjusted basis.
-
-2. **It demonstrates the power of diversification.** The 60/40 portfolio is not simply a watered-down stock portfolio. Because of the historical relationship between stocks and bonds, a 60/40 mix has historically delivered roughly 80% of the stock market's return with only about 60% of its risk. That is diversification working its magic -- you give up a little return but shed disproportionately more risk.
-
-3. **It reveals the limits of diversification.** The year 2022 delivered a painful lesson: when both stocks and bonds fall simultaneously, the 60/40 portfolio offers no shelter. Understanding why 2022 happened -- and whether it could happen again -- is essential for building resilient portfolios.
-
-4. **It teaches you about correlation.** The stock-bond correlation is the single most important variable in portfolio construction. When stocks and bonds move in opposite directions (negative correlation), 60/40 works beautifully. When they move together (positive correlation), it fails. Understanding what drives correlation shifts is one of the most valuable things you can learn.
-
-5. **It forces you to think about what comes next.** With interest rates, inflation regimes, and global economic structures evolving, blindly following a 60/40 allocation from past decades may not be optimal going forward. But you need to understand why it worked before you can intelligently adapt it.
-
-This lesson covers the origin and logic of the 60/40 portfolio, its historical performance, the mechanics of stock-bond correlation, how it reduces drawdowns, the 2022 debacle and what it taught us, and modern alternatives and adaptations.
+## Part 1: Reading Section
 
 ---
 
-### b) What You Need to Know
+### 1. Why This Is Important
 
-#### 1. Origin and Logic of the 60/40 Portfolio
+Sixty percent stocks, forty percent bonds. The most famous asset
+allocation in the history of investing, the default of every
+financial advisor, the benchmark every balanced fund is measured
+against, and — until 2022 — the closest thing to a "set it and
+forget it" portfolio that the textbook profession would put in
+print.
 
-The 60/40 portfolio did not emerge from a single paper or theory. It evolved over decades as a practical compromise between growth and stability.
+You need to understand 60/40 for four reasons, even if you end up
+not running it.
 
-**The intellectual roots:**
+1. **It is the baseline.** Every more complex strategy — risk parity,
+   trend, factor tilts, the barbell shape we get to in Week 14 — is
+   measured against 60/40. You cannot evaluate any of those if you
+   don't know what they are improving on.
+2. **It demonstrates what diversification actually buys you.** When
+   stocks and bonds are negatively correlated, the 60/40 mix
+   delivers roughly 80% of the equity return with about 60% of the
+   equity risk. That is not arithmetic — that is a *correlation
+   discount* on portfolio volatility, the central insight of
+   Markowitz's Nobel-winning work.
+3. **It demonstrates the limits of diversification.** In 2022, both
+   stocks and bonds fell roughly 18% together, the worst year for
+   60/40 since 1937. Understanding *why* matters more than the
+   loss itself: the regime that made 60/40 work for forty years had
+   a specific macro signature, and that signature reversed.
+4. **It teaches you that correlation is the most important variable
+   in portfolio construction.** Returns shift the level of your
+   wealth. Correlations shift the *shape* of the distribution. The
+   stock-bond correlation flipped sign in 2022, and the entire
+   industry is still digesting what that means.
 
-- **1952:** Harry Markowitz publishes "Portfolio Selection," introducing Modern Portfolio Theory (MPT). He mathematically proves that combining assets with different return patterns can produce portfolios with better risk-return characteristics than any single asset alone.
-
-- **1960s-1970s:** The concept of a "balanced fund" gains popularity. Pension funds and endowments begin adopting stock-bond mixes rather than holding only one asset class.
-
-- **1980s-1990s:** Financial advisors standardize around 60/40 as the "moderate" or "balanced" allocation. The strong performance of both stocks and bonds during this period cements 60/40 as the default.
-
-**Why 60% stocks and 40% bonds specifically?**
-
-The 60/40 split represents a sweet spot in the risk-return tradeoff:
-
-```
-WHY 60/40 IS THE "SWEET SPOT"
-================================
-
-Allocation      Expected    Standard    Sharpe    Max
-(Stock/Bond)    Return      Deviation   Ratio     Drawdown
-                                        (approx)
------------     --------    ---------   ------    --------
-0/100  Bonds      5.5%        6%         0.37      -18%
-20/80             6.4%        7%         0.49      -20%
-40/60             7.4%        9%         0.49      -26%
-60/40             8.4%       10%         0.49      -33%    <--
-80/20             9.3%       13%         0.45      -42%
-100/0  Stocks    10.3%       16%         0.41      -51%
-
-Key observations:
-- Return increases roughly linearly with stock allocation
-- Risk increases FASTER than return beyond 60/40
-- Sharpe Ratio peaks around 40-60% stocks
-- Maximum drawdown escalates rapidly above 60% stocks
-```
-
-```
-RISK-RETURN TRADEOFF VISUALIZATION
-=====================================
-
-Expected
-Return
-   |                                        * 100/0
-   |                                     *
-10%|                                  *
-   |                              *
- 9%|                          * 80/20
-   |                       *
- 8%|                    * 60/40
-   |                 *
- 7%|              * 40/60
-   |           *
- 6%|        * 20/80
-   |     *
- 5%|  * 0/100                  Notice: the curve BENDS
-   |                           The first 60% in stocks
-   |                           adds a lot of return for
-   |                           moderate risk. The last
-   |                           40% adds less return but
-   |                           much more risk.
-   +--|--|--|--|--|--|--|--|--|-> Risk (Std Dev)
-      4  6  8  10 12 14 16 18
-```
-
-**The intuition:** Moving from 0% stocks to 60% stocks dramatically improves returns while risk increases only moderately. But moving from 60% to 100% stocks adds diminishing returns while risk accelerates. The "bang for your buck" in terms of risk-adjusted return is maximized around the 40-60% stock allocation range.
+This lesson covers the origin and mechanics, the historical
+performance by decade, the correlation history, the 2022 break, and
+the modern adaptations.
 
 ---
 
-#### 2. Historical Performance of 60/40
+### 2. What You Need to Know
 
-The 60/40 portfolio has delivered remarkably strong results over long periods, particularly in the United States.
+#### 2.1 The Mechanics — Why Mix Stocks and Bonds at All?
 
-```
-60/40 PORTFOLIO PERFORMANCE BY DECADE
-========================================
+The single insight: **the volatility of a portfolio is not the
+weighted average of the volatilities of its parts.**
 
-Decade          60/40        S&P 500     Bonds     60/40
-                Return       Return      Return    Max DD
-                (Ann.)       (Ann.)      (Ann.)
----------       ------       ------      ------    ------
-1930s            5.2%         0.0%       +4.9%      -28%
-1940s            7.1%         9.2%       +2.7%      -13%
-1950s           10.2%        19.4%       -0.1%       -8%
-1960s            5.8%         7.8%       +1.7%      -14%
-1970s            6.7%         5.9%       +5.5%      -18%
-1980s           14.5%        17.5%      +12.6%       -8%
-1990s           12.8%        18.2%       +7.7%       -6%
-2000s            4.0%        -0.9%       +6.3%      -33%
-2010s            8.7%        13.6%       +3.7%      -10%
-2020-24          4.8%         9.6%      -0.5%       -22%
+For two assets with weights $w_1, w_2$, standard deviations
+$\sigma_1, \sigma_2$, and correlation $\rho$:
 
-Full Period     ~8.0%       ~10.2%      ~5.0%      -33%
-(1926-2024)
+$$ \sigma_p = \sqrt{w_1^2 \sigma_1^2 + w_2^2 \sigma_2^2 + 2 w_1 w_2 \sigma_1 \sigma_2 \rho} $$
 
-Notable: 60/40 was positive in 82% of calendar years.
-The S&P 500 alone was positive in 73% of calendar years.
-```
+When $\rho < 1$, that square root is *less* than the weighted-average
+volatility. The closer to $\rho = -1$, the more risk reduction.
+**Diversification is correlation arithmetic.**
 
-```
-GROWTH OF $100,000 IN 60/40 vs. ALL-STOCK vs. ALL-BOND
-========================================================
-(1990-2024, logarithmic scale)
+For US stocks ($\sigma \approx 16\%$) and US Treasuries
+($\sigma \approx 6\%$), with the long-run correlation between them:
 
-Value
-  |
-$2M +                                            * All-Stock
-    |                                          *
-    |                                       *
-$1M +                                    *   * 60/40
-    |                                 *    *
-    |                              *    *
-    |                           *    *
-$500K                        *    *
-    |                     *    *
-    |                  *    *
-    |               *    *         * All-Bond
-$250K            *    *         *
-    |         *    *         *
-    |      *    *         *
-$100K  *----*---------*-------->
-    1990    2000    2010    2024
+| Stock-bond ρ | 60/40 σ | Diversification benefit |
+|---|---:|---|
+| +1.0 (perfectly correlated) | 12.0% | None — pure weighted average |
+| 0.0 (uncorrelated) | 10.1% | About 16% volatility reduction |
+| −0.3 (typical 1990s–2010s) | 9.4% | About 22% reduction |
+| −1.0 (theoretical) | 7.2% | Maximum reduction |
 
-All-Stock:  $100K -> ~$2.1M  (higher return, bigger swings)
-60/40:      $100K -> ~$1.1M  (solid return, smoother ride)
-All-Bond:   $100K -> ~$350K  (lower return, least volatility)
-```
+The 1990s–2010s regime delivered an average stock-bond correlation
+around −0.3. That is the entire reason 60/40 worked so well for so
+long. It was *not* about either asset's expected return; it was
+about the cross-correlation.
 
-**The "lost decade" example:** From 2000 to 2009, the S&P 500 had a negative total return. This was the era of the dot-com crash and the financial crisis. But the 60/40 portfolio returned about 4% annualized over the same period because bonds performed well. This is the core promise of 60/40: bonds provide a cushion when stocks stumble.
+#### 2.2 Historical Performance — The Forty-Year Tailwind
 
----
+The chart below plots the cumulative real wealth (after CPI) of 100%
+stocks, 100% Treasuries, and 60/40 from 1928 forward, all rebalanced
+annually.
 
-#### 3. Stock-Bond Correlation: The Engine That Drives 60/40
+![Cumulative real wealth of three portfolios from 1928 through 2024 (Damodaran annual data, $1 starting balance, log scale, real terms after CPI). The three lines: 100% S&P 500 (steepest, most volatile), 100% 10-year US Treasury (smoothest but lowest), 60/40 rebalanced annually (the middle path that captures most of equity's compounding with materially smaller drawdowns). The 60/40 line ends near the 100% stocks line in real wealth but with visibly shallower troughs at 1937, 1973-74, 2000-02, and 2008.](image/week04_sixty_forty_growth.png)
 
-The 60/40 portfolio works because of a critical assumption: stocks and bonds do not always move in the same direction. In statistical terms, they have a low or negative correlation.
+Read the chart from far right to far left. By 2024, $1 invested in
+1928 in real terms became roughly:
 
-**Understanding correlation:**
+- $763 at 100% stocks
+- $304 at 60/40
+- $9 at 100% bonds
 
-```
-CORRELATION EXPLAINED
-========================
+The bonds-only line barely keeps up with inflation across the full
+century — the long-run real return on Treasuries is close to 1.5%
+per year. Stocks compound at roughly 7% real. 60/40 lands at
+roughly 5.7% real, two-thirds of the way to the equity line in
+*compound-rate* terms but with materially smaller drawdowns
+along the way.
 
-Correlation = -1.0    Perfect opposite movement
-                       When stocks go UP, bonds go DOWN (same %)
-                       Maximum diversification benefit
+By decade, the picture is more nuanced:
 
-Correlation = 0.0     No relationship
-                       Stocks and bonds move independently
-                       Good diversification benefit
+| Decade | 60/40 (real ann.) | Stocks (real ann.) | Bonds (real ann.) | 60/40 max drawdown |
+|---|---:|---:|---:|---:|
+| 1930s | 1.0% | -0.1% | 4.7% | -28% |
+| 1940s | 1.6% | 3.6% | -3.5% | -13% |
+| 1950s | 12.5% | 16.7% | -2.6% | -8% |
+| 1960s | 3.5% | 5.0% | -0.7% | -14% |
+| 1970s | -0.7% | -1.4% | -1.0% | -18% |
+| 1980s | 9.7% | 12.0% | 7.2% | -8% |
+| 1990s | 8.7% | 14.8% | 4.6% | -6% |
+| 2000s | 1.8% | -3.4% | 4.4% | -33% |
+| 2010s | 6.8% | 11.4% | 1.6% | -10% |
+| 2020-24 | 1.6% | 6.7% | -3.5% | -22% |
 
-Correlation = +1.0    Perfect same-direction movement
-                       When stocks go UP, bonds go UP (same %)
-                       ZERO diversification benefit
+The 1980s and 1990s are the two decades that built 60/40's reputation.
+Real bond returns above 7% per year. Real stock returns above 12%.
+Stock-bond correlation around −0.3 to −0.4. Whatever-asset-was-falling-
+the-other-was-rising, and the rebalance trade *paid* you to
+mechanically buy the underperformer.
 
+The 2020–24 row is what concerns the modern industry.
 
-WHAT HAPPENS TO 60/40 AT DIFFERENT CORRELATIONS
-=================================================
+#### 2.3 The Correlation Story — The Hidden Variable
 
-Correlation    60/40 Std Dev    Diversification    60/40 Benefit
-               (approx)        Benefit            vs. All-Stock
------------    -------------    ---------------    -------------
--0.5            7.5%            Maximum             Excellent
--0.2            9.0%            Strong              Very Good
- 0.0           10.0%            Good                Good
-+0.2           11.0%            Moderate             Fair
-+0.5           12.5%            Minimal              Limited
-+1.0           14.0%            NONE                 None
-```
+The chart below is the rolling 36-month correlation between US stocks
+and US Treasuries from 1928 forward. The single most important fact
+in the entire lesson lives on this chart.
 
-**Historical correlation regimes:**
+![Rolling 36-month correlation between annual US stock returns and US Treasury returns, 1928 through 2024 (Damodaran data). The correlation oscillates dramatically: deeply positive (+0.6) through the 1970s, falling through zero around 1997, deeply negative (-0.4 to -0.6) for almost the entire 2000-2020 window, and snapping sharply positive again starting in 2022.](image/week04_stock_bond_corr.png)
 
-The stock-bond correlation has not been constant. It has shifted dramatically over time, and understanding why is critical:
+Three regimes are visible:
 
-```
-STOCK-BOND CORRELATION THROUGH HISTORY
-=========================================
+- **1928–1997: stocks and bonds usually moved together.** Inflation
+  was the dominant driver. Higher inflation meant both lower bond
+  prices (rates rose) *and* lower stock prices (real earnings
+  squeezed). Lower inflation lifted both. Correlation positive,
+  diversification effect mediocre.
+- **1998–2021: the great inverse window.** Inflation faded as the
+  dominant driver and growth/recession became dominant. In
+  recessions, the Fed cut rates → bonds rallied. In recessions,
+  earnings cratered → stocks fell. Correlation deeply negative.
+  60/40 delivered its best forty years ever.
+- **2022 onward: the inverse regime cracked.** When the Fed had to
+  tighten aggressively to fight 9% CPI, bonds fell *and* the
+  earnings multiple compressed *and* stocks fell. Correlation
+  flipped positive again. 60/40 had its worst year since the
+  Great Depression-era stretch.
 
-Period            Correlation    Regime              Why
------------       -----------    ------              ---
-1960-1970          +0.3          Positive            Rising inflation
-1970-1980          +0.4          Positive            High and volatile
-                                                    inflation
-1980-1999          +0.2          Mildly positive     Falling inflation,
-                                                    falling rates
-2000-2020          -0.3          NEGATIVE            Deflation fears,
-                                                    low stable inflation,
-                                                    "flight to quality"
-2021-2023          +0.5          POSITIVE            Inflation shock,
-                                                    aggressive rate hikes
+The simple frame: **stocks and bonds are negatively correlated when
+the dominant macro driver is growth/recession; they are positively
+correlated when the dominant driver is inflation.** Decide which
+regime you think the next decade will be, and you have decided
+whether 60/40 is still your friend.
 
+#### 2.4 The 2022 Debacle — What Actually Happened
 
-Correlation
-+0.6  |         *
-      |        * *                                    *
-+0.4  |       *   *                                  * *
-      |      *     *                                *   *
-+0.2  |     *       *          *  *               *
-      |    *         *       *      *            *
- 0.0  |---*-----------*-----*--------*----------*-------->
-      |                *   *          *        *
--0.2  |                 * *            *      *
-      |                  *              *    *
--0.4  |                                  *  *
-      |                                   *
-      +--|--|--|--|--|--|--|--|--|--|--|--|--|-->
-       1960 1970 1980 1990 2000 2010 2020
+In one calendar year:
+- S&P 500 total return: −18.1%.
+- 10-year Treasury total return: −17.8%.
+- 60/40: roughly −18.0%.
+- CPI: +6.5%.
+- 60/40 in real terms: roughly −24%.
 
-       INFLATION          DEFLATION         INFLATION
-       REGIME             REGIME            RETURNS
-       (positive          (negative         (positive
-        correlation)       correlation)      correlation)
-```
+That last number is the worst real-return year for the 60/40 portfolio
+since 1937. The mechanism was simple and terrifying. The Fed funds
+rate started 2022 at 0.25% and ended above 4%. Long bonds repriced
+because of the rate move. Stocks repriced because the discount rate
+on future cash flows is the long bond yield, and that doubled. Both
+fell. Together. With no place to hide for the unhedged investor.
 
-**The key insight:** The correlation between stocks and bonds is driven primarily by the inflation regime:
+The 2022 drawdown also showed something else: **a 60/40 portfolio
+provides no protection against an inflation shock.** Cash earned
+under inflation, gold roughly held value, commodities rose. The
+classic two-asset diversifier was the *worst* allocation in the
+year of high inflation that everyone had been talking about for a
+decade.
 
-- **When inflation is the dominant concern** (1960s-1970s, 2021-2023): Both stocks and bonds suffer from inflation. Rising rates hurt bonds directly (prices fall). Inflation also hurts stocks by increasing costs and compressing valuations. Correlation is positive, and 60/40 struggles.
+#### 2.5 Modern Adaptations — Where 60/40 Goes Now
 
-- **When deflation or recession is the dominant concern** (2000-2020): Stocks fall because of economic weakness, but bonds rally because central banks cut rates and investors flee to safety. Correlation is negative, and 60/40 shines.
+Three modifications, in increasing order of complexity.
 
----
+1. **Replace some bonds with cash.** When bond yields are below
+   inflation, T-bills (short-duration, highest reinvestment of new
+   yield) outperform long bonds in nearly every scenario. A 60/30/10
+   allocation (stocks/short-Treasuries/cash) gives up almost no
+   long-run return and dramatically reduces 2022-style drawdowns.
+2. **Add a 5–10% gold sleeve.** Gold's correlation to stocks is near
+   zero in normal regimes and turns negative in inflation shocks.
+   The classic Permanent Portfolio (25/25/25/25 stocks / long-bonds
+   / cash / gold) is the historical archetype; modern variants run
+   smaller gold weights with a bigger equity tilt. Gold is not free
+   — it has no yield and high real-rate sensitivity — but in the
+   regime where 60/40 broke, gold worked.
+3. **Add a long-volatility or trend-following sleeve.** A small
+   allocation (5–10%) to managed-futures or long-vol structures
+   pays for itself in tail events. This is the institutional
+   adaptation; we cover it in detail in Week 47 and Week 50.
 
-#### 4. How 60/40 Reduces Drawdowns
-
-The practical benefit of the 60/40 portfolio is most visible during market crises. By holding 40% in bonds, the portfolio has a built-in shock absorber.
-
-```
-DRAWDOWN COMPARISON: 60/40 vs. ALL-STOCK
-==========================================
-
-                        All-Stock    60/40       60/40
-Event                   Drawdown     Drawdown    Savings
------------             ---------    --------    -------
-Black Monday 1987         -34%        -19%        15%
-Asian/LTCM 1997-98        -19%        -10%         9%
-Dot-Com 2000-02           -49%        -22%        27%
-Financial Crisis 07-09    -57%        -33%        24%
-COVID Crash 2020          -34%        -22%        12%
-2022 Bear Market          -25%        -22%         3% *
-
-* 2022 was unusual: bonds fell too, so 60/40
-  provided almost no cushion. More on this below.
-```
-
-```
-ANATOMY OF 60/40 IN A NORMAL CRISIS (2008-2009)
-==================================================
-
-What happened:
-- Stocks fell 57% from peak to trough
-- Bonds ROSE about 5% during the same period
-- Stock-bond correlation was strongly negative
-
-Portfolio math:
-- Stock portion (60%): -57% x 0.60 = -34.2%
-- Bond portion  (40%):  +5% x 0.40 = +2.0%
-- Total 60/40 drawdown:               -32.2%
-
-     Stocks    |XXXXXXXXX                    |  -57%
-               |XXXXXXXXX                    |
-     Bonds     |       BBB                   |  +5%
-               |                             |
-     60/40     |XXXXXX                       |  -32%
-               |                             |
-               0%   -20%   -40%   -60%
-
-The bonds acted as a SHOCK ABSORBER, reducing the
-total portfolio damage by nearly half.
-```
-
-```
-ANATOMY OF 60/40 IN THE 2022 CRISIS
-======================================
-
-What happened:
-- Stocks fell about 25% from peak to trough
-- Bonds ALSO fell about 13% (worst bond year since 1800s)
-- Stock-bond correlation was strongly POSITIVE
-
-Portfolio math:
-- Stock portion (60%): -25% x 0.60 = -15.0%
-- Bond portion  (40%): -13% x 0.40 =  -5.2%
-- Total 60/40 drawdown:               -20.2%
-
-     Stocks    |XXXXXXXX                     |  -25%
-               |                             |
-     Bonds     |XXXX                         |  -13%
-               |                             |
-     60/40     |XXXXXXX                      |  -20%
-               |                             |
-               0%   -10%   -20%   -30%
-
-The bonds PROVIDED ALMOST NO CUSHION. Instead of
-offsetting stock losses, they added to them.
-This was a failure of the 60/40 premise.
-```
-
-**Recovery times also matter:**
-
-```
-TIME TO RECOVER FROM MAJOR DRAWDOWNS
-=======================================
-
-Event                   All-Stock      60/40
-                        Recovery       Recovery
------------             ---------      --------
-Dot-Com 2000-02         7 years        3 years
-Financial Crisis 07-09  5.5 years      3 years
-COVID 2020              5 months       4 months
-2022 Bear Market        2 years        1.5 years
-
-60/40 recovers faster because:
-1. The drawdown is smaller (less ground to make up)
-2. Rebalancing buys stocks at depressed prices
-3. Bond income provides cash flow during recovery
-```
+The honest framing is the one Horace pushes throughout the course:
+**60/40 worked because of a specific macro regime that is unlikely
+to repeat with the same intensity over the next decade**. It is not
+broken. It is no longer optimal. The barbell shape — concentrated
+safety on one end, asymmetric speculation on the other, very little
+in the structurally-mediocre middle — is the more honest answer for
+investors who can stomach a different shape of returns.
 
 ---
 
-#### 5. When 60/40 Fails: The 2022 Case Study
+### 3. Common Misconceptions
 
-The year 2022 was a watershed moment for the 60/40 portfolio. For the first time in decades, both stocks and bonds suffered significant losses simultaneously, challenging the fundamental premise of balanced investing.
+**Misconception 1: "Bonds are the safe part of 60/40."**
 
-**What happened in 2022:**
+Bonds are *less volatile* than stocks. They are not safe. In 2022,
+US Treasuries lost more than they had in any year of the prior
+seven decades. Long bonds lost roughly 30%, which is a larger loss
+than the median equity bear market. The "bond sleeve = safety"
+framing is a 1980–2020 artefact of a 40-year bull market in bonds
+caused by falling rates.
 
-```
-2022 ASSET CLASS RETURNS
-==========================
+**Misconception 2: "60/40 has always worked."**
 
-Asset                         Return
-----                          ------
-S&P 500                       -18.1%
-Nasdaq                        -32.5%
-International Stocks          -16.0%
-U.S. Aggregate Bonds          -13.0%
-Long-Term Treasuries          -29.3%
-60/40 Portfolio               -16.9%
-TIPS (Inflation-Protected)     -11.9%
-Commodities (broad)           +16.1%
-Cash / T-Bills                 +1.5%
+In real terms, 60/40 lost money over the entire 1965–1981 stretch.
+For 16 years a balanced investor saw real wealth shrink because
+inflation outran the combined nominal returns of stocks and bonds.
+It was not until the 1980s that the long-run *real* trend returned.
 
-The traditional 60/40 had its WORST year since 2008,
-and one of its worst years since the Great Depression.
-```
+**Misconception 3: "Adding bonds to a stock portfolio always reduces
+return."**
 
-**Why 2022 was different:**
+Not necessarily. When you rebalance annually, the rebalancing
+trade — selling whichever asset just outperformed and buying the
+underperformer — is a small but persistent source of additional
+return on top of the buy-and-hold blend, because it is a
+mechanical "buy low, sell high." Some 60/40 backtests over long
+horizons show *higher* compound returns than 100% stocks because
+of this rebalancing premium plus the smaller drawdowns. The
+free-lunch component is small, but real.
 
-The root cause was the return of inflation after decades of dormancy. From 2000 to 2020, the world lived in a low-inflation environment. Central banks kept interest rates near zero. Bonds rallied persistently. Whenever stocks fell (2001, 2008, 2020), bonds rose because central banks cut rates aggressively. The negative stock-bond correlation became something investors took for granted.
+**Misconception 4: "International diversification fixes the problem."**
 
-In 2022, inflation surged to 9%, its highest level in 40 years. The Federal Reserve raised interest rates at the fastest pace in history. This created a scenario where:
+International stocks have a high correlation to US stocks in the
+events that actually matter (recessions, financial crises, the COVID
+crash). They reduce some country-specific risk but do little to
+solve the stock-bond correlation problem in 60/40. *Asset-class*
+diversification, not *geographic* diversification, is what shifts
+the portfolio's response to inflation shocks.
 
-1. **Bonds fell** because rising rates mechanically push bond prices down. The longer the duration of the bond, the greater the damage. Long-term Treasuries lost nearly 30%.
+**Misconception 5: "60/40 is actively managed if you rebalance."**
 
-2. **Stocks fell** because higher interest rates increase the discount rate applied to future cash flows, compressing valuations. Growth stocks, whose value depends heavily on distant future earnings, were hit hardest.
+Rebalancing back to a fixed allocation is *not* active management.
+It is a mechanical rule. Active management would be changing the
+target allocation based on a view (e.g., reducing the bond weight
+when yields are low). The strict 60/40 with annual rebalancing is
+fully passive at the strategy level.
 
-3. **The correlation flipped positive.** Both asset classes were responding to the same force -- inflation and rate hikes -- in the same direction. The diversification benefit of holding bonds alongside stocks evaporated.
+**Misconception 6: "I should rebalance frequently to capture the
+rebalance bonus."**
 
-```
-THE INFLATION MECHANISM
-=========================
-
-Inflation rises
-      |
-      v
-Central Bank raises rates
-      |
-      +---------+---------+
-      |                   |
-      v                   v
-Bond prices              Stock valuations
-FALL                     COMPRESSED
-(rates up =              (higher discount rate
- prices down)             = lower present value
-                          of future earnings)
-      |                   |
-      v                   v
-BOTH STOCKS AND BONDS FALL TOGETHER
-      |
-      v
-60/40 diversification FAILS
-```
-
-**Was 2022 a one-time anomaly or a new regime?**
-
-This is the most important question for investors going forward. History suggests the answer is nuanced:
-
-```
-HISTORICAL CONTEXT FOR SIMULTANEOUS DECLINES
-===============================================
-
-Year(s)         Stocks      Bonds       Cause
--------         ------      -----       -----
-1931            -43%        -2%         Depression + deflation
-1941            -11%        -2%         WWII
-1969            -8%         -5%         Vietnam, inflation
-1973-74         -37%        -4%         Oil crisis, inflation
-2022            -18%        -13%        Post-COVID inflation
-
-Key observation: Simultaneous stock-bond declines are RARE
-but NOT unprecedented. They tend to occur during inflationary
-periods or regime changes. The 2000-2020 negative correlation
-was the exception, not the rule, when viewed over 100 years.
-```
+The rebalancing premium is real but small (~0.2–0.4% per year on
+typical 60/40 backtests). Quarterly or annual rebalancing captures
+most of it; weekly or daily rebalancing trades against the same
+return mean-reverts in the wrong direction and incurs transaction
+costs. Annual is the conventional answer; semi-annual is fine.
+More than that is over-engineering.
 
 ---
 
-#### 6. The Bond Math: Why Duration Matters
+### 4. Q&A
 
-To understand why bonds sometimes help and sometimes hurt in a 60/40 portfolio, you need to understand duration -- a measure of how sensitive a bond's price is to interest rate changes.
+**Q1: Should I run 60/40 in 2026?**
 
-```
-DURATION AND INTEREST RATE SENSITIVITY
-=========================================
+A: For a long-horizon investor with no edge and no time to manage
+a portfolio actively, 60/40 is still a defensible answer — but the
+better defensible answer in the current regime is *60/30/10*
+(stocks / short-duration Treasuries / cash) or 55/30/10/5
+(adding gold). Pure long-bond 40% is the part most exposed to a
+reversal of the 2022-style positive correlation regime.
 
-Duration     Rate Change     Price Impact
-(years)      (1% increase)   (approximate)
---------     -------------   ------------
-2 years          +1%           -2%
-5 years          +1%           -5%
-10 years         +1%          -10%
-20 years         +1%          -20%
-30 years         +1%          -30%
+**Q2: Why not 70/30 or 50/50? What's special about 60/40?**
 
-The U.S. Aggregate Bond Index has a duration of ~6 years.
-A 1% rise in rates = ~6% loss in bond value.
+A: Nothing is special — it's a convention, not a derivation. The
+Sharpe ratio is fairly flat from about 40/60 to 70/30. The "right"
+allocation is the one you can hold through a 35% drawdown without
+selling. 70/30 is for higher-tolerance / longer-horizon investors;
+50/50 is for shorter-horizon / lower-tolerance ones. 60/40 sits
+in the middle and got institutionalised because of that.
 
-In 2022, rates rose about 3% across the curve:
-6-year duration x 3% rate increase = ~18% loss estimate
-Actual loss of Agg Bond Index: -13% (coupon income offset some)
-```
+**Q3: How do I implement 60/40 with ETFs in practice?**
 
-```
-CHOOSING THE RIGHT BONDS FOR 60/40
-=====================================
+A: Two ETFs is enough. VTI (or VOO/SPY for S&P 500) for the equity
+sleeve; AGG or BND for the bond sleeve. Set monthly automatic
+contributions in 60/40 proportions. Once a year, rebalance back to
+60/40. Total annual time commitment: about thirty minutes. Total
+expense ratio: roughly 0.04%.
 
-Bond Type           Duration    2022 Return    Hedge Quality
----------           --------    -----------    ------------
-T-Bills / Cash       0.1yr       +1.5%         No hedge, but
-                                               no damage either
-Short-Term Bonds     2 yrs       -4.5%         Poor hedge,
-                                               limited damage
-Intermediate Bonds   5 yrs       -10%          Moderate hedge
-                                               in normal times
-Aggregate Index      6 yrs       -13%          Good hedge in
-                                               deflation, bad
-                                               in inflation
-Long-Term Bonds     20 yrs       -29%          Best deflation
-                                               hedge, worst
-                                               inflation result
-TIPS                 7 yrs       -12%          Should hedge
-                                               inflation, but
-                                               duration still
-                                               hurts in 2022
-```
+**Q4: What about "all-in-one" balanced funds?**
 
-**The 60/40 duration decision is critical:** The type of bonds you hold in the 40% allocation dramatically changes the portfolio's behavior. Short-duration bonds provide stability but limited crisis protection. Long-duration bonds provide maximum crisis protection in deflationary recessions but maximum damage in inflationary environments.
+A: Vanguard's VBAIX (60/40), iShares' AOR (60/40), and similar
+products do the rebalancing internally. Slightly higher expense
+ratio (0.07–0.30% vs 0.04% for the two-ETF version), no rebalancing
+chore for you. Reasonable for accounts you don't want to touch.
+For taxable accounts the two-ETF version is better because you can
+control the tax timing on rebalances.
 
----
+**Q5: Why did 2008 not break 60/40 the way 2022 did?**
 
-#### 7. Modern Alternatives and Adaptations
+A: In 2008, stocks fell ~37% but Treasuries *rallied* roughly +20%
+on the flight to safety. The 60/40 drawdown was about −22% — bad,
+but materially less than the equity drawdown. In 2022, both fell
+together. The mechanism: 2008 was a deflationary credit shock; 2022
+was an inflationary monetary shock. The 60/40 portfolio is hedged
+against the former and exposed to the latter.
 
-The 2022 experience has prompted investors and advisors to reconsider the traditional 60/40 and explore alternatives. Here are the most common adaptations:
+**Q6: Should I rebalance with new contributions or by selling?**
 
-**Alternative 1: Shorten Bond Duration**
+A: With new contributions if you can. Direct your monthly inflow
+to whichever sleeve is below target — that rebalances without
+realising taxable gains and without paying spread. Sell-to-rebalance
+only when contributions are no longer enough to fix the drift, or
+once a year as a clean-up.
 
-Replace intermediate and long-term bonds with short-term bonds or T-bills. This sacrifices yield but dramatically reduces interest rate sensitivity.
+**Q7: What about international bonds?**
 
-```
-60/40 WITH SHORT BONDS vs. TRADITIONAL 60/40
-===============================================
+A: For US-domiciled investors, hedged international developed-market
+bonds (BNDX) provide marginal additional diversification. In
+practice the diversification benefit is small (the world's
+investment-grade sovereign debt is heavily correlated through the
+global rate cycle), and the FX hedge eats some of the yield. Most
+practitioners skip them and just hold US Treasuries.
 
-                        Traditional     Short-Bond
-                        60/40           60/40
-                        -----------     ----------
-2022 Return              -16.9%          -10.2%
-2008 Return              -22.1%          -26.8%
-Avg Return (2000-24)      5.8%            5.2%
-Std Dev (2000-24)         9.8%           10.5%
+**Q8: Where does the SOUL.md "barbell" allocation fit relative to
+60/40?**
 
-Tradeoff: Better in inflation, worse in deflation.
-The short-bond version was less damaged in 2022,
-but it also did not benefit from the bond rally in 2008.
-```
+A: The barbell rejects 60/40 at the philosophical level. The middle
+of the risk spectrum (investment-grade bonds, dividend-stock
+defensive allocations) is exactly the part the barbell strips out
+because it is the part that gets crushed in inflation shocks. The
+barbell holds *more* concentrated safety than 60/40 (cash, short
+T-bills, gold) and *more* asymmetric speculation than 60/40 (long
+calls, momentum equity, crypto), with very little in between.
 
-**Alternative 2: Add Real Assets (Commodities, TIPS, Real Estate)**
+**Q9: Is the rebalancing premium taxable?**
 
-Real assets tend to perform well during inflationary periods, providing a third source of diversification.
+A: In a taxable account, every rebalance trade is a potential
+realisation. To preserve the premium net of taxes, rebalance with
+contributions where possible (no realisation), and use tax-advantaged
+accounts (IRA, 401k, 529) for the sleeve that accumulates
+fastest-growing gains. The two-ETF 60/40 is genuinely cheap on
+expense; on taxes, your account structure matters more than the
+ETF choice.
 
-```
-"ALL-WEATHER" PORTFOLIO CONCEPT
-==================================
+**Q10: How does this connect to the rest of the course?**
 
-          Traditional 60/40       All-Weather Alternative
-          -----------------       ----------------------
-Stocks:       60%                      40%
-Bonds:        40%                      20%
-Commodities:   0%                      15%
-TIPS:          0%                      10%
-Real Estate:   0%                      10%
-Gold:          0%                       5%
+A: 60/40 is the baseline. Week 5 covers diversification more deeply.
+Week 13–14 introduce the barbell. Week 23 covers factor investing,
+which slices the equity sleeve into return premia. Week 47 covers
+the long-volatility hedge that you can graft onto 60/40 to address
+the inflation-shock vulnerability. Every subsequent allocation
+discussion will compare to this baseline.
 
-                                      100%
-
-Performance comparison (approximate):
-                     60/40      All-Weather
-2008 (deflation)    -22%          -18%
-2022 (inflation)    -17%          -10%
-2010s avg return    +8.7%         +6.5%
-Worst drawdown      -33%          -25%
-
-Tradeoff: More consistent, but lower returns in
-strong stock markets. You sacrifice upside for
-better downside protection across regimes.
-```
-
-**Alternative 3: Factor-Based Bond Allocation**
-
-Instead of a static 40% in bonds, dynamically adjust the type and duration of bonds based on the inflation and rate environment.
-
-```
-ADAPTIVE BOND ALLOCATION FRAMEWORK
-=====================================
-
-Inflation Regime          Bond Strategy
-----------------          -------------
-Low and stable            Long-duration Treasuries
-  (like 2010-2019)        (maximum deflation hedge)
-
-Rising inflation          Short-duration + TIPS +
-  (like 2021-2023)        Commodities
-                          (minimize rate risk, hedge
-                           inflation)
-
-High but falling          Intermediate bonds
-  (like 1982-1990)        (lock in high yields as
-                           rates decline)
-
-Deflation risk            Long-duration Treasuries
-  (like 2008-2009)        (maximum capital gain
-                           potential as rates fall
-                           toward zero)
-```
-
-**Alternative 4: The "Risk Parity" Approach**
-
-Instead of allocating 60% of capital to stocks and 40% to bonds, allocate based on risk contribution. Since stocks are much more volatile than bonds, a 60/40 portfolio actually has about 90% of its risk coming from stocks. Risk parity equalizes this.
-
-```
-60/40 vs. RISK PARITY: WHERE THE RISK ACTUALLY IS
-====================================================
-
-Traditional 60/40:
-                Capital Allocation         Risk Contribution
-                ------------------         -----------------
-Stocks:              60%          ------->      ~90%
-Bonds:               40%          ------->      ~10%
-
-The portfolio is dominated by stock risk despite
-looking "balanced" in dollar terms.
-
-
-Risk Parity:
-                Capital Allocation         Risk Contribution
-                ------------------         -----------------
-Stocks:             ~25%          ------->      ~50%
-Bonds:              ~75%          ------->      ~50%
-(with leverage)
-
-In a risk parity portfolio, each asset class
-contributes equally to total portfolio risk.
-This usually requires leverage on the bond side
-to achieve competitive returns.
-
-
-Comparison:
-                    60/40       Risk Parity
-Avg Return          8.0%          7.5%
-Std Dev            10.0%          6.5%
-Sharpe Ratio        0.40          0.54
-Max Drawdown       -33%          -18%
-
-Risk Parity has better risk-adjusted returns but
-requires leverage, which introduces its own risks.
-```
-
-**Alternative 5: Include International Bonds**
-
-U.S.-centric 60/40 misses the diversification benefit of international bonds, which respond to different central bank policies and economic cycles.
+The interactive panel below lets you slide the stock weight from
+0% to 100% and the rebalance frequency from monthly to never. It
+plots the resulting cumulative real wealth on the Damodaran 1928–2024
+dataset along with the maximum drawdown and the geometric annualised
+return. Slide it. Watch where the Sharpe-ratio peak sits, and watch
+how the 1973–74 drawdown changes shape as you move the bond weight.
 
 ---
 
-#### 8. Building a Modern 60/40
-
-Taking all lessons into account, here is a framework for constructing a modern version of the 60/40 portfolio:
-
-```
-MODERN 60/40 FRAMEWORK
-=========================
-
-STEP 1: DEFINE YOUR EQUITY SLEEVE (60%)
------------------------------------------
-U.S. Large Cap (S&P 500 or Total Market)     35%
-International Developed (EAFE)               15%
-Emerging Markets                             10%
-                                             ---
-                                             60%
-
-STEP 2: DEFINE YOUR DEFENSIVE SLEEVE (40%)
------------------------------------------
-Core: Intermediate Treasuries / Agg Bond     15%
-Inflation Protection: TIPS                    8%
-Short-Term: T-Bills / Short Bonds             7%
-Real Assets: Commodities / REITs              5%
-International Bonds (hedged)                  5%
-                                             ---
-                                             40%
-
-STEP 3: REBALANCE
------------------------------------------
-- Rebalance back to targets annually or when
-  any allocation drifts more than 5% from target
-- Rebalancing forces you to buy low and sell high
-
-
-STEP 4: STRESS TEST
------------------------------------------
-Ask: How does this portfolio perform under:
-- 2008-style deflation crisis?
-- 2022-style inflation shock?
-- 1970s-style stagflation?
-- Normal economic growth?
-
-If any scenario produces unacceptable losses,
-adjust the allocation.
-```
+## Part 2: YouTube Script
 
 ---
 
-#### 9. The Rebalancing Bonus
+**VIDEO TITLE:** The 60/40 Portfolio — Why It Worked, Why 2022 Broke It | Week 4
 
-One underappreciated feature of the 60/40 portfolio is the **rebalancing bonus** -- the extra return generated by systematically buying low and selling high as you restore your target allocation.
+**RUNTIME TARGET:** ~18 minutes
 
-```
-HOW REBALANCING WORKS IN A CRISIS
-=====================================
-
-STARTING POINT:
-  Stocks: $600,000 (60%)
-  Bonds:  $400,000 (40%)
-  Total:  $1,000,000
-
-AFTER STOCK CRASH (-40% stocks, +5% bonds):
-  Stocks: $360,000 (46%)   <-- now underweight
-  Bonds:  $420,000 (54%)   <-- now overweight
-  Total:  $780,000
-
-REBALANCE TO 60/40:
-  Target stocks: $780K x 60% = $468,000
-  Target bonds:  $780K x 40% = $312,000
-  Action: Sell $108K bonds, buy $108K stocks
-
-  You are buying stocks at depressed prices
-  using money from bonds that held their value.
-
-AFTER RECOVERY (stocks +67% from trough, bonds flat):
-  Without rebalancing:
-    Stocks: $360K x 1.67 = $601K
-    Bonds:  $420K x 1.00 = $420K
-    Total: $1,021K  (+2.1% from start)
-
-  With rebalancing:
-    Stocks: $468K x 1.67 = $782K
-    Bonds:  $312K x 1.00 = $312K
-    Total: $1,094K  (+9.4% from start)
-
-  Rebalancing bonus: ~7% in this example
-```
-
-The rebalancing bonus is not guaranteed in every period, but over long horizons, it has historically added 0.5% to 1.0% per year to portfolio returns. It works because it enforces the discipline of buying assets that have fallen (and are therefore cheaper) and selling assets that have risen (and are therefore more expensive).
+**HOSTS:** Horace, Stella
 
 ---
 
-#### 10. When to Deviate from 60/40
+**[INTRO]**
 
-The 60/40 portfolio is a starting point, not a destination. Several factors should cause you to deviate:
+**Horace:** Last week was risk and return. This week is the most
+famous portfolio on earth. 60% stocks, 40% bonds. Every advisor in
+the country has recommended it. Every target-date fund is some
+version of it. And in 2022 it had its worst year since 1937.
 
-```
-REASONS TO HOLD MORE STOCKS (>60%)
-=====================================
-- Long time horizon (20+ years)
-- Stable income not dependent on portfolio
-- High risk tolerance confirmed by experience
-- Large savings rate that can offset losses
-- No near-term spending needs from portfolio
+**Stella:** So is it broken or not?
 
-REASONS TO HOLD FEWER STOCKS (<60%)
-=====================================
-- Short time horizon (<10 years)
-- Dependent on portfolio for income
-- Low risk tolerance (would panic in a crash)
-- Concentrated wealth (e.g., company stock)
-- Near-term spending needs (house purchase, etc.)
-
-REASONS TO MODIFY THE BOND ALLOCATION
-========================================
-- High inflation: shorten duration, add TIPS/commodities
-- Low rates: reduce bond allocation, add alternatives
-- Rising rates: favor short-duration bonds
-- Deflation risk: favor long-duration Treasuries
-```
-
-```
-AGE-BASED ADAPTATION OF 60/40
-================================
-
-Age Range        Suggested            Rationale
-                 Stock/Bond
----------        ----------           ---------
-25-35            80/20 to 90/10       Very long horizon,
-                                      human capital is
-                                      a "bond-like" asset
-36-50            60/40 to 80/20       Peak earning years,
-                                      long horizon
-51-60            50/50 to 60/40       Approaching retirement,
-                                      sequence risk matters
-61-70            40/60 to 50/50       In or near retirement,
-                                      capital preservation
-71+              30/70 to 40/60       Draw-down phase,
-                                      income and stability
-
-These are guidelines, not rules. Individual
-circumstances vary enormously.
-```
+**Horace:** It's not broken. It's also not what it was. By the end
+of this lesson you'll know exactly which it is for *you*.
 
 ---
 
-### c) Common Misconceptions
+**[SEGMENT 1: WHY MIX AT ALL]**
 
-**Misconception 1: "60/40 is dead after 2022."**
+**Horace:** The whole point of mixing stocks and bonds is one
+equation. The volatility of a portfolio isn't the weighted average
+of the volatilities of its parts. When the two assets are
+negatively correlated — when one zigs while the other zags — the
+combined volatility is *less* than either component, weighted.
 
-Reality: 2022 was a painful year for 60/40, but one bad year does not invalidate a strategy that has worked for decades. The 60/40 portfolio failed in 2022 because of a specific set of circumstances -- an inflation shock after a decade of zero interest rates. If inflation returns to moderate levels and the stock-bond correlation reverts to negative (as it often does during recessions), 60/40 will work again. The lesson of 2022 is not that 60/40 is dead, but that it should not be blindly applied without understanding the macro environment.
+**Stella:** That's the diversification benefit.
 
-**Misconception 2: "40% in bonds is too conservative for young investors."**
-
-Reality: For investors with truly long time horizons (30+ years) and stable income, 60/40 may indeed be too conservative. A 25-year-old with decades until retirement might be better served by 80/20 or even 90/10. But "too conservative" is not the same as "wrong." A young investor in 60/40 will still build substantial wealth -- they will just build it slightly slower than someone in a higher-equity portfolio. And if the higher-equity investor panics during a crash and sells, the 60/40 investor who stayed the course wins.
-
-**Misconception 3: "You can just hold stocks and ride out the dips."**
-
-Reality: In theory, yes. In practice, very few investors can actually stomach a 50% decline without making emotional decisions. The 60/40 portfolio exists partly as a behavioral tool -- it reduces volatility enough that most investors can stay invested through downturns. An all-stock portfolio that you abandon during a crash underperforms a 60/40 portfolio that you maintain.
-
-**Misconception 4: "Bonds always go up when stocks go down."**
-
-Reality: This was roughly true from 2000 to 2020, but it is not a law of nature. It is a consequence of specific macroeconomic conditions -- low inflation and central banks cutting rates during crises. In inflationary environments, bonds and stocks can fall together, as 2022 demonstrated. The stock-bond correlation is a variable, not a constant.
-
-**Misconception 5: "A target-date fund is the same as 60/40."**
-
-Reality: Target-date funds start with high equity allocations (often 90%) for young investors and gradually shift to more conservative allocations as the target date approaches. A target-date fund for someone retiring in 2060 looks nothing like 60/40 today -- it might be 90/10. Only near the target date does it resemble 60/40 or even more conservative allocations. Target-date funds are a glide path, not a fixed allocation.
-
-**Misconception 6: "60/40 means 60% S&P 500 and 40% U.S. Aggregate Bonds."**
-
-Reality: That is the most common implementation, but 60/40 is a concept, not a prescription. The 60% equity portion could include international stocks, small caps, or emerging markets. The 40% bond portion could include TIPS, international bonds, short-duration bonds, or even alternatives like commodities and REITs. How you fill the buckets matters as much as the bucket sizes.
+**Horace:** Right. And how big the benefit is depends entirely on
+the correlation between stocks and bonds. From the late 1990s to
+2021, that correlation was about minus 0.3. That negative
+correlation is *the entire reason* 60/40 worked so well for so long.
 
 ---
 
-### d) Common Questions and Answers
+**[SEGMENT 2: THE GROWTH CHART]**
 
-**Q1: If I am 30 years old, should I use 60/40?**
+[VISUAL: image/week04_sixty_forty_growth.png]
 
-A: Probably not exactly 60/40. With a 30-35 year investment horizon, you have the capacity to take more equity risk. A 70/30 or 80/20 allocation is likely more appropriate. However, 60/40 is better than any allocation you cannot maintain during a downturn. If 80/20 would cause you to panic-sell during a crash, 60/40 is the better choice for you. Your actual allocation should be the most aggressive one you can hold through the worst markets without selling.
+**Horace:** Here's the long-run growth chart. 100% stocks, 100%
+bonds, 60/40 — all rebalanced annually, in real terms after
+inflation, since 1928. By 2024, your dollar in real terms became
+seven hundred and sixty in 100% stocks, three hundred in 60/40,
+and nine in 100% bonds.
 
-**Q2: What specific funds should I use to build a 60/40 portfolio?**
+**Stella:** Bonds barely beat inflation across a century.
 
-A: The simplest implementation uses two funds: a total U.S. stock market index fund (like VTI or SWTSX) for the 60% equity allocation and a total U.S. bond market index fund (like BND or SCHZ) for the 40% bond allocation. A more diversified version might add an international stock fund (VXUS), a TIPS fund (SCHP), and possibly a short-term bond fund (VGSH). Many providers also offer all-in-one balanced funds that maintain a 60/40 allocation automatically, such as Vanguard Balanced Index Fund (VBIAX).
-
-**Q3: How often should I rebalance my 60/40 portfolio?**
-
-A: Research suggests that annual rebalancing captures most of the benefit. Some advisors prefer threshold-based rebalancing -- only rebalancing when an allocation drifts more than 5% from its target. Either approach works. More frequent rebalancing (monthly or quarterly) generates more trading costs without meaningful improvement in returns. In tax-advantaged accounts like IRAs and 401(k)s, the tax cost of rebalancing is zero, so annual rebalancing is straightforward. In taxable accounts, consider directing new contributions to the underweight asset class rather than selling the overweight one.
-
-**Q4: Does 60/40 work outside the United States?**
-
-A: The 60/40 strategy has generally worked in other developed markets, but the results have been more mixed than in the U.S. The United States had an unusually strong stock market in the 20th century, which flatters 60/40 historical returns. In Japan, where stocks declined for three decades after 1989, a 60/40 portfolio would have been saved by strong bond returns but would still have underperformed a 100% bond portfolio for extended periods. Investors should avoid assuming that U.S. historical returns represent a universal truth.
-
-**Q5: What is the tax efficiency of 60/40?**
-
-A: Stocks are generally more tax-efficient than bonds because stock returns come partly from capital gains (which are taxed at lower rates and can be deferred) while bond returns come primarily from interest income (taxed at ordinary income rates). In a taxable account, consider holding bonds in tax-advantaged accounts (IRA, 401k) and stocks in taxable accounts. This asset location strategy can add 0.3-0.5% per year in after-tax returns without changing your overall allocation.
-
-**Q6: How did the 60/40 portfolio perform during the 1970s stagflation?**
-
-A: The 1970s were a challenging period for 60/40. Stocks had mediocre returns due to high inflation and economic stagnation. Bonds also suffered as interest rates rose from about 6% to over 15%. The 60/40 portfolio returned roughly 6-7% annualized during the 1970s, which sounds acceptable until you consider that inflation averaged nearly 7.4%. In real (inflation-adjusted) terms, 60/40 investors barely broke even. This is the scenario that most closely resembles the 2022 concern -- and it is why adding inflation-hedging assets (commodities, TIPS, real estate) to a modern 60/40 is prudent.
-
-**Q7: Is there a better ratio than 60/40?**
-
-A: There is no universally "best" ratio. Research suggests that on a risk-adjusted basis (Sharpe Ratio), allocations between 40% and 60% stocks tend to perform similarly well. The "optimal" allocation depends entirely on the time period studied, the specific assets used, and the investor's personal situation. A more useful framework is to think in terms of a range: aggressive investors should be 70-90% stocks, moderate investors 50-70%, and conservative investors 30-50%. The exact percentages matter less than maintaining the allocation through market cycles.
-
-**Q8: What about adding gold to a 60/40 portfolio?**
-
-A: Gold has historically had low correlation to both stocks and bonds, making it a potential diversifier. A small allocation (5-10%) can improve risk-adjusted returns in certain environments, particularly during inflationary periods or currency crises. However, gold produces no income and has long periods of poor performance. From 1980 to 2000, gold lost about 70% of its real value. It is best thought of as insurance -- a small position that you hope you never need but are glad to have when crisis strikes.
-
-**Q9: What return should I expect from a 60/40 portfolio going forward?**
-
-A: Forward-looking returns depend heavily on starting valuations and interest rates. With stock valuations above historical averages and bond yields around 4-5%, a reasonable expectation for a 60/40 portfolio might be 5-7% nominal (before inflation) compared to the historical 8%. Lower expected returns do not mean 60/40 is broken -- they reflect the starting conditions. If bond yields rise to 5-6% and stock valuations normalize, forward returns will improve. The key point is that past returns should not be extrapolated without adjusting for current conditions.
-
-**Q10: Should I abandon 60/40 during inflationary periods?**
-
-A: You should not abandon 60/40, but you should adapt it. During inflationary periods, consider: shortening bond duration (swap long-term bonds for short-term), adding TIPS (Treasury Inflation-Protected Securities), adding commodities (historically the best inflation hedge), and adding real estate (rents tend to rise with inflation). The core principle of holding both growth assets and defensive assets remains sound. You are simply adjusting the composition of each sleeve to reflect the current regime. Making dramatic changes based on short-term macro predictions is dangerous -- most investors are poor macro forecasters.
+**Horace:** That's the whole century in one statistic. The long-run
+real return on Treasuries is about 1.5% per year. Stocks, about
+7%. 60/40 lands around 5.7%. Two-thirds of the equity rate, with
+materially shallower drawdowns at every crisis.
 
 ---
 
-## YouTube Script
+**[SEGMENT 3: THE CORRELATION FLIP]**
 
-[VISUAL: Animated intro with title "Week 4: The 60/40 Portfolio"]
+[VISUAL: image/week04_stock_bond_corr.png]
 
-**Horace:** Welcome back everyone. Last week we covered risk and return -- the foundation of investing. Today we are going to take those concepts and apply them to the most famous portfolio allocation in history: the 60/40 portfolio. Sixty percent stocks, forty percent bonds. If you have a 401(k) or any kind of retirement account, there is a good chance you are already invested in some version of this.
+**Horace:** This is the most important chart in the lesson. Rolling
+36-month correlation between stocks and bonds. Three regimes.
 
-**Stella:** I have definitely heard of 60/40, but I always thought it was kind of boring. Like, it is what your parents' financial advisor recommends. Is it actually worth a whole lesson?
+Up to 1997, mostly positive. Inflation was the dominant driver, and
+inflation crushes both stocks and bonds simultaneously. From 1998 to
+2021, deeply negative. Growth and recessions were the dominant
+driver, and the Fed's cut-rates-in-recessions policy made bonds rally
+while stocks fell. Then in 2022, snap.
 
-**Horace:** That is a fair reaction, and you are not alone. A lot of younger investors dismiss 60/40 as too conservative or too basic. But here is the thing -- understanding why 60/40 works, when it works, and when it does not is essential to becoming a serious investor. It is the benchmark against which everything else is measured.
+**Stella:** Back to positive.
 
-[VISUAL: Text appears: "60/40 is not just a portfolio -- it is a framework for understanding diversification"]
-
-**Stella:** Okay, sell me on it. Where did 60/40 even come from?
-
-**Horace:** It evolved over several decades. The intellectual foundation goes back to 1952, when Harry Markowitz published his groundbreaking paper on Modern Portfolio Theory. He proved mathematically that combining assets with different return patterns -- like stocks and bonds -- can produce a portfolio with better risk-return characteristics than either asset alone.
-
-**Stella:** What do you mean by "better risk-return characteristics"?
-
-**Horace:** I mean you get more return per unit of risk. Think of it this way. If stocks return 10% with 16% volatility and bonds return 5% with 6% volatility, you might expect a 60/40 mix to return about 8% with maybe 12% volatility -- just a weighted average. But because stocks and bonds do not move in perfect lockstep, the actual volatility of a 60/40 portfolio is only about 10%. You get roughly 80% of the stock market's return with only about 60% of its risk.
-
-[VISUAL: Animated bar chart showing expected return and risk for different allocations from 100% bonds to 100% stocks. The return line rises roughly linearly, but the risk line curves -- it rises slowly at first, then accelerates. The 60/40 point is highlighted where the gap between return and risk is favorable.]
-
-**Stella:** Wait, that math does not add up. How can the risk be lower than the weighted average?
-
-**Horace:** That is the magic of diversification, and it is exactly what Markowitz proved. When you combine two assets that do not move in perfect sync, the ups and downs partially cancel each other out. On a day when stocks drop 2%, bonds might rise 1%. The 60/40 portfolio drops only about 0.8% instead of 1.2%. Over time, this smoothing effect reduces overall volatility below what you would expect from a simple average.
-
-[ANIMATION: animation/week04_portfolio_comparison.py - Two sine waves representing stock returns (large amplitude, high frequency) and bond returns (small amplitude, different phase). As they combine into a 60/40 weighted average, the resulting wave has noticeably smaller amplitude than even the weighted average would suggest. Key moments where the waves move in opposite directions are highlighted, showing how the cancellation effect works.]
-
-**Stella:** So the key is that stocks and bonds move differently from each other?
-
-**Horace:** Exactly. And the technical term for this is correlation. When stocks and bonds have low or negative correlation -- meaning they tend to move in different directions -- the diversification benefit is strong. This is why 60/40 has worked so well historically.
-
-**Stella:** You said "historically." Has the correlation always been negative?
-
-**Horace:** Great catch, and this is where the story gets really important. The stock-bond correlation has not been constant. It has actually changed dramatically over time.
-
-[VISUAL: Historical chart showing stock-bond correlation from 1960 to 2024. The line fluctuates between +0.5 and -0.4, with distinct regimes labeled]
-
-**Horace:** From the 1960s through the early 1990s, stocks and bonds were actually positively correlated -- they tended to move in the same direction. Then from about 1997 to 2020, the correlation flipped negative. Stocks and bonds moved in opposite directions, which is the golden era for 60/40. Bonds rallied during every stock market crisis, acting as a perfect hedge.
-
-**Stella:** What caused the flip?
-
-**Horace:** Inflation. Or rather, the absence of inflation. During the 1960s and 1970s, inflation was the dominant economic force. When inflation rises, it hurts both stocks and bonds simultaneously. Stocks suffer because costs rise and valuations compress. Bonds suffer because interest rates rise and bond prices fall.
-
-**Stella:** And from the late 1990s onward?
-
-**Horace:** Inflation became a non-issue. It was low and stable. The dominant concern shifted from inflation to deflation and recession. In that environment, when stocks fell due to economic weakness, central banks cut interest rates aggressively, which caused bond prices to rise. Stocks went down, bonds went up. The correlation was negative. And 60/40 was beautiful.
-
-[VISUAL: Two-panel diagram. Left panel labeled "Inflationary Regime" shows stocks and bonds both falling with arrows pointing down. Right panel labeled "Deflationary/Low Inflation Regime" shows stocks falling and bonds rising with arrows in opposite directions]
-
-**Stella:** I think I know where this is going. 2022?
-
-**Horace:** Exactly. In 2022, inflation came roaring back. The consumer price index hit 9%, the highest in 40 years. The Federal Reserve raised interest rates at the fastest pace in history. And suddenly, stocks and bonds were falling together again -- just like in the 1970s.
-
-[VISUAL: Chart showing 2022 performance: S&P 500 down 18%, U.S. Aggregate Bonds down 13%, 60/40 portfolio down 17%]
-
-**Horace:** The S&P 500 fell about 18%. But here is the part that shocked people -- the U.S. bond market fell 13%. It was the worst year for bonds since anyone could remember. Long-term Treasuries lost nearly 30%.
-
-**Stella:** So the 60/40 portfolio got hit from both sides?
-
-**Horace:** Exactly. The 40% in bonds, which was supposed to cushion the blow, actually added to the losses. A 60/40 portfolio lost about 17% in 2022. The bonds provided almost no protection.
-
-[ANIMATION: animation/week04_portfolio_comparison.py - Side-by-side comparison of two crisis years: 2008 and 2022. In 2008, show a portfolio bar where stocks drop significantly (red section) but bonds rise (green section), with the net 60/40 result being a moderate loss. In 2022, show both the stock section and bond section dropping (both red), with the net 60/40 result being nearly as bad as stocks alone. Animate the bond bar "flipping" from green (helpful) in 2008 to red (harmful) in 2022.]
-
-**Stella:** So is 60/40 dead? I have seen a lot of headlines saying that.
-
-**Horace:** Those headlines make for good clicks, but the answer is no. Let me explain why. First, one bad year does not invalidate a strategy that has worked for nearly a century. The 60/40 portfolio has had bad years before -- not this specific failure mode, but it has had down years. It recovered every time.
-
-**Stella:** But what if we are entering a new regime where stocks and bonds are positively correlated?
-
-**Horace:** That is the real question, and I want to give you an honest answer. The correlation between stocks and bonds is driven primarily by the inflation regime. If we return to a world of low, stable inflation -- which is what central banks are trying to achieve -- the correlation should eventually flip back to negative, and 60/40 will work as advertised. But if inflation remains elevated or volatile for years, the positive correlation could persist, and 60/40 will struggle.
-
-**Stella:** So what should investors do?
-
-**Horace:** The lesson is not to abandon 60/40 but to modernize it. The original 60/40 assumed a world where inflation was not a concern. A modern 60/40 needs to account for the possibility of inflation.
-
-[VISUAL: Two portfolio pie charts side by side. Traditional 60/40: 60% stocks, 40% bonds. Modern 60/40: 40% stocks, 15% bonds, 10% TIPS, 15% international stocks, 10% real estate/commodities, 10% short-term bonds]
-
-**Horace:** Instead of putting the entire 40% defensive allocation into traditional bonds, consider splitting it up. Keep some in traditional intermediate bonds for deflation protection. Add TIPS -- Treasury Inflation-Protected Securities -- which adjust for inflation. Add some short-term bonds or T-bills that are less sensitive to rate changes. And consider a small allocation to commodities or real estate, which tend to perform well during inflationary periods.
-
-**Stella:** So you are diversifying within the bond allocation, not just between stocks and bonds.
-
-**Horace:** Exactly. The traditional 60/40 diversified across two dimensions: stocks and bonds. A modern 60/40 diversifies across three dimensions: growth assets, deflation hedges, and inflation hedges. That way, you have something working in your favor regardless of the economic environment.
-
-[VISUAL: Three-column framework: "Growth Assets" (stocks, REITs), "Deflation Hedges" (long-term bonds), "Inflation Hedges" (TIPS, commodities, short-term bonds). Arrows show that in any environment, at least one column should perform well]
-
-**Stella:** That is smart. Let us go back to the basics for a minute. How has 60/40 actually performed over long periods?
-
-**Horace:** Over the past century, a U.S. 60/40 portfolio has returned roughly 8 to 9 percent per year before inflation, or about 5 to 6 percent after inflation. It has been positive in about 82 percent of calendar years, compared to 73 percent for stocks alone.
-
-**Stella:** So it is positive more often than stocks?
-
-**Horace:** Yes, because the bond cushion prevents many of those marginal stock market down years from turning into portfolio down years. In a year where stocks lose 5% and bonds gain 4%, the 60/40 portfolio is roughly flat instead of negative.
-
-[VISUAL: Calendar heat map showing annual returns for stocks, bonds, and 60/40 from 1990 to 2024. Red cells for negative years, green for positive. The 60/40 row has notably fewer red cells than the stocks row]
-
-**Stella:** What about the really bad years? How does 60/40 handle crashes?
-
-**Horace:** This is where 60/40 really earns its reputation. In the 2008 financial crisis, stocks fell 57 percent from peak to trough. That is catastrophic. The 60/40 portfolio fell about 33 percent. Still painful, but much more survivable.
-
-**Stella:** Why such a big difference?
-
-**Horace:** Two reasons. First, the 40% in bonds acted as ballast. While stocks were cratering, investment-grade bonds actually rose about 5% during the worst of the crisis as investors fled to safety and the Fed slashed interest rates to zero. Second -- and this is less obvious -- if you were rebalancing, the 60/40 framework forced you to sell bonds at high prices and buy stocks at depressed prices.
-
-[VISUAL: Step-by-step rebalancing example: Starting with $600K stocks / $400K bonds. After crash: $360K stocks / $420K bonds (now 46/54). Rebalance: sell bonds, buy stocks at low prices. After recovery: portfolio with rebalancing is worth $1.09M vs. $1.02M without rebalancing]
-
-**Stella:** Wait, that is really clever. Rebalancing automatically makes you buy low and sell high?
-
-**Horace:** Exactly. It is systematic contrarian investing. When stocks crash, they become a smaller percentage of your portfolio, so rebalancing forces you to buy more stocks at cheap prices. When stocks soar, they become a larger percentage, so rebalancing forces you to trim and lock in gains. Over time, this rebalancing bonus has added roughly 0.5 to 1 percent per year.
-
-**Stella:** That is free return just from maintaining discipline.
-
-**Horace:** It is not free -- it requires the emotional discipline to buy stocks during a panic and sell them during euphoria. That is very hard to do. The 60/40 framework gives you a mechanical reason to do the right thing.
-
-[VISUAL: Emotional decision-making chart showing that rebalancing forces buy/sell decisions that are the opposite of natural human instinct: "Market crashes -- Instinct: SELL, Rebalancing: BUY" and "Market soars -- Instinct: BUY MORE, Rebalancing: SELL"]
-
-**Stella:** Let us talk about who should actually use 60/40. Is it right for everyone?
-
-**Horace:** Definitely not. The right allocation depends entirely on your personal situation. For young investors in their twenties and thirties with stable incomes and long time horizons, 60/40 is probably too conservative. They have decades to ride out market volatility and should likely hold 70 to 90 percent in stocks.
-
-**Stella:** When does 60/40 make sense?
-
-**Horace:** For investors in their forties and fifties who are in their peak earning years but starting to think about retirement, 60/40 is a reasonable starting point. For investors in their sixties and beyond who are approaching or in retirement, 60/40 might actually be too aggressive -- they might want 40/60 or 50/50.
-
-[VISUAL: Age-based allocation spectrum showing a sliding scale from 90/10 stocks/bonds at age 25, gradually shifting to 60/40 around age 50, and 30/70 at age 75. Each point on the spectrum has a brief annotation explaining the rationale]
-
-**Stella:** What about the old rule of thumb -- "your age in bonds"?
-
-**Horace:** That rule says a 30-year-old should be 30% bonds and a 70-year-old should be 70% bonds. It is a rough approximation that gets the directional move right -- more bonds as you age. But it is probably too conservative for most people today. With longer lifespans and lower bond yields, many advisors now suggest "your age minus 20 in bonds" or even "your age minus 30 in bonds." A 30-year-old under the updated rule would be 0-10% bonds rather than 30%.
-
-**Stella:** So what actually matters more than the specific numbers?
-
-**Horace:** Two things. First, your time horizon -- how many years until you need the money. Second, your behavioral risk tolerance -- the most aggressive portfolio you can hold without panic-selling during a crash. The optimal allocation is the one that maximizes returns subject to the constraint that you will actually stick with it.
-
-[VISUAL: Decision tree: "Time Horizon > 20 years?" leads to 70-90% stocks. "Time Horizon 10-20 years?" leads to 50-70% stocks. "Time Horizon < 10 years?" leads to 30-50% stocks. Each branch has a secondary check: "Can you handle a 30%+ drawdown?" If no, shift one level more conservative]
-
-**Stella:** I want to talk more about the bond side. You mentioned earlier that the type of bonds matters a lot. Can you go deeper?
-
-**Horace:** Absolutely. This is one of the most important and least understood aspects of 60/40. Not all bonds are created equal, and the type of bonds in your 40% allocation dramatically changes the portfolio's behavior.
-
-[VISUAL: Bond spectrum from left to right: T-Bills (safest, lowest yield) to Short-Term Bonds to Intermediate Bonds to Long-Term Bonds (most volatile, highest yield in normal conditions)]
-
-**Horace:** The key concept is duration. Duration measures how sensitive a bond is to interest rate changes. A bond with a duration of 2 years will lose about 2% if interest rates rise 1%. A bond with a duration of 20 years will lose about 20% for the same rate increase.
-
-**Stella:** That is a tenfold difference in sensitivity.
-
-**Horace:** Exactly. In 2022, the U.S. Aggregate Bond Index had a duration of about 6 years. When rates rose roughly 3 percentage points, the index lost about 13%. But if your 40% had been in short-term bonds with a duration of 2 years, you would have lost only about 4-5% on the bond side. The total 60/40 portfolio would have been down maybe 13% instead of 17%.
-
-**Stella:** So why does not everyone just use short-term bonds?
-
-**Horace:** Because in a deflationary crisis -- like 2008 -- long-duration bonds are what save you. When the Fed cuts rates to zero, long-term bond prices surge. Long-term Treasuries gained about 26% in 2008. Short-term bonds barely moved. The 60/40 portfolio with long-duration bonds was down about 22%, but the version with short-term bonds was down about 27%.
-
-[VISUAL: Two-by-two matrix: "Crisis Type" on one axis (Deflationary vs. Inflationary), "Bond Duration" on the other (Short vs. Long). Shows which combination wins in each scenario: Long duration wins in deflation, Short duration wins in inflation]
-
-**Stella:** So it is a tradeoff -- you are choosing between protection against deflation and protection against inflation?
-
-**Horace:** Precisely. And the elegant solution is to not choose. Hold both. Split your 40% bond allocation between some long-duration bonds for deflation protection, some short-duration bonds or TIPS for inflation protection, and some intermediate bonds as a core holding.
-
-**Stella:** That is the "modern 60/40" you mentioned earlier.
-
-**Horace:** Right. You are not just diversifying between stocks and bonds -- you are diversifying within the bond allocation to handle multiple types of crises.
-
-[VISUAL: Pie chart showing a diversified bond allocation: 40% total split into Intermediate Bonds (15%), Short-Term/T-Bills (10%), TIPS (8%), International Bonds (7%)]
-
-**Stella:** Let me ask about something I see a lot online. People say "just go all in on stocks, you are young, ride it out." What is wrong with that advice?
-
-**Horace:** Nothing is wrong with it in theory. Over 30-year periods, stocks have always outperformed bonds. So purely from a mathematical standpoint, a 25-year-old maximizes expected wealth by being 100% in stocks. But there are two practical problems.
-
-**Stella:** Which are?
-
-**Horace:** First, human behavior. It is easy to say "I will ride it out" when the market is going up. It is extraordinarily difficult when your $200,000 portfolio has become $120,000 and the news is screaming that the economy is collapsing. Most people who say they will "ride it out" have never actually experienced a 40% decline. The research shows that even professional investors make worse decisions under stress.
-
-[VISUAL: Graph showing investor cash flows into and out of stock funds, overlaid with market performance. Shows massive outflows at market bottoms (2009, 2020) and massive inflows at market tops -- proving that many investors who plan to "ride it out" actually do the opposite]
-
-**Horace:** Second, sequence of returns risk. This matters most for people approaching or in retirement. If you are 100% in stocks and the market drops 50% in your first year of retirement, you are in serious trouble even if the market eventually recovers. You are selling shares at depressed prices to fund your living expenses, and those shares are gone -- they do not participate in the recovery.
-
-**Stella:** So bonds are not just for returns -- they are for behavioral management and sequence risk.
-
-**Horace:** Exactly. Bonds serve three functions in a portfolio. One, they provide modest but stable returns. Two, they reduce drawdowns so you can sleep at night and avoid panic-selling. Three, they provide a source of funds during stock market crashes so you do not have to sell stocks at the worst time.
-
-[VISUAL: Three pillars labeled "Returns" (small), "Behavioral Anchor" (medium), and "Liquidity Buffer" (tall), showing that the non-return benefits of bonds are arguably more valuable than the return contribution]
-
-**Stella:** What about alternatives to bonds in the 40% allocation? People talk about gold, real estate, crypto...
-
-**Horace:** Let us take them one by one. Gold has historically had low correlation to both stocks and bonds, which makes it a genuine diversifier. A 5% allocation to gold can improve risk-adjusted returns. But gold produces no income, has long stretches of poor performance, and is volatile in its own right. I think of gold as portfolio insurance, not a core holding.
-
-**Stella:** Real estate?
-
-**Horace:** Real estate, through REITs, can be a useful addition. REITs provide income, tend to benefit from inflation (rents rise with prices), and have moderate correlation to stocks. But they are not bonds -- they can drop 40% in a crisis, as they did in 2008. Including REITs at 5-10% of a portfolio is reasonable, but they do not replace bonds.
-
-**Stella:** And crypto?
-
-**Horace:** Cryptocurrency, as of now, behaves more like a high-volatility growth asset than a defensive asset. Its correlation to stocks has increased over time. Bitcoin dropped over 60% in 2022 while providing no diversification benefit. Regardless of what you think about crypto's future, it is not a bond substitute. If you include it, it should come from the equity allocation, not the bond allocation.
-
-[VISUAL: Correlation matrix showing how different assets correlate with each other: Stocks/Bonds (low), Stocks/Gold (low), Stocks/REITs (moderate), Stocks/Bitcoin (moderate-high), Stocks/Commodities (moderate)]
-
-**Stella:** Okay, let me ask the big-picture question. If I am building a portfolio today, in 2026, what should I do? Should I use 60/40 or something else?
-
-**Horace:** Here is my framework. Start with 60/40 as your baseline. Then adjust based on three factors.
-
-**Stella:** What are the three factors?
-
-**Horace:** First, your time horizon. If you have more than 20 years, shift toward more stocks -- maybe 70/30 or 80/20. If you have less than 10 years, shift toward more bonds -- maybe 50/50 or 40/60.
-
-Second, the current environment. Today, bond yields are around 4-5%, which means bonds are finally paying you something reasonable. That actually makes the 40% bond allocation more attractive than it was during the zero-rate era of 2010-2020 when bonds yielded almost nothing.
-
-Third, diversify within each sleeve. Do not put all 60% in the S&P 500 -- add international stocks. Do not put all 40% in the U.S. Aggregate Bond Index -- add TIPS, short-term bonds, and maybe some real assets.
-
-[ANIMATION: animation/week04_portfolio_comparison.py - Start with a basic 60/40 pie chart. Animate it transforming step by step: first the equity slice breaks into domestic and international segments, then the bond slice breaks into core bonds, TIPS, short-term, and alternatives. Show the risk metrics changing as each diversification step is added -- each step either reduces risk or improves return or both. Final state shows a fully diversified modern portfolio with expected return and volatility displayed.]
-
-**Stella:** What about the "risk parity" approach I have heard about?
-
-**Horace:** Risk parity is a fascinating concept. In a traditional 60/40, even though you have 40% in bonds by dollars, about 90% of your portfolio's risk comes from stocks because stocks are so much more volatile than bonds. Your 60/40 portfolio is really a "90/10 risk portfolio."
-
-**Stella:** That is misleading.
-
-**Horace:** It is. Risk parity says: instead of allocating by dollars, allocate by risk. Make each asset class contribute equally to total portfolio risk. In practice, this means holding a lot more bonds and a lot less stocks. Maybe 25% stocks and 75% bonds by dollars, which gives you roughly 50/50 risk contribution.
-
-**Stella:** But that sounds like the returns would be terrible.
-
-**Horace:** On an unlevered basis, yes. But risk parity funds typically use leverage -- they borrow to buy more bonds -- so the total return is competitive with 60/40. The Sharpe Ratio of risk parity portfolios has historically been higher than 60/40, meaning better risk-adjusted returns.
-
-[VISUAL: Side-by-side comparison of 60/40 and Risk Parity: capital allocation pie charts, risk contribution pie charts, return comparison, and Sharpe Ratio comparison. Risk Parity shows more balanced risk contribution and higher Sharpe Ratio]
-
-**Stella:** What are the downsides of risk parity?
-
-**Horace:** Leverage introduces its own risks. If bond markets seize up -- as they briefly did in March 2020 -- leveraged bond positions can blow up. The strategy also depends on bonds having decent returns, which was questionable when yields were near zero. And the fees for risk parity funds tend to be much higher than a simple 60/40 index portfolio.
-
-**Stella:** So it is more sophisticated but not necessarily better?
-
-**Horace:** For most individual investors, a well-constructed 60/40 or 70/30 portfolio using low-cost index funds will outperform a risk parity fund on an after-fee basis. Risk parity is an interesting institutional approach, but for retail investors, simplicity usually wins.
-
-**Stella:** Let me ask one more practical question. Let us say I have a 60/40 portfolio and stocks crash 30%. I am feeling scared. What do I actually do?
-
-**Horace:** First, do nothing impulsive. Close the brokerage app. Go for a walk. Do not make decisions when you are in an emotional state. Second, remind yourself that a 30% decline is a normal, expected event. It has happened many times before and the market has always recovered. Third, if you have the discipline, rebalance. Your portfolio has drifted from 60/40 to maybe 50/50 because stocks fell. Sell some bonds and buy stocks at depressed prices. This is the hardest thing in investing -- buying when everyone else is selling.
-
-**Stella:** And if I cannot bring myself to do that?
-
-**Horace:** Then your allocation was probably too aggressive. If a 30% drop makes you want to sell everything, you should have been in 50/50 or 40/60, not 60/40. The right allocation is the one where you can rebalance during a crisis rather than flee from it. That is why understanding your own risk tolerance is so important -- not the theoretical kind, but the kind you feel in your stomach when your portfolio drops.
-
-[VISUAL: "Crisis Protocol" checklist: 1) Do not check your portfolio daily, 2) Review your time horizon, 3) Rebalance if possible, 4) Continue regular contributions, 5) Remember: this has happened before and markets recovered]
-
-**Stella:** This has been incredibly helpful. Can you summarize the key takeaways?
-
-**Horace:** Five things to remember about the 60/40 portfolio.
-
-One, it works because of the stock-bond correlation. When stocks and bonds move in opposite directions, the diversification benefit is powerful. But this correlation is not fixed -- it depends on the inflation regime.
-
-Two, 60/40 is a starting point, not a mandate. Younger investors should likely hold more stocks, older investors more bonds. The specific numbers matter less than the framework.
-
-Three, the type of bonds matters enormously. Traditional long-duration bonds protect you in deflationary crises but hurt you in inflationary ones. A modern bond allocation should include short-duration bonds and TIPS as well.
-
-Four, rebalancing is your secret weapon. It forces you to buy low and sell high, and it has added meaningful returns over time.
-
-Five, the biggest risk is not the market -- it is you. The best portfolio in the world is worthless if you abandon it during a crisis. Choose an allocation you can stick with through the worst markets.
-
-[VISUAL: Summary card with the five key takeaways, each with a simple icon]
-
-**Stella:** That last point is really the one that ties everything together. It is not about finding the perfect allocation -- it is about finding one you can live with.
-
-**Horace:** Perfectly said. The best allocation is not the one that looks best on a backtest. It is the one you can maintain through the inevitable storms.
-
-**Stella:** What is coming up next week?
-
-**Horace:** Next week we are diving into asset allocation strategies -- how to think about dividing your money across different asset classes beyond just stocks and bonds. We will cover the endowment model, the three-fund portfolio, and how to think about alternative assets. It is going to build directly on what we learned today.
-
-**Stella:** Cannot wait. Thanks for watching everyone, and we will see you next week.
-
-[VISUAL: End screen with subscribe button and links to previous lessons. Preview card for Week 5: Asset Allocation Strategies]
+**Horace:** When inflation came back, the inflation regime came back.
+Both fell together. The 60/40 portfolio had no shelter.
 
 ---
+
+**[SEGMENT 4: 2022 THE ANATOMY]**
+
+**Horace:** Year of 2022. S&P 500 down 18. Ten-year Treasury down
+17.8. CPI up 6.5. So 60/40 in nominal terms down 18, in real terms
+down 24. Worst real year for the strategy since 1937.
+
+**Stella:** Why did the Fed do that?
+
+**Horace:** They had to. Inflation hit 9% and the policy rate was at
+a quarter percent. They needed to fight inflation, which means
+raise rates aggressively, which mechanically tanks bond prices. And
+the same rate move tanked equity multiples. Same shock, both ends
+of the portfolio.
+
+**Stella:** And the lesson?
+
+**Horace:** 60/40 hedges *recessionary* shocks. It has no answer for
+*inflationary* shocks. If the next decade looks more like the
+1970s than like the 2010s, 60/40 will continue to underperform a
+diversified inflation-hedged version.
+
+---
+
+**[SEGMENT 5: WHAT TO DO INSTEAD]**
+
+**Horace:** Three modifications, in order of how much work they take.
+
+One. Trade some long bonds for short bonds or cash. Cash and short
+Treasuries lost almost nothing in 2022 because they kept reinvesting
+at higher yields. That's the cheapest fix.
+
+Two. Add 5 to 10 percent gold. Zero correlation in normal times,
+strong inflation hedge in regime breaks like 2022. Costs you the
+yield-give-up but earns it back in tail events.
+
+Three. Add a long-volatility sleeve. Trend-following or
+managed-futures strategies pay for themselves in years like 2022 and
+2008. We cover this in Week 47 — it's the institutional answer.
+
+---
+
+**[OUTRO]**
+
+**Horace:** 60/40 is not broken. It is no longer the default-best.
+The default-best in 2026 is closer to 60/30/10 with a small gold or
+trend overlay. And whether you adopt that or stick with the classic,
+you should know *why* you chose it. That's the whole lesson.
+
+**Stella:** And the interactive?
+
+**Horace:** Slider for the stock weight, slider for the rebalance
+frequency. Plots the wealth curve, the drawdown, the Sharpe. Slide
+it. Find your own sweet spot.
+
+---
+
+**END SCREEN:** "Next: Week 5 — Diversification Done Right"

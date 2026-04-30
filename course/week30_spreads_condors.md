@@ -1,810 +1,736 @@
-# Week 30: Spreads and Condors - Defined-Risk Options Strategies
-
-## Reading Section
-
-### a) Why This Is Important
-
-In the previous weeks, you learned single-leg options strategies: buying calls or puts, selling covered calls, and selling cash-secured puts. These are powerful tools, but they have limitations. A covered call requires owning 100 shares of stock. A cash-secured put requires setting aside the full cash to purchase shares. Both demand significant capital.
-
-**Spreads solve the capital problem.** By combining two or more options into a single position, you can create trades that require far less capital while having clearly defined maximum profit and maximum loss. This is why spreads are the backbone of professional options trading.
-
-**Why learning spreads and condors is critical:**
-
-**1. Defined risk changes everything.** When you sell a naked put, your maximum loss is the strike price times 100 (if the stock goes to zero). With a put spread, your maximum loss is the difference between strikes minus the premium received, typically a small fraction of the naked put risk. This means you can participate in options selling with a fraction of the capital and a fraction of the risk. A trade that might require $15,000 in cash for a cash-secured put can be replicated for $500-$1,000 with a spread.
-
-**2. Spreads allow you to express nuanced market views.** Single-leg options are blunt instruments: you are bullish, bearish, or neutral. Spreads let you express views like "I think the stock will stay between $140 and $160 for the next 30 days" or "I think the stock will go up but not past $165" or "I expect volatility to decrease." These precise views can be translated into precisely structured positions.
-
-**3. Iron condors are the quintessential income strategy.** An iron condor profits when the stock stays within a range. In a market that spends roughly 70-80% of its time in consolidation, this is a strategy that aligns with the natural tendency of prices. Many full-time options traders use iron condors as their primary income vehicle, consistently generating 3-8% per month on capital deployed.
-
-**4. Spread analysis relies on the Greeks.** This lesson builds directly on Week 29. You will see how combining options with different strikes and types creates positions with customized Greek profiles. Understanding delta, theta, vega, and gamma at the spread level is what separates competent options traders from beginners.
-
-**5. Spreads are the building blocks of advanced strategies.** Butterflies, calendars, diagonals, ratio spreads, and virtually every advanced options strategy is built from the basic spreads you will learn today. Master vertical spreads and iron condors, and you have the foundation for everything that follows.
+# Week 30: Spreads, condors and butterflies — building the barbell out of options
 
 ---
 
-### b) What You Need to Know
-
-#### What Is a Spread?
-
-A spread is a position created by simultaneously buying one option and selling another option on the same underlying stock. The options differ in strike price, expiration date, or both. By combining a long and short option, you create a position with limited risk and limited profit potential.
-
-```
-SPREAD = BUY one option + SELL another option
-         (same underlying, same expiration for vertical spreads)
-
-WHY SPREADS EXIST:
-
-  Single Option:  Unlimited profit potential, limited or large risk
-  Spread:         Limited profit potential, LIMITED RISK
-
-  The trade-off: You give up unlimited upside/downside
-  in exchange for defined, manageable risk.
-```
-
-#### Vertical Spreads: The Foundation
-
-A **vertical spread** uses two options with the same expiration date but different strike prices. There are four types:
-
-```
-THE FOUR VERTICAL SPREADS:
-
-  +-----------------------------------------------------------+
-  |                     BULLISH                                |
-  |                                                           |
-  |  Bull Call Spread (DEBIT)    Bull Put Spread (CREDIT)     |
-  |  Buy lower strike call      Sell higher strike put        |
-  |  Sell higher strike call    Buy lower strike put          |
-  |  You PAY net premium        You RECEIVE net premium       |
-  |  Profit if stock RISES      Profit if stock stays UP      |
-  +-----------------------------------------------------------+
-  |                     BEARISH                                |
-  |                                                           |
-  |  Bear Put Spread (DEBIT)    Bear Call Spread (CREDIT)     |
-  |  Buy higher strike put      Sell lower strike call        |
-  |  Sell lower strike put      Buy higher strike call        |
-  |  You PAY net premium        You RECEIVE net premium       |
-  |  Profit if stock FALLS      Profit if stock stays DOWN    |
-  +-----------------------------------------------------------+
-```
-
-#### Debit Spreads vs. Credit Spreads
-
-The distinction between debit and credit spreads is fundamental:
-
-**Debit Spread:** You pay money to enter the trade. Your maximum profit occurs when both options expire in the money. You profit from a directional move.
-
-**Credit Spread:** You receive money to enter the trade. Your maximum profit occurs when both options expire out of the money. You profit from the stock staying away from your short strike.
-
-```
-DEBIT vs. CREDIT SPREADS:
-
-                    DEBIT SPREAD              CREDIT SPREAD
-  Entry Cost:       You PAY premium           You RECEIVE premium
-  Max Profit:       Width - Premium Paid      Premium Received
-  Max Loss:         Premium Paid              Width - Premium Received
-  Profit When:      Stock moves your way      Stock stays away
-  Theta Effect:     NEGATIVE (hurts you)      POSITIVE (helps you)
-  Probability:      Typically < 50%           Typically > 50%
-  Risk/Reward:      Higher reward, lower      Lower reward, higher
-                    probability               probability
-
-  Width = Difference between strike prices
-
-  Example: Bull Call Spread on AAPL at $150
-
-  DEBIT (Bull Call Spread):         CREDIT (Bull Put Spread):
-  Buy $150 Call: -$5.00             Sell $150 Put: +$5.00
-  Sell $155 Call: +$2.50            Buy $145 Put: -$2.50
-  Net: PAY $2.50                    Net: RECEIVE $2.50
-  Max Profit: $5 - $2.50 = $2.50   Max Profit: $2.50
-  Max Loss: $2.50                   Max Loss: $5 - $2.50 = $2.50
-```
-
-#### Bull Call Spread (Debit Call Spread)
-
-The bull call spread is the simplest directional spread. You buy a call at a lower strike and sell a call at a higher strike.
-
-```
-BULL CALL SPREAD EXAMPLE:
-
-  AAPL at $150. You are moderately bullish.
-
-  Buy 1 AAPL $150 Call (30 days): Pay $5.00
-  Sell 1 AAPL $155 Call (30 days): Receive $2.50
-  Net Debit: $2.50 per share ($250 per spread)
-
-  Max Profit: ($155 - $150) - $2.50 = $2.50/share ($250)
-  Max Loss:   $2.50/share ($250)
-  Breakeven:  $150 + $2.50 = $152.50
-
-  PAYOFF DIAGRAM AT EXPIRATION:
-
-  P&L
-  +$250 |                          ___________________
-        |                     ____/
-     $0 |_________________ __/
-        |                 |
-  -$250 |_________________|
-        +----+----+----+----+----+----+----+----
-        $140 $142 $144 $146 $148 $150 $152 $155 $160
-                              |         |
-                           Buy Strike  Sell Strike
-                              $150       $155
-
-  Below $150: Both expire worthless. Lose full $250.
-  $150-$155: Long call gains value, short call still OTM.
-  Above $155: Both ITM. Max profit of $250 locked in.
-```
-
-```
-GREEKS FOR BULL CALL SPREAD:
-
-  Component          Delta   Gamma   Theta    Vega
-  =================  ======  ======  ======   =====
-  Long $150 Call     +0.50   +0.03   -$0.08   +$0.10
-  Short $155 Call    -0.30   -0.02   +$0.06   -$0.08
-  ===================================================
-  NET SPREAD         +0.20   +0.01   -$0.02   +$0.02
-
-  Interpretation:
-  - Low delta (+0.20): Moderate directional exposure
-  - Low gamma (+0.01): Delta is relatively stable
-  - Low theta (-$0.02): Small daily cost ($2/day)
-  - Low vega (+$0.02): Minor volatility sensitivity
-
-  Compare to buying the $150 call alone:
-  - Delta: +0.50 (2.5x more exposure)
-  - Theta: -$0.08 ($8/day cost, 4x more expensive)
-  - Max loss: $5.00 (2x more risk)
-
-  The spread REDUCES everything: exposure, cost, and risk.
-```
-
-#### Bear Put Spread (Debit Put Spread)
-
-The bear put spread is the bearish mirror of the bull call spread.
-
-```
-BEAR PUT SPREAD EXAMPLE:
-
-  AAPL at $150. You are moderately bearish.
-
-  Buy 1 AAPL $150 Put (30 days): Pay $4.80
-  Sell 1 AAPL $145 Put (30 days): Receive $2.30
-  Net Debit: $2.50 per share ($250 per spread)
-
-  Max Profit: ($150 - $145) - $2.50 = $2.50/share ($250)
-  Max Loss:   $2.50/share ($250)
-  Breakeven:  $150 - $2.50 = $147.50
-
-  PAYOFF DIAGRAM AT EXPIRATION:
-
-  P&L
-  +$250 |___________________
-        |                   \____
-     $0 |                        \__  _________________
-        |                           |
-  -$250 |                           |_________________
-        +----+----+----+----+----+----+----+----
-        $138 $140 $142 $144 $146 $148 $150 $152 $155
-                         |              |
-                      Sell Strike    Buy Strike
-                        $145           $150
-```
-
-#### Credit Spreads: Bull Put Spread and Bear Call Spread
-
-Credit spreads are the income-generating versions of vertical spreads. Instead of paying to bet on direction, you collect premium and profit when the stock stays in your favor.
-
-```
-BULL PUT SPREAD (CREDIT) EXAMPLE:
-
-  AAPL at $155. You are neutral to bullish.
-
-  Sell 1 AAPL $150 Put (30 days): Receive $2.80
-  Buy 1 AAPL $145 Put (30 days): Pay $1.30
-  Net Credit: $1.50 per share ($150 per spread)
-
-  Max Profit: $1.50/share ($150) - if AAPL stays above $150
-  Max Loss:   ($150 - $145) - $1.50 = $3.50/share ($350)
-  Breakeven:  $150 - $1.50 = $148.50
-
-  PAYOFF DIAGRAM AT EXPIRATION:
-
-  P&L
-  +$150 |                          ___________________
-        |                     ____/
-     $0 |                ____/
-        |           ____/
-  -$350 |__________/
-        +----+----+----+----+----+----+----+----
-        $140 $142 $144 $146 $148 $150 $152 $155
-                    |              |
-                 Buy Strike    Sell Strike
-                   $145          $150
-
-  PROBABILITY ANALYSIS:
-  Stock needs to stay above $148.50 for profit.
-  Currently at $155, that is $6.50 (4.2%) of cushion.
-  With delta of short put at 0.30, probability of
-  profit is approximately 70%.
-```
-
-```
-BEAR CALL SPREAD (CREDIT) EXAMPLE:
-
-  AAPL at $155. You are neutral to bearish.
-
-  Sell 1 AAPL $160 Call (30 days): Receive $2.00
-  Buy 1 AAPL $165 Call (30 days): Pay $0.80
-  Net Credit: $1.20 per share ($120 per spread)
-
-  Max Profit: $1.20/share ($120) - if AAPL stays below $160
-  Max Loss:   ($165 - $160) - $1.20 = $3.80/share ($380)
-  Breakeven:  $160 + $1.20 = $161.20
-
-  PAYOFF DIAGRAM AT EXPIRATION:
-
-  P&L
-  +$120 |___________________
-        |                   \____
-     $0 |                        \__
-        |                           \____
-  -$380 |                                \______________
-        +----+----+----+----+----+----+----+----
-        $150 $152 $155 $158 $160 $162 $164 $166
-                              |              |
-                           Sell Strike    Buy Strike
-                             $160          $165
-```
-
-#### Capital Efficiency of Spreads
-
-```
-CAPITAL COMPARISON:
-
-  Strategy                  Capital Required    Max Profit   Max Loss   ROI
-  ========================  ================    ==========   ========   ====
-  Cash-Secured Put $150     $15,000             $280         $15,000    1.9%
-  Bull Put Spread           $350 (margin)       $150         $350       42.9%
-    $150/$145
-
-  100 Shares of Stock       $15,500             Unlimited    $15,500    n/a
-  Bull Call Spread           $250                $250         $250       100%
-    $150/$155
-
-  NOTE: Spread returns look high but remember:
-  - Cash-secured put has ~80% win rate, spread has ~70%
-  - Spread max loss happens more frequently as % of capital
-  - Capital efficiency must be weighed against win rate
-  - Never risk more than 2-5% of portfolio on a single spread
-```
-
-#### The Iron Condor
-
-An iron condor combines a bull put spread and a bear call spread on the same stock with the same expiration. It profits when the stock stays within a range.
-
-```
-IRON CONDOR STRUCTURE:
-
-  An iron condor is TWO credit spreads:
-
-  Bull Put Spread (below market):
-    Sell Put at Strike B
-    Buy Put at Strike A (lower, protection)
-
-  Bear Call Spread (above market):
-    Sell Call at Strike C
-    Buy Call at Strike D (higher, protection)
-
-  A < B < Current Price < C < D
-
-  VISUAL:
-
-                      Current Price
-                           |
-  Buy Put   Sell Put       |       Sell Call   Buy Call
-    (A)       (B)          |         (C)         (D)
-     |         |           |          |           |
-     v         v           v          v           v
-  ===|=========|===========|==========|===========|===
-  $135       $140        $150       $160        $165
-     <-------->                       <---------->
-     Protection                       Protection
-        Wing                             Wing
-               <------------------------->
-                   Profit Zone
-```
-
-```
-IRON CONDOR EXAMPLE:
-
-  AAPL at $150. You expect it to stay between $140 and $160.
-
-  Bull Put Spread (downside):
-    Sell 1 AAPL $140 Put:  Receive $1.20
-    Buy 1 AAPL $135 Put:   Pay $0.50
-
-  Bear Call Spread (upside):
-    Sell 1 AAPL $160 Call:  Receive $1.00
-    Buy 1 AAPL $165 Call:   Pay $0.30
-
-  TOTAL Net Credit: $1.20 - $0.50 + $1.00 - $0.30 = $1.40/share
-  Total Credit Received: $140 per iron condor
-
-  Max Profit: $1.40/share ($140) - both spreads expire worthless
-  Max Loss:   $5.00 - $1.40 = $3.60/share ($360) - one side breached
-  Width:      $5.00 (difference between strikes in each spread)
-  Breakeven (lower): $140 - $1.40 = $138.60
-  Breakeven (upper): $160 + $1.40 = $161.40
-
-  PAYOFF DIAGRAM AT EXPIRATION:
-
-  P&L
-  +$140 |              _________________________
-        |         ____/                         \____
-     $0 |    ____/                                   \____
-        |___/                                             \___
-  -$360 |                                                     |
-        +----+----+----+----+----+----+----+----+----+----+----
-        $130 $133 $136 $139 $142 $145 $148 $151 $154 $157 $160 $165
-              |         |                        |         |
-           Buy Put   Sell Put                Sell Call  Buy Call
-            $135      $140                     $160      $165
-
-  PROFIT ZONE: $138.60 to $161.40 (a $22.80 range)
-  Stock needs to move less than 7.6% in either direction.
-```
-
-```
-IRON CONDOR GREEKS:
-
-  Component              Delta   Gamma   Theta    Vega
-  =====================  ======  ======  ======   =====
-  Short $140 Put         +0.18   -0.015  +$0.04   -$0.06
-  Long $135 Put          -0.10   +0.010  -$0.02   +$0.04
-  Short $160 Call        -0.15   -0.012  +$0.03   -$0.05
-  Long $165 Call         +0.08   +0.008  -$0.02   +$0.03
-  =======================================================
-  NET IRON CONDOR        +0.01   -0.009  +$0.03   -$0.04
-
-  Interpretation:
-  - Delta near zero: Market neutral (this is the point!)
-  - Negative gamma: Big moves in either direction hurt
-  - Positive theta: Earning ~$3/day from time decay
-  - Negative vega: Benefits from declining IV
-
-  IDEAL CONDITIONS FOR IRON CONDORS:
-  1. High IV (more premium to collect, and IV likely to fall)
-  2. Range-bound market (stock staying between strikes)
-  3. 30-45 days to expiration (optimal theta decay)
-  4. No major catalysts expected (earnings, FDA, etc.)
-```
-
-#### Probability and Expected Value
-
-Understanding probability is essential for spread trading.
-
-```
-PROBABILITY FRAMEWORK FOR CREDIT SPREADS:
-
-  The short strike's delta approximates the probability
-  of that strike being breached at expiration.
-
-  Example: Iron Condor on AAPL at $150
-
-  Short $140 Put:  Delta = 0.18 -> ~18% chance of breach
-  Short $160 Call: Delta = 0.15 -> ~15% chance of breach
-
-  Probability of EITHER side being breached:
-    ~18% + ~15% = ~33% (approximately, assuming independence)
-
-  Probability of profit (both sides expire OTM):
-    ~67%
-
-  EXPECTED VALUE CALCULATION:
-
-  Win:  67% x $140 profit = +$93.80
-  Lose: 33% x $360 loss   = -$118.80
-  Expected Value per trade = -$25.00
-
-  WAIT, THAT IS NEGATIVE?
-
-  Yes, if you hold to expiration and never manage the position.
-  But active management changes this dramatically.
-
-  WITH ACTIVE MANAGEMENT (close at 50% profit, close at 2x loss):
-
-  Adjusted win rate: ~78% (closing early captures more wins)
-  Adjusted avg win:  $70 (50% of $140)
-  Adjusted avg loss: $200 (closing at 2x loss before max loss)
-
-  Win:  78% x $70  = +$54.60
-  Lose: 22% x $200 = -$44.00
-  Expected Value per trade = +$10.60
-
-  MANAGEMENT IS WHAT MAKES IRON CONDORS PROFITABLE.
-```
-
-#### Managing Spread Trades
-
-Management is the most important skill in spread trading. Here are the key rules.
-
-```
-MANAGEMENT RULES FOR CREDIT SPREADS AND IRON CONDORS:
-
-  RULE 1: TAKE PROFITS EARLY
-    - Close at 50% of max profit (e.g., sold for $1.40, buy back at $0.70)
-    - Why? The last 50% of profit takes disproportionately more time
-      and carries more risk. Closing early frees capital for new trades.
-    - A trader who closes at 50% and redeploys capital can often
-      make more than holding a single position to expiration.
-
-  RULE 2: CUT LOSSES AT A PREDETERMINED LEVEL
-    - Close if loss reaches 1.5x to 2x the credit received
-    - Example: Received $1.40, close if spread is worth $2.80-$3.50
-    - Never let a spread go to max loss. Max loss means you held
-      through the worst possible outcome.
-
-  RULE 3: CLOSE BEFORE EXPIRATION WEEK
-    - Gamma risk makes the last week dangerous
-    - Close or roll 7-10 days before expiration
-    - The last 10% of profit is not worth the gamma risk
-
-  RULE 4: DO NOT DEFEND LOSING POSITIONS BLINDLY
-    - Rolling a losing spread can work, but only if the thesis
-      (stock staying in range) is still intact.
-    - If the stock has fundamentally broken out of your range,
-      close the trade and accept the loss.
-```
-
-```
-ROLLING A CREDIT SPREAD:
-
-  Original Position:
-    Sold AAPL $140/$135 Put Spread for $1.40
-    15 days to expiration
-    AAPL has dropped to $142 (threatening the $140 short strike)
-
-  OPTION 1: Close for a loss
-    Spread is now worth $2.50
-    Loss: $2.50 - $1.40 = $1.10/share ($110 per spread)
-
-  OPTION 2: Roll down and out
-    Close current spread: Pay $2.50
-    Open new spread 30 days out:
-      Sell $138/$133 Put Spread: Receive $1.80
-    Net debit to roll: $2.50 - $1.80 = $0.70
-    Total at risk: $1.40 (original) + $0.70 (roll cost) = $2.10
-    But now you have 30 more days and a lower short strike ($138)
-
-  WHEN TO ROLL vs. WHEN TO CLOSE:
-
-  Roll if:
-    - Stock is near but not through your short strike
-    - You can collect meaningful credit for the new position
-    - Your original thesis (range-bound) still applies
-    - IV has not collapsed (rolling into low-IV options is poor value)
-
-  Close if:
-    - Stock has blown through your short strike significantly
-    - Your thesis is broken (trend has changed)
-    - The roll does not provide meaningful credit improvement
-    - You have already rolled once (avoid "rolling into a hole")
-```
-
-#### Position Sizing for Spreads
-
-```
-POSITION SIZING GUIDELINES:
-
-  RULE: Never risk more than 2-5% of total portfolio on a
-  single spread or iron condor.
-
-  Example: $100,000 portfolio, 3% risk per trade
-
-  Max risk per trade: $3,000
-
-  Iron Condor max loss: $360 per condor
-
-  Maximum contracts: $3,000 / $360 = 8 iron condors
-
-  DIVERSIFICATION:
-    - Spread risk across 3-5 different underlyings
-    - Stagger entry dates (do not enter all at once)
-    - Mix strike widths based on conviction
-    - Keep total portfolio risk in spreads under 15-20%
-
-  EXAMPLE ALLOCATION ($100,000 portfolio):
-
-  Position                          Contracts   Max Risk   % of Port
-  ================================  =========   ========   =========
-  AAPL Iron Condor (30 days)        3           $1,080     1.1%
-  SPY Iron Condor (45 days)         2           $720       0.7%
-  MSFT Bull Put Spread (30 days)    4           $1,200     1.2%
-  QQQ Bear Call Spread (30 days)    3           $960       1.0%
-  ================================================================
-  TOTAL                             12          $3,960     4.0%
-
-  Remaining 96% of portfolio is in stocks, bonds, and cash.
-  Options spreads are an income overlay, not the core portfolio.
-```
-
-#### Choosing Strike Width and Distance
-
-```
-STRIKE WIDTH COMPARISON ($5 vs. $10 vs. $20 width):
-
-  AAPL at $150, 30 days, Bull Put Spread:
-
-  $5 Width ($145/$140):
-    Credit: $0.80    Max Loss: $4.20    ROC: 19%    Win Rate: ~75%
-    Capital at risk per spread: $420
-
-  $10 Width ($145/$135):
-    Credit: $1.10    Max Loss: $8.90    ROC: 12%    Win Rate: ~75%
-    Capital at risk per spread: $890
-
-  $20 Width ($145/$125):
-    Credit: $1.30    Max Loss: $18.70   ROC: 7%     Win Rate: ~75%
-    Capital at risk per spread: $1,870
-
-  OBSERVATIONS:
-  - Narrower spreads have higher ROC (return on capital)
-  - Wider spreads collect more total credit but lower ROC
-  - Win rate is the same (determined by short strike, not width)
-  - Narrower spreads reach max loss more quickly
-  - For iron condors, $5 width is most common for retail traders
-
-  RECOMMENDED: $5 width for accounts under $100,000
-               $10 width for larger accounts or higher conviction
-```
-
-```
-STRIKE DISTANCE (HOW FAR OTM):
-
-  Probability   Short Strike Delta   Typical Distance OTM   Credit
-  ===========   ==================   ====================   ======
-  High win      0.10-0.15            12-18% OTM             Low
-  Moderate      0.20-0.30            6-12% OTM              Moderate
-  Aggressive    0.35-0.45            2-6% OTM               High
-
-  SWEET SPOT: Short strike at delta 0.15-0.25 (10-15% OTM)
-  Provides 70-80% probability of profit with reasonable premium.
-
-  For iron condors, aim for short strikes at ~1 standard deviation
-  from current price. Your brokerage platform can show you the
-  expected move based on implied volatility.
-
-  EXPECTED MOVE CALCULATION:
-
-  Expected Move = Stock Price x IV x sqrt(DTE/365)
-
-  Example: AAPL at $150, IV = 25%, 30 days
-  Expected Move = $150 x 0.25 x sqrt(30/365)
-                = $150 x 0.25 x 0.287
-                = $10.76
-
-  So the market expects AAPL to move about $10.76 in 30 days.
-  Selling strikes at $140 put and $160 call places you near
-  one standard deviation, which is breached about 32% of the time
-  (16% on each side).
-```
+## Part 1: Reading Section
 
 ---
 
-### c) Common Misconceptions
+### 1. Why This Is Important
 
-**Misconception 1: "Spreads are just for advanced traders."**
+The last four weeks taught the single-leg vocabulary: long calls and
+puts as cheap directional bets, covered calls as a paid sell ticket,
+cash-secured puts as a paid buy ticket, and the Greeks as the partial
+derivatives that price the whole machine. Single legs are honest, but
+they are also blunt. A naked short put on SPY at the $500 strike on a
+$50,000 account ties up $50,000 of collateral and exposes you to a
+$50,000 hole if the market goes to zero. That is not a position
+sizing decision — that is a position the size of *the entire account*.
 
-Spreads are actually safer than many single-leg strategies. A defined-risk spread has a known maximum loss before you enter the trade. Compare this to selling a naked put or owning stock, where losses can be dramatically larger. Spreads should be learned early in an options education, not treated as "advanced." They require a different approval level at most brokerages (typically Level 3), but the concepts are straightforward.
+Spreads fix this. A spread is two (or four) options stitched together
+on the same underlying so that the long leg *caps* the loss of the
+short leg. The position now has a printed maximum loss the day you put
+it on, a printed maximum profit, and a capital requirement equal to
+the spread width minus credit received — typically one to three
+hundred dollars per contract, not five-figure cash. The same $50,000
+account can run *fifty* of these in parallel without ever risking the
+account on a single tail.
 
-**Misconception 2: "Iron condors are a guaranteed income strategy."**
+This matters for four concrete reasons:
 
-No options strategy guarantees income. Iron condors have high win rates (65-80%) but the losses when they occur are typically larger than the wins. A single bad month can erase several months of gains. The key is proper position sizing (never more than 2-5% risk per trade) and active management (taking profits early and cutting losses). Without discipline, iron condors can produce devastating drawdowns.
+**(1) Defined-risk options ARE the SOUL #14 barbell.** The barbell
+holds high-conviction safety on one end and asymmetric, capped-loss
+speculation on the other. A long-dated SPY call spread, an iron
+condor on QQQ, a butterfly on AAPL into earnings — every one of these
+has the *exact* structural property the barbell asks for: a known,
+small, prepaid maximum loss in exchange for a payoff that need not be
+linear in the underlying. The L3 ("asymmetric") sleeve is not built
+from leveraged ETFs and lottery tickets; it is built from spreads.
 
-**Misconception 3: "Wider spreads are always better because you collect more premium."**
+**(2) Credit spreads are the engineered version of the L2 income
+sleeve.** Week 27 sold covered calls and Week 28 sold cash-secured
+puts; both work but both are capital-heavy. Replacing the cash-secured
+put with a 5-wide bull put spread keeps the same directional thesis
+("I'd buy this name lower"), keeps the same theta-positive carry, and
+shrinks the capital requirement by 80-95%. The gross monthly yield
+*on capital actually at risk* goes up; the dollar income goes down;
+the survivability goes way up. Most professional premium sellers run
+spreads, not naked options, for exactly this trade-off.
 
-Wider spreads collect more total premium but have lower return on capital and reach max loss in the same scenarios. A $10-wide spread is not twice as profitable as a $5-wide spread; it simply uses more capital for incrementally more premium. For most retail traders, $5-wide spreads provide the best balance of capital efficiency and manageable risk.
+**(3) Iron condors monetise the fact that markets are mean-reverting
+inside their realised range about 70% of the time (SOUL #8).** An
+iron condor profits when SPY closes between the two short strikes at
+expiry. With short strikes at ±1 standard deviation and 30 days to
+expiry, the lognormal probability of profit is ~68%; with shorts at
+±0.75σ it is ~55%; with shorts at ±0.5σ it is ~38%. The trader picks
+the spot on the probability curve they are willing to live with and
+sizes the wings to cap the tail. This is mean-reversion *priced and
+hedged* — not the retail version that holds a falling knife.
 
-**Misconception 4: "I should always hold my spreads to expiration to capture the full credit."**
+**(4) Butterflies and broken-wing butterflies are how you express a
+*precise* view.** A long butterfly centred at $100 makes its maximum
+profit if the stock pins at $100 at expiry and loses a small fixed
+amount everywhere else. That is a bet on a *level*, not a direction.
+A trader who has done the work on a name's earnings reaction or
+options-expiry pin can express that view for one or two hundred
+dollars of risk and a 4-to-1 payoff, where a long-stock or naked-
+options version would cost five figures and offer no such asymmetry.
 
-This is one of the most common and costly mistakes. Research from options analytics firms consistently shows that closing credit spreads at 50% of maximum profit and redeploying capital produces better risk-adjusted returns than holding to expiration. Holding the last 50% of profit exposes you to rapidly increasing gamma risk for diminishing reward.
-
-**Misconception 5: "Credit spreads are always better than debit spreads."**
-
-Neither is inherently better. Credit spreads benefit from time decay and have higher probability but lower reward-to-risk. Debit spreads cost money but profit from directional moves. The choice depends on your market outlook. In high-IV environments, credit spreads are typically favored. In low-IV environments or with a strong directional conviction, debit spreads can be more efficient.
-
-**Misconception 6: "If both legs of my spread expire out of the money, I always keep the full credit."**
-
-This is true if both legs expire truly OTM. But beware of "pin risk" near expiration. If the stock closes right at your short strike, you may be assigned on the short leg while the long leg expires worthless. This leaves you with an unwanted stock position. To avoid this, close spreads before expiration, even if they are near worthless.
+Spreads are also where a SOUL #6 vol-trader starts paying attention:
+debit spreads are short-vega (you bought volatility), credit spreads
+are long-theta and short-vega (you sold volatility), butterflies are
+short-vega *and* short-gamma. Picking the right structure is no
+longer "bullish vs bearish" — it is "what do I think happens to
+realised vs implied vol over the next thirty days, conditional on my
+directional view." That is the language professional options desks
+speak; this week is where you start speaking it too.
 
 ---
 
-### d) Q&A
+### 2. What You Need to Know
 
-**Q: What brokerage approval level do I need to trade spreads?**
+#### 2.1 The four vertical spreads — one slide, four trades
 
-A: Most brokerages require Level 3 options approval for defined-risk spreads (vertical spreads and iron condors). This typically requires some options trading experience, a margin account, and answering questions about your options knowledge. The approval process varies by broker. Fidelity, Schwab, TD Ameritrade, and Interactive Brokers all offer spread trading with appropriate approval. If you have been trading covered calls and cash-secured puts (Levels 1-2), upgrading to Level 3 is usually straightforward.
+A vertical spread uses two options of the *same type* (both calls or
+both puts), *same expiry*, and *different strikes*. Holding one and
+selling the other gives four named structures:
 
-**Q: How much capital do I need to start trading spreads?**
+- **Bull call spread** (debit). Buy lower-strike call, sell higher-
+  strike call. Pay net premium. Max profit = width minus debit. Max
+  loss = debit. Bullish, capped, theta-negative.
+- **Bear put spread** (debit). Buy higher-strike put, sell lower-strike
+  put. Pay net premium. Max profit = width minus debit. Max loss =
+  debit. Bearish, capped, theta-negative.
+- **Bull put spread** (credit). Sell higher-strike put, buy lower-
+  strike put. Receive net premium. Max profit = credit. Max loss =
+  width minus credit. Mildly bullish to neutral, theta-positive.
+- **Bear call spread** (credit). Sell lower-strike call, buy higher-
+  strike call. Receive net premium. Max profit = credit. Max loss =
+  width minus credit. Mildly bearish to neutral, theta-positive.
 
-A: Technically, you can trade a single $5-wide spread with as little as $500 in margin. However, a more practical minimum is $10,000-$25,000. This allows you to diversify across multiple positions while keeping each trade under 5% of your capital. With $25,000, you could comfortably run 5-8 iron condors across different underlyings and expirations.
+The width is the strike distance — $5, $10, $25, whatever the chain
+offers. Wider = more capital at risk, more dollars of max profit,
+same shape. Two trades with the same delta but different widths
+express the same view at different sizes.
 
-**Q: Should I trade iron condors on individual stocks or on indexes like SPY?**
+The four payoff shapes — bull call, bear put, iron condor and butterfly
+all in one frame — are drawn at expiry in
+[course/image/week30_spread_payoffs.py](course/image/week30_spread_payoffs.py).
+The maximum profit, maximum loss, and breakeven for each are marked on
+the chart so you can verify the formulas on the diagram instead of
+on the page.
 
-A: Both work, but index options (SPY, QQQ, IWM) have advantages. They are more liquid, have tighter bid-ask spreads, cannot gap as dramatically as individual stocks (no single-stock earnings risk), and qualify for favorable 60/40 tax treatment if you use SPX options. Many professional iron condor traders focus exclusively on SPX or SPY. Individual stocks can work but carry event risk (earnings, FDA decisions, etc.) that can blow through strikes overnight.
+#### 2.2 Worked example — bull call spread on AAPL at $150
 
-**Q: What happens if one side of my iron condor is breached?**
+AAPL trades at $150. You expect a quiet drift higher over the next
+30 days. The chain shows:
 
-A: If the stock moves through one of your short strikes, that side of the iron condor is in danger. The other side is now deeply out of the money and nearly worthless, which is good. Your options are: (1) Close the entire iron condor and take the loss. (2) Close only the threatened side and let the profitable side continue. (3) Roll the threatened side further out in time or further out of the money. Option 2 is common: close the losing side, and the winning side's remaining credit partially offsets your loss.
+- $150 call: $5.00 mid (delta ~0.55).
+- $155 call: $2.50 mid (delta ~0.35).
 
-**Q: How do I calculate my return on capital for a spread?**
+The bull call spread:
 
-A: Return on capital (ROC) for a credit spread is: Credit Received divided by Max Loss. For a $5-wide bull put spread that collects $1.50, max loss is $3.50, and ROC is $1.50/$3.50 = 42.9%. If you close at 50% profit ($0.75), your actual ROC is $0.75/$3.50 = 21.4%. To annualize, divide by the number of days held and multiply by 365. If you held for 20 days: 21.4% x (365/20) = 390% annualized. These percentages sound high but remember, they apply only to the small amount of capital at risk, not your entire portfolio.
+- **Buy** 1 AAPL $150 call: pay $5.00.
+- **Sell** 1 AAPL $155 call: receive $2.50.
+- **Net debit:** $2.50 per share = **$250** per spread.
 
-**Q: Can I leg into a spread, buying one side first and selling the other later?**
+Three numbers fall straight out of the structure:
 
-A: You can, but it is generally not recommended for beginners. Legging in exposes you to execution risk. If you buy the long option and the stock moves before you can sell the short option, you may get a worse price on the spread. Most brokerage platforms allow you to enter spreads as a single order, which guarantees you get both legs filled at your desired net price. Use the spread order functionality.
+- **Maximum profit:** width minus debit = ($155 - $150) - $2.50 =
+  **$2.50 per share = $250 per spread**, achieved if AAPL closes at or
+  above $155 at expiry.
+- **Maximum loss:** the debit paid = **$250**, suffered if AAPL closes
+  at or below $150.
+- **Breakeven:** lower strike + debit = **$152.50**.
 
-**Q: How many iron condors should I have on at one time?**
+Risk/reward is **1-to-1**: $250 risked to make $250. The same view
+expressed by buying the $150 call alone would cost $500 and need AAPL
+above $155 to double — same target, twice the capital, and the long
+call also bleeds twice the theta. The spread is the more capital-
+efficient version of the same idea, with a precisely capped tail.
 
-A: For a typical retail account ($50,000-$200,000), 3-5 iron condor positions at any given time is reasonable. Diversify across different underlyings and stagger entry dates by one to two weeks. This ensures you do not have all positions expiring at the same time and reduces correlation risk. Total capital at risk in iron condors should not exceed 15-20% of your portfolio.
+The cost of the spread version is the upside above $155: if AAPL rips
+to $170, the long call version makes $1,500 and the spread makes only
+$250. That is the trade — a ceiling in exchange for a floor.
+
+#### 2.3 Iron condor — two credit spreads stitched into one trade
+
+An iron condor is a bull put spread *and* a bear call spread on the
+same underlying and the same expiry. Four legs, all out-of-the-money,
+all collected for credit. The position profits if the underlying
+closes between the two short strikes at expiry.
+
+Worked example on SPY at $500, 30 days to expiry, IV 20%, r 4%.
+
+The one-month one-standard-deviation move is
+$500 \times 0.20 \times \sqrt{30/365} \approx \$28.65$. Round to $30.
+Sell shorts at ±1σ, wings 5 points further out:
+
+- **Sell** $470 put, **buy** $465 put: credit ~$0.95.
+- **Sell** $530 call, **buy** $535 call: credit ~$0.85.
+- **Total credit:** ~$1.80 per share = **$180 per condor**.
+- **Width of each wing:** $5; **max loss** = $5 - $1.80 = **$3.20 per
+  share = $320**. (Only one wing can lose at expiry.)
+- **Capital required:** $500 minus credit, i.e. ~$320 (the broker
+  collects the wing width as margin).
+- **Breakevens:** $470 - $1.80 = $468.20 and $530 + $1.80 = $531.80.
+- **Probability of profit (POP):** the lognormal probability that SPY
+  closes inside [$470, $530] at expiry, ~**68%**.
+
+Risk/reward 1.78-to-1 (lose 320 to make 180), POP 68% — this trade
+has positive expectancy as long as realised volatility comes in at or
+below the 20% the chain priced. That last clause is everything: the
+iron condor is a *short-vol* trade in disguise. When realised vol
+exceeds implied, the structure loses its edge no matter how the price
+walk looks. SOUL #6: vol moves first.
+
+The probability-of-profit curve for the SPY $500 iron condor across
+three short-strike distances is drawn in
+[course/image/week30_condor_pop.py](course/image/week30_condor_pop.py).
+Tighter shorts give wider profit zones in *theta* terms but a far
+lower POP; the chart shows the trade-off at 1σ, 0.75σ, and 0.5σ.
+
+#### 2.4 Butterfly — pinning the level
+
+A long butterfly centred at strike $K$ is three legs:
+
+- **Buy** 1 call at $K - w$.
+- **Sell** 2 calls at $K$.
+- **Buy** 1 call at $K + w$.
+
+The wings $w$ are equal, and the two short calls in the middle absorb
+most of the cost. The position pays maximum if the underlying closes
+exactly at $K$ at expiry and loses a small, fixed amount everywhere
+else.
+
+Worked example on AAPL at $150, 30 days, IV 25%:
+
+- **Buy** $140 call: pay $11.00.
+- **Sell 2** $150 calls: receive $5.00 x 2 = $10.00.
+- **Buy** $160 call: pay $1.20.
+- **Net debit:** $11.00 - $10.00 + $1.20 = **$2.20 per share = $220**.
+- **Max profit:** width minus debit = $10 - $2.20 = **$7.80 per share
+  = $780**, only at $150 exactly at expiry.
+- **Max loss:** the debit = **$220**, beyond $140 below or $160 above.
+- **Breakevens:** $142.20 and $157.80.
+
+Risk/reward **3.5-to-1** but with a much narrower profit zone than a
+condor. POP at expiry is low (the *peak* is a single point), but the
+position has positive vega-to-vol-rank carry: as expiry approaches, if
+the stock stays near the middle strike, the butterfly's mark-to-market
+P&L grows non-linearly because the short middle strikes lose value
+faster than the long wings. The professional name for this is
+"gamma-scalping a butterfly" — it is a directional bet on *time
+passing while the stock pins*.
+
+Butterflies are the natural structure for: pinning at a round-number
+strike near max-pain on options-expiry Friday; expressing a "drift to
+fair value" view on a stretched name; betting on a quiet earnings
+reaction *after* IV has been crushed; or sitting in front of a
+known catalyst with capped tail risk.
+
+#### 2.5 Picking width, distance, and DTE — the three knobs
+
+Every defined-risk structure has the same three knobs and they are
+the only knobs that matter:
+
+- **Width** (strike-to-strike distance of the wings or legs): doubles
+  the dollars at risk and the dollars of credit, leaves the *shape*
+  alone. Width is the *size* knob.
+- **Distance from spot** (how far OTM the short strikes sit): the
+  POP knob. Closer to spot = more credit, lower POP, higher delta.
+  Further from spot = less credit, higher POP, lower delta. The
+  delta-on-the-short is a clean proxy: a 30-delta short ≈ 30%
+  probability ITM ≈ 70% POP per leg.
+- **Days to expiry (DTE)**: 30-45 DTE is the sweet spot for credit
+  spreads (covered in Week 27). Theta accelerates inside 21 DTE; vega
+  shrinks. Short DTE = faster decay, more gamma risk; long DTE =
+  cleaner carry, more capital tied up.
+
+A retail trader running a steady book usually fixes two of these
+three (e.g. 30-delta shorts, 30 DTE) and varies width to size the
+position. A professional varies all three with the vol surface.
+
+The interactive [course/interactive/week30_spread_builder.html](course/interactive/week30_spread_builder.html)
+lets you toggle structure (vertical / iron condor / butterfly) and
+move all three knobs in real time, watching net premium, max
+profit, max loss, breakevens, POP, and the payoff diagram update
+together.
+
+#### 2.6 Capital efficiency — the side-by-side that justifies the chapter
+
+Same SPY thesis ("market closes between $470 and $530 in 30 days"),
+five ways to express it:
+
+| Structure | Capital | Max profit | Max loss | POP | Yield on cap |
+|---|---|---|---|---|---|
+| Long stock (held flat) | $50,000 | ~$1,000 carry | ~$50,000 | ~50% | ~2% / 30d |
+| Short straddle, 1σ | ~$15,000 | ~$3,200 | unlimited | ~68% | ~21% / 30d |
+| Iron condor, 1σ short, 5-wide | ~$320 | $180 | $320 | ~68% | ~56% / 30d |
+| Iron condor, 0.75σ short, 5-wide | ~$280 | $220 | $280 | ~55% | ~78% / 30d |
+| Long butterfly at $500 | ~$220 | $780 | $220 | ~25% | ~355% / 30d at peak |
+
+The yield-on-capital column is the punchline. The defined-risk
+structures are *one to two orders of magnitude* more efficient on
+capital than the underlying-stock or short-straddle versions of the
+same view. The iron condor and butterfly are not exotic — they are
+the *correct* way to size a non-directional view inside a barbell.
+
+The price you pay is precision. Every defined-risk trade has a
+specific window where it works; outside that window it pays the max
+loss. That is the discipline the structure forces on the trader, and
+why this chapter is the gateway to L3.
+
+#### 2.7 Tax, assignment, and the practical wrinkles
+
+Vertical spreads almost never get assigned early *as a unit* — the
+long leg always covers the short leg if the short is exercised. The
+real risk is *single-leg* early assignment near ex-dividend dates on
+the short call of a credit call spread; if it happens, you wake up
+short stock with the long call still alive, which is fine but
+requires same-day action. Iron condors and butterflies share the
+same property at the wing level.
+
+For tax (SOUL #15): defined-risk option spreads on broad-based
+indices (SPX, NDX, RUT, *not* SPY/QQQ/IWM ETFs) are 1256-contracted
+and taxed 60% long-term / 40% short-term regardless of holding
+period. That is a structural advantage worth ~10 percentage points
+of after-tax return for a high-bracket US trader running monthly
+condors. The price is wider bid/ask spreads on the index options
+versus their ETF cousins. For most retail accounts, SPY/QQQ/IWM
+condors are the right starting point and the tax difference becomes
+worth the slippage at six-figure annual options income, not before.
+
+In an IRA, defined-risk spreads are usually permitted at level 3
+options approval; naked short options are not. This is one of the
+underrated reasons a retail trader graduates to spreads — it unlocks
+the only legal way to run an income-options book inside the tax-
+sheltered account. Week 31 covers IV rank, vol regimes, and how to
+size all of this against the realised-vol environment.
 
 ---
 
-## YouTube Script
+### 3. Common Misconceptions
+
+**1. "Credit spreads are 'safer' than debit spreads."** They have
+higher POP but worse risk/reward. A 5-wide credit spread sold for
+$1.80 has POP ~70% and loses 1.78x what it can make. Over many trades
+the expected value depends on whether IV was rich versus realised vol;
+*neither* structure is automatically safer.
+
+**2. "An iron condor with shorts at 1σ is a free 68% win-rate trade."**
+The 68% is conditional on lognormal returns at the priced IV. When
+IV under-prices realised (vol expansions, gap days, earnings), the
+true POP collapses. The 1σ condor is a short-vol trade with 1.78-to-1
+risk, not a coin flip with extra rake.
+
+**3. "Butterflies are too narrow to be useful."** They are narrow on
+*price* but wide on *time*. A butterfly placed 21 DTE inside a known
+pinning name regularly mark-to-markets at 100-200% by 7 DTE without
+the underlying having to print exactly at the middle strike. The
+"max profit only at $K" rule applies *at expiry*; the path matters.
+
+**4. "Defined-risk spreads have no margin call risk."** They have no
+*assignment* margin call (the long leg covers the short leg). They
+*do* have variation margin haircuts intra-trade if the broker
+re-prices the spread mid-life; on a fast move the margin requirement
+can briefly exceed the maximum loss until the broker remarks.
+
+**5. "Wider wings are always safer."** Wider wings raise both the
+dollars of credit *and* the dollars at risk by the same width factor.
+The probability profile is unchanged; only the position size
+changes. Wing width is the size knob, not the safety knob.
+
+**6. "I should sell the highest-credit spread on the chain."** The
+highest-credit spread is the one with shorts closest to the money,
+i.e. the lowest POP. Maximising credit minimises win-rate. Pick a
+target POP first and let the credit fall out of it.
+
+**7. "An iron condor on a meme stock with 90% IV is a great
+opportunity."** That 90% IV is the market telling you the realised
+move is about to be huge. Selling premium *into* a vol expansion is
+the textbook way to lose money on a short-vol structure. Sell when
+IV rank is high *and* the catalyst is past.
+
+**8. "A bull call spread is a bullish trade." Mostly. It is a
+bullish trade *with a vega haircut*. If the underlying rises but
+implied vol crashes (post-earnings, post-Fed), the spread can make
+less than expected because both legs are short-vega'd in opposite
+directions and the long leg dominates while still OTM. Direction is
+necessary; vol is the wrinkle.
+
+**9. "I should always close at 50% profit."** The 50%-of-max rule is
+a heuristic from credit-spread sellers that captures the early-decay
+sweet spot. For *debit* spreads it makes much less sense; the right
+exit is when delta hits 0.85+ on the long leg or 7 DTE, whichever
+comes first.
+
+**10. "Defined-risk means risk-free."** Defined-risk means the loss
+is *capped at trade entry*. It does not mean small. A 10-wide bear
+call spread on a stock that gaps 30% overnight loses every dollar of
+its $1,000 max in a single morning. Capped is not a substitute for
+sized.
+
+---
+
+### 4. Q&A Section
+
+**Q1. What's the cleanest way to pick the structure for a given view?**
+Start with two questions: am I directional, and am I long or short
+vol? Long-direction + long-vol = debit call/put spread. Direction
+agnostic + short-vol = iron condor. Strong level + short-vol = long
+butterfly. Direction + short-vol = credit put/call spread. The four
+boxes cover ~80% of practical setups.
+
+**Q2. Is there an optimal width?** No. Width controls position size,
+not edge. Pick the width that puts the dollar max-loss at 1-2% of
+account equity per trade; that becomes your default. Vary it only
+when the broker's commissions become material (tight wings on cheap
+underlyings).
+
+**Q3. How is POP actually computed?** Lognormal closed form:
+POP for an iron condor =
+$\Phi(d^{\text{up}}_2) - \Phi(d^{\text{down}}_2)$ where the d's are the
+standard BSM term, with the same $r$, $\sigma$, $T$ used for the
+chain. The interactive does this in JS for you.
+
+**Q4. What about buying-power reduction in a margin account?** For a
+credit spread, BPR = wing width − credit, applied to the wider of the
+call or put side for an iron condor (you can only lose on one side at
+expiry, so brokers don't double-count). For a debit spread, BPR =
+debit. For a butterfly, BPR = debit.
+
+**Q5. When does a debit spread beat a long call?** When you don't
+need the upside above the short strike. If your target is "AAPL to
+$155 in 30 days" and you don't think it goes to $170, the debit
+spread costs half and bleeds half the theta. If you think it goes to
+$200, buy the call.
+
+**Q6. How do I roll a tested credit spread?** Standard rule: roll
+*out* (later expiry) and *down/up* (further from current spot) for a
+small additional credit. Never pay debit to roll a losing spread out
+in time without moving the strikes; that compounds the loss into the
+new month. If the only roll on offer is a debit, take the loss and
+re-enter fresh.
 
-[VISUAL: Animated intro with show logo. Text: "Week 30: Spreads and Condors - Level 3: Advanced"]
+**Q7. Are iron condors the same as iron butterflies?** No. An iron
+condor has two *different* short strikes (call and put). An iron
+butterfly has the *same* short strike for both, sold at the money.
+The iron fly is closer to a short straddle with wings — larger
+credit, narrower profit zone, lower POP, higher max profit. Most
+retail desks treat the iron fly as a separate structure.
 
-**Horace:** Welcome back. Last week we learned the option Greeks. This week we are going to use those Greeks to build more sophisticated options positions. We are talking about spreads and iron condors.
+**Q8. What does "broken-wing" mean?** A butterfly with unequal wing
+widths. Buy 1 $140C, sell 2 $150C, buy 1 $165C is a broken-wing
+butterfly with a wider upper wing. The asymmetry skews the payoff:
+maximum profit shifts, max loss shrinks on one side and grows on the
+other. Used to express a "level + a directional bias" view in one
+ticket.
 
-**Stella:** This is exciting because one of the limitations of covered calls and cash-secured puts is the capital requirement. You need to own 100 shares or set aside $14,000 in cash. Spreads seem like they can do similar things with much less capital.
+**Q9. Why do I need to know all this if I'm just an L1 indexer?** You
+don't, today. You will the moment you have idle cash on a quiet week
+and a directional thesis, or the moment a high-IV-rank earnings event
+tempts you into a too-large naked short put. A 5-line bull put spread
+turns that temptation into a sized, capped, professional trade. The
+structures are the discipline.
 
-**Horace:** That is exactly right. A cash-secured put on Apple might require $15,000 in capital. A put spread on Apple might require $350. You achieve similar economic exposure with a fraction of the capital. And more importantly, your maximum loss is defined before you enter the trade.
+**Q10. What's the tax difference between a SPY condor and an SPX
+condor for a US filer?** SPY (and QQQ, IWM) condors are taxed as
+ordinary short-term capital gains (held <1 year). SPX (and NDX, RUT)
+condors are 1256 contracts: 60% long-term / 40% short-term blended
+rate regardless of holding period. For a 35%-bracket trader running
+$50k of annual condor income, SPX saves roughly $5,000-7,000 of
+federal tax per year — a meaningful chunk of L2 alpha that exists
+purely because of the tax code.
 
-[VISUAL: Side-by-side comparison. Left: "Cash-Secured Put" showing $15,000 capital, $280 max profit, $15,000 max loss. Right: "Bull Put Spread" showing $350 capital, $150 max profit, $350 max loss. Annotation: "27x less capital required."]
+**Q11. Should I trade weeklies or monthlies?** Monthlies (30-45 DTE).
+Weeklies have steeper theta but much higher gamma and bid/ask noise.
+For learning and for steady-state retail income the monthly cycle is
+the right rhythm. Weeklies are an advanced extension once the book
+runs cleanly.
 
-**Stella:** Let us start with the basics. What exactly is a spread?
+**Q12. How do I know if my POP estimate is realistic?** Compare the
+chain's IV against the 20- and 60-day realised vol of the underlying.
+If implied is at or below realised, your POP is overstated; the
+market is telling you it expects a bigger move than the lognormal
+model. If implied is well above realised (high IV rank), the POP is
+honest and the trade has positive structural carry. Week 31 makes
+this routine.
 
-**Horace:** A spread is simply buying one option and selling another option on the same stock. By combining a long and short option, you create a position where both your profit and your loss are limited. The two options partially offset each other.
+---
 
-**Stella:** And there are different types of spreads?
+## Part 2: YouTube Script
 
-**Horace:** There are four basic vertical spreads. A vertical spread means both options have the same expiration but different strike prices. You have the bull call spread, the bear put spread, the bull put spread, and the bear call spread. The first two are debit spreads where you pay money to enter. The second two are credit spreads where you receive money to enter.
+---
 
-[VISUAL: A 2x2 grid. Columns: "Debit (You Pay)" and "Credit (You Receive)". Rows: "Bullish" and "Bearish". Bull Call Spread in top-left, Bull Put Spread in top-right, Bear Put Spread in bottom-left, Bear Call Spread in bottom-right]
+**VIDEO TITLE:** Spreads, Condors and Butterflies — How Pros Actually Sell Premium
 
-**Stella:** Let us walk through a bull call spread first since it is the most intuitive.
+**RUNTIME TARGET:** ~18 minutes
 
-**Horace:** Sure. Let us say Apple is at $150 and you are moderately bullish. You buy the $150 call for $5.00 and you sell the $155 call for $2.50. Your net cost is $2.50 per share, or $250 per spread. That is your maximum loss. Your maximum profit is the difference between the strikes, $5.00, minus what you paid, $2.50, which equals $2.50 per share or $250.
+**HOSTS:** Horace, Stella
 
-[ANIMATION: Reference animation/week30_spread_payoff.py - Building a spread payoff diagram step by step. First, the long call payoff line appears (the classic hockey stick shape starting at -$500 at $150 and rising after $150). Then the short call payoff appears (inverted hockey stick starting at +$250 at $155). Finally, the two are combined into the spread payoff, which shows the characteristic shape: flat at -$250 below $150, rising between $150 and $155, and flat at +$250 above $155.]
+---
 
-**Stella:** So my maximum risk is the $250 I paid, and no matter how high Apple goes, I can only make $250?
+**[INTRO — 0:00]**
 
-**Horace:** Correct. You have capped both your downside and your upside. The breakeven is $152.50, which is the lower strike plus the premium paid. Below $150, you lose the full $250. Between $150 and $155, your profit increases linearly. Above $155, you keep the maximum $250.
+**Stella:** Last week we drew the four Greeks. The week before, you
+walked us through covered calls and cash-secured puts. They both
+sounded great in the lesson — and then I tried to actually price one
+on SPY at five hundred bucks. The cash-secured put wanted *fifty
+thousand dollars* of collateral.
 
-**Stella:** And how does this compare to just buying the $150 call outright?
+**Horace:** Yep. That is the moment every retail trader has, and it
+is the moment that splits the people who use options once from the
+people who use options for a living.
 
-**Horace:** Great question. If you just bought the $150 call for $5.00, your maximum loss is $500, and your profit potential is unlimited. The spread costs $250 instead of $500, so you risk half as much. But you give up anything above $155. The spread is more capital efficient but has a capped reward.
+**Stella:** Because you can't run an income book where every trade is
+your entire account.
 
-[VISUAL: Two payoff diagrams overlaid. Solid line: Bull Call Spread, showing the characteristic capped shape. Dashed line: Long Call alone, showing unlimited upside. The area between them above $155 is shaded and labeled "Upside you give up in exchange for lower cost and lower risk"]
+**Horace:** Right. So today we fix it. We take the same theses — the
+same "I'd buy SPY lower" or "I'd sell AAPL higher" or "this thing's
+going nowhere for thirty days" — and we express each one with two or
+four legs instead of one. Maximum loss printed on the ticket. Capital
+requirement under five hundred bucks. Same edge.
 
-**Stella:** Now let us talk about credit spreads. These are the income-generating version, right?
+**Stella:** And these are the structures the pros actually run.
 
-**Horace:** Exactly. With a credit spread, you receive money upfront and your goal is for both options to expire worthless. Let me walk through a bull put spread. Apple is at $155. You sell the $150 put for $2.80 and buy the $145 put for $1.30. You receive a net credit of $1.50 per share, or $150 per spread.
+**Horace:** Spreads. Condors. Butterflies. By the end of this you
+should be able to look at any options chain and pick the right
+structure for what you actually believe.
 
-**Stella:** So I get paid $150 to enter the trade. What are the outcomes?
+---
 
-**Horace:** If Apple stays above $150 at expiration, both puts expire worthless and you keep the entire $150. That is your maximum profit. If Apple drops below $145, you hit maximum loss: the $5.00 width minus the $1.50 credit, which is $3.50 per share or $350 per spread. In between, there is a breakeven at $148.50.
+**[BLOCK 1 — Vertical spreads, 1:10]**
 
-[VISUAL: Bull put spread payoff diagram with annotations. Flat line at +$150 above $150. Diagonal line from $150 to $145. Flat line at -$350 below $145. Breakeven marked at $148.50. Annotations: "AAPL currently at $155 - you have $6.50 of cushion"]
+**Stella:** Walk me through "vertical spread" in one sentence.
 
-**Stella:** So I need Apple to stay above $148.50 to profit. And it is currently at $155. That seems very doable.
+**Horace:** Two options, same type, same expiry, different strikes.
+You buy one and you sell the other. The one you sold caps your
+profit; the one you bought caps your loss. That's it.
 
-**Horace:** And that is the appeal of credit spreads. You do not need the stock to go up. You just need it to not go down too much. The probability of profit is around 70% for this trade, based on the delta of the short strike.
+**Stella:** Four flavours, right?
 
-**Stella:** Now let us get to the star of the show. The iron condor.
+**Horace:** Four flavours. Bull call spread is two calls — buy the
+lower, sell the higher, you pay net. Bear put spread is two puts —
+buy the higher, sell the lower, you pay net. Those are the *debit*
+spreads. Then bull put — sell the higher put, buy the lower put,
+collect cash. And bear call — sell the lower call, buy the higher
+call, collect cash. Those are the *credit* spreads.
 
-**Horace:** The iron condor is simply a bull put spread and a bear call spread on the same stock, same expiration. You are selling premium on both sides, betting that the stock stays within a range.
+**Stella:** And the point is the long leg covers the short leg.
 
-[ANIMATION: Reference animation/week30_iron_condor_build.py - Building an iron condor step by step. First, a stock price at $150 with a number line. Then the bull put spread appears below: sell $140 put and buy $135 put, with the payoff shape shown below the line. Then the bear call spread appears above: sell $160 call and buy $165 call, with the payoff shape shown above the line. Finally, both are combined into the complete iron condor payoff, showing the characteristic "table top" shape: loss zones on both ends, profit plateau in the middle.]
+**Horace:** Exactly. Worst case for a 5-wide spread is five hundred
+bucks, minus whatever credit you took in. Not the five thousand the
+short option alone would cost you.
 
-**Stella:** Walk me through a specific example.
+**[VISUAL: image/week30_spread_payoffs.png — 2x2 panel]**
 
-**Horace:** Apple is at $150. On the downside, I sell the $140 put for $1.20 and buy the $135 put for $0.50. On the upside, I sell the $160 call for $1.00 and buy the $165 call for $0.30. Total credit received: $1.40 per share, or $140 per iron condor.
+**Stella:** This is the chart that makes it click for me. Top-left,
+bull call spread on AAPL at one-fifty. Buy the $150 call for five
+bucks, sell the $155 call for two-fifty, net debit two-fifty per
+share, two hundred and fifty dollars per spread. The line goes flat
+above $155 — that's the cap. It goes flat at minus two-fifty below
+$150 — that's the floor.
 
-**Stella:** And the maximum loss?
+**Horace:** And the breakeven is one-fifty-two-fifty. Lower strike
+plus the debit. Risk-reward is exactly one-to-one — risk two-fifty
+to make two-fifty.
 
-**Horace:** The maximum loss is the width of one spread, $5.00, minus the total credit, $1.40, which equals $3.60 per share or $360. This happens if Apple drops below $135 or rises above $165 at expiration.
+**Stella:** Top-right, bear put spread.
 
-**Stella:** What is the profit zone?
+**Horace:** Mirror image. Buy the higher put, sell the lower put. You
+pay a debit, you make money on the way down. Same one-to-one shape.
 
-**Horace:** The profit zone is between the two breakevens. Lower breakeven is $140 minus $1.40, which is $138.60. Upper breakeven is $160 plus $1.40, which is $161.40. So Apple needs to stay between $138.60 and $161.40. That is a $22.80 range, or about 7.6% in either direction from the current price.
+---
 
-[VISUAL: The classic iron condor payoff diagram with the profit zone highlighted in green. The current stock price at $150 is marked in the center. Below the diagram, text shows: "Profit Zone: $138.60 to $161.40 (15.2% total range)" and "Probability of Profit: ~67%"]
+**[BLOCK 2 — Iron condor, 4:00]**
 
-**Stella:** Let us look at the Greeks for this iron condor, because that connects to what we learned last week.
+**Stella:** Bottom-left of that chart — iron condor.
 
-**Horace:** Great idea. The iron condor has near-zero delta, which means it is market neutral. It does not care if the stock goes up or down a little. It has negative gamma, which means big moves in either direction hurt. It has positive theta, meaning you earn money every day from time decay. And it has negative vega, meaning you benefit when implied volatility decreases.
+**Horace:** Bottom-left is the one I want most retail traders to fall
+in love with. It is two credit spreads stitched together. A bull put
+spread below the market and a bear call spread above the market, same
+ticker, same expiry. Both shorts are out of the money. You collect
+both credits. You profit if the stock closes anywhere between the two
+short strikes at expiry.
 
-[VISUAL: Greek dashboard for the iron condor. Delta: +0.01 (nearly zero, with a green checkmark). Gamma: -0.009 (with a caution symbol). Theta: +$3/day (with a dollar sign icon). Vega: -$4 per 1% IV (with a down-arrow icon). Commentary below each: "Market neutral", "Big moves hurt", "Earns $3/day", "Lower IV helps"]
+**Stella:** Walk me through the SPY example.
 
-**Stella:** So it is basically a bet that things stay boring?
+**Horace:** SPY at five hundred. Thirty days out. Twenty percent
+implied vol. The one-month one-sigma move is about twenty-eight bucks
+— call it thirty. Sell the $470 put, buy the $465 put for protection.
+That's the put side. Sell the $530 call, buy the $535 call for
+protection. That's the call side.
 
-**Horace:** That is a perfect way to describe it. And here is the thing: markets are boring most of the time. Stocks spend roughly 70 to 80% of their time in consolidation ranges. The iron condor is designed to profit during those boring periods.
+**Stella:** Total credit?
 
-**Stella:** OK, now here is the critical question. How do we manage these positions? Because I know from the reading that management is what separates profitable condor traders from losing ones.
+**Horace:** Roughly a buck eighty per share. Hundred and eighty
+dollars per condor. Max loss is the wing width minus the credit, so
+five minus one-eighty equals three-twenty. Capital requirement,
+roughly three-twenty. You make a hundred and eighty if SPY stays
+between $470 and $530. You lose three-twenty if it closes outside one
+of the wings.
 
-**Horace:** This is the most important part of the entire lesson. Rule number one: take profits early. When your iron condor has captured 50% of the maximum profit, close it. Do not wait for the remaining 50%.
+**Stella:** And the probability of profit is —
 
-**Stella:** Why not? If it is working, why not let it run?
+**Horace:** Roughly sixty-eight percent at the one-sigma shorts.
+That's just the lognormal probability that SPY closes inside one
+standard deviation, with a tiny drift adjustment.
 
-**Horace:** Because the risk-reward flips. In the first half of the trade, you are capturing $70 of profit while risking a $360 max loss. Once you have captured $70, you are now risking $360 to make an additional $70. The last 50% of profit takes disproportionately longer and exposes you to increasing gamma risk as expiration approaches.
+**[VISUAL: image/week30_condor_pop.png — POP bar chart]**
 
-[VISUAL: A risk/reward timeline. Left side "Day 1-15" showing "Earning $70 profit" with low risk meter. Right side "Day 15-30" showing "Earning final $70" with high risk meter. Arrow pointing to day 15 saying "Close here for optimal risk-adjusted return"]
+**Stella:** This second chart is the trade-off in one picture. Three
+bars. Shorts at one-sigma — sixty-eight percent. Shorts at three-
+quarter-sigma — fifty-five. Shorts at half-sigma — thirty-eight.
 
-**Stella:** That makes a lot of sense. What is rule number two?
+**Horace:** Tighter shorts pay more credit but the win-rate falls
+off a cliff. That fifty-five percent looks tempting because the
+credit nearly doubles, but the trade is now a coin flip with a 1.3-
+to-1 loss ratio. The half-sigma version is essentially a short
+straddle with wings — high payout, terrible win-rate.
 
-**Horace:** Cut your losses at a predetermined level. I recommend closing if the loss reaches 1.5 to 2 times the credit received. So if you received $1.40, close if the spread is worth $2.80 to $3.50. Never let a spread reach maximum loss.
+**Stella:** And the 1σ version is the one most retail desks default
+to.
 
-**Stella:** And rule number three?
+**Horace:** Sixty-eight percent POP, 1.78-to-1 risk, three hundred
+and twenty bucks of capital. Run ten of those across SPY, QQQ, IWM,
+and a handful of large-cap names every month and you have a real
+income book on a real account.
 
-**Horace:** Close before expiration week. Gamma risk becomes extreme in the last five to seven trading days, especially for at-the-money strikes. If the stock has drifted toward one of your short strikes, you are sitting on a time bomb of gamma. Close the position and redeploy into a new expiration cycle.
+---
 
-[VISUAL: Calendar showing a 30-day option lifecycle. Days 1-21 in green labeled "Trading Zone". Days 22-25 in yellow labeled "Consider closing". Days 26-30 in red labeled "Danger Zone - Close!"]
+**[BLOCK 3 — Butterflies, 8:30]**
 
-**Stella:** What if one side of the condor is being threatened? Like if Apple starts dropping toward my $140 put?
+**Stella:** Bottom-right of the payoff chart. The pointy one.
 
-**Horace:** You have several options. First, you can close the entire iron condor and accept the loss on the threatened side while banking the profit on the winning side. Second, you can close just the threatened side and leave the winning side on. Third, you can roll the threatened side to a lower strike and further expiration.
+**Horace:** Long butterfly. Three legs. Buy one $140 call, sell two
+$150 calls — that's the body — and buy one $160 call. The two short
+calls in the middle pay for most of the trade.
 
-**Stella:** Can you walk through the rolling scenario?
+**Stella:** And it pays maximum if the stock closes exactly at $150.
 
-**Horace:** Sure. Say you sold the $140/$135 put spread as part of your condor, and Apple has dropped to $142. The put spread is now worth $2.50, meaning you have a $1.10 loss on that side. But the call spread side is nearly worthless since Apple moved away from $160. You can close the entire put spread for $2.50, then simultaneously sell a new $138/$133 put spread 30 days out for maybe $1.80. Your net cost to roll is $0.70. You now have more time and a lower short strike.
+**Horace:** Exactly. Net debit is two-twenty per spread. Max profit
+is seven-eighty if AAPL pins at $150 at expiry. Max loss is the
+debit, two-twenty, beyond either wing. Risk-reward is three-and-a-
+half to one.
 
-[ANIMATION: Reference animation/week30_condor_adjustment.py - An iron condor payoff diagram on a stock that starts at $150. The stock price dot moves to $142. The left side of the condor flashes red. Then the animation shows the left side being "lifted" and moved to a new, lower position ($138/$133), with the payoff diagram adjusting in real-time. A timer resets from 15 days to 45 days, showing the extra time gained.]
+**Stella:** That sounds insane. Why doesn't everyone do it?
 
-**Stella:** But you only roll if your thesis is intact, right? If Apple is crashing because of bad news, maybe you just close and move on.
+**Horace:** Because the probability of profit *at expiry* is low. The
+peak is a single point. You only get the seven-eighty if AAPL closes
+within a couple of bucks of $150 on Friday afternoon. But — and this
+is the part nobody tells you — the trade rarely *needs* to ride to
+expiry. If AAPL drifts toward $150 with a week to go, the butterfly
+is already up two or three hundred dollars on the mark, because the
+two short calls have decayed faster than the long wings.
 
-**Horace:** Exactly. Rolling is for when the stock has drifted but your thesis of range-bound behavior is still valid. If the stock has fundamentally broken out, if there is a regime change, close the position and reassess. Never roll into a hole. One roll is fine. Two rolls is aggressive. Three rolls means your thesis was wrong.
+**Stella:** So you can take it off early.
 
-**Stella:** Let us talk about position sizing. How many condors should someone trade?
+**Horace:** Almost always. Butterflies are usually closed at 50-100%
+of debit, sometimes a couple of weeks before expiry, and never held
+through the last 24 hours unless the stock is *already* pinned. They
+are a directional-on-level, time-decay-accelerating, capped-risk
+trade. Best fit: post-earnings drift, options-expiry pinning,
+mean-reversion to a round-number magnet.
 
-**Horace:** The golden rule is never risk more than 2 to 5% of your total portfolio on a single spread or iron condor. For a $100,000 portfolio at 3% risk per trade, your max risk is $3,000. With an iron condor that has $360 max loss, you could trade up to 8 contracts. But I would suggest diversifying across 3 to 5 different underlyings rather than putting all 8 contracts on one stock.
+---
 
-[VISUAL: Pie chart of a $100,000 portfolio. A small slice (4%) is labeled "Options Spreads - Active Income". The rest shows "Stocks 60%", "Bonds 25%", "Cash 11%". A zoom-in on the Options Spreads slice shows it divided into: "AAPL Condor 1.1%", "SPY Condor 0.7%", "MSFT Put Spread 1.2%", "QQQ Call Spread 1.0%"]
+**[BLOCK 4 — The spread builder, 11:30]**
 
-**Stella:** What about choosing between individual stocks and indexes for iron condors?
+**Stella:** Let's open the lab.
 
-**Horace:** Indexes like SPY, QQQ, and IWM have major advantages for iron condors. They are extremely liquid with tight bid-ask spreads. They cannot gap as dramatically as individual stocks because they are diversified baskets. And if you use SPX options instead of SPY, they qualify for 60/40 tax treatment: 60% long-term capital gains and 40% short-term, regardless of how long you hold. That tax advantage alone can add 1 to 2% annually.
+**[VISUAL: course/interactive/week30_spread_builder.html]**
 
-**Stella:** But individual stocks have higher premiums, right? Because they are more volatile?
+**Horace:** Pill bar across the top — vertical, iron condor,
+butterfly. Pick the structure first. Then the four sliders — strike
+width, distance from spot, days to expiry, implied volatility.
 
-**Horace:** They do, and that is the tradeoff. Higher premium but also higher risk. An individual stock can gap 10% on earnings. SPY might gap 3% on a terrible news day. For pure income generation via iron condors, I lean toward index options. For directional views expressed through spreads, individual stocks can make sense.
+**Stella:** I'll start on iron condor at the defaults. SPY at $500,
+shorts at one sigma, five-wide wings, 30 DTE, 20 vol. The four big
+numbers — net premium one-eighty-ish, max profit one-eighty-ish, max
+loss three-twenty, POP sixty-eight percent. That matches what you
+worked through.
 
-**Stella:** Let me ask about debit spreads versus credit spreads. When would I use one over the other?
+**Horace:** Now drag distance-from-spot in. Watch what happens.
 
-**Horace:** Use credit spreads when implied volatility is high and you want to profit from time decay. You are essentially saying, "I do not think the stock will reach this level." Use debit spreads when you have a directional conviction and IV is low or moderate. You are saying, "I think the stock will move in this direction." High IV makes credit spreads attractive because you collect more premium. Low IV makes debit spreads attractive because options are cheap to buy.
+**Stella:** Net credit goes up — three bucks, five, seven. POP
+collapses — sixty-eight, fifty-five, forty.
 
-[VISUAL: A decision flowchart. "What is your view?" branches into "Directional" and "Neutral/Range-bound". "Directional" leads to "Is IV high?" If yes: "Credit spread in the direction you expect". If no: "Debit spread in the direction you expect". "Neutral/Range-bound" leads directly to "Iron Condor (credit on both sides)"]
+**Horace:** That's the only trade-off in this entire lesson. Credit
+buys you POP and POP buys you credit. The lab makes it visceral.
 
-**Stella:** Before we wrap up, can you give me the key metrics to check before entering a spread trade?
+**Stella:** Drag width up. Wing 5 becomes wing 10.
 
-**Horace:** Here is my checklist. One, probability of profit should be above 60% for credit spreads. Two, risk-to-reward ratio should be reasonable, ideally the maximum loss should be no more than 3 to 4 times the maximum profit for credit spreads. Three, the credit received should be at least 20 to 30% of the width of the spread to ensure adequate premium. Four, implied volatility rank should be above 30 for credit spreads, meaning IV is in the upper third of its annual range. Five, there should be no major earnings or catalysts before expiration. And six, position size should be under 5% of portfolio risk.
+**Horace:** Max profit and max loss both double. POP unchanged.
+Capital required doubles. Same shape, twice the size.
 
-[VISUAL: Checklist displayed on screen: "Pre-Trade Checklist for Credit Spreads" with six items, each with a checkbox: "1. Probability of Profit > 60%", "2. Max Loss < 4x Max Profit", "3. Credit > 20% of spread width", "4. IV Rank > 30", "5. No earnings/catalysts in window", "6. Position risk < 5% of portfolio"]
+**Stella:** And switching to vertical?
 
-**Stella:** That is a solid framework. I feel like I could actually start using this.
+**Horace:** Single-sided. One short, one long. Only one breakeven.
+The payoff diagram below redraws live. Switch to butterfly and the
+diagram becomes the tent.
 
-**Horace:** And you should start small. Paper trade your first 10 iron condors. Get comfortable with the mechanics, the management rules, and the emotional discipline of taking profits at 50% and cutting losses at 2x. Once you are consistent in paper trading, move to one or two real contracts.
+---
 
-**Stella:** Next week we are moving to fixed income, right? Yield curves?
+**[BLOCK 5 — When to use which, 14:00]**
 
-**Horace:** That is right. We are taking a break from options to build our bond knowledge. We will come back to options in Week 37. But everything we learned about Greeks and spreads will be waiting for you when we return.
+**Stella:** Quick decision tree.
 
-**Stella:** Thanks, everyone. See you next week.
+**Horace:** Two questions. One: am I directional or non-directional?
+Two: am I long-vol or short-vol?
 
-[VISUAL: End screen with show logo, "Week 30: Spreads and Condors" summary, and preview of Week 31: Yield Curves]
+**Stella:** Directional + long-vol?
 
-**Horace:** See you then.
+**Horace:** Debit call or put spread. You're paying for the move and
+betting the move is bigger than the chain expects.
+
+**Stella:** Directional + short-vol?
+
+**Horace:** Credit put spread for bullish, credit call spread for
+bearish. You're betting the move you want happens *and* the chain is
+overpaying for the chance it doesn't.
+
+**Stella:** Non-directional + short-vol?
+
+**Horace:** Iron condor. The bread-and-butter monthly income trade.
+
+**Stella:** Pinning + short-vol?
+
+**Horace:** Long butterfly at the magnet strike.
+
+**Stella:** That's the whole grid.
+
+**Horace:** That's most of what an options income book actually does.
+Earnings strategies, calendar spreads, ratio diagonals — those are
+overlays on top of these four. Get these four right and you can
+sleep at night.
+
+---
+
+**[BLOCK 6 — Tax and account-type, 15:30]**
+
+**Stella:** SOUL #15 says options are a tax tool first. Where does
+that show up here?
+
+**Horace:** Two places. One — an iron condor on SPX, NDX, or RUT is
+a 1256 contract: 60% long-term, 40% short-term tax treatment, no
+matter how long you held it. SPY, QQQ, IWM condors are ordinary
+short-term. For a high-bracket US trader running steady monthly
+condors, SPX saves roughly ten percentage points of after-tax return.
+
+**Stella:** And the IRA angle?
+
+**Horace:** Naked short options aren't allowed in most IRAs. Defined-
+risk spreads are. So the *only* legal way to run a credit-premium
+income book inside the tax-sheltered account is through these
+structures. That alone is worth learning them for.
+
+---
+
+**[OUTRO — 17:00]**
+
+**Stella:** Recap.
+
+**Horace:** Spreads turn a single-leg option into a printed maximum
+loss for fifty to a hundred bucks of capital. Iron condors monetise
+mean-reversion at sixty-plus percent win rates. Butterflies pin
+levels for three-and-a-half-to-one payoff. They are the L3 sleeve of
+the SOUL barbell — capped, asymmetric, professional.
+
+**Stella:** Next week — implied volatility rank, vol regimes, and
+how to size all of this against realised vol so the structures
+actually work.
+
+**Horace:** See you in week thirty-one.
+
+**[END]**

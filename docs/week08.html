@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Week 8: Reading Financial Statements - Basics - Chanma Investment Tutorial</title>
+    <title>Week 8: Reading Financial Statements — IS, BS, CF for Investors - Chanma Investment Tutorial</title>
     <script>(function(){try{var t=localStorage.getItem('preferred-theme');if(!t){t=window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();</script>
     <style>
 :root, html[data-theme="light"] {
@@ -1247,940 +1247,581 @@ html[data-theme="dark"] .nav-btn:hover .btn-label { color: rgba(15,23,36,0.7); }
     <main class="main-wrap">
         <div class="content-area">
             <div id="content-en" class="lang-content active">
-                <h1>Week 8: Reading Financial Statements - Basics</h1>
+                <h1>Week 8: Reading Financial Statements — IS, BS, CF for Investors</h1>
 <hr>
-<h2>Reading Section</h2>
-<h3>a) Why This Is Important</h3>
+<h3>1. Why This Is Important</h3>
 <p>
-Financial statements are the language of business. If you want to invest in individual stocks, evaluate a company inside an ETF, or simply understand the economic news, you must be able to read financial statements. They are to an investor what X-rays and blood tests are to a doctor -- they reveal what is happening beneath the surface, exposing strengths and weaknesses that stock prices and headlines often obscure.
+A public company speaks in three documents. The income statement, the
+balance sheet, and the cash flow statement. Everything else — the
+press release, the conference call, the analyst note, the stock
+price — is commentary on those three. If you cannot read the
+documents themselves, you are reading a translation of a translation,
+hoping the translator did not lie.
 </p>
 <p>
-Here is why this skill is non-negotiable for serious investors:
+For an investor — not an accountant, not an auditor — the goal is
+narrow. You are not trying to recompute deferred tax liabilities. You
+are trying to answer four questions, in order, in under twenty
+minutes per company:
 </p>
-<li><strong>Financial statements are the only objective source of truth about a company.</strong> Management can say anything in a press release. Analysts can have biases. Stock prices reflect sentiment and speculation. But the financial statements -- audited by independent accountants and filed with regulators -- contain verifiable, standardized data. They are the foundation of every credible investment analysis.</li>
-<li><strong>Without financial literacy, you are investing blind.</strong> Imagine buying a house without inspecting it, or hiring an employee without checking their references. When you buy a stock without reading the financial statements, you are trusting the crowd's assessment of a business you have not personally evaluated. Sometimes the crowd is right. But when it is wrong, the consequences can be devastating.</li>
-<li><strong>Financial statements expose fraud and manipulation early.</strong> Enron, WorldCom, Wirecard -- every major corporate fraud was hiding in plain sight in the financial statements for those who knew where to look. Revenue growing faster than cash flow. Debt hidden in off-balance-sheet entities. Receivables ballooning relative to sales. These warning signs are visible in the statements long before the stock price collapses.</li>
-<li><strong>The three financial statements tell three different stories that must be consistent.</strong> The income statement tells you whether the company is profitable. The balance sheet tells you whether the company is financially healthy. The cash flow statement tells you whether the company is actually generating cash. When these three stories align, you have confidence. When they diverge, something may be wrong.</li>
-<li><strong>This is the foundation for everything that follows.</strong> Valuation ratios like P/E, P/B, and EV/EBITDA (Week 21) are meaningless if you do not understand the numbers they are based on. Equity analysis, credit analysis, and advanced financial statement analysis all build on the basics covered in this lesson.</li>
+<li><strong>Is the business growing, and is the growth profitable?</strong> That</li>
 <p>
-The CFA curriculum devotes an enormous portion of its study material to Financial Statement Analysis (FSA). At Level I alone, FSA accounts for roughly 13-15% of the exam. The CFA Institute considers it one of the core competencies of any investment professional, and for good reason: you cannot value what you cannot measure, and financial statements are how we measure businesses.
+lives on the income statement, in the path from revenue down to
+operating income.
 </p>
-<hr>
-<h3>b) What You Need to Know</h3>
-<h4>1. The Three Financial Statements -- An Overview</h4>
+<li><strong>Is the business solvent and capitalised?</strong> That lives on the</li>
 <p>
-Every publicly traded company publishes three core financial statements, typically on a quarterly and annual basis:
+balance sheet — assets versus liabilities, working capital, the
+debt stack.
 </p>
-<pre><code class="language-">THE THREE FINANCIAL STATEMENTS
+<li><strong>Is the reported profit real cash, or accounting?</strong> That lives</li>
 <p>
-=================================
+on the cash flow statement, in the gap between net income and
+operating cash flow. It is the only one of the three that is hard
+to fake.
 </p>
+<li><strong>Are the three stories consistent?</strong> When revenue grows but cash</li>
 <p>
-+------------------------+     +------------------------+     +------------------------+
-|   INCOME STATEMENT     |     |    BALANCE SHEET       |     |  CASH FLOW STATEMENT   |
-|   (Profit &amp; Loss)      |     |    (Financial Position)|     |  (Cash Movements)      |
-+------------------------+     +------------------------+     +------------------------+
-|                        |     |                        |     |                        |
-| Revenue                |     | ASSETS                 |     | Operating Activities   |
-| - Cost of Goods Sold   |     |   Current Assets       |     |   (Cash from business  |
-| = Gross Profit         |     |   Non-Current Assets   |     |    operations)         |
-| - Operating Expenses   |     |                        |     |                        |
-| = Operating Income     |     | LIABILITIES            |     | Investing Activities   |
-| - Interest Expense     |     |   Current Liabilities  |     |   (Cash for buying/    |
-| - Taxes                |     |   Non-Current Liab.    |     |    selling assets)      |
-| = Net Income           |     |                        |     |                        |
-|                        |     | EQUITY                 |     | Financing Activities   |
-| Covers: A PERIOD       |     |   Stockholders' Equity |     |   (Cash from/to        |
-| (e.g., Jan-Dec 2025)   |     |                        |     |    investors/lenders)   |
-|                        |     | Covers: A POINT IN     |     |                        |
-| Answers: "Did the      |     | TIME (e.g., Dec 31)    |     | Covers: A PERIOD       |
-|  company make money?"  |     |                        |     | (e.g., Jan-Dec 2025)   |
-|                        |     | Answers: "What does    |     |                        |
-|                        |     |  the company own and   |     | Answers: "Where did    |
-|                        |     |  owe right now?"       |     |  the cash come from    |
-|                        |     |                        |     |  and where did it go?" |
-+------------------------+     +------------------------+     +------------------------+
-</code></pre>
+flow does not, when earnings grow but receivables grow faster,
+when book equity grows but free cash flow does not — something is
+either wrong, or about to be.
 </p>
 <p>
-A crucial distinction: the income statement and cash flow statement cover a <strong>period of time</strong> (like a movie), while the balance sheet captures a <strong>point in time</strong> (like a photograph). This matters because you can compare periods (Q1 this year vs. Q1 last year) or snapshots (balance sheet at year-end vs. the prior year-end).
+The CFA curriculum spends roughly fifteen percent of Level I on
+financial statement analysis. We will spend one week on it, plus a
+side lesson on the 10-K filing wrapper (<a href="side02_10k_filing.md">side02_10k_filing.md</a>).
+The two together are enough to read most filings competently. They
+are not enough to audit one. That is fine. As Horace puts it: alpha
+sources include "look at cash, not earnings" (SOUL #5). You do not
+need to outwork the auditors to outperform the index. You need to
+know which line of which statement to land on first.
 </p>
 <hr>
-<h4>2. The Income Statement (Profit and Loss Statement)</h4>
+<h3>2. What You Need to Know</h3>
+<h4>2.1 The Three Statements as One Story</h4>
 <p>
-The income statement shows whether a company made or lost money over a specific period. It starts with revenue at the top and works its way down through various expenses to arrive at net income (or net loss) at the bottom. This is why net income is often called the "bottom line."
+The three statements are not three independent documents. They are
+three views of one underlying ledger, and they are mathematically
+linked.
 </p>
-<pre><code class="language-">INCOME STATEMENT STRUCTURE
+<ul><li>The <strong>income statement</strong> covers a period (a quarter or a year). It</li>
 <p>
-============================
+</ul>  starts at revenue and works down to net income. Time-window view:
+flow.
 </p>
+<ul><li>The <strong>balance sheet</strong> is a snapshot at a single date — usually the</li>
 <p>
-Revenue (Sales)                              $1,000,000
+</ul>  last day of the period. Assets equal liabilities plus equity.
+Point-in-time view: stock.
 </p>
-<ul><li>Cost of Goods Sold (COGS)                   (600,000)</li>
+<ul><li>The <strong>cash flow statement</strong> also covers a period. It explains the</li>
 <p>
-</ul>  ------------------------------------------------
-= GROSS PROFIT                                 $400,000    Gross Margin = 40%
-</p>
-<ul><li>Selling, General &amp; Administrative (SG&amp;A)     (150,000)</li>
-<li>Research &amp; Development (R&amp;D)                  (80,000)</li>
-<li>Depreciation &amp; Amortization (D&amp;A)             (30,000)</li>
-<p>
-</ul>  ------------------------------------------------
-= OPERATING INCOME (EBIT)                      $140,000    Operating Margin = 14%
-</p>
-<ul><li>Interest Expense                              (20,000)</li>
-<p>
-</ul>  + Interest Income                                 5,000
-------------------------------------------------
-= EARNINGS BEFORE TAX (EBT)                    $125,000
-</p>
-<ul><li>Income Tax Expense (25%)                      (31,250)</li>
-<p>
-</ul>  ------------------------------------------------
-= NET INCOME                                    $93,750    Net Margin = 9.4%
+</ul>  change in cash on the balance sheet, broken into three buckets:
+cash from operations (OCF), cash used for investing (CFI), and
+cash from financing (CFF).
 </p>
 <p>
-Earnings Per Share (EPS) = Net Income / Shares
-If 10,000 shares outstanding: EPS = $9.38
-</code></pre>
+The three are linked by two bridges:
+</p>
+<ul><li><strong>Net income flows into retained earnings on the balance sheet.</strong></li>
+<p>
+</ul>  Last year's equity plus net income minus dividends equals this
+year's equity, before share buybacks and other adjustments.
+</p>
+<ul><li><strong>Operating cash flow starts from net income and adjusts.</strong> Add</li>
+<p>
+</ul>  back non-cash charges (depreciation, stock-based compensation),
+adjust for working capital changes (receivables, payables,
+inventory). Whatever is left after capital expenditure is **free
+cash flow**, and that is the number that pays dividends, retires
+debt, and funds buybacks.
 </p>
 <p>
-<strong>Key metrics from the income statement:</strong>
+The investor's discipline: read all three together, and trust the
+cash flow statement most when they disagree.
 </p>
-<pre><code class="language-">MARGIN ANALYSIS
+<h4>2.2 The Income Statement — Revenue Down to Net Income</h4>
 <p>
-================
-</p>
-<p>
-Healthy        Warning Sign
--------        ------------
-Gross Margin            &gt;40%           &lt;20% (unless retailer)
-(Revenue - COGS)        Industry-      Declining over time
-/ Revenue               dependent      means pricing pressure
+The income statement is a waterfall. Revenue at the top, deductions
+at each step, net income at the bottom. Five waypoints matter.
 </p>
 <p>
-Operating Margin        &gt;15%           &lt;5%
-(EBIT / Revenue)        Shows          Declining suggests
-efficiency     cost problems
+<strong>Revenue.</strong> What customers actually paid (or owed) for goods and
+services delivered in the period. The single hardest line to fake
+across multiple years, because it is also the line that auditors
+tie back hardest to receipts and contracts.
 </p>
 <p>
-Net Margin              &gt;10%           &lt;3%
-(Net Income /           After all      Thin margins mean
-Revenue)               costs          little room for error
+<strong>Gross profit = Revenue − Cost of goods sold.</strong> Direct cost of
+producing what was sold. Gross margin (gross profit / revenue) tells
+you how much pricing power and unit economics the business has. A
+software company should print 70%+ gross margin; an airline,
+10–20%. Compare within an industry, not across.
 </p>
 <p>
-IMPORTANT: Margins vary enormously by industry!
+<strong>Operating income (EBIT) = Gross profit − Operating expenses.</strong>
+Subtract R&D, SG&A, depreciation, and amortisation. This is what
+the actual <em>operations</em> of the business earned, before the financial
+structure (interest) and the tax authority (taxes). Operating margin
+is the cleanest measure of business quality.
 </p>
 <p>
-Typical ranges:
-Software/SaaS:    70-85% gross,  20-40% operating
-Consumer Staples: 30-50% gross,  15-25% operating
-Retail/Grocery:   25-35% gross,   3-8%  operating
-Airlines:         40-60% gross,   5-15% operating
-Banks:            N/A (use Net Interest Margin instead)
-</code></pre>
+<strong>Pre-tax income = Operating income − Net interest.</strong> Add interest
+income, subtract interest expense, throw in any non-operating items
+(gains or losses on investments). This is where the *capital
+structure* shows up. A heavily-indebted company can have great
+operating margins and ugly pre-tax income.
 </p>
 <p>
-<strong>What to look for on the income statement:</strong>
+<strong>Net income = Pre-tax income − Income taxes.</strong> The "bottom line."
+Divided by share count, you get earnings per share (EPS).
 </p>
-<ul><li><strong>Revenue growth.</strong> Is the top line growing? Revenue is the hardest number to fake over long periods and is the ultimate driver of long-term value.</li>
-<li><strong>Margin trends.</strong> Are margins expanding (good -- pricing power, cost efficiency) or contracting (bad -- competition, rising costs)?</li>
-<li><strong>One-time items.</strong> Watch for "restructuring charges," "asset impairments," or "gains on sale" that distort the true operating picture. Normalize earnings by excluding non-recurring items.</li>
-<li><strong>Revenue quality.</strong> Is revenue from recurring sources (subscriptions, contracts) or one-time sales? Recurring revenue is far more valuable.</li>
 <p>
-</ul>
+The image below walks Apple's FY2024 (year ending September 2024)
+income statement and cash flow as a single horizontal waterfall —
+revenue all the way to free cash flow.
+</p>
+<img src="image/week08_aapl_decomposition.png" alt="Apple FY2024 income-statement and cash-flow waterfall, $ billions. Bars from left to right: Revenue $391B, then negative bars peeling off Cost of revenue ($210B) leaving Gross profit $181B; subtract Operating expenses ($57B) to get Operating income $123B; subtract Income tax and other items to get Net income $94B; then add back Depreciation/amortisation, stock-based compensation, and working-capital release to land at Operating cash flow $118B; subtract Capex of $9B to land at Free cash flow $109B. The chart shows that Apple converts more cash than it reports as profit because non-cash charges and working capital favour cash.">
+<p>
+The most important visual takeaway is the gap between the rightmost
+two bars: <strong>net income $94B versus free cash flow $109B</strong>. Apple
+converted <em>more</em> cash than it booked as accounting profit. That is
+a hallmark of a healthy capital-light business. The opposite gap —
+net income materially above free cash flow, year after year — is
+the textbook accounting-quality warning sign.
+</p>
+<h4>2.3 The Balance Sheet — Assets, Liabilities, Equity</h4>
+<p>
+The balance sheet is governed by one identity:
+</p>
+<p>
+$$ \text{Assets} = \text{Liabilities} + \text{Shareholders' Equity} $$
+</p>
+<p>
+It always balances by construction. Bookkeeping is double-entry —
+every dollar of asset has a dollar of either a claim against it
+(liability) or ownership of it (equity). This is not deep economics;
+it is the structure of the ledger.
+</p>
+<p>
+What matters for an investor is the <strong>composition</strong> of each side.
+</p>
+<p>
+On the <strong>asset</strong> side, the order top-to-bottom is liquidity:
+</p>
+<ul><li><strong>Cash and equivalents.</strong> Sitting in a money-market fund or short</li>
+<p>
+</ul>  T-bills. Spendable today.
+</p>
+<ul><li><strong>Short-term investments and accounts receivable.</strong> Convertible</li>
+<p>
+</ul>  to cash within a year — but receivables can go bad.
+</p>
+<ul><li><strong>Inventory.</strong> Goods waiting to be sold. The longer it sits, the</li>
+<p>
+</ul>  staler and more discountable it becomes.
+</p>
+<ul><li><strong>Property, plant, and equipment (PP&E).</strong> Factories, machines,</li>
+<p>
+</ul>  data centres. Long-lived. Reported at historical cost less
+accumulated depreciation, which can wildly understate replacement
+value (think a hundred-year-old refinery).
+</p>
+<ul><li><strong>Goodwill and intangibles.</strong> What the company paid for</li>
+<p>
+</ul>  acquisitions above the target's book value, plus internally-held
+brand or patent values. The line that gets <em>impaired</em> (written
+down) when an acquisition turned out to be a mistake.
+</p>
+<p>
+On the <strong>liability</strong> side, the order is when the bill is due:
+</p>
+<ul><li><strong>Accounts payable.</strong> Owed to suppliers, typically 30–60 days.</li>
+<li><strong>Short-term debt and current portion of long-term debt.</strong> Coming</li>
+<p>
+</ul>  due within a year. The classic solvency stressor.
+</p>
+<ul><li><strong>Long-term debt.</strong> Bonds and term loans. The single most</li>
+<p>
+</ul>  important liability for understanding the capital stack.
+</p>
+<ul><li><strong>Pension and lease obligations.</strong> Often understated or</li>
+<p>
+</ul>  off-balance-sheet under prior accounting; now mostly captured
+under the current rules but still worth checking.
+</p>
+<p>
+<strong>Shareholders' equity</strong> is the residual — assets minus liabilities.
+It is mostly composed of (1) common stock plus paid-in capital
+(what shareholders put in), (2) retained earnings (cumulative net
+income kept inside the business), and (3) treasury stock (the
+negative of buybacks). For a mature company that has been buying
+back stock for years, treasury stock can be enormous; companies like
+Boeing and Starbucks have <em>negative</em> shareholders' equity precisely
+because they have bought back more stock than they have retained.
+Negative book equity is not by itself a problem if the cash flow is
+healthy — it is just a note that the company has chosen buybacks
+over balance-sheet padding.
+</p>
+<p>
+The two practitioner ratios you actually use:
+</p>
+<ul><li><strong>Current ratio = Current assets / Current liabilities.</strong> Above 1</li>
+<p>
+</ul>  is generally healthy; below 1 means the company depends on
+refinancing, inventory turnover, or revolver capacity to meet
+near-term obligations.
+</p>
+<ul><li><strong>Net debt / EBITDA.</strong> Total debt minus cash, divided by trailing</li>
+<p>
+</ul>  twelve-month EBITDA. Below 2× is conservative; 3–4× is normal for
+many sectors; above 5× is leveraged-buyout territory and starts to
+look fragile under a recession or a rate spike.
+</p>
+<h4>2.4 The Cash Flow Statement — The One That's Hard to Fake</h4>
+<p>
+This is the statement that separates investors from speculators.
+</p>
+<p>
+Net income is an <em>opinion</em> — a defensible one, signed by auditors,
+but built on dozens of estimates: depreciation lives, allowance for
+doubtful accounts, inventory write-downs, stock-based compensation,
+revenue-recognition timing. Cash flow is a <em>fact</em>. Either the bank
+balance went up, or it didn't.
+</p>
+<p>
+The statement is built in three sections:
+</p>
+<ul><li><strong>Cash from operating activities (CFO or OCF).</strong> Starts at net</li>
+<p>
+</ul>  income, adds back non-cash items (depreciation, amortisation,
+stock-based compensation), and adjusts for working-capital changes
+(receivables up = cash out; payables up = cash in; inventory up =
+cash out). End result: actual cash the operating business
+generated.
+</p>
+<ul><li><strong>Cash from investing (CFI).</strong> Capital expenditure (negative,</li>
+<p>
+</ul>  reinvested in the business), acquisitions (negative), proceeds
+from sales of assets (positive), and changes in marketable
+securities portfolios.
+</p>
+<ul><li><strong>Cash from financing (CFF).</strong> Debt raised or repaid, equity</li>
+<p>
+</ul>  issued or bought back, dividends paid.
+</p>
+<p>
+The single most-used investor metric:
+</p>
+<p>
+$$ \text{Free Cash Flow (FCF)} = \text{OCF} - \text{Capex} $$
+</p>
+<p>
+Free cash flow is what the business <em>could</em> return to all capital
+providers without diminishing its operating capacity. It pays
+dividends, funds buybacks, retires debt, finances acquisitions.
+Persistent free cash flow is the only economic basis for any of
+those things. Companies that pay dividends or buy back stock without
+generating free cash flow are doing so by issuing debt or equity —
+borrowing from one set of investors to pay another, which is fine
+for a year and ruinous over a decade.
+</p>
+<p>
+The discipline Horace pushes (SOUL #5): when the gap between net
+income and free cash flow grows, distrust the income statement.
+Earnings can be manipulated; cash is harder. The chart below shows
+this exact gap for Apple over the last decade.
+</p>
+<img src="image/week08_eps_vs_fcf.png" alt="Apple FY2014–FY2024 split-adjusted diluted EPS versus free cash flow per share (USD). Both lines rise from roughly $1.6–$1.9 in FY2014 to $6.1–$7.1 in FY2024. EPS and FCF per share track each other closely except in FY2020, where FCF per share ran ahead of EPS — the COVID year, when working capital released cash even as inventory and supply-chain disruption depressed reported earnings. The FY2024 gap also widens because a one-time roughly $10B EU State-aid tax charge depressed reported net income while leaving cash flow untouched.">
+<p>
+In FY2020, EPS dropped relative to FCF because COVID-era working
+capital released cash (customers paid, inventory drew down) faster
+than accounting earnings were recognised. In FY2024, a one-time
+roughly $10B European Commission tax charge depressed reported net
+income without touching the actual cash collected from customers.
+Both years are clean illustrations of the same lesson: the cash is
+the fact; the earnings are the opinion.
+</p>
+<h4>2.5 Common-Size Statements — Reading Across Time and Companies</h4>
+<p>
+Raw dollar figures are hard to compare. Apple at $391B revenue and
+Coca-Cola at $46B revenue are not in the same league of <em>size</em>, but
+they may be in the same league of <em>quality</em>. **Common-size
+statements** rebase every line as a percentage of revenue (income
+statement) or total assets (balance sheet). That removes the size
+bias and makes the <em>structure</em> of the business visible.
+</p>
+<p>
+A common-size income statement for FY2024 looks like this for our
+three example companies:
+</p>
+<table><thead><tr><th>Line</th><th>Apple</th><th>Coca-Cola</th><th>JPMorgan</th></tr></thead><tbody><tr><td>Revenue</td><td>100%</td><td>100%</td><td>100%</td></tr><tr><td>Gross profit</td><td>46%</td><td>60%</td><td>n/a</td></tr><tr><td>Operating income</td><td>32%</td><td>30%</td><td>41%</td></tr><tr><td>Net income</td><td>24%</td><td>23%</td><td>32%</td></tr><tr><td>Free cash flow / revenue</td><td>28%</td><td>21%</td><td>n/a</td></tr></tbody></table>
+<p>
+Three very different businesses, three very different cost
+structures, but all three converting roughly a quarter of revenue
+into net profit — a sign that all three sit at the high-quality end
+of their respective sectors. Banks (JPMorgan) are excluded from the
+gross-profit and FCF rows because their income statement structure
+is fundamentally different (net interest income, provisions for
+credit losses, no real "cost of goods sold"). Banks need their own
+template, which we cover in Week 33.
+</p>
+<p>
+The interactive panel below lets you switch between Apple, Coca-Cola,
+and JPMorgan, toggle between Revenue / Net Income / OCF / FCF, and
+see the ten-year history side by side with common-size ratios. The
+goal is to develop a <em>visual</em> sense for how different sectors look
+on the page, so you can flag anomalies on filings you have never
+seen before.
+</p>
+<h4>2.6 What an Investor Actually Reads, in What Order</h4>
+<p>
+A practical reading sequence for a new company, twenty minutes:
+</p>
+<li><strong>Revenue trend, ten years.</strong> Growing? Decelerating? Cyclical?</li>
+<p>
+Look at the cash flow statement summary too — does cash track
+revenue?
+</p>
+<li><strong>Operating margin trend, ten years.</strong> Expanding (pricing</li>
+<p>
+power), flat (steady state), contracting (competition or cost
+pressure)?
+</p>
+<li><strong>Free cash flow versus net income, ten years.</strong> Do they track?</li>
+<p>
+When they diverge, in which direction and why? Persistent FCF
+below net income is the loudest single warning.
+</p>
+<li><strong>Net debt / EBITDA, current and trend.</strong> Capital structure</li>
+<p>
+sustainable in a 5%-rate world? Refinancing wall in the next
+18 months?
+</p>
+<li><strong>Capital allocation, last three years.</strong> Buybacks vs dividends</li>
+<p>
+vs reinvestment vs M&A. Funded from FCF or from new debt?
+</p>
+<p>
+The 10-K side lesson (<a href="side02_10k_filing.md">side02_10k_filing.md</a>)
+covers where in the document to find each of these — Item 7 (MD&A),
+Item 8 (statements), Item 1A (risk factors), notes to the financial
+statements. The combination of <em>what to read</em> (this lesson) and
+<em>where in the filing it lives</em> (the side lesson) is enough to put
+you in the top decile of retail investors by financial literacy.
+That is a low bar but a real one.
 </p>
 <hr>
-<h4>3. The Balance Sheet (Statement of Financial Position)</h4>
+<h3>3. Common Misconceptions</h3>
 <p>
-The balance sheet shows what a company owns (assets), what it owes (liabilities), and the residual value belonging to shareholders (equity) at a specific point in time. The fundamental equation is:
-</p>
-<pre><code class="language-">THE ACCOUNTING EQUATION
-<p>
-========================
+<strong>Misconception 1: "Earnings are the most important number."</strong>
 </p>
 <p>
-ASSETS = LIABILITIES + SHAREHOLDERS' EQUITY
+Earnings are an opinion produced by accounting choices. Free cash
+flow is a fact. When they agree, the business is genuinely
+profitable. When they disagree persistently, the cash flow is
+right and the earnings are wrong, almost without exception.
 </p>
 <p>
-What the         What the company     What belongs
-company OWNS     OWES to others       to shareholders
+<strong>Misconception 2: "A profitable company cannot go bankrupt."</strong>
 </p>
 <p>
-Think of it as a personal analogy:
+Profitable companies go bankrupt all the time — when they cannot
+service their debt. Profit is on the income statement; cash to pay
+bondholders is on the cash flow statement. Many of the most famous
+bankruptcies (Toys "R" Us, Hertz at the LBO peak) happened to
+companies that were "profitable" right up until the refinancing
+window slammed shut.
 </p>
 <p>
-Your house value     =   Your mortgage   +   Your home equity
-($500,000)               ($300,000)           ($200,000)
+**Misconception 3: "Negative book equity means the company is
+insolvent."**
 </p>
 <p>
-This equation ALWAYS balances. That is why it is
-called a "balance" sheet.
-</code></pre>
+Not in the modern era. Mature buyback-heavy companies (Boeing,
+Starbucks, McDonald's at points) have negative book equity simply
+because they have repurchased more stock than they have retained.
+Solvency is determined by the ability to service obligations from
+cash flow, not by the sign of the book-equity line.
 </p>
 <p>
-<strong>Balance sheet structure:</strong>
-</p>
-<pre><code class="language-">BALANCE SHEET LAYOUT
-<p>
-======================
+<strong>Misconception 4: "Big depreciation charges are bad."</strong>
 </p>
 <p>
-ASSETS (What the company owns)         LIABILITIES (What the company owes)
-================================       ==================================
+Depreciation is a non-cash charge. It reduces accounting profit
+but does not reduce cash. A capital-intensive business (utility,
+railroad, refinery) will always have high depreciation; it
+compresses earnings but not cash flow. The right comparison is
+capex versus depreciation: capex above depreciation means the
+business is growing or replacing aging assets; capex well below
+depreciation means the company is harvesting (running down its
+asset base for cash). Either can be right depending on the strategy.
 </p>
 <p>
-CURRENT ASSETS (&lt; 1 year)             CURRENT LIABILITIES (&lt; 1 year)
-Cash &amp; Equivalents       $50,000       Accounts Payable        $40,000
-Short-Term Investments    20,000       Short-Term Debt          25,000
-Accounts Receivable       80,000       Accrued Expenses         15,000
-Inventory                 60,000       Current Portion of
-Prepaid Expenses          10,000         Long-Term Debt         10,000
---------                               --------
-Total Current Assets    $220,000       Total Current Liab.     $90,000
+<strong>Misconception 5: "Stock-based compensation is not a real cost."</strong>
 </p>
 <p>
-NON-CURRENT ASSETS (&gt; 1 year)         NON-CURRENT LIABILITIES (&gt; 1 year)
-Property, Plant &amp;                      Long-Term Debt         $150,000
-Equipment (PP&amp;E)      $300,000       Deferred Tax Liab.      20,000
-Goodwill                 100,000       Pension Obligations      30,000
-Intangible Assets         50,000                              --------
-Long-Term Investments     30,000       Total Non-Current      $200,000
---------
-Total Non-Current       $480,000     TOTAL LIABILITIES        $290,000
+It is. Companies (especially in tech) like to present "adjusted
+EPS" with SBC added back, framing it as non-cash. It is non-cash
+in the period, but it dilutes existing shareholders and very much
+costs them economically. Treat SBC as a real cost. Adjusted EBITDA
+that excludes SBC is one of the few numbers in finance that is
+nearly always misleading.
 </p>
 <p>
-SHAREHOLDERS' EQUITY
-Common Stock           $100,000
-Retained Earnings      $280,000
-Treasury Stock          (50,000)
-TOTAL ASSETS              $700,000       Other                    80,000
---------
-TOTAL EQUITY             $410,000
+<strong>Misconception 6: "Goodwill represents real value."</strong>
 </p>
 <p>
-TOTAL LIAB. + EQUITY    $700,000
-========
-$700,000  =  $290,000  +  $410,000    BALANCES!
-</code></pre>
+Goodwill is a plug — the residual of acquisition price over the
+target's identifiable net assets. It is not depreciated; it is
+tested for impairment annually. Many companies' goodwill quietly
+balloons through acquisitions and then suddenly collapses in a
+single quarter when the deal does not work. Treat the goodwill line
+with extreme skepticism, especially for serial acquirers.
 </p>
 <p>
-<strong>Key balance sheet concepts:</strong>
+<strong>Misconception 7: "If the auditor signed it, it's accurate."</strong>
 </p>
 <p>
-<strong>Current vs. Non-Current.</strong> Current assets are expected to be converted to cash within one year (accounts receivable, inventory). Current liabilities are due within one year (accounts payable, short-term debt). The relationship between them is crucial for assessing short-term financial health.
+Auditors test for material misstatement, not truth. The Big Four
+sign-off on Enron, Wirecard, and Lehman are the standing reminders
+that audit assurance is far weaker than retail investors imagine.
+The audit is a backstop, not a guarantee.
 </p>
 <p>
-<strong>Working Capital.</strong> Current Assets minus Current Liabilities. Positive working capital means the company can pay its short-term obligations. Negative working capital can signal financial distress (but some businesses like Amazon operate with negative working capital by design, collecting from customers before paying suppliers).
-</p>
-<pre><code class="language-">WORKING CAPITAL AND LIQUIDITY
-<p>
-===============================
+**Misconception 8: "All companies in the same sector should look
+similar."**
 </p>
 <p>
-Working Capital = Current Assets - Current Liabilities
-= $220,000 - $90,000
-= $130,000  (positive = healthy)
-</p>
-<p>
-Current Ratio   = Current Assets / Current Liabilities
-= $220,000 / $90,000
-= 2.44x     (&gt;1.5 generally healthy)
-</p>
-<p>
-Quick Ratio     = (Current Assets - Inventory) / Current Liabilities
-= ($220,000 - $60,000) / $90,000
-= 1.78x     (&gt;1.0 generally healthy)
-(Excludes inventory because it may not
-be quickly convertible to cash)
-</code></pre>
-</p>
-<p>
-<strong>Goodwill and Intangible Assets.</strong> Goodwill appears when a company acquires another company for more than the value of its tangible assets. It represents the premium paid for brand, customer relationships, synergies, and other intangibles. A large goodwill balance means the company has been an active acquirer. Goodwill impairments (writedowns) can signal that past acquisitions overpaid, which is a red flag for management's capital allocation skills.
-</p>
-<p>
-<strong>What to look for on the balance sheet:</strong>
-</p>
-<ul><li><strong>Debt levels.</strong> Debt-to-Equity ratio above 2.0 warrants scrutiny. Excessive debt increases bankruptcy risk and limits financial flexibility.</li>
-<li><strong>Cash position.</strong> Is there enough cash to cover short-term obligations? Cash-rich companies have a strategic advantage in downturns.</li>
-<li><strong>Receivables relative to revenue.</strong> If receivables are growing much faster than revenue, the company may be booking revenue aggressively or having trouble collecting payments.</li>
-<li><strong>Inventory trends.</strong> Rising inventory relative to sales can signal weakening demand or production problems.</li>
-<p>
-</ul>
+The sector frames the <em>structure</em>, not the <em>quality</em>. Two software
+companies can both have 70% gross margins, but if one has 30%
+operating margin and the other 5%, they are not in the same
+business in any meaningful sense. Common-size analysis is most
+useful precisely because it highlights these dispersions within a
+sector.
 </p>
 <hr>
-<h4>4. The Cash Flow Statement</h4>
+<h3>4. Q&A</h3>
 <p>
-The cash flow statement is arguably the most important financial statement for investors, yet it is the one that gets the least attention from beginners. It shows where cash actually came from and where it went, stripping away the accounting assumptions that can make the income statement misleading.
+<strong>Q1: I have never read a 10-K. Where do I start?</strong>
 </p>
 <p>
-Why is cash flow so important? Because you cannot pay employees, suppliers, or dividends with accounting profits. You pay them with cash. A company can report positive net income for years while actually burning cash -- and eventually run out of money. The cash flow statement reveals this.
+A: Open Apple's most recent 10-K on EDGAR. Read Item 7 (MD&A) end
+to end — it is management explaining the year in their own words.
+Then jump to Item 8 and look at the three statements. Spend ten
+minutes on each. Then read the first three risk factors in Item 1A.
+That is a working forty-minute first pass. The side lesson on the
+10-K filing structure (<a href="side02_10k_filing.md">side02_10k_filing.md</a>)
+walks the document section by section.
 </p>
-<pre><code class="language-">CASH FLOW STATEMENT STRUCTURE
 <p>
-================================
+<strong>Q2: What is the single most informative ratio?</strong>
 </p>
 <p>
-OPERATING ACTIVITIES (Cash from running the business)
-------------------------------------------------------
-Net Income                                    $93,750
-+ Depreciation &amp; Amortization                  30,000
-(non-cash expense added back)
+A: There is no single one. If you held a gun to my head, **free
+cash flow / revenue** for non-financial businesses. It captures
+the ability to convert sales into spendable cash, which subsumes
+gross margin, working-capital efficiency, and capital intensity in
+one number. Above 15% is high-quality; above 20% is exceptional.
+For banks, <strong>return on tangible common equity (ROTCE)</strong> is the
+analogous one-number summary.
 </p>
-<ul><li>Increase in Accounts Receivable             (15,000)</li>
 <p>
-</ul>    (sold goods but haven't collected cash yet)
+<strong>Q3: Why do GAAP earnings and "adjusted earnings" disagree?</strong>
 </p>
-<ul><li>Increase in Inventory                       (10,000)</li>
 <p>
-</ul>    (bought inventory, cash went out)
-+ Increase in Accounts Payable                 12,000
-(owe suppliers but haven't paid cash yet)
-+ Other Adjustments                             5,000
---------
-NET CASH FROM OPERATIONS                     $115,750
+A: Companies present non-GAAP adjusted figures to highlight what
+they argue is the recurring economic earnings power, excluding
+one-time items, M&A-related amortisation, restructuring charges,
+and (often) stock-based compensation. Some adjustments are honest
+(genuine one-time charges); some are not (recurring SBC dressed up
+as non-recurring). Read both. Distrust the gap. SEC Regulation G
+requires reconciliation of any non-GAAP figure to its GAAP
+equivalent — the reconciliation is where the truth lives.
 </p>
 <p>
-INVESTING ACTIVITIES (Cash for long-term assets)
-------------------------------------------------------
+<strong>Q4: How do I read a bank's financial statements?</strong>
 </p>
-<ul><li>Purchase of PP&amp;E (Capital Expenditure)      (50,000)</li>
-<li>Acquisition of Subsidiary                   (30,000)</li>
 <p>
-</ul>  + Sale of Equipment                            10,000
---------
-NET CASH FROM INVESTING                      ($70,000)
+A: Banks are different. Their "revenue" is net interest income
+plus non-interest income, not "revenue minus COGS." Their key
+lines are net interest margin, provision for credit losses, the
+efficiency ratio (non-interest expense / revenue), and ROTCE.
+Their balance sheet is dominated by loans (asset) and deposits
+(liability). We cover this in Week 33; the framework is genuinely
+distinct.
 </p>
 <p>
-FINANCING ACTIVITIES (Cash from/to investors &amp; lenders)
-------------------------------------------------------
-+ Proceeds from Long-Term Debt                 40,000
+<strong>Q5: What is "earnings management" and how do I spot it?</strong>
 </p>
-<ul><li>Repayment of Debt                           (20,000)</li>
-<li>Dividends Paid                              (25,000)</li>
-<li>Share Buybacks                              (15,000)</li>
 <p>
-</ul>                                               --------
-NET CASH FROM FINANCING                      ($20,000)
+A: Smoothing reported earnings via legal but discretionary
+accounting choices — accelerating revenue recognition into a soft
+quarter, deferring expenses, building or releasing reserves. Spot
+it by comparing operating cash flow to net income year over year.
+Persistent operating cash flow below net income, with growing
+receivables or growing inventory, is the classic combination.
+Beneish's M-Score and Sloan's accruals ratio are formal tools
+investors use; for a casual reader, the OCF-to-NI gap is enough.
 </p>
 <p>
---------
-NET CHANGE IN CASH                            $25,750
-+ Beginning Cash Balance                       24,250
---------
-ENDING CASH BALANCE                           $50,000
-</code></pre>
+<strong>Q6: What about non-US companies — same statements?</strong>
 </p>
 <p>
-<strong>The three sections explained:</strong>
+A: Mostly. Outside the US, companies file under IFRS (International
+Financial Reporting Standards) rather than US GAAP. The structure
+of the three statements is the same; the line-item conventions
+differ in places (LIFO inventory not allowed, capitalised R&D
+allowed, lease accounting differs). Per SOUL #16, this course
+restricts the <em>investable</em> universe to US-listed equities — but
+many of those (ADRs, foreign-domiciled US-listed companies) file
+under IFRS via 20-F. The three-statement framework still applies.
 </p>
-<pre><code class="language-">OPERATING      "How much cash does the core business generate?"
 <p>
-This is the most important section.
-Positive = business is self-sustaining
-Negative = business is burning cash (warning!)
+<strong>Q7: How often should I re-read a company's statements?</strong>
 </p>
 <p>
-INVESTING      "Is the company investing for future growth?"
-Usually negative (spending on PP&amp;E, acquisitions)
-Positive can mean selling assets (may be good
-or bad depending on context)
+A: Quarterly, lightly. Annually, deeply. The 10-K (annual) is the
+document that matters. The 10-Qs (quarterly) are progress reports;
+read the MD&A and skim the statements to make sure nothing is
+breaking. Re-read the full 10-K every year for any position you
+hold longer than twelve months.
 </p>
 <p>
-FINANCING      "How is the company funded?"
-Positive = raising money (issuing debt or stock)
-Negative = returning money (paying debt,
-dividends, or buying back shares)
-</code></pre>
+**Q8: Should I trust company-reported metrics that aren't on the
+financial statements? (e.g., monthly active users, ARR, "core EPS")**
 </p>
 <p>
-<strong>Free Cash Flow -- The Number Investors Care About Most:</strong>
+A: With calibration. Operating metrics outside GAAP can be useful
+forward indicators but are unaudited and definitionally elastic.
+Compare year over year <em>and</em> against the company's own definition
+in prior periods (companies sometimes redefine MAUs or ARR to
+flatter trends). Cross-check against the audited cash flow.
+Persistent ARR growth that does not show up as cash collected is
+a story; cash collected with declining ARR is a real warning.
 </p>
-<pre><code class="language-">FREE CASH FLOW (FCF)
 <p>
-=====================
+<strong>Q9: How does this connect to valuation?</strong>
 </p>
 <p>
-FCF = Cash from Operations - Capital Expenditures
+A: Every valuation method we cover from Week 21 onward uses these
+three statements as inputs. P/E uses net income. P/B uses
+shareholders' equity. EV/EBITDA uses operating income plus
+depreciation. DCF uses free cash flow projections. You cannot
+pressure-test any valuation if you cannot rebuild the inputs from
+the statements. That is why this lesson sits where it does in the
+sequence — before any of the valuation work.
 </p>
 <p>
-From our example:
-FCF = $115,750 - $50,000 = $65,750
+<strong>Q10: Will I have to do this forever, or do tools automate it?</strong>
 </p>
 <p>
-Why FCF matters:
-</p>
-<ul><li>It is the cash available AFTER maintaining/growing the business</li>
-<li>It can be used for: dividends, buybacks, debt repayment,</li>
-<p>
-</ul>    acquisitions, or building cash reserves
-</p>
-<ul><li>FCF is much harder to manipulate than net income</li>
-<li>It is the basis of DCF valuation (Week 21)</li>
-<p>
-</ul>
-FCF YIELD = FCF / Market Capitalization
-</p>
-<p>
-If market cap = $800,000:
-FCF Yield = $65,750 / $800,000 = 8.2%
-</p>
-<p>
-Compare to:
-</p>
-<ul><li>Bond yields (~4-5%): FCF yield higher = stocks may be cheap</li>
-<li>Stock market average FCF yield (~3-4%): This company looks</li>
-<p>
-</ul>    attractive on a cash flow basis
-</code></pre>
-</p>
-<hr>
-<h4>5. How the Three Statements Connect</h4>
-<p>
-This is one of the most important concepts in accounting and financial analysis. The three statements are not independent -- they are deeply interconnected. Understanding these connections is what separates a competent analyst from a beginner.
-</p>
-<pre><code class="language-">HOW THE THREE STATEMENTS ARE LINKED
-<p>
-======================================
-</p>
-<p>
-INCOME STATEMENT
-================
-Revenue
-</p>
-<ul><li>Expenses</li>
-<p>
-</ul>                    = Net Income ---+
-|
-+---------------+---------------+
-|                               |
-v                               v
-BALANCE SHEET                  CASH FLOW STATEMENT
-=============                 ====================
-Assets | Liabilities           STARTS with
-| + Equity              Net Income
-|                       (from Income Stmt)
-Net Income --&gt;| Retained
-flows into    | Earnings              Adjusts for non-cash
-Retained      | increases             items and working
-Earnings      |                       capital changes
-|
-Cash from  --&gt;| Cash (asset)          ENDS with
-Cash Flow     | changes               change in Cash
-Stmt updates  |                       (which updates the
-Cash on       |                       Balance Sheet)
-Balance Sheet |
-</p>
-<p>
-CIRCULAR CONNECTIONS:
-1. Net Income from Income Statement feeds into
-Retained Earnings on Balance Sheet
-</p>
-<p>
-2. Net Income is the starting point of the
-Cash Flow Statement (indirect method)
-</p>
-<p>
-3. Ending Cash from Cash Flow Statement updates
-Cash on the Balance Sheet
-</p>
-<p>
-4. Depreciation on Income Statement reduces PP&amp;E
-on Balance Sheet and is added back on
-Cash Flow Statement
-</p>
-<p>
-5. New debt on Cash Flow Statement (financing)
-increases Liabilities on Balance Sheet and
-creates Interest Expense on Income Statement
-</code></pre>
-</p>
-<p>
-<strong>A practical example of the interconnection:</strong>
-</p>
-<pre><code class="language-">TRACING A SALE THROUGH ALL THREE STATEMENTS
-<p>
-=============================================
-</p>
-<p>
-Event: Company sells $10,000 of product on credit
-(cost of goods was $6,000)
-</p>
-<p>
-INCOME STATEMENT IMPACT:
-Revenue:          +$10,000
-COGS:             -$6,000
-Gross Profit:     +$4,000
-(Net income increases)
-</p>
-<p>
-BALANCE SHEET IMPACT:
-Accounts Receivable:  +$10,000  (asset increases)
-Inventory:            -$6,000   (asset decreases)
-Retained Earnings:    +$4,000   (equity increases, via net income)
-(Assets = Liabilities + Equity still balances!)
-</p>
-<p>
-CASH FLOW STATEMENT IMPACT:
-Net Income:               +$4,000
-Increase in Receivables:  -$10,000  (cash not yet collected)
-Decrease in Inventory:    +$6,000   (cash was spent earlier)
-Net Cash Impact:          $0        (no cash moved yet!)
-</p>
-<p>
-KEY INSIGHT: The company booked $4,000 in profit,
-but received ZERO cash! The cash arrives only when
-the customer pays. This is why the cash flow
-statement exists -- to show the truth about cash.
-</code></pre>
-</p>
-<hr>
-<h4>6. Key Financial Ratios</h4>
-<p>
-Financial ratios translate raw statement numbers into comparable, meaningful metrics. They fall into four broad categories:
-</p>
-<pre><code class="language-">FINANCIAL RATIO CATEGORIES
-<p>
-============================
-</p>
-<li>PROFITABILITY RATIOS</li>
-<p>
-"Is the company making money efficiently?"
-+------------------------------------------+
-| Gross Margin    = Gross Profit / Revenue  |
-| Operating Margin= EBIT / Revenue          |
-| Net Margin      = Net Income / Revenue    |
-| ROE             = Net Income / Equity     |
-| ROA             = Net Income / Total Assets|
-+------------------------------------------+
-</p>
-<li>LIQUIDITY RATIOS</li>
-<p>
-"Can the company pay its short-term bills?"
-+------------------------------------------+
-| Current Ratio   = Current Assets /        |
-|                   Current Liabilities      |
-| Quick Ratio     = (Cash + Receivables) /  |
-|                   Current Liabilities      |
-| Cash Ratio      = Cash / Current Liab.    |
-+------------------------------------------+
-</p>
-<li>LEVERAGE (SOLVENCY) RATIOS</li>
-<p>
-"How much debt is the company carrying?"
-+------------------------------------------+
-| Debt-to-Equity  = Total Debt / Equity     |
-| Debt-to-Assets  = Total Debt / Total Assets|
-| Interest Cover. = EBIT / Interest Expense |
-| (Times Interest Earned)                   |
-+------------------------------------------+
-</p>
-<li>EFFICIENCY RATIOS</li>
-<p>
-"How well does the company use its resources?"
-+------------------------------------------+
-| Inventory Turn. = COGS / Avg Inventory    |
-| Receivable Turn.= Revenue / Avg Receivables|
-| Asset Turnover  = Revenue / Total Assets  |
-| Days Sales Out. = 365 / Receivable Turnover|
-| (DSO)                                     |
-+------------------------------------------+
-</code></pre>
-</p>
-<p>
-<strong>Return on Equity (ROE) and the DuPont Decomposition:</strong>
-</p>
-<p>
-ROE is arguably the single most important ratio for equity investors. It measures how much profit a company generates with shareholders' money. The DuPont framework breaks ROE into three components to reveal what is driving it:
-</p>
-<pre><code class="language-">DUPONT DECOMPOSITION OF ROE
-<p>
-=============================
-</p>
-<p>
-ROE = Net Income / Shareholders' Equity
-</p>
-<p>
-Can be decomposed as:
-</p>
-<p>
-ROE = (Net Income/Revenue) x (Revenue/Assets) x (Assets/Equity)
-^^^^^^^^^^^^^^^^^^^^   ^^^^^^^^^^^^^^^^^   ^^^^^^^^^^^^^^
-Profit Margin          Asset Turnover      Financial
-(Profitability)        (Efficiency)        Leverage
-</p>
-<p>
-Example Company A:  ROE = 20%
-Profit Margin:     10%  x
-Asset Turnover:    1.0  x
-Leverage:          2.0  = 20%
-(Moderate margins, moderate efficiency, some leverage)
-</p>
-<p>
-Example Company B:  ROE = 20%
-Profit Margin:     5%   x
-Asset Turnover:    2.0  x
-Leverage:          2.0  = 20%
-(Low margins but high efficiency, same leverage)
-</p>
-<p>
-Example Company C:  ROE = 20%
-Profit Margin:     20%  x
-Asset Turnover:    0.5  x
-Leverage:          2.0  = 20%
-(High margins but low efficiency, same leverage)
-</p>
-<p>
-SAME ROE, but VERY different business models!
-DuPont reveals WHY a company earns what it earns.
-</p>
-<p>
-WATCH OUT: High ROE driven primarily by leverage
-(high Assets/Equity) is RISKY. The company is
-borrowing heavily to boost returns.
-</code></pre>
-</p>
-<hr>
-<h4>7. Red Flags in Financial Statements</h4>
-<p>
-Knowing what to look for can protect you from disasters:
-</p>
-<pre><code class="language-">FINANCIAL STATEMENT RED FLAGS
-<p>
-================================
-</p>
-<p>
-RED FLAG                              WHY IT MATTERS
---------                              ---------------
-</p>
-<p>
-Revenue growing but cash flow         May be booking revenue
-from operations declining             aggressively or having
-collection problems
-</p>
-<p>
-Receivables growing faster            Customers not paying,
-than revenue                          or stuffing the channel
-</p>
-<p>
-Inventory growing faster              Products not selling,
-than revenue                          potential writedowns ahead
-</p>
-<p>
-Frequent "one-time" charges           They are not one-time
-that appear year after year           if they keep happening
-</p>
-<p>
-Cash from operations                  The company is borrowing
-consistently below net income         or using accounting tricks
-to report profits
-</p>
-<p>
-Growing gap between operating         Acquisitions destroying
-income and free cash flow             value, or heavy capex
-with poor returns
-</p>
-<p>
-Frequent changes in accounting        Possible manipulation,
-policies or auditor changes           loss of credibility
-</p>
-<p>
-Goodwill that is very large           Past acquisitions may have
-relative to total assets              overpaid; impairment risk
-</p>
-<p>
-Related-party transactions            Potential conflicts of
-that are large or unusual             interest, self-dealing
-</p>
-<p>
-Declining interest coverage           May be heading toward
-ratio (EBIT / Interest)              difficulty paying debt
-</code></pre>
-</p>
-<hr>
-<h4>8. Reading Financial Statements -- The CFA Perspective</h4>
-<p>
-The CFA curriculum approaches Financial Statement Analysis (FSA) with particular rigor. Several concepts from the CFA framework are worth understanding even for non-candidates:
-</p>
-<p>
-<strong>Accrual Accounting vs. Cash Accounting:</strong>
-The income statement uses accrual accounting -- revenue is recognized when earned and expenses when incurred, regardless of when cash changes hands. This is why a company can be profitable on paper but cash-poor in reality. The CFA curriculum emphasizes understanding the difference between accrual earnings and cash earnings, and treating the cash flow statement as the more reliable indicator of financial health.
-</p>
-<p>
-<strong>Quality of Earnings:</strong>
-The CFA curriculum devotes significant attention to assessing whether reported earnings are sustainable and reliable. High-quality earnings are characterized by:
-</p>
-<pre><code class="language-">EARNINGS QUALITY SPECTRUM
-<p>
-===========================
-</p>
-<p>
-HIGH QUALITY                         LOW QUALITY
-+--------------------------------+  +--------------------------------+
-| Cash-backed (operating cash    |  | Non-cash (large accruals,      |
-|   flow close to net income)    |  |   growing receivables)         |
-| Recurring (from core business) |  | One-time (asset sales, gains)  |
-| Conservative accounting       |  | Aggressive accounting          |
-| Transparent disclosures       |  | Complex, opaque reporting      |
-| Stable or rising margins      |  | Volatile, erratic margins      |
-+--------------------------------+  +--------------------------------+
-</p>
-<p>
-KEY METRIC: Accruals Ratio
-= (Net Income - Cash from Operations) / Average Total Assets
-</p>
-<p>
-Lower accruals ratio = higher quality earnings
-Higher accruals ratio = more of earnings are "on paper"
-</code></pre>
-</p>
-<p>
-<strong>IFRS vs. US GAAP:</strong>
-The CFA curriculum covers both International Financial Reporting Standards (IFRS) and US Generally Accepted Accounting Principles (US GAAP). While broadly similar, they differ in important areas including inventory accounting (LIFO is allowed under GAAP but not IFRS), development costs (can be capitalized under IFRS but typically expensed under GAAP), and how certain financial instruments are classified. For global investors, understanding these differences is essential.
-</p>
-<hr>
-<h4>9. A Complete Example: Analyzing a Company</h4>
-<pre><code class="language-">MINI CASE STUDY: ANALYZING "WIDGET CORP"
-<p>
-==========================================
-</p>
-<p>
-INCOME STATEMENT (Year Ended Dec 31)
-2025         2024        Change
-----         ----        ------
-Revenue                    $500,000     $450,000       +11.1%
-COGS                       (275,000)    (240,000)      +14.6%
-Gross Profit               $225,000     $210,000       +7.1%
-Gross Margin:             45.0%        46.7%         -1.7pp
-</p>
-<p>
-SG&amp;A                       (100,000)     (90,000)      +11.1%
-R&amp;D                         (40,000)     (35,000)      +14.3%
-D&amp;A                         (20,000)     (18,000)      +11.1%
-Operating Income            $65,000      $67,000       -3.0%
-Operating Margin:          13.0%        14.9%        -1.9pp
-</p>
-<p>
-Interest Expense            (10,000)      (8,000)      +25.0%
-EBT                         $55,000      $59,000       -6.8%
-Taxes (25%)                 (13,750)     (14,750)
-Net Income                  $41,250      $44,250       -6.8%
-Net Margin:                 8.3%         9.8%        -1.5pp
-</p>
-<p>
-EPS (10,000 shares):         $4.13        $4.43        -6.8%
-</p>
-<p>
-ANALYSIS:
-</p>
-<ul><li>Revenue growing 11%, good top-line growth</li>
-<li>But COGS growing 14.6%, FASTER than revenue --&gt; margins compressing</li>
-<li>Gross margin declined from 46.7% to 45.0% --&gt; cost or pricing pressure</li>
-<li>Operating income actually DECLINED despite revenue growth</li>
-<li>Interest expense up 25% --&gt; company took on more debt</li>
-<li>Net income declined 6.8% despite 11.1% revenue growth</li>
-<li>CONCLUSION: Revenue growth is masking deteriorating profitability</li>
-<p>
-</ul></code></pre>
-</p>
-<pre><code class="language-">BALANCE SHEET SNAPSHOT
-<p>
-2025         2024        Change
-----         ----        ------
-Cash                        $30,000      $45,000       -33.3%
-Receivables                  90,000       65,000       +38.5%
-Inventory                    75,000       55,000       +36.4%
-Total Current Assets       $195,000     $165,000       +18.2%
-</p>
-<p>
-PP&amp;E                       $250,000     $220,000       +13.6%
-Goodwill                    100,000       50,000      +100.0%
-Total Assets               $545,000     $435,000       +25.3%
-</p>
-<p>
-Current Liabilities         $85,000      $70,000       +21.4%
-Long-Term Debt             $130,000      $90,000       +44.4%
-Total Liabilities          $215,000     $160,000       +34.4%
-</p>
-<p>
-Shareholders' Equity       $330,000     $275,000       +20.0%
-</p>
-<p>
-KEY RATIOS:
-Current Ratio: 195/85 = 2.3x (healthy)
-D/E Ratio: 130/330 = 0.39x (moderate)
-Interest Coverage: 65/10 = 6.5x (adequate but declining)
-</p>
-<p>
-RED FLAGS:
-</p>
-<ul><li>Cash declined 33% while revenue grew 11% -- where is the cash going?</li>
-<li>Receivables up 38.5% vs revenue up 11.1% -- collection problems?</li>
-<li>Inventory up 36.4% vs revenue up 11.1% -- demand slowing?</li>
-<li>Goodwill doubled -- made a $50,000 acquisition (was it wise?)</li>
-<li>Long-term debt up 44.4% -- borrowed to fund the acquisition?</li>
-<p>
-</ul></code></pre>
-</p>
-<pre><code class="language-">CASH FLOW STATEMENT
-<p>
-2025         2024
-----         ----
-Net Income                  $41,250      $44,250
-</p>
-<p>
-Operating Adjustments:
-D&amp;A                        20,000       18,000
-Increase in Receivables   (25,000)     (10,000)
-Increase in Inventory     (20,000)      (8,000)
-Increase in Payables        8,000        5,000
-Cash from Operations        $24,250      $49,250    &lt;-- DOWN 51%!
-</p>
-<p>
-Investing:
-Capital Expenditures      (50,000)     (35,000)
-Acquisition               (50,000)          --
-Cash from Investing       ($100,000)    ($35,000)
-</p>
-<p>
-Financing:
-New Long-Term Debt         60,000       10,000
-Dividends Paid            (15,000)     (15,000)
-Share Buybacks            (10,000)          --
-Cash from Financing         $35,000      ($5,000)
-</p>
-<p>
-Net Change in Cash         ($40,750)      $9,250
-+ Beginning Cash             45,000       35,750
---------     --------
-ENDING CASH SHOULD BE:    $4,250       $45,000
-</p>
-<p>
-Wait -- the Balance Sheet shows $30,000 in Cash, not $4,250!
-(In a real analysis, other adjustments would reconcile this.
-For our teaching example, note the directional concern:
-cash is declining sharply.)
-</p>
-<p>
-CRITICAL FINDING:
-Net Income:           $41,250  (looks okay)
-Cash from Operations: $24,250  (much lower -- quality concern!)
-Free Cash Flow:       $24,250 - $50,000 = ($25,750) NEGATIVE!
-</p>
-<p>
-The company is reporting profit but BURNING CASH.
-Receivables and inventory are soaking up cash.
-The acquisition consumed $50,000.
-They had to borrow $60,000 to fund it all.
-</p>
-<p>
-VERDICT: Widget Corp has growing revenue but deteriorating
-fundamentals. Margins are compressing, working capital is
-ballooning, and the company is borrowing to fund an
-acquisition while free cash flow has turned negative.
-This stock needs further investigation before buying.
-</code></pre>
-</p>
-<hr>
-<h3>c) Common Misconceptions</h3>
-<p>
-<strong>Misconception 1: "If a company has positive net income, it is doing well."</strong>
-</p>
-<p>
-Reality: Net income is an accounting concept, not a cash concept. A company can report profits while actually burning cash. Enron reported billions in profits while its cash flows were deeply negative. Always cross-reference net income with cash from operations. If cash from operations is consistently and significantly below net income, the quality of those earnings is questionable.
-</p>
-<p>
-<strong>Misconception 2: "Revenue growth is always good."</strong>
-</p>
-<p>
-Reality: Revenue growth is only good if it comes with acceptable margins and is ultimately converted to cash. A company that grows revenue 20% but sees margins decline from 15% to 5% is actually destroying value as it grows. Similarly, a company that grows revenue by extending increasingly generous credit terms (sell now, collect maybe later) is booking revenue that may never convert to cash.
-</p>
-<p>
-<strong>Misconception 3: "A strong balance sheet means lots of assets."</strong>
-</p>
-<p>
-Reality: A strong balance sheet means the right composition of assets, manageable liabilities, and adequate equity. A company with $10 billion in assets but $9.5 billion in liabilities has a weak balance sheet despite having enormous assets. Asset quality matters too -- $100 million in cash is very different from $100 million in goodwill. Cash is guaranteed to be worth $100 million; goodwill might need to be written down to zero.
-</p>
-<p>
-<strong>Misconception 4: "Depreciation is just an accounting fiction -- ignore it."</strong>
-</p>
-<p>
-Reality: While depreciation is a non-cash charge (which is why we add it back on the cash flow statement), it represents real economic cost. Equipment wears out. Factories age. Technology becomes obsolete. A company must eventually spend real cash to replace depreciated assets. Ignoring depreciation means ignoring the ongoing capital needs of the business. This is exactly why free cash flow (which subtracts capital expenditures) is a better measure than EBITDA for assessing a company's true cash generation.
-</p>
-<p>
-<strong>Misconception 5: "The balance sheet shows what a company is truly worth."</strong>
-</p>
-<p>
-Reality: The balance sheet shows historical cost (adjusted for depreciation), not current market value. A piece of land bought for $1 million in 1980 might be worth $50 million today, but the balance sheet still shows it near its historical cost. Conversely, a patent valued at $10 million on the balance sheet might be worthless if the technology has been superseded. Book value is a starting point for analysis, not the answer.
-</p>
-<p>
-<strong>Misconception 6: "Financial statements tell you everything about a company."</strong>
-</p>
-<p>
-Reality: Financial statements are backward-looking and limited to what accounting standards require. They do not capture many of the most important aspects of a business: the quality of management, employee morale, competitive positioning, brand strength, customer loyalty, or industry trends. They are necessary but not sufficient for investment analysis. This is why reading the Management Discussion and Analysis (MD&A) section and understanding the business qualitatively is just as important as the numbers.
-</p>
-<hr>
-<h3>d) Common Questions and Answers</h3>
-<p>
-<strong>Q1: Where do I find a company's financial statements?</strong>
-</p>
-<p>
-A: For US-listed companies, all financial statements are filed with the Securities and Exchange Commission (SEC) and are freely available at sec.gov through the EDGAR system. Look for the 10-K (annual report) and 10-Q (quarterly report). Most companies also publish financial statements on their investor relations webpage. Financial data aggregators like Yahoo Finance, Google Finance, and Morningstar provide summarized versions, but for serious analysis, read the actual filings.
-</p>
-<p>
-<strong>Q2: What is the difference between the 10-K and the annual report?</strong>
-</p>
-<p>
-A: The 10-K is the official filing with the SEC and is comprehensive but plain -- all substance, no style. The annual report (often called the glossy annual report) is a separate publication aimed at shareholders that typically includes a letter from the CEO, photos, and marketing-style presentation alongside the financial statements. The 10-K is what analysts rely on. It contains the financial statements plus detailed footnotes, risk factors, management discussion and analysis (MD&A), and other required disclosures.
-</p>
-<p>
-<strong>Q3: How do I know if a company's accounting is aggressive or conservative?</strong>
-</p>
-<p>
-A: Several indicators help. Compare cash from operations to net income -- if net income consistently exceeds cash from operations, the company may be using aggressive accruals. Check the footnotes for revenue recognition policies -- does the company recognize revenue up front or over time? Look at how it handles capitalization versus expensing -- capitalizing costs (putting them on the balance sheet) inflates short-term profits, while expensing them (putting them on the income statement) is more conservative. Look for frequent changes in accounting estimates or policies. And compare the company's margins and ratios to its closest peers -- if one company's margins are significantly higher than every competitor, ask why.
-</p>
-<p>
-<strong>Q4: What is EBITDA and why do people use it?</strong>
-</p>
-<p>
-A: EBITDA stands for Earnings Before Interest, Taxes, Depreciation, and Amortization. It is a rough proxy for operating cash flow that strips out financing decisions (interest), jurisdictional differences (taxes), and non-cash charges (depreciation and amortization). Analysts use it because it allows apples-to-apples comparison between companies with different capital structures, tax situations, and depreciation methods. However, EBITDA has serious limitations -- it ignores the real cost of replacing depreciated assets and the real obligation to pay interest and taxes. Warren Buffett has famously criticized EBITDA, asking "Does management think the tooth fairy pays for capital expenditures?"
-</p>
-<p>
-<strong>Q5: What does "goodwill impairment" mean and why should I care?</strong>
-</p>
-<p>
-A: Goodwill impairment is a writedown of previously recorded goodwill, typically triggered when the acquired business is worth less than what was paid for it. It means the company's past acquisition overpaid. While the impairment charge itself is non-cash (it does not affect current cash flow), it is a powerful signal about management quality. A company that repeatedly writes down goodwill is telling you that management destroys value through acquisitions -- they pay too much and cannot integrate effectively. This should make you skeptical of future acquisitions.
-</p>
-<p>
-<strong>Q6: How is Financial Statement Analysis tested on the CFA exam?</strong>
-</p>
-<p>
-A: At CFA Level I, FSA covers the mechanics of all three statements, key ratios, revenue recognition, inventory accounting, long-lived assets, income taxes, and financial reporting quality. At Level II, it goes deeper into advanced topics like intercorporate investments, employee compensation, multinational operations, and evaluating financial reporting quality (detecting manipulation). At Level III, FSA is integrated into portfolio management and security analysis rather than tested as a standalone topic. Overall, FSA typically represents 13-15% of the Level I exam and a significant portion of Level II.
-</p>
-<p>
-<strong>Q7: Should I focus on quarterly or annual financial statements?</strong>
-</p>
-<p>
-A: Both have value. Annual statements (10-K) provide the most comprehensive data and are audited, making them more reliable. Quarterly statements (10-Q) are more timely and let you track trends during the year, but they are only reviewed (not audited) and may contain seasonal distortions. For most long-term investors, annual statements are the primary focus, with quarterly statements used to monitor for significant changes or emerging trends between annual reports.
-</p>
-<p>
-<strong>Q8: What is the most common way companies manipulate earnings?</strong>
-</p>
-<p>
-A: The most common methods include: aggressive revenue recognition (booking revenue before it is truly earned), capitalizing expenses that should be expensed (inflating reported profits), managing reserves and provisions (creating "cookie jar" reserves in good years and releasing them in bad years to smooth earnings), and channel stuffing (shipping excess product to distributors at period end to boost reported revenue). The antidote is always the same: compare reported earnings to cash from operations. Cash is much harder to fake than accounting earnings.
-</p>
-<p>
-<strong>Q9: What does negative shareholders' equity mean?</strong>
-</p>
-<p>
-A: Negative equity means the company's liabilities exceed its assets (on the balance sheet). This can signal severe financial distress, or it can reflect aggressive financial engineering. Some highly profitable companies like McDonald's and Starbucks have negative book equity because they have used so much debt to buy back shares that accumulated buybacks exceed retained earnings. In these cases, negative equity is not a sign of distress but of confidence in future cash flows. Context matters: a consistently profitable company with negative equity from buybacks is very different from an unprofitable company with negative equity from accumulated losses.
-</p>
-<p>
-<strong>Q10: How do I learn to read financial statements better?</strong>
-</p>
-<p>
-A: Practice is the only answer. Pick a company you know well -- perhaps one whose products you use daily -- and read its latest 10-K filing from start to finish. Calculate the key ratios yourself. Then pick a competitor and compare. Repeat this process with companies in different industries (a bank, a retailer, a software company, a manufacturer). Each industry has its own financial statement quirks, and exposure to diverse companies is the fastest way to build fluency. The CFA Level I curriculum is also an excellent structured learning resource even if you do not plan to take the exam.
+A: Tools (StockAnalysis, Macrotrends, Tikr) display the headline
+numbers. They do not read the notes, do not catch the SBC games,
+do not flag the goodwill build-ups. The screen-and-skim layer is
+automated; the reading layer is not, and probably will not be.
+The portfolio-level edge is still in *which lines you look at and
+in what order*, which is what this lesson teaches.
 </p>
             </div>
             <div id="content-hk" class="lang-content">

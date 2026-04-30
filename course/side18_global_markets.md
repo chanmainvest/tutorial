@@ -1,380 +1,620 @@
-# Side Lesson 18: Global Markets and International Investing
+# Side Lesson 18: Global Markets — The Case For and Against International Diversification
 
 ---
 
-## Reading Section
-
-The United States accounts for roughly 60% of global stock market capitalization, but that means 40% of the world's investable equity market lies outside U.S. borders. International investing offers diversification benefits, access to different economic growth stories, and exposure to thousands of companies unavailable on U.S. exchanges. But it also introduces risks that domestic investors rarely encounter: currency fluctuations, political instability, different accounting standards, and varying levels of market development. This lesson explores the landscape of global markets, the distinction between developed and emerging markets, how index providers classify countries, the risks unique to international investing, and the practical tools -- primarily ETFs -- that make global diversification accessible to any investor.
+## Part 1: Reading Section
 
 ---
 
-### a) Why This Is Important
+### 1. Why This Is Important
 
-**Diversification Beyond Borders.** U.S. stocks and international stocks do not move in perfect lockstep. While correlations have increased over time due to globalization, meaningful diversification benefits still exist, particularly between developed and emerging markets. During the 2000-2009 "lost decade" for U.S. stocks, international developed markets and emerging markets significantly outperformed. Conversely, U.S. stocks dominated from 2010 to 2024. Leadership rotates, and geographic diversification helps ensure you participate in wherever growth occurs.
+Open any introductory portfolio textbook and you will find the same
+sentence: *the U.S. is roughly 60% of global market capitalization, so
+a properly diversified equity portfolio should hold the other 40%
+overseas.* It sounds obvious, almost a tautology. This course
+disagrees with the conclusion. Side lesson 18 explains the disagreement
+and gives you the rule that the rest of the curriculum quietly relies
+on.
 
-**Accessing Growth Economies.** Many of the world's fastest-growing economies are in emerging and frontier markets. Countries like India, Vietnam, Indonesia, and parts of Africa have young, growing populations and rapidly expanding middle classes. These demographic tailwinds can drive economic growth that translates into stock market returns over decades.
+There are four reasons this is worth a full lesson rather than a
+footnote:
 
-**Reducing Home Country Bias.** Most investors dramatically overweight their home country. American investors typically hold 70-80% of their equity allocation in U.S. stocks, even though the U.S. represents about 60% of global market cap. This home bias exposes investors to concentration risk. If U.S. markets underperform for an extended period, as they did from 2000 to 2009, a globally diversified investor is better protected.
+1. **The home-bias debate is the single biggest allocation question
+   most retail investors will face.** It is bigger than which factor
+   tilt to adopt, bigger than active vs passive — because it controls
+   roughly forty percentage points of your equity exposure. Getting
+   the right answer matters more than almost anything else.
+2. **The "rebalance into international" reflex is built on a survivor
+   sample.** Modern Portfolio Theory was canonised in the 1950s-1980s,
+   when U.S., U.K., German, and Japanese markets all looked roughly
+   comparable on the dimensions a textbook cared about (free float,
+   accounting, rule of law). That is not the world investors live in
+   today. Russia 2022 and China 2021 are not edge cases — they are
+   the modal foreign-equity outcome over a long enough horizon.
+3. **The U.S.-versus-world performance gap from 2010 to 2024 was not
+   noise.** It was a structural divergence in earnings growth, capital
+   formation, and corporate governance. The textbook models that
+   recommend `40% international` were calibrated on a regime that no
+   longer exists.
+4. **The course's investable universe rule (SOUL principle #16)
+   originates here.** Every other lesson — from week 3's risk-return
+   premia to week 24's institutional sleeve template — implicitly
+   restricts itself to U.S.-listed securities. This side lesson
+   explains *why*, so the rule does not feel arbitrary when it shows
+   up in later weeks.
 
-**Currency Diversification.** International investments provide implicit exposure to foreign currencies. While currency movements add volatility in the short term, they can provide a hedge against a weakening dollar over the long term. If the U.S. dollar depreciates, the value of foreign investments denominated in other currencies rises when converted back to dollars.
-
-**Valuation Opportunities.** International stocks, particularly in emerging markets, often trade at lower valuations than U.S. stocks. Lower price-to-earnings ratios, higher dividend yields, and lower price-to-book ratios can offer better prospective returns, though lower valuations sometimes reflect genuine risks.
-
----
-
-### b) What You Need to Know
-
-#### Developed vs. Emerging vs. Frontier Markets
-
-The global equity market is divided into three tiers based on economic development, market infrastructure, and accessibility to foreign investors.
-
-**Developed Markets (DM).** These are countries with mature, well-regulated financial markets, stable political systems, and high per-capita income. Developed markets have deep liquidity, strong investor protections, reliable accounting standards, and free capital flows. The major developed markets include the United States, Canada, the United Kingdom, Germany, France, Japan, Australia, Switzerland, and the Nordic countries.
-
-Key characteristics of developed markets:
-- High regulatory standards and corporate governance.
-- Deep, liquid markets that can absorb large trades without significant price impact.
-- Transparent financial reporting under frameworks like IFRS or U.S. GAAP.
-- Stable currencies and open capital accounts.
-- Lower expected growth rates but lower risk.
-
-**Emerging Markets (EM).** These are countries with developing financial markets that are becoming more integrated into the global economy. Emerging markets offer higher growth potential but come with greater risks, including political instability, less transparent governance, capital controls, and currency volatility. Major emerging markets include China, India, Brazil, South Korea (classified as EM by MSCI despite its economic development), Taiwan, South Africa, Mexico, and Indonesia.
-
-Key characteristics of emerging markets:
-- Higher economic growth rates driven by industrialization, urbanization, and demographic trends.
-- Greater volatility in both equity prices and currencies.
-- Varying levels of corporate governance and investor protection.
-- Potential capital controls that limit foreign investors' ability to move money freely.
-- Higher dividend yields and lower valuation multiples on average.
-
-**Frontier Markets (FM).** The least developed tier, frontier markets are smaller, less liquid, and less accessible than emerging markets. Countries include Vietnam, Nigeria, Kenya, Bangladesh, and Sri Lanka. Frontier markets offer the highest growth potential but also the highest risk, including political instability, illiquidity, and limited market infrastructure. Most individual investors access frontier markets only through specialized ETFs or funds.
-
-#### MSCI Classification System
-
-Morgan Stanley Capital International (MSCI) is the dominant provider of international equity indices, and its classification system determines which countries are included in the benchmarks that trillions of dollars track.
-
-**MSCI Developed Markets Index (MSCI World):** 23 countries. This is the benchmark for developed market equity investing. Major constituents by weight: United States (~70%), Japan (~6%), United Kingdom (~4%), France (~3%), Canada (~3%).
-
-**MSCI Emerging Markets Index:** 24 countries. Major constituents by weight: China (~25-30%, though this fluctuates), India (~15-18%), Taiwan (~15-17%), South Korea (~12-14%), Brazil (~5%).
-
-**MSCI Frontier Markets Index:** Approximately 25 countries with small, early-stage markets.
-
-**MSCI All Country World Index (ACWI):** Combines developed and emerging markets into a single global benchmark covering approximately 85% of the global investable equity opportunity set.
-
-MSCI reclassification decisions have enormous market impact. When MSCI announced the partial inclusion of China A-shares (domestic Chinese stocks) in the Emerging Markets Index in 2017, it triggered billions of dollars in passive fund flows into Chinese markets. Conversely, when countries are downgraded (as Argentina was from EM to FM in 2009), capital outflows can be significant.
-
-**Reclassification criteria** include:
-- Economic development (GNI per capita).
-- Market size and liquidity requirements.
-- Market accessibility (openness to foreign investors, ease of capital flows, efficiency of operational framework).
-
-South Korea is a notable anomaly -- it has a GDP per capita and economy comparable to many developed markets, but MSCI classifies it as an emerging market due to restrictions on currency trading and short selling. FTSE Russell, another major index provider, classifies South Korea as a developed market, highlighting the subjectivity in these classifications.
-
-#### Risks Unique to International Investing
-
-**Currency Risk.** When you invest in foreign stocks, your returns are affected by both the stock's performance in its local currency and the change in the exchange rate. A Japanese stock that rises 10% in yen but is paired with a 5% decline in the yen versus the dollar would yield only about a 5% return in dollar terms. Currency movements can enhance or erode returns and are a significant source of volatility for international investments.
-
-Currency hedging -- using derivatives to neutralize exchange rate movements -- is available through hedged ETFs and funds. However, hedging has costs and eliminates the diversification benefit of currency exposure. For long-term investors, most experts recommend leaving international equity exposure unhedged, as currency effects tend to average out over long periods.
-
-**Political and Regulatory Risk.** International investments are subject to the laws and policies of foreign governments, which can change unpredictably. Examples include:
-- China's regulatory crackdown on technology companies in 2021, which wiped out hundreds of billions in market value.
-- Russia's invasion of Ukraine in 2022, which effectively rendered Russian stocks worthless for foreign investors as the market was closed and sanctions imposed.
-- Turkey's unconventional monetary policy under President Erdogan, which caused the lira to lose over 80% of its value against the dollar between 2018 and 2023.
-
-**Accounting and Transparency Risk.** Not all countries have the same financial reporting standards. While most developed markets use IFRS (International Financial Reporting Standards), the quality and reliability of financial statements varies. Emerging market companies may have less rigorous auditing, related-party transactions, and opaque corporate structures. The Luckin Coffee fraud in 2020 -- a Chinese company listed in the U.S. that fabricated hundreds of millions in revenue -- highlighted these risks.
-
-**Liquidity Risk.** Many international stocks, particularly in emerging and frontier markets, trade with low volume. This can result in wide bid-ask spreads, difficulty executing large orders, and greater price volatility. ETFs help mitigate this by providing daily liquidity even when underlying holdings are less liquid, though this creates its own risks during market stress.
-
-**Withholding Tax.** Many countries impose taxes on dividends paid to foreign investors. Withholding tax rates range from 0% (Singapore, Hong Kong) to 30% or more (some European countries). Tax treaties between countries often reduce these rates. In a taxable account, U.S. investors can claim a foreign tax credit or deduction for taxes withheld. In tax-advantaged accounts like IRAs, these taxes are generally not recoverable, which can reduce effective returns.
-
-**Geopolitical Risk.** Global investing exposes you to geopolitical events that can have sudden, dramatic impacts. Wars, trade disputes, sanctions, and diplomatic crises can affect markets overnight. The concentration of Taiwan Semiconductor Manufacturing Company (TSMC) in Taiwan, for instance, represents a geopolitical risk for global technology supply chains given cross-strait tensions with China.
-
-**Governance Risk.** Corporate governance standards vary widely across countries. In some emerging markets, minority shareholder rights are poorly protected. Controlling shareholders (often founding families or government entities) may make decisions that benefit themselves at the expense of minority investors. Related-party transactions, dilutive share issuances, and opaque decision-making are more common in markets with weaker governance frameworks. Investing through diversified ETFs mitigates individual company governance risk, but it remains a systemic concern in certain markets.
-
-**Market Hours and Settlement.** International stocks trade during their local market hours, which may not overlap with U.S. trading hours. This can create gaps -- the price at which you can trade an international ETF during U.S. hours may not perfectly reflect the underlying holdings' values, especially if significant news emerges while the underlying market is closed. Settlement practices also vary by country, with some markets requiring longer settlement periods or different currency settlement procedures.
-
-**Index Concentration Risk.** Some international indices are highly concentrated in a few large companies or sectors. The Swiss market is dominated by three companies (Nestle, Novartis, Roche). South Korea's index is heavily weighted toward Samsung. Australia's market is dominated by financials and mining companies. This concentration means that buying a single-country ETF may not provide the diversification you expect. Broad, multi-country ETFs address this by spreading exposure across many markets and sectors.
-
-#### Accessing International Markets via ETFs
-
-For most individual investors, ETFs are the most practical and cost-effective way to access international markets.
-
-**Broad International ETFs:**
-- **Vanguard FTSE All-World ex-US ETF (VEU):** Covers developed and emerging markets excluding the U.S. Low cost (0.07% expense ratio).
-- **iShares Core MSCI Total International Stock ETF (IXUS):** Similar broad international coverage tracking the MSCI ACWI ex-USA index.
-- **Vanguard Total International Stock Index Fund (VXUS):** The most popular international equity fund, covering developed and emerging markets.
-
-**Developed Markets ETFs:**
-- **Vanguard FTSE Developed Markets ETF (VEA):** Developed markets excluding the U.S. Expense ratio of 0.05%.
-- **iShares Core MSCI EAFE ETF (IEFA):** Tracks the MSCI EAFE index (Europe, Australasia, Far East).
-
-**Emerging Markets ETFs:**
-- **Vanguard FTSE Emerging Markets ETF (VWO):** Broad EM exposure. Expense ratio of 0.08%.
-- **iShares Core MSCI Emerging Markets ETF (IEMG):** Tracks the MSCI EM Investable Market Index.
-- **iShares MSCI Emerging Markets ex China ETF (EMXC):** EM exposure excluding China, popular with investors concerned about China-specific risks.
-
-**Single-Country and Regional ETFs:**
-- **iShares MSCI India ETF (INDA):** India-specific exposure.
-- **iShares MSCI China ETF (MCHI):** China-specific exposure.
-- **WisdomTree Japan Hedged Equity ETF (DXJ):** Japan exposure with yen hedging.
-
-**Frontier Markets ETFs:**
-- **iShares MSCI Frontier and Select EM ETF (FM):** Broad frontier markets exposure.
-
-**Currency-Hedged ETFs:**
-- **WisdomTree International Hedged Quality Dividend Growth Fund (IHDG):** International developed markets with currency hedging.
-- **WisdomTree Japan Hedged Equity Fund (DXJ):** Japan with yen hedging.
-- **Xtrackers MSCI EAFE Hedged Equity ETF (DBEF):** Broad developed market hedged exposure.
-
-Currency-hedged ETFs use forward contracts to neutralize the impact of exchange rate movements on returns. This removes one layer of uncertainty but also eliminates any potential benefit from dollar weakness. Hedged ETFs typically have higher expense ratios (0.35-0.50%) than unhedged equivalents due to hedging costs.
-
-#### Tax Considerations for International Investing
-
-**Foreign Tax Credits.** Many countries withhold taxes on dividends paid to foreign investors. For U.S. investors holding international stocks or ETFs in taxable accounts, these withholding taxes can be reclaimed as a tax credit on your U.S. tax return (using IRS Form 1116). This credit offsets your U.S. tax liability dollar-for-dollar, up to certain limits.
-
-**Tax Treatment in IRAs.** Dividends from international holdings in IRAs are subject to foreign withholding taxes that cannot be recovered. The U.S. tax treaty network reduces withholding rates for many countries, but some taxes are still lost. This makes international holdings slightly less tax-efficient in retirement accounts compared to taxable accounts, where the foreign tax credit is available.
-
-**Treaty Rates.** Tax treaties between the U.S. and foreign countries often reduce withholding tax rates from the standard rate (which can be 25-30%) to a treaty rate (typically 15%). Most international ETFs benefit from treaty rates, but the effective withholding rate varies based on the fund's country composition.
-
-#### How Much International Exposure Do You Need?
-
-There is no universal answer, but academic research and professional guidance suggest the following:
-
-- **Vanguard** recommends allocating roughly 40% of equity to international stocks, reflecting the approximate share of global market cap outside the U.S.
-- **Most financial advisors** recommend 20-40% international allocation.
-- **Jack Bogle**, Vanguard's founder, famously advocated zero international allocation, arguing that large U.S. multinationals already provide global revenue exposure. This view has fallen out of mainstream favor but illustrates the range of opinions.
-
-The strongest case for international diversification is that leadership between U.S. and international stocks rotates in long cycles. U.S. outperformance from 2010 to 2024 followed a decade of international outperformance from 2000 to 2009. Investors who abandon international stocks after a period of U.S. dominance may be selling at exactly the wrong time.
-
-#### Emerging Market Opportunities and Challenges by Region
-
-Understanding the specific opportunities and challenges in key emerging market regions helps inform allocation decisions.
-
-**Asia (excluding Japan):** Home to the largest and fastest-growing emerging markets. China dominates EM indices but faces challenges including a property sector downturn, demographic decline, and geopolitical tensions with the West. India is increasingly seen as the next major growth story, with favorable demographics, a growing technology sector, and improving infrastructure. Southeast Asian markets (Vietnam, Indonesia, Thailand) offer early-stage growth opportunities but with less liquidity.
-
-**Latin America:** Brazil dominates regional indices and offers exposure to commodities, agriculture, and a large domestic economy. Mexico benefits from nearshoring trends as companies diversify supply chains away from China. However, political instability, currency volatility, and commodity dependence create ongoing challenges across the region.
-
-**Eastern Europe and Middle East:** Russia's invasion of Ukraine removed Russia from EM indices and highlighted the risks of investing in countries with authoritarian governments. Poland, Hungary, and Czech Republic offer smaller but relatively stable EM opportunities. Saudi Arabia and the UAE have been growing their index presence as their stock markets develop.
-
-**Africa:** The smallest and least liquid EM region, but with significant long-term potential due to young, growing populations and abundant natural resources. South Africa dominates African EM indices. Nigeria, Kenya, and Egypt are among the larger frontier markets. Access is most practical through dedicated frontier market funds.
-
-#### The China Question
-
-No discussion of international investing is complete without addressing the specific challenges and opportunities of investing in China, which represents 25-30% of the MSCI Emerging Markets Index.
-
-**The Bull Case for China:**
-- The world's second-largest economy with a massive consumer market.
-- World-class technology companies (Tencent, Alibaba, BYD, CATL) with global competitive advantages.
-- Relatively low valuations compared to U.S. and developed market peers.
-- A growing middle class creating sustained domestic demand.
-
-**The Bear Case for China:**
-- Government regulatory unpredictability, as demonstrated by the 2021 tech crackdown that destroyed hundreds of billions in shareholder value.
-- Geopolitical tensions with the U.S. and its allies, creating risks of sanctions, delisting, or investment restrictions.
-- A structural slowdown driven by demographics (aging population), property sector deleveraging, and high debt levels.
-- VIE (Variable Interest Entity) structures that mean foreign investors in Chinese companies listed abroad do not actually own equity in the operating business -- they own a contractual claim that the Chinese government could choose not to enforce.
-
-**Practical Approaches:**
-- Accept benchmark weight and invest through broad EM ETFs that include China at its index weight.
-- Use ex-China EM ETFs (like EMXC) combined with a separate, smaller China allocation you can adjust independently.
-- Avoid China entirely and accept the tracking error versus EM benchmarks.
-
-There is no consensus on the right approach. The key is to make a deliberate decision rather than defaulting to whatever your EM ETF happens to hold.
+The textbook position is not wrong; it is incomplete. The honest
+answer is that international diversification gives you a real
+mathematical benefit *if and only if* the foreign markets you buy
+share four properties with the U.S.: rule of law, accounting
+transparency, minority-shareholder rights, and a deep secondary
+market. Roughly half of "international" by index weight does not
+clear that bar.
 
 ---
 
-### c) Common Misconceptions
+### 2. What You Need to Know
 
-**"U.S. stocks provide enough global diversification because U.S. companies earn revenue worldwide."** While about 40% of S&P 500 revenue comes from abroad, this is not the same as owning foreign stocks. U.S. multinationals still trade as U.S. stocks, are priced in dollars, are subject to U.S. regulations, and correlate highly with the U.S. market. True diversification requires owning companies domiciled in other countries with different economic drivers.
+#### 2.1 The Map: How Big Is "the World" Outside the U.S.?
 
-**"Emerging markets are too risky for regular investors."** Through broad, diversified ETFs, emerging market risk is manageable. A 10-20% allocation to EM within a diversified portfolio adds growth potential and diversification without taking on excessive country-specific risk. The key is diversification -- do not put all your EM allocation into a single country.
+The MSCI All Country World Investable Market Index (ACWI IMI) is the
+broadest investable equity benchmark on the planet. As of April 2026
+its weights look approximately like this:
 
-**"International stocks have underperformed U.S. stocks, so why bother?"** This is recency bias. From 2000 to 2009, the MSCI EAFE index returned about 1% per year while the S&P 500 returned negative 1% per year. Leadership rotates, and chasing recent winners is a classic investing mistake. No one knows which region will lead over the next decade.
+- **United States — ~60%.** Roughly $55T market cap, with the
+  Magnificent-7 alone equal to the entire EAFE index by float.
+- **Developed ex-U.S. (EAFE) — ~25%.** Japan ~6%, U.K. ~4%,
+  France ~3%, Canada ~3%, Switzerland ~2.5%, plus Germany,
+  Australia, Netherlands, Sweden, Hong Kong, Singapore, Spain, Italy,
+  Denmark, Belgium, Finland, Norway, Israel, Ireland, Portugal,
+  Austria, New Zealand.
+- **Emerging markets — ~12%.** China ~25-30% of the EM bucket,
+  India ~17%, Taiwan ~16%, Korea ~12%, Brazil ~5%, Saudi Arabia ~4%,
+  South Africa ~3%, Mexico ~3%.
+- **Frontier — ~3%.** Vietnam, Nigeria, Kenya, Bangladesh, Sri Lanka,
+  Romania, Kuwait (until promoted), Pakistan, Morocco. Frontier is so
+  small and illiquid that even institutional managers rarely treat it
+  as a real allocation.
 
-**"You should currency-hedge all international investments."** For short-term investors or those with near-term spending needs in their home currency, hedging makes sense. For long-term investors, currency movements tend to wash out over time, and the cost of continuous hedging (typically 0.2-0.5% per year) creates a persistent drag on returns.
+![Pie chart of global investable equity market capitalization as of April 2026: United States ~60%, EAFE ~25%, emerging markets ~12%, frontier ~3%. The dominance of U.S. cap weight is the headline; emerging markets are smaller than most retail investors estimate.](image/side18_global_market_cap.png)
 
-**"Frontier markets are the next emerging markets."** While some frontier markets will eventually graduate to EM status, many will not. Frontier markets have unique challenges -- political instability, small market size, limited liquidity -- that make them fundamentally different from today's large emerging markets. Frontier investing requires specialized knowledge and a very long time horizon.
+The key intuition the chart should leave you with: *global market cap
+is dominated by one country.* This was not always true — in 1989, at
+the peak of the Japanese bubble, Japan was briefly the largest equity
+market in the world and the U.S. was a hair behind. Forty years
+later, the gap is roughly five-to-one. That regime change matters
+more than any backtest.
 
-**"International stocks are always riskier than U.S. stocks."** On an individual country basis, many international markets are indeed riskier than the U.S. However, a diversified international portfolio actually reduces overall portfolio risk through diversification benefits. The volatility of a broad international index (like MSCI EAFE) is comparable to the S&P 500, and the correlation between the two is well below 1.0, meaning combining them produces a portfolio with lower volatility than either alone.
+#### 2.2 The Performance Tape, 1990-2024: Two Decades, Two Stories
 
-**"You can time when to invest internationally based on the dollar cycle."** While the dollar cycle affects international returns for U.S. investors, predicting currency movements is extremely difficult -- even more difficult than predicting stock market movements. Currency markets are the largest, most liquid markets in the world, and they price in most available information efficiently. Attempting to time international allocations based on dollar predictions is unlikely to add value consistently. A steady allocation rebalanced periodically is the more reliable approach.
+The textbook case for international diversification leans heavily on
+the 2000-2009 "lost decade" — the period when SPY went sideways and
+EAFE / EM significantly outperformed. The textbook is right that
+this period existed. It is wrong to extrapolate from it.
+
+A cleaner way to look at the same data: the period **1990 through
+April 2026** decomposes into roughly three regimes.
+
+- **1990-1999: U.S. dominance.** SPY compounded at about 18% per
+  year, EAFE at about 7%, EM at about 11% with the 1997 Asia crisis
+  taking a chunk out late. The U.S. tech run made every other equity
+  market look slow.
+- **2000-2009: International dominance.** SPY -1%/yr (the dot-com
+  unwind plus the GFC). EAFE +1%/yr unhedged (helped by a falling
+  dollar). EM +10%/yr (the BRIC commodity supercycle). For the only
+  decade in modern history, holding ex-U.S. stocks paid.
+- **2010-2024: U.S. dominance, hard.** SPY about +14%/yr.
+  EAFE about +6%/yr. EM about +4%/yr. The gap was the largest in
+  modern data — wider than the 1990s — and was driven by three
+  things that may or may not persist: software-eats-world (favours
+  the U.S. tech complex), shale (favours U.S. energy independence),
+  and dollar strength (penalises unhedged ex-U.S. holdings).
+
+![Wealth path of $1 invested in SPY, EFA, and EEM from 1990 through April 2026, with shaded regime bands. SPY ends near $35; EFA near $5; EEM near $5. The 2000s gap closes, then the 2010s gap re-opens far wider than before.](image/side18_us_vs_world.png)
+
+The honest reading of this chart: **leadership has rotated, and
+nobody knows where it goes next.** That is also Horace's first
+principle from SOUL — *alpha is rare; the toolkit is portfolio
+construction.* If you cannot predict which region wins the next
+decade, the standard textbook response is *own all of them in
+proportion to size.* This course's response is different and is
+explained in §2.4.
+
+#### 2.3 The Currency Layer
+
+International returns have two components: the foreign-currency
+return of the underlying stock, plus the change in the
+foreign-currency-to-dollar exchange rate. Over a single year these
+two pieces are roughly the same size in volatility — about 7-9%
+each — and the FX piece can flip a positive local return into a
+negative dollar return or vice versa. 2014-2016 (strong dollar) and
+2022 (very strong dollar) hurt unhedged ex-U.S. holdings;
+2002-2007 (weak dollar) and 2017 (weak dollar) helped.
+
+You can hedge currency. Vehicles like HEFA (hedged EAFE) and DBEF
+buy a rolling forward to neutralise the FX leg. The hedge costs
+roughly the interest rate differential — about 1% per year against
+the euro, more against the yen when U.S. rates are higher than
+foreign rates. Empirically, over 10-year windows the *currency
+effect averages close to zero* but adds about 30-40% of the
+volatility of unhedged international equity. So the trade-off is
+clean: hedge if you care about year-to-year noise, leave unhedged if
+you have a 10+ year horizon and want the diversification of holding
+non-dollar assets. Most retail-grade research lands at "leave it
+unhedged for the equity sleeve."
+
+This course leaves the question moot, because the U.S.-only rule
+side-steps it entirely.
+
+#### 2.4 The Political-Risk Premium and SOUL Principle #16
+
+The argument the textbook does not make is the one that determines
+this course's allocation rule. International equities — especially
+emerging-market equities — carry a class of risk that does not show
+up in any of the standard sigma / VaR / drawdown statistics: the
+risk of *expropriation*. The textbook implicitly assumes you can
+always sell.
+
+A short list of times that assumption broke in the last decade:
+
+- **China 2021.** The CCP's "common prosperity" campaign wiped
+  about $1.5T off Chinese tech stocks in six months. DiDi was
+  delisted from the NYSE within months of its IPO. The for-profit
+  tutoring industry was made illegal by regulatory fiat overnight.
+  Retail holders of FXI / KWEB watched 50-70% drawdowns with no
+  fundamental catalyst — only a policy change.
+- **Russia 2022.** After the Ukraine invasion the Moscow Exchange
+  was closed to foreign sellers for several months. By the time
+  trading reopened, Western sanctions had effectively rendered every
+  Russia-listed share worthless to a U.S. holder. Index providers
+  marked Russian weights to zero. Roughly $50B of foreign-held
+  Russian equity was wiped out — not in a market-driven drawdown,
+  but by political fiat. This was the largest single-country
+  expropriation event since the Cuban revolution in 1959.
+- **Hong Kong 2020-2024.** The National Security Law and subsequent
+  capital-control tightening have eroded the rule-of-law premium
+  Hong Kong used to carry. Stocks listed there are now pricing
+  in mainland-China policy risk that did not exist five years ago.
+- **Turkey 2018-2024.** Erdogan's unconventional monetary regime
+  destroyed about 90% of the lira's purchasing power. A Turkish
+  stock that doubled in lira terms still lost two-thirds in dollars.
+
+The pattern in all four cases is the same: *an event the U.S.-listed
+investor could not hedge against, did not show up in the historical
+risk model, and could not be unwound at any price.* This is the
+political-risk premium, and the standard equity-premium math does
+not capture it.
+
+This course's response — codified as SOUL principle #16, the
+"investable universe" rule — is to **restrict the entire
+recommended portfolio to U.S.-listed equities.** The rule has four
+pillars:
+
+1. **Rule of law.** U.S. courts enforce contracts, including against
+   the government. The Fifth Amendment takings clause has been
+   tested, and it works.
+2. **Accounting transparency.** SEC-registered issuers file 10-K
+   and 10-Q statements audited under PCAOB oversight. Foreign-private
+   issuers reporting under their home regime do not get the same
+   audit guarantee.
+3. **Minority-shareholder rights.** Delaware corporate law has
+   200 years of case law protecting minority holders against
+   controlling-shareholder self-dealing. China has none. Russia
+   has none. Korea is improving but is not there yet.
+4. **Deep secondary markets.** You can sell a U.S.-listed stock at
+   a tight bid-ask spread on any trading day in any regime. You
+   cannot say that about Vietnam, Nigeria, or Argentina.
+
+The four pillars are *substitutes* for the diversification benefit.
+You give up about 40% of the global investable opportunity set; in
+exchange you get a portfolio you can actually liquidate in a crisis
+and that nobody can confiscate by political decision.
+
+#### 2.5 The Compromise Lane: U.S.-Listed ADRs
+
+Refusing to own EFA / VXUS / VWO does not mean refusing to own
+non-U.S. companies. The compromise — the one the rest of the course
+quietly assumes — is **U.S.-listed American Depository Receipts
+(ADRs).**
+
+An ADR is a U.S.-listed share of a foreign company, registered with
+the SEC, custodied by a U.S. bank, and subject to U.S. rule of law.
+Buying TSM (Taiwan Semiconductor) on the NYSE is materially safer
+than buying 2330.TW on the Taipei exchange — same underlying
+business, but the U.S. listing forces SEC reporting, U.S. courts
+have jurisdiction, and the shares clear through the same DTC
+infrastructure as AAPL.
+
+The shortlist of high-quality ADRs that earn a place in the course's
+investable universe:
+
+- **TSM** — Taiwan Semiconductor. Effectively a monopoly on
+  leading-edge logic fabrication. The single most important
+  semiconductor business on Earth.
+- **ASML** — Dutch maker of EUV lithography tools. The only
+  vendor of the machines that print every leading-edge chip.
+  Listed on NASDAQ since 1995.
+- **SAP** — German enterprise-software incumbent.
+- **NVO** — Novo Nordisk, Danish maker of Ozempic.
+- **TM / SONY / HMC** — high-quality Japanese exporters.
+- **SHOP** — Shopify, Canada-domiciled but NYSE-listed.
+
+A second tier is worth caveating because of the political-risk
+overlay: **BABA, JD, PDD, BIDU, NIO** are U.S.-listed Chinese ADRs.
+They share a U.S. wrapper but the underlying assets are inside
+mainland China and inside a Variable Interest Entity (VIE) structure
+that has never been tested in a full Chinese expropriation event.
+Position-size them like venture bets, not like core equity.
+
+The mechanic to internalise: *the investable universe is defined by
+the listing venue, not by where the company does business.* TSM is
+in. 2330.TW is out. Both are claims on the same assembly line.
 
 ---
 
-### d) Q&A
+### 3. Common Misconceptions
 
-**Q: Should I invest in China given the regulatory and geopolitical risks?**
-A: This is one of the most debated questions in international investing. China represents approximately 25-30% of the MSCI Emerging Markets Index, so avoiding it entirely means significant divergence from the benchmark. Some investors address China-specific risks by using ex-China EM ETFs (like EMXC) combined with a smaller, deliberate China allocation. Others accept the benchmark weight and view the risks as already reflected in lower valuations. There is no right answer -- it depends on your risk tolerance and convictions.
-
-**Q: How do currency movements affect my international ETF returns?**
-A: If you own a European ETF and the euro strengthens 5% against the dollar, your return in dollar terms is approximately the local return plus 5%. If the euro weakens 5%, your return is reduced by approximately 5%. Over short periods, currency can dominate returns. Over decades, the impact tends to diminish. Vanguard research found that currency movements added volatility but had minimal impact on international equity returns over 30+ year periods.
-
-**Q: What is the best allocation between developed and emerging markets?**
-A: Market-cap weighting -- which currently puts roughly 75-80% in developed markets and 20-25% in emerging markets within the international allocation -- is a reasonable starting point. Some investors overweight EM for higher growth potential, while others underweight it for lower volatility. A common practical allocation is 70% developed / 30% emerging within the international portion.
-
-**Q: Are ADRs (American Depositary Receipts) a good way to invest internationally?**
-A: ADRs allow U.S. investors to buy foreign stocks on U.S. exchanges in U.S. dollars. They are convenient for buying individual foreign companies, but they do not eliminate currency or political risk. The underlying shares are still foreign stocks. ADRs are fine for targeted individual stock exposure, but for broad international diversification, ETFs are more efficient and diversified.
-
-**Q: How do emerging market bonds compare to emerging market stocks?**
-A: EM bonds offer higher yields than developed market bonds but with greater risk. They come in two varieties: hard currency (denominated in USD or EUR, reducing currency risk) and local currency (higher yields but currency exposure). EM bonds have lower correlation with U.S. equities than EM stocks do, making them a useful diversifier. However, they can suffer during global risk-off events. Popular ETFs include Vanguard Emerging Markets Government Bond ETF (VWOB) and iShares J.P. Morgan USD Emerging Markets Bond ETF (EMB).
-
-**Q: What is the impact of U.S. dollar strength on international investments?**
-A: A strengthening dollar hurts U.S. investors in international assets (foreign returns are converted to more valuable dollars, producing lower dollar returns). A weakening dollar helps (foreign returns converted at a favorable exchange rate). From 2011 to 2022, the strong dollar was a significant drag on international returns for U.S.-based investors. If the dollar eventually weakens, this headwind becomes a tailwind, potentially boosting international returns relative to domestic investments.
-
-**Q: How do I handle the complexity of multiple international ETFs in my portfolio?**
-A: Keep it simple. For most investors, a single total international ETF (like VXUS or IXUS) provides diversified exposure to developed and emerging markets in one holding. If you want more control, use two ETFs: one for developed (VEA or IEFA) and one for emerging (VWO or IEMG). Only add single-country or regional ETFs if you have specific investment views. The marginal benefit of holding 10 international ETFs versus two or three is minimal for most individual investors.
-
-**Q: What about Japan -- is it investable after 34 years of recovery?**
-A: Japan's Nikkei 225 finally recovered its 1989 peak in February 2024, but the story is more nuanced than the headline suggests. Japanese companies have been improving corporate governance, increasing share buybacks, and unwinding cross-shareholdings. Warren Buffett's high-profile investments in Japanese trading companies (sogo shosha) in 2020 signaled confidence in Japan's turnaround. Japan also offers one of the lowest equity valuations among developed markets. For investors willing to look beyond the "lost decades" narrative, Japan may offer value. However, demographic headwinds (aging and shrinking population) and a massive government debt burden remain long-term concerns.
-
-**Q: How do international investments perform during U.S. recessions?**
-A: It depends on whether the recession is U.S.-specific or global. During the 2001 recession (primarily a U.S. tech bust), international markets held up somewhat better than the NASDAQ-heavy U.S. market. During the 2008 global financial crisis, international markets fell as much or more than the U.S. because the crisis was truly global. During the 2020 pandemic recession, the recovery patterns varied significantly by region. Generally, diversifying internationally provides better protection against U.S.-specific economic challenges but limited protection against global downturns.
-
----
-
-## YouTube Script
-
-[INTRO - 0:00]
-
-[VISUAL: Globe spinning with stock exchange names lighting up across different time zones -- Tokyo, London, New York, Hong Kong, Mumbai, Sao Paulo]
-
-**Horace:** When you go to sleep at night, markets on the other side of the world are opening. When you wake up, you can check how stocks performed in Tokyo, London, and Mumbai before your own market even opens.
-
-**Stella:** Investing is a global activity. But most American investors keep the vast majority of their money right here at home. Today, we are asking: Is that a mistake? And if so, how do you actually invest around the world?
-
-[VISUAL: Title card "Global Markets: Investing Beyond Your Home Country"]
-
----
-
-[SECTION 1 - WHY GO GLOBAL - 1:30]
-
-[ANIMATION: Pie chart of global stock market capitalization showing US at ~60%, rest of world at ~40%]
-
-**Horace:** Here is the starting point. The U.S. stock market is about 60 percent of total global stock market capitalization. That is dominant, but it also means 40 percent of the world's investable stocks are outside the United States.
-
-**Stella:** And the number of publicly listed companies tells an even bigger story. There are roughly 4,000 public companies in the U.S., but tens of thousands more listed on exchanges around the world. By limiting yourself to U.S. stocks, you are ignoring the majority of the world's public companies.
-
-[VISUAL: Bar chart comparing number of listed companies: US ~4,000, Japan ~3,800, China ~5,000, India ~5,000+, UK ~2,000]
-
-**Horace:** But the most compelling argument for international diversification is this: leadership rotates. From 2000 to 2009, U.S. stocks returned basically nothing. The S&P 500 was flat for a decade. Meanwhile, international developed markets and emerging markets delivered solid positive returns.
-
-**Stella:** Then from 2010 to 2024, the script flipped completely. U.S. stocks crushed international stocks by a wide margin. If you look at just the last 15 years, you would think international investing was pointless.
-
-[VISUAL: Rolling 10-year performance chart alternating between US outperformance and international outperformance over 50 years]
-
-**Horace:** But that is recency bias talking. No one knows which region will lead over the next decade. Diversifying globally is an admission of uncertainty -- and that is actually a smart investment strategy.
+1. **"60% U.S. of world cap means I should own 60% U.S. in my
+   portfolio."** This is the textbook recipe. It assumes all 100
+   cents on the dollar of global cap are equally investable. They
+   are not.
+2. **"International is a free diversification benefit because of
+   low correlation."** Correlations between SPY and EFA have run
+   0.85 in the last decade — high enough that the diversification
+   math gives you maybe 1-2% volatility reduction, not the 5%+
+   the textbook suggests.
+3. **"Emerging markets must outperform because they're growing
+   faster."** Decades of data show GDP growth and equity returns
+   are essentially uncorrelated. China's GDP grew 10x from 2000-2020
+   and the MSCI China index returned about 5%/yr in that span.
+4. **"I'm under-diversified if I don't hold VXUS."** You are
+   *concentrated in U.S. legal jurisdiction.* That is a deliberate
+   choice, not an accident. It is the trade-off, not a mistake.
+5. **"Currency hedging is too complicated to bother with."** It is
+   bundled into ETFs. HEFA charges 35bp. That is the cost of the
+   hedge — usable if you want it.
+6. **"Russia 2022 was a one-off."** It was the largest single
+   event in the modern era, but China-2021 and Hong Kong's slow
+   re-rating since 2020 are the same family of risk. The base rate
+   is higher than it looks.
+7. **"ADRs are no different from local-listed shares."** They have
+   identical economic exposure but materially different legal
+   exposure. The U.S. listing is a real protection layer.
+8. **"China A-shares are now investable because MSCI added them."**
+   MSCI's index decisions are about benchmark coverage; they do not
+   confer rule-of-law. The 2017 A-share inclusion did not change
+   what happened to retail holders of YY, DiDi, or NTES in the
+   2021-2022 crackdown.
+9. **"Buying EAFE is safe — it's all developed markets."** EAFE is
+   safer than EM but still carries currency risk and concentrated
+   single-country risk (Japan was 70% of EAFE in 1989; the U.K.
+   was 30% in 2000). Diversification within EAFE is uneven.
+10. **"International diversification protects me from a U.S. crash."**
+    The 2008 GFC saw EAFE -43% and EM -53% versus SPY -37% — the
+    *worst* drawdowns of the three were ex-U.S. The diversification
+    benefit fails precisely when you most need it.
 
 ---
 
-[SECTION 2 - DEVELOPED VS EMERGING - 4:00]
+### 4. Q&A Section
 
-[VISUAL: Three-tier pyramid labeled "Developed Markets," "Emerging Markets," "Frontier Markets"]
+**Q: If I follow the U.S.-only rule, what about TSM, ASML, BABA?
+Are those allowed?**
+A: TSM and ASML are yes — they are SEC-registered, U.S.-listed,
+and you have a Delaware-style claim on the depository shares. BABA
+is a maybe — the wrapper is U.S. but the underlying VIE structure
+sits inside mainland China and has never been tested by a full
+expropriation. Size BABA-class names like opportunistic positions,
+not like core equity.
 
-**Stella:** The global market is divided into three categories. At the top, you have developed markets -- countries like Japan, the UK, Germany, Australia, and Canada. These have mature economies, well-regulated markets, and strong investor protections.
+**Q: What about VXUS or VEU as a core holding? Vanguard sells
+them precisely for retail.**
+A: They are perfectly serviceable products. The course rule is not
+that they are bad; it is that the course's risk-return math
+deliberately excludes them. If you choose to hold 10-20% in VXUS,
+your CAGR will look approximately like the lesson's 1990-2024
+chart — i.e. lower than U.S.-only over the last 15 years, higher
+in the early 2000s. You are taking the textbook trade.
 
-**Horace:** Below that are emerging markets -- countries like China, India, Brazil, Taiwan, and South Korea. These economies are growing faster, but they come with more risk. Political uncertainty, weaker corporate governance, and currency volatility are all part of the package.
+**Q: What's the right hedge for U.S.-only concentration risk if I
+believe the U.S. could underperform for a decade like 2000-2009?**
+A: Three answers. First, the four-tranche framework (SOUL #13)
+already includes a stores-of-value sleeve — gold, real assets — that
+is currency-agnostic. Second, U.S. multinationals (AAPL, MSFT,
+PG, KO) earn 50%+ of revenue overseas, so SPY itself is already
+half-international by economic exposure. Third, if you really want
+the full FX/region diversification, the cleanest expression is GLD
+plus a small commodities sleeve, not VXUS.
 
-**Stella:** And at the base are frontier markets -- places like Vietnam, Nigeria, and Bangladesh. These are the least developed, least liquid, and highest-risk markets. Most investors access these only through specialized funds.
+**Q: Do U.S.-listed ADRs of foreign companies pay foreign
+withholding tax?**
+A: Yes. The custodian bank withholds at the foreign-source rate
+(15% under most treaties, 30% in some cases). In a taxable account
+you can claim a foreign tax credit on Form 1116. In an IRA the
+withholding is permanent and not recoverable — which is one reason
+the course recommends holding international-exposed names in
+taxable, not tax-deferred accounts. SOUL #15 covers this in detail.
 
-[VISUAL: Examples of countries in each tier with key economic stats -- GDP growth, market cap, per capita income]
+**Q: Is VWO different from EEM? Both are emerging markets ETFs.**
+A: Same asset class, different index providers. VWO follows FTSE
+(includes Korea), EEM follows MSCI (excludes Korea). VWO's expense
+ratio is 0.08% vs EEM's 0.70%, which is enough cost difference
+to matter. If you do hold EM, VWO is the correct vehicle.
 
-**Horace:** The classification system most investors follow comes from MSCI -- Morgan Stanley Capital International. When MSCI decides to add or remove a country from an index, it triggers billions in capital flows, because trillions of dollars in passive funds track these indices.
+**Q: What about the China A-shares MSCI added in 2018-2019? Are
+those any safer than Hong Kong-listed Chinese shares?**
+A: They are *less* safe. A-shares trade on the Shanghai and
+Shenzhen exchanges and are subject to mainland Chinese law in a way
+that even Hong Kong listings are not. The 2017 inclusion was a
+benchmark-coverage decision by MSCI, not an accessibility upgrade.
+Capital controls limit your ability to sell in a crisis. Hard pass.
 
-**Stella:** One interesting case is South Korea. It has a GDP per capita comparable to many European countries and is home to Samsung and Hyundai. But MSCI still classifies it as an emerging market due to restrictions on currency trading. Another index provider, FTSE Russell, classifies it as developed. So the line between developed and emerging is not always clear-cut.
+**Q: How does the lesson square with Horace's barbell principle?**
+A: The barbell (SOUL #14) says *combine cheap-and-safe + lottery-
+ticket + nothing in between.* The U.S.-only rule applies to the
+cheap-and-safe leg: VTI / SCHD / TLT — all U.S.-listed. The
+lottery-ticket leg is allowed to include non-U.S. names (small TSM
+or ASML position) because those are sized like options, not like
+core. The middle of the barbell — international index funds at
+40% weight — is exactly what the framework rules out.
+
+**Q: What single number would change my mind?**
+A: A persistent reduction in the political-risk premium between
+the U.S. and the next-largest market (call it Japan or the U.K.).
+Concretely: if U.K. corporate-governance ratings, accounting
+transparency, and contract enforcement converged with U.S. levels,
+plus FX hedging costs collapsed, plus a sustained 20%+ valuation
+discount opened, then the trade becomes interesting. None of those
+conditions hold today.
+
+**Q: Doesn't the U.S. itself carry political risk? FTC, antitrust,
+crypto crackdown, tariff policy?**
+A: Yes — the U.S. is not zero-political-risk. But the magnitude
+gap is large. Antitrust unwinds are litigated for years and bounded
+by the Sherman Act and Delaware case law; they do not look like
+the China 2021 crackdown. The course's claim is not "U.S. is
+safe" — it is "U.S. is materially safer on the rule-of-law axis
+than the alternatives."
+
+**Q: I already own VXUS in my 401(k) and can't easily get rid of
+it. What now?**
+A: Don't fight your plan. The 401(k) match (SOUL #15: tax wrapper
+beats security selection) is worth 50%+ on the dollar; do not
+sacrifice that to enforce a 5-percentage-point allocation rule.
+If your plan menu offers VXUS but not a clean U.S.-only balanced
+fund, hold VXUS in the 401(k) and tilt the *taxable* account
+U.S.-only to bring the household total to the target.
+
+**Q: Final question — if I run the global blender in the
+interactive panel, what should I expect to see?**
+A: Three things. First, almost any plausible U.S.-heavy mix
+(70-100% VTI) beats the cap-weighted (60% VTI / 28% VXUS / 12%
+VWO) on CAGR over the 1990-2024 backtest, by roughly 1-2% per
+year. Second, the Sharpe gap is narrower than the CAGR gap —
+international does damp some volatility. Third, the maximum-
+drawdown line moves around less than you'd expect: the GFC and
+COVID drawdowns hit everywhere. The data argues for more U.S., not
+less, even before the political-risk overlay.
 
 ---
 
-[SECTION 3 - THE RISKS - 6:30]
-
-[VISUAL: Warning sign graphic with icons for Currency, Political, Liquidity, and Accounting risks]
-
-**Horace:** International investing comes with risks that domestic investors do not face. The biggest one is currency risk.
-
-**Stella:** When you buy a Japanese stock, your return depends on two things: how the stock performs in yen, and how the yen moves against the dollar. If the stock goes up 10 percent in yen but the yen falls 8 percent against the dollar, your actual return in dollars is only about 2 percent.
-
-[ANIMATION: Math example showing Local Return (10%) + Currency Effect (-8%) = Dollar Return (~2%)]
-
-**Horace:** Over short periods, currency swings can dominate your returns. Over decades, they tend to wash out. But if you have a shorter time horizon, you might want to consider currency-hedged funds.
-
-**Stella:** Then there is political and regulatory risk. In 2021, China's government launched a crackdown on its own tech companies. Alibaba, Tencent, and Didi saw hundreds of billions in value evaporate overnight based on regulatory actions that were almost impossible to predict.
-
-[VISUAL: Chart showing Chinese tech stock declines during 2021 regulatory crackdown]
-
-**Horace:** And in 2022, Russia's invasion of Ukraine essentially made Russian stocks worthless for foreign investors. The Moscow stock exchange was shut down, sanctions froze assets, and investors were left with positions they could neither sell nor value.
-
-**Stella:** The lesson is not to avoid international investing altogether. It is to diversify broadly and avoid excessive concentration in any single country. A broad emerging markets ETF spreads your risk across 24 countries, so no single government's actions can devastate your portfolio.
+## Part 2: YouTube Script
 
 ---
 
-[SECTION 4 - HOW TO INVEST GLOBALLY WITH ETFs - 9:00]
-
-[VISUAL: ETF logos and tickers arranged by category]
-
-**Horace:** The good news is that going global has never been easier or cheaper. ETFs give you access to virtually every market in the world at rock-bottom costs.
-
-**Stella:** Let us break it down. For broad international exposure, you have funds like Vanguard's VXUS -- the Vanguard Total International Stock ETF. It covers developed and emerging markets outside the U.S., holds over 8,000 stocks, and charges just 0.07 percent per year.
-
-[VISUAL: Comparison table of major international ETFs: VXUS, VEA, VWO, IEFA, IEMG with expense ratios, number of holdings, and geographic breakdown]
-
-**Horace:** If you want to be more targeted, you can separate developed markets -- VEA from Vanguard or IEFA from iShares -- from emerging markets -- VWO from Vanguard or IEMG from iShares. This lets you control how much EM exposure you take.
-
-**Stella:** And if you have views on specific countries or want to address specific risks, there are single-country ETFs for almost every market. INDA for India, EWJ for Japan, FXI for China, EWZ for Brazil.
-
-**Horace:** There is even an emerging markets ex-China ETF -- EMXC from iShares -- for investors who want EM exposure without the concentration risk and geopolitical concerns associated with China.
-
-[VISUAL: Portfolio building example: 60% US (VTI) + 25% Developed Intl (VEA) + 15% Emerging (VWO) = Global Portfolio]
-
-**Stella:** A simple, globally diversified equity portfolio might look like this: 60 percent U.S. stocks through VTI, 25 percent developed international through VEA, and 15 percent emerging markets through VWO. Three funds, global coverage, total cost under 0.06 percent.
+**VIDEO TITLE:** "Why this course is U.S.-only — and the four
+filters that pick the rare exceptions."
+**RUNTIME TARGET:** ~12 minutes
+**HOSTS:** Horace, Stella
 
 ---
 
-[SECTION 5 - HOW MUCH INTERNATIONAL - 11:30]
+**[INTRO — 0:00-1:00]**
 
-[VISUAL: Spectrum showing different allocation approaches]
+`[VISUAL: image/side18_global_market_cap.png]`
 
-**Horace:** The big question everyone asks is: How much of my portfolio should be international?
+**Stella:** Okay Horace, every other allocation video on YouTube
+opens the same way: "diversify globally, hold VXUS, the U.S. is only
+60% of world market cap." But this course does something
+different. We don't recommend VXUS. We don't recommend EFA. We
+don't even recommend hedged international ETFs. Why?
 
-**Stella:** There is a wide range of opinions. Vanguard recommends about 40 percent of your equity allocation in international stocks. Many advisors land between 20 and 40 percent. Jack Bogle, Vanguard's founder, actually recommended zero percent -- he believed U.S. multinationals provided enough global exposure.
+**Horace:** Because the textbook is calibrated on a world that
+doesn't exist anymore. It came out of the 1970s and 80s when the
+U.S., U.K., Germany, and Japan all looked roughly like comparable
+markets. Today they're not — and the gap has been widening for
+fifteen years. That's the conversation today.
 
-**Horace:** The truth is, there is no single right answer. What we know is this: the more concentrated you are in any one country, the more dependent you are on that country's economy, policies, and market. Diversifying internationally reduces that dependence.
+**Stella:** And there's a hard rule we're going to give the audience
+at the end. SOUL principle 16 — the investable-universe rule.
 
-[VISUAL: Risk vs. concentration chart showing how portfolio risk decreases as international allocation increases from 0% to ~40%, then levels off]
-
-**Stella:** And here is a practical way to think about it. If you are 100 percent in U.S. stocks and the next decade looks like 2000 to 2009 -- where U.S. stocks went nowhere -- you will be very unhappy. Having 30 to 40 percent internationally would have significantly improved your returns during that period.
-
-**Horace:** Conversely, if the next decade looks like 2010 to 2020, you would have been better off all-U.S. But since you do not know which scenario will play out, diversification is the prudent choice.
-
-**Stella:** Start with something -- even 20 percent international is far better than zero. As you get more comfortable, you can adjust based on your views, risk tolerance, and time horizon.
-
-[VISUAL: End card with channel logo and "Next: Correlation and Portfolio Math"]
+**Horace:** Right. By the end of this you'll know why we wrote it,
+what it excludes, and what the small list of exceptions looks like.
 
 ---
 
-[SECTION 6 - PRACTICAL PORTFOLIO CONSTRUCTION - 12:00]
+**[ACT I — THE MAP — 1:00-3:00]**
 
-[VISUAL: Three example international portfolio allocations: Conservative, Moderate, and Aggressive]
+`[VISUAL: image/side18_global_market_cap.png — pie chart]`
 
-**Horace:** Let us close with three practical portfolio examples showing how to implement international diversification at different comfort levels.
+**Stella:** Start with the picture. Global investable equity, April
+2026, by region.
 
-**Stella:** Conservative approach: Start with just 20 percent international using a single total international ETF like VXUS. Simple, low-cost, and provides meaningful diversification without complexity. If you are new to international investing, this is where to start.
+**Horace:** Sixty percent United States. Twenty-five percent
+developed-markets ex-U.S. — that's EAFE. Twelve percent emerging
+markets. Three percent frontier. The U.S. number used to be lower —
+forty percent in 1989, when Japan briefly tied us. Today the U.S. is
+five times the size of Japan.
 
-[VISUAL: Portfolio 1: 80% VTI + 20% VXUS]
+**Stella:** And the textbook says: own each region in proportion
+to its weight.
 
-**Horace:** Moderate approach: Allocate 30-35 percent international, split between developed and emerging markets. Something like 20 percent VEA for developed markets and 10-15 percent VWO for emerging markets. This gives you more control over your EM exposure.
+**Horace:** Yes. The textbook says hold sixty cents on the dollar
+in the U.S. and forty cents overseas. That's the standard recipe.
 
-[VISUAL: Portfolio 2: 65% VTI + 20% VEA + 15% VWO]
+**Stella:** Why not?
 
-**Stella:** Aggressive approach: Match global market cap weights with about 40 percent international. Add an EM ex-China component if you want to manage China risk separately. Maybe 22 percent VEA, 10 percent VWO, and 8 percent INDA or other targeted country exposure.
+**Horace:** Because the textbook is implicitly assuming all forty
+of those overseas cents are equally usable. They're not.
 
-[VISUAL: Portfolio 3: 60% VTI + 22% VEA + 10% VWO + 8% Targeted Country ETFs]
+---
 
-**Horace:** Regardless of which approach you choose, the key principle is the same: you are acknowledging that you do not know which region of the world will deliver the best returns over the next decade. By spreading your bets geographically, you ensure that wherever growth occurs, you participate.
+**[ACT II — THE TAPE — 3:00-5:30]**
 
-**Stella:** And remember -- international allocations will feel wrong at times. During periods of U.S. dominance, you will wish you had more domestic exposure. During periods of international outperformance, you will wish you had more international. That is normal. The discomfort is the price of true diversification.
+`[VISUAL: image/side18_us_vs_world.png]`
 
-**Horace:** Trust the process, stick with your allocation, and rebalance periodically. Over a full investing lifetime, geographic diversification has historically improved risk-adjusted returns. That is the evidence, and that is what we are betting on.
+**Stella:** Here's the wealth path. One dollar in 1990, in three
+buckets — SPY, EFA, EEM — through April 2026.
 
-[VISUAL: End card with channel logo and "Next: Correlation and Portfolio Math"]
+**Horace:** Three regimes. The 1990s — SPY runs eighteen percent a
+year, EAFE runs seven, EM is wild. The 2000s — SPY actually loses
+money for the decade, EAFE goes flat, EM has a commodity boom and
+returns ten percent. And 2010 to today — SPY does fourteen percent
+a year, EAFE does six, EM does four. The widest gap in modern data,
+and it's been the U.S.
 
-**Stella:** In our next lesson, we are diving into the math behind diversification -- correlation, covariance, and why portfolio risk is not just the sum of individual risks. See you there.
+**Stella:** So if you'd bought "the world" at fifteen-year-back-test
+weights, you'd have given up roughly half your CAGR for the
+diversification.
 
-[END - 14:30]
+**Horace:** Yes. And the diversification didn't help in the bad
+year. Look at 2008 — EAFE was minus forty-three percent, EM was
+minus fifty-three, SPY was minus thirty-seven. The international
+sleeves drew down *more.*
+
+**Stella:** Which is the punchline, kind of.
+
+**Horace:** It's the math. Correlation between SPY and EAFE has
+been about zero-point-eight-five over the last ten years. That gives
+you maybe one or two percent volatility reduction from the
+diversification — not the five percent the textbook claims.
+
+---
+
+**[ACT III — THE POLITICAL RISK ARGUMENT — 5:30-8:00]**
+
+**Stella:** But the actual reason this course says U.S.-only isn't
+the performance argument. It's the political-risk argument.
+
+**Horace:** Right. And this is where the textbook is silent. Standard
+risk math — sigma, VaR, drawdown — does not capture *expropriation
+risk.* The textbook implicitly assumes you can always sell.
+
+**Stella:** Walk through the cases.
+
+**Horace:** Russia, February 2022. The Moscow exchange closes to
+foreign sellers. By the time it reopens, sanctions have rendered
+every Russia-listed share worthless to a U.S. holder. Roughly fifty
+billion dollars of foreign-held Russian equity is wiped out — not
+by a market drawdown, by political decree. Index providers mark
+Russia weights to zero.
+
+**Stella:** That's the most dramatic. China?
+
+**Horace:** China 2021. The for-profit tutoring industry is made
+illegal overnight by regulatory fiat. The Ant Group IPO is canceled
+the day before pricing. DiDi is delisted within months of IPO.
+Hundreds of billions in foreign-held Chinese tech equity, drawn
+down fifty to seventy percent on a policy change. Then Hong Kong's
+slow re-rating since the National Security Law. Then Turkey,
+where Erdogan's monetary policy crushes ninety percent of the lira
+in five years.
+
+**Stella:** So the case isn't "international stocks are bad." It's
+"some portion of international cap weight is uninvestable in a way
+that doesn't show up in the standard models."
+
+**Horace:** Exactly that. And it's not a small number. China alone
+is about a third of the EM index. The portion of global market cap
+that fails the rule-of-law test is somewhere between fifteen and
+twenty-five percent of the total.
+
+---
+
+**[ACT IV — THE FOUR FILTERS — 8:00-9:30]**
+
+**Stella:** So the rule. SOUL principle sixteen.
+
+**Horace:** Restrict the recommended portfolio to U.S.-listed
+equities. The rule has four pillars.
+
+One — rule of law. U.S. courts enforce contracts, including against
+the government. The takings clause has been tested.
+
+Two — accounting transparency. SEC registrants file 10-K and 10-Q
+statements audited under PCAOB oversight.
+
+Three — minority-shareholder rights. Delaware corporate law has two
+hundred years of case law protecting minority holders.
+
+Four — deep secondary markets. You can sell on any trading day in
+any regime. You can't say that about Vietnam, Nigeria, or
+Argentina.
+
+**Stella:** And you give up the forty percent of cap weight that's
+overseas.
+
+**Horace:** Yes. That's the explicit trade. We are taking
+concentration risk in U.S. legal jurisdiction *deliberately.* It is
+a feature, not an oversight.
+
+---
+
+**[ACT V — THE COMPROMISE — 9:30-11:00]**
+
+**Stella:** But you do let people own non-U.S. companies. Through
+ADRs.
+
+**Horace:** Right. The investable universe is defined by *listing
+venue,* not by where the company does business. TSM — Taiwan
+Semiconductor — is on the NYSE. SEC-registered. PCAOB-audited.
+Custody at a U.S. bank. You have Delaware-flavoured legal claims.
+Same chip fab. Different legal wrapper. TSM is in. The Taipei
+listing of the same company is out.
+
+**Stella:** Shortlist?
+
+**Horace:** TSM, ASML, SAP, NVO, the high-quality Japanese exporters
+— TM, SONY, HMC. SHOP for Canada exposure. A second tier with
+caveats: BABA, JD, PDD. They wear a U.S. wrapper but the underlying
+VIE structure has never been tested by a full Chinese expropriation
+event. Size those like venture bets, not like core.
+
+**Stella:** And the interactive lets people see the trade in action.
+
+`[VISUAL: interactive/side18_global_blender.html]`
+
+**Horace:** Three sliders — VTI, VXUS, VWO — sum to one hundred.
+Embedded annual returns 1990 through 2024. Move the dials, see
+CAGR, vol, Sharpe, and max-drawdown. Watch the correlation matrix
+update in real time.
+
+**Stella:** And the headline you're going to see —
+
+**Horace:** Almost any U.S.-heavy mix beats the cap-weighted mix on
+CAGR over the last thirty-five years. The Sharpe gap is narrower —
+international did damp some vol. The drawdown line barely moves
+because the GFC and COVID hit everywhere. *Even before* you put
+the political-risk premium on top.
+
+---
+
+**[OUTRO — 11:00-12:00]**
+
+**Stella:** Three takeaways.
+
+One — global cap weight is sixty-twenty-five-twelve-three.
+Two — the textbook recipe of "own everything by weight" was
+calibrated on a world where all four corners of the equity map were
+roughly comparable. That world is gone.
+Three — this course is U.S.-only by deliberate choice, with a small
+ADR list as the compromise lane.
+
+**Horace:** And the underlying principle. One — alpha is rare; the
+toolkit is portfolio construction. Two — the portfolio you can
+actually liquidate is worth more than the portfolio that diversifies
+on a spreadsheet but freezes shut in a crisis.
+
+**Stella:** Side eighteen done. Next time — side nineteen.
+
+---

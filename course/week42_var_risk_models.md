@@ -1,1111 +1,707 @@
-# Week 42: Value at Risk and Risk Models
+# Week 42: VaR and Risk Models — Parametric, Historical, Monte Carlo, and Why All Three Break in the Tails
 
 ---
 
-## Reading Section
-
-### a) Why This Is Important
-
-Last week we covered the conceptual framework of risk management -- position sizing, stop-losses, risk budgeting, and scenario analysis. This week we put numbers on those concepts. Value at Risk (VaR), Conditional Value at Risk (CVaR), stress testing, and factor risk models are the quantitative tools that institutional investors use every single day to measure, monitor, and manage portfolio risk.
-
-Understanding these tools is critical because:
-
-- **VaR is the industry standard for risk measurement**: Every major bank, hedge fund, pension fund, and insurance company calculates VaR daily. If you want to understand how professionals think about risk, you need to understand VaR. When someone says "our daily VaR is $5 million at the 95% confidence level," they are communicating a specific, quantitative statement about portfolio risk.
-- **VaR has well-known limitations that caused real-world disasters**: The 2008 financial crisis exposed critical weaknesses in VaR models. Banks that relied solely on VaR were blindsided by losses that their models said were virtually impossible. Understanding these limitations -- and the tools that address them, like CVaR and stress testing -- is essential for any serious investor.
-- **Factor risk models decompose portfolio risk into understandable components**: Rather than viewing your portfolio as a black box with some aggregate risk number, factor models tell you: "40% of your risk comes from your exposure to the overall market, 25% comes from your tilt toward growth stocks, 15% comes from your sector concentration in technology, and 20% comes from stock-specific risk." This decomposition is enormously valuable for understanding WHERE your risk is coming from and whether that is where you WANT it.
-- **Stress testing prepares you for events that VaR says cannot happen**: VaR answers the question "What is my worst-case loss on a normal day?" Stress testing answers "What happens when the world goes crazy?" Both questions need answers.
-- **These tools are increasingly accessible to individual investors**: Portfolio analytics platforms now offer VaR calculations, factor decompositions, and stress testing to retail investors. Understanding the theory helps you use these tools correctly and interpret their output wisely.
-
-This lesson will teach you how VaR is calculated (three methods), what CVaR adds, how stress testing works, what factor risk models reveal, and -- critically -- where all of these tools fail.
+## Part 1: Reading Section
 
 ---
 
-### b) What You Need to Know
-
-#### 1. Value at Risk (VaR): The Concept
-
-Value at Risk answers a simple question: "What is the maximum loss I should expect over a given time period, at a given confidence level, under normal market conditions?"
-
-```
-VaR DEFINITION
-
-"There is a X% chance that the portfolio will not lose
- more than $Y over the next N days."
-
-THREE PARAMETERS:
-  1. Confidence level (typically 95% or 99%)
-  2. Time horizon (typically 1 day or 10 days)
-  3. Dollar amount (the VaR number itself)
-
-EXAMPLE:
-  "1-day 95% VaR = $50,000"
-  
-  This means:
-  - Over any given day
-  - There is a 95% probability
-  - That the portfolio will not lose more than $50,000
-  
-  Equivalently:
-  - On 1 day out of 20 (5% of trading days)
-  - Losses may EXCEED $50,000
-  - VaR says NOTHING about how much they exceed it
-
-VISUAL INTERPRETATION:
-
-  Probability
-  |
-  |     ___________
-  |    /           \
-  |   /             \
-  |  /               \
-  | /    95% of      \
-  |/    outcomes      \
-  |    within here     \
-  +-----|---------|---------|---> Portfolio Return
-    -$50k    $0       +$80k
-        ^
-        |
-    VaR = $50,000 loss
-    (5% of outcomes are
-     worse than this)
-```
-
-```
-VaR AT DIFFERENT CONFIDENCE LEVELS
-
-Portfolio: $1,000,000 in S&P 500 index
-Annual volatility: 16%
-Daily volatility: 16% / sqrt(252) = 1.01%
-
-         Confidence    Z-Score    1-Day VaR
-         ──────────────────────────────────
-           90%          1.28      $12,900
-           95%          1.65      $16,600
-           99%          2.33      $23,500
-           99.9%        3.09      $31,200
-
-INTERPRETATION:
-  At 95%: We expect to lose more than $16,600
-          on about 1 day per month (5% of 20 days)
-          
-  At 99%: We expect to lose more than $23,500
-          on about 2-3 days per year (1% of 252 days)
-          
-  At 99.9%: We expect to lose more than $31,200
-            on about 1 day every 4 years
-
-SCALING VaR ACROSS TIME HORIZONS:
-  N-day VaR = 1-day VaR x sqrt(N)
-  
-  1-day 95% VaR:  $16,600
-  5-day 95% VaR:  $16,600 x sqrt(5)  = $37,100
-  10-day 95% VaR: $16,600 x sqrt(10) = $52,500
-  
-  WARNING: Square root scaling assumes returns are
-  independent and identically distributed. In reality,
-  market crashes cluster (volatility clustering), making
-  multi-day VaR larger than the square-root formula suggests.
-```
-
-#### 2. Parametric VaR (Variance-Covariance Method)
-
-The simplest VaR method assumes returns follow a normal distribution. It uses only the mean and standard deviation of returns plus the correlations between portfolio components.
-
-```
-PARAMETRIC VaR CALCULATION
-
-For a single asset:
-  VaR = Portfolio Value x Z-score x sigma x sqrt(T)
-
-Where:
-  Z-score: 1.65 for 95%, 2.33 for 99%
-  sigma: daily standard deviation of returns
-  T: time horizon in days
-
-EXAMPLE: Single stock portfolio
-  Portfolio: $200,000 in AAPL
-  AAPL daily volatility (sigma): 1.8%
-  
-  1-day 95% VaR = $200,000 x 1.65 x 0.018
-               = $5,940
-
-For a two-asset portfolio:
-  Portfolio sigma = sqrt(w1^2*s1^2 + w2^2*s2^2
-                        + 2*w1*w2*s1*s2*rho)
-
-Where:
-  w1, w2 = portfolio weights
-  s1, s2 = asset standard deviations
-  rho = correlation between assets
-
-EXAMPLE: Two-stock portfolio
-  $120,000 in AAPL (60%), daily vol = 1.8%
-  $80,000 in JNJ (40%), daily vol = 1.0%
-  Correlation = 0.35
-
-  Portfolio sigma = sqrt(0.6^2 x 0.018^2 + 0.4^2 x 0.01^2
-                        + 2 x 0.6 x 0.4 x 0.018 x 0.01 x 0.35)
-                 = sqrt(0.0001166 + 0.0000160 + 0.0000302)
-                 = sqrt(0.0001628)
-                 = 0.01276  (1.276%)
-
-  1-day 95% VaR = $200,000 x 1.65 x 0.01276
-               = $4,211
-
-  NOTE: VaR for the two-stock portfolio ($4,211) is LESS
-  than VaR for AAPL alone at the same total value ($5,940).
-  This is the diversification benefit in action.
-```
-
-```
-PARAMETRIC VaR: STRENGTHS AND WEAKNESSES
-
-STRENGTHS:
-  + Fast to compute (closed-form formula)
-  + Easy to understand and explain
-  + Only needs means, variances, and correlations
-  + Works well for linear instruments (stocks, bonds)
-  + Additive across components (can decompose VaR)
-
-WEAKNESSES:
-  - Assumes normal distribution of returns
-  - Real returns have FAT TAILS (extreme events
-    are much more common than normal distribution predicts)
-  - Does not handle options well (non-linear payoffs)
-  - Assumes constant volatility and correlations
-  - Underestimates risk during market stress
-
-NORMAL DISTRIBUTION vs. REALITY:
-
-  Normal distribution predicts:
-    > 3 sigma event: once every 740 days (3 years)
-    > 4 sigma event: once every 31,560 days (126 years)
-    > 5 sigma event: once every 3.5 million days (never)
-  
-  Actual stock market:
-    > 3 sigma event: once every 100-200 days
-    > 4 sigma event: once every 2-5 years
-    > 5 sigma event: once every 10-20 years
-  
-  CONCLUSION: Fat tails make parametric VaR dangerously
-  optimistic about tail risk. The 2008 crisis produced
-  events that a normal distribution said should happen
-  once in the lifetime of the universe.
-```
-
-#### 3. Historical Simulation VaR
-
-Instead of assuming a distribution, historical simulation uses actual past returns to estimate VaR. It takes your current portfolio and applies historical daily returns to see what would have happened.
-
-```
-HISTORICAL SIMULATION VaR: METHOD
-
-Step 1: Collect N days of historical returns
-  (typically 250-1000 trading days)
-
-Step 2: Apply each day's returns to current portfolio
-  For day i: Hypothetical P&L = Sum of
-    (position_j x return_j_on_day_i)
-    for all positions j
-
-Step 3: Sort the hypothetical P&L from worst to best
-
-Step 4: VaR = the loss at the Xth percentile
-  For 95% VaR with 500 observations:
-    VaR = 25th worst day (5% x 500)
-  For 99% VaR with 500 observations:
-    VaR = 5th worst day (1% x 500)
-
-EXAMPLE: 500 days of data, sorted P&L
-  Day rank    P&L           Cumulative %
-  ────────────────────────────────────────
-  1 (worst)   -$48,200      0.2%
-  2           -$41,500      0.4%
-  3           -$38,700      0.6%
-  4           -$35,100      0.8%
-  5           -$32,800      1.0%  <-- 99% VaR
-  ...
-  24          -$19,400      4.8%
-  25          -$18,200      5.0%  <-- 95% VaR
-  26          -$17,800      5.2%
-  ...
-  250         +$500         50.0% (median)
-  ...
-  500 (best)  +$52,300      100.0%
-  
-  95% VaR = $18,200
-  99% VaR = $32,800
-```
-
-```
-HISTORICAL SIMULATION: STRENGTHS AND WEAKNESSES
-
-STRENGTHS:
-  + No distribution assumption (captures fat tails)
-  + Captures actual correlations (including non-linear)
-  + Naturally incorporates skewness and kurtosis
-  + Handles options and non-linear instruments
-  + Intuitive: "what would have happened"
-
-WEAKNESSES:
-  - Assumes history repeats (future = past)
-  - Limited by available data (cannot model events
-    worse than the worst day in your sample)
-  - Sample period matters enormously:
-    ┌─────────────────────────────────────────────┐
-    │  Using 2015-2019 data: Low VaR              │
-    │  (calm market, no crisis in sample)         │
-    │                                             │
-    │  Using 2007-2009 data: High VaR             │
-    │  (crisis in sample)                         │
-    │                                             │
-    │  SAME PORTFOLIO, VERY DIFFERENT VaR         │
-    │  depending on which history you choose      │
-    └─────────────────────────────────────────────┘
-  - Ghost effects: old extreme events drop out of
-    the sample window, causing VaR to suddenly drop
-    even with no portfolio change
-  - Equal weighting of all historical days (a day
-    from 3 years ago has same weight as yesterday)
-```
-
-#### 4. Monte Carlo VaR
-
-Monte Carlo simulation generates thousands of random scenarios based on assumed statistical properties of asset returns, then calculates VaR from the simulated distribution.
-
-```
-MONTE CARLO VaR: METHOD
-
-Step 1: Estimate return distribution parameters
-  - Mean returns for each asset
-  - Volatilities for each asset
-  - Correlation matrix between assets
-  - (Optional) Fat tail parameters, skewness
-
-Step 2: Generate N random scenarios (N = 10,000+)
-  For each scenario:
-    - Draw correlated random returns for all assets
-    - Calculate portfolio P&L
-  
-Step 3: Sort the N portfolio P&L values
-
-Step 4: VaR = loss at the Xth percentile
-  For 95% VaR with 10,000 scenarios:
-    VaR = 500th worst scenario
-
-CONCEPTUAL DIAGRAM:
-
-  Generate 10,000 random portfolio returns:
-  
-  Scenario 1:   AAPL -2.1%, JNJ +0.3%  -> P&L: -$2,280
-  Scenario 2:   AAPL +1.5%, JNJ +0.8%  -> P&L: +$2,440
-  Scenario 3:   AAPL -0.3%, JNJ -0.5%  -> P&L: -$760
-  ...
-  Scenario 10000: AAPL +0.7%, JNJ -0.2% -> P&L: +$680
-  
-  Sort all 10,000 P&L values:
-  
-       Frequency
-       |
-       |        ___________
-       |       /           \
-       |      /             \
-       |     /               \
-       |    /                 \
-       |   /                   \
-       |  /     10,000          \
-       | / simulated outcomes    \__
-  _____|/                          \____
-  ─────|──────────|─────────────────────> P&L
-       ^          $0
-       |
-  500th worst = 95% VaR
-```
-
-```
-MONTE CARLO VaR: STRENGTHS AND WEAKNESSES
-
-STRENGTHS:
-  + Highly flexible (any distribution assumption)
-  + Can model fat tails, skewness, regime changes
-  + Handles options and non-linear instruments well
-  + Can generate as many scenarios as needed
-  + Can incorporate complex dependencies
-  + Can model time-varying volatility (GARCH)
-
-WEAKNESSES:
-  - Computationally intensive (slow for large portfolios)
-  - Model risk: garbage in, garbage out
-    (results depend on assumed distributions)
-  - Requires careful calibration of parameters
-  - Can give false precision (10,000 scenarios sounds
-    scientific, but if the model is wrong, all 10,000
-    scenarios are wrong)
-  - Convergence: need enough scenarios for stable results
-
-COMPARISON OF THREE VaR METHODS:
-
-Feature          Parametric   Historical   Monte Carlo
-─────────────────────────────────────────────────────────
-Speed            Fast         Medium       Slow
-Distribution     Normal only  No assumption Flexible
-Fat tails        No           Yes          If modeled
-Non-linear       No           Yes          Yes
-Transparency     High         High         Medium
-Data needed      Stats only   Full history  Parameters
-Model risk       Medium       Low          High
-Best for         Stocks/bonds All assets   Options/
-                                           complex
-```
-
-#### 5. Conditional Value at Risk (CVaR / Expected Shortfall)
-
-CVaR, also called Expected Shortfall, answers the question that VaR ignores: "When losses exceed VaR, how bad do they get?"
-
-```
-CVaR vs. VaR: THE CRITICAL DIFFERENCE
-
-VaR tells you: "I will not lose more than $X with Y% confidence"
-CVaR tells you: "When I DO lose more than VaR, my AVERAGE loss is $Z"
-
-VISUAL:
-
-  Probability
-  |
-  |     ___________
-  |    /           \
-  |   /             \
-  |  /    95% of     \
-  | /    outcomes     \
-  |/                   \
-  |                     \___
-  +────|──────────────|──────|─────> Loss
-       0            VaR    CVaR
-                   $50k   $78k
-       
-       ├──── 95% ────┤ 5% │
-       
-  VaR = $50,000:  "95% of the time, losses stay below $50k"
-  CVaR = $78,000: "When losses exceed $50k (the worst 5%),
-                   the AVERAGE loss is $78,000"
-
-WHY CVaR IS BETTER:
-
-  Consider two portfolios:
-  
-  Portfolio A:                Portfolio B:
-  95% VaR = $50,000          95% VaR = $50,000
-  Worst 5% losses:           Worst 5% losses:
-    -$52,000                   -$55,000
-    -$55,000                   -$70,000
-    -$58,000                   -$95,000
-    -$60,000                   -$120,000
-    -$65,000                   -$500,000
-  CVaR = $58,000              CVaR = $168,000
-  
-  SAME VaR. Vastly different tail risk.
-  VaR cannot distinguish them. CVaR can.
-  Portfolio B has hidden catastrophic risk.
-```
-
-```
-CVaR CALCULATION (HISTORICAL METHOD)
-
-Using the sorted P&L from historical simulation:
-500 observations, 95% confidence level
-
-The worst 5% = worst 25 observations
-
-  Rank    P&L
-  ──────────────
-  1       -$48,200
-  2       -$41,500
-  3       -$38,700
-  4       -$35,100
-  5       -$32,800
-  6       -$31,200
-  7       -$29,500
-  8       -$28,100
-  9       -$27,000
-  10      -$26,200
-  ...
-  25      -$18,200  <-- This is VaR (95th percentile)
-  
-  CVaR = Average of ranks 1-25
-       = (-$48,200 + -$41,500 + ... + -$18,200) / 25
-       = -$29,800
-
-  95% VaR = $18,200 (boundary of worst 5%)
-  95% CVaR = $29,800 (average of worst 5%)
-
-  CVaR is 64% larger than VaR in this example.
-  This is typical -- CVaR is usually 1.3x to 2.5x VaR
-  depending on how fat the tails are.
-```
-
-#### 6. Stress Testing
-
-Stress testing goes beyond statistical models to ask: "What happens to my portfolio if a specific extreme event occurs?" Unlike VaR, stress tests are not constrained by historical probabilities or statistical distributions.
-
-```
-STRESS TESTING FRAMEWORK
-
-TYPE 1: HISTORICAL STRESS TESTS
-  Apply actual historical crisis returns to current portfolio
-
-  ┌────────────────────────────────────────────────────────┐
-  │  Event                    S&P    10Y     Credit  Gold  │
-  │                           500    Bond    Spreads       │
-  │────────────────────────────────────────────────────────│
-  │  Black Monday 1987        -20%   +5%     +100bp  +3%  │
-  │  LTCM Crisis 1998         -19%   +8%     +200bp  +2%  │
-  │  Tech Crash 2000-02       -49%   +20%    +300bp  +5%  │
-  │  GFC 2008-09              -57%   +25%    +600bp  +25% │
-  │  COVID Crash 2020         -34%   +5%     +400bp  +5%  │
-  │  2022 Rate Shock          -25%   -15%    +150bp  -1%  │
-  └────────────────────────────────────────────────────────┘
-
-  Apply to current portfolio to estimate impact.
-
-TYPE 2: HYPOTHETICAL STRESS TESTS
-  Design plausible future scenarios not seen in history
-
-  Example hypothetical scenarios:
-  - China invades Taiwan (supply chain collapse)
-  - US sovereign debt downgrade (Treasury selloff)
-  - AI bubble burst (tech sector -60%)
-  - Global pandemic worse than COVID
-  - Simultaneous stock AND bond crash (-30% / -15%)
-
-TYPE 3: SENSITIVITY ANALYSIS (Factor Shocks)
-  Change one risk factor at a time and measure impact
-
-  Interest rates: +100bp, +200bp, +300bp
-  S&P 500: -10%, -20%, -30%, -40%
-  VIX: 25, 35, 50, 80
-  Credit spreads: +100bp, +200bp, +400bp
-  USD: +10%, -10%
-```
-
-```
-STRESS TEST: WORKED EXAMPLE
-
-Portfolio: $600,000
-  40% US Equities       ($240,000)
-  20% Int'l Equities    ($120,000)
-  25% US Agg Bonds      ($150,000)
-  10% REITs             ($60,000)
-  5%  Gold              ($30,000)
-
-STRESS TEST: 2008-STYLE FINANCIAL CRISIS
-
-Asset Class       Crisis Return    Dollar Impact
-──────────────────────────────────────────────────
-US Equities       -50%             -$120,000
-Int'l Equities    -55%             -$66,000
-US Agg Bonds      +8%              +$12,000
-REITs             -65%             -$39,000
-Gold              +25%             +$7,500
-──────────────────────────────────────────────────
-TOTAL                              -$205,500
-Portfolio drawdown:                -34.3%
-
-STRESS TEST: 2022-STYLE RATE SHOCK
-
-Asset Class       Crisis Return    Dollar Impact
-──────────────────────────────────────────────────
-US Equities       -25%             -$60,000
-Int'l Equities    -20%             -$24,000
-US Agg Bonds      -13%             -$19,500
-REITs             -30%             -$18,000
-Gold              -2%              -$600
-──────────────────────────────────────────────────
-TOTAL                              -$122,100
-Portfolio drawdown:                -20.4%
-
-NOTE: The 2022 scenario is worse for bonds but better
-for equities. The 2008 scenario is worse for equities.
-A truly robust portfolio should survive BOTH.
-
-STRESS TEST: HYPOTHETICAL WORST CASE
-(Simultaneous equity crash + rate spike + credit crisis)
-
-Asset Class       Crisis Return    Dollar Impact
-──────────────────────────────────────────────────
-US Equities       -45%             -$108,000
-Int'l Equities    -50%             -$60,000
-US Agg Bonds      -10%             -$15,000
-REITs             -55%             -$33,000
-Gold              +15%             +$4,500
-──────────────────────────────────────────────────
-TOTAL                              -$211,500
-Portfolio drawdown:                -35.3%
-
-Is -35% survivable? Depends on investor.
-If not: increase bond allocation, add TIPS, add cash.
-```
-
-#### 7. Factor Risk Models
-
-Factor risk models decompose portfolio risk into systematic (factor) risk and idiosyncratic (stock-specific) risk. They answer the question: "Where is my risk coming from?"
-
-```
-FACTOR RISK MODEL: CONCEPTUAL STRUCTURE
-
-Total portfolio risk = Factor risk + Specific risk
-
-FACTOR RISK: Risk from exposure to common factors
-  that affect many stocks simultaneously.
-  
-  Common factors:
-  ┌─────────────────────────────────────────────────┐
-  │  MARKET        Overall market movement          │
-  │  SIZE          Small cap vs. large cap          │
-  │  VALUE         Value vs. growth                 │
-  │  MOMENTUM      Recent winners vs. losers        │
-  │  QUALITY       Profitable vs. unprofitable      │
-  │  VOLATILITY    Low vol vs. high vol             │
-  │  SECTOR        Industry exposure                │
-  │  COUNTRY       Geographic exposure              │
-  │  INTEREST RATE Sensitivity to rate changes      │
-  │  CREDIT        Sensitivity to credit conditions │
-  └─────────────────────────────────────────────────┘
-
-SPECIFIC RISK: Risk unique to individual stocks
-  (earnings surprises, management changes, lawsuits, etc.)
-  
-  Specific risk can be diversified away with enough
-  positions. Factor risk cannot.
-
-RISK DECOMPOSITION DIAGRAM:
-
-  Total Portfolio Risk: 100%
-  ┌──────────────────────────────────────────────┐
-  │                                              │
-  │  Factor Risk: 75%              Specific: 25% │
-  │  ┌────────────────────────┐    ┌───────────┐ │
-  │  │ Market    40%          │    │ Stock A 5% │ │
-  │  │ Growth    15%          │    │ Stock B 4% │ │
-  │  │ Tech sect 10%         │    │ Stock C 3% │ │
-  │  │ Momentum   5%          │    │ ...        │ │
-  │  │ Other      5%          │    │ Stock N 2% │ │
-  │  └────────────────────────┘    └───────────┘ │
-  │                                              │
-  └──────────────────────────────────────────────┘
-```
-
-```
-FACTOR RISK DECOMPOSITION: EXAMPLE
-
-Portfolio: 15 stocks, heavily weighted in tech growth
-
-FACTOR EXPOSURES (BETAS):
-  Market beta:     1.15  (15% more market risk than index)
-  Size factor:    -0.20  (tilted toward large cap)
-  Value factor:   -0.45  (heavily tilted toward growth)
-  Momentum:       +0.30  (tilted toward recent winners)
-  Tech sector:    +0.35  (overweight technology)
-  
-RISK CONTRIBUTION BY FACTOR:
-
-  Factor           Exposure    Factor Vol    Risk
-                   (Beta)      (Annual)      Contribution
-  ────────────────────────────────────────────────────────
-  Market            1.15        16%          42%
-  Value (growth)   -0.45        10%          18%
-  Tech sector       0.35        12%          14%
-  Momentum          0.30         8%           8%
-  Size             -0.20         6%           3%
-  Other factors     various     various       5%
-  ────────────────────────────────────────────────────────
-  TOTAL FACTOR RISK                          90%
-  Specific risk                              10%
-  ────────────────────────────────────────────────────────
-  TOTAL                                     100%
-
-INTERPRETATION:
-  This portfolio's risk is 90% driven by factors and
-  only 10% by individual stock selection.
-  
-  The largest risk is MARKET exposure (42%), followed
-  by GROWTH tilt (18%) and TECH concentration (14%).
-  
-  ACTION ITEMS:
-  - If you want less risk, reduce market beta (add bonds)
-  - If you want less factor concentration, balance
-    growth with some value exposure
-  - The tech overweight contributes 14% of risk;
-    consider diversifying sectors
-  - Specific risk is low (10%), meaning diversification
-    across 15 stocks has done its job
-```
-
-#### 8. Limitations of VaR and Risk Models
-
-No discussion of risk models is complete without a thorough understanding of their limitations. These limitations have caused real-world catastrophes.
-
-```
-CRITICAL LIMITATIONS OF VaR
-
-LIMITATION 1: VaR SAYS NOTHING ABOUT TAIL LOSSES
-  VaR: "95% of the time, losses will not exceed $50,000"
-  
-  But what about the other 5%?
-  Could be -$55,000 or -$5,000,000
-  VaR treats both the same.
-  
-  SOLUTION: Use CVaR (Expected Shortfall) to measure
-  the average loss in the tail.
-
-LIMITATION 2: VaR ASSUMES "NORMAL" CONDITIONS
-  VaR is calibrated to normal market behavior.
-  During crises, volatilities spike, correlations
-  change, liquidity evaporates, and the rules change.
-  
-  The worst days in market history all look like this:
-  
-  VaR said:    "Worst case is -3%"
-  Reality:     "-12% in one day"
-  Explanation: "That was a 9-sigma event"
-  Translation: "Our model was wrong"
-  
-  SOLUTION: Supplement VaR with stress tests that
-  do not rely on normal-market assumptions.
-
-LIMITATION 3: VaR CREATES FALSE CONFIDENCE
-  ┌─────────────────────────────────────────────┐
-  │                                             │
-  │  "Our VaR is only $5 million, so we can     │
-  │   increase leverage."                       │
-  │                                             │
-  │  This reasoning CAUSED the 2008 crisis.     │
-  │  Banks used low VaR numbers to justify      │
-  │  extreme leverage. When VaR models broke    │
-  │  down during the crisis, losses were        │
-  │  10-50x the VaR estimate.                   │
-  │                                             │
-  │  RULE: VaR is a MINIMUM risk estimate,      │
-  │  not a maximum. Actual losses can and will  │
-  │  exceed VaR regularly.                      │
-  │                                             │
-  └─────────────────────────────────────────────┘
-
-LIMITATION 4: CORRELATION BREAKDOWN
-  VaR models assume correlations are stable.
-  During crises, correlations spike toward 1.0.
-  
-  Normal market:          Crisis:
-  Stock A ── 0.3 ── Stock B   Stock A ── 0.9 ── Stock B
-  Stock A ── 0.2 ── Stock C   Stock A ── 0.85── Stock C
-  
-  Diversification benefit disappears precisely when
-  you need it most. VaR understates crisis-period risk.
-
-LIMITATION 5: LIQUIDITY RISK IS INVISIBLE TO VaR
-  VaR assumes you can sell at current market prices.
-  During crises, bid-ask spreads widen 5-10x, some
-  assets become completely illiquid.
-  
-  Your VaR might say: "Sell $1M of bonds at -2% loss"
-  Reality during crisis: "Cannot sell bonds at any price"
-  
-  SOLUTION: Apply liquidity adjustments to VaR.
-  Add extra risk for illiquid positions.
-
-LIMITATION 6: MODEL RISK
-  Every VaR model is wrong. The question is how wrong.
-  
-  Parametric VaR: wrong because returns are not normal
-  Historical VaR: wrong because the future is not the past
-  Monte Carlo VaR: wrong because the model is misspecified
-  
-  Using VaR without understanding its limitations
-  is worse than not using VaR at all, because it
-  creates an illusion of precision.
-```
-
-```
-THE "COBRA EFFECT" OF VaR
-
-Named after a real historical event in colonial India
-where a bounty on cobras led to cobra FARMING, making
-the problem worse.
-
-VaR can create perverse incentives:
-
-1. VaR-CONSTRAINED TRADERS:
-   Traders with VaR limits may restructure portfolios
-   to minimize REPORTED VaR while taking on the same
-   or MORE actual risk.
-   
-   Example: Selling deep out-of-the-money options
-   has very low VaR (small daily move expected)
-   but enormous tail risk (catastrophic if exercised).
-   
-   VaR says: "Low risk"
-   Reality: "Picking up pennies in front of steamrollers"
-
-2. PROCYCLICALITY:
-   In calm markets: VaR is low -> take more risk
-   In volatile markets: VaR rises -> forced to sell
-   
-   This creates a feedback loop:
-   ┌──────────────────────────────────────────┐
-   │  Market drops                            │
-   │     ↓                                    │
-   │  Volatility rises                        │
-   │     ↓                                    │
-   │  VaR increases                           │
-   │     ↓                                    │
-   │  Risk limits breached                    │
-   │     ↓                                    │
-   │  Forced selling to reduce VaR            │
-   │     ↓                                    │
-   │  Market drops further                    │
-   │     ↓                                    │
-   │  REPEAT                                  │
-   └──────────────────────────────────────────┘
-   
-   VaR-based risk management can AMPLIFY crashes.
-```
-
-#### 9. Putting It All Together: A Complete Risk Measurement Framework
-
-```
-COMPREHENSIVE RISK MEASUREMENT APPROACH
-
-Do not rely on any single measure. Use ALL of these:
-
-  ┌──────────────────────────────────────────────────────┐
-  │  MEASURE        PURPOSE         WHAT IT CATCHES      │
-  │──────────────────────────────────────────────────────│
-  │  VaR (95%)      Daily risk      Normal daily losses  │
-  │  VaR (99%)      Tail risk       Rare but plausible   │
-  │  CVaR           Tail severity   How bad the bad gets │
-  │  Stress tests   Extreme events  Model-free scenarios │
-  │  Factor decomp  Risk sources    Where risk comes from│
-  │  Concentration  Single names    Idiosyncratic risk   │
-  │  Correlation    Diversification Hidden dependencies  │
-  │  Drawdown       Cumulative loss Sustained declines   │
-  │  Liquidity      Exit ability    Can you sell?         │
-  └──────────────────────────────────────────────────────┘
-
-RISK DASHBOARD (what professionals monitor daily):
-
-  ┌─────────────────────────────────────┐
-  │  RISK DASHBOARD - April 12, 2026   │
-  │                                     │
-  │  Portfolio Value:    $500,000        │
-  │  Daily P&L:          -$2,100        │
-  │                                     │
-  │  1-Day 95% VaR:     $8,200         │
-  │  1-Day 99% VaR:     $14,500        │
-  │  10-Day 95% VaR:    $25,900        │
-  │  95% CVaR:          $18,600        │
-  │                                     │
-  │  Portfolio Vol:      14.2% (ann)    │
-  │  Market Beta:        0.85           │
-  │  Sharpe Ratio:       1.12           │
-  │                                     │
-  │  Max Drawdown (YTD): -6.3%         │
-  │  Current Drawdown:   -2.1%         │
-  │                                     │
-  │  Largest Position:   AAPL (7.2%)   │
-  │  Largest Sector:     Tech (28.1%)  │
-  │                                     │
-  │  STRESS TEST RESULTS:              │
-  │  2008-style crisis: -31.2%         │
-  │  Rate shock +300bp: -18.7%         │
-  │  Tech crash -50%:   -22.4%         │
-  │                                     │
-  │  ALERTS: None                       │
-  └─────────────────────────────────────┘
-```
+### 1. Why This Is Important
+
+Last week was the conceptual frame for risk management: position
+sizing, stop rules, scenario thinking, and how a portfolio's pain is
+budgeted across positions. This week we put numbers on it.
+
+**Value at Risk (VaR)** is the single most-quoted risk number on the
+planet. Every bank, hedge fund, pension and insurance balance sheet
+runs a VaR system somewhere in its plumbing. **CVaR / Expected
+Shortfall** is its smarter cousin — required by Basel III since 2016
+because plain VaR failed catastrophically in 2008. Both descend from
+the same idea: take a probability distribution of possible portfolio
+outcomes, look at how bad the bad days are, and quote a single dollar
+number.
+
+You need to understand them for four reasons.
+
+1. **Common language.** When a counterparty says "our 1-day 99% VaR
+   is forty million," that is a precise, falsifiable claim. If you
+   cannot translate it into "they expect a loss of at least \$40m on
+   one trading day in every hundred, and we have no idea how bad the
+   *worst* one is," you cannot evaluate the statement.
+2. **Three calculation methods, three sets of lies.** Parametric VaR
+   assumes returns are normal — which is wrong, especially in the
+   tail. Historical VaR resamples the past — which only ever looked
+   like the past you happened to draw from. Monte Carlo VaR makes you
+   specify a model — and your model is a guess. The methods disagree
+   most where it matters most: at the 99% and 99.9% percentile, and
+   in the worst week of every decade.
+3. **The fat-tail problem (SOUL #6, vol-tail-wags-dog).** The kurtosis
+   of daily US-equity returns runs 7-15 over 5-year windows since
+   1990, never close to the Normal value of 3. Parametric VaR at 95%
+   underestimates real losses by ~10-30%. At 99% it underestimates by
+   2-5×. At 99.9% it is essentially science fiction.
+4. **CVaR is what regulators now use, and what you should use.** The
+   Basel Committee replaced VaR with Expected Shortfall in the 2016
+   Fundamental Review of the Trading Book precisely because CVaR
+   averages the *whole* tail rather than reading one point on the
+   distribution. It is more conservative, harder to game, and
+   coherent in a mathematical sense VaR is not.
+
+The marshmallow conclusion at the end of this lesson: *parametric VaR
+is fine at 95%, useless at 99.9%, and the difference between the two
+ate Long-Term Capital Management in 1998, the structured-credit desks
+in 2008, and the leveraged vol-targeters in March 2020.*
 
 ---
 
-### c) Common Misconceptions
+### 2. What You Need to Know
 
-**Misconception 1: "VaR tells me my maximum possible loss."**
+#### 2.1 The Definition — One Sentence, Three Parameters
 
-VaR tells you the loss that will be exceeded a certain percentage of the time. It is a threshold, not a ceiling. If your 95% VaR is $50,000, you should expect to lose MORE than $50,000 about once a month (one day in twenty). VaR says nothing about how much more. Your actual loss could be $55,000 or $500,000. This is why CVaR exists -- it measures the average loss when VaR is exceeded.
+Value at Risk is the **largest loss not exceeded with a given
+probability over a given horizon**. Three parameters, always:
 
-**Misconception 2: "A lower VaR always means a safer portfolio."**
+1. **Confidence level** $\alpha$. Typical values: 95%, 99%, 99.5%,
+   99.9%. The complement $1-\alpha$ is the tail probability we are
+   measuring — at 99% we are looking at the worst 1% of outcomes.
+2. **Time horizon** $T$. Typical values: 1 day, 10 days, 1 month, 1
+   year. Bank trading desks use 1-day. Basel uses 10-day. Asset
+   allocators use 1-month or 1-year.
+3. **Currency amount.** The VaR number itself, in dollars.
 
-A portfolio can have low VaR but extreme tail risk. Selling deep out-of-the-money put options has very low VaR because the daily expected loss is tiny. But the tail risk is catastrophic -- the position can lose 10-50 times its VaR in a single day. This is exactly the risk profile that destroyed Long-Term Capital Management, AIG, and numerous hedge funds. Low VaR with high CVaR is a major warning sign.
+The textbook sentence:
 
-**Misconception 3: "Historical VaR captures all the risks because it uses real data."**
+> *1-day 99% VaR = \$5,000,000* means: on 99 trading days out of every
+> 100, we expect the portfolio to lose less than \$5,000,000 over a
+> single day. On the remaining 1 day, the loss may be larger — and
+> VaR is silent on how much larger.
 
-Historical VaR can only capture events that occurred in your data window. If your window is 2015-2019, it does not contain a financial crisis. Your VaR will dramatically understate the risk of crisis-type events. Even a 20-year window may not contain the specific type of crisis that hits next. Historical simulation is useful but must be supplemented with hypothetical stress tests.
+That last clause is the big one. VaR tells you the *threshold* of the
+loss that will be exceeded $1-\alpha$ of the time. It tells you
+nothing whatsoever about how bad the breach will be when it comes.
+Two portfolios can have identical 99% VaRs and wildly different 99.9%
+VaRs — one capped at -\$10m, the other unbounded.
 
-**Misconception 4: "Monte Carlo simulation gives accurate results because it runs thousands of scenarios."**
+#### 2.2 Method 1 — Parametric (Variance-Covariance)
 
-Running 10,000 scenarios sounds impressive, but if the underlying model is wrong, all 10,000 scenarios are wrong. Monte Carlo is only as good as the assumptions about return distributions, correlations, and volatilities that you feed into it. Garbage in, garbage out -- but with 10,000 rows of garbage instead of one. The precision of the output far exceeds the accuracy of the inputs.
+The fastest, oldest, and most often wrong method. Assume daily
+returns are Normal with mean $\mu$ and standard deviation $\sigma$.
+Then the VaR at confidence level $\alpha$ over horizon $T$ is:
 
-**Misconception 5: "Factor risk models capture all sources of risk."**
+$$ \text{VaR}_\alpha = -\big(\mu T - z_\alpha \,\sigma\sqrt{T}\big)\,V $$
 
-Factor models capture systematic risk -- the risk from exposure to known factors like market, size, value, and momentum. But they miss event risk (a specific company's CEO being arrested), liquidity risk (an asset becoming impossible to sell), and structural risk (an entire market closing, as happened with Russian stocks in 2022). Factor models are a powerful lens but not a complete picture.
+where $V$ is the portfolio value and $z_\alpha$ is the standard
+Normal quantile. The classic $z$ values:
 
-**Misconception 6: "Stress testing is only for institutions."**
+| $\alpha$ | $z_\alpha$ | Tail prob. |
+|---|---:|---:|
+| 90% | 1.282 | 10% |
+| 95% | 1.645 | 5% |
+| 97.5% | 1.960 | 2.5% |
+| 99% | 2.326 | 1% |
+| 99.5% | 2.576 | 0.5% |
+| 99.9% | 3.090 | 0.1% |
+| 99.99% | 3.719 | 0.01% |
 
-Individual investors can and should run simple stress tests. Take your current portfolio and ask: "What happens if the stock market drops 40%? What happens if interest rates rise 3%? What happens if my largest holding goes to zero?" You do not need a Bloomberg terminal. You need a spreadsheet and an honest assessment of each position's sensitivity to extreme moves. If the worst case is unsurvivable, reduce risk now, before the event occurs.
+Plug in the S&P 500 daily numbers: $\mu \approx 0.04\%$ per day,
+$\sigma \approx 1.1\%$ per day. On a \$1,000,000 portfolio:
+
+- 1-day 95% VaR: $-(0.0004 - 1.645 \times 0.011) \times 1{,}000{,}000 \approx \$17{,}700$.
+- 1-day 99% VaR: $\approx \$25{,}200$.
+- 1-day 99.9% VaR: $\approx \$33{,}600$.
+
+These are the numbers a bank's 1990s spreadsheet would have spit out.
+Now look at what actually happened: October 19th 1987 the S&P 500
+fell **20.5% in a single day**. Under the parametric model that is a
+$z = 19$ event — its probability is $10^{-79}$, which is to say *it
+should not happen between now and the heat death of the universe*. It
+happened. On a Monday. With Reagan in the White House.
+
+That single observation is enough to tell you the model is wrong.
+
+The **strength** of parametric VaR: it is fast, additive, and easy
+to push through a portfolio with thousands of positions. Variance
+adds, correlations are linear, you can compute it in a spreadsheet.
+
+The **weakness**: $\sigma$ is computed on quiet windows and then used
+to predict noisy ones, and the Normal distribution has thin tails
+that nobody's portfolio has ever seen. *At 95% it is an estimate. At
+99% it is a guess. At 99.9% it is fiction.*
+
+#### 2.3 Method 2 — Historical Simulation
+
+Drop the Normal assumption entirely. Take the last $N$ days of
+portfolio returns (typically 250 to 1,000 trading days), sort them,
+and read the empirical $1-\alpha$ percentile directly off the sorted
+list. If $N=1000$ and $\alpha=99\%$, your 99% VaR is the 10th worst
+return in the sample.
+
+Worked example. Take SPY's last 1,000 trading days, sort, the 10th
+worst is roughly $-3.6\%$. On a \$1m portfolio, 1-day 99% historical
+VaR is \$36,000 — roughly **40% larger** than the parametric number
+above. The history "knows" about COVID, knows about 2018 Q4 vol, and
+weights those days equally with quiet ones.
+
+The **strength**: makes no parametric assumption. If the past has fat
+tails, your VaR has fat tails for free.
+
+The **weakness**: you only see what happened. If your 1,000-day window
+ends in October 2007, you have no 2008 in your data and your 99% VaR
+will read like 95% the moment the regime breaks. The window is
+either too short (unstable, no tails) or too long (mixing regimes
+that no longer apply).
+
+The cure is partial: **age-weighted bootstrap** (recent days count
+more) or **filtered historical simulation** (rescale yesterday's
+returns to today's volatility). Both push the model toward what a
+practitioner already does intuitively when looking at a chart.
+
+![Three-panel chart of daily-return distributions and VaR. Left panel: histogram of S&P 500 daily total returns 1990-April 2026, with a Normal distribution of the same mean and standard deviation overlaid. The empirical histogram has visibly thicker shoulders below -2% and a long left tail that the Normal curve cannot reach. Middle panel: histogram of S&P 500 annual total returns 1928-2024 from the Damodaran dataset, with vertical markers at the 95%, 99% and 99.9% empirical VaR thresholds — and at the parametric Normal-fit VaR, which sits well to the right of the historical thresholds at the 99%+ levels. Right panel: empirical CVaR / VaR ratio computed at three confidence levels on the daily series, showing the ratio rising from ~1.20 at the 95% level to ~1.45 at the 99.5% level, illustrating that the deeper into the tail you go, the worse the breach.](image/week42_var_methods.png)
+
+#### 2.4 Method 3 — Monte Carlo Simulation
+
+Specify a model. Simulate $M$ paths from it. Compute portfolio P&L
+for each path. Sort. Read percentile.
+
+The model can be Normal (in which case Monte Carlo agrees with
+parametric, with sampling noise). Or it can be Student-t with low
+degrees of freedom (heavier tails). Or a regime-switching mixture
+(quiet days from one Normal, noisy days from another). Or GARCH
+(volatility today depends on volatility yesterday). Or a jump-
+diffusion (Normal noise plus occasional Poisson jumps).
+
+The flexibility is total. A typical "modern" Monte Carlo for daily
+US-equity portfolios uses a Student-t with 5-7 degrees of freedom —
+producing tails that approximately match the empirical distribution.
+This is the model bank-prop desks adopted after 2008.
+
+**Strength:** can capture nonlinearities (options, structured
+products), path-dependent payoffs (barriers, callables), and any
+non-Normal distribution you can write down.
+
+**Weakness:** *garbage in, garbage out*. If your model is wrong in
+the tail, your Monte Carlo VaR is wrong in the tail — with the
+illusion of precision. Running 100,000 paths from a wrong model
+gives you a confidently wrong answer.
+
+The honest practitioner runs all three methods side by side, treats
+the spread between them as the irreducible uncertainty in the number,
+and reports the most conservative (largest) one.
+
+#### 2.5 CVaR / Expected Shortfall — The Average of the Tail
+
+CVaR (also called Expected Shortfall, ES) answers the question VaR
+ducks: *given that the loss has exceeded the VaR threshold, what is
+the average loss?*
+
+$$ \text{CVaR}_\alpha = \mathbb{E}[L \mid L \geq \text{VaR}_\alpha] $$
+
+For a Normal distribution and continuous loss $L$, CVaR has a closed
+form:
+
+$$ \text{CVaR}_\alpha = \mu + \sigma\,\frac{\phi(z_\alpha)}{1-\alpha} $$
+
+where $\phi$ is the Normal PDF. The ratio $\text{CVaR}/\text{VaR}$
+under the Normal model is roughly **1.25** at 95% and **1.15** at 99%
+— meaning the average breach loss is only 15-25% bigger than the VaR
+threshold under the assumption of Normality. Empirically on US
+equities the ratio is closer to **1.30-1.50**, especially at the 99%+
+levels. Tails are not just fatter than the Normal predicts; the
+*depth of breach* is also larger.
+
+CVaR is **coherent** (in the formal sense of Artzner-Delbaen-Eber-
+Heath, 1999) — meaning it satisfies four properties any reasonable
+risk measure should: monotonicity, sub-additivity, positive
+homogeneity, and translation invariance. **VaR is not coherent** — it
+fails sub-additivity for heavy-tailed distributions, meaning the VaR
+of two portfolios combined can be *larger* than the sum of their
+individual VaRs. That mathematical pathology has practical
+consequences: VaR can incentivise hidden tail-risk concentration that
+CVaR penalises. Basel III replaced VaR with ES at the 97.5% level for
+exactly this reason.
+
+#### 2.6 Why All Three Methods Break in the Tails
+
+The fundamental problem is summarised in one number: **kurtosis**.
+
+A Normal distribution has kurtosis exactly 3 (or excess kurtosis
+zero). Higher kurtosis means fatter tails — more probability mass
+beyond ±3σ than the Normal allows.
+
+What does the data say? Compute rolling 5-year kurtosis on daily S&P
+500 returns since 1990 and the answer is: *never close to 3*. Mostly
+between 7 and 15. The 1987-window prints above 30. The 2008-window
+prints around 12. Even quiet windows like 2003-2007 print around 5.
+
+![Line chart of rolling 5-year kurtosis of daily S&P 500 returns from 1990 through April 2026. The line oscillates between roughly 4 and 30, with prominent spikes during the windows containing 1987, 2008-2009, the 2010 Flash Crash, and March 2020. A horizontal dashed line at kurtosis = 3 shows the Normal-distribution baseline. The empirical line is above 3 every single day of the sample, and most often between 7 and 12.](image/week42_kurtosis_history.png)
+
+The implications for VaR:
+
+- **At 95%:** parametric VaR underestimates by 5-15%. Tolerable.
+- **At 99%:** parametric VaR underestimates by 30-100%. Material.
+- **At 99.9%:** parametric VaR underestimates by **2-5×**. Useless.
+- **At 99.99%:** parametric VaR is a polite fiction.
+
+The 1998 LTCM blow-up was not a 1-in-a-million event under the
+fund's model; it was, in retrospect, a reasonably common 1-in-50-
+years scenario that the model could not see. The 2008 mortgage-bond
+losses were "twenty-five-sigma events, several days in a row" said
+Goldman's then-CFO David Viniar — which is a confession that the
+model was the wrong shape, not that the world was. March 2020 saw
+SPY trade -12% in a single session against a parametric model that
+assigned that move a probability of ~$10^{-25}$.
+
+The right lesson is not "use a more complicated VaR." The right
+lesson is *risk numbers are estimates, all of them, and the tail is
+where estimates lie hardest*. SOUL #6: the tail wags the dog. Your
+risk system must include explicit stress tests at multiples of the
+quantitative VaR, regardless of what the model says is "impossible."
+
+#### 2.7 Putting It All Together — A Practical Framework
+
+How a serious investor uses these tools:
+
+1. **Run all three methods.** Parametric, historical, Monte Carlo (a
+   Student-t with df=5-7 is the standard choice). Look at the
+   spread.
+2. **Quote CVaR, not VaR.** The 97.5% CVaR is roughly equivalent to
+   the 99% VaR for thin-tailed distributions and substantially more
+   conservative for thick-tailed ones. Basel uses 97.5% CVaR; you
+   should too.
+3. **Always run a stress test.** Compute the loss under: 1987 (-22%
+   in a day), 2008 (-9% in a day, -38% in a year), 2020 March (-12%
+   in a day, -34% in a month), 2022 (paired bond+stock drawdown).
+   These are not VaR events; these are *plan-for-them* events.
+4. **Size positions for the tail, not the average.** SOUL #14:
+   barbell. Most of the book in defensive holdings sized for normal
+   vol; a small high-conviction tail in instruments that cap your
+   loss (long options, deep cash buffers, defined-risk spreads).
+5. **Discount the headline number.** Whatever VaR your platform
+   reports at 99%, double it for sleep purposes. The cost of being
+   too conservative is a few basis points of opportunity. The cost
+   of being too aggressive is the obituary section of the *Wall
+   Street Journal*.
 
 ---
 
-### d) Common Questions and Answers
+### 3. Common Misconceptions
 
-**Q1: What confidence level and time horizon should I use for VaR?**
-
-A: For daily monitoring, 95% 1-day VaR is standard. It gives you a practical sense of your daily risk. For risk budgeting and limit-setting, 99% 10-day VaR is more common because it captures more severe events over a longer horizon. Banks are required by regulators to use 99% 10-day VaR for capital calculations. As an individual investor, 95% 1-day VaR is sufficient for monitoring, but always supplement with CVaR and stress tests.
-
-**Q2: How many days of historical data should I use for historical simulation VaR?**
-
-A: At minimum, 250 trading days (one year). Ideally, 500-1000 days (2-4 years). Using less than 250 days produces unstable estimates. Using more than 1000 days includes very old data that may not be relevant to current market conditions. Some practitioners use exponentially weighted data, where recent observations get more weight than older ones, to balance recency with sample size.
-
-**Q3: Can I calculate VaR for my personal portfolio?**
-
-A: Yes. The simplest approach is to calculate the daily volatility of your portfolio's historical returns and multiply by the appropriate z-score. If your portfolio's daily standard deviation is 0.8%, your 95% 1-day VaR is 0.8% x 1.65 = 1.32% of portfolio value. On a $300,000 portfolio, that is $3,960. Many portfolio analytics tools (Portfolio Visualizer, Morningstar, some brokerage platforms) provide VaR calculations automatically.
-
-**Q4: What is the difference between VaR and maximum drawdown?**
-
-A: VaR measures the worst expected loss on a single day (or short period) at a given confidence level. Maximum drawdown measures the largest peak-to-trough decline over a given period, which can span weeks or months. A portfolio can have low daily VaR but a large maximum drawdown if it experiences many consecutive small losses. For long-term investors, maximum drawdown is often a more meaningful risk measure because it captures the cumulative impact of sustained declines.
-
-**Q5: How do banks use VaR for regulation?**
-
-A: Under Basel III regulations, banks must hold capital equal to at least 3 times their 99% 10-day VaR. This is meant to ensure banks have enough capital to survive extreme events. After 2008, regulators added Stressed VaR (VaR calculated using crisis-period data) and the Fundamental Review of the Trading Book (FRTB) framework, which replaces VaR with Expected Shortfall (CVaR) as the primary risk measure. The shift to CVaR reflects the recognition that VaR's blindness to tail severity was a major contributor to the crisis.
-
-**Q6: How do I stress test a portfolio with options?**
-
-A: Options stress testing requires repricing options under each stress scenario using an options pricing model (Black-Scholes or similar). You cannot simply apply percentage moves to option values because options have non-linear payoffs. If you own a call option and the stock drops 30%, the option might lose 60%, 80%, or 100% depending on its strike price and time to expiration. Most brokerage platforms with options trading offer a "what-if" or "theoretical" tool that reprices your options under different scenarios. Use these tools.
-
-**Q7: Why did regulators shift from VaR to CVaR after the financial crisis?**
-
-A: VaR's fundamental flaw is that it ignores the severity of tail losses. Two portfolios can have identical VaR but dramatically different tail risk. Before 2008, banks optimized their portfolios to minimize VaR, which led them to take on positions with enormous tail risk but low day-to-day risk (like mortgage-backed securities). CVaR penalizes tail severity, so portfolios optimized for CVaR are more robust to extreme events. The shift from VaR to CVaR in regulation is one of the most important post-crisis reforms.
+1. **"99% VaR means the worst loss is bounded by VaR."** No. 99%
+   VaR is the threshold beyond which 1% of outcomes lie. It says
+   nothing about how far beyond. The worst-case loss is unbounded.
+2. **"A higher confidence level is always more conservative."** True
+   for the threshold itself, but not for the *quality of the
+   estimate*. The 99.9% empirical VaR computed on 1,000 trading
+   days uses literally one observation. The estimator's variance is
+   enormous. More confidence ≠ more knowledge.
+3. **"If the parametric and historical VaRs agree, the model is
+   fine."** They typically agree at 95% and diverge at 99%+. Quiet
+   periods make the disagreement small even when the underlying
+   model is wrong.
+4. **"VaR is the regulatory standard."** Was. Basel III moved to
+   Expected Shortfall at 97.5% in 2016, fully phased in for the FRTB
+   in 2023. If you are still quoting raw VaR, you are 7+ years
+   behind.
+5. **"Monte Carlo with 100,000 paths is more accurate than 1,000."**
+   Only the *sampling noise* is smaller. The *model error* — the
+   wrongness of the chosen distribution — is unchanged. A million
+   paths from a Normal model still gives you Normal-tail answers.
+6. **"Diversification always reduces VaR."** It reduces VaR for
+   thin-tailed portfolios. For heavy-tailed portfolios with extreme
+   joint dependence (correlated tail events) VaR can fail
+   sub-additivity — combined VaR can exceed the sum of individual
+   VaRs. CVaR does not have this pathology.
+7. **"The 1-day VaR scales to N-day VaR by $\sqrt{N}$."** Only under
+   IID Normal returns. Real returns have volatility clustering and
+   serial correlation. The square-root rule overstates the gain
+   from time-diversification of risk in stress periods.
+8. **"VaR backtesting tells you whether the model is right."** Only
+   crudely. A model can pass 250-day backtests with the right
+   number of breaches and still have wildly wrong CVaR — the
+   *threshold* matches but the *tail mass* does not.
+9. **"Stress tests are subjective; VaR is objective."** Both are
+   subjective. VaR's subjectivity is hidden in the choice of
+   distribution and lookback window; stress tests' is openly stated
+   in the scenario.
+10. **"CVaR is just a small adjustment to VaR."** For Normal
+    distributions yes, ratio ~1.25 at 95%. For empirical equities,
+    CVaR can be 1.5× VaR at 99% — that "small adjustment" is the
+    difference between a survivable loss and a margin call.
 
 ---
 
+### 4. Q&A Section
+
+**Q: My broker shows me 1-day 95% VaR. Should I care?**
+A: It is a baseline anchor — when it says \$200, you should not be
+shocked by a \$200 loss. But do not stop there. Mentally double it
+for 99% (which retail platforms rarely show), triple it for 99.9%,
+and run a manual scenario: "what if the S&P falls 10% in a single
+day?" That last number is the only one that matters for sleeping at
+night.
+
+**Q: Why does Basel III use 97.5% rather than 99%?**
+A: Two reasons. First, 97.5% CVaR is roughly equivalent in
+conservatism to 99% VaR under typical fat-tailed equity
+distributions, so the regulatory bite stays similar. Second, CVaR
+estimates at 97.5% have lower sampling variance than at 99% because
+they average more observations. It is a sweet spot of conservatism
+and statistical stability.
+
+**Q: Does VaR work for options portfolios?**
+A: Parametric VaR fails badly for options because their P&L is
+non-linear in the underlying. The "delta-gamma" approximation
+(linear plus quadratic) helps for small moves but breaks for tail
+events. Monte Carlo, properly applied, is the right tool — simulate
+underlying paths, revalue the options under each path, sort the
+P&L. Historical simulation also works well.
+
+**Q: How long should the lookback window for historical VaR be?**
+A: Trade-off. Shorter (250 days) is responsive to current regime but
+omits older crises. Longer (1,000-2,500 days) sees more crises but
+mixes regimes. The Basel standard is 250 days for the unscaled
+window plus a stressed-period overlay. Practitioners often use
+500-750 days as a default.
+
+**Q: Is square-root-of-time scaling reliable?**
+A: For mean-reverting series (volatility, credit spreads) it
+overstates N-day risk. For trending series (long-only equity in a
+bull market) it understates. For IID series it is exact. Real series
+are none of these in stress periods. Treat it as a rough guide, not
+a calculation.
+
+**Q: Why do banks prefer 1-day VaR but pension funds prefer 1-year
+VaR?**
+A: Frequency of action. A bank can change its book in a day and
+manages to a 1-day horizon. A pension fund's liabilities are
+multi-decade and its rebalancing horizon is annual; a 1-day VaR is
+operationally useless to a CIO who cannot trade the way a
+prop-desk can.
+
+**Q: What is the relationship between VaR and the Kelly criterion?**
+A: They answer different questions. Kelly is *forward-looking
+position sizing for a known edge*. VaR is *backward-looking risk
+quantification of a current position*. A Kelly-sized position has a
+known relationship to its expected loss and ruin probability; VaR
+gives you the percentile of that loss distribution. Both should be
+in your kit.
+
+**Q: How does CVaR / VaR change for a portfolio with embedded short
+options?**
+A: CVaR/VaR can blow up. A short out-of-the-money put has limited
+expected loss (good for VaR if the strike is far) but unlimited
+tail loss when the strike is breached (terrible for CVaR). Two
+strategies with identical 95% VaR can have wildly different 99.9%
+CVaR if one is short tail and the other is not. This is exactly the
+type of "hidden tail" Basel was trying to root out.
+
+**Q: Why does my historical-VaR number jump every time the worst
+day in the window rolls off?**
+A: Because the historical method literally reads percentiles of a
+finite sample. When April 2020 falls out of the 1,000-day window in
+mid-2024, the 99% VaR drops mechanically by ~30% — *despite no
+change in the actual portfolio*. This is an artefact of the method,
+not a real reduction in risk. Use age-weighting or stressed-period
+overlays to smooth.
+
+**Q: Is there a number that combines VaR, CVaR, and stress test into
+one?**
+A: Not really, and that is the point. Risk is multi-dimensional. A
+portfolio has a normal-day risk (vol), a quantile risk (VaR), an
+average-tail risk (CVaR), a worst-case risk (stress test), a
+tail-dependence risk (joint extremes), and a liquidity risk (can
+you actually exit?). Compressing those into one number throws away
+exactly the information you need when things break.
+
+**Q: What is the simplest "good enough" VaR I can compute at home?**
+A: Take the last 500 daily returns of your portfolio, sort, read
+the 5th-percentile (99% VaR) and 25th-percentile (95% VaR). Compute
+the average of the worst 5 returns — that is your 99% CVaR. You
+will be more conservative than 90% of professional VaR systems and
+be using only Excel.
+
 ---
 
-## YouTube Script
+## Part 2: YouTube Script
 
-**Week 42: Value at Risk and Risk Models**
+---
 
-[VISUAL: Title card -- "VaR, CVaR, and Risk Models: Quantifying Portfolio Risk"]
+**VIDEO TITLE:** VaR, CVaR, and Why All Three Methods Break in the
+Tails — Risk Management Without the Lies (Week 42)
 
-**Horace**: Last week we covered the conceptual foundations of risk management. This week we are going to put numbers on everything. We are going to learn how institutions measure risk, where those measurements fail, and how to build a complete risk framework.
+**RUNTIME TARGET:** ~18 minutes
 
-**Stella**: This is the quantitative side -- the math behind risk management.
+**HOSTS:** Horace, Stella
 
-**Horace**: Right. And the centerpiece of institutional risk measurement is Value at Risk, or VaR. It is the most widely used risk metric in finance.
+---
 
-**Stella**: I have heard the term but never really understood what it means.
+**[INTRO — 0:00 to 1:20]**
 
-[VISUAL: VaR definition with bell curve diagram]
+**Stella:** Welcome back to Week 42. Last week we did the conceptual
+side of risk management — how big to size, when to cut, how to
+budget pain across positions. This week we put numbers on it.
 
-**Horace**: VaR answers one specific question: "What is the maximum loss I should expect on a normal day, at a given confidence level?" For example, "there is a 95% probability that the portfolio will not lose more than $50,000 in a single day." That is a 95% 1-day VaR of $50,000.
+**Horace:** And this week is the most-quoted, most-misused risk
+number on Wall Street. Value at Risk. VaR. Every bank in the world
+runs one. Every fund tear-sheet shows one. And every single one of
+them is wrong in the tail. So today we are going to learn three
+ways to compute it, why all three are wrong, and what the smart
+people do instead.
 
-**Stella**: So on 95 out of 100 days, losses will be less than $50,000?
+**Stella:** That sounds like a setup for the marshmallow conclusion
+already.
 
-**Horace**: Exactly. But here is the critical nuance that most people miss. VaR says NOTHING about what happens on the other 5 days. The loss could be $55,000 or $5 million. VaR only tells you about the boundary -- the 95th percentile. It is a fence, not a wall.
+**Horace:** It is. SOUL number six. Vol-tail-wags-dog. Parametric VaR
+at 95% is a useful number. At 99% it is a guess. At 99.9% it is
+fiction. The difference between those three statements ate
+Long-Term Capital, the structured-credit desks in 2008, and the
+vol-targeting funds in March 2020. So pay attention.
 
-**Stella**: That seems like a pretty big gap. How do you know what happens beyond the fence?
+**[1:20 — Section 1: The definition]**
 
-**Horace**: That is exactly the right question, and it is what led to the 2008 crisis. But we will get there. First, let me explain the three ways VaR is calculated, because the method matters a lot.
+**Horace:** First the definition, slowly. Value at Risk is the
+**largest loss you do not exceed with a given probability over a
+given horizon**. Three knobs. Confidence level — usually 95 or 99.
+Time horizon — usually one day or ten days. Currency amount — the
+VaR number itself.
 
-[VISUAL: "Three Methods of Calculating VaR" overview slide]
+**Stella:** Sentence form?
 
-**Horace**: Method one is parametric VaR, also called the variance-covariance method. It is the simplest. You assume that returns follow a normal distribution -- the classic bell curve. Then VaR is just a formula.
+**Horace:** "Our 1-day 99% VaR is five million dollars." That means
+on 99 days out of every 100 we expect to lose less than five
+million in a single trading day. On the hundredth day, the loss may
+be larger — and VaR has nothing to say about *how much* larger.
+That last clause matters more than anything else we will cover
+today.
 
-**Stella**: What is the formula?
+**[2:30 — Section 2: Method 1, parametric]**
 
-**Horace**: VaR equals your portfolio value times the z-score times the portfolio's daily standard deviation. For 95% confidence, the z-score is 1.65. For 99%, it is 2.33. If your portfolio is $500,000 and the daily standard deviation is 1%, your 95% VaR is $500,000 times 1.65 times 0.01, which equals $8,250.
+**Stella:** Method one. Parametric.
 
-[VISUAL: Step-by-step parametric VaR calculation]
+**Horace:** Assume returns are Normal — the bell curve from your
+statistics class. Mean μ, standard deviation σ. Then the VaR is just
+$z_\alpha$ times σ minus μ, times your portfolio value. Z values:
+1.645 at 95%, 2.326 at 99%, 3.090 at 99.9%. You can do this in
+Excel.
 
-**Stella**: That seems straightforward. What is the catch?
+**Stella:** Strength?
 
-**Horace**: The catch is the assumption of normality. Real stock market returns have fat tails -- extreme events happen far more often than a normal distribution predicts. A normal distribution says a 4-sigma event should happen once every 126 years. In reality, it happens every 2-5 years. A 5-sigma event should theoretically happen once in 3.5 million years. The stock market has had several in just the last few decades.
+**Horace:** Lightning fast. Variance adds, correlations are linear,
+you can do a thousand-position portfolio in a spreadsheet.
 
-[ANIMATION: animation/week42_fat_tails.py -- Animated overlay of the normal distribution (bell curve) and the actual distribution of S&P 500 daily returns from 1950 to 2025. The animation starts with both distributions overlapping at the center, looking nearly identical. Then it zooms into the left tail (losses), where the actual distribution dramatically exceeds the normal distribution. Annotations appear pointing to specific extreme days: Black Monday 1987 (-22.6%), COVID crash March 2020 (-12%), Flash Crash 2010 (-9%), and several other events. A counter tallies the number of actual events beyond 3, 4, and 5 standard deviations compared to what the normal distribution predicts. The difference is striking: hundreds of events where the normal model predicted single digits.]
+**Stella:** Weakness?
 
-**Stella**: That is shocking. The fat tails are dramatically thicker than the normal distribution predicts. So parametric VaR, which assumes normality, systematically underestimates the probability of extreme losses?
+**Horace:** The Normal assumption is *wrong*. October 19th 1987 the
+S&P fell 20.5% in a day. Under the parametric model that is a 19
+sigma event. Probability $10^{-79}$. It should not happen between
+now and the heat death of the universe. It happened. On a Monday.
 
-**Horace**: Precisely. Parametric VaR works fine for measuring the risk of ordinary daily movements. But it fails catastrophically at measuring tail risk -- the very risk that can destroy your portfolio.
+**Stella:** So at 95% it is fine, at 99% it lies, at 99.9% it is
+science fiction.
 
-**Stella**: What is method two?
+**Horace:** Exactly the marshmallow.
 
-**Horace**: Historical simulation. Instead of assuming a distribution, you take actual historical data. You collect hundreds of past daily returns for your portfolio's assets. Then you apply each historical day's returns to your current portfolio and ask, "What would my P&L have been?" You sort all the hypothetical P&L values from worst to best, and VaR is just the loss at the 5th percentile.
+**[4:00 — Section 3: Method 2, historical]**
 
-[VISUAL: Sorted histogram of historical simulation results with VaR marked]
+**Horace:** Method two. Historical simulation. Drop the Normal
+assumption. Just take the last thousand days of your portfolio's
+P&L, sort them, and read off the percentiles. The 10th worst day
+in a thousand is your 99% VaR. No model. Just the data.
 
-**Stella**: That seems much better. No assumptions about normality.
+**Stella:** Strength?
 
-**Horace**: It has advantages. It captures fat tails because they are in the actual data. It captures the actual correlations between assets. And it handles non-linear instruments like options better than parametric VaR.
+**Horace:** Free fat tails. If 2008 is in your window, your VaR
+includes 2008. If COVID is in your window, your VaR includes
+COVID. The math does not have to *guess* about the tail; it
+*remembers* it.
 
-**Stella**: But there is a catch here too.
+**Stella:** Weakness?
 
-**Horace**: Two catches. First, it assumes the future will look like the past. If your historical window is 2015-2019 -- a calm bull market -- your VaR will be low because there were no crises in that period. But that does not mean crises will not happen going forward.
+**Horace:** You only see what you have seen. If your window ends in
+October 2007, you have no 2008 in your data, and your 99% VaR
+reads like a 95% VaR the moment Lehman fails. This is exactly what
+happened to many bank desks in autumn 2008 — their VaR was
+calibrated on the placid 2003-2007 sample, so the breach was
+"impossible" right up until it wasn't.
 
-**Stella**: Cherry-picking the sample period.
+**[VISUAL: image/week42_var_methods.png]**
 
-**Horace**: It does not even require intentional cherry-picking. Any fixed window automatically excludes some historical events. The second catch is the ghost effect. When an extreme day rolls off the end of your data window, VaR can drop overnight even though nothing about your portfolio changed. On January 1st of a new year, the worst day from four years ago might fall out of your 1000-day window, and suddenly your VaR looks 20% lower.
+**Stella:** Show the three-panel chart.
 
-[VISUAL: Timeline showing data window shifting and extreme events falling off]
+**Horace:** Left panel: histogram of daily S&P returns from 1990 to
+April 2026. The blue bars are the empirical distribution; the gold
+curve is a Normal with the same mean and standard deviation. Look
+at the shoulders. The Normal curve cannot reach where the data
+actually is. The empirical histogram has thicker shoulders below
+-2% and a long left tail running out to -10% and beyond. The Normal
+curve is essentially zero out there.
 
-**Stella**: That is unsettling. What about the third method?
+**Stella:** Middle panel?
 
-**Horace**: Monte Carlo simulation. This is the most sophisticated approach. You build a mathematical model of how your assets behave -- their expected returns, volatilities, correlations, and importantly, the shape of the return distribution including fat tails. Then you generate thousands of random scenarios from this model and calculate VaR from the simulated distribution.
+**Horace:** Annual returns, Damodaran 1928 to 2024. With vertical
+markers at the 95%, 99%, and 99.9% empirical VaR levels. Notice
+that the parametric Normal-fit VaR sits well to the *right* of the
+historical 99% threshold — meaning the parametric estimate is
+*less conservative* than the data warrants.
 
-[ANIMATION: animation/week42_monte_carlo.py -- Animated Monte Carlo simulation for a two-asset portfolio. The animation begins with 100 random return pairs being generated and plotted on a scatter plot, showing the correlation structure between the two assets. This scales up rapidly to 1,000, then 5,000, then 10,000 scenarios. A histogram of total portfolio returns builds up on the side as scenarios accumulate. The 95th percentile loss is marked and labeled as VaR. A convergence chart in the corner shows how the VaR estimate stabilizes as more scenarios are added, starting volatile with few scenarios and settling to a stable value by 10,000. The final frame compares the Monte Carlo VaR to the parametric VaR, showing the Monte Carlo estimate is larger due to the fat-tailed distribution used in the simulation.]
+**Stella:** Right panel?
 
-**Stella**: So Monte Carlo can model fat tails if you tell it to?
+**Horace:** The empirical CVaR over VaR ratio at three confidence
+levels. CVaR at 95% is about 1.20× VaR. At 99% it is 1.35× VaR. At
+99.5% it is 1.45× VaR. The deeper into the tail you go, the worse
+the *breach* — not just the threshold, the average size of the
+loss when the threshold is exceeded. That is the headline image.
 
-**Horace**: Exactly. You can use Student's t-distribution or other fat-tailed distributions instead of the normal distribution. You can model time-varying volatility. You can model regime changes. Monte Carlo is as good as the model you put into it.
+**[7:00 — Section 4: Method 3, Monte Carlo]**
 
-**Stella**: And that is also its weakness -- it is only as good as the model.
+**Horace:** Method three. Monte Carlo. You write down a model. You
+simulate ten thousand or a hundred thousand portfolio paths. You
+compute P&L on each. You sort. You read the percentile.
 
-**Horace**: Right. If your model is wrong, running 10,000 scenarios of a wrong model just gives you 10,000 wrong answers. This is called model risk. The output looks precise and scientific -- four decimal places, thousands of scenarios -- but the precision is meaningless if the underlying assumptions are flawed.
+**Stella:** What do you put in the model?
 
-[VISUAL: Comparison table of three VaR methods -- strengths and weaknesses]
+**Horace:** Anything you can write down. Could be Normal — in which
+case Monte Carlo agrees with parametric, plus sampling noise. Could
+be Student-t with five degrees of freedom — heavy tails, much
+closer to the data. Could be GARCH — vol today depends on vol
+yesterday. Could be jump-diffusion — Normal noise plus occasional
+Poisson jumps for the crash days. Could be regime-switching
+Gaussian mixtures.
 
-**Stella**: OK, so all three VaR methods have limitations. What do we do about it?
+**Stella:** Strength?
 
-**Horace**: This is where CVaR -- Conditional Value at Risk, also called Expected Shortfall -- comes in. CVaR answers the question that VaR ignores: "When losses exceed VaR, how bad do they get?"
+**Horace:** Total flexibility. Captures non-linear payoffs — options,
+structured products. Captures path-dependence — barriers, callable
+bonds. You can build whatever world you want.
 
-[VISUAL: Bell curve diagram showing VaR boundary and CVaR region in the tail]
+**Stella:** Weakness?
 
-**Horace**: VaR tells you the boundary of the worst 5% of outcomes. CVaR tells you the AVERAGE loss within that worst 5%. If your 95% VaR is $50,000, your CVaR might be $78,000. That means when you have a really bad day -- worse than VaR -- the average loss is about $78,000, not $50,000.
+**Horace:** You build whatever world you want. Garbage in, garbage
+out. If your model is wrong in the tail, your Monte Carlo VaR is
+wrong in the tail — with the *illusion of precision*. A hundred
+thousand paths from a wrong model give you a confidently wrong
+answer.
 
-**Stella**: Why is that distinction important?
+**[9:00 — Section 5: CVaR / Expected Shortfall]**
 
-**Horace**: Because two portfolios can have identical VaR but completely different CVaR. Imagine Portfolio A and Portfolio B both have a 95% VaR of $50,000. But Portfolio A's worst days are clustered around $55,000-$65,000, while Portfolio B's worst days include occasional losses of $200,000 or even $500,000. Portfolio A's CVaR might be $58,000. Portfolio B's CVaR might be $168,000.
+**Horace:** Now the better number. CVaR. Conditional Value at Risk.
+Also known as Expected Shortfall.
 
-**Stella**: Same VaR, totally different risk.
+**Stella:** Definition?
 
-**Horace**: Exactly. And this is not a theoretical concern. Before 2008, many banks had portfolios with moderate VaR but extreme CVaR. They were selling insurance on rare events -- credit default swaps, deep out-of-the-money options -- which had small daily risk but catastrophic tail risk. VaR could not see the difference. CVaR can.
+**Horace:** *Given that the loss has exceeded the VaR threshold,
+what is the average loss?* You compute VaR, then average all the
+outcomes that breach VaR. That is CVaR.
 
-**Stella**: Is that why regulators switched from VaR to CVaR after the crisis?
+**Stella:** Why is it better?
 
-**Horace**: Precisely. The Basel Committee, which sets global banking regulations, introduced the Fundamental Review of the Trading Book, which replaces VaR with Expected Shortfall as the primary risk measure. CVaR penalizes tail severity, so banks can no longer hide tail risk behind low VaR numbers.
+**Horace:** Two reasons. One, it answers the question VaR ducks —
+how bad is the breach. Two, it has a property called *coherence*.
+VaR can fail sub-additivity in heavy-tailed distributions —
+combining two portfolios can give you a VaR larger than the sum.
+That is mathematically pathological and it incentivises hidden
+tail-risk concentration. CVaR does not have this problem.
 
-[VISUAL: VaR vs. CVaR for two portfolios with identical VaR but different tail risk]
+**Stella:** Did regulators move to it?
 
-**Stella**: Let us talk about stress testing. You mentioned this last week as a complement to statistical models.
+**Horace:** Yes. Basel III replaced VaR with Expected Shortfall at
+97.5% in the 2016 Fundamental Review of the Trading Book. The big
+banks have been on CVaR for years. Retail platforms still mostly
+quote VaR — fine for a baseline, but ask for CVaR if your platform
+shows it.
 
-[VISUAL: "Stress Testing" section header]
+**[11:00 — Section 6: The fat-tail problem]**
 
-**Horace**: Stress testing is fundamentally different from VaR and CVaR. Those are statistical -- they ask, "What is the probability distribution of losses?" Stress testing is scenario-based -- it asks, "What happens if THIS specific thing occurs?"
+**Horace:** Show the kurtosis chart.
 
-**Stella**: Give me examples of stress scenarios.
+**[VISUAL: image/week42_kurtosis_history.png]**
 
-**Horace**: There are three types. First, historical stress tests. You take actual past crises and apply them to your current portfolio. What would have happened to my portfolio during the 2008 financial crisis? During the COVID crash? During the 2022 rate shock?
+**Stella:** This is rolling 5-year kurtosis of daily S&P 500 returns
+since 1990.
 
-**Stella**: But my portfolio is different from what I would have held during those periods.
+**Horace:** Notice the dashed horizontal line at three. That is what
+kurtosis equals if returns are truly Normal. Notice that the
+empirical line is *above three* — every single day of the sample.
+For thirty-six years it has never touched the Normal value. Mostly
+it lives between seven and twelve. The 1987-window prints above
+thirty. The 2008-window around twelve. Even quiet windows like
+2003-2007 are above five.
 
-**Horace**: That is exactly the point. You apply those historical market moves to your CURRENT portfolio. You know that during the 2008 crisis, the S&P 500 fell 57%, international stocks fell 55%, US bonds rose 8%, REITs fell 65%, and gold rose 25%. Apply those moves to whatever you are holding today.
+**Stella:** And the implication?
 
-[VISUAL: Historical stress test applied to a sample portfolio]
+**Horace:** Parametric VaR underestimates real losses. By 5-15% at
+95%, by 30-100% at 99%, and by *2 to 5 times* at 99.9%. Every
+single bank that relied on parametric VaR in the last forty years
+has discovered this in tears. LTCM 1998. The structured-credit
+desks 2008. The vol-target funds in March 2020. The model said it
+could not happen. The world said it just had.
 
-**Horace**: Second type: hypothetical stress tests. You design scenarios that have not happened but are plausible. What if China invades Taiwan and global supply chains collapse? What if the US government defaults on its debt? What if AI causes a technology sector crash of 60%?
+**[13:00 — Section 7: Practical framework]**
 
-**Stella**: Those sound extreme.
+**Horace:** What do you actually do.
 
-**Horace**: They are extreme. That is the point. You are testing the limits of your portfolio's resilience. If a plausible extreme scenario would destroy your portfolio, you need to know that before it happens, not after.
+**Stella:** Walk us through.
 
-**Stella**: And the third type?
+**Horace:** Five steps. One: run all three methods. Parametric,
+historical, Monte Carlo with Student-t. Look at the spread.
+Two: quote CVaR at 97.5%, not VaR at 99%. Same regulatory
+conservatism, more honest math. Three: always run an explicit
+stress test. 1987, 2008, March 2020, 2022. These are not VaR
+events; they are *plan-for-them* events. Four: size positions for
+the tail, not the average. SOUL fourteen — barbell. Most of the
+book in instruments sized for normal vol, a small high-conviction
+sleeve in defined-risk structures. Five: discount the headline
+number. Whatever 99% VaR your platform reports, *double it for
+sleep purposes*. The cost of being too conservative is a few basis
+points. The cost of being too aggressive is the obituary section.
 
-**Horace**: Sensitivity analysis or factor shocks. You change one risk factor at a time and measure the impact. What happens if interest rates rise 200 basis points? What happens if the S&P drops 30%? What happens if the VIX spikes to 60? This gives you a factor-by-factor understanding of your portfolio's vulnerabilities.
+**[14:30 — Section 8: Interactive lab]**
 
-[ANIMATION: animation/week42_stress_test.py -- Interactive stress test dashboard animation. A sample portfolio is displayed: 40% US equities, 20% international equities, 25% bonds, 10% REITs, 5% gold. Five stress scenarios appear as tabs: 2008 crisis, COVID crash, 2022 rate shock, stagflation, and tech bubble burst. When each tab is selected, the portfolio bars animate to show the impact of each scenario on each asset class, with the total portfolio loss prominently displayed. The worst scenario (2008 crisis) is highlighted with a red warning, showing a -34% total portfolio loss. The animation then shows the portfolio being rebalanced -- reducing equities, adding more bonds and gold -- and the stress test results recalculate in real-time, showing improvement in the worst-case scenario.]
+**Stella:** Interactive walkthrough.
 
-**Stella**: That is really powerful. You can see exactly how portfolio changes affect your worst-case outcomes.
+**Horace:** This week's lab is a VaR calculator. Three sliders:
+portfolio value from ten thousand to ten million. Volatility
+assumption from 5% to 40% annualised. Confidence level — 90, 95,
+99, 99.5, 99.9. And a method toggle: Normal, Student-t with a
+degrees-of-freedom slider, or Historical resampled from the last
+five years of S&P data.
 
-**Horace**: And notice that the 2008 scenario and the 2022 scenario stress different parts of the portfolio. In 2008, stocks were devastated but bonds were a safe haven. In 2022, BOTH stocks and bonds fell because rising interest rates hurt both. A portfolio that survived 2008 might not survive a repeat of 2022, and vice versa. Good stress testing uses multiple scenarios.
+**Stella:** What do we read off?
 
-**Stella**: Let us move to factor risk models. What are those?
+**Horace:** Five outputs. 1-day VaR, 1-day CVaR, 1-month VaR (square-
+root scaled), and a comparison bar showing all three methods side
+by side at the chosen confidence. Plus a histogram of the chosen
+return distribution with the tail shaded.
 
-[VISUAL: "Factor Risk Models" section header]
+**Stella:** Things to do.
 
-**Horace**: Factor risk models decompose your portfolio's total risk into components. Instead of saying "my portfolio has 14% volatility," a factor model says "6% of that volatility comes from market exposure, 3% comes from your tilt toward growth stocks, 2% comes from tech sector concentration, and 3% comes from individual stock selection."
+**Horace:** Start at 99%. Compare Normal versus Student-t with
+df=5. Watch the VaR jump 30-50% just by switching the
+distribution. Now move to 99.9%. The gap between Normal and
+Student-t blows out to 2× or more. *That gap is the LTCM trade.*
+Then run the historical method and compare again. The historical
+number will sit between Normal and Student-t depending on what
+your 5-year window contains. Now drop confidence back to 95%. The
+three methods nearly converge. That is the point: parametric
+*works* in the body, *fails* in the tail.
 
-**Stella**: So it tells you WHERE your risk is coming from?
+**[16:30 — OUTRO]**
 
-**Horace**: Exactly. And that is incredibly valuable because it tells you whether your risk is intentional or accidental. If you are a growth investor and 25% of your risk comes from your growth factor exposure, that is intentional -- you chose to tilt toward growth. But if 15% of your risk comes from an unintended concentration in technology, that might be accidental, and you might want to fix it.
+**Stella:** Wrap.
 
-[VISUAL: Factor risk decomposition pie chart for a sample portfolio]
+**Horace:** Three takeaways. One. VaR is a *threshold*. CVaR is the
+*average breach*. Always quote CVaR when you can. Two. All three
+methods break in the tail — kurtosis is 7 to 15 in real equity
+data, never 3, and the deeper you go the more the methods
+disagree. Three. The right risk system runs all three plus an
+explicit stress test, and treats the spread as the irreducible
+uncertainty in the number. Vol-tail-wags-dog. The model is not the
+world. The world will, eventually, surprise the model. Plan for it
+before it does.
 
-**Horace**: The major risk factors in equity markets are market (overall market direction), size (small vs. large cap), value (value vs. growth), momentum (recent winners vs. losers), quality (profitable vs. unprofitable companies), and low volatility (calm vs. volatile stocks). Then there are sector factors and country factors.
+**Stella:** Next week — Week 43, hedging strategies. How to actually
+buy insurance against the tail without paying full retail.
 
-**Stella**: How does this help me practically?
+**Horace:** Don't blow up.
 
-**Horace**: Let me give you a concrete example. Say you have 15 stocks and your factor model tells you: market exposure contributes 42% of your risk, growth tilt contributes 18%, tech sector contributes 14%, and momentum contributes 8%. The remaining 18% is stock-specific.
-
-**Stella**: That sounds like a typical growth-oriented tech portfolio.
-
-**Horace**: It is. And the factor model reveals something important. If the market drops 20%, you can expect to lose about 23% because your market beta is 1.15. If growth stocks specifically underperform value by 10%, you will lose an additional 4.5% from your growth tilt. If the tech sector drops relative to the market, there is another hit. Your risks are stacked.
-
-**Stella**: And those risks are correlated. They could all hit at once.
-
-**Horace**: Which is exactly what happened in 2022. The market dropped, growth underperformed value dramatically, and tech was one of the worst-performing sectors. A portfolio with heavy market, growth, and tech factor exposure got hit three different ways simultaneously.
-
-[VISUAL: Factor exposure diagram showing how multiple factor risks can stack]
-
-**Stella**: So factor models help you avoid unintentional risk concentration across factors?
-
-**Horace**: Precisely. If you want to take growth risk, do it knowingly and limit it. If you want tech exposure, size it appropriately. Factor models turn a vague sense of "I think I am diversified" into a precise measurement of where your risk actually sits.
-
-**Stella**: Let us come back to the limitations we keep hinting at. VaR failed spectacularly in 2008. What happened?
-
-[VISUAL: "When Risk Models Fail" section header]
-
-**Horace**: The 2008 crisis is the definitive case study of VaR failure. Let me walk through what went wrong.
-
-**Horace**: Before the crisis, banks held enormous portfolios of mortgage-backed securities. Their VaR models used historical data from a period when housing prices had never declined nationwide. The models showed low risk because the historical data contained no housing crashes.
-
-**Stella**: So the models literally could not imagine the scenario that occurred?
-
-**Horace**: Correct. And it was worse than that. VaR created a false sense of security that encouraged banks to take MORE risk. "Our VaR is only $50 million, so we can lever up further." The low VaR number was used to justify 30-to-1 leverage. When the crisis hit and losses exceeded VaR by 10 to 50 times, the leverage amplified those losses into existential threats.
-
-[VISUAL: Pre-crisis bank leverage ratios and VaR estimates vs. actual losses]
-
-**Horace**: There is also the procyclicality problem. When markets are calm, VaR is low, which encourages risk-taking. When markets become volatile, VaR rises, which forces selling. The forced selling makes markets more volatile, which raises VaR further, which forces more selling. VaR-based risk management can amplify market crashes instead of preventing them.
-
-**Stella**: It is a feedback loop -- the same kind we saw with volatility products.
-
-**Horace**: Exactly. And there is one more subtle problem called the cobra effect. When traders are given VaR limits, they find ways to minimize reported VaR while taking on enormous tail risk. Selling deep out-of-the-money options has very low VaR because the daily expected loss is tiny. But the tail risk is catastrophic. VaR cannot see it.
-
-**Stella**: So VaR is actually dangerous if it is your only risk measure?
-
-**Horace**: It is potentially more dangerous than having no risk measure at all, because it creates an illusion of safety. That is why the modern approach uses VaR as one tool among many: VaR for daily risk monitoring, CVaR for tail severity, stress tests for extreme scenarios, factor models for risk decomposition, and concentration analysis for single-name risk.
-
-[VISUAL: Complete risk measurement framework showing all tools and their purposes]
-
-**Stella**: How should an individual investor use all of this?
-
-**Horace**: Here is my practical recommendation. First, calculate your portfolio's VaR using a free tool like Portfolio Visualizer. This gives you a baseline daily risk number. Second, understand that your actual worst-case loss is probably 2-3 times your VaR -- that is a rough CVaR estimate. Third, run simple stress tests in a spreadsheet. Take your positions and apply 2008-style returns, 2020-style returns, and 2022-style returns. If any scenario produces a loss you cannot tolerate, reduce risk. Fourth, check your factor exposures. Most brokerages now show you this. Are you unintentionally concentrated in growth, tech, or momentum?
-
-**Stella**: That is manageable. VaR for daily monitoring, stress tests for extreme scenarios, and factor analysis for understanding risk sources.
-
-**Horace**: And always remember: every model is wrong. The goal is not to predict the future perfectly. The goal is to be approximately right about the range of outcomes, prepare for the worst plausible case, and have a plan for when the models fail -- because they will fail.
-
-**Stella**: Let me summarize. VaR measures the maximum expected loss at a given confidence level. Three methods: parametric (simple, assumes normality), historical simulation (uses real data, limited by history), and Monte Carlo (flexible, limited by model quality). CVaR measures the average loss in the tail. Stress testing measures the impact of specific extreme scenarios. Factor models decompose risk into systematic components. And no single tool is sufficient -- you need all of them, plus healthy skepticism.
-
-**Horace**: Perfect. And if you remember nothing else from today, remember this: the models that failed in 2008 were not stupid. They were built by brilliant people with PhDs. They failed because they assumed the future would look like the recent past, and it did not. The same models might fail again, in a different way. Risk management is not about having the right model. It is about knowing that every model is wrong and planning accordingly.
-
-**Stella**: That is a humbling thought.
-
-**Horace**: It should be. Humility is the most important risk management tool of all. If you think your model has captured all the risks, you are the most dangerous person in the room.
-
-[VISUAL: "Next week: Active Portfolio Management"]
-
-**Horace**: Next week we shift gears from risk to return. We will cover alpha, beta, tracking error, information ratio, active share, and performance attribution -- the tools for understanding whether active management is actually adding value.
-
-**Stella**: From measuring risk to measuring skill.
-
-**Horace**: Exactly. And spoiler alert -- most active managers do not have as much skill as they think they do. The tools we will learn next week help you tell the difference.
-
-**Stella**: Looking forward to it. Thanks, Horace.
-
-**Horace**: Thank you, Stella. Remember -- the model is always wrong. Plan for it. See you next week.
-
-[VISUAL: End card with channel subscribe prompt and links to previous videos]
+**[END]**

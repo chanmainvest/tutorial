@@ -1,0 +1,783 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>CTA Blender - Interactive (Week 51)</title>
+<script src="https://cdn.plot.ly/plotly-2.35.2.min.js" charset="utf-8"></script>
+<style>
+html, body { margin: 0; padding: 0; background: var(--cb2-bg); }
+:root {
+    --cb2-bg: #fdfbf5;
+    --cb2-text: #1a2332;
+    --cb2-muted: #6b7280;
+    --cb2-border: #d6d3c4;
+    --cb2-card: #fdfbf5;
+    --cb2-accent: #b8860b;
+    --cb2-blue: #0d47a1;
+    --cb2-red: #b71c1c;
+    --cb2-green: #2e7d32;
+    --cb2-purple: #6a1b9a;
+    --cb2-orange: #e65100;
+}
+html[data-theme="dark"] .cb2-root,
+.cb2-root[data-theme="dark"] {
+    --cb2-bg: #0f1724;
+    --cb2-text: #e6e6e6;
+    --cb2-muted: #9aa3b2;
+    --cb2-border: #2a3441;
+    --cb2-card: #0f1724;
+    --cb2-blue: #5a8dee;
+    --cb2-red: #ef5350;
+    --cb2-green: #66bb6a;
+    --cb2-purple: #ba68c8;
+    --cb2-orange: #ffa726;
+}
+.cb2-root {
+    font-family: 'Segoe UI', Helvetica, Arial, sans-serif;
+    background: var(--cb2-bg);
+    color: var(--cb2-text);
+    padding: 12px;
+    margin: 0;
+}
+.cb2-presets-wrap {
+    margin-bottom: 12px;
+    padding: 10px 12px;
+    background: var(--cb2-card);
+    border: 1px solid var(--cb2-border);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+.cb2-label {
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--cb2-muted);
+}
+.cb2-pillbar {
+    display: inline-flex;
+    border: 1px solid var(--cb2-border);
+    border-radius: 999px;
+    overflow: hidden;
+    background: var(--cb2-card);
+}
+.cb2-pillbar button {
+    border: none;
+    background: transparent;
+    color: var(--cb2-muted);
+    padding: 6px 14px;
+    font: inherit;
+    font-size: 0.85rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.15s, color 0.15s;
+}
+.cb2-pillbar button:hover { color: var(--cb2-text); }
+.cb2-pillbar button.active {
+    background: var(--cb2-accent);
+    color: #fff;
+}
+.cb2-controls {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 12px;
+    margin-bottom: 14px;
+    padding: 12px;
+    background: var(--cb2-card);
+    border: 1px solid var(--cb2-border);
+    border-radius: 8px;
+}
+.cb2-slider-wrap {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    font-size: 0.82rem;
+    color: var(--cb2-muted);
+}
+.cb2-slider-wrap .cb2-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.cb2-slider-wrap input[type="range"] {
+    flex: 1;
+}
+.cb2-slider-wrap.cb2-w-spx input[type="range"] { accent-color: var(--cb2-red); }
+.cb2-slider-wrap.cb2-w-bnd input[type="range"] { accent-color: var(--cb2-blue); }
+.cb2-slider-wrap.cb2-w-cta input[type="range"] { accent-color: var(--cb2-green); }
+.cb2-slider-wrap .cb2-val {
+    white-space: nowrap;
+    color: var(--cb2-text);
+    font-weight: 700;
+    font-variant-numeric: tabular-nums;
+    min-width: 50px;
+    text-align: right;
+}
+.cb2-slider-wrap .cb2-name {
+    font-weight: 600;
+    color: var(--cb2-text);
+}
+.cb2-bigrow {
+    display: grid;
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    gap: 8px;
+    margin-bottom: 14px;
+}
+.cb2-big {
+    background: var(--cb2-card);
+    border: 1px solid var(--cb2-border);
+    border-left: 4px solid var(--cb2-accent);
+    border-radius: 8px;
+    padding: 10px 12px;
+}
+.cb2-big.cb2-b-cagr  { border-left-color: var(--cb2-blue); }
+.cb2-big.cb2-b-vol   { border-left-color: var(--cb2-orange); }
+.cb2-big.cb2-b-shr   { border-left-color: var(--cb2-purple); }
+.cb2-big.cb2-b-mdd   { border-left-color: var(--cb2-red); }
+.cb2-big.cb2-b-2008  { border-left-color: var(--cb2-green); }
+.cb2-big.cb2-b-2022  { border-left-color: var(--cb2-accent); }
+.cb2-big .cb2-big-name {
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--cb2-muted);
+}
+.cb2-big .cb2-big-val {
+    font-size: 1.3rem;
+    font-weight: 800;
+    margin-top: 4px;
+    font-variant-numeric: tabular-nums;
+    color: var(--cb2-text);
+}
+.cb2-big .cb2-big-detail {
+    font-size: 0.72rem;
+    color: var(--cb2-muted);
+    margin-top: 2px;
+}
+.cb2-bottom {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 12px;
+}
+.cb2-chart {
+    width: 100%;
+    height: 380px;
+    background: var(--cb2-card);
+    border-radius: 8px;
+    border: 1px solid var(--cb2-border);
+}
+.cb2-corr-card {
+    background: var(--cb2-card);
+    border: 1px solid var(--cb2-border);
+    border-radius: 8px;
+    padding: 12px;
+    font-size: 0.8rem;
+}
+.cb2-corr-title {
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--cb2-muted);
+    margin-bottom: 8px;
+}
+.cb2-corr-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-variant-numeric: tabular-nums;
+}
+.cb2-corr-table th, .cb2-corr-table td {
+    padding: 4px 6px;
+    text-align: center;
+    border-bottom: 1px solid var(--cb2-border);
+    color: var(--cb2-text);
+}
+.cb2-corr-table th { color: var(--cb2-muted); font-weight: 700; }
+.cb2-warn {
+    margin-top: 6px;
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: var(--cb2-red);
+    min-height: 1.2em;
+}
+.cb2-caption {
+    margin-top: 10px;
+    font-size: 0.78rem;
+    color: var(--cb2-muted);
+    line-height: 1.45;
+}
+@media (max-width: 1100px) {
+    .cb2-bigrow { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .cb2-bottom { grid-template-columns: 1fr; }
+}
+@media (max-width: 700px) {
+    .cb2-controls { grid-template-columns: 1fr; }
+    .cb2-bigrow   { grid-template-columns: 1fr 1fr; }
+    .cb2-chart    { height: 320px; }
+}
+</style>
+</head>
+<body>
+
+<div class="cb2-root" id="cb2-root">
+    <div class="cb2-presets-wrap">
+        <span class="cb2-label" id="cb2-presets-label">Presets</span>
+        <div class="cb2-pillbar" id="cb2-presets" role="tablist">
+            <button type="button" data-w="100,0,0">100% SP500</button>
+            <button type="button" data-w="60,40,0" class="active">60/40</button>
+            <button type="button" data-w="50,30,20">50/30/20</button>
+            <button type="button" data-w="70,15,15">70/15/15</button>
+            <button type="button" data-w="60,20,20">60/20/20</button>
+            <button type="button" data-w="40,30,30">40/30/30</button>
+        </div>
+    </div>
+
+    <div class="cb2-controls">
+        <div class="cb2-slider-wrap cb2-w-spx">
+            <div class="cb2-name" id="cb2-name-spx">% S&P 500</div>
+            <div class="cb2-row">
+                <input type="range" id="cb2-spx" min="0" max="100" step="1" value="60">
+                <span class="cb2-val" id="cb2-val-spx">60%</span>
+            </div>
+        </div>
+        <div class="cb2-slider-wrap cb2-w-bnd">
+            <div class="cb2-name" id="cb2-name-bnd">% Bonds (10Y)</div>
+            <div class="cb2-row">
+                <input type="range" id="cb2-bnd" min="0" max="100" step="1" value="40">
+                <span class="cb2-val" id="cb2-val-bnd">40%</span>
+            </div>
+        </div>
+        <div class="cb2-slider-wrap cb2-w-cta">
+            <div class="cb2-name" id="cb2-name-cta">% CTA (synthetic)</div>
+            <div class="cb2-row">
+                <input type="range" id="cb2-cta" min="0" max="100" step="1" value="0">
+                <span class="cb2-val" id="cb2-val-cta">0%</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="cb2-bigrow">
+        <div class="cb2-big cb2-b-cagr">
+            <div class="cb2-big-name" id="cb2-bn-cagr">CAGR</div>
+            <div class="cb2-big-val" id="cb2-bv-cagr">—</div>
+            <div class="cb2-big-detail" id="cb2-bd-cagr">1990-2024 annualised</div>
+        </div>
+        <div class="cb2-big cb2-b-vol">
+            <div class="cb2-big-name" id="cb2-bn-vol">Volatility</div>
+            <div class="cb2-big-val" id="cb2-bv-vol">—</div>
+            <div class="cb2-big-detail" id="cb2-bd-vol">annual stdev</div>
+        </div>
+        <div class="cb2-big cb2-b-shr">
+            <div class="cb2-big-name" id="cb2-bn-shr">Sharpe</div>
+            <div class="cb2-big-val" id="cb2-bv-shr">—</div>
+            <div class="cb2-big-detail" id="cb2-bd-shr">vs T-bill</div>
+        </div>
+        <div class="cb2-big cb2-b-mdd">
+            <div class="cb2-big-name" id="cb2-bn-mdd">Max DD</div>
+            <div class="cb2-big-val" id="cb2-bv-mdd">—</div>
+            <div class="cb2-big-detail" id="cb2-bd-mdd">annual peak-to-trough</div>
+        </div>
+        <div class="cb2-big cb2-b-2008">
+            <div class="cb2-big-name" id="cb2-bn-2008">2008</div>
+            <div class="cb2-big-val" id="cb2-bv-2008">—</div>
+            <div class="cb2-big-detail" id="cb2-bd-2008">GFC calendar</div>
+        </div>
+        <div class="cb2-big cb2-b-2022">
+            <div class="cb2-big-name" id="cb2-bn-2022">2022</div>
+            <div class="cb2-big-val" id="cb2-bv-2022">—</div>
+            <div class="cb2-big-detail" id="cb2-bd-2022">infl regime calendar</div>
+        </div>
+    </div>
+
+    <div class="cb2-bottom">
+        <div id="cb2-chart" class="cb2-chart"></div>
+        <div class="cb2-corr-card">
+            <div class="cb2-corr-title" id="cb2-corr-title">Correlation matrix (annual, 1990-2024)</div>
+            <table class="cb2-corr-table" id="cb2-corr-table">
+                <thead>
+                    <tr><th></th><th id="cb2-h-spx">SP500</th><th id="cb2-h-bnd">Bonds</th><th id="cb2-h-cta">CTA</th></tr>
+                </thead>
+                <tbody id="cb2-corr-body"></tbody>
+            </table>
+            <div class="cb2-warn" id="cb2-warn"></div>
+        </div>
+    </div>
+
+    <p class="cb2-caption" id="cb2-caption">
+        Backtest uses real annual returns 1990-2024. SP500 = total return (Damodaran histretSP). Bonds = US 10-year Treasury total return (Damodaran TBond10Y). CTA = synthetic proxy: mu = 6%, sigma = 11%, correlation -0.20 with SP500, generated deterministically (LCG-Box-Muller, seed 20260429). Sharpe uses annualised T-bill series. Max DD computed on annual wealth series. Weights are normalised if they don't sum to 100%.
+    </p>
+</div>
+
+<script>
+(function () {
+    var I18N = {
+        en: {
+            presets_label: "Presets",
+            name_spx: "% S&P 500",
+            name_bnd: "% Bonds (10Y)",
+            name_cta: "% CTA (synthetic)",
+            bn_cagr: "CAGR",
+            bn_vol:  "Volatility",
+            bn_shr:  "Sharpe",
+            bn_mdd:  "Max DD",
+            bn_2008: "2008",
+            bn_2022: "2022",
+            bd_cagr: "1990-2024 annualised",
+            bd_vol:  "annual stdev",
+            bd_shr:  "vs T-bill",
+            bd_mdd:  "annual peak-to-trough",
+            bd_2008: "GFC calendar",
+            bd_2022: "infl regime calendar",
+            corr_title: "Correlation matrix (annual, 1990-2024)",
+            chart_title: "Growth of $1, 1990-2024",
+            x_title: "Year",
+            y_title: "Wealth ($, log scale)",
+            tag_yours: "Your blend",
+            tag_spx:   "100% SP500",
+            tag_60:    "60/40",
+            warn:      "Weights sum > 100% - normalised.",
+            caption:   "Backtest uses real annual returns 1990-2024. SP500 = total return (Damodaran histretSP). Bonds = US 10-year Treasury total return (Damodaran TBond10Y). CTA = synthetic proxy: mu = 6%, sigma = 11%, correlation -0.20 with SP500, generated deterministically (LCG-Box-Muller, seed 20260429). Sharpe uses annualised T-bill series. Max DD computed on annual wealth series. Weights are normalised if they don't sum to 100%.",
+        },
+        hk: {
+            presets_label: "預設",
+            name_spx: "% 標普 500",
+            name_bnd: "% 債券(10年)",
+            name_cta: "% CTA(合成)",
+            bn_cagr: "年化",
+            bn_vol:  "波動率",
+            bn_shr:  "Sharpe",
+            bn_mdd:  "最大回撚",
+            bn_2008: "2008",
+            bn_2022: "2022",
+            bd_cagr: "1990-2024 年化",
+            bd_vol:  "年波動",
+            bd_shr:  "對短期國庫券",
+            bd_mdd:  "年度峰谷",
+            bd_2008: "金融海嘯年",
+            bd_2022: "通脹體制年",
+            corr_title: "相關係數矩陣(年度,1990-2024)",
+            chart_title: "1 美元成長,1990-2024",
+            x_title: "年份",
+            y_title: "財富(美元,對數刻度)",
+            tag_yours: "你的組合",
+            tag_spx:   "100% 標普",
+            tag_60:    "60/40",
+            warn:      "權重合計超過 100% - 已等比歸一化。",
+            caption:   "回測使用 1990-2024 真實年度回報。標普 = 總回報(Damodaran histretSP)。債券 = 美 10 年國債總回報(Damodaran TBond10Y)。CTA = 合成代理:mu = 6%、sigma = 11%、與標普相關 -0.20,LCG-Box-Muller 確定性生成(seed 20260429)。Sharpe 對短期國庫券。最大回撚以年度財富序列計算。權重合計非 100% 時自動歸一化。",
+        },
+        tw: {
+            presets_label: "預設",
+            name_spx: "% 標普 500",
+            name_bnd: "% 債券(10年)",
+            name_cta: "% CTA(合成)",
+            bn_cagr: "年化",
+            bn_vol:  "波動率",
+            bn_shr:  "Sharpe",
+            bn_mdd:  "最大回檔",
+            bn_2008: "2008",
+            bn_2022: "2022",
+            bd_cagr: "1990-2024 年化",
+            bd_vol:  "年波動",
+            bd_shr:  "對短期國庫券",
+            bd_mdd:  "年度峰谷",
+            bd_2008: "金融海嘯年",
+            bd_2022: "通膨體制年",
+            corr_title: "相關係數矩陣(年度,1990-2024)",
+            chart_title: "1 美元成長,1990-2024",
+            x_title: "年份",
+            y_title: "財富(美元,對數刻度)",
+            tag_yours: "你的組合",
+            tag_spx:   "100% 標普",
+            tag_60:    "60/40",
+            warn:      "權重合計超過 100% - 已等比歸一化。",
+            caption:   "回測使用 1990-2024 真實年度報酬。標普 = 總報酬(Damodaran histretSP)。債券 = 美 10 年國債總報酬(Damodaran TBond10Y)。CTA = 合成代理:mu = 6%、sigma = 11%、與標普相關 -0.20,LCG-Box-Muller 確定性生成(seed 20260429)。Sharpe 對短期國庫券。最大回檔以年度財富序列計算。權重合計非 100% 時自動歸一化。",
+        },
+        cn: {
+            presets_label: "预设",
+            name_spx: "% 标普 500",
+            name_bnd: "% 债券(10年)",
+            name_cta: "% CTA(合成)",
+            bn_cagr: "年化",
+            bn_vol:  "波动率",
+            bn_shr:  "Sharpe",
+            bn_mdd:  "最大回撤",
+            bn_2008: "2008",
+            bn_2022: "2022",
+            bd_cagr: "1990-2024 年化",
+            bd_vol:  "年波动",
+            bd_shr:  "对短期国库券",
+            bd_mdd:  "年度峰谷",
+            bd_2008: "金融危机年",
+            bd_2022: "通胀体制年",
+            corr_title: "相关系数矩阵(年度,1990-2024)",
+            chart_title: "1 美元成长,1990-2024",
+            x_title: "年份",
+            y_title: "财富(美元,对数刻度)",
+            tag_yours: "你的组合",
+            tag_spx:   "100% 标普",
+            tag_60:    "60/40",
+            warn:      "权重合计超过 100% - 已等比归一化。",
+            caption:   "回测使用 1990-2024 真实年度回报。标普 = 总回报(Damodaran histretSP)。债券 = 美 10 年国债总回报(Damodaran TBond10Y)。CTA = 合成代理:mu = 6%、sigma = 11%、与标普相关 -0.20,LCG-Box-Muller 确定性生成(seed 20260429)。Sharpe 对短期国库券。最大回撤以年度财富序列计算。权重合计非 100% 时自动归一化。",
+        },
+    };
+    function currentLang() {
+        var p = new URLSearchParams(window.location.search);
+        var l = (p.get("lang") || "en").toLowerCase();
+        return I18N.hasOwnProperty(l) ? l : "en";
+    }
+    var T = I18N[currentLang()];
+
+    // ---- Annual returns 1990-2024 (Damodaran). ----
+    // [year, sp500_tr, tbond10y_tr, tbill3m]
+    var DATA = [
+        [1990,-0.0310,0.0624,0.0781],
+        [1991, 0.3047,0.1500,0.0560],
+        [1992, 0.0762,0.0936,0.0351],
+        [1993, 0.1008,0.1421,0.0290],
+        [1994, 0.0132,-0.0804,0.0390],
+        [1995, 0.3758,0.2348,0.0560],
+        [1996, 0.2296,0.0143,0.0521],
+        [1997, 0.3336,0.0994,0.0526],
+        [1998, 0.2858,0.1492,0.0486],
+        [1999, 0.2104,-0.0825,0.0468],
+        [2000,-0.0910,0.1666,0.0589],
+        [2001,-0.1189,0.0557,0.0383],
+        [2002,-0.2210,0.1512,0.0165],
+        [2003, 0.2868,0.0038,0.0102],
+        [2004, 0.1088,0.0449,0.0120],
+        [2005, 0.0491,0.0287,0.0298],
+        [2006, 0.1579,0.0196,0.0479],
+        [2007, 0.0549,0.1021,0.0466],
+        [2008,-0.3700,0.2010,0.0160],
+        [2009, 0.2646,-0.1112,0.0010],
+        [2010, 0.1506,0.0846,0.0012],
+        [2011, 0.0211,0.1604,0.0004],
+        [2012, 0.1600,0.0297,0.0006],
+        [2013, 0.3239,-0.0910,0.0002],
+        [2014, 0.1369,0.1075,0.0002],
+        [2015, 0.0138,0.0128,0.0002],
+        [2016, 0.1196,0.0069,0.0020],
+        [2017, 0.2183,0.0280,0.0080],
+        [2018,-0.0438,-0.0002,0.0193],
+        [2019, 0.3149,0.0964,0.0206],
+        [2020, 0.1840,0.1133,0.0036],
+        [2021, 0.2871,-0.0442,0.0006],
+        [2022,-0.1811,-0.1777,0.0202],
+        [2023, 0.2629,0.0303,0.0511],
+        [2024, 0.2502,-0.0170,0.0495],
+    ];
+
+    var YEARS = DATA.map(function (r) { return r[0]; });
+    var SPX   = DATA.map(function (r) { return r[1]; });
+    var BND   = DATA.map(function (r) { return r[2]; });
+    var TBL   = DATA.map(function (r) { return r[3]; });
+
+    // ---- Synthetic CTA via deterministic LCG-Box-Muller. ----
+    var MU_CTA = 0.06, SIG_CTA = 0.11, RHO = -0.20;
+    var MU_SPX = 0.10, SIG_SPX = 0.18;
+    function lcgNormals(n, seed) {
+        var a = 1664525, c = 1013904223, m = 4294967296;
+        var x = seed >>> 0;
+        var out = new Array(n);
+        var i = 0;
+        while (i < n) {
+            x = (a * x + c) % m;
+            var u1 = (x + 1) / (m + 1);
+            x = (a * x + c) % m;
+            var u2 = (x + 1) / (m + 1);
+            var r0 = Math.sqrt(-2 * Math.log(u1));
+            out[i] = r0 * Math.cos(2 * Math.PI * u2);
+            if (i + 1 < n) out[i + 1] = r0 * Math.sin(2 * Math.PI * u2);
+            i += 2;
+        }
+        return out;
+    }
+    var Z = lcgNormals(YEARS.length, 20260429);
+    var beta = RHO * SIG_CTA / SIG_SPX;
+    var idio = Math.sqrt(1 - RHO * RHO) * SIG_CTA;
+    var CTA = SPX.map(function (rs, i) {
+        return MU_CTA + beta * (rs - MU_SPX) + idio * Z[i];
+    });
+
+    // ---- helpers ----
+    function mean(a) { var s = 0; for (var i=0;i<a.length;i++) s += a[i]; return s / a.length; }
+    function stdev(a) {
+        var m = mean(a), s = 0;
+        for (var i=0;i<a.length;i++) s += (a[i] - m) * (a[i] - m);
+        return Math.sqrt(s / (a.length - 1));
+    }
+    function corr(a, b) {
+        var ma = mean(a), mb = mean(b), num = 0, da = 0, db = 0;
+        for (var i=0;i<a.length;i++) {
+            num += (a[i]-ma)*(b[i]-mb);
+            da  += (a[i]-ma)*(a[i]-ma);
+            db  += (b[i]-mb)*(b[i]-mb);
+        }
+        return num / Math.sqrt(da*db);
+    }
+    function combine(w_spx, w_bnd, w_cta) {
+        var out = new Array(YEARS.length);
+        for (var i=0;i<YEARS.length;i++) {
+            out[i] = w_spx * SPX[i] + w_bnd * BND[i] + w_cta * CTA[i];
+        }
+        return out;
+    }
+    function wealth(rets) {
+        var w = [1.0];
+        for (var i=0;i<rets.length;i++) w.push(w[w.length-1] * (1 + rets[i]));
+        return w;
+    }
+    function maxDD(w) {
+        var peak = w[0], dd = 0;
+        for (var i=0;i<w.length;i++) {
+            if (w[i] > peak) peak = w[i];
+            var d = w[i] / peak - 1;
+            if (d < dd) dd = d;
+        }
+        return dd;
+    }
+    function stats(rets) {
+        var n = rets.length;
+        var prod = 1;
+        for (var i=0;i<n;i++) prod *= (1 + rets[i]);
+        var cagr = Math.pow(prod, 1/n) - 1;
+        var vol = stdev(rets);
+        var rf = mean(TBL);
+        var sharpe = (mean(rets) - rf) / vol;
+        var w = wealth(rets);
+        var mdd = maxDD(w);
+        return { cagr: cagr, vol: vol, sharpe: sharpe, mdd: mdd, wealth: w };
+    }
+    function fmtPct(n, d) {
+        if (!isFinite(n)) return "—";
+        return (n * 100).toFixed(d == null ? 1 : d) + "%";
+    }
+    function fmtPctSign(n, d) {
+        if (!isFinite(n)) return "—";
+        var s = n >= 0 ? "+" : "";
+        return s + (n * 100).toFixed(d == null ? 1 : d) + "%";
+    }
+    function fmtNum(n, d) {
+        if (!isFinite(n)) return "—";
+        return n.toFixed(d == null ? 2 : d);
+    }
+    function getCssVar(name) {
+        return getComputedStyle(document.getElementById("cb2-root")).getPropertyValue(name).trim();
+    }
+    function darkMode() {
+        return document.documentElement.getAttribute("data-theme") === "dark";
+    }
+
+    // ---- DOM ----
+    var SPX_EL = document.getElementById("cb2-spx");
+    var BND_EL = document.getElementById("cb2-bnd");
+    var CTA_EL = document.getElementById("cb2-cta");
+    var PRESETS = document.getElementById("cb2-presets");
+    var CHART = document.getElementById("cb2-chart");
+
+    function applyI18n() {
+        document.getElementById("cb2-presets-label").textContent = T.presets_label;
+        document.getElementById("cb2-name-spx").textContent = T.name_spx;
+        document.getElementById("cb2-name-bnd").textContent = T.name_bnd;
+        document.getElementById("cb2-name-cta").textContent = T.name_cta;
+        document.getElementById("cb2-bn-cagr").textContent = T.bn_cagr;
+        document.getElementById("cb2-bn-vol").textContent  = T.bn_vol;
+        document.getElementById("cb2-bn-shr").textContent  = T.bn_shr;
+        document.getElementById("cb2-bn-mdd").textContent  = T.bn_mdd;
+        document.getElementById("cb2-bn-2008").textContent = T.bn_2008;
+        document.getElementById("cb2-bn-2022").textContent = T.bn_2022;
+        document.getElementById("cb2-bd-cagr").textContent = T.bd_cagr;
+        document.getElementById("cb2-bd-vol").textContent  = T.bd_vol;
+        document.getElementById("cb2-bd-shr").textContent  = T.bd_shr;
+        document.getElementById("cb2-bd-mdd").textContent  = T.bd_mdd;
+        document.getElementById("cb2-bd-2008").textContent = T.bd_2008;
+        document.getElementById("cb2-bd-2022").textContent = T.bd_2022;
+        document.getElementById("cb2-corr-title").textContent = T.corr_title;
+        document.getElementById("cb2-caption").textContent = T.caption;
+    }
+
+    function readWeights() {
+        var s = parseFloat(SPX_EL.value);
+        var b = parseFloat(BND_EL.value);
+        var c = parseFloat(CTA_EL.value);
+        var sum = s + b + c;
+        var warn = "";
+        if (sum <= 0) {
+            return { spx: 1, bnd: 0, cta: 0, warn: "" };
+        }
+        if (Math.abs(sum - 100) > 0.5) {
+            // normalise
+            warn = T.warn;
+        }
+        return {
+            spx: s / sum, bnd: b / sum, cta: c / sum,
+            raw_spx: s, raw_bnd: b, raw_cta: c,
+            warn: warn,
+        };
+    }
+    function updateLabels() {
+        document.getElementById("cb2-val-spx").textContent = SPX_EL.value + "%";
+        document.getElementById("cb2-val-bnd").textContent = BND_EL.value + "%";
+        document.getElementById("cb2-val-cta").textContent = CTA_EL.value + "%";
+    }
+    function calendarRet(year, w) {
+        var idx = YEARS.indexOf(year);
+        if (idx < 0) return NaN;
+        return w.spx * SPX[idx] + w.bnd * BND[idx] + w.cta * CTA[idx];
+    }
+    function colorRet(v) {
+        return v >= 0 ? getCssVar("--cb2-green") : getCssVar("--cb2-red");
+    }
+    function fillCorrTable() {
+        var body = document.getElementById("cb2-corr-body");
+        var c_sb = corr(SPX, BND);
+        var c_sc = corr(SPX, CTA);
+        var c_bc = corr(BND, CTA);
+        document.getElementById("cb2-h-spx").textContent = "SP500";
+        document.getElementById("cb2-h-bnd").textContent = T.name_bnd.replace("% ", "").replace("(10Y)","").replace("(10年)","").trim();
+        document.getElementById("cb2-h-cta").textContent = "CTA";
+
+        function cell(v, isDiag) {
+            if (isDiag) return '<td>1.00</td>';
+            var col;
+            if (v < -0.05) col = getCssVar("--cb2-green");
+            else if (v > 0.5) col = getCssVar("--cb2-red");
+            else col = getCssVar("--cb2-text");
+            return '<td style="color:' + col + ';font-weight:700">' + v.toFixed(2) + '</td>';
+        }
+        body.innerHTML =
+            '<tr><th>SP500</th>' + cell(1, true) + cell(c_sb, false) + cell(c_sc, false) + '</tr>' +
+            '<tr><th>Bonds</th>' + cell(c_sb, false) + cell(1, true) + cell(c_bc, false) + '</tr>' +
+            '<tr><th>CTA</th>'   + cell(c_sc, false) + cell(c_bc, false) + cell(1, true) + '</tr>';
+    }
+
+    function render() {
+        updateLabels();
+        var w = readWeights();
+        document.getElementById("cb2-warn").textContent = w.warn;
+
+        var rets = combine(w.spx, w.bnd, w.cta);
+        var st = stats(rets);
+
+        var st_spx = stats(combine(1, 0, 0));
+        var st_60  = stats(combine(0.6, 0.4, 0));
+
+        document.getElementById("cb2-bv-cagr").textContent = fmtPct(st.cagr, 2);
+        document.getElementById("cb2-bv-vol").textContent  = fmtPct(st.vol, 2);
+        document.getElementById("cb2-bv-shr").textContent  = fmtNum(st.sharpe, 2);
+        document.getElementById("cb2-bv-mdd").textContent  = fmtPct(st.mdd, 1);
+        document.getElementById("cb2-bv-mdd").style.color  = getCssVar("--cb2-red");
+        var r2008 = calendarRet(2008, w);
+        var r2022 = calendarRet(2022, w);
+        document.getElementById("cb2-bv-2008").textContent = fmtPctSign(r2008, 1);
+        document.getElementById("cb2-bv-2008").style.color = colorRet(r2008);
+        document.getElementById("cb2-bv-2022").textContent = fmtPctSign(r2022, 1);
+        document.getElementById("cb2-bv-2022").style.color = colorRet(r2022);
+
+        // Chart
+        var xs = [YEARS[0] - 1].concat(YEARS).map(function (y) { return String(y); });
+        var traces = [
+            { x: xs, y: st_spx.wealth, type: "scatter", mode: "lines",
+              name: T.tag_spx,
+              line: { color: getCssVar("--cb2-red"), width: 1.6, dash: "dot" },
+              hovertemplate: T.tag_spx + " %{x}<br>$%{y:.2f}<extra></extra>" },
+            { x: xs, y: st_60.wealth, type: "scatter", mode: "lines",
+              name: T.tag_60,
+              line: { color: getCssVar("--cb2-blue"), width: 1.6, dash: "dot" },
+              hovertemplate: T.tag_60 + " %{x}<br>$%{y:.2f}<extra></extra>" },
+            { x: xs, y: st.wealth, type: "scatter", mode: "lines",
+              name: T.tag_yours,
+              line: { color: getCssVar("--cb2-green"), width: 3.0 },
+              hovertemplate: T.tag_yours + " %{x}<br>$%{y:.2f}<extra></extra>" },
+        ];
+        var colorBg = getCssVar("--cb2-card");
+        var colorText = getCssVar("--cb2-text");
+        var colorMuted = getCssVar("--cb2-muted");
+        var colorGrid = darkMode() ? "rgba(255,255,255,0.08)" : "rgba(0,0,0,0.07)";
+        var layout = {
+            margin: { l: 65, r: 24, t: 40, b: 50 },
+            paper_bgcolor: colorBg, plot_bgcolor: colorBg,
+            font: { family: "Segoe UI, Helvetica, Arial, sans-serif",
+                    color: colorText, size: 12 },
+            xaxis: {
+                title: { text: T.x_title, font: { color: colorMuted, size: 11 } },
+                gridcolor: colorGrid, color: colorText,
+            },
+            yaxis: {
+                title: { text: T.y_title, font: { color: colorMuted, size: 11 } },
+                type: "log",
+                gridcolor: colorGrid, color: colorText,
+            },
+            title: {
+                text: T.chart_title,
+                x: 0, xanchor: "left",
+                font: { color: colorText, size: 13, weight: 700 },
+            },
+            legend: { orientation: "h", x: 0, y: 1.08, xanchor: "left",
+                      font: { color: colorText } },
+            hovermode: "x unified",
+        };
+        Plotly.react(CHART, traces, layout, {
+            displayModeBar: false, responsive: true,
+        });
+
+        fillCorrTable();
+    }
+
+    function setPreset(s, b, c, btnEl) {
+        SPX_EL.value = s;
+        BND_EL.value = b;
+        CTA_EL.value = c;
+        PRESETS.querySelectorAll("button").forEach(function (b2) {
+            b2.classList.remove("active");
+        });
+        if (btnEl) btnEl.classList.add("active");
+        render();
+    }
+    PRESETS.querySelectorAll("button").forEach(function (btn) {
+        btn.addEventListener("click", function () {
+            var ws = btn.dataset.w.split(",").map(Number);
+            setPreset(ws[0], ws[1], ws[2], btn);
+        });
+    });
+    [SPX_EL, BND_EL, CTA_EL].forEach(function (el) {
+        el.addEventListener("input", function () {
+            // user adjusted manually -> deselect preset highlight
+            PRESETS.querySelectorAll("button").forEach(function (b) {
+                b.classList.remove("active");
+            });
+            render();
+        });
+    });
+
+    applyI18n();
+
+    function reportHeight() {
+        try {
+            var h = Math.ceil(document.documentElement.scrollHeight);
+            parent.postMessage({ type: "lesson-interactive-resize", height: h }, "*");
+        } catch (e) { /* ignore */ }
+    }
+    if (typeof ResizeObserver !== "undefined") {
+        new ResizeObserver(reportHeight).observe(document.body);
+    }
+    window.addEventListener("resize", reportHeight);
+    setTimeout(reportHeight, 50);
+    setTimeout(reportHeight, 500);
+
+    var themeObserver = new MutationObserver(render);
+    themeObserver.observe(document.documentElement, {
+        attributes: true, attributeFilter: ["data-theme"],
+    });
+
+    render();
+})();
+</script>
+
+</body>
+</html>

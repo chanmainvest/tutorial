@@ -1,0 +1,387 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Correlation Lab - Interactive (Side 19)</title>
+<script src="https://cdn.plot.ly/plotly-2.35.2.min.js" charset="utf-8"></script>
+<style>
+html, body { margin: 0; padding: 0; background: var(--cl-bg); }
+:root {
+    --cl-bg: #fdfbf5;
+    --cl-text: #1a2332;
+    --cl-muted: #6b7280;
+    --cl-border: #d6d3c4;
+    --cl-card: #fdfbf5;
+    --cl-accent: #b8860b;
+    --cl-blue: #0d47a1;
+    --cl-red: #b71c1c;
+    --cl-green: #2e7d32;
+    --cl-purple: #6a1b9a;
+    --cl-orange: #e65100;
+    --cl-grey: #5a5a5a;
+}
+html[data-theme="dark"] .cl-root,
+.cl-root[data-theme="dark"] {
+    --cl-bg: #0f1724;
+    --cl-text: #e6e6e6;
+    --cl-muted: #9aa3b2;
+    --cl-border: #2a3441;
+    --cl-card: #0f1724;
+    --cl-blue: #5a8dee;
+    --cl-red: #ef5350;
+    --cl-green: #66bb6a;
+    --cl-purple: #ba68c8;
+    --cl-orange: #ffa726;
+    --cl-grey: #aaaaaa;
+}
+.cl-root {
+    font-family: 'Segoe UI', Helvetica, Arial, sans-serif;
+    background: var(--cl-bg);
+    color: var(--cl-text);
+    padding: 12px;
+    margin: 0;
+}
+.cl-controls {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+    margin-bottom: 14px;
+    padding: 12px;
+    background: var(--cl-card);
+    border: 1px solid var(--cl-border);
+    border-radius: 8px;
+}
+.cl-slider-wrap {
+    display: flex; flex-direction: column; gap: 4px;
+    font-size: 0.82rem; color: var(--cl-muted);
+}
+.cl-slider-wrap .cl-row { display: flex; align-items: center; gap: 10px; }
+.cl-slider-wrap input[type="range"] { flex: 1; accent-color: var(--cl-accent); }
+.cl-slider-wrap .cl-val {
+    white-space: nowrap; color: var(--cl-text); font-weight: 700;
+    font-variant-numeric: tabular-nums; min-width: 64px; text-align: right;
+}
+.cl-slider-wrap .cl-name { font-weight: 600; color: var(--cl-text); }
+.cl-bigrow {
+    display: grid; grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 8px; margin-bottom: 14px;
+}
+.cl-big {
+    background: var(--cl-card);
+    border: 1px solid var(--cl-border);
+    border-left: 4px solid var(--cl-accent);
+    border-radius: 8px;
+    padding: 10px 12px;
+}
+.cl-big.cl-b-vp { border-left-color: var(--cl-blue); }
+.cl-big.cl-b-dr { border-left-color: var(--cl-green); }
+.cl-big.cl-b-en { border-left-color: var(--cl-purple); }
+.cl-big .cl-big-name {
+    font-size: 0.72rem; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.5px;
+    color: var(--cl-muted);
+}
+.cl-big .cl-big-val {
+    font-size: 1.4rem; font-weight: 800; margin-top: 4px;
+    font-variant-numeric: tabular-nums; color: var(--cl-text);
+}
+.cl-big .cl-big-detail {
+    font-size: 0.72rem; color: var(--cl-muted); margin-top: 2px;
+}
+.cl-chart {
+    width: 100%; height: 420px;
+    background: var(--cl-card);
+    border-radius: 8px;
+    border: 1px solid var(--cl-border);
+}
+.cl-caption {
+    margin-top: 10px;
+    font-size: 0.78rem; color: var(--cl-muted); line-height: 1.45;
+}
+@media (max-width: 720px) {
+    .cl-controls { grid-template-columns: 1fr; }
+    .cl-bigrow { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<div class="cl-root" id="cl-root">
+    <div class="cl-controls">
+        <div class="cl-slider-wrap">
+            <div class="cl-name" id="cl-name-N">Number of assets (N)</div>
+            <div class="cl-row">
+                <input type="range" id="cl-N" min="2" max="50" step="1" value="10">
+                <span class="cl-val" id="cl-val-N">10</span>
+            </div>
+        </div>
+        <div class="cl-slider-wrap">
+            <div class="cl-name" id="cl-name-R">Pairwise correlation (rho)</div>
+            <div class="cl-row">
+                <input type="range" id="cl-R" min="-20" max="95" step="1" value="50">
+                <span class="cl-val" id="cl-val-R">+0.50</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="cl-bigrow">
+        <div class="cl-big cl-b-vp">
+            <div class="cl-big-name" id="cl-bn-vp">Portfolio volatility</div>
+            <div class="cl-big-val" id="cl-bv-vp">-</div>
+            <div class="cl-big-detail" id="cl-bd-vp">annualised, equal weights, sigma = 16%</div>
+        </div>
+        <div class="cl-big cl-b-dr">
+            <div class="cl-big-name" id="cl-bn-dr">Diversification ratio</div>
+            <div class="cl-big-val" id="cl-bv-dr">-</div>
+            <div class="cl-big-detail" id="cl-bd-dr">single-asset vol / portfolio vol</div>
+        </div>
+        <div class="cl-big cl-b-en">
+            <div class="cl-big-name" id="cl-bn-en">Effective N</div>
+            <div class="cl-big-val" id="cl-bv-en">-</div>
+            <div class="cl-big-detail" id="cl-bd-en">1 / sum(w_i^2); equals N for equal weights</div>
+        </div>
+    </div>
+
+    <div id="cl-chart" class="cl-chart"></div>
+
+    <p class="cl-caption" id="cl-caption">
+        Model. Per-asset annual volatility fixed at sigma = 16% (typical US large-cap). Equal weights w_i = 1/N. Same pairwise correlation rho across all asset pairs. Portfolio vol = sigma * sqrt(1/N + (1 - 1/N) * rho). Diversification ratio = sigma / sigma_p. Floor as N grows = sigma * sqrt(rho). Reference curves drawn at rho = 0, 0.3, 0.5, 0.7 (the four regimes from the static image).
+    </p>
+</div>
+
+<script>
+(function () {
+    var I18N = {
+        en: {
+            name_N: "Number of assets (N)",
+            name_R: "Pairwise correlation (rho)",
+            bn_vp: "Portfolio volatility",
+            bn_dr: "Diversification ratio",
+            bn_en: "Effective N",
+            bd_vp: "annualised, equal weights, sigma = 16%",
+            bd_dr: "single-asset vol / portfolio vol",
+            bd_en: "1 / sum(w_i^2); equals N for equal weights",
+            chart_title: "Portfolio vol vs N - reference curves + your point",
+            x_lab: "Number of assets (N)",
+            y_lab: "Portfolio volatility",
+            ref_label: "rho = ",
+            you_label: "Your portfolio",
+            floor_label: "Floor (large N)",
+            caption: "Model. Per-asset annual volatility fixed at sigma = 16% (typical US large-cap). Equal weights w_i = 1/N. Same pairwise correlation rho across all asset pairs. Portfolio vol = sigma * sqrt(1/N + (1 - 1/N) * rho). Diversification ratio = sigma / sigma_p. Floor as N grows = sigma * sqrt(rho). Reference curves drawn at rho = 0, 0.3, 0.5, 0.7.",
+        },
+        hk: {
+            name_N: "資產數目(N)",
+            name_R: "資產間相關性(rho)",
+            bn_vp: "組合波動率",
+            bn_dr: "分散比率",
+            bn_en: "有效資產數目",
+            bd_vp: "年化,等權重,sigma = 16%",
+            bd_dr: "單資產波動 / 組合波動",
+            bd_en: "1 / sum(w_i^2);等權重時等於 N",
+            chart_title: "組合波動 vs N - 參考曲線 + 你的點",
+            x_lab: "資產數目(N)",
+            y_lab: "組合波動率",
+            ref_label: "rho = ",
+            you_label: "你的組合",
+            floor_label: "下限(N 大)",
+            caption: "模型。單一資產年化波動 sigma = 16%(美股大型股典型值)。等權重 w_i = 1/N。所有資產對的 rho 相同。組合波動 = sigma * sqrt(1/N + (1 - 1/N) * rho)。分散比率 = sigma / sigma_p。N 趨大時下限 = sigma * sqrt(rho)。參考曲線繪於 rho = 0、0.3、0.5、0.7。",
+        },
+        tw: {
+            name_N: "資產數目(N)",
+            name_R: "資產間相關性(rho)",
+            bn_vp: "組合波動率",
+            bn_dr: "分散比率",
+            bn_en: "有效資產數目",
+            bd_vp: "年化,等權重,sigma = 16%",
+            bd_dr: "單資產波動 / 組合波動",
+            bd_en: "1 / sum(w_i^2);等權重時等於 N",
+            chart_title: "組合波動 vs N - 參考曲線 + 你的點",
+            x_lab: "資產數目(N)",
+            y_lab: "組合波動率",
+            ref_label: "rho = ",
+            you_label: "你的組合",
+            floor_label: "下限(N 大)",
+            caption: "模型。單一資產年化波動 sigma = 16%(美股大型股典型值)。等權重 w_i = 1/N。所有資產對的 rho 相同。組合波動 = sigma * sqrt(1/N + (1 - 1/N) * rho)。分散比率 = sigma / sigma_p。N 趨大時下限 = sigma * sqrt(rho)。參考曲線繪於 rho = 0、0.3、0.5、0.7。",
+        },
+        cn: {
+            name_N: "资产数目(N)",
+            name_R: "资产间相关性(rho)",
+            bn_vp: "组合波动率",
+            bn_dr: "分散比率",
+            bn_en: "有效资产数目",
+            bd_vp: "年化,等权重,sigma = 16%",
+            bd_dr: "单资产波动 / 组合波动",
+            bd_en: "1 / sum(w_i^2);等权重时等于 N",
+            chart_title: "组合波动 vs N - 参考曲线 + 你的点",
+            x_lab: "资产数目(N)",
+            y_lab: "组合波动率",
+            ref_label: "rho = ",
+            you_label: "你的组合",
+            floor_label: "下限(N 大)",
+            caption: "模型。单一资产年化波动 sigma = 16%(美股大型股典型值)。等权重 w_i = 1/N。所有资产对的 rho 相同。组合波动 = sigma * sqrt(1/N + (1 - 1/N) * rho)。分散比率 = sigma / sigma_p。N 趋大时下限 = sigma * sqrt(rho)。参考曲线绘于 rho = 0、0.3、0.5、0.7。",
+        },
+    };
+    function currentLang() {
+        var p = new URLSearchParams(window.location.search);
+        var l = (p.get("lang") || "en").toLowerCase();
+        return I18N.hasOwnProperty(l) ? l : "en";
+    }
+    var T = I18N[currentLang()];
+
+    var SIGMA = 0.16;
+    var REF_RHOS = [0.0, 0.3, 0.5, 0.7];
+    var ROOT = document.getElementById("cl-root");
+    var N_EL = document.getElementById("cl-N");
+    var R_EL = document.getElementById("cl-R");
+    var CHART = document.getElementById("cl-chart");
+
+    function darkMode() {
+        return document.documentElement.getAttribute("data-theme") === "dark";
+    }
+    function getCssVar(name) {
+        return getComputedStyle(ROOT).getPropertyValue(name).trim();
+    }
+    function fmtPct(n, d) {
+        if (!isFinite(n)) return "-";
+        return (n * 100).toFixed(d == null ? 2 : d) + "%";
+    }
+    function portVol(n, rho) {
+        return SIGMA * Math.sqrt(1.0 / n + (1.0 - 1.0 / n) * rho);
+    }
+
+    function applyI18n() {
+        document.getElementById("cl-name-N").textContent = T.name_N;
+        document.getElementById("cl-name-R").textContent = T.name_R;
+        document.getElementById("cl-bn-vp").textContent = T.bn_vp;
+        document.getElementById("cl-bn-dr").textContent = T.bn_dr;
+        document.getElementById("cl-bn-en").textContent = T.bn_en;
+        document.getElementById("cl-bd-vp").textContent = T.bd_vp;
+        document.getElementById("cl-bd-dr").textContent = T.bd_dr;
+        document.getElementById("cl-bd-en").textContent = T.bd_en;
+        document.getElementById("cl-caption").textContent = T.caption;
+    }
+
+    function render() {
+        var n = parseInt(N_EL.value, 10);
+        var rho = parseFloat(R_EL.value) / 100.0;
+
+        document.getElementById("cl-val-N").textContent = String(n);
+        document.getElementById("cl-val-R").textContent =
+            (rho >= 0 ? "+" : "") + rho.toFixed(2);
+
+        var vp = portVol(n, rho);
+        var dr = SIGMA / vp;
+        var effN = n;  // equal weights -> 1 / N*(1/N)^2 = N
+
+        document.getElementById("cl-bv-vp").textContent = fmtPct(vp, 2);
+        document.getElementById("cl-bv-dr").textContent = dr.toFixed(2) + "x";
+        document.getElementById("cl-bv-en").textContent = effN.toFixed(0);
+
+        var colorBlue = getCssVar("--cl-blue");
+        var colorGreen = getCssVar("--cl-green");
+        var colorAccent = getCssVar("--cl-accent");
+        var colorRed = getCssVar("--cl-red");
+        var colorPurple = getCssVar("--cl-purple");
+        var colorText = getCssVar("--cl-text");
+        var colorMuted = getCssVar("--cl-muted");
+        var colorBg = getCssVar("--cl-card");
+        var colorGrid = darkMode() ? "rgba(255,255,255,0.08)" : "rgba(0,0,0,0.07)";
+        var refColors = [colorBlue, colorGreen, colorAccent, colorRed];
+
+        var xs = [];
+        for (var i = 1; i <= 50; i++) xs.push(i);
+
+        var traces = [];
+        for (var k = 0; k < REF_RHOS.length; k++) {
+            var r = REF_RHOS[k];
+            var ys = xs.map(function (xi) { return portVol(xi, r) * 100.0; });
+            traces.push({
+                x: xs, y: ys, type: "scatter", mode: "lines",
+                name: T.ref_label + r.toFixed(1),
+                line: { color: refColors[k], width: 1.4, dash: "dot" },
+                opacity: 0.7,
+                hovertemplate: "N=%{x}<br>" + T.ref_label + r.toFixed(1) + ": %{y:.2f}%<extra></extra>",
+            });
+        }
+        // Live curve at chosen rho.
+        var liveYs = xs.map(function (xi) { return portVol(xi, rho) * 100.0; });
+        traces.push({
+            x: xs, y: liveYs, type: "scatter", mode: "lines",
+            name: T.you_label + " (rho=" + (rho >= 0 ? "+" : "") + rho.toFixed(2) + ")",
+            line: { color: colorPurple, width: 2.8 },
+            hovertemplate: "N=%{x}<br>vol: %{y:.2f}%<extra></extra>",
+        });
+        // Marker at chosen N.
+        traces.push({
+            x: [n], y: [vp * 100.0], type: "scatter", mode: "markers",
+            name: T.you_label,
+            marker: { color: colorPurple, size: 14, line: { color: colorBg, width: 2 } },
+            showlegend: false,
+            hovertemplate: "N=%{x}<br>vol: %{y:.2f}%<extra></extra>",
+        });
+
+        // Floor reference (only if rho > 0).
+        if (rho > 0) {
+            var floorPct = SIGMA * Math.sqrt(rho) * 100.0;
+            traces.push({
+                x: [1, 50], y: [floorPct, floorPct],
+                type: "scatter", mode: "lines",
+                name: T.floor_label + " " + floorPct.toFixed(2) + "%",
+                line: { color: colorPurple, width: 1.0, dash: "dash" },
+                opacity: 0.55,
+                hoverinfo: "skip",
+            });
+        }
+
+        var layout = {
+            margin: { l: 70, r: 16, t: 50, b: 56 },
+            paper_bgcolor: colorBg, plot_bgcolor: colorBg,
+            font: { family: "Segoe UI, Helvetica, Arial, sans-serif", color: colorText, size: 12 },
+            xaxis: {
+                title: { text: T.x_lab, font: { color: colorMuted, size: 11 } },
+                gridcolor: colorGrid, color: colorText, range: [0.5, 51],
+            },
+            yaxis: {
+                title: { text: T.y_lab, font: { color: colorMuted, size: 11 } },
+                ticksuffix: "%", gridcolor: colorGrid,
+                zerolinecolor: colorMuted, color: colorText,
+                rangemode: "tozero",
+            },
+            title: { text: T.chart_title, x: 0, xanchor: "left",
+                     font: { color: colorText, size: 13, weight: 700 } },
+            legend: { orientation: "h", x: 0, y: 1.10, xanchor: "left",
+                      font: { color: colorText, size: 10 } },
+            hovermode: "x unified",
+        };
+        Plotly.react(CHART, traces, layout, { displayModeBar: false, responsive: true });
+    }
+
+    applyI18n();
+    N_EL.addEventListener("input", render);
+    R_EL.addEventListener("input", render);
+
+    function reportHeight() {
+        try {
+            var h = Math.ceil(document.documentElement.scrollHeight);
+            parent.postMessage({ type: "lesson-interactive-resize", height: h }, "*");
+        } catch (e) { /* ignore */ }
+    }
+    if (typeof ResizeObserver !== "undefined") {
+        new ResizeObserver(reportHeight).observe(document.body);
+    }
+    window.addEventListener("resize", reportHeight);
+    setTimeout(reportHeight, 50);
+    setTimeout(reportHeight, 500);
+
+    var themeObserver = new MutationObserver(render);
+    themeObserver.observe(document.documentElement, {
+        attributes: true, attributeFilter: ["data-theme"],
+    });
+
+    render();
+})();
+</script>
+
+</body>
+</html>

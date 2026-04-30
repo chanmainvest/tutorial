@@ -1,412 +1,788 @@
-# Side Lesson 04: Tax-Efficient Investing -- Keeping More of What You Earn
+# Side Lesson 04: Tax Efficiency — Asset Location, Harvesting, and the IRA/401(k) Stack
 
 ---
 
-## PART 1: READING SECTION
+## Part 1: Reading Section
 
 ---
 
-### Why This Is Important
+### 1. Why This Is Important
 
-Taxes are the single largest expense most investors face over a lifetime -- larger than management fees, trading costs, and advisory fees combined. Studies consistently show that taxes reduce investment returns by 1% to 2% per year for taxable accounts. Over a 30-year investing career, that drag can reduce your ending wealth by 25% to 40%.
+For a US household earning between roughly $200k and $750k a year,
+**taxes are almost always the largest line item on the lifetime
+investment-cost statement**. They beat fund fees, advisory fees, and
+trading costs combined — and they do so by an order of magnitude.
+At the 32% federal bracket plus a typical 5% state bracket, a balanced
+taxable portfolio gives back somewhere between 1.0% and 1.7% per year
+in tax drag without anybody noticing, because the brokerage statement
+quotes pre-tax. Compound that for thirty years against a 7% real
+return and the *after-tax* terminal wealth is 25-40% lower than the
+back-of-envelope spreadsheet line.
 
-The difference between a tax-aware investor and a tax-oblivious one is not about finding better investments. It is about keeping more of the returns you already earn. Tax-efficient investing does not require exotic strategies or complex structures. It requires understanding a handful of rules and applying them consistently.
+The good news is that the rules are public, the rates are written
+down, and most of the available efficiency is mechanical. You do not
+need a tax attorney for the first 80%. You need four moves, in this
+order:
 
-This lesson covers the core strategies: understanding the tax rates that apply to different types of investment income, placing the right assets in the right accounts, harvesting losses to offset gains, and avoiding the traps that catch uninformed investors.
+1. **Know the schedule.** Long-term capital gains and qualified
+   dividends sit on a separate, lower bracket schedule than wages.
+   Knowing where you fall on it changes which sleeve of your portfolio
+   should live in which account.
+2. **Place the right asset in the right account.** A $100,000 BND
+   position generates the same pre-tax interest in any account.
+   In a brokerage it loses 32%+ of that interest to the IRS every
+   April. In a Traditional IRA it loses zero until withdrawal. The
+   asset is identical; the *location* changes the after-tax curve.
+3. **Harvest losses systematically.** When a position is underwater,
+   selling and re-establishing similar exposure crystallises a tax
+   loss that offsets gains anywhere else in the portfolio. Most
+   retail investors leave this money on the table because the
+   wash-sale rule looks scarier than it is.
+4. **Stack the accounts in the right order.** Roth, Traditional, HSA,
+   401(k), brokerage — each has a different tax treatment on the way
+   in, while invested, and on the way out. Filling them in the wrong
+   order can cost six figures by retirement.
+
+This lesson is the operating manual for those four moves. SOUL #15 —
+"the largest unspoken fee is tax; use options and margin to manage
+it" — sits at the very end of the stack. Once the easy structural
+wins are captured, the marginal dollar of tax efficiency comes from
+*how* you hold the position (LTCG holding period, Section 1256 60/40
+split, options as deferred income), not from which fund you bought.
+
+![Three-by-eight grid showing the optimal account location for eight common asset classes across Taxable, Traditional IRA, and Roth IRA columns. Cells are colour-coded green (best location), amber (acceptable), red (worst location). Headlines: bonds and REITs go to Traditional IRA, qualified-dividend stocks stay in Taxable, high-growth assets and crypto go to Roth, MLPs stay in Taxable to avoid UBTI.](image/side04_asset_location_grid.png)
 
 ---
 
-### What You Need to Know
-
-#### Capital Gains Tax: The Basics
-
-When you sell an investment for more than you paid, the profit is a capital gain. The tax rate depends on how long you held the investment:
-
-**Short-Term Capital Gains (STCG)** -- Investments held for one year or less. Taxed at your ordinary income tax rate, which can be as high as 37% for federal taxes (as of 2025 tax brackets), plus state taxes.
-
-**Long-Term Capital Gains (LTCG)** -- Investments held for more than one year. Taxed at preferential rates: 0%, 15%, or 20%, depending on your taxable income. Most investors fall into the 15% bracket.
-
-**Net Investment Income Tax (NIIT)** -- An additional 3.8% surtax on investment income for individuals with modified adjusted gross income above $200,000 ($250,000 for married couples filing jointly). This means the effective top long-term capital gains rate is 23.8%.
-
-The difference between STCG and LTCG rates is enormous. An investor in the 32% marginal income tax bracket who realizes a $10,000 short-term gain pays $3,200 in federal taxes. The same gain, if long-term, costs $1,500 (at 15%) -- a savings of $1,700. This difference alone should motivate you to hold investments for at least one year and one day before selling when possible.
-
-#### Qualified Dividends vs. Ordinary Dividends
-
-**Qualified dividends** receive the same favorable tax treatment as long-term capital gains (0%, 15%, or 20%). To qualify, the dividend must be paid by a US corporation or a qualified foreign corporation, and you must hold the stock for at least 60 days during the 121-day period surrounding the ex-dividend date.
-
-**Ordinary (non-qualified) dividends** are taxed at your regular income tax rate. This includes dividends from REITs, money market funds, and most foreign stock dividends that do not meet qualification criteria.
-
-**Interest income** from bonds, CDs, savings accounts, and money market funds is always taxed at ordinary income rates. This is why bond funds are particularly tax-inefficient in taxable accounts.
-
-**Municipal bond interest** is exempt from federal income tax and often exempt from state taxes if the bond is issued in your state of residence. This makes municipal bonds attractive for high-income investors in taxable accounts.
-
-#### The 0% Long-Term Capital Gains Bracket
-
-One of the most powerful and underutilized provisions in the tax code: investors with taxable income below certain thresholds pay zero percent tax on long-term capital gains and qualified dividends.
-
-For 2025, the 0% LTCG bracket applies to single filers with taxable income up to approximately $48,350 and married couples filing jointly up to approximately $96,700. This creates opportunities:
-
-- **Early retirees** living off savings before Social Security and pensions begin may have low enough income to harvest gains at 0%.
-- **Young investors** in entry-level careers can realize gains tax-free if their income is below the threshold.
-- **Strategic planning** -- If you know you will have a low-income year (sabbatical, job transition, starting a business), accelerate gain realization into that year.
-
-Selling appreciated investments, paying zero tax, and immediately repurchasing at the higher cost basis is sometimes called "tax-gain harvesting." It is the opposite of tax-loss harvesting and is equally valuable when available.
-
-#### Tax-Loss Harvesting
-
-Tax-loss harvesting (TLH) is the strategy of selling investments that have declined in value to realize losses that offset gains. These losses can offset capital gains dollar-for-dollar and, if losses exceed gains, up to $3,000 per year of ordinary income. Unused losses carry forward indefinitely.
-
-**How it works in practice:**
-
-1. You own Fund A, purchased for $50,000, now worth $40,000 -- a $10,000 unrealized loss.
-2. You sell Fund A, realizing the $10,000 loss.
-3. You immediately purchase Fund B, a similar but not "substantially identical" fund, to maintain your market exposure.
-4. The $10,000 loss offsets $10,000 in capital gains elsewhere in your portfolio (or $3,000 in ordinary income if you have no gains).
-
-**Tax savings:** If that $10,000 loss offsets long-term capital gains taxed at 15%, you save $1,500 in taxes. If it offsets short-term gains taxed at 32%, you save $3,200.
-
-**Important nuance:** TLH does not eliminate taxes -- it defers them. When you eventually sell Fund B, your cost basis is lower ($40,000 instead of $50,000), so your future gain will be $10,000 larger. You are essentially getting an interest-free loan from the government. The value of this deferral depends on the time value of money and your future tax rate.
-
-**When TLH creates permanent savings:**
-- If your tax rate drops in the future (retirement, for example)
-- If you hold until death, when the cost basis receives a step-up to market value
-- If you donate the appreciated shares to charity
-- If you harvest short-term losses to offset income taxed at ordinary rates but the eventual gain will be long-term
-
-#### The Wash Sale Rule
-
-The IRS wash sale rule prevents you from selling a security at a loss and buying a "substantially identical" security within 30 days before or after the sale (a 61-day window total). If you violate this rule, the loss is disallowed -- you cannot use it to offset gains.
-
-**What counts as "substantially identical":**
-- Buying the exact same security (same ticker, same CUSIP)
-- Buying a very similar security issued by the same company (different share class)
-- Options on the same security
-
-**What generally does not count as substantially identical:**
-- Buying an ETF tracking a different index (selling a Vanguard S&P 500 ETF and buying a Schwab Total Stock Market ETF)
-- Buying an ETF from a different provider tracking the same index (this is a gray area -- the IRS has not issued definitive guidance)
-- Buying individual stocks in the same sector
-
-**Wash sale traps to avoid:**
-- **Automatic dividend reinvestment** -- If your DRIP buys shares within the 30-day window, it can trigger a wash sale.
-- **Cross-account transactions** -- The wash sale rule applies across all your accounts, including IRAs. If you sell a stock in your taxable account and your IRA buys the same stock within 30 days, the loss is disallowed -- and worse, you cannot add the disallowed loss to the IRA's cost basis.
-- **Spouse accounts** -- The IRS may apply wash sale rules to accounts held by spouses.
-- **401(k) contributions** -- If your 401(k) buys the same fund you just sold at a loss, it could trigger a wash sale.
-
-#### Asset Location: The Right Account for Each Investment
-
-Asset location is the strategy of placing investments in the type of account (taxable, tax-deferred, or tax-exempt) where they will be most tax-efficient.
-
-**Three account types:**
-
-1. **Taxable accounts** (brokerage accounts) -- Contributions are made with after-tax dollars. You pay taxes annually on dividends, interest, and realized capital gains.
-
-2. **Tax-deferred accounts** (Traditional IRA, Traditional 401(k)) -- Contributions may be tax-deductible. Growth is tax-free. Withdrawals in retirement are taxed as ordinary income.
-
-3. **Tax-exempt accounts** (Roth IRA, Roth 401(k)) -- Contributions are made with after-tax dollars. Growth is tax-free. Qualified withdrawals in retirement are tax-free.
-
-**General asset location principles:**
-
-**In taxable accounts, hold:**
-- Tax-efficient equity index funds and ETFs (low turnover, capital gains deferred)
-- Municipal bonds (federal tax-exempt interest)
-- Stocks you plan to hold long-term (preferential LTCG rates)
-- Investments that generate qualified dividends
-
-**In tax-deferred accounts (Traditional IRA/401k), hold:**
-- Taxable bonds and bond funds (interest taxed at ordinary rates anyway)
-- REITs (dividends taxed at ordinary rates)
-- High-turnover actively managed funds (frequent capital gains distributions)
-- Commodities funds with K-1 tax reporting
-
-**In tax-exempt accounts (Roth IRA/401k), hold:**
-- Assets with the highest expected growth (tax-free growth is most valuable on the highest returns)
-- Small-cap stocks, emerging markets, or other high-expected-return asset classes
-- Assets you expect to hold for the longest time
-
-**Why this matters:** Consider a $10,000 bond investment earning 5% annually over 20 years. In a taxable account at a 32% tax rate, the after-tax ending value is approximately $18,600. In a tax-deferred IRA, the pre-tax ending value is $26,500 (taxed on withdrawal). In a Roth IRA, the ending value is $26,500 -- entirely tax-free. Same investment, dramatically different outcomes depending on where it lives.
-
-#### Tax-Efficient Fund Selection
-
-Not all funds are equally tax-efficient. Key factors:
-
-**Turnover ratio** -- Measures how frequently a fund buys and sells holdings. A fund with 100% turnover replaces its entire portfolio annually, triggering capital gains. Index funds typically have turnover below 5%. Some active funds exceed 100%.
-
-**Tax-cost ratio** -- Morningstar publishes this metric, which measures the percentage of return surrendered to taxes. A tax-cost ratio of 1.0 means taxes reduced your return by 1.0 percentage points.
-
-**Capital gains distribution history** -- Check whether a fund has a history of large capital gains distributions. This is publicly available on fund websites.
-
-**Fund structure** -- ETFs are generally more tax-efficient than mutual funds due to the in-kind creation/redemption mechanism (covered in Side Lesson 03). Within mutual funds, index funds are more tax-efficient than actively managed funds due to lower turnover.
-
-#### Municipal Bonds in Practice
-
-Municipal bonds deserve dedicated attention because they are one of the most powerful tax-efficiency tools for high-income investors:
-
-**The tax-equivalent yield formula:** Tax-Equivalent Yield = Municipal Bond Yield / (1 - Marginal Tax Rate)
-
-A municipal bond yielding 3.5% for an investor in the 35% combined federal and state bracket has a tax-equivalent yield of 3.5% / (1 - 0.35) = 5.38%. If comparable taxable bonds yield 5.0%, the muni wins. If taxable bonds yield 6.0%, they win after taxes.
-
-**When munis shine:** Municipal bonds are most advantageous for investors in the 32%+ federal bracket who are investing in taxable accounts. For investors in lower brackets or for money held in tax-advantaged accounts, taxable bonds with higher nominal yields will produce better after-tax returns. Never hold municipal bonds in an IRA or 401(k) -- their tax exemption provides no benefit in accounts where withdrawals are already taxed as ordinary income.
-
-**State-specific benefits:** If you buy bonds issued by your state of residence, the interest is typically exempt from state income tax as well. For a New York City investor paying federal, state, and city taxes at a combined marginal rate near 50%, a 3.5% muni yield is equivalent to a 7.0% taxable yield.
-
-**AMT consideration:** Some municipal bond interest can trigger the Alternative Minimum Tax. Bonds issued for "private activity" purposes -- stadiums, airports, certain housing projects -- may be subject to AMT. If you are subject to AMT, look specifically for AMT-free municipal bond funds.
-
-**Credit quality matters:** Not all municipal bonds are created equal. General obligation bonds are backed by the taxing authority of the issuing municipality. Revenue bonds are backed only by the revenue of a specific project. Municipal defaults are rare but not impossible -- Detroit filed for bankruptcy in 2013, and Puerto Rico's debt crisis affected bondholders significantly. Diversification through a municipal bond fund is prudent for most investors.
-
-#### Tax-Efficient Withdrawal Strategies
-
-During retirement, the order in which you withdraw from different accounts matters:
-
-**Conventional wisdom** -- Withdraw from taxable accounts first (to allow tax-advantaged accounts to continue growing tax-free), then tax-deferred, then Roth.
-
-**Better approach** -- Manage withdrawals to fill up lower tax brackets strategically. In years when your income is low, convert some Traditional IRA to Roth (paying taxes at a low rate). In years when your income is high, draw from Roth. This "bracket management" can save substantial taxes over a multi-decade retirement.
-
-**Required Minimum Distributions (RMDs)** -- Traditional IRAs and 401(k)s require you to begin withdrawing at age 73 (as of 2023 SECURE Act 2.0, rising to 75 in 2033). Roth IRAs have no RMDs during the owner's lifetime. This makes Roth conversions before RMD age particularly valuable -- you shrink the account that will force taxable withdrawals.
-
-**The Roth conversion ladder:** A sophisticated strategy involves systematically converting portions of a Traditional IRA to a Roth IRA during the years between retirement and the start of RMDs (or Social Security). Each year, you convert just enough to fill up a lower tax bracket. Over a decade, you can move hundreds of thousands of dollars from tax-deferred to tax-free status at rates well below your working-year marginal rate. This requires careful planning and modeling but can save six figures in lifetime taxes.
-
-#### Specific Lot Identification: A Powerful but Overlooked Tool
-
-When you sell shares of a security, you can choose which specific tax lots to sell. This is called "specific identification" and most brokerages support it (the alternative is FIFO -- first in, first out -- which may not be optimal).
-
-**How to use specific lot identification:**
-
-1. **Harvest losses strategically** -- Sell the lots with the highest cost basis (largest losses) while keeping lots with lower cost bases.
-2. **Manage gains between short-term and long-term** -- If you need to sell some shares, sell lots held for more than one year first to get long-term rates.
-3. **Minimize current taxes** -- Sell the highest-cost-basis lots first to minimize the reported gain.
-4. **Maximize charitable giving** -- Donate the lowest-cost-basis lots (largest gains) to charity, keeping the higher-cost-basis lots in your portfolio.
-
-Contact your brokerage to ensure "specific identification" is set as your default tax lot selection method. This gives you maximum flexibility.
-
-#### The Annual Tax Planning Calendar
-
-Tax-efficient investing is not a one-time setup -- it requires periodic attention:
-
-- **January-February:** Review prior year's tax situation. Identify large gains or losses realized.
-- **Throughout the year:** Monitor positions for tax-loss harvesting opportunities, especially during market pullbacks. Check for wash sale risks before trading.
-- **October-November:** Review fund capital gains distribution estimates (published by fund companies). Consider selling funds before they make large distributions.
-- **December:** Make final TLH trades, ensuring the 31-day wash sale window ends within the calendar year. Execute Roth conversions if appropriate. Make charitable contributions of appreciated securities. Ensure any year-end trades settle before December 31.
-- **Year-round:** Keep records of all lot purchases, sales, wash sales, and cost basis adjustments.
+### 2. What You Need to Know
+
+#### 2.1 The 2026 Rate Schedule — The Numbers You Have to Memorise
+
+Three separate schedules govern investment income in the US. Burn the
+2026 numbers (post-TCJA-extension) into memory:
+
+**Long-term capital gains and qualified dividends** — held >12 months.
+
+| Bracket | MFJ taxable income (2026) | Single taxable income |
+|---|---|---|
+| 0% | up to $96,700 | up to $48,350 |
+| 15% | $96,701 - $600,050 | $48,351 - $533,400 |
+| 20% | above $600,050 | above $533,400 |
+
+On top of that, the **3.8% Net Investment Income Tax (NIIT)** kicks
+in above $250k MAGI for MFJ ($200k single). It applies to interest,
+dividends, capital gains, royalties, rents, and most passive income.
+For a typical professional couple at $300k AGI, the *effective* LTCG
+rate is therefore 15% + 3.8% = **18.8%**, not 15%. Above $600k the
+top federal rate is 20% + 3.8% = **23.8%**.
+
+**Short-term capital gains** (held ≤12 months) and **non-qualified
+dividends** (REITs, most BDCs, many foreign stocks) — taxed as
+**ordinary income** at your marginal wage bracket: 22% / 24% / 32% /
+35% / 37%. NIIT still applies on top.
+
+**Treasury interest** — federal ordinary income, **state-exempt**.
+A 4.2% 10-year Treasury in California is a roughly 4.4% taxable-
+equivalent yield; in a 0%-state, the headline 4.2% is the headline.
+
+**Municipal bond interest** — federal-exempt; in-state munis are
+state-exempt too. Often AMT-exempt depending on the issue.
+
+The single most important consequence is the **rate gap**: in the 32%
+bracket, ordinary-rate income loses 37% (32% federal + 5% state) of
+every dollar, while qualified-dividend income loses 20% (15% LTCG +
+5% state). The gap is *17 percentage points of after-tax yield* on
+the same gross dollar. That is the lever asset location pulls.
+
+#### 2.2 Asset Location — The Free Lunch
+
+The principle is one sentence: **hold tax-inefficient assets in
+tax-deferred accounts, and tax-efficient assets in taxable
+accounts.** Mechanical, not clever. A summary of the eight
+canonical sleeves:
+
+1. **Broad US stock index (VTI / SPY).** Yields 1.4%, mostly qualified
+   dividends, capital gains realise only when *you* sell. Tax drag in
+   a brokerage is roughly 0.3-0.4% per year. **Best location:
+   Taxable.** (Roth is acceptable but wastes the rare LTCG advantage.)
+2. **Broad international stocks (VXUS / IEFA).** Same yield profile
+   plus a *foreign tax credit* of 7-9% of the dividends paid abroad —
+   a credit you can only claim if the position is in a *taxable*
+   account. Putting VXUS in an IRA forfeits the credit. **Best
+   location: Taxable.**
+3. **Investment-grade and total-bond ETFs (BND / AGG / VTEB).** Yield
+   4-5% in interest, all taxed as ordinary income at federal + state.
+   Tax drag in a brokerage at 32% federal + 5% state is roughly 1.6%
+   per year on a 4.5%-yielding bond fund. **Best location:
+   Traditional IRA / 401(k).**
+4. **High-yield corporate bonds (HYG / JNK).** Same problem as IG,
+   except the yield is 7-8% and the drag is correspondingly larger
+   (~3.0%/yr). **Best location: Traditional IRA.**
+5. **REITs (VNQ / SCHH).** Distributions are *non-qualified ordinary
+   dividends*. The 20% Section 199A pass-through deduction softens
+   the blow to roughly 80% of the marginal rate, but it is still much
+   worse than LTCG. **Best location: Traditional IRA**, with Roth a
+   close second.
+6. **TIPS (SCHP / VTIP).** Inflation accruals are *imputed* ordinary
+   income each year, even when not received in cash ("phantom
+   income"). Holding TIPS in a brokerage account guarantees a tax
+   bill on money you have not yet seen. **Best location: Traditional
+   IRA / I-Bonds (the I-Bond version defers automatically).**
+7. **MLPs and energy partnerships (EPD, MPLX, ET).** Distributions
+   are partly return-of-capital (great for taxable) but generate
+   K-1s. Inside an IRA, K-1 income above $1,000 triggers UBIT —
+   *Unrelated Business Income Tax* — at trust-level rates up to
+   37%, and the IRA itself files a separate return. **Best location:
+   Taxable. Worst location: any IRA.**
+8. **High-growth assets and crypto (small-cap, BTC ETFs, single-name
+   speculation).** Returns are dominated by capital gains, which can
+   be deferred indefinitely in a brokerage. But because the *expected
+   compound return is highest*, every dollar of growth is most
+   valuable when it is also tax-free. **Best location: Roth.** A
+   Roth-held BTC IBIT or speculative single-stock position
+   compounded for 30 years and pulled out at 65 is the most powerful
+   single tax move available to a retail investor.
+
+The image at the top of this lesson is the visual summary. Cells in
+green are the right location for that asset; red is wrong; amber is
+acceptable.
+
+#### 2.3 Tax-Loss Harvesting and the Wash-Sale Rule
+
+Tax-loss harvesting (TLH) is mechanical: any position currently
+trading below your cost basis can be sold to crystallise a paper loss,
+which then offsets realised gains anywhere else in your portfolio
+*and* up to $3,000 of ordinary income per year. Unused losses carry
+forward indefinitely. The savings on a typical $1M taxable portfolio
+in a normal-volatility year is roughly $3,000-$5,000 / year, which
+compounds to **roughly $100k of saved taxes over a 30-year horizon**
+on the chart below.
+
+![Cumulative tax-loss-harvesting savings over 30 years on a $1M taxable portfolio with 16% annualised volatility. The annual bar chart shows higher savings in volatile years (2008-style spikes of $12-15k) and modest steady-state harvesting of $2-4k in calm years. The cumulative line crosses $100k around year 25-30. Caption notes the savings assume realised gains are available to offset and the harvest is reinvested into a substantially-not-identical replacement.](image/side04_tlh_savings.png)
+
+**The wash-sale rule (IRC §1091)** is the only real constraint. If
+you sell a security at a loss, you cannot buy "substantially
+identical" securities in any account you control (including IRAs and
+your spouse's accounts) within **30 days before or after** the sale,
+or the loss is disallowed and added to the basis of the replacement.
+
+Three rules of thumb that pass the test in practice:
+
+1. **Pair similar but not identical ETFs.** VTI ↔ ITOT (different
+   issuer, different index), VOO ↔ IVV, BND ↔ AGG. The IRS has never
+   challenged a swap between two index ETFs tracking *different
+   indices* even if the indices are 95%+ overlapping.
+2. **Hold the replacement for at least 31 days.** After day 31 you
+   may swap back if you prefer the original. Most TLH platforms
+   (Wealthfront, Betterment, Schwab Tax-Loss Harvesting) automate
+   this round-trip.
+3. **Do not buy the same security in your IRA inside the window.**
+   This is the most expensive accidental wash-sale: most retail
+   investors do not realise the rule reaches across accounts and even
+   into spousal IRAs.
+
+The harvest is "free" only at the *gross* level. At the *net* level
+you have lowered the cost basis of the replacement, so the saved tax
+is really *deferred* tax. The compounded benefit is real (you keep
+more invested, longer) but you are not literally erasing the
+liability — you are postponing it, ideally until a year you control
+the bracket (early retirement, gap year, charitable transfer, or
+death-with-step-up).
+
+#### 2.4 Roth Conversions and the Mega-Backdoor Roth
+
+Two advanced moves that compound enormously over a career.
+
+**Roth conversion.** You move money from a Traditional IRA or 401(k)
+into a Roth IRA. The conversion is taxable as ordinary income in the
+year of the move. The Roth then grows tax-free forever and is not
+subject to RMDs (Required Minimum Distributions, currently age 75
+under SECURE 2.0). The arithmetic is favourable whenever **your
+*current* marginal bracket is lower than your *expected* future
+marginal bracket on the same dollar.**
+
+The classic case: a 60-year-old retires with a $1.5M Traditional IRA
+and waits until age 75 RMDs force ~$60k/year of distributions on top
+of Social Security. Those forced distributions get taxed at the 22%+
+bracket. Instead, the retiree converts $50k/year between ages 60 and
+70 in the *low-income* gap years, paying 12-22% on the way in and
+zero on the way out. The lifetime tax bill drops by 5-10 percentage
+points on the converted amount.
+
+**Mega-backdoor Roth.** A subset of 401(k) plans allow *after-tax*
+(non-Roth) contributions on top of the regular $23,500 employee
+limit, up to the combined $70,000 (2026) annual addition cap. Those
+after-tax dollars can be immediately rolled — *in-plan* or to a
+Roth IRA — into Roth status, putting up to **$46,500 of extra Roth
+money** into the system every year. The catch: only ~50% of plans
+support the in-plan conversion, and the rules are an HR-department
+question, not a tax-attorney one. If your plan supports it, this is
+the single highest-leverage tax move in the US system.
+
+#### 2.5 The HSA — The Triple-Tax Account
+
+The Health Savings Account is the only US account that is **tax-free
+on the way in, tax-free on growth, and tax-free on the way out**
+(provided withdrawals are for qualified medical expenses). 2026
+contribution limits: $4,400 single / $8,750 family. The HSA is
+available only if you are enrolled in a qualifying high-deductible
+health plan (HDHP).
+
+The high-leverage move is to **fund the HSA, invest it in a
+total-stock-market fund, and pay current medical expenses out of
+pocket** — saving the receipts. After 30 years of compounding the
+HSA can be $300k+, and you can reimburse yourself for the *old*
+medical receipts at any time, tax-free. This converts what looks
+like a healthcare account into a stealth Roth IRA with no income
+limits, no contribution caps tied to wages, and no required
+distribution age (HSA distributions for non-medical expenses after
+65 are taxed as ordinary income — same as a Traditional IRA — so
+the worst-case downside is "Traditional IRA").
+
+The HSA is the *first* dollar in the contribution stack for any
+investor with access to it. Even before the 401(k) match.
+
+#### 2.6 The Account-Filling Order
+
+The full priority stack for a new dollar of savings, in 2026:
+
+1. **401(k) up to the employer match.** A 100% return on day one is
+   not negotiable.
+2. **HSA to the limit, if eligible.** Triple tax treatment.
+3. **401(k) up to the $23,500 employee limit.** Traditional or Roth
+   depending on your bracket — Roth if current bracket ≤ expected
+   future, Traditional otherwise.
+4. **Backdoor Roth IRA, $7,000.** For high earners above the direct
+   Roth income limits (single MAGI > $165k, MFJ > $246k in 2026).
+5. **Mega-backdoor Roth, up to $46,500 if your plan supports it.**
+6. **Taxable brokerage account.** Once the tax-advantaged caps are
+   exhausted, the taxable account holds the residual — which is
+   exactly where the asset-location and TLH discipline does its
+   work.
+7. **529 plan**, contemporaneously with steps 1-6, for any
+   college-bound dependents — the limit varies by state but $10-15k
+   per beneficiary is the typical sweet spot.
+
+#### 2.7 Withdrawal Order — Distribution-Side Tax Planning
+
+The accumulation order has a mirror on the distribution side. The
+canonical retirement-withdrawal sequence:
+
+1. **Required Minimum Distributions first**, if any (Trad IRA after
+   age 75, inherited IRAs).
+2. **Taxable account next.** Assets sold from the taxable account
+   benefit from the basis you have built up (and any losses you
+   harvested). Capital gains realisation is deliberate — you can pick
+   high-basis lots and stay in the 0% LTCG bracket if your taxable
+   income is under the threshold.
+3. **Traditional IRA / 401(k) third.** Withdrawals are ordinary
+   income; control the bracket by keeping annual draws under the
+   next-bracket boundary.
+4. **Roth last.** The Roth grows tax-free with no RMDs and no tax on
+   withdrawal. Holding it last maximises tax-free compounding and
+   leaves it for late-life expenses, charitable transfers, or
+   inheritance (where heirs get 10 tax-free years under SECURE 2.0).
+
+A subtle and powerful variant: in the gap years between retirement
+and age 75 (or earlier Social Security claiming), keep ordinary
+income low and use those years to **convert Traditional → Roth** (per
+§2.4) while withdrawing from the Taxable account for living expenses.
+This is the single most-effective lifetime tax-management move
+available to early retirees.
+
+#### 2.8 SOUL #15 — Tax via Options and Margin
+
+Once steps 2.2-2.7 are mechanical, the marginal dollar of
+tax-efficiency comes from *how* you hold the position. SOUL #15
+catalogues four exposure-level moves:
+
+- **Use Section 1256 contracts (SPX / NDX index options, /ES
+  futures, /MES, /MNQ).** These are taxed at 60% LTCG / 40% STCG
+  *regardless of holding period* — a blended top rate of about 26.8%
+  vs. 37% for short-term equity options. For active option writers
+  this is a 10pp blanket discount.
+- **Cover instead of selling.** If a stock has a $200k embedded gain,
+  don't sell to reduce exposure — overlay a short call (covered call)
+  or a collar (long put + short call). You collect premium or pay
+  little, the delta drops, and the embedded gain stays unrealised.
+- **Replace shares with synthetic longs.** A long-call + short-put
+  at the same strike replicates 100 shares but uses ~10x less capital.
+  Selling the underlying shares while holding the synthetic *crystallises
+  the tax loss* if underwater (subject to wash-sale considerations on
+  the synthetic — get a tax pro to bless the structure) and frees the
+  capital for other uses.
+- **Box spreads and portfolio-margin loans.** Borrow against the
+  portfolio at sub-Treasury rates, use the cash, and never sell. The
+  position keeps compounding tax-free until you eventually sell or
+  step-up at death.
+
+These are the moves that separate "good" from "exceptional" after-tax
+returns over a 30-year horizon. They are not necessary to capture
+80% of the available efficiency — the §2.2-2.7 stack handles that —
+but they are how SOUL #15 talks about closing the last 20% of the
+gap.
 
 ---
 
-### Common Misconceptions
+### 3. Common Misconceptions
 
-**"Tax-loss harvesting is free money."**
-TLH is primarily a tax deferral strategy, not a tax elimination strategy. You defer taxes to the future by accepting a lower cost basis. The real value comes from three things: the time value of the deferral (using that tax savings to invest and compound), the possibility of paying a lower rate in the future, and the step-up in basis at death. It is absolutely worth doing, but it is not a magic trick that makes taxes disappear.
+**1. "All dividends are taxed the same way."** Wrong. Qualified
+dividends from US C-corps held >60 days are taxed at LTCG rates.
+REIT distributions, BDC distributions, MLP guaranteed payments, and
+most foreign dividends are *non-qualified* and taxed as ordinary
+income.
 
-**"I should never sell a winner because of taxes."**
-Taxes should not be the tail wagging the investment dog. If your investment thesis has changed, the position has become too large relative to your portfolio, or a better opportunity exists, selling and paying taxes is often the right decision. The math changes depending on your holding period and the magnitude of the gain, but "never sell" is not sound advice.
+**2. "I can deduct my full investment loss against income."** Only
+$3,000 per year against ordinary income ($1,500 if MFS). Larger
+losses offset realised gains first, then carry forward indefinitely
+against future gains.
 
-**"Municipal bonds are always better than taxable bonds for high-income investors."**
-You need to compare the tax-equivalent yield. If a municipal bond yields 3.5% and you are in the 35% combined tax bracket, the tax-equivalent yield is 3.5% / (1 - 0.35) = 5.38%. If a comparable taxable bond yields only 5.0%, the municipal bond wins. But if the taxable bond yields 6.0%, it wins after taxes. Always do the math rather than assuming munis are automatically better.
+**3. "Bonds in Roth are smart because they're 'safe.'"** Backwards.
+Bonds yield ordinary income, which gets the worst tax treatment.
+Putting them in Roth wastes the Roth's tax-free growth on the
+*lowest-expected-return* asset in your stack. Bonds should sit in a
+Traditional IRA, where the income is deferred to a low-bracket
+retirement year.
 
-**"All my accounts should hold the same investments."**
-This is the opposite of asset location. By differentiating what each account holds based on tax treatment, you can improve after-tax returns by 0.25% to 0.75% per year without taking any additional risk. This is one of the few genuine "free lunches" in investing.
+**4. "TIPS and I-Bonds are the same thing."** They are not. TIPS in
+a brokerage account generate phantom-income tax bills annually on
+the inflation accrual. I-Bonds defer the tax to redemption. Hold
+TIPS in IRAs only; I-Bonds anywhere is fine.
 
-**"I will be in a lower tax bracket in retirement, so tax-deferred accounts are always better."**
-This is not always true. If you are a good saver, your RMDs may push you into a high bracket in retirement. Social Security income, pension income, and RMDs all stack up. Many retirees are surprised to find themselves in the same or even a higher bracket than during their working years. Diversifying across account types (taxable, tax-deferred, tax-exempt) provides flexibility to manage your tax bracket in retirement.
+**5. "I need to wait 30 days *after* selling to buy back the same
+security."** It is 30 days *before* and 30 days *after* — a full 61-day
+window centred on the sale. And it includes the IRA, the spousal
+IRA, and any joint account.
 
-**"Wash sale violations are the end of the world."**
-If you trigger a wash sale, the disallowed loss is not gone forever. It gets added to the cost basis of the replacement purchase. You will eventually get the benefit when you sell the replacement -- just not now. The exception is wash sales involving IRAs, where the loss can be permanently disallowed.
+**6. "Roth is always better than Traditional."** False. Roth wins
+when your *current* marginal bracket is *lower* than your *retirement*
+marginal bracket. Most high earners in their peak years are in 32-37%
+brackets; Traditional contributions deduct at that rate, and the
+withdrawal in retirement is often at 22-24%. Traditional wins in that
+case.
 
-**"Tax-loss harvesting only works when the market crashes."**
-Harvesting opportunities exist in all market environments. Even in a year when the broad market is up 20%, individual holdings, sectors, or international funds may be down. Bond funds frequently experience declines during rising rate environments. Automated tax-loss harvesting services scan daily for these opportunities and can find losses that a quarterly or annual review would miss. The cumulative value of small, frequent harvests can exceed the value of occasional large harvests.
+**7. "MLPs in an IRA are fine because IRAs don't pay tax."** They
+trigger UBIT — Unrelated Business Income Tax — at trust rates, the
+*highest* rates in the code. If your MLP K-1 reports more than $1,000
+of UBTI, your IRA itself files Form 990-T and pays tax. Keep MLPs
+out of any tax-advantaged account.
 
-**"I do not earn enough for tax-efficient investing to matter."**
-Every investor in a taxable account benefits from tax efficiency. Even investors in the 12% bracket save real money by holding index funds instead of high-turnover active funds, by harvesting losses when they arise, and by placing bonds in tax-advantaged accounts. The absolute dollar amounts scale with income, but the percentage improvement in after-tax returns applies across income levels.
+**8. "Tax-loss harvesting permanently eliminates the tax."** It
+defers it. The replacement security has a lower basis equal to your
+original cost minus the harvested loss. When you eventually sell the
+replacement, the gain is bigger by exactly the amount you harvested.
+The benefit is the time value of money on the deferred tax, plus the
+optionality to realise in a low-bracket year (or never, via step-up
+at death).
 
----
+**9. "Roth conversions are pointless if my future bracket is lower."**
+Yes — that is exactly the case where you should *not* convert. Run
+the bracket comparison every year. Convert in years when current <
+future; do nothing in years when future ≤ current.
 
-### Q&A Section
-
-**Q: How often should I look for tax-loss harvesting opportunities?**
-A: At minimum, review at year-end. Many professionals check quarterly or even monthly. The best opportunities arise during market downturns -- January, after broad market pullbacks, and during sector-specific declines. Some robo-advisors (Wealthfront, Betterment) automate daily TLH scanning.
-
-**Q: Can I do tax-loss harvesting in my IRA or 401(k)?**
-A: No. Gains and losses inside tax-advantaged accounts have no current tax impact. TLH only works in taxable accounts. However, remember that transactions in your IRA can trigger wash sales on losses realized in your taxable account.
-
-**Q: What is the "step-up in basis at death" and why does it matter?**
-A: When you die, the cost basis of assets in your taxable accounts is reset ("stepped up") to the market value on the date of death. All unrealized capital gains are eliminated. If you bought a stock for $10,000 and it is worth $100,000 when you die, your heirs inherit it with a $100,000 basis. They can sell immediately and owe zero capital gains tax. This makes tax-loss harvesting even more valuable -- you get the benefit of the harvested loss now, and the lower cost basis is eventually erased by the step-up.
-
-**Q: Should I harvest losses even if I do not have capital gains to offset?**
-A: Yes. You can deduct up to $3,000 per year ($1,500 if married filing separately) in net capital losses against ordinary income. And unused losses carry forward indefinitely. Harvesting losses in years without gains creates a "loss bank" that you can use in future years when you do have gains.
-
-**Q: How does asset location work if most of my money is in my 401(k) and I cannot choose exactly what to hold?**
-A: Work within your 401(k) plan options. If your 401(k) offers a bond fund and a stock fund, consider holding the bond fund in the 401(k) and the stock fund in your taxable account. Use the plan's best options (often low-cost index funds) and offset with choices in your IRA and taxable accounts.
-
-**Q: What if I want to harvest a loss but there is no similar-enough replacement fund?**
-A: You can always sell and hold cash for 31 days to avoid the wash sale rule, then repurchase. The risk is missing market moves during those 31 days. Alternatively, buy a broadly similar fund -- for example, switching from a Russell 1000 index to an S&P 500 index. They are highly correlated but not "substantially identical."
-
-**Q: Do state taxes matter for asset location decisions?**
-A: Absolutely. Some states have no income tax (Texas, Florida, Nevada, etc.), which reduces the benefit of municipal bonds and changes the relative attractiveness of different account types. Other states have high income tax rates (California, New York, New Jersey) which amplifies the value of tax-efficient strategies. Always factor in your state tax situation.
-
-**Q: Is Roth conversion always a good idea?**
-A: Not always. Roth conversion makes sense when your current tax rate is lower than your expected future rate, when you have enough years for the tax-free growth to compensate for the conversion tax, and when you can pay the conversion tax from outside funds (not from the IRA itself). The math is complex and depends on many assumptions. For many investors in their peak earning years, traditional contributions are still better.
-
-**Q: What is the "step-up in basis" and how does it interact with tax-loss harvesting?**
-A: When you die, the cost basis of assets in your taxable accounts is reset to the fair market value at the date of death. All unrealized capital gains accumulated during your lifetime are permanently eliminated for income tax purposes. This makes tax-loss harvesting even more valuable during your lifetime: you harvest losses and use them to offset gains or income now, and the resulting lower cost basis in the replacement investment is eventually erased by the step-up at death. You get the tax benefit of the loss and never pay the deferred tax on the replacement.
-
-**Q: How do I handle tax-loss harvesting if I own target-date funds?**
-A: Target-date funds are difficult to harvest because there is usually no "substantially different" replacement for a specific target-date fund. You could sell the target-date fund and temporarily replace it with a combination of individual stock and bond index funds that approximate the same allocation. After 31 days, you could repurchase the original target-date fund. Alternatively, consider holding target-date funds only in tax-advantaged accounts where TLH is not applicable, and use individual index funds in your taxable account for greater harvesting flexibility.
-
-**Q: Are there special tax considerations for international funds?**
-A: Yes. Foreign taxes paid on dividends from international stock funds may be claimed as either a tax deduction or a foreign tax credit on your US return. The credit is usually more valuable. In taxable accounts, you can claim this credit. In tax-advantaged accounts, the foreign taxes are simply lost -- you get no credit or deduction. This creates an argument for holding international stock funds in taxable accounts, despite their slightly lower tax efficiency from non-qualified dividends, because the foreign tax credit partially compensates.
-
----
-
-## PART 2: YOUTUBE SCRIPT
+**10. "The HSA is a healthcare account; it has nothing to do with my
+investments."** The HSA is the most powerful tax-advantaged
+*investment* account in the US system. The healthcare label is a
+historical artefact. If your HSA is in a "saving account" earning
+0.05%, you are leaving the triple-tax benefit on the table.
 
 ---
 
-### "The Tax Playbook: How Smart Investors Keep More of Their Returns"
+### 4. Q&A
 
-**Target Length:** 18-22 minutes
-**Tone:** Practical, strategic, empowering
+**Q1: I'm 35, in the 24% bracket, with a $400k taxable account, $150k
+Trad IRA, and $50k Roth IRA. Where do my new contributions go?**
+
+A: Stack order: 401(k) match → HSA → 401(k) Trad up to limit (24%
+deduction is solid) → backdoor Roth IRA → mega-backdoor if available
+→ taxable. Inside the existing balances, move bonds and any REIT
+positions out of the taxable account into the Trad IRA, and put
+broad-market index funds and international stock into the taxable.
+Use the Roth for any speculative high-growth exposure (small-cap,
+crypto ETF, growth single names).
+
+**Q2: How much TLH alpha can I realistically expect?**
+
+A: Empirically, 30-60 bps per year of after-tax alpha on a balanced
+stock portfolio at a 32% federal + 5% state bracket. The benefit
+declines as the cost basis of the portfolio rises (after a long
+bull run there is less left to harvest), and spikes in volatile
+years like 2008 and March 2020 ($15k+ on a $1M book in a single
+tax year). Cumulative over 30 years: roughly $100k on a $1M
+starting balance, depending on the path.
+
+**Q3: I'm above the Roth IRA income limit. Can I still contribute?**
+
+A: Yes, via the **backdoor Roth IRA**: contribute $7,000
+non-deductibly to a Traditional IRA, then immediately convert it to
+Roth. The conversion is tax-free if you have no other pre-tax
+Traditional IRA balance (the *pro-rata rule* is the only trap — it
+does not apply if your only Traditional IRA balance is the one you
+just funded). For 401(k)s above the $23,500 employee limit, the
+mega-backdoor Roth is the analogous move.
+
+**Q4: When does Roth-conversion math work?**
+
+A: Run the comparison once a year. If your *current* marginal
+bracket on the converted dollar is lower than your *expected
+retirement* marginal bracket on the same dollar (after counting
+Social Security, pensions, and RMDs), convert. If higher, don't.
+The most reliable conversion years are early-retirement gap years
+(60-70) where ordinary income is low and you can fill the 12%/22%
+brackets cheaply.
+
+**Q5: Are municipal bonds always better than Treasuries in a taxable
+account?**
+
+A: Compare the **tax-equivalent yield**: muni yield ÷ (1 - federal
+bracket - state bracket if in-state). At 32% federal + 5% state,
+a 3.5% in-state muni has a TEY of 3.5% / (1 - 0.37) = **5.55%**.
+A 4.2% Treasury has a TEY of 4.2% / (1 - 0.32) = **6.18%** (state
+exemption already applied). Treasuries win in this case. The
+crossover is usually at the 35-37% federal bracket.
+
+**Q6: Can I tax-loss harvest in my IRA?**
+
+A: No — there are no taxes inside the IRA, so there are no losses
+to harvest. Worse, an IRA purchase of the substantially-identical
+security can *trigger* a wash sale on the loss you took in the
+taxable account, disallowing the deduction permanently (the basis
+adjustment cannot be applied to an IRA position).
+
+**Q7: What about state income tax — does it change asset location?**
+
+A: Yes, materially. Treasuries are state-exempt, so in a high-tax
+state (CA 13.3%, NY 10.9%, HI 11%) the case for holding Treasuries
+in *taxable* gets stronger because you save state tax that an IRA
+doesn't otherwise charge. Munis become more attractive than
+Treasuries above the 35% federal bracket in 0%-state states, and
+above 32% in high-state states.
+
+**Q8: What is "phantom income" on TIPS and why does it matter?**
+
+A: TIPS' principal adjusts for CPI inflation each month. The IRS
+treats that adjustment as taxable ordinary income in the year it
+accrues, even though you receive the cash only at maturity. In a
+brokerage you owe tax annually on imputed income; in an IRA the
+adjustment is irrelevant because nothing inside the IRA is taxed
+until withdrawal. TIPS belong in an IRA.
+
+**Q9: I have a $200k embedded gain in AAPL. Tax cost to sell is
+$40k+. How do I reduce exposure without selling?**
+
+A: Three options. **Covered call** — sell a 30-delta 60-DTE call,
+collect 1-2% premium, keep the gain unrealised, give up some
+upside (Week 27). **Collar** — buy a 25-delta put + sell a
+25-delta call, paid for by the call premium, locks in a band
+without realising gain (Week 30). **Synthetic-short overlay** —
+short an equivalent index future against the position to hedge
+market beta only; idiosyncratic AAPL exposure remains. Each
+removes exposure without crystallising tax. SOUL #15.
+
+**Q10: Should I prioritise Roth or HSA contributions?**
+
+A: HSA first — it is triple-tax (deductible going in, tax-free
+growth, tax-free withdrawals for medical), better than either Roth
+or Traditional. Then 401(k) up to the match. Then Roth or Roth
+401(k) depending on bracket math. The HSA's only catch is that
+non-medical withdrawals before 65 incur a 20% penalty plus
+ordinary tax — after 65 the penalty is waived, leaving worst-case
+"Traditional IRA" treatment.
+
+**Q11: How does the 3.8% NIIT work in practice?**
+
+A: It applies to the *lesser* of (a) net investment income, or (b)
+MAGI above the threshold ($250k MFJ / $200k single). At $300k MAGI
+with $40k of investment income, you owe 3.8% × min($40k, $50k) =
+$1,520. The fix is the same as for any tax: either reduce
+investment income (asset location), reduce MAGI (Traditional 401(k)
+contributions), or do both. The practical effect is to push the
+*real* LTCG rate to 18.8% / 23.8% for affected households.
+
+**Q12: What does the Tax Optimizer in this lesson actually do?**
+
+A: It takes your federal bracket, state rate, taxable / Trad / Roth
+balances, and current age. It computes (1) the optimal asset-class
+location for each of eight standard sleeves; (2) projected after-tax
+wealth at age 65 under reasonable growth assumptions for each
+account type; (3) a suggested annual TLH harvest target based on
+your taxable balance and assumed equity volatility; and (4) a
+suggested annual Roth-conversion amount sized to fill your current
+marginal bracket without crossing the next break. It is not tax
+advice — it is a back-of-envelope sanity check on the moves
+described in this lesson.
 
 ---
 
-**[VISUAL: Side-by-side comparison -- two identical portfolios both earning 8%. One labeled "Tax-Oblivious" shows ending value, the other "Tax-Efficient" shows a significantly larger ending value. Title card: "Tax-Efficient Investing"]**
-
-**Horace:** What if I told you that two investors with the exact same portfolio, the exact same returns, and the exact same savings rate could end up thirty to forty percent apart in total wealth over thirty years?
-
-**Stella:** That is massive. What is the difference?
-
-**Horace:** Taxes. Nothing else. Just taxes.
-
-**[ANIMATION: Dollar bill being cut into pieces. "Taxes" slice taking 1-2% per year. Compound effect shown over 30 years growing from a small annual drag to a huge cumulative impact.]**
-
-**Stella:** Most people think about finding better investments. You are saying the bigger lever is keeping more of what you already earn.
-
-**Horace:** Exactly. You cannot control the market, but you can absolutely control your tax efficiency. And the strategies we are covering today are not complicated -- they are just not taught in most places.
-
-**Horace:** Let us start with the absolute basics. When you sell an investment for a profit, you owe capital gains tax. But the rate depends entirely on how long you held it.
-
-**[VISUAL: Two clocks. One showing less than 12 months labeled "Short-Term: Taxed as Ordinary Income (up to 37%)." The other showing more than 12 months labeled "Long-Term: Preferential Rate (0%, 15%, or 20%)"]**
-
-**Horace:** Hold for a year or less -- short-term capital gain, taxed at your ordinary income rate, which for many professionals is thirty-two to thirty-seven percent. Hold for more than one year -- long-term capital gain, taxed at zero, fifteen, or twenty percent depending on your income.
-
-**Stella:** So the difference between selling on day 364 and day 366 could be a fifteen-plus-percent difference in your tax rate?
-
-**Horace:** Exactly. On a hundred-thousand-dollar gain, that is over fifteen thousand dollars saved just by waiting two more days. This is the simplest tax strategy in existence and yet people ignore it constantly.
-
-**[ANIMATION: Calendar showing 365 days. Day 364 highlighted in red: "$37,000 tax." Day 366 highlighted in green: "$15,000 tax." Arrow showing $22,000 savings.]**
-
-**Stella:** What about dividends?
-
-**Horace:** Not all dividends are taxed the same. Qualified dividends get the same favorable rate as long-term capital gains. Ordinary dividends, like those from REITs, get taxed at your full income rate. And bond interest is always ordinary income.
-
-**[VISUAL: Tax rate comparison table. Qualified Dividends: 0-20%. Ordinary Dividends: 10-37%. Bond Interest: 10-37%. Municipal Bond Interest: 0%.]**
-
-**Horace:** This is why holding bonds in your taxable brokerage account is one of the least efficient things you can do. All that interest income is taxed at your highest rate every single year.
-
-**Stella:** Which brings us to asset location.
-
-**Horace:** Right. Asset location is putting the right investments in the right type of account. You have three buckets.
-
-**[VISUAL: Three buckets labeled "Taxable Brokerage," "Traditional IRA/401(k)," and "Roth IRA/401(k)" with brief descriptions of tax treatment for each]**
-
-**Horace:** The general framework: in your taxable account, hold things that are already tax-efficient -- low-turnover index funds, ETFs, stocks you plan to hold forever, and municipal bonds. In your traditional IRA or 401(k), hold the tax-inefficient stuff -- bonds, REITs, high-turnover funds. In your Roth, hold whatever you expect to grow the most, because that growth will never be taxed.
-
-**Stella:** Why does it matter where things sit?
-
-**Horace:** Let me show you with real numbers.
-
-**[ANIMATION: Two scenarios running side by side over 20 years. Scenario A: Bond fund in taxable, stock fund in IRA. Scenario B: Stock fund in taxable, bond fund in IRA. Both start with same total dollars. After 20 years, Scenario B shows approximately 10-15% more after-tax wealth.]**
-
-**Horace:** Same total portfolio, same total returns, same total contributions. But by putting the bond fund inside the IRA where its interest is not taxed annually, and the stock fund in the taxable account where it gets preferential capital gains rates, you end up with meaningfully more money.
-
-**Stella:** Okay, let us talk about tax-loss harvesting. This is the strategy I hear about most but understand least.
-
-**Horace:** Tax-loss harvesting is selling an investment that has gone down in value to lock in the loss. You then use that loss to offset gains elsewhere, reducing your tax bill.
-
-**[VISUAL: Portfolio showing five positions. Three are up, two are down. Arrows showing the losing positions being sold. Loss amounts flowing to offset gain amounts.]**
-
-**Horace:** Here is a simple example. You bought a total international fund for fifty thousand dollars. It is now worth forty thousand. That is a ten-thousand-dollar unrealized loss. You sell it, realizing the loss. Immediately, you buy a different international fund -- similar exposure but not identical -- to stay invested.
-
-**Stella:** And that ten-thousand-dollar loss offsets gains elsewhere?
-
-**Horace:** Dollar for dollar against capital gains. If you have ten thousand in long-term gains in another part of your portfolio, your net gain becomes zero. At a fifteen-percent tax rate, you just saved fifteen hundred dollars. If it offsets short-term gains at thirty-two percent, you saved thirty-two hundred.
-
-**[ANIMATION: Balance scale. Left side: $10,000 loss. Right side: $10,000 gain. They cancel out. Tax bill: $0 instead of $1,500-$3,200.]**
-
-**Stella:** But I have heard this is not really a free lunch -- it is more of a tax deferral.
-
-**Horace:** Smart observation. When you buy the replacement fund at forty thousand dollars, your cost basis is lower. So when you eventually sell the replacement, your gain will be ten thousand dollars larger. You deferred the tax, you did not eliminate it.
-
-**Stella:** So when is deferral valuable?
-
-**Horace:** Three situations where deferral becomes permanent savings. First, if your tax rate is lower in the future -- maybe you retire and move to a lower bracket. Second, if you hold until death and your heirs get the step-up in basis. Third, if you donate the appreciated shares to charity, bypassing capital gains entirely.
-
-**[VISUAL: Three scenarios listed with dollar amounts showing the savings: "Lower Future Rate: $800 saved," "Step-Up at Death: $1,500 saved," "Charitable Donation: $1,500 saved"]**
-
-**Horace:** And even pure deferral has value. Fifteen hundred dollars invested today at eight percent for twenty years grows to seven thousand dollars. That is real money just from the time value of deferring a tax payment.
-
-**Stella:** Now the trap. The wash sale rule.
-
-**Horace:** The IRS says you cannot sell at a loss and buy a "substantially identical" security within thirty days before or after the sale. If you do, the loss is disallowed.
-
-**[ANIMATION: Calendar with 61-day window highlighted. Day 31 = sale date. Days 1-30 = "No purchase of same security." Days 32-61 = "No purchase of same security." Violation shown with red X.]**
-
-**Stella:** What counts as substantially identical?
-
-**Horace:** Same stock, same fund, same CUSIP number -- clearly yes. Buying a different ETF that tracks a different index -- clearly no. The gray area is buying a different ETF that tracks the same or a very similar index. The IRS has not given definitive guidance here, but most tax professionals consider a Vanguard S&P 500 ETF and a Schwab Total Market ETF to be sufficiently different.
-
-**[VISUAL: Traffic light system. Red: "Same security - Always a wash sale." Yellow: "Same index, different provider - Gray area." Green: "Different index, different provider - Generally safe."]**
-
-**Horace:** The biggest trap is not the obvious one. It is automatic dividend reinvestment. If you sell a fund at a loss and have DRIP turned on in another account that buys the same fund within thirty days, you have accidentally triggered a wash sale. Turn off DRIP for any security you are harvesting losses on.
-
-**Stella:** What about the IRA trap?
-
-**Horace:** This is the worst one. If you sell at a loss in your taxable account and your IRA buys the same security within thirty days, the loss is disallowed. And here is the nightmare -- you cannot add the disallowed loss to the IRA's cost basis. The loss is gone. Permanently. This is the one scenario where a wash sale violation can cost you money forever.
-
-**[VISUAL: Red warning banner: "Wash Sale + IRA = PERMANENT LOSS. The disallowed loss CANNOT be recovered."]**
-
-**Stella:** Let us zoom out. What does a comprehensive tax-efficient strategy look like for a typical investor?
-
-**Horace:** Five pillars.
-
-**[VISUAL: Five pillars graphic building up one by one]**
-
-**Horace:** Pillar one -- hold investments for more than a year to get long-term capital gains rates. Pillar two -- put the right assets in the right accounts through asset location. Pillar three -- use tax-efficient funds in taxable accounts -- index ETFs over actively managed mutual funds. Pillar four -- harvest losses during market downturns and use them to offset gains. Pillar five -- manage withdrawals in retirement to stay in the lowest possible tax bracket through strategic Roth conversions and bracket management.
-
-**Stella:** Each one of these individually saves a little bit. But combined over thirty years...
-
-**Horace:** Combined, you are talking about an extra five hundred thousand to a million dollars in after-tax wealth for a typical high-income professional over a career. Not from better stock picks. Not from market timing. Just from being tax-smart.
-
-**[ANIMATION: Two wealth trajectories starting from the same point. One climbs normally, the other climbs higher and higher as each pillar is added. The gap at year 30 is substantial. Labels show: "Pillar 1: +$50K," "Pillar 2: +$120K," and so on, cumulating.]**
-
-**Stella:** That is the most compelling argument I have heard for something that is not particularly exciting.
-
-**Horace:** Tax efficiency is not exciting. It is just effective. And unlike finding the next hot stock, it is entirely within your control.
-
-**Stella:** What about municipal bonds? When do those make sense?
-
-**Horace:** Municipal bonds are a powerful tool for high-income investors in taxable accounts. The interest is exempt from federal income tax, and if the bonds are from your state, often state tax too. The key is comparing the tax-equivalent yield. A muni yielding three and a half percent for someone in the thirty-five percent bracket is equivalent to a taxable bond yielding five point four percent. If you cannot find taxable bonds beating that number, munis win.
-
-**[VISUAL: Side-by-side comparison. Taxable bond: 5.0% yield, after 35% tax = 3.25% kept. Municipal bond: 3.5% yield, after 0% tax = 3.5% kept. Muni wins. Formula shown: Tax-Equivalent Yield = Muni Yield / (1 - Tax Rate).]**
-
-**Stella:** But never in an IRA.
-
-**Horace:** Never. In a tax-advantaged account, the tax exemption is wasted. You would earn a lower yield for no benefit. Munis belong exclusively in taxable accounts.
-
-**Horace:** Let me mention one more thing -- the step-up in basis at death. When you die, the cost basis of your taxable investments resets to market value. All those unrealized gains? Gone. Your heirs inherit at the current price and owe zero capital gains tax on the appreciation during your lifetime.
-
-**[ANIMATION: Investor buys stock at $10,000. Over decades it grows to $200,000. Unrealized gain: $190,000. At death, basis steps up to $200,000. Heir sells at $200,000 and owes $0 in capital gains. The $190,000 gain is permanently erased.]**
-
-**Stella:** So tax-loss harvesting becomes even more valuable. You get the loss benefit now, and the lower cost basis is eventually wiped out by the step-up.
-
-**Horace:** Exactly. Harvest losses during your lifetime, use them to offset gains and income, and the deferred tax on the replacement securities is eliminated at death. It is one of the most valuable features in the entire tax code for long-term investors.
-
-**[VISUAL: Recap card: "Hold >1 Year | Asset Location | Tax-Efficient Funds | Tax-Loss Harvesting | Municipal Bonds | Strategic Withdrawals | Step-Up in Basis"]**
-
-**Stella:** Go look at your portfolio right now. Check what is in which account. See if you have any losses worth harvesting. Calculate your tax-equivalent yield on your bond holdings. Small changes today compound into big differences tomorrow.
-
-**Horace:** See you in the next one.
-
-**[VISUAL: End card with channel info and "Next: Side Lesson 05 -- DCA vs. Lump Sum"]**
+## Part 2: YouTube Script
 
 ---
 
-**END OF SIDE LESSON 04**
+**VIDEO TITLE:** Tax Efficiency for Long-Term Investors — Asset Location, TLH, Roth, HSA | Side Lesson 4
+
+**RUNTIME TARGET:** ~14 minutes
+
+**HOSTS:**
+- **Horace** (teacher): Holding a 1040 schedule and a brokerage statement.
+- **Stella** (student): Earning enough to think about brackets for the first time.
+
+---
+
+**[INTRO]**
+
+[VISUAL: Animated logo "Side Lesson 4 — Tax Efficiency"]
+
+**Horace:** Stella, I want you to look at one number with me. On a
+$1 million portfolio, with bonds and stocks roughly 60/40, you can
+lose between $10,000 and $17,000 a year in taxes that you have no
+idea you are paying — because your brokerage statement quotes
+pre-tax. Compound that for thirty years against a 7% real return
+and your after-tax wealth is somewhere between 25% and 40% smaller
+than the line you are reading off the spreadsheet.
+
+**Stella:** Wait — *every year*?
+
+**Horace:** Every year. And the good news is, almost all of it is
+fixable. Today we are going to walk through the four moves: know the
+schedule, place assets in the right account, harvest losses
+systematically, and stack the accounts in the right order. By the
+end you should have a plan you can implement on Monday.
+
+---
+
+**[SEGMENT 1: THE THREE SCHEDULES]**
+
+[VISUAL: Title card "Three Tax Schedules, One Investor"]
+
+**Horace:** The US tax code runs three separate schedules on
+investment income.
+
+**Stella:** Three?
+
+**Horace:** Three. **Long-term capital gains and qualified dividends**
+on the first schedule — 0%, 15%, 20%, with a 3.8% Net Investment
+Income surcharge on top for high earners. **Short-term capital
+gains and ordinary dividends** on the second schedule — that is
+just your wage bracket: 22, 24, 32, 35, 37 percent. And **Treasury
+interest and muni interest** on the third schedule, which has its
+own special rules — Treasuries are state-exempt, munis are
+federal-exempt and sometimes fully exempt.
+
+**Stella:** So the same dollar pays a wildly different amount of tax
+depending on where it came from.
+
+**Horace:** Exactly. In the 32% federal bracket plus 5% state, a
+qualified-dividend dollar keeps 80 cents. A bond-coupon dollar keeps
+63 cents. That is a 17-cent gap. On a $1 million portfolio yielding
+4%, *that* is roughly $7,000 a year of avoidable tax — every year.
+
+---
+
+**[SEGMENT 2: ASSET LOCATION]**
+
+[VISUAL: image/side04_asset_location_grid.png]
+
+**Horace:** Here is the cheat sheet. Eight asset classes down the
+side. Three account types across the top — Taxable, Traditional IRA,
+Roth IRA. Green means right location, amber means acceptable, red
+means wrong.
+
+**Stella:** US stocks in green for Taxable. Bonds in green for
+Traditional. REITs in green for Traditional. MLPs in red for both
+IRAs. Crypto in green for Roth.
+
+**Horace:** Read the colours and you have 80% of asset location.
+Stocks and international ETFs go in the taxable account, where the
+qualified-dividend rate and the foreign tax credit pay you. Bonds,
+high-yield, REITs, and TIPS — anything that throws off ordinary
+income — go in the Traditional IRA, where the income gets deferred
+to a low-bracket retirement year.
+
+**Stella:** And the Roth?
+
+**Horace:** The Roth is your highest-expected-return asset's home.
+Whatever you think will compound the fastest over thirty years — a
+small-cap factor sleeve, a Bitcoin ETF, a single-name speculative
+position — that is what wins the most from being inside a tax-free
+wrapper. A 30-year 12%/yr compound on $50k inside a Roth becomes
+$1.5 million, all tax-free. Outside a Roth at 32%+5% bracket on the
+gains, it becomes about $940k. The Roth bought you $560,000.
+
+**Stella:** Just from picking the account.
+
+**Horace:** Just from picking the account. SOUL #15 calls tax the
+largest unspoken fee. Asset location is the cheapest way to start
+paying less of it.
+
+---
+
+**[SEGMENT 3: TAX-LOSS HARVESTING]**
+
+[VISUAL: image/side04_tlh_savings.png]
+
+**Horace:** This is what tax-loss harvesting looks like over thirty
+years on a $1 million taxable portfolio with normal market
+volatility. Each bar is one year of harvested losses translated into
+saved taxes. Most years it is $2,000 to $4,000. The big spikes — 2008,
+2022, March 2020 in real life — produce $10,000 to $15,000 in a
+single year because so many positions go underwater simultaneously.
+
+**Stella:** And the line?
+
+**Horace:** Cumulative. By year 25 to 30 it crosses $100,000 of
+saved tax on a $1 million starting portfolio. That is real money,
+and you do not have to be clever to capture it — a robo-advisor or a
+brokerage with TLH built in does the trade automatically.
+
+**Stella:** What's the catch?
+
+**Horace:** The wash-sale rule. If you sell at a loss, you cannot
+buy "substantially identical" securities for 30 days before or
+after — and that 30-day window covers your IRA and your spouse's
+IRA too. The fix is to swap into a *similar but not identical*
+ETF — VTI for ITOT, VOO for IVV, BND for AGG — and hold it for at
+least 31 days. If you want, swap back. Most platforms automate the
+round-trip.
+
+**Stella:** And the savings are permanent?
+
+**Horace:** Deferred. The replacement has a lower basis equal to
+the original minus the harvested loss. When you eventually sell, the
+gain is bigger by the amount you harvested. So the *tax* is
+deferred, not eliminated — but the deferred dollars stay invested
+and compound, and you can pick the year you eventually realise.
+Realised in a 0%-LTCG-bracket gap year, or stepped up at death,
+the deferred liability becomes zero.
+
+---
+
+**[SEGMENT 4: ROTH CONVERSIONS AND THE MEGA-BACKDOOR]**
+
+[VISUAL: Title card "Roth Conversions"]
+
+**Horace:** Two more moves. First — the Roth conversion. You move
+money from a Traditional IRA into a Roth, pay ordinary income tax
+on the move, and then the Roth grows tax-free with no required
+distributions, ever.
+
+**Stella:** Why would I willingly pay tax now?
+
+**Horace:** Because of bracket arbitrage. If your current bracket
+is *lower* than your future bracket on the same dollar, you win.
+The classic case is a 60-year-old who retires with a big
+Traditional IRA, has a few low-income years between retirement and
+age 75 RMDs, and converts $40,000 to $80,000 a year at the 12% or
+22% bracket. Without the conversion, RMDs at 75 force those same
+dollars out at 24% or 32%. The conversion saves 5 to 10 percentage
+points on every dollar moved.
+
+**Stella:** And the mega-backdoor?
+
+**Horace:** Some 401(k) plans — about half — let you put extra
+*after-tax* money in on top of the regular $23,500 employee limit,
+all the way to the $70,000 combined annual cap. You then immediately
+roll those after-tax dollars to Roth — either inside the plan or to
+a Roth IRA. That gets you up to **$46,500 of extra Roth money per
+year** beyond the regular caps. If your plan supports it, this is
+the highest-leverage tax move in the entire US system.
+
+---
+
+**[SEGMENT 5: THE HSA]**
+
+[VISUAL: Title card "The HSA — The Triple-Tax Account"]
+
+**Horace:** One more account. The Health Savings Account is the only
+account in the US system that is tax-free on the way in,
+tax-free on growth, and tax-free on the way out — all three.
+
+**Stella:** That can't be legal.
+
+**Horace:** It is — provided you spend the withdrawals on qualified
+medical expenses. And here is the trick: you do not have to
+*reimburse* yourself in the year the expense happens. If you fund
+the HSA, invest it in a total-stock index fund, and pay your medical
+bills out of pocket, you can keep the receipts and reimburse
+yourself **decades later** — tax-free.
+
+**Stella:** So the HSA becomes a stealth Roth.
+
+**Horace:** It becomes a stealth Roth, with no income limits and no
+contribution caps tied to wages. The HSA is the *first* dollar in
+the contribution stack — even before the 401(k) match. Most people
+do not know this because the form has the word "Health" on it.
+
+---
+
+**[SEGMENT 6: THE FILLING ORDER]**
+
+[VISUAL: Numbered list of seven account types in priority order.]
+
+**Horace:** Put it all together. The order, for a new dollar of
+savings:
+
+1. 401(k) up to the employer match. 100% return on day one.
+2. HSA to the limit, if eligible. Triple tax.
+3. 401(k) up to the $23,500 limit. Trad if your bracket now is
+   higher than your retirement bracket; Roth if lower.
+4. Backdoor Roth IRA — $7,000.
+5. Mega-backdoor Roth — up to $46,500 if your plan supports it.
+6. Taxable brokerage. Asset location and TLH go here.
+7. 529 contemporaneously, if you have college-bound kids.
+
+**Stella:** That is a lot of accounts.
+
+**Horace:** It is. But you do not have to set them up all at once.
+Each account ticked off is one less avoidable tax dollar lost
+forever. Open the easy ones first — the HSA, the 401(k), the Roth
+IRA — and add the others as your income ramps.
+
+---
+
+**[SEGMENT 7: THE INTERACTIVE]**
+
+[VISUAL: image/side04_tax_optimizer.png — interactive panel screenshot.]
+
+**Horace:** The tax optimiser on the website lets you put in your
+federal bracket, your state, your taxable balance, your IRA
+balance, your Roth balance, and your current age. It computes —
+live — the optimal asset location for each of those eight sleeves,
+your projected after-tax wealth at age 65, the suggested annual
+tax-loss harvest amount, and the suggested annual Roth-conversion
+amount.
+
+**Stella:** It tells me what to do.
+
+**Horace:** It tells you what the math says. The decisions are
+yours. But it sets the floor — once you see the optimiser's
+suggested location grid, you know the cheapest 80% of the
+efficiency is captured by following it. The 20% above that is the
+SOUL #15 territory of options and margin and harvesting against
+single-stock concentrations. We covered that vocabulary in Weeks
+26 through 31, and we will keep coming back to it for the rest of
+the course.
+
+---
+
+**[OUTRO]**
+
+[VISUAL: Closing card with "Next: Side Lesson 5 — DCA vs. Lump Sum"]
+
+**Horace:** Tax efficiency is the cheapest free lunch in retail
+investing. It is also the most ignored — partly because the rules
+are dry, partly because every brokerage statement quotes pre-tax,
+and partly because the largest tax in your life is the only one you
+never see itemised. The four moves — schedule, location,
+harvesting, stack — capture 80% of the available efficiency. SOUL
+#15 captures the remaining 20% via options and margin. Both halves
+matter, and both halves are mechanical once you see the rules.
+
+**Stella:** And no one is going to do it for me.
+
+**Horace:** Not unless you pay them. The optimiser on the page is
+free. Use it Monday morning.
+
+[VISUAL: Final card "Side Lesson 4 — Tax Efficiency. The largest
+unspoken fee."]
+
+[END]

@@ -1,372 +1,524 @@
-# Side Lesson 22: Commodities -- Energy, Metals, Agriculture, and How to Invest
+# Side Lesson 22: Commodities — Gold, Oil, Agriculture as Portfolio Diversifiers
 
 ---
 
-## Reading Section
-
-Commodities are the raw materials that power the global economy -- the oil that fuels transportation, the copper that wires buildings, the wheat that feeds populations, and the gold that has served as a store of value for millennia. As an asset class, commodities offer unique characteristics that differ fundamentally from stocks and bonds. They tend to perform well during inflationary periods, they have historically low correlation with financial assets, and they represent direct exposure to supply-and-demand dynamics in the physical world. But commodities also come with challenges that catch many investors off guard: contango and roll yield in futures markets, the absence of income (no dividends or interest), and the difficulty of storing physical goods. This lesson covers the major commodity sectors, the mechanics of spot versus futures markets, the pitfalls of commodity ETFs, and practical approaches to gaining commodity exposure.
+## Part 1: Reading Section
 
 ---
 
-### a) Why This Is Important
+### 1. Why This Is Important
 
-**Inflation Hedge.** Commodities are one of the few asset classes that tend to rise during inflationary periods, because they are often the source of inflation itself. When oil, food, and metals prices rise, they drive the Consumer Price Index higher. Owning commodities during these periods provides a natural hedge against purchasing power erosion -- something stocks and bonds may not reliably do.
+Commodities are the only asset class that the rest of finance is *priced
+off*. Bonds discount expected inflation; stocks discount future earnings
+that ride on input costs; currencies adjust to terms of trade. Yet ask
+a typical retail portfolio for its "commodities sleeve" and the answer
+is usually a confused mix of GLD, an energy ETF, and the suspicion that
+"it didn't work in 2024." The reason is that commodities, as a financial
+exposure, behave nothing like the underlying physical goods most people
+imagine they are buying.
 
-**Diversification.** Commodities have historically exhibited low correlation with stocks and bonds. Adding commodity exposure to a traditional stock-bond portfolio can improve risk-adjusted returns by reducing overall portfolio volatility. During the 2000-2009 "lost decade" for U.S. stocks, commodities delivered strong positive returns, providing valuable diversification.
+Four reasons this lesson exists as its own slot rather than a paragraph
+under the inflation chapter (Side 06):
 
-**Understanding the Real Economy.** Commodity prices reflect the physical realities of supply and demand. Oil prices respond to OPEC production decisions, geopolitical tensions, and transportation demand. Agricultural prices respond to weather patterns, crop yields, and population growth. Understanding commodity markets gives you insight into the real economy that financial asset prices sometimes obscure.
+1. **Most retail "commodity" exposure is futures-rolled, not spot.** USO,
+   UNG, DBC, PDBC and the entire BCOM-tracking ecosystem hold *futures*,
+   roll them quarterly, and bleed the contango term-structure. From 2009
+   to 2020 USO lost about half its value while WTI front-month was
+   essentially flat. The instrument is not the commodity.
+2. **Gold is structurally different from every other commodity** because
+   GLDM/IAU/GLD hold *physical bullion in a vault* — no roll, no decay,
+   pure spot exposure. Per SOUL #3, gold is a store of value because
+   collective belief makes it one; oil is industrial input that decays
+   in your portfolio whether or not you believe in it.
+3. **Long-term real returns to a passive commodity basket are flat to
+   negative.** Erb-Harvey (2006) and twenty years of follow-up work put
+   the real geometric return of the Bloomberg Commodity Index at
+   approximately zero over multi-decade windows. The diversification
+   argument is real; the long-run return premium is not.
+4. **Inflation-hedge value is concentrated in supply-shock windows.**
+   Oil 1973, agriculture 2007, energy 2022. Outside those windows
+   commodities are dead weight. If your sizing rule does not account for
+   the regime-conditional payoff (SOUL #6), you will hold them for the
+   wrong reasons and trim them at the wrong time.
 
-**Avoiding Costly Mistakes.** Many investors have entered commodity markets without understanding the mechanics of futures-based investing, only to discover that their investment lost money even though the commodity's spot price rose. Understanding contango, backwardation, and roll yield is essential before investing a single dollar in commodity ETFs or futures.
+The goal of this lesson is to make the spot-vs-futures distinction
+mechanical, calibrate the long-run real-return number, and produce a
+sizing rule that lets a four-tranche portfolio carry commodities without
+expecting them to be a quiet contributor.
+
+![Real (CPI-deflated) Bloomberg Commodity Index 1970 to April 2026, plotted as a wealth path of $1 invested in 1970. Real wealth peaks during the 1970s oil shocks and the 2008 supercycle, but the long-run trend is flat, with terminal real wealth near $1 — confirming Erb-Harvey's finding that broad commodity baskets pay no real-return premium over inflation.](image/side22_real_commodities.png)
 
 ---
 
-### b) What You Need to Know
-
-#### Major Commodity Sectors
-
-Commodities are generally divided into four major sectors, each with distinct supply-demand dynamics.
-
-**Energy.** The largest commodity sector by trading volume and economic significance. Includes crude oil (West Texas Intermediate and Brent), natural gas, heating oil, gasoline, and increasingly, electricity futures.
-
-Crude oil is the world's most actively traded commodity. Its price is influenced by:
-- OPEC+ production decisions (the cartel controls roughly 40% of global oil production).
-- Global economic growth (which drives transportation and industrial demand).
-- Geopolitical events (wars, sanctions, pipeline disruptions).
-- U.S. shale production levels and rig counts.
-- Strategic petroleum reserve releases.
-- The energy transition and electric vehicle adoption.
-
-Natural gas prices are driven by weather (heating and cooling demand), storage levels, LNG export capacity, and increasingly, its role as a transition fuel from coal to renewables.
-
-**Metals.** Divided into precious metals and industrial metals.
-
-Precious metals include:
-- **Gold:** Historically used as a store of value and inflation hedge. Gold prices respond to real interest rates (nominal rates minus inflation), dollar strength, central bank buying, and geopolitical uncertainty. Gold has no yield -- its return comes entirely from price appreciation.
-- **Silver:** Used in both jewelry/investment and industrial applications (electronics, solar panels). More volatile than gold, with a higher industrial demand component.
-- **Platinum and Palladium:** Primarily industrial metals used in catalytic converters, with some investment demand.
-
-Industrial metals include:
-- **Copper:** Often called "Dr. Copper" because its price is considered a barometer of global economic health. Used extensively in construction, electronics, and increasingly in electric vehicles and renewable energy infrastructure.
-- **Aluminum:** The most widely used non-ferrous metal. Used in transportation, construction, and packaging.
-- **Lithium, Cobalt, Nickel:** Critical battery metals for electric vehicles and energy storage.
-
-**Agriculture.** The oldest commodity markets, originating with grain trading centuries ago. Major agricultural commodities include:
-- **Grains:** Corn, wheat, soybeans, rice. Prices driven by weather, planting decisions, government subsidies, and demand from food production and ethanol.
-- **Soft commodities:** Coffee, cocoa, sugar, cotton. Prices highly sensitive to weather patterns in specific growing regions.
-- **Livestock:** Live cattle, lean hogs, feeder cattle. Prices influenced by feed costs, disease outbreaks, and consumer demand.
-
-Agricultural commodities are uniquely seasonal. Prices follow planting, growing, and harvest cycles. Weather events like droughts, floods, and frost can cause dramatic price spikes.
-
-**Other Commodities.** Timber, rubber, rare earth elements, and water rights are also traded as commodities in various markets, though they are less accessible to retail investors.
-
-#### Spot Prices vs. Futures Prices
-
-Understanding the difference between spot and futures prices is essential for commodity investing.
-
-**Spot Price.** The current market price for immediate delivery of a commodity. If crude oil's spot price is $75 per barrel, that is what you would pay to take delivery of a barrel of oil today.
-
-**Futures Price.** The price agreed upon today for delivery of a commodity at a specific future date. A crude oil futures contract for delivery in six months might trade at $77 per barrel -- different from today's spot price.
-
-**The Futures Curve.** The relationship between futures prices at different delivery dates creates the "futures curve" (or "term structure"). This curve can take two shapes:
-
-**Contango.** When futures prices are higher than the spot price (the futures curve slopes upward). This is the more common condition for most commodities. Contango exists because of the "cost of carry" -- storing a physical commodity incurs costs (storage fees, insurance, financing), and the futures price must compensate for these costs. In strong contango, far-dated futures may be significantly more expensive than the spot price.
-
-**Backwardation.** When futures prices are lower than the spot price (the futures curve slopes downward). Backwardation typically occurs when there is strong near-term demand or supply disruption. Buyers are willing to pay a premium for immediate delivery because they need the commodity now.
-
-#### Roll Yield: The Hidden Cost (or Benefit)
-
-This is the most important concept for commodity investors using futures-based products, and it is the concept most commonly misunderstood.
-
-**The Problem.** Futures contracts expire. When you invest in a commodity futures ETF, the fund buys futures contracts, and as those contracts approach expiration, the fund must "roll" them -- sell the expiring contracts and buy the next month's contracts.
-
-**Roll Yield in Contango.** In a contango market, the next month's contract is more expensive than the expiring contract. The fund sells low (the expiring, cheaper contract) and buys high (the next month's, more expensive contract). This creates a negative roll yield -- a drag on returns that erodes performance over time.
-
-**Example:** Spot oil is $75. The current month's futures (expiring soon) are at $75.50. Next month's futures are at $77. When the fund rolls, it sells at $75.50 and buys at $77 -- a $1.50 loss on each barrel equivalent. This happens every month, creating a persistent headwind.
-
-**Roll Yield in Backwardation.** In a backwardation market, the opposite occurs. The fund sells the more expensive expiring contract and buys the cheaper next-month contract, generating a positive roll yield -- a tailwind for returns.
-
-**Real-World Impact.** The United States Oil Fund (USO) is a cautionary tale. From its inception in 2006 through 2020, crude oil spot prices were volatile but ultimately moved in a wide range. Yet USO's price declined dramatically over the same period, losing roughly 90% of its value. The primary culprit was persistent contango and negative roll yield -- the fund was losing money every month on the roll, regardless of oil's spot price direction.
-
-This is why many commodity investors prefer strategies that minimize roll cost, such as:
-- Broad commodity ETFs that spread rolls across many commodities and use optimization strategies.
-- Commodity producer stocks (energy companies, mining companies) instead of commodity futures.
-- Physical commodity exposure (gold bullion or coins).
-
-#### Commodity ETFs and How to Invest
-
-**Physically Backed ETFs.** Some commodity ETFs hold the actual physical commodity. This eliminates roll yield issues entirely.
-- **SPDR Gold Shares (GLD):** Holds physical gold bullion in vaults. The gold price moves closely tracks the spot gold price. Expense ratio of 0.40%.
-- **iShares Gold Trust (IAU):** Similar to GLD but with a lower expense ratio of 0.25%.
-- **iShares Silver Trust (SLV):** Holds physical silver.
-- **Aberdeen Physical Platinum ETF (PPLT):** Holds physical platinum.
-
-Physical backing is feasible for precious metals (dense, durable, high value per weight) but impractical for most other commodities. You cannot efficiently store thousands of barrels of oil or tons of corn in an ETF vault.
-
-**Futures-Based ETFs.** Most commodity ETFs hold futures contracts rather than physical commodities.
-- **Invesco Optimum Yield Diversified Commodity Strategy ETF (PDBC):** A broad commodity ETF that uses optimization strategies to minimize negative roll yield. Covers energy, metals, and agriculture.
-- **iShares GSCI Commodity Dynamic Roll Strategy ETF (COMT):** Another broad commodity fund with roll optimization.
-- **United States Oil Fund (USO):** Single-commodity (crude oil) futures fund. Subject to significant roll yield drag in contango markets.
-- **United States Natural Gas Fund (UNG):** Natural gas futures. Historically one of the worst-performing commodity ETFs due to persistent severe contango in natural gas.
-
-**Commodity Producer Stocks and ETFs.** An alternative to direct commodity exposure is owning the companies that produce commodities.
-- **Energy Select Sector SPDR (XLE):** U.S. energy companies including ExxonMobil, Chevron, and ConocoPhillips.
-- **VanEck Gold Miners ETF (GDX):** Gold mining companies.
-- **Invesco DB Agriculture Fund (DBA):** Agricultural commodity futures.
-- **SPDR S&P Metals and Mining ETF (XME):** Metals and mining companies.
-
-Producer stocks offer dividends (which commodities themselves do not), avoid roll yield issues, and provide exposure to commodity prices. However, they also carry company-specific risks, equity market correlation, and operational leverage that amplifies both gains and losses relative to commodity prices.
-
-#### Understanding Commodity Seasonality
-
-Many commodities exhibit predictable seasonal price patterns driven by production cycles, weather, and consumption patterns.
-
-**Natural Gas.** Prices tend to rise in late fall and early winter as heating demand increases, and decline in spring as demand wanes. Inventory build and draw cycles create tradeable patterns.
-
-**Agricultural Commodities.** Grain prices often follow planting and harvest cycles. Corn and soybean prices may rise during the spring planting season (when uncertainty about acreage and weather is highest) and decline during harvest season as new supply enters the market.
-
-**Gasoline.** Prices typically rise in spring as refineries switch to summer-blend gasoline and decline after Labor Day as driving season ends.
-
-**Precious Metals.** Gold often sees increased demand during Indian wedding season (October-December) and Chinese New Year, though these patterns have diminished as financial trading has come to dominate physical demand.
-
-While seasonal patterns can inform timing, they are tendencies, not guarantees. Unexpected supply disruptions, geopolitical events, or demand shifts can overwhelm seasonal patterns in any given year.
-
-#### Commodity Indices and Benchmarks
-
-Several indices track commodity performance, and their construction affects returns:
-
-**Bloomberg Commodity Index (BCOM).** A broadly diversified index covering energy, metals, and agriculture with production-weighted and liquidity-weighted allocations. No single commodity can exceed 15% of the index, ensuring diversification. This is the benchmark tracked by many commodity ETFs.
-
-**S&P GSCI.** More heavily weighted toward energy (especially crude oil), reflecting the economic significance of energy commodities. This energy tilt makes the GSCI more volatile and more correlated with oil price movements than the Bloomberg index.
-
-**DBIQ Optimum Yield Diversified Commodity Index.** Uses an optimization strategy that selects futures contracts along the curve to minimize negative roll yield. This approach has historically outperformed traditional rolling strategies.
-
-Understanding which index your commodity ETF tracks is important because energy-heavy indices behave very differently from diversified ones.
-
-#### Commodities in a Portfolio
-
-Academic research by Gorton and Rouwenhorst (2006) found that a diversified commodity futures portfolio delivered equity-like returns with lower correlation to stocks and bonds, and with particularly strong performance during inflationary periods.
-
-**Typical Portfolio Allocation.** Most advisors who include commodities recommend a 5-15% allocation as part of a diversified portfolio. This provides meaningful diversification benefit without excessive concentration in a volatile, non-income-producing asset class.
-
-**When Commodities Tend to Perform Well:**
-- During inflationary periods (commodities are the source of inflation).
-- During periods of strong global economic growth (increased demand for raw materials).
-- During supply disruptions (geopolitical events, natural disasters).
-- During periods of dollar weakness (commodities are priced in dollars, so a weaker dollar means higher commodity prices in dollar terms).
-
-**When Commodities Tend to Perform Poorly:**
-- During deflationary periods or recessions (reduced demand for raw materials).
-- During periods of dollar strength.
-- During periods of technological disruption that reduces demand (for example, the shift from coal to natural gas, or from internal combustion to electric vehicles).
-- During periods of oversupply driven by new production capacity coming online.
-
-**Commodity Allocation Approaches:**
-
-Several approaches to commodity allocation exist, each with merits:
-
-- **Strategic Allocation (5-10%).** Maintain a fixed allocation to a broad commodity index, rebalanced periodically. This provides consistent exposure and diversification without requiring market timing.
-- **Tactical Allocation.** Adjust commodity exposure based on inflation expectations, economic cycle positioning, and relative valuation. Increase exposure when inflation is rising and reduce it when inflation is falling. This requires active management and market judgment.
-- **Indirect Exposure via Producer Stocks.** Skip direct commodity investing entirely and gain exposure through energy, mining, and agricultural company stocks. This approach provides dividends, avoids futures mechanics, and is simpler to implement in a standard brokerage account.
-- **Inflation-Responsive Allocation.** Use commodities as part of a broader inflation-hedging strategy that also includes TIPS, floating-rate bonds, and REITs. Allocate to commodities specifically during periods of rising inflation expectations and reduce during low-inflation environments.
-
-The right approach depends on your goals, sophistication, and willingness to understand futures market mechanics. For most individual investors, a simple strategic allocation through a broad, roll-optimized commodity ETF provides the best balance of diversification benefit and simplicity.
-
-#### Geopolitical Factors in Commodity Markets
-
-Commodities are uniquely sensitive to geopolitical events because physical supply chains cross national borders and pass through strategic chokepoints.
-
-**Key Energy Chokepoints:**
-- **Strait of Hormuz:** Approximately 20% of global oil supply passes through this narrow waterway between Iran and Oman. Any disruption threatens global energy markets.
-- **Strait of Malacca:** Critical for Asian oil and LNG imports. A blockage would disrupt supply chains for the world's fastest-growing energy markets.
-- **Suez Canal:** A major trade route for oil and LNG moving between the Middle East and Europe. The 2021 Ever Given blockage demonstrated the fragility of this chokepoint.
-
-**Food Security and Agricultural Commodities:**
-- **Black Sea Ports:** Critical for Ukrainian and Russian grain exports. Russia's invasion of Ukraine in 2022 disrupted global wheat and corn markets, sending food prices soaring worldwide.
-- **Brazil's Cerrado Region:** One of the world's most important agricultural regions for soybeans and cattle. Drought, deforestation policy, and trade disputes can affect global food supply.
-- **The Nile Basin:** Water disputes among East African nations could affect agricultural output in a region already facing food security challenges.
-
-**Resource Nationalism.** Governments in resource-rich countries periodically change tax regimes, royalty structures, or ownership rules for natural resources. Indonesia's nickel export ban, Chile's proposed lithium nationalization, and Mexico's energy sector reforms are examples of how political decisions can dramatically affect commodity supply and prices.
-
-Understanding these geopolitical dynamics helps explain why commodity prices can spike suddenly and unpredictably, and why a small allocation to commodities can provide crisis diversification for a portfolio.
-
-#### Physical Commodity Ownership
-
-For investors interested in physical precious metals ownership:
-
-**Gold and Silver Coins.** American Eagles, Canadian Maple Leafs, and other sovereign coins are the most widely recognized and easily liquidated forms of physical gold and silver. Dealer premiums range from 3-8% above spot price for gold coins and higher for silver.
-
-**Gold and Silver Bars.** Available from refiners like PAMP Suisse, Valcambi, and the Royal Canadian Mint. Larger bars have smaller premiums per ounce but can be harder to sell in partial amounts.
-
-**Storage Considerations.** Home storage requires a quality safe, insurance (homeowner's policies typically cover only limited amounts), and discretion. Professional vault storage through companies like Brinks or custodial services costs 0.5-1% of the metal's value annually but provides institutional-grade security.
-
-For most investors, physically backed ETFs (GLD, IAU) provide the convenience of exchange-traded liquidity while maintaining physical backing. The ETF shares represent ownership of metal held in secure vaults with regular audits.
+### 2. What You Need to Know
+
+#### 2.1 The Four Sectors and What Drives Each
+
+Index providers split commodities into **energy, metals, agriculture,
+and livestock**. The standard Bloomberg Commodity Index (BCOM, April
+2026 weights) is roughly 28% energy, 38% metals (split 17% precious /
+21% industrial), 31% agriculture, and 3% livestock. The S&P GSCI tilts
+much heavier into energy (~55%); the difference matters because GSCI
+returns are dominated by oil while BCOM is closer to a balanced basket.
+
+Each sector responds to a different driver. **Energy** is set by OPEC+
+production discipline, US shale capex, transportation demand, and
+geopolitical supply shocks (1973 embargo, 1990 Gulf War, 2022 Ukraine).
+**Industrial metals** — copper, aluminium, zinc, nickel — track the
+global manufacturing PMI and Chinese fixed-asset investment, which is
+why "Dr Copper" leads the cycle by six to nine months. **Precious
+metals** — gold and silver — track real interest rates and central-bank
+demand; they barely correlate with industrial activity. **Agriculture**
+— corn, wheat, soybeans, sugar, cotton, coffee — is dominated by
+weather, planting decisions, and biofuel mandates; supply shocks are
+sharp and short. **Livestock** is the smallest and most idiosyncratic,
+driven by feed costs and disease cycles.
+
+The diversification within commodities is real: in 2022, energy
+returned +35%, industrial metals -10%, precious metals near flat,
+agriculture +12%, livestock +9%. A broad basket smooths these out;
+single-sector ETFs do not.
+
+#### 2.2 Spot vs Futures: The Mechanism Most Investors Get Wrong
+
+When you buy XOM stock you own a share of an oil company. When you buy
+USO you do not own oil — you own a basket of front-month WTI futures
+contracts that the fund **rolls** every month into the next contract.
+Each roll is a sale of the expiring contract and a purchase of the next
+one, executed mechanically.
+
+If the futures curve is in **contango** (next contract priced higher
+than front), the fund sells low and buys high every roll, and the
+position bleeds at the rate of the contango spread. If the curve is in
+**backwardation** (next priced lower than front), the fund collects a
+positive roll yield. Industrial commodities with high storage costs
+(natural gas, oil during gluts) live in chronic contango. Soft and
+crisis commodities (oil during embargoes, agricultural products during
+drought) flip into backwardation.
+
+The historical drag on USO from contango alone is about -6% to -9% per
+year averaged over 2009-2020. Front-month WTI started 2009 near $42 and
+ended 2020 near $48 — essentially flat. USO over the same window lost
+roughly half its NAV. The investor was right about oil and lost money
+anyway. (Week 39 covers the term-structure mechanics in detail; this
+side lesson borrows the result.)
+
+The clean way to express commodity views without roll drag is to use
+**equity proxies**: XOM/CVX for oil, FCX for copper, NEM for gold
+miners, ADM/BG for agriculture. They carry equity beta and management
+risk in exchange for eliminating the futures bleed.
+
+#### 2.3 Gold vs Oil: Same Asset Class, Opposite Mechanics
+
+Gold ETFs (GLDM 0.10% ER, IAU 0.25%, GLD 0.40%, SGOL 0.17%, BAR 0.175%)
+hold **physical bullion in a vault**. There is no futures contract, no
+roll, no contango. The fund's NAV tracks the spot price of gold less the
+expense ratio. From 2000 to April 2026 gold went from about $280 to
+roughly $3,500 — a wealth multiple in the 12x range, an annualised
+nominal return near 10%. Real return over the same window, net of CPI,
+is approximately 6-7% per year — anomalous by the long-run gold
+literature, driven by central-bank de-dollarisation buying since 2022.
+
+Oil ETFs (USO, BNO, USL) hold futures. From 2000 to April 2026 USO
+delivered roughly negative one to two per cent per year — and remember
+WTI spot started near $25 in 2000 and is around $70 today, a 2.8x spot
+move erased by the roll. The same physical commodity expressed two
+different ways produces a 30x divergence in terminal wealth. The chart
+makes this concrete.
+
+![Wealth path of $1 invested January 2000 in physical gold (GLDM-equivalent, vault-held bullion) versus USO (front-month WTI futures rolled monthly), through April 2026. Gold compounds to roughly $12 while USO drifts to under $0.50, with the gap visualised as the cumulative cost of the futures roll versus a spot-tracking instrument.](image/side22_gold_vs_oil.png)
+
+This is the single most important picture in the lesson. Two
+"commodities," same starting capital, opposite outcomes — entirely
+because of *how the wrapper holds the underlying*.
+
+#### 2.4 Broad-Basket ETFs: PDBC, DBC, BCI, GSG
+
+For investors who do want a diversified commodity sleeve and accept the
+roll drag, the menu is:
+
+- **PDBC** (Invesco Optimum Yield Diversified Commodity Strategy
+  No-K-1, 0.59% ER, ~$5B AUM) — uses futures with an optimisation
+  layer that picks roll dates to minimise contango bleed. Issues a
+  1099, not a K-1.
+- **DBC** (Invesco DB Commodity Index Tracking, 0.85% ER, K-1) — older,
+  similar holdings, larger contango drag.
+- **BCI** (abrdn Bloomberg All Commodity Strategy, 0.25% ER, 1099) — the
+  cleanest BCOM tracker; smaller AUM ~$1B but adequate liquidity.
+- **GSG** (iShares S&P GSCI, 0.75% ER, K-1) — energy-heavy GSCI tracker.
+- **COMT, CMDY** — niche alternatives.
+
+Per SOUL #16, all four are US-listed and acceptable. The K-1 issuers
+generate paperwork (Schedule K-1 by mid-March; partnership UBTI in IRAs).
+The 1099 issuers (PDBC, BCI) are simpler. For sleeves above 5% of
+portfolio, BCI is the default.
+
+#### 2.5 The Erb-Harvey Result: Real Return ~ Zero
+
+Claude Erb and Cam Harvey's 2006 paper "The Strategic and Tactical Value
+of Commodity Futures" decomposed commodity index returns into three
+pieces:
+
+1. **Spot price change** — over 100+ years, real spot prices of most
+   commodities have been *flat to negative*. Innovation, substitution,
+   and improved extraction win against scarcity over long horizons.
+2. **Roll yield** — averages negative for storables (energy, base
+   metals) because contango is the structural shape; positive for
+   non-storables in tight supply.
+3. **Collateral yield** — futures positions earn T-bill rates on the
+   posted margin, which is a real rate of zero to one per cent.
+
+Sum the three and the long-run real geometric return of a broad
+commodity index is approximately zero — and twenty years of out-of-sample
+data since the paper have confirmed it. BCOM's real return 1970 to
+April 2026 is approximately -0.5% per year. The diversification benefit
+is the entire reason to hold the asset class; the return premium is
+not.
+
+This is why size matters. A 5-10% commodity sleeve in a 60/30/10
+portfolio adds Sharpe-ratio and inflation-shock resilience without
+materially changing expected return. A 30% commodity sleeve drags
+expected return down by about 1.5% per year for marginal diversification.
+
+#### 2.6 The Supply-Shock Pattern
+
+The historical pattern is consistent: commodities pay during *supply
+shocks*, not during *demand booms* or *steady-state inflation*.
+
+- **1973 oil embargo**: BCOM (proxy: GSCI back-cast) +75% in nominal
+  terms, real +60%, while S&P 500 -23% real.
+- **2007-2008 commodity supercycle**: BCOM +30% in 2007, then -36% in
+  2008 as the crisis broke. Net of the round trip, modest gain.
+- **2021-2022 Ukraine + post-COVID supply chains**: BCOM +27% in 2021,
+  +14% in 2022 — the only major asset class with a positive 2022 real
+  return when stocks lost 18% real and bonds lost 31% nominal.
+
+The lesson is asymmetry: commodities are insurance, not income. They
+pay when nothing else does, and they cost a small premium during the
+long stretches between shocks.
+
+In Horace's frame this is SOUL #6 — the vol-tail-wags-dog principle
+applied to a different time series. The mean experience of holding
+commodities is mild drag. The integral over the rare regime when they
+spike is what justifies the slot. Sizing rules:
+
+- Broad basket (BCI or PDBC): 5-10% of portfolio.
+- Gold (GLDM/IAU): 2-5% additionally as a separate store-of-value
+  sleeve, not as an "inflation hedge." Per SOUL #3 it sits in
+  Tranche 3.
+- Single-commodity ETFs (USO, UNG, COPX): tactical only, position
+  size <1%, treated as event trades not strategic holdings.
 
 ---
 
-### c) Common Misconceptions
+### 3. Common Misconceptions
 
-**"Buying an oil ETF is the same as investing in oil."** Most oil ETFs hold futures contracts, not physical oil. Due to contango and roll yield, these ETFs can lose money even when oil prices rise. The tracking error between a futures-based oil ETF and the spot price of oil can be enormous over time.
-
-**"Gold is always a good inflation hedge."** Gold has been an effective hedge during some inflationary periods (1970s, 2020-2023) but not others. From 1980 to 2000, gold lost roughly 70% of its real (inflation-adjusted) value despite moderate inflation. Gold's relationship with inflation is real but inconsistent, and it depends heavily on starting valuations, real interest rates, and market sentiment.
-
-**"Commodities are too volatile for regular investors."** A small allocation (5-10%) of broad, diversified commodity exposure adds less volatility to a portfolio than you might expect, because commodities' low correlation with stocks and bonds partially offsets their individual volatility. The portfolio's total risk can actually decrease.
-
-**"Agricultural commodities are a bet against humanity."** Some investors feel uncomfortable profiting from rising food prices. However, commodity futures markets serve an essential economic function -- they allow farmers, food producers, and other participants to hedge their price risk. Investors provide liquidity that makes these markets function, ultimately supporting more stable food production and pricing.
-
-**"You should invest in commodities when prices are low."** Commodities do not have the same mean-reverting properties as stocks. A commodity's price can stay low for decades if structural demand shifts occur (like coal's decline). Buying low only works if the demand fundamentals support an eventual recovery.
-
-**"Commodity ETFs closely track commodity spot prices."** Due to roll yield, futures-based commodity ETFs can deviate dramatically from spot price movements over time. Natural gas ETFs have been among the worst performers in the ETF universe, declining 90%+ over multi-year periods even when natural gas spot prices were range-bound. Always check whether a commodity ETF is physically backed or futures-based before investing, and understand the implications.
-
-**"Gold is a hedge against everything."** Gold is primarily a hedge against negative real interest rates, currency debasement, and extreme geopolitical uncertainty. It is not reliably a hedge against all types of risk. During deflationary periods, rising real interest rate environments, or periods of dollar strength, gold can underperform significantly. Gold performed poorly from 1980 to 2000 -- two decades of weakness -- despite multiple recessions during that period.
-
----
-
-### d) Q&A
-
-**Q: What is the best way to invest in gold?**
-A: For most investors, a physically backed gold ETF like GLD or IAU is the simplest and most cost-effective option. You get direct exposure to the gold price without storage hassles or futures roll costs. Physical gold (coins or bars) is an alternative but requires secure storage and insurance, and carries wider bid-ask spreads. Gold mining stocks (GDX) provide leveraged exposure to gold prices (miners' profits are highly sensitive to the gold price) but add company-specific risks.
-
-**Q: Why do commodity prices often spike suddenly?**
-A: Commodity markets are characterized by inelastic supply and demand in the short term. It takes years to bring new oil production or mining capacity online, and demand for essentials like food and energy cannot be quickly reduced. When supply disruptions occur (war, weather, pandemic), the mismatch between rigid supply and rigid demand creates sharp price spikes. This inelasticity also works in reverse -- oversupply can cause dramatic price collapses, as seen in the 2020 oil price collapse.
-
-**Q: Should I invest in individual commodity futures?**
-A: Individual commodity futures require specialized knowledge, a futures brokerage account, significant capital (margin requirements for futures are substantial), and active management (rolling contracts, monitoring margin). For most individual investors, commodity ETFs provide more convenient, diversified exposure. If you do trade futures, broad commodity indices are preferable to single-commodity positions due to diversification.
-
-**Q: How do commodity supercycles work?**
-A: Commodity supercycles are long-term (10-25 year) periods of sustained above-trend commodity prices, typically driven by structural demand shifts. The most recent supercycle (roughly 2000-2011) was driven by China's rapid industrialization and urbanization, which created enormous demand for energy, metals, and agricultural products. Some analysts argue a new supercycle may be emerging driven by the energy transition (demand for copper, lithium, nickel for electrification). However, supercycles are identified more clearly in hindsight than in real time.
-
-**Q: How does the energy transition affect commodity investing?**
-A: The shift from fossil fuels to renewable energy creates both winners and losers in commodity markets. Traditional energy commodities (oil, coal) face long-term demand decline, while "green metals" (copper, lithium, cobalt, nickel, rare earths) face surging demand. Natural gas occupies a middle ground as a transition fuel. Investors positioning for the energy transition should consider overweighting electrification metals and underweighting or maintaining neutral exposure to traditional hydrocarbons.
-
-**Q: What are the tax implications of commodity investing?**
-A: Commodity tax treatment varies by vehicle. Physically backed gold ETFs like GLD are taxed as collectibles -- gains held over one year are taxed at a maximum federal rate of 28%, higher than the standard long-term capital gains rate of 15-20%. Futures-based commodity ETFs that are structured as limited partnerships (like DBC) issue K-1 tax forms, which can complicate tax filing. Commodity ETFs structured as 1940 Act funds (like PDBC) issue standard 1099 forms. In tax-advantaged accounts (IRAs, 401ks), these distinctions do not matter, making retirement accounts a natural home for commodity exposure.
-
-**Q: Can I invest in water as a commodity?**
-A: Water futures began trading on the CME in 2020, based on the Nasdaq Veles California Water Index. However, direct water futures investing is impractical for most retail investors. Water-related ETFs like First Trust Water ETF (FIW) or Invesco Water Resources ETF (PHO) invest in companies involved in water treatment, infrastructure, and utilities rather than water itself. These are effectively equity investments with water thematic exposure, not direct commodity positions.
-
-**Q: How do commodity prices affect inflation-linked bonds (TIPS)?**
-A: Commodity price increases flow through to the Consumer Price Index (CPI), which drives the inflation adjustments on TIPS. When commodity prices surge, CPI rises, and TIPS principal and interest payments increase accordingly. This makes TIPS an indirect way to benefit from commodity price inflation without the complexities of futures investing. However, TIPS respond to overall inflation, not just commodity-driven inflation, so the relationship is imperfect.
+1. *"USO tracks the price of oil."* It tracks the front-month WTI
+   futures contract, rolled monthly. The decade-long contango drag from
+   2009-2020 cost holders roughly half their capital while spot WTI was
+   approximately flat.
+2. *"Commodities are an inflation hedge."* They are a *supply-shock*
+   hedge. During the 2010s when CPI ran 1-2% on demand-side weakness,
+   BCOM lost about 35% nominal. Inflation alone is not enough.
+3. *"Gold and oil behave the same way as commodities."* GLDM holds
+   physical bullion (no roll, no decay). USO holds futures (continuous
+   roll). The wrapper mechanics dominate the long-run return.
+4. *"The Bloomberg Commodity Index is a broad inflation proxy."* It is
+   38% metals, 28% energy, 31% agriculture, 3% livestock. The
+   correlation with CPI is regime-dependent — strongly positive during
+   supply shocks, near zero in calm periods.
+5. *"Commodity ETFs are tax-efficient."* PDBC and BCI use 1099
+   structures, but DBC, GSG, USO, and the older funds issue K-1
+   partnership forms. UBTI in IRAs becomes a real concern for K-1
+   issuers above $1,000 of UBTI.
+6. *"Owning commodity-producer stocks is the same as owning
+   commodities."* It is not. Producer stocks carry equity beta of
+   roughly 1.0 to the market, plus the commodity exposure on top. The
+   correlation of XOM to crude is about 0.55; the rest is general
+   equity beta.
+7. *"Real commodity prices have risen with population growth."* Erb and
+   Harvey, and earlier Jacks (2013) reaching back to 1850, document that
+   real commodity prices are flat to slightly negative over long
+   horizons. Innovation and substitution offset scarcity.
+8. *"Gold pays a yield."* Gold pays no yield. Its expected real return
+   is approximately the negative of its storage cost — which the ETF
+   wrappers absorb into the expense ratio. Long-run real return to gold
+   is roughly +1% per year, dominated by occasional re-pricing
+   episodes.
 
 ---
 
-## YouTube Script
+### 4. Q&A Section
 
-[INTRO - 0:00]
+**Q: What is the simplest commodity sleeve for a five-figure portfolio?**
+A: Skip broad commodities entirely and hold 3-5% in GLDM. The diversification
+benefit of a broad basket at sub-$10k allocations is dominated by transaction
+costs and tracking error. Gold via GLDM is one decision, no K-1, and
+captures the store-of-value half of the case.
 
-[VISUAL: Rapid montage -- oil rig pumping, gold bars stacking, wheat field blowing in wind, copper wire being manufactured, coffee beans being roasted]
+**Q: Why is BCI preferred over DBC for the broad sleeve?**
+A: BCI uses a 1099 structure (no K-1 paperwork) and has a 0.25% expense
+ratio vs DBC's 0.85%. Over 10 years that 0.6% ER difference compounds to
+~6% of NAV for identical exposure.
 
-**Horace:** Everything you see around you started as a raw material. The gas in your car, the metal in your phone, the food on your plate -- all of it is a commodity that is bought and sold in global markets every single day.
+**Q: Should commodities live in the IRA or the taxable account?**
+A: 1099 issuers (PDBC, BCI) are neutral. K-1 issuers should live in
+taxable to keep UBTI out of the IRA. Gold ETFs are taxed as collectibles
+at 28% federal LTCG when held in taxable — a meaningful penalty over
+the 15-20% rate on stocks. SOUL #15 says: prefer the IRA for gold ETFs.
 
-**Stella:** But investing in commodities is very different from investing in stocks. There are no earnings reports, no dividends, and a hidden cost that has destroyed billions in investor capital. Today, we are covering how commodity markets actually work and how to navigate them.
+**Q: Does the 1973-style oil shock still work as a hedge in 2026?**
+A: The mechanism is unchanged: a sudden physical-supply disruption
+puts the futures curve into backwardation and pushes spot prices
+higher. The US is now a net oil exporter, which mutes the *equity*
+damage from an oil spike compared to the 1970s but does not change the
+commodity payoff itself.
 
-[VISUAL: Title card "Commodities: Energy, Metals, Agriculture, and How to Invest"]
+**Q: Can I just hold the producers — XOM, FCX, NEM, ADM?**
+A: You can, and the long-run returns are higher than the indexed
+basket. The trade-off is correlation: all four carry roughly 0.6-0.8
+equity beta to the broad market, so during a recession they fall with
+stocks even when commodities themselves are bid. The producers are
+*equity exposure with a commodity tilt*, not a commodity hedge.
 
----
+**Q: Is the Bloomberg Commodity Index investable?**
+A: Yes, via BCI, PDBC, COMT, and CMDY among others. None track BCOM
+exactly — each picks a slightly different roll methodology. PDBC
+explicitly optimises to minimise contango bleed; BCI tracks the
+mechanical schedule.
 
-[SECTION 1 - THE COMMODITY LANDSCAPE - 1:30]
+**Q: Does the Erb-Harvey "zero real return" result rule out commodity
+allocation?**
+A: No. It rules out *expecting* commodities to be a return source. The
+case for the sleeve is the diversification benefit during supply
+shocks (2008, 2022) and the rebalancing yield from holding an asset
+that is occasionally negatively correlated with stocks and bonds at the
+same time. Both effects are worth approximately 30-50bp of portfolio
+Sharpe ratio improvement.
 
-[ANIMATION: Four sectors displayed as pillars with icons: Energy (oil drop), Metals (gold bar), Agriculture (wheat stalk), Other (timber, water)]
+**Q: How does gold fit if BTC is the new digital store of value?**
+A: They serve different niches in Tranche 3. Gold has 5,000 years of
+acceptance, deep central-bank demand, and zero protocol risk. BTC has
+21M cap and roughly 70% volatility. Sizing rule: 2-5% gold and 1-3%
+BTC for the store-of-value sleeve, not one or the other. (Side 09
+covers BTC sizing in detail.)
 
-**Horace:** Commodities fall into four main categories. Energy is the biggest -- crude oil, natural gas, gasoline. Metals include precious metals like gold and silver, and industrial metals like copper and aluminum. Agriculture covers everything from corn and wheat to coffee and livestock. And then there are niche commodities like timber and rare earth elements.
+**Q: What is the right rebalancing band for a 5% commodity sleeve?**
+A: Rebalance to target whenever the sleeve drifts beyond ±2 percentage
+points of weight (i.e. 3% or 7%). This captures the supply-shock
+upside (sell into spikes) without churning during the dead-money years.
+Annual rebalancing alone misses too much of the spike.
 
-**Stella:** Each sector has its own supply-and-demand dynamics. Oil prices depend on OPEC decisions and geopolitics. Agricultural prices depend on weather and growing seasons. Copper prices are so closely tied to economic growth that traders call it "Dr. Copper" because it diagnoses the health of the global economy.
+**Q: Why are agricultural commodities barely covered in retail
+portfolios?**
+A: Because the retail wrapper menu is thin: WEAT, CORN, SOYB, JJG —
+all small-AUM, all single-commodity, all K-1. The cleanest expression
+of an agricultural view is an equity proxy (DE for ag equipment, ADM
+or BG for processing) or accept it as part of a broad-basket
+allocation through BCI or PDBC.
 
-[VISUAL: "Dr. Copper" graphic showing copper price overlaid with global GDP growth, demonstrating correlation]
-
-**Horace:** And here is what makes commodities interesting as an investment: they tend to perform well exactly when stocks and bonds do not -- during inflationary periods. When oil and food prices are rising, they are driving inflation higher, which hurts stock and bond prices. But if you own the commodities themselves, you are on the right side of that trade.
-
----
-
-[SECTION 2 - THE FUTURES PROBLEM - 4:00]
-
-[ANIMATION: Futures curve graphic showing contango (upward sloping) and backwardation (downward sloping)]
-
-**Stella:** Now, here is where most investors get tripped up. You cannot buy a barrel of oil and store it in your garage. So most commodity investments use futures contracts -- agreements to buy or sell a commodity at a specific price on a future date.
-
-**Horace:** The problem is something called contango. In many commodity markets, the futures price for next month is higher than today's price. And the price for two months out is even higher. The futures curve slopes upward.
-
-[VISUAL: Futures curve for crude oil showing spot at $75, one month at $76, three months at $78, six months at $81]
-
-**Stella:** Why? Because storing a physical commodity costs money -- storage fees, insurance, financing. The futures price includes these costs. So next month's oil is more expensive than today's oil, not because anyone expects oil to go up, but because of storage costs built into the price.
-
-**Horace:** This creates a devastating problem for commodity ETFs. These funds hold futures contracts. When those contracts expire, the fund has to sell the cheap expiring contract and buy the more expensive next-month contract. This is called "rolling," and in contango, every roll loses money.
-
-[ANIMATION: Rolling process shown as a repeating cycle: Buy at $77 -> Hold -> Sell at $76 (as it approaches spot) -> Buy next month at $78 -> Hold -> Sell at $77 -> Buy at $79... Each roll loses approximately $1]
-
-**Stella:** The poster child for this problem is the United States Oil Fund -- ticker USO. Oil prices have been volatile but roughly rangebound over long periods. Yet USO lost approximately 90 percent of its value from inception, primarily because of negative roll yield from persistent contango.
-
-[VISUAL: Two charts side by side: Oil spot price (volatile but flat trend) vs USO price (steady decline). Title: "The Roll Yield Graveyard"]
-
----
-
-[SECTION 3 - HOW TO ACTUALLY INVEST - 7:00]
-
-[VISUAL: Four investment approaches displayed as cards: Physical ETFs, Broad Commodity ETFs, Producer Stocks, Direct Futures]
-
-**Horace:** So if futures-based ETFs have this problem, how should you actually invest in commodities? There are a few approaches that work better.
-
-**Stella:** For precious metals, you can buy physically backed ETFs. GLD and IAU hold actual gold bars in vaults. SLV holds physical silver. The price tracks the spot price closely, and there is no roll yield issue because there are no futures involved.
-
-[VISUAL: Gold vault photograph with GLD performance chart showing close tracking of gold spot price]
-
-**Horace:** For broader commodity exposure, look for funds that use optimization strategies to minimize roll costs. The Invesco Optimum Yield Diversified Commodity ETF -- ticker PDBC -- spreads across energy, metals, and agriculture, and uses strategies to roll into contracts that minimize the contango drag.
-
-**Stella:** Another approach is buying the stocks of companies that produce commodities. Energy stocks like ExxonMobil, mining companies, and agricultural firms give you exposure to commodity prices plus dividends and earnings growth. The XLE ETF for energy, GDX for gold miners, and XME for metals and mining.
-
-[VISUAL: Comparison table: Physical ETFs vs Futures ETFs vs Producer Stocks -- showing Roll Yield, Dividends, Correlation to Spot Price, and Additional Risks for each]
-
-**Horace:** Producer stocks are not a perfect substitute though. They carry equity market risk, company-specific risk, and are more correlated with the stock market than physical commodities. But they do avoid the roll yield problem, and they pay dividends, which commodities themselves never do.
-
----
-
-[SECTION 4 - COMMODITIES IN YOUR PORTFOLIO - 9:30]
-
-[VISUAL: Portfolio pie chart showing traditional 60/40, then modified to include 5-10% commodity allocation]
-
-**Stella:** So what role should commodities play in your portfolio? Most experts who recommend commodity exposure suggest 5 to 15 percent of total assets.
-
-**Horace:** The case for including commodities is primarily diversification and inflation protection. Commodities have low correlation with stocks and bonds, so adding them can actually reduce your portfolio's overall volatility even though commodities themselves are volatile.
-
-[ANIMATION: Portfolio risk graph showing total portfolio volatility decreasing as commodity allocation increases from 0% to ~10%, then leveling off]
-
-**Stella:** During the 2000 to 2009 period -- the so-called lost decade for stocks -- a diversified commodity allocation would have added meaningful positive returns to a portfolio that otherwise went nowhere.
-
-**Horace:** And during the 2021 to 2022 inflation spike, commodities were the best-performing major asset class. Energy prices soared, agricultural prices jumped, and metals rallied. Investors with commodity exposure had a natural hedge against the inflation that was crushing their stock and bond holdings.
-
-[VISUAL: 2022 asset class returns bar chart: Commodities (+20%), Cash (+1%), Stocks (-18%), Bonds (-13%)]
-
-**Stella:** But commodities are not a magic bullet. They do not produce income. They can have extended periods of poor performance. And the mechanics of futures investing can create unexpected drags on returns.
-
-**Horace:** The practical recommendation is this: Use a broad, diversified commodity fund with roll optimization for your core commodity allocation. Supplement with physically backed gold if you want dedicated precious metals exposure. Consider energy and mining stocks as an additional layer. And keep the total allocation modest -- 5 to 10 percent is plenty for most portfolios.
-
-[VISUAL: End card with channel logo and "Next: Technical Analysis"]
+**Q: Is the OPEC+ cartel still effective in setting oil prices?**
+A: As of April 2026 the answer is "less so." US shale, with break-even
+costs near $50 WTI, sets the marginal supply curve. OPEC+ retains
+short-term market-management power but the long-run price floor is set
+by US producers. This compresses the upside of oil supply shocks
+relative to the 1970s.
 
 ---
 
-[SECTION 5 - COMMODITY SUPERCYCLES AND THE ENERGY TRANSITION - 11:00]
+## Part 2: YouTube Script
 
-[VISUAL: Long-term commodity price chart from 1900 to present showing multiple supercycle peaks and troughs]
+---
 
-**Stella:** Let us talk about something that is on a lot of investors' minds -- commodity supercycles and the energy transition.
+**VIDEO TITLE:** Commodities, Oil, and Gold — Why USO Lost 50% While
+WTI Stayed Flat
 
-**Horace:** A commodity supercycle is a long-term period -- 10 to 25 years -- of sustained above-trend commodity prices. The most recent one was driven by China's incredible industrialization from roughly 2000 to 2011. China was building cities, factories, and infrastructure at an unprecedented pace, consuming enormous quantities of steel, copper, oil, and every other commodity imaginable.
+**RUNTIME TARGET:** ~12 minutes
 
-[ANIMATION: China GDP growth overlaid with commodity index performance from 2000-2011]
+**HOSTS:** Horace, Stella
 
-**Stella:** Some analysts believe we may be entering a new supercycle driven by the energy transition. Think about it -- to electrify transportation, you need copper for wiring, lithium and cobalt for batteries, nickel for battery cathodes, and rare earth elements for electric motors and wind turbines.
+---
 
-**Horace:** The International Energy Agency estimates that achieving net-zero emissions by 2050 would require a six-fold increase in mineral inputs to the energy sector. That is an enormous demand surge for specific commodities, and supply cannot scale up overnight -- new mines take 10 to 15 years to develop.
+**[INTRO — 0:00 to 0:45]**
 
-[VISUAL: Chart showing projected demand growth for key energy transition minerals: copper, lithium, nickel, cobalt]
+HORACE: Two charts. From January 2000 to April 2026, gold went from
+$280 to roughly $3,500. A dollar in physical gold became about twelve
+dollars. Same window, USO — the United States Oil Fund — turned a
+dollar into less than fifty cents.
 
-**Stella:** At the same time, traditional energy commodities face a more uncertain future. Oil demand is projected to peak within the next decade as electric vehicle adoption accelerates. Coal demand is already declining in many countries. Natural gas may see sustained demand as a transition fuel, but its long-term future is also uncertain.
+STELLA: They're both commodities.
 
-**Horace:** For commodity investors, this creates a strategic question. Do you want exposure to the commodities of the past -- oil and coal -- or the commodities of the future -- copper, lithium, and nickel? Or a blend of both? There is no single right answer, but understanding the structural trends helps you make a more informed choice.
+HORACE: They're both *commodities*. They are not both *commodity
+exposures*. Today's lesson is the difference, and why it dominates
+every other question you have about the asset class.
 
-**Stella:** The practical takeaway: a broad, diversified commodity allocation captures both traditional and transition-related commodities. If you have a strong view on the energy transition timeline, you can tilt toward electrification metals using targeted ETFs or mining company stocks.
+STELLA: This is Side 22. Gold, oil, agriculture as portfolio
+diversifiers. We have two images and one interactive lab.
 
-[VISUAL: End card with channel logo and "Next: Technical Analysis"]
+---
 
-**Horace:** Next time, we are exploring a topic that divides investors like few others -- technical analysis. Charts, patterns, moving averages -- do they actually work? See you there.
+**[SECTION 1 — Four sectors — 0:45 to 2:30]**
 
-[END - 13:30]
+HORACE: The Bloomberg Commodity Index — BCOM — is the standard broad
+basket. April 2026 weights, roughly: 28% energy, 38% metals, 31%
+agriculture, 3% livestock.
+
+STELLA: Each sector has a different driver?
+
+HORACE: Yes, and that's the diversification argument. Energy is OPEC+
+plus geopolitics. Industrial metals — copper, aluminium — track global
+manufacturing. Agriculture is weather plus planting plus biofuel
+mandates. Precious metals — gold and silver — track real rates and
+central bank demand.
+
+STELLA: So in 2022, energy was up 35%, ag up 12%, but industrial metals
+down 10% and precious metals flat.
+
+HORACE: Exactly. The basket smooths these out. Single-sector ETFs
+don't.
+
+---
+
+**[SECTION 2 — Spot vs futures — 2:30 to 5:00]**
+
+HORACE: Now the mechanics. When you buy USO, you do not own oil. You
+own a basket of front-month WTI futures contracts that USO rolls every
+month.
+
+STELLA: Roll meaning sell the expiring contract and buy the next one.
+
+HORACE: Right. And here's the problem. If the futures curve is in
+contango — next month priced higher than this month — every roll is sell
+low buy high. The position bleeds the contango spread.
+
+STELLA: How big is that bleed historically?
+
+HORACE: For oil futures from 2009 to 2020, about minus six to minus
+nine per cent per year of pure roll cost. Front-month WTI started
+2009 near forty dollars and ended 2020 around forty-eight. Spot was
+flat. USO lost roughly half.
+
+[VISUAL: image/side22_gold_vs_oil.png]
+
+STELLA: The chart is brutal. Gold compounds upward, USO drifts down.
+
+HORACE: Same asset class. Same starting capital. Wrapper mechanics
+dominate. Gold ETFs hold physical bullion in a vault. There is no roll.
+USO holds futures. There is always a roll. The difference compounds for
+twenty-six years and produces a thirty-X gap.
+
+STELLA: So if you want oil exposure without the bleed?
+
+HORACE: Producer equities — XOM, CVX. Or LEAPS calls on the producers
+if you want leverage with defined risk. Or accept the bleed and treat
+USO as a tactical instrument with a hold horizon under three months,
+never strategic.
+
+---
+
+**[SECTION 3 — Long-run real return — 5:00 to 7:00]**
+
+HORACE: Now the awkward number. Erb and Harvey, 2006 paper. Decompose
+commodity index returns into three pieces. Spot price change. Roll
+yield. Collateral yield.
+
+STELLA: And the result was?
+
+HORACE: Real geometric return of a broad commodity index, over a
+century-plus window, is approximately zero. Twenty years of follow-up
+data have confirmed it. BCOM real return from 1970 to April 2026 is
+about minus a half per cent per year.
+
+[VISUAL: image/side22_real_commodities.png]
+
+STELLA: So the picture shows a dollar invested in 1970 in real BCOM
+ending up roughly where it started.
+
+HORACE: With two enormous detours — up during the 1970s, up during the
+2002-2008 supercycle, down everywhere else.
+
+STELLA: Then why hold them at all?
+
+HORACE: For the supply-shock hedge. 1973, 2007, 2022. They pay when
+nothing else pays. SOUL #6 — vol-tail-wags-dog — applied to commodities.
+The mean experience is mild drag. The rare-regime payoff is what
+justifies the slot.
+
+---
+
+**[SECTION 4 — Sizing rules — 7:00 to 9:00]**
+
+HORACE: So how big is the sleeve?
+
+STELLA: Broad basket?
+
+HORACE: Five to ten per cent of total portfolio. BCI for cost and
+1099 structure. PDBC if you want the optimised roll layer. Both
+acceptable.
+
+STELLA: Gold separately?
+
+HORACE: Two to five per cent additionally. SOUL #3 store-of-value
+slot, lives in Tranche 3, GLDM is the default at ten basis points.
+
+STELLA: Single-commodity ETFs — USO, UNG, COPX?
+
+HORACE: Tactical only. Position size under one per cent. Treated as
+event trades, never strategic holdings.
+
+STELLA: And the rebalancing?
+
+HORACE: Plus or minus two percentage points around the target weight.
+Sell into the spike, buy back during the dead-money years. Annual-only
+rebalancing misses the fast supply shocks.
+
+---
+
+**[SECTION 5 — Interactive — 9:00 to 11:00]**
+
+HORACE: Pull up the commodity lab.
+
+[VISUAL: interactive/side22_commodity_lab.html]
+
+STELLA: Four sliders — gold weight, broad commodity weight, oil
+futures weight, expected inflation regime.
+
+HORACE: Move expected inflation up to seven per cent and watch the
+real-return numbers shift. Notice that gold and broad commodities both
+strengthen, but oil futures stays anchored — because the contango drag
+is structural, not regime-dependent.
+
+STELLA: And if I push the broad commodity sleeve up to thirty per cent?
+
+HORACE: Watch the expected real return number. It compresses the
+portfolio by about one and a half per cent per year because broad
+commodities have approximately zero long-run real return. You bought
+diversification at the cost of return.
+
+STELLA: So the lab makes the trade-off explicit.
+
+HORACE: Right. There is no portfolio where adding twenty-plus per cent
+to commodities makes sense unless you are betting on a specific shock
+regime. The default is five to ten per cent broad plus two to five
+per cent gold. Anything beyond that is a directional view, not a
+strategic allocation.
+
+---
+
+**[OUTRO — 11:00 to 12:00]**
+
+STELLA: Three things to remember from Side 22.
+
+HORACE: One. The wrapper dominates. GLDM holds physical bullion.
+USO holds futures. The same commodity expressed two different ways
+produced a thirty-X divergence over twenty-six years.
+
+STELLA: Two. The Erb-Harvey result. Long-run real return to a broad
+commodity basket is approximately zero. The diversification benefit is
+real; the return premium is not.
+
+HORACE: Three. Sizing. Five to ten per cent broad. Two to five per cent
+gold. Single-commodity ETFs only as tactical event trades. Anything
+larger needs a thesis and a stop.
+
+STELLA: Next up — Side 23. See you then.

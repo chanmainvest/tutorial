@@ -1,0 +1,849 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Pair Trading Lab — Interactive (Week 14)</title>
+<script src="https://cdn.plot.ly/plotly-2.35.2.min.js" charset="utf-8"></script>
+<style>
+html, body { margin: 0; padding: 0; background: var(--pl-bg); }
+:root {
+    --pl-bg: #fdfbf5;
+    --pl-text: #1a2332;
+    --pl-muted: #6b7280;
+    --pl-border: #d6d3c4;
+    --pl-card: #fdfbf5;
+    --pl-pos: #2e7d32;
+    --pl-neg: #b71c1c;
+    --pl-mid: #0d47a1;
+    --pl-accent: #b8860b;
+}
+html[data-theme="dark"] .pl-root,
+.pl-root[data-theme="dark"] {
+    --pl-bg: #0f1724;
+    --pl-text: #e6e6e6;
+    --pl-muted: #9aa3b2;
+    --pl-border: #2a3441;
+    --pl-card: #0f1724;
+    --pl-pos: #66bb6a;
+    --pl-neg: #ef5350;
+    --pl-mid: #5a8dee;
+}
+.pl-root {
+    font-family: 'Segoe UI', Helvetica, Arial, sans-serif;
+    background: var(--pl-bg);
+    color: var(--pl-text);
+    padding: 12px;
+    margin: 0;
+}
+.pl-pairs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 12px;
+}
+.pl-pill {
+    flex: 1 1 auto;
+    min-width: 120px;
+    padding: 8px 10px;
+    background: var(--pl-card);
+    border: 1px solid var(--pl-border);
+    border-radius: 8px;
+    cursor: pointer;
+    text-align: center;
+    user-select: none;
+    color: var(--pl-text);
+    font-size: 0.88rem;
+    font-weight: 600;
+    transition: all 120ms ease;
+}
+.pl-pill .pl-pill-sub {
+    display: block;
+    font-size: 0.74rem;
+    color: var(--pl-muted);
+    font-weight: 500;
+    margin-top: 2px;
+}
+.pl-pill:hover { border-color: var(--pl-accent); }
+.pl-pill.pl-active {
+    border-color: var(--pl-accent);
+    background: var(--pl-accent);
+    color: #fff;
+}
+.pl-pill.pl-active .pl-pill-sub { color: rgba(255,255,255,0.85); }
+
+.pl-controls {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 12px;
+    margin-bottom: 14px;
+    padding: 12px;
+    background: var(--pl-card);
+    border: 1px solid var(--pl-border);
+    border-radius: 8px;
+}
+.pl-slider-wrap {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    font-size: 0.82rem;
+    color: var(--pl-muted);
+}
+.pl-slider-wrap .pl-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.pl-slider-wrap input[type="range"] {
+    flex: 1;
+    accent-color: var(--pl-accent);
+}
+.pl-slider-wrap .pl-val {
+    white-space: nowrap;
+    color: var(--pl-text);
+    font-weight: 700;
+    font-variant-numeric: tabular-nums;
+    min-width: 56px;
+    text-align: right;
+}
+.pl-slider-wrap .pl-name {
+    font-weight: 600;
+    color: var(--pl-text);
+}
+.pl-chart {
+    width: 100%;
+    height: 480px;
+    background: var(--pl-card);
+    border-radius: 8px;
+    border: 1px solid var(--pl-border);
+}
+.pl-stats {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 10px;
+    margin-top: 14px;
+}
+.pl-stat {
+    background: var(--pl-card);
+    border: 1px solid var(--pl-border);
+    border-left: 4px solid var(--pl-muted);
+    border-radius: 8px;
+    padding: 10px 12px;
+}
+.pl-stat.pl-stat-mid { border-left-color: var(--pl-mid); }
+.pl-stat.pl-stat-acc { border-left-color: var(--pl-accent); }
+.pl-stat.pl-stat-pos { border-left-color: var(--pl-pos); }
+.pl-stat.pl-stat-neg { border-left-color: var(--pl-neg); }
+.pl-stat .pl-stat-name {
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--pl-muted);
+}
+.pl-stat .pl-stat-val {
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin-top: 4px;
+    font-variant-numeric: tabular-nums;
+}
+.pl-stat .pl-stat-detail {
+    font-size: 0.78rem;
+    color: var(--pl-muted);
+    margin-top: 2px;
+    font-variant-numeric: tabular-nums;
+}
+.pl-caption {
+    margin-top: 10px;
+    font-size: 0.78rem;
+    color: var(--pl-muted);
+    line-height: 1.45;
+}
+@media (max-width: 720px) {
+    .pl-controls { grid-template-columns: 1fr; }
+    .pl-stats { grid-template-columns: repeat(2, 1fr); }
+    .pl-chart { height: 380px; }
+}
+</style>
+</head>
+<body>
+
+<div class="pl-root" id="pl-root">
+    <div class="pl-pairs" id="pl-pairs">
+        <div class="pl-pill pl-active" data-pair="KOPEP">
+            <span id="pl-pair-KOPEP-name">KO / PEP</span>
+            <span class="pl-pill-sub" id="pl-pair-KOPEP-sub">Beverages</span>
+        </div>
+        <div class="pl-pill" data-pair="VMA">
+            <span id="pl-pair-VMA-name">V / MA</span>
+            <span class="pl-pill-sub" id="pl-pair-VMA-sub">Payments duopoly</span>
+        </div>
+        <div class="pl-pill" data-pair="XOMCVX">
+            <span id="pl-pair-XOMCVX-name">XOM / CVX</span>
+            <span class="pl-pill-sub" id="pl-pair-XOMCVX-sub">Energy supermajors</span>
+        </div>
+        <div class="pl-pill" data-pair="GLDSLV">
+            <span id="pl-pair-GLDSLV-name">GLD / SLV</span>
+            <span class="pl-pill-sub" id="pl-pair-GLDSLV-sub">Gold / silver</span>
+        </div>
+    </div>
+
+    <div class="pl-controls">
+        <div class="pl-slider-wrap">
+            <div class="pl-name" id="pl-name-entry">Entry Z-score</div>
+            <div class="pl-row">
+                <input type="range" id="pl-entry" min="0.5" max="3" step="0.1" value="2.0">
+                <span class="pl-val" id="pl-val-entry">2.0</span>
+            </div>
+        </div>
+        <div class="pl-slider-wrap">
+            <div class="pl-name" id="pl-name-exit">Exit Z-score</div>
+            <div class="pl-row">
+                <input type="range" id="pl-exit" min="-1" max="1" step="0.1" value="0.0">
+                <span class="pl-val" id="pl-val-exit">0.0</span>
+            </div>
+        </div>
+        <div class="pl-slider-wrap">
+            <div class="pl-name" id="pl-name-lookback">Lookback (days)</div>
+            <div class="pl-row">
+                <input type="range" id="pl-lookback" min="20" max="200" step="5" value="60">
+                <span class="pl-val" id="pl-val-lookback">60</span>
+            </div>
+        </div>
+    </div>
+
+    <div id="pl-chart" class="pl-chart"></div>
+
+    <div class="pl-stats">
+        <div class="pl-stat pl-stat-mid">
+            <div class="pl-stat-name" id="pl-name-pnl">Cumulative P&amp;L</div>
+            <div class="pl-stat-val" id="pl-val-pnl">—</div>
+            <div class="pl-stat-detail" id="pl-det-pnl">—</div>
+        </div>
+        <div class="pl-stat pl-stat-acc">
+            <div class="pl-stat-name" id="pl-name-trades">Total trades</div>
+            <div class="pl-stat-val" id="pl-val-trades">—</div>
+            <div class="pl-stat-detail" id="pl-det-trades">—</div>
+        </div>
+        <div class="pl-stat pl-stat-pos">
+            <div class="pl-stat-name" id="pl-name-winrate">Win rate</div>
+            <div class="pl-stat-val" id="pl-val-winrate">—</div>
+            <div class="pl-stat-detail" id="pl-det-winrate">—</div>
+        </div>
+        <div class="pl-stat pl-stat-neg">
+            <div class="pl-stat-name" id="pl-name-sharpe">Sharpe (ann.)</div>
+            <div class="pl-stat-val" id="pl-val-sharpe">—</div>
+            <div class="pl-stat-detail" id="pl-det-sharpe">—</div>
+        </div>
+    </div>
+
+    <p class="pl-caption" id="pl-caption">
+        Synthetic 1,000-trading-day daily series (~2020-2024) per pair. Each pair is a deterministic Gaussian co-integrated process; the spread is mean-reverting around a fixed mean with one or two simulated regime bumps. Per-trade cost: 5 bp round-trip, applied at each side change.
+    </p>
+</div>
+
+<script>
+(function () {
+    const I18N = {
+        en: {
+            pair_KOPEP_name: "KO / PEP",  pair_KOPEP_sub: "Beverages",
+            pair_VMA_name:   "V / MA",    pair_VMA_sub:   "Payments duopoly",
+            pair_XOMCVX_name:"XOM / CVX", pair_XOMCVX_sub:"Energy supermajors",
+            pair_GLDSLV_name:"GLD / SLV", pair_GLDSLV_sub:"Gold / silver",
+            name_entry:    "Entry Z-score",
+            name_exit:     "Exit Z-score",
+            name_lookback: "Lookback (days)",
+            name_pnl:      "Cumulative P&L",
+            name_trades:   "Total trades",
+            name_winrate:  "Win rate",
+            name_sharpe:   "Sharpe (ann.)",
+            trace_z:       "Z-score (rolling)",
+            trace_pnl:     "Cumulative P&L",
+            trace_long:    "Long-spread entry",
+            trace_short:   "Short-spread entry",
+            x_title:       "Trading day",
+            y_z:           "Z-score",
+            y_pnl:         "Cumulative log-spread P&L",
+            band_label:    "+/- entry sigma",
+            det_pnl:       "{n} days of simulated trading",
+            det_trades:    "long {l} / short {s}",
+            det_winrate:   "{w} of {n} closed trades positive",
+            det_sharpe:    "ann. return {r} / vol {v}",
+            caption:       "Synthetic 1,000-trading-day daily series (~2020-2024) per pair. Each pair is a deterministic Gaussian cointegrated process; the spread is mean-reverting around a fixed mean with one or two simulated regime bumps. Per-trade cost: 5 bp round-trip, applied at each side change. Tip: try +/-2 entry, 0 exit, 60 lookback first; then push entry to 1.5 (more trades, lower per-trade edge) or 2.5 (fewer cleaner trades).",
+        },
+        hk: {
+            pair_KOPEP_name: "KO / PEP",  pair_KOPEP_sub: "飲料",
+            pair_VMA_name:   "V / MA",    pair_VMA_sub:   "支付雙寡頭",
+            pair_XOMCVX_name:"XOM / CVX", pair_XOMCVX_sub:"能源超級巨企",
+            pair_GLDSLV_name:"GLD / SLV", pair_GLDSLV_sub:"黃金 / 白銀",
+            name_entry:    "入場 Z-score",
+            name_exit:     "出場 Z-score",
+            name_lookback: "回看視窗(日)",
+            name_pnl:      "累計損益",
+            name_trades:   "交易次數",
+            name_winrate:  "勝率",
+            name_sharpe:   "夏普(年化)",
+            trace_z:       "Z-score(滾動)",
+            trace_pnl:     "累計損益",
+            trace_long:    "做多價差入場",
+            trace_short:   "做空價差入場",
+            x_title:       "交易日",
+            y_z:           "Z-score",
+            y_pnl:         "log-spread 累計損益",
+            band_label:    "+/- 入場標準差",
+            det_pnl:       "模擬 {n} 個交易日",
+            det_trades:    "做多 {l} / 做空 {s}",
+            det_winrate:   "{n} 次平倉中 {w} 次獲利",
+            det_sharpe:    "年化回報 {r} / 波動 {v}",
+            caption:       "每組配對為 1,000 個交易日的合成日線(約 2020-2024)。每組配對是確定性的高斯協整過程;價差圍繞固定均值回歸,並包含一兩次模擬的 regime bump。每次交易單邊成本 5 bp,於每次倉位變動時收取。小提示:先試 +/-2 入場、0 出場、60 日回看;再把入場推到 1.5(更多交易、單筆 edge 降低)或 2.5(交易少但更乾淨)。",
+        },
+        tw: {
+            pair_KOPEP_name: "KO / PEP",  pair_KOPEP_sub: "飲料",
+            pair_VMA_name:   "V / MA",    pair_VMA_sub:   "支付雙寡頭",
+            pair_XOMCVX_name:"XOM / CVX", pair_XOMCVX_sub:"能源超級巨擘",
+            pair_GLDSLV_name:"GLD / SLV", pair_GLDSLV_sub:"黃金 / 白銀",
+            name_entry:    "進場 Z-score",
+            name_exit:     "出場 Z-score",
+            name_lookback: "回看視窗(日)",
+            name_pnl:      "累計損益",
+            name_trades:   "交易次數",
+            name_winrate:  "勝率",
+            name_sharpe:   "夏普(年化)",
+            trace_z:       "Z-score(滾動)",
+            trace_pnl:     "累計損益",
+            trace_long:    "做多價差進場",
+            trace_short:   "做空價差進場",
+            x_title:       "交易日",
+            y_z:           "Z-score",
+            y_pnl:         "log-spread 累計損益",
+            band_label:    "+/- 進場標準差",
+            det_pnl:       "模擬 {n} 個交易日",
+            det_trades:    "做多 {l} / 做空 {s}",
+            det_winrate:   "{n} 次平倉中 {w} 次獲利",
+            det_sharpe:    "年化報酬 {r} / 波動 {v}",
+            caption:       "每組配對為 1,000 個交易日的合成日線(約 2020-2024)。每組配對是確定性高斯協整過程;價差圍繞固定均值回歸,並含一兩次模擬的 regime bump。每次交易單邊成本 5 bp,於每次部位變動時收取。提示:先試 +/-2 進場、0 出場、60 日回看;再把進場推到 1.5(更多交易、單筆 edge 降低)或 2.5(交易少但乾淨)。",
+        },
+        cn: {
+            pair_KOPEP_name: "KO / PEP",  pair_KOPEP_sub: "饮料",
+            pair_VMA_name:   "V / MA",    pair_VMA_sub:   "支付双寡头",
+            pair_XOMCVX_name:"XOM / CVX", pair_XOMCVX_sub:"能源超级巨头",
+            pair_GLDSLV_name:"GLD / SLV", pair_GLDSLV_sub:"黄金 / 白银",
+            name_entry:    "入场 Z-score",
+            name_exit:     "出场 Z-score",
+            name_lookback: "回看窗口(日)",
+            name_pnl:      "累计损益",
+            name_trades:   "交易次数",
+            name_winrate:  "胜率",
+            name_sharpe:   "夏普(年化)",
+            trace_z:       "Z-score(滚动)",
+            trace_pnl:     "累计损益",
+            trace_long:    "做多价差入场",
+            trace_short:   "做空价差入场",
+            x_title:       "交易日",
+            y_z:           "Z-score",
+            y_pnl:         "log-spread 累计损益",
+            band_label:    "+/- 入场标准差",
+            det_pnl:       "模拟 {n} 个交易日",
+            det_trades:    "做多 {l} / 做空 {s}",
+            det_winrate:   "{n} 次平仓中 {w} 次盈利",
+            det_sharpe:    "年化回报 {r} / 波动 {v}",
+            caption:       "每组配对为 1,000 个交易日的合成日线(约 2020-2024)。每组配对是确定性高斯协整过程;价差围绕固定均值回归,并含一两次模拟的 regime bump。每次交易单边成本 5 bp,在每次仓位变动时收取。提示:先试 +/-2 入场、0 出场、60 日回看;再把入场推到 1.5(更多交易、单笔 edge 降低)或 2.5(交易少但干净)。",
+        },
+    };
+    function currentLang() {
+        const p = new URLSearchParams(window.location.search);
+        const l = (p.get("lang") || "en").toLowerCase();
+        return I18N.hasOwnProperty(l) ? l : "en";
+    }
+    const T = I18N[currentLang()];
+
+    // ---------------- Synthetic pair data (deterministic) ----------------
+    const N_DAYS = 1000;
+    const ANN_DAYS = 252;
+
+    function lcg(seed) {
+        let s = (seed >>> 0) || 1;
+        return function () {
+            s = (s * 1664525 + 1013904223) >>> 0;
+            return s / 4294967296;
+        };
+    }
+    function gauss(seed, n) {
+        const r = lcg(seed);
+        const out = new Float64Array(n);
+        for (let i = 0; i < n; i += 2) {
+            let u1 = r(); if (u1 < 1e-12) u1 = 1e-12;
+            const u2 = r();
+            const mag = Math.sqrt(-2 * Math.log(u1));
+            out[i] = mag * Math.cos(2 * Math.PI * u2);
+            if (i + 1 < n) out[i + 1] = mag * Math.sin(2 * Math.PI * u2);
+        }
+        return out;
+    }
+
+    /**
+     * buildPair: synthesises (priceA, priceB) over N_DAYS such that
+     * log(A) - log(B) is mean-reverting (Ornstein-Uhlenbeck-ish) with
+     * cosmetic regime bumps. Parameters chosen to roughly mimic the
+     * realised 2020-2024 character of each named pair.
+     */
+    function buildPair(spec) {
+        const seed1 = spec.seed;
+        const seed2 = spec.seed ^ 0xA5A5A5A5;
+        const seed3 = spec.seed ^ 0x5A5A5A5A;
+        const zCommon = gauss(seed1, N_DAYS);     // shared market factor
+        const zA = gauss(seed2, N_DAYS);          // idio A
+        const zB = gauss(seed3, N_DAYS);          // idio B
+
+        const muMkt   = spec.muMkt    / ANN_DAYS;
+        const volMkt  = spec.volMkt   / Math.sqrt(ANN_DAYS);
+        const idioVol = spec.idioVol  / Math.sqrt(ANN_DAYS);
+        const driftDiff = spec.driftDiff / ANN_DAYS; // small permanent drift gap A-B
+        const kappa    = spec.kappa;   // OU mean-reversion speed on the spread
+
+        // OU spread: s_{t+1} = s_t + kappa*(0 - s_t) + idio shock
+        // Build spread first, then re-decompose into A and B.
+        const spread = new Float64Array(N_DAYS);
+        let s = 0;
+        const spreadVol = idioVol;
+        for (let i = 0; i < N_DAYS; i++) {
+            // regime bump injected at specific dates (parametrised)
+            let bump = 0;
+            for (const b of spec.bumps || []) {
+                if (i === b.day) bump = b.amount;
+            }
+            s = s + kappa * (0 - s) + spreadVol * (zA[i] - zB[i]) * 0.5 + bump;
+            spread[i] = s;
+        }
+        // Common market driver: cumulative log return path
+        const logMkt = new Float64Array(N_DAYS);
+        let lm = 0;
+        for (let i = 0; i < N_DAYS; i++) {
+            lm = lm + muMkt + volMkt * zCommon[i];
+            logMkt[i] = lm;
+        }
+        // log A and log B share the market; spread = logA - logB.
+        // Set logB = logMkt + small B drift; logA = logB + spread + drift gap*t.
+        const logA = new Float64Array(N_DAYS);
+        const logB = new Float64Array(N_DAYS);
+        for (let i = 0; i < N_DAYS; i++) {
+            logB[i] = Math.log(spec.startB) + logMkt[i];
+            logA[i] = Math.log(spec.startA) + logMkt[i] + spread[i] + driftDiff * i;
+        }
+        const priceA = new Float64Array(N_DAYS);
+        const priceB = new Float64Array(N_DAYS);
+        for (let i = 0; i < N_DAYS; i++) {
+            priceA[i] = Math.exp(logA[i]);
+            priceB[i] = Math.exp(logB[i]);
+        }
+        return { priceA: priceA, priceB: priceB, logA: logA, logB: logB };
+    }
+
+    // Pair specs roughly calibrated to 2020-2024 realised character.
+    // - KO/PEP: defensive, low-vol, modest PEP drift (snack-foods build)
+    // - V/MA: highish-vol payments, near-zero drift gap
+    // - XOM/CVX: cyclical energy, brisk vol, regime bump in 2022 oil shock
+    // - GLD/SLV: lower drift, cyclical spread, two regime bumps
+    const PAIRS = {
+        KOPEP: {
+            seed: 20200103, startA: 55.0, startB: 130.0,
+            muMkt: 0.05, volMkt: 0.16, idioVol: 0.12,
+            driftDiff: -0.015, kappa: 0.04,
+            bumps: [{day: 380, amount: 0.05}],
+        },
+        VMA: {
+            seed: 20210527, startA: 200.0, startB: 320.0,
+            muMkt: 0.10, volMkt: 0.22, idioVol: 0.10,
+            driftDiff: 0.000, kappa: 0.035,
+            bumps: [{day: 220, amount: -0.04}, {day: 700, amount: 0.03}],
+        },
+        XOMCVX: {
+            seed: 20220224, startA: 60.0, startB: 130.0,
+            muMkt: 0.08, volMkt: 0.30, idioVol: 0.16,
+            driftDiff: 0.005, kappa: 0.05,
+            bumps: [{day: 540, amount: 0.07}, {day: 820, amount: -0.05}],
+        },
+        GLDSLV: {
+            seed: 20200815, startA: 165.0, startB: 22.0,
+            muMkt: 0.06, volMkt: 0.18, idioVol: 0.20,
+            driftDiff: 0.000, kappa: 0.025,
+            bumps: [{day: 150, amount: -0.10}, {day: 600, amount: 0.08}],
+        },
+    };
+
+    // Pre-build all pair series once (deterministic, cheap)
+    const SERIES = {};
+    for (const k of Object.keys(PAIRS)) SERIES[k] = buildPair(PAIRS[k]);
+
+    // ---------------- Pair-trading backtest ----------------
+    const COST_PER_SIDE_CHANGE = 5e-4; // 5 bp
+
+    function rollingMeanStd(arr, lb) {
+        const n = arr.length;
+        const mu = new Float64Array(n);
+        const sd = new Float64Array(n);
+        for (let i = 0; i < n; i++) {
+            mu[i] = NaN; sd[i] = NaN;
+        }
+        if (lb < 2 || lb > n) return { mu, sd };
+        let sum = 0, sum2 = 0;
+        for (let i = 0; i < lb; i++) { sum += arr[i]; sum2 += arr[i]*arr[i]; }
+        for (let i = lb - 1; i < n; i++) {
+            if (i > lb - 1) {
+                sum  += arr[i]   - arr[i - lb];
+                sum2 += arr[i]*arr[i] - arr[i - lb]*arr[i - lb];
+            }
+            const m = sum / lb;
+            const v = Math.max(1e-12, sum2 / lb - m * m);
+            mu[i] = m;
+            sd[i] = Math.sqrt(v);
+        }
+        return { mu, sd };
+    }
+
+    function backtest(pairKey, entryZ, exitZ, lookback) {
+        const ser = SERIES[pairKey];
+        const n = ser.logA.length;
+        const spread = new Float64Array(n);
+        for (let i = 0; i < n; i++) spread[i] = ser.logA[i] - ser.logB[i];
+        const { mu, sd } = rollingMeanStd(spread, lookback);
+        const z = new Float64Array(n);
+        for (let i = 0; i < n; i++) {
+            z[i] = (sd[i] > 0 && isFinite(sd[i])) ? (spread[i] - mu[i]) / sd[i] : NaN;
+        }
+
+        // Position generation
+        const pos = new Float64Array(n);
+        let cur = 0;
+        const entries = []; // { day, side: +1 long-spread / -1 short-spread }
+        for (let i = 0; i < n; i++) {
+            const zi = z[i];
+            if (!isFinite(zi)) { pos[i] = 0; continue; }
+            if (cur === 0) {
+                if (zi <= -entryZ) { cur = 1; entries.push({day:i, side:1}); }
+                else if (zi >= entryZ) { cur = -1; entries.push({day:i, side:-1}); }
+            } else if (cur === 1 && zi >= exitZ) {
+                cur = 0;
+            } else if (cur === -1 && zi <= exitZ) {
+                cur = 0;
+            }
+            pos[i] = cur;
+        }
+
+        // Daily P&L: position(t-1) * (spread(t) - spread(t-1))
+        const daily = new Float64Array(n);
+        for (let i = 1; i < n; i++) {
+            daily[i] = pos[i - 1] * (spread[i] - spread[i - 1]);
+        }
+        // Costs at each side change
+        for (let i = 1; i < n; i++) {
+            const dpos = Math.abs(pos[i] - pos[i - 1]);
+            if (dpos > 0) daily[i] -= dpos * COST_PER_SIDE_CHANGE;
+        }
+        // Cumulative P&L (additive, log-spread units ≈ pct return)
+        const cum = new Float64Array(n);
+        let g = 0;
+        for (let i = 0; i < n; i++) { g += daily[i]; cum[i] = g; }
+
+        // Closed-trade tally for win-rate
+        const trades = []; // { side, openDay, closeDay, ret }
+        let openDay = -1, openSide = 0, openCum = 0;
+        for (let i = 0; i < n; i++) {
+            if (openDay < 0 && pos[i] !== 0) {
+                openDay = i; openSide = pos[i]; openCum = cum[i];
+            } else if (openDay >= 0 && pos[i] === 0) {
+                trades.push({side: openSide, openDay, closeDay: i, ret: cum[i] - openCum});
+                openDay = -1; openSide = 0;
+            }
+        }
+        // Open trade at end? leave it out of win-rate (mark-to-market only)
+        return { z, pos, cum, daily, entries, trades };
+    }
+
+    function meanStd(arr) {
+        let m = 0, n = 0;
+        for (let i = 0; i < arr.length; i++) { m += arr[i]; n++; }
+        m /= Math.max(1, n);
+        let v = 0;
+        for (let i = 0; i < arr.length; i++) {
+            const d = arr[i] - m;
+            v += d * d;
+        }
+        v /= Math.max(1, n);
+        return { mean: m, std: Math.sqrt(v) };
+    }
+
+    // ---------------- Plotly rendering ----------------
+    const ROOT = document.getElementById("pl-root");
+    const CHART = document.getElementById("pl-chart");
+    const ENTRY = document.getElementById("pl-entry");
+    const EXIT  = document.getElementById("pl-exit");
+    const LBACK = document.getElementById("pl-lookback");
+    const VAL_ENTRY  = document.getElementById("pl-val-entry");
+    const VAL_EXIT   = document.getElementById("pl-val-exit");
+    const VAL_LBACK  = document.getElementById("pl-val-lookback");
+
+    let activePair = "KOPEP";
+
+    function getCssVar(name) {
+        return getComputedStyle(ROOT).getPropertyValue(name).trim();
+    }
+    function darkMode() {
+        return document.documentElement.getAttribute("data-theme") === "dark";
+    }
+    function pct(v, digits) {
+        if (!isFinite(v)) return "—";
+        const sign = v >= 0 ? "+" : "";
+        return sign + (v * 100).toFixed(digits == null ? 1 : digits) + "%";
+    }
+
+    function render() {
+        const entryZ = parseFloat(ENTRY.value);
+        const exitZ  = parseFloat(EXIT.value);
+        const lback  = parseInt(LBACK.value, 10);
+
+        VAL_ENTRY.textContent  = entryZ.toFixed(1);
+        VAL_EXIT.textContent   = exitZ.toFixed(1);
+        VAL_LBACK.textContent  = String(lback);
+
+        const bt = backtest(activePair, entryZ, exitZ, lback);
+        const X = new Array(bt.z.length);
+        for (let i = 0; i < X.length; i++) X[i] = i + 1;
+
+        // Stats
+        const finalCum = bt.cum[bt.cum.length - 1];
+        const stats = meanStd(bt.daily);
+        const annRet = stats.mean * ANN_DAYS;
+        const annVol = stats.std * Math.sqrt(ANN_DAYS);
+        const sharpe = annVol > 0 ? annRet / annVol : 0;
+        const longCount  = bt.entries.filter(e => e.side === 1).length;
+        const shortCount = bt.entries.filter(e => e.side === -1).length;
+        const totalEntries = bt.entries.length;
+        const closed = bt.trades.length;
+        const wins = bt.trades.filter(t => t.ret > 0).length;
+        const winRate = closed > 0 ? wins / closed : 0;
+
+        document.getElementById("pl-val-pnl").textContent = pct(finalCum, 1);
+        document.getElementById("pl-det-pnl").textContent =
+            T.det_pnl.replace("{n}", String(bt.z.length));
+
+        document.getElementById("pl-val-trades").textContent = String(totalEntries);
+        document.getElementById("pl-det-trades").textContent =
+            T.det_trades.replace("{l}", String(longCount)).replace("{s}", String(shortCount));
+
+        document.getElementById("pl-val-winrate").textContent =
+            closed > 0 ? (winRate * 100).toFixed(0) + "%" : "—";
+        document.getElementById("pl-det-winrate").textContent =
+            T.det_winrate.replace("{w}", String(wins)).replace("{n}", String(closed));
+
+        document.getElementById("pl-val-sharpe").textContent =
+            isFinite(sharpe) ? sharpe.toFixed(2) : "—";
+        document.getElementById("pl-det-sharpe").textContent =
+            T.det_sharpe.replace("{r}", pct(annRet)).replace("{v}", pct(annVol));
+
+        // Entry markers
+        const longX = [], longY = [], shortX = [], shortY = [];
+        for (const e of bt.entries) {
+            if (e.side === 1) { longX.push(e.day + 1); longY.push(bt.z[e.day]); }
+            else { shortX.push(e.day + 1); shortY.push(bt.z[e.day]); }
+        }
+
+        const colorMid = getCssVar("--pl-mid");
+        const colorAcc = getCssVar("--pl-accent");
+        const colorPos = getCssVar("--pl-pos");
+        const colorNeg = getCssVar("--pl-neg");
+        const colorText = getCssVar("--pl-text");
+        const colorMuted = getCssVar("--pl-muted");
+        const colorGrid = darkMode() ? "rgba(255,255,255,0.08)" : "rgba(0,0,0,0.07)";
+        const colorBg = getCssVar("--pl-card");
+
+        // Z-score trace (mask NaNs)
+        const zPlot = new Array(bt.z.length);
+        for (let i = 0; i < bt.z.length; i++) {
+            zPlot[i] = isFinite(bt.z[i]) ? bt.z[i] : null;
+        }
+
+        const traces = [
+            // Top subplot: Z-score
+            {
+                x: X, y: zPlot,
+                type: "scatter", mode: "lines",
+                name: T.trace_z,
+                line: { color: colorAcc, width: 1.6 },
+                xaxis: "x", yaxis: "y",
+                hovertemplate: "Z=%{y:.2f}<extra></extra>",
+            },
+            // +/- entry sigma bands (top)
+            {
+                x: [X[0], X[X.length-1]], y: [entryZ, entryZ],
+                type: "scatter", mode: "lines",
+                line: { color: colorNeg, width: 1, dash: "dash" },
+                xaxis: "x", yaxis: "y",
+                showlegend: false, hoverinfo: "skip",
+            },
+            {
+                x: [X[0], X[X.length-1]], y: [-entryZ, -entryZ],
+                type: "scatter", mode: "lines",
+                line: { color: colorNeg, width: 1, dash: "dash" },
+                xaxis: "x", yaxis: "y",
+                showlegend: false, hoverinfo: "skip",
+            },
+            {
+                x: [X[0], X[X.length-1]], y: [exitZ, exitZ],
+                type: "scatter", mode: "lines",
+                line: { color: colorMuted, width: 1, dash: "dot" },
+                xaxis: "x", yaxis: "y",
+                showlegend: false, hoverinfo: "skip",
+            },
+            // Long-spread entries
+            {
+                x: longX, y: longY,
+                type: "scatter", mode: "markers",
+                name: T.trace_long,
+                marker: { symbol: "triangle-up", size: 10, color: colorPos,
+                          line: { color: colorBg, width: 1 } },
+                xaxis: "x", yaxis: "y",
+                hovertemplate: T.trace_long + " day %{x}<extra></extra>",
+            },
+            // Short-spread entries
+            {
+                x: shortX, y: shortY,
+                type: "scatter", mode: "markers",
+                name: T.trace_short,
+                marker: { symbol: "triangle-down", size: 10, color: colorNeg,
+                          line: { color: colorBg, width: 1 } },
+                xaxis: "x", yaxis: "y",
+                hovertemplate: T.trace_short + " day %{x}<extra></extra>",
+            },
+            // Bottom subplot: cumulative P&L
+            {
+                x: X, y: Array.from(bt.cum),
+                type: "scatter", mode: "lines",
+                name: T.trace_pnl,
+                line: { color: colorMid, width: 2.2 },
+                fill: "tozeroy",
+                fillcolor: (finalCum >= 0)
+                    ? (darkMode() ? "rgba(102,187,106,0.18)" : "rgba(46,125,50,0.10)")
+                    : (darkMode() ? "rgba(239,83,80,0.18)" : "rgba(183,28,28,0.10)"),
+                xaxis: "x2", yaxis: "y2",
+                hovertemplate: T.trace_pnl + ": %{y:.3f}<extra></extra>",
+            },
+        ];
+
+        const layout = {
+            margin: { l: 56, r: 24, t: 26, b: 44 },
+            paper_bgcolor: colorBg,
+            plot_bgcolor: colorBg,
+            font: { family: "Segoe UI, Helvetica, Arial, sans-serif",
+                    color: colorText, size: 12 },
+            grid: { rows: 2, columns: 1, pattern: "independent",
+                    roworder: "top to bottom" },
+            xaxis: {
+                gridcolor: colorGrid,
+                color: colorText,
+                domain: [0, 1],
+                anchor: "y",
+                showticklabels: false,
+            },
+            yaxis: {
+                title: { text: T.y_z, font: { color: colorMuted, size: 11 } },
+                gridcolor: colorGrid,
+                color: colorText,
+                domain: [0.55, 1.0],
+                range: [-4, 4],
+                zeroline: false,
+            },
+            xaxis2: {
+                title: { text: T.x_title, font: { color: colorMuted, size: 11 } },
+                gridcolor: colorGrid,
+                color: colorText,
+                domain: [0, 1],
+                anchor: "y2",
+            },
+            yaxis2: {
+                title: { text: T.y_pnl, font: { color: colorMuted, size: 11 } },
+                gridcolor: colorGrid,
+                color: colorText,
+                domain: [0, 0.45],
+                tickformat: ".2f",
+                zeroline: true, zerolinecolor: colorMuted,
+            },
+            legend: {
+                orientation: "h",
+                x: 0, y: 1.08,
+                bgcolor: "rgba(0,0,0,0)",
+                font: { color: colorText, size: 11 },
+            },
+            hovermode: "x unified",
+            showlegend: true,
+        };
+
+        Plotly.react(CHART, traces, layout, {
+            displayModeBar: false,
+            responsive: true,
+        });
+    }
+
+    function applyI18n() {
+        document.getElementById("pl-pair-KOPEP-name").textContent  = T.pair_KOPEP_name;
+        document.getElementById("pl-pair-KOPEP-sub").textContent   = T.pair_KOPEP_sub;
+        document.getElementById("pl-pair-VMA-name").textContent    = T.pair_VMA_name;
+        document.getElementById("pl-pair-VMA-sub").textContent     = T.pair_VMA_sub;
+        document.getElementById("pl-pair-XOMCVX-name").textContent = T.pair_XOMCVX_name;
+        document.getElementById("pl-pair-XOMCVX-sub").textContent  = T.pair_XOMCVX_sub;
+        document.getElementById("pl-pair-GLDSLV-name").textContent = T.pair_GLDSLV_name;
+        document.getElementById("pl-pair-GLDSLV-sub").textContent  = T.pair_GLDSLV_sub;
+
+        document.getElementById("pl-name-entry").textContent    = T.name_entry;
+        document.getElementById("pl-name-exit").textContent     = T.name_exit;
+        document.getElementById("pl-name-lookback").textContent = T.name_lookback;
+        document.getElementById("pl-name-pnl").textContent      = T.name_pnl;
+        document.getElementById("pl-name-trades").textContent   = T.name_trades;
+        document.getElementById("pl-name-winrate").textContent  = T.name_winrate;
+        document.getElementById("pl-name-sharpe").textContent   = T.name_sharpe;
+        document.getElementById("pl-caption").textContent       = T.caption;
+    }
+
+    // Pair pill clicks
+    document.querySelectorAll(".pl-pill").forEach(pill => {
+        pill.addEventListener("click", function () {
+            const k = this.getAttribute("data-pair");
+            if (k === activePair) return;
+            activePair = k;
+            document.querySelectorAll(".pl-pill").forEach(p => p.classList.remove("pl-active"));
+            this.classList.add("pl-active");
+            render();
+        });
+    });
+
+    [ENTRY, EXIT, LBACK].forEach(el => {
+        el.addEventListener("input", render);
+    });
+
+    applyI18n();
+
+    function reportHeight() {
+        try {
+            const h = Math.ceil(document.documentElement.scrollHeight);
+            parent.postMessage({ type: 'lesson-interactive-resize', height: h }, '*');
+        } catch (e) { /* ignore */ }
+    }
+    if (typeof ResizeObserver !== 'undefined') {
+        new ResizeObserver(reportHeight).observe(document.body);
+    }
+    window.addEventListener('resize', reportHeight);
+    setTimeout(reportHeight, 50);
+    setTimeout(reportHeight, 500);
+
+    const themeObserver = new MutationObserver(render);
+    themeObserver.observe(document.documentElement, {
+        attributes: true,
+        attributeFilter: ["data-theme"],
+    });
+
+    render();
+})();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,627 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Credit Pricer — Interactive (Week 33)</title>
+<script src="https://cdn.plot.ly/plotly-2.35.2.min.js" charset="utf-8"></script>
+<style>
+html, body { margin: 0; padding: 0; background: var(--cp-bg); }
+:root {
+    --cp-bg: #fdfbf5;
+    --cp-text: #1a2332;
+    --cp-muted: #6b7280;
+    --cp-border: #d6d3c4;
+    --cp-card: #fdfbf5;
+    --cp-accent: #b8860b;
+    --cp-pos: #2e7d32;
+    --cp-neg: #b71c1c;
+    --cp-mid: #0d47a1;
+}
+html[data-theme="dark"] .cp-root,
+.cp-root[data-theme="dark"] {
+    --cp-bg: #0f1724;
+    --cp-text: #e6e6e6;
+    --cp-muted: #9aa3b2;
+    --cp-border: #2a3441;
+    --cp-card: #0f1724;
+    --cp-accent: #d4a017;
+    --cp-pos: #66bb6a;
+    --cp-neg: #ef5350;
+    --cp-mid: #5a8dee;
+}
+.cp-root {
+    font-family: 'Segoe UI', Helvetica, Arial, sans-serif;
+    background: var(--cp-bg);
+    color: var(--cp-text);
+    padding: 12px;
+    margin: 0;
+}
+.cp-presets {
+    display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 10px;
+}
+.cp-preset {
+    border: 1px solid var(--cp-border);
+    background: var(--cp-card);
+    color: var(--cp-muted);
+    border-radius: 999px;
+    padding: 5px 12px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.15s, color 0.15s;
+}
+.cp-preset.active {
+    background: var(--cp-accent);
+    color: #fff;
+    border-color: var(--cp-accent);
+}
+.cp-controls {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 12px;
+    padding: 12px;
+    background: var(--cp-card);
+    border: 1px solid var(--cp-border);
+    border-radius: 8px;
+    margin-bottom: 14px;
+}
+.cp-slider-wrap {
+    display: flex; flex-direction: column; gap: 4px;
+    font-size: 0.82rem; color: var(--cp-muted);
+}
+.cp-slider-wrap .cp-row {
+    display: flex; justify-content: space-between; align-items: baseline;
+}
+.cp-slider-wrap .cp-name { font-weight: 600; color: var(--cp-text); }
+.cp-slider-wrap .cp-value {
+    color: var(--cp-text); font-weight: 700;
+    font-variant-numeric: tabular-nums;
+}
+.cp-slider-wrap input[type="range"] {
+    width: 100%; accent-color: var(--cp-accent);
+}
+.cp-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+    gap: 10px;
+    margin-bottom: 14px;
+}
+.cp-stat {
+    background: var(--cp-card);
+    border: 1px solid var(--cp-border);
+    border-left: 4px solid var(--cp-muted);
+    border-radius: 8px;
+    padding: 10px 12px;
+}
+.cp-stat.cp-stat-price { border-left-color: var(--cp-accent); }
+.cp-stat.cp-stat-ytm   { border-left-color: var(--cp-mid); }
+.cp-stat.cp-stat-er    { border-left-color: var(--cp-pos); }
+.cp-stat.cp-stat-be    { border-left-color: var(--cp-neg); }
+.cp-stat .cp-stat-name {
+    font-size: 0.74rem; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.5px;
+    color: var(--cp-muted);
+}
+.cp-stat .cp-stat-val {
+    font-size: 1.3rem; font-weight: 700; margin-top: 4px;
+    font-variant-numeric: tabular-nums;
+}
+.cp-stat .cp-stat-detail {
+    font-size: 0.74rem; color: var(--cp-muted); margin-top: 2px;
+}
+.cp-chart {
+    width: 100%; height: 360px;
+    background: var(--cp-card);
+    border-radius: 8px;
+    border: 1px solid var(--cp-border);
+}
+.cp-caption {
+    margin-top: 10px;
+    font-size: 0.78rem; color: var(--cp-muted); line-height: 1.45;
+}
+@media (max-width: 640px) { .cp-chart { height: 320px; } }
+</style>
+</head>
+<body>
+
+<div class="cp-root" id="cp-root">
+
+    <div class="cp-presets" id="cp-presets" role="tablist">
+        <button class="cp-preset active" data-preset="ig" type="button">IG BBB now</button>
+        <button class="cp-preset" data-preset="hy" type="button">HY B now</button>
+        <button class="cp-preset" data-preset="panic2008" type="button">2008 panic</button>
+        <button class="cp-preset" data-preset="panic2020" type="button">2020 COVID</button>
+        <button class="cp-preset" data-preset="custom" type="button">Custom</button>
+    </div>
+
+    <div class="cp-controls">
+        <div class="cp-slider-wrap">
+            <div class="cp-row"><span class="cp-name" id="cp-l-mat">Maturity</span>
+                <span class="cp-value" id="cp-v-mat">10 yr</span></div>
+            <input type="range" id="cp-s-mat" min="1" max="30" step="1" value="10">
+        </div>
+        <div class="cp-slider-wrap">
+            <div class="cp-row"><span class="cp-name" id="cp-l-coupon">Coupon</span>
+                <span class="cp-value" id="cp-v-coupon">5.00%</span></div>
+            <input type="range" id="cp-s-coupon" min="0" max="15" step="0.25" value="5">
+        </div>
+        <div class="cp-slider-wrap">
+            <div class="cp-row"><span class="cp-name" id="cp-l-tsy">Treasury yield</span>
+                <span class="cp-value" id="cp-v-tsy">4.50%</span></div>
+            <input type="range" id="cp-s-tsy" min="0" max="10" step="0.25" value="4.5">
+        </div>
+        <div class="cp-slider-wrap">
+            <div class="cp-row"><span class="cp-name" id="cp-l-spr">Credit spread</span>
+                <span class="cp-value" id="cp-v-spr">130 bps</span></div>
+            <input type="range" id="cp-s-spr" min="0" max="2500" step="10" value="130">
+        </div>
+        <div class="cp-slider-wrap">
+            <div class="cp-row"><span class="cp-name" id="cp-l-pd">Default probability</span>
+                <span class="cp-value" id="cp-v-pd">0.20%</span></div>
+            <input type="range" id="cp-s-pd" min="0" max="25" step="0.05" value="0.2">
+        </div>
+        <div class="cp-slider-wrap">
+            <div class="cp-row"><span class="cp-name" id="cp-l-rec">Recovery rate</span>
+                <span class="cp-value" id="cp-v-rec">40%</span></div>
+            <input type="range" id="cp-s-rec" min="0" max="80" step="1" value="40">
+        </div>
+    </div>
+
+    <div class="cp-stats">
+        <div class="cp-stat cp-stat-price">
+            <div class="cp-stat-name" id="cp-name-price">Implied price</div>
+            <div class="cp-stat-val" id="cp-val-price">—</div>
+            <div class="cp-stat-detail" id="cp-det-price">—</div>
+        </div>
+        <div class="cp-stat cp-stat-ytm">
+            <div class="cp-stat-name" id="cp-name-ytm">Credit-adjusted YTM</div>
+            <div class="cp-stat-val" id="cp-val-ytm">—</div>
+            <div class="cp-stat-detail" id="cp-det-ytm">—</div>
+        </div>
+        <div class="cp-stat cp-stat-er">
+            <div class="cp-stat-name" id="cp-name-er">Expected return</div>
+            <div class="cp-stat-val" id="cp-val-er">—</div>
+            <div class="cp-stat-detail" id="cp-det-er">—</div>
+        </div>
+        <div class="cp-stat cp-stat-be">
+            <div class="cp-stat-name" id="cp-name-be">Breakeven default rate</div>
+            <div class="cp-stat-val" id="cp-val-be">—</div>
+            <div class="cp-stat-detail" id="cp-det-be">—</div>
+        </div>
+    </div>
+
+    <div id="cp-chart" class="cp-chart"></div>
+
+    <p class="cp-caption" id="cp-caption">
+        Move the sliders to see the spread decompose into expected loss, liquidity and risk premium. Try the 2008 panic preset — even at 18% gross YTM, after credit losses the bond still pays nine percent per year.
+    </p>
+</div>
+
+<script>
+(function () {
+    const I18N = {
+        en: {
+            l_mat:    "Maturity",
+            l_coupon: "Coupon",
+            l_tsy:    "Treasury yield",
+            l_spr:    "Credit spread",
+            l_pd:     "Default probability",
+            l_rec:    "Recovery rate",
+            n_price:  "Implied price",
+            n_ytm:    "Credit-adjusted YTM",
+            n_er:     "Expected return",
+            n_be:     "Breakeven default rate",
+            yr:       "yr",
+            yrs:      "yrs",
+            par:      "at par",
+            premium:  "premium",
+            discount: "discount",
+            d_ytm:    "yield discounting all cash flows",
+            d_er:     "after PD x (1 - R) loss tax",
+            d_be:     "PD that makes ER = treasury",
+            preset_ig: "IG BBB now",
+            preset_hy: "HY B now",
+            preset_2008: "2008 panic",
+            preset_2020: "2020 COVID",
+            preset_custom: "Custom",
+            chart_title: "Spread decomposition (basis points)",
+            bar_el:   "Expected loss",
+            bar_liq:  "Liquidity premium",
+            bar_risk: "Risk premium",
+            bar_total: "Spread (total)",
+            caption:  "Move the sliders to see the spread decompose into expected loss, liquidity and risk premium. Try the 2008 panic preset — even at 18% gross YTM, after credit losses the bond still pays nine percent per year.",
+        },
+        hk: {
+            l_mat:    "到期年限",
+            l_coupon: "票面利率",
+            l_tsy:    "國債孳息率",
+            l_spr:    "信貸利差",
+            l_pd:     "違約機率",
+            l_rec:    "回收率",
+            n_price:  "隱含價格",
+            n_ytm:    "信貸調整 YTM",
+            n_er:     "預期回報",
+            n_be:     "盈虧平衡違約率",
+            yr:       "年",
+            yrs:      "年",
+            par:      "平價",
+            premium:  "溢價",
+            discount: "折價",
+            d_ytm:    "現金流折現孳息率",
+            d_er:     "扣除 PD x (1 - R) 損失稅後",
+            d_be:     "讓預期回報等於國債的 PD",
+            preset_ig: "目前 BBB",
+            preset_hy: "目前 B",
+            preset_2008: "2008 恐慌",
+            preset_2020: "2020 新冠",
+            preset_custom: "自訂",
+            chart_title: "利差分解(基點)",
+            bar_el:   "預期損失",
+            bar_liq:  "流動性溢價",
+            bar_risk: "風險溢價",
+            bar_total: "利差(合計)",
+            caption:  "拖動滑桿,把利差拆成預期損失、流動性與風險溢價。試試 2008 恐慌預設——即使毛 YTM 約 18%,扣除信貸損失後,每年仍有九個百分點。",
+        },
+        tw: {
+            l_mat:    "到期年限",
+            l_coupon: "票面利率",
+            l_tsy:    "公債殖利率",
+            l_spr:    "信用利差",
+            l_pd:     "違約機率",
+            l_rec:    "回收率",
+            n_price:  "隱含價格",
+            n_ytm:    "信用調整 YTM",
+            n_er:     "預期報酬",
+            n_be:     "損益兩平違約率",
+            yr:       "年",
+            yrs:      "年",
+            par:      "平價",
+            premium:  "溢價",
+            discount: "折價",
+            d_ytm:    "現金流折現殖利率",
+            d_er:     "扣除 PD x (1 - R) 損失稅後",
+            d_be:     "讓預期報酬等於公債的 PD",
+            preset_ig: "目前 BBB",
+            preset_hy: "目前 B",
+            preset_2008: "2008 恐慌",
+            preset_2020: "2020 COVID",
+            preset_custom: "自訂",
+            chart_title: "利差分解(基點)",
+            bar_el:   "預期損失",
+            bar_liq:  "流動性溢酬",
+            bar_risk: "風險溢酬",
+            bar_total: "利差(合計)",
+            caption:  "拖動滑桿,把利差拆成預期損失、流動性與風險溢酬。試試 2008 恐慌預設——即使毛 YTM 約 18%,扣除信用損失後,每年仍有九個百分點。",
+        },
+        cn: {
+            l_mat:    "到期年限",
+            l_coupon: "票面利率",
+            l_tsy:    "国债收益率",
+            l_spr:    "信用利差",
+            l_pd:     "违约概率",
+            l_rec:    "回收率",
+            n_price:  "隐含价格",
+            n_ytm:    "信用调整 YTM",
+            n_er:     "预期回报",
+            n_be:     "盈亏平衡违约率",
+            yr:       "年",
+            yrs:      "年",
+            par:      "平价",
+            premium:  "溢价",
+            discount: "折价",
+            d_ytm:    "现金流贴现收益率",
+            d_er:     "扣除 PD x (1 - R) 损失税后",
+            d_be:     "让预期回报等于国债的 PD",
+            preset_ig: "当前 BBB",
+            preset_hy: "当前 B",
+            preset_2008: "2008 恐慌",
+            preset_2020: "2020 新冠",
+            preset_custom: "自定义",
+            chart_title: "利差分解(基点)",
+            bar_el:   "预期损失",
+            bar_liq:  "流动性溢价",
+            bar_risk: "风险溢价",
+            bar_total: "利差(合计)",
+            caption:  "拖动滑块,把利差拆成预期损失、流动性与风险溢价。试试 2008 恐慌预设——即使毛 YTM 约 18%,扣除信用损失后,每年仍有九个百分点。",
+        },
+    };
+    function currentLang() {
+        const p = new URLSearchParams(window.location.search);
+        const l = (p.get("lang") || "en").toLowerCase();
+        return I18N.hasOwnProperty(l) ? l : "en";
+    }
+    const T = I18N[currentLang()];
+
+    const ROOT = document.getElementById("cp-root");
+    const CHART = document.getElementById("cp-chart");
+
+    const PRESETS = {
+        ig:        { N: 10, c: 4.5,  tsy: 4.5,  spr: 130,  pd: 0.20, rec: 40 },
+        hy:        { N: 7,  c: 7.0,  tsy: 4.5,  spr: 425,  pd: 4.10, rec: 40 },
+        panic2008: { N: 10, c: 6.0,  tsy: 4.0,  spr: 1800, pd: 6.00, rec: 40 },
+        panic2020: { N: 7,  c: 6.0,  tsy: 1.0,  spr: 1100, pd: 5.00, rec: 40 },
+        custom:    null,
+    };
+
+    let state = { N: 10, c: 4.5, tsy: 4.5, spr: 130, pd: 0.20, rec: 40 };
+
+    // Inputs
+    const sMat = document.getElementById("cp-s-mat");
+    const sCoupon = document.getElementById("cp-s-coupon");
+    const sTsy = document.getElementById("cp-s-tsy");
+    const sSpr = document.getElementById("cp-s-spr");
+    const sPd  = document.getElementById("cp-s-pd");
+    const sRec = document.getElementById("cp-s-rec");
+
+    function bondPriceSemi(F, cAnn, N, yAnn) {
+        // Semi-annual compounding standard for US corporates
+        const m = 2;
+        const C = F * cAnn / m;
+        const r = yAnn / m;
+        const n = m * N;
+        if (Math.abs(r) < 1e-9) return C * n + F;
+        const pvCoupons = C * (1 - Math.pow(1 + r, -n)) / r;
+        const pvFace = F / Math.pow(1 + r, n);
+        return pvCoupons + pvFace;
+    }
+
+    function ytm(F, cAnn, N, price) {
+        // bisection for YTM given price
+        let lo = -0.05, hi = 1.5;
+        for (let i = 0; i < 80; i++) {
+            const mid = 0.5 * (lo + hi);
+            const p = bondPriceSemi(F, cAnn, N, mid);
+            if (p > price) lo = mid; else hi = mid;
+        }
+        return 0.5 * (lo + hi);
+    }
+
+    // Expected return modelling: in each year, with prob pd the holder
+    // takes loss (1 - rec), else collects the coupon. Geometric mean
+    // approx: ER = ln((1+y) * (1-pd) + (1+y)*(1-pd)*0 ... ) -- we use
+    // the standard credit approximation:
+    //     ER ~= y - pd * (1 - rec) * (1 + y)
+    // For small pd this collapses to y - pd*(1-rec), which matches the
+    // textbook expected-loss tax. We use the more accurate form below.
+    function expectedReturn(yAnn, pdAnn, recPct) {
+        const lgd = 1 - recPct / 100;
+        // probability of survival each year: (1-pd). On default, you
+        // realise a one-shot loss of LGD on remaining principal. Closed
+        // form for perpetual approximation:
+        const pd = pdAnn / 100;
+        // Annualised expected log-return
+        const survive = 1 - pd;
+        const grow = 1 + yAnn;
+        const recovGrow = 1 - lgd;
+        // mix: with prob pd you end the period at recovGrow, else grow
+        const expWealth = survive * grow + pd * recovGrow;
+        return expWealth - 1;
+    }
+
+    function breakevenPd(yAnn, tsyAnn, recPct) {
+        // PD that makes ER = tsy
+        // expWealth = (1-pd)*(1+y) + pd*(1-lgd) = 1+tsy
+        // (1+y) - pd*((1+y) - (1-lgd)) = 1+tsy
+        // pd = ((1+y) - (1+tsy)) / ((1+y) - (1-lgd))
+        const lgd = 1 - recPct / 100;
+        const num = (1 + yAnn) - (1 + tsyAnn);
+        const den = (1 + yAnn) - (1 - lgd);
+        if (den <= 0) return 0;
+        return Math.max(0, num / den) * 100;
+    }
+
+    function fmtMoney(v) {
+        if (!isFinite(v)) return "—";
+        return "$" + v.toLocaleString(undefined, { maximumFractionDigits: 2, minimumFractionDigits: 2 });
+    }
+    function fmtPct(v) {
+        if (!isFinite(v)) return "—";
+        return (v * 100).toFixed(2) + "%";
+    }
+    function getCssVar(name) { return getComputedStyle(ROOT).getPropertyValue(name).trim(); }
+    function darkMode() { return document.documentElement.getAttribute("data-theme") === "dark"; }
+
+    function render() {
+        const F = 1000;
+        const N = state.N;
+        const cAnn = state.c / 100;
+        const tsyAnn = state.tsy / 100;
+        const sprAnn = state.spr / 10000;
+        const pdAnn = state.pd;       // already % units
+        const rec = state.rec;
+
+        // Bond YTM = treasury + spread (the slider definition)
+        const yAnn = tsyAnn + sprAnn;
+        const price = bondPriceSemi(F, cAnn, N, yAnn);
+        const er = expectedReturn(yAnn, pdAnn, rec);
+        const be = breakevenPd(yAnn, tsyAnn, rec);
+
+        // Decompose spread (in bps)
+        const lgd = 1 - rec / 100;
+        const elBps = pdAnn * lgd * 100;       // e.g. 4.1*0.6=2.46% -> 246 bps
+        const totalSpr = state.spr;
+        const remaining = Math.max(0, totalSpr - elBps);
+        // Allocate roughly: liquidity = min(80, remaining*0.4), risk = rest
+        const liqBps = Math.min(remaining * 0.4, 150);
+        const riskBps = Math.max(0, remaining - liqBps);
+
+        // Stats
+        document.getElementById("cp-val-price").textContent = fmtMoney(price);
+        let parTag;
+        if (Math.abs(price - F) < 0.5) parTag = T.par;
+        else if (price > F) parTag = T.premium + " (+" + ((price - F) / F * 100).toFixed(2) + "%)";
+        else parTag = T.discount + " (" + ((price - F) / F * 100).toFixed(2) + "%)";
+        document.getElementById("cp-det-price").textContent = parTag;
+
+        document.getElementById("cp-val-ytm").textContent = (yAnn * 100).toFixed(2) + "%";
+        document.getElementById("cp-det-ytm").textContent = T.d_ytm;
+
+        document.getElementById("cp-val-er").textContent = (er * 100).toFixed(2) + "%";
+        document.getElementById("cp-det-er").textContent = T.d_er;
+
+        document.getElementById("cp-val-be").textContent = be.toFixed(2) + "%";
+        document.getElementById("cp-det-be").textContent = T.d_be;
+
+        // Chart: stacked horizontal bar of spread components
+        const cAcc = getCssVar("--cp-accent");
+        const cMid = getCssVar("--cp-mid");
+        const cMuted = getCssVar("--cp-muted");
+        const cText = getCssVar("--cp-text");
+        const cBg = getCssVar("--cp-card");
+        const cPos = getCssVar("--cp-pos");
+        const cNeg = getCssVar("--cp-neg");
+        const cGrid = darkMode() ? "rgba(255,255,255,0.08)" : "rgba(0,0,0,0.07)";
+
+        const traces = [
+            {
+                type: "bar", orientation: "h",
+                x: [elBps], y: [T.bar_total],
+                name: T.bar_el,
+                marker: { color: cNeg },
+                hovertemplate: T.bar_el + ": %{x:.0f} bps<extra></extra>",
+                text: [T.bar_el + " " + elBps.toFixed(0)],
+                textposition: "inside", insidetextanchor: "middle",
+                textfont: { color: "#fff", size: 11, family: "Segoe UI" },
+            },
+            {
+                type: "bar", orientation: "h",
+                x: [liqBps], y: [T.bar_total],
+                name: T.bar_liq,
+                marker: { color: cAcc },
+                hovertemplate: T.bar_liq + ": %{x:.0f} bps<extra></extra>",
+                text: [T.bar_liq + " " + liqBps.toFixed(0)],
+                textposition: "inside", insidetextanchor: "middle",
+                textfont: { color: "#fff", size: 11, family: "Segoe UI" },
+            },
+            {
+                type: "bar", orientation: "h",
+                x: [riskBps], y: [T.bar_total],
+                name: T.bar_risk,
+                marker: { color: cMid },
+                hovertemplate: T.bar_risk + ": %{x:.0f} bps<extra></extra>",
+                text: [T.bar_risk + " " + riskBps.toFixed(0)],
+                textposition: "inside", insidetextanchor: "middle",
+                textfont: { color: "#fff", size: 11, family: "Segoe UI" },
+            },
+        ];
+
+        const layout = {
+            barmode: "stack",
+            margin: { l: 100, r: 24, t: 36, b: 44 },
+            paper_bgcolor: cBg, plot_bgcolor: cBg,
+            font: { family: "Segoe UI, Helvetica, Arial, sans-serif", color: cText, size: 12 },
+            title: { text: T.chart_title, x: 0, xanchor: "left",
+                     font: { color: cText, size: 13 } },
+            xaxis: {
+                gridcolor: cGrid, zerolinecolor: cMuted, color: cText,
+                title: { text: "bps", font: { color: cMuted, size: 11 } },
+                range: [0, Math.max(2200, totalSpr * 1.15)],
+            },
+            yaxis: { color: cText, gridcolor: cGrid },
+            showlegend: true,
+            legend: { orientation: "h", x: 0, y: -0.25, font: { color: cMuted, size: 11 } },
+            hovermode: "y unified",
+        };
+
+        Plotly.react(CHART, traces, layout, { displayModeBar: false, responsive: true });
+    }
+
+    function updateLabels() {
+        document.getElementById("cp-v-mat").textContent = state.N + " " + (state.N === 1 ? T.yr : T.yrs);
+        document.getElementById("cp-v-coupon").textContent = state.c.toFixed(2) + "%";
+        document.getElementById("cp-v-tsy").textContent = state.tsy.toFixed(2) + "%";
+        document.getElementById("cp-v-spr").textContent = state.spr.toFixed(0) + " bps";
+        document.getElementById("cp-v-pd").textContent = state.pd.toFixed(2) + "%";
+        document.getElementById("cp-v-rec").textContent = state.rec.toFixed(0) + "%";
+    }
+
+    function applyState() {
+        sMat.value = state.N;
+        sCoupon.value = state.c;
+        sTsy.value = state.tsy;
+        sSpr.value = state.spr;
+        sPd.value = state.pd;
+        sRec.value = state.rec;
+        updateLabels();
+        render();
+    }
+
+    function applyPreset(name) {
+        const p = PRESETS[name];
+        if (!p) return;
+        state = Object.assign({}, p);
+        applyState();
+        document.querySelectorAll(".cp-preset").forEach(b =>
+            b.classList.toggle("active", b.dataset.preset === name));
+    }
+
+    function markCustom() {
+        document.querySelectorAll(".cp-preset").forEach(b =>
+            b.classList.toggle("active", b.dataset.preset === "custom"));
+    }
+
+    sMat.addEventListener("input", () => { state.N = parseInt(sMat.value, 10); markCustom(); updateLabels(); render(); });
+    sCoupon.addEventListener("input", () => { state.c = parseFloat(sCoupon.value); markCustom(); updateLabels(); render(); });
+    sTsy.addEventListener("input", () => { state.tsy = parseFloat(sTsy.value); markCustom(); updateLabels(); render(); });
+    sSpr.addEventListener("input", () => { state.spr = parseFloat(sSpr.value); markCustom(); updateLabels(); render(); });
+    sPd.addEventListener("input", () => { state.pd = parseFloat(sPd.value); markCustom(); updateLabels(); render(); });
+    sRec.addEventListener("input", () => { state.rec = parseFloat(sRec.value); markCustom(); updateLabels(); render(); });
+
+    document.querySelectorAll(".cp-preset").forEach(btn => {
+        btn.addEventListener("click", () => {
+            const name = btn.dataset.preset;
+            if (name === "custom") { markCustom(); return; }
+            applyPreset(name);
+        });
+    });
+
+    function applyI18n() {
+        document.getElementById("cp-l-mat").textContent = T.l_mat;
+        document.getElementById("cp-l-coupon").textContent = T.l_coupon;
+        document.getElementById("cp-l-tsy").textContent = T.l_tsy;
+        document.getElementById("cp-l-spr").textContent = T.l_spr;
+        document.getElementById("cp-l-pd").textContent = T.l_pd;
+        document.getElementById("cp-l-rec").textContent = T.l_rec;
+        document.getElementById("cp-name-price").textContent = T.n_price;
+        document.getElementById("cp-name-ytm").textContent = T.n_ytm;
+        document.getElementById("cp-name-er").textContent = T.n_er;
+        document.getElementById("cp-name-be").textContent = T.n_be;
+        document.getElementById("cp-caption").textContent = T.caption;
+        const presetMap = {
+            ig: "preset_ig", hy: "preset_hy",
+            panic2008: "preset_2008", panic2020: "preset_2020",
+            custom: "preset_custom",
+        };
+        document.querySelectorAll(".cp-preset").forEach(b => {
+            const k = presetMap[b.dataset.preset];
+            if (k && T[k]) b.textContent = T[k];
+        });
+    }
+
+    applyI18n();
+    applyState();
+
+    function reportHeight() {
+        try {
+            var h = Math.ceil(document.documentElement.scrollHeight);
+            parent.postMessage({ type: 'lesson-interactive-resize', height: h }, '*');
+        } catch (e) { /* ignore */ }
+    }
+    if (typeof ResizeObserver !== 'undefined') {
+        new ResizeObserver(reportHeight).observe(document.body);
+    }
+    window.addEventListener('resize', reportHeight);
+    setTimeout(reportHeight, 50);
+    setTimeout(reportHeight, 500);
+
+    const themeObserver = new MutationObserver(render);
+    themeObserver.observe(document.documentElement, {
+        attributes: true,
+        attributeFilter: ["data-theme"],
+    });
+})();
+</script>
+
+</body>
+</html>

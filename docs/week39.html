@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Week 39: Futures Markets Introduction - Chanma Investment Tutorial</title>
+    <title>Week 39: Futures — Micro E-mini, /MES, /MNQ, /MCL, Contango, and Section 1256 - Chanma Investment Tutorial</title>
     <script>(function(){try{var t=localStorage.getItem('preferred-theme');if(!t){t=window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();</script>
     <style>
 :root, html[data-theme="light"] {
@@ -1247,792 +1247,172 @@ html[data-theme="dark"] .nav-btn:hover .btn-label { color: rgba(15,23,36,0.7); }
     <main class="main-wrap">
         <div class="content-area">
             <div id="content-en" class="lang-content active">
-                <h1>Week 39: Futures Markets Introduction</h1>
+                <h1>Week 39: Futures — Micro E-mini, /MES, /MNQ, /MCL, Contango, and Section 1256</h1>
 <hr>
-<h2>Reading Section</h2>
-<h3>a) Why This Is Important</h3>
+<h3>1. Why This Is Important</h3>
 <p>
-Futures markets are among the oldest and most liquid financial markets in the world, yet most retail investors never learn how they work. This is a significant gap in financial literacy because:
+Futures are the oldest derivatives in the world. Cotton merchants in 1860s New Orleans, wheat farmers in 1880s Chicago, and Saudi crude desks in 1990s London all priced their goods on the same fundamental contract — <em>I owe you 1,000 barrels (or bushels, or index points) on a fixed date at a fixed price, settled to cash daily</em>. For 130 years that machine was sealed off from retail. The minimum contract size on the S&P 500 e-mini was $250,000 of notional with a $12,000 margin requirement; on crude oil it was 1,000 barrels at a $5,000 margin. You needed a five-figure subaccount to even try one position. Then in 2019 the CME launched the <strong>Micro E-mini</strong> (MES, 1/10th the size of ES) and the <strong>Micro WTI</strong> (MCL, 1/10th the size of CL), and what had been an institutional product became a retail one. As of April 2026 a single MES contract has roughly $25,000 of notional exposure and about $2,000 of initial margin. That is the size where it makes sense for a $50-100k brokerage account to consider it.
 </p>
-<ul><li><strong>Futures drive price discovery</strong>: Many assets -- oil, gold, interest rates, stock index levels -- are priced in the futures markets first and then reflected in spot markets. Understanding futures helps you understand how global prices are set.</li>
-<li><strong>Futures are the backbone of institutional trading</strong>: Pension funds, hedge funds, and commodity producers all use futures extensively. When you hear that "institutional money is flowing into equities," much of that flow occurs through futures markets.</li>
-<li><strong>Micro futures have opened the door for retail</strong>: Since 2019, the CME has offered micro futures contracts that are one-tenth the size of standard contracts. This makes futures accessible to individual investors for the first time in a practical way.</li>
-<li><strong>Futures offer unique advantages</strong>: Nearly 24-hour trading, tax advantages (60/40 rule), no pattern day trader restrictions, and efficient leverage make futures a powerful tool for certain strategies.</li>
-<li><strong>Understanding contango and backwardation</strong>: These concepts from futures markets explain why many popular ETFs (commodity ETFs, volatility ETFs) chronically underperform their underlying assets. Without understanding futures mechanics, you cannot properly evaluate these products.</li>
 <p>
-</ul>
-This lesson provides a comprehensive introduction to futures markets -- how contracts work, how margin functions, how prices relate to spot markets, and how you can use futures as part of a sophisticated investment toolkit.
+There are four reasons a Level-3 student needs to learn this lesson now.
 </p>
-<hr>
-<h3>b) What You Need to Know</h3>
-<h4>1. Futures Contract Basics</h4>
+<li><strong>Futures are the cleanest leverage in the toolkit.</strong> A long /MES is roughly 12-13x leverage on the cash you post as margin, with no margin interest, no overnight financing line, no maintenance call against the rest of your portfolio (other than the position itself), and no ETF expense ratio. Compare to SSO at 2x with 0.9% drag plus volatility decay (week 37), or to a LEAPS at 4x with extrinsic decay. Futures are the highest-leverage, lowest-cost way to express a directional view on the major indices.</li>
+<li><strong>Section 1256 tax treatment.</strong> This is one of the two SOUL #15 anchors in the entire course (the other is the long-LEAPS). Broad-based index futures and a small set of index options are taxed under §1256 of the IRC: <strong>60% long-term capital gain, 40% short-term, regardless of holding period.</strong> A day-trade in /MES is taxed <em>better</em> than a day-trade in SPY, period. For high-bracket investors that is a 7-12 percentage point structural edge per dollar of gain.</li>
+<li><strong>Contango and backwardation explain the USO story you met in week 6.</strong> Crude oil ETFs, natural-gas ETFs, and VIX ETFs all roll a futures position monthly. When the curve is in contango — back month higher than front — the roll is a permanent drag on return. USO lost roughly 80% of its value in real terms 2009-2020 while spot WTI was essentially flat, almost entirely because of contango roll yield. You cannot understand commodity ETFs without understanding the futures curve, and the only way to fix the problem (when you actually want commodity exposure) is to take it through the futures themselves rather than through the wrapper.</li>
+<li><strong>The barbell needs a portable-exposure lever (SOUL #14).</strong> When the L1 sleeve is held in deep-ITM LEAPS and the L3 sleeve is generating cash from credit spreads (week 30), you sometimes want to flex aggregate beta up or down by 10-20 percentage points overnight. /MES is the right tool: post $2k of margin, control $25k of S&P exposure, taxed at 60/40, expires in three months. The position is sized in single-digit contracts, lasts a quarter, and rolls cleanly. SPY round-trips cost taxes; /MES round-trips do not, structurally.</li>
 <p>
-A futures contract is a legally binding agreement to buy or sell a specific asset at a predetermined price on a specific future date. Both parties are obligated to fulfill the contract (unlike options, where the buyer has a choice).
-</p>
-<pre><code class="language-">ANATOMY OF A FUTURES CONTRACT
-<p>
-┌─────────────────────────────────────────────────────┐
-│                FUTURES CONTRACT                      │
-│                                                      │
-│  Underlying Asset:  S&amp;P 500 Index                   │
-│  Contract Symbol:   ES (E-mini S&amp;P 500)             │
-│  Contract Size:     $50 x Index Level               │
-│  Tick Size:         0.25 index points ($12.50)      │
-│  Expiration:        3rd Friday of contract month     │
-│  Settlement:        Cash-settled                     │
-│  Trading Hours:     Sun 6pm - Fri 5pm ET (nearly    │
-│                     24 hours)                        │
-│  Exchange:          CME (Chicago Mercantile Exchange)│
-│                                                      │
-│  If S&amp;P 500 is at 5,000:                            │
-│  Contract Value = $50 x 5,000 = $250,000            │
-│  Initial Margin = ~$12,500 (5% of value)            │
-│  Leverage = 20:1                                     │
-└─────────────────────────────────────────────────────┘
-</code></pre>
-</p>
-<p>
-<strong>Key terminology:</strong>
-</p>
-<ul><li><strong>Long position</strong>: Agree to buy at the contract price. Profits when price rises.</li>
-<li><strong>Short position</strong>: Agree to sell at the contract price. Profits when price falls.</li>
-<li><strong>Contract month</strong>: The month the contract expires (March, June, September, December for most financial futures).</li>
-<li><strong>Front month</strong>: The nearest expiration contract (most liquid).</li>
-<li><strong>Back months</strong>: Contracts with later expirations.</li>
-<li><strong>Open interest</strong>: The total number of outstanding contracts.</li>
-<li><strong>Settlement</strong>: How the contract is resolved at expiration -- either by physical delivery of the asset or by cash payment of the difference.</li>
-<p>
-</ul>
-<strong>Physical vs. Cash Settlement:</strong>
-</p>
-<pre><code class="language-">Physical Settlement (e.g., Crude Oil futures - CL):
-<p>
-At expiration, the short delivers the physical commodity
-and the long pays the contract price.
-</p>
-<p>
-WARNING: If you hold a physically-settled contract to
-expiration, you may be obligated to take delivery of
-1,000 barrels of oil! Always close before expiration.
-</p>
-<p>
-Cash Settlement (e.g., S&amp;P 500 futures - ES):
-At expiration, the difference between the contract price
-and the settlement price is paid in cash.
-</p>
-<p>
-Example: You are long ES at 5,000. Settlement price is 5,050.
-You receive: (5,050 - 5,000) x $50 = $2,500
-No physical delivery occurs.
-</code></pre>
-</p>
-<h4>2. Futures Margin: Initial, Maintenance, and Variation</h4>
-<p>
-Futures margin is fundamentally different from stock margin. In stocks, margin is a loan from your broker. In futures, margin is a <strong>performance bond</strong> -- a good-faith deposit ensuring you can meet your obligations.
-</p>
-<pre><code class="language-">FUTURES MARGIN STRUCTURE
-<p>
-┌──────────────────────────┐
-│    Initial Margin         │
-│    ($12,500 for ES)       │
-│                           │
-│    This is what you       │
-│    deposit to open        │
-│    a position             │
-├───────────────────────────┤
-│    Maintenance Margin     │
-│    ($11,300 for ES)       │
-│                           │
-│    If your account drops  │
-│    below this level, you  │
-│    get a margin call      │
-├───────────────────────────┤
-│                           │
-│    Buffer zone:           │
-│    $1,200 before          │
-│    margin call            │
-│                           │
-└───────────────────────────┘
-</p>
-<p>
-How much can the market move before margin call?
-Buffer: $12,500 - $11,300 = $1,200
-ES point value: $50
-Points before margin call: $1,200 / $50 = 24 points
-S&amp;P 500 at 5,000: 24/5,000 = 0.48% move
-</p>
-<p>
-A 0.48% adverse move triggers a margin call.
-This illustrates the extreme leverage of futures.
-</code></pre>
-</p>
-<p>
-<strong>Variation Margin (Mark-to-Market):</strong>
-</p>
-<p>
-Futures positions are marked to market daily. This means gains and losses are settled in cash at the end of each trading day, not when you close the position.
-</p>
-<pre><code class="language-">DAILY MARK-TO-MARKET EXAMPLE
-<p>
-Day 0: Open long 1 ES at 5,000. Deposit $12,500 initial margin.
-</p>
-<p>
-Day 1: ES closes at 5,020 (+20 points)
-Daily P&amp;L: +20 x $50 = +$1,000
-Account balance: $12,500 + $1,000 = $13,500
-</p>
-<p>
-Day 2: ES closes at 4,980 (-40 points from Day 1)
-Daily P&amp;L: -40 x $50 = -$2,000
-Account balance: $13,500 - $2,000 = $11,500
-</p>
-<p>
-$11,500 &gt; $11,300 maintenance margin: NO margin call
-</p>
-<p>
-Day 3: ES closes at 4,960 (-20 points from Day 2)
-Daily P&amp;L: -20 x $50 = -$1,000
-Account balance: $11,500 - $1,000 = $10,500
-</p>
-<p>
-$10,500 &lt; $11,300 maintenance margin: MARGIN CALL!
-Must deposit $2,000 to restore to initial margin ($12,500)
-If you do not deposit by deadline: position is liquidated
-</p>
-<p>
-Day 4: You deposit $2,000. Account balance: $12,500
-ES closes at 5,010 (+50 points)
-Daily P&amp;L: +50 x $50 = $2,500
-Account balance: $12,500 + $2,500 = $15,000
-</p>
-<p>
-Total P&amp;L from entry (5,000) to Day 4 close (5,010):
-+10 x $50 = +$500
-Account balance confirms: $12,500 initial + $2,000 added + $500 = $15,000
-But you had to deposit extra capital to survive the drawdown.
-</code></pre>
-</p>
-<h4>3. Contango vs. Backwardation</h4>
-<p>
-The relationship between futures prices and the current spot price reveals crucial information about market expectations, carrying costs, and supply/demand dynamics.
-</p>
-<pre><code class="language-">CONTANGO (Normal Market Structure)
-<p>
-Futures price &gt; Spot price
-</p>
-<p>
-Price
-^
-|                                    * Contract 6
-|                              * Contract 5
-|                        * Contract 4
-|                  * Contract 3
-|            * Contract 2
-|      * Contract 1
-| * Spot
-+--+----+----+----+----+----+----+----&gt; Time
-Now  1mo  2mo  3mo  4mo  5mo  6mo
-</p>
-<p>
-Reasons for contango:
-</p>
-<ul><li>Cost of carry (storage, insurance, financing)</li>
-<li>Time value of money (opportunity cost)</li>
-<li>Convenience yield is low (ample supply)</li>
-<p>
-</ul>
-Examples: Gold, most equity indices, most commodities
-in normal conditions.
-</p>
-<p>
-Cost of carry formula:
-Futures Price = Spot x e^((r - d + s) x t)
-Where: r = risk-free rate
-d = dividend/convenience yield
-s = storage costs
-t = time to expiration
-</code></pre>
-</p>
-<pre><code class="language-">BACKWARDATION (Inverted Market Structure)
-<p>
-Futures price &lt; Spot price
-</p>
-<p>
-Price
-^
-| * Spot
-|      * Contract 1
-|            * Contract 2
-|                  * Contract 3
-|                        * Contract 4
-|                              * Contract 5
-|                                    * Contract 6
-+--+----+----+----+----+----+----+----&gt; Time
-Now  1mo  2mo  3mo  4mo  5mo  6mo
-</p>
-<p>
-Reasons for backwardation:
-</p>
-<ul><li>Strong immediate demand (supply shortage)</li>
-<li>High convenience yield (owning the physical</li>
-<p>
-</ul>    commodity has significant value)
-</p>
-<ul><li>Market expects future prices to decline</li>
-<p>
-</ul>
-Examples: Oil during supply disruptions, agricultural
-commodities during droughts, VIX during market panics.
-</code></pre>
-</p>
-<p>
-<strong>Why this matters for investors:</strong>
-</p>
-<pre><code class="language-">CONTANGO DRAG ON ROLLING FUTURES POSITIONS
-<p>
-Suppose you want to maintain continuous exposure to crude oil
-using futures. Oil spot is at $70. The front-month contract
-(expiring in 30 days) is at $70.50 and the next month is at $71.
-</p>
-<p>
-Month 1: Buy front-month at $70.50
-At expiration, spot is still $70
-You sell at $70, losing $0.50 (contango loss)
-You buy next month at $71
-</p>
-<p>
-Month 2: Holding at $71
-At expiration, spot is still $70
-You sell at $70, losing $1.00
-Buy next month at $71.50
-</p>
-<p>
-After 12 months of this:
-Oil spot: unchanged at $70
-Your cumulative loss: approximately $6-8 per barrel (8-11%)
-</p>
-<p>
-This is called "negative roll yield" or "contango drag"
-and it is why commodity ETFs often underperform spot prices.
-</code></pre>
-</p>
-<h4>4. Major Futures Markets</h4>
-<pre><code class="language-">EQUITY INDEX FUTURES
-<p>
-─────────────────────────────────────────────────────────
-Contract        Symbol   Multiplier   Margin<em>   Contract Value</em>
-E-mini S&amp;P 500  ES       $50          $12,500   $250,000
-Micro S&amp;P 500   MES      $5           $1,250    $25,000
-E-mini Nasdaq   NQ       $20          $17,600   $360,000
-Micro Nasdaq    MNQ      $2           $1,760    $36,000
-E-mini Dow      YM       $5           $9,500    $195,000
-E-mini Russell  RTY      $50          $7,000    $110,000
-</p>
-<p>
-*Approximate, subject to change
-</p>
-<p>
-TREASURY FUTURES
-─────────────────────────────────────────────────────────
-Contract        Symbol   Multiplier   Duration  Contract Value*
-30-Year Bond    ZB       $1,000       ~17 yrs   $120,000
-10-Year Note    ZN       $1,000       ~7 yrs    $110,000
-5-Year Note     ZF       $1,000       ~4 yrs    $108,000
-2-Year Note     ZT       $2,000       ~2 yrs    $205,000
-Micro 10-Year   10Y      $1           varies    $1,100
-</p>
-<p>
-COMMODITY FUTURES
-─────────────────────────────────────────────────────────
-Contract        Symbol   Size           Contract Value*
-Crude Oil       CL       1,000 bbl      $70,000
-Gold            GC       100 oz         $220,000
-Silver          SI       5,000 oz       $140,000
-Natural Gas     NG       10,000 MMBtu   $30,000
-Corn            ZC       5,000 bu       $24,000
-Micro Gold      MGC      10 oz          $22,000
-Micro Crude     MCL      100 bbl        $7,000
-</p>
-<p>
-CURRENCY FUTURES
-─────────────────────────────────────────────────────────
-Contract        Symbol   Size           Contract Value*
-Euro            6E       125,000 EUR    $135,000
-Japanese Yen    6J       12,500,000 JPY $82,000
-British Pound   6B       62,500 GBP     $79,000
-</p>
-<p>
-*Values are approximate based on recent prices
-</code></pre>
-</p>
-<h4>5. Micro Futures for Retail Investors</h4>
-<p>
-Micro futures, introduced by the CME in 2019, are game-changers for retail investors. They are one-tenth the size of their E-mini counterparts, making them accessible to smaller accounts.
-</p>
-<pre><code class="language-">MICRO FUTURES: MAKING FUTURES ACCESSIBLE
-<p>
-Micro E-mini S&amp;P 500 (MES):
-Contract value: ~$25,000 (at S&amp;P 500 = 5,000)
-Margin: ~$1,250
-Tick size: 0.25 points = $1.25
-</p>
-<p>
-Comparison to other ways to get S&amp;P 500 exposure:
-</p>
-<p>
-100 shares of SPY:       $50,000 capital
-1 SPY ATM call option:   ~$1,200 premium (2 months)
-1 MES futures contract:  ~$1,250 margin
-</p>
-<p>
-MES advantages over SPY stock:
-</p>
-<ul><li>20x leverage vs 1x</li>
-<li>Nearly 24-hour trading</li>
-<li>Tax advantages (60/40 rule)</li>
-<li>No PDT restrictions</li>
-<p>
-</ul>
-MES advantages over SPY options:
-</p>
-<ul><li>No time decay</li>
-<li>Linear P&amp;L (not affected by Greeks)</li>
-<li>Better for short-term trading</li>
-<li>No extrinsic value cost</li>
-<p>
-</ul>
-MES disadvantages:
-</p>
-<ul><li>Margin calls possible</li>
-<li>Leverage can cause rapid losses</li>
-<li>Must roll contracts quarterly</li>
-<li>No defined risk (losses can exceed margin)</li>
-<p>
-</ul></code></pre>
-</p>
-<p>
-<strong>Account size recommendations:</strong>
-</p>
-<pre><code class="language-">MINIMUM ACCOUNT SIZE FOR MICRO FUTURES
-<p>
-Conservative (can withstand 5% S&amp;P move):
-MES point value: $5
-5% move on S&amp;P 5,000 = 250 points
-Dollar risk: 250 x $5 = $1,250
-Plus margin: $1,250
-Minimum account: $2,500 per contract
-</p>
-<p>
-For 1 MES contract: $2,500 minimum
-For 2 MES contracts: $5,000 minimum
-</p>
-<p>
-Prudent (can withstand 10% S&amp;P move):
-250 points x 2 = 500 points
-Dollar risk: 500 x $5 = $2,500
-Plus margin: $1,250
-Minimum account: $3,750 per contract
-</p>
-<p>
-For 1 MES contract: $3,750 minimum
-For 2 MES contracts: $7,500 minimum
-</p>
-<p>
-Professional (can withstand 20% S&amp;P move):
-1,000 points
-Dollar risk: 1,000 x $5 = $5,000
-Plus margin: $1,250
-Minimum account: $6,250 per contract
-</p>
-<p>
-RECOMMENDATION: $5,000 minimum per MES contract
-for most retail traders. This provides adequate
-buffer for normal market volatility.
-</code></pre>
-</p>
-<h4>6. Futures vs. ETFs</h4>
-<p>
-Many investors use ETFs to access asset classes that are primarily traded in futures markets (commodities, volatility, etc.). Understanding the differences is crucial.
-</p>
-<pre><code class="language-">FUTURES vs. ETF COMPARISON
-<p>
-EQUITY INDEX EXPOSURE (S&amp;P 500)
-─────────────────────────────────────────────────
-Feature          MES Futures      SPY ETF
-─────────────────────────────────────────────────
-Expense ratio    None             0.09%
-Trading hours    ~23 hours/day    Market hours
-Leverage         ~20x             1x (2x w/margin)
-Dividends        Priced in*       Paid quarterly
-Tax treatment    60/40 rule**     Standard CG
-Minimum size     ~$1,250 margin   ~$500 (1 share)
-Roll required    Yes (quarterly)  No
-Counterparty     Clearinghouse    Fund company
-</p>
-<ul><li>Futures prices account for expected dividends</li>
-<p>
-</ul>** 60% long-term, 40% short-term regardless of hold time
-</p>
-<p>
-COMMODITY EXPOSURE (Gold)
-─────────────────────────────────────────────────
-Feature          MGC Futures      GLD ETF
-─────────────────────────────────────────────────
-Expense ratio    None             0.40%
-Contango drag    You control      Priced in
-Storage costs    Priced in        0.40% in ER
-Tax treatment    60/40 rule       Collectible rate<em>*</em>
-Leverage         ~15x             1x
-Size             ~$22,000 notl    ~$200 (1 share)
-Physical gold    Deliverable      Backed by bars
-</p>
-<p>
-<em>*</em> GLD taxed at 28% collectible rate, not standard CG
-Futures 60/40 rule is MUCH more favorable
-</code></pre>
-</p>
-<p>
-<strong>The 60/40 tax rule:</strong>
-</p>
-<pre><code class="language-">SECTION 1256 TAX TREATMENT FOR FUTURES
-<p>
-All regulated futures contracts receive special tax treatment:
-</p>
-<ul><li>60% of gains taxed at long-term capital gains rate</li>
-<li>40% of gains taxed at short-term capital gains rate</li>
-<li>REGARDLESS of actual holding period</li>
-<p>
-</ul>
-Example: $10,000 profit on a futures trade held for 2 days
-</p>
-<p>
-Standard tax treatment (short-term):
-$10,000 x 37% = $3,700 tax
-After-tax profit: $6,300
-</p>
-<p>
-Futures 60/40 treatment:
-$6,000 (60%) x 20% = $1,200
-$4,000 (40%) x 37% = $1,480
-Total tax: $2,680
-After-tax profit: $7,320
-</p>
-<p>
-Tax savings: $1,020 (27.6% less tax)
-</p>
-<p>
-This is a MAJOR advantage for active traders.
-The effective blended rate is approximately 26.8%
-versus 37% for short-term stock/option trades.
-</code></pre>
-</p>
-<h4>7. Roll Yield and the Term Structure</h4>
-<p>
-Roll yield is the return (positive or negative) generated when rolling from an expiring futures contract to a later-dated one. It is one of the most important and least understood concepts in futures investing.
-</p>
-<pre><code class="language-">ROLL YIELD SCENARIOS
-<p>
-POSITIVE ROLL YIELD (Backwardation):
-Expiring contract: $72 (you are long)
-Next month contract: $70
-</p>
-<p>
-You sell at $72 and buy at $70
-Roll yield: +$2 per contract
-</p>
-<p>
-Over time, if backwardation persists, you earn
-a premium just from rolling. This is common in
-energy markets during supply disruptions.
-</p>
-<p>
-NEGATIVE ROLL YIELD (Contango):
-Expiring contract: $70 (you are long)
-Next month contract: $72
-</p>
-<p>
-You sell at $70 and buy at $72
-Roll yield: -$2 per contract
-</p>
-<p>
-You lose $2 every month just from rolling.
-Over a year: -$24 per contract (potentially 30%+)
-This is why long-term commodity ETFs often underperform.
-</p>
-<p>
-ZERO ROLL YIELD (Flat term structure):
-Rare in practice. Occurs when the futures curve
-is completely flat (all months at the same price).
-</code></pre>
-</p>
-<pre><code class="language-">IMPACT OF ROLL YIELD ON RETURNS
-<p>
-Commodity Spot Return (annual):  +10%
-Term Structure:                  Contango (2% monthly roll cost)
-Annual Roll Yield:               -24%
-</p>
-<p>
-Total Futures Return: +10% - 24% = -14%
-</p>
-<p>
-The commodity went UP 10% but your futures position
-LOST 14%. This is the contango trap.
-</p>
-<p>
-This is why USO (oil ETF) dramatically underperformed
-oil prices during 2020-2023. The negative roll yield
-consumed all gains and more.
-</code></pre>
-</p>
-<h4>8. Contract Specifications and Reading Quotes</h4>
-<p>
-Understanding how to read futures quotes and specifications is essential:
-</p>
-<pre><code class="language-">FUTURES QUOTE: ES (E-mini S&amp;P 500)
-<p>
-ESH6         &lt;-- Contract symbol
-E  = E-mini
-S  = S&amp;P 500
-H  = March (month code)
-6  = 2026 (year)
-</p>
-<p>
-Month codes:
-F = January    G = February   H = March
-J = April      K = May        M = June
-N = July       Q = August     U = September
-V = October    X = November   Z = December
-</p>
-<p>
-Sample quote:
-ESH6: 5,025.50
-Change: +12.25
-Volume: 1,245,000
-Open Interest: 2,890,000
-High: 5,032.00
-Low: 4,998.75
-Settlement: 5,013.25 (previous day)
-</p>
-<p>
-Dollar value of the change:
-+12.25 points x $50/point = +$612.50 per contract
-</code></pre>
-</p>
-<pre><code class="language-">TICK VALUES FOR COMMON CONTRACTS
-<p>
-Contract    Tick Size    Tick Value    Daily Limit*
-─────────────────────────────────────────────────
-ES          0.25         $12.50       7% (Level 1)
-MES         0.25         $1.25        7%
-NQ          0.25         $5.00        7%
-CL          $0.01        $10.00       varies
-GC          $0.10        $10.00       varies
-ZB          1/32         $31.25       varies
-ZN          1/64         $15.625      varies
-</p>
-<p>
-*Circuit breakers halt trading at certain % moves
-Level 1: 7% decline = 15-min halt
-Level 2: 13% decline = 15-min halt
-Level 3: 20% decline = trading halted for day
-</code></pre>
-</p>
-<h4>9. Practical Trading Considerations</h4>
-<pre><code class="language-">ORDER TYPES IN FUTURES
-<p>
-Market Order:
-Execute immediately at best available price
-Use for: Liquid markets (ES, NQ), urgent exits
-Risk: Slippage in fast markets
-</p>
-<p>
-Limit Order:
-Execute only at specified price or better
-Use for: Entries, profit targets, less liquid contracts
-Risk: May not get filled
-</p>
-<p>
-Stop Order (Stop Loss):
-Becomes market order when price hits trigger
-Use for: Risk management, automatic exits
-Risk: Slippage, gaps through your stop
-</p>
-<p>
-Stop-Limit Order:
-Becomes limit order when price hits trigger
-Use for: Controlled risk management
-Risk: May not fill if price gaps through limit
-</p>
-<p>
-Bracket Order:
-Entry order with attached profit target and stop loss
-Use for: Disciplined trading with pre-set exits
-Most futures platforms support this natively
-</code></pre>
-</p>
-<pre><code class="language-">FUTURES TRADING SESSION TIMES (Eastern Time)
-<p>
-Equity Index Futures (ES, NQ, YM, RTY):
-Sunday 6:00 PM - Friday 5:00 PM
-Daily maintenance halt: 5:00 PM - 6:00 PM ET
-</p>
-<p>
-Key sessions:
-</p>
-<ul><li>Globex overnight: 6:00 PM - 9:30 AM</li>
-<li>Regular trading hours: 9:30 AM - 4:15 PM</li>
-<li>Post-market: 4:15 PM - 5:00 PM</li>
-<p>
-</ul>
-Most liquid period: 9:30 AM - 4:00 PM
-</p>
-<p>
-Treasury Futures (ZB, ZN, ZF):
-Sunday 6:00 PM - Friday 5:00 PM
-Most liquid: 8:20 AM - 3:00 PM
-</p>
-<p>
-Crude Oil (CL):
-Sunday 6:00 PM - Friday 5:00 PM
-Most liquid: 9:00 AM - 2:30 PM
-</p>
-<p>
-Gold (GC):
-Sunday 6:00 PM - Friday 5:00 PM
-Most liquid: 8:20 AM - 1:30 PM
-</code></pre>
-</p>
-<h4>10. Risk Management for Futures Trading</h4>
-<pre><code class="language-">POSITION SIZING FOR FUTURES
-<p>
-Rule: Risk no more than 1-2% of account per trade
-</p>
-<p>
-Account size: $50,000
-Risk per trade: 1% = $500
-</p>
-<p>
-MES (Micro S&amp;P 500):
-Point value: $5
-Points to risk: $500 / $5 = 100 points
-S&amp;P at 5,000: 100/5,000 = 2% stop distance
-Maximum contracts: 1 MES (with 100-point stop)
-</p>
-<p>
-ES (E-mini S&amp;P 500):
-Point value: $50
-Points to risk: $500 / $50 = 10 points
-S&amp;P at 5,000: 10/5,000 = 0.2% stop distance
-This is extremely tight -- NOT recommended on $50,000
-</p>
-<p>
-For ES on $50,000 account:
-Need at least 30-50 point stop = $1,500-2,500 risk
-This is 3-5% of account -- TOO MUCH
-</p>
-<p>
-CONCLUSION: $50,000 account should trade MES, not ES.
-ES requires $200,000+ account for proper risk management.
-</p>
-<p>
-LEVERAGE GUIDELINES:
-Conservative: Margin used &lt; 10% of account
-Moderate:     Margin used &lt; 25% of account
-Aggressive:   Margin used &lt; 50% of account
-</p>
-<p>
-Never exceed 50% margin utilization.
-Black swan events (flash crashes, limit downs) can
-blow through any stop loss.
-</code></pre>
+This lesson is the operational manual for that fourth use case — and the cautionary tale for the first three regimes (over-leverage, contango drag, and the small-but-real path-dependence risk of daily mark-to-market).
 </p>
 <hr>
-<h3>c) Common Misconceptions</h3>
+<h3>2. What You Need to Know</h3>
+<h4>2.1 What a Futures Contract Actually Is</h4>
 <p>
-<strong>Misconception 1: "Futures margin works like stock margin."</strong>
+A futures contract is a standardised, exchange-traded agreement to exchange a fixed quantity of an underlying asset at a fixed price on a fixed future date. Unlike an option, <strong>both parties are obligated</strong>. Unlike a forward, the contract is <em>standardised</em> and <em>cleared centrally</em>, so counterparty risk runs to the exchange (CME), not to the trader on the other side.
 </p>
 <p>
-They are completely different. Stock margin is a loan -- you borrow money from your broker to buy more stock, and you pay interest on the loan. Futures margin is a performance bond -- a deposit ensuring you can meet your obligations. You do not pay interest on futures margin, and the leverage ratios are dramatically higher (20:1 or more vs. 2:1 for stock margin). This makes futures both more capital-efficient and more dangerous.
+Three concrete examples used throughout this lesson:
+</p>
+<ul><li><strong>/ES (E-mini S&P 500):</strong> $50 per index point. With the S&P 500 at 5,200 in April 2026, one /ES contract has notional $50 × 5,200 = <strong>$260,000</strong>. Initial margin: about $14,000 (5.4%). Tick size: 0.25 index points = $12.50.</li>
+<li><strong>/MES (Micro E-mini S&P 500):</strong> $5 per index point. Notional $26,000. Initial margin: about $2,000 (7.7%). Tick: 0.25 points = $1.25. <strong>This is the contract a $50-100k account uses.</strong></li>
+<li><strong>/MNQ (Micro E-mini Nasdaq-100):</strong> $2 per index point. With the Nasdaq-100 at 19,000, notional $38,000. Initial margin: about $3,300. Tick: 0.25 points = $0.50.</li>
+<li><strong>/MCL (Micro WTI Crude Oil):</strong> 100 barrels per contract. With WTI at $72/bbl, notional $7,200. Initial margin: about $750. Tick: $0.01 = $1.00.</li>
+<li><strong>/MGC (Micro Gold):</strong> 10 troy ounces per contract. With gold at $2,400/oz, notional $24,000. Initial margin: about $1,500. Tick: $0.10 = $1.00.</li>
+<p>
+</ul>
+Equity-index futures are <strong>cash-settled</strong> at expiration — there is no physical delivery of 500 stocks. Crude and gold are <strong>physically deliverable</strong>; you must close or roll before the last trading day or you will be assigned a barge of barrels (in practice, every retail broker auto-liquidates 2-3 days before expiration).
+</p>
+<h4>2.2 Notional vs Initial Margin — Why Leverage Is 12-15x by Default</h4>
+<p>
+In stocks, when you "buy on margin," your broker lends you cash; the security itself is collateral, and you pay interest on the loan. <strong>Futures margin is not a loan.</strong> It is a <em>performance bond</em> — a refundable deposit the exchange holds to ensure you can settle the day's loss. The CME sets <em>initial margin</em> (what you must post to open) and <em>maintenance margin</em> (what you must keep above to avoid a call). Brokers can charge slightly more.
 </p>
 <p>
-<strong>Misconception 2: "Futures are only for speculators and commodity traders."</strong>
+[VISUAL: image/week39_micro_compare.png]
 </p>
 <p>
-While futures originated in commodity markets and are used by speculators, they are also essential tools for hedging (airlines hedging fuel costs, farmers hedging crop prices), portfolio management (pension funds adjusting equity exposure), and arbitrage (institutions keeping prices aligned across markets). Micro futures have made them practical tools for retail portfolio management as well.
+The chart above asks one question: <em>what is the cheapest way to control $50,000 of S&P 500 economic exposure?</em>
+</p>
+<ul><li><strong>SPY shares:</strong> $50,000. 1.0x leverage. Direct cost.</li>
+<li><strong>One MES contract:</strong> notional $26,000 × ~2 contracts ≈ $50,000 exposure for ~$4,000 of margin. <strong>~12.5x leverage.</strong></li>
+<li><strong>One ES contract:</strong> $260,000 of notional, oversized for a $50k target — uses ~$14,000 of margin to control 5x the exposure. The wrong tool below $200k of intended position size; you cannot dial in finely.</li>
+<li><strong>One LEAPS at 0.92Δ on SPY (week 37):</strong> ~$10,000 of premium for $52,000 of exposure. ~5x leverage.</li>
+<p>
+</ul>
+The futures path uses 1/12th the capital of the share path. The freed cash sits in T-bills earning 4.3% (April 2026), exactly as in the LEAPS chapter — but with a 60/40 tax envelope on the futures gain rather than long-term capital gains on the shares.
 </p>
 <p>
-<strong>Misconception 3: "Contango means the market expects prices to rise."</strong>
+The cost: <strong>mark-to-market</strong>. Every trading day at 4 p.m. CT, the exchange computes your gain or loss and sweeps it from your account in cash, even if you have not closed. If MES drops 100 points overnight (a 2% move) on a 2-contract position, your account loses $1,000 by the next morning's open. With a $4,000 margin balance that is a 25% drawdown of the posted collateral; if the move is 200 points you receive a margin call before lunch. <strong>Leverage works in both directions, and the daily settlement is real cash — not a paper number.</strong>
+</p>
+<h4>2.3 The Futures Curve: Contango and Backwardation</h4>
+<p>
+The price of the December crude contract is rarely the same as the price of the October contract, even when both reference the same barrel of West Texas Intermediate. The shape of that <strong>term structure</strong> is the most important thing a commodity-futures investor watches.
 </p>
 <p>
-Contango does NOT necessarily reflect an expectation of rising prices. In most cases, contango reflects the cost of carry: storage costs, financing costs, and insurance. A gold futures curve in contango simply means the futures price includes the cost of storing gold until delivery. The market can be in contango and still expect the spot price to decline.
+[VISUAL: image/week39_contango_uso.png]
+</p>
+<ul><li><strong>Contango:</strong> back-month price > front-month price > spot. The market is paying you to delay delivery. This is the "normal" shape for storable commodities — the back-month price has to compensate the seller for storage cost, financing cost, and the lost opportunity of selling spot today. Crude oil is in contango about 60-70% of the time historically. The chart above shows the canonical 2015-2016 oil-glut episode and the 2020 super-contango — back-month minus front-month spread blew out to $30/bbl in April 2020 when storage at Cushing OK ran out and the front-month CL contract famously settled at <em>negative</em> $37 at expiration.</li>
+<li><strong>Backwardation:</strong> spot > front-month > back-month. The market is paying you to take delivery <em>now</em>. This happens when there is an immediate physical shortage — the <strong>convenience yield</strong> of holding the actual barrel in your tank exceeds the cost of carry. Crude was deeply backwardated in 2022 when Russia invaded Ukraine and prompt-month physical traded $20+ above the 12-month contract.</li>
+<p>
+</ul>
+The relationship between curve shape and commodity-ETF performance is exact and unforgiving. USO, the largest oil ETF, holds rolling front-month CL futures. Every month it sells the expiring contract and buys the next one. <strong>In contango, that round-trip is a guaranteed loss</strong> — you sell the cheap front for the expensive back, and pay the spread every roll. The 2009-2020 USO chart is the single best illustration of this drag in financial history: spot WTI averaged roughly $60/bbl across that period, but USO compounded <em>negatively</em> at -8% per year. Contango ate roughly 4-6% per year, persistent and unrecoverable, year after year.
 </p>
 <p>
-<strong>Misconception 4: "Futures are riskier than options."</strong>
+The fix, if you actually want crude exposure: hold the <strong>December-2027 contract</strong> (or even further out), not the front month. The deferred contract has a flatter roll. Better yet, hold it in the futures account itself — no ETF wrapper, no expense ratio, and the §1256 tax treatment instead of the K-1 partnership tax form USO ships out every year.
+</p>
+<h4>2.4 Section 1256: The 60/40 Rule</h4>
+<p>
+This is the SOUL #15 capstone. Almost all retail-tradeable index futures (/ES, /MES, /NQ, /MNQ, /YM, /RTY, /CL, /MCL, /GC, /MGC) and a narrow set of broad-based index options (SPX, RUT, NDX) are classified under Section 1256 of the Internal Revenue Code. The treatment is unique and entirely favourable:
+</p>
+<li><strong>All gains are taxed 60% long-term, 40% short-term, regardless of holding period.</strong> A two-day swing trade in /MES is taxed at the same blended rate as a multi-year position. For a 32% ordinary / 15% LTCG investor, the blended rate is 0.60 × 15% + 0.40 × 32% = <strong>21.8%</strong>. Compare to a short-term equity gain at 32%, or a single-stock option gain held under a year at 32%. The structural edge is roughly 10 percentage points per dollar.</li>
+<li><strong>Mark-to-market at year-end.</strong> All open §1256 positions are marked to market on December 31 and the unrealised P&L is reported on Form 6781 as if the positions were closed and reopened. This is the same treatment as the broker reports daily; you do not pick up a phantom gain you did not see.</li>
+<li><strong>Loss carryback.</strong> §1256 losses can be carried back <strong>three years</strong> (rare in tax) against §1256 gains, in addition to forward-carry. Equity capital losses can only carry forward.</li>
+<p>
+For a worked example: a $20,000 gain in /MES held over six months. Under §1256, $12,000 is taxed at LTCG (15-20%) and $8,000 at ordinary (32-37%). Total tax at 32% bracket: $12,000 × 15% + $8,000 × 32% = $1,800 + $2,560 = <strong>$4,360</strong>, an effective rate of 21.8%. The same $20,000 gain on SPY held six months would be all short-term at 32% = $6,400. <strong>Difference: $2,040, or 10.2% of the gain itself.</strong> Over a career of active trading that compounds into real money, and it is the single biggest reason desks that trade index exposure structurally do it through futures rather than through ETFs.
+</p>
+<h4>2.5 Roll Mechanics</h4>
+<p>
+Futures expire. The active /MES contract rolls quarterly: March, June, September, December (the "front month" letters H, M, U, Z respectively). About a week before expiration, <strong>liquidity migrates</strong> from the expiring contract to the next quarterly. The roll itself is mechanical: sell the expiring contract, buy the next quarterly, in a single calendar-spread order that pays the (usually small, for index futures) basis differential.
 </p>
 <p>
-This is an oversimplification. Futures have linear, unbounded risk in both directions. Options have bounded risk for buyers but unbounded risk for sellers. On a per-dollar-of-margin basis, futures and options can be equally risky. The key difference is that futures losses can exceed your initial margin, while long option losses are capped at the premium paid. But futures also do not suffer from time decay, which makes them superior for certain strategies.
+For equity-index futures the roll cost is structurally tiny — typically 5-15 basis points per quarter (driven by the cost-of-carry: short-rate minus dividend yield × 0.25). On /MES at 5,200, that is 2-8 index points. For an investor holding /MES as portable beta exposure, the all-in annual roll friction is roughly <strong>0.20-0.60% per year</strong> — far cheaper than the LEAPS extrinsic (~2-3%/yr) or the SSO drag (~3-4%/yr).
 </p>
 <p>
-<strong>Misconception 5: "I can hold futures indefinitely like stocks."</strong>
+For commodities, roll cost depends entirely on curve shape. In contango, every roll is a loss (you saw this above for USO). In backwardation, every roll is a gain — which is exactly why commodity hedge funds prefer to be long oil only when the curve is backwardated. The signal is observable on the screen; you do not have to forecast it.
+</p>
+<h4>2.6 /MES vs SPY for Portable Equity Exposure</h4>
+<p>
+A practical comparison for a $100,000 account that wants $30,000 of S&P 500 beta as part of its L2 strategy sleeve.
+</p>
+<table><thead><tr><th>Vehicle</th><th>Capital used</th><th>Tax on 1-year +20% gain</th><th>Annual carry cost</th></tr></thead><tbody><tr><td>30 SPY shares × $520</td><td>$15,600 (need $30k)</td><td>LTCG 15% on $6,000 = $900</td><td>None (small div)</td></tr><tr><td>1 /MES at 5,200</td><td>~$2,000 margin (controls $26k)</td><td>§1256 21.8% on $5,200 = $1,134</td><td>Roll ~0.30% × $26k = $78</td></tr><tr><td>1 LEAPS 0.92Δ SPY</td><td>~$5,000 premium (controls $30k)</td><td>LTCG 15% on $6,000 = $900</td><td>Extrinsic ~2.5% × $30k = $750</td></tr></tbody></table>
+<p>
+For one-year hold periods, all three are within ~$300 of each other on after-tax-and-cost return. For <em>under-one-year</em> hold periods, /MES dominates: §1256 is the only one of the three that does not pay short-term capital gains rates. This is why active rotation across the L2 sleeve uses /MES and not SPY — you are making 6-8 round trips a year and the tax math is different by 10 percentage points each one.
 </p>
 <p>
-Futures expire. If you want continuous exposure, you must roll your position from the expiring contract to the next one. This rolling process has real costs (commissions, bid-ask spread, and roll yield), which can add up over time. You cannot simply buy and forget like you can with stocks.
+The honest caveat: /MES requires a Tier 2 futures-cleared brokerage account (CME-approved broker, separate margin paperwork, $5-25k minimum at most retail brokers), an understanding of the 24-hour session (most volume is during the 9:30 a.m.-4:00 p.m. ET overlap with cash equities; off-hours liquidity gets thin and slippage gets ugly), and the discipline to not over-size. The leverage is 12-15x by default. If you treat a 2-contract /MES position the way you treat a 10-share SPY position, you will lose your account on a normal Tuesday.
 </p>
 <p>
-<strong>Misconception 6: "The front-month contract is always the best one to trade."</strong>
-</p>
-<p>
-For short-term trading, the front month is usually the most liquid. But for longer-term positions, the quarterly contracts (March, June, September, December) are often more appropriate because they require less frequent rolling. Additionally, the front month can become volatile and illiquid near expiration, making back-month contracts a safer choice in the final days of the contract.
+Try the <a href="interactive/week39_futures_lab.html">Futures Lab</a> to see how product, contract count, account size, and a single monthly move shape your notional exposure, margin used, gross P&L, leverage ratio, and after-tax 60/40 P&L. The §1256 box is the lever that matters most over a career of active trading.
 </p>
 <hr>
-<h3>d) Common Questions and Answers</h3>
+<h3>3. Common Misconceptions</h3>
+<li><strong>"Futures are gambling."</strong> Naked /ES at 50x leverage is gambling. Sized /MES at 1-3 contracts on a $100k account at 0.3-0.8x portfolio leverage is portable beta exposure. Same instrument family — same difference between a 0.30Δ weekly and a 0.92Δ LEAPS in the option world.</li>
+<li><strong>"Futures margin is a loan."</strong> It is not. It is a performance bond held by the exchange. There is no interest charge. The "leverage" is a function of position size relative to posted margin, not borrowing.</li>
+<li><strong>"Contango is a temporary thing."</strong> Crude has been in contango for roughly two-thirds of its history since 1983. It is the <em>normal</em> shape of a storable commodity curve. Backwardation is the rarer state.</li>
+<li><strong>"USO went to zero because of fraud."</strong> USO's underperformance is mechanical: roll yield in a chronically contangoed curve. No fraud, no fund-level mistake — the wrapper itself is structurally short the futures basis. Same with UNG (natural gas) and VXX (VIX).</li>
+<li><strong>"Section 1256 only applies if I hold for a year."</strong> False. Section 1256 60/40 applies regardless of holding period. A trade open for 30 minutes and closed at a profit is taxed identically to a position held three years. That is the entire point.</li>
+<li><strong>"I should use /ES because it's more liquid than /MES."</strong> /MES is plenty liquid (>1M contracts/day) for any retail-sized position. The "more liquid" argument matters when you need to move 1,000 contracts at once. For 1-10 contracts, /MES vs /ES is a tick or two of slippage difference, and the position-sizing flexibility of /MES is worth it.</li>
+<li><strong>"Futures don't pay dividends, so they're worse than stocks."</strong> The dividend is <em>embedded</em> in the price difference between the futures and the spot index. The futures curve discounts forward expected dividends; you do not lose them, you just receive them as price-return rather than cash.</li>
+<li><strong>"24-hour markets means I can trade anytime."</strong> Most off-hours liquidity is institutional hedging flow. Spreads widen 3-10x outside the 9:30-16:00 ET window. Trade in the cash session unless you have a specific reason not to.</li>
+<li><strong>"§1256 means I never owe ordinary tax on futures."</strong> False. 40% of §1256 gain is ordinary. The benefit is the 60% LTCG portion regardless of holding period — which on multi-year holds is <em>worse</em> than equity LTCG (where 100% would be long-term).</li>
+<li><strong>"A leveraged ETF is the same thing as a futures position."</strong> Wrong on three counts: ETFs reset daily and decay (week 37); ETF gains are taxed at equity rates with no §1256; ETF expense ratios are 0.7-1.0% drag while futures roll cost is 0.2-0.6%. Futures dominate for active rotation.</li>
+<hr>
+<h3>4. Q&A Section</h3>
 <p>
-<strong>Q1: How much money do I need to start trading futures?</strong>
+<strong>Q1. How much account size do I need to trade /MES?</strong>
+Most brokers (TastyTrade, IBKR, Schwab Futures) require $2,000-5,000 minimum to enable futures trading and clear ~$2,000 initial margin per /MES contract. Practical floor is roughly $25,000 — that gives you room for 2-3 contracts plus the discipline buffer to absorb a 10% drawdown without margin call.
 </p>
 <p>
-A: For micro futures, a minimum of $5,000 is recommended per contract traded. This provides enough margin plus buffer for normal market movements. For E-mini contracts, $25,000-50,000 is a more appropriate starting point, as the larger contract size requires more capital for proper risk management. Many brokers will let you open a futures account with as little as $2,000, but this is inadequate for sustained trading -- one bad day could wipe out the account.
+<strong>Q2. What's the daily mark-to-market mean for my taxes?</strong>
+On the brokerage statement you see daily P&L sweeps. For tax purposes, only year-end positions are mark-to-market under §1256 (Form 6781). Closed trades are realised normally. The two reports reconcile.
 </p>
 <p>
-<strong>Q2: What happens if I hold a physically-settled contract to expiration?</strong>
+<strong>Q3. Can I trade futures in a Roth IRA?</strong>
+Yes — TastyTrade, IBKR, Schwab all offer futures-cleared IRAs. There is no margin call risk in an IRA the way there is in a regular margin account, but you cannot replenish a margin shortfall mid-day, so brokers typically require 1.5-2x normal margin in IRAs. The §1256 tax benefit is moot in an IRA (no tax on anything), but the leverage and execution are still useful.
 </p>
 <p>
-A: If you hold a physically-settled contract (like crude oil, CL) to expiration, you may be required to take delivery of the physical commodity. For CL, this means 1,000 barrels of oil delivered to Cushing, Oklahoma. Obviously, most retail traders do not want this. Always close or roll physically-settled contracts well before expiration -- typically by the first notice day, which is usually several days before the last trading day. Your broker will likely auto-liquidate the position if you do not, and may charge fees for this.
+<strong>Q4. What's the difference between /MES and SPX (the index option)?</strong>
+SPX is a European-style cash-settled index option, also taxed under §1256. /MES is the futures contract. SPX is for option-strategy exposure (spreads, condors); /MES is for delta-1 directional exposure. Both are 60/40 taxed.
 </p>
 <p>
-<strong>Q3: How does the 60/40 tax rule work for futures?</strong>
+<strong>Q5. How often should I roll /MES?</strong>
+On the Thursday before the third Friday of expiration month — that is when liquidity has migrated to the next quarterly contract. Your broker will warn you a week in advance. Do not let it expire; the cash settlement to the index print will lock in whatever the open print happens to be.
 </p>
 <p>
-A: Under IRS Section 1256, all regulated futures contracts are marked to market at year-end. Any unrealized gains or losses are treated as if you had closed the position on December 31. The gains are then taxed at a blended rate: 60% at the long-term capital gains rate (currently 20%) and 40% at the short-term rate (up to 37%), regardless of how long you actually held the position. This results in a maximum effective rate of about 26.8%, compared to 37% for short-term stock trades. You also get to carry back losses 3 years to offset previous Section 1256 gains -- an option not available with standard capital losses.
+<strong>Q6. What happens if I get a margin call on /MES?</strong>
+The broker will liquidate enough of your position to bring you back above maintenance margin, often the same day, often without warning. Futures margin calls are not the 30-day "send a check" calls of the equities world. Maintain at least 1.5x initial margin in your account and you will essentially never see one.
 </p>
 <p>
-<strong>Q4: What is the difference between E-mini and micro futures?</strong>
+<strong>Q7. Why is contango worse for some commodities than others?</strong>
+Storage cost dominates. Crude (storable, but expensive to store offshore) is moderately contangoed. Natural gas (very expensive to store, seasonal demand) is severely contangoed in summer. Metals (cheap to store) are mildly contangoed. Live cattle (impossible to store cheaply) is often backwardated. The cost-of-carry formula tells you the magnitude.
 </p>
 <p>
-A: Micro futures are exactly one-tenth the size of their E-mini counterparts. The Micro E-mini S&P 500 (MES) has a $5 per point multiplier versus $50 for the E-mini (ES). This means the contract value of MES is about $25,000 versus $250,000 for ES, and margin is proportionally lower. Micro futures use the same trading hours, expiration dates, and settlement methods as their E-mini versions. They are ideal for smaller accounts and for fine-tuning position sizes.
+<strong>Q8. Can I express a "long volatility" view through /MES?</strong>
+No — /MES is delta-1 on the index. For long-vol exposure you need /VX (VIX futures) or VIX options. /VX has its own contango problem (futures price > spot VIX about 80% of the time), which is why VXX bleeds 30-60%/year in normal markets.
 </p>
 <p>
-<strong>Q5: How do I roll a futures position?</strong>
+<strong>Q9. How does this fit with the four-tranche framework (SOUL #13)?</strong>
+/MES is a portable-beta lever for the L1 sleeve: when the 60/40 portfolio is at 55% equity and you want 65% for a quarter, post $4-6k of margin and add 2 /MES contracts. Cheaper than rebalancing into SPY (taxes), faster than waiting for the next contribution.
 </p>
 <p>
-A: Rolling means closing your current contract and opening a new position in a later-dated contract. You can do this as two separate trades (sell the expiring contract, buy the next), or many brokers offer a "calendar spread" order that executes both legs simultaneously, which is more efficient. Roll timing varies by contract -- equity index traders typically roll on the Thursday before expiration week (known as "roll day"), when liquidity shifts to the next contract. Most active traders roll 1-2 weeks before expiration.
+<strong>Q10. What's a reasonable position size in /MES?</strong>
+A useful rule: size such that a 5% adverse move in the underlying index does not exceed 10% of your liquid net worth. For a $100k account that means roughly 4 /MES contracts max ($104k notional), and most active retail traders I respect run 1-2.
 </p>
 <p>
-<strong>Q6: Can I trade futures in an IRA?</strong>
+<strong>Q11. Why does Horace mention SOUL #15 specifically here?</strong>
+Because §1256 60/40 is the cleanest tax treatment any retail US investor can get on directional speculation. You do not have to hold for a year. You do not have to harvest losses. You do not have to navigate wash-sale rules. The 21.8% blended rate at the 32% bracket is a structural gift from the 1981 tax code, and it has not been touched since — it is the single most under-appreciated thing in the US retail tax code.
 </p>
 <p>
-A: Yes, but with restrictions. Many futures brokers offer IRA accounts that allow futures trading. However, you cannot use leverage in a traditional margin sense -- you must have the full margin amount covered by your account balance. Some brokers restrict IRA accounts to certain futures products. The 60/40 tax rule does not apply in IRAs (since gains are already tax-deferred or tax-free), so the tax advantage of futures is lost in retirement accounts.
-</p>
-<p>
-<strong>Q7: Why do commodity ETFs underperform the spot price?</strong>
-</p>
-<p>
-A: Commodity ETFs that use futures (like USO for oil or UNG for natural gas) are subject to roll yield. When the futures market is in contango (futures price > spot price), the ETF must sell cheap expiring contracts and buy more expensive later-dated ones, losing money each roll. Over time, this "contango drag" can be enormous. USO, for example, has lost over 90% of its value since inception while oil prices have only declined modestly. This structural drag makes long-term commodity ETF holdings problematic in persistent contango markets.
-</p>
-<p>
-<strong>Q8: How do futures relate to overnight stock movements?</strong>
-</p>
-<p>
-A: Equity index futures (ES, NQ) trade nearly 24 hours a day, while the stock market trades only 6.5 hours. When you see a stock market "gap up" or "gap down" at the open, the futures market has already been trading at those levels for hours. Overnight futures trading reflects breaking news, international market movements, and economic data releases. Many professional traders watch futures before the market open to gauge the day's likely direction.
+<strong>Q12. When does this strategy fail?</strong>
+Three regimes. (1) <strong>Over-leverage:</strong> sizing /MES based on margin posted instead of notional controlled — the classic blow-up. (2) <strong>Holding commodity futures long-term in contango:</strong> /MCL or /MNG decay through roll just like USO/UNG. (3) <strong>Off-hours trading on news:</strong> spreads widen 5x+ at 3 a.m. ET; the slippage on a 50-point /MES move during off-hours can exceed the move itself.
 </p>
             </div>
             <div id="content-hk" class="lang-content">

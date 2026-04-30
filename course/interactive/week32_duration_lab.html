@@ -1,0 +1,603 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Duration & Convexity Lab — Interactive (Week 32)</title>
+<script src="https://cdn.plot.ly/plotly-2.35.2.min.js" charset="utf-8"></script>
+<style>
+html, body { margin: 0; padding: 0; background: var(--dl2-bg); }
+:root {
+    --dl2-bg: #fdfbf5;
+    --dl2-text: #1a2332;
+    --dl2-muted: #6b7280;
+    --dl2-border: #d6d3c4;
+    --dl2-card: #fdfbf5;
+    --dl2-accent: #b8860b;
+    --dl2-mid: #0d47a1;
+    --dl2-pos: #2e7d32;
+    --dl2-neg: #b71c1c;
+    --dl2-warn: #e65100;
+}
+html[data-theme="dark"] .dl2-root,
+.dl2-root[data-theme="dark"] {
+    --dl2-bg: #0f1724;
+    --dl2-text: #e6e6e6;
+    --dl2-muted: #9aa3b2;
+    --dl2-border: #2a3441;
+    --dl2-card: #0f1724;
+    --dl2-mid: #5a8dee;
+    --dl2-pos: #66bb6a;
+    --dl2-neg: #ef5350;
+    --dl2-warn: #ffa726;
+}
+.dl2-root {
+    font-family: 'Segoe UI', Helvetica, Arial, sans-serif;
+    background: var(--dl2-bg);
+    color: var(--dl2-text);
+    padding: 12px;
+    margin: 0;
+}
+.dl2-controls {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 12px;
+    padding: 12px;
+    background: var(--dl2-card);
+    border: 1px solid var(--dl2-border);
+    border-radius: 8px;
+    margin-bottom: 14px;
+}
+.dl2-slider-wrap {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    font-size: 0.82rem;
+    color: var(--dl2-muted);
+}
+.dl2-slider-wrap .dl2-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+}
+.dl2-slider-wrap .dl2-name {
+    font-weight: 600;
+    color: var(--dl2-text);
+}
+.dl2-slider-wrap .dl2-value {
+    color: var(--dl2-text);
+    font-weight: 700;
+    font-variant-numeric: tabular-nums;
+}
+.dl2-slider-wrap input[type="range"] {
+    width: 100%;
+    accent-color: var(--dl2-accent);
+}
+.dl2-chart {
+    width: 100%;
+    height: 380px;
+    background: var(--dl2-card);
+    border-radius: 8px;
+    border: 1px solid var(--dl2-border);
+}
+.dl2-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 10px;
+    margin-top: 14px;
+}
+.dl2-stat {
+    background: var(--dl2-card);
+    border: 1px solid var(--dl2-border);
+    border-left: 4px solid var(--dl2-muted);
+    border-radius: 8px;
+    padding: 10px 12px;
+}
+.dl2-stat.dl2-stat-p0 { border-left-color: var(--dl2-accent); }
+.dl2-stat.dl2-stat-p1 { border-left-color: var(--dl2-mid); }
+.dl2-stat.dl2-stat-pl { border-left-color: var(--dl2-warn); }
+.dl2-stat.dl2-stat-pq { border-left-color: var(--dl2-pos); }
+.dl2-stat.dl2-stat-mac { border-left-color: var(--dl2-muted); }
+.dl2-stat.dl2-stat-mod { border-left-color: var(--dl2-neg); }
+.dl2-stat.dl2-stat-eff { border-left-color: var(--dl2-neg); }
+.dl2-stat.dl2-stat-cx { border-left-color: var(--dl2-pos); }
+.dl2-stat .dl2-stat-name {
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--dl2-muted);
+}
+.dl2-stat .dl2-stat-val {
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-top: 4px;
+    font-variant-numeric: tabular-nums;
+}
+.dl2-stat .dl2-stat-detail {
+    font-size: 0.72rem;
+    color: var(--dl2-muted);
+    margin-top: 2px;
+}
+.dl2-caption {
+    margin-top: 10px;
+    font-size: 0.78rem;
+    color: var(--dl2-muted);
+    line-height: 1.45;
+}
+@media (max-width: 640px) {
+    .dl2-chart { height: 320px; }
+}
+</style>
+</head>
+<body>
+
+<div class="dl2-root" id="dl2-root">
+    <div class="dl2-controls">
+        <div class="dl2-slider-wrap">
+            <div class="dl2-row">
+                <span class="dl2-name" id="dl2-l-N">Years to maturity</span>
+                <span class="dl2-value" id="dl2-v-N">10 yr</span>
+            </div>
+            <input type="range" id="dl2-s-N" min="1" max="30" step="1" value="10">
+        </div>
+        <div class="dl2-slider-wrap">
+            <div class="dl2-row">
+                <span class="dl2-name" id="dl2-l-c">Coupon rate</span>
+                <span class="dl2-value" id="dl2-v-c">5.0%</span>
+            </div>
+            <input type="range" id="dl2-s-c" min="0" max="12" step="0.25" value="5">
+        </div>
+        <div class="dl2-slider-wrap">
+            <div class="dl2-row">
+                <span class="dl2-name" id="dl2-l-y">Current yield</span>
+                <span class="dl2-value" id="dl2-v-y">5.0%</span>
+            </div>
+            <input type="range" id="dl2-s-y" min="0.1" max="15" step="0.1" value="5">
+        </div>
+        <div class="dl2-slider-wrap">
+            <div class="dl2-row">
+                <span class="dl2-name" id="dl2-l-shock">Parallel shock</span>
+                <span class="dl2-value" id="dl2-v-shock">+0 bps</span>
+            </div>
+            <input type="range" id="dl2-s-shock" min="-300" max="300" step="5" value="0">
+        </div>
+    </div>
+
+    <div id="dl2-chart" class="dl2-chart"></div>
+
+    <div class="dl2-stats">
+        <div class="dl2-stat dl2-stat-p0">
+            <div class="dl2-stat-name" id="dl2-name-p0">Price now</div>
+            <div class="dl2-stat-val" id="dl2-val-p0">—</div>
+            <div class="dl2-stat-detail" id="dl2-det-p0">—</div>
+        </div>
+        <div class="dl2-stat dl2-stat-p1">
+            <div class="dl2-stat-name" id="dl2-name-p1">Exact price after shock</div>
+            <div class="dl2-stat-val" id="dl2-val-p1">—</div>
+            <div class="dl2-stat-detail" id="dl2-det-p1">—</div>
+        </div>
+        <div class="dl2-stat dl2-stat-pl">
+            <div class="dl2-stat-name" id="dl2-name-pl">Linear duration approx</div>
+            <div class="dl2-stat-val" id="dl2-val-pl">—</div>
+            <div class="dl2-stat-detail" id="dl2-det-pl">—</div>
+        </div>
+        <div class="dl2-stat dl2-stat-pq">
+            <div class="dl2-stat-name" id="dl2-name-pq">Duration + convexity</div>
+            <div class="dl2-stat-val" id="dl2-val-pq">—</div>
+            <div class="dl2-stat-detail" id="dl2-det-pq">—</div>
+        </div>
+        <div class="dl2-stat dl2-stat-mac">
+            <div class="dl2-stat-name" id="dl2-name-mac">Macaulay duration</div>
+            <div class="dl2-stat-val" id="dl2-val-mac">—</div>
+            <div class="dl2-stat-detail" id="dl2-det-mac">—</div>
+        </div>
+        <div class="dl2-stat dl2-stat-mod">
+            <div class="dl2-stat-name" id="dl2-name-mod">Modified duration</div>
+            <div class="dl2-stat-val" id="dl2-val-mod">—</div>
+            <div class="dl2-stat-detail" id="dl2-det-mod">—</div>
+        </div>
+        <div class="dl2-stat dl2-stat-eff">
+            <div class="dl2-stat-name" id="dl2-name-eff">Effective duration</div>
+            <div class="dl2-stat-val" id="dl2-val-eff">—</div>
+            <div class="dl2-stat-detail" id="dl2-det-eff">—</div>
+        </div>
+        <div class="dl2-stat dl2-stat-cx">
+            <div class="dl2-stat-name" id="dl2-name-cx">Convexity</div>
+            <div class="dl2-stat-val" id="dl2-val-cx">—</div>
+            <div class="dl2-stat-detail" id="dl2-det-cx">—</div>
+        </div>
+    </div>
+
+    <p class="dl2-caption" id="dl2-caption">
+        Slide maturity, coupon, yield, and shock to watch all three predictions diverge.
+    </p>
+</div>
+
+<script>
+(function () {
+    const I18N = {
+        en: {
+            l_N: "Years to maturity",
+            l_c: "Coupon rate",
+            l_y: "Current yield",
+            l_shock: "Parallel shock",
+            n_p0: "Price now",
+            n_p1: "Exact price after shock",
+            n_pl: "Linear duration approx",
+            n_pq: "Duration + convexity",
+            n_mac: "Macaulay duration",
+            n_mod: "Modified duration",
+            n_eff: "Effective duration",
+            n_cx: "Convexity",
+            x_title: "Yield (%)",
+            y_title: "Price (% of face)",
+            now: "now",
+            after: "after shock",
+            t_exact: "Exact price-yield curve",
+            t_linear: "Linear (duration only)",
+            t_quad: "Duration + convexity",
+            yr: "yr",
+            yrs: "yrs",
+            par: "at par",
+            premium: "premium",
+            discount: "discount",
+            d_pct1: "{p:+.2f}% per 1% rate rise",
+            err_lin: "{e:+.2f} pts vs exact",
+            err_quad: "{e:+.2f} pts vs exact",
+            cx_detail: "in 1/y^2 units",
+            mac_detail: "weighted-avg cash-flow time",
+            mod_detail: "= D_mac / (1 + y/2)",
+            eff_detail: "numerical, +/-25 bps shock",
+            caption: "Slide maturity, coupon, yield, and shock. The blue exact curve is the truth. The dashed orange line is what duration alone predicts; the green dotted line adds convexity. Inside +/-200 bps, green hugs blue. Beyond that, even the quadratic Taylor series loses accuracy. Try maturity=30, coupon=2%, yield=4%, shock=+200 — that is roughly the 2022 long-bond move.",
+        },
+        hk: {
+            l_N: "到期年限",
+            l_c: "票面利率",
+            l_y: "目前孳息率",
+            l_shock: "平行震盪",
+            n_p0: "目前價格",
+            n_p1: "震盪後實際價格",
+            n_pl: "線性存續期估算",
+            n_pq: "存續期 + 凸性",
+            n_mac: "麥考利存續期",
+            n_mod: "修正存續期",
+            n_eff: "有效存續期",
+            n_cx: "凸性",
+            x_title: "孳息率(%)",
+            y_title: "價格(面值 %)",
+            now: "目前",
+            after: "震盪後",
+            t_exact: "實際價格-孳息曲線",
+            t_linear: "線性(僅存續期)",
+            t_quad: "存續期 + 凸性",
+            yr: "年",
+            yrs: "年",
+            par: "平價",
+            premium: "溢價",
+            discount: "折價",
+            d_pct1: "孳息上升 1%,價格約 {p:+.2f}%",
+            err_lin: "與實際差 {e:+.2f} 點",
+            err_quad: "與實際差 {e:+.2f} 點",
+            cx_detail: "單位 1/y^2",
+            mac_detail: "加權平均現金流時間",
+            mod_detail: "= D_mac /(1 + y/2)",
+            eff_detail: "數值法,+/-25 基點震盪",
+            caption: "拖動到期、票息、孳息、震盪。藍線為真實曲線;橘虛線是線性存續期預測;綠點線加上凸性。在 +/-200 基點內,綠線與藍線幾乎重疊。超出後,二階泰勒也失準。試試 30 年、2% 票息、4% 孳息、+200 基點——大致即 2022 年長債走勢。",
+        },
+        tw: {
+            l_N: "到期年限",
+            l_c: "票面利率",
+            l_y: "目前殖利率",
+            l_shock: "平行震盪",
+            n_p0: "目前價格",
+            n_p1: "震盪後實際價格",
+            n_pl: "線性存續期估算",
+            n_pq: "存續期 + 凸性",
+            n_mac: "麥考利存續期",
+            n_mod: "修正存續期",
+            n_eff: "有效存續期",
+            n_cx: "凸性",
+            x_title: "殖利率(%)",
+            y_title: "價格(面值 %)",
+            now: "目前",
+            after: "震盪後",
+            t_exact: "實際價格-殖利率曲線",
+            t_linear: "線性(僅存續期)",
+            t_quad: "存續期 + 凸性",
+            yr: "年",
+            yrs: "年",
+            par: "平價",
+            premium: "溢價",
+            discount: "折價",
+            d_pct1: "殖利率上升 1%,價格約 {p:+.2f}%",
+            err_lin: "與實際差 {e:+.2f} 點",
+            err_quad: "與實際差 {e:+.2f} 點",
+            cx_detail: "單位 1/y^2",
+            mac_detail: "加權平均現金流時間",
+            mod_detail: "= D_mac /(1 + y/2)",
+            eff_detail: "數值法,+/-25 基點震盪",
+            caption: "拖動到期、票息、殖利率、震盪。藍線為真實曲線;橘虛線是線性存續期預測;綠點線加上凸性。在 +/-200 基點內,綠線與藍線幾乎重疊。超出後,二階泰勒也失準。試試 30 年、2% 票息、4% 殖利率、+200 基點——大致即 2022 年長債走勢。",
+        },
+        cn: {
+            l_N: "到期年限",
+            l_c: "票面利率",
+            l_y: "当前收益率",
+            l_shock: "平行冲击",
+            n_p0: "当前价格",
+            n_p1: "冲击后实际价格",
+            n_pl: "线性久期估算",
+            n_pq: "久期 + 凸性",
+            n_mac: "麦考利久期",
+            n_mod: "修正久期",
+            n_eff: "有效久期",
+            n_cx: "凸性",
+            x_title: "收益率(%)",
+            y_title: "价格(面值 %)",
+            now: "当前",
+            after: "冲击后",
+            t_exact: "实际价格-收益率曲线",
+            t_linear: "线性(仅久期)",
+            t_quad: "久期 + 凸性",
+            yr: "年",
+            yrs: "年",
+            par: "平价",
+            premium: "溢价",
+            discount: "折价",
+            d_pct1: "收益率上升 1%,价格约 {p:+.2f}%",
+            err_lin: "与实际差 {e:+.2f} 点",
+            err_quad: "与实际差 {e:+.2f} 点",
+            cx_detail: "单位 1/y^2",
+            mac_detail: "加权平均现金流时间",
+            mod_detail: "= D_mac /(1 + y/2)",
+            eff_detail: "数值法,+/-25 基点冲击",
+            caption: "拖动到期、票息、收益率、冲击。蓝线为真实曲线;橘虚线是线性久期预测;绿点线加上凸性。在 +/-200 基点内,绿线几乎与蓝线重合。超出后,即使二阶泰勒也失准。试试 30 年、2% 票息、4% 收益率、+200 基点——大致即 2022 年长债走势。",
+        },
+    };
+    function currentLang() {
+        const p = new URLSearchParams(window.location.search);
+        const l = (p.get("lang") || "en").toLowerCase();
+        return I18N.hasOwnProperty(l) ? l : "en";
+    }
+    const T = I18N[currentLang()];
+
+    const ROOT = document.getElementById("dl2-root");
+    const CHART = document.getElementById("dl2-chart");
+
+    const sN = document.getElementById("dl2-s-N");
+    const sC = document.getElementById("dl2-s-c");
+    const sY = document.getElementById("dl2-s-y");
+    const sShock = document.getElementById("dl2-s-shock");
+    const vN = document.getElementById("dl2-v-N");
+    const vC = document.getElementById("dl2-v-c");
+    const vY = document.getElementById("dl2-v-y");
+    const vShock = document.getElementById("dl2-v-shock");
+
+    let state = { N: 10, c: 0.05, y: 0.05, shock: 0.0, m: 2, F: 100 };
+
+    function bondPrice(F, c, N, y, m) {
+        const n = Math.round(m * N);
+        const C = F * c / m;
+        const r = y / m;
+        if (Math.abs(r) < 1e-12) return C * n + F;
+        return C * (1 - Math.pow(1 + r, -n)) / r + F / Math.pow(1 + r, n);
+    }
+    function macaulay(F, c, N, y, m) {
+        const n = Math.round(m * N);
+        const C = F * c / m;
+        const r = y / m;
+        const P = bondPrice(F, c, N, y, m);
+        if (P <= 0) return 0;
+        let w = 0;
+        for (let t = 1; t <= n; t++) {
+            const cf = C + (t === n ? F : 0);
+            w += (t / m) * cf / Math.pow(1 + r, t);
+        }
+        return w / P;
+    }
+    function convexity(F, c, N, y, m) {
+        const n = Math.round(m * N);
+        const C = F * c / m;
+        const r = y / m;
+        const P = bondPrice(F, c, N, y, m);
+        if (P <= 0) return 0;
+        let cx = 0;
+        for (let t = 1; t <= n; t++) {
+            const cf = C + (t === n ? F : 0);
+            cx += (t / m) * (t / m + 1.0 / m) * cf / Math.pow(1 + r, t + 2);
+        }
+        return cx / P;
+    }
+    function effectiveDuration(F, c, N, y, m) {
+        const dy = 0.0025;
+        const Pm = bondPrice(F, c, N, y - dy, m);
+        const Pp = bondPrice(F, c, N, y + dy, m);
+        const P0 = bondPrice(F, c, N, y, m);
+        if (P0 <= 0) return 0;
+        return (Pm - Pp) / (2 * P0 * dy);
+    }
+
+    function fmtPct(v) { return (v * 100).toFixed(2) + "%"; }
+    function fmtPrice(v) { return v.toFixed(2); }
+    function getCssVar(name) {
+        return getComputedStyle(ROOT).getPropertyValue(name).trim();
+    }
+    function darkMode() {
+        return document.documentElement.getAttribute("data-theme") === "dark";
+    }
+
+    function render() {
+        const { N, c, y, shock, m, F } = state;
+        const dy = shock / 10000.0;
+        const yNew = Math.max(0.0001, y + dy);
+
+        const P0 = bondPrice(F, c, N, y, m);
+        const P1 = bondPrice(F, c, N, yNew, m);
+        const Dmac = macaulay(F, c, N, y, m);
+        const Dmod = Dmac / (1 + y / m);
+        const Cx = convexity(F, c, N, y, m);
+        const Deff = effectiveDuration(F, c, N, y, m);
+
+        const Plin = P0 * (1 - Dmod * dy);
+        const Pquad = P0 * (1 - Dmod * dy + 0.5 * Cx * dy * dy);
+
+        // Plot exact curve, linear tangent, and quadratic
+        const ys = [], pe = [], pl = [], pq = [];
+        const yMin = Math.max(0.001, y - 0.06);
+        const yMax = Math.min(0.20, y + 0.06);
+        for (let yi = yMin; yi <= yMax + 1e-9; yi += 0.0005) {
+            ys.push(yi * 100);
+            pe.push(bondPrice(F, c, N, yi, m));
+            const ddy = yi - y;
+            pl.push(P0 * (1 - Dmod * ddy));
+            pq.push(P0 * (1 - Dmod * ddy + 0.5 * Cx * ddy * ddy));
+        }
+
+        const cAcc = getCssVar("--dl2-accent");
+        const cMid = getCssVar("--dl2-mid");
+        const cWarn = getCssVar("--dl2-warn");
+        const cPos = getCssVar("--dl2-pos");
+        const cNeg = getCssVar("--dl2-neg");
+        const cMuted = getCssVar("--dl2-muted");
+        const cText = getCssVar("--dl2-text");
+        const cBg = getCssVar("--dl2-card");
+        const cGrid = darkMode() ? "rgba(255,255,255,0.08)" : "rgba(0,0,0,0.07)";
+
+        const traces = [
+            {
+                x: ys, y: pe, type: "scatter", mode: "lines",
+                line: { color: cMid, width: 2.4 }, name: T.t_exact,
+                hovertemplate: "y=%{x:.2f}%<br>P=%{y:.2f}<extra></extra>",
+            },
+            {
+                x: ys, y: pl, type: "scatter", mode: "lines",
+                line: { color: cWarn, width: 1.6, dash: "dash" }, name: T.t_linear,
+                hovertemplate: "y=%{x:.2f}%<br>P=%{y:.2f}<extra></extra>",
+            },
+            {
+                x: ys, y: pq, type: "scatter", mode: "lines",
+                line: { color: cPos, width: 1.8, dash: "dot" }, name: T.t_quad,
+                hovertemplate: "y=%{x:.2f}%<br>P=%{y:.2f}<extra></extra>",
+            },
+            {
+                x: [y * 100], y: [P0], type: "scatter", mode: "markers",
+                marker: { color: cAcc, size: 12, line: { color: "#fff", width: 1.5 } },
+                name: T.now,
+                hovertemplate: "y=%{x:.2f}%<br>P=%{y:.2f}<extra>" + T.now + "</extra>",
+            },
+            {
+                x: [yNew * 100], y: [P1], type: "scatter", mode: "markers",
+                marker: { color: cNeg, size: 12, symbol: "diamond",
+                          line: { color: "#fff", width: 1.5 } },
+                name: T.after,
+                hovertemplate: "y=%{x:.2f}%<br>P=%{y:.2f}<extra>" + T.after + "</extra>",
+            },
+        ];
+        const layout = {
+            margin: { l: 56, r: 24, t: 28, b: 44 },
+            paper_bgcolor: cBg, plot_bgcolor: cBg,
+            font: { family: "Segoe UI, Helvetica, Arial, sans-serif",
+                    color: cText, size: 12 },
+            xaxis: {
+                title: { text: T.x_title, font: { color: cMuted, size: 11 } },
+                gridcolor: cGrid, zerolinecolor: cMuted, color: cText,
+            },
+            yaxis: {
+                title: { text: T.y_title, font: { color: cMuted, size: 11 } },
+                gridcolor: cGrid, zerolinecolor: cGrid, color: cText,
+            },
+            showlegend: true,
+            legend: { orientation: "h", y: -0.18, x: 0, font: { size: 10 } },
+            hovermode: "x unified",
+        };
+        Plotly.react(CHART, traces, layout, { displayModeBar: false, responsive: true });
+
+        // Stats
+        document.getElementById("dl2-val-p0").textContent = fmtPrice(P0);
+        let parTag;
+        if (Math.abs(P0 - F) < 0.01) parTag = T.par;
+        else if (P0 > F) parTag = T.premium + " (+" + ((P0 - F) / F * 100).toFixed(2) + "%)";
+        else parTag = T.discount + " (" + ((P0 - F) / F * 100).toFixed(2) + "%)";
+        document.getElementById("dl2-det-p0").textContent = parTag;
+
+        const chgExact = (P1 - P0) / P0 * 100;
+        document.getElementById("dl2-val-p1").textContent = fmtPrice(P1);
+        document.getElementById("dl2-det-p1").textContent =
+            (chgExact >= 0 ? "+" : "") + chgExact.toFixed(2) + "%";
+
+        document.getElementById("dl2-val-pl").textContent = fmtPrice(Plin);
+        document.getElementById("dl2-det-pl").textContent =
+            T.err_lin.replace("{e:+.2f}", (Plin - P1).toFixed(2));
+
+        document.getElementById("dl2-val-pq").textContent = fmtPrice(Pquad);
+        document.getElementById("dl2-det-pq").textContent =
+            T.err_quad.replace("{e:+.2f}", (Pquad - P1).toFixed(2));
+
+        document.getElementById("dl2-val-mac").textContent = Dmac.toFixed(2) + " " + T.yrs;
+        document.getElementById("dl2-det-mac").textContent = T.mac_detail;
+
+        document.getElementById("dl2-val-mod").textContent = Dmod.toFixed(2) + " " + T.yrs;
+        document.getElementById("dl2-det-mod").textContent =
+            T.d_pct1.replace("{p:+.2f}", (-Dmod).toFixed(2));
+
+        document.getElementById("dl2-val-eff").textContent = Deff.toFixed(2) + " " + T.yrs;
+        document.getElementById("dl2-det-eff").textContent = T.eff_detail;
+
+        document.getElementById("dl2-val-cx").textContent = Cx.toFixed(1);
+        document.getElementById("dl2-det-cx").textContent = T.cx_detail;
+    }
+
+    function updateLabels() {
+        vN.textContent = state.N + " " + (state.N === 1 ? T.yr : T.yrs);
+        vC.textContent = (state.c * 100).toFixed(2) + "%";
+        vY.textContent = (state.y * 100).toFixed(2) + "%";
+        vShock.textContent = (state.shock >= 0 ? "+" : "") + state.shock.toFixed(0) + " bps";
+    }
+
+    sN.addEventListener("input", () => { state.N = parseInt(sN.value, 10); updateLabels(); render(); });
+    sC.addEventListener("input", () => { state.c = parseFloat(sC.value) / 100; updateLabels(); render(); });
+    sY.addEventListener("input", () => { state.y = parseFloat(sY.value) / 100; updateLabels(); render(); });
+    sShock.addEventListener("input", () => { state.shock = parseFloat(sShock.value); updateLabels(); render(); });
+
+    function applyI18n() {
+        document.getElementById("dl2-l-N").textContent = T.l_N;
+        document.getElementById("dl2-l-c").textContent = T.l_c;
+        document.getElementById("dl2-l-y").textContent = T.l_y;
+        document.getElementById("dl2-l-shock").textContent = T.l_shock;
+        document.getElementById("dl2-name-p0").textContent = T.n_p0;
+        document.getElementById("dl2-name-p1").textContent = T.n_p1;
+        document.getElementById("dl2-name-pl").textContent = T.n_pl;
+        document.getElementById("dl2-name-pq").textContent = T.n_pq;
+        document.getElementById("dl2-name-mac").textContent = T.n_mac;
+        document.getElementById("dl2-name-mod").textContent = T.n_mod;
+        document.getElementById("dl2-name-eff").textContent = T.n_eff;
+        document.getElementById("dl2-name-cx").textContent = T.n_cx;
+        document.getElementById("dl2-caption").textContent = T.caption;
+    }
+
+    applyI18n();
+    updateLabels();
+    render();
+
+    function reportHeight() {
+        try {
+            var h = Math.ceil(document.documentElement.scrollHeight);
+            parent.postMessage({ type: 'lesson-interactive-resize', height: h }, '*');
+        } catch (e) { /* ignore */ }
+    }
+    if (typeof ResizeObserver !== 'undefined') {
+        new ResizeObserver(reportHeight).observe(document.body);
+    }
+    window.addEventListener('resize', reportHeight);
+    setTimeout(reportHeight, 50);
+    setTimeout(reportHeight, 500);
+
+    const themeObserver = new MutationObserver(render);
+    themeObserver.observe(document.documentElement, {
+        attributes: true, attributeFilter: ["data-theme"],
+    });
+})();
+</script>
+
+</body>
+</html>

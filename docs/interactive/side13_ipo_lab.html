@@ -1,0 +1,688 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>IPO Lab - Interactive (Side 13)</title>
+<script src="https://cdn.plot.ly/plotly-2.35.2.min.js" charset="utf-8"></script>
+<style>
+html, body { margin: 0; padding: 0; background: var(--il2-bg); }
+:root {
+    --il2-bg: #fdfbf5;
+    --il2-text: #1a2332;
+    --il2-muted: #6b7280;
+    --il2-border: #d6d3c4;
+    --il2-card: #fdfbf5;
+    --il2-accent: #b8860b;
+    --il2-blue: #0d47a1;
+    --il2-red: #b71c1c;
+    --il2-green: #2e7d32;
+    --il2-purple: #6a1b9a;
+    --il2-orange: #e65100;
+    --il2-grey: #5a5a5a;
+}
+html[data-theme="dark"] .il2-root,
+.il2-root[data-theme="dark"] {
+    --il2-bg: #0f1724;
+    --il2-text: #e6e6e6;
+    --il2-muted: #9aa3b2;
+    --il2-border: #2a3441;
+    --il2-card: #0f1724;
+    --il2-blue: #5a8dee;
+    --il2-red: #ef5350;
+    --il2-green: #66bb6a;
+    --il2-purple: #ba68c8;
+    --il2-orange: #ffa726;
+    --il2-grey: #aaaaaa;
+}
+.il2-root {
+    font-family: 'Segoe UI', Helvetica, Arial, sans-serif;
+    background: var(--il2-bg);
+    color: var(--il2-text);
+    padding: 12px;
+    margin: 0;
+}
+.il2-controls {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 12px;
+    margin-bottom: 14px;
+    padding: 12px;
+    background: var(--il2-card);
+    border: 1px solid var(--il2-border);
+    border-radius: 8px;
+}
+.il2-slider-wrap {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    font-size: 0.82rem;
+    color: var(--il2-muted);
+}
+.il2-slider-wrap .il2-row {
+    display: flex; align-items: center; gap: 10px;
+}
+.il2-slider-wrap input[type="range"] {
+    flex: 1;
+    accent-color: var(--il2-accent);
+}
+.il2-slider-wrap .il2-val {
+    white-space: nowrap;
+    color: var(--il2-text);
+    font-weight: 700;
+    font-variant-numeric: tabular-nums;
+    min-width: 70px;
+    text-align: right;
+}
+.il2-slider-wrap .il2-name {
+    font-weight: 600; color: var(--il2-text);
+}
+.il2-presets {
+    display: flex; flex-wrap: wrap; gap: 6px;
+    margin-bottom: 14px;
+}
+.il2-pill {
+    border: 1px solid var(--il2-border);
+    background: var(--il2-card);
+    color: var(--il2-text);
+    padding: 4px 10px;
+    border-radius: 999px;
+    cursor: pointer;
+    font: inherit;
+    font-size: 0.78rem;
+    font-weight: 600;
+}
+.il2-pill:hover { background: var(--il2-accent); color: #fff; }
+.il2-pill.il2-active {
+    background: var(--il2-accent);
+    color: #fff;
+    border-color: var(--il2-accent);
+}
+.il2-bigrow {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 8px;
+    margin-bottom: 14px;
+}
+.il2-big {
+    background: var(--il2-card);
+    border: 1px solid var(--il2-border);
+    border-left: 4px solid var(--il2-accent);
+    border-radius: 8px;
+    padding: 10px 12px;
+}
+.il2-big.il2-b-alloc { border-left-color: var(--il2-green); }
+.il2-big.il2-b-retail { border-left-color: var(--il2-red); }
+.il2-big.il2-b-gap { border-left-color: var(--il2-orange); }
+.il2-big.il2-b-pop { border-left-color: var(--il2-blue); }
+.il2-big .il2-big-name {
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--il2-muted);
+}
+.il2-big .il2-big-val {
+    font-size: 1.4rem;
+    font-weight: 800;
+    margin-top: 4px;
+    font-variant-numeric: tabular-nums;
+    color: var(--il2-text);
+}
+.il2-big .il2-big-detail {
+    font-size: 0.72rem;
+    color: var(--il2-muted);
+    margin-top: 2px;
+}
+.il2-chart {
+    width: 100%;
+    height: 380px;
+    background: var(--il2-card);
+    border-radius: 8px;
+    border: 1px solid var(--il2-border);
+}
+.il2-caption {
+    margin-top: 10px;
+    font-size: 0.78rem;
+    color: var(--il2-muted);
+    line-height: 1.45;
+}
+.il2-verdict {
+    margin-top: 12px;
+    padding: 10px 14px;
+    border: 1px solid var(--il2-border);
+    border-left: 4px solid var(--il2-orange);
+    background: var(--il2-card);
+    border-radius: 8px;
+    font-size: 0.85rem;
+    color: var(--il2-text);
+    line-height: 1.45;
+}
+.il2-verdict.good { border-left-color: var(--il2-green); }
+.il2-verdict.bad  { border-left-color: var(--il2-red); }
+@media (max-width: 1000px) {
+    .il2-controls { grid-template-columns: 1fr 1fr; }
+    .il2-bigrow   { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 600px) {
+    .il2-controls { grid-template-columns: 1fr; }
+    .il2-bigrow   { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<div class="il2-root" id="il2-root">
+    <div class="il2-presets" id="il2-presets"></div>
+
+    <div class="il2-controls">
+        <div class="il2-slider-wrap">
+            <div class="il2-name" id="il2-name-POP">First-day pop (%)</div>
+            <div class="il2-row">
+                <input type="range" id="il2-POP" min="-50" max="200" step="1" value="18">
+                <span class="il2-val" id="il2-val-POP">+18%</span>
+            </div>
+        </div>
+        <div class="il2-slider-wrap">
+            <div class="il2-name" id="il2-name-DRIFT">Lock-up drift to month 6 (%)</div>
+            <div class="il2-row">
+                <input type="range" id="il2-DRIFT" min="-50" max="50" step="1" value="-10">
+                <span class="il2-val" id="il2-val-DRIFT">-10%</span>
+            </div>
+        </div>
+        <div class="il2-slider-wrap">
+            <div class="il2-name" id="il2-name-HOR">Holding horizon (months)</div>
+            <div class="il2-row">
+                <input type="range" id="il2-HOR" min="1" max="36" step="1" value="12">
+                <span class="il2-val" id="il2-val-HOR">12</span>
+            </div>
+        </div>
+        <div class="il2-slider-wrap">
+            <div class="il2-name" id="il2-name-CAP">Capital deployed ($)</div>
+            <div class="il2-row">
+                <input type="range" id="il2-CAP" min="1000" max="100000" step="1000" value="10000">
+                <span class="il2-val" id="il2-val-CAP">$10,000</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="il2-bigrow">
+        <div class="il2-big il2-b-pop">
+            <div class="il2-big-name" id="il2-bn-pop">Day-one pop captured</div>
+            <div class="il2-big-val" id="il2-bv-pop">—</div>
+            <div class="il2-big-detail" id="il2-bd-pop">allocated investor only</div>
+        </div>
+        <div class="il2-big il2-b-alloc">
+            <div class="il2-big-name" id="il2-bn-alloc">Allocated investor terminal</div>
+            <div class="il2-big-val" id="il2-bv-alloc">—</div>
+            <div class="il2-big-detail" id="il2-bd-alloc">bought at offer price</div>
+        </div>
+        <div class="il2-big il2-b-retail">
+            <div class="il2-big-name" id="il2-bn-retail">Retail day-one terminal</div>
+            <div class="il2-big-val" id="il2-bv-retail">—</div>
+            <div class="il2-big-detail" id="il2-bd-retail">bought at first-day open</div>
+        </div>
+        <div class="il2-big il2-b-gap">
+            <div class="il2-big-name" id="il2-bn-gap">Allocator advantage</div>
+            <div class="il2-big-val" id="il2-bv-gap">—</div>
+            <div class="il2-big-detail" id="il2-bd-gap">$ alloc - $ retail</div>
+        </div>
+    </div>
+
+    <div id="il2-chart" class="il2-chart"></div>
+
+    <div class="il2-verdict" id="il2-verdict">—</div>
+
+    <p class="il2-caption" id="il2-caption">
+        Empirical anchor (US 2010-2024 cohort): pop +18%, lock-up drift -10% by month 6, additional drift to -10% offer-relative by month 12. Allocated investor capital is the offer-price entry; retail capital is the same dollar amount entered at the post-pop open price (so retail buys fewer shares). The shape from month 6 to the holding horizon is linear-extrapolated to a steady -10% offer-relative level (consistent with Ritter pooled).
+    </p>
+</div>
+
+<script>
+(function () {
+    var I18N = {
+        en: {
+            name_POP: "First-day pop (%)",
+            name_DRIFT: "Lock-up drift to month 6 (%)",
+            name_HOR: "Holding horizon (months)",
+            name_CAP: "Capital deployed ($)",
+            bn_pop: "Day-one pop captured",
+            bn_alloc: "Allocated investor terminal",
+            bn_retail: "Retail day-one terminal",
+            bn_gap: "Allocator advantage",
+            bd_pop: "allocated investor only",
+            bd_alloc: "bought at offer price",
+            bd_retail: "bought at first-day open",
+            bd_gap: "$ alloc - $ retail",
+            chart_title: "Price path: offer = 1.00. Allocated buys at 1.00. Retail buys at the post-pop open.",
+            x_label: "Months since IPO",
+            y_label: "Price relative to offer",
+            tr_path: "IPO price path",
+            tr_alloc_buy: "Allocated entry",
+            tr_retail_buy: "Retail entry",
+            preset_label: "Presets:",
+            presets: {
+                avg2024:   "2024 avg (+12%)",
+                bubble21:  "2021 bubble (+37%)",
+                hot:       "Hot tech (+80%)",
+                broken:    "Broken IPO (-15%)",
+                meme:      "Meme moonshot (+150%)",
+            },
+            verdict_good: "At your settings, retail day-one ends ahead. This is the ~33% case empirically (good entry, modest pop). The reverse trade -- allocated -- is even better.",
+            verdict_meh:  "At your settings, allocated wins by a modest amount. This is the typical empirical pattern: the +18% pop pays the allocated buyer, retail breaks roughly even after the year.",
+            verdict_bad:  "At your settings, retail day-one is well behind allocated. Allocator captured the pop; retail paid the post-pop price and ate the lock-up / earnings drag. This is the standard 2010-2024 outcome.",
+            caption_text: "Empirical anchor (US 2010-2024 cohort): pop +18%, lock-up drift -10% by month 6, additional drift to -10% offer-relative by month 12. Allocated investor capital is the offer-price entry; retail capital is the same dollar amount entered at the post-pop open price (so retail buys fewer shares). The shape from month 6 to the holding horizon is linear-extrapolated to a steady -10% offer-relative level (consistent with Ritter pooled).",
+        },
+        hk: {
+            name_POP: "首日跳空 (%)",
+            name_DRIFT: "至第 6 個月鎖倉漂移 (%)",
+            name_HOR: "持有期(月)",
+            name_CAP: "投入資本 ($)",
+            bn_pop: "首日跳空獲取",
+            bn_alloc: "已分配投資者終值",
+            bn_retail: "散戶首日終值",
+            bn_gap: "分配方優勢",
+            bd_pop: "只屬已分配投資者",
+            bd_alloc: "以發行價買入",
+            bd_retail: "以首日開市價買入",
+            bd_gap: "$ 已分配 - $ 散戶",
+            chart_title: "價格路徑:發行價 = 1.00。已分配在 1.00 入場;散戶在跳空後開市價入場。",
+            x_label: "上市後月份",
+            y_label: "相對發行價",
+            tr_path: "IPO 價格路徑",
+            tr_alloc_buy: "已分配入場",
+            tr_retail_buy: "散戶入場",
+            preset_label: "預設:",
+            presets: {
+                avg2024:   "2024 平均(+12%)",
+                bubble21:  "2021 泡沫(+37%)",
+                hot:       "熱門科技(+80%)",
+                broken:    "破發 IPO(-15%)",
+                meme:      "迷因暴漲(+150%)",
+            },
+            verdict_good: "在此設定下,散戶首日反而領先。這屬實證上約 33% 的情況(進場好、跳空不大)。反向操作 -- 已分配 -- 更好。",
+            verdict_meh:  "在此設定下,已分配輕微勝出。這是典型實證模式:+18% 跳空歸已分配,散戶一年後大致打和。",
+            verdict_bad:  "在此設定下,散戶首日大幅落後已分配。分配方食盡跳空,散戶付出跳空後價並承受鎖倉、業績壓力。這是 2010-2024 的標準結局。",
+            caption_text: "實證錨(美國 2010-2024 群組):跳空 +18%、第 6 個月鎖倉漂移 -10%,至 12 個月相對發行價 -10%。已分配投資者以發行價入場,散戶以同樣金額在跳空後開市價入場(故股數較少)。第 6 個月至持有期之線性外推至 -10% 相對發行價(與 Ritter 樣本一致)。",
+        },
+        tw: {
+            name_POP: "首日跳空 (%)",
+            name_DRIFT: "至第 6 個月鎖倉漂移 (%)",
+            name_HOR: "持有期(月)",
+            name_CAP: "投入資本 ($)",
+            bn_pop: "首日跳空擷取",
+            bn_alloc: "已配售投資者終值",
+            bn_retail: "散戶首日終值",
+            bn_gap: "配售方優勢",
+            bd_pop: "僅屬已配售投資者",
+            bd_alloc: "以發行價買入",
+            bd_retail: "以首日開盤價買入",
+            bd_gap: "$ 已配售 - $ 散戶",
+            chart_title: "價格路徑:發行價 = 1.00。已配售在 1.00 入場;散戶在跳空後開盤價入場。",
+            x_label: "上市後月份",
+            y_label: "相對發行價",
+            tr_path: "IPO 價格路徑",
+            tr_alloc_buy: "已配售入場",
+            tr_retail_buy: "散戶入場",
+            preset_label: "預設:",
+            presets: {
+                avg2024:   "2024 平均(+12%)",
+                bubble21:  "2021 泡沫(+37%)",
+                hot:       "熱門科技(+80%)",
+                broken:    "破發 IPO(-15%)",
+                meme:      "迷因飆漲(+150%)",
+            },
+            verdict_good: "在此設定下,散戶首日反而領先。這屬實證上約 33% 的情況(進場時點好、跳空不大)。反向操作 -- 已配售 -- 更好。",
+            verdict_meh:  "在此設定下,已配售小幅勝出。這是典型實證模式:+18% 跳空歸已配售,散戶一年後大致打平。",
+            verdict_bad:  "在此設定下,散戶首日大幅落後已配售。配售方收下跳空,散戶付出跳空後價並承受鎖倉、財報壓力。這是 2010-2024 的標準結局。",
+            caption_text: "實證錨(美國 2010-2024 群組):跳空 +18%、第 6 個月鎖倉漂移 -10%,至 12 個月相對發行價 -10%。已配售投資者以發行價入場,散戶以同樣金額在跳空後開盤價入場(故股數較少)。第 6 個月至持有期之線性外推至 -10% 相對發行價(與 Ritter 樣本一致)。",
+        },
+        cn: {
+            name_POP: "首日跳空 (%)",
+            name_DRIFT: "至第 6 个月锁仓漂移 (%)",
+            name_HOR: "持有期(月)",
+            name_CAP: "投入资本 ($)",
+            bn_pop: "首日跳空获取",
+            bn_alloc: "已配售投资者终值",
+            bn_retail: "散户首日终值",
+            bn_gap: "配售方优势",
+            bd_pop: "仅属已配售投资者",
+            bd_alloc: "以发行价买入",
+            bd_retail: "以首日开盘价买入",
+            bd_gap: "$ 已配售 - $ 散户",
+            chart_title: "价格路径:发行价 = 1.00。已配售在 1.00 入场;散户在跳空后开盘价入场。",
+            x_label: "上市后月份",
+            y_label: "相对发行价",
+            tr_path: "IPO 价格路径",
+            tr_alloc_buy: "已配售入场",
+            tr_retail_buy: "散户入场",
+            preset_label: "预设:",
+            presets: {
+                avg2024:   "2024 平均(+12%)",
+                bubble21:  "2021 泡沫(+37%)",
+                hot:       "热门科技(+80%)",
+                broken:    "破发 IPO(-15%)",
+                meme:      "模因暴涨(+150%)",
+            },
+            verdict_good: "在此设定下,散户首日反而领先。这属实证上约 33% 的情况(进场好、跳空不大)。反向操作 -- 已配售 -- 更好。",
+            verdict_meh:  "在此设定下,已配售小幅胜出。这是典型实证模式:+18% 跳空归已配售,散户一年后大致打平。",
+            verdict_bad:  "在此设定下,散户首日大幅落后已配售。配售方收下跳空,散户付出跳空后价并承受锁仓、财报压力。这是 2010-2024 的标准结局。",
+            caption_text: "实证锚(美国 2010-2024 群组):跳空 +18%、第 6 个月锁仓漂移 -10%,至 12 个月相对发行价 -10%。已配售投资者以发行价入场,散户以同样金额在跳空后开盘价入场(故股数较少)。第 6 个月至持有期之线性外推至 -10% 相对发行价(与 Ritter 样本一致)。",
+        },
+    };
+    function currentLang() {
+        var p = new URLSearchParams(window.location.search);
+        var l = (p.get("lang") || "en").toLowerCase();
+        return I18N.hasOwnProperty(l) ? l : "en";
+    }
+    var T = I18N[currentLang()];
+
+    var PRESETS = {
+        avg2024:  { POP:  12, DRIFT: -10 },
+        bubble21: { POP:  37, DRIFT: -25 },
+        hot:      { POP:  80, DRIFT: -35 },
+        broken:   { POP: -15, DRIFT: -20 },
+        meme:     { POP: 150, DRIFT: -45 },
+    };
+    var DEFAULT_PRESET = "avg2024";
+
+    var ROOT = document.getElementById("il2-root");
+    var POP_EL = document.getElementById("il2-POP");
+    var DRIFT_EL = document.getElementById("il2-DRIFT");
+    var HOR_EL = document.getElementById("il2-HOR");
+    var CAP_EL = document.getElementById("il2-CAP");
+    var CHART = document.getElementById("il2-chart");
+    var PRESETS_EL = document.getElementById("il2-presets");
+    var VERDICT = document.getElementById("il2-verdict");
+    var activePreset = DEFAULT_PRESET;
+
+    function darkMode() {
+        return document.documentElement.getAttribute("data-theme") === "dark";
+    }
+    function getCssVar(name) {
+        return getComputedStyle(ROOT).getPropertyValue(name).trim();
+    }
+    function fmtMoney(n) {
+        if (!isFinite(n)) return "—";
+        var sign = n < 0 ? "-" : "";
+        var abs = Math.abs(n);
+        if (abs >= 1000) return sign + "$" + abs.toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+        if (abs >= 100) return sign + "$" + abs.toFixed(1);
+        return sign + "$" + abs.toFixed(2);
+    }
+    function fmtSignedPct(n) {
+        if (!isFinite(n)) return "—";
+        return (n >= 0 ? "+" : "") + (n * 100).toFixed(1) + "%";
+    }
+
+    function applyI18n() {
+        document.getElementById("il2-name-POP").textContent = T.name_POP;
+        document.getElementById("il2-name-DRIFT").textContent = T.name_DRIFT;
+        document.getElementById("il2-name-HOR").textContent = T.name_HOR;
+        document.getElementById("il2-name-CAP").textContent = T.name_CAP;
+        document.getElementById("il2-bn-pop").textContent = T.bn_pop;
+        document.getElementById("il2-bn-alloc").textContent = T.bn_alloc;
+        document.getElementById("il2-bn-retail").textContent = T.bn_retail;
+        document.getElementById("il2-bn-gap").textContent = T.bn_gap;
+        document.getElementById("il2-bd-pop").textContent = T.bd_pop;
+        document.getElementById("il2-bd-alloc").textContent = T.bd_alloc;
+        document.getElementById("il2-bd-retail").textContent = T.bd_retail;
+        document.getElementById("il2-bd-gap").textContent = T.bd_gap;
+        document.getElementById("il2-caption").textContent = T.caption_text;
+    }
+
+    function buildPresets() {
+        PRESETS_EL.innerHTML = "";
+        Object.keys(PRESETS).forEach(function (key) {
+            var btn = document.createElement("button");
+            btn.type = "button";
+            btn.className = "il2-pill" + (key === activePreset ? " il2-active" : "");
+            btn.textContent = T.presets[key];
+            btn.dataset.preset = key;
+            btn.addEventListener("click", function () {
+                applyPreset(key);
+            });
+            PRESETS_EL.appendChild(btn);
+        });
+    }
+    function applyPreset(key) {
+        var p = PRESETS[key];
+        POP_EL.value = p.POP;
+        DRIFT_EL.value = p.DRIFT;
+        activePreset = key;
+        Array.prototype.forEach.call(
+            PRESETS_EL.querySelectorAll(".il2-pill"),
+            function (b) {
+                b.classList.toggle("il2-active", b.dataset.preset === key);
+            });
+        render();
+    }
+    function clearPreset() {
+        activePreset = null;
+        Array.prototype.forEach.call(
+            PRESETS_EL.querySelectorAll(".il2-pill"),
+            function (b) { b.classList.remove("il2-active"); });
+    }
+
+    /**
+     * Build the relative price path (offer = 1.00) over the chosen horizon.
+     * Anchor points (offer-relative):
+     *   t=0     : 1.00 (offer)
+     *   t=0+    : 1 + pop (first-day open)
+     *   t=1     : 1 + pop * 1.05  (small post-pop drift up)
+     *   t=3     : 1 + pop * 0.55  (interpolation toward month-6 anchor)
+     *   t=6     : 1 + drift   (lock-up + first-earnings landing point)
+     *   t=12    : 0.90 (Ritter pooled steady state, offer-relative)
+     *   t>12    : tracks 0.90 plus mild drift (model holds at 0.90 floor)
+     */
+    function buildPath(pop, drift, horMonths) {
+        var anchors = [
+            { x: 0,  y: 1.00 },
+            { x: 0.05, y: 1.00 + pop },
+            { x: 1,  y: 1.00 + pop * 1.05 },
+            { x: 3,  y: 1.00 + pop * 0.55 },
+            { x: 6,  y: 1.00 + drift },
+            { x: 12, y: 0.90 },
+        ];
+        // Extend past 12 toward 0.90 - small additional drift if hor > 12.
+        if (horMonths > 12) {
+            anchors.push({ x: horMonths, y: 0.90 + Math.min(0, drift) * 0.10 });
+        } else {
+            // Truncate at horMonths.
+            anchors = anchors.filter(function (a) { return a.x <= horMonths; });
+            // Ensure last anchor is at horMonths via interp.
+            if (anchors[anchors.length - 1].x < horMonths) {
+                var y = interp(anchors, horMonths);
+                anchors.push({ x: horMonths, y: y });
+            }
+        }
+        // Build a fine-grained xs/ys array via piecewise linear interp.
+        var xs = [];
+        var ys = [];
+        // Sample at every 0.25 month plus all anchors.
+        var samples = [];
+        for (var t = 0; t <= horMonths; t += 0.25) samples.push(t);
+        anchors.forEach(function (a) {
+            if (samples.indexOf(a.x) === -1) samples.push(a.x);
+        });
+        samples.sort(function (a, b) { return a - b; });
+        samples.forEach(function (t) {
+            xs.push(t);
+            ys.push(interp(anchors, t));
+        });
+        return { xs: xs, ys: ys, anchors: anchors };
+    }
+
+    function interp(anchors, x) {
+        // anchors sorted by x
+        if (x <= anchors[0].x) return anchors[0].y;
+        if (x >= anchors[anchors.length - 1].x) return anchors[anchors.length - 1].y;
+        for (var i = 0; i < anchors.length - 1; i++) {
+            if (x >= anchors[i].x && x <= anchors[i + 1].x) {
+                var x0 = anchors[i].x, y0 = anchors[i].y;
+                var x1 = anchors[i + 1].x, y1 = anchors[i + 1].y;
+                if (x1 === x0) return y0;
+                var f = (x - x0) / (x1 - x0);
+                return y0 + f * (y1 - y0);
+            }
+        }
+        return anchors[anchors.length - 1].y;
+    }
+
+    function render() {
+        var pop = parseFloat(POP_EL.value) / 100.0;
+        var drift = parseFloat(DRIFT_EL.value) / 100.0;
+        var hor = parseInt(HOR_EL.value, 10);
+        var cap = parseFloat(CAP_EL.value);
+
+        document.getElementById("il2-val-POP").textContent =
+            (pop >= 0 ? "+" : "") + (pop * 100).toFixed(0) + "%";
+        document.getElementById("il2-val-DRIFT").textContent =
+            (drift >= 0 ? "+" : "") + (drift * 100).toFixed(0) + "%";
+        document.getElementById("il2-val-HOR").textContent = String(hor);
+        document.getElementById("il2-val-CAP").textContent =
+            "$" + cap.toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+
+        var path = buildPath(pop, drift, hor);
+        var endY = path.ys[path.ys.length - 1];
+        // Allocated bought at offer (1.00); retail bought at open (1+pop).
+        // Same dollar capital => allocated has more shares.
+        var allocTerminal = cap * endY / 1.00;
+        var openPrice = 1.00 + pop;
+        var retailTerminal = openPrice > 0 ? cap * endY / openPrice : NaN;
+        var gap = allocTerminal - retailTerminal;
+
+        document.getElementById("il2-bv-pop").textContent =
+            fmtSignedPct(pop);
+        document.getElementById("il2-bv-alloc").textContent =
+            fmtMoney(allocTerminal);
+        document.getElementById("il2-bv-alloc").style.color =
+            allocTerminal >= cap ? getCssVar("--il2-green") : getCssVar("--il2-red");
+        document.getElementById("il2-bv-retail").textContent =
+            fmtMoney(retailTerminal);
+        document.getElementById("il2-bv-retail").style.color =
+            retailTerminal >= cap ? getCssVar("--il2-green") : getCssVar("--il2-red");
+        document.getElementById("il2-bv-gap").textContent =
+            (gap >= 0 ? "+" : "-") + fmtMoney(Math.abs(gap)).replace("-", "");
+
+        // Verdict.
+        VERDICT.classList.remove("good", "bad");
+        if (retailTerminal > allocTerminal) {
+            VERDICT.classList.add("good");
+            VERDICT.textContent = T.verdict_good;
+        } else if (allocTerminal - retailTerminal < cap * 0.05) {
+            VERDICT.textContent = T.verdict_meh;
+        } else {
+            VERDICT.classList.add("bad");
+            VERDICT.textContent = T.verdict_bad;
+        }
+
+        // Chart.
+        var colorBlue = getCssVar("--il2-blue");
+        var colorGreen = getCssVar("--il2-green");
+        var colorRed = getCssVar("--il2-red");
+        var colorMuted = getCssVar("--il2-muted");
+        var colorText = getCssVar("--il2-text");
+        var colorBg = getCssVar("--il2-card");
+        var colorGrid = darkMode() ? "rgba(255,255,255,0.08)" : "rgba(0,0,0,0.07)";
+
+        var tracePath = {
+            x: path.xs, y: path.ys, type: "scatter", mode: "lines",
+            name: T.tr_path,
+            line: { color: colorBlue, width: 2.6 },
+            hovertemplate: "month %{x:.1f}<br>price/offer: %{y:.3f}<extra></extra>",
+        };
+        // Allocated entry marker.
+        var traceAlloc = {
+            x: [0], y: [1.00], type: "scatter", mode: "markers",
+            name: T.tr_alloc_buy,
+            marker: { color: colorGreen, size: 13, line: { color: colorBg, width: 1.5 } },
+            hovertemplate: T.tr_alloc_buy + "<br>" + "@1.00<extra></extra>",
+        };
+        // Retail entry marker.
+        var traceRetail = {
+            x: [0.05], y: [openPrice], type: "scatter", mode: "markers",
+            name: T.tr_retail_buy,
+            marker: { color: colorRed, size: 13, line: { color: colorBg, width: 1.5 } },
+            hovertemplate: T.tr_retail_buy + "<br>@" + openPrice.toFixed(3) + "<extra></extra>",
+        };
+        // End marker.
+        var traceEnd = {
+            x: [hor], y: [endY], type: "scatter", mode: "markers+text",
+            showlegend: false,
+            marker: { color: colorBlue, size: 9 },
+            text: [endY.toFixed(2)],
+            textposition: "top center",
+            textfont: { color: colorText, size: 11, weight: 700 },
+            hoverinfo: "skip",
+        };
+
+        var layout = {
+            margin: { l: 60, r: 30, t: 50, b: 50 },
+            paper_bgcolor: colorBg, plot_bgcolor: colorBg,
+            font: { family: "Segoe UI, Helvetica, Arial, sans-serif", color: colorText, size: 12 },
+            xaxis: {
+                title: { text: T.x_label, font: { color: colorMuted, size: 11 } },
+                gridcolor: colorGrid, color: colorText,
+                rangemode: "tozero",
+            },
+            yaxis: {
+                title: { text: T.y_label, font: { color: colorMuted, size: 11 } },
+                gridcolor: colorGrid, color: colorText,
+                zerolinecolor: colorMuted,
+            },
+            title: {
+                text: T.chart_title, x: 0, xanchor: "left",
+                font: { color: colorText, size: 13, weight: 700 },
+            },
+            shapes: [
+                { type: "line", xref: "paper", yref: "y",
+                  x0: 0, x1: 1, y0: 1, y1: 1,
+                  line: { color: colorGreen, width: 0.9, dash: "dot" } },
+                { type: "line", xref: "paper", yref: "y",
+                  x0: 0, x1: 1, y0: openPrice, y1: openPrice,
+                  line: { color: colorRed, width: 0.9, dash: "dot" } },
+            ],
+            legend: { orientation: "h", x: 0, y: 1.10, xanchor: "left",
+                      font: { color: colorText } },
+            hovermode: "x unified",
+        };
+        Plotly.react(CHART, [tracePath, traceAlloc, traceRetail, traceEnd],
+                     layout, { displayModeBar: false, responsive: true });
+    }
+
+    // Manual slider edits clear the active preset highlight.
+    [POP_EL, DRIFT_EL].forEach(function (el) {
+        el.addEventListener("input", function () { clearPreset(); render(); });
+    });
+    HOR_EL.addEventListener("input", render);
+    CAP_EL.addEventListener("input", render);
+
+    applyI18n();
+    buildPresets();
+    applyPreset(DEFAULT_PRESET);
+
+    function reportHeight() {
+        try {
+            var h = Math.ceil(document.documentElement.scrollHeight);
+            parent.postMessage({ type: "lesson-interactive-resize", height: h }, "*");
+        } catch (e) { /* ignore */ }
+    }
+    if (typeof ResizeObserver !== "undefined") {
+        new ResizeObserver(reportHeight).observe(document.body);
+    }
+    window.addEventListener("resize", reportHeight);
+    setTimeout(reportHeight, 50);
+    setTimeout(reportHeight, 500);
+
+    var themeObserver = new MutationObserver(render);
+    themeObserver.observe(document.documentElement, {
+        attributes: true, attributeFilter: ["data-theme"],
+    });
+
+    render();
+})();
+</script>
+
+</body>
+</html>

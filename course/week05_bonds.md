@@ -1,796 +1,721 @@
-# Week 5: Bonds - Your Portfolio's Shock Absorber
-
-## Reading Section
-
-### a) Why This Is Important
-
-Bonds are the single most important asset class that beginning investors tend to overlook. While stocks dominate headlines and cocktail-party conversations, bonds quietly do the unglamorous work of holding portfolios together when markets fall apart. Understanding bonds is not optional if you want to be a serious investor. It is essential.
-
-Here is why bonds matter for your investment journey:
-
-**Portfolio Stability (The Shock Absorber):** In the 2008 financial crisis, the S&P 500 fell approximately 37%. During that same period, U.S. Treasury bonds gained roughly 20%. An investor holding 100% stocks saw their $500,000 portfolio drop to $315,000. An investor holding 60% stocks and 40% bonds saw their portfolio decline to roughly $395,000, a dramatically less painful experience. That $80,000 difference between the two portfolios is the shock absorber effect of bonds. When you are watching the world panic, bonds are the part of your portfolio that lets you sleep at night.
-
-**Predictable Income:** Unlike stock dividends, which can be cut or eliminated at any time, bond coupon payments are contractual obligations. When you buy a bond, the issuer legally promises to pay you a fixed amount of interest on a fixed schedule. This predictability is invaluable for retirees who need to fund living expenses, and it is useful for younger investors who want a reliable income component in their portfolio.
-
-**Capital Preservation:** If you hold a bond to maturity and the issuer does not default, you get your principal back in full. This is fundamentally different from stocks, where there is no guarantee you will ever recover your initial investment. For money you cannot afford to lose, or for goals with specific time horizons (buying a house in five years, funding college in ten years), bonds provide a level of certainty that stocks simply cannot match.
-
-**Understanding the Economy:** Bond markets are larger than stock markets globally. The bond market often signals economic changes before the stock market does. Concepts like the yield curve, credit spreads, and the relationship between interest rates and asset prices are all rooted in the bond market. If you do not understand bonds, you are missing critical information about where the economy and markets are heading.
-
-**Diversification That Actually Works:** True diversification means owning assets that behave differently from each other. Bonds, particularly government bonds, have historically shown low or negative correlation with stocks during market stress. This is not true of many other so-called diversifiers. When stocks crash, high-quality bonds tend to rally as investors flee to safety. This negative correlation during crises is what makes bonds irreplaceable in a portfolio.
-
-In this lesson, we will build your understanding of bonds from the ground up. By the end, you will understand how bonds work, why they behave the way they do, and how to use them as the stabilizing foundation of your investment portfolio. Whether you are 25 or 65, whether you have $5,000 or $500,000, bonds have a role to play in your financial plan.
-
-The global bond market is approximately $130 trillion in size, larger than the global stock market. Every day, bond prices are sending signals about inflation expectations, economic growth, and the creditworthiness of governments and corporations. Investors who ignore bonds are flying blind to half the information the market is providing. After this lesson, you will no longer be one of them.
+# Week 5: Bonds — Coupons, Prices, and Yields
 
 ---
 
-### b) What You Need to Know
-
-#### What Is a Bond?
-
-A bond is essentially a loan. When you buy a bond, you are lending money to the issuer (a government, corporation, or municipality) in exchange for two promises: regular interest payments (called coupons) and the return of your principal (called par value or face value) at a specified future date (called the maturity date).
-
-This is the fundamental difference between stocks and bonds. When you buy stock, you become a part-owner of the company. When you buy a bond, you become a lender to the company. Owners have upside potential but no guarantees. Lenders get contractual guarantees but limited upside.
-
-```
-+------------------------------------------------------------------+
-|                     THE BOND CONTRACT                            |
-|                                                                  |
-|  YOU (the investor / lender)                                     |
-|    |                                                             |
-|    |--- Lend $1,000 (Face Value / Par Value) ------>  ISSUER     |
-|    |                                                  (borrower) |
-|    |<-- Receive coupon payments every 6 months -----  |          |
-|    |<-- Receive $1,000 back at maturity ------------  |          |
-|                                                                  |
-|  Example: 10-Year U.S. Treasury Bond, 4% Coupon                 |
-|                                                                  |
-|  Face Value:     $1,000                                          |
-|  Coupon Rate:    4% annually (paid semi-annually)                |
-|  Payment:        $20 every 6 months ($40/year)                   |
-|  Maturity:       10 years from issue date                        |
-|  At Maturity:    You get your $1,000 back                        |
-+------------------------------------------------------------------+
-```
-
-#### The Key Components of a Bond
-
-Every bond has these essential features:
-
-**Face Value (Par Value):** The amount the issuer promises to repay at maturity. Most bonds have a face value of $1,000. When people say a bond is trading "at par," they mean it is trading at $1,000 (or 100% of face value).
-
-**Coupon Rate:** The annual interest rate the issuer pays, expressed as a percentage of face value. A 5% coupon on a $1,000 bond means $50 per year. Most bonds pay coupons semi-annually, so you would receive $25 every six months.
-
-**Maturity Date:** The date when the issuer must repay the face value. Bonds are classified by maturity:
-
-```
-+-------------------------------------------------------------------+
-|  MATURITY CLASSIFICATION                                          |
-+-------------------------------------------------------------------+
-|  Short-Term:    1-3 years    (Treasury Bills, Notes)              |
-|  Intermediate:  3-10 years   (Treasury Notes, Corporate Bonds)    |
-|  Long-Term:     10-30 years  (Treasury Bonds, Long Corporate)     |
-+-------------------------------------------------------------------+
-|                                                                   |
-|  Timeline:                                                        |
-|                                                                   |
-|  Today         3yr          10yr              30yr                |
-|    |------------|-------------|-----------------|                 |
-|    [Short-Term] [Intermediate]  [  Long-Term   ]                 |
-|                                                                   |
-|  Lower risk <---------------------------------> Higher risk       |
-|  Lower yield <--------------------------------> Higher yield      |
-|  Less price sensitivity <--------------------> More sensitivity   |
-+-------------------------------------------------------------------+
-```
-
-**Yield:** This is where things get interesting. The yield is the actual return you earn on the bond, and it is not necessarily the same as the coupon rate. Understanding the difference between coupon rate and yield is one of the most important concepts in bond investing.
-
-#### Coupon Rate vs. Yield: Understanding the Difference
-
-The coupon rate is fixed when the bond is issued. It never changes. But after the bond is issued, its price can change in the secondary market. When the price changes, the effective return (yield) changes too.
-
-```
-+-------------------------------------------------------------------+
-|              COUPON RATE vs. CURRENT YIELD                        |
-+-------------------------------------------------------------------+
-|                                                                   |
-|  Bond: $1,000 face value, 5% coupon = $50/year in payments       |
-|                                                                   |
-|  SCENARIO 1: Bond trades AT PAR ($1,000)                         |
-|    Current Yield = $50 / $1,000 = 5.0%                           |
-|    Yield equals the coupon rate                                   |
-|                                                                   |
-|  SCENARIO 2: Bond trades at DISCOUNT ($900)                      |
-|    Current Yield = $50 / $900 = 5.56%                            |
-|    Yield is HIGHER than coupon rate                               |
-|    (You pay less but get the same $50)                            |
-|                                                                   |
-|  SCENARIO 3: Bond trades at PREMIUM ($1,100)                     |
-|    Current Yield = $50 / $1,100 = 4.55%                          |
-|    Yield is LOWER than coupon rate                                |
-|    (You pay more but still get only $50)                          |
-|                                                                   |
-+-------------------------------------------------------------------+
-|                                                                   |
-|  Key Insight: Price and yield move in OPPOSITE directions         |
-|                                                                   |
-|  Price goes UP   ------>  Yield goes DOWN                        |
-|  Price goes DOWN ------>  Yield goes UP                          |
-+-------------------------------------------------------------------+
-```
-
-**Yield to Maturity (YTM):** The current yield only considers coupon payments relative to price. Yield to Maturity is more complete because it also accounts for the gain or loss you will experience when the bond matures at par value.
-
-```
-Yield to Maturity Considers:
-  1. Annual coupon payments
-  2. The difference between purchase price and face value
-  3. The time remaining until maturity
-  4. Compounding of reinvested coupons
-
-Example:
-  Bond purchased at $950, 5% coupon, 5 years to maturity
-
-  Current Yield:  $50 / $950 = 5.26%
-
-  YTM calculation also includes:
-    Capital gain at maturity: $1,000 - $950 = $50
-    Spread over 5 years: $10/year additional return
-    YTM = approximately 5.8%
-
-  YTM > Current Yield (because you also profit from the discount)
-```
-
-YTM is the single best measure for comparing bonds because it captures the total expected return from coupon payments, price appreciation (or depreciation), and the time value of money.
-
-#### The Inverse Relationship: Price and Yield
-
-This is arguably the most important concept in all of bond investing. Bond prices and yields move in opposite directions. Always. Without exception. Understanding why this happens is critical.
-
-Imagine you own a bond that pays a 3% coupon. Now interest rates rise and new bonds are issued paying 5%. Who would buy your old 3% bond at full price when they can get a brand new 5% bond? Nobody. So your bond's price must fall until its yield is competitive with the new 5% bonds. Conversely, if rates fall to 2%, your 3% bond becomes very attractive, and buyers will bid up its price.
-
-```
-THE INVERSE RELATIONSHIP: BOND PRICE vs. YIELD
-
-  Bond                                         Bond
-  Price                                        Yield
-  ($)                                          (%)
-    |                                            |
-1200|*                                           |            *  7%
-    |  *                                         |          *
-1100|    *                                       |        *    6%
-    |      *                                     |      *
-1000|--------*--- Par Value ------           5% -|----*--------
-    |          *                                 |  *
- 900|            *                            4%-|*
-    |              *                             |
- 800|                *                        3%-|
-    |                  *                         |
-    +---|---|---|---|---|---                      +---|---|---|---
-        3%  4%  5%  6%  7%                       800  900  1000  1100
-          Market Yield                                Bond Price
-
-  As yield goes UP, price goes DOWN          Mirror image:
-  As yield goes DOWN, price goes UP          same relationship
-```
-
-This inverse relationship exists because of competition. A bond is simply a stream of future cash flows. When market interest rates change, the present value of those future cash flows changes. Higher rates mean future cash flows are worth less today (lower price). Lower rates mean future cash flows are worth more today (higher price).
-
-#### Duration: How Sensitive Is Your Bond?
-
-Not all bonds react equally to interest rate changes. A 30-year bond will experience much larger price swings than a 2-year bond for the same change in rates. This sensitivity is measured by a concept called **duration**.
-
-Duration tells you approximately how much a bond's price will change for a 1% change in interest rates.
-
-```
-DURATION AND INTEREST RATE SENSITIVITY
-
-  Bond A: 2-year Treasury, Duration = 1.9 years
-  Bond B: 10-year Treasury, Duration = 8.5 years
-  Bond C: 30-year Treasury, Duration = 20.2 years
-
-  If interest rates rise by 1%:
-  +-------------------------------------------------------------+
-  |  Bond    | Duration | Price Change | On $10,000 Investment   |
-  +-------------------------------------------------------------+
-  |  2-Year  |   1.9    |   -1.9%      |   -$190                |
-  |  10-Year |   8.5    |   -8.5%      |   -$850                |
-  |  30-Year |  20.2    |  -20.2%      |  -$2,020               |
-  +-------------------------------------------------------------+
-
-  Visual representation (1% rate increase):
-
-  2-Year:   [=========-]     Small price drop
-  10-Year:  [====------]     Moderate price drop
-  30-Year:  [--________]     Large price drop
-
-  Rule of thumb: Duration ~ approximate % price change
-  for each 1% change in interest rates.
-```
-
-This is why short-term bonds are considered safer than long-term bonds. They are less sensitive to interest rate changes. If you are worried about rising rates, shorten your duration. If you think rates will fall, longer duration bonds will give you bigger price gains.
-
-#### Types of Bonds
-
-Bonds come in many varieties. Understanding the major categories helps you choose the right ones for your portfolio.
-
-**Government Bonds (Sovereign Debt):**
-
-```
-+-------------------------------------------------------------------+
-|                    U.S. GOVERNMENT BONDS                          |
-+-------------------------------------------------------------------+
-|  Treasury Bills (T-Bills):                                       |
-|    Maturity: 4 weeks to 1 year                                   |
-|    Coupon: None (sold at discount, mature at par)                |
-|    Risk: Essentially zero (backed by U.S. government)            |
-|    Example: Buy at $980, receive $1,000 at maturity              |
-|                                                                   |
-|  Treasury Notes (T-Notes):                                       |
-|    Maturity: 2 to 10 years                                       |
-|    Coupon: Semi-annual fixed payments                            |
-|    Risk: Very low, but some price risk from rate changes         |
-|    Most widely watched: 10-Year Treasury Note                    |
-|                                                                   |
-|  Treasury Bonds (T-Bonds):                                       |
-|    Maturity: 20 to 30 years                                      |
-|    Coupon: Semi-annual fixed payments                            |
-|    Risk: Low credit risk, but significant interest rate risk     |
-|                                                                   |
-|  TIPS (Treasury Inflation-Protected Securities):                 |
-|    Maturity: 5, 10, or 30 years                                 |
-|    Special: Principal adjusts with inflation (CPI)               |
-|    Risk: Protects against inflation, still has rate risk         |
-|                                                                   |
-|  I-Bonds (Series I Savings Bonds):                               |
-|    Maturity: Must hold at least 1 year, penalty if < 5 years    |
-|    Rate: Fixed rate + inflation adjustment                       |
-|    Limit: $10,000 per person per year                            |
-+-------------------------------------------------------------------+
-```
-
-U.S. Treasury securities are considered the safest investments in the world because they are backed by the full faith and credit of the U.S. government. The 10-Year Treasury yield is the single most important number in global finance. It serves as the benchmark for mortgage rates, corporate borrowing costs, and the discount rate used to value virtually every asset.
-
-**Corporate Bonds:**
-
-Corporations issue bonds to raise capital. Corporate bonds pay higher yields than government bonds because they carry credit risk, the possibility that the company might default on its obligations.
-
-```
-CORPORATE BOND RISK SPECTRUM
-
-  Lower Risk / Lower Yield -----------------> Higher Risk / Higher Yield
-
-  [Investment Grade]                           [High Yield / "Junk"]
-  AAA  AA  A  BBB                              BB  B  CCC  CC  C  D
-  |    |   |   |                                |   |   |    |   |  |
-  v    v   v   v                                v   v   v    v   v  v
-  MSFT GE  T  Ford                             AMC  ?   ?    ?   ?  Default
-
-  Yield spread over Treasuries (approximate):
-  AAA: +0.5%    Investment Grade: Companies with
-  AA:  +0.7%    strong balance sheets and reliable
-  A:   +1.0%    cash flows. Lower risk of default.
-  BBB: +1.5%    BBB is the lowest investment grade.
-  -------       ----------------------------------------
-  BB:  +2.5%    High Yield (Junk): Companies with
-  B:   +4.0%    weaker finances or higher leverage.
-  CCC: +7.0%    Higher default risk compensated by
-  CC:  +10.0%   higher yields. Not suitable as core
-  C/D: Default  portfolio holdings for most investors.
-```
-
-#### Credit Ratings: The Bond Report Card
-
-Credit rating agencies (Moody's, S&P, Fitch) evaluate the creditworthiness of bond issuers and assign ratings. These ratings directly affect the interest rate the issuer must pay.
-
-```
-+-------------------------------------------------------------------+
-|                    CREDIT RATING SCALES                           |
-+-------------------------------------------------------------------+
-|  S&P/Fitch  |  Moody's  |  Grade            |  Meaning           |
-+-------------------------------------------------------------------+
-|  AAA        |  Aaa      |  Investment Grade  |  Highest quality   |
-|  AA+/AA/AA- |  Aa1-Aa3  |  Investment Grade  |  High quality      |
-|  A+/A/A-    |  A1-A3    |  Investment Grade  |  Upper medium      |
-|  BBB+/BBB/- |  Baa1-Baa3|  Investment Grade  |  Medium (lowest IG)|
-|-------------|-----------|-------------------|--------------------|
-|  BB+/BB/BB- |  Ba1-Ba3  |  High Yield       |  Speculative       |
-|  B+/B/B-    |  B1-B3    |  High Yield       |  Highly speculative|
-|  CCC        |  Caa      |  High Yield       |  Substantial risk  |
-|  CC         |  Ca       |  High Yield       |  Extremely risky   |
-|  C          |  C        |  High Yield       |  Near default      |
-|  D          |  ---      |  Default          |  In default        |
-+-------------------------------------------------------------------+
-
-Key threshold: BBB- / Baa3 is the line between investment grade and junk.
-Many institutional investors are REQUIRED to hold only investment grade bonds.
-When a bond is downgraded from BBB- to BB+, it becomes a "fallen angel"
-and forced selling by institutions can cause a sharp price decline.
-```
-
-#### How Bond Prices Move in Practice
-
-Understanding the forces that drive bond prices helps you make better investment decisions.
-
-```
-FACTORS THAT MOVE BOND PRICES
-
-+-------------------------------+------------------+------------------+
-| FACTOR                        | PRICE EFFECT     | YIELD EFFECT     |
-+-------------------------------+------------------+------------------+
-| Interest rates RISE           | Price FALLS      | Yield RISES      |
-| Interest rates FALL           | Price RISES      | Yield FALLS      |
-| Credit rating UPGRADE         | Price RISES      | Yield FALLS      |
-| Credit rating DOWNGRADE       | Price FALLS      | Yield RISES      |
-| Inflation expectations RISE   | Price FALLS      | Yield RISES      |
-| Economic recession fears      | Govt bonds RISE  | Govt yield FALLS |
-|                               | Corp bonds FALL  | Corp yield RISES |
-| Flight to safety              | Treasuries RISE  | Treasury yld FALL|
-+-------------------------------+------------------+------------------+
-```
-
-Notice the last two rows. During economic stress, government bonds and corporate bonds move in different directions. Investors sell corporate bonds (worried about defaults) and buy government bonds (seeking safety). This is called a "flight to quality," and it is one of the key reasons government bonds act as portfolio shock absorbers.
-
-#### The Yield Curve: What It Tells You
-
-The yield curve is a graph showing the yields on government bonds of different maturities at a single point in time. Its shape tells you a great deal about market expectations for the economy and interest rates.
-
-```
-YIELD CURVE SHAPES
-
-Normal (Upward Sloping):           Inverted:
-Economy is healthy                 Recession warning signal
-
-Yield                              Yield
-  |              ****              |  ****
-  |          ****                  |      ****
-  |      ****                     |          ****
-  |  ****                         |              ****
-  |**                             |                  ****
-  +---|---|---|---|---             +---|---|---|---|---
-     1Y  2Y  5Y 10Y 30Y             1Y  2Y  5Y 10Y 30Y
-
-Flat:                              Steep:
-Transition period                  Recovery / easy monetary policy
-
-Yield                              Yield
-  |                                |                    ****
-  |**********************         |               ****
-  |                                |          ****
-  |                                |     ****
-  |                                |****
-  +---|---|---|---|---             +---|---|---|---|---
-     1Y  2Y  5Y 10Y 30Y             1Y  2Y  5Y 10Y 30Y
-```
-
-**Normal Yield Curve:** Longer maturities pay higher yields. This makes intuitive sense: you should be compensated more for locking your money up for 30 years than for 1 year. This is the most common shape and reflects expectations for continued economic growth.
-
-**Inverted Yield Curve:** Short-term yields are higher than long-term yields. This is unusual and historically has been one of the most reliable recession predictors. An inverted yield curve means the market expects the Federal Reserve will need to cut short-term rates in the future due to economic weakness.
-
-**Flat Yield Curve:** All maturities pay roughly the same yield. This typically occurs during transitions between normal and inverted curves. A flat curve often signals uncertainty about the economic outlook, where the market cannot decide whether growth or recession lies ahead.
-
-**Steep Yield Curve:** A large difference between short and long-term yields. This often occurs during economic recoveries when the Fed holds short-term rates low but long-term expectations for growth and inflation push long yields higher. A steep curve is generally positive for banks (which borrow short and lend long) and for risk assets more broadly.
-
-It is worth noting that yield curve analysis is not a precise timing tool. The curve can stay inverted for months before a recession begins, and the lag between inversion and recession has historically ranged from 6 to 24 months. But as a directional indicator, it has one of the best track records in all of economics.
-
-#### Bonds in Your Portfolio: The Role of the Shock Absorber
-
-Bonds serve several critical functions in a diversified portfolio:
-
-```
-STOCK-BOND CORRELATION DURING MARKET STRESS
-
-              Normal Times              Crisis Times
-            (low correlation)       (negative correlation)
-
-  Stocks:   +-+-+-+-+-+             +-+-+-----__________
-  Bonds:    +-+-+-+-+-+             +-+-+-----//////////
-
-                                    When stocks crash,
-                                    bonds often rally
-                                    (flight to safety)
-
-PORTFOLIO IMPACT OF DIFFERENT STOCK/BOND ALLOCATIONS (Historical)
-
-+-------------------------------------------------------------------+
-| Allocation     | Avg Annual | Worst Year | Best Year | Volatility |
-| (Stock/Bond)   | Return     | Return     | Return    | (Std Dev)  |
-+-------------------------------------------------------------------+
-| 100/0          |  10.2%     |  -37.0%    |  +37.6%   |   15.2%    |
-| 80/20          |   9.4%     |  -28.5%    |  +32.2%   |   12.2%    |
-| 60/40          |   8.5%     |  -20.1%    |  +27.9%   |    9.6%    |
-| 40/60          |   7.5%     |  -11.8%    |  +24.7%   |    7.4%    |
-| 20/80          |   6.4%     |   -4.2%    |  +22.5%   |    5.7%    |
-| 0/100          |   5.2%     |   -2.9%    |  +20.1%   |    4.5%    |
-+-------------------------------------------------------------------+
-| Note: Based on historical U.S. data. Past performance does not    |
-| guarantee future results. Bond returns use aggregate bond index.  |
-+-------------------------------------------------------------------+
-
-Key Insight: The 60/40 portfolio gives up only ~1.7% annual return
-compared to 100% stocks, but reduces worst-year loss by nearly half
-and volatility by more than one-third.
-```
-
-The classic 60/40 portfolio (60% stocks, 40% bonds) has been a cornerstone of investment management for decades. While its exact proportions may not be right for everyone, the principle behind it is sound: blending assets with different return drivers and risk characteristics produces a smoother ride without sacrificing too much return.
-
-#### How to Invest in Bonds
-
-Individual investors have several ways to access bonds:
-
-```
-WAYS TO INVEST IN BONDS
-
-+-------------------------------------------------------------------+
-|  METHOD              | PROS                 | CONS                 |
-+-------------------------------------------------------------------+
-|  Individual Bonds    | Hold to maturity,    | High minimums        |
-|  (from brokerage)    | known cash flows,    | ($1,000-$10,000+),   |
-|                      | no ongoing fees      | less diversification |
-+-------------------------------------------------------------------+
-|  Bond Mutual Funds   | Professional mgmt,   | Ongoing fees,        |
-|                      | diversification,     | no maturity date,    |
-|                      | low minimums         | NAV fluctuates       |
-+-------------------------------------------------------------------+
-|  Bond ETFs           | Trade like stocks,   | Ongoing fees,        |
-|  (e.g., BND, AGG,   | low cost, very       | no maturity date,    |
-|   TLT, SHY, LQD)    | liquid, diversified  | price fluctuates     |
-+-------------------------------------------------------------------+
-|  Treasury Direct     | Buy directly from    | Less liquid,         |
-|  (treasurydirect.gov)| U.S. government,     | limited to           |
-|                      | no fees, I-Bonds     | government bonds     |
-+-------------------------------------------------------------------+
-
-Common Bond ETFs:
-  BND  - Total U.S. Bond Market (broad exposure)
-  AGG  - U.S. Aggregate Bond Index (similar to BND)
-  TLT  - 20+ Year Treasury Bonds (long duration, volatile)
-  SHY  - 1-3 Year Treasury Bonds (short duration, stable)
-  IEF  - 7-10 Year Treasury Bonds (intermediate duration)
-  LQD  - Investment Grade Corporate Bonds
-  HYG  - High Yield Corporate Bonds ("junk bonds")
-  TIPS - Treasury Inflation-Protected Securities
-```
-
-For most beginning investors, a broad bond ETF like BND or AGG is the simplest way to get diversified bond exposure at a low cost. As your portfolio grows and you develop more specific needs, you can add targeted bond ETFs or individual bonds.
-
-A practical starting approach for a $50,000 portfolio might be to put 40% ($20,000) in BND for broad, diversified bond exposure. As you learn more and develop preferences, you can gradually shift to more targeted bond holdings: perhaps splitting between SHY for stability, IEF for income, and LQD for corporate bond exposure. But there is no rush. BND is an excellent one-stop solution that serves investors well at any portfolio size.
+## Part 1: Reading Section
 
 ---
 
-### c) Common Misconceptions
+### 1. Why This Is Important
 
-**Misconception 1: "Bonds are completely safe."**
+A bond is the simplest financial instrument in the world. You lend
+someone a known amount, on a known schedule, for a known coupon, and
+they pay you back at a known date. Four numbers and a calendar.
+Stocks have nothing this clean.
 
-Bonds are generally safer than stocks, but they are not risk-free. They carry interest rate risk (prices fall when rates rise), credit risk (the issuer might default), inflation risk (fixed payments lose purchasing power over time), and liquidity risk (some bonds are hard to sell quickly). In 2022, the U.S. bond market experienced one of its worst years in history, with the aggregate bond index falling over 13% as the Federal Reserve aggressively raised interest rates. "Safer than stocks" does not mean "safe."
+And yet — bonds, the simplest instrument, generated the largest
+single multi-decade trend in modern financial history (a forty-year
+bull market from 1981 to 2020 in falling yields), and then in 2022
+delivered the worst calendar year for US Treasuries on record. Both
+moves were already inside the four-number contract, waiting for the
+investor to do the price-yield arithmetic.
 
-**Misconception 2: "If interest rates go up, I should sell my bonds."**
+You need to understand bonds for four reasons.
 
-Not necessarily. If you hold individual bonds to maturity, interest rate changes do not affect the cash you receive. You still get your coupons and your principal back at par. Bond price changes from rising rates only matter if you need to sell before maturity or if you hold bond funds (which do not have a maturity date). Additionally, rising rates mean new bonds pay higher yields, which benefits you when you reinvest coupons or add new bonds to your portfolio.
-
-**Misconception 3: "High-yield bonds are a great way to boost income."**
-
-High-yield (junk) bonds offer higher coupons, but they also carry significantly higher default risk. During recessions, junk bond default rates can spike to 10% or more. Worse, high-yield bonds tend to be positively correlated with stocks during market stress, which means they fail precisely when you need diversification most. They do not provide the same shock-absorber effect as investment-grade government bonds. Think of high-yield bonds as more like stocks than bonds in terms of their risk behavior.
-
-**Misconception 4: "Bond funds and individual bonds are the same thing."**
-
-They are fundamentally different. An individual bond has a specific maturity date, and if you hold it until that date, you know exactly what you will receive. A bond fund never matures. The fund manager constantly buys and sells bonds, and the fund's value (NAV) fluctuates daily. In a rising rate environment, a bond fund can lose money year after year because the portfolio is continuously marked to market. Neither is inherently better; they serve different purposes.
-
-**Misconception 5: "The coupon rate tells you what you will earn."**
-
-The coupon rate only tells you the annual interest payment relative to face value. If you buy the bond at a premium (above par), your actual return (yield) will be lower than the coupon rate. If you buy at a discount, your yield will be higher. Always look at yield to maturity, not coupon rate, when evaluating bond returns.
-
-**Misconception 6: "With stocks returning more over time, bonds are a waste of money."**
-
-This ignores the crucial role of volatility in real-world investing. A 100% stock portfolio has higher expected returns on paper, but the gut-wrenching drawdowns can cause investors to panic-sell at the worst possible time. Studies consistently show that investor behavior (selling in panic, buying in euphoria) destroys far more wealth than suboptimal asset allocation. The bonds in your portfolio are there not just for returns, but to prevent you from making catastrophic emotional decisions about the rest of your portfolio.
-
-**Misconception 7: "All government bonds are equally safe."**
-
-U.S. Treasury bonds are extremely safe, but government bonds from other countries carry varying degrees of risk. Greece's government bonds lost approximately 75% of their value during the European debt crisis of 2010-2012. Argentina has defaulted on its government bonds multiple times. Even within the "safe" category, longer-maturity Treasuries carry significant interest rate risk, as we saw in 2022. When people say "government bonds are safe," they usually mean short-to-intermediate-term U.S. Treasury bonds specifically.
-
----
-
-### d) Common Questions and Answers
-
-**Q1: How much of my portfolio should be in bonds?**
-
-A: A common rule of thumb is to hold your age in bonds (30 years old = 30% bonds), though many advisors now suggest a more aggressive "age minus 20" for younger investors (30 years old = 10% bonds). The right percentage depends on your risk tolerance, time horizon, income needs, and other sources of financial stability. At minimum, if you have any money you cannot afford to lose within the next 5 years, that money belongs in bonds or cash, not stocks.
-
-**Q2: Why did bonds lose so much money in 2022?**
-
-A: The Federal Reserve raised interest rates at the fastest pace in 40 years, from near 0% to over 4% in a single year. Because bond prices move inversely to yields, this rapid rate increase caused historic bond price declines. Long-duration bonds were hit hardest; the TLT ETF (20+ year Treasuries) fell about 31%. This was an exceptional year driven by the unusual starting point of near-zero interest rates combined with the fastest tightening cycle in modern history.
-
-**Q3: What is the difference between Treasury bonds and municipal bonds?**
-
-A: Treasury bonds are issued by the federal government and their interest is exempt from state and local taxes but subject to federal tax. Municipal bonds (munis) are issued by state and local governments, and their interest is generally exempt from federal taxes and often exempt from state taxes if you live in the issuing state. For investors in high tax brackets, the tax advantage of munis can make their after-tax return competitive with or better than Treasuries, even though their pre-tax yields are lower.
-
-**Q4: Can I lose money on a government bond?**
-
-A: You will not lose money due to default on a U.S. Treasury bond (the government can print money to repay). However, you can lose money if you sell before maturity when yields have risen (price will be below what you paid). You can also lose purchasing power if inflation exceeds your bond's yield. In real (inflation-adjusted) terms, government bonds can and do produce negative returns.
-
-**Q5: What happens to bonds during a recession?**
-
-A: Government bonds typically perform very well during recessions because the Federal Reserve cuts interest rates (pushing bond prices up) and investors flee to the safety of government debt. Corporate bonds, especially high-yield, can perform poorly during recessions because default fears widen credit spreads. This divergence is why government bonds are the preferred portfolio shock absorber.
-
-**Q6: Should I buy individual bonds or bond funds?**
-
-A: For most investors with portfolios under $500,000, bond ETFs offer the best combination of diversification, low cost, and liquidity. If you have a specific liability to match (like funding a known expense in 5 years), individual bonds or a bond ladder might be more appropriate because you can hold to maturity and eliminate interest rate risk. Bond ladders involve buying bonds maturing in consecutive years (1-year, 2-year, 3-year, etc.) so you always have bonds maturing to provide liquidity.
-
-**Q7: What is a bond ladder?**
-
-A: A bond ladder is a strategy where you buy bonds with staggered maturity dates. For example, you might buy bonds maturing in 1, 2, 3, 4, and 5 years. When the 1-year bond matures, you reinvest the proceeds in a new 5-year bond, maintaining the ladder structure. This provides regular liquidity, reduces interest rate risk (you are never locked into one rate for a long period), and takes advantage of typically higher yields on longer maturities.
-
-```
-BOND LADDER EXAMPLE ($50,000 investment)
-
-Year 1:  $10,000 in 1-year bond  ---> matures, reinvest in 5-year
-Year 2:  $10,000 in 2-year bond  ---> matures, reinvest in 5-year
-Year 3:  $10,000 in 3-year bond  ---> matures, reinvest in 5-year
-Year 4:  $10,000 in 4-year bond  ---> matures, reinvest in 5-year
-Year 5:  $10,000 in 5-year bond  ---> matures, reinvest in 5-year
-
-     Year 1    Year 2    Year 3    Year 4    Year 5
-     [Bond A]  [Bond B]  [Bond C]  [Bond D]  [Bond E]
-              [New E1]  [Bond C]  [Bond D]  [Bond E]
-                        [New E2]  [Bond D]  [Bond E]
-
-Each year: one bond matures, providing liquidity
-Each reinvestment: captures current market rates
-```
-
-**Q8: What is the "risk-free rate" and why is it based on bonds?**
-
-A: The risk-free rate is the theoretical return you can earn with zero risk of default. In practice, the yield on short-term U.S. Treasury bills is used as the risk-free rate because the U.S. government has never defaulted on its debt. This rate is foundational to all of finance because every investment's expected return is defined as the risk-free rate plus a risk premium. When the risk-free rate changes, it reprices everything from stocks to real estate to corporate bonds.
-
-**Q9: What are TIPS, and should I own them?**
-
-A: Treasury Inflation-Protected Securities (TIPS) are government bonds whose principal adjusts with inflation (as measured by CPI). If inflation is 3%, a $1,000 TIPS bond adjusts to $1,030, and your coupon payment is calculated on the new, higher principal. TIPS protect against inflation but can perform poorly when real interest rates rise. They are a useful component for investors particularly concerned about inflation eroding their purchasing power, but they are not a replacement for nominal Treasuries in a diversified portfolio.
-
-**Q10: How do rising interest rates affect my stock portfolio?**
-
-A: Rising bond yields increase the discount rate used to value future cash flows, which tends to push stock prices lower, particularly for growth stocks whose value depends heavily on distant future earnings. Rising rates also make bonds more attractive relative to stocks, drawing some capital away from equities. However, if rates are rising because the economy is strong, corporate earnings growth can offset the negative discount rate effect. The speed and magnitude of rate increases matters more than the absolute level.
+1. **They are the discount rate of everything.** Every cash flow on
+   earth — your house, a stock's earnings stream, a private-equity
+   exit, a pension liability — is priced by discounting against the
+   risk-free Treasury curve. When the 10-year yield moves from 1.5%
+   to 4.5%, every long-duration asset on the planet reprices. You
+   cannot understand any other asset class without understanding
+   what its discount rate is doing.
+2. **They are an asset class in their own right.** Last week's 60/40
+   leaned on Treasuries for the diversification benefit. This week
+   we open the bond box and ask: what are we actually holding,
+   how does it pay, and how does its price form? After this lesson
+   the 40 in 60/40 is no longer a black box.
+3. **They tell you what the market expects.** The yield curve, the
+   spread between BAA corporates and 10-year Treasuries, and the
+   TIPS breakeven rate are three separate, daily-quoted, public
+   forecasts of growth, default risk, and inflation. The bond
+   market is the cheapest macro intelligence service on earth.
+4. **The 1981-2020 bond bull market is the regime backdrop for
+   almost every "passive works" claim of the last two generations.**
+   Horace's SOUL principle #2 — that we are 40+ years into a
+   passive-investing-friendly regime that *has triggers we should
+   watch* — sits squarely on top of the bond chart. A generation
+   of investors has never seen a real bond bear market. 2022 was
+   the first warning shot.
 
 ---
 
-## YouTube Script
+### 2. What You Need to Know
 
-[VISUAL: Animated intro with show logo. Text: "Week 5: Bonds - Your Portfolio's Shock Absorber - Level 1: Foundations"]
+#### 2.1 The Bond Cash Flow — Four Numbers and a Calendar
 
-**Horace:** Welcome back, everyone. Today we are tackling what I think might be the most underappreciated topic in all of investing. We are going to talk about bonds.
+A bond is fully specified by:
+
+- **Face value** $F$ — the amount returned at maturity. Almost
+  always $1,\!000 in the US market, conventionally quoted as 100.
+- **Coupon rate** $c$ — the annual interest rate, fixed at issue.
+  A 4% coupon on a $1,\!000 face pays $40 per year.
+- **Years to maturity** $N$ — when face is repaid.
+- **Payment frequency** $m$ — how many coupon payments per year.
+  US Treasuries and corporates: $m = 2$ (semi-annual). Many
+  international bonds: $m = 1$ (annual). Some municipals: $m = 4$.
 
-**Stella:** Bonds. Honestly, Horace, every time someone mentions bonds, my eyes kind of glaze over. Stocks are exciting. Crypto is exciting. Bonds just sound... boring.
-
-**Horace:** And that reaction is exactly why we need this lesson. Bonds are supposed to be boring. Boring is their job. When your stock portfolio is crashing 30% and you cannot sleep at night, the boring part of your portfolio that is holding steady or going up is what keeps you from panic-selling everything. Bonds are the seatbelt in your investment car. You do not notice them until you crash, and then you are very glad they were there.
-
-[VISUAL: Animation of a car driving smoothly, then hitting a pothole. The driver with a seatbelt (labeled "Bonds") stays in place. The driver without a seatbelt (labeled "100% Stocks") goes through the windshield. Text: "Boring = Feature, Not a Bug"]
-
-**Stella:** OK, that is a good way to put it. So let us start from scratch. What IS a bond?
-
-**Horace:** A bond is a loan. That is it. When you buy a bond, you are lending money to someone. It could be the U.S. government, a corporation like Apple, or a city government. In return for lending them money, they promise to pay you interest on a regular schedule and give your money back at a specific date in the future.
-
-**Stella:** So it is the opposite of a stock? With a stock, I own a piece of the company. With a bond, I am just lending money to the company.
-
-**Horace:** Exactly right. And that distinction matters enormously. As a stock owner, you are last in line. If the company goes bankrupt, everyone else gets paid before you. As a bondholder, you are near the front of the line. The company is legally obligated to pay you before they pay any dividends to stockholders. That priority in the capital structure is a fundamental protection.
-
-**Stella:** Is that why bonds are considered safer than stocks?
-
-**Horace:** It is one of the key reasons. The other reason is the contractual nature of bond payments. When you buy a stock, the company might pay dividends, might not, might cut them at any time. Nobody guarantees your return. A bond is a legal contract. The issuer is legally obligated to make every single coupon payment and return your principal at maturity. If they miss a payment, they are in technical default, and bondholders can take legal action. That contractual certainty is something stocks simply cannot offer.
-
-[VISUAL: A line of people at a window labeled "Company Goes Bankrupt - Who Gets Paid?" The order from front to back: "Secured Bondholders", "Unsecured Bondholders", "Preferred Stockholders", "Common Stockholders" (with a sad face). Text: "Bonds = Lender Priority"]
-
-**Stella:** So bonds are safer because you get paid first?
-
-**Horace:** Generally, yes. And there is another layer of safety. Bond payments are contractual obligations. When Apple says they will pay 3% interest on their bond, that is a legal promise. If they miss that payment, they are in default, and bondholders can force the company into bankruptcy. Stock dividends, on the other hand, can be cut or eliminated any time the board of directors decides. No one is obligated to pay them.
-
-**Stella:** Got it. So walk me through the basic structure. What are the components of a bond?
-
-**Horace:** Every bond has three key pieces. First, the face value, also called par value. This is the amount you are lending, usually $1,000. Second, the coupon rate, which is the annual interest rate. A 4% coupon on a $1,000 bond means you get $40 per year. And third, the maturity date, which is when the issuer gives you your $1,000 back.
-
-[ANIMATION: Reference animation/week05_bond_pricing.py - An animation showing a bond being constructed piece by piece. A $1,000 bill appears (face value), then a percentage sign drops in (coupon rate = 4%), then a calendar flips to show a date 10 years out (maturity). Cash flow arrows then animate: small $20 arrows flowing from the bond to the investor every 6 months, and a large $1,000 arrow flowing back at the end.]
-
-**Stella:** Wait, you said $40 per year, but the payments are every six months?
-
-**Horace:** Good catch. Most bonds pay semi-annually. So a 4% coupon means two payments of $20 each, six months apart. At the end, when the bond matures, you get your final coupon payment plus your $1,000 face value back.
-
-**Stella:** So if I buy a 10-year bond with a 4% coupon, I know exactly what I am getting: $20 every six months for 10 years, and then $1,000 at the end?
-
-**Horace:** If you hold it to maturity and the issuer does not default, yes. That predictability is one of the main attractions of bonds. With stocks, you never know what your returns will be. With bonds, you can calculate your exact cash flows from day one.
-
-[VISUAL: Side-by-side comparison. Left: "Stock Returns" showing a jagged, unpredictable line with question marks. Right: "Bond Cash Flows" showing a clean, predictable staircase of coupon payments with a final step up for the principal return. Text: "Bonds = Predictable Cash Flows"]
-
-**Stella:** OK, this is where I always get confused. You mentioned the coupon rate is 4%. But I also hear people talking about "yield." Are those different things?
-
-**Horace:** This is one of the most important distinctions in bond investing, and it confuses almost everyone at first. The coupon rate is fixed. It never changes. It is printed on the bond, so to speak. But after a bond is issued, it can trade in the secondary market, and its price can go above or below $1,000.
-
-**Stella:** Why would the price change?
-
-**Horace:** Because of interest rates. Let us say you bought a bond paying a 3% coupon. A year later, new bonds are being issued with 5% coupons. Now your bond looks less attractive by comparison. If you try to sell it, nobody will pay full price for a 3% bond when they can buy a brand new 5% bond. So your bond's price drops.
-
-**Stella:** That makes sense. If there is something better available, the old one has to get cheaper.
-
-**Horace:** Right. And when the price drops, the yield goes up. Here is the key formula. Current yield equals the annual coupon payment divided by the current price. So your 3% coupon bond pays $30 per year. If it drops in price to $900, the yield is $30 divided by $900, which is 3.33%. The bond's yield has risen to become more competitive with new bonds.
-
-[VISUAL: An animated scale/balance. On one side: "Bond Price" with a weight. On the other side: "Bond Yield" with a weight. As Bond Price goes down, Bond Yield goes up, and vice versa. Text in center: "ALWAYS Opposite. ALWAYS."]
-
-**Stella:** So price and yield move in opposite directions?
-
-**Horace:** Always. This is the iron law of bonds. It is not a tendency or a correlation. It is a mathematical certainty. Price up, yield down. Price down, yield up. If you remember nothing else from today's lesson, remember this.
-
-**Stella:** Why does this matter so much?
-
-**Horace:** Because it directly affects your portfolio. When the Federal Reserve raises interest rates, bond prices fall. When they cut rates, bond prices rise. In 2022, the Fed raised rates at the fastest pace in four decades, and the bond market had one of its worst years in history. The broad bond market index fell over 13%. Long-term Treasury bonds fell about 31%.
-
-**Stella:** Wait, I thought bonds were supposed to be safe!
-
-**Horace:** And there is the nuance. Bonds are safe in terms of getting your money back at maturity. But their prices can fluctuate significantly along the way, especially for long-term bonds. A 30-year Treasury bond can easily lose 20% of its value in a single year if rates rise sharply. Short-term bonds, like 1-2 year Treasuries, are much more stable because their prices barely move.
-
-[VISUAL: Three horizontal bars showing price sensitivity. "2-Year Bond: Small price swing" (thin bar, small left-right movement). "10-Year Bond: Moderate price swing" (medium bar, larger movement). "30-Year Bond: Large price swing" (long bar, dramatic movement). Text: "Duration = Sensitivity to Rate Changes"]
-
-**Stella:** You just said something important. Longer bonds are more sensitive. Is there a measure for that?
-
-**Horace:** Yes, it is called duration. Duration tells you approximately how much a bond's price will change for every 1% change in interest rates. A bond with a duration of 5 years will lose about 5% if rates rise by 1%. A bond with a duration of 20 will lose about 20%.
-
-**Stella:** So if I am worried about rising rates, I want short duration?
-
-**Horace:** Exactly. Short-duration bonds are your defensive choice. And if you think rates are going to fall, longer-duration bonds will give you bigger gains. This is a key strategic decision in bond investing.
-
-**Stella:** Let us talk about the different types of bonds. I know there are government bonds and corporate bonds, but what are the real differences?
-
-**Horace:** The biggest difference is credit risk. U.S. Treasury bonds are backed by the full faith and credit of the U.S. government. They are considered the safest investments in the world because the government can tax and even print money to pay its debts. The chance of the U.S. defaulting on Treasury bonds is essentially zero.
-
-**Stella:** And corporate bonds?
-
-**Horace:** Corporate bonds are issued by companies, and companies can and do go bankrupt. So corporate bonds carry credit risk, the risk that the issuer will not be able to pay you back. To compensate you for taking that risk, corporate bonds pay a higher yield than Treasuries. The extra yield over Treasuries is called the credit spread.
-
-[VISUAL: A staircase/layer diagram. Bottom step: "U.S. Treasuries: 4.0% yield, Essentially Zero Default Risk". Second step: "Investment-Grade Corporate (AAA-BBB): 5.0-5.5% yield, Low Default Risk". Top step: "High-Yield/Junk (BB and below): 7.0-9.0%+ yield, Higher Default Risk". Arrows showing the spread between each level.]
-
-**Stella:** How do I know which companies are risky and which are safe?
-
-**Horace:** That is where credit ratings come in. Three major agencies, S&P, Moody's, and Fitch, evaluate every bond issuer and assign a letter grade. Triple-A is the highest, meaning extremely safe. Then you go down through double-A, single-A, triple-B. Triple-B minus is the lowest rung of what is called investment grade.
-
-**Stella:** And below that?
-
-**Horace:** Below investment grade is high yield, also colorfully known as junk bonds. These are rated BB and below. They pay much higher yields because there is a real chance the company might default. During normal times, junk bond default rates are around 2-3%. During recessions, they can spike to 10% or higher.
-
-**Stella:** So junk bonds are not really shock absorbers.
-
-**Horace:** Not at all. In fact, junk bonds tend to behave more like stocks during a crisis. When the economy weakens, investors worry about defaults and sell junk bonds. Their prices crash at the same time stocks are crashing. That is the exact opposite of what you want from the bond portion of your portfolio.
-
-[VISUAL: Two-panel comparison during "2008 Crisis." Left panel: "Treasury Bonds" showing a green upward arrow (+20%). Right panel: "Junk Bonds" showing a red downward arrow (-26%). Text: "Not All Bonds Are Created Equal"]
-
-**Stella:** That is a really important distinction. So for the shock-absorber role, I want government bonds, not junk bonds.
-
-**Horace:** Exactly. Government bonds and investment-grade bonds are your shock absorbers. Junk bonds are a different tool for a different purpose. They are more of a return-enhancement play, but they will not protect you in a downturn.
-
-**Stella:** Let us talk about the yield curve. I hear people on the news talking about it, especially when it inverts. What is it?
-
-**Horace:** The yield curve is simply a graph that plots the yields of government bonds of different maturities at a single point in time. On the left, you have short-term bonds like 3-month and 2-year Treasuries. On the right, you have long-term bonds like 10-year and 30-year Treasuries. Normally, the curve slopes upward because longer-term bonds pay higher yields to compensate for the additional time and uncertainty.
-
-**Stella:** Makes sense. Why would I accept the same yield for locking my money up for 30 years versus 1 year?
-
-**Horace:** You would not. And that is why a normal, upward-sloping yield curve is the typical state of affairs. But sometimes the curve inverts, meaning short-term yields are higher than long-term yields. And that is a big deal.
-
-[ANIMATION: Reference animation/week05_bond_pricing.py - An animated yield curve that morphs between shapes. Starts with a normal upward slope, then gradually flattens, then inverts. Labels appear at each stage: "Normal: Economy Healthy", "Flat: Transition Period", "Inverted: Recession Warning". A historical timeline below shows previous inversions followed by recessions, with dates.]
-
-**Stella:** Why does an inverted yield curve predict recessions?
-
-**Horace:** Think about what the yield curve represents. Long-term yields reflect the market's expectations for future short-term rates. If the market expects the economy to slow down, it expects the Fed will have to cut rates in the future. So long-term yields fall below current short-term yields. Historically, every U.S. recession in the past 50 years has been preceded by a yield curve inversion. It is not a perfect timing tool, but it is one of the most reliable warning signals we have.
-
-**Stella:** Fascinating. So how should I actually use bonds in my portfolio?
-
-**Horace:** The classic approach is the 60/40 portfolio: 60% stocks, 40% bonds. Let me show you why this works. Going back to historical data, a 100% stock portfolio has returned about 10% annually, but with gut-wrenching drawdowns. The worst year was negative 37%. A 60/40 portfolio returned about 8.5% annually, giving up only about 1.5% per year, but the worst year was only negative 20%. And the volatility dropped from about 15% to under 10%.
-
-**Stella:** So you give up a little bit of return but get a lot more stability.
-
-**Horace:** That is the trade-off. And here is the thing that most people miss: the stability is not just about comfort. It is about behavior. When your portfolio drops 37%, the temptation to sell everything and go to cash is overwhelming. Millions of people did exactly that in 2008 and 2009. They locked in their losses and missed the recovery. But when your portfolio only drops 20%, while still painful, most people can hold on. The bonds in your portfolio protect you not just from financial loss, but from your own worst instincts.
-
-[VISUAL: Two investor reactions side by side. Left: "100% Stock Investor in 2008" showing a panicking figure selling at the bottom (-37%), then the recovery happens without them. Right: "60/40 Investor in 2008" showing a concerned but calm figure holding through -20%, then participating in the recovery. Final wealth comparison shown below.]
-
-**Stella:** That is such an important point. The best portfolio is the one you can actually stick with.
-
-**Horace:** Exactly. A theoretically optimal portfolio that you abandon in a panic is far worse than a slightly less optimal portfolio that you hold through thick and thin.
-
-**Stella:** How should I actually invest in bonds? Buy individual bonds, or use funds?
-
-**Horace:** For most people, bond ETFs are the way to go. An ETF like BND or AGG gives you exposure to thousands of bonds, government and corporate, across all maturities, for a fee of about 0.03% per year. That is three cents per hundred dollars invested. It is broadly diversified, incredibly low cost, and you can buy and sell it like any stock.
-
-**Stella:** What about buying Treasuries directly?
-
-**Horace:** You can buy Treasury bonds directly from the U.S. government through their website, TreasuryDirect.gov. This is a good option for I-Bonds, which are inflation-protected savings bonds limited to $10,000 per person per year. For other Treasuries, buying through your brokerage is usually more convenient.
-
-[VISUAL: A comparison table showing four ways to buy bonds: "Bond ETFs" (BND, AGG, TLT), "Individual Bonds" (through brokerage), "TreasuryDirect" (I-Bonds, T-Bills), and "Bond Mutual Funds" (Vanguard, Fidelity). Each with a brief pro and con listed.]
-
-**Stella:** What about a bond ladder? I have heard that term.
-
-**Horace:** A bond ladder is a strategy where you buy bonds maturing in consecutive years. For example, you buy bonds maturing in 1, 2, 3, 4, and 5 years. Each year, the shortest bond matures, you get your money back, and you can reinvest it in a new 5-year bond. This gives you regular liquidity, reduces interest rate risk, and over time, you end up capturing the average of rates across all those years.
-
-**Stella:** That sounds really practical.
-
-**Horace:** It is. And it is especially useful for retirees who need regular income. Each year, a bond matures and provides cash for living expenses, while the rest of the ladder continues earning interest.
-
-**Stella:** Speaking of practical, let me ask about municipal bonds. I hear they have tax advantages?
-
-**Horace:** Municipal bonds, or munis, are issued by state and local governments. The big advantage is that their interest is generally exempt from federal income tax, and often from state tax too if you live in the issuing state. For someone in a high tax bracket, say 35% federal, a muni bond yielding 3.5% is equivalent to a taxable bond yielding about 5.4%. That tax advantage can be very significant.
-
-**Stella:** So munis are better for people in high tax brackets?
-
-**Horace:** Generally, yes. If you are in the 10% or 12% tax bracket, the tax benefit is small and you are usually better off with Treasuries or corporate bonds that pay higher pre-tax yields. But if you are in the 32% bracket or higher, munis deserve serious consideration, especially for taxable accounts. In tax-advantaged accounts like IRAs, the tax benefit does not apply, so munis are less attractive there.
-
-[VISUAL: A side-by-side tax comparison. "Taxable Bond: 5% yield, 35% tax bracket, After-tax: 3.25%". "Municipal Bond: 3.5% yield, Tax-exempt, After-tax: 3.5%". The muni wins despite the lower headline yield. Text: "Always Compare After-Tax Yields"]
-
-**Stella:** That is a great point about the difference between taxable and tax-advantaged accounts. OK, let me ask about something that happened recently. In 2022, both stocks and bonds fell at the same time. That is not supposed to happen, right?
-
-**Horace:** Great question. Historically, stocks and bonds have tended to move in opposite directions during crises. Stocks fall, bonds rally, the portfolio stays relatively stable. But 2022 was unusual because the primary driver was inflation and the Fed's aggressive rate hikes. Inflation hurts both stocks (through higher costs and discount rates) and bonds (through rising yields). When inflation is the main risk, the normal stock-bond diversification benefit can break down.
-
-**Stella:** So does that mean 60/40 is dead?
-
-**Horace:** No. 2022 was the exception, not the rule. The stock-bond diversification benefit has worked for most of the past century. One bad year does not invalidate decades of evidence. And importantly, the conditions that caused 2022, near-zero interest rates combined with a sudden inflation spike, were historically unusual. With bond yields now at more normal levels, the diversification benefit should function as expected during future crises driven by economic weakness rather than inflation.
-
-[VISUAL: Timeline showing stock-bond correlation. Most periods show negative correlation (bonds rally when stocks fall), with 2022 highlighted as an exception. Text: "2022 Was the Exception, Not the New Rule"]
-
-**Stella:** What about Treasury Inflation-Protected Securities? TIPS?
-
-**Horace:** TIPS are a special type of Treasury bond where the principal adjusts with inflation. If inflation runs at 3%, a $1,000 TIPS bond adjusts to $1,030, and your coupon is paid on the higher amount. They are useful for investors worried about inflation eating into their purchasing power. But they still have interest rate risk, so they can lose value if real interest rates rise.
-
-**Stella:** One last question. When people talk about the "10-year yield," why is that number so important?
-
-**Horace:** The 10-year Treasury yield is the most watched number in all of finance. It serves as the benchmark for mortgage rates, car loans, corporate borrowing costs, and the discount rate used to value virtually every asset on the planet. When the 10-year yield rises, borrowing gets more expensive across the entire economy. Mortgage rates go up, corporate expansion slows, and stock valuations come under pressure. When it falls, the opposite happens. If you want to understand where the economy is heading, watch the 10-year yield.
-
-**Stella:** That is really helpful context. So to summarize: bonds are loans where you get predictable interest payments. Price and yield always move in opposite directions. Government bonds are the safest and provide the best crash protection. Duration measures how sensitive a bond is to rate changes. Credit ratings tell you how risky a corporate bond is. And bonds play a crucial role as the shock absorber in your portfolio, protecting you not just financially, but from your own emotional mistakes.
-
-**Horace:** That is an excellent summary. And the key takeaway is this: bonds may be boring, but boring is a feature, not a bug. Your portfolio needs an anchor, and bonds are that anchor.
-
-**Stella:** I actually find this more interesting than I expected. The inverse price-yield relationship and the yield curve stuff is fascinating.
-
-**Horace:** Once you start watching bond markets, you will see how they connect to everything else in the economy. It is like learning to read a new language.
-
-**Stella:** What is coming up next week?
-
-**Horace:** Next week we are going to talk about gold and commodities. Another asset class that plays a specific diversification role in your portfolio, but for very different reasons than bonds.
-
-[VISUAL: Preview slide for Week 6 with text: "Next Week: Gold and Commodities as Diversifiers - Understanding Alternative Asset Classes"]
-
-**Stella:** Before we go, rapid-fire round?
-
-**Horace:** Let us do it.
-
-**Stella:** Is it possible to lose money on a government bond?
-
-**Horace:** Yes, if you sell before maturity when rates have risen. Also, if inflation exceeds your yield, you lose purchasing power. But you will not lose money from default on a U.S. Treasury.
-
-**Stella:** What is the minimum to invest in bonds?
-
-**Horace:** Individual bonds typically have $1,000 minimums. Bond ETFs like BND can be bought for the price of one share, often around $70-80. Some brokers allow fractional shares, so you could start with as little as $1.
-
-**Stella:** Best bond for a beginner?
-
-**Horace:** A total bond market ETF like BND or AGG. Instant diversification, ultra-low cost, and you can buy it in any brokerage account.
-
-**Stella:** Should I buy bonds when interest rates are high or low?
-
-**Horace:** High rates are actually a great time to buy bonds because you lock in higher yields. When rates are low, bond yields are unattractive and there is more room for prices to fall if rates rise. The worst time to load up on bonds was 2020-2021 when rates were near zero.
-
-**Stella:** What is the biggest mistake bond investors make?
-
-**Horace:** Reaching for yield. Buying risky, high-yield bonds just because they pay more, without understanding the credit risk. The purpose of bonds in your portfolio is stability, not maximizing income. If you want higher returns, increase your stock allocation instead of buying junk bonds.
-
-**Stella:** What about I-Bonds? I heard they were really popular a couple years ago.
-
-**Horace:** I-Bonds are savings bonds you buy directly from the U.S. government at TreasuryDirect.gov. Their rate is a combination of a fixed rate plus an inflation adjustment that resets every six months. When inflation was running at 9% in 2022, I-Bonds were paying over 9%. That attracted a huge wave of interest. The limit is $10,000 per person per year, and you have to hold them at least one year. There is a penalty of three months' interest if you sell within five years. For the money they accept, they are a great low-risk, inflation-protected savings vehicle.
-
-**Stella:** And one more: how do I know when to use short-term versus long-term bonds?
-
-**Horace:** Match your bond duration to your time horizon and outlook. If you need the money in 2-3 years, use short-term bonds or a short-term bond ETF like SHY. They are very stable. If you have a longer horizon and believe rates will fall, long-term bonds like TLT can provide both income and capital gains. For a general portfolio allocation with no specific view on rates, an intermediate bond fund like BND or AGG gives you a balanced middle ground.
-
-[VISUAL: A decision tree. "When do you need the money?" Arrow to "1-3 years: SHY (short-term)". Arrow to "3-10 years: IEF (intermediate)". Arrow to "10+ years: TLT (long-term)". Arrow to "Not sure: BND/AGG (total market)". Text: "Match Duration to Your Time Horizon"]
-
-**Stella:** Great advice. Thanks, everyone. See you next week.
-
-**Horace:** Thanks for watching. If this helped demystify bonds for you, please like and subscribe. We will see you in Week 6.
-
-[VISUAL: End screen with subscribe button, playlist link to Level 1: Foundations series, and social media handles]
+Each coupon is $C = F \cdot c / m$. So a 4% semi-annual coupon
+on $1,\!000 face pays $20 every six months for $N$ years, plus
+$1,\!000 at the end.
+
+That's it. That's the contract. Everything else — price, yield,
+duration, convexity — is *math performed on those four numbers
+plus a discount rate*.
+
+#### 2.2 Price Is Just Discounted Cash Flow
+
+If you require an annual return of $y$ (the **market yield**, or
+**yield to maturity**) on the bond's risk profile, then the price
+you should be willing to pay today is the present value of every
+cash flow:
+
+$$ P = \sum_{t=1}^{m \cdot N} \frac{C}{(1 + y/m)^{t}} + \frac{F}{(1 + y/m)^{m \cdot N}} $$
+
+That sum has a closed form:
+
+$$ P = C \cdot \frac{1 - (1 + y/m)^{-mN}}{y/m} + \frac{F}{(1 + y/m)^{mN}} $$
+
+But the formula matters less than the *shape*: a bond is one
+geometric series of coupons plus one balloon payment of face. Drop
+either piece and you have a different instrument (the geometric
+series alone is an annuity; the balloon alone is a zero-coupon
+bond).
+
+Three immediate consequences:
+
+- If $y = c$, then $P = F$. The bond trades **at par**.
+- If $y > c$, the cash flows aren't generous enough to give the
+  buyer the required return at face. The price must drop. Bond
+  trades at a **discount**.
+- If $y < c$, the buyer is happy to pay more than face for the
+  generous coupon. Bond trades at a **premium**.
+
+The interactive panel later in this lesson lets you slide $c$, $y$,
+$N$, and $m$ live and watch $P$ recompute. Spend two minutes on
+it. Internalising the shape of the price-yield curve is worth more
+than memorising any formula.
+
+#### 2.3 Why Price and Yield Move Inversely
+
+This is the single most asked-about feature of bonds, so be
+explicit. The cash flows are *fixed at issue*. Coupons are $C$
+forever, face is $F$ forever. The only thing that changes day to
+day in the secondary market is the *discount rate* the market
+applies to those fixed cash flows. Higher discount rate -> lower
+present value -> lower price. Lower discount rate -> higher present
+value -> higher price.
+
+The relationship is **monotonic and convex**. Monotonic: each $1
+move in yield always moves price in the opposite direction.
+Convex: the price-yield curve bows toward the origin, which means
+**a 1% drop in yield raises price by *more* than a 1% rise in
+yield lowers it**. That asymmetry is convexity, and for long bonds
+it is large. Watch it on the interactive: hold $c$, $N$ fixed,
+slide $y$ from 0% to 15% and see how the curve bends.
+
+#### 2.4 Duration — The "How Sensitive" Number
+
+A 30-year bond and a 2-year bond do not respond equally to a 1%
+move in yield. Duration is the linear approximation of how much
+the price moves for a 1% yield change.
+
+The **Macaulay duration** is the weighted average maturity of the
+cash flows, where each weight is the present value of that cash
+flow divided by the price:
+
+$$ D_{\text{Mac}} = \frac{1}{P} \left[ \sum_{t=1}^{m N} \frac{(t/m) \cdot C}{(1 + y/m)^{t}} + \frac{N \cdot F}{(1 + y/m)^{m N}} \right] $$
+
+The **modified duration** is the elasticity of price with respect
+to yield:
+
+$$ D_{\text{mod}} = \frac{D_{\text{Mac}}}{1 + y/m} \quad \Rightarrow \quad \frac{\Delta P}{P} \approx -D_{\text{mod}} \cdot \Delta y $$
+
+Rules of thumb worth memorising:
+
+- 2-year Treasury: $D_{\text{mod}} \approx 1.9$. A 1% rate rise ->
+  ~1.9% price drop.
+- 10-year Treasury: $D_{\text{mod}} \approx 8.5$. A 1% rise ->
+  ~8.5% price drop.
+- 30-year Treasury: $D_{\text{mod}} \approx 19$. A 1% rise ->
+  ~19% price drop.
+
+In 2022, the 10-year yield rose from ~1.5% to ~3.9%, about 2.4%.
+Multiply by a duration of 8.5 and you get the realised -18% total
+return on the 10-year — almost exactly the loss we attributed to
+"bonds" in last week's 60/40 chart. The duration approximation is
+not a curiosity; it is the explanation. The deeper math (convexity
+adjustment, key-rate durations, OAS) waits for Week 32.
+
+#### 2.5 Yield to Maturity, Current Yield, and Coupon Rate
+
+Three numbers that everyone confuses.
+
+- **Coupon rate**: the *contractual* interest rate. Fixed at issue.
+  Never changes. Used for computing the dollar coupon.
+- **Current yield**: $C \cdot m / P$. What the coupon stream alone
+  pays you, ignoring the pull-to-par on the principal. Useful for
+  income-oriented buyers but **incomplete** as a return measure.
+- **Yield to maturity (YTM)**: the single discount rate $y$ that
+  makes the present value of *all* cash flows (coupons + face)
+  equal to today's price. The internal rate of return on the bond.
+  This is the headline yield you see quoted everywhere.
+
+When a bond trades at par, all three are equal. When it trades at
+a discount, YTM > current yield > coupon rate (you get the coupon
+*and* a capital gain at maturity). When it trades at a premium,
+YTM < current yield < coupon rate.
+
+Always compare bonds on YTM, not coupon. The coupon is a contract
+detail; the YTM is the return you actually earn if you hold to
+maturity and reinvest at the same rate.
+
+#### 2.6 Credit Spreads — The Premium for Default Risk
+
+A US Treasury is the textbook default-free asset (it is *as*
+default-free as the dollar itself, which is a separate
+philosophical issue — see Week 31). Anything else is riskier.
+The market prices that extra risk by demanding a higher yield on
+the corporate bond than on the matched-maturity Treasury. The
+difference is the **credit spread**.
+
+The chart below plots the BAA-corporate-minus-10-year-Treasury
+*annual return* spread from 1928 through 2024 (Damodaran annual
+series, BAA being the lowest investment-grade rating). It is the
+single best long-run historical proxy we have for the realised
+behaviour of corporate default risk vs Treasuries.
+
+![Annual BAA corporate bond total return minus 10-year US Treasury total return, 1928 through 2024 (Damodaran data, decimal). Spread spikes downward in 1932, 1974, 2008, and 2020 as defaults reprice and Treasuries rally on flight-to-safety. Long-run average is small and positive; the distribution has a fat left tail.](image/week05_credit_spreads.png)
+
+Three reads:
+
+1. **The long-run mean spread is small and positive** — investment-
+   grade corporate debt earns roughly 1-2% per year above
+   Treasuries on average, which is the unconditional credit
+   premium.
+2. **The distribution has a fat left tail.** In a credit blow-up
+   year (1932, 1974, 2008, 2020), corporates can underperform
+   Treasuries by 10%-25% in a single year as default risk reprices
+   and Treasuries rally on the flight-to-safety bid.
+3. **The spread spikes are leading indicators.** Credit spreads
+   widen *before* equity bear markets typically bottom. By the
+   time you see the spike on the chart, the recession trade is
+   already happening across the rest of the market.
+
+For most retail investors the practical answer is: **the credit
+premium is real but small, and the tail risk is asymmetric**.
+Holding investment-grade corporate debt instead of Treasuries earns
+you maybe 1% extra in normal years and costs you 10%+ in the
+years that matter most. For diversification against equities, hold
+Treasuries. For yield-pickup *income* in retirement, a small
+allocation to investment-grade corporates is reasonable.
+
+#### 2.7 The Forty-Year Bull Market and the 2022 Break
+
+The chart below plots the 10-year US Treasury yield from 1962
+through 2026, the longest clean monthly run we have on FRED's DGS10
+series.
+
+![10-year US Treasury constant-maturity yield, 1962 through April 2026 (FRED DGS10, monthly). The dominant feature is the 1981 peak near 15.8% under Volcker's anti-inflation campaign, followed by a four-decade decline to the 2020 trough near 0.5%, then a sharp climb back above 4% by 2024 with current readings near 4.2% in April 2026. Annotated peaks and troughs.](image/week05_yield_history.png)
+
+Three regimes you need to recognise.
+
+- **1962-1981: yields rose.** Inflation accelerated through the
+  Vietnam war, the Bretton Woods collapse, and two oil shocks.
+  Bond returns over this period were poor in nominal terms and
+  catastrophic in real terms — the worst sustained bond bear
+  market of the 20th century. Holders of "safe" long Treasuries
+  lost real wealth for two decades.
+- **1981-2020: yields fell, in a near-uninterrupted forty-year
+  trend.** Volcker's 1981 rate peak broke inflation expectations,
+  and every subsequent shock — 1987, 1990, 2000, 2008, 2020 — was
+  met with lower terminal rates than the previous one. Bonds
+  delivered roughly 7% nominal annualised returns over this stretch,
+  the best forty-year run in their history.
+- **2020-202?: yields rose again.** The COVID liquidity flood, then
+  the 2022 inflation shock, ended the forty-year trend. The 10-year
+  ran from 0.5% to 5% in 30 months. As of April 2026, the curve
+  is near 4.2% and the market is debating whether we're in a 1980s-
+  style normalisation or the start of a long secular grind higher.
+
+The Horace frame, lifted from SOUL #2: passive index investing
+*works* in regimes where bonds rally and stocks rally together
+because rates are falling. A generation of investors built the
+"just buy and hold" intuition on the 1981-2020 backdrop. The
+trigger that breaks the regime is **a sustained rise in long
+yields**. We are watching that trigger fire right now in real time.
+It is too early to declare the regime over; it is too late to
+pretend nothing has changed.
 
 ---
 
-*Animation Reference: animation/week05_bond_pricing.py - This animation demonstrates the inverse relationship between bond prices and yields. It shows a bond with adjustable coupon rate and maturity, then simulates interest rate changes to show how the bond's price responds. Includes a yield curve visualization that morphs between normal, flat, and inverted shapes with historical context. A secondary animation shows duration by comparing price sensitivity of bonds with different maturities side by side as rates change by the same amount.*
+### 3. Common Misconceptions
+
+**Misconception 1: "Treasuries are riskless."**
+
+Treasuries are *credit*-riskless (the US government can print the
+dollars it owes). They are not *price*-riskless or
+*purchasing-power*-riskless. In 2022 the 10-year lost 18% of its
+price. In 1973-1981 it lost roughly 40% of its real value. "No
+default risk" is not the same as "no risk."
+
+**Misconception 2: "If I hold to maturity, I can't lose."**
+
+In *nominal* terms, yes — you get face plus coupons back. But the
+real value of those payments depends on inflation between purchase
+and maturity. A 30-year bond bought at 2% in 2020 is contractually
+locked in to deliver a real loss if inflation averages 3% over the
+holding period. Holding to maturity protects you from price
+volatility, not from inflation.
+
+**Misconception 3: "Bond funds just hold bonds — they should
+behave the same as holding the bonds directly."**
+
+A bond fund maintains a roughly constant duration by selling old
+bonds and buying new ones. An individual bond's duration *falls
+mechanically* as it approaches maturity. So a fund that targets
+20-year duration is, in a rising-rate environment, the structurally
+worst possible thing to hold — exactly what TLT investors learned in
+2022. If you have a specific liability date, hold individual bonds
+matched to that date; a fund is not equivalent.
+
+**Misconception 4: "Higher coupon means higher yield."**
+
+The coupon is the contract; the yield is the market price. A 10%
+coupon bond can have a 3% yield (it's trading at a huge premium)
+and a 1% coupon bond can have a 6% yield (it's at a deep
+discount). Always compare on YTM, not coupon.
+
+**Misconception 5: "Credit spreads are just extra yield — free
+income."**
+
+The historical credit premium is 1%-2% in the average year and
+-10%-or-worse in the years that matter (1932, 1974, 2008, 2020).
+Credit spread is *insurance you sell to companies in exchange
+for steady income*, with rare large losses. Selling insurance
+isn't free income; it's a structurally negatively-skewed payoff.
+
+**Misconception 6: "Long bonds have higher yields, so they're
+better."**
+
+Longer maturity earns the *term premium* — but with much higher
+duration risk. The Sharpe ratio of long Treasuries is comparable
+to or *worse* than that of intermediate Treasuries over most
+historical windows. Reach for the term premium only if you have a
+specific liability that matches that maturity, or you are
+explicitly making a duration bet.
+
+**Misconception 7: "Inflation-protected bonds (TIPS) are always
+better than nominal bonds."**
+
+TIPS are better when inflation surprises *upward* relative to the
+breakeven rate priced into them. They are worse when inflation
+surprises downward, or when the breakeven is expensive. TIPS are a
+*relative* trade against nominal Treasuries, not a free upgrade.
+
+**Misconception 8: "Negative-yield bonds make no sense and no one
+should buy them."**
+
+European and Japanese institutional investors held trillions of
+dollars in negative-yielding bonds during 2014-2021 because:
+liability-matching, regulatory capital requirements, currency
+hedging carry, and price upside if rates went *more* negative.
+"It makes no sense for me as a retail investor" is correct. "It
+makes no sense for anyone" is wrong.
+
+---
+
+### 4. Q&A Section
+
+**Q1: I want monthly income from bonds. What's the cleanest way?**
+
+A: Build a *bond ladder* — buy individual Treasuries or TIPS
+maturing in each of the next 5-10 years, equal-weighted. Each
+year one rung matures and you reinvest at the then-current yield.
+Cash flow is roughly the average yield × portfolio value. Avoids
+fund duration drift and gives you a predictable schedule. The
+brokerage tools at Fidelity, Schwab, and Vanguard all let you
+build a ladder in 15 minutes.
+
+**Q2: Should I buy individual bonds or bond ETFs?**
+
+A: For amounts under ~$100k, ETFs (BND, AGG, IEF, TLT, SHY) are
+cheaper and more liquid. For amounts above that, or for retirees
+with specific liability dates, individual Treasuries can be
+better — you avoid the duration mismatch and you can hold to
+maturity. Corporate bonds individually are almost never worth it
+for retail (poor liquidity, wide spreads); use a fund (LQD).
+
+**Q3: What's the right bond duration for me?**
+
+A: Roughly match your investment horizon. 1-3 year Treasuries (SHY)
+for money you need within five years. Intermediate (IEF, ~7 yr) for
+the diversifier sleeve in a 60/40-style portfolio. Long bonds (TLT,
+~20 yr) only as a deliberate duration bet — not as a default. The
+2022 lesson: duration is a *loaded* dimension; don't accidentally
+take more than you intended.
+
+**Q4: How is a TIPS different from a regular Treasury?**
+
+A: A TIPS' principal adjusts upward with CPI. The coupon rate is
+fixed but applies to the inflation-adjusted principal, so dollar
+coupons grow with inflation too. The "real yield" you see quoted on
+TIPS is the yield *above* CPI. Buy TIPS when you think realised
+inflation will exceed the breakeven (the difference between nominal
+and TIPS yields). In April 2026 the 10-year breakeven is about
+2.4%; TIPS win if average CPI over the next decade exceeds that.
+
+**Q5: Why did the long bond fall 30% in 2022 when "bonds are safe"?**
+
+A: Long-bond duration is roughly 19. Yields went from ~1.5% to
+~4%. Multiply: 19 × 2.5% ≈ 47% expected price drop, partially
+offset by coupon income, netting to the realised -30% range.
+"Bonds are safe" is shorthand for "low credit risk", not "low
+price volatility." Long bonds have equity-like price volatility
+when rates move sharply.
+
+**Q6: What's the yield curve and why do people obsess over it?**
+
+A: The yield curve is yields plotted against maturity (3-month,
+1-year, 5-year, 10-year, 30-year). Normally upward-sloping (longer
+= higher yield). When the 2-year exceeds the 10-year — the
+*inverted* curve — it has historically been the single best
+recession leading indicator, with a 12-24 month lead. April 2026
+state: curve has just *un*-inverted after a record-long inversion.
+Whether the post-inversion recession is now off the table or merely
+delayed is the live debate.
+
+**Q7: What is "convexity" in one sentence?**
+
+A: The bend in the price-yield curve — the higher-order term that
+makes price gains from falling rates larger than price losses from
+the same-size rising rates. Long bonds and zero-coupon bonds have
+the most convexity. It's a free option that gets paid for via
+slightly lower yield. Week 32 unpacks it formally.
+
+**Q8: Are corporate bonds a substitute for Treasuries in 60/40?**
+
+A: No. Corporate bonds have meaningful equity-correlation in
+crises (the BAA spread chart in §2.6 makes this concrete) and so
+they don't deliver the negative correlation that Treasuries give
+you in a flight-to-safety event. If you want yield, take it on
+the *equity* side; keep the bond sleeve in Treasuries for the
+diversification job.
+
+**Q9: How much of my portfolio should be bonds?**
+
+A: Outside of the 60/40 baseline (Week 4), the SOUL barbell shape
+holds *less* bonds than 60/40, *more* in cash + short Treasuries
+on the safe side, and *more* in equity tail bets on the
+asymmetric side. A 30-year-old building wealth probably runs
+20-30% in short Treasuries; a 65-year-old in distribution probably
+runs 40-50%. The exact number is less important than understanding
+*what role* bonds play (price stability + recession hedge) and
+sizing accordingly.
+
+**Q10: What about high-yield ("junk") bonds?**
+
+A: High yield is a *third* asset class. Correlated more to equities
+than to Treasuries (about 0.7 to S&P 500). Sharpe ratio over the
+full cycle is mediocre. Default rates spike in recessions. A small
+allocation can be defensible for income-focused retirees but it
+should never replace your Treasury sleeve — it doesn't do the
+diversification job that Treasuries do.
+
+**Q11: Where does this lesson connect to the rest of the course?**
+
+A: Week 4 used Treasuries as a black box; this week opens the box.
+Week 13-14 (the barbell) chooses *short* Treasuries over long for
+the safe sleeve based on §2.4. Week 31-34 covers the 2022 inflation
+break in macro detail (the regime story behind the yield-history
+chart). Week 32 specifically does the rigorous duration and
+convexity math. Week 47 and 50 cover long-volatility / managed-
+futures overlays that hedge the inflation tail that bonds can't.
+
+The interactive panel below lets you slide the four-number bond
+contract (face, coupon, maturity, payment frequency) and the
+market yield, and watch the price recompute live. The chart shows
+the price-yield curve from 0% to 15% with your current point
+marked. Watch the curvature change as you increase maturity — the
+30-year line is dramatically more convex than the 2-year. Macaulay
+and modified duration are reported below the chart.
+
+---
+
+## Part 2: YouTube Script
+
+---
+
+**VIDEO TITLE:** Bonds — Coupons, Prices, and Yields | Week 5
+
+**RUNTIME TARGET:** ~18 minutes
+
+**HOSTS:** Horace, Stella
+
+---
+
+**[INTRO]**
+
+**Horace:** Last week was the 60/40 portfolio. We treated the 40 as
+a black box called "Treasuries." This week we open the box.
+
+**Stella:** And inside the box is...
+
+**Horace:** Four numbers and a calendar. That's it. A bond is the
+simplest financial instrument on earth. Face value, coupon rate,
+maturity, payment frequency. Done. Stocks have nothing this clean.
+
+**Stella:** So why did the simplest instrument blow up the worst in
+2022?
+
+**Horace:** Because the *price* of a bond isn't one of the four
+numbers. The price is what falls out when you discount those four
+numbers at today's market yield. And in 2022, the discount rate
+moved more in twelve months than it had in any previous twelve
+months on record.
+
+---
+
+**[SEGMENT 1: THE FOUR NUMBERS]**
+
+**Horace:** Let's get concrete. A 10-year US Treasury, 4% coupon,
+$1,000 face, semi-annual payments. The contract says: every six
+months for ten years, you get $20. At the end, you get the $1,000
+back. Twenty payments of $20 plus a balloon of $1,000.
+
+**Stella:** And the price I pay today is not necessarily $1,000.
+
+**Horace:** Correct. The price is whatever today's buyers are willing
+to pay for that exact stream of cash. If today's market yield on
+ten-year risk is 4%, you pay exactly $1,000 — par. If today's
+yield is 5%, you pay less than $1,000, because the $20 coupons
+aren't generous enough at 5%. If today's yield is 3%, you pay more
+than $1,000, because $20 every six months is more than the market
+demands.
+
+**Stella:** And someone always exists on the other side.
+
+**Horace:** That's the part people miss. Every traded bond is
+someone agreeing the price is right *and* someone disagreeing.
+Nobody is forced to trade. The price is just the level where the
+two sides meet.
+
+---
+
+**[SEGMENT 2: THE PRICING FORMULA]**
+
+**Horace:** Here's the equation. Price equals the present value of
+every coupon, plus the present value of the face. Discounted at
+yield divided by the payment frequency. That's it.
+
+It looks ugly written out — sum from t=1 to mN of C divided by
+(1 plus y over m) to the t, plus F divided by (1 plus y over m)
+to the mN. It looks ugly. It is not ugly. It is a geometric series
+plus a balloon. The sum has a closed form, but you don't need to
+memorise the closed form. You need to internalise the *shape*.
+
+**Stella:** Which is?
+
+**Horace:** A bond is one stream of small coupons plus one big
+balloon at the end. The coupons together are an *annuity*. The
+balloon by itself is a *zero-coupon bond*. Every fixed-income
+security in the world is some weighted sum of those two pieces.
+
+---
+
+**[SEGMENT 3: PRICE AND YIELD GO OPPOSITE WAYS]**
+
+**Horace:** The most asked-about feature of bonds. The cash flows
+are fixed at issue. Coupons are $20 per period forever. Face is
+$1,000 forever. The only thing that changes day to day is the
+discount rate the market applies to those fixed cash flows.
+
+**Stella:** Higher discount rate means lower present value.
+
+**Horace:** Right. So higher yield means lower price. Lower yield
+means higher price. Always. Without exception. And the relationship
+isn't a straight line — it's *convex*. The curve bows toward the
+origin. Which means a 1% drop in yield raises price *more* than a
+1% rise in yield lowers it. That asymmetry is convexity, and for
+long bonds it's substantial.
+
+**Stella:** That sounds like a free lunch.
+
+**Horace:** It's a paid-for lunch. The market knows about convexity
+and prices it in. You collect the convexity benefit at the cost of
+slightly lower coupon. Week 32 does the math. For now, just notice
+the curve in the interactive bends.
+
+---
+
+**[SEGMENT 4: DURATION — THE ONE NUMBER YOU MUST KNOW]**
+
+**Horace:** Not all bonds respond equally to a 1% rate move. Duration
+tells you *how much* a given bond's price moves for a 1% yield
+change. Here are the three numbers I want you to memorise.
+
+Two-year Treasury: duration about 1.9. Ten-year: about 8.5.
+Thirty-year: about 19.
+
+**Stella:** So if rates go up 1%, the long bond falls 19%.
+
+**Horace:** Approximately, yes. And here is the punchline of 2022.
+The ten-year yield went from 1.5% to 3.9%. That's a 2.4% move.
+Multiply by duration of 8.5. You get an 18% loss.
+
+**Stella:** Which is exactly what happened.
+
+**Horace:** Exactly. Last week we said "bonds had their worst year
+since 1937." Now you know *why* in one multiplication. Duration
+times yield change. The 60/40 chart isn't mysterious; it's
+arithmetic.
+
+---
+
+**[SEGMENT 5: COUPON, CURRENT YIELD, YTM — THREE THINGS, NOT ONE]**
+
+**Horace:** Three numbers people confuse constantly.
+
+Coupon rate. The contract. Fixed at issue. Never changes. Used to
+compute the dollar coupon.
+
+Current yield. Coupon dollars divided by current price. What the
+income stream alone pays. Ignores the gain or loss at maturity.
+
+Yield to maturity. The internal rate of return on the bond.
+Discount rate that makes price equal the sum of present values.
+This is the headline yield. Always compare bonds on YTM, not
+coupon.
+
+**Stella:** And when the bond trades at par...
+
+**Horace:** All three are equal. When the bond trades at a
+discount — price below face — YTM is the highest of the three.
+At a premium, YTM is the lowest. The interactive shows you all
+three simultaneously.
+
+---
+
+**[SEGMENT 6: CREDIT SPREADS]**
+
+[VISUAL: image/week05_credit_spreads.png]
+
+**Horace:** A US Treasury is the textbook default-free asset.
+Anything else is riskier. The market prices that extra risk by
+demanding a higher yield. The difference is the credit spread.
+
+This chart is the BAA-corporate-minus-10-year-Treasury return
+spread from 1928 forward. Long-run mean is positive but small —
+corporate investment-grade earns about 1 to 2 percent extra per
+year on average.
+
+**Stella:** And the spikes?
+
+**Horace:** 1932. 1974. 2008. 2020. The four worst credit blow-ups
+of the modern era. Corporates can underperform Treasuries by 10 to
+25 percent in a single year as default risk reprices. The
+distribution has a fat left tail.
+
+**Stella:** So the credit premium is...
+
+**Horace:** Insurance you sell to corporations in exchange for
+steady small income, with rare large losses. Selling insurance is
+a structurally negatively-skewed payoff. It's not free yield.
+
+The retail takeaway: hold Treasuries for the diversification job,
+not corporates. If you want yield, take it on the equity side.
+
+---
+
+**[SEGMENT 7: THE FORTY-YEAR BULL MARKET AND THE 2022 BREAK]**
+
+[VISUAL: image/week05_yield_history.png]
+
+**Horace:** This is the most important chart in the entire bond
+universe. Ten-year Treasury yield from 1962 through April 2026.
+
+Three regimes. From 1962 to 1981, yields rose. Inflation, Vietnam,
+Bretton Woods, the oil shocks. Volcker breaks the back of inflation
+in 1981 with a 15.8% peak in the ten-year. From 1981 to 2020, yields
+fell. Forty years. Almost uninterrupted. Every shock met with lower
+terminal rates than the previous shock. The ten-year hit 0.5% in
+2020.
+
+**Stella:** And then?
+
+**Horace:** Then 2022 happened. Yields ran from 0.5% to roughly 5%
+in thirty months. As of April 2026 we're sitting around 4.2%, and
+the market is debating whether this is a 1980s-style normalisation
+or the start of something more durable.
+
+**Stella:** What's the lesson?
+
+**Horace:** This is SOUL principle number two. We have been forty
+years inside a regime that made passive index investing look like a
+free lunch. The regime had a specific macro signature: falling
+yields meant rising bond prices, rising equity multiples, and a
+benign correlation structure between the two. The trigger that
+breaks the regime is a *sustained* rise in long yields. We are
+watching that trigger fire right now.
+
+It is too early to say the regime is over. It is too late to
+pretend nothing has changed. The bond chart is the regime backdrop
+to everything else we cover from Week 31 onward.
+
+---
+
+**[SEGMENT 8: THE INTERACTIVE]**
+
+**Horace:** Open the bond pricer panel. Five inputs: face value,
+coupon, years to maturity, market yield, and payments per year.
+Slide them. Watch the price update.
+
+**Stella:** What should I look for?
+
+**Horace:** Three things. First, set yield equal to coupon. Confirm
+the price is exactly face. Second, hold everything constant and
+move maturity from 2 years to 30 years. Watch the price-yield curve
+bend much harder. That's convexity becoming visible. Third, watch
+the duration readout. Notice that as you raise the coupon, duration
+falls — high-coupon bonds return cash faster, so they're less
+sensitive to the discount rate.
+
+**Stella:** And the duration prediction?
+
+**Horace:** Pick a bond. Read duration off the panel. Move yield by
+1%. Multiply. Compare to the actual price change. The approximation
+is excellent for small moves and breaks for large moves. That's
+where convexity comes in. Save the rigorous version for Week 32.
+
+---
+
+**[OUTRO]**
+
+**Horace:** Bonds are four numbers and a calendar. The price is
+discounted cash flow. Yield and price move opposite ways. Duration
+is the linear sensitivity. Credit spread is insurance you sell.
+The forty-year bull market is the regime that built passive
+investing's reputation, and it ended in 2022.
+
+That's the entire bond universe in one paragraph. We will spend
+Week 32 on the deeper math and Weeks 31-34 on the macro regime
+that broke. Tonight, slide the interactive until the four-number
+contract feels obvious.
+
+**Stella:** Next week?
+
+**Horace:** Diversification done right. Or, why you can't just buy
+twenty stocks and call it a day.
+
+---
+
+**END SCREEN:** "Next: Week 6 — Diversification Beyond 60/40"

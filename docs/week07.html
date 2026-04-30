@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Week 7: Portfolio Rebalancing - Chanma Investment Tutorial</title>
+    <title>Week 7: Rebalancing — When, How, and Why - Chanma Investment Tutorial</title>
     <script>(function(){try{var t=localStorage.getItem('preferred-theme');if(!t){t=window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();</script>
     <style>
 :root, html[data-theme="light"] {
@@ -1247,758 +1247,523 @@ html[data-theme="dark"] .nav-btn:hover .btn-label { color: rgba(15,23,36,0.7); }
     <main class="main-wrap">
         <div class="content-area">
             <div id="content-en" class="lang-content active">
-                <h1>Week 7: Portfolio Rebalancing</h1>
+                <h1>Week 7: Rebalancing — When, How, and Why</h1>
 <hr>
-<h2>Reading Section</h2>
-<h3>a) Why This Is Important</h3>
+<h3>1. Why This Is Important</h3>
 <p>
-Rebalancing is one of the few investment strategies that is both simple to understand and genuinely effective, yet most individual investors either ignore it entirely or do it wrong. It is the discipline of periodically adjusting your portfolio back to your target asset allocation, and it matters far more than most people realize.
+Rebalancing is the single most boring operation in personal finance,
+and it is also the only one that mechanically forces you to do the
+right thing at the moment you least want to. You set a target
+allocation — say, 60/40 stocks and bonds — and then once a year, or
+once a drift band has been breached, you trim what has done well and
+top up what has done poorly. That is the entire procedure. It takes
+half an hour. It is the closest thing to an edge that does not
+require a forecast, a model, or a Bloomberg terminal.
 </p>
 <p>
-Here is the core problem rebalancing solves. Suppose you decide on a 60/40 stock/bond portfolio. After a strong year for stocks, your portfolio drifts to 75/25. You now have significantly more risk than you intended. If the market drops 30%, your 75% stock allocation means a 22.5% portfolio loss instead of the 18% loss you would have experienced at 60/40. That 4.5 percentage point difference on a $500,000 portfolio is $22,500 of additional loss you never signed up for.
+You need to understand rebalancing for four reasons.
+</p>
+<li><strong>Without it, your portfolio is not the portfolio you chose.</strong></li>
+<p>
+A 60/40 mix that runs through the 2010s with no rebalancing ends
+the decade closer to 78/22. Your <em>risk</em> has silently re-priced
+itself by roughly fifty percent. The next bear market will then
+hit you in a portfolio you never agreed to hold.
+</p>
+<li>**It is the cleanest implementation of "buy low, sell high" that</li>
+<p>
+exists.** The decision is mechanical. There is no view, no
+forecast, no narrative. You sell the asset that is now overweight
+<em>because</em> it has outperformed and buy the one that is now
+underweight <em>because</em> it has underperformed. The act of
+rebalancing <strong>is</strong> contrarianism, packaged as an annual chore.
+</p>
+<li><strong>Humans cannot do this on their own.</strong> SOUL principle 12: the</li>
+<p>
+market can stay irrational longer than you can stay solvent, and
+the corollary nobody wants to hear is that <em>you</em> will turn
+irrational long before the market does. Selling NVDA after a
+triple, in your taxable account, in the year your neighbour just
+bought a Porsche on his — that is not a trade humans place
+voluntarily. A rebalancing rule places it for you.
+</p>
+<li><strong>The 2022 dilemma exposed a hidden assumption.</strong> The whole</li>
+<p>
+rebalancing premium argument rests on stocks and bonds being
+negatively correlated. In 2022 they fell together. The
+rebalancer who sold winners to buy losers in mid-2022 had no
+winners to sell. We will dissect what to do in that case.
 </p>
 <p>
-But rebalancing is not just about controlling risk. It is a systematic way to buy low and sell high -- the holy grail of investing that most people fail to do because emotions get in the way.
-</p>
-<p>
-Consider what happens when you rebalance:
-</p>
-<li><strong>You sell winners and buy losers.</strong> After stocks have risen, rebalancing forces you to sell some stocks (which have become relatively expensive) and buy bonds (which have become relatively cheap). After stocks have fallen, rebalancing forces you to buy stocks (now cheaper) and sell bonds (now relatively expensive). This is the opposite of what your emotions tell you to do, and that is precisely why it works.</li>
-<li><strong>You maintain your intended risk level.</strong> Without rebalancing, your portfolio's risk profile changes over time as different assets grow at different rates. A portfolio that starts at 60/40 can easily drift to 80/20 during a bull market, exposing you to far more risk than your financial plan assumed.</li>
-<li><strong>You impose discipline on an emotional process.</strong> Investing is psychologically brutal. Rebalancing gives you a rules-based framework that removes emotion from the equation. When everyone is panicking and selling stocks, your rebalancing rule says "buy more stocks." When everyone is euphoric and piling into stocks, your rebalancing rule says "take some profits."</li>
-<li><strong>You can capture a "rebalancing bonus."</strong> Academic research has demonstrated that in certain market conditions, a rebalanced portfolio can actually outperform its individual components. This rebalancing bonus arises from the mathematical properties of volatile, mean-reverting assets -- and we will explore it in detail in this lesson.</li>
-<li><strong>It is one of the few free lunches in investing.</strong> Rebalancing does not require stock-picking skill, market timing ability, or access to special information. It is purely mechanical, yet it improves both risk-adjusted and, in many environments, absolute returns.</li>
-<p>
-The CFA Institute considers portfolio rebalancing a fundamental component of the Investment Policy Statement (IPS) and portfolio management process. At every level of the CFA curriculum, candidates are expected to understand when and how to rebalance, the tradeoffs between different rebalancing strategies, and the tax and transaction cost implications. This is not optional knowledge -- it is foundational.
-</p>
-<hr>
-<h3>b) What You Need to Know</h3>
-<h4>1. What Rebalancing Actually Is</h4>
-<p>
-Rebalancing is the process of realigning the weights of assets in your portfolio to match your target allocation. When market movements cause your actual allocation to drift from your target, you sell overweight assets and buy underweight ones to restore balance.
-</p>
-<pre><code class="language-">PORTFOLIO DRIFT AND REBALANCING
-<p>
-================================
-</p>
-<p>
-Starting Target: 60% Stocks / 40% Bonds
-</p>
-<p>
-START            AFTER BULL        AFTER
-(Jan 1)          MARKET            REBALANCING
-(Dec 31)          (Dec 31)
-</p>
-<p>
-100% |                 |                 |
-|                 |########         |
-80% |                 |# Stocks#        |
-|                 |# 75%   #        |
-60% |########         |########         |########
-|# Stocks#        |                 |# Stocks#
-40% |# 60%  #|--------|                 |# 60%  #|--------
-|########|////////|########         |########|////////
-20% |        |/ Bonds/|/ Bonds/         |        |/ Bonds/
-|        |/ 40%  /|/ 25%  /         |        |/ 40%  /
-0% |--------|--------|--------         |--------|--------
-</p>
-<p>
-DRIFT happens          REBALANCE restores
-automatically          target allocation
-as markets move        by selling stocks,
-buying bonds
-</code></pre>
-</p>
-<p>
-The concept is straightforward, but the execution involves several important decisions: how often to rebalance, what triggers a rebalance, how to handle taxes, and which specific trades to make.
+This lesson covers the mechanics of drift, the calendar-vs-threshold
+question, the rebalancing premium and where it actually comes from,
+the tax cost of rebalancing in taxable accounts, the contributions-
+based workaround, and the 2022 case study.
 </p>
 <hr>
-<h4>2. Why Portfolios Drift</h4>
+<h3>2. What You Need to Know</h3>
+<h4>2.1 Drift — Why a Portfolio Will Not Stay Where You Put It</h4>
 <p>
-Asset classes have different expected returns and different volatilities. Over time, higher-returning assets grow to dominate the portfolio while lower-returning assets shrink in proportion.
-</p>
-<pre><code class="language-">DRIFT MECHANICS -- A NUMERICAL EXAMPLE
-<p>
-=========================================
-</p>
-<p>
-Starting Portfolio: $100,000
-Target: 60% Stocks ($60,000) / 40% Bonds ($40,000)
+Two assets with different returns and different volatilities cannot
+hold their relative weights for long. Higher-return assets compound
+their share of the pie; lower-return assets shrink in proportion.
+Even in a single calm decade the drift is large.
 </p>
 <p>
-Scenario: Stocks return +25%, Bonds return +3%
+The image below runs the 2010–2019 decade — stocks compounding at
+roughly 13.6% per year and 10-year Treasuries at roughly 3.7% — on a
+$100,000 starting 60/40 portfolio under two policies. The top panel
+holds no rebalances at all over the ten years. The bottom panel
+rebalances back to 60/40 every January.
+</p>
+<img src="image/week07_drift.png" alt="Top panel, no rebalancing over 2010-2019: starting 60/40 stock-bond mix on a $100,000 portfolio, the stock weight climbs steadily as US stocks compound at ~13.6% annually while Treasuries earn ~3.7%, ending the decade near 78/22. The bond sleeve shrinks visibly as a fraction of the total. Bottom panel, annual rebalance: the stock weight oscillates within a couple of percentage points of 60% all decade, returning each January to the target while leaving the absolute-dollar wealth path almost identical.">
+<p>
+The end-state of the no-rebalance portfolio is not 60/40 and never
+was after the first year. By 2019 it sat at about 78/22 — closer to
+the textbook "aggressive" allocation than to the "balanced" one the
+investor originally chose. When the COVID crash arrived in March 2020
+that drifted portfolio dropped roughly two percentage points more
+than the rebalanced version, on a much larger asset base. The
+investor who never rebalanced did not consciously become more
+aggressive in 2019. They drifted there.
+</p>
+<h4>2.2 Calendar vs Threshold — Two Triggers, One Goal</h4>
+<p>
+There are two principled ways to decide <em>when</em> to rebalance.
 </p>
 <p>
-Asset       Start       Return      End Value     New Weight
-------      -----       ------      ---------     ----------
-Stocks      $60,000     +25%        $75,000       64.7%
-Bonds       $40,000     +3%         $41,200       35.3%
---------                --------      ------
-Total       $100,000                $116,200      100.0%
+<strong>Calendar rebalancing</strong> picks a fixed date — typically annual
+(the simplest), occasionally semi-annual or quarterly — and trims
+back to target on that date regardless of how far the portfolio has
+drifted. The merit is operational: it is one calendar entry per year,
+it can be automated by most brokerages, and it produces no surprises
+in your tax planning.
 </p>
 <p>
-Drift from target:
-Stocks:  64.7% vs 60.0% = +4.7% overweight
-Bonds:   35.3% vs 40.0% = -4.7% underweight
+<strong>Threshold (or band) rebalancing</strong> ignores the calendar and triggers
+a rebalance only when one asset class has drifted beyond a fixed
+percentage band — say, ±5 absolute percentage points around the
+target, so a 60% stock target rebalances at 55% or 65%. The merit is
+efficiency: in a calm year you do nothing; in a violent year (1987,
+2008, 2020) you rebalance multiple times, capturing the mean
+reversion that calendar rules miss.
 </p>
 <p>
-To rebalance:
-Target stock value = 60% x $116,200 = $69,720
-Sell $75,000 - $69,720 = $5,280 of stocks
-Buy $5,280 of bonds
+The image below compares four policies on the full 1928–2024
+Damodaran dataset of US stocks and 10-year Treasuries: never
+rebalance, rebalance annually, rebalance semi-annually, and a 5%
+band. The bars show the geometric annualised return, the realised
+volatility, and the worst-year drawdown for each policy.
+</p>
+<img src="image/week07_method_comparison.png" alt="Bar chart comparison of four rebalancing policies on the Damodaran 1928-2024 60/40 stock/bond data: 'never rebalance' delivers the highest end-state arithmetic exposure but also the largest realised volatility and deepest drawdown because it ends the period at near-90/10. The annual, semi-annual, and 5%-band policies cluster tightly together in geometric return (within ~0.1% of each other), with materially lower volatility (~10% vs ~13%) and shallower drawdowns. The 5%-band policy shows the lowest turnover-adjusted return.">
+<p>
+Three readings come out of this chart.
 </p>
 <p>
-After rebalancing:
-Stocks:  $69,720  (60.0%)
-Bonds:   $46,480  (40.0%)
-Total:   $116,200 (100.0%)
-</code></pre>
+First, **rebalancing reduces volatility and drawdowns more than it
+changes the return.** All three rebalanced policies finish within
+about ten basis points of each other in geometric return. The story
+is in the risk columns, not the return column.
 </p>
 <p>
-Notice something important: rebalancing forced you to sell $5,280 of stocks after they rose 25%. You are taking profits systematically. If stocks subsequently decline, you protected some gains. If stocks continue rising, you gave up some upside -- but you maintained your risk target.
-</p>
-<hr>
-<h4>3. The Buy-Low, Sell-High Mechanism</h4>
-<p>
-This is the most powerful and underappreciated aspect of rebalancing. It systematically enforces contrarian behavior.
-</p>
-<pre><code class="language-">THE REBALANCING CYCLE -- BUY LOW, SELL HIGH
-<p>
-=============================================
+Second, **the difference between annual, semi-annual, and 5% band is
+genuinely small.** Pick one, run it for thirty years, and you will
+get within a few basis points of any other reasonable rule. This is
+a place where over-engineering pays nothing.
 </p>
 <p>
-Stock Price Movement Over Time
-Price
-^
-$150 |              *
-|            <em>   </em>
-$130 |          <em>       </em>
-|        <em>           </em>
-$110 |      <em>               </em>              *
-|    <em>                   </em>          <em>   </em>
-$90 |  <em>                       </em>      *
-|<em>                           </em>  *
-$70 |                              *
-+-----|-----|-----|-----|-----|-----|----&gt;
-Jan   Jun   Dec   Jun   Dec   Jun  Time
-Yr1   Yr1   Yr1   Yr2   Yr2   Yr3
+Third, **never-rebalance is the worst of the four on a risk-adjusted
+basis.** Higher absolute return, but realised volatility runs about
+16% versus roughly 12% for the rebalanced policies — a 30% jump in
+risk for a return that is itself an artefact of the portfolio having
+drifted to near-90/10 by the end. The investor who refuses to
+rebalance is not running a 60/40 portfolio; they are running a
+slowly-creeping all-equity portfolio.
+</p>
+<h4>2.3 The Rebalancing Premium — Volatility Harvesting</h4>
+<p>
+Periodic rebalancing of two volatile assets that are not perfectly
+correlated produces an additional small return on top of the
+weighted-average return of the components. This is the **rebalancing
+premium<em>*, sometimes also called </em>volatility harvesting* or the
+<em>Shannon's Demon</em> effect after Claude Shannon's coin-flip thought
+experiment.
 </p>
 <p>
-Rebalancing Actions:
-Dec Yr1:  Stock rose   --&gt; SELL stocks, BUY bonds
-Dec Yr2:  Stock fell   --&gt; BUY stocks, SELL bonds
-Jun Yr3:  Stock rose   --&gt; SELL stocks, BUY bonds
+The mechanism is mechanical and survives the absence of any
+forecasting skill. When stocks rise and bonds fall, the rebalance
+sells some stocks at the higher price and buys some bonds at the
+lower price. When the move reverses, the rebalance sells bonds at
+the new high and buys stocks at the new low. Each round trip
+extracts a small profit purely from the <em>path</em> of the prices, not
+from any view about their <em>level</em>.
 </p>
 <p>
-Each time: selling what went UP, buying what went DOWN
-This IS the buy-low, sell-high discipline!
-</code></pre>
+The size of the premium scales roughly with the variance of the
+spread between the two assets and inversely with their correlation:
 </p>
 <p>
-Most investors do the opposite. When stocks are soaring, greed kicks in and they want to buy more. When stocks are crashing, fear kicks in and they want to sell. Rebalancing mechanically prevents this emotional trap.
-</p>
-<hr>
-<h4>4. Calendar Rebalancing vs. Threshold Rebalancing</h4>
-<p>
-There are two main approaches to deciding when to rebalance, each with distinct advantages and disadvantages.
+$$ \text{premium} \approx \tfrac{1}{2} \, w_1 w_2 \, (\sigma_1^2 + \sigma_2^2 - 2\rho\sigma_1\sigma_2) $$
 </p>
 <p>
-<strong>Calendar Rebalancing</strong>
+For a 60/40 of US stocks ($\sigma=16\%$) and US Treasuries
+($\sigma=6\%$) at correlation $\rho = -0.3$, the premium works out
+to about 0.30% per year. That is a real number, but it is small
+relative to the equity risk premium itself ($\sim 4-6\%$). It is
+<strong>not</strong> the reason to rebalance. The reason to rebalance is risk
+control. The premium is a lagniappe.
 </p>
 <p>
-You rebalance on a fixed schedule -- monthly, quarterly, semi-annually, or annually. Regardless of how much or how little the portfolio has drifted, you bring it back to target on the scheduled date.
+Two pieces of fine print on the premium. First, it disappears as
+the correlation moves toward +1, which is exactly what happened
+in 2022 (see §2.6). Second, it is small enough that *transaction
+costs and taxes can eat all of it*, particularly in a taxable
+account with frequent rebalancing.
+</p>
+<h4>2.4 Tax Drag — Why You Mostly Don't Want to Sell</h4>
+<p>
+Every rebalance trade in a taxable account is a potential
+realisation of capital gains. If your stock sleeve has doubled
+before the rebalance, the sale of the overweight stock realises
+that gain at long-term capital-gains rates — currently 15% to 23.8%
+for most US filers, including the net-investment-income tax. A 0.3%
+rebalancing premium is wiped out by a single realisation event with
+a meaningful unrealised gain.
 </p>
 <p>
-<strong>Threshold (Percentage-of-Portfolio) Rebalancing</strong>
+The hierarchy of tax-aware rebalancing is, in increasing order of
+desirability:
+</p>
+<li><strong>Sell-to-rebalance in a taxable account.</strong> Worst case. Realises</li>
+<p>
+gains, locks in tax. Use only when no other lever works.
+</p>
+<li><strong>Sell-to-rebalance with tax-loss harvesting.</strong> Pair the sale of</li>
+<p>
+appreciated overweight assets with the sale of any genuinely
+underwater positions to offset gains. Acceptable, but requires
+active record-keeping.
+</p>
+<li><strong>Direct new contributions.</strong> Funnel monthly cash inflows into</li>
+<p>
+whichever sleeve is below target. No realisation, no tax. This
+is the right answer for any investor still in the accumulation
+phase, and it is enough to keep most portfolios within a few
+percent of target indefinitely.
+</p>
+<li><strong>Rebalance in tax-advantaged accounts only.</strong> If your full</li>
+<p>
+portfolio is split across IRA, 401(k), and taxable brokerage,
+the rebalance trades happen <em>inside</em> the IRA where all gains
+are tax-deferred, while the taxable account holds whichever
+slice of the allocation needs the least turnover (typically the
+long-term equity sleeve).
+</p>
+<li><strong>Use dividends and interest.</strong> In retirement, the cash thrown</li>
+<p>
+off by the bond sleeve and dividend stocks naturally lands in
+cash. Direct that cash to whichever sleeve is below target
+before reinvesting on autopilot.
 </p>
 <p>
-You rebalance whenever any asset class drifts beyond a predetermined band around its target. For example, if your stock target is 60%, you might set bands of plus or minus 5 percentage points. You only rebalance when stocks exceed 65% or fall below 55%.
+For most readers of this course, the working answer is a
+combination of (3) during the working years and (4) once
+contributions slow. (1) is reserved for the quinquennial cleanup
+when bands have stretched too far for contributions alone to fix.
 </p>
-<pre><code class="language-">CALENDAR vs. THRESHOLD REBALANCING
+<h4>2.5 The Mechanics of Why It Works When the Investor Does Not</h4>
 <p>
-====================================
-</p>
-<p>
-CALENDAR REBALANCING
---------------------
-Jan 1    Apr 1    Jul 1    Oct 1    Jan 1
-|        |        |        |        |
-R        R        R        R        R
-|        |        |        |        |
-(Quarterly example -- rebalance every 3 months)
-</p>
-<p>
-Pros: Simple, predictable, easy to automate
-Cons: May rebalance unnecessarily (small drift)
-May miss needed rebalance (big drift between dates)
+SOUL principle 12: **the market can stay irrational longer than you
+can stay solvent.** The polite version of that statement; the
+impolite version is that <em>you</em> will turn irrational first, and the
+market will then continue running until you have liquidated at the
+worst possible moment. Every behavioural-finance study from the past
+forty years says the same thing: individual investors, on average,
+sell after declines and buy after rallies. The same ones. The same
+direction. Every time.
 </p>
 <p>
-THRESHOLD REBALANCING
----------------------
-Target: 60% stocks, Band: +/- 5%
+A rebalancing rule does the opposite. In March 2009, with the S&P
+down 56% from its 2007 high, the textbook 60/40 rebalancer was a
+mechanical buyer of stocks at the cycle low. They did not have a
+view. They did not call a bottom. They were <em>forced</em> by the rule
+to top up the bond-heavy portfolio with cheap equity. Five years
+later that purchase had doubled.
 </p>
 <p>
-65% .............. UPPER BAND (trigger: sell stocks)
-\
-\    Actual
-\  Allocation   * &lt;-- Trigger! Rebalance.
-60% ---\-----------/------  TARGET
-\       /
-\   /
-55% ........*......... LOWER BAND (trigger: buy stocks)
-^
-Trigger! Rebalance.
+In December 2021, with the S&P up 28% on the year and bonds soft,
+the same rebalancer was a mechanical seller of stocks at what turned
+out to be a cycle peak. Again no view, no call. The rule sold; the
+investor did not have to summon courage they did not possess.
 </p>
 <p>
-Pros: Only rebalances when meaningful drift occurs
-Responds to large market moves immediately
-Cons: More complex to monitor
-May generate more trades in volatile markets
+This is why we run a rule. Not because the rule is smart. Because
+<em>we</em> are not, in the moments that matter most.
+</p>
+<h4>2.6 The 2022 Dilemma — When There Is Nothing to Rebalance Into</h4>
+<p>
+The neat machinery breaks when both assets fall together. In 2022
+the S&P 500 returned −18.1%, the 10-year Treasury returned −17.8%,
+and the 60/40 portfolio finished at roughly −18.0%. The naive
+rebalancer asks: do I sell stocks to buy bonds, or sell bonds to
+buy stocks? Both are down nearly equally. There is no winner to
+trim and no loser to top up.
 </p>
 <p>
-HYBRID APPROACH (MOST RECOMMENDED)
------------------------------------
-Check allocation on a fixed schedule (e.g., quarterly)
-Only rebalance if drift exceeds threshold (e.g., 5%)
+The mechanical answer is unsatisfying but correct: **rebalance
+back to target weights anyway.** If at year-end you sit at, say,
+59% stocks and 41% bonds (because stocks fell slightly less in
+total return after dividend reinvestment), trim 1% off bonds and
+buy 1% of stocks. The trade is small and the rebalancing premium
+that year is essentially zero, but you are still placing the
+correct trade for the <em>next</em> year. A regime change in the
+correlation does not change the rule; it just changes the size of
+the premium the rule earns.
 </p>
 <p>
-This combines the simplicity of calendar with the
-efficiency of threshold rebalancing.
-</code></pre>
+The deeper lesson from 2022 is the one Week 4 already foreshadowed:
+when stocks and bonds are positively correlated, neither sleeve
+is hedging the other, and the rebalancing premium falls toward
+zero. The practical response is not to abandon the rule but to
+broaden the asset menu — the barbell shape (SOUL #14) of more
+cash, some gold, an equity tilt, and an asymmetric speculative
+sleeve has a higher cross-asset variance to harvest from in the
+inflation regime than the classic two-asset 60/40 does.
 </p>
 <p>
-<strong>What does the research say?</strong>
-</p>
-<p>
-Academic studies including those by Vanguard and various CFA research papers have found that the specific frequency of rebalancing matters less than the fact that you rebalance at all. Annual rebalancing, semi-annual rebalancing, and threshold-based rebalancing all produce broadly similar long-term results. The biggest difference is between rebalancing and not rebalancing.
-</p>
-<p>
-That said, a hybrid approach -- checking quarterly but only rebalancing when drift exceeds 5 percentage points -- tends to minimize transaction costs while capturing most of the benefit.
-</p>
-<hr>
-<h4>5. The Rebalancing Bonus</h4>
-<p>
-One of the most fascinating findings in portfolio theory is that a rebalanced portfolio of volatile, negatively correlated (or uncorrelated) assets can outperform each individual asset over time. This phenomenon is called the rebalancing bonus (sometimes called the diversification return or volatility harvesting).
-</p>
-<pre><code class="language-">THE REBALANCING BONUS -- A SIMPLIFIED EXAMPLE
-<p>
-================================================
-</p>
-<p>
-Consider two assets that alternate between +30% and -10%,
-but in opposite years:
-</p>
-<p>
-Year    Asset A     Asset B     50/50 Portfolio
-(Rebalanced Annually)
-----    -------     -------     ----------------
-1      +30%        -10%
-2      -10%        +30%
-3      +30%        -10%
-4      -10%        +30%
-</p>
-<p>
-After 4 years:
-Asset A alone:  $100 x 1.30 x 0.90 x 1.30 x 0.90 = $136.89
-Asset B alone:  $100 x 0.90 x 1.30 x 0.90 x 1.30 = $136.89
-</p>
-<p>
-Annualized return each: ~8.17%
-</p>
-<p>
-50/50 Rebalanced Portfolio:
-Year 1: A=$65 x 1.30=$84.50, B=$50 x 0.90=$45.00
-Total=$129.50, Rebalance to $64.75 each
-Year 2: A=$64.75 x 0.90=$58.28, B=$64.75 x 1.30=$84.18
-Total=$142.45, Rebalance to $71.23 each
-Year 3: A=$71.23 x 1.30=$92.59, B=$71.23 x 0.90=$64.10
-Total=$156.69, Rebalance to $78.35 each
-Year 4: A=$78.35 x 0.90=$70.51, B=$78.35 x 1.30=$101.85
-Total=$172.36
-</p>
-<p>
-Annualized return of rebalanced portfolio: ~14.6%
-</p>
-<p>
-REBALANCING BONUS: 14.6% - 8.17% = +6.4% per year!
-</code></pre>
-</p>
-<p>
-This is a stylized example, but the principle holds in real markets: when assets are volatile and do not move in lockstep, rebalancing systematically harvests the difference. The bonus is largest when:
-</p>
-<ul><li>Asset volatility is high</li>
-<li>Correlation between assets is low or negative</li>
-<li>Assets tend to mean-revert (what goes down comes back)</li>
-<p>
-</ul>
-In real-world portfolios, the rebalancing bonus is typically 0.5% to 1.5% per year -- modest but meaningful over decades of compounding.
-</p>
-<pre><code class="language-">WHEN THE REBALANCING BONUS IS LARGEST vs. SMALLEST
-<p>
-=====================================================
-</p>
-<p>
-LARGEST BONUS                    SMALLEST BONUS
-+--------------------------+    +--------------------------+
-| High volatility          |    | Low volatility           |
-| Low/negative correlation |    | High positive correlation|
-| Mean-reverting markets   |    | Trending markets         |
-| Multiple asset classes   |    | Few, similar assets      |
-+--------------------------+    +--------------------------+
-</p>
-<p>
-Real-world estimates:
-US Stocks + US Bonds:            ~0.2-0.5% per year
-US Stocks + Int'l Stocks:        ~0.3-0.7% per year
-Multi-asset (stocks, bonds,      ~0.5-1.5% per year
-REITs, commodities):
-</code></pre>
-</p>
-<p>
-<strong>Important caveat:</strong> In strongly trending markets (where one asset consistently outperforms), rebalancing will reduce returns because you keep selling the winner. The rebalancing bonus is most evident in range-bound or mean-reverting markets. This does not mean you should stop rebalancing in trending markets -- risk control remains the primary purpose.
+The interactive lab below lets you choose the target stock weight,
+the band width (or "calendar only" mode), and the starting year, and
+plots both the weight drift and the wealth path. Watch the
+rebalance-events count and the total turnover when you flip from a
+1% band to a 20% band. Watch what 2022 does to the wealth path.
+That is the lesson.
 </p>
 <hr>
-<h4>6. Tax Considerations in Rebalancing</h4>
+<h3>3. Common Misconceptions</h3>
 <p>
-In taxable accounts, every rebalancing trade is a potential tax event. Selling appreciated assets generates capital gains taxes, which can significantly erode the benefit of rebalancing if not managed carefully.
-</p>
-<pre><code class="language-">TAX IMPACT OF REBALANCING
-<p>
-===========================
+<strong>Misconception 1: "Rebalancing always increases return."</strong>
 </p>
 <p>
-Scenario: Sell $10,000 of stocks that have $4,000 of gains
+It does not. The rebalancing premium is small (typically 0.1%–0.4%
+per year for a 60/40 of stocks and bonds) and disappears entirely
+when the correlation between the two sleeves runs positive. The
+<em>reason</em> to rebalance is risk control, not return enhancement.
 </p>
 <p>
-If Short-Term Gains (held &lt; 1 year):
-Tax rate: up to 37% (ordinary income)
-Tax bill: $4,000 x 0.37 = $1,480
-Net proceeds: $10,000 - $1,480 = $8,520
+<strong>Misconception 2: "More frequent rebalancing is better."</strong>
 </p>
 <p>
-If Long-Term Gains (held &gt; 1 year):
-Tax rate: 15% or 20% for most investors
-Tax bill: $4,000 x 0.15 = $600
-Net proceeds: $10,000 - $600 = $9,400
+There is essentially no difference in long-run outcomes between
+quarterly, semi-annual, and annual rebalancing on a stock-bond
+portfolio. Daily or weekly rebalancing is actively worse because
+trading costs and bid-ask spreads dominate the negligible
+incremental premium. Annual is the institutional default for a
+reason.
 </p>
 <p>
-Difference: $880 -- just from holding period!
-</code></pre>
+<strong>Misconception 3: "Threshold rebalancing always beats calendar."</strong>
 </p>
 <p>
-<strong>Tax-efficient rebalancing strategies:</strong>
-</p>
-<pre><code class="language-">TAX-EFFICIENT REBALANCING METHODS
-<p>
-===================================
-</p>
-<p>
-METHOD 1: USE NEW CONTRIBUTIONS
---------------------------------
-Instead of selling overweight assets, direct new
-contributions to underweight asset classes.
+In tax-deferred accounts with no transaction costs the band
+approach has a slight edge in violent years and a slight lag in
+calm ones. Net of fifty years it is a wash. The choice is mostly
+a matter of operational preference.
 </p>
 <p>
-Portfolio: 65% stocks / 35% bonds (target: 60/40)
-Monthly contribution: $2,000
+<strong>Misconception 4: "Rebalancing is market timing."</strong>
 </p>
 <p>
---&gt; Put entire $2,000 into bonds until balance restores
---&gt; No selling = no taxes!
+It is the opposite of market timing. Market timing forms a view
+on near-term direction. Rebalancing has no view; it mechanically
+restores a fixed target. The two strategies do opposite trades at
+exactly the moments they disagree.
 </p>
 <p>
-Best for: Accumulation phase, regular contributors
+**Misconception 5: "If the rule says to sell my winners, I am
+giving up alpha."**
 </p>
 <p>
-METHOD 2: USE WITHDRAWALS STRATEGICALLY
------------------------------------------
-In retirement, withdraw from overweight asset classes.
+A position that grew because of an idiosyncratic alpha source
+(SOUL #5) is a position you should consider sizing through a
+<em>conviction</em> lens, not a strict 60/40 lens. But the moment you
+treat a holding as part of the 60/40 sleeve, the rebalance applies.
+Mixing the two — calling the rebalance off because "I still believe
+in this stock" — is how taxable accounts end up at 90/10 four years
+later.
 </p>
 <p>
-Portfolio: 65% stocks / 35% bonds (target: 60/40)
-Monthly withdrawal: $3,000
+<strong>Misconception 6: "Rebalancing is expensive."</strong>
 </p>
 <p>
---&gt; Withdraw from stocks until balance restores
---&gt; You were going to sell anyway!
+In a tax-deferred account with commission-free ETFs (the modern
+default) the cost is essentially zero. In a taxable account it can
+be material if done incorrectly; with contributions-based
+rebalancing it can still be near zero. The cost is a function of
+<em>how</em> you rebalance, not <em>whether</em> you do.
 </p>
 <p>
-Best for: Distribution phase, retirees
+<strong>Misconception 7: "I should not rebalance during a bear market."</strong>
 </p>
 <p>
-METHOD 3: REBALANCE IN TAX-ADVANTAGED ACCOUNTS
-------------------------------------------------
-Keep the most tax-inefficient rebalancing in IRAs and 401(k)s,
-where there are no capital gains taxes.
+This is the most expensive misconception on the list. The bear
+market is exactly when the rebalance trade is most valuable —
+because that is when you are buying the lower-priced asset.
+Investors who suspended rebalancing in 2008–09 and resumed in 2010
+locked in a permanent underperformance against rule-followers.
 </p>
 <p>
-Taxable Account: Hold and rarely sell
-IRA / 401(k):    Rebalance freely
+**Misconception 8: "I should rebalance when something dramatic
+happens in the news."**
 </p>
 <p>
-Best for: Investors with assets in both account types
+News is a poor trigger. By the time something is dramatic, the
+asset prices have already moved and the rebalance trigger (calendar
+or threshold) has either already fired or has not. Trade the rule,
+not the headline.
 </p>
 <p>
-METHOD 4: TAX-LOSS HARVESTING DURING REBALANCING
---------------------------------------------------
-When selling, prioritize lots with losses to offset gains.
+**Misconception 9: "Tax drag makes rebalancing not worth it in a
+taxable account."**
 </p>
 <p>
-Lot 1: 100 shares bought at $50, now $60 (gain $1,000)
-Lot 2: 100 shares bought at $70, now $60 (loss $1,000)
+Untrue if you use new contributions to redirect inflows toward the
+underweight sleeve. The rule is the same; the implementation is
+just less invasive. The argument only holds for someone who has
+fully stopped contributing and has no tax-advantaged account in
+which to do the rebalance trades.
 </p>
 <p>
---&gt; Sell Lot 2 first to realize loss
---&gt; Loss offsets gains from other rebalancing trades
+**Misconception 10: "Rebalancing destroys the rebalancing premium
+in 2022-style years."**
 </p>
 <p>
-Best for: Volatile markets with mixed gains/losses
-</p>
-<p>
-METHOD 5: USE DIVIDENDS AND INTEREST
---------------------------------------
-Direct dividends and interest payments to underweight
-asset classes instead of reinvesting in the same fund.
-</p>
-<p>
-Stock dividends --&gt; Purchase bonds
-Bond interest   --&gt; Purchase stocks (if stocks underweight)
-</p>
-<p>
-Best for: Income-generating portfolios
-</code></pre>
-</p>
-<p>
-<strong>The tax-efficiency hierarchy for rebalancing:</strong>
-</p>
-<pre><code class="language-">MOST TAX-EFFICIENT (try these first)
-<p>
-|
-|  1. Direct new contributions to underweight assets
-|  2. Reinvest dividends/interest into underweight assets
-|  3. Rebalance within tax-advantaged accounts (IRA, 401k)
-|  4. Sell assets with losses (tax-loss harvesting)
-|  5. Sell assets with long-term gains (lower tax rate)
-|  6. Sell assets with short-term gains (highest tax rate)
-|
-LEAST TAX-EFFICIENT (avoid if possible)
-</code></pre>
+In a year where both assets fall together the premium that year is
+essentially zero, regardless of whether you rebalance or not.
+Rebalancing does no harm; it just earns no premium that year.
 </p>
 <hr>
-<h4>7. Rebalancing Across Multiple Asset Classes</h4>
+<h3>4. Q&A</h3>
 <p>
-Real portfolios often have more than two asset classes. Rebalancing becomes more nuanced but follows the same principles.
-</p>
-<pre><code class="language-">MULTI-ASSET PORTFOLIO REBALANCING
-<p>
-===================================
+<strong>Q1: What is the optimal rebalancing frequency?</strong>
 </p>
 <p>
-Target Allocation:
-US Stocks:        35%    |============================|
-Int'l Stocks:     20%    |================|
-Bonds:            25%    |====================|
-REITs:            10%    |========|
-Commodities:       5%    |====|
-Cash:              5%    |====|
------
-100%
+A: For tax-deferred accounts, annual is the conventional answer
+and dominates by simplicity. For taxable accounts, <em>event-driven</em>
+rebalancing — only when a 5%–10% band has been breached — minimises
+realisations. Either is fine. The least good answer is "monthly,"
+which adds friction without adding return.
 </p>
 <p>
-After One Year of Drift:
-US Stocks:        42%    |=================================|  +7%
-Int'l Stocks:     18%    |==============|                     -2%
-Bonds:            22%    |=================|                  -3%
-REITs:            11%    |=========|                          +1%
-Commodities:       3%    |==|                                 -2%
-Cash:              4%    |===|                                -1%
------
-100%
+<strong>Q2: What is the right band width for threshold rebalancing?</strong>
 </p>
 <p>
-Rebalancing Trades (on $200,000 portfolio):
-SELL US Stocks:         -$14,000  (42% --&gt; 35%)
-BUY Int'l Stocks:       +$4,000  (18% --&gt; 20%)
-BUY Bonds:              +$6,000  (22% --&gt; 25%)
-SELL REITs:             -$2,000   (11% --&gt; 10%)
-BUY Commodities:        +$4,000  (3%  --&gt; 5%)
-BUY Cash:               +$2,000  (4%  --&gt; 5%)
-</code></pre>
+A: 5 absolute percentage points around the target is a standard
+default for a 60/40. 10pp is reasonable for an investor who values
+inactivity. 1pp is too tight — the band fires constantly and the
+turnover eats the premium. The choice depends on tax cost and
+brokerage friction more than on theory.
 </p>
 <p>
-With multiple asset classes, you can often net trades against each other: sell the overweight assets and use the proceeds to buy the underweight ones. This minimizes the total number and size of transactions.
-</p>
-<hr>
-<h4>8. Implementation: A Step-by-Step Rebalancing Process</h4>
-<pre><code class="language-">REBALANCING WORKFLOW
-<p>
-=====================
+**Q3: Should I rebalance my 401(k), my IRA, and my brokerage
+account separately or jointly?**
 </p>
 <p>
-+-------------------+
-| 1. SET TARGET     |    Define your target allocation
-|    ALLOCATION     |    based on goals, risk tolerance,
-+--------+----------+    and time horizon
-|
-v
-+-------------------+
-| 2. SET BANDS      |    Determine rebalancing thresholds
-|    (e.g., +/-5%)  |    (e.g., rebalance if any asset
-+--------+----------+    drifts more than 5% from target)
-|
-v
-+-------------------+
-| 3. SET SCHEDULE   |    Choose review frequency
-|    (e.g., Qtrly)  |    (monthly, quarterly, annually)
-+--------+----------+
-|
-v
-+-------------------+
-| 4. REVIEW         |    On schedule date, compare
-|    CURRENT vs.    |    actual vs. target allocation
-|    TARGET         |
-+--------+----------+
-|
-v
-+-------------------+     NO
-| 5. DRIFT EXCEEDS  |---------&gt; Do nothing.
-|    THRESHOLD?     |           Wait for next review.
-+--------+----------+
-| YES
-v
-+-------------------+
-| 6. CALCULATE      |    Determine exact dollar amounts
-|    TRADES         |    to sell/buy for each asset
-+--------+----------+
-|
-v
-+-------------------+
-| 7. CONSIDER       |    Can you use contributions,
-|    TAX IMPACT     |    dividends, or tax-advantaged
-+--------+----------+    accounts instead of selling?
-|
-v
-+-------------------+
-| 8. EXECUTE        |    Place trades, preferably all
-|    TRADES         |    on the same day to avoid
-+--------+----------+    interim drift
-|
-v
-+-------------------+
-| 9. DOCUMENT       |    Log what you did and why
-|    AND RECORD     |    (for tax records and review)
-+-------------------+
-</code></pre>
+A: Jointly. Treat the <em>household</em> portfolio as one allocation.
+Place the high-turnover trades inside the IRA or 401(k), where they
+are tax-free, and keep the taxable account as the long-term
+buy-and-hold sleeve. This single decision saves more in lifetime
+taxes than nearly any other portfolio choice.
 </p>
 <p>
-<strong>Practical tips:</strong>
-</p>
-<ul><li><strong>Batch your trades.</strong> Execute all rebalancing trades on the same day to avoid interim drift between selling one asset and buying another.</li>
-<li><strong>Use limit orders for individual stocks.</strong> For ETFs and mutual funds in broad markets, market orders are generally fine.</li>
-<li><strong>Mind the settlement dates.</strong> Stock and ETF trades settle in T+1 (one business day). Ensure you have settled cash before buying.</li>
-<li><strong>Automate if possible.</strong> Many 401(k) plans and robo-advisors offer automatic rebalancing. Use it.</li>
-<li><strong>Keep records.</strong> Track every rebalancing trade for tax purposes, including the date, amount, cost basis, and whether the gain or loss was short-term or long-term.</li>
-<p>
-</ul>
-</p>
-<hr>
-<h4>9. How Often Should You Rebalance? The Research</h4>
-<pre><code class="language-">REBALANCING FREQUENCY COMPARISON (Historical Backtests)
-<p>
-=========================================================
+**Q4: Can I just rebalance with new monthly contributions and never
+sell anything?**
 </p>
 <p>
-Frequency      Avg Annual    Volatility   Turnover   Tax
-Return                     (Annual)   Efficiency
-----------     ----------    ----------   --------   ----------
-Never          9.2%          14.8%        0%         Highest
-(drift to 90/10)
+A: Yes, as long as the contributions are large relative to the
+drift. A working professional contributing 15% of salary into a
+balanced portfolio rarely needs to do a sell-rebalance trade in
+the accumulation phase. Once contributions slow (retirement, sale
+of a business), supplementary calendar or band rebalancing kicks in.
 </p>
 <p>
-Annually       9.1%          11.2%        8%         Good
+**Q5: What about rebalancing in a year like 2022 when both assets
+fell?**
 </p>
 <p>
-Semi-Annual    9.1%          11.1%        12%        Moderate
+A: Trade the rule. The premium that year is near zero, but the
+trade still positions you correctly for the <em>next</em> year. Skipping
+the rebalance is a discretionary act and exactly the kind of
+discretion the rule exists to prevent. (See §2.6.)
 </p>
 <p>
-Quarterly      9.0%          11.0%        18%        Lower
+**Q6: Does rebalancing make sense for a 100% stock portfolio across
+many ETFs?**
 </p>
 <p>
-Monthly        9.0%          10.9%        25%        Lowest
+A: Yes — the same logic applies between sleeves of stocks (US large,
+international, small cap). The premium is smaller because the
+sleeves are more correlated, but the discipline of restoring target
+weights still works. Once a year is plenty.
 </p>
 <p>
-Daily          8.9%          10.9%        High       Very Low
+**Q7: What if I have a position with a strategic conviction — say,
+a single stock I believe will continue compounding — that has now
+drifted to 30% of my portfolio?**
 </p>
 <p>
-Note: Based on 60/40 US stock/bond portfolio, 1926-2023.
-Actual results vary by period. Returns before taxes and
-transaction costs.
+A: Two answers. (1) Then it is <em>not</em> part of your 60/40 allocation
+sleeve; it is a concentrated active position, and you should
+account for it separately. (2) Concentration risk in a single name
+above 10% of household wealth is its own problem (we cover it in
+Week 21). The rebalancing rule applies to the <em>passive</em> sleeves; a
+conviction trade lives outside them and is sized by a different
+process.
 </p>
 <p>
-KEY FINDINGS:
-</p>
-<ul><li>Annual or semi-annual is the sweet spot for most investors</li>
-<li>More frequent rebalancing reduces volatility slightly</li>
-<p>
-</ul>    but increases costs
-</p>
-<ul><li>Never rebalancing maximizes raw return but dramatically</li>
-<p>
-</ul>    increases risk
-</p>
-<ul><li>The benefit of rebalancing is primarily risk reduction,</li>
-<p>
-</ul>    not return enhancement
-</code></pre>
+**Q8: How does the rebalancing premium compare to other "free
+lunches" in investing?**
 </p>
 <p>
-For most individual investors, <strong>annual or semi-annual rebalancing with a 5% threshold</strong> is the recommended approach. It captures the vast majority of the risk-reduction benefit while minimizing transaction costs and tax drag.
-</p>
-<hr>
-<h4>10. Rebalancing in Different Market Environments</h4>
-<pre><code class="language-">HOW REBALANCING BEHAVES IN DIFFERENT MARKETS
-<p>
-===============================================
+A: It is among the smallest. The factor premia (size, value,
+momentum) historically delivered 1%–3% annualised; the volatility
+risk premium (Week 47) delivered 2%–4%; the equity risk premium
+itself delivered 4%–6%. The rebalancing premium at 0.1%–0.4% is
+real but minor. Frame it correctly: it is the icing, not the cake.
 </p>
 <p>
-BULL MARKET (stocks steadily rising)
--------------------------------------
-Rebalancing REDUCES returns vs. buy-and-hold
-Because: you keep trimming the winning asset
-But: you maintain risk discipline for when the
-bull market inevitably ends
+<strong>Q9: Is there a "wrong" rebalance trade?</strong>
 </p>
 <p>
-BEAR MARKET (stocks falling sharply)
---------------------------------------
-Rebalancing FORCES you to buy stocks at lower prices
-This is psychologically the hardest time to rebalance
-But: it is historically the MOST valuable time
-Example: Investors who rebalanced in March 2009
-bought stocks near the bottom
+A: Yes — a partial rebalance that just trims the most-overweight
+sleeve down to the upper band but does not bring it back to target.
+That preserves drift in the same direction it already had and
+captures none of the premium. If you are going to rebalance, go to
+target; if you are not, do not rebalance. The middle ground is
+operationally the worst of both worlds.
 </p>
 <p>
-SIDEWAYS/VOLATILE MARKET (choppy, no trend)
----------------------------------------------
-Rebalancing captures the HIGHEST bonus here
-Because: you are systematically buying dips and
-selling rallies within the range
-This is where rebalancing truly shines
+<strong>Q10: What does Horace personally do?</strong>
 </p>
 <p>
-CRASH AND RECOVERY (V-shaped market)
----------------------------------------
-Rebalancing during the crash (buying stocks)
-followed by recovery produces the best outcomes
-The deeper the crash, the more you buy
-The stronger the recovery, the more you benefit
+A: A January calendar rebalance for the IRA sleeve (auto-rebalanced
+by the broker, cost: zero, time: zero), contributions-based
+rebalancing for the taxable equity sleeve, and a 10pp band check
+for everything in between, fired only if the January look-through
+shows the portfolio out of the band. The total annual time
+commitment is under an hour. Anything more complex is a hobby, not
+a portfolio.
 </p>
 <p>
-2008-2009 Example:
-Investor who rebalanced quarterly through the
-crisis recovered to breakeven ~1 year faster
-than the investor who froze and did nothing
-</code></pre>
-</p>
-<hr>
-<h3>c) Common Misconceptions</h3>
-<p>
-<strong>Misconception 1: "Rebalancing is just about maximizing returns."</strong>
+<strong>Q11: How does this connect to the rest of the course?</strong>
 </p>
 <p>
-Reality: The primary purpose of rebalancing is risk management, not return maximization. In strongly trending markets, rebalancing will actually reduce returns because you sell the winning asset. The value of rebalancing is that it keeps your portfolio's risk level consistent with your financial plan. Over a complete market cycle (including both bull and bear phases), rebalancing tends to improve risk-adjusted returns, but raw returns depend heavily on the specific time period.
-</p>
-<p>
-<strong>Misconception 2: "I should rebalance as frequently as possible."</strong>
-</p>
-<p>
-Reality: More frequent rebalancing does not necessarily produce better results. Research consistently shows that annual rebalancing captures most of the benefit. Excessive rebalancing increases transaction costs, generates more taxable events, and rarely improves returns or risk reduction by a meaningful amount. The diminishing returns set in quickly after quarterly frequency.
-</p>
-<p>
-<strong>Misconception 3: "Rebalancing means selling all my winners."</strong>
-</p>
-<p>
-Reality: Rebalancing means trimming overweight positions, not eliminating them. If your stock target is 60% and stocks have drifted to 65%, you sell 5 percentage points worth -- not all your stocks. You are still heavily invested in the winning asset class; you are just maintaining your intended exposure level.
-</p>
-<p>
-<strong>Misconception 4: "I do not need to rebalance because I am in index funds."</strong>
-</p>
-<p>
-Reality: Index funds are internally rebalanced (stocks entering or leaving the index are automatically adjusted), but your allocation across different index funds still drifts. If you own a US stock index fund and a bond index fund, the relative balance between them changes as markets move. That inter-fund drift is what you need to rebalance.
-</p>
-<p>
-<strong>Misconception 5: "Rebalancing does not matter if I am decades from retirement."</strong>
-</p>
-<p>
-Reality: Rebalancing matters at every investment horizon. Young investors with aggressive allocations still benefit from rebalancing between, say, US stocks, international stocks, and small-cap stocks. The rebalancing bonus from uncorrelated volatile assets can add meaningful returns over decades. Additionally, the discipline of rebalancing during your accumulation years builds the habits you will need when the stakes are higher closer to retirement.
-</p>
-<p>
-<strong>Misconception 6: "I should rebalance during a crash by selling stocks to buy bonds."</strong>
-</p>
-<p>
-Reality: This is the opposite of what rebalancing requires. During a crash, stocks have fallen and are now underweight relative to your target. Rebalancing means buying more stocks and selling bonds. If your emotional instinct is to sell stocks during a crash, you are not rebalancing -- you are panic-selling. True rebalancing is counter-emotional by design.
-</p>
-<hr>
-<h3>d) Common Questions and Answers</h3>
-<p>
-<strong>Q1: What is the difference between rebalancing and reallocating?</strong>
-</p>
-<p>
-A: Rebalancing means restoring your existing target allocation after market drift -- for example, bringing a drifted 65/35 portfolio back to 60/40. Reallocating means changing the target itself -- for example, shifting from 60/40 to 50/50 because you are closer to retirement or your risk tolerance has changed. Rebalancing is tactical maintenance; reallocation is a strategic decision. Both are important, but they serve different purposes.
-</p>
-<p>
-<strong>Q2: Should I rebalance my 401(k) and IRA separately, or look at my total portfolio?</strong>
-</p>
-<p>
-A: Ideally, you should view all your accounts as one combined portfolio and rebalance holistically. You might hold all your bonds in your IRA (for tax efficiency) and all your stocks in your taxable account. The individual accounts would look unbalanced, but the total portfolio would be on target. This approach, called asset location, optimizes for tax efficiency. However, if managing multiple accounts feels overwhelming, rebalancing each account individually to its own target is a reasonable simplification.
-</p>
-<p>
-<strong>Q3: What should my rebalancing bands be?</strong>
-</p>
-<p>
-A: The most common recommendation is 5 percentage points absolute (e.g., rebalance when stocks hit 65% or 55% against a 60% target) or 25% relative (e.g., rebalance when stocks exceed 75% of their target weight or fall below 45%). For smaller asset class allocations (like a 5% commodities position), tighter bands such as plus or minus 2 percentage points are appropriate because even small absolute changes represent large relative swings.
-</p>
-<p>
-<strong>Q4: Does rebalancing work with individual stocks, or only with asset classes?</strong>
-</p>
-<p>
-A: Rebalancing is primarily an asset class concept. You rebalance between stocks and bonds, between US and international, between large-cap and small-cap. While you can rebalance among individual stocks, this is more akin to portfolio management and requires fundamental analysis of each position. Selling a stock that has risen does not make sense if the company's value has genuinely increased -- unlike asset classes, individual stocks do not necessarily mean-revert. Stick to rebalancing at the asset class level.
-</p>
-<p>
-<strong>Q5: What about rebalancing costs eating into the benefit?</strong>
-</p>
-<p>
-A: With modern commission-free brokerages and low-cost ETFs, direct transaction costs for rebalancing are minimal. The more significant cost is taxes in taxable accounts. Use tax-efficient rebalancing strategies (new contributions, tax-advantaged accounts, tax-loss harvesting) to minimize this drag. In tax-advantaged accounts like IRAs and 401(k)s, the cost of rebalancing is essentially zero.
-</p>
-<p>
-<strong>Q6: Should I rebalance after a major market event, even if it is not my scheduled date?</strong>
-</p>
-<p>
-A: If you use threshold-based rebalancing, yes -- that is exactly what the threshold is for. A major market crash that pushes stocks well below your target should trigger a rebalance. However, resist the urge to rebalance in the middle of a fast-moving event. Wait for markets to stabilize somewhat (a few days to a week) so your trades execute at reasonable prices and you are not whipsawed by intraday volatility.
-</p>
-<p>
-<strong>Q7: Is there a difference between rebalancing a taxable account versus a retirement account?</strong>
-</p>
-<p>
-A: The mechanics are the same, but the tax implications are completely different. In a retirement account (IRA, 401(k), Roth IRA), you can rebalance freely without tax consequences -- there are no capital gains taxes on trades within these accounts. In a taxable account, every sale is a potential tax event, so you need to be more deliberate and use the tax-efficient strategies described above.
-</p>
-<p>
-<strong>Q8: What does the CFA curriculum say about rebalancing?</strong>
-</p>
-<p>
-A: The CFA curriculum covers rebalancing extensively in the Portfolio Management and Wealth Planning section. Key topics include calendar rebalancing versus percentage-of-portfolio (threshold) rebalancing, the costs and benefits of different rebalancing strategies, the tradeoff between transaction costs and tracking error, and optimal corridor width. The curriculum emphasizes that the appropriate rebalancing strategy depends on risk tolerance, transaction costs, asset class correlations, and tax considerations. Level III in particular expects candidates to recommend and justify specific rebalancing approaches within an Investment Policy Statement.
-</p>
-<p>
-<strong>Q9: Can rebalancing ever hurt my portfolio?</strong>
-</p>
-<p>
-A: Yes, in specific circumstances. In a strong, sustained bull market for one asset class, rebalancing will reduce total returns because you keep trimming the winner. If an asset class is in structural decline (not just cyclical), rebalancing into it destroys value. And if rebalancing generates large tax bills in a taxable account, the tax drag can exceed the benefit. These are reasons to be thoughtful about rebalancing, not reasons to avoid it entirely. Over complete market cycles, the risk-management benefits generally outweigh these costs.
-</p>
-<p>
-<strong>Q10: What tools or platforms can help automate rebalancing?</strong>
-</p>
-<p>
-A: Many options exist. Robo-advisors like Betterment and Wealthfront automatically rebalance portfolios and handle tax-loss harvesting. Target-date funds automatically rebalance and gradually shift allocation over time. Most 401(k) plans offer an automatic rebalancing feature. For self-directed investors, tools like Personal Capital, Morningstar Portfolio X-Ray, or a simple spreadsheet can track drift and signal when rebalancing is needed.
+A: Rebalancing is the operational layer underneath every
+allocation we have introduced or will introduce — 60/40 (Week 4),
+the diversified mixes (Week 5), the factor sleeves (Week 23), the
+barbell (Week 14), the long-volatility overlay (Week 47). Pick an
+allocation, pick a rebalance rule, and the rest of the course is
+about choosing the right allocation. The rebalance rule is the part
+you decide once and never revisit.
 </p>
             </div>
             <div id="content-hk" class="lang-content">

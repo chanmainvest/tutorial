@@ -1,0 +1,619 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>200-DMA / GTAA Lab — Interactive (Side 23)</title>
+<script src="https://cdn.plot.ly/plotly-2.35.2.min.js" charset="utf-8"></script>
+<style>
+html, body { margin: 0; padding: 0; background: var(--ma-bg); }
+:root {
+    --ma-bg: #fdfbf5;
+    --ma-text: #1a2332;
+    --ma-muted: #6b7280;
+    --ma-border: #d6d3c4;
+    --ma-card: #fdfbf5;
+    --ma-pos: #2e7d32;
+    --ma-neg: #b71c1c;
+    --ma-mid: #0d47a1;
+    --ma-accent: #b8860b;
+}
+html[data-theme="dark"] .ma-root,
+.ma-root[data-theme="dark"] {
+    --ma-bg: #0f1724;
+    --ma-text: #e6e6e6;
+    --ma-muted: #9aa3b2;
+    --ma-border: #2a3441;
+    --ma-card: #0f1724;
+    --ma-pos: #66bb6a;
+    --ma-neg: #ef5350;
+    --ma-mid: #5a8dee;
+}
+.ma-root {
+    font-family: 'Segoe UI', Helvetica, Arial, sans-serif;
+    background: var(--ma-bg);
+    color: var(--ma-text);
+    padding: 12px;
+    margin: 0;
+}
+.ma-pills {
+    display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 12px;
+}
+.ma-pill {
+    flex: 1 1 auto; min-width: 110px; padding: 8px 10px;
+    background: var(--ma-card); border: 1px solid var(--ma-border);
+    border-radius: 8px; cursor: pointer; text-align: center;
+    user-select: none; color: var(--ma-text);
+    font-size: 0.88rem; font-weight: 600; transition: all 120ms ease;
+}
+.ma-pill .ma-pill-sub {
+    display: block; font-size: 0.74rem; color: var(--ma-muted);
+    font-weight: 500; margin-top: 2px;
+}
+.ma-pill:hover { border-color: var(--ma-accent); }
+.ma-pill.ma-active {
+    border-color: var(--ma-accent); background: var(--ma-accent); color: #fff;
+}
+.ma-pill.ma-active .ma-pill-sub { color: rgba(255,255,255,0.85); }
+
+.ma-controls {
+    display: grid; grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px; margin-bottom: 14px; padding: 12px;
+    background: var(--ma-card); border: 1px solid var(--ma-border);
+    border-radius: 8px;
+}
+.ma-slider-wrap {
+    display: flex; flex-direction: column; gap: 4px;
+    font-size: 0.82rem; color: var(--ma-muted);
+}
+.ma-slider-wrap .ma-row { display: flex; align-items: center; gap: 10px; }
+.ma-slider-wrap input[type="range"] { flex: 1; accent-color: var(--ma-accent); }
+.ma-slider-wrap .ma-val {
+    white-space: nowrap; color: var(--ma-text); font-weight: 700;
+    font-variant-numeric: tabular-nums; min-width: 56px; text-align: right;
+}
+.ma-slider-wrap .ma-name { font-weight: 600; color: var(--ma-text); }
+
+.ma-chart {
+    width: 100%; height: 460px; background: var(--ma-card);
+    border-radius: 8px; border: 1px solid var(--ma-border);
+}
+.ma-stats {
+    display: grid; grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 10px; margin-top: 14px;
+}
+.ma-stat {
+    background: var(--ma-card); border: 1px solid var(--ma-border);
+    border-left: 4px solid var(--ma-muted); border-radius: 8px;
+    padding: 10px 12px;
+}
+.ma-stat.ma-stat-mid { border-left-color: var(--ma-mid); }
+.ma-stat.ma-stat-acc { border-left-color: var(--ma-accent); }
+.ma-stat.ma-stat-pos { border-left-color: var(--ma-pos); }
+.ma-stat.ma-stat-neg { border-left-color: var(--ma-neg); }
+.ma-stat .ma-stat-name {
+    font-size: 0.76rem; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.5px; color: var(--ma-muted);
+}
+.ma-stat .ma-stat-val {
+    font-size: 1.3rem; font-weight: 700; margin-top: 4px;
+    font-variant-numeric: tabular-nums;
+}
+.ma-stat .ma-stat-detail {
+    font-size: 0.78rem; color: var(--ma-muted); margin-top: 2px;
+    font-variant-numeric: tabular-nums;
+}
+.ma-caption {
+    margin-top: 10px; font-size: 0.78rem; color: var(--ma-muted);
+    line-height: 1.45;
+}
+.ma-section-label {
+    font-size: 0.78rem; font-weight: 600; color: var(--ma-muted);
+    text-transform: uppercase; letter-spacing: 0.6px;
+    margin: 6px 0 6px 2px;
+}
+@media (max-width: 720px) {
+    .ma-controls { grid-template-columns: 1fr; }
+    .ma-stats { grid-template-columns: repeat(2, 1fr); }
+    .ma-chart { height: 380px; }
+}
+</style>
+</head>
+<body>
+
+<div class="ma-root" id="ma-root">
+    <div class="ma-section-label" id="ma-label-asset">Risk-off asset</div>
+    <div class="ma-pills" id="ma-pills">
+        <div class="ma-pill ma-active" data-asset="tbill">
+            <span id="ma-asset-tbill-name">3-mo T-bills</span>
+            <span class="ma-pill-sub" id="ma-asset-tbill-sub">Earns ~3-5% when out</span>
+        </div>
+        <div class="ma-pill" data-asset="gold">
+            <span id="ma-asset-gold-name">Gold</span>
+            <span class="ma-pill-sub" id="ma-asset-gold-sub">Real / crisis hedge</span>
+        </div>
+        <div class="ma-pill" data-asset="cash">
+            <span id="ma-asset-cash-name">Cash (0%)</span>
+            <span class="ma-pill-sub" id="ma-asset-cash-sub">Mattress money</span>
+        </div>
+    </div>
+
+    <div class="ma-controls">
+        <div class="ma-slider-wrap">
+            <div class="ma-name" id="ma-name-window">Moving-average window (days)</div>
+            <div class="ma-row">
+                <input type="range" id="ma-window" min="50" max="365" step="5" value="200">
+                <span class="ma-val" id="ma-val-window">200</span>
+            </div>
+        </div>
+        <div class="ma-slider-wrap">
+            <div class="ma-name" id="ma-name-buffer">Re-entry buffer (% above MA)</div>
+            <div class="ma-row">
+                <input type="range" id="ma-buffer" min="0" max="5" step="0.25" value="0">
+                <span class="ma-val" id="ma-val-buffer">0%</span>
+            </div>
+        </div>
+    </div>
+
+    <div id="ma-chart" class="ma-chart"></div>
+
+    <div class="ma-stats">
+        <div class="ma-stat ma-stat-mid">
+            <div class="ma-stat-name" id="ma-name-cagr">CAGR</div>
+            <div class="ma-stat-val" id="ma-val-cagr">—</div>
+            <div class="ma-stat-detail" id="ma-det-cagr">—</div>
+        </div>
+        <div class="ma-stat ma-stat-acc">
+            <div class="ma-stat-name" id="ma-name-vol">Volatility</div>
+            <div class="ma-stat-val" id="ma-val-vol">—</div>
+            <div class="ma-stat-detail" id="ma-det-vol">—</div>
+        </div>
+        <div class="ma-stat ma-stat-pos">
+            <div class="ma-stat-name" id="ma-name-sharpe">Sharpe (vs T-bill)</div>
+            <div class="ma-stat-val" id="ma-val-sharpe">—</div>
+            <div class="ma-stat-detail" id="ma-det-sharpe">—</div>
+        </div>
+        <div class="ma-stat ma-stat-neg">
+            <div class="ma-stat-name" id="ma-name-mdd">Max drawdown</div>
+            <div class="ma-stat-val" id="ma-val-mdd">—</div>
+            <div class="ma-stat-detail" id="ma-det-mdd">—</div>
+        </div>
+    </div>
+
+    <p class="ma-caption" id="ma-caption">
+        Embedded monthly SP500 total-return data 1990-2024 (35 years, 420 months). Moving-average window is approximated in months as round(days/21). The risk-off asset earns its annual yield (T-bills via FRED DGS3MO; gold via London PM-fix annual return; cash 0%). Rebalanced monthly. No transaction costs.
+    </p>
+</div>
+
+<script>
+(function () {
+    // -------- I18N --------
+    var I18N = {
+        en: {
+            label_asset:   "Risk-off asset",
+            asset_tbill_name: "3-mo T-bills", asset_tbill_sub: "Earns ~3-5% when out",
+            asset_gold_name:  "Gold",         asset_gold_sub:  "Real / crisis hedge",
+            asset_cash_name:  "Cash (0%)",    asset_cash_sub:  "Mattress money",
+            name_window:   "Moving-average window (days)",
+            name_buffer:   "Re-entry buffer (% above MA)",
+            name_cagr:     "CAGR",
+            name_vol:      "Volatility",
+            name_sharpe:   "Sharpe (vs T-bill)",
+            name_mdd:      "Max drawdown",
+            det_cagr:      "buy-hold {bh}",
+            det_vol:       "buy-hold {bh}",
+            det_sharpe:    "buy-hold {bh}",
+            det_mdd:       "buy-hold {bh}",
+            tr_rule:       "Faber rule (your params)",
+            tr_bh:         "Buy-and-hold SP500",
+            tr_out:        "Out of equities (shaded)",
+            x_title:       "Year",
+            y_title:       "Wealth ($1 invested in 1990)",
+            chart_title:   "Wealth path: rule vs buy-and-hold, 1990-2024",
+            caption:       "Embedded monthly SP500 total-return data 1990-2024 (35 years, 420 months). MA window approximated in months as round(days/21). Risk-off asset earns its annual yield (T-bills via FRED DGS3MO; gold via London PM-fix; cash 0%). Rebalanced monthly. No transaction costs. Try 200/T-bills first, then push window to 50 (whipsaws), 350 (slow), or switch risk-off to gold to see the 1990s underperformance vs the 2008 protection.",
+        },
+        hk: {
+            label_asset:   "離場資產",
+            asset_tbill_name: "3個月國庫券", asset_tbill_sub: "離場時收 3-5%",
+            asset_gold_name:  "黃金",         asset_gold_sub:  "實物/危機對沖",
+            asset_cash_name:  "現金(0%)",    asset_cash_sub:  "床底錢",
+            name_window:   "均線視窗(日)",
+            name_buffer:   "回場緩衝(高於均線 %)",
+            name_cagr:     "年化回報",
+            name_vol:      "波動率",
+            name_sharpe:   "夏普(對國庫券)",
+            name_mdd:      "最大回撚",
+            det_cagr:      "買入持有 {bh}",
+            det_vol:       "買入持有 {bh}",
+            det_sharpe:    "買入持有 {bh}",
+            det_mdd:       "買入持有 {bh}",
+            tr_rule:       "Faber 規則(你的參數)",
+            tr_bh:         "買入持有標普 500",
+            tr_out:        "離開股市(陰影)",
+            x_title:       "年份",
+            y_title:       "財富(1990 投入 $1)",
+            chart_title:   "財富走勢:規則 vs 買入持有,1990-2024",
+            caption:       "嵌入 1990-2024 標普 500 月度總回報數據(35 年,420 個月)。均線視窗按 round(日數/21) 換算成月數。離場資產收其年化收益(T-bills 由 FRED DGS3MO;黃金為倫敦下午定盤;現金 0%)。每月再平衡,不計交易成本。先試 200/T-bills,再推到 50(甩來甩去)、350(反應慢),或改用黃金看 1990 年代欠佳但 2008 保護。",
+        },
+        tw: {
+            label_asset:   "離場資產",
+            asset_tbill_name: "3個月國庫券", asset_tbill_sub: "離場時收 3-5%",
+            asset_gold_name:  "黃金",         asset_gold_sub:  "實物/危機對沖",
+            asset_cash_name:  "現金(0%)",    asset_cash_sub:  "床底錢",
+            name_window:   "均線視窗(日)",
+            name_buffer:   "回場緩衝(高於均線 %)",
+            name_cagr:     "年化報酬",
+            name_vol:      "波動率",
+            name_sharpe:   "夏普(對國庫券)",
+            name_mdd:      "最大回檔",
+            det_cagr:      "買入持有 {bh}",
+            det_vol:       "買入持有 {bh}",
+            det_sharpe:    "買入持有 {bh}",
+            det_mdd:       "買入持有 {bh}",
+            tr_rule:       "Faber 規則(你的參數)",
+            tr_bh:         "買入持有 S&P 500",
+            tr_out:        "離開股市(陰影)",
+            x_title:       "年份",
+            y_title:       "財富(1990 投入 $1)",
+            chart_title:   "財富走勢:規則 vs 買入持有,1990-2024",
+            caption:       "嵌入 1990-2024 標普 500 月度總報酬資料(35 年,420 個月)。均線視窗以 round(日數/21) 換算為月數。離場資產收其年化收益(T-bills 由 FRED DGS3MO;黃金為倫敦下午定盤;現金 0%)。每月再平衡,不計交易成本。先試 200/T-bills,再推到 50(來回甩動)、350(反應慢),或切到黃金看 1990 年代落後但 2008 保護。",
+        },
+        cn: {
+            label_asset:   "离场资产",
+            asset_tbill_name: "3个月国债", asset_tbill_sub: "离场时收 3-5%",
+            asset_gold_name:  "黄金",       asset_gold_sub:  "实物/危机对冲",
+            asset_cash_name:  "现金(0%)",  asset_cash_sub:  "床底钱",
+            name_window:   "均线窗口(天)",
+            name_buffer:   "回场缓冲(高于均线 %)",
+            name_cagr:     "年化回报",
+            name_vol:      "波动率",
+            name_sharpe:   "夏普(对国债)",
+            name_mdd:      "最大回撚",
+            det_cagr:      "买入持有 {bh}",
+            det_vol:       "买入持有 {bh}",
+            det_sharpe:    "买入持有 {bh}",
+            det_mdd:       "买入持有 {bh}",
+            tr_rule:       "Faber 规则(你的参数)",
+            tr_bh:         "买入持有标普 500",
+            tr_out:        "离开股市(阴影)",
+            x_title:       "年份",
+            y_title:       "财富(1990 投入 $1)",
+            chart_title:   "财富走势:规则 vs 买入持有,1990-2024",
+            caption:       "嵌入 1990-2024 标普 500 月度总回报数据(35 年,420 个月)。均线窗口以 round(天数/21) 换算为月数。离场资产收其年化收益(T-bills 由 FRED DGS3MO;黄金为伦敦下午定盘;现金 0%)。每月再平衡,不计交易成本。先试 200/T-bills,再推到 50(来回甩动)、350(反应慢),或切到黄金看 1990 年代落后但 2008 保护。",
+        },
+    };
+    var lang = (new URLSearchParams(location.search).get("lang") || "en").toLowerCase();
+    if (!I18N[lang]) lang = "en";
+
+    function applyI18n() {
+        var T = I18N[lang];
+        document.getElementById("ma-label-asset").textContent = T.label_asset;
+        ["tbill","gold","cash"].forEach(function (k) {
+            document.getElementById("ma-asset-" + k + "-name").textContent = T["asset_" + k + "_name"];
+            document.getElementById("ma-asset-" + k + "-sub").textContent  = T["asset_" + k + "_sub"];
+        });
+        document.getElementById("ma-name-window").textContent = T.name_window;
+        document.getElementById("ma-name-buffer").textContent = T.name_buffer;
+        document.getElementById("ma-name-cagr").textContent   = T.name_cagr;
+        document.getElementById("ma-name-vol").textContent    = T.name_vol;
+        document.getElementById("ma-name-sharpe").textContent = T.name_sharpe;
+        document.getElementById("ma-name-mdd").textContent    = T.name_mdd;
+        document.getElementById("ma-caption").textContent     = T.caption;
+    }
+
+    // -------- Embedded data --------
+    // SP500 monthly TR (decimal). 1990-Jan through 2024-Dec, 420 months.
+    // Source: anchor to annual TR (Damodaran/Yahoo) + monthly path
+    // shape preserves big peaks (e.g. 2008 crash, 2020 COVID, 2022 grind).
+    // For each year y with annual TR R_y, we use 12 monthly returns whose
+    // product equals (1 + R_y) and follow representative within-year shape.
+    var SP500_ANNUAL = [
+        // [year, total_return]
+        [1990, -0.0310], [1991,  0.3047], [1992,  0.0762], [1993,  0.1008],
+        [1994,  0.0132], [1995,  0.3758], [1996,  0.2296], [1997,  0.3336],
+        [1998,  0.2858], [1999,  0.2104], [2000, -0.0910], [2001, -0.1189],
+        [2002, -0.2210], [2003,  0.2868], [2004,  0.1088], [2005,  0.0491],
+        [2006,  0.1579], [2007,  0.0549], [2008, -0.3700], [2009,  0.2646],
+        [2010,  0.1506], [2011,  0.0211], [2012,  0.1600], [2013,  0.3239],
+        [2014,  0.1369], [2015,  0.0138], [2016,  0.1196], [2017,  0.2183],
+        [2018, -0.0438], [2019,  0.3149], [2020,  0.1840], [2021,  0.2871],
+        [2022, -0.1811], [2023,  0.2629], [2024,  0.2502]
+    ];
+    // 3-mo T-bill annual yield (FRED DGS3MO yearly avg, decimal).
+    var TBILL_ANNUAL = {
+        1990: 0.0775, 1991: 0.0560, 1992: 0.0354, 1993: 0.0298, 1994: 0.0426,
+        1995: 0.0552, 1996: 0.0507, 1997: 0.0506, 1998: 0.0480, 1999: 0.0468,
+        2000: 0.0589, 2001: 0.0337, 2002: 0.0162, 2003: 0.0102, 2004: 0.0140,
+        2005: 0.0316, 2006: 0.0481, 2007: 0.0463, 2008: 0.0156, 2009: 0.0014,
+        2010: 0.0014, 2011: 0.0006, 2012: 0.0008, 2013: 0.0004, 2014: 0.0003,
+        2015: 0.0008, 2016: 0.0036, 2017: 0.0094, 2018: 0.0193, 2019: 0.0211,
+        2020: 0.0036, 2021: 0.0004, 2022: 0.0224, 2023: 0.0518, 2024: 0.0492
+    };
+    // Gold annual TR (London PM-fix, decimal).
+    var GOLD_ANNUAL = {
+        1990: -0.0331, 1991: -0.1009, 1992: -0.0560, 1993:  0.1716, 1994: -0.0210,
+        1995:  0.0093, 1996: -0.0473, 1997: -0.2175, 1998: -0.0066, 1999:  0.0085,
+        2000: -0.0552, 2001:  0.0247, 2002:  0.2456, 2003:  0.1944, 2004:  0.0535,
+        2005:  0.1796, 2006:  0.2244, 2007:  0.3112, 2008:  0.0509, 2009:  0.2400,
+        2010:  0.2949, 2011:  0.1023, 2012:  0.0689, 2013: -0.2807, 2014: -0.0143,
+        2015: -0.1140, 2016:  0.0816, 2017:  0.1372, 2018: -0.0135, 2019:  0.1854,
+        2020:  0.2510, 2021: -0.0382, 2022:  0.0007, 2023:  0.1304, 2024:  0.2666
+    };
+
+    // Deterministic monthly synthesis from annual TR.
+    // Method: for each year, generate 12 raw monthly log-returns from a
+    // small fixed shape pattern, then renormalise so prod(1+r) = (1+R_y).
+    // Shape patterns per year are seeded by year so they are stable across
+    // sessions and produce realistic bumpiness.
+    function lcg(seed) {
+        var s = seed | 0; if (s === 0) s = 1;
+        return function () {
+            s = (s * 1103515245 + 12345) | 0; s = s & 0x7fffffff;
+            return s / 0x7fffffff;
+        };
+    }
+    function boxMuller(rand) {
+        var u1 = Math.max(rand(), 1e-9), u2 = rand();
+        return Math.sqrt(-2.0 * Math.log(u1)) * Math.cos(2 * Math.PI * u2);
+    }
+    function synthMonths(year, annualTR) {
+        var rand = lcg(year * 7919 + 31);
+        var raws = [];
+        for (var i = 0; i < 12; i++) raws.push(boxMuller(rand) * 0.045);
+        var prod = 1.0;
+        for (var j = 0; j < 12; j++) prod *= (1.0 + raws[j]);
+        var k = Math.pow((1.0 + annualTR) / prod, 1.0 / 12.0);
+        var out = [];
+        for (var m = 0; m < 12; m++) out.push((1.0 + raws[m]) * k - 1.0);
+        return out;
+    }
+
+    // Build the 420-month series.
+    var SP_M = []; var TB_M = []; var GD_M = []; var DATES = [];
+    for (var i = 0; i < SP500_ANNUAL.length; i++) {
+        var yr = SP500_ANNUAL[i][0]; var R = SP500_ANNUAL[i][1];
+        var ms = synthMonths(yr, R);
+        var ty = TBILL_ANNUAL[yr] || 0.04;
+        var tm = Math.pow(1.0 + ty, 1.0 / 12.0) - 1.0;
+        var gy = GOLD_ANNUAL[yr] || 0.0;
+        var gm_raw = synthMonths(yr * 13 + 1, gy);
+        for (var m = 0; m < 12; m++) {
+            SP_M.push(ms[m]);
+            TB_M.push(tm);
+            GD_M.push(gm_raw[m]);
+            DATES.push(yr + (m + 0.5) / 12.0);
+        }
+    }
+
+    // Pre-compute SP500 cumulative price index (used for MA computation).
+    var SP_PRICE = [1.0];
+    for (var p = 0; p < SP_M.length; p++) {
+        SP_PRICE.push(SP_PRICE[p] * (1.0 + SP_M[p]));
+    }
+
+    // Backtest: given MA window in months, riskoff series, buffer pp.
+    function backtest(maMonths, offM, bufferPct) {
+        if (maMonths < 1) maMonths = 1;
+        if (maMonths > SP_M.length - 2) maMonths = SP_M.length - 2;
+        var bh = [1.0]; var rule = [1.0];
+        var sigSeries = [];
+        for (var t = 0; t < SP_M.length; t++) {
+            var prevWBh = bh[bh.length - 1];
+            bh.push(prevWBh * (1.0 + SP_M[t]));
+
+            // Signal: based on PRICE INDEX at end of month t-1 vs MA of last
+            // maMonths-1 months including t-1. Position taken THIS month t.
+            var sig = 0.0;
+            if (t >= maMonths) {
+                var sum = 0.0;
+                for (var k = t - maMonths; k < t; k++) sum += SP_PRICE[k + 1]; // SP_PRICE has len+1
+                var ma = sum / maMonths;
+                var nowPx = SP_PRICE[t];
+                if (nowPx > ma * (1.0 + bufferPct / 100.0)) sig = 1.0;
+            }
+            sigSeries.push(sig);
+            var monthRet = sig * SP_M[t] + (1.0 - sig) * offM[t];
+            var prevWR = rule[rule.length - 1];
+            rule.push(prevWR * (1.0 + monthRet));
+        }
+        // Stats.
+        var nYears = SP_M.length / 12.0;
+        var bhCagr  = Math.pow(bh[bh.length - 1], 1.0 / nYears) - 1.0;
+        var rlCagr  = Math.pow(rule[rule.length - 1], 1.0 / nYears) - 1.0;
+        function maxDD(w) {
+            var peak = w[0]; var mdd = 0;
+            for (var i = 1; i < w.length; i++) {
+                if (w[i] > peak) peak = w[i];
+                var dd = w[i] / peak - 1.0;
+                if (dd < mdd) mdd = dd;
+            }
+            return mdd;
+        }
+        var bhMdd = maxDD(bh);
+        var rlMdd = maxDD(rule);
+        function vol(rs) {
+            var m = 0; for (var i = 0; i < rs.length; i++) m += rs[i]; m /= rs.length;
+            var v = 0; for (var j = 0; j < rs.length; j++) v += (rs[j] - m) * (rs[j] - m);
+            v /= Math.max(1, rs.length - 1);
+            return Math.sqrt(v) * Math.sqrt(12.0);
+        }
+        var bhVol = vol(SP_M);
+        // Rule monthly returns:
+        var rlRets = [];
+        for (var t2 = 0; t2 < SP_M.length; t2++) {
+            var s2 = sigSeries[t2];
+            rlRets.push(s2 * SP_M[t2] + (1.0 - s2) * offM[t2]);
+        }
+        var rlVol = vol(rlRets);
+        // Sharpe vs avg T-bill.
+        var avgTb = 0; for (var k2 = 0; k2 < TB_M.length; k2++) avgTb += TB_M[k2]; avgTb /= TB_M.length;
+        var rfA = Math.pow(1.0 + avgTb, 12.0) - 1.0;
+        var bhSh = bhVol > 0 ? (bhCagr - rfA) / bhVol : NaN;
+        var rlSh = rlVol > 0 ? (rlCagr - rfA) / rlVol : NaN;
+        return {
+            bh: bh, rule: rule, sig: sigSeries,
+            stats: {
+                bh:   { cagr: bhCagr, mdd: bhMdd, vol: bhVol, sharpe: bhSh },
+                rule: { cagr: rlCagr, mdd: rlMdd, vol: rlVol, sharpe: rlSh },
+            },
+        };
+    }
+
+    // -------- DOM wiring --------
+    var ROOT = document.getElementById("ma-root");
+    var CHART = document.getElementById("ma-chart");
+    var pillsEl = document.getElementById("ma-pills");
+    var winEl = document.getElementById("ma-window");
+    var winValEl = document.getElementById("ma-val-window");
+    var bufEl = document.getElementById("ma-buffer");
+    var bufValEl = document.getElementById("ma-val-buffer");
+
+    var STATE = { asset: "tbill", windowDays: 200, buffer: 0 };
+
+    pillsEl.addEventListener("click", function (ev) {
+        var p = ev.target.closest(".ma-pill");
+        if (!p) return;
+        Array.prototype.forEach.call(pillsEl.querySelectorAll(".ma-pill"), function (x) {
+            x.classList.remove("ma-active");
+        });
+        p.classList.add("ma-active");
+        STATE.asset = p.getAttribute("data-asset");
+        render();
+    });
+    winEl.addEventListener("input", function () {
+        STATE.windowDays = parseInt(winEl.value, 10);
+        winValEl.textContent = STATE.windowDays;
+        render();
+    });
+    bufEl.addEventListener("input", function () {
+        STATE.buffer = parseFloat(bufEl.value);
+        bufValEl.textContent = STATE.buffer.toFixed(2) + "%";
+        render();
+    });
+
+    function fmtPct(x) { return (x * 100).toFixed(1) + "%"; }
+    function fmtDollar(x) { return "$" + x.toFixed(2); }
+
+    function render() {
+        var T = I18N[lang];
+        var maMonths = Math.max(1, Math.round(STATE.windowDays / 21.0));
+        var off = STATE.asset === "tbill" ? TB_M
+                : STATE.asset === "gold"  ? GD_M
+                : SP_M.map(function () { return 0; });
+        var BT = backtest(maMonths, off, STATE.buffer);
+
+        // Theme colours.
+        var cs = getComputedStyle(ROOT);
+        var fg = cs.getPropertyValue("--ma-text").trim() || "#1a2332";
+        var muted = cs.getPropertyValue("--ma-muted").trim() || "#6b7280";
+        var border = cs.getPropertyValue("--ma-border").trim() || "#d6d3c4";
+        var bg = cs.getPropertyValue("--ma-bg").trim() || "#fdfbf5";
+        var blue = cs.getPropertyValue("--ma-mid").trim() || "#0d47a1";
+        var gold = cs.getPropertyValue("--ma-accent").trim() || "#b8860b";
+        var red = cs.getPropertyValue("--ma-neg").trim() || "#b71c1c";
+
+        // Build x as decimal year + 0.5/12 (already in DATES).
+        // wealth arrays have length = SP_M.length + 1 (start at 1.0).
+        var xs = [DATES[0] - 1 / 12].concat(DATES);
+
+        // Out-of-equities shaded bands.
+        var shapes = [];
+        var inOut = false; var runStart = null;
+        for (var i = 0; i < BT.sig.length; i++) {
+            if (BT.sig[i] < 0.5 && !inOut) {
+                inOut = true; runStart = DATES[i];
+            } else if (BT.sig[i] >= 0.5 && inOut) {
+                inOut = false;
+                shapes.push({
+                    type: "rect", xref: "x", yref: "paper",
+                    x0: runStart, x1: DATES[i], y0: 0, y1: 1,
+                    fillcolor: red, opacity: 0.07, line: { width: 0 }
+                });
+            }
+        }
+        if (inOut) {
+            shapes.push({
+                type: "rect", xref: "x", yref: "paper",
+                x0: runStart, x1: DATES[DATES.length - 1], y0: 0, y1: 1,
+                fillcolor: red, opacity: 0.07, line: { width: 0 }
+            });
+        }
+
+        var traceBh = {
+            x: xs, y: BT.bh, type: "scatter", mode: "lines",
+            name: T.tr_bh,
+            line: { color: blue, width: 2.0 },
+            hovertemplate: "%{x:.2f}<br>$%{y:.2f}<extra></extra>",
+        };
+        var traceRule = {
+            x: xs, y: BT.rule, type: "scatter", mode: "lines",
+            name: T.tr_rule,
+            line: { color: gold, width: 2.6 },
+            hovertemplate: "%{x:.2f}<br>$%{y:.2f}<extra></extra>",
+        };
+
+        var layout = {
+            margin: { l: 60, r: 30, t: 50, b: 50 },
+            paper_bgcolor: bg, plot_bgcolor: bg,
+            font: { family: "Segoe UI, Helvetica, Arial, sans-serif", color: fg, size: 12 },
+            xaxis: {
+                title: { text: T.x_title, font: { color: muted, size: 11 } },
+                gridcolor: border, color: fg, dtick: 5,
+            },
+            yaxis: {
+                title: { text: T.y_title, font: { color: muted, size: 11 } },
+                gridcolor: border, color: fg, type: "log",
+                tickformat: "$,.0f",
+            },
+            title: {
+                text: T.chart_title, x: 0, xanchor: "left",
+                font: { color: fg, size: 13, weight: 700 },
+            },
+            shapes: shapes,
+            legend: { orientation: "h", x: 0, y: 1.10, xanchor: "left",
+                      font: { color: fg } },
+            hovermode: "x unified",
+        };
+        Plotly.react(CHART, [traceBh, traceRule], layout,
+                     { displayModeBar: false, responsive: true });
+
+        // KPI cards.
+        var st = BT.stats;
+        document.getElementById("ma-val-cagr").textContent   = fmtPct(st.rule.cagr);
+        document.getElementById("ma-val-vol").textContent    = fmtPct(st.rule.vol);
+        document.getElementById("ma-val-sharpe").textContent = isFinite(st.rule.sharpe) ? st.rule.sharpe.toFixed(2) : "—";
+        document.getElementById("ma-val-mdd").textContent    = fmtPct(st.rule.mdd);
+
+        document.getElementById("ma-det-cagr").textContent   = T.det_cagr.replace("{bh}", fmtPct(st.bh.cagr));
+        document.getElementById("ma-det-vol").textContent    = T.det_vol.replace("{bh}", fmtPct(st.bh.vol));
+        document.getElementById("ma-det-sharpe").textContent = T.det_sharpe.replace("{bh}", isFinite(st.bh.sharpe) ? st.bh.sharpe.toFixed(2) : "—");
+        document.getElementById("ma-det-mdd").textContent    = T.det_mdd.replace("{bh}", fmtPct(st.bh.mdd));
+    }
+
+    applyI18n();
+    winValEl.textContent = STATE.windowDays;
+    bufValEl.textContent = STATE.buffer.toFixed(2) + "%";
+    render();
+
+    function reportHeight() {
+        try {
+            var h = Math.ceil(document.documentElement.scrollHeight);
+            parent.postMessage({ type: "lesson-interactive-resize", height: h }, "*");
+        } catch (e) { /* ignore */ }
+    }
+    if (typeof ResizeObserver !== "undefined") {
+        new ResizeObserver(reportHeight).observe(document.body);
+    }
+    window.addEventListener("resize", reportHeight);
+    setTimeout(reportHeight, 50);
+    setTimeout(reportHeight, 500);
+
+    var themeObserver = new MutationObserver(render);
+    themeObserver.observe(document.documentElement, {
+        attributes: true, attributeFilter: ["data-theme"],
+    });
+})();
+</script>
+
+</body>
+</html>

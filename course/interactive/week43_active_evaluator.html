@@ -1,0 +1,635 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Active Manager Evaluator — Interactive (Week 43)</title>
+<script src="https://cdn.plot.ly/plotly-2.35.2.min.js" charset="utf-8"></script>
+<style>
+html, body { margin: 0; padding: 0; background: var(--ae-bg); }
+:root {
+    --ae-bg: #fdfbf5;
+    --ae-text: #1a2332;
+    --ae-muted: #6b7280;
+    --ae-border: #d6d3c4;
+    --ae-card: #fdfbf5;
+    --ae-pos: #2e7d32;
+    --ae-neg: #b71c1c;
+    --ae-mid: #0d47a1;
+    --ae-accent: #b8860b;
+}
+html[data-theme="dark"] .ae-root,
+.ae-root[data-theme="dark"] {
+    --ae-bg: #0f1724;
+    --ae-text: #e6e6e6;
+    --ae-muted: #9aa3b2;
+    --ae-border: #2a3441;
+    --ae-card: #0f1724;
+    --ae-pos: #66bb6a;
+    --ae-neg: #ef5350;
+    --ae-mid: #5a8dee;
+}
+.ae-root {
+    font-family: 'Segoe UI', Helvetica, Arial, sans-serif;
+    background: var(--ae-bg);
+    color: var(--ae-text);
+    padding: 12px;
+    margin: 0;
+}
+.ae-controls {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 18px;
+    margin-bottom: 14px;
+    padding: 10px 14px;
+    background: var(--ae-card);
+    border: 1px solid var(--ae-border);
+    border-radius: 8px;
+}
+.ae-slider-wrap {
+    flex: 1;
+    min-width: 240px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.85rem;
+    color: var(--ae-muted);
+}
+.ae-slider-wrap input[type="range"] {
+    flex: 1;
+    accent-color: var(--ae-accent);
+}
+.ae-slider-wrap .ae-h-label {
+    white-space: nowrap;
+    color: var(--ae-text);
+    font-weight: 600;
+    font-variant-numeric: tabular-nums;
+    min-width: 78px;
+    text-align: right;
+}
+.ae-presets {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-bottom: 10px;
+}
+.ae-preset {
+    background: var(--ae-card);
+    border: 1px solid var(--ae-border);
+    color: var(--ae-text);
+    padding: 5px 11px;
+    border-radius: 999px;
+    font-size: 0.8rem;
+    cursor: pointer;
+    font-family: inherit;
+}
+.ae-preset:hover { border-color: var(--ae-accent); }
+.ae-preset.ae-active {
+    background: var(--ae-accent);
+    border-color: var(--ae-accent);
+    color: var(--ae-bg);
+    font-weight: 600;
+}
+.ae-grid {
+    display: grid;
+    grid-template-columns: 3fr 2fr;
+    gap: 14px;
+}
+.ae-chart {
+    width: 100%;
+    height: 360px;
+    background: var(--ae-card);
+    border-radius: 8px;
+    border: 1px solid var(--ae-border);
+}
+.ae-stats {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+    align-content: start;
+}
+.ae-stat {
+    background: var(--ae-card);
+    border: 1px solid var(--ae-border);
+    border-left: 4px solid var(--ae-muted);
+    border-radius: 8px;
+    padding: 10px 12px;
+}
+.ae-stat.ae-stat-pos { border-left-color: var(--ae-pos); }
+.ae-stat.ae-stat-neg { border-left-color: var(--ae-neg); }
+.ae-stat.ae-stat-mid { border-left-color: var(--ae-mid); }
+.ae-stat.ae-stat-acc { border-left-color: var(--ae-accent); }
+.ae-stat .ae-stat-name {
+    font-size: 0.74rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--ae-muted);
+}
+.ae-stat .ae-stat-val {
+    font-size: 1.55rem;
+    font-weight: 700;
+    margin-top: 4px;
+    font-variant-numeric: tabular-nums;
+}
+.ae-stat .ae-stat-detail {
+    font-size: 0.75rem;
+    color: var(--ae-muted);
+    margin-top: 2px;
+    font-variant-numeric: tabular-nums;
+}
+.ae-verdict {
+    margin-top: 10px;
+    padding: 10px 14px;
+    background: var(--ae-card);
+    border: 1px solid var(--ae-border);
+    border-left: 4px solid var(--ae-accent);
+    border-radius: 8px;
+    font-size: 0.92rem;
+}
+.ae-caption {
+    margin-top: 12px;
+    font-size: 0.78rem;
+    color: var(--ae-muted);
+    line-height: 1.45;
+}
+@media (max-width: 760px) {
+    .ae-grid { grid-template-columns: 1fr; }
+    .ae-chart { height: 320px; }
+    .ae-stats { grid-template-columns: repeat(2, 1fr); }
+}
+</style>
+</head>
+<body>
+
+<div class="ae-root" id="ae-root">
+
+    <div class="ae-presets" id="ae-presets"></div>
+
+    <div class="ae-controls">
+        <div class="ae-slider-wrap">
+            <span id="ae-fee-label">Expense ratio</span>
+            <input type="range" id="ae-fee-slider" min="0" max="3" step="0.05" value="1.00">
+            <span class="ae-h-label" id="ae-fee-value">1.00%</span>
+        </div>
+        <div class="ae-slider-wrap">
+            <span id="ae-er-label">Excess return (5y, net)</span>
+            <input type="range" id="ae-er-slider" min="-5" max="10" step="0.1" value="0.5">
+            <span class="ae-h-label" id="ae-er-value">+0.50%</span>
+        </div>
+        <div class="ae-slider-wrap">
+            <span id="ae-te-label">Tracking error</span>
+            <input type="range" id="ae-te-slider" min="0.5" max="15" step="0.1" value="4.0">
+            <span class="ae-h-label" id="ae-te-value">4.00%</span>
+        </div>
+        <div class="ae-slider-wrap">
+            <span id="ae-yr-label">Years observed</span>
+            <input type="range" id="ae-yr-slider" min="1" max="20" step="1" value="5">
+            <span class="ae-h-label" id="ae-yr-value">5</span>
+        </div>
+    </div>
+
+    <div class="ae-grid">
+        <div id="ae-chart" class="ae-chart"></div>
+        <div class="ae-stats">
+            <div class="ae-stat ae-stat-acc">
+                <div class="ae-stat-name" id="ae-name-ir">Information ratio</div>
+                <div class="ae-stat-val" id="ae-val-ir">—</div>
+                <div class="ae-stat-detail" id="ae-det-ir">excess / TE</div>
+            </div>
+            <div class="ae-stat ae-stat-mid">
+                <div class="ae-stat-name" id="ae-name-t">t-statistic</div>
+                <div class="ae-stat-val" id="ae-val-t">—</div>
+                <div class="ae-stat-detail" id="ae-det-t">IR x sqrt(years)</div>
+            </div>
+            <div class="ae-stat ae-stat-neg">
+                <div class="ae-stat-name" id="ae-name-pluck">P(luck, not skill)</div>
+                <div class="ae-stat-val" id="ae-val-pluck">—</div>
+                <div class="ae-stat-detail" id="ae-det-pluck">one-sided p-value</div>
+            </div>
+            <div class="ae-stat ae-stat-pos">
+                <div class="ae-stat-name" id="ae-name-conf">Confidence in skill</div>
+                <div class="ae-stat-val" id="ae-val-conf">—</div>
+                <div class="ae-stat-detail" id="ae-det-conf">1 - p</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="ae-verdict" id="ae-verdict">—</div>
+
+    <p class="ae-caption" id="ae-caption">
+        Model: t = IR x sqrt(years), one-sided null mu=0, normal approximation. SOUL #1: alpha is rare.
+    </p>
+</div>
+
+<script>
+(function () {
+    const I18N = {
+        en: {
+            fee_label: "Expense ratio",
+            er_label:  "Excess return (5y, net)",
+            te_label:  "Tracking error",
+            yr_label:  "Years observed",
+            name_ir:   "Information ratio",
+            name_t:    "t-statistic",
+            name_pluck:"P(luck, not skill)",
+            name_conf: "Confidence in skill",
+            det_ir:    "excess / TE",
+            det_t:     "IR x sqrt({n})",
+            det_pluck: "one-sided p-value",
+            det_conf:  "1 - p",
+            chart_title: "Distribution of 5y excess return under null (true alpha = 0)",
+            chart_x:   "Excess return (annualised, %)",
+            chart_y:   "Density",
+            null_label: "Null distribution (mu=0, sigma=TE/sqrt(n))",
+            obs_label:  "Observed: {er:+.2f}%",
+            tail_label: "Luck tail: p = {p}",
+            verdict_strong: "STRONG SKILL: t = {t}, p = {p}. The 5y record would happen by luck about {pct} of the time. Worth a closer look.",
+            verdict_decent: "MODEST EVIDENCE: t = {t}, p = {p}. Better than coin flip, far from definitive. SPIVA territory.",
+            verdict_weak:   "INDISTINGUISHABLE FROM LUCK: t = {t}, p = {p}. The active premium is statistical noise. SOUL #1: default to passive.",
+            verdict_neg:    "UNDERPERFORMANCE: t = {t}. The fund lost to its benchmark net of fees. The fee was the alpha you paid for, and you got it back negative.",
+            preset_typical:  "Typical mutual fund",
+            preset_closet:   "Closet indexer",
+            preset_strong:   "Strong manager",
+            preset_renaissance: "Renaissance-class",
+            preset_loser:    "Persistent laggard",
+            preset_diy:      "Your DIY book",
+            caption: "Slide the three inputs. The shaded area is the probability that a true-zero-alpha manager would print at least the observed excess return by luck alone over the chosen window. Below ~5% the result is statistically interesting; below ~1% it is hard to dismiss. Above ~30% it is noise.",
+        },
+        hk: {
+            fee_label: "費用率",
+            er_label:  "5 年超額回報(扣費後)",
+            te_label:  "追蹤誤差",
+            yr_label:  "觀察年數",
+            name_ir:   "資訊比率",
+            name_t:    "t 統計量",
+            name_pluck:"P(運氣非技巧)",
+            name_conf: "技巧可信度",
+            det_ir:    "超額 / TE",
+            det_t:     "IR x sqrt({n})",
+            det_pluck: "單尾 p 值",
+            det_conf:  "1 - p",
+            chart_title: "零超額假設下,5 年超額回報的機率分布",
+            chart_x:   "年化超額回報(%)",
+            chart_y:   "機率密度",
+            null_label: "零假設分布(mu=0,sigma=TE/sqrt(n))",
+            obs_label:  "實測:{er:+.2f}%",
+            tail_label: "運氣尾部:p = {p}",
+            verdict_strong: "強技巧:t = {t},p = {p}。5 年成績靠運氣出現的機率僅 {pct}。值得進一步研究。",
+            verdict_decent: "中等證據:t = {t},p = {p}。優於擲幣,但遠未定論。SPIVA 灰色地帶。",
+            verdict_weak:   "難以區分於運氣:t = {t},p = {p}。主動溢價是統計雜訊。SOUL #1:預設被動。",
+            verdict_neg:    "跑輸:t = {t}。基金扣費後不及基準。費用就是你支付的 alpha,結果還倒貼。",
+            preset_typical:  "典型共同基金",
+            preset_closet:   "披著主動皮的指數",
+            preset_strong:   "強力主動",
+            preset_renaissance: "Renaissance 級",
+            preset_loser:    "持續落後",
+            preset_diy:      "自家交易帳戶",
+            caption: "拉動三項輸入。陰影面積即真零 alpha 經理在所選窗口以運氣達致觀察值或更大的機率。小於約 5% 統計上有意義;小於 1% 難以忽視;高於 30% 即雜訊。",
+        },
+        tw: {
+            fee_label: "費用率",
+            er_label:  "5 年超額報酬(扣費後)",
+            te_label:  "追蹤誤差",
+            yr_label:  "觀察年數",
+            name_ir:   "資訊比率",
+            name_t:    "t 統計量",
+            name_pluck:"P(運氣非技巧)",
+            name_conf: "技巧信心度",
+            det_ir:    "超額 / TE",
+            det_t:     "IR x sqrt({n})",
+            det_pluck: "單尾 p 值",
+            det_conf:  "1 - p",
+            chart_title: "零超額假設下,5 年超額報酬的機率分佈",
+            chart_x:   "年化超額報酬(%)",
+            chart_y:   "機率密度",
+            null_label: "零假設分佈(mu=0,sigma=TE/sqrt(n))",
+            obs_label:  "實測:{er:+.2f}%",
+            tail_label: "運氣尾部:p = {p}",
+            verdict_strong: "強技巧:t = {t},p = {p}。5 年成績靠運氣出現的機率僅 {pct}。值得深入評估。",
+            verdict_decent: "中等證據:t = {t},p = {p}。優於擲幣,但遠未定論。SPIVA 灰色地帶。",
+            verdict_weak:   "難以與運氣區分:t = {t},p = {p}。主動溢價是統計雜訊。SOUL #1:預設被動。",
+            verdict_neg:    "跑輸:t = {t}。基金扣費後輸給基準。費用就是你付的 alpha,結果倒貼。",
+            preset_typical:  "典型共同基金",
+            preset_closet:   "披著主動皮的指數",
+            preset_strong:   "強力主動",
+            preset_renaissance: "Renaissance 級",
+            preset_loser:    "持續落後",
+            preset_diy:      "自家交易帳戶",
+            caption: "拉動三項輸入。陰影面積即真零 alpha 經理在所選窗口以運氣達致觀察值或更大的機率。小於約 5% 有意義;小於 1% 難以忽視;高於 30% 即雜訊。",
+        },
+        cn: {
+            fee_label: "费用率",
+            er_label:  "5 年超额回报(扣费后)",
+            te_label:  "跟踪误差",
+            yr_label:  "观察年数",
+            name_ir:   "信息比率",
+            name_t:    "t 统计量",
+            name_pluck:"P(运气非技能)",
+            name_conf: "技能可信度",
+            det_ir:    "超额 / TE",
+            det_t:     "IR x sqrt({n})",
+            det_pluck: "单尾 p 值",
+            det_conf:  "1 - p",
+            chart_title: "零超额假设下,5 年超额回报的概率分布",
+            chart_x:   "年化超额回报(%)",
+            chart_y:   "概率密度",
+            null_label: "零假设分布(mu=0,sigma=TE/sqrt(n))",
+            obs_label:  "实测:{er:+.2f}%",
+            tail_label: "运气尾部:p = {p}",
+            verdict_strong: "强技能:t = {t},p = {p}。5 年成绩靠运气出现的概率仅 {pct}。值得进一步评估。",
+            verdict_decent: "中等证据:t = {t},p = {p}。优于抛硬币,但远未定论。SPIVA 灰色地带。",
+            verdict_weak:   "难以与运气区分:t = {t},p = {p}。主动溢价是统计噪声。SOUL #1:默认被动。",
+            verdict_neg:    "跑输:t = {t}。基金扣费后输给基准。费用就是你付的 alpha,结果倒贴。",
+            preset_typical:  "典型共同基金",
+            preset_closet:   "披着主动皮的指数",
+            preset_strong:   "强力主动",
+            preset_renaissance: "Renaissance 级",
+            preset_loser:    "持续落后",
+            preset_diy:      "自家交易账户",
+            caption: "拖动三项输入。阴影面积即真零 alpha 经理在所选窗口以运气达到观察值或更大的概率。小于约 5% 统计上有意义;小于 1% 难以忽视;高于 30% 即噪声。",
+        },
+    };
+
+    const PARAMS = new URLSearchParams(window.location.search);
+    const LANG = (function () {
+        const q = PARAMS.get('lang');
+        return I18N[q] ? q : 'en';
+    })();
+    const T = I18N[LANG];
+
+    // Presets: fee, excess return (net %), tracking error %
+    const PRESETS = [
+        { id: "typical",     fee: 1.00, er:  0.5, te: 4.0, key: "preset_typical" },
+        { id: "closet",      fee: 0.85, er: -0.6, te: 1.5, key: "preset_closet" },
+        { id: "strong",      fee: 1.00, er:  3.0, te: 5.0, key: "preset_strong" },
+        { id: "renaissance", fee: 5.00, er: 35.0, te: 12.0, key: "preset_renaissance" },
+        { id: "loser",       fee: 1.20, er: -2.0, te: 4.5, key: "preset_loser" },
+        { id: "diy",         fee: 0.10, er:  1.0, te: 8.0, key: "preset_diy" },
+    ];
+
+    const ROOT = document.getElementById("ae-root");
+    const CHART = document.getElementById("ae-chart");
+    const FEE_S = document.getElementById("ae-fee-slider");
+    const ER_S  = document.getElementById("ae-er-slider");
+    const TE_S  = document.getElementById("ae-te-slider");
+    const YR_S  = document.getElementById("ae-yr-slider");
+    const FEE_V = document.getElementById("ae-fee-value");
+    const ER_V  = document.getElementById("ae-er-value");
+    const TE_V  = document.getElementById("ae-te-value");
+    const YR_V  = document.getElementById("ae-yr-value");
+    const PRESET_BAR = document.getElementById("ae-presets");
+
+    // Build preset pills
+    PRESETS.forEach(p => {
+        const b = document.createElement("button");
+        b.className = "ae-preset";
+        b.dataset.preset = p.id;
+        b.textContent = T[p.key];
+        b.addEventListener("click", () => applyPreset(p.id));
+        PRESET_BAR.appendChild(b);
+    });
+
+    function setPresetActive(id) {
+        PRESET_BAR.querySelectorAll(".ae-preset").forEach(b => {
+            b.classList.toggle("ae-active", b.dataset.preset === id);
+        });
+    }
+
+    function applyPreset(id) {
+        const p = PRESETS.find(x => x.id === id);
+        if (!p) return;
+        FEE_S.value = p.fee;
+        ER_S.value = p.er;
+        TE_S.value = p.te;
+        setPresetActive(id);
+        updateLabels();
+        render();
+    }
+
+    function fmtPct(v, places) {
+        if (!isFinite(v)) return "—";
+        const sign = v >= 0 ? "+" : "";
+        return sign + v.toFixed(places === undefined ? 2 : places) + "%";
+    }
+    function fmtPlain(v, places) {
+        if (!isFinite(v)) return "—";
+        return v.toFixed(places === undefined ? 2 : places) + "%";
+    }
+    function fmtNum(v, places) {
+        if (!isFinite(v)) return "—";
+        return v.toFixed(places === undefined ? 2 : places);
+    }
+    function getCssVar(name) {
+        return getComputedStyle(ROOT).getPropertyValue(name).trim();
+    }
+    function darkMode() {
+        return document.documentElement.getAttribute("data-theme") === "dark";
+    }
+
+    // Standard normal CDF via Abramowitz & Stegun 7.1.26 erf approximation.
+    function erf(x) {
+        const sign = x < 0 ? -1 : 1;
+        x = Math.abs(x);
+        const a1 = 0.254829592, a2 = -0.284496736, a3 = 1.421413741;
+        const a4 = -1.453152027, a5 = 1.061405429, p = 0.3275911;
+        const t = 1.0 / (1.0 + p * x);
+        const y = 1.0 - (((((a5 * t + a4) * t) + a3) * t + a2) * t + a1) * t * Math.exp(-x * x);
+        return sign * y;
+    }
+    function normCdf(z) {
+        return 0.5 * (1 + erf(z / Math.SQRT2));
+    }
+    function normPdf(z) {
+        return Math.exp(-0.5 * z * z) / Math.sqrt(2 * Math.PI);
+    }
+
+    function updateLabels() {
+        FEE_V.textContent = fmtPlain(parseFloat(FEE_S.value), 2);
+        ER_V.textContent  = fmtPct(parseFloat(ER_S.value), 2);
+        TE_V.textContent  = fmtPlain(parseFloat(TE_S.value), 2);
+        YR_V.textContent  = String(parseInt(YR_S.value, 10));
+    }
+
+    function metrics() {
+        const fee = parseFloat(FEE_S.value);
+        const er = parseFloat(ER_S.value);   // net excess return %
+        const te = parseFloat(TE_S.value);   // tracking error %
+        const n = parseInt(YR_S.value, 10);
+        const ir = te > 0 ? er / te : NaN;
+        const t = ir * Math.sqrt(n);
+        // one-sided p-value: P(t-stat >= observed | mu = 0)
+        const p = isFinite(t) ? 1 - normCdf(t) : NaN;
+        return { fee, er, te, n, ir, t, p };
+    }
+
+    function applyI18n() {
+        document.getElementById("ae-fee-label").textContent = T.fee_label;
+        document.getElementById("ae-er-label").textContent  = T.er_label;
+        document.getElementById("ae-te-label").textContent  = T.te_label;
+        document.getElementById("ae-yr-label").textContent  = T.yr_label;
+        document.getElementById("ae-name-ir").textContent   = T.name_ir;
+        document.getElementById("ae-name-t").textContent    = T.name_t;
+        document.getElementById("ae-name-pluck").textContent = T.name_pluck;
+        document.getElementById("ae-name-conf").textContent = T.name_conf;
+        document.getElementById("ae-det-ir").textContent    = T.det_ir;
+        document.getElementById("ae-det-pluck").textContent = T.det_pluck;
+        document.getElementById("ae-det-conf").textContent  = T.det_conf;
+        document.getElementById("ae-caption").textContent   = T.caption;
+    }
+
+    function render() {
+        const m = metrics();
+        const colorAcc = getCssVar("--ae-accent");
+        const colorMid = getCssVar("--ae-mid");
+        const colorPos = getCssVar("--ae-pos");
+        const colorNeg = getCssVar("--ae-neg");
+        const colorText = getCssVar("--ae-text");
+        const colorMuted = getCssVar("--ae-muted");
+        const colorGrid = darkMode() ? "rgba(255,255,255,0.08)" : "rgba(0,0,0,0.07)";
+        const colorBg = getCssVar("--ae-card");
+
+        // Null distribution N(0, sigma_n) where sigma_n = TE / sqrt(n)
+        // Plot in % units of annualised excess return.
+        const sigmaN = m.te / Math.sqrt(m.n);
+        const xMin = Math.min(-4 * sigmaN, m.er - sigmaN);
+        const xMax = Math.max( 4 * sigmaN, m.er + sigmaN);
+        const N = 121;
+        const xs = [], ys = [];
+        for (let i = 0; i < N; i++) {
+            const x = xMin + (xMax - xMin) * i / (N - 1);
+            xs.push(x);
+            ys.push(normPdf(x / sigmaN) / sigmaN);
+        }
+        // Tail >= observed
+        const tailX = [];
+        const tailY = [];
+        for (let i = 0; i < N; i++) {
+            if (xs[i] >= m.er) {
+                tailX.push(xs[i]);
+                tailY.push(ys[i]);
+            }
+        }
+        // close polygon to baseline
+        if (tailX.length) {
+            tailX.unshift(tailX[0]);
+            tailY.unshift(0);
+            tailX.push(tailX[tailX.length - 1]);
+            tailY.push(0);
+        }
+
+        const traces = [
+            {
+                x: xs, y: ys, type: "scatter", mode: "lines",
+                line: { color: colorMid, width: 2 },
+                name: T.null_label,
+                hoverinfo: "skip",
+            },
+            {
+                x: tailX, y: tailY, type: "scatter", mode: "lines",
+                fill: "toself", fillcolor: colorNeg + "55",
+                line: { color: colorNeg, width: 0 },
+                name: T.tail_label.replace("{p}", isFinite(m.p) ? (m.p * 100).toFixed(2) + "%" : "—"),
+                hoverinfo: "skip",
+            },
+        ];
+
+        const layout = {
+            margin: { l: 50, r: 16, t: 36, b: 44 },
+            paper_bgcolor: colorBg,
+            plot_bgcolor: colorBg,
+            font: { family: "Segoe UI, Helvetica, Arial, sans-serif", color: colorText, size: 11 },
+            title: { text: T.chart_title, x: 0, xanchor: "left", font: { size: 12.5, color: colorText } },
+            xaxis: {
+                title: { text: T.chart_x, font: { color: colorMuted } },
+                gridcolor: colorGrid, color: colorText,
+                zerolinecolor: colorMuted, zerolinewidth: 1,
+                ticksuffix: "%",
+            },
+            yaxis: {
+                title: { text: T.chart_y, font: { color: colorMuted } },
+                gridcolor: colorGrid, color: colorText,
+                showticklabels: false,
+            },
+            shapes: [
+                {
+                    type: "line", xref: "x", yref: "paper",
+                    x0: m.er, x1: m.er, y0: 0, y1: 1,
+                    line: { color: colorAcc, width: 2.4, dash: "dash" },
+                },
+            ],
+            annotations: [
+                {
+                    x: m.er, y: 1, xref: "x", yref: "paper",
+                    text: T.obs_label.replace("{er:+.2f}", (m.er >= 0 ? "+" : "") + m.er.toFixed(2)),
+                    showarrow: false, xanchor: m.er >= 0 ? "left" : "right",
+                    yanchor: "top", xshift: m.er >= 0 ? 6 : -6,
+                    font: { color: colorAcc, size: 11 },
+                },
+            ],
+            legend: { orientation: "h", y: -0.22, x: 0, font: { color: colorText, size: 10 } },
+            showlegend: true,
+            hovermode: false,
+        };
+
+        Plotly.react(CHART, traces, layout, { displayModeBar: false, responsive: true });
+
+        // Stat cards
+        document.getElementById("ae-val-ir").textContent = fmtNum(m.ir, 2);
+        document.getElementById("ae-det-t").textContent = T.det_t.replace("{n}", m.n);
+        document.getElementById("ae-val-t").textContent = fmtNum(m.t, 2);
+        document.getElementById("ae-val-pluck").textContent = isFinite(m.p) ? (m.p * 100).toFixed(2) + "%" : "—";
+        document.getElementById("ae-val-conf").textContent = isFinite(m.p) ? ((1 - m.p) * 100).toFixed(2) + "%" : "—";
+
+        // Verdict
+        let verdict;
+        const tStr = fmtNum(m.t, 2);
+        const pStr = isFinite(m.p) ? (m.p * 100).toFixed(2) + "%" : "—";
+        const pctStr = isFinite(m.p) ? (m.p * 100).toFixed(1) + "%" : "—";
+        if (m.er < 0) {
+            verdict = T.verdict_neg.replace("{t}", tStr);
+        } else if (m.p < 0.05) {
+            verdict = T.verdict_strong.replace("{t}", tStr).replace("{p}", pStr).replace("{pct}", pctStr);
+        } else if (m.p < 0.30) {
+            verdict = T.verdict_decent.replace("{t}", tStr).replace("{p}", pStr);
+        } else {
+            verdict = T.verdict_weak.replace("{t}", tStr).replace("{p}", pStr);
+        }
+        document.getElementById("ae-verdict").textContent = verdict;
+    }
+
+    [FEE_S, ER_S, TE_S, YR_S].forEach(s => {
+        s.addEventListener("input", () => {
+            setPresetActive("__none__");
+            updateLabels();
+            render();
+        });
+    });
+
+    applyI18n();
+    applyPreset("typical");
+
+    function reportHeight() {
+        try {
+            var h = Math.ceil(document.documentElement.scrollHeight);
+            parent.postMessage({ type: 'lesson-interactive-resize', height: h }, '*');
+        } catch (e) { /* ignore */ }
+    }
+    if (typeof ResizeObserver !== 'undefined') {
+        new ResizeObserver(reportHeight).observe(document.body);
+    }
+    window.addEventListener('resize', reportHeight);
+    setTimeout(reportHeight, 50);
+    setTimeout(reportHeight, 500);
+
+    const themeObserver = new MutationObserver(render);
+    themeObserver.observe(document.documentElement, {
+        attributes: true,
+        attributeFilter: ["data-theme"],
+    });
+})();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,633 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Margin Lab — Interactive (Side 21)</title>
+<script src="https://cdn.plot.ly/plotly-2.35.2.min.js" charset="utf-8"></script>
+<style>
+html, body { margin: 0; padding: 0; background: var(--ml-bg); }
+:root {
+    --ml-bg: #fdfbf5;
+    --ml-text: #1a2332;
+    --ml-muted: #6b7280;
+    --ml-border: #d6d3c4;
+    --ml-card: #fdfbf5;
+    --ml-pos: #2e7d32;
+    --ml-neg: #b71c1c;
+    --ml-mid: #0d47a1;
+    --ml-accent: #b8860b;
+    --ml-warn: #e65100;
+}
+html[data-theme="dark"] .ml-root,
+.ml-root[data-theme="dark"] {
+    --ml-bg: #0f1724;
+    --ml-text: #e6e6e6;
+    --ml-muted: #9aa3b2;
+    --ml-border: #2a3441;
+    --ml-card: #0f1724;
+    --ml-pos: #66bb6a;
+    --ml-neg: #ef5350;
+    --ml-mid: #5a8dee;
+    --ml-warn: #ffa726;
+}
+.ml-root {
+    font-family: 'Segoe UI', Helvetica, Arial, sans-serif;
+    background: var(--ml-bg);
+    color: var(--ml-text);
+    padding: 12px;
+    margin: 0;
+}
+.ml-controls {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px 18px;
+    margin-bottom: 14px;
+    padding: 12px 14px;
+    background: var(--ml-card);
+    border: 1px solid var(--ml-border);
+    border-radius: 8px;
+}
+.ml-slider-wrap {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.85rem;
+    color: var(--ml-muted);
+}
+.ml-slider-wrap input[type="range"] {
+    flex: 1;
+    accent-color: var(--ml-accent);
+    min-width: 80px;
+}
+.ml-slider-wrap .ml-h-label {
+    white-space: nowrap;
+    color: var(--ml-text);
+    font-weight: 600;
+    font-variant-numeric: tabular-nums;
+    min-width: 96px;
+    text-align: right;
+}
+.ml-slider-wrap .ml-name {
+    white-space: nowrap;
+    min-width: 150px;
+    color: var(--ml-text);
+}
+.ml-stats {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 10px;
+    margin-bottom: 14px;
+}
+.ml-stat {
+    background: var(--ml-card);
+    border: 1px solid var(--ml-border);
+    border-left: 4px solid var(--ml-muted);
+    border-radius: 8px;
+    padding: 10px 12px;
+}
+.ml-stat.ml-stat-acc { border-left-color: var(--ml-accent); }
+.ml-stat.ml-stat-mid { border-left-color: var(--ml-mid); }
+.ml-stat.ml-stat-pos { border-left-color: var(--ml-pos); }
+.ml-stat.ml-stat-neg { border-left-color: var(--ml-neg); }
+.ml-stat.ml-stat-warn { border-left-color: var(--ml-warn); }
+.ml-stat .ml-stat-name {
+    font-size: 0.74rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--ml-muted);
+}
+.ml-stat .ml-stat-val {
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-top: 4px;
+    font-variant-numeric: tabular-nums;
+}
+.ml-stat .ml-stat-detail {
+    font-size: 0.74rem;
+    color: var(--ml-muted);
+    margin-top: 2px;
+    font-variant-numeric: tabular-nums;
+}
+.ml-verdict {
+    margin-bottom: 14px;
+    padding: 10px 14px;
+    border: 1px solid var(--ml-border);
+    border-left: 4px solid var(--ml-mid);
+    border-radius: 8px;
+    background: var(--ml-card);
+    font-size: 0.88rem;
+    line-height: 1.45;
+}
+.ml-verdict.ml-v-good { border-left-color: var(--ml-pos); }
+.ml-verdict.ml-v-warn { border-left-color: var(--ml-warn); }
+.ml-verdict.ml-v-bad  { border-left-color: var(--ml-neg); }
+.ml-verdict-title {
+    font-weight: 700;
+    font-size: 0.86rem;
+    margin-bottom: 4px;
+    color: var(--ml-text);
+}
+.ml-chart {
+    width: 100%;
+    height: 360px;
+    background: var(--ml-card);
+    border-radius: 8px;
+    border: 1px solid var(--ml-border);
+}
+.ml-caption {
+    margin-top: 12px;
+    font-size: 0.78rem;
+    color: var(--ml-muted);
+    line-height: 1.45;
+}
+@media (max-width: 760px) {
+    .ml-controls { grid-template-columns: 1fr; }
+    .ml-stats { grid-template-columns: repeat(2, 1fr); }
+    .ml-chart { height: 300px; }
+}
+</style>
+</head>
+<body>
+
+<div class="ml-root" id="ml-root">
+    <div class="ml-controls">
+        <div class="ml-slider-wrap">
+            <span class="ml-name" id="ml-av-label">Account value</span>
+            <input type="range" id="ml-av-slider" min="10000" max="2000000" step="5000" value="100000">
+            <span class="ml-h-label" id="ml-av-value">$100,000</span>
+        </div>
+        <div class="ml-slider-wrap">
+            <span class="ml-name" id="ml-lev-label">Leverage ratio</span>
+            <input type="range" id="ml-lev-slider" min="1.0" max="3.0" step="0.05" value="2.0">
+            <span class="ml-h-label" id="ml-lev-value">2.00x</span>
+        </div>
+        <div class="ml-slider-wrap">
+            <span class="ml-name" id="ml-mv-label">Market move (1 yr)</span>
+            <input type="range" id="ml-mv-slider" min="-50" max="50" step="0.5" value="-20">
+            <span class="ml-h-label" id="ml-mv-value">-20.0%</span>
+        </div>
+        <div class="ml-slider-wrap">
+            <span class="ml-name" id="ml-br-label">Borrow rate</span>
+            <input type="range" id="ml-br-slider" min="3" max="13" step="0.05" value="6.6">
+            <span class="ml-h-label" id="ml-br-value">6.60%</span>
+        </div>
+    </div>
+
+    <div class="ml-stats">
+        <div class="ml-stat ml-stat-mid">
+            <div class="ml-stat-name" id="ml-name-eq">Equity after move</div>
+            <div class="ml-stat-val" id="ml-val-eq">—</div>
+            <div class="ml-stat-detail" id="ml-det-eq">post borrow drag</div>
+        </div>
+        <div class="ml-stat ml-stat-acc">
+            <div class="ml-stat-name" id="ml-name-pct">Equity %</div>
+            <div class="ml-stat-val" id="ml-val-pct">—</div>
+            <div class="ml-stat-detail" id="ml-det-pct">25% maint. floor</div>
+        </div>
+        <div class="ml-stat ml-stat-warn">
+            <div class="ml-stat-name" id="ml-name-dist">Distance to call</div>
+            <div class="ml-stat-val" id="ml-val-dist">—</div>
+            <div class="ml-stat-detail" id="ml-det-dist">in pp of underlying</div>
+        </div>
+        <div class="ml-stat ml-stat-pos">
+            <div class="ml-stat-name" id="ml-name-ret">After-cost return</div>
+            <div class="ml-stat-val" id="ml-val-ret">—</div>
+            <div class="ml-stat-detail" id="ml-det-ret">on starting equity</div>
+        </div>
+    </div>
+
+    <div class="ml-verdict" id="ml-verdict">
+        <div class="ml-verdict-title" id="ml-verdict-title">Status</div>
+        <div id="ml-verdict-body">—</div>
+    </div>
+
+    <div id="ml-chart" class="ml-chart"></div>
+
+    <p class="ml-caption" id="ml-caption">
+        The chart shows your equity (red) and the unlevered equivalent (blue) across a range of 1-year market moves, with the
+        25% maintenance threshold and the call point marked. Distance to call is in percentage points of the underlying:
+        positive = buffer remaining, negative = already called. After-cost return = (L &middot; move - (L-1) &middot; borrow) on starting equity.
+    </p>
+</div>
+
+<script>
+(function () {
+    const I18N = {
+        en: {
+            av: "Account value",
+            lev: "Leverage ratio",
+            mv: "Market move (1 yr)",
+            br: "Borrow rate",
+            name_eq:   "Equity after move",
+            name_pct:  "Equity %",
+            name_dist: "Distance to call",
+            name_ret:  "After-cost return",
+            det_eq:    "post borrow drag",
+            det_pct:   "25% maint. floor",
+            det_dist:  "in pp of underlying",
+            det_ret:   "on starting equity",
+            v_title:   "Status",
+            v_safe:    "Safe. Equity remains comfortably above the 25% maintenance floor with the move you set.",
+            v_buffer:  "Thin buffer. Less than 5 percentage points to the call. A second leg down here forces selling.",
+            v_called:  "Called. The maintenance threshold has already been breached at this move. Forced liquidation locks the loss in.",
+            v_wiped:   "Wiped. After borrow drag, equity is at or below zero. The broker captures the residual collateral.",
+            chart_title: "Equity vs market move (1 year)",
+            x_label:   "Market move over 1 year (%)",
+            y_label:   "Equity ($)",
+            you:       "Your scenario",
+            unl:       "Unlevered ($1)",
+            lev_line:  "Levered equity",
+            call_line: "Call threshold (=33.3% on 2x)",
+            zero_line: "Wipeout (equity = 0)",
+            caption:   "Equity (red) and unlevered equivalent (blue) across 1-year market moves, with the 25% maintenance threshold marked. Distance to call is in percentage points: positive = buffer remaining, negative = already called. After-cost return = (L * move - (L-1) * borrow).",
+        },
+        hk: {
+            av: "帳戶總值",
+            lev: "槓桿倍數",
+            mv: "市場升跌(1 年)",
+            br: "借款利率",
+            name_eq:   "走完之權益",
+            name_pct:  "權益百分比",
+            name_dist: "距離 margin call",
+            name_ret:  "扣成本後回報",
+            det_eq:    "扣借款拖累",
+            det_pct:   "25% 維持門檻",
+            det_dist:  "標的個百分點",
+            det_ret:   "對起始權益",
+            v_title:   "狀態",
+            v_safe:    "安全。在你設定的走勢下,權益仍遠高於 25% 維持門檻。",
+            v_buffer:  "緩衝薄。距離 call 不足 5 個百分點。再跌一次就被迫賣。",
+            v_called:  "已被 call。在此走勢下已突破維持門檻,強制平倉鎖定虧損。",
+            v_wiped:   "歸零。扣借款後權益已歸零或為負,殘餘抵押品被券商收回。",
+            chart_title: "權益 vs 1 年市場走勢",
+            x_label:   "1 年市場走勢(%)",
+            y_label:   "權益(美元)",
+            you:       "你的情境",
+            unl:       "無槓桿($1 起)",
+            lev_line:  "槓桿權益",
+            call_line: "Call 門檻(2x 為 -33.3%)",
+            zero_line: "歸零(權益 = 0)",
+            caption:   "紅色為槓桿權益,藍色為無槓桿等值,跨 1 年市場走勢,並標示 25% 維持門檻。距離 call 以標的百分點為單位:正數為緩衝、負數為已被 call。扣成本後回報 = (L * move - (L-1) * borrow)。",
+        },
+        tw: {
+            av: "帳戶總值",
+            lev: "槓桿倍數",
+            mv: "市場漲跌(1 年)",
+            br: "借款利率",
+            name_eq:   "走完之權益",
+            name_pct:  "權益百分比",
+            name_dist: "距離追繳",
+            name_ret:  "扣成本後報酬",
+            det_eq:    "扣借款拖累",
+            det_pct:   "25% 維持門檻",
+            det_dist:  "標的百分點",
+            det_ret:   "對起始權益",
+            v_title:   "狀態",
+            v_safe:    "安全。在你設定的走勢下,權益仍遠高於 25% 維持門檻。",
+            v_buffer:  "緩衝薄。距離追繳不足 5 個百分點。再跌一次就被迫賣。",
+            v_called:  "已被追繳。在此走勢下已突破維持門檻,強制平倉鎖定虧損。",
+            v_wiped:   "歸零。扣借款後權益已歸零或為負,殘餘擔保品被券商收回。",
+            chart_title: "權益 vs 1 年市場走勢",
+            x_label:   "1 年市場走勢(%)",
+            y_label:   "權益(美元)",
+            you:       "你的情境",
+            unl:       "無槓桿($1 起)",
+            lev_line:  "槓桿權益",
+            call_line: "追繳門檻(2x 為 -33.3%)",
+            zero_line: "歸零(權益 = 0)",
+            caption:   "紅色為槓桿權益、藍色為無槓桿等值,跨 1 年市場走勢,並標示 25% 維持門檻。距離追繳以標的百分點為單位:正數為緩衝、負數為已被追繳。扣成本後報酬 = (L * move - (L-1) * borrow)。",
+        },
+        cn: {
+            av: "账户总值",
+            lev: "杠杆倍数",
+            mv: "市场涨跌(1 年)",
+            br: "借款利率",
+            name_eq:   "走完之权益",
+            name_pct:  "权益百分比",
+            name_dist: "距离追缴",
+            name_ret:  "扣成本后回报",
+            det_eq:    "扣借款拖累",
+            det_pct:   "25% 维持门槛",
+            det_dist:  "标的百分点",
+            det_ret:   "对起始权益",
+            v_title:   "状态",
+            v_safe:    "安全。在你设定的走势下,权益仍远高于 25% 维持门槛。",
+            v_buffer:  "缓冲薄。距离追缴不足 5 个百分点。再跌一次就被迫卖。",
+            v_called:  "已被追缴。在此走势下已突破维持门槛,强制平仓锁定亏损。",
+            v_wiped:   "归零。扣借款后权益已归零或为负,残余担保品被券商收回。",
+            chart_title: "权益 vs 1 年市场走势",
+            x_label:   "1 年市场走势(%)",
+            y_label:   "权益(美元)",
+            you:       "你的情境",
+            unl:       "无杠杆($1 起)",
+            lev_line:  "杠杆权益",
+            call_line: "追缴门槛(2x 为 -33.3%)",
+            zero_line: "归零(权益 = 0)",
+            caption:   "红色为杠杆权益,蓝色为无杠杆等值,跨 1 年市场走势,并标示 25% 维持门槛。距离追缴以标的百分点为单位:正为缓冲、负为已被追缴。扣成本后回报 = (L * move - (L-1) * borrow)。",
+        },
+    };
+    function currentLang() {
+        const p = new URLSearchParams(window.location.search);
+        const l = (p.get("lang") || "en").toLowerCase();
+        return I18N.hasOwnProperty(l) ? l : "en";
+    }
+    const T = I18N[currentLang()];
+
+    const ROOT = document.getElementById("ml-root");
+    const CHART = document.getElementById("ml-chart");
+    const SL = {
+        av:  document.getElementById("ml-av-slider"),
+        lev: document.getElementById("ml-lev-slider"),
+        mv:  document.getElementById("ml-mv-slider"),
+        br:  document.getElementById("ml-br-slider"),
+    };
+    const VL = {
+        av:  document.getElementById("ml-av-value"),
+        lev: document.getElementById("ml-lev-value"),
+        mv:  document.getElementById("ml-mv-value"),
+        br:  document.getElementById("ml-br-value"),
+    };
+
+    function fmtMoney(v) {
+        if (!isFinite(v)) return "—";
+        var sign = v < 0 ? "-" : "";
+        var abs = Math.abs(v);
+        if (abs >= 1e6) return sign + "$" + (abs / 1e6).toFixed(2) + "M";
+        if (abs >= 1e4) return sign + "$" + Math.round(abs / 1000) + "k";
+        return sign + "$" + Math.round(abs).toLocaleString();
+    }
+    function fmtMoneyExact(v) {
+        if (!isFinite(v)) return "—";
+        var sign = v < 0 ? "-" : "";
+        return sign + "$" + Math.round(Math.abs(v)).toLocaleString();
+    }
+    function fmtPct(v, d) {
+        if (!isFinite(v)) return "—";
+        d = d == null ? 1 : d;
+        var sign = v >= 0 ? "+" : "";
+        return sign + (v * 100).toFixed(d) + "%";
+    }
+    function fmtPctRaw(v, d) {
+        if (!isFinite(v)) return "—";
+        d = d == null ? 1 : d;
+        return (v * 100).toFixed(d) + "%";
+    }
+    function getCssVar(name) {
+        return getComputedStyle(ROOT).getPropertyValue(name).trim();
+    }
+    function darkMode() {
+        return document.documentElement.getAttribute("data-theme") === "dark";
+    }
+
+    // Apply i18n labels.
+    function applyLabels() {
+        document.getElementById("ml-av-label").textContent = T.av;
+        document.getElementById("ml-lev-label").textContent = T.lev;
+        document.getElementById("ml-mv-label").textContent = T.mv;
+        document.getElementById("ml-br-label").textContent = T.br;
+        document.getElementById("ml-name-eq").textContent = T.name_eq;
+        document.getElementById("ml-name-pct").textContent = T.name_pct;
+        document.getElementById("ml-name-dist").textContent = T.name_dist;
+        document.getElementById("ml-name-ret").textContent = T.name_ret;
+        document.getElementById("ml-det-eq").textContent = T.det_eq;
+        document.getElementById("ml-det-pct").textContent = T.det_pct;
+        document.getElementById("ml-det-dist").textContent = T.det_dist;
+        document.getElementById("ml-det-ret").textContent = T.det_ret;
+        document.getElementById("ml-verdict-title").textContent = T.v_title;
+        document.getElementById("ml-caption").textContent = T.caption;
+    }
+
+    // Margin call distance: for leverage L, position is called when
+    //   equity / position <= 0.25
+    //   (1 + L*r) / (L * (1+r)) <= 0.25  where r = move %.
+    // Solving for r at the boundary:
+    //   r_call = (1 - 0.25*L) / (0.75*L) - 1 ... wait let's redo cleanly.
+    // Start equity = 1, loan = (L-1), position = L.
+    // After move r: position = L*(1+r), loan unchanged = (L-1) + borrow drag, equity = position - loan.
+    // Drop borrow drag for the call calc (small over 1 day).
+    //   equity = L*(1+r) - (L-1)
+    //   position = L*(1+r)
+    //   equity/position = [L*(1+r) - (L-1)] / [L*(1+r)] <= 0.25
+    //   L*(1+r) - (L-1) <= 0.25 * L * (1+r)
+    //   0.75 * L * (1+r) <= (L-1)
+    //   1 + r <= (L-1) / (0.75*L)
+    //   r_call = (L-1) / (0.75*L) - 1
+    function callMove(L) {
+        if (L <= 1.0) return -1.0; // no call possible at 1x
+        return (L - 1) / (0.75 * L) - 1;
+    }
+
+    function compute() {
+        const av  = parseFloat(SL.av.value);
+        const lev = parseFloat(SL.lev.value);
+        const mv  = parseFloat(SL.mv.value) / 100.0;
+        const br  = parseFloat(SL.br.value) / 100.0;
+
+        // Borrow drag over 1 year on (L-1) of equity.
+        const drag = (lev - 1) * br;
+        // Equity after move (no liquidation): equity_unit = lev*(1+mv) - (lev-1) - drag
+        const equityUnitRaw = lev * (1 + mv) - (lev - 1) - drag;
+        const positionUnit  = lev * (1 + mv);
+        const equityPctRaw  = positionUnit > 0 ? equityUnitRaw / positionUnit : 0;
+        const callR = callMove(lev);
+        const distance = mv - callR; // pp of underlying; negative = already called
+        const called = (mv <= callR && lev > 1.0);
+        const wiped = equityUnitRaw <= 0;
+
+        // Realised equity if called: liquidation at the call point with leftover ~25%
+        // of original notional in equity terms. Realised return = -1 + 0.25*L (rough).
+        // For simplicity show the *math* equity (not the broker-clipped equity) but note
+        // the verdict if called.
+        const equityDollar = av * equityUnitRaw;
+        const afterCostRet = equityUnitRaw - 1.0;
+
+        return {
+            av: av, lev: lev, mv: mv, br: br, drag: drag,
+            equityUnit: equityUnitRaw, positionUnit: positionUnit,
+            equityPct: equityPctRaw, equityDollar: equityDollar,
+            afterCostRet: afterCostRet, callR: callR, distance: distance,
+            called: called, wiped: wiped,
+        };
+    }
+
+    function updateStats(c) {
+        VL.av.textContent  = fmtMoneyExact(c.av);
+        VL.lev.textContent = c.lev.toFixed(2) + "x";
+        VL.mv.textContent  = fmtPct(c.mv, 1);
+        VL.br.textContent  = fmtPctRaw(c.br, 2);
+
+        document.getElementById("ml-val-eq").textContent  = fmtMoney(c.equityDollar);
+        document.getElementById("ml-val-pct").textContent = fmtPctRaw(c.equityPct, 1);
+        var distLabel = (c.distance >= 0 ? "+" : "") + (c.distance * 100).toFixed(1) + " pp";
+        document.getElementById("ml-val-dist").textContent = distLabel;
+        document.getElementById("ml-val-ret").textContent  = fmtPct(c.afterCostRet, 1);
+
+        // Tint stat values.
+        var eqEl = document.getElementById("ml-val-eq");
+        eqEl.style.color = c.equityDollar >= c.av ? getCssVar("--ml-pos") : getCssVar("--ml-neg");
+        var pctEl = document.getElementById("ml-val-pct");
+        pctEl.style.color = c.equityPct >= 0.25 ? getCssVar("--ml-pos") :
+                            (c.equityPct >= 0 ? getCssVar("--ml-warn") : getCssVar("--ml-neg"));
+        var distEl = document.getElementById("ml-val-dist");
+        distEl.style.color = c.distance >= 0.10 ? getCssVar("--ml-pos") :
+                             (c.distance >= 0 ? getCssVar("--ml-warn") : getCssVar("--ml-neg"));
+        var retEl = document.getElementById("ml-val-ret");
+        retEl.style.color = c.afterCostRet >= 0 ? getCssVar("--ml-pos") : getCssVar("--ml-neg");
+    }
+
+    function updateVerdict(c) {
+        var box = document.getElementById("ml-verdict");
+        var body = document.getElementById("ml-verdict-body");
+        box.classList.remove("ml-v-good", "ml-v-warn", "ml-v-bad");
+        var text;
+        if (c.wiped) {
+            box.classList.add("ml-v-bad");
+            text = T.v_wiped;
+        } else if (c.called) {
+            box.classList.add("ml-v-bad");
+            text = T.v_called;
+        } else if (c.distance < 0.05) {
+            box.classList.add("ml-v-warn");
+            text = T.v_buffer;
+        } else {
+            box.classList.add("ml-v-good");
+            text = T.v_safe;
+        }
+        body.textContent = text;
+    }
+
+    function chartTrace(c) {
+        // x-axis: market moves -50% to +50% in 1pp steps.
+        var xs = [];
+        var levEq = [];
+        var unlEq = [];
+        for (var r = -0.50; r <= 0.501; r += 0.01) {
+            xs.push((r * 100).toFixed(1));
+            // Pre-call equity (unit terms, scaled by av).
+            var eqUnit = c.lev * (1 + r) - (c.lev - 1) - c.drag;
+            // Apply liquidation: if r <= callR, equity is locked at the call value (not ridden lower).
+            if (c.lev > 1.0 && r <= c.callR) {
+                eqUnit = 0.25 * c.lev * (1 + c.callR); // rough realised equity at call
+                eqUnit -= c.drag * Math.max(0, (r - c.callR + 1) * 0); // no further drag
+            }
+            levEq.push(c.av * eqUnit);
+            unlEq.push(c.av * (1 + r));
+        }
+        return { xs: xs, levEq: levEq, unlEq: unlEq };
+    }
+
+    function render() {
+        const c = compute();
+        updateStats(c);
+        updateVerdict(c);
+
+        const t = chartTrace(c);
+
+        const text  = getCssVar("--ml-text");
+        const muted = getCssVar("--ml-muted");
+        const grid  = darkMode() ? "rgba(255,255,255,0.08)" : "rgba(0,0,0,0.08)";
+        const card  = getCssVar("--ml-card");
+        const accent = getCssVar("--ml-accent");
+        const pos   = getCssVar("--ml-pos");
+        const neg   = getCssVar("--ml-neg");
+        const mid   = getCssVar("--ml-mid");
+
+        const data = [
+            {
+                x: t.xs, y: t.unlEq, type: "scatter", mode: "lines", name: T.unl,
+                line: { color: mid, width: 2, dash: "dot" },
+                hovertemplate: "%{x}%: $%{y:,.0f}<extra></extra>",
+            },
+            {
+                x: t.xs, y: t.levEq, type: "scatter", mode: "lines", name: T.lev_line,
+                line: { color: neg, width: 2.4 },
+                hovertemplate: "%{x}%: $%{y:,.0f}<extra></extra>",
+            },
+            {
+                x: [(c.mv * 100).toFixed(1)], y: [c.equityDollar],
+                type: "scatter", mode: "markers", name: T.you,
+                marker: { color: accent, size: 12, line: { color: text, width: 1 } },
+                hovertemplate: T.you + ": $%{y:,.0f}<extra></extra>",
+            },
+        ];
+
+        // Threshold shapes.
+        var callPct = (c.callR * 100).toFixed(1);
+        const shapes = [
+            // Call threshold vertical line.
+            {
+                type: "line", x0: callPct, x1: callPct,
+                yref: "paper", y0: 0, y1: 1,
+                line: { color: muted, width: 1, dash: "dash" },
+            },
+            // Zero equity horizontal line.
+            {
+                type: "line", xref: "paper", x0: 0, x1: 1,
+                y0: 0, y1: 0,
+                line: { color: muted, width: 0.8, dash: "dot" },
+            },
+        ];
+        const annotations = [
+            {
+                x: callPct, xref: "x", y: 1.0, yref: "paper",
+                text: T.call_line, showarrow: false,
+                font: { color: muted, size: 10 },
+                xanchor: "left", xshift: 4, yshift: -4,
+            },
+        ];
+
+        const layout = {
+            title: { text: T.chart_title, font: { color: text, size: 14 } },
+            paper_bgcolor: card,
+            plot_bgcolor:  card,
+            font: { color: text },
+            margin: { l: 70, r: 22, t: 38, b: 50 },
+            xaxis: {
+                title: { text: T.x_label, font: { color: muted } },
+                gridcolor: grid, zerolinecolor: grid,
+                color: text, ticksuffix: "%",
+            },
+            yaxis: {
+                title: { text: T.y_label, font: { color: muted } },
+                gridcolor: grid, zerolinecolor: grid,
+                color: text, tickprefix: "$", separatethousands: true,
+            },
+            hovermode: "x unified",
+            legend: { orientation: "h", x: 0, y: -0.18, font: { size: 11 } },
+            shapes: shapes,
+            annotations: annotations,
+        };
+
+        Plotly.react(CHART, data, layout, { displayModeBar: false, responsive: true });
+        notifyResize();
+    }
+
+    function notifyResize() {
+        try {
+            const h = document.documentElement.scrollHeight;
+            parent.postMessage({ type: "lesson-interactive-resize", height: h }, "*");
+        } catch (e) { /* ignore */ }
+    }
+
+    // Slider wiring.
+    SL.av.addEventListener("input", render);
+    SL.lev.addEventListener("input", render);
+    SL.mv.addEventListener("input", render);
+    SL.br.addEventListener("input", render);
+
+    // Theme observer: re-render Plotly with new theme palette.
+    new MutationObserver(render).observe(document.documentElement, {
+        attributes: true, attributeFilter: ["data-theme"],
+    });
+
+    window.addEventListener("resize", notifyResize);
+
+    applyLabels();
+    render();
+})();
+</script>
+
+</body>
+</html>

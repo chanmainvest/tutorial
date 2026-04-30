@@ -1,0 +1,519 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Long/Short Lab — Interactive (Week 13)</title>
+<script src="https://cdn.plot.ly/plotly-2.35.2.min.js" charset="utf-8"></script>
+<style>
+html, body { margin: 0; padding: 0; background: var(--ls-bg); }
+:root {
+    --ls-bg: #fdfbf5;
+    --ls-text: #1a2332;
+    --ls-muted: #6b7280;
+    --ls-border: #d6d3c4;
+    --ls-card: #fdfbf5;
+    --ls-pos: #2e7d32;
+    --ls-neg: #b71c1c;
+    --ls-mid: #0d47a1;
+    --ls-accent: #b8860b;
+}
+html[data-theme="dark"] .ls-root,
+.ls-root[data-theme="dark"] {
+    --ls-bg: #0f1724;
+    --ls-text: #e6e6e6;
+    --ls-muted: #9aa3b2;
+    --ls-border: #2a3441;
+    --ls-card: #0f1724;
+    --ls-pos: #66bb6a;
+    --ls-neg: #ef5350;
+    --ls-mid: #5a8dee;
+}
+.ls-root {
+    font-family: 'Segoe UI', Helvetica, Arial, sans-serif;
+    background: var(--ls-bg);
+    color: var(--ls-text);
+    padding: 12px;
+    margin: 0;
+}
+.ls-controls {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 12px;
+    margin-bottom: 14px;
+    padding: 12px;
+    background: var(--ls-card);
+    border: 1px solid var(--ls-border);
+    border-radius: 8px;
+}
+.ls-slider-wrap {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    font-size: 0.82rem;
+    color: var(--ls-muted);
+}
+.ls-slider-wrap .ls-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.ls-slider-wrap input[type="range"] {
+    flex: 1;
+    accent-color: var(--ls-accent);
+}
+.ls-slider-wrap .ls-val {
+    white-space: nowrap;
+    color: var(--ls-text);
+    font-weight: 700;
+    font-variant-numeric: tabular-nums;
+    min-width: 64px;
+    text-align: right;
+}
+.ls-slider-wrap .ls-name {
+    font-weight: 600;
+    color: var(--ls-text);
+}
+.ls-chart {
+    width: 100%;
+    height: 420px;
+    background: var(--ls-card);
+    border-radius: 8px;
+    border: 1px solid var(--ls-border);
+}
+.ls-stats {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 10px;
+    margin-top: 14px;
+}
+.ls-stat {
+    background: var(--ls-card);
+    border: 1px solid var(--ls-border);
+    border-left: 4px solid var(--ls-muted);
+    border-radius: 8px;
+    padding: 10px 12px;
+}
+.ls-stat.ls-stat-mid { border-left-color: var(--ls-mid); }
+.ls-stat.ls-stat-acc { border-left-color: var(--ls-accent); }
+.ls-stat.ls-stat-pos { border-left-color: var(--ls-pos); }
+.ls-stat.ls-stat-neg { border-left-color: var(--ls-neg); }
+.ls-stat .ls-stat-name {
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--ls-muted);
+}
+.ls-stat .ls-stat-val {
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin-top: 4px;
+    font-variant-numeric: tabular-nums;
+}
+.ls-stat .ls-stat-detail {
+    font-size: 0.78rem;
+    color: var(--ls-muted);
+    margin-top: 2px;
+    font-variant-numeric: tabular-nums;
+}
+.ls-caption {
+    margin-top: 10px;
+    font-size: 0.78rem;
+    color: var(--ls-muted);
+    line-height: 1.45;
+}
+@media (max-width: 720px) {
+    .ls-controls { grid-template-columns: 1fr; }
+    .ls-stats { grid-template-columns: repeat(2, 1fr); }
+    .ls-chart { height: 340px; }
+}
+</style>
+</head>
+<body>
+
+<div class="ls-root" id="ls-root">
+    <div class="ls-controls">
+        <div class="ls-slider-wrap">
+            <div class="ls-name" id="ls-name-blong">Long-side beta</div>
+            <div class="ls-row">
+                <input type="range" id="ls-blong" min="0" max="2" step="0.05" value="1.10">
+                <span class="ls-val" id="ls-val-blong">1.10</span>
+            </div>
+        </div>
+        <div class="ls-slider-wrap">
+            <div class="ls-name" id="ls-name-bshort">Short-side beta</div>
+            <div class="ls-row">
+                <input type="range" id="ls-bshort" min="0" max="2" step="0.05" value="1.00">
+                <span class="ls-val" id="ls-val-bshort">1.00</span>
+            </div>
+        </div>
+        <div class="ls-slider-wrap">
+            <div class="ls-name" id="ls-name-alpha">Idiosyncratic alpha (bps/yr)</div>
+            <div class="ls-row">
+                <input type="range" id="ls-alpha" min="0" max="500" step="10" value="200">
+                <span class="ls-val" id="ls-val-alpha">200</span>
+            </div>
+        </div>
+    </div>
+    <div id="ls-chart" class="ls-chart"></div>
+    <div class="ls-stats">
+        <div class="ls-stat ls-stat-mid">
+            <div class="ls-stat-name" id="ls-name-netbeta">Net beta</div>
+            <div class="ls-stat-val" id="ls-val-netbeta">—</div>
+            <div class="ls-stat-detail" id="ls-det-netbeta">—</div>
+        </div>
+        <div class="ls-stat ls-stat-acc">
+            <div class="ls-stat-name" id="ls-name-gross">Gross exposure</div>
+            <div class="ls-stat-val" id="ls-val-gross">—</div>
+            <div class="ls-stat-detail" id="ls-det-gross">—</div>
+        </div>
+        <div class="ls-stat ls-stat-pos">
+            <div class="ls-stat-name" id="ls-name-sharpe">Sharpe</div>
+            <div class="ls-stat-val" id="ls-val-sharpe">—</div>
+            <div class="ls-stat-detail" id="ls-det-sharpe">—</div>
+        </div>
+        <div class="ls-stat ls-stat-neg">
+            <div class="ls-stat-name" id="ls-name-mdd">Max drawdown</div>
+            <div class="ls-stat-val" id="ls-val-mdd">—</div>
+            <div class="ls-stat-detail" id="ls-det-mdd">—</div>
+        </div>
+    </div>
+    <p class="ls-caption" id="ls-caption">
+        Daily L/S return = alpha/252 + (beta_long - beta_short) x market_return + idio_noise.
+    </p>
+</div>
+
+<script>
+(function () {
+    const I18N = {
+        en: {
+            name_blong:    "Long-side beta",
+            name_bshort:   "Short-side beta",
+            name_alpha:    "Idiosyncratic alpha (bps/yr)",
+            name_netbeta:  "Net beta",
+            name_gross:    "Gross exposure",
+            name_sharpe:   "Sharpe (ann.)",
+            name_mdd:      "Max drawdown",
+            trace_ls:      "Long/short portfolio",
+            trace_spx:     "S&P 500 (market)",
+            x_title:       "Trading day",
+            y_title:       "Cumulative wealth ($1 invested)",
+            det_netbeta:   "long beta {bl} - short beta {bs}",
+            det_gross:     "100% long + 100% short",
+            det_sharpe:    "ann. return {r} / vol {v}",
+            det_mdd:       "trough at day {d}",
+            caption:       "Synthetic 10-year (2,520 trading day) backtest. Market path is a deterministic Gaussian-like sequence with mean ~10% / vol ~16% annualised; the L/S book lays alpha/252 + (beta_long - beta_short)*market_return + idiosyncratic_noise on top. Net beta zero plus zero alpha gives a flat line (minus your costs); positive alpha tilts it. Same machinery the rest of the course will use.",
+        },
+        hk: {
+            name_blong:    "做多端 beta",
+            name_bshort:   "做空端 beta",
+            name_alpha:    "個股 alpha(基點/年)",
+            name_netbeta:  "淨 beta",
+            name_gross:    "總曝險",
+            name_sharpe:   "夏普(年化)",
+            name_mdd:      "最大回撤",
+            trace_ls:      "多空組合",
+            trace_spx:     "標普 500(市場)",
+            x_title:       "交易日",
+            y_title:       "累計財富(投入 1 美元)",
+            det_netbeta:   "做多 beta {bl} - 做空 beta {bs}",
+            det_gross:     "做多 100% + 做空 100%",
+            det_sharpe:    "年化回報 {r} / 波動 {v}",
+            det_mdd:       "谷底位於第 {d} 日",
+            caption:       "10 年(2,520 個交易日)的合成回測。市場路徑為確定性的近高斯序列,年化均值 ~10%、波動率 ~16%;多空組合在其上疊加 alpha/252 + (做多 beta - 做空 beta)×市場回報 + 個股噪聲。淨 beta 為零、alpha 為零時得到平線(再扣除成本);alpha 為正時整條線傾斜向上。本課程後半所用的就是同一套機制。",
+        },
+        tw: {
+            name_blong:    "做多端 beta",
+            name_bshort:   "做空端 beta",
+            name_alpha:    "個股 alpha(基點/年)",
+            name_netbeta:  "淨 beta",
+            name_gross:    "總曝險",
+            name_sharpe:   "夏普(年化)",
+            name_mdd:      "最大回檔",
+            trace_ls:      "多空組合",
+            trace_spx:     "標普 500(市場)",
+            x_title:       "交易日",
+            y_title:       "累計財富(投入 1 美元)",
+            det_netbeta:   "做多 beta {bl} - 做空 beta {bs}",
+            det_gross:     "做多 100% + 做空 100%",
+            det_sharpe:    "年化報酬 {r} / 波動 {v}",
+            det_mdd:       "谷底位於第 {d} 日",
+            caption:       "10 年(2,520 個交易日)的合成回測。市場路徑為確定性近高斯序列,年化均值 ~10%、波動率 ~16%;多空組合在其上疊加 alpha/252 + (做多 beta - 做空 beta)×市場報酬 + 個股噪聲。淨 beta 為零、alpha 為零時得到平線(再扣除成本);alpha 為正時整條線傾斜向上。本課程後半所用的就是同一套機制。",
+        },
+        cn: {
+            name_blong:    "做多端 beta",
+            name_bshort:   "做空端 beta",
+            name_alpha:    "个股 alpha(基点/年)",
+            name_netbeta:  "净 beta",
+            name_gross:    "总暴露",
+            name_sharpe:   "夏普(年化)",
+            name_mdd:      "最大回撤",
+            trace_ls:      "多空组合",
+            trace_spx:     "标普 500(市场)",
+            x_title:       "交易日",
+            y_title:       "累计财富(投入 1 美元)",
+            det_netbeta:   "做多 beta {bl} - 做空 beta {bs}",
+            det_gross:     "做多 100% + 做空 100%",
+            det_sharpe:    "年化回报 {r} / 波动 {v}",
+            det_mdd:       "谷底位于第 {d} 日",
+            caption:       "10 年(2,520 个交易日)的合成回测。市场路径为确定性的近高斯序列,年化均值 ~10%、波动率 ~16%;多空组合在其上叠加 alpha/252 + (做多 beta - 做空 beta)×市场回报 + 个股噪声。净 beta 为零、alpha 为零时得到平线(再扣除成本);alpha 为正时整条线倾斜向上。本课程后半所用的就是同一套机制。",
+        },
+    };
+    function currentLang() {
+        const p = new URLSearchParams(window.location.search);
+        const l = (p.get("lang") || "en").toLowerCase();
+        return I18N.hasOwnProperty(l) ? l : "en";
+    }
+    const T = I18N[currentLang()];
+
+    // ----- Synthetic deterministic Gaussian-like daily series -----
+    // 10 years x 252 trading days = 2520 days
+    const N_DAYS = 2520;
+    const ANN_DAYS = 252;
+
+    // Seeded LCG -> Box-Muller -> Gaussian. Deterministic across runs.
+    function lcg(seed) {
+        let s = seed >>> 0;
+        return function () {
+            s = (s * 1664525 + 1013904223) >>> 0;
+            return s / 4294967296;
+        };
+    }
+    function gaussianSeries(seed, n) {
+        const r = lcg(seed);
+        const out = new Float64Array(n);
+        for (let i = 0; i < n; i += 2) {
+            let u1 = r(); if (u1 < 1e-12) u1 = 1e-12;
+            const u2 = r();
+            const mag = Math.sqrt(-2 * Math.log(u1));
+            const z0 = mag * Math.cos(2 * Math.PI * u2);
+            const z1 = mag * Math.sin(2 * Math.PI * u2);
+            out[i] = z0;
+            if (i + 1 < n) out[i + 1] = z1;
+        }
+        return out;
+    }
+
+    // Market: ann mu = 10%, ann vol = 16%
+    const MKT_MU = 0.10 / ANN_DAYS;
+    const MKT_VOL = 0.16 / Math.sqrt(ANN_DAYS);
+    const Z_MKT = gaussianSeries(20210128, N_DAYS);     // GME-anniversary seed
+    const MKT_DAILY = new Float64Array(N_DAYS);
+    for (let i = 0; i < N_DAYS; i++) {
+        MKT_DAILY[i] = MKT_MU + MKT_VOL * Z_MKT[i];
+    }
+    // Idiosyncratic component for L/S book: ann vol = 4% (residual after beta)
+    const IDIO_VOL = 0.04 / Math.sqrt(ANN_DAYS);
+    const Z_IDIO = gaussianSeries(19980925, N_DAYS);    // LTCM-collapse seed
+    const IDIO_DAILY = new Float64Array(N_DAYS);
+    for (let i = 0; i < N_DAYS; i++) {
+        IDIO_DAILY[i] = IDIO_VOL * Z_IDIO[i];
+    }
+
+    // X axis (1..N)
+    const X = new Array(N_DAYS);
+    for (let i = 0; i < N_DAYS; i++) X[i] = i + 1;
+
+    // Pre-compute market cumulative
+    function cumProduct(returns) {
+        const out = new Array(returns.length);
+        let g = 1.0;
+        for (let i = 0; i < returns.length; i++) {
+            g *= (1 + returns[i]);
+            out[i] = g;
+        }
+        return out;
+    }
+    const MKT_CUM = cumProduct(MKT_DAILY);
+
+    function buildLSReturns(bL, bS, alphaBps) {
+        const alpha = (alphaBps / 10000) / ANN_DAYS;
+        const netBeta = bL - bS;
+        const out = new Float64Array(N_DAYS);
+        for (let i = 0; i < N_DAYS; i++) {
+            out[i] = alpha + netBeta * MKT_DAILY[i] + IDIO_DAILY[i];
+        }
+        return out;
+    }
+
+    function maxDrawdown(cum) {
+        let peak = cum[0];
+        let mdd = 0;
+        let troughIdx = 0;
+        for (let i = 0; i < cum.length; i++) {
+            if (cum[i] > peak) peak = cum[i];
+            const dd = cum[i] / peak - 1;
+            if (dd < mdd) { mdd = dd; troughIdx = i; }
+        }
+        return { mdd: mdd, troughIdx: troughIdx };
+    }
+
+    function meanStd(arr) {
+        let m = 0;
+        for (let i = 0; i < arr.length; i++) m += arr[i];
+        m /= arr.length;
+        let v = 0;
+        for (let i = 0; i < arr.length; i++) {
+            const d = arr[i] - m;
+            v += d * d;
+        }
+        v /= arr.length;
+        return { mean: m, std: Math.sqrt(v) };
+    }
+
+    // ----- Plotly rendering -----
+    const ROOT = document.getElementById("ls-root");
+    const CHART = document.getElementById("ls-chart");
+    const BL = document.getElementById("ls-blong");
+    const BS = document.getElementById("ls-bshort");
+    const AL = document.getElementById("ls-alpha");
+    const VAL_BL = document.getElementById("ls-val-blong");
+    const VAL_BS = document.getElementById("ls-val-bshort");
+    const VAL_AL = document.getElementById("ls-val-alpha");
+
+    function getCssVar(name) {
+        return getComputedStyle(ROOT).getPropertyValue(name).trim();
+    }
+    function darkMode() {
+        return document.documentElement.getAttribute("data-theme") === "dark";
+    }
+
+    function pct(v, digits) {
+        if (!isFinite(v)) return "—";
+        const sign = v >= 0 ? "+" : "";
+        return sign + (v * 100).toFixed(digits == null ? 1 : digits) + "%";
+    }
+
+    function render() {
+        const bL = parseFloat(BL.value);
+        const bS = parseFloat(BS.value);
+        const alphaBps = parseFloat(AL.value);
+
+        VAL_BL.textContent = bL.toFixed(2);
+        VAL_BS.textContent = bS.toFixed(2);
+        VAL_AL.textContent = alphaBps.toFixed(0);
+
+        const lsRet = buildLSReturns(bL, bS, alphaBps);
+        const lsCum = cumProduct(lsRet);
+        const stats = meanStd(lsRet);
+        const annRet = stats.mean * ANN_DAYS;
+        const annVol = stats.std * Math.sqrt(ANN_DAYS);
+        const sharpe = annVol > 0 ? annRet / annVol : 0;
+        const dd = maxDrawdown(lsCum);
+
+        const colorMid = getCssVar("--ls-mid");
+        const colorAcc = getCssVar("--ls-accent");
+        const colorText = getCssVar("--ls-text");
+        const colorMuted = getCssVar("--ls-muted");
+        const colorGrid = darkMode() ? "rgba(255,255,255,0.08)" : "rgba(0,0,0,0.07)";
+        const colorBg = getCssVar("--ls-card");
+
+        const traces = [
+            {
+                x: X, y: Array.from(MKT_CUM),
+                type: "scatter", mode: "lines",
+                name: T.trace_spx,
+                line: { color: colorAcc, width: 2 },
+                hovertemplate: T.trace_spx + ": %{y:.2f}<extra></extra>",
+            },
+            {
+                x: X, y: Array.from(lsCum),
+                type: "scatter", mode: "lines",
+                name: T.trace_ls,
+                line: { color: colorMid, width: 2.4 },
+                hovertemplate: T.trace_ls + ": %{y:.2f}<extra></extra>",
+            },
+        ];
+
+        const layout = {
+            margin: { l: 56, r: 24, t: 26, b: 44 },
+            paper_bgcolor: colorBg,
+            plot_bgcolor: colorBg,
+            font: { family: "Segoe UI, Helvetica, Arial, sans-serif", color: colorText, size: 12 },
+            xaxis: {
+                title: { text: T.x_title, font: { color: colorMuted, size: 11 } },
+                gridcolor: colorGrid,
+                color: colorText,
+            },
+            yaxis: {
+                title: { text: T.y_title, font: { color: colorMuted, size: 11 } },
+                gridcolor: colorGrid,
+                color: colorText,
+                tickformat: ".2f",
+            },
+            legend: {
+                orientation: "h",
+                x: 0, y: 1.06,
+                bgcolor: "rgba(0,0,0,0)",
+                font: { color: colorText, size: 11 },
+            },
+            hovermode: "x unified",
+            showlegend: true,
+        };
+
+        Plotly.react(CHART, traces, layout, {
+            displayModeBar: false,
+            responsive: true,
+        });
+
+        // Stats
+        document.getElementById("ls-val-netbeta").textContent = (bL - bS).toFixed(2);
+        document.getElementById("ls-det-netbeta").textContent =
+            T.det_netbeta.replace("{bl}", bL.toFixed(2)).replace("{bs}", bS.toFixed(2));
+
+        document.getElementById("ls-val-gross").textContent = "200%";
+        document.getElementById("ls-det-gross").textContent = T.det_gross;
+
+        document.getElementById("ls-val-sharpe").textContent =
+            isFinite(sharpe) ? sharpe.toFixed(2) : "—";
+        document.getElementById("ls-det-sharpe").textContent =
+            T.det_sharpe.replace("{r}", pct(annRet)).replace("{v}", pct(annVol));
+
+        document.getElementById("ls-val-mdd").textContent = pct(dd.mdd);
+        document.getElementById("ls-det-mdd").textContent =
+            T.det_mdd.replace("{d}", String(dd.troughIdx + 1));
+    }
+
+    function applyI18n() {
+        document.getElementById("ls-name-blong").textContent = T.name_blong;
+        document.getElementById("ls-name-bshort").textContent = T.name_bshort;
+        document.getElementById("ls-name-alpha").textContent = T.name_alpha;
+        document.getElementById("ls-name-netbeta").textContent = T.name_netbeta;
+        document.getElementById("ls-name-gross").textContent = T.name_gross;
+        document.getElementById("ls-name-sharpe").textContent = T.name_sharpe;
+        document.getElementById("ls-name-mdd").textContent = T.name_mdd;
+        document.getElementById("ls-caption").textContent = T.caption;
+    }
+
+    [BL, BS, AL].forEach(el => {
+        el.addEventListener("input", render);
+    });
+
+    applyI18n();
+
+    function reportHeight() {
+        try {
+            var h = Math.ceil(document.documentElement.scrollHeight);
+            parent.postMessage({ type: 'lesson-interactive-resize', height: h }, '*');
+        } catch (e) { /* ignore */ }
+    }
+    if (typeof ResizeObserver !== 'undefined') {
+        new ResizeObserver(reportHeight).observe(document.body);
+    }
+    window.addEventListener('resize', reportHeight);
+    setTimeout(reportHeight, 50);
+    setTimeout(reportHeight, 500);
+
+    const themeObserver = new MutationObserver(render);
+    themeObserver.observe(document.documentElement, {
+        attributes: true,
+        attributeFilter: ["data-theme"],
+    });
+
+    render();
+})();
+</script>
+
+</body>
+</html>

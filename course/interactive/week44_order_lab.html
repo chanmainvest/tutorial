@@ -1,0 +1,794 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Order Lab — Interactive (Week 44)</title>
+<script src="https://cdn.plot.ly/plotly-2.35.2.min.js" charset="utf-8"></script>
+<style>
+html, body { margin: 0; padding: 0; background: var(--or-bg); }
+:root {
+    --or-bg: #fdfbf5;
+    --or-text: #1a2332;
+    --or-muted: #6b7280;
+    --or-border: #d6d3c4;
+    --or-card: #fdfbf5;
+    --or-pos: #2e7d32;
+    --or-neg: #b71c1c;
+    --or-mid: #0d47a1;
+    --or-accent: #b8860b;
+    --or-purple: #6a1b9a;
+}
+html[data-theme="dark"] .or-root,
+.or-root[data-theme="dark"] {
+    --or-bg: #0f1724;
+    --or-text: #e6e6e6;
+    --or-muted: #9aa3b2;
+    --or-border: #2a3441;
+    --or-card: #0f1724;
+    --or-pos: #66bb6a;
+    --or-neg: #ef5350;
+    --or-mid: #5a8dee;
+    --or-purple: #ba68c8;
+}
+.or-root {
+    font-family: 'Segoe UI', Helvetica, Arial, sans-serif;
+    background: var(--or-bg);
+    color: var(--or-text);
+    padding: 12px;
+    margin: 0;
+}
+.or-controls {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-bottom: 12px;
+    padding: 12px;
+    background: var(--or-card);
+    border: 1px solid var(--or-border);
+    border-radius: 8px;
+}
+.or-block-name {
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: var(--or-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 6px;
+}
+.or-slider-wrap {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    font-size: 0.82rem;
+    color: var(--or-muted);
+}
+.or-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.or-slider-wrap input[type="range"] {
+    flex: 1;
+    accent-color: var(--or-accent);
+}
+.or-val {
+    white-space: nowrap;
+    color: var(--or-text);
+    font-weight: 700;
+    font-variant-numeric: tabular-nums;
+    min-width: 96px;
+    text-align: right;
+}
+.or-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+.or-pill {
+    cursor: pointer;
+    padding: 6px 12px;
+    background: transparent;
+    border: 1px solid var(--or-border);
+    border-radius: 999px;
+    font-size: 0.82rem;
+    color: var(--or-text);
+    font-weight: 600;
+    transition: all 0.15s;
+}
+.or-pill:hover { border-color: var(--or-accent); }
+.or-pill.or-pill-active {
+    background: var(--or-accent);
+    color: white;
+    border-color: var(--or-accent);
+}
+.or-stats {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 10px;
+    margin-bottom: 12px;
+}
+.or-stat {
+    background: var(--or-card);
+    border: 1px solid var(--or-border);
+    border-left: 4px solid var(--or-muted);
+    border-radius: 8px;
+    padding: 10px 12px;
+}
+.or-stat.or-stat-mid { border-left-color: var(--or-mid); }
+.or-stat.or-stat-acc { border-left-color: var(--or-accent); }
+.or-stat.or-stat-pos { border-left-color: var(--or-pos); }
+.or-stat.or-stat-neg { border-left-color: var(--or-neg); }
+.or-stat-name {
+    font-size: 0.74rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--or-muted);
+}
+.or-stat-val {
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin-top: 4px;
+    font-variant-numeric: tabular-nums;
+}
+.or-stat-detail {
+    font-size: 0.76rem;
+    color: var(--or-muted);
+    margin-top: 2px;
+    font-variant-numeric: tabular-nums;
+}
+.or-charts {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-bottom: 12px;
+}
+.or-chart {
+    width: 100%;
+    height: 320px;
+    background: var(--or-card);
+    border-radius: 8px;
+    border: 1px solid var(--or-border);
+}
+.or-caption {
+    margin-top: 8px;
+    font-size: 0.78rem;
+    color: var(--or-muted);
+    line-height: 1.45;
+}
+@media (max-width: 720px) {
+    .or-controls { grid-template-columns: 1fr; }
+    .or-stats { grid-template-columns: repeat(2, 1fr); }
+    .or-charts { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<div class="or-root" id="or-root">
+    <div class="or-controls">
+        <div>
+            <div class="or-block-name" id="or-name-size-block">Order size (shares)</div>
+            <div class="or-slider-wrap">
+                <div class="or-row">
+                    <input type="range" id="or-size" min="2" max="6" step="0.05" value="3.0">
+                    <span class="or-val" id="or-val-size">1,000</span>
+                </div>
+            </div>
+            <div class="or-block-name" style="margin-top:14px;" id="or-name-adv-block">Stock liquidity (ADV)</div>
+            <div class="or-pills" id="or-pills-adv">
+                <button class="or-pill" data-adv="80000000" data-spread="0.0001">SPY (80M ADV)</button>
+                <button class="or-pill or-pill-active" data-adv="5000000" data-spread="0.0003">AAPL (50M ADV)</button>
+                <button class="or-pill" data-adv="500000" data-spread="0.0010">Mid-cap (500k)</button>
+                <button class="or-pill" data-adv="100000" data-spread="0.0040">Small-cap (100k)</button>
+                <button class="or-pill" data-adv="20000" data-spread="0.0150">Micro-cap (20k)</button>
+            </div>
+        </div>
+        <div>
+            <div class="or-block-name" id="or-name-type-block">Order type</div>
+            <div class="or-pills" id="or-pills-type">
+                <button class="or-pill or-pill-active" data-type="market">Market</button>
+                <button class="or-pill" data-type="limit">Limit (NBBO)</button>
+                <button class="or-pill" data-type="twap">TWAP (full day)</button>
+                <button class="or-pill" data-type="vwap">VWAP (full day)</button>
+            </div>
+            <div class="or-block-name" style="margin-top:14px;" id="or-name-vol-block">Realised volatility regime</div>
+            <div class="or-pills" id="or-pills-vol">
+                <button class="or-pill" data-vol="0.5">Calm (VIX 12)</button>
+                <button class="or-pill or-pill-active" data-vol="1.0">Normal (VIX 18)</button>
+                <button class="or-pill" data-vol="2.0">Elevated (VIX 30)</button>
+                <button class="or-pill" data-vol="4.0">Crisis (VIX 60)</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="or-stats">
+        <div class="or-stat or-stat-mid">
+            <div class="or-stat-name" id="or-name-slip">Expected slippage</div>
+            <div class="or-stat-val" id="or-val-slip">—</div>
+            <div class="or-stat-detail" id="or-det-slip">—</div>
+        </div>
+        <div class="or-stat or-stat-acc">
+            <div class="or-stat-name" id="or-name-impact">Market impact</div>
+            <div class="or-stat-val" id="or-val-impact">—</div>
+            <div class="or-stat-detail" id="or-det-impact">—</div>
+        </div>
+        <div class="or-stat or-stat-pos">
+            <div class="or-stat-name" id="or-name-fill">Time-to-fill</div>
+            <div class="or-stat-val" id="or-val-fill">—</div>
+            <div class="or-stat-detail" id="or-det-fill">—</div>
+        </div>
+        <div class="or-stat or-stat-neg">
+            <div class="or-stat-name" id="or-name-cost">Total cost</div>
+            <div class="or-stat-val" id="or-val-cost">—</div>
+            <div class="or-stat-detail" id="or-det-cost">—</div>
+        </div>
+    </div>
+
+    <div class="or-charts">
+        <div id="or-chart-book" class="or-chart"></div>
+        <div id="or-chart-curve" class="or-chart"></div>
+    </div>
+
+    <p class="or-caption" id="or-caption">
+        Synthetic order book at $50 mid. Slippage uses an Almgren-Chriss square-root impact model: bps ≈ 10 × √(size/1%-ADV). TWAP/VWAP cuts impact by ~70% at the cost of timing risk over the execution window. Volatility regime scales the spread and impact multiplicatively.
+    </p>
+</div>
+
+<script>
+(function () {
+    const I18N = {
+        en: {
+            name_size_block: "Order size (shares)",
+            name_adv_block:  "Stock liquidity (ADV)",
+            name_type_block: "Order type",
+            name_vol_block:  "Realised volatility regime",
+            name_slip:    "Expected slippage",
+            name_impact:  "Market impact",
+            name_fill:    "Time-to-fill",
+            name_cost:    "Total cost (size x slippage)",
+            pill_market:  "Market",
+            pill_limit:   "Limit (NBBO)",
+            pill_twap:    "TWAP (full day)",
+            pill_vwap:    "VWAP (full day)",
+            pill_calm:    "Calm (VIX 12)",
+            pill_normal:  "Normal (VIX 18)",
+            pill_elev:    "Elevated (VIX 30)",
+            pill_crisis:  "Crisis (VIX 60)",
+            book_title:   "Synthetic limit order book ($50 mid)",
+            curve_title:  "Slippage vs order size for this book",
+            x_size:       "Size (shares)",
+            x_book_size:  "Resting size",
+            y_price:      "Price ($)",
+            y_slip:       "Slippage (bps)",
+            trace_ask:    "Asks",
+            trace_bid:    "Bids",
+            trace_market: "Market",
+            trace_limit:  "Limit",
+            trace_twap:   "TWAP",
+            trace_vwap:   "VWAP",
+            trace_now:    "Your order",
+            det_slip:     "{adv}% of ADV  ·  spread {sp} bps",
+            det_impact:   "permanent {pp} bps + temporary {tp} bps",
+            det_fill_m:   "<1 second",
+            det_fill_l:   "minutes to hours; may not fill",
+            det_fill_t:   "{h} hours; market exposure",
+            det_fill_v:   "{h} hours; volume-weighted",
+            det_cost:     "at $50/sh  ·  {bps} bps total",
+            caption:      "Synthetic order book at $50 mid. Slippage uses an Almgren-Chriss square-root impact model: bps ~ 10 x sqrt(size / 1%-ADV). TWAP/VWAP cuts impact by ~70% at the cost of timing risk over the execution window. Volatility regime scales spread and impact multiplicatively.",
+        },
+        hk: {
+            name_size_block: "委託數量(股)",
+            name_adv_block:  "股票流動性(ADV)",
+            name_type_block: "委託類型",
+            name_vol_block:  "已實現波動率體制",
+            name_slip:    "預期滑價",
+            name_impact:  "市場衝擊",
+            name_fill:    "成交時間",
+            name_cost:    "總成本(規模 × 滑價)",
+            pill_market:  "市價單",
+            pill_limit:   "限價單(NBBO)",
+            pill_twap:    "TWAP(全日)",
+            pill_vwap:    "VWAP(全日)",
+            pill_calm:    "平靜(VIX 12)",
+            pill_normal:  "正常(VIX 18)",
+            pill_elev:    "升高(VIX 30)",
+            pill_crisis:  "危機(VIX 60)",
+            book_title:   "合成限價委託簿($50 中價)",
+            curve_title:  "本盤口的滑價對委託規模曲線",
+            x_size:       "規模(股)",
+            x_book_size:  "掛單量",
+            y_price:      "價格(美元)",
+            y_slip:       "滑價(基點)",
+            trace_ask:    "賣方",
+            trace_bid:    "買方",
+            trace_market: "市價",
+            trace_limit:  "限價",
+            trace_twap:   "TWAP",
+            trace_vwap:   "VWAP",
+            trace_now:    "你的委託",
+            det_slip:     "{adv}% ADV  ·  價差 {sp} 基點",
+            det_impact:   "永久 {pp} 基點 + 暫時 {tp} 基點",
+            det_fill_m:   "<1 秒",
+            det_fill_l:   "數分鐘至數小時;可能不成交",
+            det_fill_t:   "{h} 小時;承擔市場曝險",
+            det_fill_v:   "{h} 小時;加權成交量",
+            det_cost:     "$50/股  ·  共 {bps} 基點",
+            caption:      "$50 中價的合成委託簿。滑價採 Almgren-Chriss 平方根衝擊模型:bps ~ 10 × √(規模 / 1%-ADV)。TWAP/VWAP 將衝擊降低約七成,代價是執行窗口期間的時機風險。波動率體制按倍數縮放價差和衝擊。",
+        },
+        tw: {
+            name_size_block: "委託數量(股)",
+            name_adv_block:  "股票流動性(ADV)",
+            name_type_block: "委託類型",
+            name_vol_block:  "已實現波動率體制",
+            name_slip:    "預期滑價",
+            name_impact:  "市場衝擊",
+            name_fill:    "成交時間",
+            name_cost:    "總成本(規模 × 滑價)",
+            pill_market:  "市價單",
+            pill_limit:   "限價單(NBBO)",
+            pill_twap:    "TWAP(全日)",
+            pill_vwap:    "VWAP(全日)",
+            pill_calm:    "平靜(VIX 12)",
+            pill_normal:  "正常(VIX 18)",
+            pill_elev:    "升高(VIX 30)",
+            pill_crisis:  "危機(VIX 60)",
+            book_title:   "合成限價委託簿($50 中價)",
+            curve_title:  "本盤口的滑價對委託規模曲線",
+            x_size:       "規模(股)",
+            x_book_size:  "掛單量",
+            y_price:      "價格(美元)",
+            y_slip:       "滑價(基點)",
+            trace_ask:    "賣方",
+            trace_bid:    "買方",
+            trace_market: "市價",
+            trace_limit:  "限價",
+            trace_twap:   "TWAP",
+            trace_vwap:   "VWAP",
+            trace_now:    "你的委託",
+            det_slip:     "{adv}% ADV  ·  價差 {sp} 基點",
+            det_impact:   "永久 {pp} 基點 + 暫時 {tp} 基點",
+            det_fill_m:   "<1 秒",
+            det_fill_l:   "數分鐘至數小時;可能不成交",
+            det_fill_t:   "{h} 小時;承擔市場曝險",
+            det_fill_v:   "{h} 小時;加權成交量",
+            det_cost:     "$50/股  ·  共 {bps} 基點",
+            caption:      "$50 中價的合成委託簿。滑價採 Almgren-Chriss 平方根衝擊模型:bps ~ 10 × √(規模 / 1%-ADV)。TWAP/VWAP 將衝擊降低約七成,代價是執行窗口期間的時機風險。波動率體制按倍數縮放價差和衝擊。",
+        },
+        cn: {
+            name_size_block: "委托数量(股)",
+            name_adv_block:  "股票流动性(ADV)",
+            name_type_block: "委托类型",
+            name_vol_block:  "已实现波动率体制",
+            name_slip:    "预期滑点",
+            name_impact:  "市场冲击",
+            name_fill:    "成交时间",
+            name_cost:    "总成本(规模 × 滑点)",
+            pill_market:  "市价单",
+            pill_limit:   "限价单(NBBO)",
+            pill_twap:    "TWAP(全日)",
+            pill_vwap:    "VWAP(全日)",
+            pill_calm:    "平静(VIX 12)",
+            pill_normal:  "正常(VIX 18)",
+            pill_elev:    "升高(VIX 30)",
+            pill_crisis:  "危机(VIX 60)",
+            book_title:   "合成限价委托簿($50 中价)",
+            curve_title:  "本盘口的滑点对委托规模曲线",
+            x_size:       "规模(股)",
+            x_book_size:  "挂单量",
+            y_price:      "价格(美元)",
+            y_slip:       "滑点(基点)",
+            trace_ask:    "卖方",
+            trace_bid:    "买方",
+            trace_market: "市价",
+            trace_limit:  "限价",
+            trace_twap:   "TWAP",
+            trace_vwap:   "VWAP",
+            trace_now:    "你的委托",
+            det_slip:     "{adv}% ADV  ·  价差 {sp} 基点",
+            det_impact:   "永久 {pp} 基点 + 暂时 {tp} 基点",
+            det_fill_m:   "<1 秒",
+            det_fill_l:   "数分钟至数小时;可能不成交",
+            det_fill_t:   "{h} 小时;承担市场敞口",
+            det_fill_v:   "{h} 小时;加权成交量",
+            det_cost:     "$50/股  ·  共 {bps} 基点",
+            caption:      "$50 中价的合成委托簿。滑点采用 Almgren-Chriss 平方根冲击模型:bps ~ 10 × √(规模 / 1%-ADV)。TWAP/VWAP 将冲击降低约七成,代价是执行窗口期间的时机风险。波动率体制按倍数缩放价差和冲击。",
+        },
+    };
+
+    function currentLang() {
+        const p = new URLSearchParams(window.location.search);
+        const l = (p.get("lang") || "en").toLowerCase();
+        return I18N.hasOwnProperty(l) ? l : "en";
+    }
+    let T = I18N[currentLang()];
+
+    // ---------- State ----------
+    let state = {
+        sizeShares: 1000,
+        adv: 5000000,        // AAPL default
+        spread: 0.0003,      // 3 bps default
+        orderType: "market",
+        volMul: 1.0,
+    };
+
+    // ---------- Utility ----------
+    function pct(v, d) {
+        if (!isFinite(v)) return "—";
+        return (v * 100).toFixed(d == null ? 2 : d) + "%";
+    }
+    function bps(v, d) {
+        if (!isFinite(v)) return "—";
+        return (v * 10000).toFixed(d == null ? 1 : d) + " bps";
+    }
+    function fmtShares(n) {
+        if (n >= 1e6) return (n / 1e6).toFixed(2) + "M";
+        if (n >= 1e3) return (n / 1e3).toFixed(n >= 1e4 ? 0 : 1) + "k";
+        return n.toFixed(0);
+    }
+    function fmtUsd(n) {
+        if (Math.abs(n) >= 1e6) return "$" + (n / 1e6).toFixed(2) + "M";
+        if (Math.abs(n) >= 1e3) return "$" + (n / 1e3).toFixed(1) + "k";
+        return "$" + n.toFixed(0);
+    }
+
+    // ---------- Slippage model ----------
+    // Almgren-Chriss square-root impact:
+    //   slippage_bps = K * sqrt(size / (0.01 * ADV))
+    // K calibrated so that 1%-of-ADV order in normal vol = 10 bps.
+    // For limit at NBBO: just half-spread; assumes fill probability of 1
+    // (best case). For TWAP/VWAP: ~30% of market impact (split across
+    // session) plus half-spread; VWAP slightly cheaper than TWAP.
+    function computeCosts(s) {
+        const advFrac = s.sizeShares / s.adv;          // fraction
+        const advPct = advFrac * 100;
+        const halfSpreadBps = (s.spread * 0.5) * 10000 * s.volMul;
+
+        const baseImpactBps = 10 * Math.sqrt(advPct) * s.volMul;  // bps
+        let permBps = 0, tempBps = 0, totalBps = 0, fillSec = 0;
+        let typeKey;
+
+        if (s.orderType === "market") {
+            typeKey = "market";
+            tempBps = baseImpactBps * 0.6;
+            permBps = baseImpactBps * 0.4;
+            totalBps = halfSpreadBps + tempBps + permBps;
+            fillSec = 1;
+        } else if (s.orderType === "limit") {
+            typeKey = "limit";
+            // Resting limit at NBBO: 0 spread cost, but adverse selection
+            // and possibly non-fill. Model expected adverse selection as
+            // ~30% of half-spread for liquid, growing with size.
+            const adverseBps = halfSpreadBps * 0.3 + baseImpactBps * 0.15;
+            permBps = baseImpactBps * 0.10;
+            tempBps = adverseBps;
+            totalBps = permBps + tempBps;
+            fillSec = -1; // marker for "may not fill"
+        } else if (s.orderType === "twap") {
+            typeKey = "twap";
+            // TWAP across full day: ~25% of market impact + half-spread.
+            tempBps = baseImpactBps * 0.10;
+            permBps = baseImpactBps * 0.30;
+            totalBps = halfSpreadBps + tempBps + permBps;
+            fillSec = 6.5 * 3600;  // full session
+        } else { // vwap
+            typeKey = "vwap";
+            tempBps = baseImpactBps * 0.08;
+            permBps = baseImpactBps * 0.27;
+            totalBps = halfSpreadBps + tempBps + permBps;
+            fillSec = 6.5 * 3600;
+        }
+
+        return {
+            advPct: advPct,
+            halfSpreadBps: halfSpreadBps,
+            permBps: permBps,
+            tempBps: tempBps,
+            totalBps: totalBps,
+            fillSec: fillSec,
+            typeKey: typeKey,
+        };
+    }
+
+    // ---------- Synthetic order book ----------
+    // Same book shape regardless of stock; depth scales with ADV.
+    function buildBook(adv) {
+        const depthScale = Math.max(1, adv / 5000000);
+        const asks = [
+            [50.05, Math.round(200 * depthScale)],
+            [50.08, Math.round(500 * depthScale)],
+            [50.10, Math.round(800 * depthScale)],
+            [50.12, Math.round(1500 * depthScale)],
+            [50.15, Math.round(3000 * depthScale)],
+        ];
+        const bids = [
+            [49.95, Math.round(300 * depthScale)],
+            [49.92, Math.round(600 * depthScale)],
+            [49.90, Math.round(1200 * depthScale)],
+            [49.88, Math.round(2000 * depthScale)],
+            [49.85, Math.round(4000 * depthScale)],
+        ];
+        return { asks: asks, bids: bids };
+    }
+
+    // ---------- DOM ----------
+    const ROOT = document.getElementById("or-root");
+    const SIZE = document.getElementById("or-size");
+    const VAL_SIZE = document.getElementById("or-val-size");
+    const PILLS_ADV = document.getElementById("or-pills-adv");
+    const PILLS_TYPE = document.getElementById("or-pills-type");
+    const PILLS_VOL = document.getElementById("or-pills-vol");
+    const CHART_BOOK = document.getElementById("or-chart-book");
+    const CHART_CURVE = document.getElementById("or-chart-curve");
+
+    function getCss(name) {
+        return getComputedStyle(ROOT).getPropertyValue(name).trim();
+    }
+    function darkMode() {
+        return document.documentElement.getAttribute("data-theme") === "dark";
+    }
+
+    function readSizeSlider() {
+        // log scale: 100 to 1,000,000
+        const v = parseFloat(SIZE.value); // 2.0..6.0
+        return Math.round(Math.pow(10, v));
+    }
+
+    function updateSizeLabel() {
+        VAL_SIZE.textContent = fmtShares(state.sizeShares);
+    }
+
+    // ---------- Pill handlers ----------
+    function bindPills(container, attr, onPick) {
+        container.querySelectorAll(".or-pill").forEach(b => {
+            b.addEventListener("click", () => {
+                container.querySelectorAll(".or-pill").forEach(x => x.classList.remove("or-pill-active"));
+                b.classList.add("or-pill-active");
+                onPick(b);
+                render();
+            });
+        });
+    }
+
+    // ---------- Render ----------
+    function render() {
+        updateSizeLabel();
+        const book = buildBook(state.adv);
+        const cost = computeCosts(state);
+        const colorAcc = getCss("--or-accent");
+        const colorMid = getCss("--or-mid");
+        const colorPos = getCss("--or-pos");
+        const colorNeg = getCss("--or-neg");
+        const colorPurp = getCss("--or-purple");
+        const colorText = getCss("--or-text");
+        const colorMuted = getCss("--or-muted");
+        const colorBg = getCss("--or-card");
+        const colorGrid = darkMode() ? "rgba(255,255,255,0.08)" : "rgba(0,0,0,0.07)";
+
+        // ---------- Chart 1: order book ----------
+        const askPrices = book.asks.map(a => a[0]);
+        const askSizes = book.asks.map(a => a[1]);
+        const bidPrices = book.bids.map(b => b[0]);
+        const bidSizes = book.bids.map(b => -b[1]); // negative for left
+
+        const traces1 = [
+            {
+                x: askSizes, y: askPrices,
+                type: "bar", orientation: "h",
+                name: T.trace_ask,
+                marker: { color: colorNeg, opacity: 0.85 },
+                hovertemplate: "$%{y:.2f}: %{x:,} sh<extra></extra>",
+            },
+            {
+                x: bidSizes, y: bidPrices,
+                type: "bar", orientation: "h",
+                name: T.trace_bid,
+                marker: { color: colorMid, opacity: 0.85 },
+                hovertemplate: "$%{y:.2f}: %{customdata:,} sh<extra></extra>",
+                customdata: book.bids.map(b => b[1]),
+            },
+        ];
+
+        const layout1 = {
+            margin: { l: 56, r: 16, t: 36, b: 40 },
+            paper_bgcolor: colorBg,
+            plot_bgcolor: colorBg,
+            font: { family: "Segoe UI, Helvetica, Arial, sans-serif", color: colorText, size: 11 },
+            title: { text: T.book_title, font: { color: colorText, size: 13 } },
+            xaxis: { title: { text: T.x_book_size, font: { color: colorMuted, size: 10 } },
+                     gridcolor: colorGrid, color: colorText, zerolinecolor: colorMuted },
+            yaxis: { title: { text: T.y_price, font: { color: colorMuted, size: 10 } },
+                     gridcolor: colorGrid, color: colorText, range: [49.80, 50.20] },
+            barmode: "overlay",
+            showlegend: true,
+            legend: { x: 0.5, y: 1.10, xanchor: "center", orientation: "h",
+                      bgcolor: "rgba(0,0,0,0)", font: { color: colorText, size: 10 } },
+            shapes: [
+                { type: "line", xref: "paper", x0: 0, x1: 1,
+                  y0: 50.00, y1: 50.00, line: { color: colorAcc, width: 1, dash: "dot" } }
+            ],
+            annotations: [
+                { x: 0.5, y: 50.00, xref: "paper", yref: "y", text: "mid $50.00",
+                  showarrow: false, font: { color: colorAcc, size: 10 }, yshift: 8 },
+            ],
+        };
+        Plotly.react(CHART_BOOK, traces1, layout1, {displayModeBar: false, responsive: true});
+
+        // ---------- Chart 2: slippage curve ----------
+        // Plot total bps as function of size for current order type and stock
+        const xSizes = [];
+        const yMarket = [];
+        const yLimit = [];
+        const yTwap = [];
+        const yVwap = [];
+        const N = 60;
+        for (let i = 0; i < N; i++) {
+            const expV = 2 + (i / (N - 1)) * 4;   // 100 to 1M
+            const sz = Math.pow(10, expV);
+            xSizes.push(sz);
+            const sm = Object.assign({}, state, {sizeShares: sz, orderType: "market"});
+            const sl = Object.assign({}, state, {sizeShares: sz, orderType: "limit"});
+            const st = Object.assign({}, state, {sizeShares: sz, orderType: "twap"});
+            const sv = Object.assign({}, state, {sizeShares: sz, orderType: "vwap"});
+            yMarket.push(computeCosts(sm).totalBps);
+            yLimit.push(computeCosts(sl).totalBps);
+            yTwap.push(computeCosts(st).totalBps);
+            yVwap.push(computeCosts(sv).totalBps);
+        }
+
+        const dimColor = colorMuted;
+        const traces2 = [
+            { x: xSizes, y: yLimit, mode: "lines", name: T.trace_limit,
+              line: { color: state.orderType === "limit" ? colorMid : dimColor,
+                      width: state.orderType === "limit" ? 3 : 1.2,
+                      dash: state.orderType === "limit" ? "solid" : "dot" },
+              hovertemplate: T.trace_limit + ": %{y:.1f} bps<extra></extra>" },
+            { x: xSizes, y: yTwap, mode: "lines", name: T.trace_twap,
+              line: { color: state.orderType === "twap" ? colorPos : dimColor,
+                      width: state.orderType === "twap" ? 3 : 1.2,
+                      dash: state.orderType === "twap" ? "solid" : "dot" },
+              hovertemplate: T.trace_twap + ": %{y:.1f} bps<extra></extra>" },
+            { x: xSizes, y: yVwap, mode: "lines", name: T.trace_vwap,
+              line: { color: state.orderType === "vwap" ? colorPurp : dimColor,
+                      width: state.orderType === "vwap" ? 3 : 1.2,
+                      dash: state.orderType === "vwap" ? "solid" : "dot" },
+              hovertemplate: T.trace_vwap + ": %{y:.1f} bps<extra></extra>" },
+            { x: xSizes, y: yMarket, mode: "lines", name: T.trace_market,
+              line: { color: state.orderType === "market" ? colorNeg : dimColor,
+                      width: state.orderType === "market" ? 3 : 1.2,
+                      dash: state.orderType === "market" ? "solid" : "dot" },
+              hovertemplate: T.trace_market + ": %{y:.1f} bps<extra></extra>" },
+            // Marker for current size
+            { x: [state.sizeShares], y: [cost.totalBps],
+              mode: "markers", name: T.trace_now,
+              marker: { color: colorAcc, size: 12, symbol: "circle",
+                        line: { color: colorBg, width: 2 } },
+              hovertemplate: T.trace_now + ": %{y:.1f} bps<extra></extra>" },
+        ];
+
+        const layout2 = {
+            margin: { l: 56, r: 16, t: 36, b: 44 },
+            paper_bgcolor: colorBg,
+            plot_bgcolor: colorBg,
+            font: { family: "Segoe UI, Helvetica, Arial, sans-serif", color: colorText, size: 11 },
+            title: { text: T.curve_title, font: { color: colorText, size: 13 } },
+            xaxis: { title: { text: T.x_size, font: { color: colorMuted, size: 10 } },
+                     type: "log", gridcolor: colorGrid, color: colorText },
+            yaxis: { title: { text: T.y_slip, font: { color: colorMuted, size: 10 } },
+                     gridcolor: colorGrid, color: colorText },
+            showlegend: true,
+            legend: { x: 0.02, y: 0.98, bgcolor: "rgba(0,0,0,0)",
+                      font: { color: colorText, size: 10 } },
+            hovermode: "x unified",
+        };
+        Plotly.react(CHART_CURVE, traces2, layout2, {displayModeBar: false, responsive: true});
+
+        // ---------- Stats ----------
+        document.getElementById("or-val-slip").textContent = cost.totalBps.toFixed(1) + " bps";
+        document.getElementById("or-det-slip").textContent =
+            T.det_slip
+                .replace("{adv}", cost.advPct.toFixed(cost.advPct < 1 ? 3 : 2))
+                .replace("{sp}", (state.spread * 10000 * state.volMul).toFixed(1));
+
+        const impactBps = cost.permBps + cost.tempBps;
+        document.getElementById("or-val-impact").textContent = impactBps.toFixed(1) + " bps";
+        document.getElementById("or-det-impact").textContent =
+            T.det_impact
+                .replace("{pp}", cost.permBps.toFixed(1))
+                .replace("{tp}", cost.tempBps.toFixed(1));
+
+        let fillTxt, fillDet;
+        if (cost.fillSec < 0) {
+            fillTxt = "—";
+            fillDet = T.det_fill_l;
+        } else if (cost.fillSec < 60) {
+            fillTxt = cost.fillSec.toFixed(0) + " s";
+            fillDet = T.det_fill_m;
+        } else {
+            const h = (cost.fillSec / 3600).toFixed(1);
+            fillTxt = h + " h";
+            fillDet = (state.orderType === "twap"
+                ? T.det_fill_t
+                : T.det_fill_v).replace("{h}", h);
+        }
+        document.getElementById("or-val-fill").textContent = fillTxt;
+        document.getElementById("or-det-fill").textContent = fillDet;
+
+        const totalUsd = state.sizeShares * 50 * (cost.totalBps / 10000);
+        document.getElementById("or-val-cost").textContent = fmtUsd(totalUsd);
+        document.getElementById("or-det-cost").textContent =
+            T.det_cost.replace("{bps}", cost.totalBps.toFixed(1));
+    }
+
+    // ---------- Apply i18n ----------
+    function applyI18n() {
+        document.getElementById("or-name-size-block").textContent = T.name_size_block;
+        document.getElementById("or-name-adv-block").textContent  = T.name_adv_block;
+        document.getElementById("or-name-type-block").textContent = T.name_type_block;
+        document.getElementById("or-name-vol-block").textContent  = T.name_vol_block;
+        document.getElementById("or-name-slip").textContent       = T.name_slip;
+        document.getElementById("or-name-impact").textContent     = T.name_impact;
+        document.getElementById("or-name-fill").textContent       = T.name_fill;
+        document.getElementById("or-name-cost").textContent       = T.name_cost;
+        document.getElementById("or-caption").textContent         = T.caption;
+
+        // Pill labels
+        const typeLabels = {market: T.pill_market, limit: T.pill_limit,
+                            twap: T.pill_twap, vwap: T.pill_vwap};
+        PILLS_TYPE.querySelectorAll(".or-pill").forEach(b => {
+            const k = b.getAttribute("data-type");
+            if (typeLabels[k]) b.textContent = typeLabels[k];
+        });
+        const volLabels = {"0.5": T.pill_calm, "1.0": T.pill_normal,
+                           "2.0": T.pill_elev, "4.0": T.pill_crisis};
+        PILLS_VOL.querySelectorAll(".or-pill").forEach(b => {
+            const k = b.getAttribute("data-vol");
+            if (volLabels[k]) b.textContent = volLabels[k];
+        });
+    }
+
+    // ---------- Wire up ----------
+    SIZE.addEventListener("input", () => {
+        state.sizeShares = readSizeSlider();
+        render();
+    });
+    bindPills(PILLS_ADV, "data-adv", b => {
+        state.adv = parseFloat(b.getAttribute("data-adv"));
+        state.spread = parseFloat(b.getAttribute("data-spread"));
+    });
+    bindPills(PILLS_TYPE, "data-type", b => {
+        state.orderType = b.getAttribute("data-type");
+    });
+    bindPills(PILLS_VOL, "data-vol", b => {
+        state.volMul = parseFloat(b.getAttribute("data-vol"));
+    });
+
+    state.sizeShares = readSizeSlider();
+    applyI18n();
+    render();
+
+    // ---------- Resize messaging ----------
+    function reportHeight() {
+        try {
+            var h = Math.ceil(document.documentElement.scrollHeight);
+            parent.postMessage({ type: 'lesson-interactive-resize', height: h }, '*');
+        } catch (e) { /* ignore */ }
+    }
+    if (typeof ResizeObserver !== 'undefined') {
+        new ResizeObserver(reportHeight).observe(document.body);
+    }
+    window.addEventListener('resize', reportHeight);
+    setTimeout(reportHeight, 50);
+    setTimeout(reportHeight, 500);
+
+    // ---------- Theme observer ----------
+    const themeObserver = new MutationObserver(render);
+    themeObserver.observe(document.documentElement, {
+        attributes: true, attributeFilter: ["data-theme"],
+    });
+})();
+</script>
+
+</body>
+</html>

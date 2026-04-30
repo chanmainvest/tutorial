@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Week 32: Duration and Convexity - Measuring Bond Price Sensitivity - Chanma Investment Tutorial</title>
+    <title>Week 32: Duration and Convexity — Bond Price Sensitivity Beyond Macaulay - Chanma Investment Tutorial</title>
     <script>(function(){try{var t=localStorage.getItem('preferred-theme');if(!t){t=window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();</script>
     <style>
 :root, html[data-theme="light"] {
@@ -1247,852 +1247,469 @@ html[data-theme="dark"] .nav-btn:hover .btn-label { color: rgba(15,23,36,0.7); }
     <main class="main-wrap">
         <div class="content-area">
             <div id="content-en" class="lang-content active">
-                <h1>Week 32: Duration and Convexity - Measuring Bond Price Sensitivity</h1>
-<h2>Reading Section</h2>
-<h3>a) Why This Is Important</h3>
+                <h1>Week 32: Duration and Convexity — Bond Price Sensitivity Beyond Macaulay</h1>
+<hr>
+<h3>1. Why This Is Important</h3>
 <p>
-Last week you learned to read the yield curve and interpret its shape. This week you will learn to quantify exactly how much your bond portfolio will change in value when interest rates move. Duration and convexity are the tools that make this possible, and they are non-negotiable knowledge for anyone who owns bonds or bond funds.
+In Week 5 you learned that a bond is four numbers and a calendar, and
+that price is just discounted cash flow. In Week 18 you learned that
+the discount rate is the universal denominator of finance. In Week 31
+you learned to read the curve. This week you learn the verb that
+connects those nouns: <strong>how much</strong>.
 </p>
 <p>
-<strong>Why duration and convexity matter:</strong>
+How much does my bond fund lose when the 10-year yield jumps 50 bps?
+How much does my pension liability move when the curve flattens? How
+much of a TLT drawdown is "normal" versus "regime change"? These are
+not abstract questions. They are the daily P&L of every fixed-income
+position on earth, and they are answered by two numbers — duration
+and convexity — calculated from the bond contract you already know.
 </p>
 <p>
-<strong>1. Interest rate risk is the dominant risk in bond investing.</strong> If you own a 10-year Treasury bond and interest rates rise by 1%, your bond loses approximately 8-9% of its value. On a $100,000 position, that is an $8,000-$9,000 loss. Without understanding duration, you have no way to predict, measure, or manage this risk. Duration quantifies it precisely.
+You need to internalise four things from this lesson.
 </p>
+<li><strong>Duration is not "years until maturity."</strong> It is the</li>
 <p>
-<strong>2. Duration determines your portfolio's vulnerability to rate changes.</strong> A portfolio with a duration of 2 years will lose about 2% if rates rise by 1%. A portfolio with a duration of 15 years will lose about 15%. The difference between these two portfolios is enormous, and yet many investors own bond funds without knowing their duration. This is like driving at an unknown speed on a highway. You need the speedometer.
+<em>cash-flow-weighted average time</em> until you get your money back,
+which equals the elasticity of price to yield. A 10-year coupon
+bond has a duration around 8, not 10. A 30-year zero-coupon bond
+has a duration of exactly 30. Confusing duration with maturity is
+the single most common mistake in fixed income, and it cost a
+generation of "10-year Treasury" buyers in 2022 the chance to
+measure their own risk before the move.
 </p>
+<li><strong>Convexity is not a footnote — it is the entire long end.</strong> For</li>
 <p>
-<strong>3. Convexity makes duration more accurate.</strong> Duration is a first-order approximation. It works well for small rate changes but becomes increasingly inaccurate for large moves. Convexity is the correction factor. For a 2% rate increase, duration alone might predict a 16% loss, but convexity adjusts this to 14.5%. That 1.5% difference on a $500,000 bond portfolio is $7,500. Convexity matters.
+small yield moves, the linear duration approximation is fine. For
+large moves (the 2022 yields-tripling type of move), convexity
+adds back the curvature you've been ignoring. On a 30-year
+Treasury, ignoring convexity over a 300 bps move misstates the P&L
+by several percentage points. Convexity is also positive for
+straight bonds — a free asymmetry in the holder's favour, which
+gets paid for in lower yields on the long end.
 </p>
+<li><strong>Key-rate duration is how professionals actually hedge.</strong> The</li>
 <p>
-<strong>4. Negative convexity creates hidden risks.</strong> Mortgage-backed securities and callable bonds have negative convexity, meaning they behave worse than duration suggests in extreme rate environments. Many investors in 2022 discovered this the hard way when their MBS holdings lost far more than their stated duration implied. Understanding negative convexity is essential for avoiding these surprises.
+single-number "modified duration: 6.2 years" is a portfolio
+summary, not a hedging tool. Real fixed-income desks decompose
+duration along the curve — 2-year KRD, 5-year KRD, 10-year KRD,
+30-year KRD — and hedge each bucket separately because the curve
+does not move in parallel. Twists, flatteners, and steepeners are
+the daily reality.
 </p>
+<li>**2022 was duration risk made visible (SOUL anchor #6,</li>
 <p>
-<strong>5. Immunization uses duration to eliminate interest rate risk.</strong> Pension funds, insurance companies, and any investor with a specific future liability can use duration matching to ensure that their assets will exactly meet their obligations regardless of what interest rates do. This concept, while more applicable to institutions, illuminates how duration works and why it is so fundamental to professional bond management.
-</p>
-<p>
-<strong>6. Duration connects to everything in fixed income.</strong> Weeks 34 (rate sensitivity), 36 (income portfolio), and all credit analysis depend on understanding duration. When a bond fund says "modified duration: 6.2 years," you need to know exactly what that means for your portfolio. This week gives you that knowledge.
+vol-tail-wags-dog).** TLT, the 20-year-plus Treasury ETF with a
+modified duration around 17, fell about 33% in 2022 — a worse
+calendar year than the S&P 500 in 2008. The bonds did exactly
+what their duration said they would do. The <em>investors</em> — many of
+whom thought "Treasuries are safe" — got blindsided because they
+never looked up their own duration. The 40-year tail of falling
+yields had wagged the entire risk-perception dog.
 </p>
 <hr>
-<h3>b) What You Need to Know</h3>
-<h4>The Price-Yield Relationship</h4>
+<h3>2. What You Need to Know</h3>
+<h4>2.1 Macaulay Duration — The Weighted Average Maturity</h4>
 <p>
-Before understanding duration, you must understand the fundamental relationship between bond prices and yields.
+Frederick Macaulay defined duration in 1938 as the weighted average
+time until a bond's cash flows arrive, where each weight is the
+present value of that cash flow as a share of the bond's price:
 </p>
-<pre><code class="language-">THE INVERSE RELATIONSHIP:
 <p>
-When interest rates GO UP, bond prices GO DOWN.
-When interest rates GO DOWN, bond prices GO UP.
+$$ D_{\text{Mac}} \;=\; \frac{1}{P} \sum_{t=1}^{m N} \frac{t}{m} \cdot \frac{C_t}{(1+y/m)^{t}} $$
 </p>
 <p>
-WHY?
+Three properties follow immediately from this formula.
 </p>
+<ul><li>**A zero-coupon bond's Macaulay duration equals its maturity</li>
 <p>
-You own a bond paying 4% coupon. New bonds now pay 5%.
-Your 4% bond is less attractive -&gt; its price falls.
+</ul>  exactly.** With only one cash flow at time $N$, the weighted
+average has only one entry: $D_{\text{Mac}} = N$. A 30-year STRIPS
+has duration 30 by construction.
 </p>
+<ul><li><strong>A coupon bond's duration is strictly less than its maturity.</strong></li>
 <p>
-You own a bond paying 4% coupon. New bonds now pay 3%.
-Your 4% bond is more attractive -&gt; its price rises.
+</ul>  The intermediate coupons pull the weighted average toward the
+present. A 30-year 5% coupon bond at par has Macaulay duration
+around 15.4 — about half the headline maturity number that names
+the bond.
 </p>
+<ul><li><strong>Higher coupon -> lower duration.</strong> More cash arrives early, so</li>
 <p>
-PRICE-YIELD CURVE:
+</ul>  the weighted average shifts left. The Week 32 image
 </p>
+<code>week32_duration_curve.png</code> shows three duration curves stacked
 <p>
-Price
-$130 |*
-| *
-$120 |  *
-|   **
-$110 |     **
-|       **
-$100 |         <em>*</em>
-|            <em>*</em>
-$90 |               <em>*</em>*
-|                   <strong>*</strong>
-$80 |                        <strong><em><em></em></strong></em>
-+----+----+----+----+----+----+----+----
-1%   2%   3%   4%   5%   6%   7%   8%
-Yield (YTM)
+inside the same maturity axis: the 45-degree line is zero-coupon,
+the 5%-coupon curve sags below it, and the 10%-coupon curve sags
+further still.
 </p>
+<img src="image/week32_duration_curve.png" alt="Macaulay duration as a function of maturity for zero-coupon, 5%-coupon, and 10%-coupon bonds. The zero-coupon line is exactly the 45-degree y=x line; the coupon-bond curves bend below it, plateauing as maturity grows. At 30 years, a 5% coupon bond has duration about 15.4, not 30.">
 <p>
-KEY OBSERVATION:
-The curve is CONVEX (bowed toward the origin).
+Macaulay's units are years. That's the only number you can describe
+to a non-quant friend without losing them in calculus. But for
+hedging P&L, we want a different unit: percent price change per
+percent yield change. That is modified duration.
 </p>
-<ul><li>A 1% rate DROP causes a LARGER price gain</li>
+<h4>2.2 Modified Duration — Price Sensitivity in Percent</h4>
 <p>
-</ul>    than a 1% rate RISE causes a price loss.
+Modified duration is Macaulay duration divided by one period of
+yield compounding:
 </p>
-<ul><li>This asymmetry is convexity, and it benefits bondholders.</li>
 <p>
-</ul></code></pre>
+$$ D_{\text{mod}} \;=\; \frac{D_{\text{Mac}}}{1 + y/m} $$
 </p>
-<h4>Macaulay Duration</h4>
 <p>
-Macaulay duration is the weighted average time until you receive all the bond's cash flows, where the weights are the present values of each cash flow.
+Why this divisor? Because it converts "weighted average time" into
+the linear price-yield slope:
 </p>
-<pre><code class="language-">MACAULAY DURATION CALCULATION:
 <p>
-Bond: 5% coupon, 3-year maturity, YTM = 4%, par = $1,000
+$$ \frac{\Delta P}{P} \;\approx\; -\,D_{\text{mod}} \cdot \Delta y $$
 </p>
 <p>
-Year    Cash Flow    PV Factor    PV of CF     Weight     Year x Weight
-====    =========    =========    ========     ======     =============
-1       $50          0.9615       $48.08       0.0462     0.0462
-2       $50          0.9246       $46.23       0.0445     0.0889
-3       $1,050       0.8890       $933.45      0.8976     2.6928
-====    =========    =========    ========     ======     =============
-Total                             $1,040.40*   1.0000     2.8279
+Read it out loud: *for a small yield move $\Delta y$, the percentage
+price change is about minus modified duration times the yield move.*
+A 10-year Treasury at 4% with $D_{\text{mod}} = 8.1$ years loses
+about 8.1% of its price for each 1% rise in yield, and gains 8.1%
+for each 1% fall. The minus sign is the inverse price-yield
+relationship from Week 5, now quantified.
 </p>
-<ul><li>Bond trades at premium because coupon (5%) &gt; yield (4%)</li>
 <p>
-</ul>
-Macaulay Duration = 2.83 years
+Three working numbers worth memorising for April 2026:
 </p>
+<ul><li>2-year T-note, $D_{\text{mod}} \approx 1.9$. A 50 bps move moves</li>
 <p>
-INTERPRETATION:
-Although this bond has 3 years to maturity, the weighted
-average time to receive cash flows is 2.83 years.
-The duration is shorter than maturity because you receive
-coupon payments before maturity, pulling the average forward.
+</ul>  price by ~1%.
 </p>
+<ul><li>10-year T-note, $D_{\text{mod}} \approx 8.1$. A 50 bps move moves</li>
 <p>
-SPECIAL CASE: Zero-Coupon Bond
-A 3-year zero-coupon bond has Macaulay duration = 3.00 years.
-Duration equals maturity because there is only one cash flow,
-at maturity. No earlier coupons to pull the average forward.
-</code></pre>
+</ul>  price by ~4%.
 </p>
-<pre><code class="language-">FACTORS AFFECTING MACAULAY DURATION:
+<ul><li>30-year T-bond, $D_{\text{mod}} \approx 17.0$. A 50 bps move moves</li>
 <p>
-Factor              Effect on Duration     Explanation
-==================  ====================   =======================
-Higher coupon       SHORTER duration        More cash flow early
-Lower coupon        LONGER duration         Less cash flow early
-Longer maturity     LONGER duration         Cash flows further out
-Shorter maturity    SHORTER duration        Cash flows closer
-Higher yield        SHORTER duration        Distant CFs worth less
-Lower yield         LONGER duration         Distant CFs worth more
+</ul>  price by ~8.5%.
 </p>
 <p>
-DIAGRAM - HOW COUPON AFFECTS DURATION:
+Same yield curve, three very different sensitivities. This is why
+"I own Treasuries" is not a risk statement. The maturity matters.
 </p>
+<h4>2.3 Effective Duration — When Cash Flows Aren't Fixed</h4>
 <p>
-High Coupon Bond (8%):            Low Coupon Bond (2%):
-More weight on early CFs          Most weight on final CF
+Modified duration assumes the cash-flow schedule is fixed. That is
+true for vanilla Treasuries and investment-grade corporates. It is
+<em>false</em> for callable bonds, putable bonds, and the entire
+mortgage-backed securities (MBS) universe, where the cash flows
+themselves move with rates — homeowners refinance when rates fall,
+extend when rates rise.
 </p>
 <p>
-Weight                            Weight
-|  ##                             |
-|  ## ##                          |
-|  ## ## ##                       |  ##
-|  ## ## ## ####                  |  ## ##
-|  ## ## ## ####                  |  ## ## ## ## ########
-+--+--+--+--+--+--               +--+--+--+--+--+--
-1  2  3  4  5 Mat                1  2  3  4  5 Mat
+For these "rate-dependent cash flow" bonds, duration must be
+measured numerically by shocking the curve up and down and
+remeasuring price:
 </p>
 <p>
-Duration ~3.8 years               Duration ~4.7 years
+$$ D_{\text{eff}} \;=\; \frac{P_{-} \;-\; P_{+}}{2 \cdot P_0 \cdot \Delta y} $$
 </p>
 <p>
-Coupon payments "pull" the duration toward the present.
-Higher coupons pull harder, resulting in shorter duration.
-</code></pre>
+where $P_-$ is the price after a downward parallel shock of $\Delta
+y$, $P_+$ is the price after an upward shock, and $P_0$ is today's
+price. For a vanilla Treasury, effective duration matches modified
+duration to several decimals. For a 30-year MBS, effective duration
+is much shorter than modified duration when rates fall (the prepay
+option kicks in) and much longer when rates rise (extension risk).
+That asymmetric profile is <strong>negative convexity</strong>, and it is the
+reason MBS portfolios behaved so badly in 2022 — they extended into
+the rate hike instead of contracting away from it.
 </p>
-<h4>Modified Duration</h4>
+<h4>2.4 Convexity — The Curvature Term</h4>
 <p>
-Modified duration converts Macaulay duration into a direct measure of price sensitivity. It answers the question: "How much will the bond's price change for a 1% change in yield?"
+Duration is a tangent line. The price-yield curve is a curve. The
+gap between them is convexity. Taylor-expand price as a function of
+yield around the current yield $y_0$, keep two terms instead of one,
+and divide by price:
 </p>
-<pre><code class="language-">MODIFIED DURATION FORMULA:
 <p>
-Modified Duration = Macaulay Duration / (1 + YTM/n)
+$$ \frac{\Delta P}{P} \;\approx\; -\,D_{\text{mod}} \cdot \Delta y \;+\; \tfrac{1}{2} \cdot C \cdot (\Delta y)^{2} $$
 </p>
 <p>
-Where n = number of coupon payments per year
-(n=2 for semiannual, n=1 for annual)
+with convexity defined as the second derivative scaled by price:
 </p>
 <p>
-Example (semiannual coupons):
-Macaulay Duration = 2.83 years
-YTM = 4% (semiannual = 2% per period)
+$$ C \;=\; \frac{1}{P} \cdot \frac{d^{2}P}{d y^{2}} $$
 </p>
 <p>
-Modified Duration = 2.83 / (1 + 0.04/2)
-= 2.83 / 1.02
-= 2.77 years
+The image <code>week32_convexity_payoff.png</code> shows all three lines on top
+of each other for a 30-year, 5%-coupon bond at 5% yield: the true
+price-yield curve, the linear duration approximation, and the
+duration + convexity quadratic. For a 100 bps move the duration
+line is fine. For a 300 bps move (the 2022 type of move) the linear
+approximation undershoots the gain on the rally side and overshoots
+the loss on the sell-off side.
 </p>
+<img src="image/week32_convexity_payoff.png" alt="Bond price as a function of yield for a 30-year, 5%-coupon bond. The blue curve is true price; the dashed orange line is the linear duration tangent; the green curve is the duration-plus-convexity quadratic. Convexity narrows the gap to zero for any move within roughly +/-150 bps. The asymmetry — gains exceed losses for symmetric yield shocks — is the convexity benefit a long-bond holder pays for in lower yield.">
 <p>
-PRICE SENSITIVITY APPROXIMATION:
+That asymmetry is the central feature: **for a straight bond,
+convexity is always positive, and it always works in the holder's
+favour**. A 100 bps rally produces a slightly bigger price gain than
+a 100 bps sell-off produces in price loss. The market knows this,
+which is why long-bond yields embed a small "convexity discount"
+relative to where pure expectations would put them.
 </p>
+<h4>2.5 Key-Rate Durations — The Curve Doesn't Move in Parallel</h4>
 <p>
-% Price Change = -Modified Duration x Change in Yield (in %)
+The single number $D_{\text{mod}} = 8$ assumes a parallel shift —
+every point on the curve moves by the same amount. In reality the
+curve twists. Short rates move on Fed policy. Long rates move on
+inflation expectations and term premium. The 2022 sell-off was a
+bear flattener (short rates up faster than long); the 2024 rally
+was a bull steepener (long rates down faster than short). Neither
+is parallel.
 </p>
 <p>
-If yields rise 1%:
-% Price Change = -2.77 x 1% = -2.77%
-On a $100,000 position: LOSS of $2,770
+Key-rate duration (KRD) decomposes total duration into the
+contribution from each maturity bucket. Standard buckets are 3M,
+2Y, 5Y, 10Y, 30Y. For a 10-year bullet Treasury, almost all of the
+duration sits in the 10Y bucket. For a 30-year MBS, duration is
+spread across 5Y, 10Y, and 30Y buckets because the prepay option
+makes the effective cash flow date sensitive to multiple parts of
+the curve. A bond fund manager hedging a portfolio doesn't short
+"Treasury duration" — they short specific futures contracts (TU at
+2Y, FV at 5Y, TY at 10Y, US at 30Y) sized by KRD bucket. That is
+how professionals actually run a duration-neutral book.
 </p>
 <p>
-If yields fall 1%:
-% Price Change = -2.77 x (-1%) = +2.77%
-On a $100,000 position: GAIN of $2,770
-</code></pre>
+For the retail investor: don't memorise KRDs. Just know that when
+your bond ETF prospectus reports a single duration number, it has
+already collapsed five-or-more dimensions into one, and that
+collapse is wrong by several percent of NAV in any non-parallel
+move. If you own a barbell (Week 31's barbell strategy), your KRD
+profile is fundamentally different from a bullet of the same total
+duration.
 </p>
-<pre><code class="language-">MODIFIED DURATION BY BOND TYPE:
+<h4>2.6 The 2022 TLT Drawdown — Duration Risk Made Visible</h4>
 <p>
-Bond Type                     Typical Duration   Price Impact per 1%
-============================  ================   ===================
-Money Market / T-Bills        0 - 0.25 years     0 - 0.25%
-Short-Term Bond Fund          1 - 3 years        1 - 3%
-Intermediate Bond Fund        3 - 7 years        3 - 7%
-Aggregate Bond Index (AGG)    6 - 7 years        6 - 7%
-Long-Term Bond Fund           10 - 18 years      10 - 18%
-30-Year Treasury Bond         18 - 22 years      18 - 22%
-Zero-Coupon 30-Year           ~30 years           ~30%
+iShares 20+ Year Treasury Bond ETF (TLT) is the canonical long-bond
+proxy. Its modified duration sits around 17 years. In 2022 the
+30-year Treasury yield rose from about 1.9% to about 4.0%, a move
+of 210 bps. Linear duration predicts:
 </p>
 <p>
-VISUAL COMPARISON:
+$$ \frac{\Delta P}{P} \;\approx\; -\,17 \cdot 0.0210 \;=\; -35.7\% $$
 </p>
 <p>
-Rate rises 1%, portfolio losses:
+Convexity gives some back. With long-bond convexity around 350,
+$\tfrac{1}{2}\cdot 350 \cdot (0.021)^2 = +7.7\%$. Net prediction:
+about $-28\%$. TLT actually delivered roughly $-31\%$ on price plus
+about $+2\%$ in coupons, for a total return near $-29\%$. The
+formula nailed it within a percent.
 </p>
 <p>
-Money Market    |#                              0.1%
-Short-Term      |###                            2%
-Intermediate    |######                         5%
-Aggregate       |########                       6.5%
-Long-Term       |################               14%
-30-Year Zero    |################################ 28%
-0%    5%    10%    15%    20%   25%   30%
-</code></pre>
+Two things to take from this. First, the math worked — there was no
+market dysfunction, no failure of the model. Second, the <em>people</em>
+holding TLT did not do this calculation in advance. Many bought
+"Treasuries" expecting safety in a Fed hiking cycle, never having
+asked the question "what is my duration." The vol tail (SOUL #6)
+wagged the dog: a regime that had run for 40 years made everyone
+forget that long Treasuries can lose a third of their value in a
+year. Duration is the antidote — but only if you actually compute
+it before you buy.
 </p>
-<h4>Effective Duration</h4>
+<h4>2.7 Putting Duration to Work — Three Practical Rules</h4>
+<li><strong>Match duration to your liability or your horizon.</strong> If you need</li>
 <p>
-For bonds with embedded options (callable bonds, mortgage-backed securities, putable bonds), modified duration does not work because the cash flows change when rates change. For these bonds, we use <strong>effective duration</strong>, which measures price sensitivity empirically.
+the money in 5 years, hold bonds with duration around 5. The
+reinvestment-rate risk and price risk cancel each other out
+roughly at the duration horizon — this is <strong>immunisation</strong>, the
+foundation of pension and insurance bond management.
 </p>
-<pre><code class="language-">EFFECTIVE DURATION:
+<li>**Use modified duration to size hedges, not to predict big</li>
 <p>
-Effective Duration = (P_down - P_up) / (2 x P_0 x Delta_y)
+moves.** For yield changes within +/-50 bps, linear duration is
+accurate enough. Beyond that, use the convexity-corrected
+quadratic. Beyond +/-200 bps, reprice the bond directly from cash
+flows — the approximation breaks down. The interactive lab below
+lets you watch all three predictions side by side as you slide
+the rate shock.
 </p>
+<li>**Treat "duration of my bond fund" as a pinned-up number on the</li>
 <p>
-Where:
-P_down = Bond price when yield decreases by Delta_y
-P_up   = Bond price when yield increases by Delta_y
-P_0    = Current bond price
-Delta_y = Yield change used (typically 0.25% or 0.50%)
-</p>
-<p>
-EXAMPLE:
-</p>
-<p>
-Callable bond, current price = $102.00, yield = 5.00%
-</p>
-<p>
-If yield drops to 4.75%: Price = $103.20
-If yield rises to 5.25%: Price = $100.50
-</p>
-<p>
-Effective Duration = ($103.20 - $100.50) / (2 x $102.00 x 0.0025)
-= $2.70 / $0.51
-= 5.29 years
-</p>
-<p>
-COMPARE: Modified duration of the same bond might be 7.2 years.
-The difference (7.2 vs 5.29) is because when rates fall, the
-issuer is likely to CALL the bond (buy it back), capping the
-upside. This call risk shortens the effective duration.
-</p>
-<p>
-WHEN TO USE WHICH:
-</p>
-<p>
-Bond Type                 Use This Duration
-========================  ==========================
-Non-callable Treasury     Modified Duration
-Non-callable Corporate    Modified Duration
-Callable Corporate Bond   Effective Duration
-Mortgage-Backed Security  Effective Duration
-Putable Bond              Effective Duration
-Floating Rate Note        Effective Duration
-</code></pre>
-</p>
-<h4>PVBP (Price Value of a Basis Point)</h4>
-<p>
-PVBP, also called DV01 (Dollar Value of 01), measures the dollar change in bond price for a 1 basis point (0.01%) change in yield. It translates duration into actual dollar amounts.
-</p>
-<pre><code class="language-">PVBP / DV01 CALCULATION:
-<p>
-PVBP = Modified Duration x Price x 0.0001
-</p>
-<p>
-Example:
-Bond price = $98.50, Modified Duration = 7.5 years
-</p>
-<p>
-PVBP = 7.5 x $98.50 x 0.0001 = $0.0739 per $100 face value
-</p>
-<p>
-For $100,000 face value:
-PVBP = $0.0739 x 1,000 = $73.88
-</p>
-<p>
-Meaning: A 1 basis point rise in rates causes a $73.88 loss.
-A 10 bp rise causes a ~$739 loss.
-A 100 bp (1%) rise causes a ~$7,388 loss.
-</p>
-<p>
-PVBP BY MATURITY ($100,000 FACE VALUE):
-</p>
-<p>
-Maturity    Duration    PVBP (per bp)    Loss per 1%
-========    ========    =============    ===========
-2-year      1.9         $19              $1,900
-5-year      4.5         $45              $4,500
-10-year     8.2         $82              $8,200
-20-year     14.5        $145             $14,500
-30-year     20.0        $200             $20,000
-</p>
-<p>
-A 30-YEAR BOND LOSES $200 FOR EVERY SINGLE BASIS POINT
-MOVE IN RATES. For a $1,000,000 position, that is $2,000/bp.
-</p>
-<p>
-This is why pension funds and insurance companies obsess
-over managing duration. Their bond portfolios are in the
-billions, and even a few basis points matter enormously.
-</code></pre>
-</p>
-<pre><code class="language-">PORTFOLIO PVBP:
-<p>
-Portfolio PVBP = Sum of all position PVBPs
-</p>
-<p>
-Example Portfolio ($500,000 total):
-Position              Amount     Duration   PVBP
-====================  =========  ========   =========
-2-Year Treasury       $150,000   1.9        $28.50
-5-Year Treasury       $200,000   4.5        $90.00
-10-Year Treasury      $100,000   8.2        $82.00
-Cash                  $50,000    0.0        $0.00
-======================================================
-TOTAL                 $500,000   4.02*      $200.50
-</p>
-<ul><li>Portfolio Duration = Total PVBP / (Total Value x 0.0001)</li>
-<p>
-</ul>    = $200.50 / ($500,000 x 0.0001) = 4.01 years
-</p>
-<p>
-If rates rise 50 bps uniformly:
-Portfolio loss = $200.50 x 50 = $10,025 (about 2.0%)
-</p>
-<p>
-If rates rise 100 bps (1%):
-Portfolio loss = $200.50 x 100 = $20,050 (about 4.0%)
-</code></pre>
-</p>
-<h4>Convexity</h4>
-<p>
-Duration is a linear approximation. It works well for small rate changes but becomes increasingly inaccurate for larger moves. Convexity is the correction factor that accounts for the curvature of the price-yield relationship.
-</p>
-<pre><code class="language-">WHY DURATION ALONE IS NOT ENOUGH:
-<p>
-For a bond with Duration = 10 and Price = $100:
-</p>
-<p>
-Yield Change   Duration Estimate    Actual Price    Error
-============   =================    ============    =====
--0.25%         +$2.50 ($102.50)     $102.53         $0.03
--0.50%         +$5.00 ($105.00)     $105.13         $0.13
--1.00%         +$10.00 ($110.00)    $110.52         $0.52
--2.00%         +$20.00 ($120.00)    $122.14         $2.14
-+0.25%         -$2.50 ($97.50)      $97.47          $0.03
-+0.50%         -$5.00 ($95.00)      $94.87          $0.13
-+1.00%         -$10.00 ($90.00)     $89.73          $0.27
-+2.00%         -$20.00 ($80.00)     $80.53          $0.53
-</p>
-<p>
-Duration OVERESTIMATES losses and UNDERESTIMATES gains.
-The error grows with larger rate changes.
-Convexity corrects this error.
-</p>
-<p>
-GRAPHICAL VIEW:
-</p>
-<p>
-Price
-$130 |*
-| *
-$120 |  *                Actual price-yield curve (curved)
-|   **              ---
-$110 |     **           Duration estimate (straight line)
-|       **
-$100 |     ----<em>*</em>-----------
-|   --        <em>*</em>*
-$90 | --              <em>*</em>*
-|--                   <strong>*</strong>
-$80 |                          <strong><em><em></em></strong></em>
-+----+----+----+----+----+----+----
-1%   2%   3%   4%   5%   6%   7%
-Yield
-</p>
-<p>
-The gap between the curved line and the straight line
-is the convexity effect. It is always in the bondholder's
-favor for normal (positive convexity) bonds.
-</code></pre>
-</p>
-<pre><code class="language-">CONVEXITY-ADJUSTED PRICE CHANGE:
-<p>
-% Price Change = -Duration x Delta_y + (1/2) x Convexity x (Delta_y)^2
-</p>
-<p>
-Where Delta_y is the yield change in decimal form
-</p>
-<p>
-Example:
-Duration = 10 years, Convexity = 120, Price = $100
-</p>
-<p>
-Yield rises 1% (Delta_y = 0.01):
-Duration effect:   -10 x 0.01 = -0.10 = -10.00%
-Convexity effect:  0.5 x 120 x (0.01)^2 = +0.006 = +0.60%
-Total: -10.00% + 0.60% = -9.40%
-Price: $100 x (1 - 0.094) = $90.60
-</p>
-<p>
-Yield falls 1% (Delta_y = -0.01):
-Duration effect:   -10 x (-0.01) = +0.10 = +10.00%
-Convexity effect:  0.5 x 120 x (-0.01)^2 = +0.006 = +0.60%
-Total: +10.00% + 0.60% = +10.60%
-Price: $100 x (1 + 0.106) = $110.60
-</p>
-<p>
-NOTICE: The convexity adjustment is ALWAYS POSITIVE.
-It adds to gains (when rates fall) and reduces losses (when rates rise).
-This is positive convexity, and it is favorable for bondholders.
-</p>
-<p>
-COMPARISON:
-Rate Change    Duration Only    With Convexity    Difference
-===========    =============    ==============    ==========
--2%            +20.00%          +22.40%           +2.40%
--1%            +10.00%          +10.60%           +0.60%
--0.5%          +5.00%           +5.15%            +0.15%
-+0.5%          -5.00%           -4.85%            +0.15%
-+1%            -10.00%          -9.40%            +0.60%
-+2%            -20.00%          -17.60%           +2.40%
-</code></pre>
-</p>
-<h4>Negative Convexity</h4>
-<p>
-Some bonds have negative convexity, meaning the price-yield curve bends the wrong way. Instead of gaining more on rate drops than they lose on rate rises, these bonds gain less and lose more. The primary culprits are callable bonds and mortgage-backed securities (MBS).
-</p>
-<pre><code class="language-">NEGATIVE CONVEXITY:
-<p>
-WHY IT OCCURS (CALLABLE BONDS):
-</p>
-<p>
-When rates fall, the issuer can CALL the bond (buy it back at par).
-This caps the bond's upside. As rates approach the call threshold,
-the bond's price stops rising and flattens near the call price.
-</p>
-<p>
-Price
-$115 |          Non-callable bond (positive convexity)
-|        **
-$110 |      ** .....
-|    **  .     ..... Callable bond (negative convexity)
-$105 |  ** ..
-| **.
-$100 |*.                           CALL PRICE (cap)
-|                        -.-.-.-.-.-.-.-.-.-.-
-$95 |                    ..
-|                ..
-$90 |            ..                Both bonds similar
-|        ..                    when rates rise
-$85 |    ..
-+----+----+----+----+----+----+----+----
-2%   3%   4%   5%   6%   7%   8%   9%
-</p>
-<p>
-Below ~4% yield: Callable bond's price is CAPPED near $105
-because the issuer will likely call it. The non-callable bond
-continues to rise.
-</p>
-<p>
-This "capping" creates NEGATIVE CONVEXITY in the low-rate region.
-</code></pre>
-</p>
-<pre><code class="language-">NEGATIVE CONVEXITY IN MORTGAGE-BACKED SECURITIES:
-<p>
-MBS have the worst negative convexity because homeowners
-can refinance (prepay their mortgage) at any time.
-</p>
-<p>
-When rates fall:
-</p>
-<ul><li>Homeowners refinance -&gt; prepayments accelerate</li>
-<li>You get your principal back at par (no premium)</li>
-<li>Your high-coupon cash flows are replaced by lower yields</li>
-<li>Duration SHORTENS (you get money back faster, but at the</li>
-<p>
-</ul>    worst time because you cannot reinvest at high rates)
-</p>
-<p>
-When rates rise:
-</p>
-<ul><li>Homeowners stop refinancing -&gt; prepayments slow</li>
-<li>Your principal is locked up for longer</li>
-<li>Duration EXTENDS (you are stuck holding a low-coupon</li>
-<p>
-</ul>    bond for longer, exactly when you would want to reinvest
-at higher rates)
-</p>
-<p>
-THIS IS THE OPPOSITE OF WHAT YOU WANT.
-</p>
-<p>
-Duration SHORTENS when rates fall (gains are capped)
-Duration EXTENDS when rates rise (losses are magnified)
-</p>
-<p>
-This is why MBS underperformed dramatically in 2022.
-As rates surged from 1.5% to 4.5%, MBS duration extended
-from ~4 years to ~7 years, amplifying losses.
-</p>
-<p>
-COMPARISON OF CONVEXITY:
-</p>
-<p>
-Bond Type              Duration   Convexity    Behavior
-=====================  ========   =========    ==================
-Zero-Coupon Treasury   High       Very High    Best convexity
-Coupon Treasury        Moderate   Positive     Good convexity
-Investment Grade Corp  Moderate   Positive     Good convexity
-Callable Corporate     Moderate   Mixed*       Neg when rates low
-Agency MBS             Moderate   Negative     Worst convexity
-Interest-Only Strip    High       Very Neg     Extreme neg convex.
-</p>
-<ul><li>Negative near call price, positive far from call price</li>
-<p>
-</ul></code></pre>
-</p>
-<pre><code class="language-">PORTFOLIO IMPLICATIONS OF NEGATIVE CONVEXITY:
-<p>
-Scenario: $200,000 bond portfolio, Duration = 6 years
-</p>
-<p>
-POSITIVE CONVEXITY PORTFOLIO (Treasuries):
-Convexity = 55
-</p>
-<p>
-Rates fall 2%:
-Duration: +12.00%   Convexity: +1.10%   Total: +13.10%
-Gain: $26,200
-</p>
-<p>
-Rates rise 2%:
-Duration: -12.00%   Convexity: +1.10%   Total: -10.90%
-Loss: $21,800
-</p>
-<p>
-ASYMMETRY: Gained $4,400 more than lost. Convexity helps.
-</p>
-<p>
-NEGATIVE CONVEXITY PORTFOLIO (MBS):
-Convexity = -30
-</p>
-<p>
-Rates fall 2%:
-Duration: +12.00%   Convexity: -0.60%   Total: +11.40%
-Gain: $22,800
-</p>
-<p>
-Rates rise 2%:
-Duration: -12.00%   Convexity: -0.60%   Total: -12.60%
-Loss: $25,200
-</p>
-<p>
-ASYMMETRY: Lost $2,400 more than gained. Convexity hurts.
-</p>
-<p>
-NET DIFFERENCE: $6,800 between the two portfolios!
-And this understates the MBS problem because duration
-itself extends when rates rise, making the true loss worse.
-</code></pre>
-</p>
-<h4>Immunization</h4>
-<p>
-Immunization is a strategy that uses duration matching to ensure that a bond portfolio will meet a specific future liability regardless of interest rate changes.
-</p>
-<pre><code class="language-">IMMUNIZATION CONCEPT:
-<p>
-PROBLEM:
-You need exactly $1,000,000 in 7 years for a future obligation.
-You have $700,000 today to invest in bonds.
-If rates rise, your bonds lose value but you can reinvest coupons
-at higher rates. If rates fall, your bonds gain value but you
-reinvest coupons at lower rates. These two effects offset.
-</p>
-<p>
-SOLUTION:
-Match the DURATION of your portfolio to your TIME HORIZON.
-</p>
-<p>
-If your liability is in 7 years, build a portfolio with
-Macaulay Duration = 7 years.
-</p>
-<p>
-WHY THIS WORKS:
-</p>
-<p>
-Two effects of a rate change:
-</p>
-<p>
-1. PRICE EFFECT:
-Higher rates -&gt; lower bond prices (hurts)
-Lower rates -&gt; higher bond prices (helps)
-</p>
-<p>
-2. REINVESTMENT EFFECT:
-Higher rates -&gt; coupons reinvested at higher rates (helps)
-Lower rates -&gt; coupons reinvested at lower rates (hurts)
-</p>
-<p>
-When Duration = Time Horizon:
-Price effect and reinvestment effect exactly OFFSET.
-You reach your target regardless of rate changes.
-</p>
-<p>
-DIAGRAM:
-</p>
-<p>
-Portfolio Value
-at Horizon
-|
-|         <em>        </em>
-|        <em> </em>      <em> </em>
-|       <em>   </em>    <em>   </em>
-$1M  |------<em>-----</em><em>*</em>-----*------ Target
-|     <em>                 </em>
-|    <em>                   </em>
-|   <em>                     </em>
-+---+---+---+---+---+---+---
--3% -2% -1%  0% +1% +2% +3%
-Rate Change
-</p>
-<p>
-At duration = horizon, the value converges to the target
-regardless of the rate change. The "valley" at the center
-is shallow and both sides converge near the target.
-</code></pre>
-</p>
-<pre><code class="language-">IMMUNIZATION EXAMPLE:
-<p>
-Liability: $1,000,000 due in 5 years
-Current rates: 4.5%
-Required investment today: $1,000,000 / (1.045)^5 = $802,451
-</p>
-<p>
-Build a portfolio with Duration = 5 years
-</p>
-<p>
-Option A: Buy a 5-year zero-coupon bond
-Duration = 5 years (exactly matches)
-Simple but may not be available at desired size
-</p>
-<p>
-Option B: Barbell with 2-year and 10-year bonds
-Weight in 2-year (duration 1.9): w
-Weight in 10-year (duration 8.2): 1-w
-</p>
-<p>
-Target: w x 1.9 + (1-w) x 8.2 = 5.0
-Solving: 1.9w + 8.2 - 8.2w = 5.0
--6.3w = -3.2
-w = 0.508
-</p>
-<p>
-Invest 50.8% in 2-year ($407,646)
-Invest 49.2% in 10-year ($394,805)
-Portfolio duration = 5.0 years
-</p>
-<p>
-IMPORTANT: Immunization requires REBALANCING.
-As time passes and rates change, the portfolio duration shifts.
-You must periodically (quarterly or after significant rate moves)
-rebalance to maintain duration = remaining time to liability.
-</p>
-<p>
-IMMUNIZATION CONDITIONS:
-1. Portfolio duration = liability duration (time to payment)
-2. Present value of portfolio &gt;= present value of liability
-3. Portfolio must be rebalanced periodically
-4. Works best for parallel yield curve shifts
-5. Does not protect against non-parallel shifts perfectly
-</code></pre>
-</p>
-<h4>Duration and Convexity in Practice</h4>
-<pre><code class="language-">COMMON BOND FUND METRICS:
-<p>
-Fund                     Duration   Convexity   What This Means
-=======================  ========   =========   ===================
-Vanguard Short-Term       2.7        0.08       Low rate sensitivity
-(BSV)                                           Safe in rising rates
-</p>
-<p>
-Vanguard Total Bond       6.5        0.65       Moderate sensitivity
-(BND)                                           Core bond holding
-</p>
-<p>
-iShares 7-10 Year         7.8        0.70       Above average
-(IEF)                                           Meaningful rate risk
-</p>
-<p>
-iShares 20+ Year          17.2       3.95       Very high sensitivity
-(TLT)                                           Extreme rate risk
-</p>
-<p>
-iShares MBS               5.8       -0.30       Moderate duration
-(MBB)                                           NEGATIVE convexity!
-</p>
-<p>
-PVBP PER $100,000 INVESTED:
-</p>
-<p>
-BSV:  $27/bp    -&gt; $2,700 per 1% rate change
-BND:  $65/bp    -&gt; $6,500 per 1% rate change
-IEF:  $78/bp    -&gt; $7,800 per 1% rate change
-TLT:  $172/bp   -&gt; $17,200 per 1% rate change
-MBB:  $58/bp    -&gt; $5,800 per 1% rate change (with neg convexity!)
-</code></pre>
-</p>
-<pre><code class="language-">PRACTICAL GUIDELINES:
-<p>
-YOUR RISK TOLERANCE AND DURATION:
-</p>
-<p>
-Conservative (cannot tolerate &gt; 5% bond loss):
-Maximum duration = 5 / expected rate move
-If you expect rates could rise 1%: max duration = 5 years
-Funds: BSV, short-term bond funds, T-bills
-</p>
-<p>
-Moderate (can tolerate 5-10% bond loss):
-Maximum duration = 10 / expected rate move
-If you expect rates could rise 1%: max duration = 10 years
-Funds: BND, intermediate bond funds
-</p>
-<p>
-Aggressive (willing to accept &gt; 10% bond loss for
-higher yield and convexity benefits):
-Duration &gt; 10 years
-Funds: TLT, long-term bond funds
-Only appropriate if you believe rates will fall
-</p>
-<p>
-DURATION MATCHING RULE OF THUMB:
-Your bond portfolio duration should approximately match
-your investment time horizon.
-</p>
-<p>
-5-year time horizon -&gt; Duration ~5 years
-10-year time horizon -&gt; Duration ~10 years
-</p>
-<p>
-This provides natural immunization against rate changes:
-price losses from rising rates are offset by higher
-reinvestment income, and vice versa.
-</code></pre>
+wall.** Open the prospectus, find effective duration, write it
+down. A 50 bps Fed surprise on Wednesday afternoon will cost you
+that number times one half percent. If that number scares you,
+shorten the fund. If not, you have the right ballpark for your
+fixed-income sleeve.
 </p>
 <hr>
-<h3>c) Common Misconceptions</h3>
+<h3>3. Common Misconceptions</h3>
+<li><strong>"Duration equals years to maturity."</strong> Only true for zero-coupon</li>
 <p>
-<strong>Misconception 1: "Duration is the average life of a bond."</strong>
+bonds. Coupon bonds are always shorter-duration than their
+maturity.
 </p>
+<li><strong>"Modified duration is in percent."</strong> No — modified duration is</li>
 <p>
-Macaulay duration is the weighted average time to receive cash flows, which is conceptually related to "average life" but is not the same thing. Modified duration is purely a price sensitivity measure and has nothing to do with the bond's life span. When someone says "this bond has a duration of 7," they usually mean modified duration of 7, which means the bond's price changes by approximately 7% for a 1% change in yield. Duration as a number of years is a mathematical coincidence of the units, not a time measurement.
+in years (it's the semi-elasticity), and the <em>product</em> of
+$D_{\text{mod}}$ with $\Delta y$ (in decimal) gives the percent
+price change.
 </p>
+<li><strong>"Convexity is a small correction; ignore it."</strong> True for +/-50</li>
 <p>
-<strong>Misconception 2: "If a bond has a 5-year duration, I will lose exactly 5% if rates rise 1%."</strong>
+bps, dangerously false for +/-300 bps. The 2022 long-bond move
+would have been mispriced by 4-7 percentage points without
+convexity.
 </p>
+<li><strong>"Negative convexity is bad."</strong> Negative convexity earns the</li>
 <p>
-Duration provides an approximation, not an exact prediction. The actual price change depends on convexity, the shape of the yield curve shift, credit spread changes, and other factors. For small rate changes (25-50 basis points), duration is quite accurate. For large rate changes (100+ basis points), convexity becomes important and the duration estimate can be significantly off.
+holder <em>more yield</em> in normal regimes — that's why MBS yield
+more than Treasuries. The "bad" only shows up in extreme moves.
+You're being paid for the option you wrote.
 </p>
+<li><strong>"All Treasury bonds are equally safe."</strong> They are equally</li>
 <p>
-<strong>Misconception 3: "Higher duration always means higher risk."</strong>
+<em>credit-safe</em>. Their *price-risk profiles are completely
+different* — a 2-year T-note and a 30-year T-bond are almost
+different asset classes from a duration standpoint.
 </p>
+<li><strong>"Duration changes slowly."</strong> It changes meaningfully with</li>
 <p>
-Duration measures interest rate risk specifically. A bond could have low duration but high credit risk (a junk bond maturing in 2 years) or high duration but low credit risk (a 30-year Treasury). Total bond risk includes interest rate risk (duration), credit risk (default probability), liquidity risk, and reinvestment risk. Duration captures only the first of these.
+yields. As yields rise, modified duration falls (the bond's
+effective horizon shortens). The number on your prospectus is a
+snapshot, not a constant.
 </p>
+<li>**"My bond fund's duration is the average of holdings'</li>
 <p>
-<strong>Misconception 4: "I should always minimize duration because rates might rise."</strong>
+maturities."** No — it's the dollar-weighted average of holdings'
+modified durations, which is shorter than the maturity average
+for any coupon-paying portfolio.
 </p>
+<li><strong>"Convexity is always positive."</strong> True for vanilla bonds.</li>
 <p>
-If rates are already high and the economy is weakening, extending duration can be highly profitable. In late 2023, when the 10-year Treasury yielded over 5%, investors who extended duration captured significant gains as rates fell. The goal is not to minimize duration but to align duration with your market outlook and risk tolerance. In a falling-rate environment, longer duration is your friend.
+False for callable corporates, MBS, and any bond where the
+issuer or the underlying borrower holds a prepay option.
 </p>
+<li><strong>"I don't own bonds, so this doesn't apply."</strong> Equity valuation</li>
 <p>
-<strong>Misconception 5: "Mortgage-backed securities are safe because they are government-backed."</strong>
+is duration math too — a stock with cash flows growing forever
+has a much longer "equity duration" than a mature dividend payer,
+which is why high-multiple growth stocks crashed harder than
+value in 2022.
 </p>
+<li><strong>"The yield curve will move parallel."</strong> It almost never does.</li>
 <p>
-Government-backed MBS (issued by Ginnie Mae, Fannie Mae, Freddie Mac) have virtually no credit risk. But they have significant interest rate risk amplified by negative convexity. In 2022, the iShares MBS ETF (MBB) lost over 11%, and individual MBS tranches lost much more. "Government-backed" means you will get your money back eventually, but it does not protect you from price declines caused by rising rates and negative convexity.
-</p>
-<p>
-<strong>Misconception 6: "Convexity does not matter for small portfolios."</strong>
-</p>
-<p>
-For a $50,000 bond portfolio with moderate duration, the convexity effect on a 1% rate change might be $200-$300. That is not trivial. More importantly, understanding convexity changes how you think about bond selection. Given two bonds with the same duration and yield, you should prefer the one with higher convexity. It gives you better upside and less downside. This free benefit (higher convexity at the same duration) is available to investors of any size.
-</p>
-<p>
-<strong>Misconception 7: "Duration matching means buying a bond that matures when I need the money."</strong>
-</p>
-<p>
-Maturity matching and duration matching are different. A 10-year coupon bond might have a duration of 7.5 years. If your liability is in 7.5 years, you should match the duration (7.5), not the maturity (10). Alternatively, you could combine shorter and longer bonds to create a portfolio with the target duration. Duration matching is about the weighted average timing of cash flows, not the final maturity date.
+Twists, steepeners, flatteners, and bull/bear variants of each
+are the normal regime. Single-number duration only describes
+parallel-shock P&L.
 </p>
 <hr>
-<h3>d) Q&A</h3>
+<h3>4. Q&A Section</h3>
 <p>
-<strong>Q: How do I find the duration of my bond fund?</strong>
+<strong>Q1: Why divide Macaulay by $(1+y/m)$ to get modified duration?</strong>
+Macaulay is in time units (years). Modified is the elasticity of
+price to yield — i.e., $-\frac{dP/dy}{P}$. A bit of calculus on the
+present-value formula shows the algebraic relationship is exactly
+$D_{\text{Mac}}/(1+y/m)$. You can also see it as a small
+discrete-compounding correction: at $y=0$, Macaulay equals
+modified; at higher yields they diverge.
 </p>
 <p>
-A: Every bond fund and ETF reports its "effective duration" or "modified duration" on its fact sheet and website. For Vanguard funds, go to the fund page and look under "Risk & Volatility." For iShares, look under "Exposure Breakdown." Your brokerage platform also typically displays duration alongside other fund characteristics. If you own individual bonds, your brokerage platform may calculate duration for each position, or you can use online bond calculators.
+<strong>Q2: How do I find the duration of my bond ETF?</strong>
+Check the fund company's website. iShares, Vanguard, and
+SPDR all publish "effective duration" prominently in fund
+characteristics. Do not confuse it with "average maturity." For
+TLT in April 2026, effective duration is around 16.7. For BND
+(total-bond market), about 6.3. For SHV (1-3 month T-bills), about
+0.1.
 </p>
 <p>
-<strong>Q: If I own BND (Vanguard Total Bond Market) with a duration of 6.5 years, how much will I lose if rates rise by 0.50%?</strong>
+<strong>Q3: Why do long bonds have positive convexity?</strong>
+The price-yield function $P(y)$ is a sum of $1/(1+y)^t$ terms. Each
+term is convex in $y$ (positive second derivative), and the longer
+the time $t$, the more convex. Long bonds amplify this curvature.
+Mathematically, convexity scales roughly with the <em>square</em> of
+duration, which is why convexity matters disproportionately at the
+long end.
 </p>
 <p>
-A: Approximate loss = duration x rate change = 6.5 x 0.50% = 3.25%. On a $100,000 position, that is approximately $3,250. The convexity adjustment for a 0.50% move is small (about +0.16%), so the actual loss would be closer to 3.09%, or $3,090. For practical purposes at the retail level, the duration approximation of $3,250 is close enough.
+<strong>Q4: What's a typical duration target for a retiree?</strong>
+There's no single answer, but the common pension-style rule is to
+match portfolio duration to your average liability date. A retiree
+with a 15-year horizon could justify intermediate (5-7 year) bond
+duration; younger savers with longer horizons can hold longer
+duration without it being inappropriate. Most "lifecycle" target-
+date funds default to 5-7 year duration in the bond sleeve and
+shorten gradually with age.
 </p>
 <p>
-<strong>Q: Should I care about Macaulay duration or modified duration?</strong>
+<strong>Q5: Did anyone make money on the 2022 bond move?</strong>
+Yes — anyone short long-duration Treasuries via TLT puts, ZROZ
+shorts, or paying-fixed in the swaps market. Several macro hedge
+funds (Brevan Howard, Element Capital) had banner years. The
+informational content was free (the Fed had told the market it
+would hike); the willingness to position against a 40-year trend
+was rare (SOUL anchor #6).
 </p>
 <p>
-A: For investment decision-making, use modified duration (or effective duration for bonds with embedded options). Modified duration directly tells you price sensitivity. Macaulay duration is primarily used for immunization calculations and for understanding the concept. When bond fund fact sheets report "duration," they almost always mean effective duration, which is close to modified duration for option-free bonds.
+<strong>Q6: How does convexity get priced into long bond yields?</strong>
+The "convexity discount" — long bonds yield slightly less than
+pure expectations would say, because the holder is getting positive
+asymmetry for free. The discount is small (5-15 bps at the 30-year
+in normal regimes) but real. Inverse-floaters and other
+high-convexity instruments trade at noticeably wider discounts to
+fair-yield models.
 </p>
 <p>
-<strong>Q: What is "key rate duration" and when does it matter?</strong>
+<strong>Q7: What's "DV01" and how does it relate to duration?</strong>
+DV01 (or PV01) is the dollar price change for a 1 bps yield move:
+$\text{DV01} = D_{\text{mod}} \cdot P \cdot 0.0001$. It's how
+fixed-income desks size positions in dollar terms. A trader who
+"is long $1M DV01" makes/loses $1M per 1 bps move in their
+benchmark yield.
 </p>
 <p>
-A: Key rate duration (also called partial duration) measures sensitivity to rate changes at specific points on the yield curve. A bond might have a 2-year key rate duration of 0.5 and a 10-year key rate duration of 6.0. This means it is much more sensitive to changes in 10-year rates than 2-year rates. Key rate durations matter when you expect non-parallel yield curve shifts. If you think the long end will rise but the short end will stay flat, key rate durations tell you exactly how your portfolio will respond. Most retail investors can ignore key rate durations, but institutional investors use them extensively.
+<strong>Q8: How do I hedge a bond portfolio's duration?</strong>
+Sell Treasury futures sized by DV01. The TY (10-year futures)
+contract has a DV01 around $80; selling enough TY contracts to
+match your portfolio's DV01 leaves you duration-neutral. For
+non-parallel shifts you'd ladder the hedge across TU/FV/TY/US
+contracts using key-rate DV01s.
 </p>
 <p>
-<strong>Q: How do I increase or decrease my portfolio duration?</strong>
+<strong>Q9: Does duration apply to TIPS the same way?</strong>
+Yes, but to <em>real</em> yields, not nominal. TIPS modified duration is
+the sensitivity of price to real-rate moves. A 10-year TIPS has
+real duration around 8.5 — about the same number as a nominal
+Treasury — but it's measuring exposure to a different rate. In
+2022 nominal yields exploded but real yields exploded more, which
+is why TIPS lost almost as much as nominals.
 </p>
 <p>
-A: To increase duration, shift from shorter-maturity bonds/funds to longer-maturity ones. Replacing BSV (duration 2.7) with IEF (duration 7.8) increases duration. To decrease duration, do the opposite, or add cash (duration zero) to the portfolio. You can also use Treasury futures to adjust duration synthetically without selling existing holdings. For a simple approach, blend a short-duration fund with a long-duration fund to hit your target.
+<strong>Q10: How does duration apply to equities?</strong>
+Stocks have effective duration too — measured by how price responds
+to discount-rate moves. High-multiple growth stocks (cash flows far
+in the future) have equity durations of 25+, while dividend-paying
+utilities are around 10-15. The 2022 Nasdaq drawdown wasn't a
+"tech bubble" so much as a duration repricing — the same Taylor
+expansion at work, just on equity cash flows.
 </p>
 <p>
-<strong>Q: Does duration apply to stocks or only bonds?</strong>
+**Q11: What's the difference between effective duration and
+option-adjusted duration?**
+Effective duration shocks the <em>yield</em> and remeasures price.
+Option-adjusted duration (OAD) shocks the <em>yield curve</em> in a
+model that accounts for embedded options (calls, prepay, etc.).
+For an MBS, OAD differs from modified duration because the prepay
+option shortens the effective cash flows. Same idea, more precise
+machinery.
 </p>
 <p>
-A: Duration is primarily a bond concept, but the underlying principle applies to any asset with known future cash flows. Equity duration is a concept used in academic finance, where high-growth stocks (with cash flows far in the future) have longer "duration" and are more sensitive to discount rate changes. This explains why growth stocks suffered more than value stocks in 2022 when rates rose sharply. The cash flows of growth companies are further in the future, making their present value more sensitive to the discount rate.
-</p>
-<p>
-<strong>Q: What happened to MBS duration in 2022 and why was it so bad?</strong>
-</p>
-<p>
-A: In early 2022, MBS had an effective duration of approximately 4 years. As rates rose sharply from 1.5% to 4.5%, prepayments slowed dramatically (nobody refinances from a 3% mortgage to a 6% mortgage). This caused MBS duration to extend to approximately 7 years, right as rates were rising. The combination of rising rates AND extending duration created losses far worse than the initial 4-year duration would have predicted. This "duration extension" in a rising-rate environment is the practical manifestation of negative convexity, and it is why MBS should be treated with extra caution compared to Treasuries of similar duration.
+<strong>Q12: How do I use the lab below?</strong>
+Slide maturity to see duration grow roughly linearly. Slide coupon
+to see duration shrink as more cash arrives early. Slide the rate
+shock and watch the three price predictions diverge — exact, linear-
+duration-only, and duration+convexity. The convexity-corrected
+prediction tracks exact almost perfectly out to +/-200 bps; beyond
+that, even quadratic Taylor breaks down and you should reprice from
+cash flows directly.
 </p>
             </div>
             <div id="content-hk" class="lang-content">

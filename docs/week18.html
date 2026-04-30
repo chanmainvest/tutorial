@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Week 18: Interest Rates and Central Bank Policy - Chanma Investment Tutorial</title>
+    <title>Week 18: Interest Rates — What the Fed Does, What the Market Does, and How Rates Flow Into Asset Prices - Chanma Investment Tutorial</title>
     <script>(function(){try{var t=localStorage.getItem('preferred-theme');if(!t){t=window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();</script>
     <style>
 :root, html[data-theme="light"] {
@@ -1247,778 +1247,496 @@ html[data-theme="dark"] .nav-btn:hover .btn-label { color: rgba(15,23,36,0.7); }
     <main class="main-wrap">
         <div class="content-area">
             <div id="content-en" class="lang-content active">
-                <h1>Week 18: Interest Rates and Central Bank Policy</h1>
+                <h1>Week 18: Interest Rates — What the Fed Does, What the Market Does, and How Rates Flow Into Asset Prices</h1>
 <hr>
-<h2>Reading Section</h2>
-<h3>a) Why This Is Important</h3>
+<h3>1. Why This Is Important</h3>
 <p>
-Interest rates are the most powerful force in all of finance. They affect every single asset class, every business decision, every mortgage payment, and every government budget on the planet. When the Federal Reserve changes interest rates by a quarter of a percentage point, trillions of dollars in asset values shift. Understanding interest rates is not optional for investors -- it is foundational.
+There is one number that prices every other number in finance, and it
+is the discount rate. The discount rate is built out of two pieces:
+the risk-free Treasury yield, and a credit/equity spread on top.
+Move the Treasury yield, and *every dollar of every future cash flow
+on the planet* — your mortgage, your stocks, your private equity
+fund's NAV, your country's pension liability, the lease on the
+warehouse next door — silently reprices. There is no asset that
+sits outside this gravitational field.
 </p>
 <p>
-Consider this chain of consequences from a single rate decision. In March 2022, the Federal Reserve began raising rates from near zero. Within 18 months, the 30-year mortgage rate doubled from 3% to over 7%. Home affordability plummeted. Housing stocks fell. Banks that had loaded up on long-duration bonds at low rates saw massive unrealized losses -- three of them collapsed (Silicon Valley Bank, Signature Bank, First Republic). Meanwhile, savers who had earned nothing on cash for a decade suddenly received 5% in money market funds. Growth stocks, which had soared when rates were zero, plunged as investors demanded higher returns. All of this from rate changes.
+The Federal Reserve does not set this number directly. The Fed sets
+<em>one</em> rate (the overnight federal-funds rate) on <em>one</em> day every six
+or seven weeks, and the market does the rest. Mortgage rates, the
+10-year Treasury, BAA corporate yields, junk-bond spreads, the dollar,
+and equity multiples all adjust without permission. The Fed plants a
+flag at the short end; the market builds the curve.
 </p>
 <p>
-Here is why every investor must understand interest rates:
+You need to internalise four things from this lesson.
 </p>
-<li><strong>Rates are the gravitational force of finance.</strong> Warren Buffett has said that interest rates act on financial valuations the way gravity acts on matter. When rates are low, asset prices float higher. When rates rise, everything gets pulled down. You cannot understand stock valuations, bond prices, or real estate values without understanding rates.</li>
-<li><strong>Central bank policy drives market cycles.</strong> The Federal Reserve's decisions about interest rates are the single biggest driver of bull and bear markets. Virtually every recession in the past 50 years was preceded by the Fed raising rates aggressively. Virtually every recovery was fueled by the Fed cutting rates.</li>
-<li><strong>Your personal financial decisions depend on rates.</strong> Whether to get a fixed or adjustable mortgage, whether to pay down debt or invest, whether to hold bonds or cash, whether growth or value stocks are more attractive -- all of these decisions hinge on the interest rate environment.</li>
-<li><strong>Rate expectations move markets more than rate changes.</strong> Markets are forward-looking. By the time the Fed actually raises or cuts rates, much of the market impact has already occurred based on expectations. Understanding how to read Fed signals gives you an edge over investors who only react to announcements.</li>
+<li><strong>Rates are the universal denominator.</strong> A stock at $100 with $5 of</li>
 <p>
-This lesson covers the complete framework: what rates are, how the Fed sets them, how they transmit through the economy, how they affect asset valuations, and what the major historical rate regimes tell us about what to expect in different environments.
+earnings growing at 3% is worth one number at a 4% discount rate
+and a very different number at an 8% discount rate. Same business,
+same earnings, different price. The interactive at the end of this
+lesson lets you slide the discount rate across a typical
+long-duration cash flow and watch present value collapse. Do that
+exercise once — really do it, with the slider — and you will
+never again ask "why did the market drop on the Fed announcement?"
 </p>
-<hr>
-<h3>b) What You Need to Know</h3>
-<h4>1. What Is an Interest Rate?</h4>
+<li><strong>The Fed funds rate is a lever, not a result.</strong> What you actually</li>
 <p>
-At its most fundamental level, an interest rate is the price of borrowing money. It is what a lender charges a borrower for the use of capital over time. But interest rates are not just one number -- they are a complex ecosystem of interconnected rates.
+pay on your mortgage, what an investment-grade firm pays on its
+bonds, and what the Treasury pays at the 10-year auction are <em>market</em>
+rates. They are influenced by Fed policy but are not set by it.
+The cascade chart in §2.1 shows the four layers — funds, 10-year,
+30-year mortgage, BAA — and how the spread between them widens in
+stress and during regime change.
 </p>
-<pre><code class="language-">THE INTEREST RATE ECOSYSTEM
+<li><strong>Real rates, not nominal rates, drive valuations.</strong> A 5% nominal</li>
 <p>
-==============================
+yield in a 5% inflation world is the same real return as 0% in a
+0% inflation world. The market separates the two through the TIPS
+breakeven (§2.3). When 2022 happened, <em>nominal</em> yields tripled but
+<em>real</em> yields went from -1% to +2%. The +3% real-rate move is what
+crushed long-duration tech, not the nominal headline.
 </p>
+<li><strong>We have lived through exactly two regime breaks in 45 years</strong></li>
 <p>
-FEDERAL RESERVE
-(Sets overnight rate)
-|
-Fed Funds Rate
-(Currently ~5.25%)
-|
-+---------------+---------------+
-|               |               |
-Treasury        Interbank          Discount
-Yields         Lending            Window
-(2yr,10yr,     (Banks to          (Fed to
-30yr)          banks)             banks)
-|               |               |
-+-------+-------+   LIBOR/SOFR          |
-|               |       |               |
-Mortgage      Corporate   |               |
-Rates        Bond Yields |               |
-|               |       |               |
-Housing       Business  Consumer       Bank
-Market        Investment  Loans        Reserves
-|               |       |               |
-+-------+-------+-------+---------------+
-|
-REAL ECONOMY
-(GDP, Jobs, Inflation)
-</code></pre>
-</p>
-<p>
-<strong>The Key Rates You Need to Know:</strong>
-</p>
-<pre><code class="language-">CRITICAL INTEREST RATES
-<p>
-=========================
-</p>
-<p>
-Rate                What It Is                           Who Sets It
-----                ----------                           -----------
-Fed Funds Rate      Rate banks charge each other          Federal Reserve
-for overnight loans                   (FOMC)
-</p>
-<p>
-Discount Rate       Rate the Fed charges banks            Federal Reserve
-for emergency borrowing               Board
-</p>
-<p>
-Prime Rate          Base rate banks charge their          Banks (typically
-best customers                        Fed Funds + 3%)
-</p>
-<p>
-10-Year Treasury    Yield on 10-year US govt bonds        Market-determined
-(benchmark for mortgages,             (supply/demand)
-corporate bonds)
-</p>
-<p>
-30-Year Mortgage    Rate on standard home loans           Banks/market
-(loosely tied to 10-year              (10yr Treasury
-Treasury)                             + spread)
-</p>
-<p>
-SOFR                Secured Overnight Financing           Market-determined
-Rate (replaced LIBOR)                 (repo market)
-</p>
-<p>
-Real Rate           Nominal rate minus inflation          Derived
-(the TRUE cost of borrowing)
-</code></pre>
+(SOUL anchor #2). The first was Volcker in 1981, ending double-digit
+inflation by ratcheting the funds rate to 20% and triggering the
+four-decade bond bull market. The second is 2022 onward, the end of
+the zero-bound era. The investors holding 60/40 portfolios in 2026
+have spent their whole working career on one side of one regime.
+They need to know what the other side feels like.
 </p>
 <hr>
-<h4>2. The Federal Reserve and Monetary Policy</h4>
+<h3>2. What You Need to Know</h3>
+<h4>2.1 The Rate Cascade — Fed Funds, 10-Year, Mortgage, BAA</h4>
 <p>
-The Federal Reserve is the central bank of the United States. Its primary tool for managing the economy is the federal funds rate -- the interest rate at which banks lend to each other overnight. While this may sound arcane, this single rate cascades through the entire financial system.
+The interest-rate universe is not one number. It is a layered
+hierarchy that the cascade chart makes visible.
+</p>
+<img src="image/week18_rate_cascade.png" alt="The four-layer interest-rate cascade from 1990 through April 2026: Federal funds rate, 10-year US Treasury yield, 30-year mortgage rate, and BAA corporate bond yield. The Fed sets the bottom layer; the market sets the rest. Spreads widen materially in 2008-09, 2020 COVID, and the 2022-2024 hiking cycle.">
+<p>
+Read the chart from the bottom up.
+</p>
+<ul><li><strong>Fed funds (FEDFUNDS, green)</strong> is what banks charge each other</li>
+<p>
+</ul>  overnight, targeted by the Federal Open Market Committee. It is the
+<em>only</em> line on this chart the Fed sets directly. From 2009 to 2015
+and again 2020 to 2022, this line is pinned at the zero bound. The
+hiking cycle from March 2022 to mid-2024 walks it from ~0% to ~5.4%.
+</p>
+<ul><li><strong>10-year Treasury (DGS10, blue)</strong> is the auctioned market yield on</li>
+<p>
+</ul>  the 10-year US note. It is the most-watched price on earth. Mortgages,
+long-dated corporates, and stock-market discount rates are all
+benchmarked against it. Note how it tracks the funds rate over long
+windows but not short ones — the 10-year is a 10-year forecast of
+the <em>path</em> of short rates plus a term premium, not a copy of today's
+funds rate.
+</p>
+<ul><li><strong>30-year mortgage (MORTGAGE30US, orange)</strong> sits on top of the 10-year</li>
+<p>
+</ul>  with a spread that compresses in calm markets (~150 bps) and widens
+in stress (>250 bps in 2008-09 and again in 2022-23). The spread
+reflects prepayment risk, MBS-investor demand, and bank capacity.
+</p>
+<ul><li><strong>BAA corporate (BAA, red)</strong> is the lowest-rung investment-grade</li>
+<p>
+</ul>  corporate yield. Its spread over the 10-year Treasury <em>is</em> the
+market's read on default risk. In 2008-09 the spread blew out from
+~170 bps to ~600 bps. In April 2026 it is back near ~190 bps.
 </p>
 <p>
-<strong>How the Fed Sets Rates</strong>
+What you should take away: the Fed sets one rate, and four other rates
+move because of it but not in lock-step with it. Understanding which
+spread is widening, and why, is most of what serious macro analysis
+actually does.
 </p>
-<pre><code class="language-">THE FOMC DECISION PROCESS
+<h4>2.2 The Discount Rate Is the Universal Denominator</h4>
 <p>
-============================
-</p>
-<p>
-FOMC = Federal Open Market Committee
-</p>
-<ul><li>12 voting members (7 Board Governors + 5 Reserve Bank Presidents)</li>
-<li>Meets 8 times per year (roughly every 6 weeks)</li>
-<li>Reviews economic data (jobs, inflation, GDP, financial conditions)</li>
-<li>Issues a statement + "dot plot" of rate projections</li>
-<p>
-</ul>
-The Fed's Dual Mandate:
-+---------------------------+---------------------------+
-</p>
-<table><thead><tr><th>MAXIMUM EMPLOYMENT</th><th>STABLE PRICES</th></tr></thead><tbody><tr><td>Target: ~4% unemploy-</td><td>Target: 2% inflation</td></tr><tr><td>ment rate (varies)</td><td>(measured by PCE)</td></tr><tr></tr><tr><td>If unemployment is</td><td>If inflation is</td></tr><tr><td>too HIGH --&gt; cut rates</td><td>too HIGH --&gt; raise rates</td></tr><tr></tr><tr><td>If unemployment is</td><td>If inflation is</td></tr><tr><td>too LOW --&gt; raise rates</td><td>too LOW --&gt; cut rates</td></tr></tbody></table>+---------------------------+---------------------------+
-<p>
-When mandates CONFLICT (high inflation + high unemployment):
-This is called "stagflation" and is the Fed's nightmare scenario.
-The Fed must choose which mandate to prioritize.
-</code></pre>
+Every valuation you will ever see — DDM, DCF, P/E, NAV, IRR — is
+arithmetic on top of one assumption: the discount rate $r$. We met
+the simplest form back in Week 5. The Gordon growth model says a
+perpetuity that pays $D$ next period, growing at $g$ forever, is worth
 </p>
 <p>
-<strong>The Fed's Toolkit:</strong>
-</p>
-<pre><code class="language-">FEDERAL RESERVE POLICY TOOLS
-<p>
-===============================
+$$ P = \frac{D}{r - g} $$
 </p>
 <p>
-Tool              How It Works                    When Used
-----              ------------                    ---------
-Fed Funds Rate    Raises/lowers the target        Primary tool;
-overnight lending rate           every meeting
+Three lines of algebra contain most of what equity valuation is.
+Notice what happens at the limits.
+</p>
+<ul><li>$r = 4\%, g = 0\%$ -> $P/D = 25$. A typical bond-like stock.</li>
+<li>$r = 6\%, g = 2\%$ -> $P/D = 25$. Same multiple, totally different</li>
+<p>
+</ul>  story. Higher growth offsets higher discount.
+</p>
+<ul><li>$r = 4\%, g = 3\%$ -> $P/D = 100$. The "long-duration growth" multiple</li>
+<p>
+</ul>  the world saw in 2020-21.
+</p>
+<ul><li>$r = 8\%, g = 3\%$ -> $P/D = 20$. Same business, +400 bps of discount,</li>
+<p>
+</ul>  multiple compressed by 80%.
 </p>
 <p>
-Open Market       Buys/sells Treasury bonds       Day-to-day rate
-Operations        to add/remove bank reserves      management
+The 2022 collapse in long-duration tech was <em>exactly this last move</em>.
+Nominal 10-year Treasury yields rose ~250 bps and equity risk premia
+widened ~150 bps. A 4-percentage-point lift in the discount rate cuts
+the present value of a long-dated cash-flow stream by roughly half. It
+did. The interactive at the end of this lesson computes $P/(r-g)$
+live so you can stop arguing with the chart and start sliding the
+slider.
 </p>
 <p>
-Quantitative      Massive bond purchases          When rates are
-Easing (QE)       to push down long-term rates     already at zero
-and inject liquidity
+The same denominator drives bond duration (Week 5), real-estate cap
+rates, private-equity NAV marks, and pension liabilities. Everything
+financial is a present-value calculation in disguise. The discount rate
+<em>is</em> the asset-pricing kernel; everything else is decoration.
+</p>
+<h4>2.3 Real Rates and TIPS Breakevens</h4>
+<p>
+Nominal yield = real yield + expected inflation. The decomposition
+matters because borrowers and lenders both care about purchasing
+power, not headline numbers. The Treasury issues two parallel debt
+instruments: nominal Treasuries (DGS10) and inflation-protected
+Treasuries (TIPS). The yield difference between them is the
+<strong>10-year breakeven inflation rate</strong>, FRED series <code>T10YIE</code>.
+</p>
+<img src="image/week18_breakeven_inflation.png" alt="10-year breakeven inflation rate from 2003 through April 2026, FRED T10YIE = nominal 10-year Treasury yield minus 10-year TIPS yield. The market's daily mark-to-market estimate of average CPI for the next decade. Annotated at the late-2008 deflation scare (briefly negative), the 2022 inflation peak (~2.9%), and the April 2026 reading.">
+<p>
+Three points jump out.
+</p>
+<li><strong>The 2008 deflation scare</strong>. In November 2008 the breakeven went</li>
+<p>
+<em>negative</em> — the market briefly priced in falling prices for a
+decade. That single print is why the Fed went to QE in early 2009;
+negative breakevens were the deflation alarm bell.
+</p>
+<li><strong>The 2022 inflation peak (~2.9%)</strong>. Even at the peak of 9% headline</li>
+<p>
+CPI, the 10-year breakeven never broke 3%. The bond market believed
+throughout that the Fed would eventually crush inflation back to
+target. That belief was right and it kept long-rate panic from
+becoming a self-fulfilling prophecy.
+</p>
+<li><strong>The April 2026 reading</strong> sits in the band the Fed targets, which</li>
+<p>
+is part of why the funds rate is being eased back from peak.
 </p>
 <p>
-Quantitative      Letting bonds mature without     When unwinding
-Tightening (QT)   reinvestment to shrink the       QE stimulus
-balance sheet
+For an equity investor, real rates matter more than nominal because
+real cash flows (earnings, dividends, rents) inflate with prices. When
+real rates rise — as they did sharply in 2022 — long-duration equity
+collapses <em>more</em> than the nominal-rate move alone would predict.
+</p>
+<h4>2.4 The 1981 Volcker Peak and the 2020 Zero Bound — Two Regime Breaks</h4>
+<p>
+If you compress 60 years of US monetary history into two events, they
+are these.
 </p>
 <p>
-Reserve           Changing reserves banks          Rarely used
-Requirements      must hold (currently 0%)         (effectively
-eliminated)
+In <strong>October 1979 through July 1981</strong>, Paul Volcker walked into the
+Fed determined to break double-digit inflation. He did it by letting
+the funds rate go where it had to: it peaked above 19% in mid-1981.
+The 10-year Treasury yield peaked at 15.8%. The economy went into a
+brutal double-dip recession. Inflation broke. And the bond market began
+a forty-year bull run that did not end until July 2020, when the
+10-year yield hit 0.55%. Anyone who bought the long bond in 1981 and
+held through 2020 made an annualised total return that beat the S&P 500.
 </p>
 <p>
-Forward           Communicating future rate        To shape market
-Guidance          intentions to shape expectations  expectations
+In <strong>March 2020 through 2022</strong>, the Fed cut the funds rate to zero,
+expanded the balance sheet by $4.6 trillion, and held real rates
+deeply negative. Asset prices went vertical. Long-duration equity, SPACs,
+crypto, residential real estate — everything sensitive to the discount
+rate behaved like the discount rate had been <em>set to zero</em>, because in
+real terms it had.
 </p>
 <p>
-Discount          Changing the rate for            Emergency
-Window            emergency bank borrowing          lending
-</code></pre>
-</p>
-<hr>
-<h4>3. Transmission Channels -- How Rate Changes Affect the Economy</h4>
-<p>
-When the Fed changes rates, the effect ripples through the economy via multiple channels. Understanding these channels explains why rate changes take 12-18 months to have full effect.
-</p>
-<pre><code class="language-">RATE TRANSMISSION CHANNELS
-<p>
-=============================
+These two events bracket what SOUL anchor #2 calls the *passive
+40-year regime*. The "passive index investing always wins" claim that
+animates Bogle, Buffett, and the entire ETF industry is built on top
+of the 1981-2020 bond bull market and the disinflation it carried with
+it. The strategy works. But the strategy <em>also</em> sat on top of a
+once-in-history regime backdrop, and SOUL's whole point is that
+regime backdrops change.
 </p>
 <p>
-Fed Raises Rates
-|
-+---&gt; CHANNEL 1: BORROWING COSTS
-|     Mortgages, auto loans, credit cards, business
-|     loans all become more expensive.
-|     --&gt; Less borrowing --&gt; less spending --&gt; slower growth
-|
-+---&gt; CHANNEL 2: ASSET PRICES
-|     Higher rates make future cash flows worth less today
-|     (higher discount rate in DCF).
-|     --&gt; Stock prices fall, bond prices fall, real estate cools
-|     --&gt; "Wealth effect" reduces consumer confidence/spending
-|
-+---&gt; CHANNEL 3: EXCHANGE RATES
-|     Higher US rates attract foreign capital seeking yield.
-|     --&gt; Dollar strengthens
-|     --&gt; US exports become more expensive (hurts exporters)
-|     --&gt; Imports become cheaper (reduces inflation)
-|
-+---&gt; CHANNEL 4: BANK LENDING
-|     Higher rates widen bank net interest margins initially,
-|     but tighter credit standards reduce loan volume.
-|     --&gt; Less credit creation --&gt; slower money supply growth
-|
-+---&gt; CHANNEL 5: EXPECTATIONS
-When the Fed signals it is serious about fighting
-inflation, businesses moderate price increases and
-workers moderate wage demands.
---&gt; Inflation expectations decline --&gt; actual inflation falls
+Anchor #6 (vol-tail-wags-dog) connects directly: Volcker had to break
+the bond market to break inflation. In 2022, the Fed had to risk
+breaking equities to break post-COVID inflation. When the Fed pulls
+the rate lever hard, the <em>vol</em> tail wags the policy dog. SVB in March
+2023 was exactly this — a regional bank duration-mismatched into the
+hiking cycle, then run on by a Twitter-coordinated depositor base in
+36 hours. The Fed's BTFP backstop arrived the next weekend.
+</p>
+<h4>2.5 The 2022-2024 Hiking Cycle in Detail</h4>
+<p>
+The numbers are worth memorising as a calibration set.
+</p>
+<ul><li><strong>March 2022</strong>: funds rate moves from 0-0.25% to 0.25-0.50%. First</li>
+<p>
+</ul>  hike in three years.
+</p>
+<ul><li><strong>November 2022</strong>: funds rate at 3.75-4.00% after four consecutive</li>
+<p>
+</ul>  75-bps moves. Fastest tightening pace since 1981.
+</p>
+<ul><li><strong>July 2023</strong>: peak funds rate of 5.25-5.50%.</li>
+<li><strong>March 2023</strong>: SVB, Signature, First Republic. Three banks fail in</li>
+<p>
+</ul>  a week. The Fed launches the Bank Term Funding Program backstop and
+keeps hiking.
+</p>
+<ul><li><strong>2024</strong>: first cut in September (50 bps), then 25-bps cuts through</li>
+<p>
+</ul>  year-end. Funds rate ends 2024 at 4.25-4.50%.
+</p>
+<ul><li><strong>April 2026</strong>: funds rate has settled; the breakeven is back near</li>
+<p>
+</ul>  the 2% Fed target (see §2.3). The yield curve, inverted from mid-2022
+to early 2025, is back to a normal positive slope.
 </p>
 <p>
-TIME LAG OF MONETARY POLICY
-==============================
+Three things this cycle taught.
+</p>
+<li>The transmission lag from policy to economy is about 12-18 months.</li>
+<p>
+Hikes that began in March 2022 hit residential housing and small
+business credit hardest in late 2023 and 2024.
+</p>
+<li>Most of the asset-price damage happens in <em>anticipation</em> of the</li>
+<p>
+cycle, not during it. The S&P bottomed in October 2022, eight
+months <em>before</em> the peak funds rate. Markets price the discount
+rate forward.
+</p>
+<li>Duration matters more than ever. The 30-year Treasury lost ~46% of</li>
+<p>
+its price from August 2020 to October 2023. That is bigger than
+most equity bear markets. Bonds are not "safe."
+</p>
+<h4>2.6 Growth Stocks vs Value Stocks Under Rate Changes</h4>
+<p>
+Equity duration is real, even though we never quote it. A stock whose
+earnings grow at 3% with most of its cash flow inside the next five
+years has a low duration; the discount rate doesn't move it much. A
+stock whose earnings grow at 25% with the bulk of its cash flow expected
+ten or twenty years out has a <em>very</em> high duration — it is essentially
+a long-dated zero-coupon bond.
 </p>
 <p>
-Fed Action                          Typical Lag to Effect
-----------                          --------------------
-Short-term rates move               Immediate
-Bond market reacts                  Days to weeks
-Mortgage/loan rates adjust          Weeks to months
-Borrowing behavior changes          3 - 6 months
-Spending/investment changes         6 - 12 months
-Employment effects                  12 - 18 months
-Full inflation impact               18 - 24 months
+Mechanically, **growth stocks are long duration. Value stocks are
+short duration.** When rates rise:
+</p>
+<ul><li>Growth multiples compress hard. The Nasdaq-100 fell 33% in 2022</li>
+<p>
+</ul>  while the S&P 500 fell 18% and the Russell 2000 Value fell only 14%.
+Same earnings season, different sensitivity to $r$.
+</p>
+<ul><li>Value stocks (banks, utilities, industrials) have shorter cash-flow</li>
+<p>
+</ul>  duration and often benefit from steeper yield curves directly.
+</p>
+<ul><li>Bonds, of course, lose price proportionally to duration: 10-year</li>
+<p>
+</ul>  -18%, 30-year -33% in 2022 alone.
 </p>
 <p>
-|--Fed acts--|---Markets react---|---Economy adjusts---|
-0            1 month             6 months              18 months
-</code></pre>
-</p>
-<hr>
-<h4>4. The Discount Rate Effect on Valuations</h4>
-<p>
-This is where interest rates directly affect stock prices. Every valuation model, from simple P/E ratios to complex DCF analyses, is influenced by the level of interest rates.
+This is why "growth vs value" rotates with the rate cycle, not with
+investor sentiment. The interactive at the end of this lesson includes
+a side panel showing exactly how a +100 bps rate move hits four
+representative cash-flow streams: a 10-year bond, a 30-year bond, a
+high-growth equity (4% growth, 10-year duration), and a value equity
+(1% growth, 5-year duration).
 </p>
 <p>
-<strong>The Core Mechanism:</strong>
-</p>
-<p>
-The value of any financial asset is the present value of its future cash flows. The discount rate used to calculate present value is directly tied to interest rates. When rates rise, the discount rate rises, and present values fall.
-</p>
-<pre><code class="language-">INTEREST RATES AND STOCK VALUATION
-<p>
-=====================================
-</p>
-<p>
-Simplified Stock Valuation:
-</p>
-<p>
-E
-P = ─────────────
-r - g
-</p>
-<p>
-Where:
-P = Stock Price
-E = Earnings (or cash flow)
-r = Required return (tied to interest rates)
-g = Growth rate
-</p>
-<p>
-When rates rise, r rises, and P falls.
-</p>
-<p>
-EXAMPLE: IMPACT OF RATE CHANGES ON STOCK PRICE
-=================================================
-</p>
-<p>
-Assume: Earnings = $10, Growth = 5%
-</p>
-<p>
-If required return = 8%:
-P = $10 / (0.08 - 0.05) = $10 / 0.03 = $333
-</p>
-<p>
-If required return = 10% (rates rise 2%):
-P = $10 / (0.10 - 0.05) = $10 / 0.05 = $200
-</p>
-<p>
-If required return = 6% (rates fall 2%):
-P = $10 / (0.06 - 0.05) = $10 / 0.01 = $1,000
-</p>
-<p>
-PRICE CHANGE FROM A 2% RATE SHIFT
-====================================
-</p>
-<p>
-$1,000  |  *  &lt;-- Rates fall 2%
-|
-|
-|
-|
-$333   |        *  &lt;-- Base case
-|
-$200   |              *  &lt;-- Rates rise 2%
-|
-+--------|--------|------&gt; Required Return
-6%      8%      10%
-</p>
-<p>
-CRITICAL INSIGHT: A 2% rate change caused the stock
-price to swing from $200 to $1,000 -- a 5x range!
-Lower rates amplify valuations dramatically.
-</code></pre>
-</p>
-<p>
-<strong>Why Growth Stocks Are More Rate-Sensitive:</strong>
-</p>
-<pre><code class="language-">RATE SENSITIVITY BY STOCK TYPE
-<p>
-================================
-</p>
-<p>
-High-Growth Stock (most cash flows are far in the future):
-</p>
-<p>
-Year:        1     2     3     5     10    20    30
-Cash Flow:  $1    $2    $3    $8   $30   $300  $3,000
-</p>
-<p>
-Most of the value comes from cash flows 10-30 years out.
-These distant cash flows are heavily discounted when rates rise.
-Rate sensitivity: VERY HIGH
-</p>
-<p>
-Value/Dividend Stock (most cash flows are near-term):
-</p>
-<p>
-Year:        1     2     3     5     10    20    30
-Cash Flow:  $10   $10   $11   $11   $12   $13   $14
-</p>
-<p>
-Most of the value comes from near-term dividends.
-These are barely affected by discount rate changes.
-Rate sensitivity: LOW
-</p>
-<p>
-SECTOR SENSITIVITY TO RATES
-==============================
-</p>
-<p>
-Most Sensitive (hurt by rising rates):
-</p>
-<ul><li>Technology growth stocks</li>
-<li>Real estate / REITs</li>
-<li>Utilities</li>
-<li>Long-duration bonds</li>
-<li>Unprofitable / speculative companies</li>
-<p>
-</ul>
-Least Sensitive (may benefit from rising rates):
-</p>
-<ul><li>Banks (wider net interest margins)</li>
-<li>Insurance companies (higher investment income)</li>
-<li>Energy (rates often rise with inflation)</li>
-<li>Short-duration / floating-rate bonds</li>
-<li>Cash and money markets</li>
-<p>
-</ul></code></pre>
+The barbell intuition (SOUL anchor #14) survives this rotation: a long
+position in short-duration value plus a small allocation to convex
+long-duration growth gives you both regime payoffs without betting on
+which regime wins. Pure long-duration tech would have been a
+career-ender in 2022; pure value would have missed every great
+investment of the prior decade. The barbell wins because the regime is
+unknowable and rate moves are large.
 </p>
 <hr>
-<h4>5. The Yield Curve -- What It Tells You</h4>
+<h3>3. Common Misconceptions</h3>
+<li><strong>"The Fed sets mortgage rates."</strong> No. The Fed sets the overnight</li>
 <p>
-The yield curve plots interest rates for bonds of different maturities. Its shape conveys powerful information about economic expectations.
+funds rate. Mortgages are priced off the 10-year Treasury plus an
+MBS spread. Both pieces are market-determined.
 </p>
-<pre><code class="language-">YIELD CURVE SHAPES AND WHAT THEY MEAN
+<li><strong>"Higher rates always mean lower stock prices."</strong> Not always. In</li>
 <p>
-========================================
+the early phase of a rate-hiking cycle, when hikes signal a healthy
+economy, equities can rise alongside rates. The 2004-06 cycle is
+the classic example. What matters is whether real rates rise faster
+than expected growth.
 </p>
-<li>NORMAL (Upward Sloping) -- Economy is healthy</li>
+<li><strong>"Inflation is good for stocks because companies raise prices."</strong></li>
 <p>
-Yield
-5% |                              <em>----</em>
-4% |                    <em>----</em>
-3% |          <em>----</em>
-2% |  <em>----</em>
-1% |
-+--|-----|-----|-----|-----|---&gt; Maturity
-3mo   1yr   5yr   10yr  30yr
+Only at moderate levels and only sometimes. Above ~4% inflation,
+equity multiples compress sharply (1970s, 2022). Stocks are real
+assets, but they are also long-duration discounted cash flows, and
+the discount-rate effect dominates above ~3% inflation.
 </p>
+<li><strong>"TIPS protect against inflation."</strong> Yes, and they are also long</li>
 <p>
-Short rates &lt; Long rates
-"I need more compensation for locking up money longer"
-Signal: Economy expected to grow normally
+bonds whose <em>real</em> yield can rise. In 2022 TIPS lost ~12% of
+principal value because the real-yield component rose, even though
+they did exactly what they were supposed to on the inflation leg.
 </p>
-<li>FLAT -- Transition / Uncertainty</li>
+<li><strong>"You can't lose money in Treasuries if you hold to maturity."</strong></li>
 <p>
-Yield
-5% |
-4% |  <em>----</em>----<em>----</em>----<em>----</em>
-3% |
-2% |
-1% |
-+--|-----|-----|-----|-----|---&gt; Maturity
-3mo   1yr   5yr   10yr  30yr
+True for nominal terms, false for real terms. A 30-year bond bought
+at 1% yield in 2020 will repay every nominal dollar but is locked
+into a real return of roughly -1% per year for thirty years against
+2026 inflation expectations.
 </p>
+<li><strong>"Cash is safe."</strong> Cash is safe nominally and dangerous in real</li>
 <p>
-Short rates = Long rates
-Signal: Market uncertain about future direction
+terms during inflation. From 2020 to 2024 a dollar in a 0%-yielding
+bank account lost ~17% of purchasing power. Cash is a <em>position</em>,
+not a default. SOUL anchor #13 (four tranches) explicitly carves out
+liquidity <em>and</em> T-bills, separately.
 </p>
-<li>INVERTED -- Recession warning</li>
+<li><strong>"Quantitative easing causes inflation."</strong> Eight years of QE from</li>
 <p>
-Yield
-5% |  <em>----</em>
-4% |          <em>----</em>
-3% |                    <em>----</em>
-2% |                              <em>----</em>
-1% |
-+--|-----|-----|-----|-----|---&gt; Maturity
-3mo   1yr   5yr   10yr  30yr
+2009-2017 produced no consumer inflation. The 2020-21 round produced
+the biggest inflation in 40 years. The difference was fiscal: 2020-21
+QE was paired with $5+ trillion of fiscal transfers that put cash
+directly in consumer hands. QE alone moves bank reserves, not
+prices.
 </p>
+<li><strong>"The yield curve inversion always means recession."</strong> It has</li>
 <p>
-Short rates &gt; Long rates
-"I expect rates to fall because the economy will weaken"
-Signal: Recession likely within 6-18 months
-Track record: Inverted curve preceded EVERY US recession
-since 1960 (though with variable lead times)
+preceded every recession since 1955 with one ambiguous exception —
+that is a high hit rate, not a guarantee. The 2022-25 inversion is
+the longest on record and produced a soft landing rather than a
+classic NBER recession.
 </p>
-<li>STEEP -- Recovery / Stimulus</li>
+<li><strong>"Foreign rates don't matter to US stocks."</strong> Wrong. The US dollar</li>
 <p>
-Yield
-6% |                              <em>----</em>
-5% |                    *
-4% |
-3% |
-2% |
-1% |          *
-0% |  *
-+--|-----|-----|-----|-----|---&gt; Maturity
-3mo   1yr   5yr   10yr  30yr
+is the world's reserve currency; rate differentials drive the dollar,
+the dollar drives multinational earnings (~40% of S&P 500 revenue is
+non-US), and the dollar drives commodity prices. The Bank of Japan's
+2024 policy shift was a meaningful S&P 500 input.
 </p>
+<li><strong>"Real rates above 2% are 'normal'."</strong> Real rates <em>averaged</em> 2-3%</li>
 <p>
-Short rates much lower than long rates
-Signal: Fed is stimulating; growth expected to recover
-</code></pre>
-</p>
-<p>
-<strong>The 2s10s Spread -- The Most Watched Indicator:</strong>
-</p>
-<pre><code class="language-">2-YEAR vs. 10-YEAR TREASURY SPREAD HISTORY
-<p>
-=============================================
-</p>
-<p>
-Spread
-(10yr - 2yr)
-+3% |        <em>                           </em>
-+2% |  <em>    </em> <em>        </em>    <em>           </em> <em>      </em>
-+1% |   <em>  </em>   <em>      </em> <em>  </em> <em>        </em>     <em>   </em> *
-0% |----<em>------</em>----<em>-----</em>---<em>------</em>-------<em>-</em>---*----
--1% |            <em>  </em>           <em>                    </em>
--2% |             <em>*             </em>                    *
-+--|-----|-----|-----|-----|-----|-----|-----|------&gt;
-1980   1985   1990   1995   2000   2005   2010   2020
-</p>
-<p>
-Shaded areas = recessions
-Notice: inversions (below 0%) precede every recession
-</p>
-<p>
-KEY RULE: When the 2s10s spread inverts (goes negative),
-start preparing for a potential recession within 6-18 months.
-But do NOT panic-sell -- inversions can persist for months
-and the stock market often rallies AFTER inversion before
-eventually declining.
-</code></pre>
+from 1900 to 1980. They averaged around 0% from 2008 to 2022. There
+is no single "normal" — the regime defines the level. SOUL anchor
+#2 again.
 </p>
 <hr>
-<h4>6. Historical Rate Regimes</h4>
+<h3>4. Q&A Section</h3>
 <p>
-Understanding past rate environments helps you recognize patterns and position your portfolio appropriately.
-</p>
-<pre><code class="language-">MAJOR US INTEREST RATE ERAS
-<p>
-==============================
-</p>
-<p>
-Era 1: Post-War Stability (1945-1965)
-Fed Funds: 1-4%    Inflation: 1-3%    Real Rate: ~1-2%
-Characteristics: Steady growth, stable prices, rising prosperity
-Best assets: Stocks, real estate
+<strong>Q: If I had to watch only one rate, which one?</strong>
+A: The 10-year Treasury yield. It is the single best summary of every
+piece of information in the rate market — Fed policy expectations, term
+premium, real growth expectations, and inflation expectations. It is
+quoted continuously, has no credit spread, and is the discount rate
+everyone references.
 </p>
 <p>
-Era 2: The Great Inflation (1965-1982)
-Fed Funds: 4-20%   Inflation: 4-14%   Real Rate: Variable
-Characteristics: Oil shocks, wage-price spiral, Volcker's war
-Best assets: Commodities, gold, hard assets, T-bills
+**Q: What's the difference between the federal funds rate and the
+"discount rate"?**
+A: Confusing terminology. The federal funds rate is the overnight
+interbank lending rate the Fed targets. The Fed's <em>discount rate</em> is
+the (slightly higher) rate the Fed charges banks that borrow directly
+from the discount window. In practice the discount window is a
+backstop; the funds rate is the headline tool. When this lesson says
+"discount rate" without qualifier, it means the financial-economics
+discount rate $r$ used in DCF, not the Fed window rate.
 </p>
 <p>
-Era 3: The Great Disinflation (1982-2000)
-Fed Funds: 20-&gt;5%  Inflation: 14-&gt;2%  Real Rate: ~3-5%
-Characteristics: Falling rates = massive bull market in
-stocks AND bonds simultaneously
-Best assets: Long-duration bonds, growth stocks
+<strong>Q: How do I know which way real rates are moving?</strong>
+A: Subtract the 10-year breakeven (FRED <code>T10YIE</code>) from the nominal
+10-year (FRED <code>DGS10</code>). FRED also publishes <code>DFII10</code> (the 10-year TIPS
+yield) directly. Real rate = nominal yield - breakeven. A rising real
+rate is the most reliable bear signal for long-duration assets.
 </p>
 <p>
-Era 4: Low Rate Era (2000-2020)
-Fed Funds: 0-5%    Inflation: 1-3%    Real Rate: ~0-2%
-Characteristics: Two crises (dot-com, GFC), QE era,
-near-zero rates for extended periods
-Best assets: Growth stocks, real estate, long-duration bonds
+<strong>Q: Should I lock in fixed-rate or floating-rate debt now?</strong>
+A: This is a personal-finance call, not investment advice, but the
+framework is: if you expect real rates to rise from here, fix; if you
+expect them to fall, float. With the 10-year at ~4% and breakevens
+near 2% in April 2026, real rates are around 2% — roughly the long-run
+average. Neither aggressive lock-in nor aggressive floating looks
+asymmetric here.
 </p>
 <p>
-Era 5: Post-COVID Normalization (2020-Present)
-Fed Funds: 0-&gt;5%   Inflation: 2-&gt;9-&gt;3%  Real Rate: ~1-3%
-Characteristics: Massive stimulus, inflation spike,
-aggressive tightening cycle
-Best assets: Short-duration bonds, value stocks, cash
+**Q: What is "term premium" and why is everyone always talking about
+it?**
+A: The term premium is the extra yield investors demand to hold a
+long bond instead of rolling short bonds. Mathematically, it is the
+piece of the 10-year yield that <em>isn't</em> explained by expected future
+short rates. From 2014 to 2021 it was roughly zero or negative — bond
+investors paid a premium for safety. In 2024-25 it has crept back to
+~50 bps. A higher term premium means longer-duration assets get
+discounted more.
 </p>
 <p>
-FED FUNDS RATE TIMELINE
-=========================
+<strong>Q: Does the Fed actually control inflation?</strong>
+A: It controls the <em>demand</em> side of inflation through interest rates
+and bank reserves. It does not control supply shocks (oil, chips,
+shipping). The 2021-22 inflation was 60% supply-driven and 40%
+demand-driven; the Fed could only attack the demand half. Volcker won
+in 1981 because demand was the dominant driver. 1973-74 inflation was
+mostly oil-shock supply, and Burns's rate hikes did less.
 </p>
 <p>
-Rate
-20%|                 *
-|                <em> </em>
-15%|               <em>   </em>
-|              <em>     </em>
-10%|    <em>  </em>  <em>  </em>       *
-|   <em> <strong> </strong> </em>          **
-5%|  <em>                    <strong><em></em>    *     <strong>    </em></strong></strong>
-| <em>                         </em><em>*</em>  <em>  </em>  <em>  </em>
-0%|                                <strong>      </strong>
-+--|--|--|--|--|--|--|--|--|--|--|--|--|--|--&gt;
-1955 60 65 70 75 80 85 90 95 00 05 10 15 20 25
+<strong>Q: Why does the bond market sometimes rally on bad economic news?</strong>
+A: Because bad news shifts the path of expected future short rates
+<em>lower</em>, raising bond prices. Bonds love recessions. Equities mostly
+hate them. This is the asymmetric correlation that makes 60/40 work.
+Week 4 covered this; it is the central piece of why a portfolio
+diversifier exists at all.
 </p>
 <p>
-Key events labeled:
-</p>
-<ul><li>1980: Volcker raises to 20% to kill inflation</li>
-<li>2001: Rate cuts after dot-com crash</li>
-<li>2008: Rates to zero during financial crisis</li>
-<li>2022: Fastest hiking cycle in 40 years</li>
-<p>
-</ul></code></pre>
-</p>
-<hr>
-<h4>7. Real vs. Nominal Rates</h4>
-<p>
-The distinction between nominal rates (what you see quoted) and real rates (adjusted for inflation) is crucial for investment decisions.
-</p>
-<pre><code class="language-">REAL vs. NOMINAL RATES
-<p>
-========================
+<strong>Q: How fast does a Fed hike show up in mortgage rates?</strong>
+A: The 30-year mortgage moves on the <em>expectation</em> of Fed action, not
+the action itself. A "surprise" 25 bps hike moves mortgages maybe
+10-20 bps that week. A <em>change in the expected path</em> — for example,
+a hawkish dot plot — can move mortgages 50-100 bps in a single
+afternoon. By the time the Fed acts, the cake is mostly baked.
 </p>
 <p>
-Real Rate = Nominal Rate - Inflation Rate
+<strong>Q: Are TIPS a free lunch in inflationary periods?</strong>
+A: No. TIPS protect the <em>principal</em> against CPI but their <em>real</em> yield
+floats with the market. In 2022 the real yield rose 250 bps and TIPS
+prices fell. They protect against unexpected inflation, not against
+real-rate normalisation. They are insurance, not magic.
 </p>
 <p>
-Example:
-Nominal savings rate:    5.0%
-Inflation:               3.5%
-Real rate:               1.5%
+**Q: How should I think about the discount rate for my own portfolio
+decisions?**
+A: Pick a personal hurdle rate — the return below which a project
+isn't worth your time. For most US investors with full-equity-risk
+exposure, this is the 10-year Treasury yield plus an equity risk
+premium of 4-5%. So in April 2026, with the 10-year at ~4%, your
+hurdle is ~8-9%. Anything you allocate to should clear that, or you
+should not be doing it. SOUL anchor #1 (alpha is rare): if you can't
+articulate a reason your idea clears the hurdle, it doesn't.
 </p>
 <p>
-You EARN 5% on your savings,
-but prices rise 3.5%, so your
-PURCHASING POWER only grows 1.5%.
+<strong>Q: Is the 1981-2020 bond bull market really over?</strong>
+A: Probably yes, but "probably" is not "definitely." A second wave of
+disinflation (driven by AI productivity, demographics, globalisation
+2.0) could push the 10-year back below 2%. But the <em>baseline</em> case
+for the rest of this decade is range-bound 3-5% nominal yields, which
+is the historical norm. Building a portfolio that <em>needs</em> yields to
+fall to 1% to work — which most aggressive long-duration tech plays
+implicitly do — is a regime-dependent bet, and the regime has changed.
 </p>
 <p>
-WHEN REAL RATES ARE NEGATIVE
-==============================
-</p>
-<p>
-Nominal savings rate:    2.0%
-Inflation:               4.0%
-Real rate:              -2.0%
-</p>
-<p>
-You are LOSING purchasing power
-despite earning interest. Your
-money buys LESS each year even
-though the number in your account
-is growing. This is "financial
-repression" -- governments use
-negative real rates to erode
-the real value of their debt.
-</p>
-<p>
-REAL RATES AND INVESTMENT IMPLICATIONS
-========================================
-</p>
-<p>
-Real Rate         What It Means              Strategy Implications
----------         -------------              ---------------------
-Deeply            Savers are punished;        Favor real assets
-negative          borrowers are subsidized    (stocks, real estate,
-(-2% or           --&gt; Inflationary            commodities, TIPS)
-below)            environment
-</p>
-<p>
-Mildly            Moderate stimulus;          Balanced approach;
-negative          modest inflation            mild growth tilt
-(-1% to 0%)        erosion
-</p>
-<p>
-Mildly            Normal / neutral            Standard portfolio
-positive           policy                     allocation works
-(0% to 2%)
-</p>
-<p>
-Highly            Tight policy;               Favor cash, short-
-positive           restrictive                duration bonds;
-(2%+)              conditions                 be cautious on stocks
-and real estate
-</code></pre>
-</p>
-<hr>
-<h4>8. Practical Investment Implications</h4>
-<pre><code class="language-">RATE ENVIRONMENT INVESTMENT PLAYBOOK
-<p>
-=======================================
-</p>
-<p>
-Scenario: RATES FALLING (Easing cycle)
------------------------------------------
-What happens:
-</p>
-<ul><li>Bond prices RISE (yields fall)</li>
-<li>Stock valuations EXPAND</li>
-<li>Dollar weakens</li>
-<li>Real estate becomes more affordable</li>
-<li>Credit conditions loosen</li>
-<p>
-</ul>
-What to consider:
-+ Extend bond duration (lock in higher yields)
-+ Growth stocks tend to outperform value
-+ Interest-rate-sensitive sectors benefit (REITs, utilities)
-+ Emerging markets benefit from weaker dollar
-</p>
-<ul><li>Cash becomes less attractive</li>
-<li>Bank margins may compress</li>
-<p>
-</ul>
-Scenario: RATES RISING (Tightening cycle)
------------------------------------------
-What happens:
-</p>
-<ul><li>Bond prices FALL (yields rise)</li>
-<li>Stock valuations COMPRESS</li>
-<li>Dollar strengthens</li>
-<li>Real estate becomes less affordable</li>
-<li>Credit conditions tighten</li>
-<p>
-</ul>
-What to consider:
-+ Shorten bond duration (protect from price declines)
-+ Value stocks tend to outperform growth
-+ Financial sector may benefit (wider bank margins)
-+ Cash/money markets become attractive again
-</p>
-<ul><li>Long-duration assets suffer</li>
-<li>Highly leveraged companies face higher costs</li>
-<p>
-</ul>
-Scenario: RATES STABLE (Neutral / On hold)
------------------------------------------
-What happens:
-</p>
-<ul><li>Markets price in current conditions</li>
-<li>Carry trades become attractive</li>
-<li>Volatility often declines</li>
-<p>
-</ul>
-What to consider:
-+ Focus on asset selection over macro positioning
-+ Collect yield (bonds, dividends)
-+ Quality companies with pricing power
-+ Moderate, diversified positioning
-</code></pre>
-</p>
-<hr>
-<h3>c) Common Misconceptions</h3>
-<p>
-<strong>Misconception 1: "The Fed controls all interest rates."</strong>
-</p>
-<p>
-Reality: The Fed directly controls only the overnight federal funds rate. Longer-term rates like the 10-year Treasury yield are determined by market forces -- the collective buying and selling decisions of millions of investors worldwide. The Fed influences long-term rates through expectations and QE/QT, but it does not set them. In some periods, long-term rates have moved in the opposite direction from the Fed's short-term rate changes, a phenomenon called the "Greenspan conundrum."
-</p>
-<p>
-<strong>Misconception 2: "Rising rates are always bad for stocks."</strong>
-</p>
-<p>
-Reality: The impact depends on why rates are rising. If rates rise because the economy is strong and growing (good inflation from demand), stocks often do well because earnings growth outpaces the valuation compression from higher rates. If rates rise because the Fed is fighting runaway inflation (cost-push inflation), stocks tend to suffer because the economic slowdown the Fed is engineering hurts earnings. Context matters enormously.
-</p>
-<p>
-<strong>Misconception 3: "An inverted yield curve means a recession is imminent."</strong>
-</p>
-<p>
-Reality: While the inverted yield curve has preceded every US recession since 1960, the lead time is highly variable -- ranging from 6 months to over 2 years. Furthermore, stock markets often rally significantly after the initial inversion before eventually declining. Selling stocks the moment the curve inverts has historically been a poor strategy. The inversion is a warning to prepare, not a signal to panic.
-</p>
-<p>
-<strong>Misconception 4: "Low interest rates mean money is cheap."</strong>
-</p>
-<p>
-Reality: Low interest rates mean the nominal cost of borrowing is low, but the real cost depends on inflation. If rates are 2% and inflation is 4%, borrowing is effectively free -- someone is paying you to borrow in real terms. If rates are 5% and inflation is 1%, the real cost of borrowing is 4%, which is actually quite expensive. Always think in real (inflation-adjusted) terms.
-</p>
-<p>
-<strong>Misconception 5: "The Fed raises rates to hurt the stock market."</strong>
-</p>
-<p>
-Reality: The Fed's mandate is maximum employment and stable prices, not stock market performance. When the Fed raises rates, it is trying to slow an overheating economy and bring inflation under control. Lower stock prices are a side effect of tighter financial conditions, not the goal. In fact, the Fed would prefer that stock prices decline gradually rather than crash, because sharp market declines can destabilize the financial system, creating the opposite of what the Fed wants.
-</p>
-<p>
-<strong>Misconception 6: "You can predict when the Fed will raise or cut rates."</strong>
-</p>
-<p>
-Reality: While the Fed provides "forward guidance" about its intentions, it makes decisions based on incoming data, which is inherently uncertain. The Fed has frequently surprised markets by acting sooner, later, more aggressively, or less aggressively than expected. Fed funds futures markets provide probability-weighted expectations, but they have a mediocre track record of predicting actual rate paths more than a few months out.
-</p>
-<hr>
-<h3>d) Common Questions and Answers</h3>
-<p>
-<strong>Q1: How do I track what the Fed is expected to do?</strong>
-</p>
-<p>
-A: The best tool is the CME FedWatch Tool, which shows the probability the market assigns to each possible rate outcome at upcoming FOMC meetings. These probabilities are derived from fed funds futures contracts. Also watch the Fed's "dot plot," published quarterly, which shows each FOMC member's projection for the future path of rates. Compare market expectations (FedWatch) with the Fed's own projections (dot plot) -- when they diverge, interesting trading opportunities can arise.
-</p>
-<p>
-<strong>Q2: What should I do with my portfolio when the Fed starts raising rates?</strong>
-</p>
-<p>
-A: Consider these steps: (1) Shorten the duration of your bond holdings -- move from long-term bonds to short-term bonds or bond ladders. (2) Ensure your stock holdings lean toward quality companies with strong balance sheets that can handle higher borrowing costs. (3) Reduce exposure to the most rate-sensitive sectors (utilities, REITs, speculative growth) if they are heavily represented. (4) Increase your cash allocation modestly -- higher rates mean cash actually pays something. (5) Do not try to time the exact top or bottom of the rate cycle; make gradual adjustments.
-</p>
-<p>
-<strong>Q3: Why do bond prices fall when interest rates rise?</strong>
-</p>
-<p>
-A: Because existing bonds with lower coupon rates become less attractive compared to newly issued bonds with higher coupons. If you hold a bond paying 3% and new bonds pay 5%, nobody will pay full price for your 3% bond. Its price drops until its effective yield matches the market rate. The longer the maturity, the greater the price drop because the bondholder is stuck with the below-market rate for longer. A useful rule of thumb: a bond's price changes by approximately its duration multiplied by the rate change. A bond with a duration of 7 years will lose roughly 7% of its value for each 1% increase in rates.
-</p>
-<p>
-<strong>Q4: What is the "neutral rate" and why does it matter?</strong>
-</p>
-<p>
-A: The neutral rate (also called r-star or r*) is the theoretical interest rate that neither stimulates nor restricts the economy. If the Fed sets rates below the neutral rate, monetary policy is stimulative. Above it, policy is restrictive. The problem is that nobody knows exactly what the neutral rate is -- it is estimated, not observed. Most economists believe it is somewhere around 2.5-3.5% in nominal terms, but this is a contentious debate. The neutral rate matters because it tells you whether current policy is easy, tight, or neutral.
-</p>
-<p>
-<strong>Q5: How do negative interest rates work?</strong>
-</p>
-<p>
-A: In some countries (Japan, parts of Europe), central banks have set negative policy rates, meaning banks are charged for depositing money at the central bank. The idea is to penalize banks for hoarding cash and incentivize them to lend. For investors, negative rates mean some government bonds have negative yields -- you are guaranteed to get back less than you invested if held to maturity. Investors still buy these bonds because they expect rates to go even more negative (price gains) or because they need safe assets regardless of return. The US has not implemented negative rates, but they were discussed during the pandemic.
-</p>
-<p>
-<strong>Q6: How long does it take for rate changes to affect the economy?</strong>
-</p>
-<p>
-A: Monetary policy operates with "long and variable lags," as Milton Friedman famously said. Short-term rates and financial markets react almost immediately. Mortgage and loan rates adjust within weeks. But the real economy -- hiring, spending, investment, and inflation -- takes 12-24 months to fully respond. This means the Fed is always making decisions based on where the economy will be in a year, not where it is today. It also means the Fed can overshoot -- raising rates too much because the lagged effects of previous hikes have not yet materialized.
-</p>
-<p>
-<strong>Q7: Should I pay off my mortgage when rates are high?</strong>
-</p>
-<p>
-A: It depends on the rate on your specific mortgage versus available investment returns. If you have a fixed-rate mortgage at 3% (locked in when rates were low), it makes little sense to pay it off early when you can earn 5% in a money market fund risk-free. But if your mortgage is at 7%, paying it off provides a guaranteed 7% return, which is hard to beat consistently in the market. Also consider the tax deduction for mortgage interest, which effectively lowers the rate for some borrowers.
-</p>
-<p>
-<strong>Q8: What is quantitative easing and how does it differ from cutting rates?</strong>
-</p>
-<p>
-A: When the Fed has already cut rates to near zero and the economy still needs stimulus, it turns to quantitative easing (QE). The Fed creates new money electronically and uses it to buy long-term Treasury bonds and mortgage-backed securities. This pushes down long-term rates (rates the Fed does not directly control), forces investors into riskier assets (since bonds pay less), and increases bank reserves. QE is essentially rate cuts for the long end of the yield curve. Quantitative tightening (QT) is the reverse -- the Fed lets bonds mature without reinvesting, shrinking its balance sheet and tightening financial conditions.
-</p>
-<p>
-<strong>Q9: How do interest rates affect international investing?</strong>
-</p>
-<p>
-A: When US rates rise relative to other countries, the US dollar typically strengthens because foreign investors move capital to the US seeking higher yields. A stronger dollar reduces returns on foreign investments when converted back to dollars. Conversely, when US rates fall relative to other countries, the dollar weakens, boosting foreign investment returns. Emerging markets are particularly affected because many have dollar-denominated debt -- a stronger dollar makes their debt burden heavier, sometimes triggering financial crises.
-</p>
-<p>
-<strong>Q10: What happens to my bond portfolio in a rising rate environment?</strong>
-</p>
-<p>
-A: Your existing bonds lose market value (prices fall), but the income they generate stays the same (coupons are fixed). If you hold to maturity, you get your principal back regardless of interim price changes. The pain comes from opportunity cost -- you are stuck earning a below-market rate until the bond matures. To mitigate this, consider a bond ladder (bonds maturing at regular intervals so you can reinvest at higher rates) or use shorter-duration bonds that are less price-sensitive to rate changes.
+<strong>Q: Where does this lesson connect to the rest of the course?</strong>
+A: It is the macro engine sitting under Week 5 (bonds), Week 4 (60/40),
+Week 10 (cycles), Week 11 (behavioural pitfalls during rate shocks),
+Week 13 (long/short and how it plays in different rate regimes). Every
+asset has a duration. The discount rate moves all of them. This week
+is the link.
 </p>
             </div>
             <div id="content-hk" class="lang-content">

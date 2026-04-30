@@ -1,0 +1,704 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Liquidity Lab - Interactive (Side 26)</title>
+<script src="https://cdn.plot.ly/plotly-2.35.2.min.js" charset="utf-8"></script>
+<style>
+html, body { margin: 0; padding: 0; background: var(--lq-bg); }
+:root {
+    --lq-bg: #fdfbf5;
+    --lq-text: #1a2332;
+    --lq-muted: #6b7280;
+    --lq-border: #d6d3c4;
+    --lq-card: #fdfbf5;
+    --lq-pos: #2e7d32;
+    --lq-neg: #b71c1c;
+    --lq-mid: #0d47a1;
+    --lq-accent: #b8860b;
+    --lq-purple: #6a1b9a;
+}
+html[data-theme="dark"] .lq-root,
+.lq-root[data-theme="dark"] {
+    --lq-bg: #0f1724;
+    --lq-text: #e6e6e6;
+    --lq-muted: #9aa3b2;
+    --lq-border: #2a3441;
+    --lq-card: #0f1724;
+    --lq-pos: #66bb6a;
+    --lq-neg: #ef5350;
+    --lq-mid: #5a8dee;
+    --lq-purple: #ba68c8;
+}
+.lq-root {
+    font-family: 'Segoe UI', Helvetica, Arial, sans-serif;
+    background: var(--lq-bg);
+    color: var(--lq-text);
+    padding: 12px;
+    margin: 0;
+}
+.lq-controls {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-bottom: 12px;
+    padding: 12px;
+    background: var(--lq-card);
+    border: 1px solid var(--lq-border);
+    border-radius: 8px;
+}
+.lq-block-name {
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: var(--lq-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 6px;
+}
+.lq-slider-wrap {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    font-size: 0.82rem;
+    color: var(--lq-muted);
+}
+.lq-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.lq-slider-wrap input[type="range"] {
+    flex: 1;
+    accent-color: var(--lq-accent);
+}
+.lq-val {
+    white-space: nowrap;
+    color: var(--lq-text);
+    font-weight: 700;
+    font-variant-numeric: tabular-nums;
+    min-width: 110px;
+    text-align: right;
+}
+.lq-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+.lq-pill {
+    cursor: pointer;
+    padding: 6px 12px;
+    background: transparent;
+    border: 1px solid var(--lq-border);
+    border-radius: 999px;
+    font-size: 0.82rem;
+    color: var(--lq-text);
+    font-weight: 600;
+    transition: all 0.15s;
+}
+.lq-pill:hover { border-color: var(--lq-accent); }
+.lq-pill.lq-pill-active {
+    background: var(--lq-accent);
+    color: white;
+    border-color: var(--lq-accent);
+}
+.lq-stats {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 10px;
+    margin-bottom: 12px;
+}
+.lq-stat {
+    background: var(--lq-card);
+    border: 1px solid var(--lq-border);
+    border-left: 4px solid var(--lq-muted);
+    border-radius: 8px;
+    padding: 10px 12px;
+}
+.lq-stat.lq-stat-mid { border-left-color: var(--lq-mid); }
+.lq-stat.lq-stat-acc { border-left-color: var(--lq-accent); }
+.lq-stat.lq-stat-pos { border-left-color: var(--lq-pos); }
+.lq-stat.lq-stat-neg { border-left-color: var(--lq-neg); }
+.lq-stat-name {
+    font-size: 0.74rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--lq-muted);
+}
+.lq-stat-val {
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin-top: 4px;
+    font-variant-numeric: tabular-nums;
+}
+.lq-stat-detail {
+    font-size: 0.76rem;
+    color: var(--lq-muted);
+    margin-top: 2px;
+    font-variant-numeric: tabular-nums;
+}
+.lq-charts {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-bottom: 12px;
+}
+.lq-chart {
+    width: 100%;
+    height: 320px;
+    background: var(--lq-card);
+    border-radius: 8px;
+    border: 1px solid var(--lq-border);
+}
+.lq-verdict {
+    margin-top: 8px;
+    padding: 10px 14px;
+    border-radius: 8px;
+    background: var(--lq-card);
+    border: 1px solid var(--lq-border);
+    border-left: 4px solid var(--lq-muted);
+    font-size: 0.92rem;
+    font-weight: 600;
+    color: var(--lq-text);
+}
+.lq-verdict.lq-good { border-left-color: var(--lq-pos); }
+.lq-verdict.lq-meh  { border-left-color: var(--lq-accent); }
+.lq-verdict.lq-bad  { border-left-color: var(--lq-neg); }
+.lq-caption {
+    margin-top: 8px;
+    font-size: 0.78rem;
+    color: var(--lq-muted);
+    line-height: 1.45;
+}
+@media (max-width: 720px) {
+    .lq-controls { grid-template-columns: 1fr; }
+    .lq-stats { grid-template-columns: repeat(2, 1fr); }
+    .lq-charts { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<div class="lq-root" id="lq-root">
+    <div class="lq-controls">
+        <div>
+            <div class="lq-block-name" id="lq-name-size-block">Order size (USD)</div>
+            <div class="lq-slider-wrap">
+                <div class="lq-row">
+                    <input type="range" id="lq-size" min="3" max="7" step="0.05" value="4.7">
+                    <span class="lq-val" id="lq-val-size">$50,000</span>
+                </div>
+            </div>
+            <div class="lq-block-name" style="margin-top:14px;" id="lq-name-bucket-block">Market-cap bucket</div>
+            <div class="lq-pills" id="lq-pills-bucket">
+                <button class="lq-pill" data-bucket="mega">Mega &gt; $500B</button>
+                <button class="lq-pill lq-pill-active" data-bucket="large">Large $10-500B</button>
+                <button class="lq-pill" data-bucket="mid">Mid $2-10B</button>
+                <button class="lq-pill" data-bucket="small">Small $300M-$2B</button>
+                <button class="lq-pill" data-bucket="micro">Micro &lt; $300M</button>
+            </div>
+        </div>
+        <div>
+            <div class="lq-block-name" id="lq-name-vol-block">Volatility regime</div>
+            <div class="lq-pills" id="lq-pills-vol">
+                <button class="lq-pill" data-vol="0.5" data-key="calm">Calm (VIX 12)</button>
+                <button class="lq-pill lq-pill-active" data-vol="1.0" data-key="normal">Normal (VIX 18)</button>
+                <button class="lq-pill" data-vol="2.5" data-key="stress">Stress (VIX 35)</button>
+                <button class="lq-pill" data-vol="6.0" data-key="crisis">Crisis (VIX 70)</button>
+            </div>
+            <div class="lq-block-name" style="margin-top:14px;" id="lq-name-ann-block">Expected gross return (ann.)</div>
+            <div class="lq-slider-wrap">
+                <div class="lq-row">
+                    <input type="range" id="lq-ret" min="0" max="20" step="0.25" value="8.0">
+                    <span class="lq-val" id="lq-val-ret">8.00%</span>
+                </div>
+            </div>
+            <div class="lq-block-name" style="margin-top:8px;" id="lq-name-trips-block">Round-trips per year</div>
+            <div class="lq-slider-wrap">
+                <div class="lq-row">
+                    <input type="range" id="lq-trips" min="0" max="12" step="0.5" value="2.0">
+                    <span class="lq-val" id="lq-val-trips">2.0 / yr</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="lq-stats">
+        <div class="lq-stat lq-stat-mid">
+            <div class="lq-stat-name" id="lq-name-spread">Effective spread</div>
+            <div class="lq-stat-val" id="lq-val-spread">--</div>
+            <div class="lq-stat-detail" id="lq-det-spread">--</div>
+        </div>
+        <div class="lq-stat lq-stat-acc">
+            <div class="lq-stat-name" id="lq-name-impact">Market impact</div>
+            <div class="lq-stat-val" id="lq-val-impact">--</div>
+            <div class="lq-stat-detail" id="lq-det-impact">--</div>
+        </div>
+        <div class="lq-stat lq-stat-neg">
+            <div class="lq-stat-name" id="lq-name-cost">Round-trip cost</div>
+            <div class="lq-stat-val" id="lq-val-cost">--</div>
+            <div class="lq-stat-detail" id="lq-det-cost">--</div>
+        </div>
+        <div class="lq-stat lq-stat-pos">
+            <div class="lq-stat-name" id="lq-name-net">Liq-adj. net return</div>
+            <div class="lq-stat-val" id="lq-val-net">--</div>
+            <div class="lq-stat-detail" id="lq-det-net">--</div>
+        </div>
+    </div>
+
+    <div class="lq-verdict" id="lq-verdict">--</div>
+
+    <div class="lq-charts">
+        <div id="lq-chart-bars" class="lq-chart"></div>
+        <div id="lq-chart-curve" class="lq-chart"></div>
+    </div>
+
+    <p class="lq-caption" id="lq-caption">
+        Effective spread = quoted spread x volatility multiplier. Market impact uses an Almgren-Chriss square-root model: bps ~ 10 x sqrt(size / 1%-ADV) x vol-multiplier. Round-trip cost = spread + 2 x impact (one in, one out). Liq-adjusted return = gross return - trips/yr x round-trip cost.
+    </p>
+</div>
+
+<script>
+(function () {
+    const I18N = {
+        en: {
+            name_size_block:    "Order size (USD)",
+            name_bucket_block:  "Market-cap bucket",
+            name_vol_block:     "Volatility regime",
+            name_ann_block:     "Expected gross return (ann.)",
+            name_trips_block:   "Round-trips per year",
+            bucket_mega:  "Mega > $500B",
+            bucket_large: "Large $10-500B",
+            bucket_mid:   "Mid $2-10B",
+            bucket_small: "Small $300M-$2B",
+            bucket_micro: "Micro < $300M",
+            vol_calm:    "Calm (VIX 12)",
+            vol_normal:  "Normal (VIX 18)",
+            vol_stress:  "Stress (VIX 35)",
+            vol_crisis:  "Crisis (VIX 70)",
+            name_spread: "Effective spread",
+            name_impact: "Market impact",
+            name_cost:   "Round-trip cost",
+            name_net:    "Liq-adj. net return",
+            det_spread:  "{q} bp quoted x {m}x vol",
+            det_impact:  "{adv}% of ADV  ·  one-way",
+            det_cost:    "spread + 2 x impact",
+            det_net:     "gross {g}% - {drag}% drag",
+            chart_bars_title:  "Cost breakdown (bp, this trade)",
+            chart_curve_title: "Round-trip cost vs order size",
+            x_size:      "Order size (USD)",
+            y_bp:        "Cost (basis points)",
+            x_bp:        "Cost (basis points)",
+            tr_spread:   "Spread",
+            tr_impact_in:"Impact in",
+            tr_impact_out:"Impact out",
+            tr_curve:    "Round-trip cost",
+            tr_marker:   "Your size",
+            verdict_good: "Cheap to trade. Spread + impact under 25 bp; this size is comfortably absorbed by the book.",
+            verdict_meh:  "Material cost. 25-150 bp round-trip - watch your trade frequency, the drag will compound.",
+            verdict_bad:  "Liquidity-prohibitive. Round-trip exceeds 150 bp; rebalancing this position will eat most of the expected alpha.",
+            caption:     "Effective spread = quoted spread x volatility multiplier. Market impact uses an Almgren-Chriss square-root model: bps ~ 10 x sqrt(size / 1%-ADV) x vol-multiplier. Round-trip cost = spread + 2 x impact (one in, one out). Liq-adjusted return = gross return - trips/yr x round-trip cost.",
+        },
+        hk: {
+            name_size_block:    "委託金額(美元)",
+            name_bucket_block:  "市值區間",
+            name_vol_block:     "波動率體制",
+            name_ann_block:     "預期年化毛回報",
+            name_trips_block:   "每年雙向次數",
+            bucket_mega:  "超大型 > $5,000億",
+            bucket_large: "大型 $100-5,000億",
+            bucket_mid:   "中型 $20-100億",
+            bucket_small: "小型 $3-20億",
+            bucket_micro: "微型 < $3億",
+            vol_calm:    "平靜(VIX 12)",
+            vol_normal:  "正常(VIX 18)",
+            vol_stress:  "緊張(VIX 35)",
+            vol_crisis:  "危機(VIX 70)",
+            name_spread: "有效價差",
+            name_impact: "市場衝擊",
+            name_cost:   "雙向總成本",
+            name_net:    "流動性調整淨回報",
+            det_spread:  "報價 {q} bp x {m}倍波動",
+            det_impact:  "{adv}% ADV  ·  單邊",
+            det_cost:    "價差 + 2 倍衝擊",
+            det_net:     "毛 {g}% - {drag}% 拖累",
+            chart_bars_title:  "成本分解(bp,本筆交易)",
+            chart_curve_title: "雙向成本對委託規模",
+            x_size:      "委託金額(美元)",
+            y_bp:        "成本(基點)",
+            x_bp:        "成本(基點)",
+            tr_spread:   "價差",
+            tr_impact_in:"進場衝擊",
+            tr_impact_out:"出場衝擊",
+            tr_curve:    "雙向成本",
+            tr_marker:   "你的規模",
+            verdict_good: "交易便宜。價差加衝擊低於 25 bp,規模舒適地被盤口吸收。",
+            verdict_meh:  "成本顯著。25-150 bp 雙向 - 留意交易頻率,拖累會複利累積。",
+            verdict_bad:  "流動性禁區。雙向超過 150 bp;再平衡這個倉位會吃掉大部分預期超額。",
+            caption:     "有效價差 = 報價價差 × 波動率倍數。市場衝擊採用 Almgren-Chriss 平方根模型:bps ~ 10 × √(規模 / 1%-ADV) × 波動倍數。雙向成本 = 價差 + 2 × 衝擊(進出各一)。流動性調整回報 = 毛回報 − 每年次數 × 雙向成本。",
+        },
+        tw: {
+            name_size_block:    "委託金額(美元)",
+            name_bucket_block:  "市值區間",
+            name_vol_block:     "波動率體制",
+            name_ann_block:     "預期年化毛報酬",
+            name_trips_block:   "每年雙向次數",
+            bucket_mega:  "超大型 > $5,000億",
+            bucket_large: "大型 $100-5,000億",
+            bucket_mid:   "中型 $20-100億",
+            bucket_small: "小型 $3-20億",
+            bucket_micro: "微型 < $3億",
+            vol_calm:    "平靜(VIX 12)",
+            vol_normal:  "正常(VIX 18)",
+            vol_stress:  "緊張(VIX 35)",
+            vol_crisis:  "危機(VIX 70)",
+            name_spread: "有效價差",
+            name_impact: "市場衝擊",
+            name_cost:   "雙向總成本",
+            name_net:    "流動性調整淨報酬",
+            det_spread:  "報價 {q} bp x {m}倍波動",
+            det_impact:  "{adv}% ADV  ·  單邊",
+            det_cost:    "價差 + 2 倍衝擊",
+            det_net:     "毛 {g}% - {drag}% 拖累",
+            chart_bars_title:  "成本分解(bp,本筆交易)",
+            chart_curve_title: "雙向成本對委託規模",
+            x_size:      "委託金額(美元)",
+            y_bp:        "成本(基點)",
+            x_bp:        "成本(基點)",
+            tr_spread:   "價差",
+            tr_impact_in:"進場衝擊",
+            tr_impact_out:"出場衝擊",
+            tr_curve:    "雙向成本",
+            tr_marker:   "你的規模",
+            verdict_good: "交易便宜。價差加衝擊低於 25 bp,規模舒適地被盤口吸收。",
+            verdict_meh:  "成本顯著。25-150 bp 雙向 - 留意交易頻率,拖累會複利累積。",
+            verdict_bad:  "流動性禁區。雙向超過 150 bp;再平衡這個倉位會吃掉大部分預期超額。",
+            caption:     "有效價差 = 報價價差 × 波動率倍數。市場衝擊採用 Almgren-Chriss 平方根模型:bps ~ 10 × √(規模 / 1%-ADV) × 波動倍數。雙向成本 = 價差 + 2 × 衝擊(進出各一)。流動性調整報酬 = 毛報酬 − 每年次數 × 雙向成本。",
+        },
+        cn: {
+            name_size_block:    "委托金额(美元)",
+            name_bucket_block:  "市值区间",
+            name_vol_block:     "波动率体制",
+            name_ann_block:     "预期年化毛回报",
+            name_trips_block:   "每年双向次数",
+            bucket_mega:  "超大型 > $5,000亿",
+            bucket_large: "大型 $100-5,000亿",
+            bucket_mid:   "中型 $20-100亿",
+            bucket_small: "小型 $3-20亿",
+            bucket_micro: "微型 < $3亿",
+            vol_calm:    "平静(VIX 12)",
+            vol_normal:  "正常(VIX 18)",
+            vol_stress:  "紧张(VIX 35)",
+            vol_crisis:  "危机(VIX 70)",
+            name_spread: "有效价差",
+            name_impact: "市场冲击",
+            name_cost:   "双向总成本",
+            name_net:    "流动性调整净回报",
+            det_spread:  "报价 {q} bp x {m}倍波动",
+            det_impact:  "{adv}% ADV  ·  单边",
+            det_cost:    "价差 + 2 倍冲击",
+            det_net:     "毛 {g}% - {drag}% 拖累",
+            chart_bars_title:  "成本分解(bp,本笔交易)",
+            chart_curve_title: "双向成本对委托规模",
+            x_size:      "委托金额(美元)",
+            y_bp:        "成本(基点)",
+            x_bp:        "成本(基点)",
+            tr_spread:   "价差",
+            tr_impact_in:"进场冲击",
+            tr_impact_out:"出场冲击",
+            tr_curve:    "双向成本",
+            tr_marker:   "你的规模",
+            verdict_good: "交易便宜。价差加冲击低于 25 bp,规模舒适地被盘口吸收。",
+            verdict_meh:  "成本显著。25-150 bp 双向 - 留意交易频率,拖累会复利累积。",
+            verdict_bad:  "流动性禁区。双向超过 150 bp;再平衡这个仓位会吃掉大部分预期超额。",
+            caption:     "有效价差 = 报价价差 × 波动率倍数。市场冲击采用 Almgren-Chriss 平方根模型:bps ~ 10 × √(规模 / 1%-ADV) × 波动倍数。双向成本 = 价差 + 2 × 冲击(进出各一)。流动性调整回报 = 毛回报 − 每年次数 × 双向成本。",
+        },
+    };
+
+    function currentLang() {
+        const p = new URLSearchParams(window.location.search);
+        const l = (p.get("lang") || "en").toLowerCase();
+        return I18N.hasOwnProperty(l) ? l : "en";
+    }
+    let T = I18N[currentLang()];
+
+    // Bucket params: quoted_spread_bp (calm/normal), ADV_USD (typical)
+    const BUCKETS = {
+        mega:  { spread: 1.0,   adv: 8.0e9 },
+        large: { spread: 4.0,   adv: 7.0e8 },
+        mid:   { spread: 10.0,  adv: 8.0e7 },
+        small: { spread: 45.0,  adv: 1.2e7 },
+        micro: { spread: 200.0, adv: 1.5e6 },
+    };
+
+    let state = {
+        sizeUsd: 50000,
+        bucket: "large",
+        volMul: 1.0,
+        volKey: "normal",
+        retPct: 8.0,
+        trips: 2.0,
+    };
+
+    // ---------- Math ----------
+    function computeCosts(s) {
+        const b = BUCKETS[s.bucket];
+        const advFrac = s.sizeUsd / b.adv;
+        const advPct = advFrac * 100;
+        // Effective spread scales sub-linearly with vol.
+        const spreadMul = Math.min(10.0, Math.pow(s.volMul, 0.85));
+        const spreadBp = b.spread * spreadMul;
+        // One-way market impact (Almgren-Chriss square-root)
+        const impactBpOneWay = 10 * Math.sqrt(Math.max(advPct, 1e-6)) * Math.min(8.0, s.volMul);
+        const roundTripBp = spreadBp + 2 * impactBpOneWay;
+        const dragPct = (roundTripBp / 100) * s.trips;  // % per year
+        const netPct = s.retPct - dragPct;
+        return {
+            advPct: advPct,
+            spreadBp: spreadBp,
+            spreadMul: spreadMul,
+            impactBp: impactBpOneWay,
+            roundTripBp: roundTripBp,
+            dragPct: dragPct,
+            netPct: netPct,
+        };
+    }
+
+    // ---------- DOM ----------
+    const ROOT = document.getElementById("lq-root");
+    const SIZE = document.getElementById("lq-size");
+    const RET = document.getElementById("lq-ret");
+    const TRIPS = document.getElementById("lq-trips");
+    const VAL_SIZE = document.getElementById("lq-val-size");
+    const VAL_RET = document.getElementById("lq-val-ret");
+    const VAL_TRIPS = document.getElementById("lq-val-trips");
+    const PILLS_BUCKET = document.getElementById("lq-pills-bucket");
+    const PILLS_VOL = document.getElementById("lq-pills-vol");
+    const CHART_BARS = document.getElementById("lq-chart-bars");
+    const CHART_CURVE = document.getElementById("lq-chart-curve");
+    const VERDICT = document.getElementById("lq-verdict");
+
+    function fmtUsd(n) {
+        if (Math.abs(n) >= 1e9) return "$" + (n / 1e9).toFixed(2) + "B";
+        if (Math.abs(n) >= 1e6) return "$" + (n / 1e6).toFixed(2) + "M";
+        if (Math.abs(n) >= 1e3) return "$" + (n / 1e3).toFixed(n >= 1e4 ? 0 : 1) + "k";
+        return "$" + n.toFixed(0);
+    }
+
+    function getCss(name) {
+        return getComputedStyle(ROOT).getPropertyValue(name).trim();
+    }
+    function darkMode() {
+        return document.documentElement.getAttribute("data-theme") === "dark";
+    }
+
+    // Read sliders
+    function readSize() {
+        const v = parseFloat(SIZE.value);
+        return Math.round(Math.pow(10, v) / 100) * 100;
+    }
+    function readRet() { return parseFloat(RET.value); }
+    function readTrips() { return parseFloat(TRIPS.value); }
+
+    function updateLabels() {
+        VAL_SIZE.textContent = fmtUsd(state.sizeUsd);
+        VAL_RET.textContent  = state.retPct.toFixed(2) + "%";
+        VAL_TRIPS.textContent = state.trips.toFixed(1) + " / yr";
+    }
+
+    // Pills
+    function bindPills(container, onPick) {
+        container.querySelectorAll(".lq-pill").forEach(b => {
+            b.addEventListener("click", () => {
+                container.querySelectorAll(".lq-pill").forEach(x => x.classList.remove("lq-pill-active"));
+                b.classList.add("lq-pill-active");
+                onPick(b);
+                render();
+            });
+        });
+    }
+
+    // ---------- Localise static labels ----------
+    function localise() {
+        T = I18N[currentLang()];
+        document.getElementById("lq-name-size-block").textContent   = T.name_size_block;
+        document.getElementById("lq-name-bucket-block").textContent = T.name_bucket_block;
+        document.getElementById("lq-name-vol-block").textContent    = T.name_vol_block;
+        document.getElementById("lq-name-ann-block").textContent    = T.name_ann_block;
+        document.getElementById("lq-name-trips-block").textContent  = T.name_trips_block;
+        document.getElementById("lq-name-spread").textContent = T.name_spread;
+        document.getElementById("lq-name-impact").textContent = T.name_impact;
+        document.getElementById("lq-name-cost").textContent   = T.name_cost;
+        document.getElementById("lq-name-net").textContent    = T.name_net;
+        document.getElementById("lq-caption").textContent     = T.caption;
+
+        const bucketBtns = PILLS_BUCKET.querySelectorAll(".lq-pill");
+        const bkeys = ["mega", "large", "mid", "small", "micro"];
+        bucketBtns.forEach((b, i) => { b.textContent = T["bucket_" + bkeys[i]]; });
+
+        const volBtns = PILLS_VOL.querySelectorAll(".lq-pill");
+        const vkeys = ["calm", "normal", "stress", "crisis"];
+        volBtns.forEach((b, i) => { b.textContent = T["vol_" + vkeys[i]]; });
+    }
+
+    // ---------- Render ----------
+    function render() {
+        updateLabels();
+        const cost = computeCosts(state);
+        const colorAcc = getCss("--lq-accent");
+        const colorMid = getCss("--lq-mid");
+        const colorPos = getCss("--lq-pos");
+        const colorNeg = getCss("--lq-neg");
+        const colorPurp = getCss("--lq-purple");
+        const colorText = getCss("--lq-text");
+        const colorMuted = getCss("--lq-muted");
+        const colorBg = getCss("--lq-card");
+        const colorGrid = darkMode() ? "rgba(255,255,255,0.08)" : "rgba(0,0,0,0.07)";
+
+        const b = BUCKETS[state.bucket];
+
+        // ---------- KPIs ----------
+        document.getElementById("lq-val-spread").textContent = cost.spreadBp.toFixed(1) + " bp";
+        document.getElementById("lq-det-spread").textContent =
+            T.det_spread.replace("{q}", b.spread.toFixed(1)).replace("{m}", cost.spreadMul.toFixed(2));
+
+        document.getElementById("lq-val-impact").textContent = cost.impactBp.toFixed(1) + " bp";
+        document.getElementById("lq-det-impact").textContent =
+            T.det_impact.replace("{adv}", cost.advPct < 0.1 ? cost.advPct.toFixed(3) : cost.advPct.toFixed(2));
+
+        document.getElementById("lq-val-cost").textContent = cost.roundTripBp.toFixed(1) + " bp";
+        document.getElementById("lq-det-cost").textContent = T.det_cost;
+
+        const netStr = (cost.netPct >= 0 ? "+" : "") + cost.netPct.toFixed(2) + "%";
+        document.getElementById("lq-val-net").textContent = netStr;
+        document.getElementById("lq-det-net").textContent =
+            T.det_net.replace("{g}", state.retPct.toFixed(2)).replace("{drag}", cost.dragPct.toFixed(2));
+
+        // ---------- Verdict ----------
+        let vc, vt;
+        if (cost.roundTripBp < 25) { vc = "lq-good"; vt = T.verdict_good; }
+        else if (cost.roundTripBp < 150) { vc = "lq-meh"; vt = T.verdict_meh; }
+        else { vc = "lq-bad"; vt = T.verdict_bad; }
+        VERDICT.className = "lq-verdict " + vc;
+        VERDICT.textContent = vt;
+
+        // ---------- Chart 1: stacked bar of components ----------
+        const components = [
+            { y: [T.tr_spread],     x: [cost.spreadBp],  color: colorMid, name: T.tr_spread },
+            { y: [T.tr_impact_in],  x: [cost.impactBp],  color: colorAcc, name: T.tr_impact_in },
+            { y: [T.tr_impact_out], x: [cost.impactBp],  color: colorPurp, name: T.tr_impact_out },
+        ];
+        const traces1 = components.map(c => ({
+            type: "bar", orientation: "h",
+            x: c.x, y: c.y, name: c.name,
+            marker: { color: c.color },
+            text: c.x[0].toFixed(1) + " bp",
+            textposition: "outside",
+            hovertemplate: "%{y}: %{x:.1f} bp<extra></extra>",
+        }));
+        const layout1 = {
+            margin: { l: 110, r: 24, t: 36, b: 40 },
+            paper_bgcolor: colorBg,
+            plot_bgcolor: colorBg,
+            font: { family: "Segoe UI, Helvetica, Arial, sans-serif", color: colorText, size: 11 },
+            title: { text: T.chart_bars_title, font: { color: colorText, size: 13 } },
+            xaxis: { title: { text: T.x_bp, font: { color: colorMuted, size: 10 } },
+                     gridcolor: colorGrid, color: colorText, zerolinecolor: colorMuted },
+            yaxis: { color: colorText, automargin: true },
+            showlegend: false,
+            bargap: 0.45,
+        };
+        Plotly.react(CHART_BARS, traces1, layout1, { displayModeBar: false, responsive: true });
+
+        // ---------- Chart 2: cost vs size curve ----------
+        const sizes = [];
+        const costs = [];
+        for (let i = 0; i <= 60; i++) {
+            const lg = 3 + (7 - 3) * (i / 60);
+            const sz = Math.pow(10, lg);
+            const fakeState = Object.assign({}, state, { sizeUsd: sz });
+            const c = computeCosts(fakeState);
+            sizes.push(sz);
+            costs.push(c.roundTripBp);
+        }
+        const traces2 = [
+            {
+                x: sizes, y: costs,
+                type: "scatter", mode: "lines",
+                line: { color: colorAcc, width: 2.5 },
+                name: T.tr_curve,
+                hovertemplate: "$%{x:,.0f}: %{y:.1f} bp<extra></extra>",
+            },
+            {
+                x: [state.sizeUsd], y: [cost.roundTripBp],
+                type: "scatter", mode: "markers",
+                marker: { color: colorNeg, size: 12, line: { color: "white", width: 2 } },
+                name: T.tr_marker,
+                hovertemplate: "%{x:,.0f} USD<br>%{y:.1f} bp<extra></extra>",
+            },
+            // 25 bp + 150 bp threshold lines
+            {
+                x: [sizes[0], sizes[sizes.length - 1]], y: [25, 25],
+                type: "scatter", mode: "lines",
+                line: { color: colorPos, width: 1, dash: "dot" },
+                showlegend: false,
+                hoverinfo: "skip",
+            },
+            {
+                x: [sizes[0], sizes[sizes.length - 1]], y: [150, 150],
+                type: "scatter", mode: "lines",
+                line: { color: colorNeg, width: 1, dash: "dot" },
+                showlegend: false,
+                hoverinfo: "skip",
+            },
+        ];
+        const layout2 = {
+            margin: { l: 56, r: 16, t: 36, b: 44 },
+            paper_bgcolor: colorBg,
+            plot_bgcolor: colorBg,
+            font: { family: "Segoe UI, Helvetica, Arial, sans-serif", color: colorText, size: 11 },
+            title: { text: T.chart_curve_title, font: { color: colorText, size: 13 } },
+            xaxis: { title: { text: T.x_size, font: { color: colorMuted, size: 10 } },
+                     type: "log", gridcolor: colorGrid, color: colorText, zerolinecolor: colorMuted },
+            yaxis: { title: { text: T.y_bp, font: { color: colorMuted, size: 10 } },
+                     gridcolor: colorGrid, color: colorText, zerolinecolor: colorMuted,
+                     type: "log" },
+            showlegend: false,
+        };
+        Plotly.react(CHART_CURVE, traces2, layout2, { displayModeBar: false, responsive: true });
+
+        sendResize();
+    }
+
+    function sendResize() {
+        const h = document.documentElement.scrollHeight;
+        try {
+            window.parent.postMessage({ type: "lesson-interactive-resize", height: h }, "*");
+        } catch (e) { /* noop */ }
+    }
+
+    // ---------- Wire up ----------
+    SIZE.addEventListener("input", () => { state.sizeUsd = readSize(); render(); });
+    RET.addEventListener("input",  () => { state.retPct = readRet(); render(); });
+    TRIPS.addEventListener("input",() => { state.trips = readTrips(); render(); });
+
+    bindPills(PILLS_BUCKET, b => { state.bucket = b.dataset.bucket; });
+    bindPills(PILLS_VOL,    b => { state.volMul = parseFloat(b.dataset.vol); state.volKey = b.dataset.key; });
+
+    // Theme observer
+    const obs = new MutationObserver(() => render());
+    obs.observe(document.documentElement, { attributes: true, attributeFilter: ["data-theme"] });
+
+    window.addEventListener("resize", sendResize);
+
+    // Init
+    state.sizeUsd = readSize();
+    state.retPct = readRet();
+    state.trips = readTrips();
+    localise();
+    render();
+})();
+</script>
+</body>
+</html>

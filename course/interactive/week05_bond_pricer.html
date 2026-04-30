@@ -1,0 +1,566 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Bond Pricer — Interactive (Week 5)</title>
+<script src="https://cdn.plot.ly/plotly-2.35.2.min.js" charset="utf-8"></script>
+<style>
+html, body { margin: 0; padding: 0; background: var(--bp-bg); }
+:root {
+    --bp-bg: #fdfbf5;
+    --bp-text: #1a2332;
+    --bp-muted: #6b7280;
+    --bp-border: #d6d3c4;
+    --bp-card: #fdfbf5;
+    --bp-pos: #2e7d32;
+    --bp-neg: #b71c1c;
+    --bp-mid: #0d47a1;
+    --bp-accent: #b8860b;
+}
+html[data-theme="dark"] .bp-root,
+.bp-root[data-theme="dark"] {
+    --bp-bg: #0f1724;
+    --bp-text: #e6e6e6;
+    --bp-muted: #9aa3b2;
+    --bp-border: #2a3441;
+    --bp-card: #0f1724;
+    --bp-pos: #66bb6a;
+    --bp-neg: #ef5350;
+    --bp-mid: #5a8dee;
+}
+.bp-root {
+    font-family: 'Segoe UI', Helvetica, Arial, sans-serif;
+    background: var(--bp-bg);
+    color: var(--bp-text);
+    padding: 12px;
+    margin: 0;
+}
+.bp-controls {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 12px;
+    padding: 12px;
+    background: var(--bp-card);
+    border: 1px solid var(--bp-border);
+    border-radius: 8px;
+    margin-bottom: 14px;
+}
+.bp-slider-wrap {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    font-size: 0.82rem;
+    color: var(--bp-muted);
+}
+.bp-slider-wrap .bp-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+}
+.bp-slider-wrap .bp-name {
+    font-weight: 600;
+    color: var(--bp-text);
+}
+.bp-slider-wrap .bp-value {
+    color: var(--bp-text);
+    font-weight: 700;
+    font-variant-numeric: tabular-nums;
+}
+.bp-slider-wrap input[type="range"] {
+    width: 100%;
+    accent-color: var(--bp-accent);
+}
+.bp-pills {
+    display: flex;
+    gap: 4px;
+    flex-direction: column;
+}
+.bp-pill-row {
+    display: inline-flex;
+    border: 1px solid var(--bp-border);
+    border-radius: 999px;
+    overflow: hidden;
+    background: var(--bp-card);
+    align-self: flex-start;
+}
+.bp-pill-row button {
+    border: none;
+    background: transparent;
+    color: var(--bp-muted);
+    padding: 5px 12px;
+    font: inherit;
+    font-size: 0.8rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.15s, color 0.15s;
+}
+.bp-pill-row button.active {
+    background: var(--bp-accent);
+    color: #fff;
+}
+.bp-chart {
+    width: 100%;
+    height: 380px;
+    background: var(--bp-card);
+    border-radius: 8px;
+    border: 1px solid var(--bp-border);
+}
+.bp-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 10px;
+    margin-top: 14px;
+}
+.bp-stat {
+    background: var(--bp-card);
+    border: 1px solid var(--bp-border);
+    border-left: 4px solid var(--bp-muted);
+    border-radius: 8px;
+    padding: 10px 12px;
+}
+.bp-stat.bp-stat-price { border-left-color: var(--bp-accent); }
+.bp-stat.bp-stat-ytm { border-left-color: var(--bp-mid); }
+.bp-stat.bp-stat-cur { border-left-color: var(--bp-pos); }
+.bp-stat.bp-stat-dur { border-left-color: var(--bp-neg); }
+.bp-stat.bp-stat-mod { border-left-color: var(--bp-neg); }
+.bp-stat .bp-stat-name {
+    font-size: 0.74rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--bp-muted);
+}
+.bp-stat .bp-stat-val {
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-top: 4px;
+    font-variant-numeric: tabular-nums;
+}
+.bp-stat .bp-stat-detail {
+    font-size: 0.74rem;
+    color: var(--bp-muted);
+    margin-top: 2px;
+}
+.bp-caption {
+    margin-top: 10px;
+    font-size: 0.78rem;
+    color: var(--bp-muted);
+    line-height: 1.45;
+}
+@media (max-width: 640px) {
+    .bp-chart { height: 320px; }
+}
+</style>
+</head>
+<body>
+
+<div class="bp-root" id="bp-root">
+    <div class="bp-controls">
+        <div class="bp-slider-wrap">
+            <div class="bp-row">
+                <span class="bp-name" id="bp-l-face">Face value</span>
+                <span class="bp-value" id="bp-v-face">$1,000</span>
+            </div>
+            <input type="range" id="bp-s-face" min="100" max="10000" step="100" value="1000">
+        </div>
+        <div class="bp-slider-wrap">
+            <div class="bp-row">
+                <span class="bp-name" id="bp-l-coupon">Coupon rate</span>
+                <span class="bp-value" id="bp-v-coupon">4.0%</span>
+            </div>
+            <input type="range" id="bp-s-coupon" min="0" max="12" step="0.25" value="4">
+        </div>
+        <div class="bp-slider-wrap">
+            <div class="bp-row">
+                <span class="bp-name" id="bp-l-years">Years to maturity</span>
+                <span class="bp-value" id="bp-v-years">10 yr</span>
+            </div>
+            <input type="range" id="bp-s-years" min="1" max="30" step="1" value="10">
+        </div>
+        <div class="bp-slider-wrap">
+            <div class="bp-row">
+                <span class="bp-name" id="bp-l-yield">Market yield</span>
+                <span class="bp-value" id="bp-v-yield">5.0%</span>
+            </div>
+            <input type="range" id="bp-s-yield" min="0.1" max="15" step="0.1" value="5">
+        </div>
+        <div class="bp-pills">
+            <span class="bp-name" id="bp-l-freq" style="font-size:0.82rem;color:var(--bp-text);font-weight:600;">Payments per year</span>
+            <div class="bp-pill-row" id="bp-pill-freq" role="tablist" aria-label="Payments per year">
+                <button type="button" data-m="1">1</button>
+                <button type="button" data-m="2" class="active">2</button>
+                <button type="button" data-m="4">4</button>
+                <button type="button" data-m="12">12</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="bp-chart" class="bp-chart"></div>
+
+    <div class="bp-stats">
+        <div class="bp-stat bp-stat-price">
+            <div class="bp-stat-name" id="bp-name-price">Price</div>
+            <div class="bp-stat-val" id="bp-val-price">—</div>
+            <div class="bp-stat-detail" id="bp-det-price">—</div>
+        </div>
+        <div class="bp-stat bp-stat-ytm">
+            <div class="bp-stat-name" id="bp-name-ytm">Yield to maturity</div>
+            <div class="bp-stat-val" id="bp-val-ytm">—</div>
+            <div class="bp-stat-detail" id="bp-det-ytm">—</div>
+        </div>
+        <div class="bp-stat bp-stat-cur">
+            <div class="bp-stat-name" id="bp-name-cur">Current yield</div>
+            <div class="bp-stat-val" id="bp-val-cur">—</div>
+            <div class="bp-stat-detail" id="bp-det-cur">—</div>
+        </div>
+        <div class="bp-stat bp-stat-dur">
+            <div class="bp-stat-name" id="bp-name-dur">Macaulay duration</div>
+            <div class="bp-stat-val" id="bp-val-dur">—</div>
+            <div class="bp-stat-detail" id="bp-det-dur">—</div>
+        </div>
+        <div class="bp-stat bp-stat-mod">
+            <div class="bp-stat-name" id="bp-name-mod">Modified duration</div>
+            <div class="bp-stat-val" id="bp-val-mod">—</div>
+            <div class="bp-stat-detail" id="bp-det-mod">—</div>
+        </div>
+    </div>
+
+    <p class="bp-caption" id="bp-caption">
+        Slide the four contract numbers and the market yield to watch price recompute.
+    </p>
+</div>
+
+<script>
+(function () {
+    const I18N = {
+        en: {
+            l_face:    "Face value",
+            l_coupon:  "Coupon rate",
+            l_years:   "Years to maturity",
+            l_yield:   "Market yield",
+            l_freq:    "Payments per year",
+            n_price:   "Price",
+            n_ytm:     "Yield to maturity",
+            n_cur:     "Current yield",
+            n_dur:     "Macaulay duration",
+            n_mod:     "Modified duration",
+            x_title:   "Market yield",
+            y_title:   "Price",
+            par:       "at par",
+            premium:   "premium",
+            discount:  "discount",
+            chart_now: "current",
+            face_line: "face",
+            d_pct1:    "{p:+.2f}% per 1% rate rise",
+            yr:        "yr",
+            yrs:       "yrs",
+            cur_detail: "{c:.2f} / price",
+            ytm_detail: "discount rate of cash flows",
+            caption:   "Price = sum of coupons plus face, all discounted at the market yield. Set yield equal to coupon and the price is exactly face. Slide maturity longer to see the curve bend more sharply — that bend is convexity. The price-yield curve is the entire bond market in one picture.",
+        },
+        hk: {
+            l_face:    "面值",
+            l_coupon:  "票面利率",
+            l_years:   "到期年限",
+            l_yield:   "市場孳息率",
+            l_freq:    "每年付息次數",
+            n_price:   "價格",
+            n_ytm:     "到期孳息率",
+            n_cur:     "當期孳息率",
+            n_dur:     "麥考利存續期",
+            n_mod:     "修正存續期",
+            x_title:   "市場孳息率",
+            y_title:   "價格",
+            par:       "平價",
+            premium:   "溢價",
+            discount:  "折價",
+            chart_now: "目前",
+            face_line: "面值",
+            d_pct1:    "孳息上升 1%,價格約 {p:+.2f}%",
+            yr:        "年",
+            yrs:       "年",
+            cur_detail: "{c:.2f} / 價格",
+            ytm_detail: "現金流折現率",
+            caption:   "價格 = 各期票息與面值在市場孳息率下的現值之和。當孳息等於票息時,價格剛好等於面值。把到期年限拖長,曲線會更明顯彎曲——那就是凸性。一張圖看懂整個債券市場。",
+        },
+        tw: {
+            l_face:    "面值",
+            l_coupon:  "票面利率",
+            l_years:   "到期年限",
+            l_yield:   "市場殖利率",
+            l_freq:    "每年付息次數",
+            n_price:   "價格",
+            n_ytm:     "到期殖利率",
+            n_cur:     "當期殖利率",
+            n_dur:     "麥考利存續期",
+            n_mod:     "修正存續期",
+            x_title:   "市場殖利率",
+            y_title:   "價格",
+            par:       "平價",
+            premium:   "溢價",
+            discount:  "折價",
+            chart_now: "目前",
+            face_line: "面值",
+            d_pct1:    "殖利率上升 1%,價格約 {p:+.2f}%",
+            yr:        "年",
+            yrs:       "年",
+            cur_detail: "{c:.2f} / 價格",
+            ytm_detail: "現金流折現率",
+            caption:   "價格 = 各期票息與面值在市場殖利率下的現值總和。當殖利率等於票息時,價格剛好等於面值。把到期年限拖長,曲線會更明顯彎曲——那就是凸性。一張圖看懂整個債券市場。",
+        },
+        cn: {
+            l_face:    "面值",
+            l_coupon:  "票面利率",
+            l_years:   "到期年限",
+            l_yield:   "市场收益率",
+            l_freq:    "每年付息次数",
+            n_price:   "价格",
+            n_ytm:     "到期收益率",
+            n_cur:     "当期收益率",
+            n_dur:     "麦考利久期",
+            n_mod:     "修正久期",
+            x_title:   "市场收益率",
+            y_title:   "价格",
+            par:       "平价",
+            premium:   "溢价",
+            discount:  "折价",
+            chart_now: "当前",
+            face_line: "面值",
+            d_pct1:    "收益率上升 1%,价格约 {p:+.2f}%",
+            yr:        "年",
+            yrs:       "年",
+            cur_detail: "{c:.2f} / 价格",
+            ytm_detail: "现金流贴现率",
+            caption:   "价格 = 各期票息与面值在市场收益率下的现值之和。当收益率等于票息时,价格恰好等于面值。把到期年限拖长,曲线会更明显弯曲——那就是凸性。一张图看懂整个债券市场。",
+        },
+    };
+    function currentLang() {
+        const p = new URLSearchParams(window.location.search);
+        const l = (p.get("lang") || "en").toLowerCase();
+        return I18N.hasOwnProperty(l) ? l : "en";
+    }
+    const T = I18N[currentLang()];
+
+    const ROOT = document.getElementById("bp-root");
+    const CHART = document.getElementById("bp-chart");
+
+    // Inputs
+    const sFace = document.getElementById("bp-s-face");
+    const sCoupon = document.getElementById("bp-s-coupon");
+    const sYears = document.getElementById("bp-s-years");
+    const sYield = document.getElementById("bp-s-yield");
+    const pFreq = document.getElementById("bp-pill-freq");
+
+    const vFace = document.getElementById("bp-v-face");
+    const vCoupon = document.getElementById("bp-v-coupon");
+    const vYears = document.getElementById("bp-v-years");
+    const vYield = document.getElementById("bp-v-yield");
+
+    let state = { F: 1000, c: 0.04, N: 10, y: 0.05, m: 2 };
+
+    function bondPrice(F, c, N, y, m) {
+        // P = sum_{t=1}^{mN} C/(1+y/m)^t + F/(1+y/m)^{mN}
+        const C = F * c / m;
+        const r = y / m;
+        const n = m * N;
+        if (Math.abs(r) < 1e-9) return C * n + F;
+        const pvCoupons = C * (1 - Math.pow(1 + r, -n)) / r;
+        const pvFace = F / Math.pow(1 + r, n);
+        return pvCoupons + pvFace;
+    }
+
+    function macaulayDuration(F, c, N, y, m) {
+        // weighted average maturity in years
+        const C = F * c / m;
+        const r = y / m;
+        const n = m * N;
+        const P = bondPrice(F, c, N, y, m);
+        if (P <= 0) return 0;
+        let weighted = 0;
+        for (let t = 1; t <= n; t++) {
+            const cf = (t === n) ? C + F : C;
+            weighted += (t / m) * cf / Math.pow(1 + r, t);
+        }
+        return weighted / P;
+    }
+
+    function fmtMoney(v) {
+        if (!isFinite(v)) return "—";
+        return "$" + v.toLocaleString(undefined, { maximumFractionDigits: 2, minimumFractionDigits: 2 });
+    }
+    function fmtPct(v) {
+        if (!isFinite(v)) return "—";
+        return (v * 100).toFixed(2) + "%";
+    }
+
+    function getCssVar(name) {
+        return getComputedStyle(ROOT).getPropertyValue(name).trim();
+    }
+    function darkMode() {
+        return document.documentElement.getAttribute("data-theme") === "dark";
+    }
+
+    function render() {
+        const { F, c, N, y, m } = state;
+        const price = bondPrice(F, c, N, y, m);
+        const D_mac = macaulayDuration(F, c, N, y, m);
+        const D_mod = D_mac / (1 + y / m);
+        const currentYield = (F * c) / price;
+
+        // Build price-yield curve from y=0.001 to 15%
+        const ys = [], ps = [];
+        for (let yi = 0.001; yi <= 0.1501; yi += 0.001) {
+            ys.push(yi * 100);
+            ps.push(bondPrice(F, c, N, yi, m));
+        }
+
+        const cAcc = getCssVar("--bp-accent");
+        const cMid = getCssVar("--bp-mid");
+        const cMuted = getCssVar("--bp-muted");
+        const cText = getCssVar("--bp-text");
+        const cBg = getCssVar("--bp-card");
+        const cGrid = darkMode() ? "rgba(255,255,255,0.08)" : "rgba(0,0,0,0.07)";
+
+        const traces = [
+            {
+                x: ys, y: ps,
+                type: "scatter", mode: "lines",
+                line: { color: cMid, width: 2.4 },
+                name: T.y_title,
+                hovertemplate: "y = %{x:.2f}%<br>P = $%{y:,.2f}<extra></extra>",
+            },
+            {
+                x: [y * 100], y: [price],
+                type: "scatter", mode: "markers",
+                marker: { color: cAcc, size: 12, line: { color: "#fff", width: 1.5 } },
+                name: T.chart_now,
+                hovertemplate: "y = %{x:.2f}%<br>P = $%{y:,.2f}<extra>" + T.chart_now + "</extra>",
+            },
+        ];
+        const layout = {
+            margin: { l: 64, r: 24, t: 28, b: 44 },
+            paper_bgcolor: cBg,
+            plot_bgcolor: cBg,
+            font: { family: "Segoe UI, Helvetica, Arial, sans-serif", color: cText, size: 12 },
+            xaxis: {
+                title: { text: T.x_title + " (%)", font: { color: cMuted, size: 11 } },
+                gridcolor: cGrid, zerolinecolor: cMuted,
+                color: cText,
+                range: [0, 15],
+            },
+            yaxis: {
+                title: { text: T.y_title + " ($)", font: { color: cMuted, size: 11 } },
+                gridcolor: cGrid, zerolinecolor: cGrid,
+                color: cText,
+                tickformat: "$,.0f",
+            },
+            shapes: [
+                {
+                    type: "line", xref: "x", yref: "y",
+                    x0: 0, x1: 15, y0: F, y1: F,
+                    line: { color: cMuted, width: 1, dash: "dot" },
+                },
+                {
+                    type: "line", xref: "x", yref: "paper",
+                    x0: c * 100, x1: c * 100, y0: 0, y1: 1,
+                    line: { color: cMuted, width: 1, dash: "dot" },
+                },
+            ],
+            annotations: [
+                {
+                    x: 14.8, y: F, xref: "x", yref: "y",
+                    text: T.face_line + " = " + fmtMoney(F),
+                    showarrow: false, xanchor: "right", yanchor: "bottom",
+                    font: { color: cMuted, size: 10 },
+                    bgcolor: cBg,
+                },
+            ],
+            showlegend: false,
+            hovermode: "x unified",
+        };
+
+        Plotly.react(CHART, traces, layout, { displayModeBar: false, responsive: true });
+
+        // Stats
+        document.getElementById("bp-val-price").textContent = fmtMoney(price);
+        let parTag;
+        if (Math.abs(price - F) < 0.01) parTag = T.par;
+        else if (price > F) parTag = T.premium + " (+" + ((price - F) / F * 100).toFixed(2) + "%)";
+        else parTag = T.discount + " (" + ((price - F) / F * 100).toFixed(2) + "%)";
+        document.getElementById("bp-det-price").textContent = parTag;
+
+        document.getElementById("bp-val-ytm").textContent = fmtPct(y);
+        document.getElementById("bp-det-ytm").textContent = T.ytm_detail;
+
+        document.getElementById("bp-val-cur").textContent = fmtPct(currentYield);
+        document.getElementById("bp-det-cur").textContent = T.cur_detail.replace("{c:.2f}", (F * c).toFixed(2));
+
+        document.getElementById("bp-val-dur").textContent = D_mac.toFixed(2) + " " + T.yrs;
+        document.getElementById("bp-det-dur").textContent = "—";
+
+        document.getElementById("bp-val-mod").textContent = D_mod.toFixed(2) + " " + T.yrs;
+        document.getElementById("bp-det-mod").textContent = T.d_pct1.replace("{p:+.2f}", (-D_mod).toFixed(2));
+    }
+
+    function updateLabels() {
+        vFace.textContent = "$" + state.F.toLocaleString();
+        vCoupon.textContent = (state.c * 100).toFixed(2) + "%";
+        vYears.textContent = state.N + " " + (state.N === 1 ? T.yr : T.yrs);
+        vYield.textContent = (state.y * 100).toFixed(2) + "%";
+    }
+
+    sFace.addEventListener("input", () => { state.F = parseFloat(sFace.value); updateLabels(); render(); });
+    sCoupon.addEventListener("input", () => { state.c = parseFloat(sCoupon.value) / 100; updateLabels(); render(); });
+    sYears.addEventListener("input", () => { state.N = parseInt(sYears.value, 10); updateLabels(); render(); });
+    sYield.addEventListener("input", () => { state.y = parseFloat(sYield.value) / 100; updateLabels(); render(); });
+    pFreq.querySelectorAll("button").forEach(btn => {
+        btn.addEventListener("click", () => {
+            pFreq.querySelectorAll("button").forEach(b => b.classList.remove("active"));
+            btn.classList.add("active");
+            state.m = parseInt(btn.dataset.m, 10);
+            render();
+        });
+    });
+
+    function applyI18n() {
+        document.getElementById("bp-l-face").textContent = T.l_face;
+        document.getElementById("bp-l-coupon").textContent = T.l_coupon;
+        document.getElementById("bp-l-years").textContent = T.l_years;
+        document.getElementById("bp-l-yield").textContent = T.l_yield;
+        document.getElementById("bp-l-freq").textContent = T.l_freq;
+        document.getElementById("bp-name-price").textContent = T.n_price;
+        document.getElementById("bp-name-ytm").textContent = T.n_ytm;
+        document.getElementById("bp-name-cur").textContent = T.n_cur;
+        document.getElementById("bp-name-dur").textContent = T.n_dur;
+        document.getElementById("bp-name-mod").textContent = T.n_mod;
+        document.getElementById("bp-caption").textContent = T.caption;
+    }
+
+    applyI18n();
+    updateLabels();
+    render();
+
+    function reportHeight() {
+        try {
+            var h = Math.ceil(document.documentElement.scrollHeight);
+            parent.postMessage({ type: 'lesson-interactive-resize', height: h }, '*');
+        } catch (e) { /* ignore */ }
+    }
+    if (typeof ResizeObserver !== 'undefined') {
+        new ResizeObserver(reportHeight).observe(document.body);
+    }
+    window.addEventListener('resize', reportHeight);
+    setTimeout(reportHeight, 50);
+    setTimeout(reportHeight, 500);
+
+    const themeObserver = new MutationObserver(render);
+    themeObserver.observe(document.documentElement, {
+        attributes: true,
+        attributeFilter: ["data-theme"],
+    });
+})();
+</script>
+
+</body>
+</html>

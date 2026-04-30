@@ -1,0 +1,692 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Regression Lab — Interactive (Week 45)</title>
+<script src="https://cdn.plot.ly/plotly-2.35.2.min.js" charset="utf-8"></script>
+<style>
+html, body { margin: 0; padding: 0; background: var(--rg-bg); }
+:root {
+    --rg-bg: #fdfbf5;
+    --rg-text: #1a2332;
+    --rg-muted: #6b7280;
+    --rg-border: #d6d3c4;
+    --rg-card: #fdfbf5;
+    --rg-pos: #2e7d32;
+    --rg-neg: #b71c1c;
+    --rg-mid: #0d47a1;
+    --rg-accent: #b8860b;
+    --rg-purple: #6a1b9a;
+}
+html[data-theme="dark"] .rg-root,
+.rg-root[data-theme="dark"] {
+    --rg-bg: #0f1724;
+    --rg-text: #e6e6e6;
+    --rg-muted: #9aa3b2;
+    --rg-border: #2a3441;
+    --rg-card: #0f1724;
+    --rg-pos: #66bb6a;
+    --rg-neg: #ef5350;
+    --rg-mid: #5a8dee;
+    --rg-purple: #ce93d8;
+}
+.rg-root {
+    font-family: 'Segoe UI', Helvetica, Arial, sans-serif;
+    background: var(--rg-bg);
+    color: var(--rg-text);
+    padding: 12px;
+    margin: 0;
+}
+.rg-presets {
+    display: flex; flex-wrap: wrap; gap: 8px;
+    margin-bottom: 10px; align-items: center;
+}
+.rg-presets-label {
+    font-size: 0.78rem; color: var(--rg-muted);
+    margin-right: 4px; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+.rg-preset {
+    background: var(--rg-card);
+    border: 1px solid var(--rg-border);
+    color: var(--rg-text);
+    padding: 5px 11px;
+    font-size: 0.82rem;
+    border-radius: 999px;
+    cursor: pointer;
+    font-family: inherit;
+}
+.rg-preset:hover { border-color: var(--rg-accent); }
+.rg-preset.rg-active {
+    background: var(--rg-accent); color: #fff; border-color: var(--rg-accent);
+}
+.rg-controls {
+    background: var(--rg-card);
+    border: 1px solid var(--rg-border);
+    border-radius: 8px;
+    padding: 10px 14px 12px;
+    margin-bottom: 14px;
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 14px;
+}
+.rg-slider-wrap {
+    display: flex; flex-direction: column; gap: 4px;
+    font-size: 0.82rem; color: var(--rg-muted);
+}
+.rg-slider-wrap .rg-fac-label {
+    font-weight: 700; color: var(--rg-text); display: flex;
+    justify-content: space-between; align-items: baseline;
+}
+.rg-slider-wrap .rg-fac-name { font-size: 0.82rem; }
+.rg-slider-wrap .rg-fac-val {
+    font-variant-numeric: tabular-nums;
+    color: var(--rg-accent);
+    font-size: 0.95rem;
+}
+.rg-slider-wrap input[type="range"] { accent-color: var(--rg-accent); width: 100%; }
+
+.rg-chart {
+    width: 100%; height: 440px;
+    background: var(--rg-card);
+    border-radius: 8px; border: 1px solid var(--rg-border);
+}
+.rg-stats {
+    display: grid; grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 10px; margin-top: 14px;
+}
+.rg-stat {
+    background: var(--rg-card);
+    border: 1px solid var(--rg-border);
+    border-left: 4px solid var(--rg-muted);
+    border-radius: 8px;
+    padding: 10px 12px;
+}
+.rg-stat.rg-stat-pos { border-left-color: var(--rg-pos); }
+.rg-stat.rg-stat-neg { border-left-color: var(--rg-neg); }
+.rg-stat.rg-stat-mid { border-left-color: var(--rg-mid); }
+.rg-stat.rg-stat-acc { border-left-color: var(--rg-accent); }
+.rg-stat .rg-stat-name {
+    font-size: 0.74rem; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.5px;
+    color: var(--rg-muted);
+}
+.rg-stat .rg-stat-val {
+    font-size: 1.25rem; font-weight: 700; margin-top: 4px;
+    font-variant-numeric: tabular-nums;
+}
+.rg-stat .rg-stat-detail {
+    font-size: 0.75rem; color: var(--rg-muted);
+    margin-top: 2px; font-variant-numeric: tabular-nums;
+}
+.rg-caption {
+    margin-top: 12px; font-size: 0.78rem;
+    color: var(--rg-muted); line-height: 1.45;
+}
+@media (max-width: 860px) {
+    .rg-controls { grid-template-columns: repeat(2, 1fr); }
+    .rg-stats { grid-template-columns: repeat(2, 1fr); }
+    .rg-chart { height: 360px; }
+}
+</style>
+</head>
+<body>
+
+<div class="rg-root" id="rg-root">
+
+    <div class="rg-presets">
+        <span class="rg-presets-label" id="rg-presets-label">Presets</span>
+        <button class="rg-preset rg-active" data-preset="skilled" id="rg-pre-skilled">Low-noise skilled</button>
+        <button class="rg-preset" data-preset="typical" id="rg-pre-typical">Typical fund</button>
+        <button class="rg-preset" data-preset="hedge" id="rg-pre-hedge">Hedge-fund-like</button>
+        <button class="rg-preset" data-preset="zeroalpha" id="rg-pre-zero">Zero alpha</button>
+        <button class="rg-preset" data-preset="short" id="rg-pre-short">Short window</button>
+    </div>
+
+    <div class="rg-controls">
+        <div class="rg-slider-wrap">
+            <div class="rg-fac-label">
+                <span class="rg-fac-name" id="rg-lbl-n">Number of months (N)</span>
+                <span class="rg-fac-val" id="rg-val-n">60</span>
+            </div>
+            <input type="range" id="rg-sl-n" min="12" max="300" step="1" value="60">
+        </div>
+        <div class="rg-slider-wrap">
+            <div class="rg-fac-label">
+                <span class="rg-fac-name" id="rg-lbl-alpha">True alpha (bps/yr)</span>
+                <span class="rg-fac-val" id="rg-val-alpha">200</span>
+            </div>
+            <input type="range" id="rg-sl-alpha" min="-300" max="600" step="10" value="200">
+        </div>
+        <div class="rg-slider-wrap">
+            <div class="rg-fac-label">
+                <span class="rg-fac-name" id="rg-lbl-beta">True beta</span>
+                <span class="rg-fac-val" id="rg-val-beta">0.85</span>
+            </div>
+            <input type="range" id="rg-sl-beta" min="-0.5" max="2.5" step="0.05" value="0.85">
+        </div>
+        <div class="rg-slider-wrap">
+            <div class="rg-fac-label">
+                <span class="rg-fac-name" id="rg-lbl-noise">Residual vol (%/yr)</span>
+                <span class="rg-fac-val" id="rg-val-noise">4.5</span>
+            </div>
+            <input type="range" id="rg-sl-noise" min="0.5" max="20" step="0.1" value="4.5">
+        </div>
+    </div>
+
+    <div id="rg-chart" class="rg-chart"></div>
+
+    <div class="rg-stats">
+        <div class="rg-stat rg-stat-acc">
+            <div class="rg-stat-name" id="rg-name-alpha">Estimated alpha</div>
+            <div class="rg-stat-val" id="rg-stat-alpha">—</div>
+            <div class="rg-stat-detail" id="rg-det-alpha">95% CI</div>
+        </div>
+        <div class="rg-stat rg-stat-mid">
+            <div class="rg-stat-name" id="rg-name-beta">Estimated beta</div>
+            <div class="rg-stat-val" id="rg-stat-beta">—</div>
+            <div class="rg-stat-detail" id="rg-det-beta">95% CI</div>
+        </div>
+        <div class="rg-stat rg-stat-pos">
+            <div class="rg-stat-name" id="rg-name-talpha">t-stat (alpha)</div>
+            <div class="rg-stat-val" id="rg-stat-talpha">—</div>
+            <div class="rg-stat-detail" id="rg-det-talpha">significance</div>
+        </div>
+        <div class="rg-stat rg-stat-neg">
+            <div class="rg-stat-name" id="rg-name-r2">R-squared</div>
+            <div class="rg-stat-val" id="rg-stat-r2">—</div>
+            <div class="rg-stat-detail" id="rg-det-r2">market explains</div>
+        </div>
+    </div>
+
+    <p class="rg-caption" id="rg-caption">
+        Synthetic monthly portfolio returns generated as alpha + beta * market + noise, then regressed via OLS to recover the parameters. Move the sliders to see how confidence intervals widen with fewer points or higher noise. The 95% CI band on the regression line shows where the *true* line is most likely to lie given this sample. The interpretation lesson: if zero falls inside the alpha CI, you cannot statistically distinguish your manager from one with no skill at all.
+    </p>
+</div>
+
+<script>
+(function () {
+    const I18N = {
+        en: {
+            presets:    "Presets",
+            p_skilled:  "Low-noise skilled",
+            p_typical:  "Typical fund",
+            p_hedge:    "Hedge-fund-like",
+            p_zero:     "Zero alpha",
+            p_short:    "Short window",
+            lbl_n:      "Number of months (N)",
+            lbl_alpha:  "True alpha (bps/yr)",
+            lbl_beta:   "True beta",
+            lbl_noise:  "Residual vol (%/yr)",
+            name_alpha: "Estimated alpha",
+            det_alpha:  "95% CI",
+            name_beta:  "Estimated beta",
+            det_beta:   "95% CI",
+            name_talpha:"t-stat (alpha)",
+            det_talpha_sig: "significant at 95%",
+            det_talpha_ns:  "NOT significant",
+            name_r2:    "R-squared",
+            det_r2:     "{p}% explained by market",
+            chart_title:"Portfolio vs Market — synthetic data with OLS fit",
+            x_title:    "Market monthly return",
+            y_title:    "Portfolio monthly return",
+            scatter:    "Monthly observations",
+            fit_line:   "OLS regression line",
+            ci_band:    "95% CI on fitted line",
+            true_line:  "True line (alpha + beta * x)",
+            caption:    "Synthetic monthly portfolio returns generated as alpha + beta * market + noise, then regressed via OLS to recover the parameters. Move the sliders to see how confidence intervals widen with fewer points or higher noise. The 95% CI band on the regression line shows where the *true* line is most likely to lie given this sample. The interpretation lesson: if zero falls inside the alpha CI, you cannot statistically distinguish your manager from one with no skill at all.",
+        },
+        hk: {
+            presets:    "預設組合",
+            p_skilled:  "低噪音、有技能",
+            p_typical:  "典型基金",
+            p_hedge:    "類對沖基金",
+            p_zero:     "零 alpha",
+            p_short:    "短窗口",
+            lbl_n:      "月份數(N)",
+            lbl_alpha:  "真實 alpha(bps/年)",
+            lbl_beta:   "真實 beta",
+            lbl_noise:  "殘差波動率(%/年)",
+            name_alpha: "估計 alpha",
+            det_alpha:  "95% 置信區間",
+            name_beta:  "估計 beta",
+            det_beta:   "95% 置信區間",
+            name_talpha:"t 值(alpha)",
+            det_talpha_sig: "在 95% 顯著",
+            det_talpha_ns:  "不顯著",
+            name_r2:    "R 平方",
+            det_r2:     "市場解釋 {p}%",
+            chart_title:"組合 vs 市場 — 合成資料與 OLS 擬合",
+            x_title:    "市場月度回報",
+            y_title:    "組合月度回報",
+            scatter:    "月度觀測",
+            fit_line:   "OLS 迴歸線",
+            ci_band:    "擬合線的 95% 置信帶",
+            true_line:  "真實線(alpha + beta * x)",
+            caption:    "合成月度組合回報以 alpha + beta * 市場 + 噪音 生成,再用 OLS 回歸還原參數。拖動滑桿觀察:當點數變少或噪音變大,置信區間會變寬。擬合線的 95% 置信帶代表在此樣本下「真實線」最可能所在的區域。重點解讀:若 0 落在 alpha 的置信區間內,你便無法在統計上分辨這位基金經理與毫無技能者。",
+        },
+        tw: {
+            presets:    "預設組合",
+            p_skilled:  "低雜訊、有技能",
+            p_typical:  "典型基金",
+            p_hedge:    "類避險基金",
+            p_zero:     "零 alpha",
+            p_short:    "短窗口",
+            lbl_n:      "月份數(N)",
+            lbl_alpha:  "真實 alpha(bps/年)",
+            lbl_beta:   "真實 beta",
+            lbl_noise:  "殘差波動率(%/年)",
+            name_alpha: "估計 alpha",
+            det_alpha:  "95% 置信區間",
+            name_beta:  "估計 beta",
+            det_beta:   "95% 置信區間",
+            name_talpha:"t 值(alpha)",
+            det_talpha_sig: "在 95% 顯著",
+            det_talpha_ns:  "不顯著",
+            name_r2:    "R 平方",
+            det_r2:     "市場解釋 {p}%",
+            chart_title:"組合 vs 市場 — 合成資料與 OLS 擬合",
+            x_title:    "市場月度報酬",
+            y_title:    "組合月度報酬",
+            scatter:    "月度觀測",
+            fit_line:   "OLS 迴歸線",
+            ci_band:    "擬合線的 95% 置信帶",
+            true_line:  "真實線(alpha + beta * x)",
+            caption:    "合成月度組合報酬以 alpha + beta * 市場 + 雜訊 生成,再用 OLS 迴歸還原參數。拖動滑桿觀察:當點數變少或雜訊變大,置信區間會變寬。擬合線的 95% 置信帶代表在此樣本下「真實線」最可能所在的區域。重點解讀:若 0 落在 alpha 的置信區間內,你便無法在統計上分辨這位基金經理與毫無技能者。",
+        },
+        cn: {
+            presets:    "预设组合",
+            p_skilled:  "低噪音、有技能",
+            p_typical:  "典型基金",
+            p_hedge:    "类对冲基金",
+            p_zero:     "零 alpha",
+            p_short:    "短窗口",
+            lbl_n:      "月份数(N)",
+            lbl_alpha:  "真实 alpha(bps/年)",
+            lbl_beta:   "真实 beta",
+            lbl_noise:  "残差波动率(%/年)",
+            name_alpha: "估计 alpha",
+            det_alpha:  "95% 置信区间",
+            name_beta:  "估计 beta",
+            det_beta:   "95% 置信区间",
+            name_talpha:"t 值(alpha)",
+            det_talpha_sig: "在 95% 显著",
+            det_talpha_ns:  "不显著",
+            name_r2:    "R 平方",
+            det_r2:     "市场解释 {p}%",
+            chart_title:"组合 vs 市场 — 合成数据与 OLS 拟合",
+            x_title:    "市场月度回报",
+            y_title:    "组合月度回报",
+            scatter:    "月度观测",
+            fit_line:   "OLS 回归线",
+            ci_band:    "拟合线的 95% 置信带",
+            true_line:  "真实线(alpha + beta * x)",
+            caption:    "合成月度组合回报以 alpha + beta * 市场 + 噪音 生成,再用 OLS 回归还原参数。拖动滑块观察:当点数变少或噪音变大,置信区间会变宽。拟合线的 95% 置信带代表在此样本下「真实线」最可能所在的区域。重点解读:若 0 落在 alpha 的置信区间内,你便无法在统计上分辨这位基金经理与毫无技能者。",
+        },
+    };
+
+    function currentLang() {
+        const p = new URLSearchParams(window.location.search);
+        const l = (p.get("lang") || "en").toLowerCase();
+        return I18N.hasOwnProperty(l) ? l : "en";
+    }
+    const T = I18N[currentLang()];
+
+    // ---- Constants ----
+    const MKT_MEAN_YR = 0.08;
+    const MKT_VOL_YR  = 0.155;
+    const SQRT12 = Math.sqrt(12);
+    const SEED   = 20260429;
+
+    // ---- LCG + Box-Muller for deterministic Gaussians ----
+    function lcg(seed) {
+        let s = (seed >>> 0) || 1;
+        return function () {
+            s = (s * 1664525 + 1013904223) >>> 0;
+            return s / 4294967296;
+        };
+    }
+    function gauss(seed, n) {
+        const r = lcg(seed);
+        const out = new Float64Array(n);
+        for (let i = 0; i < n; i += 2) {
+            let u1 = r(); if (u1 < 1e-12) u1 = 1e-12;
+            const u2 = r();
+            const mag = Math.sqrt(-2 * Math.log(u1));
+            out[i] = mag * Math.cos(2 * Math.PI * u2);
+            if (i + 1 < n) out[i + 1] = mag * Math.sin(2 * Math.PI * u2);
+        }
+        return out;
+    }
+
+    // Generate (rm, rp) deterministic for given (n, alpha_yr_bps, beta, noise_yr_pct)
+    function simulate(n, alphaBpsYr, beta, noisePctYr) {
+        const muMo  = MKT_MEAN_YR / 12.0;
+        const sMkt  = MKT_VOL_YR / SQRT12;
+        const aMo   = (alphaBpsYr / 1e4) / 12.0;
+        const sEps  = (noisePctYr / 100.0) / SQRT12;
+        const zMkt = gauss(SEED, n);
+        const zEps = gauss(SEED ^ 0xDEADBEEF, n);
+        const rm = new Float64Array(n);
+        const rp = new Float64Array(n);
+        for (let i = 0; i < n; i++) {
+            rm[i] = muMo + sMkt * zMkt[i];
+            rp[i] = aMo + beta * rm[i] + sEps * zEps[i];
+        }
+        return { rm, rp };
+    }
+
+    // OLS: y = a + b*x; returns alpha, beta, SEs, t-stats, R2, fitted line stats.
+    function ols(x, y) {
+        const n = x.length;
+        let sx = 0, sy = 0;
+        for (let i = 0; i < n; i++) { sx += x[i]; sy += y[i]; }
+        const xb = sx / n, yb = sy / n;
+        let sxx = 0, sxy = 0;
+        for (let i = 0; i < n; i++) {
+            const dx = x[i] - xb, dy = y[i] - yb;
+            sxx += dx * dx;
+            sxy += dx * dy;
+        }
+        const beta = sxy / sxx;
+        const alpha = yb - beta * xb;
+        let sse = 0, sst = 0;
+        for (let i = 0; i < n; i++) {
+            const yh = alpha + beta * x[i];
+            const r = y[i] - yh;
+            sse += r * r;
+            sst += (y[i] - yb) * (y[i] - yb);
+        }
+        const dof = Math.max(1, n - 2);
+        const sigma2 = sse / dof;
+        const seBeta  = Math.sqrt(sigma2 / sxx);
+        const seAlpha = Math.sqrt(sigma2 * (1.0 / n + (xb * xb) / sxx));
+        const tAlpha = alpha / seAlpha;
+        const tBeta  = beta  / seBeta;
+        const r2 = sst > 0 ? 1.0 - sse / sst : 0.0;
+        return { alpha, beta, seAlpha, seBeta, tAlpha, tBeta, r2,
+                 sigma2, xb, sxx, n };
+    }
+
+    function fmtPct(v, places) {
+        if (!isFinite(v)) return "—";
+        const sign = v >= 0 ? "+" : "";
+        return sign + (v * 100).toFixed(places == null ? 2 : places) + "%";
+    }
+    function fmtBps(v, places) {
+        if (!isFinite(v)) return "—";
+        const sign = v >= 0 ? "+" : "";
+        return sign + (v * 1e4).toFixed(places == null ? 0 : places);
+    }
+
+    // ---- DOM ----
+    const ROOT   = document.getElementById("rg-root");
+    const CHART  = document.getElementById("rg-chart");
+    const SL_N   = document.getElementById("rg-sl-n");
+    const SL_A   = document.getElementById("rg-sl-alpha");
+    const SL_B   = document.getElementById("rg-sl-beta");
+    const SL_S   = document.getElementById("rg-sl-noise");
+    const VAL_N  = document.getElementById("rg-val-n");
+    const VAL_A  = document.getElementById("rg-val-alpha");
+    const VAL_B  = document.getElementById("rg-val-beta");
+    const VAL_S  = document.getElementById("rg-val-noise");
+
+    const PRESETS = {
+        skilled:   { n:  60, alpha: 200, beta: 0.85, noise: 4.5 },
+        typical:   { n:  60, alpha: 100, beta: 1.00, noise: 6.0 },
+        hedge:     { n:  60, alpha: 400, beta: 0.45, noise: 9.0 },
+        zeroalpha: { n: 120, alpha:   0, beta: 1.00, noise: 4.5 },
+        short:     { n:  24, alpha: 200, beta: 0.85, noise: 4.5 },
+    };
+    let activePreset = "skilled";
+
+    function setSlider(el, val) { el.value = String(val); }
+
+    function applyPreset(key) {
+        const p = PRESETS[key]; if (!p) return;
+        setSlider(SL_N, p.n);
+        setSlider(SL_A, p.alpha);
+        setSlider(SL_B, p.beta);
+        setSlider(SL_S, p.noise);
+        activePreset = key;
+        document.querySelectorAll(".rg-preset").forEach(b => {
+            b.classList.toggle("rg-active", b.getAttribute("data-preset") === key);
+        });
+    }
+
+    function getCssVar(name) {
+        return getComputedStyle(ROOT).getPropertyValue(name).trim();
+    }
+    function darkMode() {
+        return document.documentElement.getAttribute("data-theme") === "dark";
+    }
+
+    function render() {
+        const n     = parseInt(SL_N.value, 10);
+        const aBps  = parseFloat(SL_A.value);
+        const beta  = parseFloat(SL_B.value);
+        const noise = parseFloat(SL_S.value);
+        VAL_N.textContent = String(n);
+        VAL_A.textContent = (aBps >= 0 ? "+" : "") + aBps.toFixed(0);
+        VAL_B.textContent = beta.toFixed(2);
+        VAL_S.textContent = noise.toFixed(1);
+
+        const { rm, rp } = simulate(n, aBps, beta, noise);
+        const fit = ols(rm, rp);
+
+        // Build CI band on fitted line
+        let xMin = Infinity, xMax = -Infinity;
+        for (let i = 0; i < n; i++) {
+            if (rm[i] < xMin) xMin = rm[i];
+            if (rm[i] > xMax) xMax = rm[i];
+        }
+        const span = xMax - xMin;
+        xMin -= span * 0.08; xMax += span * 0.08;
+        const STEPS = 80;
+        const xs = new Array(STEPS);
+        const yhat = new Array(STEPS);
+        const yhi = new Array(STEPS);
+        const ylo = new Array(STEPS);
+        const yTrue = new Array(STEPS);
+        const aMoTrue = (aBps / 1e4) / 12.0;
+        for (let i = 0; i < STEPS; i++) {
+            const xi = xMin + (xMax - xMin) * (i / (STEPS - 1));
+            xs[i] = xi;
+            const yh = fit.alpha + fit.beta * xi;
+            yhat[i] = yh;
+            const sePred = Math.sqrt(fit.sigma2 *
+                (1.0 / fit.n + ((xi - fit.xb) ** 2) / fit.sxx));
+            const half = 1.96 * sePred;
+            yhi[i] = yh + half;
+            ylo[i] = yh - half;
+            yTrue[i] = aMoTrue + beta * xi;
+        }
+
+        // Update stat cards
+        const aHi = fit.alpha + 1.96 * fit.seAlpha;
+        const aLo = fit.alpha - 1.96 * fit.seAlpha;
+        const aHiYr = aHi * 12 * 100;
+        const aLoYr = aLo * 12 * 100;
+        const aEstYr = fit.alpha * 12 * 100;
+        document.getElementById("rg-stat-alpha").textContent =
+            (aEstYr >= 0 ? "+" : "") + aEstYr.toFixed(2) + "%/yr";
+        document.getElementById("rg-det-alpha").textContent =
+            T.det_alpha + ": [" + (aLoYr >= 0 ? "+" : "") + aLoYr.toFixed(1)
+            + ", " + (aHiYr >= 0 ? "+" : "") + aHiYr.toFixed(1) + "%]";
+
+        const bHi = fit.beta + 1.96 * fit.seBeta;
+        const bLo = fit.beta - 1.96 * fit.seBeta;
+        document.getElementById("rg-stat-beta").textContent = fit.beta.toFixed(3);
+        document.getElementById("rg-det-beta").textContent =
+            T.det_beta + ": [" + bLo.toFixed(2) + ", " + bHi.toFixed(2) + "]";
+
+        const tA = fit.tAlpha;
+        document.getElementById("rg-stat-talpha").textContent = tA.toFixed(2);
+        document.getElementById("rg-det-talpha").textContent =
+            (Math.abs(tA) >= 1.96) ? T.det_talpha_sig : T.det_talpha_ns;
+        const talphaCard = document.getElementById("rg-stat-talpha").closest(".rg-stat");
+        talphaCard.classList.remove("rg-stat-pos", "rg-stat-neg", "rg-stat-mid");
+        if (Math.abs(tA) >= 1.96) talphaCard.classList.add("rg-stat-pos");
+        else talphaCard.classList.add("rg-stat-neg");
+
+        document.getElementById("rg-stat-r2").textContent = fit.r2.toFixed(3);
+        document.getElementById("rg-det-r2").textContent =
+            T.det_r2.replace("{p}", (fit.r2 * 100).toFixed(0));
+
+        // Plotly traces
+        const colorAcc = getCssVar("--rg-accent");
+        const colorMid = getCssVar("--rg-mid");
+        const colorPos = getCssVar("--rg-pos");
+        const colorNeg = getCssVar("--rg-neg");
+        const colorPur = getCssVar("--rg-purple");
+        const colorText = getCssVar("--rg-text");
+        const colorMuted = getCssVar("--rg-muted");
+        const colorBg = getCssVar("--rg-card");
+        const colorGrid = darkMode() ? "rgba(255,255,255,0.08)" : "rgba(0,0,0,0.07)";
+        const ciFill = darkMode() ? "rgba(184,134,11,0.20)" : "rgba(184,134,11,0.14)";
+
+        const traces = [
+            // Lower CI bound (invisible)
+            {
+                x: xs, y: ylo,
+                type: "scatter", mode: "lines",
+                line: { width: 0, color: colorAcc },
+                showlegend: false, hoverinfo: "skip",
+            },
+            // Upper CI bound, fill to next-y (lower bound below)
+            {
+                x: xs, y: yhi,
+                type: "scatter", mode: "lines",
+                line: { width: 0, color: colorAcc },
+                fill: "tonexty", fillcolor: ciFill,
+                name: T.ci_band,
+                hoverinfo: "skip",
+            },
+            // True line
+            {
+                x: xs, y: yTrue,
+                type: "scatter", mode: "lines",
+                line: { color: colorPur, width: 1.5, dash: "dot" },
+                name: T.true_line,
+                hovertemplate: "true: %{y:.4f}<extra></extra>",
+            },
+            // OLS regression line
+            {
+                x: xs, y: yhat,
+                type: "scatter", mode: "lines",
+                line: { color: colorNeg, width: 2.6 },
+                name: T.fit_line,
+                hovertemplate: "fit: %{y:.4f}<extra></extra>",
+            },
+            // Scatter of monthly observations
+            {
+                x: Array.from(rm), y: Array.from(rp),
+                type: "scatter", mode: "markers",
+                marker: { size: 7, color: colorMid, opacity: 0.78,
+                          line: { color: colorBg, width: 1 } },
+                name: T.scatter,
+                hovertemplate: "(x=%{x:.3f}, y=%{y:.3f})<extra></extra>",
+            },
+        ];
+
+        const layout = {
+            title: {
+                text: T.chart_title,
+                font: { color: colorText, size: 14 },
+                x: 0.02, xanchor: "left",
+            },
+            margin: { l: 60, r: 22, t: 56, b: 50 },
+            paper_bgcolor: colorBg,
+            plot_bgcolor: colorBg,
+            font: { family: "Segoe UI, Helvetica, Arial, sans-serif",
+                    color: colorText, size: 12 },
+            xaxis: {
+                title: { text: T.x_title, font: { color: colorMuted, size: 11 } },
+                gridcolor: colorGrid,
+                color: colorText,
+                zeroline: true, zerolinecolor: colorMuted, zerolinewidth: 1,
+                tickformat: ".1%",
+            },
+            yaxis: {
+                title: { text: T.y_title, font: { color: colorMuted, size: 11 } },
+                gridcolor: colorGrid,
+                color: colorText,
+                zeroline: true, zerolinecolor: colorMuted, zerolinewidth: 1,
+                tickformat: ".1%",
+            },
+            legend: {
+                orientation: "h",
+                x: 0, y: 1.10,
+                bgcolor: "rgba(0,0,0,0)",
+                font: { color: colorText, size: 10.5 },
+            },
+            showlegend: true,
+        };
+
+        Plotly.react(CHART, traces, layout, {
+            displayModeBar: false,
+            responsive: true,
+        });
+    }
+
+    function applyI18n() {
+        document.getElementById("rg-presets-label").textContent = T.presets;
+        document.getElementById("rg-pre-skilled").textContent = T.p_skilled;
+        document.getElementById("rg-pre-typical").textContent = T.p_typical;
+        document.getElementById("rg-pre-hedge").textContent   = T.p_hedge;
+        document.getElementById("rg-pre-zero").textContent    = T.p_zero;
+        document.getElementById("rg-pre-short").textContent   = T.p_short;
+        document.getElementById("rg-lbl-n").textContent     = T.lbl_n;
+        document.getElementById("rg-lbl-alpha").textContent = T.lbl_alpha;
+        document.getElementById("rg-lbl-beta").textContent  = T.lbl_beta;
+        document.getElementById("rg-lbl-noise").textContent = T.lbl_noise;
+        document.getElementById("rg-name-alpha").textContent  = T.name_alpha;
+        document.getElementById("rg-name-beta").textContent   = T.name_beta;
+        document.getElementById("rg-name-talpha").textContent = T.name_talpha;
+        document.getElementById("rg-name-r2").textContent     = T.name_r2;
+        document.getElementById("rg-caption").textContent     = T.caption;
+    }
+
+    // Listeners: any slider move switches preset off (to a custom-implied state).
+    [SL_N, SL_A, SL_B, SL_S].forEach(el => {
+        el.addEventListener("input", function () {
+            // do not auto-clear preset highlight; just re-render
+            render();
+        });
+    });
+    document.querySelectorAll(".rg-preset").forEach(btn => {
+        btn.addEventListener("click", function () {
+            applyPreset(this.getAttribute("data-preset"));
+            render();
+        });
+    });
+
+    applyI18n();
+    applyPreset("skilled");
+    render();
+
+    // ---- Resize + theme observer ----
+    function reportHeight() {
+        try {
+            const h = Math.ceil(document.documentElement.scrollHeight);
+            parent.postMessage({ type: 'lesson-interactive-resize', height: h }, '*');
+        } catch (e) { /* ignore */ }
+    }
+    if (typeof ResizeObserver !== 'undefined') {
+        new ResizeObserver(reportHeight).observe(document.body);
+    }
+    window.addEventListener('resize', reportHeight);
+    setTimeout(reportHeight, 50);
+    setTimeout(reportHeight, 500);
+
+    const themeObserver = new MutationObserver(render);
+    themeObserver.observe(document.documentElement, {
+        attributes: true,
+        attributeFilter: ["data-theme"],
+    });
+})();
+</script>
+
+</body>
+</html>

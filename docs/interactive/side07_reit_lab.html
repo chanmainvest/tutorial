@@ -1,0 +1,623 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>REIT Lab — Interactive (Side Lesson 7)</title>
+<script src="https://cdn.plot.ly/plotly-2.35.2.min.js" charset="utf-8"></script>
+<style>
+html, body { margin: 0; padding: 0; background: var(--rt-bg); }
+:root {
+    --rt-bg: #fdfbf5;
+    --rt-text: #1a2332;
+    --rt-muted: #6b7280;
+    --rt-border: #d6d3c4;
+    --rt-card: #fdfbf5;
+    --rt-stk: #0d47a1;
+    --rt-bnd: #2e7d32;
+    --rt-rt:  #b8860b;
+    --rt-bad: #b71c1c;
+    --rt-good: #2e7d32;
+    --rt-accent: #b8860b;
+}
+html[data-theme="dark"] .rt-root,
+.rt-root[data-theme="dark"] {
+    --rt-bg: #0f1724;
+    --rt-text: #e6e6e6;
+    --rt-muted: #9aa3b2;
+    --rt-border: #2a3441;
+    --rt-card: #0f1724;
+    --rt-stk: #5a8dee;
+    --rt-bnd: #66bb6a;
+    --rt-rt:  #d4a02b;
+    --rt-bad: #ef5350;
+    --rt-good: #66bb6a;
+    --rt-accent: #d4a02b;
+}
+.rt-root {
+    font-family: 'Segoe UI', Helvetica, Arial, sans-serif;
+    background: var(--rt-bg);
+    color: var(--rt-text);
+    padding: 12px;
+    margin: 0;
+}
+.rt-presets {
+    display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 12px;
+}
+.rt-preset-pill {
+    background: var(--rt-card);
+    border: 1px solid var(--rt-border);
+    color: var(--rt-text);
+    border-radius: 999px;
+    padding: 6px 14px;
+    font-size: 0.82rem;
+    cursor: pointer;
+    user-select: none;
+    transition: all 0.12s;
+}
+.rt-preset-pill:hover { border-color: var(--rt-accent); }
+.rt-preset-pill.rt-active {
+    background: var(--rt-accent); color: white; border-color: var(--rt-accent);
+}
+.rt-controls {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 12px;
+    margin-bottom: 14px;
+    padding: 12px;
+    background: var(--rt-card);
+    border: 1px solid var(--rt-border);
+    border-radius: 8px;
+}
+.rt-slider-wrap {
+    display: flex; flex-direction: column; gap: 4px;
+    font-size: 0.82rem; color: var(--rt-muted);
+}
+.rt-slider-wrap .rt-row {
+    display: flex; align-items: center; gap: 10px;
+}
+.rt-slider-wrap input[type="range"] { flex: 1; }
+.rt-slider-wrap .rt-val {
+    white-space: nowrap;
+    color: var(--rt-text);
+    font-weight: 700;
+    font-variant-numeric: tabular-nums;
+    min-width: 56px;
+    text-align: right;
+}
+.rt-slider-wrap .rt-name { font-weight: 600; color: var(--rt-text); }
+.rt-slider-wrap.rt-rt    input[type="range"] { accent-color: var(--rt-rt); }
+.rt-slider-wrap.rt-shock input[type="range"] { accent-color: var(--rt-bad); }
+.rt-slider-wrap.rt-infl  input[type="range"] { accent-color: var(--rt-stk); }
+
+.rt-stats {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 10px;
+    margin-bottom: 14px;
+}
+.rt-stat {
+    background: var(--rt-card);
+    border: 1px solid var(--rt-border);
+    border-left: 4px solid var(--rt-muted);
+    border-radius: 8px;
+    padding: 10px 12px;
+}
+.rt-stat.rt-yld  { border-left-color: var(--rt-good); }
+.rt-stat.rt-dd   { border-left-color: var(--rt-bad);  }
+.rt-stat.rt-real { border-left-color: var(--rt-stk);  }
+.rt-stat.rt-tot  { border-left-color: var(--rt-rt);   }
+.rt-stat .rt-stat-name {
+    font-size: 0.74rem; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.5px;
+    color: var(--rt-muted);
+}
+.rt-stat .rt-stat-val {
+    font-size: 1.45rem; font-weight: 700; margin-top: 4px;
+    font-variant-numeric: tabular-nums;
+}
+.rt-stat .rt-stat-detail {
+    font-size: 0.78rem; color: var(--rt-muted);
+    margin-top: 2px; font-variant-numeric: tabular-nums;
+}
+.rt-chart {
+    width: 100%; height: 320px;
+    background: var(--rt-card);
+    border-radius: 8px;
+    border: 1px solid var(--rt-border);
+}
+.rt-section-title {
+    margin: 6px 4px;
+    font-size: 0.82rem; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.5px;
+    color: var(--rt-muted);
+}
+.rt-caption {
+    margin-top: 10px;
+    font-size: 0.78rem;
+    color: var(--rt-muted);
+    line-height: 1.45;
+}
+.rt-verdict {
+    border-radius: 8px;
+    padding: 10px 14px;
+    font-size: 0.86rem;
+    font-weight: 600;
+    margin-bottom: 12px;
+    border: 1px solid var(--rt-border);
+    background: var(--rt-card);
+    line-height: 1.45;
+}
+.rt-verdict.rt-good { border-left: 4px solid var(--rt-good); }
+.rt-verdict.rt-meh  { border-left: 4px solid var(--rt-accent); }
+.rt-verdict.rt-bad  { border-left: 4px solid var(--rt-bad); }
+@media (max-width: 720px) {
+    .rt-controls { grid-template-columns: 1fr; }
+    .rt-stats { grid-template-columns: repeat(2, 1fr); }
+    .rt-chart { height: 280px; }
+}
+</style>
+</head>
+<body>
+
+<div class="rt-root" id="rt-root">
+    <div class="rt-presets" id="rt-presets"></div>
+
+    <div class="rt-controls">
+        <div class="rt-slider-wrap rt-rt">
+            <div class="rt-name" id="rt-name-w">REIT allocation (% of portfolio)</div>
+            <div class="rt-row">
+                <input type="range" id="rt-w" min="0" max="40" step="1" value="10">
+                <span class="rt-val" id="rt-val-w">10%</span>
+            </div>
+        </div>
+        <div class="rt-slider-wrap rt-shock">
+            <div class="rt-name" id="rt-name-s">Rate shock (bps, 10y UST)</div>
+            <div class="rt-row">
+                <input type="range" id="rt-s" min="-200" max="400" step="25" value="0">
+                <span class="rt-val" id="rt-val-s">+0 bps</span>
+            </div>
+        </div>
+        <div class="rt-slider-wrap rt-infl">
+            <div class="rt-name" id="rt-name-i">Inflation rate (% YoY)</div>
+            <div class="rt-row">
+                <input type="range" id="rt-i" min="0" max="10" step="0.5" value="3">
+                <span class="rt-val" id="rt-val-i">3.0%</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="rt-verdict" id="rt-verdict-box">—</div>
+
+    <div class="rt-stats">
+        <div class="rt-stat rt-yld">
+            <div class="rt-stat-name" id="rt-name-yld">Portfolio yield</div>
+            <div class="rt-stat-val" id="rt-val-yld">—</div>
+            <div class="rt-stat-detail" id="rt-det-yld">—</div>
+        </div>
+        <div class="rt-stat rt-dd">
+            <div class="rt-stat-name" id="rt-name-dd">Rate-shock drawdown</div>
+            <div class="rt-stat-val" id="rt-val-dd">—</div>
+            <div class="rt-stat-detail" id="rt-det-dd">—</div>
+        </div>
+        <div class="rt-stat rt-real">
+            <div class="rt-stat-name" id="rt-name-real">Real yield (after CPI)</div>
+            <div class="rt-stat-val" id="rt-val-real">—</div>
+            <div class="rt-stat-detail" id="rt-det-real">—</div>
+        </div>
+        <div class="rt-stat rt-tot">
+            <div class="rt-stat-name" id="rt-name-tot">REIT contribution</div>
+            <div class="rt-stat-val" id="rt-val-tot">—</div>
+            <div class="rt-stat-detail" id="rt-det-tot">—</div>
+        </div>
+    </div>
+
+    <div class="rt-section-title" id="rt-chart-title">Yield and rate-shock contribution by sleeve</div>
+    <div id="rt-chart" class="rt-chart"></div>
+
+    <p class="rt-caption" id="rt-caption">
+        Baseline portfolio: stocks (SPY) + bonds (IEF) + REITs (VNQ), where the REIT slot replaces a 60/40 stock/bond pair pro-rata. Yields (April 2026): SPY 1.4%, IEF 4.2%, VNQ 3.8%. Duration estimates: IEF 7.5, VNQ 7.0, SPY 0.5. Rate shock applies +/-bps × duration as the price drag. Equity drag from rates uses a 0.4 transmission factor on stocks. CPI shown on the real-yield card; over single-year windows REITs do not hedge inflation, but yield grows roughly 0.5% per +1% inflation over five-year windows from rent resets.
+    </p>
+</div>
+
+<script>
+(function () {
+    const I18N = {
+        en: {
+            name_w: "REIT allocation (% of portfolio)",
+            name_s: "Rate shock (bps, 10y UST)",
+            name_i: "Inflation rate (% YoY)",
+            name_yld: "Portfolio yield",
+            name_dd: "Rate-shock drawdown",
+            name_real: "Real yield (after CPI)",
+            name_tot: "REIT contribution",
+            det_yld: "stocks {sy}% + bonds {by}% + REITs {ry}%",
+            det_dd:  "stocks {sd}% + bonds {bd}% + REITs {rd}%",
+            det_real: "Nominal {nom}% - CPI {cpi}%",
+            det_tot: "+{yc}% yield, {dc}% drawdown",
+            ch_title: "Yield (positive) vs rate-shock drawdown (negative) by sleeve",
+            ch_yld: "Yield contribution",
+            ch_dd:  "Rate-shock contribution",
+            ch_axis: "Contribution (% of portfolio)",
+            verdict_good: "Sized in range. REITs deliver about {ry}% of yield and absorb about {rd}% of any rate-shock drawdown — exactly the income/duration trade the lesson describes.",
+            verdict_meh:  "REIT slot heavy. At {w}% you are taking material rate-shock risk; consider whether the marginal {yc}% of yield is worth the {dc}% extra drawdown.",
+            verdict_bad:  "REIT slot too heavy. At {w}% the position is closer to a real-estate bet than to an income sleeve. Read §2.4 again.",
+            caption: "Baseline portfolio: stocks (SPY) + bonds (IEF) + REITs (VNQ), where the REIT slot replaces a 60/40 stock/bond pair pro-rata. Yields (April 2026): SPY 1.4%, IEF 4.2%, VNQ 3.8%. Duration estimates: IEF 7.5, VNQ 7.0, SPY 0.5. Rate shock applies +/-bps multiplied by duration as the price drag. Equity drag from rates uses a 0.4 transmission factor on stocks. CPI shown on the real-yield card; over single-year windows REITs do not hedge inflation, but yield grows roughly 0.5% per +1% inflation over five-year windows from rent resets.",
+            chart_title: "Yield and rate-shock contribution by sleeve",
+            presets: {
+                "default": "Default 10%",
+                "no_reit": "No REITs (60/40)",
+                "heavy":   "Heavy REIT 25%",
+                "y2008":   "2008 GFC",
+                "y2020":   "2020 COVID rate cut",
+                "y2022":   "2022 rate shock",
+            },
+        },
+        hk: {
+            name_w: "房託配置(佔組合 %)",
+            name_s: "利率衝擊(基點,10 年國債)",
+            name_i: "通脹率(按年 %)",
+            name_yld: "組合派息率",
+            name_dd: "利率衝擊跌幅",
+            name_real: "實質派息率(扣 CPI)",
+            name_tot: "房託貢獻",
+            det_yld: "股票 {sy}% + 債券 {by}% + 房託 {ry}%",
+            det_dd:  "股票 {sd}% + 債券 {bd}% + 房託 {rd}%",
+            det_real: "名義 {nom}% - CPI {cpi}%",
+            det_tot: "+{yc}% 收益、{dc}% 跌幅",
+            ch_title: "各分倉的派息(正)及利率衝擊(負)貢獻",
+            ch_yld: "派息貢獻",
+            ch_dd:  "利率衝擊貢獻",
+            ch_axis: "貢獻(佔組合 %)",
+            verdict_good: "倉位合理。房託貢獻約 {ry}% 派息,並承擔約 {rd}% 利率衝擊跌幅 — 與課文所述收益/久期取捨一致。",
+            verdict_meh:  "房託倉位偏重。{w}% 已承擔可觀利率風險;邊際 {yc}% 派息是否值得 {dc}% 額外跌幅,值得重新評估。",
+            verdict_bad:  "房託倉位過大。{w}% 已比較像純房地產押注而非收益分倉,請重看 §2.4。",
+            caption: "基準組合:股票(SPY)+ 債券(IEF)+ 房託(VNQ),房託倉位按比例替換 60/40 股債組合。派息率(2026 年 4 月):SPY 1.4%、IEF 4.2%、VNQ 3.8%。久期估算:IEF 7.5、VNQ 7.0、SPY 0.5。利率衝擊以基點 × 久期計跌幅。股票對利率傳遞係數 0.4。CPI 在實質派息卡顯示;單年內房託並非通脹對沖,但五年內每多 1% 通脹大致帶來 0.5% 派息增長(租金重訂)。",
+            chart_title: "各分倉的派息與利率衝擊貢獻",
+            presets: {
+                "default": "預設 10%",
+                "no_reit": "無房託(60/40)",
+                "heavy":   "重倉房託 25%",
+                "y2008":   "2008 金融海嘯",
+                "y2020":   "2020 新冠減息",
+                "y2022":   "2022 加息衝擊",
+            },
+        },
+        tw: {
+            name_w: "REIT 配置(佔投組 %)",
+            name_s: "利率衝擊(基點,10 年公債)",
+            name_i: "通膨率(年增 %)",
+            name_yld: "投組殖利率",
+            name_dd: "利率衝擊回檔",
+            name_real: "實質殖利率(扣 CPI)",
+            name_tot: "REIT 貢獻",
+            det_yld: "股票 {sy}% + 公債 {by}% + REIT {ry}%",
+            det_dd:  "股票 {sd}% + 公債 {bd}% + REIT {rd}%",
+            det_real: "名目 {nom}% - CPI {cpi}%",
+            det_tot: "+{yc}% 收益、{dc}% 回檔",
+            ch_title: "各分倉的殖利率(正)與利率衝擊(負)貢獻",
+            ch_yld: "殖利率貢獻",
+            ch_dd:  "利率衝擊貢獻",
+            ch_axis: "貢獻(佔投組 %)",
+            verdict_good: "部位合理。REIT 貢獻約 {ry}% 殖利率,承擔約 {rd}% 利率衝擊 — 與 §2.4 所述收益/存續期取捨一致。",
+            verdict_meh:  "REIT 部位偏重。{w}% 已承擔顯著利率風險;邊際 {yc}% 殖利率是否值得 {dc}% 額外回檔,值得重新評估。",
+            verdict_bad:  "REIT 部位過大。{w}% 已較像純不動產押注而非收益分倉,請重看 §2.4。",
+            caption: "基準投組:股票(SPY)+ 公債(IEF)+ REIT(VNQ),REIT 部位依比例替換 60/40 股債組合。殖利率(2026 年 4 月):SPY 1.4%、IEF 4.2%、VNQ 3.8%。存續期估算:IEF 7.5、VNQ 7.0、SPY 0.5。利率衝擊以基點 × 存續期計回檔。股票對利率傳遞係數 0.4。CPI 顯示於實質殖利率卡;單年內 REIT 並非通膨對沖,五年期間每多 1% 通膨約帶來 0.5% 殖利率增長(租金重訂)。",
+            chart_title: "各分倉的殖利率與利率衝擊貢獻",
+            presets: {
+                "default": "預設 10%",
+                "no_reit": "無 REIT(60/40)",
+                "heavy":   "重倉 REIT 25%",
+                "y2008":   "2008 金融海嘯",
+                "y2020":   "2020 新冠降息",
+                "y2022":   "2022 升息衝擊",
+            },
+        },
+        cn: {
+            name_w: "房托配置(占组合 %)",
+            name_s: "利率冲击(基点,10 年国债)",
+            name_i: "通胀率(同比 %)",
+            name_yld: "组合派息率",
+            name_dd: "利率冲击跌幅",
+            name_real: "实际派息率(扣 CPI)",
+            name_tot: "房托贡献",
+            det_yld: "股票 {sy}% + 债券 {by}% + 房托 {ry}%",
+            det_dd:  "股票 {sd}% + 债券 {bd}% + 房托 {rd}%",
+            det_real: "名义 {nom}% - CPI {cpi}%",
+            det_tot: "+{yc}% 收益、{dc}% 跌幅",
+            ch_title: "各分仓的派息(正)与利率冲击(负)贡献",
+            ch_yld: "派息贡献",
+            ch_dd:  "利率冲击贡献",
+            ch_axis: "贡献(占组合 %)",
+            verdict_good: "仓位合理。房托贡献约 {ry}% 派息,承担约 {rd}% 利率冲击跌幅 — 与课文所述收益/久期取舍一致。",
+            verdict_meh:  "房托仓位偏重。{w}% 已承担可观利率风险;边际 {yc}% 派息是否值得 {dc}% 额外跌幅,值得重新评估。",
+            verdict_bad:  "房托仓位过大。{w}% 更像纯房地产押注而非收益分仓,请重看 §2.4。",
+            caption: "基准组合:股票(SPY)+ 债券(IEF)+ 房托(VNQ),房托仓位按比例替换 60/40 股债组合。派息率(2026 年 4 月):SPY 1.4%、IEF 4.2%、VNQ 3.8%。久期估算:IEF 7.5、VNQ 7.0、SPY 0.5。利率冲击以基点 × 久期计跌幅。股票对利率传递系数 0.4。CPI 在实际派息卡显示;单年内房托并非通胀对冲,五年期内每多 1% 通胀约带来 0.5% 派息增长(租金重订)。",
+            chart_title: "各分仓的派息与利率冲击贡献",
+            presets: {
+                "default": "默认 10%",
+                "no_reit": "无房托(60/40)",
+                "heavy":   "重仓房托 25%",
+                "y2008":   "2008 金融危机",
+                "y2020":   "2020 新冠降息",
+                "y2022":   "2022 加息冲击",
+            },
+        },
+    };
+
+    const lang = (function () {
+        try {
+            const q = new URLSearchParams(location.search).get('lang');
+            return I18N[q] ? q : 'en';
+        } catch (e) { return 'en'; }
+    })();
+    const T = I18N[lang];
+
+    // Constants — yields, durations, betas (April 2026 baseline).
+    const SLEEVE = {
+        stk: { y: 1.4, dur: 0.5, infl_b: 0.10 },  // SPY
+        bnd: { y: 4.2, dur: 7.5, infl_b: -0.30 }, // IEF — falls in inflation
+        rt:  { y: 3.8, dur: 7.0, infl_b: 0.50 },  // VNQ
+    };
+    const RATE_BETA_STK = 0.4; // multiplier on duration for equity rate-drag
+    const PRESETS = {
+        "default": { w: 10, s: 0,    i: 3.0 },
+        "no_reit": { w: 0,  s: 0,    i: 3.0 },
+        "heavy":   { w: 25, s: 0,    i: 3.0 },
+        "y2008":   { w: 10, s: -150, i: 3.8 },
+        "y2020":   { w: 10, s: -100, i: 1.2 },
+        "y2022":   { w: 10, s: 250,  i: 8.0 },
+    };
+
+    const root = document.getElementById('rt-root');
+    const $ = id => document.getElementById(id);
+
+    // Apply theme on initial render
+    function getTheme() {
+        return document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
+    }
+    root.setAttribute('data-theme', getTheme());
+
+    // Apply i18n labels
+    $('rt-name-w').textContent = T.name_w;
+    $('rt-name-s').textContent = T.name_s;
+    $('rt-name-i').textContent = T.name_i;
+    $('rt-name-yld').textContent = T.name_yld;
+    $('rt-name-dd').textContent = T.name_dd;
+    $('rt-name-real').textContent = T.name_real;
+    $('rt-name-tot').textContent = T.name_tot;
+    $('rt-chart-title').textContent = T.chart_title;
+    $('rt-caption').textContent = T.caption;
+
+    // Build presets
+    const presetBox = $('rt-presets');
+    Object.keys(PRESETS).forEach(k => {
+        const b = document.createElement('button');
+        b.type = 'button';
+        b.className = 'rt-preset-pill';
+        b.dataset.k = k;
+        b.textContent = T.presets[k];
+        b.addEventListener('click', () => applyPreset(k));
+        presetBox.appendChild(b);
+    });
+
+    function setActivePreset(k) {
+        Array.from(presetBox.children).forEach(c => {
+            c.classList.toggle('rt-active', c.dataset.k === k);
+        });
+    }
+
+    function applyPreset(k) {
+        const p = PRESETS[k];
+        $('rt-w').value = p.w;
+        $('rt-s').value = p.s;
+        $('rt-i').value = p.i;
+        setActivePreset(k);
+        update();
+    }
+
+    function fmtBps(v) { return (v >= 0 ? '+' : '') + v + ' bps'; }
+    function fmtPct(v, d) { d = (d == null ? 1 : d); return v.toFixed(d) + '%'; }
+    function fmtSign(v, d) {
+        d = (d == null ? 1 : d);
+        return (v >= 0 ? '+' : '') + v.toFixed(d) + '%';
+    }
+    function tmpl(s, vars) {
+        return s.replace(/\{(\w+)\}/g, (_, k) => vars[k] != null ? vars[k] : '');
+    }
+
+    function compute() {
+        const w_rt = +$('rt-w').value;
+        const shock_bps = +$('rt-s').value;
+        const cpi = +$('rt-i').value;
+
+        // Allocation: REIT slot replaces a 60/40 split pro-rata.
+        const remain = 100 - w_rt;
+        const w_stk = remain * 0.60;
+        const w_bnd = remain * 0.40;
+
+        // Yield contributions (% of portfolio)
+        const yc_stk = w_stk * SLEEVE.stk.y / 100;
+        const yc_bnd = w_bnd * SLEEVE.bnd.y / 100;
+        const yc_rt  = w_rt  * SLEEVE.rt.y  / 100;
+        const total_yld = yc_stk + yc_bnd + yc_rt;
+
+        // Inflation tilt: REIT yield grows ~ infl_b*(cpi-2.5%) over horizon (5y)
+        const cpi_excess = cpi - 2.5;
+        const yld_infl_lift = (
+            w_stk * SLEEVE.stk.infl_b * cpi_excess / 100 +
+            w_bnd * SLEEVE.bnd.infl_b * cpi_excess / 100 +
+            w_rt  * SLEEVE.rt.infl_b  * cpi_excess / 100
+        );
+        const yld_5y = total_yld + yld_infl_lift * 0.5;  // half-realised
+
+        // Drawdown contributions from rate shock (% of portfolio)
+        const sb = shock_bps / 100; // pct
+        const dd_stk = -w_stk * SLEEVE.stk.dur * sb * RATE_BETA_STK / 100;
+        const dd_bnd = -w_bnd * SLEEVE.bnd.dur * sb / 100;
+        const dd_rt  = -w_rt  * SLEEVE.rt.dur  * sb / 100;
+        const total_dd = dd_stk + dd_bnd + dd_rt;
+
+        const real = total_yld - cpi;
+
+        return {
+            w_rt, w_stk, w_bnd, shock_bps, cpi,
+            yc_stk, yc_bnd, yc_rt, total_yld, yld_5y,
+            dd_stk, dd_bnd, dd_rt, total_dd,
+            real,
+        };
+    }
+
+    function update() {
+        const r = compute();
+        $('rt-val-w').textContent = r.w_rt + '%';
+        $('rt-val-s').textContent = fmtBps(r.shock_bps);
+        $('rt-val-i').textContent = r.cpi.toFixed(1) + '%';
+
+        $('rt-val-yld').textContent = fmtPct(r.total_yld, 2);
+        $('rt-det-yld').textContent = tmpl(T.det_yld, {
+            sy: r.yc_stk.toFixed(2),
+            by: r.yc_bnd.toFixed(2),
+            ry: r.yc_rt.toFixed(2),
+        });
+
+        $('rt-val-dd').textContent = fmtSign(r.total_dd, 2);
+        $('rt-det-dd').textContent = tmpl(T.det_dd, {
+            sd: r.dd_stk.toFixed(2),
+            bd: r.dd_bnd.toFixed(2),
+            rd: r.dd_rt.toFixed(2),
+        });
+
+        $('rt-val-real').textContent = fmtSign(r.real, 2);
+        $('rt-det-real').textContent = tmpl(T.det_real, {
+            nom: r.total_yld.toFixed(2),
+            cpi: r.cpi.toFixed(1),
+        });
+
+        $('rt-val-tot').textContent = fmtPct(r.yc_rt, 2) + ' / ' + fmtSign(r.dd_rt, 2);
+        $('rt-det-tot').textContent = tmpl(T.det_tot, {
+            yc: r.yc_rt.toFixed(2),
+            dc: r.dd_rt.toFixed(2),
+        });
+
+        // Verdict
+        const vbox = $('rt-verdict-box');
+        vbox.classList.remove('rt-good', 'rt-meh', 'rt-bad');
+        let v, cls;
+        if (r.w_rt <= 12) {
+            cls = 'rt-good';
+            v = tmpl(T.verdict_good, {
+                ry: r.yc_rt.toFixed(2),
+                rd: Math.abs(r.dd_rt).toFixed(2),
+            });
+        } else if (r.w_rt <= 20) {
+            cls = 'rt-meh';
+            v = tmpl(T.verdict_meh, {
+                w: r.w_rt,
+                yc: r.yc_rt.toFixed(2),
+                dc: Math.abs(r.dd_rt).toFixed(2),
+            });
+        } else {
+            cls = 'rt-bad';
+            v = tmpl(T.verdict_bad, { w: r.w_rt });
+        }
+        vbox.classList.add(cls);
+        vbox.textContent = v;
+
+        renderChart(r);
+    }
+
+    function plotPalette() {
+        const cs = getComputedStyle(root);
+        return {
+            stk: cs.getPropertyValue('--rt-stk').trim()  || '#0d47a1',
+            bnd: cs.getPropertyValue('--rt-bnd').trim()  || '#2e7d32',
+            rt:  cs.getPropertyValue('--rt-rt').trim()   || '#b8860b',
+            text: cs.getPropertyValue('--rt-text').trim() || '#1a2332',
+            grid: cs.getPropertyValue('--rt-border').trim() || '#d6d3c4',
+            bg:  cs.getPropertyValue('--rt-bg').trim()    || '#fdfbf5',
+            muted: cs.getPropertyValue('--rt-muted').trim() || '#6b7280',
+        };
+    }
+
+    function renderChart(r) {
+        const P = plotPalette();
+        const cats = ['stocks', 'bonds', 'REITs'];
+        const yld  = [r.yc_stk, r.yc_bnd, r.yc_rt];
+        const dd   = [r.dd_stk, r.dd_bnd, r.dd_rt];
+        const colors = [P.stk, P.bnd, P.rt];
+
+        const yldText = yld.map(v => '+' + v.toFixed(2) + '%');
+        const ddText  = dd.map(v => (v >= 0 ? '+' : '') + v.toFixed(2) + '%');
+
+        const data = [
+            {
+                x: cats, y: yld,
+                type: 'bar',
+                name: T.ch_yld,
+                marker: { color: colors, line: { color: P.bg, width: 1 } },
+                text: yldText, textposition: 'outside',
+                hovertemplate: '%{x}<br>%{y:.2f}%<extra>' + T.ch_yld + '</extra>',
+            },
+            {
+                x: cats, y: dd,
+                type: 'bar',
+                name: T.ch_dd,
+                marker: {
+                    color: colors.map(c => c),
+                    line: { color: P.bg, width: 1 },
+                    pattern: { shape: '/', solidity: 0.4, fgcolor: P.bg },
+                },
+                text: ddText, textposition: 'outside',
+                hovertemplate: '%{x}<br>%{y:.2f}%<extra>' + T.ch_dd + '</extra>',
+            },
+        ];
+        const layout = {
+            barmode: 'group',
+            paper_bgcolor: P.bg,
+            plot_bgcolor: P.bg,
+            font: { color: P.text, family: 'Segoe UI, Helvetica, Arial, sans-serif', size: 11 },
+            margin: { l: 50, r: 20, t: 20, b: 40 },
+            xaxis: { gridcolor: P.grid, zeroline: false, tickfont: { color: P.text } },
+            yaxis: {
+                gridcolor: P.grid, zerolinecolor: P.muted, zerolinewidth: 1.5,
+                title: { text: T.ch_axis, font: { color: P.muted } },
+                tickfont: { color: P.text },
+                ticksuffix: '%',
+            },
+            legend: { orientation: 'h', y: 1.15, x: 0, font: { color: P.text } },
+            hovermode: 'x unified',
+        };
+        Plotly.react('rt-chart', data, layout, { displayModeBar: false, responsive: true });
+    }
+
+    // Wire sliders
+    ['rt-w', 'rt-s', 'rt-i'].forEach(id => {
+        $(id).addEventListener('input', () => { setActivePreset(null); update(); });
+    });
+
+    // Theme observer
+    const themeObs = new MutationObserver(() => {
+        root.setAttribute('data-theme', getTheme());
+        update();
+    });
+    themeObs.observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
+
+    // Resize postMessage
+    function postSize() {
+        try {
+            const h = document.documentElement.scrollHeight;
+            parent.postMessage({ type: 'lesson-interactive-resize', height: h }, '*');
+        } catch (e) { /* noop */ }
+    }
+    window.addEventListener('resize', postSize);
+    window.addEventListener('load', postSize);
+    setTimeout(postSize, 200);
+
+    // Initial render
+    applyPreset('default');
+})();
+</script>
+
+</body>
+</html>

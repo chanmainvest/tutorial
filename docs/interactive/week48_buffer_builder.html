@@ -1,0 +1,733 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Buffer Builder - Interactive (Week 48)</title>
+<script src="https://cdn.plot.ly/plotly-2.35.2.min.js" charset="utf-8"></script>
+<style>
+html, body { margin: 0; padding: 0; background: var(--bb-bg); }
+:root {
+    --bb-bg: #fdfbf5;
+    --bb-text: #1a2332;
+    --bb-muted: #6b7280;
+    --bb-border: #d6d3c4;
+    --bb-card: #fdfbf5;
+    --bb-accent: #b8860b;
+    --bb-blue: #0d47a1;
+    --bb-red: #b71c1c;
+    --bb-green: #2e7d32;
+    --bb-purple: #6a1b9a;
+    --bb-orange: #e65100;
+}
+html[data-theme="dark"] .bb-root,
+.bb-root[data-theme="dark"] {
+    --bb-bg: #0f1724;
+    --bb-text: #e6e6e6;
+    --bb-muted: #9aa3b2;
+    --bb-border: #2a3441;
+    --bb-card: #0f1724;
+    --bb-blue: #5a8dee;
+    --bb-red: #ef5350;
+    --bb-green: #66bb6a;
+    --bb-purple: #ba68c8;
+    --bb-orange: #ffa726;
+}
+.bb-root {
+    font-family: 'Segoe UI', Helvetica, Arial, sans-serif;
+    background: var(--bb-bg);
+    color: var(--bb-text);
+    padding: 12px;
+    margin: 0;
+}
+.bb-controls {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 12px;
+    margin-bottom: 14px;
+    padding: 12px;
+    background: var(--bb-card);
+    border: 1px solid var(--bb-border);
+    border-radius: 8px;
+}
+.bb-slider-wrap {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    font-size: 0.82rem;
+    color: var(--bb-muted);
+}
+.bb-slider-wrap .bb-row {
+    display: flex; align-items: center; gap: 10px;
+}
+.bb-slider-wrap input[type="range"] {
+    flex: 1; accent-color: var(--bb-accent);
+}
+.bb-slider-wrap .bb-val {
+    white-space: nowrap;
+    color: var(--bb-text);
+    font-weight: 700;
+    font-variant-numeric: tabular-nums;
+    min-width: 70px;
+    text-align: right;
+}
+.bb-slider-wrap .bb-name {
+    font-weight: 600;
+    color: var(--bb-text);
+}
+.bb-bigrow {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 8px;
+    margin-bottom: 14px;
+}
+.bb-big {
+    background: var(--bb-card);
+    border: 1px solid var(--bb-border);
+    border-left: 4px solid var(--bb-accent);
+    border-radius: 8px;
+    padding: 10px 12px;
+}
+.bb-big.bb-b-cost { border-left-color: var(--bb-orange); }
+.bb-big.bb-b-mp   { border-left-color: var(--bb-green); }
+.bb-big.bb-b-ml   { border-left-color: var(--bb-red); }
+.bb-big.bb-b-be   { border-left-color: var(--bb-blue); }
+.bb-big .bb-big-name {
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--bb-muted);
+}
+.bb-big .bb-big-val {
+    font-size: 1.4rem;
+    font-weight: 800;
+    margin-top: 4px;
+    font-variant-numeric: tabular-nums;
+    color: var(--bb-text);
+}
+.bb-big .bb-big-detail {
+    font-size: 0.72rem;
+    color: var(--bb-muted);
+    margin-top: 2px;
+}
+.bb-chart {
+    width: 100%;
+    height: 380px;
+    background: var(--bb-card);
+    border-radius: 8px;
+    border: 1px solid var(--bb-border);
+    margin-bottom: 12px;
+}
+.bb-legtable {
+    width: 100%;
+    border-collapse: collapse;
+    background: var(--bb-card);
+    border: 1px solid var(--bb-border);
+    border-radius: 8px;
+    overflow: hidden;
+    font-size: 0.85rem;
+    margin-bottom: 10px;
+}
+.bb-legtable th, .bb-legtable td {
+    padding: 7px 10px;
+    text-align: right;
+    border-bottom: 1px solid var(--bb-border);
+}
+.bb-legtable th {
+    background: rgba(184,134,11,0.08);
+    color: var(--bb-text);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+.bb-legtable td:first-child, .bb-legtable th:first-child { text-align: left; }
+.bb-legtable tr:last-child td { border-bottom: none; }
+.bb-legtable tr.bb-net td {
+    background: rgba(184,134,11,0.05);
+    font-weight: 700;
+    color: var(--bb-text);
+}
+.bb-caption {
+    margin-top: 10px;
+    font-size: 0.78rem;
+    color: var(--bb-muted);
+    line-height: 1.45;
+}
+@media (max-width: 900px) {
+    .bb-controls { grid-template-columns: 1fr 1fr; }
+    .bb-bigrow   { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 600px) {
+    .bb-controls { grid-template-columns: 1fr; }
+    .bb-bigrow   { grid-template-columns: 1fr; }
+    .bb-chart { height: 320px; }
+}
+</style>
+</head>
+<body>
+
+<div class="bb-root" id="bb-root">
+    <div class="bb-controls">
+        <div class="bb-slider-wrap">
+            <div class="bb-name" id="bb-name-SPOT">Spot ($)</div>
+            <div class="bb-row">
+                <input type="range" id="bb-SPOT" min="100" max="2000" step="10" value="500">
+                <span class="bb-val" id="bb-val-SPOT">$500</span>
+            </div>
+        </div>
+        <div class="bb-slider-wrap">
+            <div class="bb-name" id="bb-name-BUF">Downside buffer (%)</div>
+            <div class="bb-row">
+                <input type="range" id="bb-BUF" min="5" max="30" step="1" value="15">
+                <span class="bb-val" id="bb-val-BUF">15%</span>
+            </div>
+        </div>
+        <div class="bb-slider-wrap">
+            <div class="bb-name" id="bb-name-CAP">Upside cap (%)</div>
+            <div class="bb-row">
+                <input type="range" id="bb-CAP" min="5" max="50" step="1" value="18">
+                <span class="bb-val" id="bb-val-CAP">18%</span>
+            </div>
+        </div>
+        <div class="bb-slider-wrap">
+            <div class="bb-name" id="bb-name-DTE">DTE (days)</div>
+            <div class="bb-row">
+                <input type="range" id="bb-DTE" min="60" max="730" step="5" value="365">
+                <span class="bb-val" id="bb-val-DTE">365</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="bb-bigrow">
+        <div class="bb-big bb-b-cost">
+            <div class="bb-big-name" id="bb-bn-cost">Net DIY cost (per share)</div>
+            <div class="bb-big-val" id="bb-bv-cost">—</div>
+            <div class="bb-big-detail" id="bb-bd-cost">spread debit - put credit</div>
+        </div>
+        <div class="bb-big bb-b-mp">
+            <div class="bb-big-name" id="bb-bn-mp">Max profit (at cap)</div>
+            <div class="bb-big-val" id="bb-bv-mp">—</div>
+            <div class="bb-big-detail" id="bb-bd-mp">capped upside</div>
+        </div>
+        <div class="bb-big bb-b-ml">
+            <div class="bb-big-name" id="bb-bn-ml">Max loss (spot to zero)</div>
+            <div class="bb-big-val" id="bb-bv-ml">—</div>
+            <div class="bb-big-detail" id="bb-bd-ml">100% loss minus buffer</div>
+        </div>
+        <div class="bb-big bb-b-be">
+            <div class="bb-big-name" id="bb-bn-be">Breakeven (down)</div>
+            <div class="bb-big-val" id="bb-bv-be">—</div>
+            <div class="bb-big-detail" id="bb-bd-be">below this, net loss</div>
+        </div>
+    </div>
+
+    <div id="bb-chart" class="bb-chart"></div>
+
+    <table class="bb-legtable" id="bb-legtable">
+        <thead>
+            <tr>
+                <th id="bb-th-leg">Leg</th>
+                <th id="bb-th-action">Action</th>
+                <th id="bb-th-strike">Strike</th>
+                <th id="bb-th-px">BSM Price</th>
+                <th id="bb-th-cf">Cash flow</th>
+            </tr>
+        </thead>
+        <tbody id="bb-legtbody">
+        </tbody>
+    </table>
+
+    <p class="bb-caption" id="bb-caption">
+        BSM pricing: sigma = 19%, r = 4.3%, q = 1.3%. Long ATM call + short call at (1+cap)*spot + short put at (1-buffer)*spot. T-bill leg priced at 1y discount. Per-share figures; multiply by 100 per option contract. April 2026 reference.
+    </p>
+</div>
+
+<script>
+(function () {
+    var I18N = {
+        en: {
+            name_SPOT: "Spot ($)",
+            name_BUF:  "Downside buffer (%)",
+            name_CAP:  "Upside cap (%)",
+            name_DTE:  "DTE (days)",
+            bn_cost: "Net DIY cost (per share)",
+            bn_mp:   "Max profit (at cap)",
+            bn_ml:   "Max loss (spot to zero)",
+            bn_be:   "Breakeven (down)",
+            bd_cost: "spread debit - put credit",
+            bd_mp:   "capped upside",
+            bd_ml:   "100% loss minus buffer",
+            bd_be:   "below this, net loss",
+            chart_title: "Buffered payoff and 4-leg decomposition",
+            x_title: "Underlying return at expiry",
+            y_title: "P&L per share ($)",
+            buffered_label: "Buffered total",
+            atm_call: "Long ATM call",
+            otm_call: "Short OTM call (cap)",
+            otm_put:  "Short OTM put (buffer)",
+            unbuf:    "Unbuffered (1:1 ref)",
+            th_leg:    "Leg",
+            th_action: "Action",
+            th_strike: "Strike",
+            th_px:     "BSM Price",
+            th_cf:     "Cash flow",
+            leg_zero: "Zero-coupon T-bill",
+            leg_long_call: "Long call (ATM)",
+            leg_short_call: "Short call (cap)",
+            leg_short_put:  "Short put (buffer)",
+            leg_net: "Net structure cost",
+            act_long: "Long",
+            act_short: "Short",
+            act_par: "Par at maturity",
+            caption: "BSM pricing: sigma = 19%, r = 4.3%, q = 1.3%. Long ATM call + short call at (1+cap)*spot + short put at (1-buffer)*spot. T-bill leg priced at 1y discount. Per-share figures; multiply by 100 per option contract. April 2026 reference.",
+        },
+        hk: {
+            name_SPOT: "現價 ($)",
+            name_BUF:  "下行緩衝 (%)",
+            name_CAP:  "上行封頂 (%)",
+            name_DTE:  "距到期日 (日)",
+            bn_cost: "DIY 淨成本 (每股)",
+            bn_mp:   "最大利潤 (封頂)",
+            bn_ml:   "最大虧損 (跌至零)",
+            bn_be:   "下行打和點",
+            bd_cost: "價差借方 - 認沽信用",
+            bd_mp:   "上行封頂",
+            bd_ml:   "100% 虧損扣緩衝",
+            bd_be:   "低於此處淨虧損",
+            chart_title: "緩衝損益及 4 腿分解",
+            x_title: "到期標的回報",
+            y_title: "每股損益 ($)",
+            buffered_label: "緩衝總損益",
+            atm_call: "買入 ATM 認購",
+            otm_call: "賣出 OTM 認購 (封頂)",
+            otm_put:  "賣出 OTM 認沽 (緩衝)",
+            unbuf:    "純標的 (1:1 參考)",
+            th_leg:    "腿",
+            th_action: "動作",
+            th_strike: "行使價",
+            th_px:     "BSM 定價",
+            th_cf:     "現金流",
+            leg_zero: "零息國庫券",
+            leg_long_call: "買入認購 (ATM)",
+            leg_short_call: "賣出認購 (封頂)",
+            leg_short_put:  "賣出認沽 (緩衝)",
+            leg_net: "結構淨成本",
+            act_long: "買入",
+            act_short: "賣出",
+            act_par: "到期面值",
+            caption: "BSM 定價:sigma = 19%, r = 4.3%, q = 1.3%。買入 ATM 認購 + 賣出 (1+封頂)*現價 認購 + 賣出 (1-緩衝)*現價 認沽。國庫券以一年折現定價。每股數字;每張合約 *100。2026 年 4 月參考。",
+        },
+        tw: {
+            name_SPOT: "現價 ($)",
+            name_BUF:  "下行緩衝 (%)",
+            name_CAP:  "上行封頂 (%)",
+            name_DTE:  "距到期日 (天)",
+            bn_cost: "DIY 淨成本 (每股)",
+            bn_mp:   "最大利潤 (封頂)",
+            bn_ml:   "最大虧損 (跌至零)",
+            bn_be:   "下行打平點",
+            bd_cost: "價差借方 - 賣權信用",
+            bd_mp:   "上行封頂",
+            bd_ml:   "100% 虧損扣緩衝",
+            bd_be:   "低於此處淨虧損",
+            chart_title: "緩衝損益與 4 腳分解",
+            x_title: "到期標的報酬",
+            y_title: "每股損益 ($)",
+            buffered_label: "緩衝總損益",
+            atm_call: "買進 ATM 買權",
+            otm_call: "賣出 OTM 買權 (封頂)",
+            otm_put:  "賣出 OTM 賣權 (緩衝)",
+            unbuf:    "純標的 (1:1 參考)",
+            th_leg:    "腳",
+            th_action: "動作",
+            th_strike: "履約價",
+            th_px:     "BSM 定價",
+            th_cf:     "現金流",
+            leg_zero: "零息國庫券",
+            leg_long_call: "買進買權 (ATM)",
+            leg_short_call: "賣出買權 (封頂)",
+            leg_short_put:  "賣出賣權 (緩衝)",
+            leg_net: "結構淨成本",
+            act_long: "買進",
+            act_short: "賣出",
+            act_par: "到期面值",
+            caption: "BSM 定價:sigma = 19%, r = 4.3%, q = 1.3%。買進 ATM 買權 + 賣出 (1+封頂)*現價 買權 + 賣出 (1-緩衝)*現價 賣權。國庫券以一年折現定價。每股數字;每張合約 *100。2026 年 4 月參考。",
+        },
+        cn: {
+            name_SPOT: "现价 ($)",
+            name_BUF:  "下行缓冲 (%)",
+            name_CAP:  "上行封顶 (%)",
+            name_DTE:  "距到期日 (天)",
+            bn_cost: "DIY 净成本 (每股)",
+            bn_mp:   "最大利润 (封顶)",
+            bn_ml:   "最大亏损 (跌至零)",
+            bn_be:   "下行打平点",
+            bd_cost: "价差借方 - 看跌信用",
+            bd_mp:   "上行封顶",
+            bd_ml:   "100% 亏损扣缓冲",
+            bd_be:   "低于此处净亏损",
+            chart_title: "缓冲损益及 4 腿分解",
+            x_title: "到期标的回报",
+            y_title: "每股损益 ($)",
+            buffered_label: "缓冲总损益",
+            atm_call: "买入 ATM 看涨",
+            otm_call: "卖出 OTM 看涨 (封顶)",
+            otm_put:  "卖出 OTM 看跌 (缓冲)",
+            unbuf:    "纯标的 (1:1 参考)",
+            th_leg:    "腿",
+            th_action: "动作",
+            th_strike: "行权价",
+            th_px:     "BSM 定价",
+            th_cf:     "现金流",
+            leg_zero: "零息国库券",
+            leg_long_call: "买入看涨 (ATM)",
+            leg_short_call: "卖出看涨 (封顶)",
+            leg_short_put:  "卖出看跌 (缓冲)",
+            leg_net: "结构净成本",
+            act_long: "买入",
+            act_short: "卖出",
+            act_par: "到期面值",
+            caption: "BSM 定价:sigma = 19%, r = 4.3%, q = 1.3%。买入 ATM 看涨 + 卖出 (1+封顶)*现价 看涨 + 卖出 (1-缓冲)*现价 看跌。国库券以一年折现定价。每股数字;每张合约 *100。2026 年 4 月参考。",
+        },
+    };
+    function currentLang() {
+        var p = new URLSearchParams(window.location.search);
+        var l = (p.get("lang") || "en").toLowerCase();
+        return I18N.hasOwnProperty(l) ? l : "en";
+    }
+    var T = I18N[currentLang()];
+
+    // ---- Black-Scholes with continuous dividend yield q ----
+    function erf(x) {
+        var sign = x < 0 ? -1 : 1; x = Math.abs(x);
+        var a1 = 0.254829592, a2 = -0.284496736, a3 = 1.421413741;
+        var a4 = -1.453152027, a5 = 1.061405429, p = 0.3275911;
+        var t = 1.0 / (1.0 + p * x);
+        var y = 1.0 - (((((a5 * t + a4) * t) + a3) * t + a2) * t + a1) * t
+                     * Math.exp(-x * x);
+        return sign * y;
+    }
+    function Phi(x) { return 0.5 * (1.0 + erf(x / Math.SQRT2)); }
+    function bsmCall(S, K, Tt, sig, r, q) {
+        if (Tt <= 0) return Math.max(S - K, 0);
+        var sq = Math.sqrt(Tt);
+        var d1 = (Math.log(S / K) + (r - q + 0.5 * sig * sig) * Tt) / (sig * sq);
+        var d2 = d1 - sig * sq;
+        return S * Math.exp(-q * Tt) * Phi(d1) - K * Math.exp(-r * Tt) * Phi(d2);
+    }
+    function bsmPut(S, K, Tt, sig, r, q) {
+        if (Tt <= 0) return Math.max(K - S, 0);
+        var sq = Math.sqrt(Tt);
+        var d1 = (Math.log(S / K) + (r - q + 0.5 * sig * sig) * Tt) / (sig * sq);
+        var d2 = d1 - sig * sq;
+        return K * Math.exp(-r * Tt) * Phi(-d2) - S * Math.exp(-q * Tt) * Phi(-d1);
+    }
+
+    var SIG = 0.19, R = 0.043, Q = 0.013;
+
+    // ---- DOM ----
+    var ROOT = document.getElementById("bb-root");
+    var CHART = document.getElementById("bb-chart");
+    var SPOT_EL = document.getElementById("bb-SPOT");
+    var BUF_EL  = document.getElementById("bb-BUF");
+    var CAP_EL  = document.getElementById("bb-CAP");
+    var DTE_EL  = document.getElementById("bb-DTE");
+    var TBODY   = document.getElementById("bb-legtbody");
+
+    function getCssVar(name) {
+        return getComputedStyle(ROOT).getPropertyValue(name).trim();
+    }
+    function darkMode() {
+        return document.documentElement.getAttribute("data-theme") === "dark";
+    }
+    function fmtMoney(n) {
+        if (!isFinite(n)) return "—";
+        var sign = n < 0 ? "-" : "";
+        var v = Math.abs(n);
+        if (v >= 1000) return sign + "$" + v.toLocaleString(undefined, {maximumFractionDigits:2});
+        return sign + "$" + v.toFixed(2);
+    }
+    function fmtPct(n, d) {
+        if (!isFinite(n)) return "—";
+        return (n * 100).toFixed(d == null ? 1 : d) + "%";
+    }
+
+    function applyI18n() {
+        document.getElementById("bb-name-SPOT").textContent = T.name_SPOT;
+        document.getElementById("bb-name-BUF").textContent  = T.name_BUF;
+        document.getElementById("bb-name-CAP").textContent  = T.name_CAP;
+        document.getElementById("bb-name-DTE").textContent  = T.name_DTE;
+        document.getElementById("bb-bn-cost").textContent = T.bn_cost;
+        document.getElementById("bb-bn-mp").textContent   = T.bn_mp;
+        document.getElementById("bb-bn-ml").textContent   = T.bn_ml;
+        document.getElementById("bb-bn-be").textContent   = T.bn_be;
+        document.getElementById("bb-bd-cost").textContent = T.bd_cost;
+        document.getElementById("bb-bd-mp").textContent   = T.bd_mp;
+        document.getElementById("bb-bd-ml").textContent   = T.bd_ml;
+        document.getElementById("bb-bd-be").textContent   = T.bd_be;
+        document.getElementById("bb-th-leg").textContent    = T.th_leg;
+        document.getElementById("bb-th-action").textContent = T.th_action;
+        document.getElementById("bb-th-strike").textContent = T.th_strike;
+        document.getElementById("bb-th-px").textContent     = T.th_px;
+        document.getElementById("bb-th-cf").textContent     = T.th_cf;
+        document.getElementById("bb-caption").textContent   = T.caption;
+    }
+
+    function readSliders() {
+        return {
+            SPOT: parseFloat(SPOT_EL.value),
+            BUF:  parseFloat(BUF_EL.value) / 100.0,
+            CAP:  parseFloat(CAP_EL.value) / 100.0,
+            DTE:  parseFloat(DTE_EL.value),
+        };
+    }
+    function updateLabels(s) {
+        document.getElementById("bb-val-SPOT").textContent = "$" + Math.round(s.SPOT);
+        document.getElementById("bb-val-BUF").textContent  = (s.BUF * 100).toFixed(0) + "%";
+        document.getElementById("bb-val-CAP").textContent  = (s.CAP * 100).toFixed(0) + "%";
+        document.getElementById("bb-val-DTE").textContent  = String(Math.round(s.DTE));
+    }
+
+    function compute(s) {
+        var Tt = s.DTE / 365.0;
+        var Katm = s.SPOT;
+        var Kcap = s.SPOT * (1.0 + s.CAP);
+        var Kbuf = s.SPOT * (1.0 - s.BUF);
+        var pAtmCall = bsmCall(s.SPOT, Katm, Tt, SIG, R, Q);
+        var pCapCall = bsmCall(s.SPOT, Kcap, Tt, SIG, R, Q);
+        var pBufPut  = bsmPut (s.SPOT, Kbuf, Tt, SIG, R, Q);
+        // Net option-leg cost (debit) per share.
+        var spreadDebit = pAtmCall - pCapCall;
+        var putCredit   = pBufPut;
+        var netCost     = spreadDebit - putCredit;
+        // Max profit at expiry = cap*spot - netCost
+        var maxProfit = s.CAP * s.SPOT - netCost;
+        // Max loss when underlying -> 0: shares are 0, put assignment loss = (Kbuf - 0) per share short put,
+        // but our buffered exposure is structured so that below -BUF, P&L slope returns to 1:1 with
+        // underlying. Worst case at S=0: total return = -(1 - BUF) on notional, in dollars per share
+        // = -spot * (1 - BUF) - netCost (the carry/structure cost is also lost).
+        var maxLoss = -s.SPOT * (1.0 - s.BUF) - netCost;
+        // Breakeven on the downside: P&L = 0 when underlying return r satisfies
+        // r + BUF = netCost / spot, ie r = netCost/spot - BUF.
+        // With small netCost, breakeven is just slightly above the buffer floor.
+        var beReturn = netCost / s.SPOT - s.BUF;
+        return {
+            Tt: Tt, Katm: Katm, Kcap: Kcap, Kbuf: Kbuf,
+            pAtmCall: pAtmCall, pCapCall: pCapCall, pBufPut: pBufPut,
+            spreadDebit: spreadDebit, putCredit: putCredit,
+            netCost: netCost,
+            maxProfit: maxProfit, maxLoss: maxLoss,
+            beReturn: beReturn,
+        };
+    }
+
+    // P&L per share at expiry given final underlying price.
+    function buffPnLAtExp(s, c, Sexp) {
+        // Long ATM call payoff
+        var atm = Math.max(Sexp - c.Katm, 0);
+        // Short OTM call payoff (we paid pCapCall? No, we sold it -- collected pCapCall)
+        var sc  = -Math.max(Sexp - c.Kcap, 0);
+        // Short OTM put payoff (we collected putCredit)
+        var sp  = -Math.max(c.Kbuf - Sexp, 0);
+        // Net premium paid at inception was netCost. Strip it from realised PnL.
+        return atm + sc + sp - c.netCost;
+    }
+
+    function render() {
+        var s = readSliders();
+        updateLabels(s);
+        var c = compute(s);
+
+        // Stat-row values.
+        document.getElementById("bb-bv-cost").textContent = fmtMoney(c.netCost);
+        document.getElementById("bb-bv-cost").style.color = c.netCost >= 0
+            ? getCssVar("--bb-orange") : getCssVar("--bb-green");
+        document.getElementById("bb-bd-cost").textContent =
+            fmtMoney(c.spreadDebit) + " - " + fmtMoney(c.putCredit);
+
+        document.getElementById("bb-bv-mp").textContent = fmtMoney(c.maxProfit);
+        document.getElementById("bb-bv-mp").style.color = getCssVar("--bb-green");
+        document.getElementById("bb-bd-mp").textContent =
+            "S >= " + fmtMoney(c.Kcap) + " (cap " + (s.CAP * 100).toFixed(0) + "%)";
+
+        document.getElementById("bb-bv-ml").textContent = fmtMoney(c.maxLoss);
+        document.getElementById("bb-bv-ml").style.color = getCssVar("--bb-red");
+        document.getElementById("bb-bd-ml").textContent =
+            "S = 0: -" + fmtPct(1 - s.BUF, 1) + " of spot";
+
+        document.getElementById("bb-bv-be").textContent = fmtPct(c.beReturn, 2);
+        document.getElementById("bb-bv-be").style.color = getCssVar("--bb-blue");
+        document.getElementById("bb-bd-be").textContent =
+            "S = " + fmtMoney(s.SPOT * (1 + c.beReturn));
+
+        // Leg table.
+        var pvPar = Math.exp(-R * c.Tt);
+        var rows = [
+            ["bb-leg-zero",
+             T.leg_zero, T.act_par, "—",
+             (pvPar * 100).toFixed(2) + "% par",
+             "-" + fmtMoney(s.SPOT * pvPar)],
+            ["bb-leg-call-long",
+             T.leg_long_call, T.act_long,
+             fmtMoney(c.Katm), fmtMoney(c.pAtmCall),
+             "-" + fmtMoney(c.pAtmCall)],
+            ["bb-leg-call-short",
+             T.leg_short_call, T.act_short,
+             fmtMoney(c.Kcap), fmtMoney(c.pCapCall),
+             "+" + fmtMoney(c.pCapCall)],
+            ["bb-leg-put-short",
+             T.leg_short_put, T.act_short,
+             fmtMoney(c.Kbuf), fmtMoney(c.pBufPut),
+             "+" + fmtMoney(c.pBufPut)],
+        ];
+        var html = "";
+        rows.forEach(function (r) {
+            html += "<tr><td>" + r[1] + "</td><td>" + r[2] + "</td><td>" +
+                    r[3] + "</td><td>" + r[4] + "</td><td>" + r[5] + "</td></tr>";
+        });
+        // Net row: option-only structure cost (excluding T-bill leg).
+        html += "<tr class=\"bb-net\"><td>" + T.leg_net +
+                "</td><td>—</td><td>—</td><td>—</td><td>" +
+                (c.netCost >= 0 ? "-" : "+") + fmtMoney(Math.abs(c.netCost)) +
+                "</td></tr>";
+        TBODY.innerHTML = html;
+
+        // Chart sweep on underlying return at expiry.
+        var rets = [];
+        var buffPnL = [];
+        var unbufPnL = [];
+        var atmLeg = [];
+        var scLeg = [];
+        var spLeg = [];
+        var N = 401, loR = -0.30, hiR = 0.30;
+        for (var i = 0; i < N; i++) {
+            var r = loR + (hiR - loR) * i / (N - 1);
+            var Sexp = s.SPOT * (1.0 + r);
+            rets.push(r);
+            buffPnL.push(buffPnLAtExp(s, c, Sexp));
+            unbufPnL.push(s.SPOT * r);
+            atmLeg.push(Math.max(Sexp - c.Katm, 0) - c.pAtmCall);
+            scLeg.push(-Math.max(Sexp - c.Kcap, 0) + c.pCapCall);
+            spLeg.push(-Math.max(c.Kbuf - Sexp, 0) + c.pBufPut);
+        }
+
+        var colorBlue = getCssVar("--bb-blue");
+        var colorRed = getCssVar("--bb-red");
+        var colorGreen = getCssVar("--bb-green");
+        var colorOrange = getCssVar("--bb-orange");
+        var colorPurple = getCssVar("--bb-purple");
+        var colorAcc = getCssVar("--bb-accent");
+        var colorText = getCssVar("--bb-text");
+        var colorMuted = getCssVar("--bb-muted");
+        var colorBg = getCssVar("--bb-card");
+        var colorGrid = darkMode() ? "rgba(255,255,255,0.08)" : "rgba(0,0,0,0.07)";
+
+        var traces = [
+            { x: rets, y: unbufPnL, type: "scatter", mode: "lines",
+              name: T.unbuf,
+              line: { color: colorMuted, width: 1.4, dash: "dot" },
+              hovertemplate: "%{x:.1%}<br>" + T.unbuf + ": $%{y:.2f}<extra></extra>" },
+            { x: rets, y: atmLeg, type: "scatter", mode: "lines",
+              name: T.atm_call,
+              line: { color: colorGreen, width: 1.4, dash: "dash" },
+              hovertemplate: "%{x:.1%}<br>" + T.atm_call + ": $%{y:.2f}<extra></extra>" },
+            { x: rets, y: scLeg, type: "scatter", mode: "lines",
+              name: T.otm_call,
+              line: { color: colorOrange, width: 1.4, dash: "dash" },
+              hovertemplate: "%{x:.1%}<br>" + T.otm_call + ": $%{y:.2f}<extra></extra>" },
+            { x: rets, y: spLeg, type: "scatter", mode: "lines",
+              name: T.otm_put,
+              line: { color: colorPurple, width: 1.4, dash: "dash" },
+              hovertemplate: "%{x:.1%}<br>" + T.otm_put + ": $%{y:.2f}<extra></extra>" },
+            { x: rets, y: buffPnL, type: "scatter", mode: "lines",
+              name: T.buffered_label,
+              line: { color: colorBlue, width: 3.0 },
+              hovertemplate: "%{x:.1%}<br>" + T.buffered_label + ": $%{y:.2f}<extra></extra>" },
+        ];
+
+        var shapes = [
+            { type: "line", xref: "paper", yref: "y",
+              x0: 0, x1: 1, y0: 0, y1: 0,
+              line: { color: colorMuted, width: 0.8 } },
+            { type: "line", xref: "x", yref: "paper",
+              x0: -s.BUF, x1: -s.BUF, y0: 0, y1: 1,
+              line: { color: colorRed, width: 1.0, dash: "dot" } },
+            { type: "line", xref: "x", yref: "paper",
+              x0: s.CAP, x1: s.CAP, y0: 0, y1: 1,
+              line: { color: colorGreen, width: 1.0, dash: "dot" } },
+        ];
+
+        var annotations = [
+            { x: -s.BUF, y: 1.0, xref: "x", yref: "paper",
+              text: "buffer " + (-s.BUF * 100).toFixed(0) + "%",
+              showarrow: false, font: { color: colorRed, size: 10, weight: 700 },
+              xanchor: "left", yanchor: "top", xshift: 4 },
+            { x: s.CAP, y: 1.0, xref: "x", yref: "paper",
+              text: "cap +" + (s.CAP * 100).toFixed(0) + "%",
+              showarrow: false, font: { color: colorGreen, size: 10, weight: 700 },
+              xanchor: "right", yanchor: "top", xshift: -4 },
+        ];
+
+        var layout = {
+            margin: { l: 70, r: 24, t: 40, b: 50 },
+            paper_bgcolor: colorBg,
+            plot_bgcolor: colorBg,
+            font: { family: "Segoe UI, Helvetica, Arial, sans-serif",
+                    color: colorText, size: 12 },
+            xaxis: {
+                title: { text: T.x_title, font: { color: colorMuted, size: 11 } },
+                tickformat: ".0%",
+                gridcolor: colorGrid, color: colorText,
+            },
+            yaxis: {
+                title: { text: T.y_title, font: { color: colorMuted, size: 11 } },
+                tickprefix: "$", tickformat: ",.2f",
+                gridcolor: colorGrid, zerolinecolor: colorMuted, color: colorText,
+            },
+            title: {
+                text: T.chart_title,
+                x: 0, xanchor: "left",
+                font: { color: colorText, size: 13, weight: 700 },
+            },
+            shapes: shapes,
+            annotations: annotations,
+            legend: { orientation: "h", x: 0, y: 1.10, xanchor: "left",
+                      font: { color: colorText, size: 10 } },
+            hovermode: "x unified",
+        };
+        Plotly.react(CHART, traces, layout, {
+            displayModeBar: false, responsive: true,
+        });
+    }
+
+    [SPOT_EL, BUF_EL, CAP_EL, DTE_EL].forEach(function (el) {
+        el.addEventListener("input", render);
+    });
+
+    applyI18n();
+
+    function reportHeight() {
+        try {
+            var h = Math.ceil(document.documentElement.scrollHeight);
+            parent.postMessage({ type: "lesson-interactive-resize", height: h }, "*");
+        } catch (e) { /* ignore */ }
+    }
+    if (typeof ResizeObserver !== "undefined") {
+        new ResizeObserver(reportHeight).observe(document.body);
+    }
+    window.addEventListener("resize", reportHeight);
+    setTimeout(reportHeight, 50);
+    setTimeout(reportHeight, 500);
+
+    var themeObserver = new MutationObserver(render);
+    themeObserver.observe(document.documentElement, {
+        attributes: true, attributeFilter: ["data-theme"],
+    });
+
+    render();
+})();
+</script>
+
+</body>
+</html>

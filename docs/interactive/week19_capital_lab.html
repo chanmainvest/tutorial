@@ -1,0 +1,533 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Capital Lab — Interactive (Week 19)</title>
+<script src="https://cdn.plot.ly/plotly-2.35.2.min.js" charset="utf-8"></script>
+<style>
+html, body { margin: 0; padding: 0; background: var(--cl-bg); }
+:root {
+    --cl-bg: #fdfbf5;
+    --cl-text: #1a2332;
+    --cl-muted: #6b7280;
+    --cl-border: #d6d3c4;
+    --cl-card: #fdfbf5;
+    --cl-pos: #2e7d32;
+    --cl-neg: #b71c1c;
+    --cl-mid: #0d47a1;
+    --cl-accent: #b8860b;
+}
+html[data-theme="dark"] .cl-root,
+.cl-root[data-theme="dark"] {
+    --cl-bg: #0f1724;
+    --cl-text: #e6e6e6;
+    --cl-muted: #9aa3b2;
+    --cl-border: #2a3441;
+    --cl-card: #0f1724;
+    --cl-pos: #66bb6a;
+    --cl-neg: #ef5350;
+    --cl-mid: #5a8dee;
+}
+.cl-root {
+    font-family: 'Segoe UI', Helvetica, Arial, sans-serif;
+    background: var(--cl-bg);
+    color: var(--cl-text);
+    padding: 12px;
+    margin: 0;
+}
+.cl-controls {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px 18px;
+    margin-bottom: 14px;
+    padding: 12px 14px;
+    background: var(--cl-card);
+    border: 1px solid var(--cl-border);
+    border-radius: 8px;
+}
+.cl-slider-wrap {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.85rem;
+    color: var(--cl-muted);
+}
+.cl-slider-wrap label {
+    min-width: 110px;
+    color: var(--cl-text);
+    font-weight: 600;
+    font-size: 0.82rem;
+}
+.cl-slider-wrap input[type="range"] {
+    flex: 1;
+    accent-color: var(--cl-accent);
+}
+.cl-slider-wrap .cl-val {
+    white-space: nowrap;
+    color: var(--cl-text);
+    font-weight: 700;
+    font-variant-numeric: tabular-nums;
+    min-width: 56px;
+    text-align: right;
+}
+.cl-stat {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 18px;
+    margin-bottom: 14px;
+    padding: 12px 14px;
+    background: var(--cl-card);
+    border: 1px solid var(--cl-border);
+    border-radius: 8px;
+    font-size: 0.88rem;
+}
+.cl-stat .cl-kpi {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+.cl-stat .cl-kpi .cl-k-label {
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--cl-muted);
+    font-weight: 700;
+}
+.cl-stat .cl-kpi .cl-k-val {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--cl-text);
+    font-variant-numeric: tabular-nums;
+}
+.cl-stat .cl-kpi .cl-k-val.cl-pos { color: var(--cl-pos); }
+.cl-stat .cl-kpi .cl-k-val.cl-neg { color: var(--cl-neg); }
+.cl-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+}
+.cl-chart {
+    width: 100%;
+    height: 360px;
+    background: var(--cl-card);
+    border-radius: 8px;
+    border: 1px solid var(--cl-border);
+}
+.cl-formula {
+    margin-top: 10px;
+    padding: 10px 14px;
+    background: var(--cl-card);
+    border: 1px solid var(--cl-border);
+    border-radius: 8px;
+    font-size: 0.84rem;
+    color: var(--cl-muted);
+    font-variant-numeric: tabular-nums;
+    line-height: 1.5;
+}
+.cl-formula b { color: var(--cl-text); }
+.cl-caption {
+    margin-top: 10px;
+    font-size: 0.78rem;
+    color: var(--cl-muted);
+    line-height: 1.5;
+}
+@media (max-width: 720px) {
+    .cl-controls { grid-template-columns: 1fr; }
+    .cl-grid { grid-template-columns: 1fr; }
+    .cl-chart { height: 320px; }
+}
+</style>
+</head>
+<body>
+
+<div class="cl-root" id="cl-root">
+
+    <div class="cl-controls" id="cl-controls">
+        <div class="cl-slider-wrap">
+            <label id="cl-l-ev">Equity weight E/V</label>
+            <input type="range" id="cl-ev" min="0" max="100" step="1" value="70">
+            <span class="cl-val" id="cl-v-ev">70%</span>
+        </div>
+        <div class="cl-slider-wrap">
+            <label id="cl-l-re">Cost of equity rE</label>
+            <input type="range" id="cl-re" min="3" max="18" step="0.1" value="9.5">
+            <span class="cl-val" id="cl-v-re">9.5%</span>
+        </div>
+        <div class="cl-slider-wrap">
+            <label id="cl-l-rd">Cost of debt rD</label>
+            <input type="range" id="cl-rd" min="2" max="12" step="0.1" value="5.5">
+            <span class="cl-val" id="cl-v-rd">5.5%</span>
+        </div>
+        <div class="cl-slider-wrap">
+            <label id="cl-l-tax">Tax rate t</label>
+            <input type="range" id="cl-tax" min="0" max="40" step="1" value="25">
+            <span class="cl-val" id="cl-v-tax">25%</span>
+        </div>
+    </div>
+
+    <div class="cl-stat">
+        <div class="cl-kpi">
+            <span class="cl-k-label" id="cl-k-wacc-label">WACC</span>
+            <span class="cl-k-val" id="cl-k-wacc">--</span>
+        </div>
+        <div class="cl-kpi">
+            <span class="cl-k-label" id="cl-k-eq-label">Equity contribution</span>
+            <span class="cl-k-val" id="cl-k-eq">--</span>
+        </div>
+        <div class="cl-kpi">
+            <span class="cl-k-label" id="cl-k-dt-label">Post-tax debt contribution</span>
+            <span class="cl-k-val" id="cl-k-dt">--</span>
+        </div>
+        <div class="cl-kpi">
+            <span class="cl-k-label" id="cl-k-npv-label">$100M project NPV</span>
+            <span class="cl-k-val" id="cl-k-npv">--</span>
+        </div>
+    </div>
+
+    <div class="cl-grid">
+        <div id="cl-chart-npv" class="cl-chart"></div>
+        <div id="cl-chart-peer" class="cl-chart"></div>
+    </div>
+
+    <div class="cl-formula" id="cl-formula"></div>
+    <p class="cl-caption" id="cl-caption"></p>
+</div>
+
+<script>
+(function () {
+
+    // ----- Constants ----------------------------------------------------
+    // Project: $100M upfront cost, 5 annual cash flows of $30M each.
+    // NPV(WACC) = -100 + sum_{t=1..5} 30 / (1+WACC)^t
+    const PROJECT_COST = 100;       // $M upfront
+    const PROJECT_CF   = 30;        // $M annual
+    const PROJECT_N    = 5;         // years
+
+    // Approximate WACCs (April 2026, illustrative, %):
+    const PEERS = [
+        { tag: "AAPL", wacc: 9.5 },
+        { tag: "MSFT", wacc: 9.0 },
+        { tag: "JPM",  wacc: 11.0 },
+        { tag: "KO",   wacc: 6.5 },
+        { tag: "F",    wacc: 8.5 },
+    ];
+
+    // WACC values to tile as the NPV curve sample points.
+    const NPV_WACCS = [4, 6, 8, 10, 12, 14];
+
+    // ----- I18N ---------------------------------------------------------
+    const I18N = {
+        en: {
+            l_ev:        "Equity weight E/V",
+            l_re:        "Cost of equity rE",
+            l_rd:        "Cost of debt rD",
+            l_tax:       "Tax rate t",
+            k_wacc:      "WACC (live)",
+            k_eq:        "Equity contribution",
+            k_dt:        "Post-tax debt contribution",
+            k_npv:       "$100M project NPV",
+            chart_npv_title: "Project NPV vs. WACC",
+            chart_peer_title: "Approx. WACC, you vs. peers",
+            xaxis_npv:   "WACC (%)",
+            yaxis_npv:   "NPV ($M)",
+            xaxis_peer:  "Firm",
+            yaxis_peer:  "WACC (%)",
+            you:         "You",
+            project_str: "Project: -$100M upfront, +$30M per year for 5 years",
+            formula:     "<b>WACC</b> = (E/V) x rE + (D/V) x rD x (1 - t).  D/V = 1 - E/V.  Move sliders: equity contribution falls as you lever up, post-tax debt rises, total WACC drops as long as rD &lt; rE (and the tax shield is real). Push rE high or D/V low: WACC climbs.",
+            caption:     "Project NPV is the present value of -$100M + 5 annual $30M flows discounted at WACC. The peer panel shows approximate April 2026 WACCs for AAPL, MSFT, JPM (banks have a higher cost of equity), KO (low-vol consumer staple), and F (auto cyclical with heavy debt offsetting equity risk premium). Your slider WACC is plotted alongside.",
+        },
+        hk: {
+            l_ev:        "股權比重 E/V",
+            l_re:        "股權成本 rE",
+            l_rd:        "債務成本 rD",
+            l_tax:       "稅率 t",
+            k_wacc:      "WACC(即時)",
+            k_eq:        "股權部分",
+            k_dt:        "稅後債務部分",
+            k_npv:       "1 億美元項目 NPV",
+            chart_npv_title: "項目 NPV 對 WACC",
+            chart_peer_title: "你 vs. 同業 WACC(估計)",
+            xaxis_npv:   "WACC (%)",
+            yaxis_npv:   "NPV(百萬美元)",
+            xaxis_peer:  "公司",
+            yaxis_peer:  "WACC (%)",
+            you:         "你",
+            project_str: "項目:期初 -1 億,連續 5 年每年 +3,000 萬",
+            formula:     "<b>WACC</b> = (E/V) x rE + (D/V) x rD x (1 - t)。D/V = 1 - E/V。拉動滑塊:加槓桿時股權部分下降、稅後債務部分上升;只要 rD &lt; rE,WACC 下降。推高 rE 或減低 D/V:WACC 上升。",
+            caption:     "項目 NPV 為期初 -1 億美元加上連續 5 年每年 3,000 萬以 WACC 折現的現值。右圖為 2026 年 4 月 AAPL、MSFT、JPM(銀行的股權成本較高)、KO(低波動消費品)、F(以高負債抵消股權風險溢價的車廠)的概略 WACC。你的設定也顯示在同一圖上。",
+        },
+        tw: {
+            l_ev:        "股權比重 E/V",
+            l_re:        "股權成本 rE",
+            l_rd:        "債務成本 rD",
+            l_tax:       "稅率 t",
+            k_wacc:      "WACC(即時)",
+            k_eq:        "股權部分",
+            k_dt:        "稅後債務部分",
+            k_npv:       "1 億美元專案 NPV",
+            chart_npv_title: "專案 NPV 對 WACC",
+            chart_peer_title: "你 vs. 同業 WACC(概估)",
+            xaxis_npv:   "WACC (%)",
+            yaxis_npv:   "NPV(百萬美元)",
+            xaxis_peer:  "公司",
+            yaxis_peer:  "WACC (%)",
+            you:         "你",
+            project_str: "專案:期初 -1 億,連續 5 年每年 +3,000 萬",
+            formula:     "<b>WACC</b> = (E/V) x rE + (D/V) x rD x (1 - t)。D/V = 1 - E/V。拉動滑桿:加槓桿時股權部分下降、稅後債務部分上升;只要 rD &lt; rE,WACC 下降。推高 rE 或降低 D/V:WACC 上升。",
+            caption:     "專案 NPV 為期初 -1 億美元加上連續 5 年每年 3,000 萬以 WACC 折現的現值。右圖為 2026 年 4 月 AAPL、MSFT、JPM(銀行的股權成本較高)、KO(低波動消費股)、F(以高負債抵消股權風險溢價的車廠)的概略 WACC。你的設定也顯示在同一圖上。",
+        },
+        cn: {
+            l_ev:        "股权比重 E/V",
+            l_re:        "股权成本 rE",
+            l_rd:        "债务成本 rD",
+            l_tax:       "税率 t",
+            k_wacc:      "WACC(实时)",
+            k_eq:        "股权部分",
+            k_dt:        "税后债务部分",
+            k_npv:       "1 亿美元项目 NPV",
+            chart_npv_title: "项目 NPV 对 WACC",
+            chart_peer_title: "你 vs. 同业 WACC(估计)",
+            xaxis_npv:   "WACC (%)",
+            yaxis_npv:   "NPV(百万美元)",
+            xaxis_peer:  "公司",
+            yaxis_peer:  "WACC (%)",
+            you:         "你",
+            project_str: "项目:期初 -1 亿,连续 5 年每年 +3,000 万",
+            formula:     "<b>WACC</b> = (E/V) x rE + (D/V) x rD x (1 - t)。D/V = 1 - E/V。拉动滑块:加杠杆时股权部分下降、税后债务部分上升;只要 rD &lt; rE,WACC 下降。推高 rE 或降低 D/V:WACC 上升。",
+            caption:     "项目 NPV 为期初 -1 亿美元加上连续 5 年每年 3,000 万以 WACC 折现的现值。右图为 2026 年 4 月 AAPL、MSFT、JPM(银行的股权成本较高)、KO(低波动消费股)、F(以高负债抵消股权风险溢价的车厂)的概略 WACC。你的设定也显示在同一图上。",
+        },
+    };
+
+    function currentLang() {
+        const p = new URLSearchParams(window.location.search);
+        const l = (p.get("lang") || "en").toLowerCase();
+        return I18N.hasOwnProperty(l) ? l : "en";
+    }
+    const T = I18N[currentLang()];
+
+    const ROOT = document.getElementById("cl-root");
+    const CHART_NPV  = document.getElementById("cl-chart-npv");
+    const CHART_PEER = document.getElementById("cl-chart-peer");
+
+    const elEv  = document.getElementById("cl-ev");
+    const elRe  = document.getElementById("cl-re");
+    const elRd  = document.getElementById("cl-rd");
+    const elTax = document.getElementById("cl-tax");
+    const valEv  = document.getElementById("cl-v-ev");
+    const valRe  = document.getElementById("cl-v-re");
+    const valRd  = document.getElementById("cl-v-rd");
+    const valTax = document.getElementById("cl-v-tax");
+    const kWacc = document.getElementById("cl-k-wacc");
+    const kEq   = document.getElementById("cl-k-eq");
+    const kDt   = document.getElementById("cl-k-dt");
+    const kNpv  = document.getElementById("cl-k-npv");
+
+    function getCssVar(name) {
+        return getComputedStyle(ROOT).getPropertyValue(name).trim();
+    }
+    function darkMode() {
+        return document.documentElement.getAttribute("data-theme") === "dark";
+    }
+
+    function projectNpv(waccPct) {
+        const r = waccPct / 100;
+        let pv = -PROJECT_COST;
+        for (let t = 1; t <= PROJECT_N; t++) {
+            pv += PROJECT_CF / Math.pow(1 + r, t);
+        }
+        return pv;
+    }
+
+    function compute() {
+        const ev  = +elEv.value / 100;     // equity weight 0..1
+        const re  = +elRe.value / 100;
+        const rd  = +elRd.value / 100;
+        const tax = +elTax.value / 100;
+        const dv  = 1 - ev;
+        const eqContrib = ev * re;
+        const dtContrib = dv * rd * (1 - tax);
+        const wacc = eqContrib + dtContrib;
+        const npv = projectNpv(wacc * 100);
+        return { ev, re, rd, tax, dv, eqContrib, dtContrib, wacc, npv };
+    }
+
+    function fmtPct(v) { return (v * 100).toFixed(2) + "%"; }
+    function fmtPctOne(v) { return (v * 100).toFixed(1) + "%"; }
+    function fmtMoney(v) {
+        const sign = v < 0 ? "-" : "";
+        return sign + "$" + Math.abs(v).toFixed(1) + "M";
+    }
+
+    function renderStat(c) {
+        kWacc.textContent = fmtPct(c.wacc);
+        kEq.textContent   = fmtPct(c.eqContrib);
+        kDt.textContent   = fmtPct(c.dtContrib);
+        kNpv.textContent  = fmtMoney(c.npv);
+        kWacc.classList.remove("cl-pos", "cl-neg");
+        kNpv.classList.remove("cl-pos", "cl-neg");
+        kNpv.classList.add(c.npv >= 0 ? "cl-pos" : "cl-neg");
+    }
+
+    function renderNpvChart(c) {
+        const colorAccent = getCssVar("--cl-accent");
+        const colorMid    = getCssVar("--cl-mid");
+        const colorPos    = getCssVar("--cl-pos");
+        const colorNeg    = getCssVar("--cl-neg");
+        const colorText   = getCssVar("--cl-text");
+        const colorMuted  = getCssVar("--cl-muted");
+        const colorBg     = getCssVar("--cl-card");
+        const colorGrid   = darkMode() ? "rgba(255,255,255,0.08)" : "rgba(0,0,0,0.07)";
+
+        const xs = NPV_WACCS;
+        const ys = xs.map(w => projectNpv(w));
+        const colors = ys.map(y => y >= 0 ? colorPos : colorNeg);
+        const youY = c.npv;
+
+        const traces = [
+            {
+                x: xs, y: ys,
+                type: "bar",
+                marker: { color: colors, line: { width: 0 } },
+                name: "NPV",
+                hovertemplate: "WACC %{x}%: NPV %{y:.1f}M<extra></extra>",
+            },
+            {
+                x: [c.wacc * 100, c.wacc * 100],
+                y: [Math.min(...ys, youY) * 1.1 - 1, Math.max(...ys, youY) * 1.1 + 1],
+                type: "scatter", mode: "lines",
+                line: { color: colorAccent, width: 2.5, dash: "dot" },
+                name: T.you,
+                hoverinfo: "skip",
+                showlegend: false,
+            },
+            {
+                x: [c.wacc * 100], y: [youY],
+                type: "scatter", mode: "markers",
+                marker: { color: colorAccent, size: 10, line: { color: colorBg, width: 2 } },
+                name: T.you + " (" + (c.wacc * 100).toFixed(2) + "%)",
+                hovertemplate: T.you + ": WACC " + (c.wacc * 100).toFixed(2) + "%, NPV " + youY.toFixed(1) + "M<extra></extra>",
+                showlegend: false,
+            },
+        ];
+        const layout = {
+            margin: { l: 56, r: 24, t: 40, b: 50 },
+            paper_bgcolor: colorBg, plot_bgcolor: colorBg,
+            font: { family: "Segoe UI, Helvetica, Arial, sans-serif", color: colorText, size: 12 },
+            title: { text: T.chart_npv_title, font: { color: colorText, size: 13 }, x: 0, xanchor: "left" },
+            xaxis: {
+                title: { text: T.xaxis_npv, font: { color: colorMuted, size: 11 } },
+                gridcolor: colorGrid, zerolinecolor: colorMuted, color: colorText,
+                tickmode: "array", tickvals: xs,
+            },
+            yaxis: {
+                title: { text: T.yaxis_npv, font: { color: colorMuted, size: 11 } },
+                gridcolor: colorGrid, zerolinecolor: colorMuted, color: colorText,
+            },
+            bargap: 0.25,
+            showlegend: false,
+            annotations: [
+                {
+                    x: 0.99, y: 0.98, xref: "paper", yref: "paper",
+                    text: T.project_str,
+                    showarrow: false, xanchor: "right", yanchor: "top",
+                    font: { color: colorMuted, size: 10 },
+                },
+            ],
+        };
+        Plotly.react(CHART_NPV, traces, layout, { displayModeBar: false, responsive: true });
+    }
+
+    function renderPeerChart(c) {
+        const colorAccent = getCssVar("--cl-accent");
+        const colorMid    = getCssVar("--cl-mid");
+        const colorText   = getCssVar("--cl-text");
+        const colorMuted  = getCssVar("--cl-muted");
+        const colorBg     = getCssVar("--cl-card");
+        const colorGrid   = darkMode() ? "rgba(255,255,255,0.08)" : "rgba(0,0,0,0.07)";
+
+        const allTags  = [T.you].concat(PEERS.map(p => p.tag));
+        const allWaccs = [c.wacc * 100].concat(PEERS.map(p => p.wacc));
+        const colors = allTags.map((tag, i) => i === 0 ? colorAccent : colorMid);
+        const traces = [{
+            x: allTags, y: allWaccs,
+            type: "bar",
+            marker: { color: colors, line: { width: 0 } },
+            text: allWaccs.map(v => v.toFixed(2) + "%"),
+            textposition: "outside",
+            hovertemplate: "%{x}: %{y:.2f}%<extra></extra>",
+        }];
+        const layout = {
+            margin: { l: 56, r: 24, t: 40, b: 50 },
+            paper_bgcolor: colorBg, plot_bgcolor: colorBg,
+            font: { family: "Segoe UI, Helvetica, Arial, sans-serif", color: colorText, size: 12 },
+            title: { text: T.chart_peer_title, font: { color: colorText, size: 13 }, x: 0, xanchor: "left" },
+            xaxis: {
+                title: { text: T.xaxis_peer, font: { color: colorMuted, size: 11 } },
+                gridcolor: colorGrid, color: colorText,
+            },
+            yaxis: {
+                title: { text: T.yaxis_peer, font: { color: colorMuted, size: 11 } },
+                gridcolor: colorGrid, zerolinecolor: colorMuted, color: colorText,
+                rangemode: "tozero",
+            },
+            bargap: 0.32,
+            showlegend: false,
+        };
+        Plotly.react(CHART_PEER, traces, layout, { displayModeBar: false, responsive: true });
+    }
+
+    function applyI18n() {
+        document.getElementById("cl-l-ev").textContent  = T.l_ev;
+        document.getElementById("cl-l-re").textContent  = T.l_re;
+        document.getElementById("cl-l-rd").textContent  = T.l_rd;
+        document.getElementById("cl-l-tax").textContent = T.l_tax;
+        document.getElementById("cl-k-wacc-label").textContent = T.k_wacc;
+        document.getElementById("cl-k-eq-label").textContent   = T.k_eq;
+        document.getElementById("cl-k-dt-label").textContent   = T.k_dt;
+        document.getElementById("cl-k-npv-label").textContent  = T.k_npv;
+        document.getElementById("cl-formula").innerHTML = T.formula;
+        document.getElementById("cl-caption").textContent = T.caption;
+    }
+
+    function update() {
+        valEv.textContent  = elEv.value + "%";
+        valRe.textContent  = (+elRe.value).toFixed(1) + "%";
+        valRd.textContent  = (+elRd.value).toFixed(1) + "%";
+        valTax.textContent = elTax.value + "%";
+        const c = compute();
+        renderStat(c);
+        renderNpvChart(c);
+        renderPeerChart(c);
+    }
+
+    [elEv, elRe, elRd, elTax].forEach(el => el.addEventListener("input", update));
+
+    applyI18n();
+
+    function reportHeight() {
+        try {
+            const h = Math.ceil(document.documentElement.scrollHeight);
+            parent.postMessage({ type: 'lesson-interactive-resize', height: h }, '*');
+        } catch (e) { /* ignore */ }
+    }
+    if (typeof ResizeObserver !== 'undefined') {
+        new ResizeObserver(reportHeight).observe(document.body);
+    }
+    window.addEventListener('resize', reportHeight);
+    setTimeout(reportHeight, 50);
+    setTimeout(reportHeight, 500);
+
+    const themeObserver = new MutationObserver(update);
+    themeObserver.observe(document.documentElement, {
+        attributes: true,
+        attributeFilter: ["data-theme"],
+    });
+
+    update();
+})();
+</script>
+
+</body>
+</html>

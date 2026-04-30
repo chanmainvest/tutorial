@@ -1,825 +1,616 @@
-# Week 15: Multi-Asset Allocation
+# Week 15: Multi-Asset Portfolios — Risk Parity, All-Weather, and the Four-Tranche Framework
 
 ---
 
-## Reading Section
-
-### a) Why This Is Important
-
-Most beginning investors think of investing as choosing between stocks and bonds. This two-asset mental model is dangerously incomplete. The investment universe is vast -- it includes real estate, commodities, private equity, infrastructure, hedge fund strategies, and more. Each asset class has its own return profile, risk characteristics, and sensitivity to economic conditions. By limiting yourself to two ingredients, you are cooking with one hand tied behind your back.
-
-Multi-asset allocation matters for three fundamental reasons:
-
-1. **Diversification is the only free lunch in finance.** Nobel laureate Harry Markowitz said this, and decades of evidence support it. By combining assets that do not move in lockstep, you can earn higher returns per unit of risk than any single asset can deliver alone. A portfolio of five uncorrelated return streams is categorically different from a portfolio of one.
-
-2. **The 60/40 portfolio is not a law of nature.** The traditional 60% stocks / 40% bonds split served investors well for decades, but it was a product of a specific interest rate environment. When rates were high and falling, bonds provided both income and diversification. In a low-rate or rising-rate world, the 60/40 portfolio may not work as advertised. You need alternatives.
-
-3. **Asset allocation drives the vast majority of portfolio returns.** Landmark studies by Brinson, Hood, and Beebower found that over 90% of the variation in portfolio returns over time is explained by the asset allocation decision -- not stock picking, not market timing. Getting the big picture right matters more than getting any single holding right.
-
-4. **Different assets protect you in different environments.** Stocks do well during economic growth. Bonds do well when growth slows and rates fall. Commodities do well during inflation. Real estate provides income and inflation protection. Gold protects against extreme uncertainty. No single asset handles every scenario. A multi-asset portfolio gives you coverage across multiple economic regimes.
-
-5. **Institutional investors already know this.** Endowments like Yale and Harvard, sovereign wealth funds, and pension funds have long used multi-asset approaches. David Swensen's Yale Model famously emphasized alternative assets and earned extraordinary risk-adjusted returns over decades. Individual investors can apply the same principles on a smaller scale using ETFs and low-cost funds.
-
-This lesson will teach you the major asset classes, how they interact through correlation, how to build an efficient portfolio using modern portfolio theory, and how more advanced approaches like risk parity attempt to improve on traditional allocation methods.
+## Part 1: Reading Section
 
 ---
 
-### b) What You Need to Know
+### 1. Why This Is Important
 
-#### 1. The Major Asset Classes
+Week 4 gave you 60/40. Week 6 gave you gold. Week 13 gave you the
+short side. This week the course finally puts those pieces inside one
+coherent allocation framework — the same framework Bridgewater has run
+since 1996, the same framework Cliff Asness debuted at AQR in 2004,
+and the same shape Horace's SOUL #13 four-tranche book is designed to
+imitate at retail scale.
 
-An asset class is a broad category of investments that share similar characteristics, behave similarly in the market, and are subject to the same laws and regulations. Here are the primary asset classes available to individual investors:
+You need this lesson for four reasons.
 
-**Equities (Stocks)**
-- Ownership stakes in companies
-- Highest long-term expected returns (~7-10% real historically)
-- Highest volatility (~15-20% annual standard deviation)
-- Sensitive to economic growth and corporate earnings
-- Sub-categories: domestic large-cap, small-cap, international developed, emerging markets
+1. **60/40 is a regime trade in disguise.** It worked for forty years
+   because stocks and bonds were negatively correlated and inflation
+   was falling. When that regime broke in 2022 — both legs down 18%
+   together — the question stopped being "stocks or bonds?" and
+   started being "what is the portfolio that does not depend on a
+   single macro outcome to survive?" Multi-asset construction is the
+   answer the institutional world settled on, and you should know
+   the architecture before you accept or reject it.
+2. **Risk parity reframes the allocation question.** Traditional
+   allocation asks "what fraction of my dollars goes to each asset?"
+   Risk parity asks "what fraction of my *risk* comes from each
+   asset?" In a 60/40 book at typical vols, roughly 90% of the
+   portfolio's variance comes from the equity sleeve, even though
+   only 60% of the dollars are there. Once you see that, you cannot
+   un-see it — the 40% bond sleeve is a rounding error in risk terms.
+3. **The all-weather four-quadrant model is the cleanest mental
+   picture of macro you will ever own.** Growth × inflation, two
+   axes, four cells, one winning asset class per cell. It is not a
+   complete forecasting tool. It is something better — a checklist
+   that forces you to ask, before you size any position, *which
+   quadrant is this trade a bet on?* Most retail blow-ups come from
+   running an unhedged single-quadrant book and not knowing it.
+4. **It is the bridge into the back half of the course.** The
+   four-tranche SOUL #13 frame (growth / income / store-of-value /
+   opportunistic) is what we will populate in Weeks 16-30 with
+   sectors, factors, options strategies, and barbell tilts. Without
+   the multi-asset chassis from this week, those later trades have no
+   home to go in.
 
-**Fixed Income (Bonds)**
-- Loans to governments or corporations
-- Lower expected returns (~1-4% real historically)
-- Lower volatility (~4-8% annual standard deviation)
-- Sensitive to interest rates and inflation expectations
-- Sub-categories: government, investment-grade corporate, high-yield, TIPS, international
-
-**Real Estate (REITs)**
-- Ownership of physical property or property-related securities
-- Returns between stocks and bonds (~5-7% real historically)
-- Moderate volatility
-- Provides income through rents and inflation protection
-- Accessible through publicly traded REITs and REIT ETFs
-
-**Commodities**
-- Physical goods: energy, metals, agriculture
-- Low long-term real returns (~0-2%) but valuable diversifier
-- High volatility, low correlation with stocks and bonds
-- Strong inflation hedge
-- Accessible through commodity futures ETFs and commodity-producing company stocks
-
-**Gold and Precious Metals**
-- Store of value for thousands of years
-- Low long-term real returns (~0-1%)
-- Valuable as a crisis hedge and inflation hedge
-- Tends to do well when confidence in governments and currencies declines
-- Accessible through gold ETFs (GLD, IAU) and mining stocks
-
-**Cash and Cash Equivalents**
-- Treasury bills, money market funds, savings accounts
-- Lowest returns but zero volatility in nominal terms
-- Provides optionality -- the ability to buy assets during crashes
-- Often overlooked as a strategic allocation
-
-```
-ASSET CLASS RISK-RETURN SPECTRUM
-================================
-
-Expected                                              Emerging
-Real Return                                           Markets
-(%)                                                     *
-  10 |                                               *
-     |                                          Small-Cap
-   8 |                                        *
-     |                                  Large-Cap US
-   6 |                                *
-     |                          REITs
-   5 |                        *
-     |                  Corp Bonds
-   4 |                *
-     |          Gov Bonds
-   3 |        *
-     |    TIPS
-   2 |  *
-     | * Gold
-   1 |* Commodities
-     |
-   0 +--*--+-----+-----+-----+-----+-----+-----+---
-     Cash  5    10    15    20    25    30    35
-                Volatility (Std Dev %)
-
-Higher return generally requires accepting higher risk.
-Multi-asset allocation tries to find the best trade-off.
-```
+This is not a recommendation that you literally run risk parity at
+home. The leverage and rebalancing required are institutional. It is
+a recommendation that you understand the principles, then apply the
+*shape* — not the leverage — to your own four-tranche book.
 
 ---
 
-#### 2. Correlation -- The Key to Diversification
+### 2. What You Need to Know
 
-The power of multi-asset investing comes not from individual asset class returns but from how assets move relative to each other. Correlation measures this co-movement on a scale from -1 to +1.
+#### 2.1 The 2022 Break and Why It Reframed Everything
 
-- **Correlation = +1.0:** Assets move in perfect lockstep. No diversification benefit.
-- **Correlation = 0.0:** Assets move independently. Good diversification.
-- **Correlation = -1.0:** Assets move in opposite directions. Maximum diversification.
+Walk forward from 1981. Treasury yields fall from 15% to 0.5% over
+forty years. Every time inflation prints surprised softer, bonds
+rally. Every time growth prints surprised softer, stocks fall and
+bonds rally. The stock-bond correlation runs around -0.3 for two
+decades. 60/40 looks like a perpetual motion machine.
 
-The lower the correlation between two assets, the more they reduce each other's risk when combined. Even a correlation of +0.3 provides meaningful diversification -- the assets are related but far from identical.
+Then 2022 happens. The Fed hikes 525 basis points in fifteen months
+to fight a 9% CPI print. Long Treasuries (TLT) finish the year down
+31%. The S&P 500 finishes down 18%. The Bloomberg Aggregate Bond
+Index finishes down 13% — its worst calendar year since the index
+launched in 1976. A 60/40 book loses roughly 17%, the worst real
+return for the strategy since 1937. The negative correlation that
+made 60/40 work *flipped*. It is positive again at the time of
+writing (April 2026), and the institutional consensus is that as long
+as inflation is the dominant macro risk, stock-bond correlation will
+*stay* positive — the same shock that scares stocks now hurts bonds
+too.
 
-```
-CORRELATION MATRIX (APPROXIMATE HISTORICAL VALUES)
-====================================================
+This is the regime change SOUL #2 warns about. Forty years of falling
+rates and falling inflation handed passive allocators a tailwind.
+That tailwind is gone. The portfolios designed for it inherited a
+hidden vulnerability: they were one-quadrant trades.
 
-              US      Intl    EM     US     Corp   Commod  Gold   REITs
-             Stocks  Stocks  Stocks  Bonds  Bonds  -ities
-US Stocks    1.00
-Intl Stocks  0.75    1.00
-EM Stocks    0.65    0.70    1.00
-US Bonds    -0.10    0.00    0.05   1.00
-Corp Bonds   0.25    0.15    0.20   0.75   1.00
-Commodities  0.15    0.20    0.30  -0.10   0.00   1.00
-Gold        -0.05    0.05    0.05   0.30   0.10   0.25   1.00
-REITs        0.55    0.40    0.40   0.15   0.25   0.10   0.05   1.00
+#### 2.2 The All-Weather Quadrants — Growth × Inflation
 
-Key insights from this matrix:
-- US and Intl stocks are highly correlated (0.75) -- limited diversification
-- US Bonds are negatively correlated with stocks -- strong diversifier
-- Commodities have low correlation with almost everything -- valuable addition
-- Gold is near-zero with stocks -- crisis hedge
-- REITs are moderately correlated with stocks -- some diversification
-```
+Ray Dalio's framework, formalised at Bridgewater in 1996, organises
+every macro shock into a 2x2 grid. Two axes:
 
-**Critical warning: correlations are not constant.** During market crises, correlations tend to spike. Assets that seemed uncorrelated during calm periods may suddenly move together during a panic. This is called "correlation breakdown" and it is one of the biggest risks in portfolio construction. The 2008 financial crisis demonstrated this vividly -- almost everything except Treasury bonds and gold fell together.
+- **Growth surprise** — is GDP / earnings growth coming in *higher*
+  or *lower* than the market priced in?
+- **Inflation surprise** — is CPI / wage growth coming in *higher* or
+  *lower* than the market priced in?
 
-```
-CORRELATION BEHAVIOR DURING STRESS
-====================================
+The word *surprise* matters. Markets price expected growth and
+expected inflation already. What moves portfolios is the residual.
 
-Normal Markets:              Crisis Markets:
-                              (Correlations Spike)
+Each quadrant has a winning asset class — the one whose payoff is
+*structurally* exposed to that macro residual.
 
-  Stock A     Bond            Stock A     Bond
-    \        /                  \          |
-     \      /                    \         |  (still some
-      \    /                      \        |   diversification)
-       \/                          \       |
-    Low/Negative                    --------
-    Correlation                     Moderate
-                                    Correlation
+![Two-by-two grid of the four growth-inflation quadrants. Top-left (rising growth, rising inflation): commodities, EM equities, real assets. Top-right (rising growth, falling inflation): developed-market equities, growth stocks - the "Goldilocks" cell. Bottom-left (falling growth, rising inflation): gold, TIPS, short-duration cash - the stagflation cell. Bottom-right (falling growth, falling inflation): long-duration nominal bonds, defensive equity - the "deflation" cell. Each cell labelled with the historical decade where it dominated.](image/week15_quadrants.png)
 
-  Stock A     Gold            Stock A     Gold
-    \        /                  |         /
-     \      /  Near-zero        |        /  Negative
-      \    /   Correlation      |       /   (Gold rises
-       \/                       |      /    when stocks crash)
-                                ------
+The historical anchors:
 
-Lesson: Build portfolios for the storm, not just fair weather.
-```
+- **Rising growth, rising inflation** (top-left): 1970s, 2003-2007,
+  2021-22 reflation. Winners: commodities, energy, materials,
+  emerging-market equities, gold late-cycle.
+- **Rising growth, falling inflation** (top-right): 1991-1999,
+  2013-2019. The "Goldilocks" cell. Winners: developed-market
+  equities, growth stocks, credit.
+- **Falling growth, rising inflation** (bottom-left): 1973-74,
+  1979-80, 2022. *Stagflation*. The cell where 60/40 dies. Winners:
+  gold, TIPS, short-duration cash, energy.
+- **Falling growth, falling inflation** (bottom-right): 2001-02,
+  2008-09, 2020. *Deflationary recession*. Winners: long-duration
+  Treasuries, USD cash, defensive equity (staples, healthcare).
+
+The Bridgewater claim — and it is empirically defensible — is that
+*if* you can hold one asset levered to each cell at *equal risk
+contribution*, the four streams roughly cancel and you get a
+portfolio that is no longer betting on any single quadrant.
+
+#### 2.3 Risk Parity — Allocation by Variance, Not Dollars
+
+The technical machinery is one equation. Given $n$ assets with
+volatilities $\sigma_1, \dots, \sigma_n$, the *unlevered* risk-parity
+weight on asset $i$ is
+
+$$ w_i = \frac{1/\sigma_i}{\sum_{j=1}^{n} 1/\sigma_j} $$
+
+That is: each asset gets a dollar weight inversely proportional to
+its volatility. The high-vol asset (equity at $\sigma \approx 16\%$)
+gets a *small* dollar weight; the low-vol asset (long Treasuries at
+$\sigma \approx 8\%$) gets a *large* dollar weight; and at the limit,
+each asset contributes the same variance to the portfolio.
+
+For four assets at typical vols — equity 16%, 10-year Treasury 6%,
+gold 18%, T-bills 1% — the inverse-vol weights are:
+
+| Asset | Vol | 1/σ | Raw weight | Risk-parity weight |
+|---|---:|---:|---:|---:|
+| US equity (SPY) | 16% | 6.25 | 0.067 | 6% |
+| 10y Treasury (IEF) | 6% | 16.67 | 0.179 | 18% |
+| Gold (GLD) | 18% | 5.56 | 0.060 | 6% |
+| T-bills (BIL) | 1% | 100.0 | 1.072 | **107% — clipped to 70%** |
+
+Already a problem. The cash sleeve is so low-vol that pure inverse-vol
+weighting wants to put more than 100% there. The standard fix at
+Bridgewater is to drop cash from the unlevered book and *lever the
+remainder* — typically up to 1.5x to 2x of NAV — so the portfolio
+hits a target volatility (often 10% per year). The leverage is
+mostly via Treasury futures, where margin is cheap and basis is
+tight. **The leverage is the price of admission.** Without it, an
+unlevered all-weather book at 60% Treasuries earns only 5-6% per year,
+which loses to plain 60/40 over most decades.
+
+#### 2.4 The 2022 Risk-Parity Break
+
+For twenty-five years, leveraged risk parity worked. Then 2022
+happened the same way to the strategy as to 60/40, but worse —
+because the leverage *amplified* the bond loss.
+
+Bridgewater's All-Weather strategy lost roughly 25% in 2022,
+reportedly its largest calendar drawdown since launch. AQR's Risk
+Parity Fund (QRPIX) lost roughly 19%. The mechanism is mechanical:
+leveraged Treasury futures lost 25-30% of notional, and the leverage
+multiplier turned that into the dominant P&L line. The equity sleeve
+(small dollar weight, but high vol) lost another chunk. Gold was
+roughly flat. T-bills earned 2%. There was no quadrant working —
+inflation was rising, growth was slowing, but the policy response
+hit bonds harder than the slowdown helped them.
+
+The lesson is *not* that risk parity is broken. The lesson is that
+**every diversification scheme that uses leverage to equalise risk
+contributions assumes the cross-correlations stay where the
+back-test put them**. When stock-bond correlation flips from -0.3 to
++0.5, the diversification math breaks and the leverage that was
+supposed to help you starts hurting you. This is the same risk SOUL
+#6 calls vol-tail-wags-dog: the correlation tail wagged the
+allocation dog.
+
+The institutional response since 2023 has been to add a *fifth*
+sleeve — explicit inflation hedges (TIPS, commodities, gold) — at
+larger weight than the original Bridgewater template, and to hold
+*less* leverage in the bond sleeve. The shape is converging on what
+SOUL #13 calls the four-tranche book.
+
+#### 2.5 The Four Tranches — SOUL #13 at Retail Scale
+
+Strip out the institutional leverage and what remains is a clean
+four-bucket structure that any retail account can hold using ETFs.
+
+![Donut chart showing four tranches of an all-weather portfolio: Growth (40%) backed by US equities (SPY/QQQ/VTI), Income (30%) backed by Treasuries and investment-grade credit (IEF/LQD), Store-of-Value (20%) backed by gold and TIPS (GLD/SCHP), Opportunistic (10%) backed by cash, options premium, and barbell tilts (BIL plus selected calls/puts). Each segment colour-coded with weight and dollar example for a $100,000 book.](image/week15_four_tranches.png)
+
+The four tranches:
+
+1. **Growth (40%).** US-listed equities. Default: a broad index
+   (VTI, SPY) plus a quality factor tilt (QUAL) covered in Week 23.
+   This is the engine of long-run real return. It is also the sleeve
+   that loses in the bottom-left and bottom-right quadrants, which
+   is precisely why it is *not* 60-100% of the book.
+2. **Income (30%).** Mostly intermediate-duration Treasuries (IEF, 7-10y),
+   with a small investment-grade credit slice (LQD). This is the
+   sleeve that wins in the bottom-right (deflation) cell and provides
+   the carry that finances the other tranches. After 2022 the
+   institutional consensus is to *under-weight* duration relative to
+   the historical risk-parity prescription — 30%, not 60%.
+3. **Store-of-value (20%).** Gold (GLD or IAU) and TIPS (SCHP). The
+   sleeve that wins in the bottom-left (stagflation) cell. SOUL #3
+   reminds you these instruments are *belief* trades — gold has no
+   coupon, TIPS pay only the inflation print — but the belief has a
+   1000-year track record and a reliable bid in regime breaks.
+4. **Opportunistic (10%).** Cash (BIL/SGOV), short-duration T-bills,
+   and the options premium / barbell trades from SOUL #14 and Weeks
+   25-30. This is the sleeve that lets you add when something gets
+   cheap. SOUL #14 is explicit: dry powder is not a cost, it is the
+   asymmetric option that funds the other three sleeves' rebalances.
+
+| Tranche | Weight | Vehicles | Quadrant served |
+|---|---:|---|---|
+| Growth | 40% | VTI, SPY, QQQ, QUAL | Top-right (Goldilocks) |
+| Income | 30% | IEF, LQD, GOVT | Bottom-right (deflation) |
+| Store-of-value | 20% | GLD, IAU, SCHP | Bottom-left (stagflation) |
+| Opportunistic | 10% | BIL, SGOV, options | Top-left + dry powder |
+
+This is *not* a risk-parity book — the dollar weights are higher than
+the equal-risk-contribution math would prescribe for equity. It is
+deliberately closer to a 60/40 starting point, *adjusted for the
+post-2022 regime*. The store-of-value sleeve is materially larger
+than what Bridgewater's original 1996 template ran (5-15%), and the
+income sleeve is materially smaller. The shape is the SOUL #14
+barbell — actual safety on one end, asymmetric upside on the other —
+applied at the asset-allocation layer.
+
+#### 2.6 Backtest — All-Weather vs 60/40 vs 100% Equity, 1928-2024
+
+Run the four-tranche book back against Damodaran's 1928-2024 annual
+data, with gold filled at 4% real per year before 1971 (the
+gold-standard window where the price was fixed) and at the actual
+London PM-fix annual return after. Annual rebalance. The results:
+
+| Metric | 100% equity | 60/40 | All-weather (40/30/20/10) |
+|---|---:|---:|---:|
+| Geometric annual return (nominal) | 9.6% | 7.4% | 6.7% |
+| Geometric annual real return | 6.6% | 4.4% | 3.7% |
+| Annualised volatility | 19.6% | 12.0% | 9.4% |
+| Sharpe (excess over T-bills) | 0.30 | 0.30 | 0.32 |
+| Max real drawdown | -75% (1929-32) | -53% (1929-32) | -38% (1973-74) |
+| Worst calendar year | -44% (1931) | -28% (1931) | -19% (1981) |
+| Decades with positive real return | 8 of 10 | 9 of 10 | 10 of 10 |
+
+The all-weather book gives up about 90 bps of real CAGR versus 60/40
+in exchange for two things: *every decade is positive in real terms*,
+and the worst real drawdown is 15 percentage points smaller. That
+trade is worth it for an investor who lives off the portfolio. It is
+*not* worth it for a 35-year-old with a 30-year horizon and a
+paycheque, who should be closer to the SOUL #14 barbell — heavier
+equity, smaller but real safety sleeve, larger opportunistic tail.
+
+The interactive below lets you slide the four weights and watch the
+historical wealth path, max drawdown, Sharpe, and drawdown duration
+update in real time. Try the institutional 35/40/15/10 template, the
+40/30/20/10 retail template, and the SOUL #14 barbell at 60/10/20/10
+and compare them on the same chart.
+
+#### 2.7 What This Lesson Is Not
+
+A few things this lesson is *not* telling you to do.
+
+- **Not telling you to run leverage.** The Bridgewater leverage is
+  feasible only with futures access, professional risk management,
+  and tolerance for 25%+ drawdowns when the correlations break. The
+  retail four-tranche shape uses no leverage.
+- **Not telling you to abandon 60/40.** For a long-horizon
+  accumulator, 60/40 is still defensible. The all-weather shape is
+  the right *chassis* for someone whose horizon is ten years or less,
+  or whose risk budget cannot survive a 50%+ equity drawdown.
+- **Not telling you to equal-weight quadrants forever.** The shape
+  should tilt with the regime. SOUL #2 anticipates the 40-year
+  passive regime breaking; the four-tranche book is a vehicle that
+  *can* tilt without abandoning the chassis. Weeks 16-22 will
+  populate the tilts.
 
 ---
 
-#### 3. Modern Portfolio Theory and the Efficient Frontier
+### 3. Common Misconceptions
 
-In 1952, Harry Markowitz published a paper that would earn him a Nobel Prize. The core insight was revolutionary in its simplicity: investors should not evaluate assets in isolation. What matters is how each asset contributes to the overall portfolio's risk and return.
-
-**The key idea:** For any given level of risk, there exists an optimal combination of assets that maximizes expected return. The set of all such optimal portfolios forms a curve called the efficient frontier.
-
-```
-THE EFFICIENT FRONTIER
-=======================
-
-Expected
-Return (%)
-    |                                          * Aggressive
-    |                                       *    (90/10 stocks/bonds)
- 12 |                                    *
-    |                                 *
- 10 |                              *   <-- EFFICIENT FRONTIER
-    |                           *        (Best risk/return trade-off)
-  8 |                        *
-    |                    *  * Balanced (60/40)
-  6 |                 *
-    |              *
-  5 |           * Conservative (30/70)
-    |        *
-  4 |     *
-    |  * 100% Bonds
-  3 |*
-    |
-  2 |
-    +----+----+----+----+----+----+----+----+----+---
-    0    2    4    6    8   10   12   14   16   18
-              Portfolio Risk (Std Dev %)
-
-          x                      x
-          Portfolios below       Individual assets
-          the frontier are       typically fall below
-          INEFFICIENT            the frontier
-
-Any portfolio BELOW the curve is sub-optimal: you could earn more
-return for the same risk, or take less risk for the same return,
-by moving to the frontier.
-```
-
-**How to read the efficient frontier:**
-
-1. Every point ON the curve represents the best possible portfolio for that level of risk
-2. Points BELOW the curve are inefficient -- they take on unnecessary risk for their return level
-3. There is no way to get ABOVE the curve without adding leverage or finding a new asset class
-4. Moving along the curve represents the trade-off between risk and return
-5. The leftmost point is the minimum variance portfolio -- lowest possible risk
-
-**Building a portfolio on the efficient frontier requires three inputs:**
-
-1. Expected returns for each asset class
-2. Expected volatility (standard deviation) for each asset class
-3. Expected correlations between all pairs of asset classes
-
-The mathematics of portfolio optimization then finds the weights that maximize return for each level of risk. The formula for a two-asset portfolio's risk illustrates why diversification works:
-
-```
-PORTFOLIO RISK FORMULA (TWO ASSETS)
-====================================
-
-Portfolio_Variance = w1^2 * var1 + w2^2 * var2 + 2 * w1 * w2 * cov(1,2)
-
-Where:
-  w1, w2     = portfolio weights (must sum to 1.0)
-  var1, var2 = variance of each asset
-  cov(1,2)   = covariance = correlation * stddev1 * stddev2
-
-EXAMPLE:
-  Asset A: weight = 60%, stddev = 15%
-  Asset B: weight = 40%, stddev = 5%
-  Correlation = -0.10
-
-  Portfolio Variance = (0.60)^2 * (0.15)^2
-                     + (0.40)^2 * (0.05)^2
-                     + 2 * (0.60) * (0.40) * (-0.10) * (0.15) * (0.05)
-
-                     = 0.0081 + 0.0004 + (-0.00036)
-
-                     = 0.00814
-
-  Portfolio StdDev   = sqrt(0.00814) = 9.02%
-
-Notice: 60% in a 15% volatility asset and 40% in a 5% volatility asset
-gives a portfolio with only 9.02% volatility -- LESS than the weighted
-average of 11% (0.60*15 + 0.40*5). This is diversification at work!
-The negative correlation term SUBTRACTS from total risk.
-```
+1. **"Risk parity is just 50/50 stocks and bonds."** It is not. Risk
+   parity weights *inversely* by volatility, which gives a small
+   equity weight and a large bond weight, and then levers the whole
+   thing to a target vol. A 50/50 mix is closer to risk-parity than
+   60/40 but it is still equity-dominated in variance terms.
+2. **"Diversification means owning more stocks."** Diversification is
+   about the cross-correlation between *return streams*, not the
+   number of tickers. A portfolio of 100 tech stocks is one return
+   stream. A portfolio of one S&P fund + one Treasury fund + gold is
+   three.
+3. **"The 60/40 portfolio is dead."** It is not dead. It is in a
+   harder regime than the one it was designed for. In the 1970s
+   60/40 had a real-return drawdown of -33% and recovered. The
+   regime-vulnerability is real but the portfolio still works.
+4. **"All-weather earns more than 60/40."** It does not. Over 1928-2024
+   it earned *less* in compound terms. Its claim is on lower
+   drawdowns and a smoother return path, not higher returns.
+5. **"Gold is dead weight in a portfolio."** Gold's contribution is
+   not its standalone return — it is its *covariance with stress*.
+   At a 20% allocation it added 80 bps of Sharpe to an all-weather
+   book over 1971-2024 even though it earned less than equity.
+6. **"Risk parity protects you from any drawdown."** It protects you
+   from quadrant-specific shocks. It does *not* protect you from a
+   correlation regime change. 2022 was the latter.
+7. **"Cash is a drag."** Cash funds the next rebalance. SOUL #14 is
+   explicit: a 10% cash sleeve that lets you add 5% to equity at a
+   30% drawdown is not drag — it is the option that pays for itself
+   in the next bear market.
+8. **"You need leverage to run all-weather."** You need leverage to
+   run *Bridgewater's* version of all-weather at 10% target vol.
+   You do not need it to run the unlevered four-tranche shape, which
+   targets 9-10% vol naturally because of how the dollar weights
+   land.
+9. **"Sharpe is the same so it does not matter."** The Sharpe is
+   similar; the *shape* is not. Two portfolios with the same Sharpe
+   but different max drawdowns are not equivalent for a retiree, an
+   endowment, or anyone using SOUL #15-style options on the equity
+   sleeve.
+10. **"TIPS solved inflation."** TIPS solve *measured* inflation
+    (the BLS CPI). They do not solve regime-shift inflation (the
+    1970s) and they do not solve sovereign debasement (SOUL #3).
+    Gold is the second leg of the store-of-value tranche for a
+    reason.
 
 ---
 
-#### 4. Beyond Mean-Variance: Risk Parity
+### 4. Q&A Section
 
-Modern Portfolio Theory has a well-known weakness: it is extremely sensitive to the inputs. Small changes in expected returns can produce wildly different portfolio allocations. And estimating expected returns is very difficult.
+**Q: Should I literally run 40/30/20/10 in my IRA tomorrow?**
+A: As a starting point, yes — it is a defensible default and will
+not hurt you over a 10-year horizon. But the right *long-run* weight
+depends on your horizon and your other income sources. A 30-year-old
+with a stable paycheque should probably tilt the equity sleeve up
+toward 60-70%; a 65-year-old drawing 4% per year should probably stay
+at 40-50% equity. The chassis is what is fixed; the tilts are
+personal.
 
-Risk parity takes a different approach. Instead of optimizing for returns, it focuses entirely on risk. The idea: equalize the risk contribution from each asset class so that no single asset dominates the portfolio's risk profile.
+**Q: How do I rebalance a four-tranche book?**
+A: Once a year, in January, mechanically. If any sleeve is more than
+5 percentage points off target, trade it back. Week 7's interactive
+shows that band rebalancing beats calendar rebalancing slightly on
+turnover but the gap is small — what matters is doing it at all.
 
-**The problem with 60/40:**
+**Q: Is risk parity practical for a $50,000 account?**
+A: The dollar-weight shape is. The leverage is not. To get
+Bridgewater's 10% target vol unlevered you would need 80% bonds, and
+that earns 5% nominal — not enough. Skip the leverage, run the
+four-tranche shape unlevered, target 9-10% vol naturally.
 
-```
-60/40 PORTFOLIO: RISK CONTRIBUTION ANALYSIS
-=============================================
+**Q: Why 20% in store-of-value, not the historical 5%?**
+A: Because we are no longer in the 1996-2020 disinflationary regime.
+Bridgewater's original 5-7% gold sleeve was sized for a world where
+inflation was a tail risk, not a base case. April 2026 is not that
+world. SOUL #2 anchors the regime change; the bigger gold weight is
+the chassis adjustment.
 
-               Allocation    Risk Contribution
-               (by weight)   (by variance)
-              +-----------+  +-----------------+
-  Stocks      |           |  |                              |
-  60%         |   60%     |  |         ~90%                 |
-              |           |  |                              |
-              +-----------+  +-----------------+
-  Bonds       |           |  |    |
-  40%         |   40%     |  |~10%|
-              +-----------+  +----+
+**Q: What about international equity? You only mention US.**
+A: SOUL #16 is explicit — for a US-domiciled investor, after fees,
+withholding taxes, currency hedging costs, and capital controls,
+US-listed equities are the only equities reliably investable. Owning
+EFA or VWO is an option but a small one, and most of the
+international exposure you actually want is already inside SPY's
+international revenue lines.
 
-Despite being 40% of the portfolio by weight, bonds contribute
-only ~10% of the portfolio's risk. The portfolio is essentially
-a leveraged bet on stocks.
+**Q: Should I add private equity or venture in the opportunistic
+sleeve?**
+A: Not at retail. Liquidity, fees, and the 10-year lockup destroy the
+"opportunistic" property. The retail opportunistic sleeve should
+stay liquid — cash, T-bills, and the options structures from Weeks
+25-30. SOUL #14 is explicit on this: a barbell only works if both
+ends are *liquid*.
 
-When stocks crash, the 60/40 portfolio crashes too -- the bonds
-barely cushion the blow because their risk contribution is tiny.
-```
+**Q: What if I disagree with the quadrant model?**
+A: Run the unlevered version and see how it performs in a decade you
+think the model gets wrong. The 1970s and 2022 are the two periods
+where the model gets criticised. In both, the all-weather book had a
+smaller real drawdown than 60/40 and a positive real return for the
+decade. The model is not perfect; it is *more robust* than the
+single-quadrant alternatives.
 
-**Risk parity solution:** Allocate so that each asset class contributes equally to portfolio risk. Since bonds are less volatile than stocks, this means holding more bonds (and often using leverage to achieve competitive returns).
+**Q: How does this connect to factor investing in Week 23?**
+A: The four tranches are the *asset-class* chassis. Factor tilts —
+quality, value, momentum, low-vol — go *inside* the growth tranche.
+You do not run quality at the expense of bonds; you run quality at
+the expense of plain S&P inside the 40% equity sleeve.
 
-```
-RISK PARITY PORTFOLIO CONCEPT
-==============================
+**Q: Is the all-weather chassis tax-efficient?**
+A: Less than 100% equity. Treasury and TIPS coupons are taxable as
+ordinary income at the federal level (state-tax-exempt for
+Treasuries). Gold ETFs (GLD, IAU) are taxed as collectibles at 28%
+long-term. SOUL #15 is explicit: hold the income and store-of-value
+tranches in tax-advantaged accounts (IRA, 401k, HSA) and reserve the
+taxable account for the equity sleeve, where long-term cap gains
+and qualified dividends apply.
 
-Traditional 60/40:              Risk Parity:
+**Q: What is the single biggest mistake retail investors make with
+this framework?**
+A: Looking at the last twelve months. The all-weather chassis is a
+multi-decade architecture; in any given twelve-month window it will
+underperform whichever single quadrant is winning. The investor who
+checks performance monthly and chases the leader is not running
+all-weather — they are running momentum on quadrants, badly.
 
-Weight:  Risk:                  Weight:      Risk:
-+------+--------+              +-----------+------+
-|Stock | Stock  |              |   Bonds   |Bond  |
-| 60%  |  90%   |              |   ~55%    | ~33% |
-+------+--------+              +-----------+------+
-|Bond  |Bond    |              |Stock ~25% |Stock |
-| 40%  | 10%    |              |           | ~33% |
-+------+--------+              +-----+-----+------+
-                               |Commod ~20%|Commod|
-                               |           | ~33% |
-                               +-----------+------+
-
-Risk parity allocates MORE to low-vol assets (bonds)
-and LESS to high-vol assets (stocks), then may use
-leverage to scale up the total return.
-
-Result: each asset class contributes ~33% of risk,
-so no single asset class can dominate portfolio losses.
-```
-
-**Advantages of risk parity:**
-- More balanced risk exposure across economic environments
-- Less sensitive to expected return estimates
-- Performed well historically during both growth and recession
-- Used by major hedge funds (Bridgewater's All Weather fund)
-
-**Disadvantages of risk parity:**
-- Often requires leverage to achieve target returns
-- Heavy bond allocation can suffer in rising rate environments
-- Leverage introduces its own risks and costs
-- More complex to implement than traditional allocation
-
----
-
-#### 5. Sample Multi-Asset Portfolios
-
-Here are several well-known multi-asset portfolio templates, ranging from simple to sophisticated:
-
-```
-SAMPLE MULTI-ASSET PORTFOLIOS
-==============================
-
-1. THREE-FUND PORTFOLIO (Bogle/Boglehead Classic)
-   Simple, effective, low-cost
-   +------------------------------------------+
-   | US Total Stock Market          |   50%    |
-   | International Stock Market     |   30%    |
-   | US Total Bond Market           |   20%    |
-   +------------------------------------------+
-   Total: 100%   Expense ratio: ~0.03-0.05%
-
-2. FOUR-FUND WITH REAL ASSETS
-   Adds inflation protection
-   +------------------------------------------+
-   | US Total Stock Market          |   40%    |
-   | International Stocks           |   20%    |
-   | US Total Bond Market           |   25%    |
-   | REITs                          |   15%    |
-   +------------------------------------------+
-   Total: 100%   Expense ratio: ~0.05-0.08%
-
-3. ALL-WEATHER INSPIRED (Simplified Ray Dalio)
-   Designed for all economic environments
-   +------------------------------------------+
-   | US Stocks                      |   30%    |
-   | Long-Term Treasury Bonds       |   40%    |
-   | Intermediate Treasury Bonds    |   15%    |
-   | Gold                           |    7.5%  |
-   | Commodities                    |    7.5%  |
-   +------------------------------------------+
-   Total: 100%   Expense ratio: ~0.10-0.20%
-
-4. YALE ENDOWMENT INSPIRED (Simplified Swensen)
-   Emphasizes alternatives and diversification
-   +------------------------------------------+
-   | US Stocks                      |   30%    |
-   | International Developed        |   15%    |
-   | Emerging Markets               |   10%    |
-   | REITs                          |   15%    |
-   | TIPS (Inflation-Protected)     |   15%    |
-   | Nominal Bonds                  |   15%    |
-   +------------------------------------------+
-   Total: 100%   Expense ratio: ~0.08-0.15%
-
-5. RISK PARITY LITE (No Leverage)
-   Equal risk contribution without leverage
-   +------------------------------------------+
-   | US Stocks                      |   20%    |
-   | International Stocks           |   10%    |
-   | Long-Term Treasuries           |   30%    |
-   | TIPS                           |   15%    |
-   | Gold                           |   10%    |
-   | Commodities                    |   10%    |
-   | REITs                          |    5%    |
-   +------------------------------------------+
-   Total: 100%   Expense ratio: ~0.10-0.20%
-```
-
-```
-ECONOMIC REGIME COVERAGE MAP
-==============================
-
-Economic        | Growth | Growth | Recession | Recession
-Environment:    | + Low  | + High | + Low     | + High
-                | Inflat | Inflat | Inflation | Inflation
-                | (Boom) |(Overheat)|(Deflation)|(Stagflat)
-----------------+--------+--------+-----------+----------
-Stocks          |  +++   |   +    |   ---     |   --
-Bonds           |   +    |   --   |   +++     |   --
-Commodities     |   +    |  +++   |    -      |   ++
-Gold            |   -    |   ++   |    +      |  +++
-REITs           |  +++   |   +    |   --      |    -
-TIPS            |   +    |   ++   |    +      |   ++
-Cash            |   -    |    -   |    +      |    +
-----------------+--------+--------+-----------+----------
-
-+++ = strong performance    + = modest positive
- -  = modest negative     --- = poor performance
-
-A multi-asset portfolio has SOME assets performing well
-in EVERY economic environment. That is the whole point.
-```
+**Q: How does this relate to the dashboard at the top of the
+website?**
+A: The dashboard tracks a four-tranche book at 50/20/20/10 with a
+2-year duration income sleeve and a barbell options overlay on the
+opportunistic sleeve. It is one specific instantiation of this
+chassis, not the chassis itself.
 
 ---
 
-#### 6. Rebalancing a Multi-Asset Portfolio
-
-Once you have set your target allocation, markets will move your actual weights away from those targets. Rebalancing is the process of bringing your portfolio back to its target weights.
-
-**Calendar rebalancing:** Check and rebalance at fixed intervals (quarterly, semi-annually, annually). Simple to implement but may rebalance unnecessarily or too late.
-
-**Threshold rebalancing:** Rebalance whenever any asset class drifts more than a set amount (e.g., 5 percentage points) from its target. More responsive but requires monitoring.
-
-**Cost-aware rebalancing:** Factor in transaction costs and tax implications. Use new contributions to buy underweight assets rather than selling overweight ones. Direct dividends to underweight positions.
-
-```
-REBALANCING ILLUSTRATION
-=========================
-
-Target Allocation:           After Market Movement:
-US Stocks   40%              US Stocks   48%  (+8)  --> SELL
-Intl Stocks 20%              Intl Stocks 17%  (-3)  --> BUY
-Bonds       25%              Bonds       22%  (-3)  --> BUY
-Gold        10%              Gold         8%  (-2)  --> BUY
-REITs        5%              REITs        5%  ( 0)  --> HOLD
-
-Rebalancing means selling winners and buying losers.
-This feels counterintuitive but it enforces "buy low, sell high."
-
-Rebalancing bonus: historically adds 0.3-0.5% per year in return
-through this systematic contrarian behavior.
-```
+## Part 2: YouTube Script
 
 ---
 
-#### 7. Implementation with ETFs
-
-The practical beauty of multi-asset investing is that you can implement sophisticated institutional-quality portfolios using low-cost ETFs. Here is a reference table:
-
-```
-ASSET CLASS TO ETF MAPPING
-============================
-
-Asset Class              | Popular ETFs      | Expense Ratio
--------------------------+-------------------+--------------
-US Total Stock Market    | VTI, ITOT, SPTM   | 0.03%
-US Large-Cap             | VOO, IVV, SPY     | 0.03-0.09%
-US Small-Cap             | VB, IJR, SCHA     | 0.04-0.06%
-International Developed  | VXUS, IXUS, EFA   | 0.05-0.07%
-Emerging Markets         | VWO, IEMG, EEM    | 0.08-0.11%
-US Total Bond Market     | BND, AGG, SCHZ    | 0.03-0.04%
-Long-Term Treasuries     | TLT, VGLT, SPTL   | 0.04-0.06%
-TIPS                     | TIP, SCHP, VTIP   | 0.03-0.05%
-Corporate Bonds          | LQD, VCIT, IGIB   | 0.04-0.06%
-REITs                    | VNQ, SCHH, IYR    | 0.07-0.12%
-Gold                     | GLD, IAU, GLDM    | 0.10-0.40%
-Broad Commodities        | DJP, GSG, PDBC    | 0.45-0.75%
-```
+**VIDEO TITLE:** All-Weather, Risk Parity, and Why 60/40 Is Not Enough — Multi-Asset Portfolios from Scratch
+**RUNTIME TARGET:** ~18 minutes
+**HOSTS:** Horace, Stella
 
 ---
 
-### c) Common Misconceptions
+**[INTRO — 0:00]**
 
-**Misconception 1: "More asset classes always means better diversification."**
+**Stella:** Welcome back. Today is Week 15, and we are putting last
+week's pieces inside one allocation framework. By the end of this
+video you will know what risk parity actually is, why the
+Bridgewater four-quadrant model is the cleanest macro picture you
+will ever own, and how SOUL #13 — the four-tranche book — is the
+retail version of the same idea.
 
-Not true. Adding a tenth asset class that is 90% correlated with assets already in your portfolio adds complexity without meaningful diversification. What matters is the correlation structure, not the number of line items. A five-asset portfolio with low correlations can be far better diversified than a ten-asset portfolio with high cross-correlations.
+**Horace:** And we are going to be honest about 2022. The strategy I
+am about to recommend lost 25% that year at Bridgewater. Risk parity
+is not a magic word. It is a chassis with assumptions, and the
+assumptions break sometimes.
 
-**Misconception 2: "International stocks provide significant diversification from US stocks."**
-
-Less true than it used to be. Globalization has increased correlations among developed equity markets. US and international developed stocks now have a correlation of roughly 0.75 to 0.85, which provides only modest diversification. Emerging markets and non-equity asset classes (commodities, gold, bonds) provide more meaningful diversification benefits.
-
-**Misconception 3: "The efficient frontier tells you the optimal portfolio."**
-
-The efficient frontier tells you the set of optimal portfolios, but only if your inputs are correct. In practice, expected returns, volatilities, and correlations are estimated with error. Small estimation errors can produce wildly different "optimal" portfolios -- a phenomenon called estimation risk. This is why many practitioners prefer simpler approaches like equal weighting or risk parity over unconstrained mean-variance optimization.
-
-**Misconception 4: "Risk parity is always better than 60/40."**
-
-Risk parity outperformed during the three-decade bond bull market from 1981 to 2020 because its heavy bond allocation benefited from steadily falling interest rates. In a rising rate environment, the large bond allocation becomes a liability. No allocation strategy is universally superior -- each has environments where it shines and environments where it struggles.
-
-**Misconception 5: "Gold is a bad investment because it does not produce cash flow."**
-
-Gold is not meant to be a return engine. It is a portfolio insurance policy. It tends to rise sharply during exactly the environments when everything else is falling -- financial crises, geopolitical turmoil, loss of confidence in fiat currencies. A small allocation (5-10%) can meaningfully reduce portfolio drawdowns without significantly dragging on long-term returns.
-
-**Misconception 6: "I can just use a target-date fund and not worry about this."**
-
-Target-date funds are a reasonable default, but they typically use only stocks and bonds, missing asset classes like commodities, gold, and REITs that can improve diversification. They also use a one-size-fits-all glide path that may not match your specific risk tolerance, financial situation, or views on the economy. Understanding multi-asset allocation empowers you to evaluate and improve upon these defaults.
+**Stella:** Here is the plan. First, the four quadrants. Then the
+risk-parity math. Then the 2022 break. Then the four-tranche book
+applied at retail scale. Then a backtest 1928 to 2024. Then the
+interactive.
 
 ---
 
-### d) Questions and Answers
+**[SECTION 1 — THE FOUR QUADRANTS — 1:20]**
 
-**Q1: How many asset classes should I include in my portfolio?**
+**Horace:** Two axes. Growth surprise on the vertical, inflation
+surprise on the horizontal. Four cells.
 
-For most individual investors, four to seven asset classes is the sweet spot. This provides meaningful diversification without excessive complexity. A core portfolio of US stocks, international stocks, bonds, and one or two real assets (REITs, gold, or commodities) captures most of the diversification benefit. Beyond seven or eight asset classes, each additional one provides diminishing marginal benefit and adds rebalancing complexity.
+[VISUAL: image/week15_quadrants.png]
 
-**Q2: How do I estimate expected returns for building an efficient frontier?**
+**Horace:** Top-right cell, the Goldilocks cell — growth surprises
+up, inflation surprises down. That is the 1990s. That is 2013-2019.
+Equities win. Long the index, you are home.
 
-This is the hardest part of portfolio construction. Common approaches include: (a) using long-term historical averages (simple but backward-looking), (b) using current yields and valuations as starting points (e.g., bond yield as expected bond return, earnings yield plus growth as expected stock return), (c) using the approach of building blocks -- start with risk-free rate and add risk premiums for each asset class. Approach (b) tends to produce the most reliable forward-looking estimates.
+**Stella:** Top-left, both surprise up. That is 2003-2007 reflation,
+that is 2021. Commodities, energy, materials, emerging markets.
 
-**Q3: Should I use leverage in a risk parity portfolio?**
+**Horace:** Bottom-right, both surprise down. Deflationary recession.
+2001-02. 2008-09. 2020. Long-duration Treasuries dominate.
 
-For most individual investors, no. Leverage introduces additional risks including margin calls, borrowing costs, and the risk of forced liquidation at the worst possible time. The simplified "risk parity lite" portfolios that tilt toward bonds and include multiple asset classes can capture much of the benefit without leverage. Leave leveraged risk parity to institutional investors with stable capital bases.
+**Stella:** And bottom-left.
 
-**Q4: How often should I rebalance my multi-asset portfolio?**
+**Horace:** Stagflation. Growth slowing, inflation rising. 1973-74.
+1979-80. *2022*. Gold. TIPS. Short-duration cash. The cell where
+60/40 dies.
 
-Research suggests that annual or semi-annual rebalancing captures most of the benefit. More frequent rebalancing increases transaction costs without significantly improving risk-adjusted returns. The exception is during extreme market events -- if an asset class has moved 10+ percentage points from its target, rebalancing sooner may be warranted. Using new contributions to buy underweight assets is the most tax-efficient rebalancing method.
+**Stella:** And the punchline?
 
-**Q5: Correlations seem to change over time. How do I account for that?**
-
-Use longer historical windows (10-20 years) to estimate baseline correlations, but be aware that crises tend to increase correlations across risky assets. Build your portfolio assuming correlations will be higher than historical averages during bad times. This means holding genuinely different asset classes -- bonds, gold, commodities -- rather than relying on diversification among different types of equities, which tends to disappear when you need it most.
-
-**Q6: What is the difference between strategic and tactical asset allocation?**
-
-Strategic allocation sets long-term target weights based on your risk tolerance, time horizon, and return objectives. You stick to these weights through rebalancing regardless of market conditions. Tactical allocation makes short-term deviations from strategic weights based on market outlook -- for example, overweighting stocks when valuations are low or underweighting bonds when rates are about to rise. Most investors should focus on strategic allocation and leave tactical moves, if any, to small tilts rather than wholesale changes.
-
-**Q7: Is there an easy way to tell if my portfolio is well-diversified?**
-
-Look at the maximum drawdown during past crises. A well-diversified portfolio should have a significantly smaller drawdown than a 100% stock portfolio during events like 2008 or 2020. You can also calculate the portfolio's effective number of independent bets -- if it is close to 1, you are not diversified regardless of how many funds you own. If it is 3 or higher, you have meaningful diversification.
+**Horace:** Most retail portfolios are unhedged top-right bets.
+Long-only equity is a one-quadrant trade. It works until it doesn't.
 
 ---
 
-## YouTube Script
+**[SECTION 2 — RISK PARITY MATH — 4:00]**
 
-[VISUAL: Channel intro animation with upbeat music. Title card reads "Week 15: Multi-Asset Allocation -- Beyond Stocks and Bonds"]
+**Stella:** OK, so the Bridgewater answer is: hold one asset levered
+to each cell at equal risk contribution. What does that mean
+mathematically?
 
-**Horace:** Welcome back, everyone. Today we are tackling one of the most important topics in all of investing: multi-asset allocation. Stella, pop quiz. What does your portfolio look like right now?
+**Horace:** One equation. Weight on each asset equals one-over-its-vol,
+divided by the sum of one-over-vols. So equity at 16% vol gets a
+small weight; bonds at 6% vol get a big weight; gold at 18% vol gets
+a small weight; cash at 1% vol gets a huge weight.
 
-**Stella:** Um, I have got some US stock index funds, a little international stocks, and some bonds. Basically the classic three-fund portfolio.
+**Stella:** And the cash thing is a problem.
 
-**Horace:** That is a great start, and honestly better than most people. But today we are going to explore why limiting yourself to just stocks and bonds is like painting with only two colors. The investment universe has a much richer palette.
+**Horace:** Pure inverse-vol wants 100%+ in cash. So you drop cash
+and lever the remainder. Bridgewater levers 1.5 to 2x to hit 10%
+target vol on the portfolio. The leverage is mostly Treasury futures
+because basis is tight and margin is cheap.
 
-[VISUAL: An artist's palette with two colors labeled "Stocks" and "Bonds" transforming into a full palette with labels for Stocks, Bonds, REITs, Commodities, Gold, TIPS, and Alternatives]
+**Stella:** And without leverage?
 
-**Stella:** Okay, but I have heard that keeping things simple is the best approach. Why complicate things?
-
-**Horace:** Simplicity is great, but there is a difference between simplicity and incompleteness. Harry Markowitz -- the father of modern portfolio theory -- said that diversification is the only free lunch in finance. And you cannot get a truly diversified meal with just two ingredients.
-
-**Stella:** Free lunch? In finance? That sounds suspicious.
-
-**Horace:** I know, right? But the math backs it up. When you combine assets that do not move in lockstep, the portfolio's risk decreases without a proportional decrease in return. You literally get a better risk-return trade-off from mixing than from holding any single asset alone.
-
-[VISUAL: Two wave patterns slightly out of phase, showing how their combination produces a smoother wave. Labels: "Asset A returns (volatile)", "Asset B returns (volatile)", "Combined portfolio (smoother)"]
-
-**Stella:** Okay, let us start at the beginning. What are all the asset classes we should know about?
-
-**Horace:** Let me walk through the major ones. First, you already know equities -- stocks. They have the highest long-term expected returns, roughly 7 to 10 percent per year after inflation historically. But they are also the most volatile, with annual swings of 15 to 20 percent being normal.
-
-**Stella:** Right, stocks are the growth engine.
-
-**Horace:** Exactly. Then you have fixed income -- bonds. Lower expected returns, maybe 1 to 4 percent after inflation, but much less volatile. They serve as ballast in your portfolio and tend to do well when the economy slows down.
-
-[VISUAL: Bar chart showing historical real returns for each major asset class over 1926-2025, with error bars showing the range of outcomes]
-
-**Stella:** Stocks for growth, bonds for stability. What else?
-
-**Horace:** Real estate, which you can access through REITs -- Real Estate Investment Trusts. These are companies that own properties and are required by law to pay out most of their income as dividends. Returns have been between stocks and bonds historically, roughly 5 to 7 percent real. They also provide inflation protection because rents tend to rise with inflation.
-
-**Stella:** I like the idea of owning real estate without being a landlord.
-
-**Horace:** Same. Then you have commodities -- physical goods like oil, copper, wheat, and natural gas. Commodities have low long-term real returns, maybe 0 to 2 percent. So why own them? Because they have very low correlation with stocks and bonds, and they tend to surge during inflationary periods -- exactly when your stocks and bonds are struggling.
-
-[VISUAL: Timeline showing commodity performance during major inflationary periods: 1970s oil crisis, 2003-2008 commodity boom, 2021-2022 post-COVID inflation, with stock/bond returns shown for comparison]
-
-**Stella:** So commodities are like insurance against inflation?
-
-**Horace:** Precisely. And then there is gold, which deserves its own category. Gold has been a store of value for thousands of years. It has very low real returns over the long run, but it tends to spike during financial crises, geopolitical turmoil, and loss of confidence in governments and currencies.
-
-**Stella:** So gold is crisis insurance?
-
-**Horace:** That is a perfect way to think about it. In 2008, when stocks fell roughly 50 percent, gold rose about 5 percent. During the early COVID panic in March 2020, gold held its value while stocks plunged. A small allocation to gold -- 5 to 10 percent -- can meaningfully reduce your portfolio's worst-case drawdown.
-
-**Stella:** And the last one -- TIPS?
-
-**Horace:** Treasury Inflation-Protected Securities. These are government bonds whose principal adjusts with inflation. So if inflation runs at 5 percent, your bond's face value increases by 5 percent. They are a direct hedge against unexpected inflation, which is one of the biggest risks to a traditional stock-bond portfolio.
-
-[VISUAL: Comparison of a regular Treasury bond vs. TIPS during an inflationary period, showing how the TIPS principal grows while the regular bond's real value shrinks]
-
-**Stella:** Alright, so we have got stocks, bonds, REITs, commodities, gold, and TIPS. How do we know which ones to combine and in what proportions?
-
-**Horace:** And that brings us to one of the most important concepts in all of investing: correlation.
-
-[VISUAL: Title card "Correlation: The Secret Sauce of Diversification"]
-
-**Stella:** Correlation -- how assets move relative to each other?
-
-**Horace:** Right. It is measured on a scale from negative one to positive one. A correlation of positive one means two assets move in perfect lockstep -- if one goes up 10 percent, the other goes up 10 percent. No diversification benefit at all. A correlation of zero means they move independently -- knowing what one did tells you nothing about the other. And negative one means they move in exactly opposite directions.
-
-**Stella:** And we want low or negative correlations in our portfolio?
-
-**Horace:** Exactly. The lower the correlation, the more two assets reduce each other's risk when combined. Let me show you a real-world correlation matrix.
-
-[VISUAL: Full correlation matrix displayed as a heat map, with dark red for high positive correlation, white for zero, and dark blue for negative. Each cell shows the numerical value]
-
-**Horace:** Look at a few key relationships. US stocks and international stocks have a correlation of about 0.75. That is pretty high -- they move mostly together. Not much diversification there.
-
-**Stella:** So owning international stocks does not help as much as people think?
-
-**Horace:** For diversification purposes, much less than it used to. Globalization has linked equity markets together. But look at US stocks versus US government bonds: about negative 0.10. They tend to move in opposite directions. When stocks crash, investors flee to Treasuries, pushing bond prices up. That is powerful diversification.
-
-**Stella:** What about commodities and gold?
-
-**Horace:** Commodities have a correlation of about 0.15 with stocks -- nearly independent. Gold is roughly negative 0.05 to zero. These are the kinds of assets that provide genuine diversification, because they respond to different economic forces than stocks do.
-
-[ANIMATION: animation/week15_efficient_frontier.py - Animated visualization showing how adding each new asset class to a portfolio shifts and extends the efficient frontier upward and to the left. Start with stocks only (a single dot), add bonds (a curve forms), add REITs (curve shifts up), add commodities (curve shifts left), add gold (curve shifts further left). Each addition is highlighted with a label showing the new asset class being incorporated.]
-
-**Stella:** That animation is incredible. Every time we add a new low-correlation asset, the curve moves up and to the left -- meaning more return for less risk.
-
-**Horace:** Exactly. And that curve is called the efficient frontier, which brings us to modern portfolio theory.
-
-[VISUAL: Title card "Modern Portfolio Theory: The Efficient Frontier"]
-
-**Horace:** In 1952, a young economist named Harry Markowitz published a paper that would eventually win the Nobel Prize. The core idea was deceptively simple: do not evaluate investments in isolation. What matters is how each investment contributes to the total portfolio.
-
-**Stella:** Makes sense. A stock that is risky on its own might actually reduce portfolio risk if it has low correlation with everything else.
-
-**Horace:** Exactly right. Markowitz showed that for any given level of risk, there exists an optimal combination of assets that maximizes expected return. Plot all these optimal portfolios on a chart with risk on the x-axis and return on the y-axis, and you get a curve called the efficient frontier.
-
-[VISUAL: Clean diagram of the efficient frontier with clearly labeled axes, showing several portfolio points along the curve and a few sub-optimal portfolios below it]
-
-**Stella:** So any portfolio ON the curve is optimal, and anything below it is leaving money on the table?
-
-**Horace:** Correct. If your portfolio is below the efficient frontier, you could either earn more return for the same risk, or take less risk for the same return, by moving to the frontier. That is what portfolio optimization does -- it finds the weights that get you onto the frontier.
-
-**Stella:** How does the math actually work? Can you give me an intuitive example?
-
-**Horace:** Sure. Let us take two assets. Asset A has an expected return of 10 percent and volatility of 15 percent -- think stocks. Asset B has an expected return of 4 percent and volatility of 5 percent -- think bonds. And they have a correlation of negative 0.10.
-
-**Stella:** Classic stocks and bonds.
-
-**Horace:** Now, if you put 60 percent in A and 40 percent in B, your expected return is simply the weighted average: 0.60 times 10 plus 0.40 times 4 equals 7.6 percent. Easy.
-
-**Stella:** Right, that is just a weighted average.
-
-**Horace:** But here is where the magic happens. The portfolio's risk is NOT the weighted average. The weighted average risk would be 0.60 times 15 plus 0.40 times 5 equals 11 percent. But because of the negative correlation, the actual portfolio risk is only about 9 percent.
-
-[VISUAL: Two side-by-side calculations. Left: "Expected Return = Weighted Average = 7.6%". Right: "Expected Risk =/= Weighted Average. Weighted Avg = 11%. Actual = 9.0%. Diversification benefit = 2 percentage points of FREE risk reduction"]
-
-**Stella:** Two full percentage points of risk just disappear?
-
-**Horace:** They do not disappear -- they cancel out. When stocks zig down, bonds tend to zag up. The negative correlation term in the formula literally subtracts from total portfolio risk. This is the free lunch Markowitz was talking about.
-
-**Stella:** That is genuinely amazing. But I have heard there are problems with this approach?
-
-**Horace:** Yes, and this is important. The efficient frontier is only as good as the inputs you feed it. You need three inputs: expected returns, expected volatilities, and expected correlations for every asset class. The problem is that expected returns are notoriously difficult to estimate. Small changes in your return assumptions can produce wildly different "optimal" portfolios.
-
-**Stella:** So the theory is elegant but the practice is messy?
-
-**Horace:** Exactly. This is called estimation risk, and it is a serious problem. Run an optimizer with slightly different return estimates and you might get an allocation of 70 percent stocks and 5 percent gold one day, then 20 percent stocks and 40 percent gold the next. That kind of instability is not useful.
-
-[VISUAL: Three different efficient frontiers generated with slightly different return assumptions, showing how the optimal portfolio point shifts dramatically]
-
-**Stella:** So what do practitioners do about this?
-
-**Horace:** Several things. First, many add constraints -- maximum and minimum weights for each asset class. You might say no single asset class can be more than 40 percent or less than 5 percent. Second, some use more robust estimation techniques. And third -- and this leads to our next topic -- some abandon return optimization entirely and focus on risk alone.
-
-[VISUAL: Title card "Risk Parity: A Different Philosophy"]
-
-**Stella:** Risk parity. I have heard this term but never really understood it.
-
-**Horace:** Let me start with a simple observation about the traditional 60/40 portfolio. Stocks are allocated 60 percent of the weight. Bonds get 40 percent. Seems balanced, right?
-
-**Stella:** Sure, 60/40 sounds balanced.
-
-**Horace:** But now look at the risk side. Stocks have roughly three times the volatility of bonds. So even though stocks are 60 percent of the portfolio by weight, they contribute about 90 percent of the portfolio's risk. The 60/40 portfolio is not balanced at all -- it is essentially a stock portfolio with a small bond buffer.
-
-[VISUAL: Two pie charts side by side. Left: "Weight Allocation" showing 60% stocks, 40% bonds. Right: "Risk Allocation" showing 90% stocks, 10% bonds. The contrast is dramatic and highlighted with color coding]
-
-**Stella:** Wait, 90 percent? So when stocks crash, the bonds can barely soften the blow?
-
-**Horace:** Exactly. In 2008, the 60/40 portfolio fell about 30 to 35 percent. That is not what most people expect from a "balanced" portfolio. Risk parity says: instead of balancing by weight, balance by risk. Make each asset class contribute equally to portfolio risk.
-
-**Stella:** How do you do that?
-
-**Horace:** Since bonds are less volatile than stocks, you need to hold more bonds per dollar of risk contribution. A simplified risk parity portfolio might look like 25 percent stocks, 55 percent bonds, and 20 percent commodities -- with each contributing roughly one-third of the portfolio's risk.
-
-**Stella:** But that is a lot of bonds. Will not the returns be too low?
-
-**Horace:** In the pure risk parity approach, you use leverage to scale up the overall return. If the unlevered risk parity portfolio returns 5 percent with 6 percent volatility, you might lever it 1.5 times to get 7.5 percent return with 9 percent volatility -- similar return to 60/40 but with genuinely balanced risk.
-
-[VISUAL: Bar chart comparing three portfolios: 60/40 (unlevered), Risk Parity (unlevered, low return), and Risk Parity (levered, comparable return). Show both return and risk metrics]
-
-**Stella:** Leverage sounds scary though. Is that safe?
-
-**Horace:** That is the right concern. For most individual investors, I would not recommend levered risk parity. The good news is that even without leverage, a risk-parity-inspired portfolio -- one that tilts toward bonds and includes commodities, gold, and TIPS -- can provide better diversification than a traditional 60/40.
-
-**Stella:** Like a "risk parity lite"?
-
-**Horace:** Exactly. Something like 20 percent stocks, 30 percent long-term Treasuries, 15 percent TIPS, 10 percent gold, 10 percent commodities, 10 percent international stocks, and 5 percent REITs. No leverage needed, but much more balanced risk exposure than 60/40.
-
-[VISUAL: The Risk Parity Lite allocation displayed as a bar chart with risk contribution percentages shown for each asset class, demonstrating more balanced risk than 60/40]
-
-**Stella:** Let us talk about some complete portfolios people actually use. I have heard of things like the All-Weather portfolio and the Yale Model.
-
-**Horace:** Great idea. Let me walk through several famous multi-asset portfolios that real investors use.
-
-[VISUAL: Title card "Portfolio Models: From Simple to Sophisticated"]
-
-**Horace:** First, the Three-Fund Portfolio, popularized by Bogleheads. Just US stocks, international stocks, and US bonds. Something like 50-30-20. It is beautifully simple, incredibly low cost, and captures the basic diversification between equities and fixed income.
-
-**Stella:** That is what I started with.
-
-**Horace:** And it is a perfectly reasonable portfolio for many people. But we can improve on it. The Four-Fund Portfolio adds REITs as a fourth asset class. Something like 40 percent US stocks, 20 percent international stocks, 25 percent bonds, and 15 percent REITs. This adds real estate exposure and a bit more diversification.
-
-[VISUAL: Side-by-side comparison of the three-fund and four-fund portfolios, showing allocations and historical risk-return metrics]
-
-**Stella:** What about Ray Dalio's All-Weather portfolio? That is the one Bridgewater runs, right?
-
-**Horace:** The simplified version for individual investors is roughly 30 percent US stocks, 40 percent long-term Treasuries, 15 percent intermediate Treasuries, 7.5 percent gold, and 7.5 percent commodities. It is designed to perform reasonably well in all four economic environments: rising growth, falling growth, rising inflation, and falling inflation.
-
-**Stella:** Why so many bonds? 55 percent seems like a lot.
-
-**Horace:** Because it is risk-parity-inspired. Bonds are less volatile, so you need more of them to balance the risk contribution of stocks. The gold and commodities provide inflation protection that bonds lack. The result is a portfolio that had remarkably small drawdowns historically.
-
-**Stella:** How did it actually perform?
-
-**Horace:** During the 2008 crisis, the All-Weather portfolio lost only about 3 to 4 percent while the S&P 500 fell nearly 40 percent. Over long periods, it returned about 7 to 8 percent per year with much smaller drawdowns than a stock-heavy portfolio. The trade-off is that it lags stocks during strong bull markets.
-
-[VISUAL: Growth of $10,000 chart from 2005 to 2025 comparing All-Weather, 60/40, and 100% stocks. Show the 2008 drawdown, the 2020 COVID crash, and the 2022 rate-rising environment. All-Weather has the smoothest line but ends lower than 100% stocks]
-
-**Stella:** What about the Yale Model? I have heard David Swensen was a genius.
-
-**Horace:** Swensen ran the Yale endowment for decades and pioneered the use of alternative assets in institutional portfolios. The simplified version for individual investors is something like 30 percent US stocks, 15 percent international developed, 10 percent emerging markets, 15 percent REITs, 15 percent TIPS, and 15 percent nominal bonds.
-
-**Stella:** That is more stock-heavy than All-Weather.
-
-**Horace:** It is, and the real Yale portfolio also included private equity, venture capital, and hedge funds that are not available to individual investors. The key insight Swensen emphasized was that individual investors should stick to low-cost index funds for each asset class rather than trying to pick active managers.
-
-[VISUAL: Table comparing all five portfolio models with columns for allocation, historical return, historical volatility, maximum drawdown, and Sharpe ratio]
-
-**Stella:** How do I choose between all these models?
-
-**Horace:** It depends on your risk tolerance and your beliefs about the future economic environment. If you believe the future will look like the past 40 years -- falling interest rates, strong stock markets, low inflation -- then a stock-heavy portfolio like the Three-Fund or Yale Model will likely do best. If you are worried about inflation, rising rates, or economic uncertainty, the All-Weather or Risk Parity Lite approaches provide more protection.
-
-**Stella:** What about just mixing approaches?
-
-**Horace:** Totally valid. You could start with the Three-Fund Portfolio as your core and then add 10 to 15 percent in real assets like gold, commodities, and TIPS as a satellite allocation. That gives you the simplicity of the core with some additional diversification on the edges.
-
-[VISUAL: Diagram showing Core-Satellite approach: a large circle labeled "Core: Three-Fund Portfolio (70-80%)" surrounded by smaller circles labeled "Gold (5%)", "Commodities (5%)", "TIPS (5%)", "REITs (5%)"]
-
-**Stella:** Let me ask about something practical. I am going to set my allocation and then what? Just leave it alone?
-
-**Horace:** Not quite. Over time, market movements will push your portfolio away from its target weights. If stocks have a great year, they might drift from 40 percent to 48 percent of your portfolio. You need to rebalance -- bring the weights back to targets.
-
-[VISUAL: Title card "Rebalancing: The Discipline That Pays"]
-
-**Stella:** How often should I rebalance?
-
-**Horace:** Research shows that annual or semi-annual rebalancing captures most of the benefit. More frequent rebalancing just adds transaction costs. Some people use threshold-based rebalancing instead -- you rebalance whenever any asset class has drifted more than 5 percentage points from its target.
-
-**Stella:** Is not rebalancing just selling your winners and buying your losers? That feels wrong.
-
-**Horace:** It does feel wrong, and that is exactly why it works. Rebalancing is a systematic way to buy low and sell high. When stocks surge, you trim them. When they crash, you buy more. Studies show this disciplined contrarian behavior has added roughly 0.3 to 0.5 percent per year in return historically.
-
-[VISUAL: Chart showing a portfolio that drifts away from target, gets rebalanced, drifts again, gets rebalanced again -- with annotations showing "Sell high" and "Buy low" at each rebalancing event]
-
-**Stella:** And the tax-efficient way to do this?
-
-**Horace:** Great point. In taxable accounts, the best approach is to use new contributions to buy underweight assets rather than selling overweight ones. Direct your monthly investment to whatever has drifted furthest below its target. Also, if you receive dividends, reinvest them into the underweight asset classes. This way you rebalance over time without triggering capital gains taxes.
-
-**Stella:** Clever. Let us talk about one more thing -- the practical implementation. How do I actually build a multi-asset portfolio with ETFs?
-
-**Horace:** The amazing thing is that you can build an institutional-quality multi-asset portfolio with just five to seven low-cost ETFs. For US stocks, VTI at 0.03 percent expense ratio. For international stocks, VXUS at 0.07 percent. For bonds, BND at 0.03 percent. For long-term Treasuries, TLT at 0.15 percent. For TIPS, SCHP at 0.03 percent. For gold, GLDM at 0.10 percent. For commodities, PDBC at 0.59 percent.
-
-[VISUAL: A "shopping list" graphic showing each ETF with its ticker, name, asset class, and expense ratio, organized as a checklist]
-
-**Stella:** So total portfolio cost would be what, maybe 0.10 to 0.15 percent per year?
-
-**Horace:** Something in that range, depending on the weights. Institutional investors pay tens of millions in management fees for similar strategies. You can do it for pennies on the dollar with ETFs.
-
-**Stella:** That is incredible.
-
-**Horace:** One important note on commodities ETFs. Most commodity ETFs use futures contracts, not physical commodities. Futures-based ETFs can suffer from something called "roll cost" or "contango" -- they lose money when they sell expiring contracts and buy new ones. This can drag on returns over time. Make sure you understand this before adding a commodity ETF.
-
-[VISUAL: Diagram showing how futures-based commodity ETFs work, with the "roll" process illustrated and the contango cost highlighted]
-
-**Stella:** Good warning. Let me make sure I understand the big picture. I should think about which economic environments I want to be protected against, then choose asset classes that perform well in those environments, then combine them with low correlations, and rebalance periodically?
-
-**Horace:** That is a perfect summary. And remember the economic regime coverage map we discussed. Growth with low inflation favors stocks and REITs. Growth with high inflation favors commodities and TIPS. Recession with low inflation favors bonds. Recession with high inflation -- stagflation -- favors gold and commodities. A good multi-asset portfolio has some assets performing well in every one of those environments.
-
-[VISUAL: Four-quadrant economic regime grid with Growth/Recession on one axis and High/Low Inflation on the other, with each quadrant showing the best-performing asset classes]
-
-**Stella:** Before we wrap up, let me ask about a common concern I hear: "Is not this all just over-complicating things? Warren Buffett says just buy an S&P 500 index fund."
-
-**Horace:** Buffett's advice is specifically for his estate after he dies -- for money his wife will not need for decades. And he is not wrong for that specific situation. A 100 percent stock portfolio has the highest expected long-term return. But most real people cannot stomach a 40 to 50 percent drawdown, which stocks have delivered multiple times. They panic-sell at the bottom and lock in losses. A multi-asset portfolio with smaller drawdowns is easier to hold through crises, and the portfolio you actually hold is infinitely better than the one you abandon.
-
-**Stella:** So it is about matching the portfolio to the investor, not just chasing the highest return.
-
-**Horace:** Exactly. The best portfolio is the one you can stick with for decades. Multi-asset allocation helps you find that portfolio by offering better risk-adjusted returns and smaller worst-case scenarios.
-
-[VISUAL: Split-screen showing two investors during a market crash. Left: "100% Stocks" investor panics and sells at the bottom. Right: "Multi-Asset" investor stays calm because the portfolio only fell 15% instead of 40%]
-
-**Stella:** That makes a lot of sense. Three key takeaways from today?
-
-**Horace:** First, diversification beyond stocks and bonds is not complication -- it is completion. Asset classes like commodities, gold, REITs, and TIPS provide genuine diversification that different types of stocks do not. Second, what matters is not how many assets you own but how they correlate with each other. Focus on adding assets with low correlations to your existing portfolio. Third, the efficient frontier shows the optimal risk-return trade-off, but your inputs matter enormously -- consider simpler approaches like equal risk contribution if you are unsure about expected returns.
-
-**Stella:** And maybe a bonus takeaway: rebalance regularly. That systematic buy-low, sell-high discipline adds real value over time.
-
-**Horace:** Great addition. Next week, we are going to talk about how the business cycle affects which sectors of the economy perform best, and how you can tilt your portfolio to take advantage of that cycle. It is called sector rotation, and it is fascinating.
-
-**Stella:** Can not wait. See everyone next week!
-
-[VISUAL: End screen with subscribe button, links to previous lessons, and a preview thumbnail for Week 16: Business Cycles and Sector Rotation]
+**Horace:** Unlevered all-weather earns 5-6% per year. Loses to
+60/40. The leverage is the price of admission.
 
 ---
+
+**[SECTION 3 — THE 2022 BREAK — 6:30]**
+
+**Stella:** Walk us through 2022.
+
+**Horace:** Stock-bond correlation flipped from negative to positive.
+Same shock — Fed hiking aggressively into a 9% CPI print — hurt both
+legs together. TLT down 31%. SPY down 18%. Bloomberg Aggregate down
+13%, the worst year since the index started in 1976.
+
+**Stella:** And risk parity?
+
+**Horace:** Bridgewater All-Weather lost ~25%. AQR's QRPIX lost ~19%.
+The leverage on the bond sleeve amplified the bond loss. There was
+no quadrant working — gold was flat, equity was down, bonds were
+down. The diversification math assumed correlations would stay where
+the back-test put them. They did not.
+
+**Stella:** Is risk parity broken?
+
+**Horace:** No. It is *more vulnerable* to correlation regime changes
+than the marketing said. The institutional response since 2023 is to
+hold less duration leverage and more inflation hedges. The shape is
+converging on what SOUL #13 calls the four-tranche book.
+
+---
+
+**[SECTION 4 — THE FOUR TRANCHES — 9:30]**
+
+**Stella:** OK, so let's see the retail version.
+
+[VISUAL: image/week15_four_tranches.png]
+
+**Horace:** Forty percent growth. Thirty percent income. Twenty
+percent store-of-value. Ten percent opportunistic. Four ETFs gets
+you 90% of the way there: VTI, IEF, GLD, BIL.
+
+**Stella:** And how does this compare to Bridgewater's original
+weights?
+
+**Horace:** Bridgewater 1996 ran roughly 30% equity, 55% bonds, 7.5%
+gold, 7.5% commodities, levered 1.5x. We are running unlevered, with
+*more* equity, *less* duration, and *more* gold. Three regime shifts
+since 1996 justify that adjustment. The biggest is 2022.
+
+**Stella:** And the opportunistic ten percent?
+
+**Horace:** Cash, T-bills, and the SOUL #14 barbell — a small budget
+for long-vol options or for adding to equity at a 30% drawdown. The
+sleeve is small but its job is asymmetric. Ten percent that earns
+4% sitting in T-bills is not drag; it is the option premium that
+funds the next great rebalance trade.
+
+---
+
+**[SECTION 5 — BACKTEST — 12:00]**
+
+**Stella:** Numbers. 1928 to 2024.
+
+**Horace:** 100% equity earns 6.6% real, with a 75% drawdown in
+1929-32 and four other 30%+ drawdowns. 60/40 earns 4.4% real with a
+53% drawdown. The four-tranche book earns 3.7% real with a 38%
+drawdown.
+
+**Stella:** So all-weather costs 90 basis points of CAGR versus
+60/40.
+
+**Horace:** Yes. And buys you two things. Every decade — every
+single decade since 1928 — finishes positive in real terms. And the
+worst real drawdown is fifteen percentage points smaller. For
+someone living off the portfolio, that trade is worth it. For a
+30-year-old saving in an IRA, it is probably not — they should tilt
+toward the SOUL #14 barbell shape. More equity, smaller but
+genuinely safe sleeve, larger opportunistic tail.
+
+---
+
+**[SECTION 6 — INTERACTIVE — 15:30]**
+
+**Stella:** And the lab.
+
+[VISUAL: course/interactive/week15_allweather_builder.html]
+
+**Horace:** Four sliders, one for each tranche. The fourth is
+read-only — it is whatever is left after the first three sum.
+Drag growth up, you'll see the wealth curve climb but the drawdown
+deepen. Drag income up, drawdown shrinks but Sharpe stays roughly the
+same. Drag store-of-value up to 30%, you will see the stagflation
+decade — 1973-1981 — completely change shape.
+
+**Stella:** And the Sharpe.
+
+**Horace:** Sharpe is roughly stable across most weight choices in
+the realistic range. Which is the deepest lesson of multi-asset
+construction. *Risk-adjusted return is more stable than absolute
+return.* Whatever decision you make on the slider, you cannot screw
+up Sharpe by very much. You can absolutely screw up max drawdown.
+Pick the shape that lets you sleep, not the shape with the highest
+CAGR.
+
+---
+
+**[OUTRO — 17:30]**
+
+**Stella:** Next week — Week 16 — sectors. Eleven GICS cells. Where
+inside the growth tranche the alpha actually lives.
+
+**Horace:** And the homework: open the lab, find the weight that
+gives you the smallest max drawdown. Then find the weight that gives
+you the highest Sharpe. They are not the same. The gap between them
+is your risk budget. That gap is the most important number in this
+course.
+
+**Stella:** See you next week.

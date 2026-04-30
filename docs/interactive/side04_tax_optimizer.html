@@ -1,0 +1,808 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Tax Optimizer - Interactive (Side Lesson 4)</title>
+<script src="https://cdn.plot.ly/plotly-2.35.2.min.js" charset="utf-8"></script>
+<style>
+html, body { margin: 0; padding: 0; background: var(--to-bg); }
+:root {
+    --to-bg: #fdfbf5;
+    --to-text: #1a2332;
+    --to-muted: #6b7280;
+    --to-border: #d6d3c4;
+    --to-card: #fdfbf5;
+    --to-accent: #b8860b;
+    --to-mid: #0d47a1;
+    --to-good: #2e7d32;
+    --to-bad: #b71c1c;
+    --to-warn: #b8860b;
+    --to-tax-fill: #e8a8a8;
+    --to-tax-edge: #b71c1c;
+    --to-mid-fill: #f3d99a;
+    --to-mid-edge: #b8860b;
+    --to-good-fill: #9fcfa3;
+    --to-good-edge: #2e7d32;
+}
+html[data-theme="dark"] .to-root,
+.to-root[data-theme="dark"] {
+    --to-bg: #0f1724;
+    --to-text: #e6e6e6;
+    --to-muted: #9aa3b2;
+    --to-border: #2a3441;
+    --to-card: #131b2a;
+    --to-accent: #d4a02b;
+    --to-mid: #5a8dee;
+    --to-good: #66bb6a;
+    --to-bad: #ef5350;
+    --to-warn: #d4a02b;
+    --to-tax-fill: #5a2a2a;
+    --to-tax-edge: #ef5350;
+    --to-mid-fill: #4d3d1a;
+    --to-mid-edge: #d4a02b;
+    --to-good-fill: #2a4a2c;
+    --to-good-edge: #66bb6a;
+}
+.to-root {
+    font-family: 'Segoe UI', Helvetica, Arial, sans-serif;
+    background: var(--to-bg);
+    color: var(--to-text);
+    padding: 12px;
+    margin: 0;
+}
+.to-toolbar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px 18px;
+    align-items: center;
+    margin-bottom: 12px;
+}
+.to-group { display: flex; align-items: center; gap: 8px; }
+.to-lbl {
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--to-muted);
+}
+.to-pills {
+    display: inline-flex;
+    border: 1px solid var(--to-border);
+    border-radius: 999px;
+    overflow: hidden;
+    background: var(--to-card);
+}
+.to-pills button {
+    border: none;
+    background: transparent;
+    color: var(--to-muted);
+    padding: 5px 11px;
+    font: inherit;
+    font-size: 0.82rem;
+    font-weight: 600;
+    cursor: pointer;
+}
+.to-pills button:hover { color: var(--to-text); }
+.to-pills button.to-active {
+    background: var(--to-mid);
+    color: white;
+}
+.to-inputs {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 10px;
+    margin-bottom: 14px;
+    padding: 12px;
+    background: var(--to-card);
+    border: 1px solid var(--to-border);
+    border-radius: 8px;
+}
+.to-input-wrap { display: flex; flex-direction: column; gap: 4px; font-size: 0.82rem; color: var(--to-muted); }
+.to-input-wrap label { font-weight: 600; color: var(--to-text); }
+.to-input-wrap input[type="number"], .to-input-wrap input[type="range"] {
+    width: 100%;
+    background: var(--to-bg);
+    color: var(--to-text);
+    border: 1px solid var(--to-border);
+    border-radius: 6px;
+    padding: 5px 8px;
+    font: inherit;
+    font-variant-numeric: tabular-nums;
+}
+.to-input-wrap input[type="range"] { padding: 0; }
+.to-input-wrap .to-rngrow { display: flex; align-items: center; gap: 8px; }
+.to-input-wrap .to-rngval { min-width: 36px; text-align: right; font-weight: 700; color: var(--to-text); font-variant-numeric: tabular-nums; }
+.to-stats {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 10px;
+    margin-bottom: 14px;
+}
+.to-stat {
+    background: var(--to-card);
+    border: 1px solid var(--to-border);
+    border-left: 4px solid var(--to-mid);
+    border-radius: 8px;
+    padding: 10px 12px;
+}
+.to-stat.to-stat-w  { border-left-color: var(--to-good); }
+.to-stat.to-stat-tlh{ border-left-color: var(--to-warn); }
+.to-stat.to-stat-rc { border-left-color: var(--to-mid); }
+.to-stat.to-stat-yrs{ border-left-color: var(--to-accent); }
+.to-stat .to-stat-name {
+    font-size: 0.74rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--to-muted);
+}
+.to-stat .to-stat-val {
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin-top: 4px;
+    font-variant-numeric: tabular-nums;
+}
+.to-stat .to-stat-detail {
+    font-size: 0.78rem;
+    color: var(--to-muted);
+    margin-top: 2px;
+    font-variant-numeric: tabular-nums;
+}
+.to-section-title {
+    margin: 6px 4px;
+    font-size: 0.82rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--to-muted);
+}
+.to-grid-wrap {
+    background: var(--to-card);
+    border: 1px solid var(--to-border);
+    border-radius: 8px;
+    padding: 10px;
+    margin-bottom: 14px;
+    overflow-x: auto;
+}
+.to-grid {
+    display: grid;
+    grid-template-columns: minmax(140px, 1.4fr) repeat(3, minmax(110px, 1fr));
+    gap: 6px;
+    min-width: 600px;
+}
+.to-grid .to-h {
+    text-align: center;
+    font-weight: 700;
+    color: var(--to-text);
+    padding: 6px 4px;
+    font-size: 0.85rem;
+}
+.to-grid .to-rh {
+    font-weight: 700;
+    color: var(--to-text);
+    padding: 6px 6px;
+    font-size: 0.85rem;
+    align-self: center;
+}
+.to-grid .to-cell {
+    border-radius: 6px;
+    padding: 7px 6px;
+    text-align: center;
+    font-size: 0.82rem;
+    color: #1a2332;
+    border: 1.5px solid;
+    line-height: 1.25;
+}
+.to-cell.to-good { background: var(--to-good-fill); border-color: var(--to-good-edge); }
+.to-cell.to-mid  { background: var(--to-mid-fill);  border-color: var(--to-mid-edge); }
+.to-cell.to-bad  { background: var(--to-tax-fill);  border-color: var(--to-tax-edge); }
+html[data-theme="dark"] .to-cell { color: #e6e6e6; }
+.to-chart {
+    width: 100%;
+    height: 300px;
+    background: var(--to-card);
+    border-radius: 8px;
+    border: 1px solid var(--to-border);
+}
+.to-caption {
+    margin-top: 10px;
+    font-size: 0.78rem;
+    color: var(--to-muted);
+    line-height: 1.45;
+}
+@media (max-width: 720px) {
+    .to-inputs { grid-template-columns: repeat(2, 1fr); }
+    .to-stats  { grid-template-columns: repeat(2, 1fr); }
+    .to-chart  { height: 260px; }
+}
+</style>
+</head>
+<body>
+
+<div class="to-root" id="to-root">
+    <div class="to-toolbar">
+        <div class="to-group">
+            <span class="to-lbl" id="to-lbl-bracket">Federal bracket</span>
+            <div class="to-pills" id="to-bracket-pills" role="tablist">
+                <button type="button" data-b="0.12">12%</button>
+                <button type="button" data-b="0.22">22%</button>
+                <button type="button" data-b="0.24">24%</button>
+                <button type="button" data-b="0.32" class="to-active">32%</button>
+                <button type="button" data-b="0.35">35%</button>
+                <button type="button" data-b="0.37">37%</button>
+            </div>
+        </div>
+        <div class="to-group">
+            <span class="to-lbl" id="to-lbl-state">State rate</span>
+            <div class="to-pills" id="to-state-pills" role="tablist">
+                <button type="button" data-s="0.00">0%</button>
+                <button type="button" data-s="0.05" class="to-active">5%</button>
+                <button type="button" data-s="0.09">9%</button>
+                <button type="button" data-s="0.13">13%</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="to-inputs">
+        <div class="to-input-wrap">
+            <label id="to-lbl-tax">Taxable balance ($)</label>
+            <input type="number" id="to-bal-tax" min="0" step="10000" value="500000">
+        </div>
+        <div class="to-input-wrap">
+            <label id="to-lbl-trad">Traditional IRA / 401(k) ($)</label>
+            <input type="number" id="to-bal-trad" min="0" step="10000" value="300000">
+        </div>
+        <div class="to-input-wrap">
+            <label id="to-lbl-roth">Roth IRA ($)</label>
+            <input type="number" id="to-bal-roth" min="0" step="10000" value="100000">
+        </div>
+        <div class="to-input-wrap">
+            <label id="to-lbl-age">Age</label>
+            <div class="to-rngrow">
+                <input type="range" id="to-age" min="20" max="64" step="1" value="40">
+                <span class="to-rngval" id="to-age-val">40</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="to-stats">
+        <div class="to-stat to-stat-yrs">
+            <div class="to-stat-name" id="to-name-yrs">Years to age 65</div>
+            <div class="to-stat-val" id="to-val-yrs">25</div>
+            <div class="to-stat-detail" id="to-det-yrs">at 7%/yr nominal gross</div>
+        </div>
+        <div class="to-stat to-stat-w">
+            <div class="to-stat-name" id="to-name-w">After-tax wealth at 65</div>
+            <div class="to-stat-val" id="to-val-w">—</div>
+            <div class="to-stat-detail" id="to-det-w">vs. naive single-account</div>
+        </div>
+        <div class="to-stat to-stat-tlh">
+            <div class="to-stat-name" id="to-name-tlh">Suggested annual TLH</div>
+            <div class="to-stat-val" id="to-val-tlh">—</div>
+            <div class="to-stat-detail" id="to-det-tlh">~50 bps of taxable, savings shown</div>
+        </div>
+        <div class="to-stat to-stat-rc">
+            <div class="to-stat-name" id="to-name-rc">Suggested Roth conversion</div>
+            <div class="to-stat-val" id="to-val-rc">—</div>
+            <div class="to-stat-detail" id="to-det-rc">if bracket ≤ 24% and 55-69</div>
+        </div>
+    </div>
+
+    <div class="to-section-title" id="to-grid-title">Optimal asset location for your bracket</div>
+    <div class="to-grid-wrap">
+        <div class="to-grid" id="to-grid"></div>
+    </div>
+
+    <div class="to-section-title" id="to-chart-title">Projected balances at age 65 by account</div>
+    <div id="to-chart" class="to-chart"></div>
+
+    <p class="to-caption" id="to-caption">
+        Model: 7% nominal gross return on all three accounts. Taxable account loses an annual drag = mix-weighted ordinary + LTCG tax on a notional 30/70 bond/stock split. Traditional balance multiplied by (1 - federal bracket) at withdrawal (state generally exempt or low at retirement age). Roth balance kept whole. TLH = 0.5% of taxable balance per year × LTCG combined rate. Roth conversion suggestion fills the bracket-arbitrage window: ages 55-69 with bracket ≤ 24%, suggesting up to $80k/yr or 1/8 of the Trad IRA balance, whichever is lower. Educational; not tax advice.
+    </p>
+</div>
+
+<script>
+(function () {
+    const I18N = {
+        en: {
+            lbl_bracket: "Federal bracket", lbl_state: "State rate",
+            lbl_tax: "Taxable balance ($)", lbl_trad: "Traditional IRA / 401(k) ($)",
+            lbl_roth: "Roth IRA ($)", lbl_age: "Age",
+            name_yrs: "Years to age 65", det_yrs: "at 7%/yr nominal gross",
+            name_w: "After-tax wealth at 65", det_w: "{lift} vs. naive single-account",
+            name_tlh: "Suggested annual TLH", det_tlh: "saves {sav}/yr at your bracket",
+            name_rc: "Suggested Roth conversion", det_rc: "{branch}",
+            grid_title: "Optimal asset location for your bracket",
+            chart_title: "Projected balances at age 65 by account",
+            col_tax: "Taxable", col_trad: "Trad IRA", col_roth: "Roth IRA",
+            assets: {
+                us_stock: "US stocks (VTI/SPY)",
+                intl: "Intl stocks (VXUS)",
+                ig_bond: "IG bonds (BND/AGG)",
+                hy_bond: "HY bonds (HYG)",
+                reit: "REITs (VNQ)",
+                tips: "TIPS (SCHP)",
+                mlp: "MLPs (energy K-1)",
+                growth: "High-growth / crypto",
+            },
+            reasons: {
+                lo_div_ltcg: "Low yield, LTCG efficient",
+                wastes_def: "Wastes deferral",
+                ok_growth: "OK; growth tax-free",
+                ftc_only: "Foreign tax credit",
+                loses_ftc: "Loses FTC",
+                loses_ftc_ok: "Loses FTC; OK growth",
+                ord_drag: "Ord. drag {odPct}",
+                defer_int: "Defers ordinary income",
+                wastes_growth: "Wastes Roth on bonds",
+                huge_ord: "Ord. drag ~3%/yr",
+                shelter_ord: "Best - shelter HY",
+                shelter_ord_alt: "Strong - sheltered HY",
+                non_qual: "Non-qual div = ord.",
+                shelter_reit: "Shelters REIT income",
+                shelter_reit_alt: "Strong - sheltered REIT",
+                phantom: "Phantom-income tax",
+                no_phantom: "No phantom issue",
+                ok_no_phantom: "OK; phantom OK in Roth",
+                k1_ok: "K-1 ok; basis benefit",
+                ubti: "UBIT > 1k = 990-T",
+                ubti2: "UBIT > 1k = 990-T",
+                defer_gain: "Cap-gain deferral",
+                ord_at_with: "Gains -> ord. on draw",
+                tax_free_compound: "Tax-free compounding",
+            },
+            chart_x_title: "Account",
+            chart_y_title: "Balance at 65 (USD)",
+            tr_now: "Today", tr_at65: "At 65 (after tax)",
+            rc_high: "bracket too high - skip",
+            rc_too_young: "wait for low-income years",
+            rc_no_trad: "no Trad balance to convert",
+            rc_amt: "convert {amt}/yr to Roth",
+            rc_done: "past 70 - just take RMD",
+            caption: "Model: 7% nominal gross return on all three accounts. Taxable account loses an annual drag = mix-weighted ordinary + LTCG tax on a notional 30/70 bond/stock split. Traditional balance multiplied by (1 - federal bracket) at withdrawal (state generally exempt or low at retirement age). Roth balance kept whole. TLH = 0.5% of taxable balance per year x LTCG combined rate. Roth conversion suggestion fills the bracket-arbitrage window: ages 55-69 with bracket <= 24%, suggesting up to $80k/yr or 1/8 of the Trad IRA balance, whichever is lower. Educational; not tax advice.",
+        },
+        hk: {
+            lbl_bracket: "聯邦稅階", lbl_state: "州稅率",
+            lbl_tax: "應稅帳戶餘額($)", lbl_trad: "Traditional IRA / 401(k)($)",
+            lbl_roth: "Roth IRA($)", lbl_age: "年齡",
+            name_yrs: "距離 65 歲的年數", det_yrs: "假設名義報酬 7%/年",
+            name_w: "65 歲時稅後淨值", det_w: "比天真單一帳戶多 {lift}",
+            name_tlh: "建議每年 TLH 收割", det_tlh: "按你稅階節稅 {sav}/年",
+            name_rc: "建議每年 Roth 轉換", det_rc: "{branch}",
+            grid_title: "你的稅階下最佳資產定位",
+            chart_title: "65 歲時各帳戶餘額預估",
+            col_tax: "應稅", col_trad: "Trad IRA", col_roth: "Roth IRA",
+            assets: {
+                us_stock: "美股(VTI/SPY)",
+                intl: "國際股(VXUS)",
+                ig_bond: "投資級債(BND/AGG)",
+                hy_bond: "高息債(HYG)",
+                reit: "REITs(VNQ)",
+                tips: "TIPS(SCHP)",
+                mlp: "MLPs(能源 K-1)",
+                growth: "高增長 / 加密",
+            },
+            reasons: {
+                lo_div_ltcg: "低殖利,LTCG 高效",
+                wastes_def: "浪費遞延",
+                ok_growth: "可;增長免稅",
+                ftc_only: "外國稅收抵免",
+                loses_ftc: "失 FTC",
+                loses_ftc_ok: "失 FTC;增長可",
+                ord_drag: "普通稅拖累 {odPct}",
+                defer_int: "遞延普通收入",
+                wastes_growth: "Roth 浪費於債",
+                huge_ord: "普通稅拖累 ~3%/年",
+                shelter_ord: "最佳 - 庇護高息",
+                shelter_ord_alt: "強 - 庇護高息",
+                non_qual: "非合格 = 普通稅",
+                shelter_reit: "庇護 REIT 收入",
+                shelter_reit_alt: "強 - 庇護 REIT",
+                phantom: "幻影所得稅",
+                no_phantom: "無幻影問題",
+                ok_no_phantom: "可;Roth 內 OK",
+                k1_ok: "K-1 OK;成本回收",
+                ubti: "UBIT > 1千 = 990-T",
+                ubti2: "UBIT > 1千 = 990-T",
+                defer_gain: "資本利得遞延",
+                ord_at_with: "提領變普通稅",
+                tax_free_compound: "免稅複利",
+            },
+            chart_x_title: "帳戶",
+            chart_y_title: "65 歲餘額(美元)",
+            tr_now: "今日", tr_at65: "65 歲(稅後)",
+            rc_high: "稅階太高 - 暫不轉換",
+            rc_too_young: "等低收入年再轉",
+            rc_no_trad: "無 Trad 餘額可轉",
+            rc_amt: "建議轉 {amt}/年至 Roth",
+            rc_done: "過 70 - 領 RMD 就好",
+            caption: "模型:三個帳戶名義毛報酬 7%。應稅帳戶按 30/70 債/股配比承受普通+LTCG 稅拖累;Traditional 餘額在提領時乘 (1 - 聯邦稅階)(州稅在退休年通常較低);Roth 維持原值。TLH = 應稅餘額 × 0.5%/年 × 合計 LTCG 稅率。Roth 轉換建議填補稅階套利窗口:55-69 歲且稅階 ≤ 24% 時,建議每年最多 $80k 或 Trad 餘額的 1/8。教育用途,非稅務建議。",
+        },
+        tw: {
+            lbl_bracket: "聯邦稅階", lbl_state: "州稅率",
+            lbl_tax: "應稅帳戶餘額($)", lbl_trad: "Traditional IRA / 401(k)($)",
+            lbl_roth: "Roth IRA($)", lbl_age: "年齡",
+            name_yrs: "距離 65 歲的年數", det_yrs: "假設名目報酬 7%/年",
+            name_w: "65 歲稅後淨值", det_w: "比單一帳戶多 {lift}",
+            name_tlh: "建議每年 TLH 收割", det_tlh: "依你稅階節稅 {sav}/年",
+            name_rc: "建議每年 Roth 轉換", det_rc: "{branch}",
+            grid_title: "你的稅階下最佳資產定位",
+            chart_title: "65 歲時各帳戶餘額預估",
+            col_tax: "應稅", col_trad: "Trad IRA", col_roth: "Roth IRA",
+            assets: {
+                us_stock: "美股(VTI/SPY)",
+                intl: "國際股(VXUS)",
+                ig_bond: "投資級債(BND/AGG)",
+                hy_bond: "高息債(HYG)",
+                reit: "REITs(VNQ)",
+                tips: "TIPS(SCHP)",
+                mlp: "MLPs(能源 K-1)",
+                growth: "高成長 / 加密",
+            },
+            reasons: {
+                lo_div_ltcg: "低殖利,LTCG 高效",
+                wastes_def: "浪費遞延",
+                ok_growth: "可;成長免稅",
+                ftc_only: "外國稅收抵免",
+                loses_ftc: "失 FTC",
+                loses_ftc_ok: "失 FTC;成長可",
+                ord_drag: "普通稅拖累 {odPct}",
+                defer_int: "遞延普通收入",
+                wastes_growth: "Roth 浪費於債",
+                huge_ord: "普通稅拖累 ~3%/年",
+                shelter_ord: "最佳 - 庇護高息",
+                shelter_ord_alt: "強 - 庇護高息",
+                non_qual: "非合格 = 普通稅",
+                shelter_reit: "庇護 REIT 收入",
+                shelter_reit_alt: "強 - 庇護 REIT",
+                phantom: "幻影所得稅",
+                no_phantom: "無幻影問題",
+                ok_no_phantom: "可;Roth 內 OK",
+                k1_ok: "K-1 OK;成本回收",
+                ubti: "UBIT > 1千 = 990-T",
+                ubti2: "UBIT > 1千 = 990-T",
+                defer_gain: "資本利得遞延",
+                ord_at_with: "提領變普通稅",
+                tax_free_compound: "免稅複利",
+            },
+            chart_x_title: "帳戶",
+            chart_y_title: "65 歲餘額(美元)",
+            tr_now: "今日", tr_at65: "65 歲(稅後)",
+            rc_high: "稅階太高 - 暫不轉換",
+            rc_too_young: "等低收入年再轉",
+            rc_no_trad: "無 Trad 餘額可轉",
+            rc_amt: "建議轉 {amt}/年至 Roth",
+            rc_done: "過 70 - 領 RMD 即可",
+            caption: "模型:三個帳戶名目毛報酬 7%。應稅帳戶按 30/70 債/股配比承受普通+LTCG 稅拖累;Traditional 餘額在提領時乘 (1 - 聯邦稅階);Roth 維持原值。TLH = 應稅餘額 × 0.5%/年 × 合計 LTCG 稅率。Roth 轉換建議填補稅階套利窗口:55-69 歲且稅階 ≤ 24% 時,建議每年最多 $80k 或 Trad 餘額的 1/8。教育用途,非稅務建議。",
+        },
+        cn: {
+            lbl_bracket: "联邦税阶", lbl_state: "州税率",
+            lbl_tax: "应税账户余额($)", lbl_trad: "Traditional IRA / 401(k)($)",
+            lbl_roth: "Roth IRA($)", lbl_age: "年龄",
+            name_yrs: "距离 65 岁的年数", det_yrs: "假设名义回报 7%/年",
+            name_w: "65 岁税后净值", det_w: "比单一账户多 {lift}",
+            name_tlh: "建议每年 TLH 收割", det_tlh: "按你税阶节税 {sav}/年",
+            name_rc: "建议每年 Roth 转换", det_rc: "{branch}",
+            grid_title: "你的税阶下最佳资产定位",
+            chart_title: "65 岁时各账户余额预估",
+            col_tax: "应税", col_trad: "Trad IRA", col_roth: "Roth IRA",
+            assets: {
+                us_stock: "美股(VTI/SPY)",
+                intl: "国际股(VXUS)",
+                ig_bond: "投资级债(BND/AGG)",
+                hy_bond: "高息债(HYG)",
+                reit: "REITs(VNQ)",
+                tips: "TIPS(SCHP)",
+                mlp: "MLPs(能源 K-1)",
+                growth: "高增长 / 加密",
+            },
+            reasons: {
+                lo_div_ltcg: "低收益率,LTCG 高效",
+                wastes_def: "浪费递延",
+                ok_growth: "可;增长免税",
+                ftc_only: "外国税收抵免",
+                loses_ftc: "失 FTC",
+                loses_ftc_ok: "失 FTC;增长可",
+                ord_drag: "普通税拖累 {odPct}",
+                defer_int: "递延普通收入",
+                wastes_growth: "Roth 浪费于债",
+                huge_ord: "普通税拖累 ~3%/年",
+                shelter_ord: "最佳 - 庇护高息",
+                shelter_ord_alt: "强 - 庇护高息",
+                non_qual: "非合格 = 普通税",
+                shelter_reit: "庇护 REIT 收入",
+                shelter_reit_alt: "强 - 庇护 REIT",
+                phantom: "幻影所得税",
+                no_phantom: "无幻影问题",
+                ok_no_phantom: "可;Roth 内 OK",
+                k1_ok: "K-1 OK;成本回收",
+                ubti: "UBIT > 1千 = 990-T",
+                ubti2: "UBIT > 1千 = 990-T",
+                defer_gain: "资本利得递延",
+                ord_at_with: "提领变普通税",
+                tax_free_compound: "免税复利",
+            },
+            chart_x_title: "账户",
+            chart_y_title: "65 岁余额(美元)",
+            tr_now: "今日", tr_at65: "65 岁(税后)",
+            rc_high: "税阶太高 - 暂不转换",
+            rc_too_young: "等低收入年再转",
+            rc_no_trad: "无 Trad 余额可转",
+            rc_amt: "建议转 {amt}/年至 Roth",
+            rc_done: "过 70 - 领 RMD 即可",
+            caption: "模型:三个账户名义毛回报 7%。应税账户按 30/70 债/股配比承受普通+LTCG 税拖累;Traditional 余额在提领时乘 (1 - 联邦税阶);Roth 维持原值。TLH = 应税余额 × 0.5%/年 × 合计 LTCG 税率。Roth 转换建议填补税阶套利窗口:55-69 岁且税阶 ≤ 24% 时,建议每年最多 $80k 或 Trad 余额的 1/8。教育用途,非税务建议。",
+        },
+    };
+
+    function currentLang() {
+        const p = new URLSearchParams(window.location.search);
+        const l = (p.get("lang") || "en").toLowerCase();
+        return I18N.hasOwnProperty(l) ? l : "en";
+    }
+    const T = I18N[currentLang()];
+
+    // Asset rows and per-account scores (2/1/0).
+    const ASSETS = [
+        ["us_stock", [2, 1, 2], ["lo_div_ltcg", "wastes_def",  "ok_growth"]],
+        ["intl",     [2, 0, 1], ["ftc_only",    "loses_ftc",   "loses_ftc_ok"]],
+        ["ig_bond",  [0, 2, 1], ["ord_drag",    "defer_int",   "wastes_growth"]],
+        ["hy_bond",  [0, 2, 2], ["huge_ord",    "shelter_ord", "shelter_ord_alt"]],
+        ["reit",     [0, 2, 2], ["non_qual",    "shelter_reit","shelter_reit_alt"]],
+        ["tips",     [0, 2, 1], ["phantom",     "no_phantom",  "ok_no_phantom"]],
+        ["mlp",      [2, 0, 0], ["k1_ok",       "ubti",        "ubti2"]],
+        ["growth",   [1, 1, 2], ["defer_gain",  "ord_at_with", "tax_free_compound"]],
+    ];
+
+    let bracket = 0.32, stateRate = 0.05;
+    const ROOT = document.getElementById("to-root");
+    const CHART = document.getElementById("to-chart");
+    const GRID  = document.getElementById("to-grid");
+
+    const balTax  = document.getElementById("to-bal-tax");
+    const balTrad = document.getElementById("to-bal-trad");
+    const balRoth = document.getElementById("to-bal-roth");
+    const ageEl   = document.getElementById("to-age");
+    const ageVal  = document.getElementById("to-age-val");
+
+    function getCss(name) { return getComputedStyle(ROOT).getPropertyValue(name).trim(); }
+    function darkMode()   { return document.documentElement.getAttribute("data-theme") === "dark"; }
+    function fmtUSD(v) {
+        if (!isFinite(v)) return "—";
+        if (Math.abs(v) >= 1e6) return "$" + (v / 1e6).toFixed(2) + "M";
+        if (Math.abs(v) >= 1e4) return "$" + (v / 1000).toFixed(0) + "k";
+        if (Math.abs(v) >= 1e3) return "$" + (v / 1000).toFixed(1) + "k";
+        return "$" + Math.round(v).toLocaleString();
+    }
+    function pct(v, d) {
+        if (!isFinite(v)) return "—";
+        return (v * 100).toFixed(d == null ? 1 : d) + "%";
+    }
+
+    // LTCG schedule by federal bracket
+    function ltcgFromBracket(b) {
+        if (b <= 0.13) return 0.00;
+        if (b <= 0.34) return 0.15;
+        return 0.20;
+    }
+    // NIIT for the higher brackets
+    function niit(b) { return b >= 0.32 ? 0.038 : 0.0; }
+
+    // Annual taxable-account drag on a notional 30/70 bond/stock mix.
+    // Bonds: 4.5% yield * (b + s) ; stocks: 1.5% qualified div * (ltcg + s)
+    // plus 0.3% turnover gain at LTCG rate.
+    function taxableDrag(b, s) {
+        const bond  = 0.30 * 0.045 * (b + s);
+        const stock = 0.70 * 0.015 * (ltcgFromBracket(b) + s);
+        const gain  = 0.70 * 0.003 * (ltcgFromBracket(b) + s);
+        return bond + stock + gain;
+    }
+
+    // Render the location grid.
+    function renderGrid() {
+        GRID.innerHTML = "";
+        // Header row
+        const hb = document.createElement("div"); hb.className = "to-h"; hb.textContent = "";
+        const h1 = document.createElement("div"); h1.className = "to-h"; h1.textContent = T.col_tax;
+        const h2 = document.createElement("div"); h2.className = "to-h"; h2.textContent = T.col_trad;
+        const h3 = document.createElement("div"); h3.className = "to-h"; h3.textContent = T.col_roth;
+        GRID.appendChild(hb); GRID.appendChild(h1); GRID.appendChild(h2); GRID.appendChild(h3);
+
+        // Compute per-bracket bond drag % for the IG bond reason cell.
+        const bondDragPct = (0.045 * (bracket + stateRate) * 100).toFixed(1) + "%";
+
+        for (const [aKey, scores, reasons] of ASSETS) {
+            const lbl = document.createElement("div");
+            lbl.className = "to-rh";
+            lbl.textContent = T.assets[aKey];
+            GRID.appendChild(lbl);
+            for (let j = 0; j < 3; j++) {
+                const cell = document.createElement("div");
+                const cls = scores[j] === 2 ? "to-good" : (scores[j] === 1 ? "to-mid" : "to-bad");
+                cell.className = "to-cell " + cls;
+                let txt = T.reasons[reasons[j]] || "";
+                txt = txt.replace("{odPct}", bondDragPct);
+                cell.textContent = txt;
+                GRID.appendChild(cell);
+            }
+        }
+    }
+
+    function compute() {
+        const tax  = Math.max(0, parseFloat(balTax.value)  || 0);
+        const trad = Math.max(0, parseFloat(balTrad.value) || 0);
+        const roth = Math.max(0, parseFloat(balRoth.value) || 0);
+        const age  = parseInt(ageEl.value, 10);
+        const N    = Math.max(0, 65 - age);
+        const grossR = 0.07;
+
+        // Annual drag on the taxable account (asset-located naively).
+        const drag  = taxableDrag(bracket, stateRate);
+        const rTax  = grossR - drag;
+        const taxAt65  = tax  * Math.pow(1 + rTax, N);
+        const tradAt65 = trad * Math.pow(1 + grossR, N) * (1 - bracket);
+        const rothAt65 = roth * Math.pow(1 + grossR, N);
+        const total65  = taxAt65 + tradAt65 + rothAt65;
+
+        // Naive baseline: everything in taxable account suffering drag.
+        const naive65 = (tax + trad + roth) * Math.pow(1 + rTax, N);
+        const lift = total65 - naive65;
+
+        // TLH suggestion: harvest 0.5% of taxable balance per year.
+        const ltcgComb = ltcgFromBracket(bracket) + stateRate + niit(bracket);
+        const harvest  = tax * 0.005;
+        const tlhSav   = harvest * ltcgComb;
+
+        // Roth conversion suggestion.
+        let rcAmt = 0, rcBranch = "";
+        if (trad <= 0) {
+            rcBranch = T.rc_no_trad;
+        } else if (age < 55) {
+            rcBranch = T.rc_too_young;
+        } else if (age >= 70) {
+            rcBranch = T.rc_done;
+        } else if (bracket > 0.24) {
+            rcBranch = T.rc_high;
+        } else {
+            rcAmt = Math.min(80000, trad / 8);
+            rcBranch = T.rc_amt.replace("{amt}", fmtUSD(rcAmt));
+        }
+
+        return { tax, trad, roth, age, N, drag, rTax,
+                 taxAt65, tradAt65, rothAt65, total65, naive65, lift,
+                 harvest, tlhSav, rcAmt, rcBranch };
+    }
+
+    function renderChart(c) {
+        const colorBg   = getCss("--to-card");
+        const colorText = getCss("--to-text");
+        const colorMu   = getCss("--to-muted");
+        const grid      = darkMode() ? "rgba(255,255,255,0.08)" : "rgba(0,0,0,0.07)";
+        const colTax    = getCss("--to-tax-edge");
+        const colTrad   = getCss("--to-mid");
+        const colRoth   = getCss("--to-good");
+
+        const cats = [T.col_tax, T.col_trad, T.col_roth];
+        const now  = [c.tax, c.trad, c.roth];
+        const at65 = [c.taxAt65, c.tradAt65, c.rothAt65];
+        const colors = [colTax, colTrad, colRoth];
+
+        const traceNow = {
+            name: T.tr_now,
+            x: cats, y: now, type: "bar",
+            marker: { color: colors, opacity: 0.40, line: { color: colors, width: 1.4 } },
+            text: now.map(fmtUSD), textposition: "outside",
+            hovertemplate: "%{x}: %{text}<extra>" + T.tr_now + "</extra>",
+            offsetgroup: 0,
+        };
+        const traceFuture = {
+            name: T.tr_at65,
+            x: cats, y: at65, type: "bar",
+            marker: { color: colors, line: { color: colors, width: 1.4 } },
+            text: at65.map(fmtUSD), textposition: "outside",
+            hovertemplate: "%{x}: %{text}<extra>" + T.tr_at65 + "</extra>",
+            offsetgroup: 1,
+        };
+
+        Plotly.react(CHART, [traceNow, traceFuture], {
+            barmode: "group",
+            margin: { l: 70, r: 24, t: 18, b: 56 },
+            paper_bgcolor: colorBg,
+            plot_bgcolor: colorBg,
+            font: { family: "Segoe UI, Helvetica, Arial, sans-serif", color: colorText, size: 12 },
+            xaxis: {
+                title: { text: T.chart_x_title, font: { color: colorMu, size: 11 } },
+                color: colorText, gridcolor: grid, zerolinecolor: colorMu,
+            },
+            yaxis: {
+                title: { text: T.chart_y_title, font: { color: colorMu, size: 11 } },
+                color: colorText, gridcolor: grid, zerolinecolor: colorMu,
+                rangemode: "tozero",
+            },
+            legend: {
+                orientation: "h",
+                x: 0, y: -0.22,
+                bgcolor: "rgba(0,0,0,0)",
+                font: { color: colorText, size: 11 },
+            },
+            hovermode: "closest",
+        }, { displayModeBar: false, responsive: true });
+    }
+
+    function render() {
+        ageVal.textContent = ageEl.value;
+        const c = compute();
+        document.getElementById("to-val-yrs").textContent = c.N.toString();
+        document.getElementById("to-val-w").textContent   = fmtUSD(c.total65);
+        document.getElementById("to-det-w").textContent   =
+            T.det_w.replace("{lift}", "+" + fmtUSD(c.lift));
+        document.getElementById("to-val-tlh").textContent = fmtUSD(c.harvest);
+        document.getElementById("to-det-tlh").textContent =
+            T.det_tlh.replace("{sav}", fmtUSD(c.tlhSav));
+        document.getElementById("to-val-rc").textContent  =
+            c.rcAmt > 0 ? fmtUSD(c.rcAmt) : "—";
+        document.getElementById("to-det-rc").textContent  =
+            T.det_rc.replace("{branch}", c.rcBranch);
+        renderGrid();
+        renderChart(c);
+    }
+
+    function applyI18n() {
+        document.getElementById("to-lbl-bracket").textContent = T.lbl_bracket;
+        document.getElementById("to-lbl-state").textContent   = T.lbl_state;
+        document.getElementById("to-lbl-tax").textContent     = T.lbl_tax;
+        document.getElementById("to-lbl-trad").textContent    = T.lbl_trad;
+        document.getElementById("to-lbl-roth").textContent    = T.lbl_roth;
+        document.getElementById("to-lbl-age").textContent     = T.lbl_age;
+        document.getElementById("to-name-yrs").textContent    = T.name_yrs;
+        document.getElementById("to-det-yrs").textContent     = T.det_yrs;
+        document.getElementById("to-name-w").textContent      = T.name_w;
+        document.getElementById("to-name-tlh").textContent    = T.name_tlh;
+        document.getElementById("to-name-rc").textContent     = T.name_rc;
+        document.getElementById("to-grid-title").textContent  = T.grid_title;
+        document.getElementById("to-chart-title").textContent = T.chart_title;
+        document.getElementById("to-caption").textContent     = T.caption;
+    }
+
+    function bindPills(id, key, parser, callback) {
+        const el = document.getElementById(id);
+        el.addEventListener("click", e => {
+            const b = e.target.closest("button");
+            if (!b) return;
+            el.querySelectorAll("button").forEach(x => x.classList.remove("to-active"));
+            b.classList.add("to-active");
+            callback(parser(b.dataset[key]));
+            render();
+        });
+    }
+    bindPills("to-bracket-pills", "b", v => parseFloat(v), v => { bracket   = v; });
+    bindPills("to-state-pills",   "s", v => parseFloat(v), v => { stateRate = v; });
+
+    [balTax, balTrad, balRoth, ageEl].forEach(el => {
+        el.addEventListener("input",  render);
+        el.addEventListener("change", render);
+    });
+
+    const themeObs = new MutationObserver(() => render());
+    themeObs.observe(document.documentElement, { attributes: true, attributeFilter: ["data-theme"] });
+
+    function reportHeight() {
+        try {
+            const h = Math.ceil(document.documentElement.scrollHeight);
+            parent.postMessage({ type: "lesson-interactive-resize", height: h }, "*");
+        } catch (_) { /* ignore */ }
+    }
+    if (typeof ResizeObserver !== "undefined") {
+        new ResizeObserver(reportHeight).observe(document.body);
+    }
+    window.addEventListener("resize", reportHeight);
+
+    applyI18n();
+    render();
+    setTimeout(reportHeight, 80);
+    setTimeout(reportHeight, 500);
+})();
+</script>
+
+</body>
+</html>

@@ -1,957 +1,686 @@
-# Week 23: Factor Investing Introduction
+# Week 23: Factor Investing — Value, Momentum, Quality, Low-Vol, Size
 
 ---
 
-## Reading Section
-
-### a) Why This Is Important
-
-For decades, the dominant theory in finance was that stock returns could be explained by a single factor: market risk. If you took more risk by investing in stocks instead of bonds, you earned a higher return. This was the Capital Asset Pricing Model (CAPM), and it earned its creators a Nobel Prize.
-
-But researchers began noticing persistent anomalies -- patterns in stock returns that CAPM could not explain. Small companies consistently outperformed large companies by more than their extra risk would predict. Cheap stocks (measured by low price-to-book ratios) consistently outperformed expensive stocks. Stocks that had been going up tended to keep going up, and stocks that had been going down tended to keep going down. These were not random fluctuations -- they persisted across decades, across countries, and across asset classes.
-
-This led to one of the most important developments in modern investing: factor-based investing. Understanding factors matters because:
-
-1. **It explains most of your portfolio's returns.** Research shows that the specific stocks you own matter far less than the factor exposures of your portfolio. A portfolio tilted toward small-value stocks will behave very differently from one tilted toward large-growth stocks, regardless of which specific companies are in each.
-
-2. **It separates skill from factor exposure.** Many active fund managers who appeared to be generating returns through stock-picking skill were actually just loading up on certain factors. When you adjust for factor exposure, much of the "alpha" disappears. Understanding factors helps you evaluate whether you are truly getting skill or just paying high fees for systematic factor exposure you could get cheaply through ETFs.
-
-3. **It enables better portfolio construction.** By understanding which factors your portfolio is exposed to, you can make informed decisions about diversification. Just as you diversify across stocks and countries, you can diversify across factors -- and the combination tends to be more robust than any single factor alone.
-
-4. **It offers a framework for harvesting premiums.** If certain factors offer persistent positive expected returns, you can systematically tilt your portfolio toward them. This is the basis of "smart beta" investing, which sits between passive indexing and active management.
+## Part 1: Reading Section
 
 ---
 
-### b) What You Need to Know
+### 1. Why This Is Important
 
-#### 1. What Are Factors?
+For half a century the Capital Asset Pricing Model (CAPM) told a single
+story: stocks beat bonds because stocks carry more market risk, and the
+*only* thing the market rewards is bearing that one risk. One factor.
+One reward. End of equation. Then in the early 1990s Eugene Fama and
+Kenneth French sat down with sixty years of CRSP data and discovered
+that the equation was missing terms. Small companies beat big ones by
+more than their beta. Cheap (high book-to-market) stocks beat expensive
+ones. Once they added a *size* factor and a *value* factor the residual
+"alpha" of most US mutual funds collapsed — what looked like
+stock-picking skill was, on the data, just systematic exposure to
+factors the manager had never named. By 2015 Fama and French had added
+*profitability* (RMW) and *investment* (CMA), and Mark Carhart had
+bolted on *momentum* (UMD) into a six-factor framework that today
+explains roughly 90% of the cross-section of US equity returns.
 
-A factor is a measurable characteristic of stocks that explains differences in returns. Think of factors as the "ingredients" of stock returns.
+This matters for four reasons.
 
-```
-FACTOR ANALOGY: RECIPE FOR STOCK RETURNS
-==========================================
+1. **It tells you what your portfolio actually is.** Whatever you
+   own — a single mutual fund, a 60/40 mix, your spouse's "growth
+   stock" picks — has factor loadings whether you measure them or
+   not. Two portfolios with the same beta and the same expected
+   return can behave very differently in the next regime if one is
+   heavy on value-and-size and the other is heavy on quality-and-low-vol.
+   Factors are how you read what's under the hood.
 
-Traditional View:
-  Stock Return = Market Movement + Random Luck
+2. **It separates structural alpha from luck.** When a manager beats
+   the S&P by 3% over a decade, the right question isn't "are they
+   good?" — it's "what factor was that?" If their excess return loads
+   onto small-value, you can replicate it with VBR for 7 bps of fee.
+   If it loads onto momentum, you can replicate it with MTUM. The
+   moment a putative "skill" fits inside an academic factor it stops
+   being skill.
 
-Factor View:
-  Stock Return = Market Factor
-               + Value Factor
-               + Size Factor
-               + Momentum Factor
-               + Quality Factor
-               + Low Volatility Factor
-               + Residual (truly random)
+3. **It is one of the five durable alpha lanes.** SOUL #5 names five
+   structural mispricings — liquidity, sector rotation, long-term
+   trends, buying what passive flows have abandoned, and (the one
+   we're discussing this week) the academic factor premia. Of the
+   five, factors are the most *systematic* and the most *crowded* —
+   which means they have the lowest barrier to entry and the most
+   compressed forward expected return. They still pay; they just pay
+   less than they did before everyone owned VLUE and MTUM.
 
-Just as a recipe has ingredients that each contribute
-to the final taste, stock returns have factors that
-each contribute to the final return.
-```
-
-**Key distinction: Macro factors vs. Style factors**
-
-```
-TYPES OF FACTORS
-=================
-
-MACRO FACTORS (economic environment):
-- Economic growth
-- Inflation
-- Interest rates
-- Credit spreads
-- Liquidity conditions
-
-STYLE FACTORS (stock characteristics):
-- Value (cheap vs. expensive)
-- Size (small vs. large)
-- Momentum (winners vs. losers)
-- Quality (profitable vs. unprofitable)
-- Low Volatility (calm vs. wild)
-
-This lesson focuses on STYLE FACTORS because
-they are the ones you can systematically capture
-through portfolio construction.
-```
-
----
-
-#### 2. The Fama-French Three-Factor Model
-
-In 1992, Eugene Fama and Kenneth French published a groundbreaking paper showing that three factors explained most of the variation in stock returns:
-
-```
-THE FAMA-FRENCH THREE-FACTOR MODEL
-====================================
-
-Expected Return = Risk-Free Rate
-                + Beta x (Market Return - Risk-Free Rate)
-                + s x SMB
-                + h x HML
-
-Where:
-- Beta x Market Premium = your exposure to overall market risk
-- SMB = "Small Minus Big" (small-cap return minus large-cap return)
-- HML = "High Minus Low" book-to-market (value return minus growth return)
-- s = your portfolio's loading on the size factor
-- h = your portfolio's loading on the value factor
-
-WHAT THIS MEANS IN PLAIN ENGLISH:
-===================================
-
-Your portfolio's return depends on three things:
-1. How much market risk you took (Beta)
-2. How much you tilted toward small companies (SMB)
-3. How much you tilted toward cheap companies (HML)
-
-A portfolio of small, cheap stocks would have:
-- Positive Beta (exposed to market)
-- Positive s (tilted toward small)
-- Positive h (tilted toward value)
-
-And would be expected to earn higher returns over
-time than a portfolio of large, expensive stocks.
-```
-
-**Historical Factor Premiums (US Market):**
-
-```
-LONG-TERM ANNUAL FACTOR PREMIUMS (approximate)
-================================================
-
-Factor              Premium     Period        Interpretation
-------              -------     ------        --------------
-Market (stocks      ~5-7%       1926-present  Stocks beat bonds
- over bonds)                                  over time
-
-Size (small         ~2-3%       1926-present  Small stocks beat
- over large)                                  large stocks
-
-Value (cheap        ~3-5%       1926-present  Cheap stocks beat
- over expensive)                              expensive stocks
-
-Momentum            ~6-8%       1927-present  Recent winners beat
-                                              recent losers
-
-Quality             ~3-4%       1963-present  Profitable companies
-                                              beat unprofitable
-
-Low Volatility      ~2-3%       1963-present  Low-vol stocks match
-                                              high-vol returns
-                                              with much less risk
-
-IMPORTANT CAVEATS:
-- These are LONG-TERM averages
-- Individual years can vary enormously
-- Premiums are not guaranteed going forward
-- Past performance does not guarantee future results
-- Premiums may have shrunk as more investors target them
-```
+4. **It frames the 2007 quant quake we covered in Week 14.** When
+   AQR, Renaissance, and a hundred lesser stat-arb shops were all
+   running the same factor signals on the same universe, a single
+   mid-August deleveraging event vaporised three years of returns
+   in four days. Factor investing with leverage was the canonical
+   case study in *crowded-trade* risk. Retail factor ETFs in 2026
+   are unleveraged, so the blow-up math is gentler — but the
+   compression of premiums is the same disease.
 
 ---
 
-#### 3. The Value Factor
+### 2. What You Need to Know
 
-**Definition:** Buy stocks that are cheap relative to fundamentals; avoid stocks that are expensive.
+#### 2.1 What a "factor" actually is
 
-```
-VALUE FACTOR -- HOW IT WORKS
-==============================
+A factor is a *long-short portfolio* built from a measurable stock
+characteristic. Take book-to-market: rank every US stock by B/M, go
+long the top decile, short the bottom decile, weight the legs equally,
+rebalance monthly. The monthly P&L of that portfolio is the *value
+factor* (HML — High Minus Low book-to-market). Every factor in the
+academic literature has the same shape: rank, long top, short bottom,
+hedge out the market.
 
-CHEAP STOCKS                    EXPENSIVE STOCKS
-(Value Portfolio)               (Growth Portfolio)
-=============                   ================
-Low P/E ratio                   High P/E ratio
-Low P/B ratio                   High P/B ratio
-Low EV/EBITDA                   High EV/EBITDA
-High dividend yield             Low dividend yield
-High earnings yield             Low earnings yield
+That construction matters, because the long-short structure is what
+strips out the market. A pure value mutual fund is roughly *0.9 of
+market + 0.4 of HML + noise*; the academic HML is the *0.4 of HML*
+piece on its own, with the market dialled to zero. The factor
+*premium* is the average return of that long-short portfolio. Six
+factors dominate the modern literature: market (MKT-RF), size (SMB —
+Small Minus Big), value (HML), profitability (RMW — Robust Minus
+Weak), investment (CMA — Conservative Minus Aggressive), and
+momentum (UMD — Up Minus Down). The first five are Fama-French 5;
+adding UMD gives you the FF5 + momentum framework that almost every
+sell-side risk model in 2026 starts from.
 
-Buy the cheapest 20-30%         Sell/avoid the most
-of stocks by these metrics      expensive 20-30%
+![Factor premia 1963-2024](image/week23_factor_premia.png)
 
-The VALUE PREMIUM is the return difference:
-Value Portfolio Return - Growth Portfolio Return
+#### 2.2 The historical premia, in one breath
 
-Historical premium: ~3-5% per year
-But with HUGE variation year-to-year
-```
+From July 1963 to December 2024, the realised annualised premia for
+the US factors are roughly: MKT-RF ~6.6%, UMD ~7.5%, HML ~3.8%, CMA
+~3.3%, RMW ~3.0%, SMB ~2.4%. Add a low-volatility factor (not in the
+official Fama-French set but built the same way: long bottom-quintile
+beta, short top-quintile beta) and you get roughly 1-2% of premium
+*with materially lower standard deviation* — which is why low-vol
+shows up well on a Sharpe-ratio basis even though the raw premium
+looks small.
 
-**Why Does the Value Premium Exist?**
+A few orderings on this list are surprising. Momentum, the only
+factor that didn't come out of Fama-French's stable, has the largest
+premium of any of them — and the worst single drawdown. Size, the
+factor that started the whole literature, is the *smallest* premium
+and arguably indistinguishable from zero post-2000 once you adjust for
+microcap illiquidity. Value, the factor your wealth manager probably
+mentions first, is middle-of-the-pack and has *flatlined for the last
+seventeen years*.
 
-Three competing explanations:
+#### 2.3 The factor-decay problem since 2003
 
-```
-EXPLANATIONS FOR THE VALUE PREMIUM
-====================================
+Pull up the rolling 10-year HML premium and you'll see something
+ugly: it averaged about +5% per year from 1963 to roughly 2002, then
+fell off a cliff. The rolling 10-year ending in 2020 was *negative*.
+Between 2008 and 2020, the academic value factor — the long-short
+construction, not value mutual funds — lost money on average. UMD
+has its own version of the same disease, with a different shape: a
+long mean of 7-8% interrupted by the *2009 momentum crash*, when the
+factor drew down roughly 45% in calendar 2009 (and ~83% peak-to-trough)
+as the market V-bottomed and previously losing junk stocks ripped
+higher off the lows.
 
-1. RISK-BASED (Rational)
-   Cheap stocks are cheap because they are riskier.
-   They may be distressed companies, in declining
-   industries, or facing serious challenges.
-   Higher return compensates for higher risk.
-   "You earn more because you suffer more."
+![Rolling 10-year HML and UMD premium](image/week23_factor_decay.png)
 
-2. BEHAVIORAL (Irrational)
-   Investors systematically overpay for exciting
-   growth stories and ignore boring, out-of-favor
-   companies. The premium is a reward for being
-   contrarian and buying what others disdain.
-   "The market makes predictable mistakes."
+There are three competing explanations for why the premia have
+compressed, and they're probably all true. First, *publication
+arbitrage*: every academic factor that gets written up in the JoF
+attracts capital, and that capital bids up the long leg and sells
+down the short leg until the premium shrinks. The peer-reviewed
+finding is the obituary of the trade. Second, *intangibles
+mis-measurement*: book-to-market punishes asset-light tech firms
+that show low book equity *because* their value is in non-capitalised
+R&D and brand. The HML construction reads them as "expensive" when
+on a corrected basis they're not. Third, *post-GFC central-bank
+liquidity*: zero rates compress dispersion across stocks. Everything
+trades together; nothing trades on fundamentals; nothing is cheap or
+expensive any more. Pick whichever theory you like — the empirical
+fact is that the premium has roughly halved versus its pre-2003 mean.
 
-3. STRUCTURAL
-   Institutional investors face constraints
-   (career risk, benchmark tracking) that prevent
-   them from buying deep value stocks.
-   "The premium exists because not everyone can
-   harvest it."
+#### 2.4 The 2007 quant quake — what factor crowding actually feels like
 
-REALITY: Probably all three play a role.
-```
+The week of August 6, 2007 is the textbook example of factor
+crowding, and we covered it in detail in Week 14 from the
+pair-trading angle. Here's the factor-investing version. Every
+quantitative long-short shop in 2007 was running essentially the
+same factor portfolio: long value, long momentum, long quality,
+short the opposite, leveraged 5-8x for risk-target purposes. On
+August 6 *something* — most plausibly a multi-strat fund forced to
+deleverage to meet redemptions in its credit book — started
+unwinding the standard factor portfolio in size. Because *every other
+quant fund held the same book*, the unwind didn't find counterparties
+in the way an idiosyncratic position would; it found a hundred funds
+all running the same risk model and all stopping out at roughly the
+same loss threshold, all at the same time. By Friday August 10 the
+standard factor portfolio had drawn down about 25% — three years of
+realised premium gone in four trading days. The market itself moved
+about 1%. The retail tape never noticed.
 
-**Value Factor Performance Pattern:**
+Two lessons survive from that week. First, *factor exposure is risk
+even when the factor's beta to the market is zero*. The risk you took
+wasn't market risk; it was crowded-trade risk. Second, *unleveraged
+factor exposure is a different animal*. Retail factor ETFs in 2026
+have no leverage and no daily VaR-driven stop-out. They can sit
+through a quant unwind and just take the temporary mark. The blow-up
+math is mostly a leverage-and-redemption problem, not a factor
+problem per se.
 
-```
-VALUE FACTOR CYCLICALITY
-=========================
+#### 2.5 The retail factor ETF menu in 2026
 
-Value OUTPERFORMS when:          Value UNDERPERFORMS when:
-- Economy is recovering          - Economy is booming/bubble
-- Interest rates are rising      - Interest rates falling fast
-- Investor sentiment is low      - Speculative fever is high
-- Cheap stocks are very cheap    - Growth stocks dominate
-  (wide value spread)              (narrow market leadership)
+The factor literature got cheap and scalable. iShares and Vanguard
+between them now run the standard menu of single-factor ETFs at
+expense ratios between 8 and 25 bps:
 
-NOTABLE PERIODS:
-- 2000-2006: Value strongly outperformed after dot-com
-- 2007-2008: Value suffered in financial crisis (banks)
-- 2009-2019: Growth dominated (FAANG stocks)
-- 2020-2021: Growth accelerated (pandemic tech)
-- 2022-2023: Value staged a comeback
+- **VLUE** (iShares MSCI USA Value Factor) — value tilt, 0.08% ER.
+- **MTUM** (iShares MSCI USA Momentum Factor) — momentum tilt, 0.15% ER.
+- **QUAL** (iShares MSCI USA Quality Factor) — RMW-flavoured quality
+  tilt, 0.15% ER. Largest of the bunch by AUM.
+- **USMV** (iShares MSCI USA Min Vol Factor) — low-volatility tilt,
+  0.15% ER.
+- **IWM / IJR** (iShares Russell 2000 / S&P SmallCap 600) — size
+  tilt via small-cap exposure, 0.19% / 0.06% ER.
+- **AVUV / AVDV** (Avantis US / International Small Value) —
+  combined size+value+profitability tilt, 0.25% ER. The 2020s
+  flagbearer of the academic-factor school.
 
-VALUE INVESTING REQUIRES PATIENCE.
-Periods of underperformance can last 3-5+ years.
-```
+You can build a respectable multi-factor blend with four of these
+tickers, total expense ratio under 0.20%, and you've replicated what
+hedge funds were charging 2-and-20 for in 2003. The premium has
+compressed, but so has the cost of harvesting it — and the *net*
+premium (gross minus fee minus tax drag) is roughly the same as it
+was for the leveraged hedge funds twenty years ago, because the fee
+compression has roughly matched the premium compression. Cheap beta
+ate expensive alpha.
 
----
+#### 2.6 Where this fits in the SOUL framework
 
-#### 4. The Momentum Factor
+Factor investing is the most *structural* of the five alpha lanes in
+SOUL #5 — and the *least* idiosyncratic. It scales infinitely (any
+size of capital can run it), it requires no special information, and
+the academic literature documenting it is freely available on SSRN.
+That's also exactly why the premium has compressed: anything anyone
+can run, eventually everyone runs. Compare that to "buying what
+passive flows have abandoned" (the contrarian sector trade): that
+*requires* discomfort, requires being early, requires holding through
+a period when nobody else does. The factor trade requires only that
+you click VLUE and forget about it. The market is efficient at
+arbitraging away premium that requires no discomfort to capture.
 
-**Definition:** Buy stocks that have performed well recently; sell stocks that have performed poorly recently.
-
-```
-MOMENTUM FACTOR -- HOW IT WORKS
-=================================
-
-Measure each stock's return over the past 12 months
-(excluding the most recent month to avoid reversal effects)
-
-WINNERS PORTFOLIO               LOSERS PORTFOLIO
-(Top 20-30% returns)            (Bottom 20-30% returns)
-================                ================
-Stocks that went up             Stocks that went down
-the most                        the most
-
-Buy winners, sell losers.
-The MOMENTUM PREMIUM is the return difference:
-Winners Return - Losers Return
-
-Historical premium: ~6-8% per year
-Highest of all factors, but with occasional
-catastrophic drawdowns.
-```
-
-**The Momentum Paradox:**
-
-Momentum is the strongest factor historically, yet it is the least intuitive for many investors. It essentially says: "buy high, sell higher."
-
-```
-WHY MOMENTUM WORKS
-===================
-
-1. UNDERREACTION
-   When a company reports good news, the stock
-   price adjusts -- but not fully. It takes time
-   for the full implications to be reflected,
-   creating a drift in the direction of the news.
-
-2. HERDING AND TRENDS
-   As more investors notice a stock rising, they
-   pile in, creating further price pressure. This
-   is self-reinforcing up to a point.
-
-3. DISPOSITION EFFECT
-   Investors tend to sell winners too early and
-   hold losers too long. This creates artificial
-   selling pressure on winners and buying support
-   for losers, which momentum strategies exploit.
-
-MOMENTUM RISKS:
-- "Momentum crashes" -- sudden, violent reversals
-  (e.g., March 2009: momentum lost ~40% in one month)
-- High turnover = higher transaction costs
-- Short-term capital gains = tax inefficient
-- Requires discipline to buy at highs
-```
-
----
-
-#### 5. The Quality Factor
-
-**Definition:** Buy stocks of companies with strong fundamentals: high profitability, stable earnings, low leverage, strong governance.
-
-```
-QUALITY FACTOR -- METRICS
-===========================
-
-HIGH QUALITY                    LOW QUALITY
-(Quality Portfolio)             (Junk Portfolio)
-================                ============
-High return on equity (ROE)     Low ROE
-High profit margins             Low margins
-Low debt-to-equity              High leverage
-Stable earnings growth          Volatile earnings
-Strong balance sheet            Weak balance sheet
-High earnings quality           Accounting red flags
-  (cash flow backs up            (earnings diverge from
-   reported earnings)             cash flow)
-
-The QUALITY PREMIUM is the return difference:
-Quality Portfolio Return - Junk Portfolio Return
-
-Historical premium: ~3-4% per year
-with lower volatility than the market.
-```
-
-**Why Quality Works:**
-
-```
-QUALITY FACTOR RATIONALE
-=========================
-
-1. MOAT PERSISTENCE
-   Companies with strong competitive advantages
-   (brands, patents, network effects) sustain high
-   profitability longer than the market expects.
-
-2. EARNINGS STABILITY
-   Quality companies have more predictable cash flows,
-   making them safer in downturns. Investors underestimate
-   the compounding benefit of this stability.
-
-3. ANTI-JUNK PREMIUM
-   Low-quality "junk" stocks attract speculative
-   investors who overpay, dragging down junk stock
-   returns relative to quality.
-
-QUALITY-MOMENTUM INTERACTION:
-Quality and momentum have a modestly positive
-correlation. Companies with strong fundamentals
-(quality) tend to attract positive momentum.
-This is why "QMOM" (Quality + Momentum) strategies
-have been popular.
-```
+The implication for your own book: factors belong in the *passive
+core* (SOUL #13's tranche-one money), not in the *active sleeve*. A
+modest tilt — 10-20% of your equity allocation in QUAL or AVUV
+versus a market-cap-weighted core — gets you most of the diversification
+benefit without taking concentrated factor-blow-up risk. Putting 100%
+of your equity in MTUM is taking the 2009-style tail risk; putting
+10% in MTUM and 90% in VTI gets you 80% of the long-run mean and
+20% of the tail.
 
 ---
 
-#### 6. The Size Factor
+### 3. Common Misconceptions
 
-**Definition:** Small-cap stocks tend to outperform large-cap stocks over long periods.
+1. **"Factor investing is the same as value investing."** Value is
+   one factor of six. The Fama-French framework is a *system*: each
+   factor is a separate long-short portfolio, and a "factor
+   investor" usually owns several of them. Calling factor investing
+   "value" is like calling exercise "running."
 
-```
-SIZE FACTOR -- MARKET CAPITALIZATION
-=====================================
+2. **"The size factor has a big premium."** SMB has the *smallest*
+   realised premium of the headline factors, around 2.4% annualised.
+   Most of the gap shows up only in the bottom microcap quintile,
+   which has serious illiquidity issues. The "small-cap effect" you
+   hear about is mostly a small-*value* effect — value, not size,
+   doing the work.
 
-           Mega Cap ($200B+)
-          /
-    Large Cap ($10B-$200B)
-   /
-  Mid Cap ($2B-$10B)
- /
-Small Cap ($300M-$2B)
- \
-  Micro Cap ($50M-$300M)
-   \
-    Nano Cap (<$50M)
+3. **"Momentum is just the trend-following you read about in the
+   1990s."** The academic UMD factor is *cross-sectional*: rank stocks
+   by their past 12-month return (skip the most recent month), go long
+   the winners, short the losers, monthly rebalance. Trend-following
+   in commodities is *time-series*: long if the asset itself is up,
+   short if it's down. Different construction, different correlation,
+   different drawdown profile.
 
-THE SIZE PREMIUM:
-Small stocks have historically returned ~2-3% more
-per year than large stocks.
+4. **"Factors are dead — they don't work any more."** The premia have
+   compressed, not disappeared. Even at half their pre-2003 means, a
+   four-factor multi-factor blend has positive expected excess return
+   net of fees in 2026. What's *dead* is the leveraged-quant version
+   from 2007 — the unleveraged retail-ETF version is alive but smaller.
 
-BUT this premium is debated:
-- It was strongest before it was discovered (1926-1980)
-- It has been weaker since publication (1981-present)
-- It mostly comes from the smallest, least liquid stocks
-- It is much stronger when combined with value
-  (small VALUE stocks >> small growth stocks)
-```
+5. **"More factors is always better."** The literature has identified
+   over 400 "factors" in published papers, most of which fail to
+   replicate out of sample. The Fama-French 5 plus momentum is the
+   conservative consensus. Anyone selling you exposure to a 20-factor
+   model is selling overfit.
 
-**Size Factor Nuances:**
+6. **"Low-vol works because low-vol stocks are mispriced."** Maybe
+   partly, but mostly low-vol works because of *leverage aversion*:
+   most institutional investors can't lever, so to get equity-like
+   returns they crowd into high-beta stocks, bidding their prices up
+   and their forward returns down. Low-beta stocks get under-bid as a
+   result. Take away leverage constraints and the premium would
+   shrink — which is partly why hedge-fund "betting against beta"
+   strategies have done well.
 
-```
-SIZE FACTOR REALITY CHECK
-===========================
+7. **"Quality and low-vol are the same factor."** They overlap (quality
+   companies tend to be lower-vol) but diverge in stress: in 2008-09,
+   USMV-style low-vol got hammered along with everything else as
+   correlations went to 1, while QUAL-style quality (high ROE, low
+   debt) outperformed. Different definitions, different risk shapes.
 
-The simple size premium has WEAKENED since discovery.
-However, small stocks remain important for two reasons:
+8. **"I should rebalance my factor blend monthly to capture the
+   premium."** Monthly rebalancing for a *single* factor (the academic
+   construction) is correct. For a *multi-factor blend* held in retail
+   ETFs, monthly rebalancing has a tax cost that often exceeds the
+   rebalancing benefit. Annual rebalance is a defensible compromise
+   for taxable accounts.
 
-1. SMALL VALUE WORKS
-   The combination of small size + cheap valuation
-   has been the strongest two-factor combination
-   historically. Small value stocks have outperformed
-   large growth stocks by ~5-7% per year.
+9. **"The 2007 quant quake means factor investing is dangerous."**
+   The 2007 event was about *leverage* and *redemption-driven
+   deleveraging*, not factors per se. An unleveraged retail factor
+   blend in a taxable account doesn't have the same blow-up topology.
+   The risk is *forgone return* (factors compress further), not
+   *catastrophic loss*.
 
-2. DIVERSIFICATION
-   Small stocks behave differently from large stocks.
-   They are more sensitive to domestic economic
-   conditions and less influenced by global trade.
-   Adding small stocks improves portfolio diversification.
-
-CHALLENGES OF SMALL-CAP INVESTING:
-- Higher trading costs (wider bid-ask spreads)
-- Less analyst coverage (information disadvantage?)
-- Lower liquidity (harder to trade large positions)
-- Higher volatility
-- Greater bankruptcy risk
-```
-
----
-
-#### 7. The Low Volatility Factor
-
-**Definition:** Stocks with lower price volatility tend to deliver returns similar to or better than high-volatility stocks, with significantly less risk.
-
-```
-THE LOW VOLATILITY ANOMALY
-============================
-
-Traditional Finance Theory:
-  Higher Risk --> Higher Return
-  Lower Risk  --> Lower Return
-
-What Actually Happens:
-
-Return
-  ^
-  |         * Low Vol
-  |        *    * Medium Vol
-  |       *        * High Vol
-  |      *            * Very High Vol
-  |     *                 *
-  |    *
-  |
-  +-------------------------------> Volatility (Risk)
-
-The relationship FLATTENS or even INVERTS
-at high levels of volatility!
-
-Low-volatility stocks earn SIMILAR returns
-to high-volatility stocks, but with 25-40%
-less risk. This is the best risk-adjusted
-return of any factor.
-```
-
-**Why This Should Not Happen (But Does):**
-
-```
-EXPLANATIONS FOR LOW VOLATILITY
-==================================
-
-1. LOTTERY TICKET EFFECT
-   Investors overpay for volatile, lottery-like stocks
-   (small chance of huge gains). This drives up prices
-   and drives down future returns of volatile stocks.
-
-2. BENCHMARK CONSTRAINTS
-   Active managers are benchmarked to the market.
-   They need high-beta stocks to have a chance of
-   beating the benchmark, creating excess demand for
-   volatile stocks and insufficient demand for boring
-   ones.
-
-3. LEVERAGE CONSTRAINTS
-   If you cannot use leverage, you need high-volatility
-   stocks to target high returns. This demand pushes
-   up prices of volatile stocks. Investors who CAN
-   lever up low-volatility stocks can exploit this.
-
-4. ATTENTION BIAS
-   Volatile stocks generate more news, more excitement,
-   and more attention. This attracts investors and
-   inflates prices, reducing future returns.
-
-LOW VOLATILITY IS:
-- Excellent for risk-adjusted returns
-- Often boring (utilities, consumer staples, healthcare)
-- Defensive in down markets
-- Can underperform significantly in strong bull markets
-```
+10. **"If everyone knows about factors, the premium should be zero."**
+    The premium *has* halved since 2003, which is the strong-form
+    version of "everyone knows." It hasn't gone to zero because (a) a
+    lot of capital still cares more about benchmark tracking than
+    about factor exposure, and (b) some of the premium is
+    risk-compensation that doesn't go away just because the risk is
+    well-understood. The remaining premium is the residual after the
+    arbitrageable portion has been arbed out.
 
 ---
 
-#### 8. Factor Cyclicality
+### 4. Q&A Section
 
-One of the most important concepts in factor investing: no factor works all the time.
+**Q1: Should I replace my S&P 500 fund with a multi-factor ETF?**
+No — keep the cap-weighted core for cost, tax, and tracking-error
+reasons, then *tilt* with 10-30% of your equity allocation toward
+factors. The cap-weighted core gets you the market premium for almost
+no cost; the factor tilt gets you the (compressed) factor premium on
+top. Replacing the core with a factor product takes on tracking-error
+risk you usually don't need.
 
-```
-FACTOR PERFORMANCE BY MARKET ENVIRONMENT
-==========================================
+**Q2: Which single factor is best?**
+Long-run, momentum has the highest gross premium and the highest
+volatility — so it has the worst tail (2009) and the best mean.
+Quality has the best Sharpe ratio. Value has the best valuation case
+in 2026 because it's the most beaten-down. Pick by your tolerance for
+which kind of regret: missing-the-rally (avoid momentum) or
+the-thing-keeps-getting-cheaper (avoid value).
 
-                  Bull      Bear      Recovery   Late
-                  Market    Market    Phase      Cycle
-                  ------    ------    --------   ------
-Value             Mixed     Mixed     Strong     Strong
-Momentum          Strong    Weak*     Weak*      Strong
-Quality           Weak      Strong    Mixed      Mixed
-Size (small)      Strong    Weak      Strong     Mixed
-Low Volatility    Weak      Strong    Weak       Strong
+**Q3: How long should a factor go through a drawdown before I quit?**
+Long enough that the answer should be "I won't quit." HML drew down
+for *thirteen years* from 2007 to 2020 before the 2021-22 value
+rally. If you can't sit through a decade-plus drawdown of the factor
+you tilted to, you don't have the conviction to harvest it; you'll
+sell at the bottom and miss the rebound. If 13 years sounds
+intolerable, *don't tilt* — own the cap-weighted index.
 
-*Momentum can crash violently at market turning points
- (transitions from bear to bull or bull to bear)
+**Q4: Why is small-value (AVUV) so popular if size is a weak factor?**
+Because the *interaction* of size and value (and profitability) is
+where the literature still finds robust premium. Small *junk* stocks
+underperform; small *value-with-profitability* stocks have a
+materially better historical profile than either size or value alone.
+AVUV is built around that interaction.
 
-KEY INSIGHT: Because factors have different
-performance patterns, COMBINING multiple factors
-creates a more stable return stream.
-```
+**Q5: Are factors correlated with each other?**
+Some are highly correlated (HML and CMA), some are negatively
+correlated (HML and UMD historically — value and momentum are partial
+hedges for each other), and some are weakly correlated (SMB with
+everything). A multi-factor blend gets diversification benefit
+*because* the factors aren't perfectly correlated. The HML/UMD
+negative correlation is the single most useful pairing for a retail
+blend: when one is in a drawdown the other is often having a good
+year.
 
-**Factor Correlation Matrix:**
+**Q6: Does international factor investing work?**
+The academic premia replicate internationally (developed and EM)
+with similar magnitudes and similar 2003-2020 compression. SOUL #16
+keeps us US-only for *investability* reasons (FX, custody, tax,
+information disadvantage), but the academic story is broadly
+international, not US-specific.
 
-```
-FACTOR CORRELATIONS (approximate)
-===================================
+**Q7: How do I tell if my actively-managed mutual fund is just
+running a factor tilt?**
+Run a regression of the fund's monthly excess returns against the
+six factors (you can pull the data free from Ken French's website).
+If the R-squared is over 0.90 and four or more factor loadings are
+statistically significant, the fund's performance is mostly factor
+exposure, and you should compare its fee against the
+factor-replication ETF cost. Morningstar Direct and Portfolio
+Visualizer both run this regression for free; there's no reason to
+pay an active manager for what amounts to a buyable factor blend.
 
-              Value    Mom.    Quality  Size    Low Vol
-              -----    ----    -------  ----    -------
-Value         1.00
-Momentum     -0.40    1.00
-Quality      -0.10    0.20    1.00
-Size          0.10   -0.10   -0.20     1.00
-Low Vol      -0.05   -0.05    0.40    -0.30    1.00
+**Q8: What about the "low-vol anomaly" — isn't it a free lunch?**
+It's the closest thing the equity market has to a free lunch on a
+Sharpe basis, but it's not free. Low-vol underperforms in
+melt-up regimes (think 1999, 2020-21) and tracks-error materially
+against the cap-weighted index. The factor pays for itself in
+risk-adjusted terms over a full cycle, but the absolute return drag
+versus the S&P during a tech-led rally can be 10-15% over two years.
 
-CRITICAL OBSERVATIONS:
-1. Value and Momentum are NEGATIVELY correlated (-0.40)
-   This means when value suffers, momentum often thrives
-   and vice versa. Combining them is powerful.
+**Q9: Did the 2009 momentum crash kill momentum forever?**
+No — UMD has had positive returns in most years since 2009, and the
+post-2010 mean is roughly half the long-run mean (still positive,
+just smaller). The 2009 crash is a permanent feature of momentum's
+return distribution, not a one-off — there were similar (smaller)
+momentum crashes in 1932, 2002, and a mini one in March 2020. Owning
+momentum means accepting that one out of every twenty years it
+loses 30%+.
 
-2. Quality and Low Volatility are POSITIVELY correlated
-   (0.40). They both favor stable, profitable companies.
-   Holding both is good but less diversifying.
+**Q10: Should I time my factor exposures based on valuation?**
+Empirically yes — Cliff Asness's "Value of Everything" research
+shows that the *valuation spread* of a factor (cheap-leg P/B vs
+expensive-leg P/B) predicts the factor's forward 5-year return. In
+2026 the value factor is at the cheap end of its history (so the
+forward expected premium is above the long-run mean) and momentum is
+near the expensive end. But this is a slow-moving overlay, not a
+trading rule — you adjust 10-20% of your tilt every few years, not
+every quarter.
 
-3. Size is relatively uncorrelated with other factors,
-   making it a good diversifier.
-```
+**Q11: How does factor investing fit with the four-tranche framework
+in SOUL #13?**
+Factors live in tranche one (the passive core) and tranche two (the
+slightly-active tilt). They do *not* belong in tranche three (the
+active concentrated book) or tranche four (the convex tail). A
+factor blend isn't trying to compound 30% — it's trying to add 50-100
+bps a year to your passive return at modest tracking error. That's
+the tranche-one-and-two job description.
 
----
-
-#### 9. Factor ETFs and Smart Beta
-
-"Smart beta" is the industry term for strategies that systematically target factor premiums through rules-based index construction.
-
-```
-FACTOR ETF LANDSCAPE
-======================
-
-SINGLE-FACTOR ETFs:
---------------------
-Value:          VLUE (iShares), VTV (Vanguard), RPV (S&P Pure Value)
-Momentum:       MTUM (iShares), QMOM (Alpha Architect)
-Quality:        QUAL (iShares), SPHQ (PowerShares)
-Size:           IJR (iShares), VB (Vanguard) -- small cap
-Low Volatility: USMV (iShares), SPLV (Invesco)
-
-MULTI-FACTOR ETFs:
---------------------
-LRGF (iShares) -- US multi-factor
-INTF (iShares) -- International multi-factor
-GSLC (Goldman Sachs) -- ActiveBeta Large Cap
-
-EXPENSE RATIOS:
-- Single-factor ETFs: 0.10-0.35%
-- Multi-factor ETFs: 0.08-0.30%
-- Traditional index: 0.03-0.05%
-
-The extra cost over plain indexing is 0.05-0.30% per year.
-Is the factor premium large enough to justify this?
-```
-
-**How Factor ETFs Differ from Traditional Indexes:**
-
-```
-TRADITIONAL INDEX vs. FACTOR ETF
-==================================
-
-S&P 500 (Traditional):
-- Weights by market capitalization
-- Biggest companies get biggest weights
-- Apple, Microsoft, etc. dominate
-- No opinion on value, momentum, etc.
-- Pure market beta
-
-Value Factor ETF:
-- Screens for cheap stocks (low P/E, P/B)
-- Weights toward cheaper companies
-- Underweights expensive growth stocks
-- Overweights out-of-favor sectors
-- Captures market beta PLUS value premium
-
-Momentum Factor ETF:
-- Identifies stocks with strongest recent returns
-- Buys winners, avoids losers
-- Rebalances frequently (higher turnover)
-- Will naturally rotate between sectors
-- Captures market beta PLUS momentum premium
-```
+**Q12: What's a reasonable multi-factor blend for 2026?**
+A defensible starter: 60% VTI (cap-weighted core), 10% AVUV
+(small-value-quality), 10% MTUM (momentum), 10% QUAL (quality), 10%
+USMV (low-vol). Total ER under 12 bps. This gives you all six factor
+tilts at modest weights, with cap-weighted core dominating. Annual
+rebalance. If you can hold this through a 30% momentum drawdown
+without selling, you'll harvest most of what's left of the academic
+factor premium.
 
 ---
 
-#### 10. Building a Factor Portfolio
-
-```
-FACTOR PORTFOLIO CONSTRUCTION APPROACHES
-==========================================
-
-APPROACH 1: SINGLE FACTOR TILT
--------------------------------
-Start with broad market index, add a tilt:
-- 70% Total Market ETF (VTI)
-- 30% Value ETF (VLUE or VTV)
-
-Simple, easy to implement, modest factor exposure.
-Risk: value underperforms for extended periods.
-
-APPROACH 2: MULTI-FACTOR BLEND
--------------------------------
-Combine multiple factors equally:
-- 40% Total Market
-- 15% Value
-- 15% Momentum
-- 15% Quality
-- 15% Low Volatility
-
-Better diversification across factors.
-Risk: diluted exposure to any single factor.
-
-APPROACH 3: INTEGRATED MULTI-FACTOR
--------------------------------------
-Use a single multi-factor ETF that
-simultaneously screens for multiple
-factors at the stock level:
-- 100% Multi-Factor ETF (LRGF or GSLC)
-
-Efficient, avoids factor conflict (buying
-a stock for value that another factor says
-to sell for momentum).
-Risk: black-box methodology.
-
-APPROACH 4: FACTOR TIMING (ADVANCED)
--------------------------------------
-Overweight factors expected to outperform
-based on economic conditions:
-- Recession expected: overweight Quality, Low Vol
-- Recovery expected: overweight Value, Small
-- Late cycle: overweight Momentum
-
-Risk: factor timing is as difficult as market timing.
-Most investors should avoid this.
-
-RECOMMENDED FOR MOST INVESTORS:
-================================
-Start with Approach 1 or 2. Add factor
-exposure gradually. Keep it simple.
-A 70/30 split between broad market and
-a multi-factor ETF is a reasonable starting point.
-```
+## Part 2: YouTube Script
 
 ---
 
-#### 11. Potential Risks of Factor Investing
-
-```
-FACTOR INVESTING RISKS
-========================
-
-1. FACTOR CROWDING
-   As more money pours into factor strategies, the
-   premium may shrink. When everyone buys value stocks,
-   they bid up prices and the value premium disappears.
-   This is the "arbitrage reduces returns" argument.
-
-2. EXTENDED DRAWDOWNS
-   Value underperformed growth by a cumulative ~50%
-   from 2016-2020. Could you have held on? Momentum
-   crashed ~40% in one month in March 2009.
-   Factor investing requires exceptional patience.
-
-3. IMPLEMENTATION COSTS
-   - Higher fees than plain index funds
-   - Higher turnover (especially momentum)
-   - Tax inefficiency from frequent trading
-   - Trading costs in less liquid small-caps
-
-4. DATA MINING CONCERNS
-   With enough data, you can find hundreds of "factors"
-   that worked historically but are just noise.
-   Published research may overstate premiums due to:
-   - Publication bias (only positive results get published)
-   - Look-ahead bias
-   - Survivorship bias
-   - Data snooping
-
-5. PREMIUM DECAY
-   Some factors may have been genuine anomalies that
-   have since been arbitraged away. The size premium,
-   for example, has weakened significantly since its
-   discovery in the 1980s.
-
-QUALITY CHECK FOR A FACTOR:
-============================
-A robust factor should be:
-[x] Persistent: works across long time periods
-[x] Pervasive: works across countries and asset classes
-[x] Robust: works across different definitions/metrics
-[x] Investable: survives transaction costs
-[x] Intuitive: has a logical explanation
-```
+**VIDEO TITLE:** Factor Investing in 2026 — Value, Momentum, Quality, Low-Vol, Size, and Why the Premium Halved
+**RUNTIME TARGET:** ~18 minutes
+**HOSTS:** Horace, Stella
 
 ---
 
-### c) Common Misconceptions
+[INTRO]
 
-**Misconception 1: "Factors are guaranteed to outperform the market."**
+**Stella:** Welcome back. Today we're doing the topic that probably
+launched more PhD theses in finance than any other one — factor
+investing. Value, momentum, quality, low-vol, size. The five flavours
+your wealth manager has been pitching at you, plus market beta, plus
+the academic framework that ties them together.
 
-Reality: Factor premiums are long-term averages, not guarantees. The value premium was strongly negative for over a decade (roughly 2010-2020). Momentum suffered a catastrophic crash in 2009. Any single factor can underperform for years. The premiums are compensation for bearing specific risks and for being behaviorally disciplined in the face of prolonged underperformance -- which is precisely why most investors cannot capture them.
+**Horace:** And we're doing it with a hook the textbooks don't lead
+with. The premium on every one of these factors has *roughly halved*
+since 2003. Half. Compressed. The thing that worked for Fama and
+French in their 1992 paper still works in 2026, just at half the
+size. We're going to look at why, and what to do about it.
 
-**Misconception 2: "Smart beta is just a marketing gimmick."**
+**Stella:** Three things on this episode. One — what factors actually
+are, mathematically. Two — the historical premium of each, and the
+post-2003 decay story that nobody on the sell-side wants to dwell on.
+Three — a hands-on factor-blender lab where you can build your own
+multi-factor portfolio and backtest it against the Fama-French data
+1963 to 2024.
 
-Reality: The underlying research on factors is some of the most robust in all of financial economics, replicated across decades, countries, and asset classes. The term "smart beta" is indeed a marketing invention, but the concept of systematic factor exposure is scientifically grounded. The real questions are about implementation: Does a specific smart beta ETF actually capture the intended factor exposure? Are the costs reasonable? Is the methodology sound?
+**Horace:** And as always, where this fits the broader framework.
+Factors are alpha lane number five — the structural one. They belong
+in your passive core, *not* in your active book. By the end of the
+episode you'll know how much of your portfolio should be in factor
+ETFs and how much shouldn't.
 
-**Misconception 3: "I should pick the best-performing factor and go all in."**
-
-Reality: This is the equivalent of performance chasing at the factor level. The best-performing factor over the last five years is often the worst-performing over the next five. Factor diversification -- holding multiple factors simultaneously -- is just as important as stock or country diversification.
-
-**Misconception 4: "My active fund manager provides factor exposure, so I do not need factor ETFs."**
-
-Reality: Many active managers do provide unintentional factor exposure (particularly value or quality tilts), and they charge 0.5-1.0% in fees for it. If a factor ETF provides the same exposure for 0.10-0.30%, you are paying a premium for something you can get systematically and more cheaply. Before paying active management fees, decompose the manager's returns into factor exposures and true alpha. You may find the alpha is zero or negative after fees.
-
-**Misconception 5: "Low volatility investing is free money -- same returns with less risk."**
-
-Reality: Low volatility strategies do offer superior risk-adjusted returns historically, but they can significantly underperform in strong bull markets. If the market rises 30%, a low-volatility portfolio might return only 20%. Over time, the lower drawdowns in bear markets compensate for this, but you need the discipline to stick with the strategy when everyone else is celebrating higher returns.
-
-**Misconception 6: "Factor investing replaces the need for broad market exposure."**
-
-Reality: Broad market exposure (market beta) remains the single most important and reliable factor. Factor tilts should complement, not replace, your core market exposure. Think of it as: 60-80% broad market index + 20-40% factor tilts. Going 100% into a single factor or even a multi-factor portfolio without broad market exposure introduces unnecessary concentration risk.
-
----
-
-### d) Common Questions and Answers
-
-**Q1: If factors are well-known now, will they continue to work?**
-
-A: This is the central debate in factor investing. There are reasons to believe premiums will persist (risk compensation, behavioral biases that are hardwired into human psychology, institutional constraints) and reasons to believe they will shrink (more capital chasing the same strategies, lower transaction costs making arbitrage easier). The honest answer is that factor premiums are likely to persist but may be smaller going forward than the historical averages suggest. A reasonable approach is to build factor exposure into your portfolio but not to depend on factor premiums for your financial plan.
-
-**Q2: How is a factor ETF different from an actively managed fund?**
-
-A: A factor ETF follows a transparent, rules-based methodology that is published and replicable. An active fund relies on a manager's judgment, which may or may not include factor exposure and which may change over time. Factor ETFs are typically cheaper (0.10-0.30% vs. 0.50-1.50%), more transparent, more tax-efficient, and more consistent in their exposures. The trade-off is that factor ETFs cannot adapt to unusual situations the way a skilled active manager might.
-
-**Q3: Should I factor-tilt my international portfolio too, or just my US allocation?**
-
-A: Factor premiums have been documented globally, not just in the US. In fact, some factors (particularly value) have been stronger internationally than in the US in recent decades. You can use international factor ETFs (like INTF for multi-factor international) to apply factor tilts globally. Diversifying factor exposure across countries adds another layer of diversification.
-
-**Q4: How often should I rebalance my factor portfolio?**
-
-A: It depends on the factor. Value and quality have lower turnover -- annual rebalancing is usually sufficient. Momentum, by its nature, requires more frequent rebalancing (quarterly or even monthly), which is one reason momentum ETFs have higher turnover and potential tax costs. If you are using single-factor ETFs, annual rebalancing of the overall allocation is fine. The individual ETFs handle their internal factor rebalancing.
-
-**Q5: What is the difference between "value" as defined by Fama-French and value as practiced by Warren Buffett?**
-
-A: Fama-French value is purely quantitative -- stocks with low price-to-book ratios. Buffett's approach is more qualitative: he looks for businesses with durable competitive advantages trading below their intrinsic value, which incorporates quality, growth prospects, and management assessment. Buffett's portfolio actually loads heavily on quality and low volatility factors in addition to value. A multi-factor approach combining value, quality, and low volatility is arguably closer to Buffett's actual strategy than a pure value factor tilt.
-
-**Q6: Can I use factor investing with just Vanguard or Fidelity funds?**
-
-A: Yes. Vanguard offers Value ETFs (VTV, VBR), Small Cap (VB, VBR), and the broad market (VTI). Fidelity offers factor-based funds as well. You can construct a simple factor-tilted portfolio using: 60% VTI (broad market) + 20% VTV (large value) + 20% VBR (small value). This gives you market beta plus tilts toward value and size. It is not as precise as using dedicated factor ETFs from iShares or others, but it captures the main factors at very low cost.
-
-**Q7: What is "factor timing" and should I try it?**
-
-A: Factor timing is the practice of overweighting factors expected to outperform based on current economic or market conditions. For example, overweighting value early in economic recoveries or overweighting quality late in the cycle. While the concept has some theoretical support, factor timing is extremely difficult in practice -- about as difficult as market timing. Research suggests that static multi-factor allocations outperform most factor timing attempts. Unless you are a professional investor with deep expertise, maintain stable factor exposures and let diversification do the work.
-
-**Q8: Are there factors in bonds and other asset classes?**
-
-A: Yes. The value, momentum, and carry (yield) factors have been documented in bonds, currencies, commodities, and even across asset classes. For example, "value" in bonds means buying bonds that are cheap relative to fundamentals (e.g., credit spreads wider than warranted). "Momentum" in currencies means buying currencies that have been appreciating. However, factor ETFs for non-equity asset classes are less developed and less accessible to retail investors.
-
-**Q9: How much of my portfolio should be in factor strategies?**
-
-A: There is no single right answer, but a common approach is to allocate 20-40% of your equity portfolio to factor-tilted strategies, with the remainder in broad market exposure. Start small (perhaps 10-20%) to understand how factor performance differs from the broad market, and increase your allocation as you gain confidence and comfort with the inevitable periods of underperformance.
-
-**Q10: Is there a danger of over-complicating my portfolio with factors?**
-
-A: Absolutely. Adding eight different factor ETFs to a portfolio that already has domestic stocks, international stocks, bonds, and real estate creates a complexity burden. More holdings mean more rebalancing decisions, more tax lots, and more opportunity for behavioral mistakes. For most investors, a simple approach works best: broad market index as the core, plus one or two factor tilts (value and/or quality are the most well-supported). Only add complexity if you genuinely understand the factors and have the discipline to maintain the allocation through bad times.
+[VISUAL: image/week23_factor_premia.png]
 
 ---
 
-## YouTube Script
+[SECTION 1: WHAT A FACTOR ACTUALLY IS]
+
+**Horace:** Let's start with the definition because it's surprisingly
+clean. A factor is not a kind of stock. A factor is a *long-short
+portfolio*. You take every US stock, you rank them on some
+characteristic — say book-to-market — go long the cheapest decile,
+short the most expensive decile, hedge out the market, rebalance
+monthly. The monthly P&L of that long-short portfolio is the value
+factor. HML, in Fama-French notation. High Minus Low.
+
+**Stella:** And the same construction applies to all of them.
+
+**Horace:** Same construction every time. Rank, long top, short
+bottom, equal-weight legs, monthly rebalance. Size is small minus
+big — SMB. Momentum is up minus down — UMD. Profitability is robust
+minus weak — RMW. Investment is conservative minus aggressive — CMA.
+Plus the market factor itself, MKT minus the risk-free rate.
+
+**Stella:** Six factors total in the modern framework.
+
+**Horace:** Five Fama-French plus momentum, which Mark Carhart bolted
+on in '97. That's the framework that explains roughly 90% of the
+cross-section of US equity returns in 2026. Not 100% — there's still
+residual stuff. But 90% means the typical "stock picker's alpha" is
+actually a factor exposure with a fancier name.
+
+**Stella:** Let's pull up the chart of historical premia.
+
+[VISUAL: image/week23_factor_premia.png]
+
+**Horace:** This is annualised long-run premium per factor, July 1963
+through end of 2024. Market is the biggest at 6.6%, which makes sense
+— it's the equity risk premium, the one CAPM was built on. Then
+momentum at 7.5% — the only one bigger than market.
+
+**Stella:** Momentum has the biggest factor premium of any of them?
 
-[VISUAL: Animated intro with title "Week 23: Factor Investing Introduction" and abstract geometric shapes representing different factors]
+**Horace:** And the biggest drawdown. We'll get to that. After
+momentum, value at 3.8%, then investment at 3.3%, profitability at
+3.0%, and size at the bottom around 2.4%. Notice size is the
+*smallest* premium even though it's the factor that started the
+whole literature in 1981 with Banz's paper.
+
+**Stella:** Why is size the smallest?
 
-**Horace:** Welcome back everyone. Today we are going to pull back the curtain on one of the most important developments in modern investing -- something that explains why stocks move the way they do. This is factor investing, and once you understand it, you will never look at the stock market the same way.
+**Horace:** Two reasons. One, most of the realised "small-cap
+premium" turns out to be a small-*value* premium when you double-rank
+on size and book-to-market. Size on its own is barely there. Two,
+microcap illiquidity makes the academic measurement unreliable —
+you can't actually trade the bottom of the size distribution at the
+prices the long-short uses.
+
+[SECTION 2: THE FACTOR DECAY STORY]
+
+**Horace:** Now the part that doesn't show up on the BlackRock
+marketing deck. Every one of these premia has *compressed* since
+2003. Roughly halved.
+
+[VISUAL: image/week23_factor_decay.png]
+
+**Stella:** This is rolling 10-year mean of HML and UMD.
+
+**Horace:** Right. The blue line is HML — the value factor's rolling
+10-year premium, ending year by year. From the 1970s to about 2002,
+that line averages 4 to 6%. Then it falls off a cliff. The rolling
+10-year ending 2020 is *negative*. Negative. The academic value
+factor lost money on average across the 2010s.
 
-**Stella:** Factor investing. I have heard the term "smart beta" thrown around. Is that the same thing?
+**Stella:** And the orange line — momentum.
+
+**Horace:** Momentum's a different shape. The factor has a long-run
+mean of 7-8%, and you can see that's where it sits for most of the
+history. But notice the cliff in 2009. That's the momentum crash —
+the 2009 single-year UMD drawdown was roughly 45% as the market
+V-bottomed off the GFC lows and the previously-losing junk stocks
+ripped higher. One year ate the next decade.
 
-**Horace:** Smart beta is the marketing name that the investment industry gave to this concept. Factor investing is the academic term, and it has decades of rigorous research behind it. Let me start with a question for you. When a stock goes up, why does it go up?
+**Stella:** Why are all the premia compressing?
+
+**Horace:** Three theories, all probably true. First — *publication
+arbitrage*. The moment a factor gets written up in the Journal of
+Finance, capital flows in to harvest it, the long leg gets bid up,
+the short leg gets sold down, and the spread compresses. The
+peer-reviewed paper is the obituary of the trade. Second —
+*intangibles*. Book-to-market is a 1963 measure designed for an
+industrial economy. It penalises asset-light tech firms whose value
+is in non-capitalised R&D, brand, network effects. HML reads them as
+"expensive" when on a corrected basis they're not. Third —
+*central-bank liquidity*. Zero rates compress dispersion. Everything
+trades together. Nothing is cheap or expensive any more.
 
-**Stella:** Well, because the company did well? Good earnings, growing revenue?
+**Stella:** So is factor investing dead?
 
-**Horace:** That is part of it. But research has shown that company-specific news actually explains a surprisingly small portion of stock returns. Most of the return comes from broader forces -- systematic drivers that affect groups of stocks with similar characteristics. These systematic drivers are called factors.
+**Horace:** It's not dead. It's smaller. The premium is still
+positive — just half what it was. And the cost of harvesting it has
+dropped even faster than the premium. In 2003 you paid a hedge fund
+2-and-20 to run leveraged factors. In 2026 you click QUAL or AVUV
+for 15 to 25 bps. So the *net* premium to the retail investor is
+roughly the same as the *net* premium to the hedge-fund client was
+in 2003. Cheap beta ate expensive alpha.
 
-[VISUAL: Single stock return being decomposed into components like a prism splitting white light into a rainbow: Market factor (blue), Value factor (green), Size factor (orange), Momentum factor (red), Quality factor (purple), Residual (gray)]
+[SECTION 3: THE 2007 QUANT QUAKE]
 
-**Stella:** Can you give me an example?
+**Horace:** Brief callback to Week 14 because it matters here. The
+canonical case study in factor crowding is the August 2007 quant
+quake.
 
-**Horace:** Sure. Imagine you bought a small pharmaceutical company last year and it returned 25%. You might think you are a genius stock picker. But let us decompose that return. The overall market was up 12% -- so about half your return was just market exposure. Small stocks outperformed large stocks by 4% -- that is the size factor helping you. Healthcare was cheap and rebounding -- the value factor added 5%. And your specific stock had genuinely good news that added another 4%. Your 25% return was not mainly about picking a good stock -- it was mainly about having the right factor exposures.
+**Stella:** Walk us through it.
 
-**Stella:** That is humbling. So when people think they are picking great stocks, they might just be riding factor tailwinds?
+**Horace:** Every leveraged long-short shop in 2007 — AQR, Renaissance,
+Goldman GEO, dozens of mid-tier — was running essentially the same
+factor portfolio. Long value, long momentum, long quality, short the
+opposites. Levered five to eight times for risk-target purposes.
+Then the week of August 6, somebody — probably a multi-strat fund
+forced to deleverage to meet redemptions in their credit book —
+started unwinding the standard factor portfolio in size.
 
-**Horace:** Exactly. And this is one of the most important insights from factor research. Many professional fund managers who appeared to be generating "alpha" -- genuine skill-based returns -- were actually just taking on certain factor exposures. When you strip away the factor contributions, a lot of that alpha evaporates.
+**Stella:** And because everyone owned the same book —
 
-[VISUAL: Bar chart showing a fund's total return, then peeling away layers: market return, value factor, size factor, momentum factor -- leaving a tiny sliver of "true alpha"]
+**Horace:** Nobody on the other side. By Friday August 10 the
+standard quant factor portfolio was down 25%. Three years of premium,
+gone in four days. The S&P moved one percent. Retail never noticed.
 
-**Stella:** So what are the main factors I need to know about?
+**Stella:** What's the lesson for retail factor investing in 2026?
 
-**Horace:** There are five that matter most for stock investors. Let me walk through each one.
+**Horace:** The blow-up was a *leverage* and *redemption* story, not
+a factor story. Unleveraged retail factor ETFs don't have daily
+VaR-driven stop-outs. They can sit through a quant unwind and just
+take the temporary mark. The risk to retail is *forgone return*
+— factors compress further — not catastrophic loss.
 
-**Horace:** Factor number one: Value. This is the granddaddy of all factors. It says that stocks that are cheap relative to their fundamentals -- low P/E, low price-to-book -- tend to outperform stocks that are expensive. This has been true across every developed stock market, going back to the 1920s.
+[SECTION 4: THE 2026 RETAIL ETF MENU]
 
-**Stella:** Why would cheap stocks outperform?
+**Stella:** Let's run the menu.
 
-**Horace:** There are a few theories. The risk explanation says cheap stocks are cheap for a reason -- they are riskier, maybe facing financial distress or in declining industries -- and the higher return is compensation for that risk. The behavioral explanation says investors consistently overpay for exciting growth stories and neglect boring, out-of-favor companies, creating a predictable pricing error.
+**Horace:** Five tickers cover the main factors, total ER under 25
+bps. VLUE for value at 8 bps. MTUM for momentum at 15 bps. QUAL for
+quality at 15 bps. USMV for low-vol at 15 bps. AVUV for combined
+small-value-quality at 25 bps. IWM or IJR for size at 19 or 6 bps.
 
-[ANIMATION: animation/week23_factor_returns.py - Animated chart showing two portfolios over time: a "Value" portfolio (buying the cheapest 30% of stocks each year) and a "Growth" portfolio (buying the most expensive 30%). The animation shows both lines growing over decades with the value line ending significantly higher, but with periods where growth dominates highlighted in shading. The cumulative difference is displayed as the "value premium".]
-
-**Stella:** What is the actual premium? How much more do value stocks return?
-
-**Horace:** Historically, about 3 to 5 percent per year. But here is the critical caveat -- that is a long-term average. In any given year, value might underperform by 10, 15, even 20 percent. From 2016 to 2020, growth stocks crushed value stocks. The value premium was deeply negative. Many people declared value investing dead.
-
-**Stella:** But then?
-
-**Horace:** Then in 2022, when interest rates rose sharply and speculative growth stocks collapsed, value came roaring back. The people who had patiently held their value exposure were rewarded. The people who abandoned value at the bottom missed the recovery.
-
-**Stella:** Lesson learned: you need patience.
-
-**Horace:** Enormous patience. This is why factor investing is psychologically difficult. You need to hold through years of underperformance, which feels terrible, to capture the long-term premium.
-
-[VISUAL: Calendar showing years of value vs growth performance, color-coded green and red, demonstrating the streakiness of factor returns]
-
-**Horace:** Factor number two: Momentum. This one surprises people. It says that stocks that have gone up over the past 6 to 12 months tend to continue going up, and stocks that have gone down tend to continue going down.
-
-**Stella:** Wait -- that sounds like trend following. Is not that just "buy high, sell higher"?
-
-**Horace:** It does, and it feels counterintuitive, especially to value investors who want to buy low. But momentum has the highest historical premium of any factor -- roughly 6 to 8 percent per year.
-
-**Stella:** That is huge! Why does it work?
-
-**Horace:** Information travels slowly through the market. When a company reports great earnings, the stock goes up, but not by as much as it should. Over the following weeks and months, more investors catch on, analysts upgrade the stock, and the price continues to drift upward. Momentum captures this slow information diffusion.
-
-[VISUAL: Diagram showing news event, initial price jump, then slow drift upward as more investors respond -- the "momentum" zone is highlighted]
-
-**Horace:** But momentum has a dark side. At major market turning points -- the transition from a bull market to a bear market, or vice versa -- momentum can crash spectacularly. In March 2009, momentum strategies lost roughly 40% in a single month as all the recent losers suddenly reversed and shot upward.
-
-**Stella:** Yikes. So momentum gives you the highest average return but also the most stomach-churning drawdowns.
-
-**Horace:** Exactly. And this is where factor diversification becomes critical. Here is the beautiful thing: value and momentum are negatively correlated.
-
-**Stella:** What does that mean in practice?
-
-**Horace:** When value is doing poorly, momentum is often doing well, and vice versa. So if you hold both value and momentum in your portfolio, the combination is much smoother than either factor alone. The bad years for value tend to be good years for momentum, and the bad years for momentum tend to be good years for value.
-
-[VISUAL: Two lines showing value and momentum performance side by side, with a third line showing the combined portfolio -- much smoother than either individual factor]
-
-**Horace:** Factor number three: Quality. This one is perhaps the most intuitive. Companies with high profitability, low debt, stable earnings, and strong competitive advantages tend to outperform companies with the opposite characteristics.
-
-**Stella:** That makes total sense. Good companies do better. Why is that even a "factor"?
-
-**Horace:** Because the market does not always price quality correctly. Low-quality, speculative companies attract a lot of investor attention precisely because they are volatile and exciting. Investors overpay for the lottery-ticket potential of junk stocks. Meanwhile, boring, high-quality companies like consumer staples firms are ignored because they are not exciting. The quality premium is about 3 to 4 percent per year, and it comes with lower volatility than the market.
-
-**Stella:** So quality gives you a premium AND lower risk?
-
-**Horace:** Essentially, yes. Quality is the most Buffett-like factor. Warren Buffett's portfolio, when decomposed into factors, loads heavily on quality, with significant value and low-volatility exposure as well. Buffett basically runs a multi-factor strategy, though he would never describe it that way.
-
-[VISUAL: Buffett's portfolio decomposed into factor exposures: large quality bar, moderate value bar, moderate low-vol bar, small momentum bar]
-
-**Horace:** Factor number four: Size. Small-cap stocks have historically outperformed large-cap stocks. The premium is about 2 to 3 percent per year, though this is the most debated factor.
-
-**Stella:** Why is it debated?
-
-**Horace:** Because the size premium was strongest before it was discovered and has weakened considerably since. Some researchers argue it has been arbitraged away. Others point out that the premium still exists when you combine size with value -- small value stocks remain one of the strongest performing categories in market history.
-
-**Stella:** So small stocks alone might not give you much, but small VALUE stocks are powerful?
-
-**Horace:** Exactly. The interaction between size and value is where the magic happens. Small, cheap stocks have outperformed large, expensive stocks by roughly 5 to 7 percent per year over long periods. That is a massive premium.
-
-[VISUAL: 2x2 matrix showing returns by size and value: Small Value (highest), Large Value (good), Small Growth (modest), Large Growth (lowest)]
-
-**Horace:** And factor number five: Low Volatility. This is the weirdest factor because it violates the most basic principle of finance -- the idea that more risk should mean more return.
-
-**Stella:** Higher risk, higher reward. That is Finance 101.
-
-**Horace:** Right, but empirically it does not hold for the most volatile stocks. Stocks with the lowest price volatility have delivered returns similar to the overall market, but with 25 to 40 percent less risk. Meanwhile, the most volatile stocks have delivered disappointing returns relative to their high risk.
-
-**Stella:** Why would anyone buy volatile stocks if they do not get rewarded?
-
-**Horace:** Lottery-ticket mentality. Volatile stocks have the potential for huge short-term gains, and that excites investors. Think of it like a casino -- people know the odds are against them, but the potential payoff draws them in. This behavioral tendency causes investors to overpay for volatile stocks and underpay for boring, stable ones.
-
-[VISUAL: Chart showing the risk-return plot with low-vol stocks earning similar returns to the market at much lower risk, while high-vol stocks earn similar or even lower returns at much higher risk. The theoretical straight line (CAPM) is shown versus the actual curved line.]
-
-**Stella:** So how do I actually use all of this? Should I buy five different factor ETFs?
-
-**Horace:** Not necessarily. Let me give you a practical framework. First, your core holding should always be a broad market index fund. That captures market beta, which is the single most important and reliable factor. Then, you can add factor tilts on top.
-
-**Stella:** What is a good starting allocation?
-
-**Horace:** A simple approach: 60 to 70 percent broad market index, and 30 to 40 percent split among factor strategies. If you want to keep it really simple, just add a value tilt -- maybe 70% total market and 30% value ETF. If you want more factor diversification, split that 30% across value, momentum, and quality.
-
-[VISUAL: Three portfolio pie charts showing increasing factor sophistication:
-Simple: 70% Market + 30% Value
-Moderate: 60% Market + 15% Value + 15% Momentum + 10% Quality
-Multi-factor: 60% Market + 40% Multi-Factor ETF]
-
-**Stella:** What about just using a multi-factor ETF that does everything in one fund?
-
-**Horace:** That is a perfectly valid approach and arguably the most efficient. A multi-factor ETF screens for multiple factors simultaneously at the stock level, which avoids the problem of one factor telling you to buy a stock while another tells you to sell it. The drawback is less transparency -- you are trusting the ETF provider's methodology.
-
-**Stella:** You mentioned that factors go through cycles. How long do the bad periods last?
-
-**Horace:** This is crucial to understand. Value has had drawdowns lasting three to five years or more. Momentum has had one-month crashes of 30 to 40 percent. Low volatility can underperform for years during strong bull markets. If you are going to invest in factors, you must commit to holding through these drawdowns. Factor investing rewards patience and punishes performance chasers.
-
-[VISUAL: Timeline showing the longest drawdown periods for each factor, with value having the longest sustained underperformance, momentum having the sharpest but shorter crashes]
-
-**Stella:** What is the biggest risk of factor investing?
-
-**Horace:** I would say it is behavioral. The factor premiums exist in part because they are painful to harvest. Holding value stocks while growth is soaring requires you to look foolish for years. Holding momentum when it crashes requires iron nerves. Most investors, including professionals, cannot handle the tracking error -- the deviation from what "everyone else" seems to be earning. They abandon their factor strategy at the worst possible time, locking in the underperformance and missing the rebound.
-
-**Stella:** So the premium is partly a compensation for emotional discomfort.
-
-**Horace:** Beautifully put. Yes. The factors that are hardest to hold psychologically tend to offer the highest premiums. That is not a coincidence.
-
-[VISUAL: Diagram showing the "pain gap" between holding a factor through underperformance and the eventual premium, with most investors bailing out in the middle]
-
-**Stella:** One more question. You said factor premiums might be shrinking as more money chases them. Should I be worried?
-
-**Horace:** It is a legitimate concern. As factor investing becomes more popular and more capital flows into these strategies, the premiums should theoretically shrink. And there is some evidence this has happened, particularly for the size premium. However, the premiums are unlikely to disappear entirely because they are rooted in fundamental risk (value stocks really are riskier) and behavioral biases (humans will always overpay for lottery tickets and exciting stories). Think of it this way: the premiums may go from 4% per year to 2% per year, but 2% per year compounded over decades is still enormously valuable.
-
-**Stella:** Especially at low cost.
-
-**Horace:** Exactly. A factor ETF charging 0.15% per year that captures even a 1.5 to 2% premium is an excellent deal. Compare that to an active manager charging 1% for factor exposure they could not even articulate.
-
-[VISUAL: Comparison showing the net-of-fees factor premium from a low-cost ETF vs. the net-of-fees "alpha" from a typical active fund, demonstrating that the ETF is often the better deal]
-
-**Stella:** This has been really enlightening. I feel like I understand returns so much better now. It is not just about picking stocks -- it is about the characteristics of the stocks you own.
-
-**Horace:** That is the key insight. The specific stocks matter less than the factors they represent. A portfolio of small, cheap, high-quality stocks that have been going up recently will behave very differently from a portfolio of large, expensive, low-quality stocks that have been going down -- regardless of which specific companies are in each portfolio.
-
-**Stella:** So factor investing is really about being intentional about the characteristics of your portfolio.
-
-**Horace:** Exactly. And next week, we are going to tie everything together. We will talk about building a multi-strategy portfolio -- combining all the concepts we have covered in this course into a coherent, diversified investment plan.
-
-**Stella:** That sounds like the culmination of everything we have learned. Looking forward to it. Thanks for watching, everyone!
-
-[VISUAL: End screen with key factor summary table, subscribe button, and preview of Week 24]
-
----
+**Stella:** A retail investor can replicate the entire FF5+momentum
+framework for under 20 basis points all-in?
+
+**Horace:** Easily. And here's the SOUL framework angle. Factors are
+alpha lane number five — the *structural* mispricings, of which the
+academic factor premium is the most arbitrageable subset. They
+belong in tranche one or tranche two of your portfolio. The passive
+core, with maybe a 10-30% tilt to factors. They do *not* belong in
+your active concentrated book. The reason they pay less than they
+used to is precisely because they're the easy lane — the lane that
+doesn't require discomfort, doesn't require holding through hated
+positions, doesn't require being early. Anything that easy gets
+arbed.
+
+**Stella:** And anything that requires discomfort —
+
+**Horace:** Stays paying. That's why "buying what passive flows have
+abandoned" — the contrarian sector trade, week 16 territory — is
+still a 5%+ alpha lane while the academic factor portfolios are at
+2-4%. Discomfort is the moat.
+
+[SECTION 5: THE LAB]
+
+**Stella:** Let's go to the interactive.
+
+[VISUAL: course/interactive/week23_factor_blender.html]
+
+**Horace:** Five sliders — your weights to MKT, SMB, HML, UMD, RMW.
+The constraint is they have to sum to 100. The lab embeds the annual
+Fama-French series 1963 to 2024 — 62 years of data — and runs your
+chosen blend through it. Output is cumulative wealth, max drawdown,
+Sharpe ratio.
+
+**Stella:** And there are presets.
+
+**Horace:** Four. Pure Value — 100% HML. Pure Momentum — 100% UMD.
+Quality plus Low-Vol — equal-weight RMW and a low-vol proxy. And
+GMO 60/40-style — Jeremy Grantham's classic value-tilt blend.
+
+**Stella:** Click pure value first.
+
+**Horace:** Now look at what happens. Wealth grows nicely from 1963
+to 2007. Then the line goes flat. Twelve years of dead money.
+That's the rolling-10-year HML decay we showed earlier in the
+chart.
+
+**Stella:** Now pure momentum.
+
+**Horace:** Beautiful upward line — and a nasty 2009 cliff. The 45%
+calendar drawdown is right there in the wealth curve. One year ate
+five years.
+
+**Stella:** Now the GMO blend — 50% market, 30% value, 10% quality,
+10% momentum.
+
+**Horace:** Smoother. Sharpe is better than any single-factor sleeve.
+That's the point. The factors aren't perfectly correlated, so a
+blend gets diversification on top of the average premium. Value and
+momentum in particular are *negatively* correlated — when one's
+suffering the other is usually doing fine. That's the most useful
+pairing for a retail blend.
+
+**Stella:** What's your recommended allocation for somebody starting
+fresh in 2026?
+
+**Horace:** Sixty percent in VTI as the cap-weighted core. Then ten
+percent each in AVUV, MTUM, QUAL, USMV. Total ER under 12 bps,
+exposure to all six factors at modest weights, cap-weighted core
+dominant. Annual rebalance, hold for a decade-plus, don't sell when
+one of the tilts is having a bad five years. That's the discipline
+the strategy requires.
+
+**Stella:** And if somebody can't sit through a five-year drawdown
+of one of their tilts?
+
+**Horace:** Don't tilt. Own VTI. The factor premium isn't worth
+selling at the bottom and missing the rebound. If you can't hold
+through pain, the cap-weighted index is the better product for you.
+
+[OUTRO]
+
+**Stella:** Recap. Factors are long-short portfolios built from
+ranked stock characteristics. The Fama-French 5 plus momentum
+explains 90% of the cross-section. Long-run premia: market 6.6%,
+momentum 7.5%, value 3.8%, investment 3.3%, profitability 3.0%, size
+2.4%. All of them have compressed since 2003 — roughly halved — for
+publication-arbitrage and intangibles-mismeasurement reasons. The
+2007 quant quake was about leverage and redemptions, not factors per
+se. Retail factor ETFs in 2026 deliver the academic premium at under
+25 bps. Use them as a 10-30% tilt on a cap-weighted core, not as a
+replacement for it.
+
+**Horace:** And the SOUL #5 framing. Factors are the structural alpha
+lane — the most systematic, the most scalable, and the most arbed.
+They belong in your passive core. The lane that pays *more* — the
+lane the academic literature can't write a clean paper about — is the
+contrarian one. Buying what passive flows have abandoned. We did that
+in week 16 with sectors and we'll do it again in later weeks.
+
+**Stella:** Next week we move from factor investing to the broader
+question of style boxes — large-versus-small, growth-versus-value,
+and the 9-cell Morningstar grid that organises most of the US equity
+mutual fund universe. See you there.

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Week 24: Building a Multi-Strategy Portfolio - Chanma Investment Tutorial</title>
+    <title>Week 24: Multi-Strategy — Combining Beta, Factor, and Alpha Sleeves into One Book - Chanma Investment Tutorial</title>
     <script>(function(){try{var t=localStorage.getItem('preferred-theme');if(!t){t=window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();</script>
     <style>
 :root, html[data-theme="light"] {
@@ -1247,954 +1247,450 @@ html[data-theme="dark"] .nav-btn:hover .btn-label { color: rgba(15,23,36,0.7); }
     <main class="main-wrap">
         <div class="content-area">
             <div id="content-en" class="lang-content active">
-                <h1>Week 24: Building a Multi-Strategy Portfolio</h1>
+                <h1>Week 24: Multi-Strategy — Combining Beta, Factor, and Alpha Sleeves into One Book</h1>
 <hr>
-<h2>Reading Section</h2>
-<h3>a) Why This Is Important</h3>
+<h3>1. Why This Is Important</h3>
 <p>
-You have spent the last 23 weeks building an investment education from the ground up. You understand asset classes, risk and return, diversification, bonds, equities, valuation, international investing, and factor exposure. Now comes the most important step: putting it all together into a coherent portfolio that reflects your goals, your risk tolerance, and your investment philosophy.
+This is the L2 capstone. For twenty-three weeks the course has been
+handing you parts. Beta in week 4. Factor tilts in week 23.
+Long/short alpha in week 13. Sector rotation in week 16. Tactical
+overlays in week 10 and week 18. This week is where you put them
+back together into one book that you actually run.
 </p>
 <p>
-The difference between knowing individual investment concepts and actually building a portfolio is like the difference between knowing how to play individual notes on a piano and being able to play a complete piece of music. The notes are essential, but the magic is in how they combine.
+You need this synthesis lesson for four reasons.
+</p>
+<li>**Most retail investors who try to combine strategies do it</li>
+<p>
+wrong.** They stack five 100%-equity ideas — total market plus
+value tilt plus dividend tilt plus mega-cap growth plus
+"concentrated picks" — and call the result "diversified." It
+isn't. It is one big beta book with five different fee structures.
+True multi-strategy means combining return drivers that are
+<em>fundamentally different</em> — broad market beta, smart-beta factor
+premia, and market-neutral alpha — not five flavours of the same
+beta exposure.
+</p>
+<li>**The institutional template is well-defined and worth</li>
+<p>
+imitating — partially.** Endowment-style allocators run roughly
+70-80% beta + 10-15% smart beta + 10-15% absolute return. The
+structure is sound; the <em>implementation</em> is what most retail
+investors cannot replicate without paying themselves into the
+ground in fees. The L2 question is which pieces translate down
+to a six-figure retail book and which pieces should stay on the
+institutional cutting-room floor.
+</p>
+<li>**SOUL #1 says alpha is rare and most retail should not pursue</li>
+<p>
+it.** This lesson is honest about that. The default
+recommendation will be that 80% or more of you should run pure
+beta — week 4's 60/40 or week 12's lifecycle archetypes — full
+stop. The multi-strategy template is for the 10-20% who have the
+temperament, the time, and the size to run an alpha sleeve <em>and</em>
+the discipline to stop running it when it doesn't work.
+</p>
+<li><strong>The four-tranche framework (SOUL #13) reapplies one level up.</strong></li>
+<p>
+In week 16 the four tranches were sector-cycle exposures. Here
+they are <em>strategy</em> exposures: beta (the physical / index core),
+smart beta (the seniors — established factor premia), alpha (the
+juniors — earned by skill), and tactical / discretionary (the
+exploration tier — the sleeve where things get interesting and
+risky). Same shape, different domain.
 </p>
 <p>
-A multi-strategy portfolio matters because:
-</p>
-<li><strong>No single strategy works all the time.</strong> Value investing has multi-year drawdowns. Momentum crashes at market turning points. Bonds suffer when interest rates rise. International stocks trail domestic stocks for decades. By combining strategies, you ensure that when one approach is struggling, another is contributing positively. This is the essence of robust portfolio construction.</li>
-<li><strong>Behavioral resilience comes from design.</strong> The most common reason investors fail is not that they choose bad investments -- it is that they abandon good investments at bad times. A portfolio designed with multiple complementary strategies is easier to hold through turbulence because not everything is going down at once. This dramatically reduces the temptation to panic-sell.</li>
-<li><strong>Risk management becomes systematic.</strong> Instead of hoping for the best, you can deliberately allocate risk across different strategies, asset classes, and geographies. Risk budgeting -- deciding in advance how much risk each strategy contributes -- gives you a structured framework for portfolio decisions.</li>
-<li><strong>It prepares you for the real world.</strong> Markets are complex, unpredictable, and constantly evolving. A portfolio built on a single strategy or a single set of assumptions is fragile. A multi-strategy portfolio is antifragile -- it is designed to perform reasonably well across a wide range of future scenarios, even ones you have not imagined.</li>
-<hr>
-<h3>b) What You Need to Know</h3>
-<h4>1. The Core Principle: Combining Uncorrelated Strategies</h4>
-<p>
-The mathematical foundation of multi-strategy investing is simple: when you combine strategies that do not move in lockstep, the combined portfolio has better risk-adjusted returns than any individual strategy.
-</p>
-<pre><code class="language-">THE POWER OF UNCORRELATED STRATEGIES
-<p>
-======================================
-</p>
-<p>
-Strategy A: Expected return 8%, Volatility 15%
-Strategy B: Expected return 8%, Volatility 15%
-Correlation between A and B: 0.2
-</p>
-<p>
-Portfolio (50/50 A and B):
-Expected return: 8% (same)
-Volatility: ~11% (LOWER!)
-</p>
-<p>
-WHY THIS WORKS:
-When A has a bad year, B is often having a
-decent year (because correlation is low).
-The losses in A are partially offset by B.
-The result: same return, much less pain.
-</p>
-<p>
-KEY MATH:
-Portfolio Vol = sqrt(w_A^2 * vol_A^2 +
-w_B^2 * vol_B^2 +
-2 <em> w_A </em> w_B <em> vol_A </em> vol_B * corr)
-</p>
-<p>
-With corr &lt; 1.0, portfolio vol &lt; weighted average vol
-The lower the correlation, the greater the benefit.
-</code></pre>
-</p>
-<p>
-<strong>Visualizing the Diversification Benefit:</strong>
-</p>
-<pre><code class="language-">THE DIVERSIFICATION EFFECT
-<p>
-============================
-</p>
-<p>
-Number of         Portfolio Volatility
-Uncorrelated      (as % of single
-Strategies        strategy volatility)
-----------        --------------------
-1                 100%
-2                 ~75%
-4                 ~55%
-8                 ~40%
-16                ~30%
-</p>
-<p>
-Adding uncorrelated strategies has diminishing
-returns -- the first few additions matter most.
-</p>
-<p>
-IMPORTANT: Strategies must be GENUINELY uncorrelated.
-Adding ten stock-picking strategies that all buy
-large US stocks does NOT provide diversification.
-True diversification comes from fundamentally
-different return drivers.
-</code></pre>
+This week pulls together everything. There is one new chart — the
+sleeve-breakdown stacked bar — and one new tool — the strategy
+blender that lets you size each sleeve and see the resulting
+expected return, vol, and Sharpe in real time. The lesson is short
+on new theory and long on synthesis.
 </p>
 <hr>
-<h4>2. The Core-Satellite Approach</h4>
+<h3>2. What You Need to Know</h3>
+<h4>2.1 The Three (Plus One) Sleeves</h4>
 <p>
-The most practical framework for building a multi-strategy portfolio is the core-satellite model.
+A multi-strategy book has up to four sleeves. Knowing which is
+which keeps you honest about what each piece is being paid to do.
 </p>
-<pre><code class="language-">CORE-SATELLITE PORTFOLIO STRUCTURE
+<table><thead><tr><th>Sleeve</th><th>Return driver</th><th>Typical vehicle</th><th>Expected return</th><th>Expected vol</th><th>Fee budget</th></tr></thead><tbody><tr><td><strong>Beta</strong></td><td>The market itself</td><td>VTI + BND, or 60/40</td><td>~7% nominal</td><td>~10-12%</td><td>0.03-0.05%</td></tr><tr><td><strong>Smart beta / factor</strong></td><td>Persistent factor premia (value, momentum, quality)</td><td>VLUE, MTUM, QUAL, AVUV</td><td>~8-9% (~1-2% over beta)</td><td>~13-15%</td><td>0.15-0.30%</td></tr><tr><td><strong>Alpha</strong></td><td>Manager / process skill — market-neutral</td><td>L/S equity, merger arb, market-neutral funds</td><td>~3-5% absolute</td><td>~3-5%</td><td>1-2% (often plus performance fee)</td></tr><tr><td><strong>Tactical</strong></td><td>Discretionary regime / sector / cycle bets</td><td>Sector ETFs (XLE, XLF, …), CTA-style trend</td><td>wide range, often 0% net</td><td>8-15%</td><td>0.10-1.0%</td></tr></tbody></table>
 <p>
-====================================
-</p>
-<p>
-+-----------------------------------+
-|                                   |
-|           CORE (60-80%)           |
-|                                   |
-|   Broad market index funds        |
-|   Low cost, high diversification  |
-|   Passive, buy-and-hold           |
-|   Provides market beta            |
-|                                   |
-+-----------------------------------+
-/            |              \
-/             |               \
-+----------+  +----------+  +----------+
-| Satellite|  | Satellite|  | Satellite|
-</p>
-<table><thead><tr><th>(5-15%)</th><th>(5-15%)</th><th>(5-15%)</th></tr></thead><tbody><tr><td>Factor</td><td>Int'l</td><td>Tactical</td></tr><tr><td>Tilts</td><td>Overweig.</td><td>Income</td></tr></tbody></table>+----------+  +----------+  +----------+
-<p>
-CORE PURPOSE:
-</p>
-<ul><li>Captures broad market returns reliably</li>
-<li>Ultra-low cost (0.03-0.05% expense ratio)</li>
-<li>Requires minimal maintenance</li>
-<li>Provides the foundation of your wealth building</li>
-<p>
-</ul>
-SATELLITE PURPOSE:
-</p>
-<ul><li>Adds incremental return potential</li>
-<li>Provides diversification beyond the core</li>
-<li>Can express your investment views</li>
-<li>Allows for factor exposure, income, or alternatives</li>
-<p>
-</ul></code></pre>
+Two structural things to internalise.
 </p>
 <p>
-<strong>Why Core-Satellite Works:</strong>
+<strong>Beta is the cheapest return on the table.</strong> SOUL #2 has been right
+for forty years: index investing has paid most of the bill. Every
+dollar you move out of beta into a more expensive sleeve has to
+<em>earn its fee</em> — net of every cost — before it has earned a right
+to be in your book.
 </p>
-<pre><code class="language-">ADVANTAGES OF CORE-SATELLITE
 <p>
-==============================
+<strong>Alpha is uncorrelated, not high-return.</strong> The reason institutional
+shops pay 2-and-20 for absolute-return strategies is <em>not</em> because
+those strategies have a higher expected return than equities. They
+do not. The math works because the alpha sleeve has near-zero
+correlation to the rest of the book — a 3% return at 4% vol with
+zero correlation to a 7% / 16% beta book lifts the <em>portfolio</em>
+Sharpe materially even though the alpha sleeve in isolation has a
+worse return than equity index.
 </p>
-<li>SIMPLICITY</li>
+<h4>2.2 The Institutional Template — Why 70/10/10/10 Works</h4>
 <p>
-The core is easy to manage -- buy and hold
-a total market index. Complexity is contained
-in the satellites, which are smaller and
-more manageable.
+Yale, Harvard, the Norwegian sovereign wealth fund, the Canada
+Pension Plan, every large endowment-style allocator converges on
+roughly the same shape:
 </p>
-<li>COST EFFICIENCY</li>
+<table><thead><tr><th>Sleeve</th><th>Target weight</th><th>Why this size</th></tr></thead><tbody><tr><td>Beta (broad equity + duration)</td><td>70-80%</td><td>Cheapest expected return, the baseline you are trying to beat</td></tr><tr><td>Smart beta / factor tilts</td><td>10-15%</td><td>Documented premia, low fees, scalable, low alpha-decay risk</td></tr><tr><td>Absolute-return (alpha)</td><td>10-15%</td><td>Diversifier, lifts Sharpe via low correlation, not via high return</td></tr><tr><td>Tactical / opportunistic</td><td>0-5%</td><td>Discretionary overlays the CIO actually has conviction on</td></tr></tbody></table>
 <p>
-Most of your money is in ultra-low-cost index
-funds. Only the satellite portion pays higher
-fees for specialized strategies.
+The interactive at the bottom of this lesson lets you set these
+weights and see the resulting expected return and Sharpe.
 </p>
-<li>RISK CONTROL</li>
 <p>
-Even if a satellite strategy performs poorly,
-it is only 5-15% of your portfolio. The core
-protects you from catastrophic mistakes in
-the satellites.
+The reason the institutional template is <em>this</em> shape and not, say,
+50/25/25 is governance. Even a very smart investment team only has
+so many high-conviction views per year. Pushing the alpha sleeve
+above 15% means either taking discretionary bets the team does not
+have, or paying performance fees on capital they can't deploy
+profitably. The 70-80% beta core is the honest admission that even
+sophisticated allocators cannot beat the market with most of their
+capital. The 10-15% alpha sleeve is the part where they think they
+can.
 </p>
-<li>FLEXIBILITY</li>
+<h4>2.3 Translating to Retail — The 80/10/10 Default</h4>
 <p>
-You can add, remove, or adjust satellites
-without disrupting the core. This allows
-you to evolve your portfolio as you learn
-more and as market conditions change.
+The institutional template translates to retail with one important
+modification: the alpha sleeve is <strong>harder</strong> to run with a
+six-figure book than with a six-billion-dollar book. The retail
+equivalent is not "find a hedge fund." It is one of three things:
 </p>
-<li>TAX EFFICIENCY</li>
+<li><strong>A market-neutral mutual fund or ETF</strong> (BTAL, MERFX, FTLS).</li>
 <p>
-The core has low turnover and minimal tax
-consequences. Trading and rebalancing are
-concentrated in the satellites, which can be
-placed in tax-advantaged accounts.
+The cleanest way to express the alpha sleeve at retail. Fees
+are 1-2%, returns are 2-4% over rolling 5-year windows, and
+the correlation to SPX is genuinely low.
+</p>
+<li><strong>A concentrated long-only sleeve</strong> (5-15 names you actively</li>
+<p>
+research, sized 1-3% each). Strictly speaking this is a
+high-active-share equity sleeve, not market-neutral alpha. It
+works only if you actually have the edge — SOUL #1.
+</p>
+<li><strong>A defined long/short pair book</strong> (pair trades from week 14,</li>
+<p>
+plus an overlay or two). Real alpha, but takes time to manage
+and a margin account.
+</p>
+<p>
+The default retail multi-strategy template:
+</p>
+<table><thead><tr><th>Sleeve</th><th>Weight</th><th>Vehicle</th><th>Approx fee</th></tr></thead><tbody><tr><td>Beta — broad US equity</td><td>60%</td><td>VTI</td><td>0.03%</td></tr><tr><td>Beta — bonds</td><td>20%</td><td>BND or short-duration treasuries</td><td>0.03%</td></tr><tr><td>Smart beta — factor tilt</td><td>10%</td><td>One of VLUE, MTUM, QUAL, AVUV</td><td>0.15-0.25%</td></tr><tr><td>Alpha sleeve</td><td>10%</td><td>Concentrated long picks <strong>or</strong> a market-neutral fund</td><td>0.5-2%</td></tr></tbody></table>
+<p>
+If you cannot articulate a thesis for the factor tilt and the alpha
+sleeve, both go to zero and you run a 75/25 split between VTI and
+BND. That is not a failure. That is the honest answer. SOUL #1 is
+explicit: most people don't have alpha; nothing in this lesson is
+arguing they should pretend they do.
+</p>
+<p>
+The image below shows this template alongside four other archetypes
+(conservative, moderate, aggressive, institutional, FIRE-style
+barbell). Each row is one archetype's sleeve breakdown.
+</p>
+<img src="image/week24_sleeve_breakdown.png" alt="Stacked horizontal bar chart of five archetype multi-strategy portfolios. Conservative (90% beta, 0% factor, 0% alpha, 10% cash). Moderate (80% beta, 10% factor, 5% alpha, 5% cash). Aggressive (65% beta, 15% factor, 15% alpha, 5% cash). Institutional (70% beta, 15% factor, 13% alpha, 2% cash). FIRE / barbell (70% beta, 5% factor, 10% alpha, 15% cash). Bars segmented in site palette colours; legend at the bottom; x-axis 0-100%.">
+<h4>2.4 What Each Sleeve Actually Adds — The Layered-Returns View</h4>
+<p>
+The arithmetic of a multi-strategy book is simpler than it looks.
+Expected portfolio return is the weighted sum of sleeve expected
+returns; expected vol is the matrix calculation of weighted vols
+adjusted for correlations. The intuition is in the pieces.
+</p>
+<p>
+For the moderate retail template above (80% beta / 10% factor /
+10% alpha / 0% cash), with assumptions of 7% beta return, 9%
+factor return (7% beta + 2% factor premium), 4% market-neutral
+alpha:
+</p>
+<pre><code class="language-">Sleeve contribution to portfolio return:
+<p>
+Beta sleeve:    80% × 7%  = 5.60% (gross)
+Factor sleeve:  10% × 9%  = 0.90% (gross)
+Alpha sleeve:   10% × 4%  = 0.40% (gross)
+-------
+Gross return:             = 6.90%
+Less fees:
+Beta fee 0.04% × 80%    = -0.03%
+Factor fee 0.20% × 10%  = -0.02%
+Alpha fee 1.50% × 10%   = -0.15%
+-------
+Net return:               = 6.70%
 </code></pre>
+</p>
+<p>
+Compare that to the all-VTI 100% beta book: 7% gross, 7%-0.04% =
+6.96% net. The multi-strategy version is **0.26% per year worse on
+expected return** before any benefit from correlation. The benefit
+shows up in volatility:
+</p>
+<pre><code class="language-">Vol of all-VTI (one sleeve, vol=16%):                  16.00%
+<p>
+Vol of moderate template (corr beta-factor=0.95,
+beta-alpha=0.05, factor-alpha=0.10):               ~12.85%
+</code></pre>
+</p>
+<p>
+That is the bargain. A 0.26% return concession in exchange for a
+3-percentage-point drop in vol. Sharpe goes from ~7%/16% = 0.44 to
+~6.7%/12.85% = 0.52. The portfolio is <em>better</em> despite earning
+less in raw return — because the alpha sleeve does its
+diversification job and the factor sleeve nudges the expected
+return up enough to mostly offset its own fee.
+</p>
+<p>
+The image below decomposes the layered returns for four archetypes.
+</p>
+<img src="image/week24_layered_returns.png" alt="Four-archetype stacked bar chart of expected return decomposition. Each bar shows beta contribution (largest, blue), factor add (gold, smaller), alpha add (green), and fee drag (red, plotted negative). Net return shown as a black tick mark. Conservative bar nets to ~5.5%; moderate to ~6.7%; aggressive to ~6.4%; institutional to ~6.5%. The aggressive and institutional portfolios pay back more in fees but contribute more from the alpha and factor sleeves.">
+<p>
+The point of the image: **most of the return comes from the beta
+sleeve, regardless of how clever the other sleeves are.** Factor
+adds a couple of dozen basis points. Alpha adds another couple of
+dozen. Fees take back roughly half of that. The net win is on the
+order of zero to 30 bps of expected return — and the entire reason
+to do it is the <em>vol</em> improvement, not the <em>return</em> improvement.
+</p>
+<h4>2.5 Why Most Retail Investors Should Not Do This</h4>
+<p>
+SOUL #1 is the rule. Most retail investors who set up a
+multi-strategy book make at least one of the following mistakes.
+</p>
+<li><strong>They run an alpha sleeve they don't have alpha in.</strong> If your</li>
+<p>
+long-short P&L over three years is not statistically distinct
+from zero — and at retail size it almost never is — you are
+paying real fees and real attention for a return drag.
+</p>
+<li><strong>They confuse complexity for diversification.</strong> Owning ten funds</li>
+<p>
+does not mean ten return drivers. Three of them might all be S&P
+500 in different costumes.
+</p>
+<li><strong>They cannot stop.</strong> When the alpha sleeve underperforms by 3%</li>
+<p>
+in one year, the discipline is to keep running it (or to shut it
+down on a pre-defined criterion). Most retail will do neither —
+they double down or panic-shut, both wrong.
+</p>
+<li><strong>They underestimate the tax cost.</strong> Alpha sleeves turn over</li>
+<p>
+more than beta sleeves. At 30%+ marginal tax brackets, the tax
+drag is often larger than the gross alpha edge.
+</p>
+<p>
+The honest decision tree:
+</p>
+<ul><li>Do you have a multi-six-figure book and meaningful free time</li>
+<p>
+</ul>  every week to manage it? If not, run pure beta. Stop.
+</p>
+<ul><li>Do you have a pre-committed statistical criterion for "the alpha</li>
+<p>
+</ul>  sleeve is not working, shut it down"? If not, you do not have a
+sleeve, you have a hobby.
+</p>
+<ul><li>Are you tracking after-fee, after-tax, after-time-cost</li>
+<p>
+</ul>  performance — not gross? If not, see point 1.
+</p>
+<p>
+If all three answers are yes, the template in §2.3 is reasonable.
+If any answer is no, week 24 was the lesson where you should have
+put the multi-strategy book down. That is not a failure. The SOUL
+#1 humility is what keeps L1 graduates wealthy and what sends most
+L2 dabblers home with less than they started with.
+</p>
+<h4>2.6 The Four-Tranche Framework Reapplied (SOUL #13)</h4>
+<p>
+In week 16 the four tranches were <em>sector-cycle</em> exposures —
+physical, senior, junior, exploration — staged through a commodity
+bull market. Here the same shape reappears one level up, applied
+to <em>strategies</em> themselves.
+</p>
+<table><thead><tr><th>Tier</th><th>Sector cycle (week 16)</th><th>Strategy stack (this week)</th></tr></thead><tbody><tr><td><strong>Physical</strong></td><td>The commodity itself</td><td>The market — broad-index beta</td></tr><tr><td><strong>Senior</strong></td><td>Established producers</td><td>Smart beta — documented factor premia</td></tr><tr><td><strong>Junior</strong></td><td>Mid-tier producers</td><td>Alpha — market-neutral skill sleeves</td></tr><tr><td><strong>Exploration</strong></td><td>Pre-revenue speculators</td><td>Tactical — discretionary regime / sector bets</td></tr></tbody></table>
+<p>
+The lesson is the same in both directions. The bulk of your money
+sits in the lowest-vol, most-liquid, most-fundamental tier
+(physical / beta). Each higher tier is smaller, more
+skill-dependent, more vol-rich. The exploration / tactical tier is
+where the fun is and where most of the blow-ups happen, and you
+size it as a fraction of your book that you can lose entirely
+without changing your life. The pyramid shape — wide base, narrow
+top — is the robust shape. The inverted pyramid — most of the book
+in the exploration tier — is how SOUL #12 ("market can stay
+irrational longer than you can stay solvent") becomes a personal
+autobiography.
+</p>
+<p>
+The barbell (SOUL #14) is a special case of this pyramid where the
+"mid" tiers (factor and alpha) collapse to near-zero and the book
+splits between the safest (cash + bonds) and the most aggressive
+(concentrated long or alpha) sleeves. A FIRE-curious investor with
+high human-capital risk often runs this shape: 30% cash + 50% VTI
++ 20% concentrated names. That is not multi-strategy in the
+institutional sense, but it is a coherent strategy stack — and an
+honest one for the situation.
 </p>
 <hr>
-<h4>3. Allocation Across Strategies</h4>
+<h3>3. Common Misconceptions</h3>
+<li><strong>"More sleeves means more diversification."</strong> Not unless the</li>
 <p>
-How do you decide how much to allocate to each strategy? There are several frameworks:
+sleeves have low cross-correlation. Five flavours of US equity
+is not five sleeves; it is one sleeve in five wrappers.
 </p>
-<pre><code class="language-">ALLOCATION FRAMEWORK 1: EQUAL WEIGHT
+<li><strong>"Alpha sleeves boost returns."</strong> They lift Sharpe via lower</li>
 <p>
-======================================
+correlation, not higher return. The alpha sleeve usually has a
+<em>worse</em> expected return than the beta sleeve.
 </p>
+<li><strong>"The fee is worth it if the manager is good."</strong> True only if</li>
 <p>
-Allocate equally across all strategies.
-Simple, no forecasting required, works
-surprisingly well in practice.
+net-of-fee, net-of-tax, net-of-correlation alpha is positive.
+Most active management fails at least one of these tests.
 </p>
+<li><strong>"Smart beta is alpha."</strong> No. Smart beta is a documented factor</li>
 <p>
-Example with 5 strategies:
+premium (value, momentum, quality, low-vol). It is a beta to a
+<em>factor</em>, not a manager-skill alpha. The fee should be 0.15-0.30%,
+not 1-2%.
 </p>
-<ul><li>Broad US Stocks:        20%</li>
-<li>International Developed: 20%</li>
-<li>Emerging Markets:        20%</li>
-<li>US Bonds:               20%</li>
-<li>Real Assets/TIPS:       20%</li>
+<li><strong>"Endowments beat the market because of alternatives."</strong></li>
 <p>
-</ul>
-PRO: Maximum diversification, no prediction needed
-CON: May give too much to strategies you are less
-confident about
+Endowments beat 60/40 partly through alternatives, partly
+through illiquidity premia, and partly through scale. Retail
+investors get the alternatives without the illiquidity premium
+and without the scale, which is why retail "alts" funds usually
+underperform their institutional namesakes.
 </p>
+<li><strong>"I'll just run my alpha sleeve until it stops working."</strong> Most</li>
 <p>
-ALLOCATION FRAMEWORK 2: RISK PARITY
-======================================
+investors cannot tell when an alpha sleeve has stopped working
+versus when it is in a normal drawdown. Without a pre-committed
+criterion, "stops working" gets renegotiated indefinitely.
 </p>
+<li><strong>"The institutional template is universally optimal."</strong> It is</li>
 <p>
-Allocate so each strategy contributes equally
-to total portfolio risk (not equal dollar amounts).
+optimised for institutional governance — long horizons, large
+size, professional management, performance fees that align
+incentives. None of those apply at retail. Copying the shape
+without copying the conditions is cargo-culting.
 </p>
+<li><strong>"Market-neutral funds aren't really market-neutral."</strong> Many</li>
 <p>
-Since bonds are less volatile than stocks,
-risk parity puts MORE money in bonds and
-LESS in stocks to equalize risk contributions.
+aren't — their factor exposures and short-vol exposures show up
+as hidden beta in stress periods. Read the holdings. Look at
+the 2008, 2020, and 2022 drawdowns. If the fund moved with SPX
+in any of those, the "neutral" claim is suspect.
 </p>
+<li><strong>"Tactical sleeves should be 30%+ if you have an edge."</strong> They</li>
 <p>
-Example:
+shouldn't, and you don't. Even managers with documented
+tactical edge size their tactical book at single-digit percent.
+The reason is governance: your conviction is over-stated and
+your hit rate is over-stated, and a smaller sleeve is the cheap
+correction.
 </p>
-<ul><li>Stocks (vol ~15%):  allocate ~35%</li>
-<li>Bonds (vol ~5%):    allocate ~55%</li>
-<li>Real Assets (~10%): allocate ~10%</li>
+<li><strong>"Multi-strategy means you can't lose money."</strong> It means you</li>
 <p>
-</ul>
-Each contributes roughly 1/3 of portfolio risk.
-</p>
-<p>
-PRO: True risk diversification
-CON: Heavy bond allocation may feel wrong,
-requires leverage to reach equity-like returns
-</p>
-<p>
-ALLOCATION FRAMEWORK 3: GOALS-BASED
-======================================
-</p>
-<p>
-Allocate based on what each bucket of money
-needs to accomplish.
-</p>
-<ul><li>Safety Bucket (2-3 year expenses): Cash, short bonds</li>
-<li>Income Bucket (ongoing needs): Bonds, dividend stocks</li>
-<li>Growth Bucket (long-term wealth): Stocks, factor tilts</li>
-<li>Aspirational Bucket (optional): High-conviction ideas</li>
-<p>
-</ul>
-PRO: Intuitive, tied to real financial goals
-CON: Boundaries between buckets can be arbitrary
-</p>
-<p>
-ALLOCATION FRAMEWORK 4: CONVICTION-WEIGHTED
-=============================================
-</p>
-<p>
-Allocate more to strategies where you have
-higher confidence in the expected return.
-</p>
-<ul><li>High conviction:  15-25% each</li>
-<li>Medium conviction: 10-15% each</li>
-<li>Low conviction:    5-10% each</li>
-<p>
-</ul>
-PRO: Reflects your genuine beliefs
-CON: Confidence can be misplaced
-</code></pre>
+can lose less <em>in expectation</em> per unit of vol. In a stress
+period — 2008, March 2020 — correlations go to one and the
+multi-strategy book draws down nearly as hard as the beta book.
+The diversification works in normal times and fails exactly
+when you need it most. SOUL #6 (vol-tail-wags-dog) and SOUL
+#12 (irrational-longer-than-solvent) live in those windows.
 </p>
 <hr>
-<h4>4. Rebalancing Between Strategies</h4>
+<h3>4. Q&A Section</h3>
 <p>
-Rebalancing is the process of returning your portfolio to target weights after market movements cause drift.
+<strong>Q: How big does my book need to be before multi-strategy makes sense?</strong>
+A: Roughly $250k+. Below that, the fee drag and time cost dominate.
+A $50k book with a 10% alpha sleeve is paying $75-150 a year on
+$5,000 of capital — the fees ate the alpha before the trade started.
 </p>
-<pre><code class="language-">REBALANCING MECHANICS
 <p>
-======================
+<strong>Q: Should retirees run multi-strategy?</strong>
+A: Mostly no. The alpha sleeve adds vol uncertainty and tax drag at
+exactly the wrong life stage. A retiree who wants the
+diversification benefit should get it from bonds and TIPS (week 5,
+week 18), not from a market-neutral hedge fund.
 </p>
 <p>
-Starting Allocation:      After Market Movement:
+<strong>Q: How do I pick the factor for the smart beta sleeve?</strong>
+A: Pick the one whose mechanism you can articulate in a sentence
+and whose drawdown profile you have looked at. Value (VLUE, AVUV)
+for sustained mean-reversion. Momentum (MTUM) for sustained
+trend-following — but accept the 2009 / 2020 momentum crashes.
+Quality (QUAL) for the lowest-fee, lowest-drawdown factor with the
+weakest premium. Multi-factor (USMV, BAB) for diversification
+across factors at the cost of factor purity.
 </p>
-<ul><li>US Stocks:    60%       - US Stocks:    68% (stocks up)</li>
-<li>Int'l Stocks: 25%       - Int'l Stocks: 22%</li>
-<li>Bonds:        15%       - Bonds:        10% (bonds down)</li>
 <p>
-</ul>
-Rebalancing Action:
+<strong>Q: Can I use leverage to amplify the alpha sleeve?</strong>
+A: Technically yes. Operationally no, unless you have run an
+unlevered version through a stress period and survived. SOUL #12
+is the warning. Leverage on a strategy you don't yet trust is the
+classic blow-up.
 </p>
-<ul><li>SELL US Stocks (reduce 68% to 60%)</li>
-<li>BUY Int'l Stocks (increase 22% to 25%)</li>
-<li>BUY Bonds (increase 10% to 15%)</li>
 <p>
-</ul>
-This forces you to systematically:
+<strong>Q: What's the simplest way to run the alpha sleeve at retail?</strong>
+A: A single market-neutral fund (BTAL, MERFX, FTLS, JNK-style
+merger arb) at 5-10% of the book. Fee is high but predictable, the
+correlation to equities really is low, and you don't have to make
+trade-by-trade decisions.
 </p>
-<ul><li>Sell what has gone UP (sell high)</li>
-<li>Buy what has gone DOWN (buy low)</li>
 <p>
-</ul>
-This is a DISCIPLINED VALUE STRATEGY
-built into portfolio maintenance.
-</code></pre>
+<strong>Q: Does this template work in 2026's market?</strong>
+A: The shape works; the inputs need updating. With T-bills at 4%+,
+the cash sleeve is no longer a return drag — and the bond sleeve
+yields more than it did in the 2010s. The alpha-sleeve hurdle is
+correspondingly higher: a market-neutral fund returning 3% net
+beats 5% cash by <em>negative</em> 200 bps. The cash hurdle changes the
+arithmetic; revisit it whenever the front end re-prices.
 </p>
 <p>
-<strong>Rebalancing Approaches:</strong>
+<strong>Q: How do I rebalance a multi-strategy book?</strong>
+A: Calendar rebalance once a year, plus a tolerance band (e.g.
+re-balance if any sleeve drifts more than 5 percentage points
+from target). Do not rebalance on intuition. Week 7 covers the
+mechanics.
 </p>
-<pre><code class="language-">REBALANCING METHODS
 <p>
-====================
+<strong>Q: What if my alpha sleeve has a great year — should I increase it?</strong>
+A: No. Single-year performance has almost zero predictive content
+for next year's alpha. The institutional discipline is to <em>reduce</em>
+an alpha sleeve after a great year (because you've mean-reverted
+closer to the cap on what you can deploy profitably), not increase
+it.
 </p>
 <p>
-METHOD 1: CALENDAR-BASED
+<strong>Q: How does this interact with SOUL #16 — US-only investable?</strong>
+A: Cleanly. The beta sleeve is VTI + BND, both US. The factor
+sleeve is US-listed factor ETFs (VLUE, MTUM, QUAL). The alpha
+sleeve uses US-listed market-neutral funds or US single-name
+long/short. No part of the template requires foreign-listed
+exposure, which keeps custody, tax, and disclosure clean.
 </p>
-<ul><li>Rebalance on a fixed schedule (annually, quarterly)</li>
-<li>Simple to implement and remember</li>
-<li>Annual rebalancing is sufficient for most investors</li>
-<li>Best day: your birthday, tax time, or any consistent date</li>
 <p>
-</ul>
-METHOD 2: THRESHOLD-BASED
+<strong>Q: How much time per week should I spend running this?</strong>
+A: Realistically, 2-4 hours per week if you are running an active
+alpha sleeve, 30 minutes per month if the alpha sleeve is a single
+market-neutral fund, and zero if you have decided (per SOUL #1) to
+run pure beta. Be honest about which bucket you are in.
 </p>
-<ul><li>Rebalance when any asset class drifts beyond a band</li>
 <p>
-</ul>  (e.g., 5 percentage points from target)
-</p>
-<ul><li>More responsive to large market moves</li>
-<li>May trigger rebalancing at better times</li>
-<li>Requires monitoring</li>
-<p>
-</ul>
-METHOD 3: HYBRID
-</p>
-<ul><li>Check quarterly, but only rebalance if drift</li>
-<p>
-</ul>  exceeds a threshold (e.g., 5% relative drift)
-</p>
-<ul><li>Balances responsiveness with simplicity</li>
-<li>Most practical for active investors</li>
-<p>
-</ul>
-REBALANCING FREQUENCY COMPARISON:
-</p>
-<p>
-Frequency       Turnover    Tax Cost    Benefit
----------       --------    --------    -------
-Monthly         High        High        Marginal over quarterly
-Quarterly       Moderate    Moderate    Good balance
-Semi-annually   Low         Low         Solid results
-Annually        Very Low    Very Low    Most practical for most
-Never           Zero        Zero        Portfolio drifts, risk
-increases over time
-</p>
-<p>
-VERDICT: Annual rebalancing captures most of the
-benefit with minimal cost and effort.
-</code></pre>
-</p>
-<p>
-<strong>Rebalancing in Practice -- Cash Flow Rebalancing:</strong>
-</p>
-<pre><code class="language-">SMART REBALANCING WITH CASH FLOWS
-<p>
-===================================
-</p>
-<p>
-Instead of selling assets to rebalance,
-direct new investments to the most
-underweight asset class.
-</p>
-<p>
-Monthly savings: $1,000
-</p>
-<p>
-Month     Portfolio State          Direct New Money To:
------     ---------------          -------------------
-Jan       Stocks overweight         Bonds
-Feb       Bonds overweight          Stocks
-Mar       Close to target           Split evenly
-Apr       Int'l underweight         Int'l stocks
-May       Stocks overweight         Bonds + Int'l
-</p>
-<p>
-ADVANTAGES:
-</p>
-<ul><li>No selling = no capital gains taxes</li>
-<li>No transaction costs from selling</li>
-<li>Automatically buys low</li>
-<li>Works beautifully during accumulation phase</li>
-<p>
-</ul>
-This is the #1 most underrated rebalancing technique.
-</code></pre>
-</p>
-<hr>
-<h4>5. Risk Budgeting Introduction</h4>
-<p>
-Risk budgeting is a framework for thinking about how much risk each strategy contributes to your total portfolio risk.
-</p>
-<pre><code class="language-">RISK BUDGETING CONCEPT
-<p>
-========================
-</p>
-<p>
-Think of your total portfolio risk as a "budget"
-that you allocate across strategies.
-</p>
-<p>
-Total Risk Budget: 100 units
-</p>
-<p>
-Traditional 60/40 Portfolio:
-</p>
-<ul><li>US Stocks (60% allocation):  ~90 risk units</li>
-<li>Bonds (40% allocation):      ~10 risk units</li>
-<p>
-</ul>
-Even though bonds are 40% of the portfolio,
-they only contribute ~10% of the risk!
-The stocks completely dominate.
-</p>
-<p>
-THIS MEANS: A 60/40 portfolio is effectively
-a 90/10 portfolio in risk terms.
-</p>
-<p>
-RISK-AWARE ALLOCATION:
-========================
-</p>
-<p>
-If you want each strategy to contribute
-equally to risk, the allocation shifts:
-</p>
-<p>
-Equal Risk Contribution:
-</p>
-<ul><li>Stocks (~15% vol): allocate ~30% --&gt; ~50 risk units</li>
-<li>Bonds (~5% vol):   allocate ~50% --&gt; ~30 risk units</li>
-<li>Alternatives:      allocate ~20% --&gt; ~20 risk units</li>
-<p>
-</ul>
-Now risk is genuinely diversified.
-</code></pre>
-</p>
-<p>
-<strong>Simple Risk Budget Exercise:</strong>
-</p>
-<pre><code class="language-">YOUR RISK BUDGET WORKSHEET
-<p>
-============================
-</p>
-<p>
-Step 1: Estimate your total portfolio volatility target
-Conservative: 7-10%
-Moderate:     10-13%
-Aggressive:   13-18%
-</p>
-<p>
-Step 2: List your strategies and their volatilities
-US Stocks:              ~15%
-Int'l Developed:        ~16%
-Emerging Markets:       ~22%
-US Bonds:               ~5%
-Int'l Bonds:            ~8%
-Real Estate (REITs):    ~18%
-Factor Tilts:           ~17%
-</p>
-<p>
-Step 3: Adjust allocations so total portfolio vol
-matches your target
-</p>
-<p>
-Example for a 10% target volatility:
-</p>
-<ul><li>US Stocks:         35%  (contributes ~5.3%)</li>
-<li>Int'l Developed:   15%  (contributes ~2.4%)</li>
-<li>Emerging Markets:   5%  (contributes ~1.1%)</li>
-<li>US Bonds:          30%  (contributes ~1.5%)</li>
-<li>REITs:              5%  (contributes ~0.9%)</li>
-<li>Factor Tilts:      10%  (contributes ~1.7%)</li>
-<p>
-</ul>                    ----
-Total portfolio vol: ~10% (accounting for correlations)
-</p>
-<p>
-Note: The exact volatility depends on correlations
-between strategies. This is approximate.
-</code></pre>
-</p>
-<hr>
-<h4>6. Sample Multi-Strategy Portfolios</h4>
-<p>
-Here are several model portfolios that demonstrate multi-strategy principles:
-</p>
-<pre><code class="language-">PORTFOLIO 1: THE SIMPLE STARTER
-<p>
-=================================
-For investors just beginning, seeking simplicity.
-</p>
-<ul><li>50% US Total Stock Market (VTI)</li>
-<li>20% International Stock Market (VXUS)</li>
-<li>30% US Total Bond Market (BND)</li>
-<p>
-</ul>
-Number of funds: 3
-Expense ratio: ~0.05%
-Expected return: ~6-7%
-Expected volatility: ~10%
-Rebalance: Annually
-</p>
-<p>
-PHILOSOPHY: Capture global market returns cheaply.
-No factor tilts, no alternatives. Just broad
-diversification at rock-bottom cost. This is
-better than 90% of professionally managed portfolios.
-</p>
-<p>
-PORTFOLIO 2: THE FACTOR-TILTED
-================================
-For investors who understand factor premiums
-and want incremental returns.
-</p>
-<p>
-CORE (70%):
-</p>
-<ul><li>35% US Total Stock Market (VTI)</li>
-<li>20% International Developed (VEA)</li>
-<li>15% US Aggregate Bond (BND)</li>
-<p>
-</ul>
-SATELLITES (30%):
-</p>
-<ul><li>10% US Small Value (VBR or AVUV)</li>
-<li>10% International Value (EFV or AVDV)</li>
-<li>5%  US Momentum (MTUM)</li>
-<li>5%  US Quality (QUAL)</li>
-<p>
-</ul>
-Number of funds: 7
-Expense ratio: ~0.10%
-Expected return: ~7-8%
-Expected volatility: ~11%
-Rebalance: Semi-annually
-</p>
-<p>
-PHILOSOPHY: Broad market core plus systematic
-factor tilts targeting value, size, momentum,
-and quality premiums.
-</p>
-<p>
-PORTFOLIO 3: THE ALL-WEATHER
-==============================
-Designed to perform reasonably in any environment.
-</p>
-<ul><li>30% US Stocks (VTI)</li>
-<li>15% International Stocks (VXUS)</li>
-<li>25% Long-Term US Bonds (VGLT)</li>
-<li>15% TIPS (VTIP)</li>
-<li>7.5% Gold (GLD or IAU)</li>
-<li>7.5% Commodities (DJP or PDBC)</li>
-<p>
-</ul>
-Number of funds: 6
-Expense ratio: ~0.15%
-Expected return: ~5-6%
-Expected volatility: ~7-8%
-Rebalance: Annually
-</p>
-<p>
-PHILOSOPHY: Based on Ray Dalio's concept.
-No single economic environment dominates.
-Works in growth, recession, inflation, deflation.
-Lower returns but much smoother ride.
-</p>
-<p>
-PORTFOLIO 4: THE GLOBAL MULTI-STRATEGY
-========================================
-For experienced investors seeking maximum
-diversification across strategies.
-</p>
-<p>
-CORE EQUITIES (50%):
-</p>
-<ul><li>25% US Broad Market (VTI)</li>
-<li>15% International Developed (VEA)</li>
-<li>10% Emerging Markets (VWO)</li>
-<p>
-</ul>
-FACTOR SATELLITES (20%):
-</p>
-<ul><li>7%  US Small Value (VBR)</li>
-<li>7%  International Small Value (AVDV)</li>
-<li>6%  Multi-Factor (LRGF)</li>
-<p>
-</ul>
-FIXED INCOME (20%):
-</p>
-<ul><li>10% US Aggregate Bond (BND)</li>
-<li>5%  TIPS (VTIP)</li>
-<li>5%  International Bond Hedged (BNDX)</li>
-<p>
-</ul>
-REAL ASSETS (10%):
-</p>
-<ul><li>5%  REITs (VNQ)</li>
-<li>5%  Commodities/Gold (GLD)</li>
-<p>
-</ul>
-Number of funds: 11
-Expense ratio: ~0.12%
-Expected return: ~7-8%
-Expected volatility: ~10%
-Rebalance: Semi-annually with threshold triggers
-</p>
-<p>
-PHILOSOPHY: Maximum diversification across geography,
-asset class, and factor exposure. Complex but robust.
-</code></pre>
-</p>
-<hr>
-<h4>7. Reviewing Key Concepts from Level 1-2</h4>
-<p>
-This is a good moment to review the foundational concepts that underpin everything we have discussed:
-</p>
-<pre><code class="language-">CONCEPT REVIEW: THE BUILDING BLOCKS
-<p>
-=====================================
-</p>
-<p>
-FROM LEVEL 1 (Weeks 1-12):
-</p>
-<li>RISK AND RETURN</li>
-<p>
-Higher expected returns require accepting
-higher risk. There is no free lunch...
-except diversification.
-</p>
-<li>DIVERSIFICATION</li>
-<p>
-Don't put all eggs in one basket.
-Combine assets with low correlations.
-Works across stocks, bonds, countries, factors.
-</p>
-<li>COMPOUND INTEREST</li>
-<p>
-Time is your greatest asset. Starting early
-matters more than starting big. A dollar
-invested at 8% doubles in 9 years.
-</p>
-<li>ASSET ALLOCATION</li>
-<p>
-How you split between stocks and bonds
-explains ~90% of portfolio return variation.
-Stock selection is secondary.
-</p>
-<li>INDEX INVESTING</li>
-<p>
-Most active managers underperform their benchmark.
-Low-cost index funds outperform most alternatives.
-Costs matter enormously over long periods.
-</p>
-<li>BEHAVIORAL FINANCE</li>
-<p>
-Your brain is wired to make investing mistakes.
-Fear, greed, overconfidence, and anchoring
-lead to systematic errors. Automate when possible.
-</p>
-<p>
-FROM LEVEL 2 (Weeks 13-24):
-</p>
-<li>BOND MECHANICS</li>
-<p>
-Duration, yield curves, credit risk.
-Bonds are not just "safe" -- they have
-their own risk-return dynamics.
-</p>
-<li>EQUITY VALUATION</li>
-<p>
-P/E, P/B, EV/EBITDA, DCF.
-Price is what you pay, value is what you get.
-Always know what you are paying for.
-</p>
-<li>INTERNATIONAL DIVERSIFICATION</li>
-<p>
-Home bias costs you returns and increases risk.
-Currency is a separate source of risk and return.
-Go global.
-</p>
-<li>FACTOR INVESTING</li>
-<p>
-Value, momentum, quality, size, low volatility.
-Returns have systematic drivers beyond market beta.
-Factor diversification is as important as
-stock diversification.
-</p>
-<li>PORTFOLIO CONSTRUCTION</li>
-<p>
-Core-satellite, risk budgeting, rebalancing.
-The whole is greater than the sum of its parts.
-Design beats selection.
-</code></pre>
-</p>
-<hr>
-<h4>8. The Implementation Checklist</h4>
-<pre><code class="language-">BUILDING YOUR MULTI-STRATEGY PORTFOLIO
-<p>
-=========================================
-</p>
-<p>
-STEP 1: DEFINE YOUR OBJECTIVES
-</p>
-<ul><li>Time horizon (5 years? 20 years? 40 years?)</li>
-<li>Return target (what growth rate do you need?)</li>
-<li>Risk tolerance (what maximum drawdown can you handle?)</li>
-<li>Income needs (do you need cash flow from the portfolio?)</li>
-<li>Tax situation (taxable, tax-deferred, tax-free accounts?)</li>
-<p>
-</ul>
-STEP 2: CHOOSE YOUR CORE
-</p>
-<ul><li>US Total Market index fund</li>
-<li>International index fund</li>
-<li>Bond index fund</li>
-<li>Keep it simple: 2-4 holdings for the core</li>
-<p>
-</ul>
-STEP 3: SELECT YOUR SATELLITES (if any)
-</p>
-<ul><li>Factor tilts (value, momentum, quality)</li>
-<li>Regional overweights (emerging markets, specific countries)</li>
-<li>Alternative strategies (real assets, commodities)</li>
-<li>Maximum 3-5 satellite positions to start</li>
-<p>
-</ul>
-STEP 4: SET TARGET ALLOCATIONS
-</p>
-<ul><li>Write down your target percentages</li>
-<li>Set rebalancing thresholds (e.g., +/- 5%)</li>
-<li>Choose a rebalancing frequency (annually recommended)</li>
-<p>
-</ul>
-STEP 5: IMPLEMENT TAX-EFFICIENTLY
-</p>
-<ul><li>Place high-turnover strategies in tax-advantaged accounts</li>
-<li>Place tax-efficient index funds in taxable accounts</li>
-<li>Use tax-loss harvesting where appropriate</li>
-<p>
-</ul>
-STEP 6: DOCUMENT YOUR PLAN
-</p>
-<ul><li>Write an Investment Policy Statement (IPS)</li>
-<li>Include: objectives, allocation, rebalancing rules,</li>
-<p>
-</ul>  review schedule
-</p>
-<ul><li>The IPS is your anchor in stormy markets</li>
-<p>
-</ul>
-STEP 7: REVIEW AND MAINTAIN
-</p>
-<ul><li>Annual portfolio review (not daily!)</li>
-<li>Rebalance as needed</li>
-<li>Re-evaluate only when life circumstances change</li>
-<p>
-</ul>  (not when markets move)
-</code></pre>
-</p>
-<hr>
-<h4>9. Common Implementation Mistakes</h4>
-<pre><code class="language-">MISTAKES TO AVOID
-<p>
-==================
-</p>
-<li>OVER-DIVERSIFICATION (DIWORSIFICATION)</li>
-<p>
-More than 10-12 holdings in a personal portfolio
-creates complexity without meaningful additional
-diversification. You spend more time managing
-and rebalancing than investing.
-</p>
-<li>CONSTANT TINKERING</li>
-<p>
-The urge to "optimize" by making frequent
-changes destroys returns through transaction
-costs, taxes, and behavioral errors. Build your
-portfolio, set your rules, and STEP AWAY.
-</p>
-<li>CHASING LAST YEAR'S WINNER</li>
-<p>
-Adding a new strategy because it performed
-well recently is performance chasing at the
-strategy level. By the time you add it,
-the best performance may be over.
-</p>
-<li>IGNORING COSTS</li>
-<p>
-A strategy with a 2% expected premium that
-costs 1% in fees and 0.5% in taxes delivers
-only 0.5% net. Always think in NET-OF-COST
-terms.
-</p>
-<li>NOT HAVING A WRITTEN PLAN</li>
-<p>
-Without a written investment policy statement,
-you WILL make emotional decisions during market
-stress. Write down your plan in advance.
-</p>
-<li>COMPARING TO THE WRONG BENCHMARK</li>
-<p>
-A multi-strategy portfolio should not be
-compared to the S&amp;P 500. A diversified portfolio
-WILL underperform an all-stock portfolio in
-strong stock markets. That is by design.
-</p>
-<li>ABANDONING STRATEGIES DURING DRAWDOWNS</li>
-<p>
-Every strategy has bad periods. If you abandon
-value after 3 years of underperformance, you
-will miss the recovery. The premium exists
-BECAUSE it is painful to hold through drawdowns.
-</code></pre>
-</p>
-<hr>
-<h4>10. Putting It In Perspective -- What Really Matters</h4>
-<pre><code class="language-">INVESTMENT DECISIONS RANKED BY IMPACT
-<p>
-=======================================
-</p>
-<p>
-HIGHEST IMPACT:
-</p>
-<li>Savings rate (how much you invest)</li>
-<li>Time in the market (how long you invest)</li>
-<li>Asset allocation (stocks vs. bonds split)</li>
-<li>Cost management (fees, taxes, expenses)</li>
-<p>
-MODERATE IMPACT:
-</p>
-<li>International diversification</li>
-<li>Factor tilts</li>
-<li>Rebalancing discipline</li>
-<li>Tax-loss harvesting</li>
-<p>
-LOW IMPACT:
-</p>
-<li>Individual stock selection</li>
-<li>Market timing</li>
-<li>Specific fund choice within an asset class</li>
-<li>Precise allocation percentages</li>
-<p>
-Most investors spend 80% of their time on
-items 9-12, which have the least impact.
-</p>
-<p>
-Spend your energy on items 1-4, and you will
-build more wealth than 95% of investors.
-</code></pre>
-</p>
-<hr>
-<h3>c) Common Misconceptions</h3>
-<p>
-<strong>Misconception 1: "A multi-strategy portfolio is just over-complicated indexing."</strong>
-</p>
-<p>
-Reality: A well-constructed multi-strategy portfolio goes beyond simple indexing by deliberately combining strategies with different return drivers. The core may be index funds (for good reason -- they are excellent), but the satellite strategies add factor exposure, alternative risk premiums, or tactical elements that a simple three-fund portfolio does not capture. The goal is not complexity for its own sake -- it is assembling return streams that complement each other across different market environments.
-</p>
-<p>
-<strong>Misconception 2: "I need to find the 'optimal' allocation."</strong>
-</p>
-<p>
-Reality: There is no optimal allocation because it depends on the future, which is unknown. The difference between a 60/40 and a 65/35 portfolio is negligible over long periods. What matters far more is picking a reasonable allocation and sticking with it through thick and thin. An imperfect portfolio held with discipline will outperform a "perfect" portfolio that you cannot maintain because you panic and sell during downturns.
-</p>
-<p>
-<strong>Misconception 3: "Rebalancing always improves returns."</strong>
-</p>
-<p>
-Reality: Rebalancing primarily controls risk, not enhances return. In a persistently trending market, rebalancing can actually reduce returns because you are selling winners and buying losers that keep losing. However, rebalancing prevents your portfolio from becoming dangerously concentrated in whatever has performed best, which protects you from the inevitable reversal. Think of rebalancing as insurance, not as a return booster.
-</p>
-<p>
-<strong>Misconception 4: "More strategies means more diversification."</strong>
-</p>
-<p>
-Reality: Adding truly uncorrelated strategies improves diversification. But adding strategies that are closely correlated with existing holdings adds complexity without benefit. Five different US large-cap stock funds are not diversification. Diversification comes from fundamentally different return drivers: stocks vs. bonds, domestic vs. international, value vs. momentum, financial assets vs. real assets.
-</p>
-<p>
-<strong>Misconception 5: "I should wait for the perfect time to implement my portfolio."</strong>
-</p>
-<p>
-Reality: The perfect time is now. Research consistently shows that lump-sum investing outperforms dollar-cost averaging approximately two-thirds of the time, because markets go up more often than they go down. If you have a lump sum, invest it according to your target allocation. If you are investing monthly from income, start immediately. Market timing destroys more wealth than it creates.
-</p>
-<p>
-<strong>Misconception 6: "Once I build my portfolio, I never need to change it."</strong>
-</p>
-<p>
-Reality: Your portfolio should evolve as your life circumstances change. As you approach retirement, you should generally reduce equity exposure and increase bonds and cash. If you receive a windfall, your risk tolerance may change. If a new low-cost investment vehicle becomes available, you might switch to it. The key is to change for the right reasons (life changes, not market movements) and to change deliberately, not reactively.
-</p>
-<hr>
-<h3>d) Common Questions and Answers</h3>
-<p>
-<strong>Q1: I am just starting out with $5,000. Is a multi-strategy portfolio realistic?</strong>
-</p>
-<p>
-A: At $5,000, keep it simple. A single target-date fund or a three-fund portfolio (US stocks, international stocks, bonds) is the best approach. You do not need factor tilts, alternative strategies, or complex satellite positions. As your portfolio grows beyond $50,000-$100,000, you can begin adding complexity. The most important thing at $5,000 is to start investing, not to build the perfect portfolio.
-</p>
-<p>
-<strong>Q2: How many funds do I actually need?</strong>
-</p>
-<p>
-A: For most investors, 3-7 funds capture the vast majority of diversification benefits. A three-fund portfolio (US stocks, international stocks, US bonds) is genuinely excellent. Adding small value, a factor tilt, and perhaps TIPS or real estate gets you to 5-7 funds and captures almost everything discussed in this course. Beyond 10-12 funds, you are adding complexity with minimal diversification benefit.
-</p>
-<p>
-<strong>Q3: Should I use target-date funds instead of building my own portfolio?</strong>
-</p>
-<p>
-A: Target-date funds are an excellent choice for investors who want a professionally managed, automatically rebalancing, age-appropriate allocation in a single fund. The main trade-offs are: slightly higher expense ratios (0.10-0.15% vs. 0.03-0.05% for individual index funds), less control over specific allocations, and no ability to add factor tilts or tax-loss harvest. If simplicity and automation are priorities, a target-date fund is a great solution.
-</p>
-<p>
-<strong>Q4: How do I handle tax-loss harvesting in a multi-strategy portfolio?</strong>
-</p>
-<p>
-A: Tax-loss harvesting involves selling an investment at a loss to offset gains elsewhere, then buying a similar (but not "substantially identical") investment to maintain exposure. In a multi-strategy portfolio, you can harvest losses in underperforming satellites while keeping your overall factor and geographic exposure intact. For example, if your small-value fund is down, sell it and buy a different small-value fund from a different provider. The wash-sale rule requires you to wait 30 days before buying back the same fund.
-</p>
-<p>
-<strong>Q5: What is the role of cash in a multi-strategy portfolio?</strong>
-</p>
-<p>
-A: Cash serves several purposes. First, it provides an emergency fund (3-6 months of expenses) separate from your investment portfolio. Second, a small cash allocation (2-5%) within the portfolio provides liquidity for rebalancing without selling other assets. Third, in high-interest-rate environments, money market funds and short-term Treasuries can earn meaningful returns with zero risk. Cash is often overlooked but is a genuine portfolio tool.
-</p>
-<p>
-<strong>Q6: How do I know if my portfolio is working?</strong>
-</p>
-<p>
-A: Do not measure success by whether you beat the S&P 500. A diversified multi-strategy portfolio will underperform a pure stock portfolio in strong bull markets and outperform in bear markets. Instead, measure success by: (1) whether you are on track to meet your financial goals, (2) whether portfolio volatility matches your risk tolerance, (3) whether you can sleep at night during market turbulence, and (4) whether you are maintaining your investment discipline (rebalancing, saving consistently, not panic-selling).
-</p>
-<p>
-<strong>Q7: Should I use a robo-advisor to implement my multi-strategy portfolio?</strong>
-</p>
-<p>
-A: Robo-advisors (like Betterment, Wealthfront) automate many multi-strategy portfolio features: diversified allocation, automatic rebalancing, tax-loss harvesting, and age-appropriate risk management. They charge 0.25% annually for these services. For investors who want a hands-off approach with solid multi-strategy principles, robo-advisors are a reasonable option. The trade-off is less customization and the ongoing fee, which adds up over decades.
-</p>
-<p>
-<strong>Q8: How often should I check my portfolio?</strong>
-</p>
-<p>
-A: Checking your portfolio daily adds stress without adding value. Most studies show that investors who check less frequently earn higher returns because they are less likely to react emotionally to short-term movements. Check quarterly to ensure nothing has gone seriously wrong, and do a thorough review annually to rebalance and reassess your allocation. In between, direct your energy toward earning more income and saving more -- those have a far greater impact than portfolio tweaks.
-</p>
-<p>
-<strong>Q9: What if I want to add individual stock picks to my multi-strategy portfolio?</strong>
-</p>
-<p>
-A: Individual stock selection can fit within the satellite portion of a core-satellite portfolio. Limit it to 5-10% of your total portfolio -- enough to satisfy the itch to pick stocks without risking your financial future. Apply the valuation frameworks from Week 21, be honest about whether you have an edge, and keep careful track of your results versus a benchmark. Most individual stock pickers underperform after costs and taxes, but if it keeps you engaged with investing, a small allocation can be worthwhile.
-</p>
-<p>
-<strong>Q10: What is the single most important takeaway from this entire course?</strong>
-</p>
-<p>
-A: If you only remember one thing, let it be this: invest early, invest consistently, diversify broadly, keep costs low, and do not panic when markets fall. The vast majority of wealth building comes from these simple principles, not from clever strategies or perfect timing. Every concept in this course -- from compound interest to factor investing to multi-strategy portfolios -- is ultimately in service of this core truth: patient, disciplined, diversified investing works. The enemy is not the market -- it is your own impatience and emotion.
+<strong>Q: What's the L3 version of this?</strong>
+A: L3 layers in derivatives — option overlays for tail hedging
+(week 47), volatility arbitrage (week 49), and tax-aware
+expression of the same exposures via options and margin (SOUL #15).
+The L3 book has the same four-sleeve shape; it just expresses each
+sleeve more capital-efficiently. L2 first.
 </p>
             </div>
             <div id="content-hk" class="lang-content">

@@ -1,0 +1,803 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Income Builder — Interactive (Week 36)</title>
+<script src="https://cdn.plot.ly/plotly-2.35.2.min.js" charset="utf-8"></script>
+<style>
+html, body { margin: 0; padding: 0; background: var(--ib2-bg); }
+:root {
+    --ib2-bg: #fdfbf5;
+    --ib2-text: #1a2332;
+    --ib2-muted: #6b7280;
+    --ib2-border: #d6d3c4;
+    --ib2-card: #fdfbf5;
+    --ib2-tre: #0d47a1;
+    --ib2-corp: #b71c1c;
+    --ib2-qd: #2e7d32;
+    --ib2-reit: #6a1b9a;
+    --ib2-opt: #b8860b;
+    --ib2-bad: #b71c1c;
+    --ib2-mid: #0d47a1;
+    --ib2-accent: #b8860b;
+}
+html[data-theme="dark"] .ib2-root,
+.ib2-root[data-theme="dark"] {
+    --ib2-bg: #0f1724;
+    --ib2-text: #e6e6e6;
+    --ib2-muted: #9aa3b2;
+    --ib2-border: #2a3441;
+    --ib2-card: #0f1724;
+    --ib2-tre: #5a8dee;
+    --ib2-corp: #ef5350;
+    --ib2-qd: #66bb6a;
+    --ib2-reit: #a774d6;
+    --ib2-opt: #d4a02b;
+    --ib2-bad: #ef5350;
+    --ib2-mid: #5a8dee;
+    --ib2-accent: #d4a02b;
+}
+.ib2-root {
+    font-family: 'Segoe UI', Helvetica, Arial, sans-serif;
+    background: var(--ib2-bg);
+    color: var(--ib2-text);
+    padding: 12px;
+    margin: 0;
+}
+.ib2-presets {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 12px;
+}
+.ib2-preset-pill {
+    background: var(--ib2-card);
+    border: 1px solid var(--ib2-border);
+    color: var(--ib2-text);
+    border-radius: 999px;
+    padding: 6px 14px;
+    font-size: 0.82rem;
+    cursor: pointer;
+    user-select: none;
+    transition: all 0.12s;
+}
+.ib2-preset-pill:hover { border-color: var(--ib2-mid); }
+.ib2-preset-pill.ib2-active {
+    background: var(--ib2-mid);
+    color: white;
+    border-color: var(--ib2-mid);
+}
+.ib2-toolbar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    align-items: center;
+    margin-bottom: 12px;
+}
+.ib2-bracket-group {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.ib2-bracket-group .ib2-lbl {
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--ib2-muted);
+}
+.ib2-pills {
+    display: inline-flex;
+    border: 1px solid var(--ib2-border);
+    border-radius: 999px;
+    overflow: hidden;
+    background: var(--ib2-card);
+}
+.ib2-pills button {
+    border: none;
+    background: transparent;
+    color: var(--ib2-muted);
+    padding: 5px 11px;
+    font: inherit;
+    font-size: 0.82rem;
+    font-weight: 600;
+    cursor: pointer;
+}
+.ib2-pills button:hover { color: var(--ib2-text); }
+.ib2-pills button.active {
+    background: var(--ib2-accent);
+    color: #fff;
+}
+.ib2-norm-btn {
+    border: 1px solid var(--ib2-border);
+    background: var(--ib2-card);
+    color: var(--ib2-text);
+    padding: 5px 12px;
+    border-radius: 999px;
+    font-size: 0.82rem;
+    cursor: pointer;
+}
+.ib2-norm-btn:hover { border-color: var(--ib2-mid); }
+.ib2-controls {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+    margin-bottom: 14px;
+    padding: 12px;
+    background: var(--ib2-card);
+    border: 1px solid var(--ib2-border);
+    border-radius: 8px;
+}
+.ib2-slider-wrap {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    font-size: 0.82rem;
+    color: var(--ib2-muted);
+}
+.ib2-slider-wrap .ib2-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.ib2-slider-wrap input[type="range"] { flex: 1; }
+.ib2-slider-wrap .ib2-val {
+    white-space: nowrap;
+    color: var(--ib2-text);
+    font-weight: 700;
+    font-variant-numeric: tabular-nums;
+    min-width: 48px;
+    text-align: right;
+}
+.ib2-slider-wrap .ib2-name { font-weight: 600; color: var(--ib2-text); }
+.ib2-slider-wrap.ib2-tre  input[type="range"] { accent-color: var(--ib2-tre); }
+.ib2-slider-wrap.ib2-corp input[type="range"] { accent-color: var(--ib2-corp); }
+.ib2-slider-wrap.ib2-qd   input[type="range"] { accent-color: var(--ib2-qd); }
+.ib2-slider-wrap.ib2-reit input[type="range"] { accent-color: var(--ib2-reit); }
+.ib2-slider-wrap.ib2-opt  input[type="range"] { accent-color: var(--ib2-opt); }
+.ib2-sumline {
+    grid-column: 1 / -1;
+    font-size: 0.82rem;
+    color: var(--ib2-muted);
+    text-align: right;
+    margin-top: -2px;
+}
+.ib2-sumline.ib2-bad { color: var(--ib2-bad); font-weight: 700; }
+.ib2-stats {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 10px;
+    margin-bottom: 14px;
+}
+.ib2-stat {
+    background: var(--ib2-card);
+    border: 1px solid var(--ib2-border);
+    border-left: 4px solid var(--ib2-muted);
+    border-radius: 8px;
+    padding: 10px 12px;
+}
+.ib2-stat.ib2-stat-pre  { border-left-color: var(--ib2-tre); }
+.ib2-stat.ib2-stat-aft  { border-left-color: var(--ib2-qd); }
+.ib2-stat.ib2-stat-vol  { border-left-color: var(--ib2-opt); }
+.ib2-stat.ib2-stat-dd   { border-left-color: var(--ib2-corp); }
+.ib2-stat .ib2-stat-name {
+    font-size: 0.74rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--ib2-muted);
+}
+.ib2-stat .ib2-stat-val {
+    font-size: 1.45rem;
+    font-weight: 700;
+    margin-top: 4px;
+    font-variant-numeric: tabular-nums;
+}
+.ib2-stat .ib2-stat-detail {
+    font-size: 0.78rem;
+    color: var(--ib2-muted);
+    margin-top: 2px;
+    font-variant-numeric: tabular-nums;
+}
+.ib2-chart {
+    width: 100%;
+    height: 320px;
+    background: var(--ib2-card);
+    border-radius: 8px;
+    border: 1px solid var(--ib2-border);
+}
+.ib2-section-title {
+    margin: 6px 4px;
+    font-size: 0.82rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--ib2-muted);
+}
+.ib2-caption {
+    margin-top: 10px;
+    font-size: 0.78rem;
+    color: var(--ib2-muted);
+    line-height: 1.45;
+}
+@media (max-width: 720px) {
+    .ib2-controls { grid-template-columns: 1fr; }
+    .ib2-stats { grid-template-columns: repeat(2, 1fr); }
+    .ib2-chart { height: 280px; }
+}
+</style>
+</head>
+<body>
+
+<div class="ib2-root" id="ib2-root">
+    <div class="ib2-presets" id="ib2-presets"></div>
+
+    <div class="ib2-toolbar">
+        <div class="ib2-bracket-group">
+            <span class="ib2-lbl" id="ib2-lbl-bracket">Federal bracket</span>
+            <div class="ib2-pills" id="ib2-bracket-pills" role="tablist">
+                <button type="button" data-b="0.12">12%</button>
+                <button type="button" data-b="0.22">22%</button>
+                <button type="button" data-b="0.32" class="active">32%</button>
+                <button type="button" data-b="0.37">37%</button>
+            </div>
+        </div>
+        <div class="ib2-bracket-group">
+            <span class="ib2-lbl" id="ib2-lbl-state">State rate</span>
+            <div class="ib2-pills" id="ib2-state-pills" role="tablist">
+                <button type="button" data-s="0.00">0%</button>
+                <button type="button" data-s="0.05" class="active">5%</button>
+                <button type="button" data-s="0.10">10%</button>
+            </div>
+        </div>
+        <div class="ib2-bracket-group">
+            <span class="ib2-lbl" id="ib2-lbl-account">Account</span>
+            <div class="ib2-pills" id="ib2-account-pills" role="tablist">
+                <button type="button" data-a="taxable" class="active" id="ib2-acct-tax">Taxable</button>
+                <button type="button" data-a="ira" id="ib2-acct-ira">IRA / 401(k)</button>
+            </div>
+        </div>
+        <button type="button" class="ib2-norm-btn" id="ib2-norm">Normalise to 100</button>
+    </div>
+
+    <div class="ib2-controls">
+        <div class="ib2-slider-wrap ib2-tre">
+            <div class="ib2-name" id="ib2-name-tre">Treasuries (IEF / SGOV / TLT)</div>
+            <div class="ib2-row">
+                <input type="range" id="ib2-w-tre" min="0" max="100" step="1" value="20">
+                <span class="ib2-val" id="ib2-val-tre">20%</span>
+            </div>
+        </div>
+        <div class="ib2-slider-wrap ib2-corp">
+            <div class="ib2-name" id="ib2-name-corp">IG / HY corporate (LQD, HYG, BND)</div>
+            <div class="ib2-row">
+                <input type="range" id="ib2-w-corp" min="0" max="100" step="1" value="25">
+                <span class="ib2-val" id="ib2-val-corp">25%</span>
+            </div>
+        </div>
+        <div class="ib2-slider-wrap ib2-qd">
+            <div class="ib2-name" id="ib2-name-qd">Qualified-dividend equity (SCHD, VYM)</div>
+            <div class="ib2-row">
+                <input type="range" id="ib2-w-qd" min="0" max="100" step="1" value="35">
+                <span class="ib2-val" id="ib2-val-qd">35%</span>
+            </div>
+        </div>
+        <div class="ib2-slider-wrap ib2-reit">
+            <div class="ib2-name" id="ib2-name-reit">REITs (VNQ / SCHH)</div>
+            <div class="ib2-row">
+                <input type="range" id="ib2-w-reit" min="0" max="100" step="1" value="10">
+                <span class="ib2-val" id="ib2-val-reit">10%</span>
+            </div>
+        </div>
+        <div class="ib2-slider-wrap ib2-opt">
+            <div class="ib2-name" id="ib2-name-opt">Premium-write (JEPI / JEPQ / QYLD)</div>
+            <div class="ib2-row">
+                <input type="range" id="ib2-w-opt" min="0" max="100" step="1" value="10">
+                <span class="ib2-val" id="ib2-val-opt">10%</span>
+            </div>
+        </div>
+        <div class="ib2-sumline" id="ib2-sumline">Total: 100%</div>
+    </div>
+
+    <div class="ib2-stats">
+        <div class="ib2-stat ib2-stat-pre">
+            <div class="ib2-stat-name" id="ib2-name-pre">Pre-tax yield</div>
+            <div class="ib2-stat-val" id="ib2-val-pre">—</div>
+            <div class="ib2-stat-detail" id="ib2-det-pre">—</div>
+        </div>
+        <div class="ib2-stat ib2-stat-aft">
+            <div class="ib2-stat-name" id="ib2-name-aft">After-tax yield</div>
+            <div class="ib2-stat-val" id="ib2-val-aft">—</div>
+            <div class="ib2-stat-detail" id="ib2-det-aft">—</div>
+        </div>
+        <div class="ib2-stat ib2-stat-vol">
+            <div class="ib2-stat-name" id="ib2-name-vol">Expected volatility</div>
+            <div class="ib2-stat-val" id="ib2-val-vol">—</div>
+            <div class="ib2-stat-detail" id="ib2-det-vol">—</div>
+        </div>
+        <div class="ib2-stat ib2-stat-dd">
+            <div class="ib2-stat-name" id="ib2-name-dd">Expected max drawdown</div>
+            <div class="ib2-stat-val" id="ib2-val-dd">—</div>
+            <div class="ib2-stat-detail" id="ib2-det-dd">—</div>
+        </div>
+    </div>
+
+    <div class="ib2-section-title" id="ib2-chart-title">Income contribution by sleeve (% of portfolio yield)</div>
+    <div id="ib2-chart" class="ib2-chart"></div>
+
+    <p class="ib2-caption" id="ib2-caption">
+        Pre-tax yields (April 2026): Treasuries 4.0%, IG/HY corporate 5.5% blend, qualified-dividend equity 3.4%, REITs 3.8%, premium-write 7.8%. Tax categories applied at the selected bracket: Treasuries lose federal only; corporates and option premium lose federal + state; qualified dividends use the LTCG schedule (0/15/20%) + state; REITs apply the 199A 20% reduction to ordinary. Volatility from sleeve sigmas (Treasuries 5%, corporate 6%, dividend equity 14%, REIT 19%, premium-write 11%) with assumed correlations. Drawdown estimate uses a heuristic 0.6× peak-historical-loss per sleeve, weighted.
+    </p>
+</div>
+
+<script>
+(function () {
+    const I18N = {
+        en: {
+            lbl_bracket: "Federal bracket", lbl_state: "State rate", lbl_account: "Account",
+            acct_tax: "Taxable", acct_ira: "IRA / 401(k)",
+            name_tre: "Treasuries (IEF / SGOV / TLT)",
+            name_corp: "IG / HY corporate (LQD, HYG, BND)",
+            name_qd: "Qualified-dividend equity (SCHD, VYM)",
+            name_reit: "REITs (VNQ / SCHH)",
+            name_opt: "Premium-write (JEPI / JEPQ / QYLD)",
+            name_pre: "Pre-tax yield",
+            name_aft: "After-tax yield",
+            name_vol: "Expected volatility",
+            name_dd: "Expected max drawdown",
+            sum_ok: "Total: {t}%",
+            sum_bad: "Total: {t}%  (must equal 100)",
+            det_pre: "weighted avg of sleeve yields",
+            det_aft: "after {b} federal + {s} state",
+            det_vol: "annualised; {b} for 60/40 ref",
+            det_dd: "60% of historical peak loss, weighted",
+            normalise: "Normalise to 100",
+            preset_label: "Presets:",
+            preset_taxA: "Model A — Taxable",
+            preset_iraB: "Model B — IRA",
+            preset_bond: "Bond-heavy 50/30/0/0/20",
+            preset_div:  "All-dividend 0/0/100/0/0",
+            preset_yield:"Yield-chase 0/20/0/0/80",
+            preset_balanced: "Balanced 20/25/35/10/10",
+            chart_title: "Income contribution by sleeve (% of portfolio yield)",
+            x_title: "Yield contribution (% of portfolio)",
+            y_label: "Portfolio",
+            tr_tre: "Treasuries", tr_corp: "Corporate", tr_qd: "Qualified div",
+            tr_reit: "REITs", tr_opt: "Premium-write",
+            ira_note: "(IRA: tax irrelevant inside)",
+            caption: "Pre-tax yields (April 2026): Treasuries 4.0%, IG/HY corporate 5.5% blend, qualified-dividend equity 3.4%, REITs 3.8%, premium-write 7.8%. Tax categories applied at the selected bracket: Treasuries lose federal only; corporates and option premium lose federal + state; qualified dividends use the LTCG schedule (0/15/20%) + state; REITs apply the 199A 20% reduction to ordinary. Volatility from sleeve sigmas (Treasuries 5%, corporate 6%, dividend equity 14%, REIT 19%, premium-write 11%) with assumed correlations. Drawdown estimate uses a heuristic 0.6× peak-historical-loss per sleeve, weighted.",
+        },
+        hk: {
+            lbl_bracket: "聯邦稅階", lbl_state: "州稅率", lbl_account: "帳戶",
+            acct_tax: "應稅", acct_ira: "IRA / 401(k)",
+            name_tre: "國債(IEF / SGOV / TLT)",
+            name_corp: "投資級 / 高息公司債(LQD、HYG、BND)",
+            name_qd: "合格股息股票(SCHD、VYM)",
+            name_reit: "REITs(VNQ / SCHH)",
+            name_opt: "權利金書寫(JEPI / JEPQ / QYLD)",
+            name_pre: "稅前收益率",
+            name_aft: "稅後收益率",
+            name_vol: "預期波動",
+            name_dd: "預期最大回撤",
+            sum_ok: "合計:{t}%",
+            sum_bad: "合計:{t}%(必須為 100)",
+            det_pre: "各板塊收益率加權平均",
+            det_aft: "扣 {b} 聯邦 + {s} 州稅後",
+            det_vol: "年化;60/40 參考為 {b}",
+            det_dd: "歷史峰值損失的 60%,按權重加權",
+            normalise: "歸一化至 100",
+            preset_label: "預設:",
+            preset_taxA: "方案 A — 應稅",
+            preset_iraB: "方案 B — IRA",
+            preset_bond: "重債 50/30/0/0/20",
+            preset_div:  "全股息 0/0/100/0/0",
+            preset_yield:"追高息 0/20/0/0/80",
+            preset_balanced: "平衡 20/25/35/10/10",
+            chart_title: "各板塊對組合收益率的貢獻",
+            x_title: "收益率貢獻(佔組合 %)",
+            y_label: "組合",
+            tr_tre: "國債", tr_corp: "公司債", tr_qd: "合格股息",
+            tr_reit: "REIT", tr_opt: "權利金書寫",
+            ira_note: "(IRA 內稅務無關)",
+            caption: "稅前收益率(2026 年 4 月):國債 4.0%、投資級/高息公司債 混合 5.5%、合格股息股票 3.4%、REITs 3.8%、權利金書寫 7.8%。按所選稅階套用稅務:國債只扣聯邦;公司債及期權權利金扣聯邦+州;合格股息用 LTCG 表(0/15/20%)+州稅;REIT 對普通收入部分扣 80% 應稅(199A)。波動由各板塊 sigma(國債 5%、公司債 6%、股息股 14%、REIT 19%、權利金 11%)及假設相關性算出。回撤估計用「歷史峰值損失 × 0.6」加權。",
+        },
+        tw: {
+            lbl_bracket: "聯邦稅階", lbl_state: "州稅率", lbl_account: "帳戶",
+            acct_tax: "應稅", acct_ira: "IRA / 401(k)",
+            name_tre: "公債(IEF / SGOV / TLT)",
+            name_corp: "投資級 / 高息公司債(LQD、HYG、BND)",
+            name_qd: "合格股息股票(SCHD、VYM)",
+            name_reit: "REITs(VNQ / SCHH)",
+            name_opt: "權利金書寫(JEPI / JEPQ / QYLD)",
+            name_pre: "稅前殖利率",
+            name_aft: "稅後殖利率",
+            name_vol: "預期波動",
+            name_dd: "預期最大回檔",
+            sum_ok: "合計:{t}%",
+            sum_bad: "合計:{t}%(必須為 100)",
+            det_pre: "各部位殖利率加權平均",
+            det_aft: "扣 {b} 聯邦 + {s} 州稅後",
+            det_vol: "年化;60/40 參考為 {b}",
+            det_dd: "歷史峰值損失的 60%,依權重加權",
+            normalise: "歸一化至 100",
+            preset_label: "預設:",
+            preset_taxA: "方案 A — 應稅",
+            preset_iraB: "方案 B — IRA",
+            preset_bond: "重債 50/30/0/0/20",
+            preset_div:  "全股息 0/0/100/0/0",
+            preset_yield:"追高息 0/20/0/0/80",
+            preset_balanced: "平衡 20/25/35/10/10",
+            chart_title: "各部位對組合殖利率的貢獻",
+            x_title: "殖利率貢獻(佔組合 %)",
+            y_label: "組合",
+            tr_tre: "公債", tr_corp: "公司債", tr_qd: "合格股息",
+            tr_reit: "REIT", tr_opt: "權利金書寫",
+            ira_note: "(IRA 內稅務無關)",
+            caption: "稅前殖利率(2026 年 4 月):公債 4.0%、投資級/高息公司債 混合 5.5%、合格股息股票 3.4%、REITs 3.8%、權利金書寫 7.8%。依所選稅階套用稅務:公債只扣聯邦;公司債及選擇權權利金扣聯邦+州;合格股息用 LTCG 表(0/15/20%)+州稅;REIT 對普通收入部分扣 80% 應稅(199A)。波動由各部位 sigma(公債 5%、公司債 6%、股息股 14%、REIT 19%、權利金 11%)及假設相關性算出。回檔估計用「歷史峰值損失 × 0.6」加權。",
+        },
+        cn: {
+            lbl_bracket: "联邦税阶", lbl_state: "州税率", lbl_account: "账户",
+            acct_tax: "应税", acct_ira: "IRA / 401(k)",
+            name_tre: "国债(IEF / SGOV / TLT)",
+            name_corp: "投资级 / 高息公司债(LQD、HYG、BND)",
+            name_qd: "合格股息股票(SCHD、VYM)",
+            name_reit: "REITs(VNQ / SCHH)",
+            name_opt: "权利金书写(JEPI / JEPQ / QYLD)",
+            name_pre: "税前收益率",
+            name_aft: "税后收益率",
+            name_vol: "预期波动",
+            name_dd: "预期最大回撤",
+            sum_ok: "合计:{t}%",
+            sum_bad: "合计:{t}%(必须为 100)",
+            det_pre: "各板块收益率加权平均",
+            det_aft: "扣 {b} 联邦 + {s} 州税后",
+            det_vol: "年化;60/40 参考为 {b}",
+            det_dd: "历史峰值损失的 60%,按权重加权",
+            normalise: "归一化至 100",
+            preset_label: "预设:",
+            preset_taxA: "方案 A — 应税",
+            preset_iraB: "方案 B — IRA",
+            preset_bond: "重债 50/30/0/0/20",
+            preset_div:  "全股息 0/0/100/0/0",
+            preset_yield:"追高息 0/20/0/0/80",
+            preset_balanced: "平衡 20/25/35/10/10",
+            chart_title: "各板块对组合收益率的贡献",
+            x_title: "收益率贡献(占组合 %)",
+            y_label: "组合",
+            tr_tre: "国债", tr_corp: "公司债", tr_qd: "合格股息",
+            tr_reit: "REIT", tr_opt: "权利金书写",
+            ira_note: "(IRA 内税务无关)",
+            caption: "税前收益率(2026 年 4 月):国债 4.0%、投资级/高息公司债 混合 5.5%、合格股息股票 3.4%、REITs 3.8%、权利金书写 7.8%。按所选税阶套用税务:国债只扣联邦;公司债及期权权利金扣联邦+州;合格股息用 LTCG 表(0/15/20%)+州税;REIT 对普通收入部分扣 80% 应税(199A)。波动由各板块 sigma(国债 5%、公司债 6%、股息股 14%、REIT 19%、权利金 11%)及假设相关性算出。回撤估计用『历史峰值损失 × 0.6』加权。",
+        },
+    };
+    function currentLang() {
+        const p = new URLSearchParams(window.location.search);
+        const l = (p.get("lang") || "en").toLowerCase();
+        return I18N.hasOwnProperty(l) ? l : "en";
+    }
+    const T = I18N[currentLang()];
+
+    // Sleeve order: tre, corp, qd, reit, opt
+    const KEYS = ["tre", "corp", "qd", "reit", "opt"];
+    // Pre-tax yields (April 2026, decimals).
+    const Y = { tre: 0.040, corp: 0.055, qd: 0.034, reit: 0.038, opt: 0.078 };
+    // Annualised sigmas (decimals).
+    const SIG = { tre: 0.05, corp: 0.06, qd: 0.14, reit: 0.19, opt: 0.11 };
+    // Worst peak-to-trough drawdowns (historical references), decimals.
+    // Treasuries 2022 -17, IG corp 2022 -18, dividend equity 2008 -45,
+    // REIT 2008 -68, premium-write (JEPI/QYLD) 2022 -19. We multiply by
+    // 0.6 to soften and weight by sleeve %.
+    const DD = { tre: 0.17, corp: 0.18, qd: 0.45, reit: 0.68, opt: 0.19 };
+
+    // Correlation matrix among the five sleeves.
+    // Order: tre, corp, qd, reit, opt
+    const CORR = [
+        [1.00, 0.55, -0.10,  0.05, -0.05],   // tre
+        [0.55, 1.00,  0.35,  0.45,  0.35],   // corp
+        [-0.10, 0.35, 1.00,  0.75,  0.85],   // qd
+        [0.05, 0.45,  0.75,  1.00,  0.70],   // reit
+        [-0.05, 0.35, 0.85,  0.70,  1.00],   // opt
+    ];
+
+    const PRESETS = [
+        { key: "taxA",     w: { tre: 20, corp: 25, qd: 45, reit: 10, opt: 0 } },
+        { key: "iraB",     w: { tre: 10, corp: 35, qd: 30, reit: 10, opt: 15 } },
+        { key: "bond",     w: { tre: 50, corp: 30, qd: 0,  reit: 0,  opt: 20 } },
+        { key: "div",      w: { tre: 0,  corp: 0,  qd: 100, reit: 0, opt: 0  } },
+        { key: "yield",    w: { tre: 0,  corp: 20, qd: 0,  reit: 0,  opt: 80 } },
+        { key: "balanced", w: { tre: 20, corp: 25, qd: 35, reit: 10, opt: 10 } },
+    ];
+
+    let bracket = 0.32;
+    let stateRate = 0.05;
+    let account = "taxable";
+
+    const ROOT = document.getElementById("ib2-root");
+    const CHART = document.getElementById("ib2-chart");
+    const SLIDERS = {};
+    const VALS = {};
+    KEYS.forEach(k => {
+        SLIDERS[k] = document.getElementById("ib2-w-" + k);
+        VALS[k]    = document.getElementById("ib2-val-" + k);
+    });
+    const SUMLINE = document.getElementById("ib2-sumline");
+    const PRESETBAR = document.getElementById("ib2-presets");
+
+    function getCss(name) { return getComputedStyle(ROOT).getPropertyValue(name).trim(); }
+    function darkMode() { return document.documentElement.getAttribute("data-theme") === "dark"; }
+    function pct(v, d) {
+        if (!isFinite(v)) return "—";
+        return (v * 100).toFixed(d == null ? 2 : d) + "%";
+    }
+    function pctSigned(v, d) {
+        if (!isFinite(v)) return "—";
+        const s = v >= 0 ? "" : "-";
+        return s + (Math.abs(v) * 100).toFixed(d == null ? 2 : d) + "%";
+    }
+    function bracketStr(b) { return (b * 100).toFixed(0) + "%"; }
+
+    // After-tax effective rate per sleeve, given bracket b and state s.
+    // For qualified dividends, LTCG schedule: 12% bracket -> 0% federal,
+    // 22/32% -> 15%, 37% -> 20%.
+    function ltcgFromBracket(b) {
+        if (b <= 0.13) return 0.00;
+        if (b <= 0.33) return 0.15;
+        return 0.20;
+    }
+    function effectiveTax(sleeveKey, b, s) {
+        if (account === "ira") return 0; // tax irrelevant inside IRA
+        if (sleeveKey === "tre")  return b;                  // federal only
+        if (sleeveKey === "corp") return b + s;              // ordinary + state
+        if (sleeveKey === "qd")   return ltcgFromBracket(b) + s;
+        if (sleeveKey === "reit") return (b + s) * 0.80;     // 199A on 80%
+        if (sleeveKey === "opt")  return b + s;              // short-term cap gain
+        return 0;
+    }
+
+    // Build preset pills
+    PRESETS.forEach(p => {
+        const pill = document.createElement("button");
+        pill.className = "ib2-preset-pill";
+        pill.dataset.key = p.key;
+        pill.textContent = T["preset_" + p.key];
+        pill.addEventListener("click", () => {
+            KEYS.forEach(k => { SLIDERS[k].value = p.w[k]; });
+            render();
+        });
+        PRESETBAR.appendChild(pill);
+    });
+
+    function readWeights() {
+        const out = {};
+        KEYS.forEach(k => { out[k] = parseFloat(SLIDERS[k].value); });
+        return out;
+    }
+    function setSliderLabels(w) {
+        KEYS.forEach(k => { VALS[k].textContent = w[k].toFixed(0) + "%"; });
+    }
+
+    function highlightActivePreset(w) {
+        Array.from(PRESETBAR.children).forEach(el => {
+            const p = PRESETS.find(x => x.key === el.dataset.key);
+            const match = p && KEYS.every(k => Math.abs(p.w[k] - w[k]) < 0.5);
+            el.classList.toggle("ib2-active", !!match);
+        });
+    }
+
+    function compute(w) {
+        const tot = KEYS.reduce((s, k) => s + w[k], 0);
+        const wf = {};
+        KEYS.forEach(k => { wf[k] = (tot > 0 ? w[k] / 100 : 0); });
+
+        // Pre-tax weighted yield.
+        let preY = 0;
+        KEYS.forEach(k => { preY += wf[k] * Y[k]; });
+
+        // After-tax weighted yield.
+        let aftY = 0;
+        KEYS.forEach(k => { aftY += wf[k] * Y[k] * (1 - effectiveTax(k, bracket, stateRate)); });
+
+        // Volatility via correlation matrix.
+        let varSum = 0;
+        for (let i = 0; i < KEYS.length; i++) {
+            for (let j = 0; j < KEYS.length; j++) {
+                varSum += wf[KEYS[i]] * wf[KEYS[j]] * SIG[KEYS[i]] * SIG[KEYS[j]] * CORR[i][j];
+            }
+        }
+        const vol = Math.sqrt(Math.max(varSum, 0));
+
+        // Heuristic max drawdown: 0.6 × peak historical loss per sleeve, weighted.
+        let dd = 0;
+        KEYS.forEach(k => { dd += wf[k] * 0.6 * DD[k]; });
+
+        return { tot, preY, aftY, vol, dd, wf };
+    }
+
+    function ref6040() {
+        // 60% qd, 40% tre via the same covariance — convenient reference.
+        const wf = { tre: 0.40, corp: 0.0, qd: 0.60, reit: 0.0, opt: 0.0 };
+        let v = 0;
+        for (let i = 0; i < KEYS.length; i++) {
+            for (let j = 0; j < KEYS.length; j++) {
+                v += wf[KEYS[i]] * wf[KEYS[j]] * SIG[KEYS[i]] * SIG[KEYS[j]] * CORR[i][j];
+            }
+        }
+        return Math.sqrt(Math.max(v, 0));
+    }
+
+    function render() {
+        const w = readWeights();
+        setSliderLabels(w);
+        const c = compute(w);
+        const tot = c.tot;
+        const sumOk = Math.abs(tot - 100) < 0.5;
+        SUMLINE.textContent = (sumOk ? T.sum_ok : T.sum_bad).replace("{t}", tot.toFixed(0));
+        SUMLINE.classList.toggle("ib2-bad", !sumOk);
+        highlightActivePreset(w);
+
+        document.getElementById("ib2-val-pre").textContent = pct(c.preY, 2);
+        document.getElementById("ib2-det-pre").textContent = T.det_pre;
+
+        document.getElementById("ib2-val-aft").textContent = pct(c.aftY, 2);
+        if (account === "ira") {
+            document.getElementById("ib2-det-aft").textContent = T.ira_note;
+        } else {
+            document.getElementById("ib2-det-aft").textContent =
+                T.det_aft.replace("{b}", bracketStr(bracket)).replace("{s}", bracketStr(stateRate));
+        }
+
+        document.getElementById("ib2-val-vol").textContent = pct(c.vol, 1);
+        document.getElementById("ib2-det-vol").textContent = T.det_vol.replace("{b}", pct(ref6040(), 1));
+
+        document.getElementById("ib2-val-dd").textContent = "-" + pct(c.dd, 1);
+        document.getElementById("ib2-det-dd").textContent = T.det_dd;
+
+        renderChart(c);
+    }
+
+    function renderChart(c) {
+        const colorBg   = getCss("--ib2-card");
+        const colorText = getCss("--ib2-text");
+        const colorMu   = getCss("--ib2-muted");
+        const grid      = darkMode() ? "rgba(255,255,255,0.08)" : "rgba(0,0,0,0.07)";
+        const palette = {
+            tre:  getCss("--ib2-tre"),
+            corp: getCss("--ib2-corp"),
+            qd:   getCss("--ib2-qd"),
+            reit: getCss("--ib2-reit"),
+            opt:  getCss("--ib2-opt"),
+        };
+        const labels = { tre: T.tr_tre, corp: T.tr_corp, qd: T.tr_qd, reit: T.tr_reit, opt: T.tr_opt };
+
+        // Pre-tax contribution per sleeve (% of portfolio yield, in pp).
+        const traces = KEYS.map(k => {
+            const xv = c.wf[k] * Y[k] * 100;
+            return {
+                name: labels[k],
+                x: [xv],
+                y: [T.y_label],
+                type: "bar",
+                orientation: "h",
+                marker: { color: palette[k] },
+                text: [xv.toFixed(2) + "%"],
+                textposition: "inside",
+                insidetextanchor: "middle",
+                hovertemplate: labels[k] + ": %{x:.2f}%<extra></extra>",
+            };
+        });
+
+        Plotly.react(CHART, traces, {
+            barmode: "stack",
+            margin: { l: 64, r: 24, t: 18, b: 50 },
+            paper_bgcolor: colorBg,
+            plot_bgcolor: colorBg,
+            font: { family: "Segoe UI, Helvetica, Arial, sans-serif", color: colorText, size: 12 },
+            xaxis: {
+                title: { text: T.x_title, font: { color: colorMu, size: 11 } },
+                gridcolor: grid,
+                color: colorText,
+                zerolinecolor: colorMu,
+                ticksuffix: "%",
+                rangemode: "tozero",
+            },
+            yaxis: {
+                gridcolor: grid,
+                color: colorText,
+                showgrid: false,
+            },
+            legend: {
+                orientation: "h",
+                x: 0, y: -0.30,
+                bgcolor: "rgba(0,0,0,0)",
+                font: { color: colorText, size: 11 },
+            },
+            hovermode: "closest",
+            showlegend: true,
+        }, { displayModeBar: false, responsive: true });
+    }
+
+    function applyI18n() {
+        document.getElementById("ib2-lbl-bracket").textContent = T.lbl_bracket;
+        document.getElementById("ib2-lbl-state").textContent   = T.lbl_state;
+        document.getElementById("ib2-lbl-account").textContent = T.lbl_account;
+        document.getElementById("ib2-acct-tax").textContent    = T.acct_tax;
+        document.getElementById("ib2-acct-ira").textContent    = T.acct_ira;
+        document.getElementById("ib2-name-tre").textContent    = T.name_tre;
+        document.getElementById("ib2-name-corp").textContent   = T.name_corp;
+        document.getElementById("ib2-name-qd").textContent     = T.name_qd;
+        document.getElementById("ib2-name-reit").textContent   = T.name_reit;
+        document.getElementById("ib2-name-opt").textContent    = T.name_opt;
+        document.getElementById("ib2-name-pre").textContent    = T.name_pre;
+        document.getElementById("ib2-name-aft").textContent    = T.name_aft;
+        document.getElementById("ib2-name-vol").textContent    = T.name_vol;
+        document.getElementById("ib2-name-dd").textContent     = T.name_dd;
+        document.getElementById("ib2-norm").textContent        = T.normalise;
+        document.getElementById("ib2-chart-title").textContent = T.chart_title;
+        document.getElementById("ib2-caption").textContent     = T.caption;
+    }
+
+    function bindPills(id, key, parser, callback) {
+        const el = document.getElementById(id);
+        el.addEventListener("click", e => {
+            const b = e.target.closest("button");
+            if (!b) return;
+            el.querySelectorAll("button").forEach(x => x.classList.remove("active"));
+            b.classList.add("active");
+            const v = parser(b.dataset[key]);
+            callback(v);
+            render();
+        });
+    }
+    bindPills("ib2-bracket-pills", "b", v => parseFloat(v), v => { bracket = v; });
+    bindPills("ib2-state-pills",   "s", v => parseFloat(v), v => { stateRate = v; });
+    bindPills("ib2-account-pills", "a", v => v,             v => { account = v; });
+
+    // Normalise button — proportionally scale to 100 (or split evenly if all zero)
+    document.getElementById("ib2-norm").addEventListener("click", () => {
+        const w = readWeights();
+        const tot = KEYS.reduce((s, k) => s + w[k], 0);
+        if (tot < 0.5) {
+            KEYS.forEach(k => { SLIDERS[k].value = 20; });
+        } else {
+            KEYS.forEach(k => { SLIDERS[k].value = Math.round(w[k] * 100 / tot); });
+            // fix rounding to exactly 100
+            const w2 = readWeights();
+            const t2 = KEYS.reduce((s, k) => s + w2[k], 0);
+            if (t2 !== 100) {
+                // adjust the largest sleeve
+                let biggest = KEYS[0];
+                KEYS.forEach(k => { if (w2[k] > w2[biggest]) biggest = k; });
+                SLIDERS[biggest].value = parseFloat(SLIDERS[biggest].value) + (100 - t2);
+            }
+        }
+        render();
+    });
+
+    KEYS.forEach(k => SLIDERS[k].addEventListener("input", render));
+
+    // theme observer
+    const themeObs = new MutationObserver(() => render());
+    themeObs.observe(document.documentElement, { attributes: true, attributeFilter: ["data-theme"] });
+
+    // postMessage resize
+    function reportHeight() {
+        try {
+            var h = Math.ceil(document.documentElement.scrollHeight);
+            parent.postMessage({ type: "lesson-interactive-resize", height: h }, "*");
+        } catch (_) { /* ignore */ }
+    }
+    if (typeof ResizeObserver !== "undefined") {
+        new ResizeObserver(reportHeight).observe(document.body);
+    }
+    window.addEventListener("resize", reportHeight);
+
+    applyI18n();
+    render();
+    setTimeout(reportHeight, 80);
+    setTimeout(reportHeight, 500);
+})();
+</script>
+
+</body>
+</html>

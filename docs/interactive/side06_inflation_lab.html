@@ -1,0 +1,680 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Inflation Lab - Interactive (Side 06)</title>
+<script src="https://cdn.plot.ly/plotly-2.35.2.min.js" charset="utf-8"></script>
+<style>
+html, body { margin: 0; padding: 0; background: var(--il-bg); }
+:root {
+    --il-bg: #fdfbf5;
+    --il-text: #1a2332;
+    --il-muted: #6b7280;
+    --il-border: #d6d3c4;
+    --il-card: #fdfbf5;
+    --il-accent: #b8860b;
+    --il-blue: #0d47a1;
+    --il-red: #b71c1c;
+    --il-green: #2e7d32;
+    --il-purple: #6a1b9a;
+    --il-orange: #e65100;
+    --il-teal: #00695c;
+    --il-grey: #5a5a5a;
+}
+html[data-theme="dark"] .il-root,
+.il-root[data-theme="dark"] {
+    --il-bg: #0f1724;
+    --il-text: #e6e6e6;
+    --il-muted: #9aa3b2;
+    --il-border: #2a3441;
+    --il-card: #0f1724;
+    --il-blue: #5a8dee;
+    --il-red: #ef5350;
+    --il-green: #66bb6a;
+    --il-purple: #ba68c8;
+    --il-orange: #ffa726;
+    --il-teal: #4db6ac;
+    --il-grey: #aaaaaa;
+}
+.il-root {
+    font-family: 'Segoe UI', Helvetica, Arial, sans-serif;
+    background: var(--il-bg);
+    color: var(--il-text);
+    padding: 12px;
+    margin: 0;
+}
+.il-controls {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-bottom: 14px;
+    padding: 12px;
+    background: var(--il-card);
+    border: 1px solid var(--il-border);
+    border-radius: 8px;
+}
+.il-mixwrap {
+    margin-bottom: 14px;
+    padding: 12px;
+    background: var(--il-card);
+    border: 1px solid var(--il-border);
+    border-radius: 8px;
+}
+.il-mix-head {
+    display: flex; align-items: baseline; justify-content: space-between;
+    margin-bottom: 8px;
+}
+.il-mix-title {
+    font-size: 0.85rem; font-weight: 700; color: var(--il-text);
+}
+.il-mix-sum {
+    font-size: 0.85rem; font-weight: 700;
+    font-variant-numeric: tabular-nums;
+    color: var(--il-muted);
+}
+.il-mix-sum.bad { color: var(--il-red); }
+.il-mix-sum.ok  { color: var(--il-green); }
+.il-mix-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 10px 14px;
+}
+.il-norm-btn {
+    margin-top: 10px;
+    border: 1px solid var(--il-border);
+    background: var(--il-card);
+    color: var(--il-text);
+    padding: 6px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    font: inherit;
+    font-size: 0.82rem;
+    font-weight: 700;
+}
+.il-norm-btn:hover { background: var(--il-accent); color: #fff; }
+.il-slider-wrap {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    font-size: 0.82rem;
+    color: var(--il-muted);
+}
+.il-slider-wrap .il-row {
+    display: flex; align-items: center; gap: 10px;
+}
+.il-slider-wrap input[type="range"] {
+    flex: 1;
+    accent-color: var(--il-accent);
+}
+.il-slider-wrap .il-val {
+    white-space: nowrap;
+    color: var(--il-text);
+    font-weight: 700;
+    font-variant-numeric: tabular-nums;
+    min-width: 64px;
+    text-align: right;
+}
+.il-slider-wrap .il-name {
+    font-weight: 600; color: var(--il-text);
+}
+.il-bigrow {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 8px;
+    margin-bottom: 14px;
+}
+.il-big {
+    background: var(--il-card);
+    border: 1px solid var(--il-border);
+    border-left: 4px solid var(--il-accent);
+    border-radius: 8px;
+    padding: 10px 12px;
+}
+.il-big.il-b-nom { border-left-color: var(--il-blue); }
+.il-big.il-b-real { border-left-color: var(--il-green); }
+.il-big.il-b-be { border-left-color: var(--il-orange); }
+.il-big.il-b-cagr { border-left-color: var(--il-purple); }
+.il-big .il-big-name {
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--il-muted);
+}
+.il-big .il-big-val {
+    font-size: 1.4rem;
+    font-weight: 800;
+    margin-top: 4px;
+    font-variant-numeric: tabular-nums;
+    color: var(--il-text);
+}
+.il-big .il-big-detail {
+    font-size: 0.72rem;
+    color: var(--il-muted);
+    margin-top: 2px;
+}
+.il-charts {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+}
+.il-chart {
+    width: 100%;
+    height: 360px;
+    background: var(--il-card);
+    border-radius: 8px;
+    border: 1px solid var(--il-border);
+}
+.il-caption {
+    margin-top: 10px;
+    font-size: 0.78rem;
+    color: var(--il-muted);
+    line-height: 1.45;
+}
+@media (max-width: 1000px) {
+    .il-charts { grid-template-columns: 1fr; }
+    .il-mix-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .il-bigrow { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 600px) {
+    .il-controls { grid-template-columns: 1fr; }
+    .il-mix-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<div class="il-root" id="il-root">
+    <div class="il-controls">
+        <div class="il-slider-wrap">
+            <div class="il-name" id="il-name-INF">Assumed inflation rate (%/yr)</div>
+            <div class="il-row">
+                <input type="range" id="il-INF" min="-2" max="15" step="0.1" value="3">
+                <span class="il-val" id="il-val-INF">3.0%</span>
+            </div>
+        </div>
+        <div class="il-slider-wrap">
+            <div class="il-name" id="il-name-YRS">Holding horizon (years)</div>
+            <div class="il-row">
+                <input type="range" id="il-YRS" min="1" max="40" step="1" value="20">
+                <span class="il-val" id="il-val-YRS">20</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="il-mixwrap">
+        <div class="il-mix-head">
+            <span class="il-mix-title" id="il-mix-title">Portfolio mix (must sum to 100%)</span>
+            <span class="il-mix-sum" id="il-mix-sum">Sum 100%</span>
+        </div>
+        <div class="il-mix-grid" id="il-mix-grid"></div>
+        <button type="button" class="il-norm-btn" id="il-normalise">Normalise to 100%</button>
+    </div>
+
+    <div class="il-bigrow">
+        <div class="il-big il-b-nom">
+            <div class="il-big-name" id="il-bn-nom">Nominal ending wealth</div>
+            <div class="il-big-val" id="il-bv-nom">—</div>
+            <div class="il-big-detail" id="il-bd-nom">$1 grown by portfolio nominal CAGR</div>
+        </div>
+        <div class="il-big il-b-real">
+            <div class="il-big-name" id="il-bn-real">Real ending wealth</div>
+            <div class="il-big-val" id="il-bv-real">—</div>
+            <div class="il-big-detail" id="il-bd-real">deflated by assumed CPI</div>
+        </div>
+        <div class="il-big il-b-be">
+            <div class="il-big-name" id="il-bn-be">Breakeven inflation</div>
+            <div class="il-big-val" id="il-bv-be">—</div>
+            <div class="il-big-detail" id="il-bd-be">CPI rate at which real wealth = $1</div>
+        </div>
+        <div class="il-big il-b-cagr">
+            <div class="il-big-name" id="il-bn-cagr">Real CAGR</div>
+            <div class="il-big-val" id="il-bv-cagr">—</div>
+            <div class="il-big-detail" id="il-bd-cagr">portfolio real annualised return</div>
+        </div>
+    </div>
+
+    <div class="il-charts">
+        <div id="il-chart-w" class="il-chart"></div>
+        <div id="il-chart-c" class="il-chart"></div>
+    </div>
+
+    <p class="il-caption" id="il-caption">
+        Each asset class has a calibrated inflation sensitivity (slope vs CPI) anchored on the 1970-1982 episode and the 2021-2023 episode. Real CAGR = (1 + nominal) / (1 + CPI) - 1. Asset-class real-return contributions = weight * real CAGR per class. Breakeven inflation is solved by bisection. Reference numbers (April 2026): SPY ~7.0% nominal long-run, AGG ~4.5%, gold ~6.0%, commodities ~5.5%, REITs ~7.0%, TIPS = real yield ~1.5% guaranteed, T-bills track CPI - 0%.
+    </p>
+</div>
+
+<script>
+(function () {
+    var I18N = {
+        en: {
+            name_INF: "Assumed inflation rate (%/yr)",
+            name_YRS: "Holding horizon (years)",
+            mix_title: "Portfolio mix (must sum to 100%)",
+            mix_sum: "Sum",
+            normalise: "Normalise to 100%",
+            assets: {
+                stocks:  "US stocks (SPY)",
+                bonds:   "Long Treasuries (TLT)",
+                tips:    "TIPS (VTIP/SCHP)",
+                gold:    "Gold (GLD)",
+                comm:    "Commodities (DBC)",
+                reits:   "REITs / real estate",
+                cash:    "Cash / T-bills",
+                tech:    "Long-duration tech",
+            },
+            bn_nom:  "Nominal ending wealth",
+            bn_real: "Real ending wealth",
+            bn_be:   "Breakeven inflation",
+            bn_cagr: "Real CAGR",
+            bd_nom:  "$1 grown by portfolio nominal CAGR",
+            bd_real: "deflated by assumed CPI",
+            bd_be:   "CPI rate at which real wealth = $1",
+            bd_cagr: "portfolio real annualised return",
+            chart_w_title: "Wealth path: nominal vs real",
+            x_w: "Year",
+            y_w: "Ending wealth ($1 start)",
+            tr_nom: "Nominal $",
+            tr_real: "Real $",
+            chart_c_title: "Real-return contribution by asset class",
+            x_c: "Real ann. return contribution (weighted)",
+            y_c: "",
+            caption: "Each asset class has a calibrated inflation sensitivity (slope vs CPI) anchored on the 1970-1982 episode and the 2021-2023 episode. Real CAGR = (1 + nominal) / (1 + CPI) - 1. Asset-class real-return contributions = weight * real CAGR per class. Breakeven inflation is solved by bisection. Reference numbers (April 2026): SPY ~7.0% nominal long-run, AGG ~4.5%, gold ~6.0%, commodities ~5.5%, REITs ~7.0%, TIPS = real yield ~1.5% guaranteed, T-bills track CPI - 0%.",
+        },
+        hk: {
+            name_INF: "假設通脹率(%/年)",
+            name_YRS: "持有期(年)",
+            mix_title: "組合配置(必須加總 100%)",
+            mix_sum: "合計",
+            normalise: "正規化至 100%",
+            assets: {
+                stocks:  "美股 (SPY)",
+                bonds:   "長期國債 (TLT)",
+                tips:    "通脹掛鈎債 (VTIP)",
+                gold:    "黃金 (GLD)",
+                comm:    "商品 (DBC)",
+                reits:   "房地產 / REITs",
+                cash:    "現金 / 短債",
+                tech:    "長期科技股",
+            },
+            bn_nom:  "名義期末財富",
+            bn_real: "實質期末財富",
+            bn_be:   "盈虧通脹率",
+            bn_cagr: "實質年化",
+            bd_nom:  "1 元按組合名義 CAGR 增長",
+            bd_real: "以假設 CPI 折算",
+            bd_be:   "實質財富 = 1 元時 CPI 水平",
+            bd_cagr: "組合實質年化回報",
+            chart_w_title: "財富路徑:名義 vs 實質",
+            x_w: "年份",
+            y_w: "期末財富(起始 1 元)",
+            tr_nom: "名義 $",
+            tr_real: "實質 $",
+            chart_c_title: "各資產類別實質回報貢獻",
+            x_c: "加權實質年化貢獻",
+            y_c: "",
+            caption: "每個資產類別均有以 1970-1982 與 2021-2023 兩段為錨的通脹敏感度斜率。實質 CAGR = (1 + 名義) / (1 + CPI) - 1。貢獻 = 權重 * 該類別實質 CAGR。盈虧通脹率以二分法求解。2026 年 4 月參考:SPY 約 7.0% 名義長線、AGG 約 4.5%、黃金 6.0%、商品 5.5%、REITs 7.0%、TIPS = 實質息率 1.5% 鎖定、短債貼近 CPI。",
+        },
+        tw: {
+            name_INF: "假設通膨率(%/年)",
+            name_YRS: "持有期(年)",
+            mix_title: "組合配置(必須加總 100%)",
+            mix_sum: "合計",
+            normalise: "正規化至 100%",
+            assets: {
+                stocks:  "美股 (SPY)",
+                bonds:   "長期國債 (TLT)",
+                tips:    "抗通膨債 (VTIP)",
+                gold:    "黃金 (GLD)",
+                comm:    "商品 (DBC)",
+                reits:   "不動產 / REITs",
+                cash:    "現金 / 短債",
+                tech:    "長期科技股",
+            },
+            bn_nom:  "名目期末財富",
+            bn_real: "實質期末財富",
+            bn_be:   "損益通膨率",
+            bn_cagr: "實質年化",
+            bd_nom:  "1 元按組合名目 CAGR 成長",
+            bd_real: "以假設 CPI 折算",
+            bd_be:   "實質財富 = 1 元時 CPI 水準",
+            bd_cagr: "組合實質年化報酬",
+            chart_w_title: "財富路徑:名目 vs 實質",
+            x_w: "年份",
+            y_w: "期末財富(起始 1 元)",
+            tr_nom: "名目 $",
+            tr_real: "實質 $",
+            chart_c_title: "各資產類別實質報酬貢獻",
+            x_c: "加權實質年化貢獻",
+            y_c: "",
+            caption: "每個資產類別均有以 1970-1982 與 2021-2023 兩段為錨的通膨敏感度斜率。實質 CAGR = (1 + 名目) / (1 + CPI) - 1。貢獻 = 權重 * 該類別實質 CAGR。損益通膨率以二分法求解。2026 年 4 月參考:SPY 約 7.0% 名目長線、AGG 約 4.5%、黃金 6.0%、商品 5.5%、REITs 7.0%、TIPS = 實質殖利率 1.5% 鎖定、短債貼近 CPI。",
+        },
+        cn: {
+            name_INF: "假设通胀率(%/年)",
+            name_YRS: "持有期(年)",
+            mix_title: "组合配置(必须加总 100%)",
+            mix_sum: "合计",
+            normalise: "归一化至 100%",
+            assets: {
+                stocks:  "美股 (SPY)",
+                bonds:   "长期国债 (TLT)",
+                tips:    "通胀挂钩债 (VTIP)",
+                gold:    "黄金 (GLD)",
+                comm:    "商品 (DBC)",
+                reits:   "房地产 / REITs",
+                cash:    "现金 / 短债",
+                tech:    "长期科技股",
+            },
+            bn_nom:  "名义期末财富",
+            bn_real: "实质期末财富",
+            bn_be:   "盈亏通胀率",
+            bn_cagr: "实质年化",
+            bd_nom:  "1 元按组合名义 CAGR 增长",
+            bd_real: "以假设 CPI 折算",
+            bd_be:   "实质财富 = 1 元时 CPI 水平",
+            bd_cagr: "组合实质年化回报",
+            chart_w_title: "财富路径:名义 vs 实质",
+            x_w: "年份",
+            y_w: "期末财富(起始 1 元)",
+            tr_nom: "名义 $",
+            tr_real: "实质 $",
+            chart_c_title: "各资产类别实质回报贡献",
+            x_c: "加权实质年化贡献",
+            y_c: "",
+            caption: "每个资产类别均有以 1970-1982 与 2021-2023 两段为锚的通胀敏感度斜率。实质 CAGR = (1 + 名义) / (1 + CPI) - 1。贡献 = 权重 * 该类别实质 CAGR。盈亏通胀率以二分法求解。2026 年 4 月参考:SPY 约 7.0% 名义长期、AGG 约 4.5%、黄金 6.0%、商品 5.5%、REITs 7.0%、TIPS = 实质收益率 1.5% 锁定、短债贴近 CPI。",
+        },
+    };
+    function currentLang() {
+        var p = new URLSearchParams(window.location.search);
+        var l = (p.get("lang") || "en").toLowerCase();
+        return I18N.hasOwnProperty(l) ? l : "en";
+    }
+    var T = I18N[currentLang()];
+
+    // Asset model. For each class: nominal CAGR at base inflation 2.5%.
+    // sens = d(nominal CAGR) / d(inflation). e.g. cash sens = +1.0 means
+    // nominal cash return rises 1pp per pp of CPI (T-bills track).
+    // Calibration anchored on 1970-1982 (CPI 7.8% avg) and 2021-2023.
+    var ASSETS = {
+        stocks: { base: 0.070, sens: 0.30, dflt: 50, color: "il-blue"   },
+        bonds:  { base: 0.045, sens:-0.80, dflt: 20, color: "il-red"    },
+        tips:   { base: 0.040, sens: 1.00, dflt:  5, color: "il-green"  },
+        gold:   { base: 0.060, sens: 0.40, dflt:  5, color: "il-accent" },
+        comm:   { base: 0.055, sens: 1.20, dflt:  5, color: "il-orange" },
+        reits:  { base: 0.070, sens: 0.20, dflt:  5, color: "il-purple" },
+        cash:   { base: 0.040, sens: 1.00, dflt: 10, color: "il-grey"   },
+        tech:   { base: 0.090, sens:-0.40, dflt:  0, color: "il-teal"   },
+    };
+    var BASE_INF = 0.025;
+    var ORDER = ["stocks","bonds","tips","gold","comm","reits","cash","tech"];
+
+    var ROOT = document.getElementById("il-root");
+    var INF_EL = document.getElementById("il-INF");
+    var YRS_EL = document.getElementById("il-YRS");
+    var MIX_GRID = document.getElementById("il-mix-grid");
+    var MIX_SUM = document.getElementById("il-mix-sum");
+    var NORM_BTN = document.getElementById("il-normalise");
+    var CHART_W = document.getElementById("il-chart-w");
+    var CHART_C = document.getElementById("il-chart-c");
+
+    // Build the mix grid sliders.
+    var mixSliders = {};
+    function buildMix() {
+        MIX_GRID.innerHTML = "";
+        ORDER.forEach(function (k) {
+            var name = T.assets[k];
+            var holder = document.createElement("div");
+            holder.className = "il-slider-wrap";
+            holder.innerHTML =
+                '<div class="il-name" id="il-name-' + k + '">' + name + '</div>' +
+                '<div class="il-row">' +
+                  '<input type="range" id="il-w-' + k + '" min="0" max="100" step="1" value="' + ASSETS[k].dflt + '">' +
+                  '<span class="il-val" id="il-val-' + k + '">' + ASSETS[k].dflt + '%</span>' +
+                '</div>';
+            MIX_GRID.appendChild(holder);
+            mixSliders[k] = document.getElementById("il-w-" + k);
+            mixSliders[k].addEventListener("input", render);
+        });
+    }
+
+    function darkMode() {
+        return document.documentElement.getAttribute("data-theme") === "dark";
+    }
+    function getCssVar(name) {
+        return getComputedStyle(ROOT).getPropertyValue(name).trim();
+    }
+    function fmtMoney(n) {
+        if (!isFinite(n)) return "—";
+        if (Math.abs(n) >= 1000) return "$" + n.toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+        if (Math.abs(n) >= 100) return "$" + n.toFixed(1);
+        if (Math.abs(n) >= 10) return "$" + n.toFixed(2);
+        return "$" + n.toFixed(3);
+    }
+    function fmtPct(n, d) {
+        if (!isFinite(n)) return "—";
+        return (n * 100).toFixed(d == null ? 1 : d) + "%";
+    }
+
+    function applyI18n() {
+        document.getElementById("il-name-INF").textContent = T.name_INF;
+        document.getElementById("il-name-YRS").textContent = T.name_YRS;
+        document.getElementById("il-mix-title").textContent = T.mix_title;
+        NORM_BTN.textContent = T.normalise;
+        document.getElementById("il-bn-nom").textContent  = T.bn_nom;
+        document.getElementById("il-bn-real").textContent = T.bn_real;
+        document.getElementById("il-bn-be").textContent   = T.bn_be;
+        document.getElementById("il-bn-cagr").textContent = T.bn_cagr;
+        document.getElementById("il-bd-nom").textContent  = T.bd_nom;
+        document.getElementById("il-bd-real").textContent = T.bd_real;
+        document.getElementById("il-bd-be").textContent   = T.bd_be;
+        document.getElementById("il-bd-cagr").textContent = T.bd_cagr;
+        document.getElementById("il-caption").textContent = T.caption;
+    }
+
+    function nomReturn(k, infl) {
+        var a = ASSETS[k];
+        return a.base + a.sens * (infl - BASE_INF);
+    }
+    function realReturn(k, infl) {
+        return (1.0 + nomReturn(k, infl)) / (1.0 + infl) - 1.0;
+    }
+
+    function readWeights() {
+        var w = {};
+        var sum = 0;
+        ORDER.forEach(function (k) {
+            var v = parseFloat(mixSliders[k].value) / 100.0;
+            if (!isFinite(v) || v < 0) v = 0;
+            w[k] = v;
+            sum += v;
+        });
+        return { w: w, sum: sum };
+    }
+    function updateMixLabels(w, sum) {
+        ORDER.forEach(function (k) {
+            document.getElementById("il-val-" + k).textContent =
+                (w[k] * 100).toFixed(0) + "%";
+        });
+        var pct = sum * 100;
+        MIX_SUM.textContent = T.mix_sum + " " + pct.toFixed(0) + "%";
+        MIX_SUM.classList.remove("bad", "ok");
+        if (Math.abs(pct - 100) < 0.5) MIX_SUM.classList.add("ok");
+        else MIX_SUM.classList.add("bad");
+    }
+    function normalise() {
+        var ws = readWeights();
+        if (ws.sum <= 0.001) return;
+        ORDER.forEach(function (k) {
+            var v = Math.round((ws.w[k] / ws.sum) * 100);
+            mixSliders[k].value = v;
+        });
+        render();
+    }
+
+    function portfolioNomReturn(w, infl) {
+        var r = 0;
+        ORDER.forEach(function (k) { r += w[k] * nomReturn(k, infl); });
+        return r;
+    }
+
+    function solveBreakeven(w) {
+        // Find infl such that real CAGR of portfolio = 0.
+        // f(infl) = (1 + nom) / (1 + infl) - 1
+        function f(x) {
+            return (1.0 + portfolioNomReturn(w, x)) / (1.0 + x) - 1.0;
+        }
+        var lo = -0.05, hi = 0.30;
+        var flo = f(lo), fhi = f(hi);
+        if (flo * fhi > 0) return NaN;
+        for (var i = 0; i < 80; i++) {
+            var mid = 0.5 * (lo + hi);
+            var fm = f(mid);
+            if (Math.abs(fm) < 1e-9) return mid;
+            if (flo * fm <= 0) { hi = mid; fhi = fm; }
+            else { lo = mid; flo = fm; }
+        }
+        return 0.5 * (lo + hi);
+    }
+
+    function render() {
+        var infl = parseFloat(INF_EL.value) / 100.0;
+        var yrs  = parseInt(YRS_EL.value, 10);
+        document.getElementById("il-val-INF").textContent = (infl * 100).toFixed(1) + "%";
+        document.getElementById("il-val-YRS").textContent = String(yrs);
+
+        var ws = readWeights();
+        updateMixLabels(ws.w, ws.sum);
+        // Use normalised weights for math.
+        var wNorm = {};
+        ORDER.forEach(function (k) {
+            wNorm[k] = ws.sum > 0.001 ? ws.w[k] / ws.sum : 0;
+        });
+
+        var nom = portfolioNomReturn(wNorm, infl);
+        var realC = (1.0 + nom) / (1.0 + infl) - 1.0;
+        var nomEnd = Math.pow(1.0 + nom, yrs);
+        var realEnd = Math.pow(1.0 + realC, yrs);
+        var be = solveBreakeven(wNorm);
+
+        document.getElementById("il-bv-nom").textContent  = fmtMoney(nomEnd);
+        document.getElementById("il-bv-real").textContent = fmtMoney(realEnd);
+        document.getElementById("il-bv-real").style.color = realEnd >= 1
+            ? getCssVar("--il-green") : getCssVar("--il-red");
+        document.getElementById("il-bv-be").textContent   = fmtPct(be, 2);
+        document.getElementById("il-bv-cagr").textContent = fmtPct(realC, 2);
+        document.getElementById("il-bv-cagr").style.color = realC >= 0
+            ? getCssVar("--il-green") : getCssVar("--il-red");
+
+        // Wealth path chart.
+        var xs = [], ynom = [], yreal = [];
+        for (var t = 0; t <= yrs; t++) {
+            xs.push(t);
+            ynom.push(Math.pow(1.0 + nom, t));
+            yreal.push(Math.pow(1.0 + realC, t));
+        }
+        var colorBlue = getCssVar("--il-blue");
+        var colorGreen = getCssVar("--il-green");
+        var colorRed = getCssVar("--il-red");
+        var colorText = getCssVar("--il-text");
+        var colorMuted = getCssVar("--il-muted");
+        var colorBg = getCssVar("--il-card");
+        var colorGrid = darkMode() ? "rgba(255,255,255,0.08)" : "rgba(0,0,0,0.07)";
+
+        var traceN = {
+            x: xs, y: ynom, type: "scatter", mode: "lines",
+            name: T.tr_nom,
+            line: { color: colorBlue, width: 2.6 },
+            hovertemplate: "yr %{x}<br>" + T.tr_nom + ": $%{y:,.2f}<extra></extra>",
+        };
+        var traceR = {
+            x: xs, y: yreal, type: "scatter", mode: "lines",
+            name: T.tr_real,
+            line: { color: realC >= 0 ? colorGreen : colorRed, width: 2.6, dash: "dash" },
+            hovertemplate: "yr %{x}<br>" + T.tr_real + ": $%{y:,.2f}<extra></extra>",
+        };
+        var layoutW = {
+            margin: { l: 60, r: 16, t: 40, b: 46 },
+            paper_bgcolor: colorBg, plot_bgcolor: colorBg,
+            font: { family: "Segoe UI, Helvetica, Arial, sans-serif", color: colorText, size: 12 },
+            xaxis: { title: { text: T.x_w, font: { color: colorMuted, size: 11 } },
+                     gridcolor: colorGrid, color: colorText },
+            yaxis: { title: { text: T.y_w, font: { color: colorMuted, size: 11 } },
+                     tickprefix: "$", gridcolor: colorGrid,
+                     zerolinecolor: colorMuted, color: colorText },
+            title: { text: T.chart_w_title, x: 0, xanchor: "left",
+                     font: { color: colorText, size: 13, weight: 700 } },
+            shapes: [{ type: "line", xref: "paper", yref: "y",
+                       x0: 0, x1: 1, y0: 1, y1: 1,
+                       line: { color: colorMuted, width: 0.7, dash: "dot" } }],
+            legend: { orientation: "h", x: 0, y: 1.08, xanchor: "left", font: { color: colorText } },
+            hovermode: "x unified",
+        };
+        Plotly.react(CHART_W, [traceN, traceR], layoutW, { displayModeBar: false, responsive: true });
+
+        // Contribution chart (horizontal bars).
+        var keysSorted = ORDER.slice().sort(function (a, b) {
+            return (wNorm[a] * realReturn(a, infl)) - (wNorm[b] * realReturn(b, infl));
+        });
+        var ynames = [];
+        var xvals = [];
+        var bcolors = [];
+        keysSorted.forEach(function (k) {
+            var contrib = wNorm[k] * realReturn(k, infl);
+            ynames.push(T.assets[k]);
+            xvals.push(contrib);
+            bcolors.push(contrib >= 0 ? colorGreen : colorRed);
+        });
+        var traceC = {
+            x: xvals, y: ynames, type: "bar", orientation: "h",
+            marker: { color: bcolors, line: { color: colorBg, width: 1 } },
+            hovertemplate: "%{y}<br>contribution: %{x:.2%}<extra></extra>",
+            text: xvals.map(function (v) { return (v * 100).toFixed(2) + "%"; }),
+            textposition: "outside",
+            textfont: { color: colorText, size: 10 },
+            cliponaxis: false,
+        };
+        var layoutC = {
+            margin: { l: 140, r: 50, t: 40, b: 46 },
+            paper_bgcolor: colorBg, plot_bgcolor: colorBg,
+            font: { family: "Segoe UI, Helvetica, Arial, sans-serif", color: colorText, size: 11 },
+            xaxis: { title: { text: T.x_c, font: { color: colorMuted, size: 11 } },
+                     tickformat: ".1%", gridcolor: colorGrid,
+                     zerolinecolor: colorMuted, color: colorText },
+            yaxis: { color: colorText, automargin: true },
+            title: { text: T.chart_c_title, x: 0, xanchor: "left",
+                     font: { color: colorText, size: 13, weight: 700 } },
+        };
+        Plotly.react(CHART_C, [traceC], layoutC, { displayModeBar: false, responsive: true });
+    }
+
+    buildMix();
+    applyI18n();
+    INF_EL.addEventListener("input", render);
+    YRS_EL.addEventListener("input", render);
+    NORM_BTN.addEventListener("click", normalise);
+
+    function reportHeight() {
+        try {
+            var h = Math.ceil(document.documentElement.scrollHeight);
+            parent.postMessage({ type: "lesson-interactive-resize", height: h }, "*");
+        } catch (e) { /* ignore */ }
+    }
+    if (typeof ResizeObserver !== "undefined") {
+        new ResizeObserver(reportHeight).observe(document.body);
+    }
+    window.addEventListener("resize", reportHeight);
+    setTimeout(reportHeight, 50);
+    setTimeout(reportHeight, 500);
+
+    var themeObserver = new MutationObserver(render);
+    themeObserver.observe(document.documentElement, {
+        attributes: true, attributeFilter: ["data-theme"],
+    });
+
+    render();
+})();
+</script>
+
+</body>
+</html>

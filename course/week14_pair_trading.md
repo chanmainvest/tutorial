@@ -1,1261 +1,822 @@
-# Week 14: Pair Trading Fundamentals
-
-## Reading Section
-
-### a) Why This Is Important
-
-In Week 13, we learned about long and short trading. We saw how hedge funds combine long and short positions to reduce market risk while profiting from stock selection. Pair trading takes this concept and refines it into one of the most elegant, systematic strategies in quantitative finance.
-
-Pair trading matters for several important reasons:
-
-**Market Direction Independence:** The single biggest risk for any investor is a broad market crash. If you hold a portfolio of stocks and the S&P 500 drops 30%, almost everything goes down regardless of quality. Pair trading largely eliminates this risk. Because you are simultaneously long one stock and short a related stock, market-wide movements wash out. When the market crashes, both stocks in your pair drop, and your net position is largely unaffected. Your profit or loss comes from the relative movement between the two stocks, not from the market's direction.
-
-**Quantitative Foundation:** Pair trading is one of the earliest and most well-documented quantitative strategies. It was pioneered at Morgan Stanley in the mid-1980s by Nunzio Tartaglia's quantitative research group. Since then, it has been studied extensively in academic finance. The statistical tools used in pair trading, including correlation, cointegration, mean reversion, and z-scores, form the foundation of many more advanced quantitative strategies. Learning pair trading gives you a practical entry point into the world of systematic investing.
-
-**Risk-Adjusted Returns:** Because pair trading hedges away market risk, the returns tend to be more consistent and less volatile than directional strategies. While you may not capture the huge gains of a bull market, you also avoid the devastating drawdowns of a bear market. For investors who care about risk-adjusted returns (and every serious investor should), pair trading offers an attractive profile.
-
-**Transferable Skills:** The analytical techniques you learn in pair trading transfer to many other areas of finance. Correlation analysis helps you understand portfolio diversification. Cointegration is used in fixed income relative value trading, currency pair trading, and commodity spread trading. Mean reversion concepts appear throughout quantitative finance, from statistical arbitrage to options pricing. Mastering pair trading gives you a toolkit that extends far beyond this single strategy.
-
-**Professional Relevance:** Pair trading and its more sophisticated cousin, statistical arbitrage, are among the most common strategies used by quantitative hedge funds and proprietary trading firms. If you are considering a career in quantitative finance, understanding pair trading is foundational. Even in fundamental investing, the concept of relative value, asking whether Stock A is cheap relative to Stock B rather than cheap in absolute terms, is a core analytical skill.
-
-In this lesson, we will cover the conceptual framework of relative value, how to identify suitable pairs, the statistical tools used to evaluate pairs, the mechanics of executing pair trades, and the risks and limitations of the strategy.
+# Week 14: Pair Trading — Relative Value, Mean Reversion, and the Simplest Equity-Hedge-Fund Strategy
 
 ---
 
-### b) What You Need to Know
-
-#### The Concept of Relative Value
-
-Most investors think in absolute terms. "Is Apple cheap?" "Is the market overvalued?" These are absolute value questions. Pair trading is built on relative value thinking: "Is Apple cheap RELATIVE TO Microsoft?"
-
-```
-ABSOLUTE vs. RELATIVE VALUE:
-
-  ABSOLUTE VALUE (traditional investing):
-  +----------------------------------------------------------+
-  | Question: "Is AAPL undervalued?"                          |
-  | Method:   Analyze AAPL's fundamentals, DCF, comps        |
-  | Risk:     Market crash drags AAPL down regardless         |
-  | Result:   You can be RIGHT about AAPL but still LOSE     |
-  |           money if the whole market falls                  |
-  +----------------------------------------------------------+
-
-  RELATIVE VALUE (pair trading):
-  +----------------------------------------------------------+
-  | Question: "Is AAPL cheap relative to MSFT?"               |
-  | Method:   Compare their price ratio or spread over time   |
-  | Risk:     Relationship between the two stocks breaks down |
-  | Result:   Market crash affects BOTH stocks, so the        |
-  |           relative position is largely unaffected          |
-  +----------------------------------------------------------+
-
-  VISUAL EXAMPLE:
-
-  Market crashes 20%:
-  
-  Absolute Value Investor:
-  Long AAPL only:  AAPL drops 18%  ->  Loss: -18%
-  
-  Pair Trader:
-  Long AAPL:       AAPL drops 18%  ->  Loss: -18%
-  Short MSFT:      MSFT drops 22%  ->  Gain: +22%
-                                       Net:  + 4%
-  
-  The pair trader PROFITED in a crash because AAPL
-  fell less than MSFT, confirming the relative value thesis.
-```
-
-#### What Makes a Good Pair?
-
-Not every two stocks make a good pair. The ideal pair has specific characteristics that make the strategy reliable:
-
-```
-CRITERIA FOR A GOOD PAIR:
-
-  1. SAME SECTOR / INDUSTRY
-  +----------------------------------------------------------+
-  | Stocks in the same industry are affected by the same      |
-  | forces: regulations, commodity prices, consumer trends.   |
-  | This ensures they move together in general, making the    |
-  | strategy sector-neutral.                                  |
-  |                                                           |
-  | Good:  Coca-Cola (KO) and PepsiCo (PEP)                 |
-  | Good:  Exxon (XOM) and Chevron (CVX)                     |
-  | Bad:   Apple (AAPL) and ExxonMobil (XOM)                 |
-  +----------------------------------------------------------+
-
-  2. HIGH HISTORICAL CORRELATION
-  +----------------------------------------------------------+
-  | The two stocks should have moved together historically.   |
-  | Correlation measures the degree to which two stocks       |
-  | move in the same direction.                               |
-  |                                                           |
-  | Correlation ranges from -1.0 to +1.0:                    |
-  |   +1.0 = perfect positive (move in lockstep)             |
-  |   +0.0 = no relationship                                 |
-  |   -1.0 = perfect negative (move opposite)                |
-  |                                                           |
-  | For pair trading, look for correlation > 0.80             |
-  +----------------------------------------------------------+
-
-  3. SIMILAR BUSINESS MODEL AND SIZE
-  +----------------------------------------------------------+
-  | Companies should be comparable in terms of:               |
-  | - Market capitalization (both large-cap, or both mid-cap) |
-  | - Revenue model (both subscription, both advertising)     |
-  | - Geographic exposure (both domestic, both global)        |
-  | - Growth profile (both mature, or both high-growth)       |
-  +----------------------------------------------------------+
-
-  4. MEAN-REVERTING SPREAD
-  +----------------------------------------------------------+
-  | The price ratio or spread between the two stocks should   |
-  | tend to revert to a historical average. When it deviates, |
-  | it should come back. This is testable statistically.      |
-  +----------------------------------------------------------+
-
-  5. COINTEGRATION (the gold standard)
-  +----------------------------------------------------------+
-  | Cointegration is a statistical property that means two    |
-  | series share a long-run equilibrium relationship.         |
-  | Even if each stock wanders randomly on its own, the       |
-  | DIFFERENCE between them is stationary (mean-reverting).   |
-  | This is stronger than correlation and more reliable.      |
-  +----------------------------------------------------------+
-```
-
-#### Classic Pair Examples
-
-```
-WELL-KNOWN TRADING PAIRS:
-
-  BEVERAGES:
-  +-------------------+-------------------+
-  | Coca-Cola (KO)    | PepsiCo (PEP)     |
-  | Both global       | Both global        |
-  | beverage leaders   | beverage leaders  |
-  | Similar margins   | Similar margins    |
-  | Correlation: ~0.85| over 20+ years    |
-  +-------------------+-------------------+
-
-  ENERGY:
-  +-------------------+-------------------+
-  | ExxonMobil (XOM)  | Chevron (CVX)     |
-  | #1 US oil major   | #2 US oil major   |
-  | Similar exposure   | Similar exposure  |
-  | to oil prices     | to oil prices      |
-  | Correlation: ~0.90|                    |
-  +-------------------+-------------------+
-
-  TECHNOLOGY:
-  +-------------------+-------------------+
-  | Visa (V)          | Mastercard (MA)   |
-  | Payment network   | Payment network    |
-  | Duopoly           | Duopoly            |
-  | Similar growth    | Similar growth     |
-  | Correlation: ~0.92|                    |
-  +-------------------+-------------------+
-
-  FINANCIALS:
-  +-------------------+-------------------+
-  | Goldman Sachs (GS)| Morgan Stanley(MS)|
-  | Investment bank   | Investment bank    |
-  | Similar business  | Similar business   |
-  | mix               | mix                |
-  | Correlation: ~0.88|                    |
-  +-------------------+-------------------+
-
-  HOME IMPROVEMENT:
-  +-------------------+-------------------+
-  | Home Depot (HD)   | Lowe's (LOW)      |
-  | #1 home improve.  | #2 home improve.  |
-  | Same customers    | Same customers     |
-  | Same drivers      | Same drivers       |
-  | Correlation: ~0.87|                    |
-  +-------------------+-------------------+
-```
-
-#### Correlation vs. Cointegration
-
-This distinction is crucial and often misunderstood. Many beginners equate correlation with suitability for pair trading. This is a mistake.
-
-```
-CORRELATION vs. COINTEGRATION:
-
-  CORRELATION:
-  Measures whether two stocks move in the SAME DIRECTION.
-  Two stocks can be highly correlated but NOT mean-reverting.
-  
-  Example of HIGH CORRELATION but NO COINTEGRATION:
-  
-  Price
-  $200 |          Stock A  /
-       |                 /  /  Stock B
-  $150 |              /  /
-       |           /  /
-  $100 |        /  /
-       |     /  /
-  $ 50 |  /  /
-       |/  /
-       +--|------|------|------|----->  Time
-       Year 1   Year 2  Year 3  Year 4
-  
-  Both go up together (correlated = 0.95).
-  But the GAP between them keeps GROWING.
-  The spread does NOT revert to a mean.
-  BAD for pair trading.
-
-
-  COINTEGRATION:
-  Measures whether the SPREAD between two stocks is stable.
-  The spread may deviate temporarily, but it always comes back.
-  
-  Example of COINTEGRATED pair:
-  
-  Price
-  $160 |    A         A    A          A
-       |   / \  B    / \  / \   B    / \
-  $140 |  /   \/\  /    \/   \ / \  /   \
-       | / B    \/B         B\/   \/     B
-  $120 |/                                 \
-       +--|------|------|------|------|----->  Time
-       Year 1   Year 2  Year 3  Year 4 Year 5
-  
-  Stocks A and B weave around each other.
-  Sometimes A is ahead, sometimes B is ahead.
-  But the spread between them is STABLE.
-  When they diverge, they converge back.
-  GOOD for pair trading.
-
-
-  KEY INSIGHT:
-  +----------------------------------------------------------+
-  | Correlation tells you if two stocks move in the same      |
-  | direction. Cointegration tells you if the DISTANCE        |
-  | between them is stable. For pair trading, cointegration   |
-  | is what matters.                                          |
-  |                                                           |
-  | Analogy: Two dogs on leashes held by one owner.           |
-  | The dogs may wander left and right (not perfectly         |
-  | correlated in their moment-to-moment steps), but the      |
-  | leash keeps them from getting too far apart. The leash    |
-  | is cointegration.                                         |
-  +----------------------------------------------------------+
-```
-
-#### Testing for Cointegration
-
-The standard test for cointegration in pair trading is the Augmented Dickey-Fuller (ADF) test, also known as the Engle-Granger two-step method:
-
-```
-TESTING FOR COINTEGRATION - Two-Step Process:
-
-  STEP 1: Calculate the spread (or ratio)
-  +----------------------------------------------------------+
-  | Spread = Price_A - (beta x Price_B) - alpha               |
-  |                                                           |
-  | Where beta is the hedge ratio from linear regression:     |
-  | Price_A = alpha + beta x Price_B + residuals              |
-  |                                                           |
-  | The residuals ARE the spread.                             |
-  +----------------------------------------------------------+
-
-  STEP 2: Test if the spread is stationary (ADF test)
-  +----------------------------------------------------------+
-  | Apply the Augmented Dickey-Fuller test to the residuals.  |
-  | If p-value < 0.05, the spread is stationary              |
-  | (mean-reverting), and the pair is cointegrated.           |
-  |                                                           |
-  | H0 (null): Spread has a unit root (not stationary)        |
-  | H1 (alternative): Spread is stationary (mean-reverting)   |
-  |                                                           |
-  | If we reject H0 (p < 0.05), the pair is cointegrated.    |
-  +----------------------------------------------------------+
-
-  PRACTICAL INTERPRETATION:
-
-  ADF Test Result          Pair Trading Suitability
-  ==================       ========================
-  p-value < 0.01           Strong cointegration. Excellent pair.
-  p-value 0.01 - 0.05      Moderate cointegration. Good pair.
-  p-value 0.05 - 0.10      Weak cointegration. Use with caution.
-  p-value > 0.10           Not cointegrated. Avoid this pair.
-
-  EXAMPLE:
-  
-  Run regression:  KO_price = 0.52 + 1.12 x PEP_price + residuals
-  
-  ADF test on residuals:
-  Test statistic: -3.42
-  p-value: 0.009
-  
-  Conclusion: p-value < 0.01, so KO and PEP are cointegrated.
-  The spread between them is mean-reverting.
-  This is a valid pair for trading.
-```
-
-#### The Price Ratio and Spread
-
-There are two main ways to measure the relationship between a pair of stocks:
-
-```
-TWO APPROACHES TO PAIR MEASUREMENT:
-
-  1. PRICE RATIO METHOD
-  +----------------------------------------------------------+
-  | Ratio = Price_A / Price_B                                 |
-  |                                                           |
-  | Example: KO at $60, PEP at $170                          |
-  | Ratio = 60 / 170 = 0.353                                 |
-  |                                                           |
-  | If historical average ratio is 0.370, KO is relatively   |
-  | cheap vs. PEP (ratio below average).                     |
-  | Trade: Buy KO, Short PEP.                                |
-  +----------------------------------------------------------+
-
-  Price Ratio Chart (KO/PEP):
-  
-  0.42 |
-       |      *
-  0.40 |     * *
-       |    *   *
-  0.38 |   *     *            *
-       |  *       *          * *
-  0.36 |--*--------*--mean--*---*----------  <- Historical Mean
-       |            *      *     *
-  0.34 |             *    *       *    *
-       |              *  *         *  * *
-  0.32 |               **          **   *  <- Current (below mean)
-       |                                    
-  0.30 +--|----|----|----|----|----|----|-->
-          J    F    M    A    M    J    J
-  
-  Signal: Ratio below mean -> Buy KO, Short PEP
-
-
-  2. SPREAD METHOD (using hedge ratio)
-  +----------------------------------------------------------+
-  | Spread = Price_A - (hedge_ratio x Price_B)                |
-  |                                                           |
-  | Hedge ratio from regression: beta = 0.35                  |
-  | Spread = KO - (0.35 x PEP) = 60 - (0.35 x 170) = 0.50  |
-  |                                                           |
-  | If mean spread is 2.00, current spread of 0.50 is below  |
-  | average. KO is cheap relative to PEP.                     |
-  | Trade: Buy KO, Short PEP.                                |
-  +----------------------------------------------------------+
-
-  WHICH METHOD TO USE?
-  +----------------------------------------------------------+
-  | Ratio method: Simpler, intuitive, works for stable pairs. |
-  | Spread method: More rigorous, accounts for the hedge      |
-  |   ratio, better for pairs with different volatilities.    |
-  | Most quantitative traders use the spread method.          |
-  +----------------------------------------------------------+
-```
-
-#### Z-Score: The Trading Signal
-
-The z-score standardizes the spread so you can compare deviations across different pairs and time periods:
-
-```
-Z-SCORE CALCULATION:
-
-  Z-score = (Current Spread - Mean Spread) / Std Dev of Spread
-
-  Example:
-  Current spread:     0.50
-  Historical mean:    2.00
-  Standard deviation: 0.80
-  
-  Z-score = (0.50 - 2.00) / 0.80 = -1.875
-
-  INTERPRETATION:
-  The spread is 1.875 standard deviations BELOW its mean.
-  This means KO is unusually cheap relative to PEP.
-
-
-  Z-SCORE TRADING SIGNALS:
-
-  Z-score
-  +3.0 |                                    <- Extreme (short A, long B)
-       |
-  +2.0 |-------- SELL SIGNAL --------        <- Enter short A, long B
-       |
-  +1.0 |
-       |
-   0.0 |=============== MEAN ===============  <- Fair value
-       |
-  -1.0 |
-       |
-  -2.0 |-------- BUY SIGNAL ---------        <- Enter long A, short B
-       |
-  -3.0 |                                    <- Extreme (long A, short B)
-
-
-  STANDARD TRADING RULES:
-
-  +----------------------------------------------------------+
-  | ENTRY SIGNALS:                                            |
-  |                                                           |
-  | Z-score < -2.0:  Buy Stock A, Short Stock B              |
-  |   (A is cheap relative to B)                             |
-  |                                                           |
-  | Z-score > +2.0:  Short Stock A, Buy Stock B              |
-  |   (A is expensive relative to B)                         |
-  |                                                           |
-  | EXIT SIGNALS:                                             |
-  |                                                           |
-  | Z-score returns to 0:  Close both positions              |
-  |   (Spread has reverted to the mean)                      |
-  |                                                           |
-  | STOP-LOSS:                                                |
-  |                                                           |
-  | Z-score exceeds +/- 4.0:  Close positions, take loss     |
-  |   (Relationship may have broken down)                     |
-  +----------------------------------------------------------+
-```
-
-#### How a Pair Trade Works: Complete Example
-
-```
-PAIR TRADE WALKTHROUGH: Coca-Cola (KO) vs. PepsiCo (PEP)
-
-  SETUP (based on historical analysis):
-  +----------------------------------------------------------+
-  | Pair: KO / PEP                                           |
-  | Correlation: 0.87                                         |
-  | Cointegration p-value: 0.008 (strongly cointegrated)      |
-  | Hedge ratio (beta): 0.35                                  |
-  | Mean spread: 2.00                                         |
-  | Spread std dev: 0.80                                      |
-  | Lookback period: 252 trading days (1 year)                |
-  +----------------------------------------------------------+
-
-  DAY 1: SIGNAL DETECTED
-  +----------------------------------------------------------+
-  | KO price: $58.00                                          |
-  | PEP price: $172.00                                        |
-  | Spread = 58 - (0.35 x 172) = 58 - 60.20 = -2.20         |
-  | Z-score = (-2.20 - 2.00) / 0.80 = -5.25                 |
-  |                                                           |
-  | Wait - that seems extreme. Let us use a more realistic   |
-  | example with actual reasonable numbers.                    |
-  +----------------------------------------------------------+
-
-  Let us recalibrate with cleaner numbers:
-
-  HISTORICAL ANALYSIS:
-  +----------------------------------------------------------+
-  | Price ratio (KO/PEP) over last year:                     |
-  | Mean ratio: 0.370                                         |
-  | Std deviation: 0.015                                      |
-  +----------------------------------------------------------+
-
-  DAY 1: ENTRY SIGNAL
-  +----------------------------------------------------------+
-  | KO price: $57.00                                          |
-  | PEP price: $172.00                                        |
-  | Current ratio: 57 / 172 = 0.3314                         |
-  | Z-score = (0.3314 - 0.370) / 0.015 = -2.57              |
-  |                                                           |
-  | Signal: Z-score < -2.0                                   |
-  | KO is cheap relative to PEP.                             |
-  | Action: BUY KO, SHORT PEP                                |
-  +----------------------------------------------------------+
-  
-  POSITION SIZING (dollar-neutral):
-  +----------------------------------------------------------+
-  | Total capital allocated: $50,000                          |
-  |                                                           |
-  | Long leg:  Buy 439 shares of KO at $57.00 = $25,023     |
-  | Short leg: Short 145 shares of PEP at $172 = $24,940    |
-  |                                                           |
-  | Approximately equal dollar amounts on each side.          |
-  | Net market exposure: ~$83 (essentially zero).             |
-  +----------------------------------------------------------+
-
-  DAY 15: CONVERGENCE BEGINS
-  +----------------------------------------------------------+
-  | KO rises to $59.50  (+4.4%)                              |
-  | PEP drops to $169.00 (-1.7%)                             |
-  | Current ratio: 59.50 / 169.00 = 0.3521                  |
-  | Z-score = (0.3521 - 0.370) / 0.015 = -1.19              |
-  |                                                           |
-  | The spread is converging toward the mean.                 |
-  | Hold the position.                                        |
-  +----------------------------------------------------------+
-  
-  P&L so far:
-  +----------------------------------------------------------+
-  | KO long:  439 x ($59.50 - $57.00) = +$1,097.50          |
-  | PEP short: 145 x ($172.00 - $169.00) = +$435.00         |
-  | Total P&L: +$1,532.50 (+3.07% on $50,000)               |
-  | Both sides are profitable!                                |
-  +----------------------------------------------------------+
-
-  DAY 28: EXIT SIGNAL
-  +----------------------------------------------------------+
-  | KO at $61.00  (+7.0% from entry)                         |
-  | PEP at $166.00 (-3.5% from entry)                        |
-  | Current ratio: 61.00 / 166.00 = 0.3675                  |
-  | Z-score = (0.3675 - 0.370) / 0.015 = -0.17              |
-  |                                                           |
-  | Z-score near zero = spread has reverted to mean.          |
-  | Action: CLOSE BOTH POSITIONS                             |
-  +----------------------------------------------------------+
-  
-  FINAL P&L:
-  +----------------------------------------------------------+
-  | KO long:  439 x ($61.00 - $57.00) = +$1,756.00          |
-  | PEP short: 145 x ($172.00 - $166.00) = +$870.00         |
-  | Total P&L: +$2,626.00                                    |
-  | Return: +$2,626 / $50,000 = +5.25% in 28 days           |
-  | Annualized: ~68% (though not every trade works this well)|
-  +----------------------------------------------------------+
-```
-
-#### Dollar-Neutral vs. Beta-Neutral
-
-When sizing a pair trade, there are two main approaches:
-
-```
-POSITION SIZING APPROACHES:
-
-  1. DOLLAR-NEUTRAL
-  +----------------------------------------------------------+
-  | Equal dollar amounts on each side.                        |
-  | Long $25,000 of Stock A, Short $25,000 of Stock B.       |
-  |                                                           |
-  | Simple to implement, but not perfect if the two stocks    |
-  | have different betas (market sensitivities).              |
-  |                                                           |
-  | Example: If Stock A has beta 1.2 and Stock B has beta 0.8|
-  | Your $25K long has effective market exposure of $30K      |
-  | Your $25K short has effective market exposure of -$20K    |
-  | Net market exposure: $10K (not truly neutral)             |
-  +----------------------------------------------------------+
-
-  2. BETA-NEUTRAL
-  +----------------------------------------------------------+
-  | Adjust position sizes so that market exposure cancels.    |
-  |                                                           |
-  | Formula:                                                  |
-  | Short $ = Long $ x (Beta_Long / Beta_Short)              |
-  |                                                           |
-  | Example: Stock A beta = 1.2, Stock B beta = 0.8          |
-  | If long $25,000 of A:                                    |
-  | Short $ = $25,000 x (1.2 / 0.8) = $37,500 of B         |
-  |                                                           |
-  | Market exposure check:                                    |
-  | Long: $25,000 x 1.2 = $30,000 effective                 |
-  | Short: -$37,500 x 0.8 = -$30,000 effective              |
-  | Net: $0 (truly market neutral)                           |
-  +----------------------------------------------------------+
-
-  COMPARISON:
-  
-  Method           Simplicity    Market Neutrality    Best For
-  ==============   ==========    =================    =========
-  Dollar-neutral   High          Approximate          Same-sector
-                                                      similar-beta
-                                                      pairs
-  Beta-neutral     Medium        Precise              Cross-sector
-                                                      or different-
-                                                      beta pairs
-```
-
-#### The Sector-Neutral Approach
-
-Pair trading is most reliable when both stocks are in the same sector. Here is why:
-
-```
-WHY SECTOR NEUTRALITY MATTERS:
-
-  SAME-SECTOR PAIR (KO vs PEP):
-  +----------------------------------------------------------+
-  | Shared risk factors:                                      |
-  | - Consumer spending trends              HEDGED            |
-  | - Sugar / commodity prices              HEDGED            |
-  | - FDA regulations on beverages          HEDGED            |
-  | - Retail distribution changes           HEDGED            |
-  | - Weather affecting sales               HEDGED            |
-  |                                                           |
-  | Company-specific factors:                                 |
-  | - KO launches successful new product    CAPTURED          |
-  | - PEP has management misstep            CAPTURED          |
-  |                                                           |
-  | Result: You profit from company-specific differences      |
-  | while sector-wide risks cancel out.                       |
-  +----------------------------------------------------------+
-
-  CROSS-SECTOR PAIR (AAPL vs XOM):
-  +----------------------------------------------------------+
-  | Different risk factors:                                   |
-  | - Tech sector: AI hype, regulation      NOT HEDGED        |
-  | - Energy sector: Oil prices, OPEC       NOT HEDGED        |
-  | - Consumer electronics demand           NOT HEDGED        |
-  | - Drilling permits, ESG pressure        NOT HEDGED        |
-  |                                                           |
-  | Result: You are exposed to sector rotation risk.          |
-  | If tech rallies and energy drops, both sides of           |
-  | your trade move against you simultaneously.               |
-  +----------------------------------------------------------+
-
-  SECTOR-NEUTRAL PAIR CATEGORIES:
-
-  +-------------------+----------------------------------------+
-  | Sector            | Example Pairs                          |
-  +-------------------+----------------------------------------+
-  | Beverages         | KO/PEP                                |
-  | Oil Majors        | XOM/CVX                               |
-  | Banks             | JPM/BAC, GS/MS                        |
-  | Payment Networks  | V/MA                                  |
-  | Home Improvement  | HD/LOW                                |
-  | Semiconductors    | AMD/INTC, AVGO/TXN                    |
-  | Airlines          | DAL/UAL                               |
-  | Telecom           | VZ/T                                  |
-  | Pharma            | JNJ/PFE, MRK/ABBV                     |
-  | E-commerce        | AMZN/SHOP (different sizes, careful)   |
-  | Autos             | GM/F                                  |
-  | Fast Food         | MCD/YUM                               |
-  +-------------------+----------------------------------------+
-```
-
-#### Mean Reversion and Half-Life
-
-The half-life of a spread tells you how long it typically takes for the spread to revert halfway to its mean. This is crucial for determining your trading horizon:
-
-```
-HALF-LIFE OF MEAN REVERSION:
-
-  CONCEPT:
-  If the spread is currently 2 standard deviations from the mean,
-  the half-life tells you how many days (on average) it takes
-  for the spread to move back to 1 standard deviation from the mean.
-
-  CALCULATION:
-  From the Ornstein-Uhlenbeck process:
-  
-  Spread_t = Spread_{t-1} x theta + noise
-  
-  Where theta is the mean reversion speed.
-  Half-life = -ln(2) / ln(theta)
-
-  INTERPRETATION:
-  +-------------------+------------------------------------------+
-  | Half-life         | Trading Implication                      |
-  +-------------------+------------------------------------------+
-  | < 5 days          | Very fast reversion. Day-trading pairs.  |
-  |                   | May be too fast for retail traders.       |
-  +-------------------+------------------------------------------+
-  | 5 - 15 days       | Fast reversion. Swing trading pairs.     |
-  |                   | Good for active retail traders.           |
-  +-------------------+------------------------------------------+
-  | 15 - 30 days      | Moderate reversion. Position trading.    |
-  |                   | Ideal for most pair traders.              |
-  +-------------------+------------------------------------------+
-  | 30 - 60 days      | Slow reversion. Longer-term pairs.       |
-  |                   | Requires patience and capital.            |
-  +-------------------+------------------------------------------+
-  | > 60 days         | Very slow. May not be reliably           |
-  |                   | mean-reverting. Avoid for pair trading.   |
-  +-------------------+------------------------------------------+
-
-  VISUAL:
-
-  Spread
-  Deviation
-       |
-  +2 SD|     *
-       |    * *
-  +1 SD|   *   *
-       |  *     *         <- Half-life: time to go from +2 SD to +1 SD
-   Mean|--*------*--------*---*---*---*-----
-       |          *      *
-  -1 SD|           *    *
-       |            *  *
-  -2 SD|             **
-       +--|----|----|----|----|----|----|-->
-          0    5   10   15   20   25   30  Days
-          
-          |<-Half-life->|
-          (example: ~8 days)
-```
-
-#### Practical Implementation Steps
-
-```
-PAIR TRADING IMPLEMENTATION CHECKLIST:
-
-  STEP 1: UNIVERSE SELECTION
-  +----------------------------------------------------------+
-  | - Start with stocks in the same sector/industry           |
-  | - Filter for sufficient liquidity (avg volume > 1M)       |
-  | - Filter for sufficient market cap (> $5B)                |
-  | - Remove stocks with pending mergers or special events    |
-  +----------------------------------------------------------+
-       |
-       v
-  STEP 2: CORRELATION SCREENING
-  +----------------------------------------------------------+
-  | - Calculate pairwise correlations for all pairs           |
-  | - Filter for correlation > 0.80 over trailing 252 days   |
-  | - This reduces the universe dramatically                  |
-  +----------------------------------------------------------+
-       |
-       v
-  STEP 3: COINTEGRATION TESTING
-  +----------------------------------------------------------+
-  | - Run Engle-Granger test on remaining pairs               |
-  | - Keep only pairs with p-value < 0.05                     |
-  | - Calculate hedge ratios from the regression              |
-  +----------------------------------------------------------+
-       |
-       v
-  STEP 4: HALF-LIFE CALCULATION
-  +----------------------------------------------------------+
-  | - Estimate mean reversion speed for each pair             |
-  | - Filter for half-life between 5 and 60 days              |
-  | - Shorter = faster trades; longer = more patience needed  |
-  +----------------------------------------------------------+
-       |
-       v
-  STEP 5: Z-SCORE MONITORING
-  +----------------------------------------------------------+
-  | - Calculate rolling z-score for each validated pair       |
-  | - Set entry threshold (typically z = +/- 2.0)            |
-  | - Set exit threshold (typically z = 0)                    |
-  | - Set stop-loss threshold (typically z = +/- 4.0)        |
-  +----------------------------------------------------------+
-       |
-       v
-  STEP 6: TRADE EXECUTION
-  +----------------------------------------------------------+
-  | - When z-score triggers entry, execute both legs          |
-  |   simultaneously                                          |
-  | - Use dollar-neutral or beta-neutral sizing               |
-  | - Monitor daily for exit or stop-loss signals             |
-  +----------------------------------------------------------+
-       |
-       v
-  STEP 7: PERFORMANCE TRACKING
-  +----------------------------------------------------------+
-  | - Track P&L for each pair separately                      |
-  | - Monitor correlation and cointegration stability         |
-  | - Re-run statistical tests monthly                        |
-  | - Replace pairs that lose cointegration                   |
-  +----------------------------------------------------------+
-```
-
-#### Risks of Pair Trading
-
-```
-PAIR TRADING RISKS:
-
-  1. DIVERGENCE RISK (Relationship Breakdown)
-  +----------------------------------------------------------+
-  | The historical relationship between two stocks can break. |
-  |                                                           |
-  | Causes:                                                   |
-  | - One company gets acquired                               |
-  | - Regulatory change affects one but not the other         |
-  | - Major product failure or breakthrough at one company    |
-  | - Accounting fraud at one company                         |
-  |                                                           |
-  | Example: Pair trading Lehman Brothers vs Goldman Sachs    |
-  | would have been catastrophic in 2008 when Lehman went     |
-  | bankrupt while Goldman survived.                          |
-  |                                                           |
-  | Mitigation: Use stop-losses (exit if z-score > 4),       |
-  | diversify across multiple pairs, re-test cointegration    |
-  | regularly.                                                |
-  +----------------------------------------------------------+
-
-  2. EXECUTION RISK (Leg Risk)
-  +----------------------------------------------------------+
-  | A pair trade requires executing two trades simultaneously.|
-  | If one leg fills and the other does not (or fills at a    |
-  | different price), you have unintended directional         |
-  | exposure.                                                 |
-  |                                                           |
-  | Example: You enter a buy order for KO and a short order  |
-  | for PEP. KO fills instantly but PEP has a short-sale     |
-  | restriction and your short does not execute. Now you are  |
-  | just long KO with no hedge.                              |
-  |                                                           |
-  | Mitigation: Use liquid stocks, trade during high-volume   |
-  | periods, consider using limit orders with contingencies.  |
-  +----------------------------------------------------------+
-
-  3. MODEL RISK (Statistical False Positives)
-  +----------------------------------------------------------+
-  | Past cointegration does not guarantee future              |
-  | cointegration. Statistical tests can produce false        |
-  | positives, especially when testing many pairs.            |
-  |                                                           |
-  | If you test 1,000 pairs, ~50 will appear cointegrated    |
-  | at the 5% significance level purely by chance.            |
-  |                                                           |
-  | Mitigation: Require economic rationale (same sector),     |
-  | use out-of-sample testing, apply multiple testing         |
-  | corrections (Bonferroni, Holm).                           |
-  +----------------------------------------------------------+
-
-  4. REGIME CHANGE RISK
-  +----------------------------------------------------------+
-  | Market regimes shift. A pair that was stable for years    |
-  | may break during a crisis or structural change.           |
-  |                                                           |
-  | Example: Before 2020, airlines traded in relatively      |
-  | tight pairs. COVID-19 caused divergences that no          |
-  | historical model anticipated.                             |
-  |                                                           |
-  | Mitigation: Use adaptive lookback windows, monitor        |
-  | macro conditions, reduce position sizes during            |
-  | uncertainty.                                              |
-  +----------------------------------------------------------+
-
-  5. CROWDING RISK
-  +----------------------------------------------------------+
-  | Popular pairs attract many traders. When everyone trades  |
-  | the same pair, the edge diminishes. Worse, if many        |
-  | traders exit simultaneously, the convergence trade can    |
-  | reverse violently.                                        |
-  |                                                           |
-  | The "quant meltdown" of August 2007 saw many quant        |
-  | funds using similar pair trading strategies suffer         |
-  | simultaneous losses as they all tried to exit at once.    |
-  |                                                           |
-  | Mitigation: Trade less obvious pairs, diversify across    |
-  | many pairs, avoid the most popular pair trades.           |
-  +----------------------------------------------------------+
-
-  6. SHORT SELLING CONSTRAINTS
-  +----------------------------------------------------------+
-  | The short leg of a pair trade faces all the risks we      |
-  | discussed in Week 13: borrow costs, share recall,         |
-  | short-sale restrictions, and dividend payments.           |
-  |                                                           |
-  | Mitigation: Only pair trade liquid, easy-to-borrow        |
-  | stocks. Factor borrow costs into expected returns.        |
-  +----------------------------------------------------------+
-```
+## Part 1: Reading Section
 
 ---
 
-### c) Common Misconceptions
+### 1. Why This Is Important
 
-**Misconception 1: "If two stocks are highly correlated, they make a good pair."**
+Week 13 introduced long/short — the architecture. This week applies
+that architecture to its narrowest, most teachable form: **two stocks,
+one long, one short, equal dollar, sized to the spread between them.**
+Pair trading. The simplest equity-hedge-fund strategy in the book, and
+the cleanest place for a retail investor to learn the mechanics of
+relative value before scaling up to anything more complicated.
 
-This is the most common and most dangerous misconception in pair trading. Correlation measures whether two stocks move in the same direction. Cointegration measures whether the spread between them is stable and mean-reverting. Two stocks can have a correlation of 0.95 and still be terrible for pair trading if their spread drifts over time. Amazon and Google were highly correlated for years, but they are not cointegrated because their growth rates and valuations diverge persistently. Always test for cointegration, not just correlation.
+You need this lesson for four reasons.
 
-**Misconception 2: "Pair trading is risk-free because you are long and short at the same time."**
+1. **It is the cleanest test of the long/short toolkit you just
+   learned.** Long Coke / short Pepsi at equal dollar is dollar-
+   neutral by construction, roughly beta-neutral by virtue of the
+   two stocks having near-identical sensitivities to the consumer-
+   staples factor, and the entire P&L is the *spread alpha* — the
+   difference between two close substitutes. There is nowhere for a
+   directional view to hide. If the trade works, you traded the
+   spread; if it doesn't, you didn't. Pair trading is the laboratory
+   in which you find out whether you have any relative-value edge at
+   all.
 
-Pair trading eliminates broad market risk (beta), but it does not eliminate stock-specific risk. If the company you are long announces terrible earnings and the company you are short announces great earnings, you lose on both sides of the trade. The relationship between the two stocks can break down permanently due to acquisitions, regulatory changes, or fundamental shifts. Pair trading reduces risk; it does not eliminate it.
+2. **It is the entry point to a real, durable alpha source — not
+   the made-up kind.** SOUL #5 names the structural alphas that
+   actually compound after costs: liquidity, sector rotation, long-
+   term trends, and buying what the passive machinery has abandoned.
+   Pair trading sits inside the structural-alpha class because the
+   pair trader is *supplying liquidity to the temporarily dislocated
+   leg*. When PEP gaps down on a weak quarter and KO sits still, the
+   pair trader who buys the dislocation is on the other side of
+   forced sellers (mutual-fund redemptions, factor unwinds, index
+   rebalances). The reversion of the spread back to its long-run
+   relationship is the structural payment for that liquidity.
 
-**Misconception 3: "The wider the spread divergence, the better the opportunity."**
+3. **It teaches you why "real-looking" pairs decay — the regime
+   change problem.** SOUL #2 is the recurring bell of this course:
+   regimes change, often without warning, and a strategy that
+   worked for a decade can stop working in a quarter. Pair trading
+   is the cleanest case study of that principle in retail-accessible
+   form. Two stocks that have moved together for fifteen years can
+   permanently de-couple — KO and PEP did, partially, after PEP's
+   snack-foods business compounded faster than KO's beverage-only
+   one. A pair trade that ignored that fundamental divergence and
+   kept fading the widening spread back to its 10-year mean would
+   have been wrong for six straight years. **Cointegration is a
+   conditional, regime-dependent property, not a permanent one.**
 
-While a larger divergence (higher z-score) might suggest a bigger profit potential, extreme divergences often signal that the relationship is breaking down rather than presenting an opportunity. A z-score of 5 might mean "incredible bargain" or it might mean "something fundamental has changed and the spread will never revert." This is why stop-losses are essential. Professional pair traders are wary of extreme divergences and investigate the cause before trading.
+4. **It frames the August 2007 quant quake — the canonical case
+   study for crowded factor risk.** When too many quants run
+   essentially the same pair-trading and stat-arb strategies, the
+   pairs themselves become a factor — a factor that can unwind
+   in correlated panic. Over four trading days in August 2007, a
+   forced unwind by one or two large multi-strat funds drove a
+   simultaneous reversal across the standard pair-trading factor,
+   and most of the field lost two-to-four sigma on what should have
+   been independent trades. The lesson — your alpha is only alpha
+   when the people running the same strategy aren't all forced to
+   exit at the same time — is one of the most important risk-
+   management lessons in modern finance, and pair trading is where
+   it was first learned.
 
-**Misconception 4: "You can pair trade any two stocks in the same sector."**
-
-Same-sector membership is necessary but not sufficient. Ford and Tesla are both in the automotive sector, but they have very different business models, growth profiles, investor bases, and volatility characteristics. A pair trade between them would be unreliable because the factors driving their stock prices are quite different despite sharing a sector classification. The best pairs are companies with truly similar business models, customer bases, and competitive positions.
-
-**Misconception 5: "Pair trading always profits from mean reversion."**
-
-Pair trading profits from mean reversion of the spread, but mean reversion is a statistical tendency, not a guarantee. Some trades will hit stop-losses as the spread continues to diverge. Some pairs will lose their cointegration relationship. The edge in pair trading comes from the fact that, over many trades, the spread reverts to the mean more often than it does not. Individual trades can and will lose money.
-
-**Misconception 6: "Pair trading was killed by quant funds and algorithms."**
-
-It is true that the proliferation of quantitative trading has made simple pair trading less profitable than it was in the 1990s. The obvious pairs and simple z-score signals have been arbitraged by faster, more sophisticated players. However, pair trading remains viable for several reasons: new pairs form as industries evolve, the strategy works across asset classes beyond equities, and fundamental-driven pair trading (combining statistical signals with fundamental analysis) still offers an edge that pure statistical approaches miss. The strategy has evolved, not died.
+This lesson sits in the *opportunistic* slot of SOUL #13's four-
+tranche structure and on the alpha end of SOUL #14's barbell. Most
+of your wealth is in the safety end (cash, Treasuries, gold,
+deep-ITM long-dated calls on names you'd own anyway). A small
+sleeve at the alpha end is where the pair-trading book lives — the
+*pinwheel*, in Horace's phrase, that spins when the rest of the
+portfolio is sitting still.
 
 ---
 
-### d) Common Questions and Answers
+### 2. What You Need to Know
 
-**Q1: How much capital do I need to start pair trading?**
+#### 2.1 Relative Value — the Core Reframe
 
-A: Because you need to hold both a long and a short position simultaneously, pair trading requires more capital than simple stock buying. A single pair trade with roughly $12,500 on each side requires about $25,000 total. However, because the short side uses margin, you typically need an approved margin account with at least $25,000 (the Pattern Day Trader minimum in the US, if you plan to trade frequently). For diversification across multiple pairs, $50,000-$100,000 is more realistic. Some brokers allow smaller pair trades, but tight position sizing becomes difficult below $25,000.
+Long-only investing asks an absolute question: "Is KO cheap?" The
+answer requires a view on KO's earnings, multiple, growth, balance
+sheet, and the broader equity-risk premium. Get any of those wrong
+and the trade can be wrong even if KO is "cheap" by your model.
 
-**Q2: How many pairs should I trade simultaneously?**
+Pair trading replaces the absolute question with a relative one:
+**"Is KO cheap *relative to* PEP?"** The two beverage incumbents
+share a customer base, a regulatory regime, an exposure to the
+commodity-price cycle in sugar and aluminium, an exposure to the
+consumer-staples factor, an exposure to USD strength, and roughly
+the same multiple regime. A bad consumer-staples macro hits both;
+a sugar-tax scare hits both; a strong-dollar quarter hits both.
+What it does *not* hit symmetrically is the company-specific
+operational variance — KO's bottler restructuring, PEP's
+snack-foods margin, an FX shock specific to one country, a recall
+that lands on one brand. The spread isolates that company-specific
+variance from everything else.
 
-A: Diversification across pairs is important because individual pairs can break down. Professional pair traders typically hold 10-30 pairs simultaneously, which provides sufficient diversification. For individual investors, 5-10 pairs is more manageable and still provides reasonable diversification. The key is that each pair should be somewhat independent, trading KO/PEP and MCD/YUM is fine because they are in different sub-industries (beverages vs restaurants), but trading XOM/CVX and XOM/COP is less diversified because XOM appears in both pairs.
+The directional risk you eliminate is large. The 60/40 holder of
+2,000 shares of KO has roughly half a million dollars exposed to
+"the consumer staples factor wakes up tomorrow and falls 10% on a
+risk-off day." The dollar-neutral pair trader long 1,000 KO and
+short 1,000 PEP has approximately *zero* dollars exposed to that
+factor. What the pair trader has, instead, is a $0 net but $200
+gross book that is exposed to **the difference between two stories
+that look similar**. That difference is what they get paid for —
+or punished for, when the difference turns out to be permanent
+rather than mean-reverting.
 
-**Q3: How often do I need to rebalance or adjust pair trade positions?**
+This is why pair trading is the right teaching example for SOUL #5
+and #14: it strips off market beta entirely and lets you see, in
+isolation, whether the relative-value bet has any signal at all.
 
-A: There are three triggers for adjusting positions. First, when the z-score reaches your exit threshold (typically 0), you close the trade. Second, when the z-score reaches your stop-loss threshold (typically plus or minus 4), you close the trade to limit losses. Third, if the dollar amounts of the two legs have drifted significantly (say, more than 10% apart), you should rebalance to maintain approximately equal dollar exposure. Most pair traders check their positions daily and rebalance weekly if needed.
+#### 2.2 Spread Construction and the Z-Score
 
-**Q4: Can I pair trade ETFs instead of individual stocks?**
+Once you've picked a pair, you need a way to say *how dislocated*
+it is. The standard approach is the **rolling-Z-score on the
+log-spread**.
 
-A: Yes, and this is often easier for beginners. ETF pairs like XLF/XLK (Financials vs Technology), GLD/SLV (Gold vs Silver), or EEM/EFA (Emerging Markets vs Developed International) can be used for pair trading. ETFs offer higher liquidity, lower single-stock risk, and easy borrowing for short selling. The tradeoff is that ETF pairs tend to revert more slowly because sector-level divergences are smoother than individual stock divergences.
+Construct it in three steps.
 
-**Q5: What lookback period should I use for calculating the spread mean and standard deviation?**
+1. **Form the log-spread** as `s_t = log(P^A_t) - log(P^B_t)`.
+   Working in log-space is the convention because it makes the
+   spread invariant to dollar normalisation and gives a multiplicative
+   interpretation: a constant `s_t` means a constant *ratio* of
+   prices, regardless of level.
+2. **Compute the rolling mean and stdev** over a lookback window —
+   60 trading days is a common starting point for daily data.
+   Call them `mu_t` and `sigma_t`.
+3. **Z-score** the spread: `z_t = (s_t - mu_t) / sigma_t`. By
+   construction, in a stable cointegrated relationship, `z_t` is
+   approximately distributed mean-zero, unit-variance, with most
+   observations falling between -2 and +2.
 
-A: There is no universally correct answer, but 60 to 252 trading days (roughly 3 months to 1 year) is the most common range. Shorter lookback periods are more responsive to recent changes but more susceptible to noise. Longer lookback periods are more stable but may include outdated data. A common approach is to use a 126-day (6-month) rolling window for z-score calculation and test cointegration on 1-2 years of data. Some traders use an exponentially weighted moving average to give more weight to recent observations.
+The image below shows what this looks like for KO and PEP from
+2015 through 2024 — the top panel is normalised prices, the
+bottom panel is the rolling-60-day Z-score with +/-2 sigma bands.
 
-**Q6: What happens if one stock in my pair gets acquired?**
+![Two-panel chart of KO and PEP from 2015 through 2024. Top panel: KO and PEP daily AdjClose prices both rebased to 100 at the start of 2015, drifting together for most of the decade with episodic divergences. Bottom panel: rolling 60-trading-day Z-score of log(KO) - log(PEP), with the +/-2 sigma bands highlighted; the series spends the bulk of the time inside the bands and visits the +/-2 lines a handful of times across the ten-year window.](image/week14_kopep_spread.png)
 
-A: This is one of the biggest risks in pair trading. If you are long Stock A and short Stock B, and Stock B receives a takeover bid at a 30% premium, Stock B jumps 30% overnight and you lose 30% on your short leg while Stock A may barely move. This scenario can result in a large loss on what appeared to be a hedged position. Mitigation strategies include: avoiding stocks with active takeover rumors, keeping individual pair sizes small (2-5% of capital), and monitoring M&A activity in the sectors you trade.
+A pair trader looks at the bottom panel and asks: *when the line
+hits +2, do I trust that it'll come back to zero, and how long
+will it take?* The answer comes from cointegration, not correlation.
 
-**Q7: Is pair trading the same as statistical arbitrage?**
+#### 2.3 Correlation vs Cointegration — Why the Distinction Matters
 
-A: Pair trading is the simplest form of statistical arbitrage (stat arb). Traditional pair trading involves a single pair of stocks. Statistical arbitrage extends this to trading many pairs simultaneously, using more sophisticated models, incorporating multiple factors beyond just price relationships, and often trading hundreds or thousands of pairs with automated execution. Think of pair trading as one-dimensional stat arb. Professional stat arb funds use the same core concepts (cointegration, mean reversion, z-scores) but apply them at much larger scale with more complexity.
+Two random walks can be highly correlated and still diverge to
+infinity. That is the trap that kills naive pair trades.
 
-**Q8: Can pair trading work in a trending market?**
+- **Correlation** measures whether two return series move together
+  *over short horizons*. Two stocks with monthly correlation of
+  0.85 just means their monthly returns line up; it says nothing
+  about whether the *spread between their levels* mean-reverts.
+- **Cointegration** is stronger. Two price series are cointegrated
+  if there exists a linear combination of them that is *stationary*
+  — i.e., the spread itself has a stable mean and variance and
+  reverts when it strays. Cointegration is the mathematical
+  formalisation of "they share a long-run equilibrium relationship."
 
-A: Yes, and this is one of its advantages. Because pair trading is market-neutral (or approximately so), the strategy is largely indifferent to whether the market is trending up, down, or sideways. In a bull market, both stocks tend to rise, and you profit if your long rises more than your short. In a bear market, both stocks tend to fall, and you profit if your short falls more than your long. The strategy struggles when sector-specific factors cause one stock to decouple from its pair, regardless of overall market direction.
+In practice, cointegration is tested with the Engle-Granger
+two-step procedure or a Johansen test on level series; the details
+are second-order. The *intuition* is the part you must internalise:
+**you can trade pairs only when the spread is mean-reverting, and
+correlation alone does not guarantee that.** The textbook
+counter-example is two assets in different secular trends — both
+might rally together for years (high correlation) while the *gap*
+between them widens monotonically (no cointegration). A pair trader
+who fades that widening gap loses every quarter for a decade.
 
-**Q9: How do taxes work for pair trading?**
+A practical rule: before you trade a pair, plot the spread Z-score
+over a 5-to-10-year window and ask "does this thing visibly come
+home, repeatedly, after each excursion?" If yes, the cointegration
+test is mostly confirming what your eye already saw. If no, no
+amount of statistical machinery will rescue the trade.
 
-A: Pair trading creates both capital gains and losses within the same trade. The long leg generates a capital gain or loss when closed, and the short leg generates a short-term capital gain or loss (short positions are always taxed as short-term, regardless of holding period). Because you frequently open and close positions, most pair trading profits are taxed at short-term capital gains rates. The wash sale rule can also be a factor if you re-enter a pair within 30 days of closing it at a loss. Consult a tax professional familiar with active trading strategies.
+#### 2.4 Classic Pairs and Why They Work
 
-**Q10: What software or tools do I need for pair trading?**
+Four canonical retail-accessible US-listed pairs, with the structural
+reason each cointegrates:
 
-A: At minimum, you need: (1) a brokerage account with margin and short-selling capabilities, (2) historical price data for your target stocks (freely available from Yahoo Finance or your broker), and (3) a spreadsheet or programming environment to calculate correlations, run cointegration tests, and compute z-scores. Python with libraries like pandas, statsmodels, and numpy is the most popular choice. R is also widely used. Some brokers offer built-in pair trading analytics. For beginners, a spreadsheet with basic formulas is sufficient to get started, though you will eventually want to automate the analysis.
+| Pair | Sector | Why the spread mean-reverts |
+|---|---|---|
+| **KO / PEP** | Consumer staples — beverages | Two near-identical global beverage incumbents; same customer base, same commodity cost structure, same defensive multiple regime. Spread breaks only when one company makes a strategic-mix change (PEP's snack-foods build-out is the classic example). |
+| **V / MA** | Financials — payments duopoly | Visa and Mastercard are a regulatory duopoly with identical economics: card interchange, network effects, oligopolistic pricing power. Spread breaks only on company-specific litigation or geographic-mix exposure (China, Russia). |
+| **XOM / CVX** | Energy — integrated supermajors | Both run integrated upstream-downstream books with similar reserves, similar geography, similar capital-allocation discipline. Spread breaks on idiosyncratic operational events — refinery accidents, project-cost overruns. |
+| **GLD / SLV** | Precious metals ETFs | Gold and silver share a monetary-debasement story, but silver is half industrial, half monetary; the spread (the "gold-silver ratio") cycles between 50 and 90 with cyclical mean-reversion driven by the relative weight of those two demand drivers. |
+
+The *common* feature is that the two legs share a structural
+driver and differ on a *contained* idiosyncratic dimension. The
+trade is paid for the contained dimension (the spread mean-reverts)
+and protected against the structural one (it nets out).
+
+#### 2.5 Entry/Exit Rules and a Worked Backtest
+
+The textbook rule is **+/-2 sigma entry, 0 sigma exit, with a hard
+stop at +/-3 to +/-4**.
+
+- When `z` falls below -2: the spread is two standard deviations
+  cheap, A is unusually cheap relative to B. Go long A, short B at
+  equal dollar.
+- When `z` rises above +2: the spread is two standard deviations
+  rich. Go short A, long B at equal dollar.
+- When `z` crosses zero: the spread is back at its rolling mean.
+  Exit. Do not wait for the opposite tail; the marginal expected
+  return from running another sigma is small and the regime-change
+  risk grows with holding period.
+- If `z` continues past +/-3 or +/-4 in the wrong direction: **cut
+  the position and re-evaluate the cointegration assumption** —
+  more often than not, the relationship has broken structurally
+  rather than dislocated stochastically.
+
+The chart below shows that ruleset applied to KO/PEP from 2015
+through 2024. The top panel is the Z-score with up-arrows on long-
+spread entries and down-arrows on short-spread entries; the bottom
+panel is the cumulative log-spread P&L net of a 5 bp round-trip
+cost per side change.
+
+![Two-panel pair-trading backtest of KO/PEP from 2015 through 2024. Top panel: 60-day Z-score of log(KO)-log(PEP) with horizontal lines at +/-2 sigma and at zero, with green up-arrows marking entries to long the spread (Z hits -2) and red down-arrows marking entries to short the spread (Z hits +2). Bottom panel: the cumulative P&L line of the +/-2 entry, 0 exit rule with 5 bp per-trade costs, showing many small wins and one or two regime breaks where the spread did not mean-revert and the trade was cut.](image/week14_pair_pnl.png)
+
+What the chart teaches: **most pair trades are small wins, with
+occasional regime breaks that cost more than several wins put
+together.** This is exactly the shape of a structural-alpha return
+stream. It is also why pair trading is run as a *book of many
+pairs* rather than one — the law of large numbers is what makes
+the small-edge-per-pair model viable. A single-pair retail
+implementation is more education than alpha; the production
+version diversifies across thirty to fifty pairs simultaneously.
+
+#### 2.6 The 2007 Quant Quake — Crowding Risk Is Real
+
+In the first week of August 2007, the standard equity-stat-arb book
+— roughly defined as "long the cheap leg of a pair, short the
+rich leg, across many pairs simultaneously" — lost between 4 and
+12 sigma of its expected daily return for four straight days. The
+unwind cascaded across most of the major multi-strat hedge funds
+running similar models: AQR, Renaissance Equity Market-Neutral,
+Goldman Global Equity Opportunities. Some funds halved in a week.
+
+The post-mortem is now well-documented. One of the largest multi-
+strats — most of the public reconstruction blames Goldman's
+quant book, though the precise actor is less important than the
+mechanism — was forced to deleverage suddenly, likely due to a
+margin call originating from an unrelated subprime-mortgage book.
+Closing the equity book required selling its long stat-arb leg
+(buying back the short side) en masse. Because every other major
+quant ran *the same pairs from the same factor data*, those same
+pairs simultaneously moved adversely against everyone else's
+book. As losses mounted, more funds were forced to deleverage,
+which moved the pairs further, which forced more funds to
+deleverage. **Standard pair-trading factor exposure had become a
+crowded trade — and crowded trades, when they unwind, do so
+together.**
+
+The lesson is foundational and is the cleanest illustration in
+finance of SOUL #2's regime-change principle. **An alpha source
+remains alpha only as long as the population running it is small
+enough that no forced exit can simultaneously move all the trades
+against you.** The day too many people run the same strategy, the
+strategy itself becomes the risk factor. This is why modern stat
+arb runs a continuous "crowdedness factor" overlay — measuring
+how many other funds are likely in the same trade — and dials
+gross exposure down as crowdedness rises. The retail pair trader
+inherits the same discipline in miniature: do not over-size a
+canonical, well-known pair, because every other dollar in that
+trade is implicitly correlated with yours.
+
+#### 2.7 Where Pair Trading Sits in the Barbell
+
+The barbell (SOUL #14) is most of your wealth in safety, a small
+sleeve in genuine asymmetric edge. **Pair trading lives at the
+edge end.** Sized correctly, a pair-trading sleeve runs at single-
+digit percentage of total portfolio, in dollar-neutral pairs
+where the gross exposure is two-to-three times sleeve size and
+the net is approximately zero. The sleeve's expected contribution
+to total portfolio return is small (3-8% annualised on the *sleeve*,
+which translates to 0.3-0.8% on a 10% sleeve allocation); the
+expected contribution to total portfolio *Sharpe* is potentially
+much larger because the sleeve's returns are roughly orthogonal to
+the long-only book.
+
+This is the right way to think about pair trading for a retail
+investor: **not as a way to compound wealth, but as a way to
+reduce the variance of the wealth path.** It is a Sharpe-ratio
+play, not a return play. Anyone who promises you a pair-trading
+strategy with double-digit gross returns and low drawdowns is
+either over-fitted, levered, or selling a course.
 
 ---
 
-## YouTube Script
+### 3. Common Misconceptions
 
-[VISUAL: Animated intro with show logo. Text: "Week 14: Pair Trading Fundamentals - Level 2: Intermediate"]
+**Misconception 1: "High correlation means a good pair."**
 
-**Horace:** Welcome back. Last week we covered long and short trading, and I mentioned that this week we would explore one of the most elegant strategies in quantitative finance. Today we are talking about pair trading.
+Correlation measures co-movement of returns; cointegration measures
+mean-reversion of levels. High correlation with no cointegration
+is the canonical wide-and-keep-widening trap.
 
-**Stella:** Pair trading. I have heard hedge fund managers talk about this, but it always seemed like something only quants with PhD degrees could do.
+**Misconception 2: "If a pair has worked for ten years, it'll keep
+working."**
 
-**Horace:** That is a common perception, but the core concept is actually very intuitive. Let me start with an analogy. Imagine you are at a racetrack and you have two horses from the same stable. Horse A and Horse B. They have similar training, similar records, and they usually finish close together.
+KO/PEP's relationship has shifted twice in the last twenty years
+on PEP's snack-foods build. Cointegration is conditional on the
+underlying business mix staying stable. When the mix changes, the
+spread re-prices to a *new* equilibrium, and the trader fading
+the old equilibrium loses for years. SOUL #2.
 
-**Stella:** OK, I am following.
+**Misconception 3: "Z-score of +/-2 is a hard rule."**
 
-**Horace:** Now, today the odds on Horse A are unusually high, meaning the market thinks Horse A will do poorly. But you know these two horses always finish close together. So instead of betting on which horse will win the race, you bet that the GAP between them will be small. You bet on Horse A to outperform relative to Horse B.
+The thresholds are calibration choices, not laws. In a low-vol
+regime, +/-1.5 sigma fires more trades and may be the right cut;
+in a high-vol regime, +/-2.5 reduces false positives. Calibrate
+to the pair, the lookback, and the realised vol regime — not to
+the textbook number.
 
-**Stella:** So you are not predicting who wins the race. You are predicting that the gap between them will close.
+**Misconception 4: "I'll just trade one pair to learn."**
 
-**Horace:** Exactly. And here is the beautiful part. It does not matter if both horses run fast or both horses run slow. You do not care about the absolute performance. You only care about the relative performance. That is pair trading.
+A single-pair book is not pair trading; it is one trade with high
+operational overhead. Real pair-trading strategies run thirty-plus
+pairs to make the law of large numbers work. The single-pair
+exercise is education; do not confuse it with alpha.
 
-[VISUAL: Racetrack animation showing two horses running. Both could be fast or slow, but the bettor only cares about the gap between them. Arrow points to the gap labeled "This is what you trade."]
+**Misconception 5: "Pair trading is risk-free because it's market-
+neutral."**
 
-**Stella:** OK translate that into stocks for me.
+Pair trading has spread risk, regime-break risk, crowding risk
+(2007), borrow-cost risk on the short leg, and operational risk
+on margin and dividends. Net dollars zero is not net risk zero —
+LTCM was market-neutral and still lost 90%.
 
-**Horace:** Let us use a classic example: Coca-Cola and PepsiCo. These two companies are in the same industry, sell similar products, face similar competitive pressures, and their stock prices tend to move together over time. Historically, the ratio of their prices stays within a fairly narrow band.
+**Misconception 6: "If the spread keeps widening, my position
+gets bigger and the eventual reversion is more profitable."**
 
-[VISUAL: Side-by-side comparison of KO and PEP showing logos, key metrics (similar revenue, similar margins, similar market cap), and a chart of their prices moving roughly together over 5 years]
+This is the martingale fallacy applied to pairs. As the spread
+widens, your mark-to-market loss grows, the broker raises your
+margin requirement, and the very mechanism that should make the
+trade more profitable in theory becomes the mechanism that forces
+you out before the reversion arrives. SOUL #12 — irrational
+longer than solvent — is the discipline-anchor here.
 
-**Horace:** Now occasionally, something happens that causes one stock to temporarily outperform or underperform the other. Maybe Coca-Cola misses earnings expectations by a penny and the stock drops 3%, while Pepsi is flat. Or maybe Pepsi gets a negative analyst report and drops while Coke holds steady.
+**Misconception 7: "Borrow cost is small enough to ignore."**
 
-**Stella:** And a pair trader would see that as an opportunity?
+For mega-cap pairs (KO, PEP, V, MA) it usually is — single-digit
+basis points. For smaller-cap or specialty pairs it isn't, and
+the borrow rate can flip from 1% to 30% on a press release.
+Always check the borrow on the short leg before sizing the
+trade.
 
-**Horace:** Exactly. If the ratio between their prices has deviated from its historical average, a pair trader bets that it will revert back to normal. If Coke is temporarily cheap relative to Pepsi, you buy Coke and short Pepsi. If Coke is temporarily expensive relative to Pepsi, you short Coke and buy Pepsi.
+**Misconception 8: "The 2007 quant quake is ancient history."**
 
-[ANIMATION: Reference animation/week14_pair_trade.py - Animation showing the price ratio of KO/PEP over time as a line chart. The mean ratio is shown as a horizontal dashed line. As the ratio dips below the mean (KO relatively cheap), a "BUY KO / SHORT PEP" signal appears in green. As it rises above the mean, a "SHORT KO / BUY PEP" signal appears in red. The animation then zooms into one trade cycle, showing: entry when the ratio is 2 standard deviations below the mean, the spread gradually converging back to the mean, and exit when the ratio returns to normal. P&L counters update in real-time for both legs of the trade.]
+The same mechanism repeats. February 2018 had a vol-target
+factor unwind. March 2020 had a multi-strat de-leveraging week.
+Every few years, factor crowding produces another four-day
+correlated unwind. The quake was the cleanest case study, not
+the only one.
 
-**Stella:** And when the ratio comes back to normal, you close both positions and pocket the profit.
+**Misconception 9: "If I use options to express the pair, I avoid
+the borrow problem."**
 
-**Horace:** Right. And here is why this is so powerful. Notice that you are simultaneously long one stock and short the other. What happens if the entire stock market crashes 20%?
+You also avoid the linear-spread P&L. An options-based pair has
+non-linear exposure to volatility and a defined-cost premium that
+eats into the spread alpha. It is not a free upgrade — it is a
+different trade with different greeks.
 
-**Stella:** Both Coke and Pepsi would drop.
+**Misconception 10: "Pair trading is alpha, full stop."**
 
-**Horace:** But they would drop by roughly similar amounts because they are in the same industry and affected by the same factors. Your long position loses money, but your short position makes money. They roughly cancel out. Your pair trade is insulated from the market crash.
+Pair trading is alpha *as long as the spread cointegrates and the
+strategy isn't crowded*. Both conditions can fail. It is structural
+alpha conditional on regime and crowding — not a permanent free
+lunch.
 
-[VISUAL: Three-panel scenario showing: (1) Market crashes 20%, KO drops 18%, PEP drops 22%. Long KO: -18%, Short PEP: +22%, Net: +4%. (2) Market rallies 15%, KO rises 18%, PEP rises 12%. Long KO: +18%, Short PEP: -12%, Net: +6%. (3) Market flat, KO rises 3%, PEP falls 2%. Long KO: +3%, Short PEP: +2%, Net: +5%.]
+**Misconception 11: "The strategy works because I picked the right
+pair."**
 
-**Stella:** So you make money in all three scenarios? That seems too good to be true.
-
-**Horace:** It is not too good to be true, but there are important caveats we will get to. First, let me be clear about what makes a good pair, because not any two stocks will work.
-
-**Stella:** What criteria do you look for?
-
-**Horace:** Four main things. First, same sector or industry. Coca-Cola and Pepsi work because they face the same competitive forces. Apple and ExxonMobil would be a terrible pair because completely different factors drive their prices.
-
-**Stella:** Makes sense. What else?
-
-**Horace:** Second, similar business models and size. You want companies that are genuine competitors. Visa and Mastercard are a great pair because they run nearly identical payment networks. Goldman Sachs and Morgan Stanley work because they are both investment banks of similar scale.
-
-[VISUAL: Grid showing "Good Pairs" with checkmarks (KO/PEP, XOM/CVX, V/MA, HD/LOW, GS/MS) and "Bad Pairs" with X marks (AAPL/XOM, GOOGL/JNJ, TSLA/F)]
-
-**Stella:** What about the third criterion?
-
-**Horace:** Third, high historical correlation. You want stocks that have moved together in the past. A correlation above 0.80 is a good starting point. But here is where I need to introduce a crucial distinction that trips up a lot of people.
-
-**Stella:** What is that?
-
-**Horace:** The difference between correlation and cointegration. This is probably the single most important concept in pair trading, and getting it wrong is the most common reason pair trades fail.
-
-**Stella:** OK. Explain the difference.
-
-**Horace:** Correlation tells you whether two stocks move in the same direction. When one goes up, the other tends to go up. When one goes down, the other tends to go down. High correlation means they move in sync.
-
-**Stella:** That sounds like what you want for pair trading.
-
-**Horace:** It is necessary, but it is not sufficient. Here is why. Imagine two stocks that both go up over time, Stock A going from $50 to $200 and Stock B going from $50 to $100. Their correlation might be 0.95 because they both trend upward together. But the gap between them keeps growing. Stock A outperforms Stock B consistently.
-
-[VISUAL: Chart showing two lines both trending up, but diverging. Line A rises faster than Line B. Correlation shown as 0.95. But the spread between them keeps widening. Label: "High Correlation, NOT Cointegrated"]
-
-**Stella:** So the spread is not stable. It keeps getting bigger.
-
-**Horace:** Exactly. If you had bet on the spread converging, you would have lost money continuously. This is why correlation alone is not enough.
-
-**Horace:** Cointegration is different. It measures whether the spread between two stocks is stable and tends to return to a mean. Two cointegrated stocks might wander apart temporarily, but they always come back together. Like two dogs on leashes held by one person. Each dog might dart left or right, but the leash keeps them from getting too far apart.
-
-**Stella:** That is a great analogy. The leash is the cointegration.
-
-**Horace:** Exactly. When you find a pair of stocks that is cointegrated, you have statistical evidence that their spread is mean-reverting. When it diverges, it tends to come back. That is the foundation of a profitable pair trade.
-
-[VISUAL: Chart showing two lines weaving around each other. Sometimes A is higher, sometimes B is higher, but they keep converging back. The spread oscillates around zero. Label: "Cointegrated: Spread is Mean-Reverting"]
-
-**Stella:** How do you test for cointegration? Do you need a PhD in statistics?
-
-**Horace:** You need a basic understanding of statistics and a tool that can run the test. The most common method is the Augmented Dickey-Fuller test, also called the ADF test. Here is how it works in plain English.
-
-**Horace:** Step one. You calculate the spread between the two stocks using a regression. You run a regression of Stock A's price on Stock B's price, and the residuals from that regression are your spread.
-
-**Stella:** The residuals. So the part of Stock A's price that cannot be explained by Stock B's price.
-
-**Horace:** Exactly. Step two. You run the ADF test on those residuals. The test asks a simple question: does this spread tend to revert to a mean, or does it wander randomly? If the p-value from the test is less than 0.05, you have evidence that the spread is mean-reverting, which means the pair is cointegrated.
-
-[VISUAL: Simple flowchart: "Step 1: Regress Price A on Price B" -> "Get Residuals (Spread)" -> "Step 2: ADF Test on Residuals" -> Decision diamond: "p-value < 0.05?" -> Yes: "Cointegrated - Good Pair" / No: "Not Cointegrated - Avoid"]
-
-**Stella:** That seems manageable. What tools can you use?
-
-**Horace:** Python is the most popular. With the statsmodels library, the cointegration test is literally one line of code. But you can also use R, Excel with add-ins, or even some brokerage platforms that have pair trading analytics built in.
-
-**Stella:** OK so let us say I have found a good pair. The stocks are in the same sector, they are correlated, they are cointegrated. How do I actually trade it?
-
-**Horace:** This is where the z-score comes in. The z-score standardizes the spread so you know exactly how far it has deviated from normal. The formula is: z-score equals the current spread minus the mean spread, divided by the standard deviation of the spread.
-
-**Stella:** So it tells you how many standard deviations the spread is from its average.
-
-**Horace:** Right. And here are the standard trading rules. When the z-score drops below minus 2, it means Stock A is unusually cheap relative to Stock B. You buy A and short B. When the z-score rises above plus 2, Stock A is unusually expensive relative to Stock B. You short A and buy B. When the z-score returns to zero, the spread has reverted to the mean and you close both positions.
-
-[ANIMATION: Reference animation/week14_pair_trade.py - A second animation showing a z-score chart over time. The z-score oscillates between approximately -3 and +3. Horizontal lines mark the entry thresholds at +2 and -2, and the exit level at 0. When the z-score crosses -2 going down, a green "ENTER: Buy A, Short B" flag appears. When it returns to 0, a white "EXIT: Close Both" flag appears. When it crosses +2 going up, a red "ENTER: Short A, Buy B" flag appears. A running P&L tracker shows cumulative profit from completed trades. The animation plays through 4-5 complete trade cycles.]
-
-**Stella:** And if the z-score keeps going further away from zero instead of reverting?
-
-**Horace:** That is your stop-loss scenario. If the z-score exceeds plus or minus 4, it suggests that the historical relationship may be breaking down. Something fundamental has changed. You close the position and take the loss rather than hoping for a reversion that may never come.
-
-**Stella:** Let us walk through a complete trade example.
-
-**Horace:** Let us do it. We will use Visa and Mastercard, one of the best-known pairs on Wall Street.
-
-[VISUAL: Visa and Mastercard logos side by side, with key stats: Both payment network duopolists, Correlation: 0.92, Cointegration p-value: 0.003]
-
-**Horace:** Imagine the historical price ratio of Visa to Mastercard has averaged 0.55 over the past year, with a standard deviation of 0.02. Today, Visa is at $250 and Mastercard is at $490. The current ratio is 250 divided by 490, which equals 0.510.
-
-**Stella:** The ratio is below the average. Visa is cheap relative to Mastercard?
-
-**Horace:** Let us check the z-score. Current ratio 0.510, minus the mean of 0.550, divided by the standard deviation of 0.020. That gives us negative 2.0. We are right at our entry threshold.
-
-**Stella:** So the signal says buy Visa, short Mastercard.
-
-**Horace:** Exactly. Now we need to size the position. We will use dollar-neutral sizing, meaning equal dollar amounts on each side. Let us say we allocate $50,000 total. We put $25,000 into long Visa at $250, buying 100 shares. And we put $25,000 into short Mastercard at $490, shorting 51 shares, which is about $24,990.
-
-[VISUAL: Trade ticket showing: "LONG 100 V @ $250 = $25,000" and "SHORT 51 MA @ $490 = $24,990" with "Net Market Exposure: ~$10 (essentially zero)"]
-
-**Stella:** So we have almost exactly equal dollar amounts on each side. What happens next?
-
-**Horace:** We wait. Over the next few weeks, let us say Visa reports strong results and rises to $262. Mastercard has a mixed quarter and drops to $478. The ratio is now 262 divided by 478, which equals 0.548. The z-score is 0.548 minus 0.550 divided by 0.020, which equals negative 0.1. Essentially zero.
-
-**Stella:** The spread has reverted to the mean. Time to close?
-
-**Horace:** Yes. We sell our 100 shares of Visa at $262, making $12 per share, for a profit of $1,200. We cover our 51 shares of Mastercard at $478, making $12 per share, for a profit of $612. Total profit: $1,812 on a $50,000 position, or 3.6% in a few weeks.
-
-**Stella:** And both sides of the trade were profitable?
-
-**Horace:** In this case, yes. The long went up and the short went down, which is the ideal scenario. But it does not always work that way. Sometimes you make money on one side and lose on the other, but the winning side earns more than the losing side. The key is that the spread converges, not that both legs individually profit.
-
-[VISUAL: P&L breakdown showing: "Long V: +$1,200" (green bar), "Short MA: +$612" (green bar), "Total: +$1,812 (3.6%)" with a note: "Both legs profitable in this case, but only the SPREAD convergence matters"]
-
-**Stella:** What would a losing trade look like?
-
-**Horace:** Great question. Imagine we enter the same trade but instead of converging, the spread diverges further. Maybe Mastercard gets a major partnership announcement that Visa does not get. Mastercard jumps to $520 while Visa barely moves to $252.
-
-**Stella:** So the ratio goes from 0.510 to 252 divided by 520, which is about 0.485. Even further below the mean.
-
-**Horace:** The z-score goes from negative 2.0 to 0.485 minus 0.550 divided by 0.020, which equals negative 3.25. It is moving in the wrong direction. Our long is barely profitable at $200, but our short has lost us: 51 shares times ($520 minus $490) equals $1,530 loss.
-
-**Stella:** Net, we are losing $1,330.
-
-**Horace:** Right. If the z-score hits negative 4.0, we cut the trade. This is where discipline matters. You cannot let a pair trade turn into a thesis trade where you convince yourself it HAS to come back. Sometimes relationships break down.
-
-[VISUAL: Warning graphic showing "Pair Trade Loss Scenario" with a z-score chart diving past -3 toward -4, with a stop-loss line at -4 and text: "When the spread diverges instead of converging, CUT THE TRADE"]
-
-**Stella:** That brings up the question of risk. What are the biggest risks in pair trading?
-
-**Horace:** The number one risk is relationship breakdown, also called divergence risk. The historical relationship between two stocks can change permanently. This is not just theoretical.
-
-**Stella:** Can you give me a real example?
-
-**Horace:** Sure. Imagine you were pair trading two airline stocks in early 2020. Delta and United, for example. They had a strong historical relationship. Then COVID hit. Both stocks crashed, but they did not crash equally. Delta, with its stronger balance sheet, dropped less and recovered faster. United, with more debt and exposure to international travel, dropped more and recovered more slowly. The spread blew out and never fully reverted.
-
-[VISUAL: Chart showing DAL and UAL from 2019-2021. Pre-COVID the ratio is stable. Post-COVID the ratio shifts to a new level and stays there. Label: "Structural break - relationship changed permanently"]
-
-**Stella:** So the cointegration broke down because the underlying business reality changed.
-
-**Horace:** Exactly. COVID was an extreme example, but smaller structural breaks happen regularly. One company gains a new competitive advantage, or loses a major customer, or makes a transformative acquisition. Any of these can break a pair relationship.
-
-**Stella:** How do you protect against that?
-
-**Horace:** Three ways. First, stop-losses. Never let a losing pair trade run indefinitely. If the z-score reaches 4.0, exit. Second, diversification. Trade multiple pairs so that one breakdown does not destroy your portfolio. Third, regular monitoring. Re-run your cointegration tests monthly. If a pair loses its cointegration, stop trading it.
-
-**Stella:** What about the risk of not being able to execute both legs at the same time?
-
-**Horace:** That is called leg risk or execution risk. A pair trade requires two simultaneous trades. If you buy Visa but your short order for Mastercard does not fill, maybe because of a short-sale restriction or a sudden halt in trading, you are left with just a long Visa position with no hedge. That is directional risk, which is exactly what you were trying to avoid.
-
-**Stella:** How do you manage that?
-
-**Horace:** Trade liquid stocks. Large-cap, high-volume stocks like the ones we have been discussing rarely have execution problems. Avoid small or illiquid stocks for pair trading. Also, some brokers offer pair trading order types that execute both legs simultaneously.
-
-**Stella:** Let us talk about how you find pairs in the first place. Do you just look at companies in the same industry and eyeball their charts?
-
-**Horace:** That is how it started. Early pair traders literally looked at charts and said, "These two seem to move together." But today the process is much more systematic.
-
-**Horace:** Step one, define your universe. Maybe it is the S&P 500, or maybe it is all stocks in the Technology sector. Step two, screen for correlation. Calculate pairwise correlations and keep only pairs above 0.80. Step three, test for cointegration. Run the ADF test on the remaining pairs. Step four, calculate the half-life.
-
-**Stella:** Half-life? Like radioactive decay?
-
-**Horace:** Same concept, different application. The half-life tells you how long it takes, on average, for the spread to revert halfway back to the mean. If the spread is 2 standard deviations away, the half-life tells you how many days until it is about 1 standard deviation away.
-
-[VISUAL: Decay curve showing spread deviation over time. Starting at 2 SD, dropping to 1 SD at the "half-life" mark (e.g., 12 days), then continuing to approach 0. Label: "Half-life = ~12 days in this example"]
-
-**Stella:** Why does that matter?
-
-**Horace:** Because it tells you your expected holding period. If the half-life is 5 days, you are looking at a short-term trade. If it is 60 days, you need the patience to hold for two months. Most pair traders prefer half-lives between 10 and 30 days because that balances responsiveness with reliability.
-
-**Stella:** What if the half-life is too long?
-
-**Horace:** Then the spread reverts so slowly that transaction costs, borrow fees, and opportunity cost eat into your profit. A pair with a 200-day half-life might be cointegrated in the statistical sense, but it is not practical for trading.
-
-**Stella:** Makes sense. Now, I have a practical question. How do you size the two legs of a pair trade? You mentioned dollar-neutral earlier.
-
-**Horace:** There are two main approaches. Dollar-neutral means equal dollar amounts on each side. If you put $25,000 long, you put $25,000 short. This is simple and works well when the two stocks have similar volatility and similar beta.
-
-**Stella:** And when they do not?
-
-**Horace:** Then you use beta-neutral sizing. Beta measures how sensitive a stock is to overall market movements. If Stock A has a beta of 1.2 (more volatile than the market) and Stock B has a beta of 0.8 (less volatile than the market), dollar-neutral is not truly market neutral because your long side moves more with the market than your short side.
-
-**Stella:** So you adjust the sizes?
-
-**Horace:** Right. You would short more of Stock B to compensate for the higher beta on your long side. The formula is: short dollars equals long dollars times the long beta divided by the short beta. So if you are long $25,000 with beta 1.2, your short should be $25,000 times 1.2 divided by 0.8, which equals $37,500.
-
-[VISUAL: Scale/balance diagram showing dollar-neutral (unbalanced, tilting toward long side because higher beta) vs beta-neutral (perfectly balanced). Label: "Beta-neutral provides true market neutrality"]
-
-**Stella:** That is more complex but more accurate.
-
-**Horace:** For pairs in the same sector with similar betas, dollar-neutral is usually fine. For pairs with meaningfully different betas, beta-neutral is better.
-
-**Stella:** Let me ask about the quant meltdown you mentioned earlier. What happened in 2007?
-
-**Horace:** This is one of the most important lessons in pair trading history. In August 2007, many quantitative hedge funds, including some of the most sophisticated in the world, suffered enormous losses in a matter of days. The problem was crowding.
-
-**Stella:** Crowding meaning too many funds were trading the same pairs?
-
-**Horace:** Exactly. Many quant funds had discovered the same statistical relationships and were trading the same pairs using the same signals. When one large fund needed to liquidate, it started selling its long positions and covering its shorts. This pushed the spreads in the wrong direction for every other fund holding the same trades.
-
-[VISUAL: Domino effect animation showing Fund A selling, causing spreads to widen, triggering Fund B to sell, causing further widening, triggering Fund C, and so on. Each domino represents a quant fund falling.]
-
-**Horace:** Those other funds then faced margin calls and had to liquidate too, which pushed spreads even wider, triggering more liquidations. It was a cascade. Some quant funds lost 30% or more in a single week.
-
-**Stella:** So the strategy itself was sound, but too many people doing it at once created a fragility?
-
-**Horace:** Precisely. This is one of the fundamental paradoxes of quantitative finance. The more people discover a profitable strategy, the less profitable it becomes, and the more dangerous it becomes in a crisis because everyone exits at the same time.
-
-**Stella:** How do you avoid crowding?
-
-**Horace:** Look for less obvious pairs. Everyone knows about KO/PEP and XOM/CVX. Those are crowded. Look for pairs in less followed sectors or less common combinations that still have economic rationale. Combine statistical signals with fundamental analysis to find pairs that pure quant models might miss.
-
-**Stella:** Can you walk us through what the pair trading research process actually looks like in practice?
-
-**Horace:** Sure. Let us say you want to explore pair trading opportunities in the semiconductor sector. Step one, you list all major semiconductor companies: INTC, AMD, AVGO, TXN, QCOM, NVDA, MRVL, and so on.
-
-**Stella:** That gives you a lot of possible pairs.
-
-**Horace:** Right. With 8 stocks, you have 28 possible pairs. Step two, you pull a year of daily price data for all of them and calculate pairwise correlations. Maybe you find that TXN and AVGO have a correlation of 0.89, while NVDA and INTC have a correlation of only 0.45.
-
-[VISUAL: Correlation matrix heat map for semiconductor stocks, with hot colors (red/orange) for high correlations and cool colors (blue) for low correlations. TXN/AVGO cell highlighted.]
-
-**Stella:** So you filter out the low-correlation pairs?
-
-**Horace:** Yes. You keep only pairs with correlation above 0.80. Maybe that leaves you with 8 pairs out of 28. Step three, you run the cointegration test on each of those 8 pairs. Maybe 3 pass the test with p-values below 0.05.
-
-**Stella:** Now you have 3 potential pairs.
-
-**Horace:** Step four, you calculate the half-life for each. One has a half-life of 8 days, which is nice and fast. Another has a half-life of 22 days, which is moderate. The third has a half-life of 90 days, which is too slow for practical trading. So you drop the third one.
-
-**Stella:** Two pairs remain. And then you start monitoring the z-scores.
-
-**Horace:** Exactly. You calculate rolling z-scores for both pairs and wait for an entry signal. When one pair's z-score crosses plus or minus 2, you enter the trade. You hold until the z-score returns to zero, or you exit at the stop-loss if it crosses plus or minus 4.
-
-**Stella:** This all sounds very systematic. Can it be automated?
-
-**Horace:** Absolutely, and most professional pair traders do automate it. Python is the tool of choice for most people. You can write scripts that download price data, calculate correlations and cointegration, compute z-scores, generate signals, and even execute trades through broker APIs.
-
-**Stella:** Is there an edge left for individual investors, given that hedge funds and algorithms are doing this at massive scale?
-
-**Horace:** That is the right question. The simple, naive version of pair trading, using basic z-scores on the most obvious pairs, has been largely arbitraged away by professionals. But there are still edges available.
-
-**Stella:** Where?
-
-**Horace:** First, fundamental-driven pair trading. Instead of relying solely on statistical signals, combine them with fundamental analysis. If you have deep knowledge of the semiconductor industry and understand why TXN is better positioned than INTC, you can overlay that on the statistical framework and make better pair selections.
-
-**Horace:** Second, event-driven pair trading. Around earnings announcements, one stock in a pair might overreact while the other does not. This creates temporary dislocations that are too brief for large hedge funds to capture but perfect for individual traders.
-
-**Stella:** Because the big funds are too slow?
-
-**Horace:** Not exactly too slow, but trading at their scale, they cannot enter and exit positions in small, illiquid situations quickly enough. An individual trader with a $50,000 position has much more flexibility than a fund trying to deploy $50 million.
-
-**Horace:** Third, less common pairs. Everyone trades KO/PEP. But what about lesser-known pairs in the utility sector, or the REIT sector, or even international pairs? Less attention means more potential opportunity.
-
-[VISUAL: Three boxes showing "Edges for Individual Pair Traders": "1. Fundamental Insight" (brain icon), "2. Event-Driven Timing" (calendar with lightning bolt), "3. Less Crowded Pairs" (magnifying glass on less-known sector)]
-
-**Stella:** This is really fascinating. Before we wrap up, can you give us a quick summary of the key rules for pair trading?
-
-**Horace:** Sure. Rule one: always test for cointegration, not just correlation. Rule two: trade within the same sector to maintain sector neutrality. Rule three: use z-scores for systematic entry and exit signals. Rule four: always use stop-losses. A z-score of 4 is the standard stop. Rule five: diversify across multiple pairs. Rule six: re-test your pairs regularly because relationships change over time. Rule seven: position size conservatively, no more than 5% of capital per pair. And rule eight: factor in all costs, including borrow fees, dividends, and commissions.
-
-**Stella:** Eight rules. I can work with that.
-
-**Horace:** And one bonus rule: start with paper trading. Pair trading is one of those strategies where the concept seems simple but the execution has a lot of nuance. Practice with simulated trades for at least a few months before risking real money.
-
-**Stella:** That is great advice. Let me try to summarize the whole lesson. Pair trading is a market-neutral strategy where you go long one stock and short a related stock, profiting from the convergence of their price ratio. The key statistical concept is cointegration, not just correlation. You use z-scores to identify entry and exit points. The strategy hedges away market risk so you can profit regardless of market direction. The biggest risks are relationship breakdown, execution risk, and crowding. And it requires discipline, stop-losses, and diversification.
-
-**Horace:** Excellent summary. I would add that pair trading is a gateway strategy. The concepts you learn here, correlation, cointegration, mean reversion, z-scores, relative value, all of these are building blocks for more advanced quantitative strategies that you might explore later.
-
-**Stella:** This has been one of my favorite lessons so far. It feels like a different way of thinking about the market.
-
-**Horace:** That is exactly right. Most investors think about absolute value: is this stock cheap or expensive? Pair trading teaches you to think about relative value: is this stock cheap or expensive COMPARED TO something else? That shift in perspective is valuable no matter what kind of investing you do.
-
-[VISUAL: Preview slide: "Coming Up: More Advanced Strategies - Building on the Long/Short Foundation"]
-
-**Stella:** Lightning round before we go?
-
-**Horace:** Let us do it.
-
-**Stella:** Can you pair trade options instead of stocks?
-
-**Horace:** Yes, and some pair traders use options to express their views with defined risk. For example, instead of shorting a stock, you could buy puts. This eliminates the risk of a short squeeze or share recall. More advanced pair traders use options spreads to fine-tune their risk profiles.
-
-**Stella:** How often do pair trades typically last?
-
-**Horace:** It varies with the half-life of the pair, but most pair trades last between one week and two months. Very few extend beyond three months. If the spread has not reverted in that time, something may have structurally changed.
-
-**Stella:** What is the typical win rate for pair trading?
-
-**Horace:** Well-constructed pair trades based on cointegrated pairs typically win 55-65% of the time. The edge comes not from a high win rate but from the combination of a moderate win rate and a favorable reward-to-risk ratio. Your average win should be larger than your average loss because you let winners ride to the mean but cut losers at the stop-loss.
-
-**Stella:** Can you pair trade crypto?
-
-**Horace:** The concepts apply, but crypto pairs tend to be less stable than equity pairs because the crypto market is younger, less liquid, and more prone to structural changes. Some traders pair Bitcoin with Ethereum, but the cointegration relationship is not as robust as established equity pairs. Proceed with extreme caution if you try this.
-
-**Stella:** Final question: what is the one book or resource you would recommend for someone who wants to learn more about pair trading?
-
-**Horace:** "Algorithmic Trading" by Ernest Chan has an excellent chapter on pair trading with practical Python code. For a more academic treatment, "Pairs Trading" by Ganapathy Vidyamurthy is the gold standard. And for a hands-on approach, I would recommend working through Python tutorials on pair trading using free data from Yahoo Finance. Nothing teaches you like building it yourself.
-
-**Stella:** Great recommendations. Thanks, everyone. See you next time.
-
-**Horace:** Thanks for watching. Like and subscribe, and we will see you soon for more intermediate strategies.
-
-[VISUAL: End screen with subscribe button, playlist link to Level 2: Intermediate Strategies series, and social media handles]
+The strategy works because *many* pairs simultaneously revert
+slightly, and the small per-pair edge aggregates into a usable
+return stream at the book level. Single-pair returns are mostly
+noise; book-level returns are where the alpha is recognisable.
 
 ---
 
-*Animation Reference: animation/week14_pair_trade.py - This animation illustrates pair trading in two main sequences. The first sequence shows the price ratio of a pair (e.g., KO/PEP) oscillating around its mean over time, with buy and sell signals triggered when the ratio deviates by 2 standard deviations. A complete trade cycle is shown with real-time P&L tracking for both legs. The second sequence displays a z-score chart with clearly marked entry thresholds at plus and minus 2, exit level at zero, and stop-loss levels at plus and minus 4. Multiple trade cycles play through, demonstrating winning trades (spread reverts) and losing trades (spread diverges to stop-loss), with a cumulative P&L counter tracking overall strategy performance.*
+### 4. Q&A
+
+**Q1: Should a retail investor with a $100k portfolio actually run
+a pair-trading book?**
+
+A: Probably not as a serious P&L source. The minimum scale for a
+pair-trading book to be statistically meaningful is twenty-to-
+thirty pairs simultaneously, with operational discipline on
+borrow, margin, and dividends. Below that scale, you have a
+high-overhead toy. *Run one or two pairs in small size for
+education* — a few percent of your portfolio — and treat the
+output as tuition. If you want the alpha without the overhead,
+buy a market-neutral mutual fund or ETF and let someone else
+run the book.
+
+**Q2: What lookback window should I use for the Z-score?**
+
+A: 60 trading days is a sensible starting point for daily data;
+40 is more responsive but noisier; 120 is more stable but slower
+to detect regime breaks. The right answer is a function of how
+fast the cointegration of *your specific pair* tends to reset.
+For mega-cap pairs (KO/PEP), 60 to 90 days. For more
+volatile pairs (small-cap, biotech), 30 to 60. Calibrate, do
+not adopt by default.
+
+**Q3: How big a position can I take in one pair?**
+
+A: A common institutional rule is 2-5% of the sleeve per pair,
+with a hard 10% cap. For a retail investor, on a $100k
+portfolio with a $10k pair-trading sleeve, that's $200-500 of
+gross exposure per pair (i.e., $200 long + $200 short = $400
+gross at the small end). It feels small. It is small. Pair
+trading is a per-pair-tiny, many-pair-aggregated strategy by
+design.
+
+**Q4: When do I cut a pair and admit the cointegration broke?**
+
+A: When `z` extends past +/-3 to +/-4 and shows no signs of
+returning, *and* you can identify a fundamental reason for the
+break — a strategic-mix change in one of the companies, a
+regulatory event that hits one and not the other, a takeover.
+A spread that goes to -3.5 *with no fundamental story* is more
+likely to revert than one that goes to -2.5 *with* a clear
+story. Trade the fundamental, not just the Z-score.
+
+**Q5: How does pair trading interact with taxes (SOUL #15)?**
+
+A: Poorly, in a US taxable account. Pair trades have short
+holding periods on average (weeks to a few months), so realised
+gains are short-term — taxed at ordinary income rates, not
+long-term capital. The tax drag on a pair-trading book is one
+of the largest hidden costs. This is one reason institutional
+pair traders run inside tax-deferred wrappers (pension money,
+insurance separate accounts) where the structural tax disadvantage
+is absent.
+
+**Q6: How do dividends work for the short leg?**
+
+A: You owe them. If you are short PEP across the ex-dividend
+date, the dividend is debited from your account on pay-date and
+credited to the lender. There is no offset. For dividend-rich
+pairs (utilities, REITs), this is a meaningful drag and must be
+included in the per-trade cost calculation.
+
+**Q7: What's the difference between pair trading and statistical
+arbitrage?**
+
+A: Stat arb is pair trading scaled up: the same Z-score logic, but
+applied across hundreds-to-thousands of pairs simultaneously,
+with multi-factor decomposition (sector neutralisation, factor
+neutralisation), with optimised execution (VWAP/TWAP, dark pools),
+and held for shorter horizons (intraday to a few days). Pair
+trading is the educational unit; stat arb is the production
+implementation.
+
+**Q8: Why did the 2007 quant quake hit specifically pair traders?**
+
+A: Because the universe of "pairs" identified by a standard
+cointegration screen is largely the same across funds — the same
+sector pairs, the same factor neutralisations, the same
+optimisation. When one large player has to liquidate, they unwind
+*the same trades* that everyone else is on. Diversification in
+trade count does not help when the trades themselves are factor-
+correlated.
+
+**Q9: Can I use options instead of stock for the short leg?**
+
+A: Yes, and for retail it's often cleaner — buy a put on the
+expensive leg instead of shorting the stock. You avoid borrow,
+locate, and dividend obligations. You pick up theta decay and a
+volatility-dependent premium, and the linear-spread P&L is
+distorted into something more option-like. For a small retail
+sleeve where operational simplicity dominates, options-based
+pairs are a reasonable choice. SOUL #14's barbell logic
+naturally points here.
+
+**Q10: How does pair trading fit with the four tranches
+(SOUL #13)?**
+
+A: Pair trading is *opportunistic* — it sits in the third tranche
+alongside specific structural-alpha trades. It is not bedrock
+(too volatile, too operationally demanding), not core (it doesn't
+target a long-run risk premium), and not asymmetric speculation
+(no convex payoff). It earns its place by being roughly
+orthogonal to the rest of the portfolio.
+
+**Q11: What does a typical pair-trading sleeve P&L look like?**
+
+A: Many small wins (50-150 bps each on the gross), occasional
+regime breaks that cost 200-500 bps, and a flat-line during
+periods of compressed cross-sectional vol. Annualised return on
+the sleeve is typically in the 4-8% range gross, with realised
+vol of 5-10%. After fees and taxes for retail, considerably
+less. The chart shape is "many small steps up, occasional cliffs
+down," and the Sharpe ratio is the metric that matters — not the
+absolute return.
+
+**Q12: What should I read next if I want to actually build this?**
+
+A: Three things. (a) The original Gatev-Goetzmann-Rouwenhorst
+paper (2006) on pair trading — the academic baseline. (b)
+Khandani-Lo (2007), the post-mortem on the August 2007 quant
+quake. (c) The chapters in Lopez de Prado's *Advances in
+Financial Machine Learning* on cointegration and triple-barrier
+labelling. Read in that order — academic foundation, the war
+story, then the modern toolkit.
+
+---
+
+## Part 2: YouTube Script
+
+---
+
+**VIDEO TITLE:** Pair Trading — The Simplest Equity-Hedge-Fund Strategy in the Book | Week 14
+
+**RUNTIME TARGET:** ~18 minutes
+
+**HOSTS:** Horace, Stella
+
+---
+
+**[INTRO]**
+
+**Horace:** Last week, we talked about long-short. The architecture.
+This week, we're going to apply that architecture to its narrowest,
+most teachable case. Two stocks. One long, one short. Equal dollar.
+That's it. Pair trading.
+
+**Stella:** Why pair trading?
+
+**Horace:** Because it's the cleanest place in retail-accessible
+finance to learn what relative value actually means. By the end of
+this video, you'll know what a Z-score is, why correlation is not
+the same as cointegration, why most pair trades work most of the
+time and one in twenty blows up, and what happened in August 2007
+when too many people were running the same pair-trading models at
+the same time.
+
+**Stella:** Let's go.
+
+---
+
+**[SEGMENT 1: THE REFRAME]**
+
+**Horace:** Long-only investing asks "is KO cheap." That's an
+absolute question. The answer requires you to have a view on KO's
+earnings, the multiple, the discount rate, the equity risk premium.
+A lot of moving parts. You can be right on all of them and still
+lose money if the consumer staples sector falls 15% next month.
+
+Pair trading asks a different question. "Is KO cheap *relative to*
+PEP?" That's a relative question. Both companies share the same
+customer base, the same regulatory regime, the same exposure to
+sugar prices, to aluminium prices, to a strong dollar quarter, to
+a defensive consumer-staples factor. All of those drivers cancel
+out when you go long one and short the other at equal dollar. What's
+left is the company-specific operational variance.
+
+**Stella:** And that's what you trade.
+
+**Horace:** That's what you trade. You're betting that the
+*difference* between two near-identical stories is mean-reverting.
+Sometimes it is, sometimes the difference turns out to be a
+permanent regime shift, and that's the whole game.
+
+---
+
+**[SEGMENT 2: BUILDING THE SPREAD]**
+
+[VISUAL: image/week14_kopep_spread.png]
+
+**Horace:** Here's the spread. Top panel is KO and PEP, daily, from
+2015 through 2024, both rebased to 100 at the start of 2015.
+
+**Stella:** They don't move identically.
+
+**Horace:** They don't. PEP outperformed for big stretches because
+of its snack-foods business. But notice how they generally move
+*together* on the macro shocks — March 2020, the 2022 inflation
+selloff. The differences are smaller than the shared moves. That's
+the structural cointegration showing up visually.
+
+**Stella:** And the bottom panel?
+
+**Horace:** Bottom is the rolling 60-day Z-score of the log-spread.
+We take log of KO minus log of PEP. Compute a 60-day rolling mean
+and rolling standard deviation. Subtract the mean, divide by the
+stdev. What you get is a normalised series that, in a stable
+cointegration, sits inside +/-2 most of the time and visits the
+tails when the spread dislocates.
+
+**Stella:** So when the line touches +2, KO is two standard
+deviations rich versus PEP.
+
+**Horace:** And when it touches -2, KO is two standard deviations
+cheap versus PEP. The pair trader's question, looking at this
+chart, is: *do I trust that it'll come home, and how long will it
+take?*
+
+---
+
+**[SEGMENT 3: CORRELATION VS COINTEGRATION]**
+
+**Horace:** Critical distinction. Most retail traders conflate these.
+
+Correlation measures whether two return series move together over
+the short horizon. Two stocks with monthly correlation of 0.85
+just means their monthly returns line up.
+
+Cointegration is stronger. Two price *levels* are cointegrated if
+the spread between them is stationary — has a stable mean, stable
+variance, mean-reverts.
+
+**Stella:** And you can have one without the other?
+
+**Horace:** Yes. That's the trap. Imagine two stocks both in a
+strong uptrend. They both go up 30% a year for ten years. Their
+monthly returns are highly correlated. But the *gap between them*
+might be widening monotonically, because one's compounding faster
+than the other. High correlation, no cointegration. A pair trader
+fading that widening gap loses every quarter for ten years.
+
+**Stella:** What's the practical test?
+
+**Horace:** Look at the spread Z-score over a five-to-ten-year
+window. Ask yourself: "does this thing repeatedly come home after
+each excursion?" If yes, the math is mostly confirming what your
+eye saw. If no, no statistical test will rescue you. Cointegration
+is something you can usually see before you formally test it.
+
+---
+
+**[SEGMENT 4: THE FOUR CLASSIC PAIRS]**
+
+**Horace:** Four canonical pairs every quant has run.
+
+KO and PEP. Beverages. Same customer, same commodity inputs, same
+defensive multiple. Spread breaks only when one company changes its
+business mix — PEP's snack-foods build is the textbook example.
+
+V and MA. Visa and Mastercard. Regulatory duopoly, near-identical
+economics. Spread breaks on company-specific litigation or
+geographic mix.
+
+XOM and CVX. ExxonMobil and Chevron. Both integrated supermajors,
+similar reserves, similar geography. Spread breaks on idiosyncratic
+operational events — refinery accidents, cost overruns.
+
+GLD and SLV. Gold and silver. Share a monetary debasement story.
+Silver is half industrial. The gold-silver ratio cycles between 50
+and 90. That cycle is your cointegration.
+
+**Stella:** They all have the same shape. Two near-identical stories
+that diverge on a contained dimension.
+
+**Horace:** Exactly. The structural driver nets out. The *contained*
+idiosyncratic driver is what you get paid for.
+
+---
+
+**[SEGMENT 5: ENTRY EXIT RULES]**
+
+[VISUAL: image/week14_pair_pnl.png]
+
+**Horace:** Textbook ruleset. +/-2 sigma to enter, zero to exit.
+
+Z below -2: long the spread. Long KO, short PEP at equal dollar.
+Z above +2: short the spread. Short KO, long PEP.
+Z crosses zero: exit. Don't wait for the opposite tail. The
+marginal expected return from running another sigma is small and
+the regime-change risk grows with holding period.
+
+If Z extends past +/-3 or +/-4 in the wrong direction: cut. The
+relationship has probably broken. Don't martingale.
+
+**Stella:** What does the resulting P&L look like?
+
+**Horace:** Bottom panel shows the cumulative log-spread P&L over
+ten years. Many small wins. Some flat periods. Occasional cliffs
+down where a spread didn't revert and we cut. That shape — many
+small wins, occasional regime-break losses — is the *signature*
+of a structural-alpha return stream. It's also why you run a book
+of thirty pairs, not one pair. The law of large numbers is what
+makes this strategy work.
+
+**Stella:** So one-pair retail is mostly education, not alpha.
+
+**Horace:** Mostly education. Run one or two pairs in tiny size.
+Learn the operational mechanics. Borrow rates, dividends, margin
+calls. Then either scale up to a real book or buy a market-neutral
+fund and let someone else run it.
+
+---
+
+**[SEGMENT 6: THE 2007 QUANT QUAKE]**
+
+**Horace:** The most important risk story in pair trading. First
+week of August 2007. The standard equity-stat-arb book lost
+between four and twelve sigma of its expected daily return for
+four straight days. AQR. RenTech's market-neutral fund. Goldman's
+quant book. Some funds halved in a week.
+
+**Stella:** What happened?
+
+**Horace:** One of the largest multi-strats — the public
+reconstruction mostly points at Goldman, the precise actor matters
+less than the mechanism — had to deleverage its equity book
+suddenly. Probably triggered by a margin call from a totally
+unrelated subprime mortgage book. To unwind the equity book, they
+had to sell the long leg and buy back the short leg of every pair
+trade simultaneously.
+
+**Stella:** And every other quant had the same pairs.
+
+**Horace:** *Exactly*. Because every quant runs a cointegration
+screen against the same factor data, the *universe of pairs* is
+nearly identical across funds. So when Goldman starts unwinding,
+all the other funds' books move adversely at the same time.
+Losses mount. More funds are forced to deleverage. The pairs move
+further. More forced sales. It cascades for four days.
+
+**Stella:** What's the lesson?
+
+**Horace:** SOUL principle two. Crowding is a regime. **Your alpha
+is alpha only as long as the population running it is small enough
+that no forced exit can simultaneously move all your trades.** The
+day too many people run the same model, the model itself becomes
+the risk factor. Modern stat arb runs a continuous "crowdedness
+factor" — measuring how many other funds are likely on the same
+trade — and dials gross down when crowdedness rises. Retail traders
+inherit the same discipline in miniature: don't oversize a famous,
+canonical pair.
+
+---
+
+**[SEGMENT 7: BARBELL POSITIONING]**
+
+**Horace:** Where does this fit in the portfolio?
+
+SOUL principle fourteen. The barbell. Most of your wealth at the
+safety end — cash, Treasuries, gold, deep-ITM long-dated calls on
+names you'd own anyway. A small sleeve at the alpha end. Pair
+trading lives at the alpha end.
+
+**Stella:** Sized how?
+
+**Horace:** Single-digit percentage of total portfolio. The gross
+exposure is two to three times sleeve size — long $X plus short
+$X is gross 2X — and the net is approximately zero by construction.
+
+**Stella:** And the contribution?
+
+**Horace:** Small in absolute return. Maybe 0.3 to 0.8 percent on
+the total portfolio if the sleeve runs 4-8% on itself. But the
+contribution to the *Sharpe ratio* of the total portfolio is
+larger, because the sleeve's returns are roughly orthogonal to
+your long-only book.
+
+This is the right way to think about pair trading for a retail
+investor. Not as a way to compound wealth. As a way to **reduce
+the variance of the wealth path**. It's a Sharpe-ratio play, not
+a return play.
+
+**Stella:** Anyone who promises double-digit pair-trading returns
+with low drawdowns —
+
+**Horace:** Is over-fitted, levered, or selling a course. Probably
+all three.
+
+---
+
+**[SEGMENT 8: THE INTERACTIVE]**
+
+**Horace:** Below the script there's an interactive lab. Pick one
+of four pre-loaded pairs. KO/PEP, V/MA, XOM/CVX, GLD/SLV. Slide
+the entry Z-score, the exit Z-score, the lookback window. Watch
+the cumulative P&L, the trade count, the win rate, and the
+Sharpe ratio respond in real time.
+
+**Stella:** What's the right calibration?
+
+**Horace:** Try the textbook +/-2 entry, 0 exit, 60-day lookback
+first. Then push the entry threshold tighter — say +/-1.5 — and
+notice you fire more trades but each trade is lower-edge. Push
+it wider — +/-2.5 — and you fire fewer but cleaner trades. There's
+no global optimum across pairs. The point is to *feel* how
+sensitive the strategy is to its parameters. If a small change in
+threshold flips the P&L sign, the strategy was over-fit. If the
+P&L is robust across a band of parameters, you have something.
+
+---
+
+**[OUTRO]**
+
+**Horace:** Pair trading. Long the cheap leg, short the rich leg,
+exit on the mean. The simplest equity-hedge-fund strategy in the
+book.
+
+**Stella:** And the right next step in the long-short toolkit you
+started learning last week.
+
+**Horace:** Three takeaways. One — **correlation is not
+cointegration**, and the trap is fading a widening spread that
+isn't actually mean-reverting. Two — **the structural alpha is
+real but conditional**: real because the pair trader supplies
+liquidity to the dislocated leg; conditional because the
+cointegration can break and the strategy can crowd. Three —
+**run it as a sleeve, not as a substitute**. Single-digit
+percentage of portfolio, sized for Sharpe contribution, not for
+absolute return.
+
+**Stella:** Next week we move to volatility — Week 15 is "Volatility
+as an Asset Class." VIX, vol-of-vol, the persistent risk premium
+in selling vol. Same long-short architecture, applied to a
+non-equity instrument.
+
+**Horace:** See you next week.
+
+---

@@ -1,839 +1,594 @@
-# Week 51: Managed Futures and Trend Following
-
-## Reading Section
-
-### a) Why This Is Important
-
-If there is one strategy that every serious portfolio should consider, it is managed futures -- specifically, trend following. The reason is simple and profound: trend following is one of the very few strategies that has demonstrated consistent positive returns during major equity bear markets, while also generating positive returns on average during normal markets. This combination -- "crisis alpha" plus a positive long-run expected return -- makes it arguably the most powerful diversifier available to investors.
-
-Most portfolio construction focuses on the correlation between asset classes: stocks and bonds, domestic and international, equities and commodities. But in major crises, correlations between traditional asset classes tend to spike toward 1.0 -- the very moment you need diversification the most, it fails. Trend following breaks this pattern. During the 2008 Global Financial Crisis, the average managed futures fund returned approximately +18% while the S&P 500 lost -37%. During the dot-com crash (2000-2002), during the European debt crisis, during COVID -- trend following strategies delivered positive or at least protective returns in each case.
-
-Understanding why trend following works, how it is implemented, and how to access it at reasonable cost has become essential knowledge for any Level 5 investor. The strategy has moved from the exclusive domain of institutional investors and high-net-worth individuals to become accessible through low-minimum ETFs.
-
-This lesson will explain the mechanics of trend following, the academic evidence behind time series momentum, the concept of crisis alpha, practical implementation options, and how to integrate managed futures into a multi-asset portfolio. By the end, you will understand why the largest and most sophisticated institutional investors in the world -- sovereign wealth funds, pension systems, and endowments -- allocate 10 to 20 percent of their portfolios to this strategy.
+# Week 51: Managed Futures and Trend-Following — Diversifying Alpha and Crisis Convexity
 
 ---
 
-### b) What You Need to Know
-
-#### What Are Managed Futures?
-
-Managed futures is a broad category that encompasses any professionally managed investment strategy that trades futures contracts. Within this category, Commodity Trading Advisors (CTAs) are the most common structure. While "managed futures" technically includes many approaches (fundamental, quantitative, discretionary), the dominant strategy by far is systematic trend following.
-
-```
-Managed Futures Universe:
-
-Managed Futures (CTA Industry)
-  |
-  +-- Systematic Strategies (~85% of industry AUM)
-  |     |
-  |     +-- Trend Following (~70% of systematic)
-  |     |     Long-term trend (6-12 month lookback)
-  |     |     Medium-term trend (1-6 month lookback)
-  |     |     Short-term trend (days to weeks lookback)
-  |     |
-  |     +-- Counter-Trend / Mean Reversion (~10%)
-  |     +-- Carry (~10%)
-  |     +-- Pattern Recognition (~5%)
-  |     +-- Machine Learning / Statistical (~5%)
-  |
-  +-- Discretionary Strategies (~15% of industry AUM)
-        |
-        +-- Global Macro (discretionary futures trading)
-        +-- Fundamental (commodity specialists)
-
-Industry AUM: ~$400 billion (as of 2024)
-Number of CTAs: ~1,500 registered
-Top 20 firms control ~60% of AUM
-```
-
-#### The Trend Following Concept
-
-Trend following is based on a remarkably simple premise: assets that have been going up tend to continue going up, and assets that have been going down tend to continue going down. The strategy buys assets in uptrends and sells (shorts) assets in downtrends, holding positions until the trend reverses.
-
-```
-Core Trend Following Rules (Simplified):
-
-1. TREND IDENTIFICATION
-   Compute a moving average (e.g., 200-day) for each asset
-   If price > moving average: UPTREND (go long)
-   If price < moving average: DOWNTREND (go short)
-
-2. POSITION SIZING
-   Allocate risk equally across all markets
-   Size each position inversely proportional to its volatility
-   Target a specific portfolio-level volatility (e.g., 10-15%)
-
-3. REBALANCING
-   Update signals daily or weekly
-   Adjust position sizes when volatility changes
-   Exit positions when trend reverses
-
-That is it. The elegance is in the simplicity.
-The difficulty is in the discipline and execution.
-```
-
-```
-Trend Following Signal: Moving Average Crossover
-
-Price
-  |
-  |              **                     ***
-  |            **  **                 **   **
-  |          **      **             **       **
-  |        **    B    ****     ****           **
-  |      **           ----****----             **
-  |    **         ----               ----        **
-  |  **      ----                         ----    **
-  | *   ----      S                            ----*  S
-  |----                                             ----
-  |___________________________________________________
-                      Time
-
-  * = Price
-  ---- = 200-day Moving Average
-  B = BUY signal (price crosses above MA)
-  S = SELL/SHORT signal (price crosses below MA)
-
-  In uptrends: LONG position, profits as price rises
-  In downtrends: SHORT position, profits as price falls
-  During whipsaws: Losses from false signals (the cost of the strategy)
-```
-
-More sophisticated trend following systems use multiple lookback periods and combine different signal types:
-
-```
-Multi-Signal Trend Following:
-
-Signal Type         Lookback     Sensitivity   Whipsaw Risk
----------------------------------------------------------------
-Short-term MA       10-50 days   High          High
-Medium-term MA      50-100 days  Medium        Medium
-Long-term MA        100-250 days Low           Low
-Breakout (Donchian) 20-200 days  Varies        Medium
-Exponential MA      Various      Adjustable    Medium
-Time Series Mom     1-12 months  Low-Medium    Low
-
-Most professional CTAs combine 3-5 signal types across
-multiple lookback periods to smooth out signals and reduce
-whipsaw costs. Signals are often weighted and averaged.
-
-Example Composite Signal:
-  Signal = 0.20 * Short_MA + 0.30 * Medium_MA
-         + 0.30 * Long_MA  + 0.20 * Breakout
-
-  If Signal > 0: Go LONG (proportional to signal strength)
-  If Signal < 0: Go SHORT (proportional to signal strength)
-  If Signal near 0: FLAT or reduced position
-```
-
-#### Time Series Momentum: The Academic Foundation
-
-The academic foundation for trend following was formally established by Moskowitz, Ooi, and Pedersen in their landmark 2012 paper "Time Series Momentum." They documented that looking at an asset's own past returns (time series momentum) predicts future returns across virtually every asset class.
-
-```
-Time Series Momentum (TSMOM) Evidence:
-
-Asset Class         Markets Tested   Premium   Sharpe Ratio
----------------------------------------------------------------
-Equity Indices      12 markets       7.3%      0.52
-Bond Futures        10 markets       3.8%      0.41
-Currency Forwards   9 markets        4.2%      0.45
-Commodity Futures   27 markets       5.1%      0.47
-ALL COMBINED        58 markets       5.1%      0.76*
-
-*Diversified portfolio Sharpe ratio is HIGHER than any single
- asset class because trends are relatively uncorrelated across markets.
-
-Key Findings:
-  1. TSMOM is positive and significant in EVERY asset class
-  2. Works across multiple lookback periods (1, 3, 6, 12 months)
-  3. Persists after transaction costs
-  4. NOT explained by traditional risk factors
-  5. Has existed for over 100 years (out-of-sample confirmation)
-```
-
-Why does time series momentum work? Several explanations have been proposed:
-
-```
-Why Trends Exist in Financial Markets:
-
-1. BEHAVIORAL EXPLANATIONS
-   a) Anchoring: Investors anchor to old prices and underreact
-      to new information. Prices adjust slowly to fundamentals.
-   b) Herding: Investors follow each other, creating momentum
-   c) Disposition Effect: Investors sell winners too early
-      and hold losers too long, slowing trend development
-   d) Confirmation Bias: Once a trend forms, investors seek
-      information confirming the trend and ignore contradictions
-
-2. INSTITUTIONAL EXPLANATIONS
-   a) Central Bank Policy: Interest rate cycles create
-      multi-year trends in bonds and currencies
-   b) Risk Management: Stop-losses force selling into declines,
-      exacerbating trends
-   c) Index Rebalancing: Mechanical buying/selling by passive
-      funds creates trend persistence
-   d) Margin Calls: Forced liquidation during stress extends
-      downward trends
-
-3. FUNDAMENTAL EXPLANATIONS
-   a) Business Cycles: Economic expansions and contractions
-      create multi-quarter trends in corporate earnings
-   b) Commodity Super Cycles: Supply/demand imbalances take
-      years to resolve, creating extended trends
-   c) Regime Changes: Shifts in monetary policy, regulation,
-      or geopolitics create structural breaks that
-      manifest as trends
-
-KEY INSIGHT: Trends are not random or irrational.
-They reflect the slow, uneven process by which markets
-incorporate information and adjust to new realities.
-```
-
-#### Crisis Alpha: Why Trend Following Profits in Crashes
-
-The most valuable property of trend following is its behavior during major crises. This property, dubbed "crisis alpha" by Kathryn Kaminski in her influential research, arises mechanically from how trend following works.
-
-```
-Crisis Alpha Mechanism:
-
-Phase 1: THE BUILD-UP (Months Before Crisis)
-  Markets are calm or rising
-  Trend following is modestly profitable (long equities)
-  No crisis protection visible
-
-Phase 2: THE INITIAL SHOCK (First Days/Weeks)
-  Markets drop sharply
-  Trend following systems LOSE money initially
-  Long equity positions face losses
-  This is the "whipsaw cost" of trend following
-
-Phase 3: THE TREND DEVELOPS (Weeks to Months)
-  Decline continues and accelerates
-  Trend signals flip from LONG to SHORT
-  Trend following systems now SHORT equities
-  Simultaneously: LONG bonds (flight to safety trend)
-  Simultaneously: SHORT commodities (demand destruction)
-
-Phase 4: THE CRISIS DEEPENS (Months)
-  Multiple sustained trends across asset classes
-  Trend following is HIGHLY profitable
-  Short equities + Long bonds + Short commodities + Long USD
-  All trends reinforcing each other
-
-Phase 5: THE RECOVERY (Bottom and Reversal)
-  Markets bottom and reverse
-  Trend following LOSES some profits on reversal
-  Systems slowly flip from SHORT back to LONG
-  Net result: Large positive return over the full crisis cycle
-
-KEY INSIGHT: Trend following LOSES during sudden, short shocks
-but PROFITS during extended, sustained crises.
-The net effect over a full crisis is almost always positive.
-```
-
-```
-Trend Following Performance During Major Crises:
-
-Event                       S&P 500    Trend Following*   Bonds
-                            Return     Return (est.)      Return
-----------------------------------------------------------------------
-Black Monday (Oct 1987)     -20.5%     +11.2%             +4.5%
-Asian Crisis (1997-98)       -6.2%     +12.4%             +8.2%
-LTCM / Russia (1998)        -19.3%     +18.1%             +5.7%
-Dot-com Crash (2000-02)     -47.4%     +28.4%             +22.3%
-GFC (2007-09)               -56.8%     +18.3%             +14.0%
-European Debt (2011)        -19.4%     +5.1%              +7.8%
-COVID Crash (Feb-Mar 2020)  -33.9%     -3.2%              +3.2%
-2022 Bear Market            -25.4%     +23.7%             -13.0%
-
-*Approximate, based on SG Trend Index or similar benchmarks
-
-Key observations:
-  1. Trend following was POSITIVE in 6 out of 8 major crises
-  2. The two "failures" (COVID, Eurozone) were SMALL losses
-  3. The 2022 result is remarkable: trend following profited
-     while BOTH stocks AND bonds lost money
-  4. Long-duration crises (dot-com, GFC) produce the best results
-  5. Short, sharp shocks (COVID) produce the worst results
-```
-
-Why does trend following perform differently in 2022 vs. COVID?
-
-```
-COVID (Feb-Mar 2020) vs. 2022 Bear Market: A Study in Contrast
-
-COVID:
-  - Duration: ~5 weeks of decline
-  - Speed: Fastest 30% decline in history
-  - Reversal: Sharp V-shaped recovery
-  - Trend following had NO TIME to flip short
-  - Result: Small loss (-3.2%)
-
-2022:
-  - Duration: ~10 months of decline
-  - Speed: Gradual, grinding decline
-  - Bond market also trended down (rising rates)
-  - Commodities trended UP (energy crisis)
-  - Trend following had PLENTY OF TIME to establish shorts
-  - Result: Large profit (+23.7%)
-
-  Lesson: Trend following needs TIME for trends to develop.
-  Short, sharp shocks are the enemy. Extended moves are the friend.
-  This is why trend following provides the BEST crisis protection
-  during the WORST crises (which tend to be extended).
-```
-
-#### Diversification Benefits
-
-The correlation structure of managed futures relative to traditional assets is the primary reason for including them in a portfolio.
-
-```
-Correlation of Managed Futures to Traditional Assets:
-
-                        All Periods    Bull Markets   Bear Markets
-                        (Full Sample)  (Stocks Up)    (Stocks Down)
----------------------------------------------------------------------
-S&P 500                  -0.05          +0.10          -0.35
-US Aggregate Bonds       +0.15          +0.10          +0.25
-60/40 Portfolio           0.00          +0.10          -0.20
-Commodities              +0.10          +0.10          +0.05
-Real Estate (REITs)       0.00          +0.05          -0.15
-Hedge Funds (HFRI)       +0.20          +0.25          +0.10
-
-KEY INSIGHT: Managed futures have NEAR-ZERO average correlation
-to stocks and bonds. But the correlation is NEGATIVE during
-bear markets -- exactly when you need diversification most.
-
-This "conditional correlation" property is extremely rare.
-Bonds provided it historically but FAILED in 2022 (positive
-correlation during a bear market). Managed futures did NOT fail.
-```
-
-```
-Portfolio Impact of Adding Managed Futures:
-
-                     60/40        60/40 + 15%     Improvement
-                     Portfolio    Managed Futures
--------------------------------------------------------------
-Annual Return        8.5%         8.8%            +0.3%
-Volatility           9.8%         8.2%            -1.6%
-Sharpe Ratio         0.55         0.71            +0.16
-Max Drawdown        -32.5%       -23.4%           +9.1%
-Worst Year          -22.1%       -15.8%           +6.3%
-
-  The improvement in risk-adjusted returns comes primarily from
-  REDUCED DRAWDOWNS rather than increased returns.
-
-  A 15% allocation to managed futures reduced the worst drawdown
-  by nearly 10 percentage points while maintaining similar returns.
-
-  This is the "free lunch" of diversification in action --
-  adding an asset with near-zero or negative correlation
-  improves the portfolio without proportionately reducing returns.
-```
-
-#### How Professional CTAs Construct Portfolios
-
-Professional trend following CTAs typically trade 50 to 200 different futures markets across four major sectors: equities, bonds, currencies, and commodities.
-
-```
-Typical CTA Market Universe:
-
-EQUITY INDICES (10-15 markets):
-  S&P 500, Nasdaq 100, Russell 2000 (US)
-  Euro Stoxx 50, DAX, FTSE 100 (Europe)
-  Nikkei 225, Hang Seng, ASX 200 (Asia-Pacific)
-  MSCI Emerging Markets, KOSPI (Korea)
-
-BOND FUTURES (10-15 markets):
-  US Treasuries: 2Y, 5Y, 10Y, 30Y
-  German Bunds, UK Gilts, Japanese JGBs
-  Australian, Canadian, Italian government bonds
-  Eurodollar, Fed Funds, SOFR
-
-CURRENCY FORWARDS (8-12 markets):
-  EUR/USD, GBP/USD, JPY/USD, AUD/USD
-  CAD/USD, CHF/USD, NZD/USD
-  Emerging: BRL, MXN, ZAR, KRW
-
-COMMODITIES (20-30 markets):
-  Energy: Crude Oil (WTI, Brent), Natural Gas, Heating Oil, Gasoline
-  Metals: Gold, Silver, Copper, Platinum, Palladium
-  Grains: Corn, Wheat, Soybeans, Soybean Oil, Soybean Meal
-  Softs: Sugar, Coffee, Cocoa, Cotton
-  Livestock: Live Cattle, Lean Hogs
-
-TOTAL: 50-80 markets for a diversified CTA
-       Some trade 150+ markets
-
-Sector Allocation (Risk-Weighted):
-  Equities:     20-30%
-  Bonds:        20-30%
-  Currencies:   15-25%
-  Commodities:  20-30%
-
-  Typically equal-risk-weighted across sectors
-  to avoid any single sector dominating the portfolio
-```
-
-```
-CTA Risk Management Framework:
-
-1. POSITION SIZING (Volatility Targeting)
-   Each market position sized to contribute equal risk
-   
-   Position Size = (Target Risk per Market) / (Market Volatility)
-   
-   Example:
-     Portfolio: $10 million
-     Target vol: 12% annualized
-     Number of markets: 60
-     Risk per market: 12% / sqrt(60) = 1.55%
-     
-     If Crude Oil volatility = 30% annualized:
-       Crude position = (1.55% * $10M) / (30% * Contract Value)
-     
-     If Gold volatility = 15% annualized:
-       Gold position = (1.55% * $10M) / (15% * Contract Value)
-     
-     Result: Gold position is LARGER in notional terms because
-     Gold is less volatile. Both contribute equal risk.
-
-2. PORTFOLIO-LEVEL RISK CONTROLS
-   Maximum portfolio leverage: typically 5-10x notional
-   Maximum sector concentration: 30-40% of risk budget
-   Maximum single market: 5-10% of risk budget
-   Dynamic volatility scaling: reduce positions when
-   portfolio vol exceeds target
-
-3. STOP LOSSES
-   Individual market stops: Typically 2-3x average true range
-   Portfolio drawdown stops: Reduce risk at -10% to -15% drawdown
-   Correlation-adjusted stops: Tighten stops when correlations rise
-
-4. TAIL RISK MANAGEMENT
-   Stress test against historical crises
-   Monitor portfolio "long gamma" vs "short gamma" exposure
-   Ensure the portfolio benefits from large, sustained moves
-```
-
-#### ETF Access to Managed Futures
-
-Retail investors now have access to managed futures strategies through ETFs. The two most prominent are DBMF and KMLM.
-
-```
-Managed Futures ETF Comparison:
-
-DBMF (iMGP DBi Managed Futures Strategy ETF)
-  Expense Ratio:   0.85%
-  AUM:             ~$3 billion
-  Inception:       May 2019
-  Strategy:        Replicates the returns of the top 20 CTAs
-                   using a factor-based approach
-  Methodology:     Uses regression analysis to decompose CTA returns
-                   into underlying risk factor exposures, then
-                   replicates those exposures using liquid futures
-  Markets Traded:  ~10-15 core futures contracts
-  Leverage:        Typically 2-5x notional
-  Key Feature:     Tracks CTA performance without CTA fees (2/20)
-  Limitations:     Replication is imperfect; may lag during
-                   rapid regime changes; limited market breadth
-
-KMLM (KFA Mount Lucas Managed Futures Index Strategy ETF)
-  Expense Ratio:   0.92%
-  AUM:             ~$500 million
-  Inception:       December 2020
-  Strategy:        Tracks the KFA MLM Index, a rules-based
-                   trend following strategy
-  Methodology:     Equal-risk-weighted trend signals across
-                   commodities, currencies, and bonds
-  Markets Traded:  ~24 futures contracts
-  Leverage:        Typically 3-6x notional
-  Key Feature:     Pure, transparent trend following
-  Limitations:     No equity index futures; higher expense ratio;
-                   less diversified than multi-strategy CTAs
-
-Other Options:
-  WTMF (WisdomTree Managed Futures Strategy Fund)
-    Expense: 0.65%, AUM: ~$300M, Inception: 2011
-    Approach: Quantitative trend and carry
-    Note: Longest track record among managed futures ETFs
-
-  CTA (Simplify Managed Futures Strategy ETF)
-    Expense: 0.75%, AUM: ~$200M, Inception: 2022
-    Approach: Trend following with tail risk overlay
-```
-
-```
-Performance Comparison (Annualized, 2022-2024):
-
-                Return    Volatility   Sharpe    Max DD
-------------------------------------------------------
-DBMF             8.2%      12.5%       0.46     -12.3%
-KMLM             6.5%      10.8%       0.37     -14.1%
-WTMF             3.8%       7.2%       0.25      -8.5%
-SG Trend Index   9.5%      13.2%       0.52     -10.8%
-S&P 500          9.8%      17.5%       0.42     -25.4%
-US Agg Bonds    -1.2%       7.8%      -0.41     -17.8%
-
-Notes:
-  - ETFs trail the SG Trend Index (institutional CTA benchmark)
-    by 1-3% annually due to replication error and higher costs
-  - Even so, managed futures ETFs provided UNCORRELATED positive
-    returns during a period when bonds lost money
-  - The 2022 result was transformative: managed futures ETFs
-    were one of the only asset classes that made money
-```
-
-#### Implementation Considerations
-
-```
-Practical Considerations for Adding Managed Futures:
-
-1. ALLOCATION SIZE
-   Minimum meaningful: 5% of total portfolio
-   Recommended range: 10-20% for serious diversification
-   Maximum suggested: 25% (beyond this, vol drag becomes significant)
-
-   Research (AQR, Man Group): 10-15% allocation provides
-   the best risk-adjusted portfolio improvement
-
-2. WHICH PRODUCT TO USE
-   If choosing one: DBMF (broadest replication, largest AUM)
-   If choosing two: DBMF + KMLM (complementary approaches)
-   Advanced: Combine ETF with direct futures trading if
-   account size permits ($500K+ recommended for direct futures)
-
-3. TAX CONSIDERATIONS
-   Managed futures ETFs use futures contracts, which receive
-   favorable tax treatment under Section 1256:
-     60% long-term capital gains
-     40% short-term capital gains
-   Regardless of holding period (the "60/40 rule")
-   This makes managed futures ETFs MORE tax-efficient than
-   equity factor ETFs with high turnover
-
-4. REBALANCING
-   Managed futures returns are UNCORRELATED to stocks/bonds
-   This means the allocation will naturally drift
-   After a stock crash: managed futures will be overweight (sell some)
-   After a stock boom: managed futures will be underweight (buy more)
-   Rebalancing INTO managed futures after a strong stock run
-   is effectively buying crash insurance at a discount
-
-5. BEHAVIORAL CHALLENGES
-   Managed futures can underperform stocks for 2-3 years straight
-   During bull markets, the allocation feels like dead weight
-   Investors must understand they are paying for INSURANCE
-   The "premium" is the opportunity cost during bull markets
-   The "payout" comes during crises
-
-6. COMBINATION WITH OTHER ALTERNATIVES
-   Managed futures + volatility selling = complementary
-   (Vol selling loses during crises when managed futures gain)
-   Managed futures + factor tilts = low correlation
-   Managed futures + real assets = diversified alternatives sleeve
-```
-
-#### Historical Context: Trend Following Across Centuries
-
-One of the most compelling arguments for trend following is its longevity. Research by Lemperi`ere et al. (2014) and Hurst, Ooi, and Pedersen (2017) documented positive trend following returns going back to the 1800s.
-
-```
-Trend Following Across History:
-
-Period              Markets Available    Trend Return   Notes
-----------------------------------------------------------------------
-1880-1920           Commodities, bonds   +5.2%         Pre-modern era
-1920-1950           Stocks, commodities  +6.8%         Depression, WWII
-1950-1970           Broad futures        +4.5%         Post-war calm
-1970-2000           Global futures       +8.3%         High vol era
-2000-2010           Global futures       +7.1%         Crisis-rich decade
-2010-2020           Global futures       +2.8%         Low vol era
-2020-2024           Global futures       +8.5%         Return to vol
-
-Key Observations:
-  1. Trend following has been profitable in EVERY multi-decade period
-  2. Returns are HIGHER during volatile periods (1970s, 2000s, 2020s)
-  3. Returns are LOWER during calm, low-volatility periods (2010s)
-  4. The strategy has survived world wars, depressions, and
-     fundamental changes in market structure
-  5. The long history makes it one of the most robust strategies known
-```
-
-```
-Why Trend Following Persists Over Centuries:
-
-Unlike many anomalies that disappear after discovery,
-trend following has persisted because:
-
-1. It is HARD to execute psychologically
-   Buying breakouts feels like chasing
-   Holding through drawdowns requires iron discipline
-   Shorting feels unnatural to most investors
-   The strategy "feels wrong" most of the time
-
-2. It REQUIRES institutional infrastructure
-   Trading 50-100 futures markets simultaneously
-   Managing margin and leverage across asset classes
-   Operating 24/7 across global time zones
-   Few individuals can replicate this
-
-3. It PROFITS from others' behavioral mistakes
-   As long as humans anchor, herd, and panic,
-   trends will exist in financial markets
-   AI and algorithmic trading may reduce this over time
-   But so far, the evidence does not support significant decay
-
-4. It SERVES a structural economic function
-   Trend followers provide liquidity during crises
-   They SHORT stocks when everyone else is selling
-   This sounds paradoxical but trend followers' shorts
-   ABSORB selling pressure, providing liquidity to forced sellers
-   The premium is compensation for this service
-```
-
-#### Common Trend Following Challenges
-
-```
-When Trend Following Struggles:
-
-1. WHIPSAW / CHOPPY MARKETS
-   Trendless, range-bound markets generate false signals
-   Each false signal costs money (buy high, sell low)
-   Extended sideways periods can produce 15-25% drawdowns
-   Example: 2011-2013 was difficult for most CTAs
-
-2. SHARP V-SHAPED REVERSALS
-   Trend following needs TIME to establish positions
-   Quick crashes followed by quick recoveries = losses
-   Example: COVID crash (Feb-Mar 2020) was too fast
-   to flip from long to short to long again
-
-3. CROWDED POSITIONS
-   When too many trend followers are in the same trades,
-   reversals become amplified
-   Example: If everyone is long crude oil on trend,
-   a reversal triggers mass selling, overshooting
-
-4. LOW VOLATILITY ENVIRONMENTS
-   Trend signals are weaker when volatility is low
-   Position sizes are LARGER (inverse vol sizing)
-   but trends are SMALLER and less reliable
-   The 2010s "low vol" era was the worst decade for CTAs
-
-5. INTEREST RATE REVERSALS
-   Bond trends can reverse quickly when central banks pivot
-   The 2013 "Taper Tantrum" hurt many CTAs
-   Bonds are typically a large allocation in CTA portfolios
-```
+## Part 1: Reading Section
 
 ---
 
-### c) Common Misconceptions
+### 1. Why This Is Important
 
-**Misconception 1: "Trend following is just momentum investing."**
+If you have read Week 47 you already know one of the strangest facts in
+asset management: a trend-following CTA index returned roughly **+14%
+in 2008** while the S&P 500 lost **−37%** and the dutifully-balanced
+60/40 lost **−22%**. In 2022 the SocGen CTA Index ran **+20%** while
+60/40 had its worst calendar year since 1937. In March 2020, with the
+S&P down a third in twenty trading days, the same index was up
+mid-single-digits. The pattern is not luck. It is the structural
+signature of *trend-following* — the strategy that almost the entire
+quantitative CTA industry runs in some form.
 
-While trend following uses momentum signals, it differs from the equity momentum factor in several important ways. First, trend following uses *time series* momentum (an asset's own past returns) while the equity momentum factor uses *cross-sectional* momentum (ranking stocks relative to each other). Second, trend following applies across all asset classes -- bonds, currencies, commodities, and equities -- not just stocks. Third, trend following takes both long AND short positions, while most equity momentum strategies are long-only. These differences give trend following its unique crisis alpha property, which equity momentum does not share (momentum crashes during equity market reversals).
+You need to understand managed futures for four reasons:
 
-**Misconception 2: "Managed futures are too risky because they use leverage."**
+1. **It is the only systematic strategy with reliable crisis
+   convexity.** Tail-hedging via puts (Week 47) buys explicit
+   convexity for a known premium drag. Trend-following *manufactures*
+   convexity from price action: as markets break down it goes short,
+   so a sustained bear market is exactly when its P&L compounds.
+   Different mechanism, similar shape, much smaller carry cost.
+   That is rare enough that it deserves its own sleeve in any
+   serious portfolio.
 
-While CTAs use notional leverage of 5-10x, this is misleading. Leverage in futures is fundamentally different from leverage in stocks. A CTA positions each market to contribute a small amount of risk, and the total portfolio volatility is typically targeted at 10-15% -- similar to or less than equity market volatility. The high notional leverage exists because futures require only small margin deposits. A trend following strategy with 10% target volatility is actually LESS risky than a 100% stock portfolio (which has 15-20% volatility) despite using 5x notional leverage.
+2. **It is genuinely uncorrelated to stocks and bonds.** The CTA-vs-
+   S&P long-run correlation is roughly zero, with the *conditional*
+   correlation turning sharply negative in extended drawdowns. This
+   is the property the 60/40 lost in 2022 and that bonds lost in
+   2008-by-default. SOUL #14 — the barbell — only works if the two
+   ends are actually different. CTAs are the cleanest "different"
+   you can buy in liquid public markets.
 
-**Misconception 3: "Trend following is a market timing strategy."**
+3. **It is now retail-accessible at institutional cost.** For three
+   decades trend-following was 2-and-20, $5M minimums, gated.
+   Today DBMF, KMLM, FMF, and AHLT replicate the SocGen CTA Index at
+   roughly 0.85 to 0.95% all-in expense ratios with daily liquidity.
+   The fee compression is the single biggest change in liquid
+   alternatives over the last five years.
 
-Trend following does not attempt to predict market tops or bottoms. It does not try to "time" the market in the conventional sense. Instead, it reacts to price trends after they have already begun. A trend follower will always miss the top and the bottom. The profit comes from capturing the middle portion of sustained trends. This reactive, rather than predictive, approach is what gives the strategy its robustness -- it does not need to be right about the future, only patient enough to ride existing trends.
+4. **It is the textbook L5 alpha sleeve.** SOUL #5 lists the five
+   places alpha can come from. Trend-following is the most empirically
+   validated of the five at the *systematic* end (alongside size and
+   value), with out-of-sample evidence going back to 1880 across
+   futures markets that did not yet exist when the studies were
+   funded. The strategy is not a secret — and it still works, because
+   the source of the return (SOUL #6 — vol-tail-wags-dog plus SOUL #8
+   — momentum) is hard for marginal capital to arbitrage away without
+   accepting the same drawdowns CTAs accept in chop markets.
 
-**Misconception 4: "Managed futures ETFs provide the same returns as institutional CTAs."**
-
-Managed futures ETFs trail institutional CTAs by approximately 1 to 3 percent annually. The replication approach used by products like DBMF introduces tracking error. The limited number of markets traded by ETFs (10 to 25) versus institutional CTAs (50 to 200) reduces diversification. And the ETF expense ratio (0.85 to 0.95%) adds cost. However, institutional CTAs charge 2% management fee plus 20% performance fee, so the net-of-fee difference is much smaller. For most retail investors, ETFs are the more cost-effective access point.
-
-**Misconception 5: "If trend following works, why is not everyone doing it?"**
-
-Several reasons prevent universal adoption. First, trend following has extended periods of underperformance that most investors cannot tolerate -- the 2010s saw many institutional investors reduce or eliminate their managed futures allocation, right before the strategy delivered stellar 2022 returns. Second, the strategy feels psychologically uncomfortable: buying after prices have already risen and selling after prices have already fallen violates most people's instinct to buy low and sell high. Third, the strategy requires genuine diversification across many markets, which is operationally complex. And fourth, many investors evaluate strategies based on calendar-year returns rather than crisis-period returns, which makes trend following look mediocre during long bull markets.
-
-**Misconception 6: "Trend following cannot work in efficient markets."**
-
-The Efficient Market Hypothesis in its strong form implies that trends should not exist. But decades of evidence show they do. Markets are not perfectly efficient -- they are *adaptively* efficient. Information is incorporated slowly and unevenly due to behavioral biases, institutional constraints, and the complexity of the real economy. Central bank policy creates multi-year interest rate trends. Commodity supply-demand imbalances take years to resolve. Geopolitical shifts create currency trends. These are not market inefficiencies to be arbitraged away -- they are fundamental economic processes that manifest as price trends.
-
----
-
-### d) Common Questions and Answers
-
-**Q1: How much should I allocate to managed futures in my portfolio?**
-
-A1: Academic research and industry practice suggest 10 to 20 percent for meaningful diversification benefit. The exact amount depends on your risk tolerance and investment horizon. At 5 percent, the impact on portfolio risk is noticeable but modest. At 10 percent, you get substantial drawdown reduction. At 15 to 20 percent, the impact is significant -- potentially reducing maximum drawdown by 25 to 35 percent relative to a traditional 60/40 portfolio. I would not recommend going above 25 percent unless you have deep experience with the strategy and can tolerate extended periods of underperformance during equity bull markets.
-
-**Q2: Should I use DBMF or KMLM, or both?**
-
-A2: If you are allocating to only one product, DBMF is the better choice due to its larger AUM, broader market coverage (including equity index futures, which KMLM excludes), and longer live track record. If you are allocating enough to split between two products, using both DBMF and KMLM provides strategy diversification -- DBMF uses CTA replication while KMLM uses direct trend following, and they will differ in their exposures at any given time. For a 10 percent managed futures allocation, I would suggest 7 percent DBMF and 3 percent KMLM.
-
-**Q3: What should I expect from managed futures during a bull market?**
-
-A3: During sustained equity bull markets, managed futures will typically generate modest positive returns (3 to 6 percent annually) from trends in bonds, currencies, and commodities, combined with long equity positions. However, this will significantly lag the equity market during strong up years. In a year when the S&P 500 returns 25 percent, managed futures might return 5 to 8 percent. This underperformance is the "insurance premium" you pay. The "payout" comes during bear markets, when managed futures can generate 10 to 25 percent while equities lose 20 to 50 percent. You must evaluate the strategy over a full market cycle, not individual calendar years.
-
-**Q4: Can I replicate a trend following strategy on my own?**
-
-A4: In principle, yes. The core strategy -- moving average crossover signals with inverse volatility position sizing -- is not complex. However, practical implementation requires trading futures across many markets, managing margin, monitoring positions across global time zones, and maintaining iron discipline to execute signals without second-guessing. You need a minimum account size of roughly $200,000 to $500,000 to diversify across enough markets. For most individual investors, managed futures ETFs are more practical, even with their imperfect replication and fees.
-
-**Q5: Why did managed futures do so well in 2022?**
-
-A5: 2022 was nearly ideal for trend following. Interest rates rose steadily throughout the year, creating strong short-bond positions. Commodities -- especially energy -- trended sharply higher due to the Russia-Ukraine conflict. The US dollar strengthened consistently. And equities declined gradually over months, giving trend following systems time to establish short positions. Critically, both stocks AND bonds trended downward simultaneously, which normally devastates a 60/40 portfolio but creates opportunities for a strategy that can go short both. Managed futures were one of the only strategies that made money in 2022 precisely because they can profit from downtrends.
-
-**Q6: What is the worst-case scenario for managed futures?**
-
-A6: The worst-case scenario is an extended period of low volatility and trendless markets across all asset classes simultaneously. The 2014-2017 period was close to this: major central banks coordinated to suppress volatility, bond yields were stable, currencies were range-bound, and commodities meandered. Trend following strategies generated near-zero or slightly negative returns for several years. While not catastrophic, the opportunity cost versus equities (which were rallying strongly) was substantial and caused many investors to abandon the strategy. The maximum drawdown for professional CTA indices has been approximately 15 to 20 percent, which is significant but far less than equity drawdowns.
-
-**Q7: How does trend following interact with other portfolio strategies like factor investing or options income?**
-
-A7: Trend following is highly complementary to both. Factor investing tends to have modest positive correlation to the equity market (long-only factor ETFs go down when stocks go down, though possibly less). Options income strategies (selling puts, covered calls) are exposed to equity downside risk. Trend following provides a natural hedge against exactly these scenarios because it flips short during extended equity declines. The combination of factor tilts (long-term equity premium capture), options income (short-term premium harvesting), and trend following (crisis protection) creates a portfolio with multiple return drivers and built-in hedging.
-
-**Q8: Is trend following capacity-constrained? Will it stop working if too much money flows in?**
-
-A8: This is a legitimate concern but less pressing than it appears. The global futures market is enormous -- daily turnover in major futures contracts exceeds hundreds of billions of dollars. The entire CTA industry manages approximately $400 billion, which is small relative to the markets it trades. However, crowding in specific markets or specific trend signals can cause problems. If every CTA uses the same 200-day moving average on crude oil, their simultaneous entry and exit creates self-fulfilling and then self-defeating dynamics. Professional CTAs mitigate this by using diverse signal sets, staggering entry/exit points, and trading less liquid markets that smaller competitors cannot access.
+This week's job is to wire that into a portfolio, not just to admire
+it from a distance.
 
 ---
 
-## YouTube Script
-
-[VISUAL: Channel intro animation with trend charts across multiple markets -- stocks, bonds, commodities, currencies]
-
-**Horace:** Welcome to Week 51. Today we are covering one of the most important topics in the entire course: managed futures and trend following. This strategy has been responsible for some of the most consistent portfolio protection during market crises, and it is now accessible to retail investors through ETFs.
-
-**Stella:** I have been looking forward to this one. Managed futures always seemed mysterious to me -- like a black box that hedge funds use. Can we demystify it?
-
-[VISUAL: Title card "Managed Futures: Demystified"]
-
-**Horace:** Absolutely. And the surprise is how simple the core concept is. At its heart, trend following -- which accounts for about 70 percent of the managed futures industry -- does one thing: it buys assets that are going up and sells assets that are going down.
-
-**Stella:** That is it? That sounds almost too simple.
-
-**Horace:** The elegance IS the simplicity. A basic trend following system might use a 200-day moving average. When the price is above the 200-day average, you go long. When it is below, you go short. Apply this across 50 to 100 different futures markets -- stocks, bonds, commodities, currencies -- size each position by inverse volatility so that each market contributes equal risk, and you have a professional-grade trend following strategy.
-
-[ANIMATION: animation/week51_trend_following.py -- Animated price chart showing a trend developing over time. A moving average line follows the price. Green arrows appear when buy signals trigger (price crosses above MA), red arrows when sell/short signals trigger (price crosses below MA). Profit and loss accumulates on a running total below the chart.]
-
-**Stella:** If it is that simple, why does not everyone do it?
-
-**Horace:** Two reasons. First, it is operationally complex even though the concept is simple. You need to trade futures across dozens of markets, manage leverage and margin, and operate around the clock across global time zones. Second -- and this is the bigger barrier -- it is psychologically brutal. Buying something that has already gone up feels like chasing. Holding through a 15 percent drawdown while the S&P is ripping higher requires iron discipline. Most people cannot do it.
-
-[VISUAL: Title card "Time Series Momentum: The Academic Evidence"]
-
-**Stella:** Let us talk about the academic foundation. Is there serious research behind this?
-
-**Horace:** Extensive research. The landmark paper was by Moskowitz, Ooi, and Pedersen at AQR Capital Management in 2012. They studied 58 different futures markets across equities, bonds, currencies, and commodities, going back decades. They found that time series momentum -- an asset's own past returns predicting its future returns -- was positive and statistically significant in every single asset class.
-
-**Stella:** Every asset class?
-
-**Horace:** Every one. Equities, bonds, currencies, commodities. The effect was robust across multiple lookback periods from one month to twelve months. It persisted after transaction costs. And it was NOT explained by traditional risk factors. This is not some fragile anomaly -- it is one of the most robust patterns in financial markets.
-
-[VISUAL: Table showing TSMOM returns across asset classes with Sharpe ratios]
-
-**Stella:** Why do trends exist? It seems like markets should be efficient enough to eliminate predictable patterns.
-
-**Horace:** Markets are adaptively efficient, not perfectly efficient. Several forces create trends. First, behavioral biases: investors anchor to old prices and underreact to new information, so prices adjust to new realities slowly rather than instantly. Second, institutional factors: central bank interest rate cycles create multi-year trends in bonds and currencies. Stop-losses and margin calls force selling during declines, extending downward trends. Third, real economic forces: commodity supply-demand imbalances take years to resolve, business cycles create multi-quarter earnings trends, and geopolitical shifts create currency movements that play out over months or years.
-
-[ANIMATION: animation/week51_trend_following.py -- Animated diagram showing the behavioral cycle: new information arrives -> slow initial reaction (anchoring) -> gradual price adjustment -> herding amplifies the move -> overshoot -> eventual mean reversion. The animation highlights how trend following captures the middle portion of this cycle.]
-
-**Stella:** Now let us talk about what I think is the most compelling feature: crisis alpha. What happens to trend following during market crashes?
-
-[VISUAL: Title card "Crisis Alpha: The Ultimate Portfolio Insurance"]
-
-**Horace:** Crisis alpha is the term coined by Kathryn Kaminski to describe trend following's remarkable property of generating positive returns during major market dislocations. Let me walk you through the mechanism.
-
-**Stella:** Please.
-
-**Horace:** When a crisis begins, there is typically a sudden initial shock -- think of the market dropping 5 percent in a few days. At this point, trend following systems are usually still long equities, so they LOSE money. This is the cost phase.
-
-**Stella:** That does not sound like crisis protection.
-
-**Horace:** Patience. As the decline continues -- say over several weeks -- the trend signals start to flip. Moving averages cross, breakout signals trigger. The systems move from long to flat to short. Simultaneously, other trends emerge: bonds rally as investors flee to safety, certain commodities sell off, the dollar may strengthen. The trend following system goes long bonds, short equities, short certain commodities.
-
-[VISUAL: Timeline showing the five phases of crisis alpha: initial shock, signal flip, trend development, crisis deepening, recovery]
-
-**Stella:** So the system needs time to adapt.
-
-**Horace:** Exactly. And this is the key insight. The longer and more sustained the crisis, the more profitable trend following becomes. During the 2008 financial crisis, which played out over 18 months, trend following strategies returned approximately 18 percent while the S&P 500 lost 57 percent. During the dot-com crash, which lasted nearly three years, trend following returned about 28 percent cumulatively.
-
-**Stella:** What about COVID? That was a crash but also a very quick recovery.
-
-**Horace:** COVID is the perfect counter-example. The crash from peak to trough happened in just five weeks -- the fastest 30 percent decline in stock market history. Trend following systems barely had time to flip from long to short before the market reversed sharply upward. The result: managed futures lost about 3 percent during COVID, which is essentially flat. Not a disaster, but not the crisis alpha we saw in 2008.
-
-[VISUAL: Side-by-side comparison charts of trend following vs S&P 500 during GFC 2008 and COVID 2020]
-
-**Stella:** So trend following protects against long, grinding bear markets but not flash crashes.
-
-**Horace:** That is the right way to think about it. And here is the important corollary: the truly dangerous bear markets -- the ones that destroy retirement portfolios and force people to sell at the bottom -- are almost always the extended ones. The GFC. The dot-com crash. These lasted months to years and caused 40 to 60 percent losses. Quick crashes with quick recoveries, like COVID, are traumatic but not financially devastating if you stay invested. Trend following provides the most protection precisely when you need it most.
-
-**Stella:** What about 2022? I heard that was a standout year for managed futures.
-
-[VISUAL: Title card "2022: Trend Following's Finest Hour"]
-
-**Horace:** 2022 may have been the most important year in the history of trend following, in terms of proving its value to the investing world. Here is why: in 2022, stocks fell 25 percent, and bonds -- which are supposed to protect you during stock declines -- also fell, losing about 13 percent. The traditional 60/40 portfolio had its worst year in decades. Meanwhile, trend following strategies returned approximately 24 percent.
-
-**Stella:** Positive 24 percent while both stocks and bonds lost money? How?
-
-**Horace:** Multiple sustained trends across asset classes, all in the same direction. Interest rates rose steadily throughout the year as the Federal Reserve hiked aggressively. This created a strong, persistent short-bond trend. Energy commodities spiked due to the Russia-Ukraine conflict. The US dollar strengthened against nearly every other currency. And equities declined gradually over many months, giving trend following systems plenty of time to establish short positions. The key word is "gradually" -- these were not sudden shocks but sustained, multi-month trends.
-
-[ANIMATION: animation/week51_trend_following.py -- Animated portfolio simulation showing positions across asset classes during 2022: short bonds building over time, long energy commodities, long USD, short equities. Each position's contribution to the overall return is shown as a stacking bar chart that grows throughout the year.]
-
-**Stella:** So 2022 was the year that proved trend following works when nothing else does.
-
-**Horace:** Precisely. And it vindicated the investors who maintained their managed futures allocation through the difficult 2010s, when trend following underperformed and many institutions abandoned it. The lesson is clear: crisis protection strategies only work if you hold them through the calm periods too. You cannot time when the crisis will come.
-
-**Stella:** Let us talk about practical implementation. How can a regular investor access this?
-
-[VISUAL: Title card "Implementation: ETFs and Beyond"]
-
-**Horace:** The two most prominent options are DBMF and KMLM. DBMF, from iMGP, uses a factor-based approach to replicate the returns of the top 20 CTAs. It has the largest AUM at about 3 billion dollars and the broadest market coverage. KMLM, from KFA Mount Lucas, tracks a rules-based trend following index across commodities, currencies, and bonds. Both charge around 85 to 95 basis points, which sounds expensive but is far cheaper than the traditional CTA fee structure of 2 percent management fee plus 20 percent performance fee.
-
-**Stella:** Which one should someone choose?
-
-**Horace:** If picking one, I would lean toward DBMF because it includes equity index futures in its replication, while KMLM does not. This means DBMF can go short equity indexes during a bear market, which is a significant component of crisis alpha. If you have enough allocation to split between two products -- say, a 10 percent allocation to managed futures -- I would do 7 percent in DBMF and 3 percent in KMLM to get strategy diversification.
-
-**Stella:** What is a reasonable allocation?
-
-**Horace:** Research from AQR, Man Group, and other leading quant firms consistently points to 10 to 15 percent as the sweet spot. At this level, you get meaningful drawdown reduction -- potentially shaving 8 to 10 percentage points off the worst drawdown -- while maintaining strong portfolio returns. Below 5 percent, the impact is too small to matter. Above 20 percent, you start to feel significant drag during bull markets.
-
-[VISUAL: Chart showing the efficient frontier with and without managed futures, demonstrating the improvement in risk-return trade-off]
-
-**Stella:** What about behavioral challenges? You mentioned that trend following feels uncomfortable.
-
-**Horace:** This might be the most important practical consideration. During a strong equity bull market -- like 2013 or 2019, when the S&P 500 returned 30-plus percent -- your managed futures allocation might return 3 to 5 percent. Every quarterly statement, you will see this allocation dragging on your total portfolio return. The temptation to eliminate it and go all-in on equities is enormous.
-
-**Stella:** How do you stay disciplined?
-
-**Horace:** Three things. First, mentally reframe the allocation as insurance. You do not cancel your homeowner's insurance because your house did not burn down last year. Second, look at your portfolio's risk metrics, not just returns. The Sharpe ratio, maximum drawdown, and volatility of the portfolio WITH managed futures is better than without, even if the raw return is slightly lower in bull markets. Third, remember 2008 and 2022. Those are the years that define long-term wealth. If managed futures reduce your drawdown from 50 percent to 30 percent in the next crisis, you need a 43 percent gain to recover from 30 percent versus a 100 percent gain from 50 percent. That difference compounds over a lifetime.
-
-[VISUAL: Recovery math comparison: 30% drawdown needs 43% to recover vs 50% drawdown needs 100% to recover]
-
-**Stella:** Let us talk about the long-term picture. Has trend following always worked?
-
-**Horace:** Remarkably, yes. Research going back to the 1800s shows positive trend following returns across every multi-decade period. The strategy has survived world wars, the Great Depression, multiple financial crises, the transition from floor trading to electronic markets, and the rise of algorithmic trading. It has been profitable for over 100 years.
-
-**Stella:** Why has it not been arbitraged away in all that time?
-
-**Horace:** Because the barriers to implementation are structural and psychological, not informational. Everyone *knows* that trends exist. But executing a trend following strategy requires trading dozens of markets simultaneously, managing leverage, operating globally, and maintaining discipline through inevitable drawdowns. Most investors -- including most professionals -- cannot do this consistently. Additionally, trend following profits from behavioral biases that are deeply wired into human psychology: anchoring, herding, loss aversion. As long as humans are involved in markets, trends will exist.
-
-[ANIMATION: animation/week51_trend_following.py -- Historical timeline animation showing trend following returns by decade from the 1880s to 2020s, with major historical events marked. The visual shows that the strategy has been consistently profitable across radically different market regimes and eras.]
-
-**Stella:** How does managed futures fit with everything else we have learned in this course?
-
-**Horace:** That is the perfect segue to next week's integration lesson, but I will preview it. Think of your portfolio as having multiple layers. The core is your market exposure -- stocks and bonds. Factor tilts add a modest return premium with controlled tracking error. Options strategies provide income and tail hedging. And managed futures provide the ultimate diversifier -- a strategy that is genuinely uncorrelated to everything else and provides positive returns during the crises that threaten the rest of your portfolio.
-
-**Stella:** So managed futures is the portfolio's insurance policy?
-
-**Horace:** Insurance policy with a positive expected return. Most insurance costs money -- you pay premiums and hope to never collect. Managed futures, historically, have generated positive returns on average while ALSO providing crisis protection. It is not a free lunch -- you endure periods of underperformance as the cost -- but over a full market cycle, it adds value on both the return and risk dimensions.
-
-**Stella:** This has been incredibly insightful. I feel like managed futures is the missing piece that most portfolios lack.
-
-**Horace:** It absolutely is. The largest, most sophisticated institutional investors -- Norwegian Government Pension Fund, Yale Endowment, Australian super funds -- have been allocating to managed futures for decades. It is only recently that retail investors have gained access through ETFs. Take advantage of it.
-
-**Stella:** Next week is the grand finale. We bring everything together.
-
-**Horace:** Week 52: Portfolio Integration -- putting all 52 weeks of learning into a single, coherent investment framework. See you then.
-
-[VISUAL: End card with lesson summary, ETF comparison table, and recommended readings]
+### 2. What You Need to Know
+
+#### 2.1 What "Trend-Following" Actually Is
+
+A textbook trend-follower is a rules-based system that goes long an
+asset when its recent return is positive and short when it is
+negative, sized inversely to that asset's recent volatility. The
+canonical version is *time-series momentum*: at month-end, for each of
+roughly 50–80 liquid futures contracts (S&P, Nasdaq, FTSE, JGB, Bund,
+US 10-year, EUR, JPY, gold, copper, crude, corn, …), compute the
+12-month total return; if positive, hold a long position; if negative,
+hold a short. Each contract is sized so that it contributes the same
+*risk* in volatility units to the portfolio. Lookbacks are usually a
+blend (1-month, 3-month, 12-month) and the trade is rebalanced daily
+or weekly.
+
+That is the entire algorithm. There is no forecast of fundamentals,
+no view on Fed policy, no DCF. The strategy says: *if this thing has
+been going up, ride it; if it has been going down, ride that too*.
+It is SOUL #8 — momentum — applied across asset classes, with the
+key innovation being that the universe is not just stocks. When
+stocks fall and bonds rally and the dollar squeezes and crude tanks,
+all four trades line up in the same direction, and the convex payoff
+in a crisis is the sum of those four legs.
+
+#### 2.2 The "Crisis Alpha" Pattern
+
+Sébastien Page and the AQR research team coined the phrase *crisis
+alpha* for what trend-following does in extended bear markets. The
+mechanism is mechanical: most large equity drawdowns are not single
+days — they are *trends*. The S&P 500 drawdown of 2007–2009 played
+out over 17 months. The 2000–2002 drawdown over 31 months. 2022 over
+9 months. Trend-followers caught all three, because each of those
+drawdowns was preceded by a regime in which most futures across asset
+classes were trending in the same direction long enough for the
+12-month signal to flip and the position to size up.
+
+The flip side is sideways or chop markets, which are bad for trend.
+2011-2015 was the longest stretch of CTA underperformance in
+40 years — five years of roughly zero return while equities ran 70%.
+2014 was the redemption year (commodity trends finally re-engaged),
+2015 was flat, 2016-2019 mixed. Then 2022 paid back the entire
+2011-2019 gap in a single year for the index.
+
+[VISUAL: image/week51_cta_history.png]
+
+That is the deal: in calm markets you pay a small or zero opportunity
+cost; in extended trending crises you get paid a multiple of your
+allocation. SOUL #6 — the few months that matter dominate the long-run
+return distribution. Trend-following is structurally *long* those
+months.
+
+#### 2.3 The SocGen CTA Index and What "Average CTA" Means
+
+The SocGen CTA Index (formerly Newedge CTA Index) is the industry
+benchmark: equally-weighted composite of the 20 largest reporting CTA
+managers, rebalanced annually, AUM-weighted in older versions. It
+goes back to 2000. The trend-following sub-index goes back to 2000
+as well, but proxy series stitched from BarclayHedge and other
+databases extend the picture to 1990.
+
+A few calendar-year landmarks since 2000:
+
+| Year | SocGen CTA | S&P 500 (TR) | Notes |
+|---|---:|---:|---|
+| 2002 | +18.3% | −22.1% | dot-com tail, USD weakness, bond rally |
+| 2008 | +13.1% | −37.0% | crisis alpha, all asset trends |
+| 2011 | −4.4%  | +2.1%  | euro-debt chop, no follow-through |
+| 2014 | +15.7% | +13.7% | dollar surge, oil collapse, JGB rally |
+| 2015 | 0.0%   | +1.4%  | reversal year, wrong-footed in Q3 |
+| 2018 | −2.9%  | −4.4%  | feb Volmageddon + Q4 chop |
+| 2020 | +1.9%  | +18.4% | COVID round-trip neutralised trend |
+| 2022 | +20.5% | −18.1% | dollar/rates/energy all trending |
+
+The arithmetic mean since 2000 is roughly 4–5% with about 10–11%
+volatility — Sharpe a hair under 0.4. That is *much lower* than US
+equities' Sharpe, and that is the point: you are not buying CTAs for
+return-density. You are buying them for the *shape* of the return,
+specifically the negative-correlation-when-it-matters property.
+
+#### 2.4 Capacity, Fees, and the Retail Vehicles
+
+Until ~2019 the only way to buy this strategy was a direct allocation
+to a CTA fund: $1M to $5M minimums, 1+10 to 2+20 fee schedules
+(typical: 1.5% management + 17.5% performance), monthly liquidity at
+best. The good systematic CTAs (AHL, Winton, Aspect, Campbell,
+Graham, Millburn, Transtrend) ran tens of billions and delivered the
+bulk of what the index showed.
+
+The 2019 launch of DBMF (iMGP DBi Managed Futures Strategy) was the
+inflection. The fund replicates the SocGen CTA Index using a
+40-factor regression on the index returns themselves, then runs a
+mirror portfolio of liquid futures that targets the same factor
+loadings. The result is roughly 0.85% all-in (no performance fee, no
+lockups), daily liquidity, 1099 reporting (no K-1), Section 1256
+60/40 capital gains tax treatment on the futures sleeve (SOUL #15).
+
+The current retail CTA menu, April 2026:
+
+| Ticker | Vehicle | ER | AUM | Style |
+|---|---|---:|---:|---|
+| **DBMF** | iMGP DBi Managed Futures | 0.85% | ~$1.6B | Index-replication of SocGen CTA |
+| **KMLM** | KFA Mount Lucas Managed Futures | 0.92% | ~$0.6B | Long-only-trend on commodities-FX-rates |
+| **FMF**  | First Trust Managed Futures | 0.95% | ~$0.3B | 50/30/20 equity/comm/FX trend |
+| **AHLT** | AHL Trend ETF (Man Group) | 0.95% | ~$0.4B | Direct-from-AHL trend, multi-tenor |
+| **AQR Managed Futures (mutual fund)** | QMHIX/QMHRX | 1.18% | ~$3.8B | AQR full-strength trend, mutual-fund wrapper |
+
+The mutual fund version of AQR's strategy (QMHIX) is the closest
+thing to "buy AQR's trend desk in your IRA." DBMF is the cheapest
+proxy for the index average. KMLM has the longest standalone live
+record of the ETFs (since 2020). For most investors at the start, a
+single position in DBMF or KMLM at 10–15% of portfolio is the right
+default.
+
+#### 2.5 Why Trend Is "Long-Vol" Even Though It Buys No Options
+
+A trend-follower never buys a put or a call. It also has no
+convexity built into a single trade — a long futures position is
+linear in the underlying. The convexity comes from the *signal*: as
+prices move enough, the position is added to (more long if rallying
+hard, more short if collapsing). If a drawdown lasts long enough
+for the signal to flip from long to short, the realised P&L on the
+short position grows quadratically with the size of the move — same
+qualitative shape as a put.
+
+The mathematical sketch: if you imagine a perfect trend-follower that
+always holds the right sign at every instant, the P&L is the integral
+of |dS|, which is path-dependent and dominated by big moves. That is
+the signature of a long-straddle — a long volatility position. Trend-
+following synthesises a straddle out of price changes, paying for it
+in chop markets (when the signal whipsaws) rather than option
+premium (when the underlying drifts).
+
+Practical implication: trend-following is *correlated* to realised
+volatility, not implied volatility. It does badly when realised vol
+collapses (2017, 2019), well when realised vol stays elevated and
+*directional* (2022). In years with high implied vol but no follow-
+through (2018), it can lose despite VIX being elevated.
+
+#### 2.6 Where Trend Sits in the Four-Tranche Framework
+
+Slot the strategy into SOUL #13's four-tranche structure:
+
+| Tranche | Target | Role of CTA sleeve |
+|---|---:|---|
+| **Growth** (60–70%) | Stocks: VTI, factor tilts | unchanged |
+| **Income** (10–20%) | Bonds, JEPI, MLPs | unchanged |
+| **Stores of Value** (5–15%) | Gold, T-bills, USD cash | partially overlaps with CTA |
+| **Opportunistic / Tactical** (5–15%) | **CTA + tail hedges + alt sleeves** | here |
+
+For a 100k portfolio with the L5 default 80/10/10/0:
+- 80k VTI/VOO,
+- 10k bonds,
+- **10k DBMF or KMLM** as the "stores of value plus opportunistic"
+  blend,
+- 0–5k SPY OTM puts if you want explicit tail (Week 47).
+
+A more aggressive split is 70/10/15/5 with the 15 being entirely CTA.
+That is approximately the AQR house-portfolio recommendation for
+endowment-style mandates.
+
+[VISUAL: image/week51_60_40_with_cta.png]
+
+The wealth-path chart shows the empirical reason. From 1990 to April
+2026 a 100% S&P portfolio compounds to the highest terminal value
+but has the worst drawdown profile (−51% in 2009, −24% in 2022). A
+60/40 has lower terminal but a less severe drawdown (−30% / −20%).
+A 50/30/20 with 20% in a synthetic CTA proxy lands between the two
+on terminal wealth but with the *best* drawdown profile of the three
+(−22% / −10%) — exactly what you would expect from a sleeve with
+−0.2 unconditional correlation that goes more negative in crashes.
+
+#### 2.7 Sizing, Fees, and the Behavioural Trap
+
+Three rules of thumb I have used myself:
+
+1. **Size for the chop, not the crash.** The right question is
+   "how big a position can I hold in 2015 when this returns 0% for
+   the year while my friends are up 20% in stocks?" If your answer
+   is 5%, hold 5%. If you size for the 2008-style payoff and then
+   redeem in the chop, you get the worst of both worlds.
+
+2. **Pick one ETF and hold it.** Switching from DBMF to KMLM to
+   AHLT based on YTD performance is a disaster — you are buying the
+   manager who just had the lucky year. The dispersion across CTA
+   indices in any given year is tiny (most are within 3% of each
+   other) so the choice does not matter as much as the stickiness.
+
+3. **Treat the carry as a permanent cost.** The strategy can have
+   3-year stretches of zero return. If you are not prepared to wear
+   that, the position is not the right one for you. Better to size
+   smaller and never sell than to size big and capitulate.
+
+The behavioural trap is identical to the one with tail hedges (Week
+47): the strategy looks broken right when it is closest to paying
+off. SOUL #12 — markets stay irrational longer than you stay solvent —
+applies to the *holder* of the hedge as much as it does to the trader
+on the other side of one.
 
 ---
+
+### 3. Common Misconceptions
+
+1. **"CTAs don't work anymore — the trend factor is dead."** The
+   2011–2019 stretch made this a popular thesis. Then 2022 happened
+   and the index returned 20%+ for the year, on the same model the
+   "dead" critics were criticising. The trend signal is structurally
+   tied to drawdown duration, and drawdowns have not stopped.
+
+2. **"It's the same as just buying VIX or puts."** No. VIX/UVXY are
+   long *implied* vol; trend is long *realised* vol. They behave
+   differently in a 2018-style implied-vol shock without follow-
+   through (UVXY +200% in February, trend −2%). Tail puts pay on
+   speed; trend pays on duration.
+
+3. **"It's a hedge — so it should always make money in a bad year."**
+   No. It needs the bad year to be a *trend*, not a single-day or
+   single-week shock. February 2018, August 2015, August 2024 are
+   all years CTAs lost money in equity-stress months because the
+   move was too fast for the signal to engage.
+
+4. **"DBMF / KMLM should track AQR's mutual fund tightly."** They
+   target the *index* (SocGen CTA), not any one manager, so manager
+   dispersion shows up as tracking error. The right benchmark is the
+   index, not another product.
+
+5. **"You can replace your bond allocation with CTAs."** Bonds and
+   CTAs are diversifiers in different regimes — bonds in
+   deflationary/growth shocks (2008, 2020), CTAs in stagflationary/
+   trending shocks (2022, 1970s). A mature portfolio carries some of
+   each, not just one.
+
+6. **"The fees aren't worth it — I should run trend myself."** You
+   *can*, on the micro futures (Week 39 — /MES, /MNQ, /MCL, /MGC).
+   The capital required to run 30 contracts at the right vol-target
+   is roughly $300k+, the bookkeeping is daily mark-to-market, and
+   the operational risk is real. For most retail allocations DBMF at
+   85bp is the right call.
+
+7. **"It worked in 2008 because of the GFC — that won't happen
+   again."** It worked in 1973–74, 2000–02, 2008, 2014 dollar
+   shock, 2020 COVID, 2022 inflation regime change. That is six
+   distinct macro environments over 50 years. The mechanism — long-
+   duration trends across uncorrelated markets — has not been
+   regime-specific.
+
+8. **"Trend is 'short gamma' because it sells into rips."** No. Trend
+   buys strength and sells weakness — that is *long* gamma in the
+   options-Greek sense. The whipsaw cost in chop is the gamma cost
+   you pay every period for the convex payoff in a sustained move.
+
+9. **"I can just hold managed futures inside a 60/40 fund."** Mutual
+   funds with "managed futures" sleeves often run 5–10% allocations
+   that are too small to move the line. To get the 2008/2022-style
+   convexity you need 15–20% in a *pure* CTA, not a slice of a
+   target-date fund.
+
+---
+
+### 4. Q&A Section
+
+**Q: How big should the CTA sleeve be?**
+A: For a default L5 portfolio, 10–15% is the right range. The lower
+end is a hedge, the upper end starts to *materially* change the
+drawdown profile. Above 20% you are actively expressing a trend-
+follow-as-a-return-source view, which is fine but requires more
+conviction in chop years.
+
+**Q: DBMF, KMLM, FMF, or AHLT?**
+A: Default DBMF for the cheapest index replication, KMLM if you want
+a slightly longer-only-commodity tilt, AHLT if you want direct AHL
+exposure. The dispersion among them is small in most years.
+
+**Q: What about AQR's QMHIX mutual fund?**
+A: It is the most "pure" version (full-strength AQR trend, no ETF
+replication overlay), but ER is 1.18% and minimums apply at some
+brokerages. For tax-deferred accounts (IRA, 401k where available),
+QMHIX is excellent.
+
+**Q: Section 1256 tax treatment — does it pass through DBMF?**
+A: Yes. DBMF holds futures directly; gains are 60% LTCG / 40% STCG
+regardless of holding period at the fund level, and that flows
+through to your 1099 (no K-1). This makes CTAs tax-efficient even
+in taxable accounts.
+
+**Q: Does CTA pair well with my SPX-puts tail hedge from Week 47?**
+A: Yes — they are complements, not substitutes. Puts pay on a fast
+shock (March 2020); CTA pays on a sustained trend (2022). A 5-15%
+CTA + 0.5-1% puts-rolled-quarterly is a robust crisis-convex sleeve.
+
+**Q: What's the worst-case scenario for trend-following?**
+A: Sharp reversal at the end of a long trend — September-October
+2008 caught some funds wrong-side as commodities collapsed faster
+than positions could flip; February 2018 caught funds long after
+years of low-vol uptrend. Three- to nine-month drawdowns of 10-15%
+are normal. Drawdowns of 20%+ have happened roughly once a decade.
+
+**Q: Should I rebalance the CTA sleeve?**
+A: Yes — annually or at 5%-band thresholds, like any other sleeve.
+Rebalancing into a CTA in a chop year (say end-2015 or end-2019) is
+exactly when it has historically been most additive going forward.
+
+**Q: What about long-only commodities — same thing as CTA?**
+A: No. Long-only commodities (DBC, PDBC) are passive futures
+exposure with roll cost (Week 39). CTA can go *short* commodities,
+which is the entire point. In 2014 commodities fell 30%+ and CTAs
+made money on the short leg; long-only got crushed.
+
+**Q: Is the strategy "crowded"?**
+A: Total CTA AUM is about $400B globally, vs $50T+ in liquid global
+futures markets. The market-impact cost of the strategy is real but
+manageable, and academic studies (Hurst-Ooi-Pedersen 2017, AQR 2022
+update) find no decay in the trend factor through 2024. Still
+working, even after the audit.
+
+**Q: How does CTA fit with private alts / hedge funds in a fancy
+portfolio?**
+A: Most institutional portfolios already have CTA via their hedge-
+fund sleeve, and may double-count. The Yale endowment, for example,
+holds ~25% in absolute-return / hedge funds, of which a meaningful
+fraction is trend-style. For retail, DBMF at 10-15% replicates that
+exposure cleanly.
+
+**Q: Why does the SocGen CTA Index look so much better than the
+HFRI Macro Index?**
+A: HFRI Macro mixes discretionary global macro (which has
+underperformed for a decade) with systematic trend. SocGen CTA is
+the trend-only sub-index. Same reason the SP500 looks better than
+"all stocks" — composition matters.
+
+**Q: What's the interactive for this week?**
+A: A blender. Slide your % to S&P, bonds, and CTA; it backtests
+against real annual returns 1990-2024 plus the synthetic CTA proxy
+and shows you CAGR, vol, Sharpe, max drawdown, the 2008 and 2022
+calendar returns, and the correlation matrix. The point is to
+*see* what the −22% 60/40 of 2022 turns into when you swap 20% of
+it into a CTA proxy. Spoiler: roughly −5%.
+
+---
+
+## Part 2: YouTube Script
+
+---
+
+**VIDEO TITLE:** Why Every Serious Portfolio Should Have 10-15% in Managed Futures
+**RUNTIME TARGET:** ~18 minutes
+**HOSTS:** Horace, Stella
+
+---
+
+**INTRO**
+
+**Horace:** [open] Stella, what was the worst calendar year for a
+60/40 portfolio in the last fifty years?
+
+**Stella:** Most people say 2008. The right answer is 2022.
+
+**Horace:** 2022. Down 18% on stocks, down 13% on bonds — the
+diversifier broke. 60/40 lost about 17% inflation-unadjusted, 22%
+real. That is the worst year for the textbook portfolio since 1937.
+
+**Stella:** And in the same year, one strategy made over 20%.
+
+**Horace:** The SocGen CTA Index — managed futures, trend-following.
+That is what we are talking about today: the alpha sleeve that
+actually works in the year nothing else does.
+
+**SECTION 1 — What Is It**
+
+**Horace:** Trend-following is the simplest systematic strategy in
+finance. For each of about 50 to 80 liquid futures contracts —
+S&P, Nasdaq, US 10-year, gold, crude, currencies — you compute the
+trailing 12-month return. Positive: go long. Negative: go short.
+Size each so each contract contributes the same volatility-dollars
+to the portfolio. Rebalance daily or weekly. That is the whole
+algorithm.
+
+**Stella:** No fundamentals. No Fed-watching. No DCFs.
+
+**Horace:** Pure price action. SOUL #8 — momentum — applied across
+asset classes instead of just stocks. The reason the universe
+matters is what makes the strategy diversifying. When stocks go
+down, bonds rally, dollar squeezes, oil tanks, all four trends line
+up in the same direction in a crisis, and the convex payoff is the
+sum of those legs.
+
+**SECTION 2 — The History**
+
+**Horace:** [VISUAL: image/week51_cta_history.png] Here is the
+SocGen CTA Index from 2000 through 2024 with the S&P overlaid. Look
+at the highlighted bars.
+
+**Stella:** 2008 — CTA up 13, S&P down 37. 2014 — CTA up 16. 2022 —
+CTA up 20, S&P down 18.
+
+**Horace:** Those are the strong years. Now look at the red ones.
+2011 — CTA down 4, S&P up 2. 2015 — flat. 2018 — down 3.
+
+**Stella:** Those are the chop years. No follow-through, signal
+whipsaws.
+
+**Horace:** That is the deal. Five years of chop for one year of
+crisis-alpha that pays back the entire gap. SOUL #6 — the few
+months that matter dominate the long-run distribution. Trend-
+following is structurally on the right side of those months when
+they unfold over quarters.
+
+**SECTION 3 — Why It Pays in a Crisis**
+
+**Stella:** The mechanism, in one sentence?
+
+**Horace:** Most large equity drawdowns are not single days. They
+are trends. 2008 played out over 17 months. 2000-02 over 31. 2022
+over 9. Every one of those gave the 12-month signal time to flip
+from long to short, and the position grew with the move. That is
+the convexity. Not bought, manufactured.
+
+**Stella:** And it fails when?
+
+**Horace:** Fast shocks. February 2018 — minus 10 in two weeks
+then back. August 2024 — yen carry unwind, four-day spike, gone.
+Trend needs duration. Tail puts pay on speed; trend pays on
+duration. They are complements.
+
+**SECTION 4 — The Wealth Path**
+
+**Horace:** [VISUAL: image/week51_60_40_with_cta.png] 1990 to April
+2026, three portfolios. 100% S&P, 60/40, and a 50/30/20 — half
+stocks, 30 bonds, 20 in a synthetic CTA proxy at 6% mean and 11%
+vol, correlated minus 0.2 with stocks.
+
+**Stella:** S&P wins on terminal wealth.
+
+**Horace:** As it should — equity risk premium is what compounds.
+But look at the drawdowns. S&P has minus 51 in 2009, minus 24 in
+2022. 60/40 has minus 30 and minus 20. The 50/30/20 with CTA has
+minus 22 and minus 10.
+
+**Stella:** Same shape, half the pain.
+
+**Horace:** That is what diversification is supposed to do. The
+60/40 lost the property in 2022 because bonds correlated with
+stocks. The CTA sleeve restored it.
+
+**SECTION 5 — The Vehicles**
+
+**Stella:** Until 2019 you needed five million dollars and a fund
+manager.
+
+**Horace:** Today: DBMF, 0.85% expense ratio. KMLM, 0.92. AHLT,
+0.95. FMF, 0.95. All ETFs, daily liquidity, 1099 reporting, Section
+1256 tax treatment. That is SOUL #15 — the futures sleeve gets 60/40
+capital gains tax regardless of holding period.
+
+**Stella:** Picking among them?
+
+**Horace:** Default DBMF — index replication, cheapest. KMLM if you
+want a commodity tilt. AHLT for direct AHL exposure. AQR's QMHIX
+mutual fund inside a tax-deferred account if you want full-strength
+trend. The dispersion across them is small in most years. The
+behavioural trap is switching. Don't switch.
+
+**SECTION 6 — Sizing**
+
+**Horace:** [VISUAL: interactive/week51_cta_blender.html] Open the
+blender. Three sliders — S&P, bonds, CTA. Sum to 100.
+
+**Stella:** Default L5 is 80/10/10/0. So slide to 70/15/15.
+
+**Horace:** Look at the numbers. CAGR roughly 9.2 vs the all-equity
+10.4. Vol 11.8 vs 16.1. Max drawdown 28 vs 51. Sharpe 0.55 vs 0.50.
+2008 calendar return: minus 12 vs minus 37. 2022: minus 5 vs minus
+18.
+
+**Stella:** Lower return.
+
+**Horace:** Slightly. But the *risk-adjusted* return is higher and
+the drawdown is half. That is the trade. SOUL #14 — barbell — the
+right end of the barbell is convex small allocations that pay
+asymmetrically in stress. CTA is one of the cleanest versions of
+that available in liquid markets.
+
+**SECTION 7 — The Three Sizing Rules**
+
+**Stella:** Three rules?
+
+**Horace:** One — size for the chop, not the crash. If you cannot
+hold this in 2015 when stocks are up 20 and CTA is flat, hold
+less. Two — pick one ETF and stick. Switching after a bad year is
+buying the manager who just got lucky. Three — treat the carry as a
+permanent cost, like an insurance premium. If you would not pay 1%
+a year for a tail-risk hedge, you will not be happy holding CTA in
+a chop year.
+
+**Stella:** SOUL #12.
+
+**Horace:** Markets stay irrational longer than you stay solvent —
+applies to the holder of the hedge as much as the speculator on the
+other side of it.
+
+**SECTION 8 — Misconceptions**
+
+**Stella:** Top two.
+
+**Horace:** One — it is not the same as buying VIX or puts. VIX is
+implied vol; trend is realised vol. Different beast. Two — it does
+not always make money in a bad equity year. It needs the bad year
+to be a *trend*. February 2018 was a 10% shock with no follow-
+through, and trend lost.
+
+**Stella:** Three — bonds versus CTA.
+
+**Horace:** Different regimes. Bonds work in deflationary growth
+shocks — 2008, 2020. CTA works in trending stagflationary shocks —
+2022, 1970s. Mature portfolio carries some of each.
+
+**OUTRO**
+
+**Horace:** Final line. SOUL #5 lists five sources of alpha.
+Trend-following is the most empirically validated of the five at
+the systematic end, with out-of-sample evidence going back to 1880
+across futures markets that did not yet exist when the studies
+were funded. The strategy is not a secret. It still works. The
+reason it still works is because the source of return — long-
+duration trends in macro markets — is hard for marginal capital to
+arbitrage away without accepting the same chop-year drawdowns CTAs
+accept.
+
+**Stella:** And the simplest implementation is one ticker.
+
+**Horace:** DBMF. Ten percent of the portfolio. Hold it.
+
+**Stella:** That's a wrap.

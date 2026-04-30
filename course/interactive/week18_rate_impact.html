@@ -1,0 +1,548 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Rate Impact Lab — Interactive (Week 18)</title>
+<script src="https://cdn.plot.ly/plotly-2.35.2.min.js" charset="utf-8"></script>
+<style>
+html, body { margin: 0; padding: 0; background: var(--ri-bg); }
+:root {
+    --ri-bg: #fdfbf5;
+    --ri-text: #1a2332;
+    --ri-muted: #6b7280;
+    --ri-border: #d6d3c4;
+    --ri-card: #fdfbf5;
+    --ri-pos: #2e7d32;
+    --ri-neg: #b71c1c;
+    --ri-mid: #0d47a1;
+    --ri-orange: #e65100;
+    --ri-accent: #b8860b;
+}
+html[data-theme="dark"] .ri-root,
+.ri-root[data-theme="dark"] {
+    --ri-bg: #0f1724;
+    --ri-text: #e6e6e6;
+    --ri-muted: #9aa3b2;
+    --ri-border: #2a3441;
+    --ri-card: #0f1724;
+    --ri-pos: #66bb6a;
+    --ri-neg: #ef5350;
+    --ri-mid: #5a8dee;
+    --ri-orange: #ffa726;
+    --ri-accent: #ffca28;
+}
+.ri-root {
+    font-family: 'Segoe UI', Helvetica, Arial, sans-serif;
+    background: var(--ri-bg);
+    color: var(--ri-text);
+    padding: 12px;
+    margin: 0;
+}
+.ri-controls {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 12px;
+    padding: 12px;
+    background: var(--ri-card);
+    border: 1px solid var(--ri-border);
+    border-radius: 8px;
+    margin-bottom: 14px;
+}
+.ri-slider-wrap {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    font-size: 0.82rem;
+    color: var(--ri-muted);
+}
+.ri-slider-wrap .ri-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+}
+.ri-slider-wrap .ri-name {
+    font-weight: 600;
+    color: var(--ri-text);
+}
+.ri-slider-wrap .ri-value {
+    color: var(--ri-text);
+    font-weight: 700;
+    font-variant-numeric: tabular-nums;
+}
+.ri-slider-wrap input[type="range"] {
+    width: 100%;
+    accent-color: var(--ri-accent);
+}
+.ri-grid {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr;
+    gap: 14px;
+}
+@media (max-width: 760px) {
+    .ri-grid { grid-template-columns: 1fr; }
+}
+.ri-chart {
+    width: 100%;
+    height: 380px;
+    background: var(--ri-card);
+    border-radius: 8px;
+    border: 1px solid var(--ri-border);
+}
+.ri-chart-side {
+    width: 100%;
+    height: 380px;
+    background: var(--ri-card);
+    border-radius: 8px;
+    border: 1px solid var(--ri-border);
+}
+.ri-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 10px;
+    margin-top: 14px;
+}
+.ri-stat {
+    background: var(--ri-card);
+    border: 1px solid var(--ri-border);
+    border-left: 4px solid var(--ri-muted);
+    border-radius: 8px;
+    padding: 10px 12px;
+}
+.ri-stat.ri-stat-npv { border-left-color: var(--ri-mid); }
+.ri-stat.ri-stat-tv  { border-left-color: var(--ri-accent); }
+.ri-stat.ri-stat-pe  { border-left-color: var(--ri-pos); }
+.ri-stat.ri-stat-rg  { border-left-color: var(--ri-neg); }
+.ri-stat .ri-stat-name {
+    font-size: 0.74rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--ri-muted);
+}
+.ri-stat .ri-stat-val {
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-top: 4px;
+    font-variant-numeric: tabular-nums;
+}
+.ri-stat .ri-stat-detail {
+    font-size: 0.74rem;
+    color: var(--ri-muted);
+    margin-top: 2px;
+}
+.ri-caption {
+    margin-top: 10px;
+    font-size: 0.78rem;
+    color: var(--ri-muted);
+    line-height: 1.45;
+}
+.ri-side-title {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--ri-text);
+    margin: 0 0 6px 2px;
+}
+@media (max-width: 640px) {
+    .ri-chart, .ri-chart-side { height: 320px; }
+}
+</style>
+</head>
+<body>
+
+<div class="ri-root" id="ri-root">
+    <div class="ri-controls">
+        <div class="ri-slider-wrap">
+            <div class="ri-row">
+                <span class="ri-name" id="ri-l-r">Discount rate (r)</span>
+                <span class="ri-value" id="ri-v-r">6.0%</span>
+            </div>
+            <input type="range" id="ri-s-r" min="0" max="15" step="0.1" value="6">
+        </div>
+        <div class="ri-slider-wrap">
+            <div class="ri-row">
+                <span class="ri-name" id="ri-l-g">Expected growth (g)</span>
+                <span class="ri-value" id="ri-v-g">3.0%</span>
+            </div>
+            <input type="range" id="ri-s-g" min="0" max="10" step="0.1" value="3">
+        </div>
+        <div class="ri-slider-wrap">
+            <div class="ri-row">
+                <span class="ri-name" id="ri-l-d">Starting cash flow (D)</span>
+                <span class="ri-value" id="ri-v-d">$5.00</span>
+            </div>
+            <input type="range" id="ri-s-d" min="1" max="50" step="0.5" value="5">
+        </div>
+    </div>
+
+    <div class="ri-grid">
+        <div>
+            <div class="ri-side-title" id="ri-t-main">NPV of cash flows by year (years 1-30)</div>
+            <div id="ri-chart" class="ri-chart"></div>
+        </div>
+        <div>
+            <div class="ri-side-title" id="ri-t-side">Price impact of +100 bps rate move</div>
+            <div id="ri-chart-side" class="ri-chart-side"></div>
+        </div>
+    </div>
+
+    <div class="ri-stats">
+        <div class="ri-stat ri-stat-npv">
+            <div class="ri-stat-name" id="ri-name-npv">NPV of 30-year stream</div>
+            <div class="ri-stat-val" id="ri-val-npv">—</div>
+            <div class="ri-stat-detail" id="ri-det-npv">—</div>
+        </div>
+        <div class="ri-stat ri-stat-tv">
+            <div class="ri-stat-name" id="ri-name-tv">Terminal value (Gordon)</div>
+            <div class="ri-stat-val" id="ri-val-tv">—</div>
+            <div class="ri-stat-detail" id="ri-det-tv">D / (r - g)</div>
+        </div>
+        <div class="ri-stat ri-stat-pe">
+            <div class="ri-stat-name" id="ri-name-pe">Implied P/E (Gordon)</div>
+            <div class="ri-stat-val" id="ri-val-pe">—</div>
+            <div class="ri-stat-detail" id="ri-det-pe">1 / (r - g)</div>
+        </div>
+        <div class="ri-stat ri-stat-rg">
+            <div class="ri-stat-name" id="ri-name-rg">r minus g</div>
+            <div class="ri-stat-val" id="ri-val-rg">—</div>
+            <div class="ri-stat-detail" id="ri-det-rg">—</div>
+        </div>
+    </div>
+
+    <p class="ri-caption" id="ri-caption">
+        Slide r and g and watch the year-by-year NPV bars stretch and shrink. The terminal-value box on the right is the Gordon growth model — the same formula equity analysts use to price the entire perpetuity of future cash flows. The side bar chart shows what +100 bps of rate change does to four standard cash-flow streams: a 10-year bond, a 30-year bond, a long-duration growth equity, and a short-duration value equity. Notice the 30-year bond and the growth equity move by roughly the same amount — duration is duration whether the cash flow is labelled "bond" or "stock."
+    </p>
+</div>
+
+<script>
+(function () {
+    const I18N = {
+        en: {
+            l_r: "Discount rate (r)",
+            l_g: "Expected growth (g)",
+            l_d: "Starting cash flow (D)",
+            t_main: "NPV of cash flows by year (years 1-30)",
+            t_side: "Price impact of +100 bps rate move",
+            n_npv: "NPV of 30-year stream",
+            n_tv:  "Terminal value (Gordon)",
+            n_pe:  "Implied P/E (Gordon)",
+            n_rg:  "r minus g",
+            d_tv:  "D / (r - g)",
+            d_pe:  "1 / (r - g)",
+            x_year: "Year",
+            y_pv:   "Present value ($)",
+            x_bond: "+100 bps shock impact (%)",
+            y_inst: "",
+            inst_b10: "10y bond (D≈8.5)",
+            inst_b30: "30y bond (D≈19)",
+            inst_gw:  "Growth equity (g=4%, D≈10y)",
+            inst_va:  "Value equity (g=1%, D≈5y)",
+            warn_neg: "r ≤ g — model breaks (price diverges)",
+            caption: "Slide r and g and watch the year-by-year NPV bars stretch and shrink. The terminal-value box on the right is the Gordon growth model — the same formula equity analysts use to price the entire perpetuity of future cash flows. The side bar chart shows what +100 bps of rate change does to four standard cash-flow streams: a 10-year bond, a 30-year bond, a long-duration growth equity, and a short-duration value equity. Notice the 30-year bond and the growth equity move by roughly the same amount — duration is duration whether the cash flow is labelled \"bond\" or \"stock.\"",
+        },
+        hk: {
+            l_r: "折現率 (r)",
+            l_g: "預期增長 (g)",
+            l_d: "起始現金流 (D)",
+            t_main: "各年現金流之現值(第 1-30 年)",
+            t_side: "利率上升 100 bps 的價格衝擊",
+            n_npv: "30 年現金流現值",
+            n_tv:  "永續價值(Gordon)",
+            n_pe:  "隱含市盈率(Gordon)",
+            n_rg:  "r 減 g",
+            d_tv:  "D / (r - g)",
+            d_pe:  "1 / (r - g)",
+            x_year: "年份",
+            y_pv:   "現值(美元)",
+            x_bond: "+100 bps 衝擊影響 (%)",
+            y_inst: "",
+            inst_b10: "10 年期國債(D≈8.5)",
+            inst_b30: "30 年期國債(D≈19)",
+            inst_gw:  "高增長股(g=4%、D≈10y)",
+            inst_va:  "價值股(g=1%、D≈5y)",
+            warn_neg: "r ≤ g — 模型失效(價格發散)",
+            caption: "拖動 r 和 g,觀察各年現值柱狀圖伸縮。右上方是 Gordon 永續增長模型,等價分析師用來估算整個永續現金流的公式。側邊柱狀圖顯示利率上升 100 bps 對四種典型現金流的衝擊:十年期國債、三十年期國債、長期高增長股、短期價值股。三十年期國債與高增長股的跌幅幾乎一樣 — 久期就是久期,不管標籤寫的是「債券」還是「股票」。",
+        },
+        tw: {
+            l_r: "折現率 (r)",
+            l_g: "預期成長率 (g)",
+            l_d: "起始現金流 (D)",
+            t_main: "各年現金流之現值(第 1-30 年)",
+            t_side: "利率上升 100 bps 的價格衝擊",
+            n_npv: "30 年現金流現值",
+            n_tv:  "永續價值(Gordon)",
+            n_pe:  "隱含本益比(Gordon)",
+            n_rg:  "r 減 g",
+            d_tv:  "D / (r - g)",
+            d_pe:  "1 / (r - g)",
+            x_year: "年份",
+            y_pv:   "現值(美元)",
+            x_bond: "+100 bps 衝擊影響 (%)",
+            y_inst: "",
+            inst_b10: "十年期公債(D≈8.5)",
+            inst_b30: "三十年期公債(D≈19)",
+            inst_gw:  "成長股(g=4%、D≈10y)",
+            inst_va:  "價值股(g=1%、D≈5y)",
+            warn_neg: "r ≤ g — 模型失效(價格發散)",
+            caption: "拖動 r 與 g,觀察各年現值柱狀圖伸縮。右上方是 Gordon 永續成長模型,等同分析師用來估算整個永續現金流的公式。側邊柱狀圖顯示利率上升 100 bps 對四種典型現金流的衝擊:十年期公債、三十年期公債、長存續期成長股、短存續期價值股。三十年期公債與成長股的跌幅幾乎相同 — 存續期就是存續期,不論標籤寫的是「債券」還是「股票」。",
+        },
+        cn: {
+            l_r: "折现率 (r)",
+            l_g: "预期增长 (g)",
+            l_d: "起始现金流 (D)",
+            t_main: "各年现金流之现值(第 1-30 年)",
+            t_side: "利率上升 100 bps 的价格冲击",
+            n_npv: "30 年现金流现值",
+            n_tv:  "永续价值(Gordon)",
+            n_pe:  "隐含市盈率(Gordon)",
+            n_rg:  "r 减 g",
+            d_tv:  "D / (r - g)",
+            d_pe:  "1 / (r - g)",
+            x_year: "年份",
+            y_pv:   "现值(美元)",
+            x_bond: "+100 bps 冲击影响 (%)",
+            y_inst: "",
+            inst_b10: "10 年期国债(D≈8.5)",
+            inst_b30: "30 年期国债(D≈19)",
+            inst_gw:  "高增长股(g=4%、D≈10y)",
+            inst_va:  "价值股(g=1%、D≈5y)",
+            warn_neg: "r ≤ g — 模型失效(价格发散)",
+            caption: "拖动 r 和 g,观察各年现值柱状图伸缩。右上方是 Gordon 永续增长模型,等价分析师用来估算整个永续现金流的公式。侧边柱状图显示利率上升 100 bps 对四种典型现金流的冲击:十年期国债、三十年期国债、长久期增长股、短久期价值股。三十年期国债和增长股的跌幅几乎一样 — 久期就是久期,不管标签写的是「债券」还是「股票」。",
+        },
+    };
+    function currentLang() {
+        const p = new URLSearchParams(window.location.search);
+        const l = (p.get("lang") || "en").toLowerCase();
+        return I18N.hasOwnProperty(l) ? l : "en";
+    }
+    const T = I18N[currentLang()];
+
+    const ROOT = document.getElementById("ri-root");
+    const CHART = document.getElementById("ri-chart");
+    const CHART_SIDE = document.getElementById("ri-chart-side");
+
+    const sR = document.getElementById("ri-s-r");
+    const sG = document.getElementById("ri-s-g");
+    const sD = document.getElementById("ri-s-d");
+    const vR = document.getElementById("ri-v-r");
+    const vG = document.getElementById("ri-v-g");
+    const vD = document.getElementById("ri-v-d");
+
+    let state = { r: 0.06, g: 0.03, D: 5.0 };
+
+    function getCssVar(name) {
+        return getComputedStyle(ROOT).getPropertyValue(name).trim();
+    }
+    function darkMode() {
+        return document.documentElement.getAttribute("data-theme") === "dark";
+    }
+    function fmtMoney(v) {
+        if (!isFinite(v)) return "—";
+        if (Math.abs(v) >= 10000) {
+            return "$" + v.toLocaleString(undefined, { maximumFractionDigits: 0 });
+        }
+        return "$" + v.toLocaleString(undefined, { maximumFractionDigits: 2, minimumFractionDigits: 2 });
+    }
+    function fmtPct(v) {
+        if (!isFinite(v)) return "—";
+        return (v * 100).toFixed(2) + "%";
+    }
+
+    // Bond price: F=100, semi-annual coupon, par-yield assumption (coupon = current ytm).
+    // Then shock yield by +100bps and recompute. Returns % change.
+    function bondPctChange(yearsToMaturity, baseYieldPct) {
+        const F = 100, m = 2;
+        const c = baseYieldPct / 100;
+        const C = F * c / m;
+        const n = m * yearsToMaturity;
+        function px(y) {
+            const r = y / m;
+            if (Math.abs(r) < 1e-9) return C * n + F;
+            const pvC = C * (1 - Math.pow(1 + r, -n)) / r;
+            const pvF = F / Math.pow(1 + r, n);
+            return pvC + pvF;
+        }
+        const p0 = px(c);
+        const p1 = px(c + 0.01);
+        return (p1 - p0) / p0;
+    }
+
+    // DDM finite-horizon equity: PV = sum_{t=1..H} D*(1+g)^t/(1+r)^t + TV/(1+r)^H
+    // where TV = D*(1+g)^{H+1}/(r-g) (Gordon terminal). Shock r by +100bps and return % change.
+    function equityPctChange(D, g, r, horizon) {
+        function px(rr) {
+            if (rr <= g) return Infinity;
+            let pv = 0;
+            for (let t = 1; t <= horizon; t++) {
+                pv += D * Math.pow(1 + g, t) / Math.pow(1 + rr, t);
+            }
+            const TV = D * Math.pow(1 + g, horizon + 1) / (rr - g);
+            pv += TV / Math.pow(1 + rr, horizon);
+            return pv;
+        }
+        const p0 = px(r);
+        const p1 = px(r + 0.01);
+        if (!isFinite(p0) || !isFinite(p1)) return 0;
+        return (p1 - p0) / p0;
+    }
+
+    function render() {
+        const { r, g, D } = state;
+        const cMid = getCssVar("--ri-mid");
+        const cAcc = getCssVar("--ri-accent");
+        const cPos = getCssVar("--ri-pos");
+        const cNeg = getCssVar("--ri-neg");
+        const cOr  = getCssVar("--ri-orange");
+        const cMut = getCssVar("--ri-muted");
+        const cTxt = getCssVar("--ri-text");
+        const cBg  = getCssVar("--ri-card");
+        const cGrid = darkMode() ? "rgba(255,255,255,0.08)" : "rgba(0,0,0,0.07)";
+
+        // Year-by-year PV bars for years 1..30
+        const years = [];
+        const pvs   = [];
+        let total   = 0;
+        const H     = 30;
+        for (let t = 1; t <= H; t++) {
+            const cf  = D * Math.pow(1 + g, t);
+            const pv  = cf / Math.pow(1 + r, t);
+            years.push(t);
+            pvs.push(pv);
+            total += pv;
+        }
+
+        const traceMain = {
+            x: years, y: pvs,
+            type: "bar",
+            marker: { color: cMid },
+            hovertemplate: T.x_year + " %{x}<br>" + T.y_pv + ": $%{y:,.2f}<extra></extra>",
+        };
+        const layoutMain = {
+            margin: { l: 64, r: 24, t: 12, b: 44 },
+            paper_bgcolor: cBg,
+            plot_bgcolor: cBg,
+            font: { family: "Segoe UI, Helvetica, Arial, sans-serif", color: cTxt, size: 12 },
+            xaxis: {
+                title: { text: T.x_year, font: { color: cMut, size: 11 } },
+                gridcolor: cGrid, zerolinecolor: cMut, color: cTxt,
+            },
+            yaxis: {
+                title: { text: T.y_pv, font: { color: cMut, size: 11 } },
+                gridcolor: cGrid, zerolinecolor: cGrid, color: cTxt,
+                tickformat: "$,.2f",
+            },
+            showlegend: false,
+            hovermode: "x unified",
+        };
+        Plotly.react(CHART, [traceMain], layoutMain, { displayModeBar: false, responsive: true });
+
+        // Side: +100 bps impact bar chart
+        const baseYield = Math.max(2.0, r * 100);  // park bonds at the current discount rate, floored
+        const dB10 = bondPctChange(10, baseYield);
+        const dB30 = bondPctChange(30, baseYield);
+        const dGw  = equityPctChange(1.0, 0.04, Math.max(r, 0.05), 10);  // ensure r>g
+        const dVa  = equityPctChange(1.0, 0.01, Math.max(r, 0.02), 5);
+
+        const labels = [T.inst_va, T.inst_gw, T.inst_b10, T.inst_b30];
+        const vals   = [dVa, dGw, dB10, dB30].map(v => v * 100);
+        const colors = vals.map(v => v < 0 ? cNeg : cPos);
+
+        const traceSide = {
+            x: vals, y: labels,
+            type: "bar", orientation: "h",
+            marker: { color: colors },
+            text: vals.map(v => v.toFixed(1) + "%"),
+            textposition: "outside",
+            cliponaxis: false,
+            hovertemplate: "%{y}: %{x:.2f}%<extra></extra>",
+        };
+        const layoutSide = {
+            margin: { l: 170, r: 50, t: 12, b: 44 },
+            paper_bgcolor: cBg,
+            plot_bgcolor: cBg,
+            font: { family: "Segoe UI, Helvetica, Arial, sans-serif", color: cTxt, size: 12 },
+            xaxis: {
+                title: { text: T.x_bond, font: { color: cMut, size: 11 } },
+                gridcolor: cGrid, zerolinecolor: cMut, color: cTxt,
+                ticksuffix: "%",
+            },
+            yaxis: {
+                gridcolor: cGrid, zerolinecolor: cGrid, color: cTxt,
+                automargin: true,
+            },
+            showlegend: false,
+        };
+        Plotly.react(CHART_SIDE, [traceSide], layoutSide, { displayModeBar: false, responsive: true });
+
+        // Stats
+        document.getElementById("ri-val-npv").textContent = fmtMoney(total);
+        document.getElementById("ri-det-npv").textContent = "(years 1-" + H + ")";
+
+        const rgGap = r - g;
+        if (rgGap <= 0) {
+            document.getElementById("ri-val-tv").textContent = "—";
+            document.getElementById("ri-val-pe").textContent = "—";
+            document.getElementById("ri-val-rg").textContent = (rgGap * 100).toFixed(2) + "%";
+            document.getElementById("ri-det-rg").textContent = T.warn_neg;
+        } else {
+            const tv = D / rgGap;
+            const pe = 1 / rgGap;
+            document.getElementById("ri-val-tv").textContent = fmtMoney(tv);
+            document.getElementById("ri-val-pe").textContent = pe.toFixed(1) + "x";
+            document.getElementById("ri-val-rg").textContent = (rgGap * 100).toFixed(2) + "%";
+            document.getElementById("ri-det-rg").textContent = "—";
+        }
+    }
+
+    function updateLabels() {
+        vR.textContent = (state.r * 100).toFixed(2) + "%";
+        vG.textContent = (state.g * 100).toFixed(2) + "%";
+        vD.textContent = "$" + state.D.toFixed(2);
+    }
+
+    sR.addEventListener("input", () => { state.r = parseFloat(sR.value) / 100; updateLabels(); render(); });
+    sG.addEventListener("input", () => { state.g = parseFloat(sG.value) / 100; updateLabels(); render(); });
+    sD.addEventListener("input", () => { state.D = parseFloat(sD.value); updateLabels(); render(); });
+
+    function applyI18n() {
+        document.getElementById("ri-l-r").textContent = T.l_r;
+        document.getElementById("ri-l-g").textContent = T.l_g;
+        document.getElementById("ri-l-d").textContent = T.l_d;
+        document.getElementById("ri-t-main").textContent = T.t_main;
+        document.getElementById("ri-t-side").textContent = T.t_side;
+        document.getElementById("ri-name-npv").textContent = T.n_npv;
+        document.getElementById("ri-name-tv").textContent  = T.n_tv;
+        document.getElementById("ri-name-pe").textContent  = T.n_pe;
+        document.getElementById("ri-name-rg").textContent  = T.n_rg;
+        document.getElementById("ri-det-tv").textContent   = T.d_tv;
+        document.getElementById("ri-det-pe").textContent   = T.d_pe;
+        document.getElementById("ri-caption").textContent  = T.caption;
+    }
+
+    applyI18n();
+    updateLabels();
+    render();
+
+    function reportHeight() {
+        try {
+            var h = Math.ceil(document.documentElement.scrollHeight);
+            parent.postMessage({ type: 'lesson-interactive-resize', height: h }, '*');
+        } catch (e) { /* ignore */ }
+    }
+    if (typeof ResizeObserver !== 'undefined') {
+        new ResizeObserver(reportHeight).observe(document.body);
+    }
+    window.addEventListener('resize', reportHeight);
+    setTimeout(reportHeight, 50);
+    setTimeout(reportHeight, 500);
+
+    const themeObserver = new MutationObserver(render);
+    themeObserver.observe(document.documentElement, {
+        attributes: true,
+        attributeFilter: ["data-theme"],
+    });
+})();
+</script>
+
+</body>
+</html>

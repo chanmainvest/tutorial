@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Week 31: Yield Curves - The Bond Market's Crystal Ball - Chanma Investment Tutorial</title>
+    <title>Week 31: Yield Curves — Shape, Level, Slope, Curvature - Chanma Investment Tutorial</title>
     <script>(function(){try{var t=localStorage.getItem('preferred-theme');if(!t){t=window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();</script>
     <style>
 :root, html[data-theme="light"] {
@@ -1247,731 +1247,487 @@ html[data-theme="dark"] .nav-btn:hover .btn-label { color: rgba(15,23,36,0.7); }
     <main class="main-wrap">
         <div class="content-area">
             <div id="content-en" class="lang-content active">
-                <h1>Week 31: Yield Curves - The Bond Market's Crystal Ball</h1>
-<h2>Reading Section</h2>
-<h3>a) Why This Is Important</h3>
+                <h1>Week 31: Yield Curves — Shape, Level, Slope, Curvature</h1>
+<hr>
+<h3>1. Why This Is Important</h3>
 <p>
-The yield curve is the single most watched indicator in the entire bond market, and for good reason. It has predicted every U.S. recession in the past 50 years. It drives the pricing of trillions of dollars in mortgages, corporate loans, and government debt. It shapes Federal Reserve policy and influences every asset class from stocks to real estate. Yet most individual investors cannot explain what a yield curve is, let alone interpret it.
+The yield curve is the single chart that, more than any other, tells
+you what the bond market thinks. It is the price of money for every
+maturity from one day to thirty years, drawn as a line. Its level
+prices every mortgage and every corporate bond. Its slope prices every
+recession probability the market is willing to bet on. Its curvature
+prices the path of Fed policy. About 95% of all the variance in
+how the curve moves can be summarised in three numbers.
 </p>
 <p>
-<strong>Why understanding yield curves is essential:</strong>
+You need to read this chart for four reasons.
+</p>
+<li><strong>The curve is the foundation of every other rate.</strong> Mortgages</li>
+<p>
+sit a couple of points above the 10-year. Investment-grade
+corporate bonds sit one to two points above the matched-maturity
+Treasury. High-yield credit sits four to six points above. If
+you understand the Treasury curve, you understand the price of
+credit risk in the entire economy because every other yield is
+a <em>spread</em> over it.
+</p>
+<li><strong>Inversions have predicted every US recession since 1970.</strong> Not</li>
+<p>
+most of them — every single one. The 2y/10y spread inverted in
+July 2022, stayed inverted for over two years, and uninverted
+in late 2024. By the textbook playbook a recession should have
+followed within 6 to 24 months. Whether or not it did, an
+investor who could <em>read</em> this chart in 2022 had cleaner hands
+than one who could not.
+</p>
+<li><strong>Three factors explain almost all curve movement.</strong> Principal</li>
+<p>
+component analysis on Treasury yields decomposes the curve into
+level (parallel shifts, ~70% of variance), slope (steepening or
+flattening, ~20%), and curvature (the belly versus the wings,
+~5%). Every interest-rate trade you will ever see — duration
+bets, steepeners, butterflies — maps cleanly onto these three
+factors.
+</p>
+<li><strong>Forwards are the market's <em>expected</em> future spot rates.</strong> The</li>
+<p>
+forward rate two years out is what the curve is pricing for the
+short rate two years from today. If you have a different view,
+you have a tradeable view. If you have the same view, you do
+not. Reading forwards turns the curve into a probability
+distribution over future Fed policy.
 </p>
 <p>
-<strong>1. The yield curve predicted every recession since 1970.</strong> When the yield curve inverts, meaning short-term rates rise above long-term rates, a recession has followed within 6 to 24 months in every instance. No other economic indicator has such a consistent track record. The 2-year/10-year Treasury spread inverted in 2022, and understanding what this meant gave informed investors a significant edge in portfolio positioning.
-</p>
-<p>
-<strong>2. The yield curve determines borrowing costs throughout the economy.</strong> Mortgage rates, auto loan rates, corporate bond rates, and credit card rates are all influenced by the yield curve. When the curve is steep, banks profit handsomely by borrowing short and lending long. When it is flat or inverted, bank profitability shrinks, lending tightens, and the economy slows. Understanding this mechanism helps you understand economic cycles.
-</p>
-<p>
-<strong>3. The yield curve is the foundation of bond investing.</strong> If you own bonds or bond funds (and you should for diversification), the yield curve determines your returns. Changes in the curve's shape affect different bond maturities differently. A long-term bond fund can gain 15% in a year when rates fall, or lose 15% when rates rise. This week's material, combined with Week 32 (duration and convexity), gives you the tools to manage this interest rate risk intelligently.
-</p>
-<p>
-<strong>4. The yield curve connects to everything in fixed income.</strong> Weeks 33 (credit analysis), 34 (rate sensitivity), and 36 (income portfolio construction) all assume you understand yield curves. Credit spreads are measured relative to the Treasury yield curve. Rate sensitivity analysis uses yield curve movements as inputs. And constructing a bond portfolio requires understanding how different parts of the curve behave.
-</p>
-<p>
-<strong>5. Yield curves embody market expectations.</strong> The curve reflects millions of investors' collective expectations about future interest rates, inflation, and economic growth. Reading the curve is like reading the market's mind. A steep curve says the market expects growth and possibly higher rates. A flat curve says the market expects slower growth. An inverted curve says the market expects economic contraction. This information is free and updated in real time.
+This lesson covers construction (par/spot/forward), the three PCA
+factors, the regime taxonomy (bull-flattener/bear-steepener and the
+two "wrong" cousins), butterfly trades on curvature, and the April
+2026 curve in context.
 </p>
 <hr>
-<h3>b) What You Need to Know</h3>
-<h4>What Is a Yield Curve?</h4>
+<h3>2. What You Need to Know</h3>
+<h4>2.1 What the Curve Is, Exactly</h4>
 <p>
-A yield curve is a graph that plots the yields (interest rates) of bonds with equal credit quality but different maturities. The most commonly referenced yield curve is the U.S. Treasury yield curve, which plots the yields on Treasury bills, notes, and bonds from 1 month to 30 years.
-</p>
-<pre><code class="language-">U.S. TREASURY YIELD CURVE (EXAMPLE - NORMAL SHAPE):
-<p>
-Yield
-5.0% |                                              *
-|                                        *
-4.5% |                                  *
-|                            *
-4.0% |                      *
-|                *
-3.5% |          *
-|     *
-3.0% | *
-|
-2.5% |
-+---+---+---+---+---+---+---+---+---+---+---
-1m  3m  6m  1y  2y  3y  5y  7y  10y 20y 30y
-Maturity
+A yield curve is a graph of yield versus maturity for a set of bonds
+of equivalent credit quality. The Treasury curve is the canonical
+example because the credit risk is constant (zero, by US convention)
+and the only thing varying is time-to-maturity.
 </p>
 <p>
-KEY DATA POINTS (EXAMPLE):
-Maturity     Yield     Common Name
-========     =====     ==============================
-1 month      2.80%     Treasury Bill (T-Bill)
-3 months     3.10%     Treasury Bill
-6 months     3.40%     Treasury Bill
-1 year       3.60%     Treasury Bill
-2 years      3.80%     Treasury Note (T-Note)
-5 years      4.10%     Treasury Note
-10 years     4.40%     Treasury Note (benchmark)
-20 years     4.65%     Treasury Bond (T-Bond)
-30 years     4.80%     Treasury Bond (long bond)
-</code></pre>
+The five tenors that get watched are 3-month, 2-year, 5-year, 10-year,
+and 30-year. Their FRED ticker family is <code>DGS3MO</code>, <code>DGS2</code>, <code>DGS5</code>,
 </p>
-<h4>Types of Rates: Spot, Forward, and Par</h4>
+<code>DGS10</code>, <code>DGS30</code>. The 3-month sits closest to the Fed funds rate. The
 <p>
-Before analyzing yield curves, you must understand three different types of interest rates.
+2-year reflects expected Fed policy over the next two years. The 10-
+and 30-year embed everything from inflation expectations to term
+premium to global savings flow.
 </p>
+<img src="image/week31_curve_today.png" alt="Current US Treasury curve as of April 2026 plotted alongside the curves from June 2007 (pre-GFC, near-flat), April 2020 (post-COVID, pinned at zero), and July 2023 (peak inversion in the modern era). The April 2026 curve has uninverted and is gently upward sloping — the textbook normal shape, after three years of unusual inversion.">
 <p>
-<strong>Spot Rate (Zero-Coupon Rate):</strong> The yield on a zero-coupon bond that pays no intermediate coupons. This is the "pure" rate for a specific maturity. If the 5-year spot rate is 4.2%, it means a dollar invested today in a 5-year zero-coupon bond will compound at 4.2% per year.
+Read the chart left to right. The 2007 curve is nearly flat — that
+flatness was the warning bell before the GFC. The 2020 curve is pinned
+near zero across the front because the Fed hit the lower bound. The
+2023 curve is <em>inverted</em>: the 3-month is above the 10-year by more
+than 150 basis points, the deepest inversion since Volcker. The
+April 2026 curve is back to a normal upward shape — a regime change
+that itself is the story this week.
 </p>
+<h4>2.2 Par, Spot, and Forward — Three Rates from the Same Bond</h4>
 <p>
-<strong>Forward Rate:</strong> The implied future interest rate derived from today's spot rates. The forward rate is the rate the market expects (or prices in) for a future period. The "2-year rate, 3 years from now" (written as 3f2 or f(3,5)) is derived from the 3-year and 5-year spot rates.
-</p>
-<p>
-<strong>Par Rate (Par Yield):</strong> The coupon rate at which a coupon-paying bond would be priced exactly at par (100). This is what most people mean when they say "the yield curve," because most Treasury bonds pay coupons. The par yield curve is what you see quoted on financial news.
-</p>
-<pre><code class="language-">RELATIONSHIP BETWEEN RATE TYPES:
-<p>
-Spot Rates (Zero-Coupon):        Forward Rates (Implied Future):
-1-year spot = 3.50%              Year 1 to Year 2 forward = 4.10%
-2-year spot = 3.80%              Year 2 to Year 3 forward = 4.40%
-3-year spot = 4.00%              Year 3 to Year 5 forward = 4.65%
-5-year spot = 4.20%
+When a financial paper says "the 10-year yield is 4.0%," it almost
+always means the <em>par yield</em> — the coupon a 10-year Treasury would
+need to pay to be priced exactly at 100. Par is the quoted rate.
 </p>
 <p>
-HOW FORWARD RATES ARE DERIVED:
+The <em>spot rate</em> (or zero-coupon rate) is the yield on a bond that
+pays nothing until maturity, then pays back principal. Spots are
+the building blocks: every coupon bond is a portfolio of zero-coupon
+strips at different maturities.
 </p>
 <p>
-The 2-year spot (3.80%) must equal the geometric average of:
-Year 1 spot (3.50%) and Year 1-to-2 forward rate
+The <em>forward rate</em> is the implied future spot. If today's 1-year
+spot is $r_1$ and today's 2-year spot is $r_2$, then the 1-year
+forward 1-year-out, $f_{1,2}$, is the rate that satisfies:
 </p>
 <p>
-(1 + 0.038)^2 = (1 + 0.035)^1 x (1 + f)^1
-1.0774 = 1.035 x (1 + f)
-f = 1.0774 / 1.035 - 1
-f = 4.10%
+$$ (1 + r_2)^2 = (1 + r_1) \cdot (1 + f_{1,2}) $$
 </p>
 <p>
-The forward rate (4.10%) is HIGHER than either spot rate.
-This is because the yield curve is upward-sloping, implying
-that rates are expected to be higher in the future.
+Solving:
 </p>
 <p>
-DIAGRAM:
+$$ f_{1,2} = \frac{(1+r_2)^2}{1+r_1} - 1 $$
 </p>
 <p>
-Today          Year 1         Year 2         Year 3
-|              |              |              |
-|--- 3.50% ---&gt;|              |              |
-|              |--- 4.10% ---&gt;|              |
-|                             |--- 4.40% ---&gt;|
-|                                            |
-|------------ 3.80% --------&gt;|               |
-|                                            |
-|------------------ 4.00% -----------------&gt;|
-|                                            |
-2-year spot = geometric average of           |
-1-year spot + 1-year forward                 |
-</code></pre>
-</p>
-<pre><code class="language-">PAR RATE vs. SPOT RATE:
-<p>
-When the yield curve is upward-sloping:
-Par Rate &lt; Spot Rate (at the same maturity)
+<strong>This is not a forecast — it is a no-arbitrage identity.</strong> If the
+forward rate were any different from this, you could borrow and lend
+across maturities to extract a riskless profit. Markets price this
+identity to within a basis point in every developed-market sovereign
+bond market on earth.
 </p>
 <p>
-When the yield curve is downward-sloping (inverted):
-Par Rate &gt; Spot Rate (at the same maturity)
+The interpretation, however, <em>is</em> economic. The forward rate
+embodies the rate the market expects (plus a term premium). A flat
+curve says the market expects roughly today's short rate to persist.
+An upward-sloping curve says the market expects the short rate to
+<em>rise</em>. An inverted curve says the market expects the short rate to
+<em>fall</em>. That last case is, mechanically, what an inversion is: a
+collective bet on Fed cuts.
+</p>
+<h4>2.3 The Three PCA Factors — Level, Slope, Curvature</h4>
+<p>
+In 1991 Robert Litterman and José Scheinkman published a working paper
+at Goldman Sachs that decomposed Treasury curve movements via principal
+component analysis. They found three factors:
+</p>
+<table><thead><tr><th>Factor</th><th>Loosely</th><th>% of curve variance</th><th>What moves it</th></tr></thead><tbody><tr><td>Level</td><td>All yields up or down together</td><td>~70%</td><td>Inflation expectations, term premium</td></tr><tr><td>Slope</td><td>Long end versus short end</td><td>~20%</td><td>Fed policy expectations, growth</td></tr><tr><td>Curvature</td><td>Belly versus wings</td><td>~5%</td><td>Convexity demand, hedging flow</td></tr></tbody></table>
+<p>
+Together the three factors explain about 95% of all daily Treasury
+yield variance. A duration trade is a level bet. A steepener or
+flattener is a slope bet. A <em>butterfly</em> trade is a curvature bet.
 </p>
 <p>
-When the yield curve is flat:
-Par Rate = Spot Rate
+The level factor is the boring one and also the largest. When the
+Fed signals tighter, the whole curve shifts up by a roughly parallel
+amount. When inflation prints cooler, the whole curve drops.
 </p>
 <p>
-Why? A coupon-paying bond receives intermediate cash flows
-that are discounted at lower spot rates (for earlier years).
-This pulls the par yield below the spot rate when the curve
-slopes up, and pushes it above when the curve slopes down.
+The slope factor is the <em>interesting</em> one because it is what predicts
+recessions. When the curve flattens or inverts, it is the slope
+factor going negative — the market saying the short rate has further
+to fall than the long rate.
 </p>
 <p>
-EXAMPLE (UPWARD-SLOPING CURVE):
+The curvature factor is the <em>trader's</em> one. Pension funds and
+insurance companies buy long-dated bonds for convexity matching;
+butterfly trades exploit the relative cheapness or richness of the
+belly versus the wings. We come back to this in §2.6.
 </p>
+<h4>2.4 The Four Curve Regimes — Bull/Bear × Steepener/Flattener</h4>
 <p>
-Maturity    Spot Rate    Par Rate    Difference
-========    =========    ========    ==========
-1 year      3.50%        3.50%      0.00%  (same, no coupons)
-2 years     3.80%        3.79%      0.01%
-5 years     4.20%        4.16%      0.04%
-10 years    4.50%        4.40%      0.10%
-30 years    4.90%        4.72%      0.18%
+Slope movements decompose into four regimes by *which end is moving
+more<em> and </em>in which direction*:
 </p>
+<table><thead><tr><th>Regime</th><th>What happens</th><th>Macro driver</th><th>Asset playbook</th></tr></thead><tbody><tr><td><strong>Bull steepener</strong></td><td>Short rates fall faster than long rates → curve steepens, both ends drop</td><td>Fed cutting into a slowdown</td><td>Long bonds rally, equities mixed; lengthen duration</td></tr><tr><td><strong>Bull flattener</strong></td><td>Long rates fall faster than short → curve flattens, both ends drop</td><td>Recession fear, flight to quality</td><td>Long bonds rally most; flight-to-quality</td></tr><tr><td><strong>Bear steepener</strong></td><td>Long rates rise faster than short → curve steepens, both ends climb</td><td>Reflation, rising inflation expectations</td><td>Short duration, value/cyclical stocks, commodities</td></tr><tr><td><strong>Bear flattener</strong></td><td>Short rates rise faster than long → curve flattens or inverts</td><td>Fed hiking faster than the long end believes</td><td>Cash beats bonds, growth stocks penalised</td></tr></tbody></table>
 <p>
-The difference grows with maturity because longer bonds
-have more intermediate cash flows affected by lower
-short-term spot rates.
-</code></pre>
+The 2022-23 cycle was a textbook <em>bear flattener</em> turning into an
+<em>inversion</em>. The Fed hiked from 0.25% to 5.50% while the 10-year
+went from 1.5% to 4.0%. Short rates moved 5 points; long rates
+moved 2.5 points; the curve inverted by 100 basis points. Then in
+2024-25 the Fed cut, the short end fell faster, and the curve
+<em>bull-steepened</em> back to normal.
 </p>
-<h4>Yield Curve Shapes</h4>
+<img src="image/week31_slope_history.png" alt="10-year minus 2-year US Treasury spread, 1976 through April 2026, FRED series T10Y2Y. Annotated regions mark the major regimes: the 1980s Volcker bear-flattener, the 1989 / 2000 / 2006 / 2019 / 2022 inversions, and the 2008-09 / 2020 / 2024-25 bull-steepening unwinds.">
 <p>
-The yield curve takes three primary shapes, each conveying different information about the market's expectations.
+The honest reading of this chart: every single dip below zero has been
+followed, within 6 to 24 months, by a recession dated by the NBER
+Business Cycle Dating Committee. The 2022 inversion is the longest
+on the chart. As of April 2026 the spread has uninverted but only
+just — the curve is still flatter than its long-run average.
 </p>
+<h4>2.5 Reading Today's Curve — April 2026</h4>
 <p>
-<strong>Normal (Upward-Sloping):</strong>
+Pull up the chart at the top of §2.1. As of April 2026:
 </p>
-<pre><code class="language-">NORMAL YIELD CURVE:
+<ul><li><strong>3-month:</strong> ~3.5%, well below the cycle peak of 5.5%.</li>
+<li><strong>2-year:</strong> ~3.6%, pricing roughly one more Fed cut over the next</li>
 <p>
-Yield
-5.0% |                                       ___*___
-|                               ____*---
-4.0% |                      _____*---
-|              ____*---
-3.0% |      ____*---
-| __*--
-2.0% |
-+---+---+---+---+---+---+---+---+---
-1m  3m  1y  2y  3y  5y  10y 20y 30y
+</ul>  two years.
 </p>
-<p>
-WHAT IT MEANS:
-</p>
-<ul><li>Investors demand higher yields for longer maturities</li>
-<p>
-</ul>    (compensation for more time = more risk)
-</p>
-<ul><li>The economy is expected to grow normally</li>
-<li>Inflation expectations are stable or moderately rising</li>
-<li>Banks can profit by borrowing short (low rates) and</li>
-<p>
-</ul>    lending long (high rates) -&gt; credit expansion
-</p>
-<p>
-HISTORICAL CONTEXT:
-</p>
-<ul><li>This is the "default" shape for most of history</li>
-<li>Occurs during economic expansions and early recovery</li>
-<li>Spread between 2y and 10y typically 100-200 bps</li>
-<p>
-</ul></code></pre>
-</p>
-<p>
-<strong>Flat:</strong>
-</p>
-<pre><code class="language-">FLAT YIELD CURVE:
-<p>
-Yield
-5.0% |
-|
-4.0% | <em>----</em>----<em>----</em>----<em>----</em>----<em>----</em>----*
-|
-3.0% |
-|
-2.0% |
-+---+---+---+---+---+---+---+---+---
-1m  3m  1y  2y  3y  5y  10y 20y 30y
-</p>
-<p>
-WHAT IT MEANS:
-</p>
-<ul><li>The market is uncertain about future direction</li>
-<li>Often a TRANSITION between normal and inverted</li>
-<li>Short-term rates have risen (Fed tightening) but</li>
-<p>
-</ul>    long-term rates have not followed
-</p>
-<ul><li>Banks have little incentive to lend (no term spread)</li>
-<li>Economic growth is expected to slow</li>
+<ul><li><strong>5-year:</strong> ~3.8%.</li>
+<li><strong>10-year:</strong> ~4.0%.</li>
+<li><strong>30-year:</strong> ~4.3%.</li>
 <p>
 </ul>
-HISTORICAL CONTEXT:
+The 10y-2y spread is back to roughly +40 basis points after spending
+two years deeply negative. The 10y-3m spread is back to slightly
+positive. The curve has <em>fully uninverted</em> but it is not yet <em>steep</em>
+in the historical sense — the long-run median 10y-2y spread is
+roughly +95 basis points.
 </p>
-<ul><li>Often appears late in a Fed tightening cycle</li>
-<li>Preceded several recessions as a transitional phase</li>
-<li>2y-10y spread near 0 bps (+/- 25 bps)</li>
 <p>
-</ul></code></pre>
+The forward curve embedded in these spots is gently rising — the
+market is pricing the short rate to drift roughly back to today's
+10-year over the next decade, suggesting the market believes neutral
+real rates have repriced higher than the 2010-2020 norm. This matters
+for every long-duration asset, including equities. SOUL #2 — the
+40-year bond bull regime ended in 2022 — gets a quiet confirmation
+on this chart.
 </p>
+<h4>2.6 Butterfly Trades — Trading Curvature</h4>
 <p>
-<strong>Inverted (Downward-Sloping):</strong>
+A butterfly is a market-neutral trade against the <em>curvature</em> of the
+curve. The classic structure is long the belly, short the wings,
+weighted to be duration-neutral. For example: long $50M of 5-year
+Treasuries; short $25M of 2-year and $25M of 30-year, weighted by
+DV01 so the position has zero net duration.
 </p>
-<pre><code class="language-">INVERTED YIELD CURVE:
 <p>
-Yield
-5.5% |
-|
-5.0% | *
-|   *
-4.5% |     <em>---</em>
-|            <em>---</em>
-4.0% |                  <em>---</em>
-|                        <em>---</em>---*
-3.5% |
-+---+---+---+---+---+---+---+---+---
-1m  3m  1y  2y  3y  5y  10y 20y 30y
+If the belly is <em>cheap</em> relative to the wings, the trade earns when
+the curvature mean-reverts. If the belly is <em>rich</em>, the inverse
+butterfly profits.
 </p>
 <p>
-WHAT IT MEANS:
+Pension funds and insurers create persistent <em>richness</em> at the long
+end (they need 30-year duration) and at the very short end (they
+park cash there). The belly tends to be relatively <em>cheap</em> in normal
+times. Trader convention quotes the butterfly as
+$2 \cdot y_{\text{belly}} - y_{\text{short}} - y_{\text{long}}$,
+which equals zero when the curve is perfectly straight, positive
+when the belly is cheap (high yield), and negative when the belly is
+rich.
 </p>
-<ul><li>Short-term rates are HIGHER than long-term rates</li>
-<li>The market expects the Fed to cut rates in the future</li>
 <p>
-</ul>    (because rates need to come down to avoid/fight recession)
+This is one of the five alpha sources from SOUL #5 — relative-value
+fixed income. It is not retail-friendly because the gross notional
+involved is large and the carry is small. But it lives on the same
+chart you have been staring at all week, and the interactive panel
+below lets you compute the butterfly statistic from any curve you
+draw.
 </p>
-<ul><li>Economic contraction is expected</li>
-<li>Banks lose money on new lending -&gt; credit contraction</li>
-<li>THE SINGLE BEST PREDICTOR OF RECESSION</li>
+<h4>2.7 The Practical Toolkit — Which Number Matters Most</h4>
 <p>
-</ul>
-HISTORICAL CONTEXT:
+For a retail investor reading the curve once a month, the priority
+order is:
 </p>
-<ul><li>Inverted before every U.S. recession since 1970</li>
-<li>2-year/10-year spread inverted in July 2022</li>
-<li>Average lead time: 12-18 months before recession</li>
-<li>No false signals in 50 years (though lead time varies)</li>
+<li><strong>Level of the 10-year.</strong> Sets the discount rate for every long-</li>
 <p>
-</ul></code></pre>
+duration asset on earth. Through Week 5 and Week 21 we already
+know stocks compete with bonds — the 10-year is the bond.
 </p>
-<pre><code class="language-">OTHER SHAPES:
+<li><strong>10y-2y or 10y-3m spread.</strong> Recession indicator and slope</li>
 <p>
-HUMPED CURVE:              STEEP CURVE (Bear Steepener):
-Short rates low             Short rates very low
-Middle rates highest        Long rates very high
-Long rates moderate
+factor in one. Inverted = late-cycle warning.
 </p>
+<li><strong>Forward 1-year, 1-year-out.</strong> Where the market thinks the</li>
 <p>
-Yield                       Yield
-5% |       <strong><em></strong>            6% |                        </em>
-|     <strong>     </strong>             |                    *
-4% |   <strong>         </strong>       5% |               *
-| <strong>             </strong>        |          *
-3% |<em>                 </em><em>   4% |     </em>
-|                    <em>     | </em>
-2% |                       3% |
-+---+---+---+---+---      +---+---+---+---+---
-1y  3y  5y  10y 30y       1y  3y  5y  10y 30y
+short rate goes next year. Compare against the Fed dot plot
+for a quick consensus check.
 </p>
+<li><strong>Curvature.</strong> Optional. Useful if you trade fixed income</li>
 <p>
-Humped: Transition shape,    Steep: Early recovery,
-often before inversion.      Fed holding rates low.
-Middle maturities are        Market expects significant
-most affected by policy.     future rate increases.
-</code></pre>
+actively; ignorable for buy-and-hold.
 </p>
-<h4>The Yield Curve as Recession Predictor</h4>
 <p>
-The yield curve's predictive power deserves special attention because it is one of the most reliable signals in all of finance.
-</p>
-<pre><code class="language-">HISTORICAL YIELD CURVE INVERSIONS AND RECESSIONS:
-<p>
-Inversion Date   Recession Start   Lead Time   2y-10y Spread
-==============   ===============   =========   =============
-Aug 1978         Jan 1980          17 months   -154 bps
-Sep 1980         Jul 1981          10 months   -216 bps
-Jan 1989         Jul 1990          18 months   -18 bps
-Feb 2000         Mar 2001          13 months   -52 bps
-Aug 2006         Dec 2007          16 months   -19 bps
-Jul 2022         ???               ???         -107 bps
-</p>
-<p>
-FALSE SIGNALS: 0 (every inversion led to recession)
-</p>
-<p>
-NOTE: Lead time varies from 10 to 18 months.
-The curve inverts long before the recession is obvious.
-By the time recession is officially declared (which happens
-AFTER the fact), the curve has usually already un-inverted
-and is steepening again.
-</code></pre>
-</p>
-<p>
-<strong>Why Does Inversion Predict Recession?</strong>
-</p>
-<p>
-The mechanism is not just correlation; there is causation:
-</p>
-<pre><code class="language-">THE INVERSION-RECESSION MECHANISM:
-<p>
-Step 1: Fed raises short-term rates to fight inflation
-|
-v
-Step 2: Short rates rise above long rates (inversion)
-|
-v
-Step 3: Banks cannot profit from lending
-(borrow at 5%, lend at 4% = LOSS)
-|
-v
-Step 4: Banks tighten lending standards
-(fewer loans approved, higher standards)
-|
-v
-Step 5: Businesses cannot get financing
-Consumer credit tightens
-|
-v
-Step 6: Economic activity slows
-Hiring freezes, layoffs begin
-|
-v
-Step 7: RECESSION
-</p>
-<p>
-The curve does not just predict recession; it CAUSES it
-through the credit channel. When banks cannot make money
-lending, the economy's credit engine stalls.
-</code></pre>
-</p>
-<pre><code class="language-">USING THE YIELD CURVE FOR PORTFOLIO DECISIONS:
-<p>
-Curve Shape         Action for Investors
-================    ==========================================
-Normal (steep)      - Favor stocks over bonds
-</p>
-<ul><li>Overweight banks and financials</li>
-<li>Hold shorter-duration bonds (less risk)</li>
-<li>Economy is healthy, risk-on</li>
-<p>
-</ul>
-Flattening          - Begin shifting to quality stocks
-</p>
-<ul><li>Extend bond duration slightly</li>
-<li>Reduce cyclical stock exposure</li>
-<li>Watch for inversion signal</li>
-<p>
-</ul>
-Inverted            - Reduce stock allocation (slowly)
-</p>
-<ul><li>Extend bond duration (lock in high rates)</li>
-<li>Overweight defensive sectors</li>
-<li>Build cash position</li>
-<li>Do NOT panic sell (recession may be</li>
-<p>
-</ul>                        12+ months away)
-</p>
-<p>
-Steepening from     - The recession is either happening or
-inversion (bull     ending. Fed is cutting rates.
-steepener)          - Begin adding stock exposure
-</p>
-<ul><li>Bonds are rallying, take some profits</li>
-<li>Transition from defensive to cyclical</li>
-<p>
-</ul></code></pre>
-</p>
-<h4>Term Premium</h4>
-<p>
-The term premium is the extra yield investors demand for holding longer-maturity bonds instead of rolling over short-term bonds. It is compensation for the additional risks of locking up money for longer periods: inflation risk, interest rate risk, and uncertainty.
-</p>
-<pre><code class="language-">TERM PREMIUM CONCEPT:
-<p>
-Long-term yield = Expected average of future short rates
-+ TERM PREMIUM
-</p>
-<p>
-Example:
-If the market expects the Fed funds rate to average 3.5%
-over the next 10 years, the 10-year yield might be 4.0%.
-</p>
-<p>
-10-year yield (4.0%) = Expected avg rate (3.5%) + Term premium (0.5%)
-</p>
-<p>
-The term premium is NOT directly observable. It must be
-estimated using models (Kim-Wright, ACM model, etc.)
-</p>
-<p>
-TERM PREMIUM OVER TIME:
-</p>
-<p>
-Period              Estimated Term Premium    Context
-==================  ======================    ====================
-1980s-1990s         +200 to +300 bps          High inflation memory
-2000s               +100 to +150 bps          Moderate
-2010-2020           -50 to +50 bps            QE era, negative!
-2021-2024           +50 to +150 bps           Post-QE normalization
-</p>
-<p>
-NEGATIVE TERM PREMIUM?
-Yes, this happened during QE (quantitative easing).
-The Fed was buying long-term bonds, pushing prices up
-and yields down. This artificial demand compressed the
-term premium below zero. Investors were effectively
-PAYING for the privilege of holding long bonds, because
-the Fed was a guaranteed buyer.
-</code></pre>
-</p>
-<pre><code class="language-">WHY TERM PREMIUM MATTERS:
-<p>
-If the 10-year yield is 4.5%, how much is:
-a) Expectations of future rates? (monetary policy path)
-b) Term premium? (compensation for risk)
-</p>
-<p>
-This decomposition matters because:
-</p>
-<p>
-If 10y yield is HIGH because of HIGH TERM PREMIUM:
--&gt; Bonds are offering good compensation for risk
--&gt; May be a good time to buy long bonds
--&gt; The "real" expected rate path may be lower than you think
-</p>
-<p>
-If 10y yield is HIGH because of HIGH EXPECTED RATES:
--&gt; The market expects the Fed to keep rates elevated
--&gt; Long bonds may still fall further if expectations rise
--&gt; The term premium may actually be low (poor compensation)
-</p>
-<p>
-VISUAL DECOMPOSITION:
-</p>
-<p>
-10-year yield: 4.50%
-|===============================================|
-|    Expected Rates: 3.80%     | Term Premium:  |
-|                              |    0.70%       |
-|===============================================|
-</code></pre>
-</p>
-<h4>Key Yield Curve Spreads</h4>
-<p>
-Several specific spreads on the yield curve are closely watched by investors and economists.
-</p>
-<pre><code class="language-">IMPORTANT YIELD CURVE SPREADS:
-<p>
-Spread              Definition                 Significance
-==================  ========================   =========================
-2y-10y              10y yield - 2y yield       Most watched recession
-indicator. Inverts before
-every recession.
-</p>
-<p>
-3m-10y              10y yield - 3m T-bill      Fed's preferred recession
-indicator. More sensitive
-to current Fed policy.
-</p>
-<p>
-Fed Funds - 10y     10y yield - Fed Funds      Measures full extent of
-monetary policy impact
-on long rates.
-</p>
-<p>
-2y-30y              30y yield - 2y yield       Term spread for long-
-duration investors.
-</p>
-<p>
-5y-30y              30y yield - 5y yield       Long-end steepness.
-Important for pension
-funds and insurers.
-</p>
-<p>
-EXAMPLE READINGS:
-</p>
-<p>
-Spread    Normal Value   Current (example)   Signal
-========  ============   =================   ===========
-2y-10y    +100-200 bps   -50 bps             Inverted!
-3m-10y    +100-250 bps   -120 bps            Inverted!
-2y-30y    +150-250 bps   +20 bps             Nearly flat
-</p>
-<p>
-When BOTH the 2y-10y AND 3m-10y are inverted,
-the recession signal is strongest.
-</code></pre>
-</p>
-<h4>Yield Curve Shifts and Portfolio Impact</h4>
-<p>
-The yield curve does not move uniformly. Different maturities can move by different amounts and even in different directions.
-</p>
-<pre><code class="language-">TYPES OF YIELD CURVE MOVEMENTS:
-<p>
-1. PARALLEL SHIFT (all maturities move equally):
-</p>
-<p>
-Yield                          Yield
-5% |          <strong><em><em>             5.5%|          </em></strong></em>
-|     <strong><em><em>                      |     </em></strong></em>
-4% |<strong><em><em>                       4.5%|</em></strong></em>
-|                               |
-3% |                           3.5%|
-+---+---+---+---               +---+---+---+---
-2y  5y  10y 30y                2y  5y  10y 30y
-Before                         After (+50 bps)
-</p>
-<p>
-Impact: All bonds lose value proportional to their duration.
-Long bonds lose more than short bonds.
-</p>
-<p>
-2. STEEPENING (long rates rise more than short rates):
-</p>
-<p>
-Yield                          Yield
-4.5%|          <strong><em><em>            5.0%|               </em></strong></em>
-|     <strong><em><em>                      |         </em></strong></em>
-4% |<strong><em><em>                       4.5%|    </em></strong></em>
-|                               |<em>*</em>*
-3.5%|                          4.0%|
-+---+---+---+---               +---+---+---+---
-2y  5y  10y 30y                2y  5y  10y 30y
-Before                         After (steepening)
-</p>
-<p>
-Impact: Long bonds suffer more than short bonds.
-Strategy: Shorten duration. Overweight short maturities.
-</p>
-<p>
-3. FLATTENING (short rates rise more than long rates):
-</p>
-<p>
-Yield                          Yield
-4.5%|          <strong><em><em>            4.5%|</em></strong></em>----<strong><em><em>----</em></strong></em>
-|     <em>*</em>*                      |
-4% |<em>*</em>*                       4.0%|
-|                               |
-3.5%|                          3.5%|
-+---+---+---+---               +---+---+---+---
-2y  5y  10y 30y                2y  5y  10y 30y
-Before                         After (flattening)
-</p>
-<p>
-Impact: Short bonds lose more; long bonds may actually gain
-if long rates fell. Strategy: Extend duration if you expect
-flattening to continue.
-</p>
-<p>
-4. TWIST (short and long move in opposite directions):
-</p>
-<p>
-Yield                          Yield
-4.5%|          <strong><em><em>            5.0%|</em></strong></em>          <em>*</em>*
-|     <strong><em><em>                      |    </em></strong></em>
-4% |<strong><em><em>                       4.5%|        </em></strong></em>
-|                               |
-3.5%|                          4.0%|
-+---+---+---+---               +---+---+---+---
-2y  5y  10y 30y                2y  5y  10y 30y
-Before                         After (twist/butterfly)
-</p>
-<p>
-Impact: Short and long bonds lose; middle may be stable.
-This is the hardest movement to hedge against.
-</code></pre>
-</p>
-<h4>Reading the Current Yield Curve</h4>
-<pre><code class="language-">STEP-BY-STEP YIELD CURVE ANALYSIS:
-<p>
-1. OBSERVE THE SHAPE
-Is it normal, flat, inverted, or humped?
--&gt; This tells you the market's macro outlook.
-</p>
-<p>
-2. CHECK KEY SPREADS
-What is the 2y-10y spread? The 3m-10y spread?
--&gt; Negative = recession warning.
--&gt; Positive and steepening = expansion signal.
-</p>
-<p>
-3. COMPARE TO RECENT HISTORY
-Has the curve flattened, steepened, or shifted?
--&gt; Flattening from normal: late cycle, be cautious.
--&gt; Steepening from inversion: recovery may be starting.
-</p>
-<p>
-4. IDENTIFY THE DRIVER
-Are short rates moving (Fed policy) or long rates
-moving (inflation expectations, term premium)?
--&gt; Fed-driven flattening: short end rising.
--&gt; Market-driven steepening: long end rising.
-</p>
-<p>
-5. CONSIDER TERM PREMIUM
-Are long rates high because of expectations or risk?
--&gt; High term premium = bonds may be attractive.
--&gt; Low term premium = bonds may be expensive.
-</p>
-<p>
-WHERE TO FIND YIELD CURVE DATA:
-</p>
-<ul><li>Treasury.gov (official daily yields)</li>
-<li>FRED (Federal Reserve Economic Data) - free, excellent</li>
-<li>Your brokerage platform (most have yield curve tools)</li>
-<li>Financial news sites (CNBC, Bloomberg, Reuters)</li>
-<p>
-</ul></code></pre>
+The interactive at the bottom of this lesson lets you slide all five
+tenors and watch the slope, curvature, and 1y1y forward update live.
+Hit the preset for "1981" and see what 16% rates with a deeply
+inverted curve look like. Hit "2020" and see the zero-bound. Hit
+"today" and see April 2026.
 </p>
 <hr>
-<h3>c) Common Misconceptions</h3>
+<h3>3. Common Misconceptions</h3>
 <p>
-<strong>Misconception 1: "An inverted yield curve means a recession is imminent."</strong>
+<strong>1. "An inversion <em>causes</em> a recession."</strong>
+It does not. The inversion is the market's <em>prediction</em> of a
+recession, expressed through forwards. The causation runs the
+other way: late-cycle conditions cause the Fed to be tight, which
+pushes the short end up while long-rate inflation expectations
+anchor or fall. Inversion is a symptom, not the disease.
 </p>
 <p>
-Inverted, yes, but imminent, no. The average lead time between inversion and recession onset is 12 to 18 months. In some cases it has been as long as 24 months. Many investors see the inversion, panic, sell everything, and then watch the market rally for another year before the recession arrives. The yield curve is an early warning system, not an immediate alarm. Use it to gradually adjust your portfolio over months, not to make dramatic changes overnight.
+<strong>2. "The yield curve is always upward-sloping in normal times."</strong>
+Often, but not always. About 80% of post-1976 monthly observations
+show 10y > 2y. The other 20% include genuine normal flat periods
+as well as inversions. Calling the curve "broken" because it is
+not steep is reading the median as the law.
 </p>
 <p>
-<strong>Misconception 2: "The yield curve reflects what will happen to interest rates."</strong>
+<strong>3. "Long bonds are safer than short bonds."</strong>
+Lower default risk on US Treasuries is the same at every maturity.
+Long bonds have <em>more</em> interest-rate risk because their duration
+is higher. A 30-year zero loses ~30% on a one-percentage-point
+yield rise; a 2-year loses ~2%. Long bonds are more <em>volatile</em>,
+not safer. SOUL #6: vol tail wags the dog.
 </p>
 <p>
-The yield curve reflects the market's expectations of future rates plus a term premium. Expectations can be wrong. In the 2010s, the yield curve consistently implied that rates would rise, but the Fed kept them near zero for years. Forward rates are not forecasts; they are prices that reflect the current supply and demand for bonds at different maturities. They are useful indicators but not prophecies.
+<strong>4. "Forwards are forecasts."</strong>
+Forwards are no-arbitrage identities derived from spots. They
+<em>embody</em> the market's expected path plus a term premium. They
+are not anyone's forecast in particular, and the market's
+expectation is wrong much of the time — see Eugene Fama's 1984
+work showing forward rates are biased estimators of future spots.
 </p>
 <p>
-<strong>Misconception 3: "A steeper yield curve is always better for the economy."</strong>
+<strong>5. "If I think rates are going down, buy long bonds."</strong>
+Often correct, but the magnitude depends on whether the *whole
+curve* shifts down (level) or just the long end (bull flattener).
+A bull steepener — short end falls faster — does not benefit
+long-duration positions much. Decompose the trade you want into
+level, slope, and curvature before sizing.
 </p>
 <p>
-A steep curve is generally positive because it encourages bank lending and signals growth expectations. But an excessively steep curve, especially one driven by surging long-term rates, can indicate inflation fears and may actually tighten financial conditions. A 30-year Treasury yield at 6% means mortgage rates at 7-8%, which slows housing and consumer spending. Context matters more than shape alone.
+<strong>6. "The Fed controls the yield curve."</strong>
+The Fed controls the very front (overnight rate, and via quantitative
+easing the long end somewhat). The middle and long end are set
+by global savings flow, term premium, and inflation expectations.
+In 2022-23 the Fed hiked 5 percentage points; the 10-year moved
+only 2.5. The market does not always follow.
 </p>
 <p>
-<strong>Misconception 4: "I should buy long-term bonds when the yield curve inverts."</strong>
+<strong>7. "All inversions are alike."</strong>
+They are not. The 1980 inversion under Volcker was caused by the
+short rate being driven to 19%. The 2006-07 inversion was a
+gentler 50bp inversion driven by housing optimism on the long
+end. The 2022-23 inversion was a 150bp post-COVID bear flattener.
+Same shape; very different macro story each time.
 </p>
 <p>
-This is partially correct but the timing matters. The curve often inverts because the Fed has raised short-term rates aggressively. Long-term rates may not have peaked yet. The optimal time to buy long bonds is typically when the Fed signals it will start cutting rates, which is usually after the inversion and closer to the recession. Buying too early means you may endure further price declines before the eventual rally.
+<strong>8. "Butterfly trades are for retail investors."</strong>
+They are not. Carry is small, gross notional is large, and the
+position has to be DV01-balanced and hedged. This is an
+institutional or hedge-fund activity. Retail can express the
+<em>direction</em> of the curvature view by overweighting or
+underweighting the 5-year sleeve of a bond ladder.
 </p>
 <p>
-<strong>Misconception 5: "The yield curve is only relevant for bond investors."</strong>
+<strong>9. "Real yields don't matter for the curve."</strong>
+They are most of the long-end story. Decompose nominal = real +
+breakeven inflation. The 10-year real yield (TIPS, FRED <code>DFII10</code>)
+moved from -1.0% in 2021 to +2.0% in 2024. Two thirds of the
+2022-23 long-rate rise was a real-rate move, not an inflation-
+expectation move. SOUL #2 again.
 </p>
 <p>
-The yield curve affects every asset class. Stock valuations are influenced by the discount rate, which comes from the yield curve. Real estate prices are driven by mortgage rates, which track the long end of the curve. Corporate profitability depends on borrowing costs. Bank earnings are directly tied to the curve's steepness. Even commodity prices are influenced by the rate environment. Every investor should monitor the yield curve.
-</p>
-<p>
-<strong>Misconception 6: "Spot rates, forward rates, and par rates are interchangeable."</strong>
-</p>
-<p>
-They are mathematically related but not the same. Using par rates when you should use spot rates for discounting cash flows leads to pricing errors. Zero-coupon bonds should be priced with spot rates. Coupon bonds can be priced either with spot rates (discounting each cash flow separately) or with par rates (single discount rate). Forward rates are useful for valuing forward-starting instruments and for inferring market expectations. Using the wrong rate type is a common source of error in bond analytics.
+<strong>10. "Once I read the curve, I can time the market."</strong>
+You can read the curve. You can position duration. You can
+probability-weight an equity drawdown. You cannot time the
+market with the curve as your only signal. The 2022 inversion
+was followed by an 18-month <em>equity rally</em> before any meaningful
+correction. Signals are probabilistic; sizing matters more than
+conviction.
 </p>
 <hr>
-<h3>d) Q&A</h3>
+<h3>4. Q&A</h3>
 <p>
-<strong>Q: Where can I see the current yield curve?</strong>
+<strong>Q1: How do I actually read a yield curve plot for the first time?</strong>
 </p>
 <p>
-A: The U.S. Treasury publishes daily yield data at treasury.gov/resource-center/data-chart-center. The Federal Reserve's FRED database (fred.stlouisfed.org) has excellent yield curve tools and historical data. Most brokerage platforms also display the current yield curve. For real-time data during market hours, financial news sites like CNBC and Bloomberg provide up-to-the-minute yield information. The "Daily Treasury Par Yield Curve Rates" page on treasury.gov is the official source.
+A: Three glances. (a) Look at the level — where is the 10-year? Above
+4% is meaningfully restrictive territory in modern terms; below 2% is
+extraordinarily loose. (b) Look at the slope — is the right end higher
+than the left? Upward = normal. Flat or down = late-cycle. (c) Look
+at the belly — is the 5-year sitting on a straight line between the
+2-year and the 30-year, or is it bowed? Bowed up = market pricing rate
+cuts through the medium term; bowed down = sudden tightening expected.
 </p>
 <p>
-<strong>Q: How do I calculate forward rates from spot rates?</strong>
+<strong>Q2: What is the difference between the 10y-2y and the 10y-3m spreads?</strong>
 </p>
 <p>
-A: The general formula is: (1 + S_n)^n = (1 + S_m)^m x (1 + f)^(n-m), where S_n is the n-year spot rate, S_m is the m-year spot rate, and f is the forward rate from year m to year n. Solve for f. For example, if the 2-year spot is 3.80% and the 3-year spot is 4.00%: (1.04)^3 = (1.038)^2 x (1 + f). So 1.12486 = 1.07744 x (1 + f). Therefore f = 4.40%. This says the market prices the 1-year rate, 2 years from now, at 4.40%.
+A: Both are slope measures. The 10y-2y is more popular among traders
+because the 2-year integrates Fed expectations over a longer window.
+The 10y-3m is the academic favourite (Estrella and Mishkin, 1996,
+showed it is the strongest single recession predictor). In practice
+they invert and uninvert at slightly different times; the 10y-3m
+typically inverts later but is regarded as a more reliable signal.
 </p>
 <p>
-<strong>Q: The 2y-10y spread and the 3m-10y spread sometimes give different signals. Which should I follow?</strong>
+<strong>Q3: Why does the curve invert before recessions?</strong>
 </p>
 <p>
-A: Both are useful but measure different things. The 2y-10y spread reflects market expectations of medium-term rate policy. The 3m-10y spread is more tied to current Fed policy (the 3-month T-bill rate tracks the Fed Funds rate closely). The Fed's own research (using the "near-term forward spread") gives more weight to the 3m-10y spread. In practice, when both are inverted, the signal is strongest. When they diverge, the 3m-10y spread may be more relevant for near-term recession risk.
+A: Late-cycle Fed tightening drives the short end up. Long-end
+inflation expectations are <em>forward-looking</em> — if traders believe the
+hiking will eventually slow growth and inflation, the long end stays
+anchored or falls. The result: short above long. The market is
+saying "the Fed is too tight; cuts are coming." When those cuts
+arrive, they typically arrive into a slowing economy. So the
+inversion is the market pricing the rate cuts that the recession
+will bring.
 </p>
 <p>
-<strong>Q: Can the yield curve be manipulated by the Fed?</strong>
+<strong>Q4: Can I trade the yield curve as a retail investor?</strong>
 </p>
 <p>
-A: The Fed directly controls the Federal Funds rate, which is a very short-term rate. It also influences the yield curve through quantitative easing (QE) and quantitative tightening (QT). During QE, the Fed buys long-term bonds, pushing long rates down and flattening or even inverting the curve artificially. During QT, the Fed sells long-term bonds, pushing long rates up and steepening the curve. The question of whether the inverted curve in 2022-2023 was a true recession signal or partly an artifact of previous QE is actively debated by economists.
+A: Yes, with limits. The cleanest tools: SHV (1-3 month T-bills, ~0
+duration), IEF (7-10 year, ~8 duration), TLT (20+ year, ~17 duration).
+A long IEF / short SHV trade is a long-duration / curve level bet. A
+long TLT / short IEF is a long-end <em>steepening</em> bet against the
+belly. Margin and futures (UB and TY contracts) give cleaner
+expressions but require more capital and more risk management.
+Butterfly trades are not really doable retail.
 </p>
 <p>
-<strong>Q: What is the "uninversion" and why does it matter?</strong>
+<strong>Q5: How does the curve relate to mortgage rates?</strong>
 </p>
 <p>
-A: Uninversion is when the yield curve returns from inverted to normal. Paradoxically, the uninversion often occurs right as the recession begins or shortly before. This is because the Fed starts cutting rates (pulling short rates down) in response to economic weakness, causing the short end to drop faster than the long end. So the curve steepens even as the economy deteriorates. Historically, the uninversion has been as important a signal as the initial inversion. It often marks the transition from "recession is coming" to "recession is here."
+A: 30-year mortgage rates track the 10-year Treasury plus a 1.5–2.5%
+spread (the "MBS basis"). When the 10-year rises 100bp, mortgages
+typically rise about 100bp. When the curve inverts, banks' net interest
+margin compresses, lending tightens, and mortgage spreads sometimes
+widen further. The full chain — Fed → 10-year → mortgage → housing —
+is the topic of Week 18.
 </p>
 <p>
-<strong>Q: How should I position my bond portfolio based on the yield curve?</strong>
+<strong>Q6: What is the "term premium" and why does it matter?</strong>
 </p>
 <p>
-A: The basic framework is: in a steepening environment, shorten duration (overweight shorter maturities) because long rates are rising. In a flattening environment, extend duration moderately because long rates are falling relative to short rates. When the curve is inverted and the Fed is expected to cut, lock in high short-term rates with CDs or T-bills, and begin extending duration to capture price gains when long rates eventually fall. We will cover these strategies in more detail in Week 34 (rate sensitivity) and Week 36 (income portfolio).
+A: The term premium is the extra yield long bonds pay above the
+expected average of future short rates, to compensate investors for
+locking up money. Estimates vary, but the New York Fed's ACM model
+puts the 10-year term premium near 0% in 2020, rising to ~80bp by
+</p>
+<li>A higher term premium steepens the curve without any change</li>
+<p>
+in expected Fed policy. Some of the post-2022 long-end rise is term
+premium repricing, not inflation expectations.
 </p>
 <p>
-<strong>Q: What is the "term structure of interest rates" and is it the same as the yield curve?</strong>
+<strong>Q7: Why was the 2022-24 inversion so unusually long?</strong>
 </p>
 <p>
-A: They are closely related but technically different. The term structure of interest rates refers to the theoretical relationship between interest rates and time to maturity, usually expressed as spot rates. The yield curve, in common usage, refers to the par yield curve plotted from observed market prices of coupon-paying bonds. For practical purposes, investors use the terms interchangeably, but in academic and professional contexts, "term structure" specifically means the spot rate curve.
+A: Two reasons. (1) Inflation was the most persistent in 40 years,
+so the Fed had to hold restrictive policy longer than any prior
+post-1990 cycle. (2) The economy did not slow sharply enough to
+force cuts — fiscal stimulus and onshoring kept demand robust. The
+market kept pricing cuts in the forwards; the Fed kept not cutting;
+and the inversion persisted. By the time uninversion arrived in
+late 2024, the inversion had lasted ~26 months — the longest since
+records began.
+</p>
+<p>
+<strong>Q8: What does a steep curve mean for stocks?</strong>
+</p>
+<p>
+A: A <em>bull steepener</em> (Fed cutting, short end falling) is typically
+good for equities because the discount rate is dropping. A *bear
+steepener* (long end rising on growth or inflation) is mixed: cyclical
+and value sectors benefit; long-duration growth stocks suffer because
+their cash flows are far in the future and a higher discount rate
+hits them hardest. Reading the <em>type</em> of steepening matters more
+than the steepening itself.
+</p>
+<p>
+<strong>Q9: Are forward rates the same as Fed dot-plot expectations?</strong>
+</p>
+<p>
+A: Usually similar, sometimes very different. The Fed's own forecast
+is published quarterly in the Summary of Economic Projections (the
+"dot plot"). Market forwards are continuous and unbiased of any
+individual member's forecast. Through 2022-23 the market consistently
+priced cuts that the Fed dot-plot had not yet endorsed; the market
+turned out to be early. The gap between forwards and the dot-plot
+is one of the more reliable contrarian signals — pay attention when
+they diverge.
+</p>
+<p>
+<strong>Q10: How does this connect to the rest of the course?</strong>
+</p>
+<p>
+A: Week 5 introduced bonds; Week 18 traced the rate cascade through
+mortgages and credit; Week 10 used the inversion as a regime
+indicator; Week 23 discussed factor decay including the term factor;
+Week 32 covers duration and convexity (the math of how curve
+movements turn into bond returns). The yield curve is the spinal
+column the entire fixed-income half of this course is built on.
+After this week you should be able to read a Bloomberg yield curve
+panel as fluently as you read a price chart of SPY.
+</p>
+<p>
+The interactive below lets you draw your own curve. Drag the five
+sliders. Watch the slope, the curvature, and the implied 1y1y
+forward update. Hit the presets to see history. Decide which world
+you think we are heading back to.
 </p>
             </div>
             <div id="content-hk" class="lang-content">

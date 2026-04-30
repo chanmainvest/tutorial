@@ -1,853 +1,748 @@
-# Week 26: Options as Conditional Orders
-
-## Reading Section
-
-### a) Why This Is Important
-
-Most investors think of options as complex, exotic instruments used by professionals and speculators. This mental model creates a barrier that prevents them from using simple options strategies that could dramatically improve their investment outcomes. In this lesson, we introduce a mental model that changes everything: **options as conditional orders**.
-
-Here is the insight: when you sell a put option, you are essentially placing a limit buy order on a stock and getting paid while you wait. When you sell a call option on a stock you own, you are essentially placing a limit sell order and getting paid while you wait.
-
-This is not just a convenient analogy. The economic outcome is nearly identical. The difference is that with options, you collect income (the premium) for agreeing to buy or sell at your chosen price. With a regular limit order, you sit and wait with your cash earning nothing.
-
-**Why does this matter for your investing?**
-
-**Cash sitting idle is a wasted resource.** Many investors keep cash on the sidelines waiting for the right moment to buy. Maybe they are waiting for Apple to drop to $140, or for the market to pull back 10%. In the meantime, that cash earns a savings account rate of perhaps 4-5%. By selling cash-secured puts at their target buy price instead, they could earn 8-20% annualized while waiting for the same entry point. If the stock drops to their price, they buy it just as they would have with the limit order. If it does not drop, they keep the premium and try again.
-
-**Selling decisions are emotionally difficult.** Many investors hold winning stocks too long because they cannot bring themselves to sell. By selling covered calls at their target sell price, they commit in advance to a disciplined exit, and they get paid for that commitment. The premium income softens the emotional blow of potentially selling a winning position.
-
-**This approach aligns options with a buy-and-hold philosophy.** You are not speculating on short-term movement. You are using options to implement the same buy-low, sell-high discipline that every investment textbook recommends, while collecting income in the process. This is options used as tools for value investors, not as gambling instruments for day traders.
-
-Once you internalize this mental model, you will never look at cash-secured puts or covered calls the same way again. They become natural extensions of what you already do as a disciplined investor.
+# Week 26: Options as limit orders — getting paid to leave instructions on the table
 
 ---
 
-### b) What You Need to Know
-
-#### The Limit Order Analogy
-
-Before we discuss options, let us review how limit orders work.
-
-A **limit buy order** tells your broker: "Buy this stock for me, but only at this price or lower." If the stock never reaches your limit price, the order is never filled, and your cash remains untouched.
-
-A **limit sell order** tells your broker: "Sell my stock, but only at this price or higher." If the stock never reaches your target, you keep holding the stock.
-
-```
-Traditional Limit Orders:
-
-LIMIT BUY ORDER:                      LIMIT SELL ORDER:
-"Buy AAPL at $140 or lower"          "Sell AAPL at $180 or higher"
-
-Stock at $155:  Order sits unfilled    Stock at $155:  Order sits unfilled
-Stock hits $140: Order fills           Stock hits $180: Order fills
-                  You buy at $140                       You sell at $180
-
-While waiting: Cash earns NOTHING     While waiting: No additional income
-               (or minimal interest)                  (just dividends)
-```
-
-Now let us see how selling options mirrors this exact behavior, but with the added benefit of income.
-
-#### Selling Puts as Limit Buy Orders
-
-When you sell (write) a put option, you are making a promise: "I agree to buy 100 shares of this stock at the strike price if the stock falls to or below that level before expiration. In exchange for this promise, I collect a premium upfront."
-
-This is economically equivalent to a limit buy order, with one major enhancement: **you get paid to wait**.
-
-```
-COMPARISON: Limit Buy Order vs. Short Put
-
-+------------------------------------------------------------------+
-|                  LIMIT BUY ORDER    |    SHORT PUT                |
-+------------------------------------------------------------------+
-| Action:          "Buy at $140"      | "Sell $140 Put for $3.00"  |
-| Cash reserved:   $14,000            | $14,000 (cash-secured)     |
-| If stock drops                      |                            |
-|   to $140:       Buy at $140.00     | Buy at $140, keep premium  |
-|                  Cost: $140/share    | Eff. cost: $137/share      |
-| If stock stays                      |                            |
-|   above $140:    Nothing happens    | Keep $300 premium          |
-|                  Cash earns ~0      | Earned $300 (2.1% in ~30d) |
-| Time limit:      Good til canceled  | Expires on specific date   |
-| Income while                        |                            |
-|   waiting:       $0                 | $300 per contract          |
-+------------------------------------------------------------------+
-```
-
-Let us walk through this with a complete example.
-
-**Scenario:** You want to buy Apple (AAPL), currently trading at $155, but you think $140 is a fair price. You have $14,000 in cash.
-
-**Traditional approach:** Place a limit buy order for 100 shares at $140. Wait. If Apple never drops to $140, your $14,000 sits idle earning nothing meaningful.
-
-**Options approach:** Sell 1 AAPL $140 Put, expiring in 30 days, for $1.85 per share ($185 per contract).
-
-```
-Outcome Analysis:
-
-Scenario 1: AAPL stays above $140 (most likely)
-  - Your put expires worthless
-  - You keep the $185 premium
-  - Return: $185 / $14,000 = 1.32% in 30 days = ~16.1% annualized
-  - You still have your $14,000 and can sell another put next month
-
-Scenario 2: AAPL drops to $140 (your target price)
-  - You are assigned: buy 100 shares at $140
-  - Effective purchase price: $140 - $1.85 = $138.15 per share
-  - This is BETTER than your limit order would have been
-  - You bought the stock you wanted at a DISCOUNT
-
-Scenario 3: AAPL drops to $130 (below your strike)
-  - You are assigned: buy 100 shares at $140
-  - Stock is now worth $130, so you have an unrealized loss of $10/share
-  - But your effective cost is $138.15, and you wanted the stock anyway
-  - Same outcome as if your limit order filled at $140 and stock kept falling
-  - Actually BETTER because your cost basis is $138.15, not $140
-
-Scenario 4: AAPL drops briefly to $140 then recovers to $160
-  - You may or may not be assigned (depends on timing)
-  - If assigned: you bought at effective $138.15, stock now at $160 = profit
-  - If not assigned: keep premium, sell another put
-```
-
-Notice something important: **there is no scenario where the put seller does worse than the limit order buyer.** In every case, the put seller either gets the same outcome plus premium income, or gets a better entry price. The only tradeoff is the time limit (the option has an expiration date, while a limit order can stay open indefinitely).
-
-#### The Premium: Getting Paid to Wait
-
-The premium you collect when selling a put is not just a nice bonus. It is compensation for three things:
-
-1. **Time commitment:** You are locking up your capital for a specific period.
-2. **Risk acceptance:** You are accepting the obligation to buy, even if the stock drops significantly.
-3. **Opportunity cost:** While your cash is reserved for this potential purchase, you cannot use it for something else.
-
-```
-What Determines the Premium Size?
-
-+---------------------------------------------------------------+
-| FACTOR                     | EFFECT ON PREMIUM               |
-+---------------------------------------------------------------+
-| Higher implied volatility  | LARGER premium (more risk)      |
-| More time to expiration    | LARGER premium (more time)      |
-| Strike closer to stock     | LARGER premium (more likely)    |
-| Strike further from stock  | SMALLER premium (less likely)   |
-| Earnings before expiry     | LARGER premium (event risk)     |
-+---------------------------------------------------------------+
-
-Premium Size Examples (AAPL at $155, 30 days to expiration):
-
-  Strike $155 (ATM): Premium ~$4.20  (2.7% in 30 days)
-  Strike $150 (3% OTM): Premium ~$2.50  (1.7% in 30 days)
-  Strike $145 (6% OTM): Premium ~$1.40  (1.0% in 30 days)
-  Strike $140 (10% OTM): Premium ~$0.70  (0.5% in 30 days)
-  Strike $135 (13% OTM): Premium ~$0.30  (0.2% in 30 days)
-
-The tradeoff:
-  Closer to ATM = More premium, but higher chance of assignment
-  Further OTM = Less premium, but lower chance of assignment
-```
-
-For most conservative investors using this as a "paid limit order" strategy, strikes that are 5-10% out of the money offer a good balance: reasonable premium, low probability of assignment, and a purchase price you would genuinely be happy with.
-
-#### Selling Calls as Limit Sell Orders
-
-The same mental model works in reverse for covered calls. When you sell a call against stock you own, you are saying: "I agree to sell my 100 shares at the strike price if the stock rises above that level before expiration. In exchange, I collect a premium upfront."
-
-This is economically equivalent to a limit sell order, with income while you wait.
-
-```
-COMPARISON: Limit Sell Order vs. Short Call (Covered)
-
-+------------------------------------------------------------------+
-|                  LIMIT SELL ORDER   |    COVERED CALL             |
-+------------------------------------------------------------------+
-| Action:          "Sell at $180"     | "Sell $180 Call for $2.00"  |
-| Shares held:     100 shares         | 100 shares                  |
-| If stock rises                      |                            |
-|   to $180:       Sell at $180.00    | Sell at $180, keep premium |
-|                  Proceeds: $180/sh  | Eff. price: $182/share     |
-| If stock stays                      |                            |
-|   below $180:    Nothing happens    | Keep $200 premium          |
-|                  No extra income    | Earned $200 (income)       |
-| Time limit:      Good til canceled  | Expires on specific date   |
-| Income while                        |                            |
-|   waiting:       $0 (just divs)    | $200 + dividends           |
-+------------------------------------------------------------------+
-```
-
-**Complete Example:**
-
-You bought 100 shares of Apple at $155 and would be happy to sell at $180 (a 16% gain). Instead of placing a limit sell order, you sell a covered call.
-
-```
-Setup:
-  Own: 100 shares AAPL at $155 (cost basis)
-  Sell: 1 AAPL $180 Call, 45 days out, for $1.50 ($150 per contract)
-
-Scenario 1: AAPL stays below $180 (most likely)
-  - Call expires worthless
-  - You keep 100 shares AND the $150 premium
-  - Premium yield: $150 / $15,500 = 0.97% in 45 days = ~7.9% annualized
-  - You can sell another call next month
-  - Total annual income potential: dividends + options = ~8-10%
-
-Scenario 2: AAPL rises above $180
-  - Shares are called away (sold) at $180
-  - Total proceeds: $180 + $1.50 premium = $181.50 per share
-  - Profit: $181.50 - $155 = $26.50 per share = 17.1% return
-  - This is BETTER than your limit sell order at $180
-  - Yes, you miss gains above $181.50, but you sold at your target
-
-Scenario 3: AAPL drops to $140
-  - Call expires worthless, you keep $150 premium
-  - You still hold shares (now at a loss on the stock position)
-  - The $150 premium cushions the loss slightly
-  - Effective cost basis reduced: $155 - $1.50 = $153.50
-```
-
-#### The Power of Repetition
-
-The true power of this approach comes from doing it repeatedly. Each month you do not get assigned, you collect premium and try again. Over time, these premiums accumulate into significant income.
-
-```
-REPEATED PUT SELLING EXAMPLE:
-Target: Buy AAPL at $140. Stock starts at $155.
-
-Month 1: Sell $140 Put for $1.85 -> AAPL stays at $153 -> Keep $185
-Month 2: Sell $140 Put for $1.60 -> AAPL stays at $158 -> Keep $160
-Month 3: Sell $140 Put for $2.10 -> AAPL stays at $151 -> Keep $210
-Month 4: Sell $140 Put for $1.75 -> AAPL stays at $157 -> Keep $175
-Month 5: Sell $140 Put for $2.30 -> AAPL stays at $149 -> Keep $230
-Month 6: Sell $140 Put for $3.50 -> AAPL drops to $138 -> ASSIGNED
-
-Total premiums collected: $185 + $160 + $210 + $175 + $230 + $350 = $1,310
-Assignment price: $140.00 per share
-Total premiums per share: $13.10
-Effective purchase price: $140.00 - $13.10 = $126.90 per share
-
-Compare: Limit order buyer waited 6 months, got filled at $140.00
-         Put seller waited 6 months, effectively bought at $126.90
-         Savings: $13.10 per share = 9.4% better entry price
-```
-
-```
-REPEATED COVERED CALL EXAMPLE:
-Own 100 shares at $155. Target sell price: $180.
-
-Month 1: Sell $180 Call for $1.50 -> AAPL at $162 -> Keep $150
-Month 2: Sell $180 Call for $1.80 -> AAPL at $165 -> Keep $180
-Month 3: Sell $180 Call for $1.30 -> AAPL at $159 -> Keep $130
-Month 4: Sell $180 Call for $2.00 -> AAPL at $168 -> Keep $200
-Month 5: Sell $180 Call for $2.20 -> AAPL at $170 -> Keep $220
-Month 6: Sell $180 Call for $1.70 -> AAPL at $173 -> Keep $170
-Month 7: Sell $180 Call for $2.50 -> AAPL at $175 -> Keep $250
-Month 8: Sell $180 Call for $3.20 -> AAPL hits $183 -> ASSIGNED
-
-Total premiums collected: $150+$180+$130+$200+$220+$170+$250+$320 = $1,620
-Sale price: $180.00 per share
-Total premiums per share: $16.20
-Effective sale price: $180.00 + $16.20 = $196.20 per share
-Plus dividends received over 8 months
-
-Compare: Limit sell at $180 would have yielded $180.00 per share
-         Covered call seller effectively received $196.20 per share
-         Bonus: $16.20 per share = 9.0% additional return
-```
-
-#### Risk Profile Comparison: Limit Order vs. Short Put
-
-While the analogy is powerful, it is important to understand the differences in risk profile.
-
-```
-RISK COMPARISON: Limit Buy at $140 vs. Short $140 Put
-
-                     Limit Buy Order         Short Put ($3 premium)
-                     ================        =====================
-Max Profit:          Unlimited (stock rises) $300 (premium only)
-                                             (if not assigned)
-
-Breakeven:           $140.00                 $137.00 ($140 - $3)
-
-Max Loss:            $14,000 (stock to $0)   $13,700 (stock to $0)
-
-Capital Required:    $14,000 (when filled)   $14,000 (reserved now)
-
-Income While         $0                      $300 per cycle
-Waiting:
-
-Assignment           Exact price             Approximate price
-Precision:           (fills at $140.00)      (assigned at $140.00)
-
-Partial Fills:       Can buy fewer shares    Must buy exactly 100
-                     (e.g., 37 shares)       shares per contract
-
-Duration:            Unlimited (GTC)         Fixed expiration date
-
-Cash Flexibility:    Freed if canceled       Locked until expiration
-                                             (or position is closed)
-```
-
-Key differences to note:
-
-1. **Precision vs. Income:** A limit order fills at exactly your price. A put gives you income but commits you to buying in 100-share increments at a fixed strike.
-
-2. **Partial fills:** Limit orders can be partially filled (buy 37 shares). Options only come in 100-share increments. If you want to buy 250 shares, you would sell 2 puts (for 200 shares) and might use a limit order for the remaining 50.
-
-3. **Time constraints:** Limit orders can stay open indefinitely (Good Til Canceled). Options expire. You need to actively manage the strategy by selling new puts after each expiration.
-
-4. **Gap risk:** If a stock gaps down significantly overnight (say from $155 to $120 on bad news), both the limit order and the put result in buying shares at a loss. However, the limit order buyer might only fill at $140 and watch the stock fall further. The put seller is assigned at $140 but has the premium cushion ($137 effective cost).
-
-#### When to Use This Approach
-
-This strategy works best in specific circumstances:
-
-```
-IDEAL CONDITIONS FOR SELLING PUTS (Paid Limit Buy):
-
-  [YES] You genuinely want to own the stock at the strike price
-  [YES] You have sufficient cash to buy 100 shares
-  [YES] You have a target entry price that is below current market
-  [YES] The stock has reasonable implied volatility (good premiums)
-  [YES] You are comfortable holding the stock long-term if assigned
-  [YES] The company has strong fundamentals
-
-  [NO]  You are trying to speculate on short-term movement
-  [NO]  You cannot afford to buy the shares if assigned
-  [NO]  You would not want to own the stock at any price
-  [NO]  The stock is extremely volatile or in financial distress
-  [NO]  Implied volatility is abnormally low (tiny premiums)
-```
-
-```
-IDEAL CONDITIONS FOR SELLING CALLS (Paid Limit Sell):
-
-  [YES] You own at least 100 shares of the stock
-  [YES] You have a target sell price above current market
-  [YES] You would be happy to sell at the strike price
-  [YES] The stock is in a flat or mildly bullish trend
-  [YES] You want additional income beyond dividends
-
-  [NO]  You are strongly bullish and expect a large rally
-  [NO]  You do not own the underlying shares (naked call)
-  [NO]  You would be devastated to sell the stock
-  [NO]  The stock is about to have a major catalyst (earnings, FDA)
-```
-
-#### Practical Considerations
-
-**Choosing the Right Strike Price:**
-
-For puts (paid limit buy):
-- Choose a price you would genuinely be happy buying the stock at.
-- A good guideline is 5-10% below the current price for monthly options.
-- Consider the stock's support levels on a chart.
-- Think about fundamental value: what is the stock worth to you?
-
-For calls (paid limit sell):
-- Choose a price that represents a good profit target.
-- A good guideline is 5-10% above the current price for monthly options.
-- Consider the stock's resistance levels on a chart.
-- Think about your tax situation and holding period.
-
-**Choosing the Right Expiration:**
-
-```
-EXPIRATION SELECTION GUIDE:
-
-  Timeframe     | Premium  | Theta Decay | Management | Best For
-  ==============|==========|=============|============|================
-  Weekly (5-7d) | Low      | Very fast   | Frequent   | Active traders
-  Monthly (30d) | Moderate | Moderate    | Monthly    | Most investors
-  45 Days       | Good     | Optimal     | Biweekly   | Sweet spot
-  60-90 Days    | Higher   | Slower      | Less often | Busy investors
-  LEAPS (1yr+)  | Highest  | Very slow   | Quarterly  | Set and forget
-
-  RECOMMENDED: 30-45 days to expiration offers the best balance of
-  premium income and time decay. Theta accelerates after 45 days,
-  meaning you get more daily decay in your favor.
-```
-
-**Position Sizing:**
-
-Never over-allocate to a single put or covered call position. A general guideline:
-
-```
-POSITION SIZING RULES:
-
-  Total Options-Eligible Capital: $100,000
-
-  Maximum per single stock:       $20,000 (20%)
-  Number of put contracts:        Based on strike x 100
-  
-  Example breakdown:
-    AAPL $140 Put: 1 contract = $14,000 reserved (14%)
-    MSFT $360 Put: 1 contract = $36,000 reserved (36%) <- TOO LARGE
-    MSFT $360 Put: Better to skip or use a lower strike
-
-  Diversification target: 4-6 different stocks across sectors
-```
-
-#### Real-World Example: Building a Position with Puts
-
-Let us walk through a complete real-world scenario of using puts to build a position in a stock you want to own.
-
-```
-CASE STUDY: Building a 300-share position in Microsoft (MSFT)
-
-Starting situation:
-  - MSFT trading at $420
-  - You want to own 300 shares
-  - Your fair value estimate: $380
-  - Available capital: $120,000
-
-Strategy: Sell puts at $380 strike, 30-45 days out, repeatedly
-
-Round 1 (January):
-  Sell 3 MSFT $380 Puts, Feb expiry, for $4.50 each
-  Premium collected: $4.50 x 100 x 3 = $1,350
-  Capital reserved: $380 x 100 x 3 = $114,000
-  MSFT ends February at $415 -> Puts expire worthless
-  Income: $1,350 (1.18% on reserved capital in ~30 days)
-
-Round 2 (February):
-  Sell 3 MSFT $380 Puts, Mar expiry, for $3.80 each
-  Premium collected: $3.80 x 100 x 3 = $1,140
-  MSFT ends March at $425 -> Puts expire worthless
-  Income: $1,140
-
-Round 3 (March):
-  Sell 3 MSFT $380 Puts, Apr expiry, for $5.20 each
-  Premium collected: $5.20 x 100 x 3 = $1,560
-  MSFT drops to $372 in April -> ASSIGNED on all 3 contracts
-  Buy 300 shares at $380
-
-Results:
-  Purchase price: $380 per share
-  Total premiums collected: $1,350 + $1,140 + $1,560 = $4,050
-  Premiums per share: $4,050 / 300 = $13.50
-  Effective cost basis: $380 - $13.50 = $366.50 per share
-
-  Compare to buying at market ($420): Saved $53.50/share (12.7%)
-  Compare to limit order at $380: Saved $13.50/share (3.6%)
-  
-  The put-selling approach resulted in a 3.6% better entry price
-  than a simple limit order, and earned $4,050 in income during
-  the 3-month waiting period.
-```
-
-#### Combining Puts and Calls: The Income Factory
-
-Once you understand that puts are paid limit buys and calls are paid limit sells, a powerful portfolio strategy emerges. You can run both simultaneously on different stocks, creating a diversified income factory.
-
-```
-THE INCOME FACTORY MODEL:
-
-  STOCKS YOU WANT TO BUY:           STOCKS YOU ALREADY OWN:
-  (Sell Cash-Secured Puts)           (Sell Covered Calls)
-
-  AAPL: Sell $140 Put  -> $185/mo   MSFT: Own 100, Sell $450 Call -> $300/mo
-  AMZN: Sell $175 Put  -> $320/mo   JNJ:  Own 200, Sell $175 Call -> $360/mo
-  GOOGL: Sell $155 Put -> $240/mo   KO:   Own 300, Sell $67 Call  -> $270/mo
-
-  PUT INCOME:  $745/month            CALL INCOME: $930/month
-  
-  TOTAL MONTHLY INCOME: $1,675
-  TOTAL ANNUAL INCOME:  $20,100
-
-  This creates income from BOTH sides of the portfolio:
-  - Cash waiting to be deployed earns put premiums
-  - Stocks already owned earn call premiums + dividends
-  - There is NEVER idle capital
-```
-
-This is the essence of an options income portfolio. Every dollar in your account is working, whether it is invested in shares (generating dividends plus call premiums) or reserved as cash (generating put premiums). This dual-engine approach can produce total portfolio yields of 12-20% annually.
-
-#### Tax Considerations for the Options-as-Orders Approach
-
-Understanding the tax treatment helps you plan effectively:
-
-```
-TAX TREATMENT SUMMARY:
-
-  SCENARIO                          TAX TREATMENT
-  ========                          =============
-  Put expires worthless             Short-term capital gain
-  (keep premium)                    (taxed at ordinary income rate)
-  
-  Put assigned (buy stock)          Premium reduces cost basis
-                                    of purchased shares
-                                    (affects future capital gain)
-  
-  Call expires worthless            Short-term capital gain
-  (keep premium)                    
-  
-  Call assigned (sell stock)        Premium added to sale proceeds
-                                    (affects capital gain calculation)
-  
-  Buy back option at profit         Short-term capital gain
-  (close early for gain)            
-  
-  Buy back option at loss           Short-term capital loss
-  (close early for loss)            (can offset other gains)
-
-  IN A ROTH IRA: All of the above are TAX-FREE
-  IN A TRADITIONAL IRA: All of the above are TAX-DEFERRED
-```
-
-This is another reason why the options-as-orders approach shines in tax-advantaged accounts. The frequent premium income, which would be taxed at ordinary income rates in a taxable account, grows tax-free in a Roth IRA or tax-deferred in a traditional IRA.
-
-#### Common Mistakes to Avoid
-
-```
-TOP 5 MISTAKES WHEN USING OPTIONS AS CONDITIONAL ORDERS:
-
-  MISTAKE 1: Selling puts on stocks you do not want to own
-    WHY IT IS BAD: You will be assigned on the worst performers
-    FIX: Only sell puts at prices where you would be happy to buy
-
-  MISTAKE 2: Over-allocating capital to a single position
-    WHY IT IS BAD: One bad stock can devastate your portfolio
-    FIX: Maximum 20% of capital per position, diversify across sectors
-
-  MISTAKE 3: Ignoring the earnings calendar
-    WHY IT IS BAD: Earnings gaps can cause assignment at bad timing
-    FIX: Check earnings dates before selling, avoid expiring during earnings
-
-  MISTAKE 4: Chasing high premiums on volatile stocks
-    WHY IT IS BAD: High premium = high risk = high chance of bad assignment
-    FIX: Focus on quality companies with moderate volatility
-
-  MISTAKE 5: Not having a management plan
-    WHY IT IS BAD: You freeze when the stock moves against you
-    FIX: Decide in advance: at what loss level will you close? When will
-    you take profits early? Write it down before you enter the trade.
-```
-
-#### The Decision Framework
-
-Here is a simple decision tree to help you decide between a limit order and an options approach:
-
-```
-                    Do you want to BUY a stock?
-                            |
-                    +-------+-------+
-                    |               |
-                   YES              NO -> Do you want to SELL? 
-                    |                          |
-              Do you want to          +-------+-------+
-              buy at a LOWER          |               |
-              price than current?    YES              NO -> No action
-                    |                  |
-              +-----+-----+     Do you own
-              |           |     100+ shares?
-             YES          NO         |
-              |           |    +-----+-----+
-              |     Buy at     |           |
-              |     market    YES          NO -> Limit sell
-              |                |            (fewer than 100 shares)
-        Do you have            |
-        $$ for 100 shares?   Sell COVERED CALL
-              |              (paid limit sell)
-        +-----+-----+
-        |           |
-       YES          NO -> Use limit order
-        |                 (can buy partial lots)
-        |
-   SELL CASH-SECURED PUT
-   (paid limit buy)
-```
+## Part 1: Reading Section
 
 ---
 
-### c) Common Misconceptions
+### 1. Why This Is Important
 
-**Misconception 1: "Selling puts is the same as shorting a stock."**
+Last week we mapped the options vocabulary — calls, puts, strikes,
+expiry, premium, theta. Vocabulary on its own is inert. What turns
+options from an exotic instrument into a workhorse for a long-only
+retail book is the right *mental model*, and the right model is the
+simplest one: **a sold option is a limit order that pays you to wait.**
 
-This is a dangerous confusion. Shorting a stock means borrowing shares and selling them, hoping to buy them back at a lower price. Your risk is theoretically unlimited because the stock can rise infinitely. Selling a put means agreeing to BUY shares at a specific price. Your risk is limited to the strike price minus the premium (if the stock goes to zero). These are completely different strategies with completely different risk profiles. One is bearish (short selling), the other is neutral to bullish (short put).
+A cash-secured put at the $90 strike is the same instruction you would
+already give your broker — *"I'd buy 100 shares of XYZ at $90"* — except
+the broker now hands you a cheque for leaving that instruction on the
+table. A covered call at the $110 strike is *"I'd sell my XYZ at $110"*,
+again with a cheque attached. Same trigger price, same buy-low / sell-
+high discipline, plus income for the time the trigger sits unfilled.
 
-**Misconception 2: "You should sell puts on stocks you do not want to own because you will never get assigned."**
+This matters for four concrete reasons:
 
-This is extremely dangerous thinking. While it is true that most OTM puts expire worthless, the ones that do not can cause enormous damage. If you sell puts on a stock you would not want to own and it drops 40%, you are forced to buy 100 shares of a company you do not believe in, at a price well above the current market. Only sell puts on stocks you genuinely want to own at the strike price.
+**(1) Idle cash is a real cost, not a free option.** Most retail
+investors keep a "waiting to deploy" sleeve sitting in money market or
+T-bill funds at the going short rate. That is the *opportunity cost
+floor*; against an at-the-target cash-secured put on a name you
+genuinely want to own, the cash works two or three times harder for the
+same target entry price. The premium is not a bonus — it is what your
+cash *should* be earning while it waits.
 
-**Misconception 3: "Selling covered calls means you will miss the next big rally."**
+**(2) Selling decisions are emotionally expensive; getting paid to
+pre-commit is cheap.** Every long-only investor knows the "I should
+have sold" feeling. A covered call writes the sell ticket in advance,
+at a price you chose in calm-mind, and pays you to hold yourself to it.
+The premium is the institutional equivalent of paying yourself an
+adviser fee for *not* moving the goalposts.
 
-While covered calls do cap your upside, the cap is at a level YOU chose as your target sell price. If AAPL is at $155 and you sell the $180 call, you are saying you would be happy to sell at $180 (a 16% gain). If AAPL rockets to $220, yes, you "missed" $40 of additional gains. But you still made a 16% profit plus the premium. Missing out on unexpected gains is not the same as losing money. And statistically, the vast majority of months, the stock stays below the strike and you simply keep the premium.
+**(3) This is the L2 income tactic in the SOUL #14 barbell.**
+Horace's barbell holds high-conviction safety on one end and asymmetric
+speculation on the other; the question is what the names *between*
+those two ends do all day. They sit in the L2 ("high-quality long-only,
+permanent compounders") tranche and earn premium by writing covered
+calls and cash-secured puts at the edges of where the holder would
+already act. The L2 sleeve is the income engine of the barbell, and
+the income is engineered, not hoped-for.
 
-**Misconception 4: "The premium is too small to be worth the risk."**
+**(4) Options are a tax tool first, a leverage tool second (SOUL #15).**
+Selling a covered call lets you reduce delta on a winner *without*
+selling the share — exposure shifts, the tax lot doesn't. Selling a
+cash-secured put lets you build a position at a chosen entry *over
+multiple expiries*, with each unfilled expiration banking premium that
+lowers the eventual cost basis. For a successful long-only investor
+the largest unspoken fee is capital gains tax; the order-replacement
+view of options is how you start managing it.
 
-Individual premiums may seem small, but they compound over time. A $200 premium per month on a $15,000 position is $2,400 per year, a 16% annual yield. Even a conservative $100 per month is $1,200, or 8% annually. This is on top of any dividends and capital appreciation. Over a 20-year investing career, this additional income, reinvested, can add hundreds of thousands of dollars to your portfolio.
-
-**Misconception 5: "Selling puts is just as risky as buying stock."**
-
-While the maximum loss is similar (both approach zero if the company goes bankrupt), the put seller actually has a better entry. The premium received reduces the effective cost basis. If you sell a $140 put for $3 and get assigned, your cost is $137. A stock buyer at $140 has a $140 cost. In every scenario, the put seller is $3 per share better off. The risk profile is not identical; it is slightly better for the put seller.
-
-**Misconception 6: "You need to watch the market constantly when selling options."**
-
-For the strategies described in this lesson, you sell an option and then largely wait. You may check in once a week to see if any action is needed. Monthly options require attention only around expiration. This is not day trading. It is more like setting a trap and checking it periodically. Many investors manage their option positions in 15-30 minutes per week.
-
----
-
-### d) Common Questions and Answers
-
-**Q1: What happens if I sell a put and the stock gaps down 30% overnight?**
-
-A: You will be assigned at the strike price, and the stock will be worth significantly less than what you paid. This is the primary risk of selling puts. However, this is the same risk you take with a limit buy order or with buying the stock outright. If you sell an AAPL $140 put and AAPL drops to $100, you buy at $140 (effective $137 with premium), and you are immediately sitting on a $37/share loss. This is why you should only sell puts on stocks with strong fundamentals that you believe will recover. In this scenario, the $3 premium cushion, while small relative to the loss, is still better than having a limit order fill at $140 with no cushion at all.
-
-**Q2: Can I close my put position early if the stock starts dropping?**
-
-A: Yes. You can always buy back your short put before expiration. If the stock drops and the put increases in value, you will pay more than you received, resulting in a net loss. But this allows you to manage risk. For example, a common rule is to close the position if the loss exceeds 2x the premium received. If you sold a put for $3.00 and it is now trading at $9.00, you can buy it back for a $6.00 loss rather than risk assignment. Conversely, if the stock stays flat or rises and the put decays, you can close it early for a profit. A common rule is to buy back when you have captured 50-75% of the maximum premium.
-
-**Q3: Why not just use limit orders? Why complicate things with options?**
-
-A: For small positions (fewer than 100 shares) or when you need exact price fills, limit orders are perfectly fine. Options add value when: (1) you want income while waiting for your price, (2) you are buying in 100-share increments anyway, (3) you want to build positions systematically over time, and (4) you want your cash to work harder. The "complication" is minimal once you understand the mechanics. Selling a cash-secured put takes about 2 minutes on most brokerage platforms.
-
-**Q4: What if I change my mind about wanting to buy the stock after I sold the put?**
-
-A: Buy the put back to close the position. If time has passed and the stock has not dropped, the put will likely be cheaper than what you sold it for, and you will book a profit. If the stock has dropped and the put is more expensive, you will take a small loss. The ability to close positions at any time is one of the advantages of exchange-traded options. You are never truly locked in.
-
-**Q5: How do taxes work on option premiums?**
-
-A: If the put expires worthless, the premium is a short-term capital gain, taxed at your ordinary income rate. If you are assigned, the premium reduces your cost basis in the purchased stock, which affects your future capital gain calculation when you eventually sell the stock. For covered calls, if the call expires worthless, the premium is a short-term gain. If you are assigned and sell your shares, the premium is added to your sale proceeds. Consult a tax professional for your specific situation.
-
-**Q6: Can I sell puts in a retirement account (IRA)?**
-
-A: Yes, most brokers allow cash-secured puts in IRA accounts. You cannot use margin, so the full cash amount must be available (hence "cash-secured"). Covered calls are also allowed in IRAs. The tax advantage of an IRA means the premiums grow tax-deferred (traditional IRA) or tax-free (Roth IRA), making these strategies even more attractive in retirement accounts.
-
-**Q7: How do I choose between different expiration dates?**
-
-A: The sweet spot for most investors is 30-45 days to expiration. Shorter durations (weekly) give you less premium per trade and require more active management. Longer durations (60-90 days) give more premium but tie up your capital longer and have less favorable theta decay. The 30-45 day range offers the best ratio of premium received to management effort. If you prefer less frequent trading, 45-60 days works well. If you want maximum annualized yield, 21-30 days is optimal.
-
-**Q8: What if I want to buy 150 shares? Options only come in 100-share increments.**
-
-A: Use a combination approach. Sell 1 put contract (covering 100 shares) and place a limit order for the remaining 50 shares. Alternatively, if you are patient, sell 1 put contract, get assigned, then sell another put contract for the next 100 shares, and sell the extra 50 shares later. Options work best for round lots of 100 shares.
-
-**Q9: What happens to my put if the company announces a merger or acquisition?**
-
-A: If a company is acquired, options are adjusted based on the terms of the deal. If it is a cash acquisition, options may be settled in cash. If it is a stock-for-stock deal, the options contract is adjusted to deliver the new shares. The Options Clearing Corporation (OCC) handles these adjustments. While the mechanics can be complex, you will not lose your rights as an option holder or have unexpected obligations as a seller beyond what the original contract specified.
-
-**Q10: Is there an optimal order of operations? Do I sell puts first, then covered calls?**
-
-A: A natural progression is: (1) Identify stocks you want to own, (2) sell puts at your target entry price to build positions while earning income, (3) once you own the shares, sell covered calls at your target exit price to earn additional income. This cycle, known as the "wheel strategy," is a continuous loop of selling puts, getting assigned, selling calls, getting called away, and starting over. We will preview this concept in Week 28.
+This week we walk through the mechanics in slow motion. Week 27 takes
+covered calls deep — strike selection, theta capture, when to roll.
+Week 28 does the same for cash-secured puts and the wheel.
 
 ---
 
-## YouTube Script
-
-[VISUAL: Animated intro with show logo. Text: "Week 26: Options as Conditional Orders - Level 3: Advanced"]
-
-**Horace:** Welcome back. Last week we covered the fundamentals of options: calls, puts, strike prices, expiration, time decay. Today we are going to take all of that knowledge and apply it through a mental model that I think is going to change how you think about options forever.
-
-**Stella:** A mental model? What do you mean?
-
-**Horace:** I mean a way of thinking about options that makes them feel intuitive rather than complex. Here it is: selling a put is like placing a limit buy order and getting paid while you wait. Selling a covered call is like placing a limit sell order and getting paid while you wait.
-
-**Stella:** Wait, that is it? That seems... almost too simple.
-
-**Horace:** The best mental models are simple. And this one is powerful because it is nearly perfectly accurate. Let me walk you through exactly what I mean.
-
-[VISUAL: Title card: "Options as Conditional Orders: A New Way to Think About Buying and Selling Stocks"]
-
-**Horace:** Let us start with something every investor is familiar with: a limit buy order. Stella, explain what a limit buy order is.
-
-**Stella:** Sure. It is when you tell your broker, buy this stock for me, but only if the price drops to a certain level. Like, buy Apple at $140 even though it is currently at $155.
-
-**Horace:** Perfect. And what happens while you wait for that price?
-
-**Stella:** Nothing. Your cash just sits there.
-
-**Horace:** Exactly. Your cash sits there earning almost nothing. Maybe 4-5% in a savings rate if you are lucky. Now here is the options alternative. Instead of placing a limit buy order at $140, you sell a cash-secured put at the $140 strike.
-
-[VISUAL: Side-by-side comparison appearing on screen. Left: "Limit Buy Order at $140 - Cash earns: ~0%". Right: "Sell $140 Put for $1.85 - Cash earns: ~16% annualized"]
-
-**Stella:** So what exactly does selling a put at $140 mean?
-
-**Horace:** It means you are making a promise. You are saying: I agree to buy 100 shares of Apple at $140 per share if the stock drops to that level before the option expires. And in exchange for making that promise, someone pays you a premium. Let us say $1.85 per share, or $185 per contract.
-
-**Stella:** So I am getting paid $185 to promise to do something I was already willing to do?
-
-**Horace:** Yes. That is the beauty of it. You already wanted to buy Apple at $140. The limit order does the same thing for free. The put option does the same thing and pays you for it.
-
-[ANIMATION: Reference animation/week26_put_as_limit.py - Animation showing two parallel timelines. Top timeline: "Limit Order" shows cash sitting idle, then stock dropping to $140 and order filling. Bottom timeline: "Short Put" shows cash with premium coins being added each month, then stock dropping to $140 and assignment occurring, with the effective purchase price shown as lower than $140 due to accumulated premiums. A counter shows the total premium collected over time.]
-
-**Stella:** OK, let us walk through the possible outcomes. What happens if Apple stays above $140?
-
-**Horace:** Your put expires worthless. The word "worthless" sounds bad, but for the seller, it is great. It means your obligation disappears and you keep the $185 premium. Your $14,000 in cash is freed up, and you can sell another put next month.
-
-**Stella:** And if Apple drops to $140?
-
-**Horace:** You get assigned. You buy 100 shares at $140, which is exactly what you wanted. But here is the key: your effective purchase price is not $140. It is $140 minus the $1.85 premium, which is $138.15. You got a better deal than the limit order would have given you.
-
-[VISUAL: Calculator showing: "$140.00 strike - $1.85 premium = $138.15 effective cost"]
-
-**Stella:** What if Apple drops even further, like to $120?
-
-**Horace:** You still buy at $140. Your effective cost is still $138.15. And yes, you are sitting on an unrealized loss because the stock is at $120. But think about it: the limit order buyer is in the exact same situation, except their cost basis is $140, not $138.15. You are $1.85 per share better off.
-
-**Stella:** So in every scenario, the put seller does at least as well as the limit order buyer, and usually better?
-
-**Horace:** In terms of economic outcome, yes. The tradeoff is that the put has an expiration date. A limit order can sit there indefinitely. With puts, you need to actively sell a new contract each month.
-
-**Stella:** But that is also when you collect more premium, right?
-
-**Horace:** Exactly. And that is where the real power shows up. Let me show you what happens when you do this repeatedly.
-
-[VISUAL: Month-by-month table showing repeated put selling. Each month shows: premium collected, stock price, outcome (expired or assigned), cumulative premium. Final row shows effective purchase price after 6 months of collecting premiums before eventual assignment]
-
-**Horace:** Let us say you sell puts on Apple at $140 every month. Month after month, Apple stays above $140. Each month you collect $150-$250 in premium. After six months, you have collected $1,310 in total premiums. Then in month six, Apple finally drops and you get assigned.
-
-**Stella:** So you waited six months, just like the limit order person would have.
-
-**Horace:** Right. But the limit order person's cost is $140 per share. Your effective cost, after accounting for all the premiums collected, is $126.90 per share. That is a 9.4% better entry price. And this is not some exotic strategy. It is simple, straightforward, and mechanical.
-
-**Stella:** That is a massive difference. $13.10 per share on 100 shares is $1,310 in your pocket.
-
-**Horace:** Exactly. And that is just from being willing to do what you were already planning to do, but using the right tool.
-
-[VISUAL: Two investors side by side. Left: "Limit Order Larry" standing with empty pockets, price tag showing $140/share. Right: "Put Selling Patty" standing with pockets full of cash, price tag showing $126.90/share. Both own the same 100 shares of AAPL.]
-
-**Stella:** OK, now let us talk about the other side. You mentioned covered calls are like limit sell orders with income.
-
-**Horace:** Same concept, reversed. Let us say you own 100 shares of Apple at $155 and you would be happy to sell at $180. Instead of placing a limit sell order, you sell a covered call at the $180 strike.
-
-**Stella:** And you collect a premium for agreeing to sell at $180?
-
-**Horace:** Right. Let us say $1.50 per share, or $150 per contract. Now, if Apple stays below $180 by expiration, the call expires worthless. You keep your shares and the $150. If Apple rises above $180, your shares are called away and you sell at $180 plus you keep the $1.50 premium. Your effective sale price is $181.50.
-
-[VISUAL: Two scenarios branching from "Sell $180 Call for $1.50". Branch 1: "Stock stays below $180" -> "Keep shares + $150 premium, sell another call". Branch 2: "Stock rises above $180" -> "Sell shares at $180, keep $150, effective price $181.50"]
-
-**Stella:** So the covered call seller gets a better exit price than the limit seller, just like the put seller gets a better entry price?
-
-**Horace:** Yes. And the same compounding effect applies. If you sell covered calls month after month and Apple slowly grinds higher, you collect $150-$250 in premium each month. After eight months, when Apple finally crosses $180 and your shares are called away, you have collected over $1,600 in premiums on top of your $180 sale price.
-
-**Stella:** Your effective sale price is $196.20. That is remarkable.
-
-**Horace:** And that is on top of any dividends you received during those eight months of holding. You were getting paid from three sources: the stock's capital appreciation from $155 to $180, the dividends, and the options premiums.
-
-[VISUAL: Three-layer income stack visualization. Bottom: "Capital Gains: $25/share", Middle: "Dividends: ~$3.80/share", Top: "Options Premium: $16.20/share", Total: "$45.00/share = 29% total return"]
-
-**Stella:** Let me make sure I understand the risks though. What are the downsides?
-
-**Horace:** Great question. Let us address that head on. For selling puts, the main risk is that the stock drops significantly and you are forced to buy at the strike price. If Apple drops from $155 to $100 and you sold the $140 put, you buy at $140 and immediately have a $40 per share unrealized loss.
-
-**Stella:** But you would have had the same loss with a limit order.
-
-**Horace:** True, except you are $1.85 better off. The real question is: would you still want to own Apple at $140 if it dropped to $100? If Apple is a strong company and you believe it will recover, then you just got a great long-term entry. If Apple is falling because of fundamental problems, you might regret it. That is why rule number one is: only sell puts on stocks you genuinely want to own.
-
-[VISUAL: Bold text on screen: "RULE #1: Only sell puts on stocks you GENUINELY want to own at the strike price."]
-
-**Stella:** And the risk for covered calls?
-
-**Horace:** The risk is opportunity cost. If you sell the $180 call and Apple rockets to $250, you sold at $181.50 and missed out on $68.50 per share of additional gains. You made money, but you left a lot on the table. This is the tradeoff for the income you collected. You are trading unlimited upside for steady income.
-
-**Stella:** Is there a way to mitigate that?
-
-**Horace:** Yes. Choose strike prices that are far enough above the current price that the probability of being called away is low. If Apple is at $155, a $180 call is about 16% above the current price. Most months, Apple will not move up 16% in 30-45 days. Statistically, an OTM covered call at that distance might only be exercised 10-15% of the time.
-
-**Stella:** So you win the premium 85-90% of the time?
-
-**Horace:** Roughly. And when you do get called away, you are selling at a price you chose as your target. It is not a loss. It is a successful exit at your planned price, plus the bonus of all the premiums you collected along the way.
-
-[VISUAL: Probability meter showing "85-90% chance: Keep shares + premium" vs "10-15% chance: Sell shares at target + premium"]
-
-**Stella:** Let us talk about the practical side. How do I actually choose the right strike price and expiration?
-
-**Horace:** For puts, start with the question: at what price would I be genuinely excited to buy this stock? Not just willing, but excited. That is your strike. For Apple at $155, maybe $140 feels like a great deal. Maybe $130 is your bargain price. The further below the current price, the less premium you will receive, but the less likely you are to be assigned and the happier you will be if you are.
-
-**Stella:** And for expiration?
-
-**Horace:** The sweet spot is 30 to 45 days. Here is why. Option time decay accelerates after 45 days. By selling 30-45 day options, you are capturing the period of fastest decay. This gives you the best ratio of premium collected relative to time capital is reserved.
-
-[VISUAL: Time decay curve with the 30-45 day zone highlighted and labeled "Sweet Spot: Maximum daily theta decay relative to total premium collected"]
-
-**Stella:** Makes sense. What about position sizing? How much of my portfolio should be in these strategies?
-
-**Horace:** Great question. Never allocate more than 20% of your options-eligible capital to a single stock. If you have $100,000, that means no more than $20,000 committed to any single put position. For a $140 AAPL put, that is just 1 contract at $14,000. Diversify across 4-6 stocks in different sectors.
-
-**Stella:** So if I have $100,000, I might have put positions on Apple, Microsoft, JPMorgan, Johnson and Johnson, and an ETF like SPY?
-
-**Horace:** Exactly. Five positions, each using $14,000-$20,000 in capital. You are diversified across technology, financials, healthcare, and the broad market. If one stock drops and you get assigned, it does not dominate your portfolio.
-
-[VISUAL: Portfolio pie chart showing 5 segments for different put positions, each roughly 15-20% of the total, with 20-25% kept as cash reserve]
-
-**Stella:** I want to come back to something you said. You called this approach a "conditional order." Can you explain that term?
-
-**Horace:** A conditional order is an order that only executes if certain conditions are met. A limit order is conditional: it only executes if the stock reaches your limit price. A put option is also conditional: you only buy the stock if it drops to the strike price. The option adds a condition that the limit order does not have: a time limit and a premium. But the core concept is the same. You are placing a conditional order with income.
-
-**Stella:** I like that framing. It makes options feel much less exotic. They are just orders with extra features.
-
-**Horace:** Exactly. And that is why I love this mental model. It takes something that feels complex and foreign, an options contract, and translates it into something every investor already understands, a limit order. The only difference is you are getting paid to use the option version.
-
-[VISUAL: Equation on screen: "Options = Limit Orders + Premium Income + Time Limit"]
-
-**Stella:** Now, is there a scenario where the regular limit order is actually better?
-
-**Horace:** Yes, a few. First, if you want to buy fewer than 100 shares. Options only come in 100-share increments. If you want 50 shares of a $300 stock, a limit order is your only choice. Second, if you need the order to stay open indefinitely. Options expire, so you need to actively manage the strategy. Third, if the stock has very low options volume and wide bid-ask spreads. In that case, the transaction costs of the option might eat up the premium benefit.
-
-**Stella:** That makes sense. So it is not always options over limit orders. It depends on the situation.
-
-**Horace:** Right. Options are a better tool for certain jobs, and limit orders are a better tool for others. The key is knowing which tool fits the situation.
-
-**Stella:** Let me ask about retirement accounts. Can I do this in my IRA?
-
-**Horace:** Absolutely. Cash-secured puts and covered calls are both allowed in most IRAs. And they are actually even more powerful in a Roth IRA because the premium income grows tax-free. You do not need margin for these strategies because they are fully cash-secured or covered by shares you already own.
-
-[VISUAL: "Options in Retirement Accounts" - Checkmarks next to: Cash-Secured Puts in IRA, Covered Calls in IRA, Cash-Secured Puts in Roth IRA, Covered Calls in Roth IRA. X marks next to: Naked Calls, Spreads (varies by broker), Margin-based strategies]
-
-**Stella:** One more question that I think a lot of viewers are wondering. How much time does this take? Do I need to watch the market all day?
-
-**Horace:** Not at all. Here is what a typical month looks like. On day one, you spend 15-30 minutes selecting your puts or calls and placing the orders. Then you largely forget about it. Maybe you check in once a week for 5 minutes to see where the stock is relative to your strike. On expiration week, you spend another 15 minutes deciding whether to let the option expire or close it early. Total time per month: about one hour.
-
-**Stella:** One hour per month for potentially 10-15% additional annual income. That seems like a great return on time invested.
-
-**Horace:** It is. And this is why I call it the most efficient strategy in investing. The premium per hour of work is extraordinary compared to almost any other investment activity.
-
-[VISUAL: Calculator: "1 hour/month x 12 months = 12 hours/year. $2,400 annual premium / 12 hours = $200/hour effective rate"]
-
-**Horace:** Let me give you a complete example to tie everything together. Imagine you have $50,000 to invest. You have identified five stocks you want to own. Here is your monthly process.
-
-[VISUAL: Spreadsheet showing 5 stocks with columns: Stock, Current Price, Target Buy Price (Strike), Put Premium, Monthly Income, Annualized Yield. Shows a total monthly income and annualized return.]
-
-**Horace:** You sell one put on each stock at your target buy prices. Total monthly premium might be $600-$800. Annualized, that is $7,200-$9,600, or 14-19% on your $50,000 capital. Each month, you either keep the premium and sell again, or you get assigned and start selling covered calls on your new shares.
-
-**Stella:** And then the cycle continues. Put selling to buy, then covered call selling while you hold. Then if you are called away, you start selling puts again.
-
-**Horace:** You just described the wheel strategy, which we will formalize in Week 28. But yes, that is the continuous income-generating cycle.
-
-**Stella:** Horace, I have to say, this mental model has completely changed how I think about options. They are not some exotic gambling tool. They are enhanced versions of orders I already use.
-
-**Horace:** That is exactly the mindset shift I was hoping for. Options are tools. Used wisely, they make your investing more efficient, more profitable, and more systematic. In the next two weeks, we will dive deep into each strategy: covered calls in Week 27 and cash-secured puts in Week 28.
-
-**Stella:** Before we wrap up, let me ask about some common mistakes people make with this approach.
-
-**Horace:** Great question. The number one mistake is selling puts on stocks you do not want to own. People see a high premium on a volatile stock and think, easy money. Then the stock drops 30% and they are stuck buying 100 shares of something they have no conviction in.
-
-**Stella:** So rule one: only sell puts on stocks you would happily buy at the strike price.
-
-**Horace:** If you would not buy 100 shares at the strike price with a regular order, do not sell a put at that strike. Period.
-
-**Stella:** Mistake number two?
-
-**Horace:** Concentrating too much capital in one position. If you have $100,000 and you sell 5 puts on the same stock, tying up $70,000, one bad drop and you are in serious trouble. Diversify across 4-6 stocks, never more than 20% in any single name.
-
-[VISUAL: Two portfolio circles. Left: "BAD - 70% in one stock" with one oversized red segment. Right: "GOOD - Diversified" with 5 roughly equal segments in different colors]
-
-**Stella:** And mistake three?
-
-**Horace:** Ignoring the earnings calendar. Earnings can cause 10-20% overnight gaps. If you have a put expiring during earnings week, you are exposed to that gap risk. Always check when earnings are before selling a put.
-
-**Stella:** These are all very practical warnings. Any final thoughts?
-
-**Horace:** Start small. Sell one put on one stock. Watch the process. See how it feels when the option decays. See what happens at expiration. Get comfortable with the mechanics before scaling up. There is no rush.
-
-**Stella:** Patience and discipline. The themes of this entire course.
-
-**Horace:** Exactly. Those two qualities are worth more than any strategy.
-
-**Stella:** Looking forward to next week when we dive deep into covered calls. Thanks, everyone, for watching.
-
-**Horace:** If this video helped you understand options differently, please like, subscribe, and share it with a friend who is intimidated by options. See you next week.
-
-[VISUAL: End screen with subscribe button, playlist link, and preview thumbnails for Week 27 and Week 28]
+### 2. What You Need to Know
+
+#### 2.1 The reference book — $50k account, 100 shares of XYZ at $100
+
+To keep every example anchored to one balance sheet, picture a
+**$50,000 account** holding **100 shares of XYZ**, a SPY-equivalent ETF
+trading at $100/share. That is $10,000 of stock and $40,000 of cash.
+This account is large enough to demonstrate both strategies side by
+side: there are 100 shares to write a covered call against, and there
+is plenty of cash to secure a put at almost any strike.
+
+For the lesson we will work with two specific strikes:
+
+- **$90 cash-secured put** (10% below spot). Collateral required:
+  $90 x 100 = **$9,000** out of the $40k cash sleeve.
+- **$110 covered call** (10% above spot). Collateral required:
+  the 100 shares already owned.
+
+XYZ has reasonable implied volatility, so the front-month options pay
+roughly $2.00 for the put and $1.50 for the call. Those numbers carry
+through every example below. See the payoff diagrams in
+[course/image/week26_csp_payoff.py](course/image/week26_csp_payoff.py)
+and [course/image/week26_cc_payoff.py](course/image/week26_cc_payoff.py),
+and the interactive walk-through in
+[course/interactive/week26_orders_lab.html](course/interactive/week26_orders_lab.html).
+
+#### 2.2 The cash-secured put as a limit buy order
+
+A cash-secured put (CSP) is an instruction you have already used in
+plain-vanilla form. The plain-vanilla version is a limit buy order:
+*"Buy 100 XYZ at $90 or below, good-til-cancelled."* While the order
+sits unfilled, the $9,000 you set aside earns the broker's cash sweep
+rate.
+
+The CSP version is the same instruction with a maturity date and a
+cheque:
+
+> *"I will buy 100 shares of XYZ at $90. Here is $9,000 in collateral.
+> Pay me $200 to leave that instruction open for 30 days."*
+
+Three outcomes, and only three:
+
+1. **XYZ closes above $90 at expiry.** The put expires worthless. You
+   keep the $200 premium and the $9,000 collateral is released.
+   Annualised yield-on-cash: $200 / $9,000 x (365/30) ~ **27.0%**. You
+   can write the next month's put.
+2. **XYZ closes between $88 and $90.** You are assigned: you buy 100
+   shares at $90. Effective cost basis = $90 - $2 = **$88/share**, which
+   is below where the stock actually printed. You bought at a discount
+   to your own limit price.
+3. **XYZ closes below $88.** Same assignment, same effective $88 cost
+   basis, but now sitting on a mark-to-market loss. The downside is
+   identical to having had a limit order fill at $90, *minus* the $2
+   cushion. Worst case (XYZ -> $0): -$8,800 vs. the limit-order's
+   -$9,000 — strictly better.
+
+The image script `week26_csp_payoff.py` shades this exact P&L profile
+from $60 to $140 with breakeven, max profit and tail loss labelled.
+
+The honest framing: a cash-secured put **never does worse than a limit
+order at the same strike** in P&L terms, in exchange for a single
+cost — the option has an expiry, the limit order doesn't. If your
+trigger price is a hard line you would still want to act on six months
+from now, the CSP just becomes a rolling discipline: write the new one
+the day the old one expires.
+
+#### 2.3 The covered call as a limit sell order
+
+The covered call (CC) is the exit-side mirror image. Plain-vanilla
+version: limit sell 100 XYZ at $110, GTC. Option version:
+
+> *"I will sell my 100 shares of XYZ at $110. The shares themselves are
+> the collateral. Pay me $150 to leave that instruction open for 30 days."*
+
+The three outcomes:
+
+1. **XYZ closes below $110.** Call expires worthless. You keep both the
+   100 shares and the $150 premium. The $150 is income on top of
+   dividends; the shares are unmoved. Yield-on-position: $150 / $10,000
+   x (365/30) ~ **18.3%** annualised on the share value.
+2. **XYZ closes at $110.** You are called away (your shares are sold)
+   at $110. Total proceeds: $110 + $1.50 premium = **$111.50/share**, or
+   $11,150 on the position. That is $1,150 above your $10,000 cost.
+3. **XYZ closes above $110.** Same assignment, same $111.50 proceeds.
+   Anything XYZ does above $111.50 you do not capture — that is the
+   trade-off you accept for getting paid. The image
+   `week26_cc_payoff.py` shows the payoff capping at +$1,150 for any
+   stock price >= $110.
+
+The downside is unchanged from owning the stock outright, *minus* the
+$1.50 cushion: at XYZ -> $0, the position is worth -$10,000 + $150 =
+**-$9,850**, vs. -$10,000 for a no-call holder. The covered call is
+not a hedge — the premium is not nearly large enough — but it is
+cushion, income, and a pre-committed exit, all in the same ticket.
+
+#### 2.4 Walking the mechanics in slow motion
+
+Day 0 of the lesson month:
+
+1. **Account snapshot.** $50,000: 100 XYZ at $100 (= $10k stock) + $40k
+   cash. XYZ front-month $90 put bid $2.00, $110 call bid $1.50, both
+   30 days to expiry.
+2. **Sell-to-open the $90 put.** Click "sell to open"; broker reserves
+   $9,000 of cash as collateral; $200 lands in the account immediately.
+   Cash sleeve is now $40k - $9k reserved + $0.2k premium = $31.2k free
+   + $9k locked + $0.2k income.
+3. **Sell-to-open the $110 call.** Broker freezes the 100 shares as
+   collateral; $150 lands. The 100 shares cannot be sold while the
+   call is open (you would be naked-short the call), but they can still
+   collect dividends and gain/lose in price. Income to date: **$350**
+   on a $50k book in one click — that's 70 bps on net liq, or roughly
+   8.4% annualised, and the "trades" are sitting at the same prices you
+   would already have wanted to act on.
+4. **Wait 30 days.** During the wait you check positions weekly, not
+   daily. At $98 you do nothing. At $92 you do nothing. At $115 — the
+   call is in the money; the share is going to be called away on
+   expiry day, exactly as instructed. At $86 — the put is in the money;
+   you will be assigned the 100 shares at $90, exactly as instructed.
+5. **Expiration day.** Brokers settle automatically. Call assignment:
+   shares delivered, $11,000 lands. Put assignment: $9,000 leaves, 100
+   shares of XYZ arrive. Either, both, or neither happens, depending
+   on where XYZ closed.
+
+There is no continuous monitoring, no chart-staring, no stop-losses to
+manage. The orders execute themselves. The only active step is writing
+the next pair of orders the following month.
+
+#### 2.5 Yield-on-cash: what "getting paid to wait" actually pays
+
+The honest income comparison is yield on the **specific capital each
+trade ties up**, not yield on the whole account.
+
+For the $90 CSP at $2 over 30 days:
+
+- Capital tied up: $9,000 collateral.
+- Premium: $200.
+- Period yield: 200 / 9000 = **2.22%** in 30 days.
+- Annualised (simple, 365 days): 2.22% x (365/30) ~ **27.0%**.
+
+That headline yield is what option-selling literature loves to quote.
+It is also misleading on two counts:
+
+1. **The 27% is paid only when the option expires worthless.** When you
+   are assigned, the "yield" is no longer on cash — it has converted
+   into a stock position whose return depends on the share, not the
+   premium. A more honest figure is **expected** annualised yield: the
+   premium yield x probability of expiring worthless, plus the
+   expected return on the assigned stock x probability of assignment.
+2. **The 27% does not survive the assignment month.** If you are
+   assigned at $90 in a month when XYZ printed $80, the position now
+   has a $1,000 mark-to-market loss against the $200 income — the
+   month was net negative, not 27% positive.
+
+For the $110 CC at $1.50 over 30 days:
+
+- Capital tied up: $10,000 of stock value.
+- Premium: $150.
+- Period yield: 150 / 10000 = **1.50%** in 30 days.
+- Annualised: 1.50% x (365/30) ~ **18.3%**.
+
+The right way to read these numbers: they are an **upper bound** on
+the income contribution from the option overlay — what you collect
+in the months where nothing happens — and they only describe the full
+return when nothing happens. The covered call does not add anything in
+the assignment scenario beyond the premium itself; the CSP turns
+straight into the underlying share return.
+
+#### 2.6 Where this fits in the SOUL #14 barbell
+
+Horace's portfolio is a barbell: safety on one end (cash, T-bills,
+gold, deep-ITM long-dated calls), structural-alpha speculation on the
+other. The middle — the diversified market-cap-weighted "core" — has
+been removed. But that does not mean nothing sits between the two
+ends. The high-quality long-only names you are *willing to own and to
+sell at known prices* live in an L2 income sleeve, and the L2 income
+sleeve is run almost entirely on covered calls and cash-secured puts.
+
+The CSP / CC pair is what gives the L2 sleeve its yield. Without that
+overlay, the L2 sleeve is just a slow compounder paying dividends in
+the 1-2% range. With the overlay it pays the dividend *plus* 8-15%
+in option premium when nothing happens, and reverts to passive long
+exposure exactly at the prices the holder pre-committed to act on
+when something does.
+
+This is why we treat this lesson as foundational rather than advanced.
+The barbell shape requires this engine to make economic sense; without
+it, the safety end's drag would dominate the asymmetric end's payoff.
+
+#### 2.7 Where this fits in the SOUL #15 tax stack
+
+The covered call has a second job that is at least as valuable as the
+income, and is rarely advertised: it lets you **reduce effective
+exposure on a winner without selling**. A 100-share position with a
+3-year embedded gain has a covered call written against it — the
+share is not sold, no taxable event is realised, but the delta of the
+package is now ~0.3 instead of 1.0. You are short volatility while
+the lot continues to age toward long-term-capital-gains treatment (or,
+in a tax-advantaged account, while it continues to compound tax-free).
+
+The cash-secured put plays the entry-side equivalent: it lets you
+build a position at a chosen price *across multiple expiries*. Each
+expiry that closes the option worthless banks short-term income (taxed
+at ordinary rates, ideally inside an IRA) and lowers the effective
+cost basis of the eventual fill. The dollar of premium banked today
+is more valuable than the dollar of capital gain crystallised in five
+years only if you bank the income inside a sheltered account — which
+is also why this strategy and the IRA wrapper were practically made
+for each other.
+
+In a Roth IRA, none of the premium is taxed, and the strategy
+compounds tax-free. In a traditional IRA, the same income is
+tax-deferred. In a taxable account, the option-selling income lands
+as short-term capital gains at ordinary income rates, and you have to
+pencil that drag into the headline yield before deciding whether the
+overlay is worth it.
 
 ---
 
-*Animation Reference: animation/week26_put_as_limit.py - This animation shows a split-screen comparison between a traditional limit buy order and a short put strategy over a 6-month period. The top panel shows a limit order with idle cash. The bottom panel shows the short put approach with premium coins accumulating each month. Both panels share a common stock price chart that moves over time. When the stock finally drops to the target price, both approaches result in buying, but the put seller's effective cost is visibly lower due to accumulated premiums. A running tally shows total premiums collected and the effective purchase price advantage.*
+### 3. Common Misconceptions
+
+1. **"Selling a put is bearish, like shorting the stock."** It is the
+   opposite. A short stock makes money when the share falls and loses
+   on a rally; a short put makes money when the share is *flat or up*
+   and loses on a sharp fall, with the floor pegged at the strike
+   minus the premium. Short put = neutral-to-bullish, not bearish.
+
+2. **"The premium on a put is free money — sell as far OTM as you
+   like."** Far-OTM puts pay almost nothing relative to the capital
+   they tie up. The premium / collateral ratio collapses as you move
+   the strike further from spot, and the only time those tail puts
+   matter is when they get hit hard. Do not chase the lottery-ticket
+   end of the chain.
+
+3. **"A covered call hedges the downside."** It does not. $1.50 of
+   premium is a $1.50 cushion — useful, not protective. If XYZ drops
+   from $100 to $80, the covered-call writer is down $1,850 instead
+   of $2,000. That is barely a difference. If you want a hedge, buy a
+   put (Week 29); if you want income with a pre-committed exit, write
+   a call.
+
+4. **"You should never get assigned."** Assignment is *the limit order
+   filling*. If you genuinely wanted to buy at $90 or sell at $110, the
+   assignment is the trade you came for — not a failure mode. Treating
+   assignment as something to avoid at all costs leads to rolling
+   options forever to dodge the very fill you set up to capture.
+
+5. **"Annualised yield = real yield."** A 27% annualised number on a
+   30-day put is not 27% returned per year. It is what you receive
+   *in months where nothing happens*, multiplied as if those months
+   continued forever. The realised yield over a year always includes
+   the months where you *were* assigned, and those net out to a
+   stock-return-plus-cushion, not a 27% premium.
+
+6. **"You need to watch the screen all day."** The opposite is true.
+   Every step that requires a decision is a separate ticket: sell-to-
+   open, then optionally close-early, then expiration. Most CSP / CC
+   writers spend 15-30 minutes per month and let the broker settle the
+   rest. Continuous monitoring is *bad practice* here — it tempts you
+   to manage a working trade out of the win.
+
+7. **"Selling options is unlimited risk."** Naked options are. Cash-
+   secured puts and covered calls are not — both are bounded. The CSP's
+   maximum loss is `(strike x 100) - premium`; the CC's maximum loss
+   is the underlying stock going to zero, *minus* the premium received.
+   Both numbers are fully knowable when you place the trade.
+
+8. **"Options income makes long-term investing irrelevant."** The
+   premium yield is real but it is a *complement*, not a substitute.
+   The bulk of long-term wealth still comes from the share's price
+   appreciation and dividends. Options overlay turns a 7% expected
+   return into 9-12%; it does not turn it into 30%.
+
+9. **"This is just selling insurance — it always loses in the end."**
+   This is the classic insurance-company critique, and it would be
+   right if you were writing tail risk on an unhedged book. CSP and
+   CC are not naked tail-writes — both are fully collateralised, and
+   the CSP collateral is at a strike *you chose* on a stock *you want
+   to own*. The asymmetry is on your side.
+
+10. **"You can do this on any stock."** No. You can do this on stocks
+    with (a) liquid options chains (tight bid/ask, decent open
+    interest), (b) prices and quality you would actually want to own
+    in your underwear at 3am, and (c) realistic IV (not so low that
+    the premium isn't worth the time, not so high that the assignment
+    risk dominates). For most retail books that universe is twenty
+    names, mostly large-cap US ETFs and household-name single stocks.
+
+---
+
+### 4. Q&A Section
+
+**Q1: What's the difference between a "cash-secured" put and a "naked" put?**
+
+A: Collateral. A cash-secured put has the full strike-times-100 in
+cash set aside in the account; if assigned, the cash buys the share
+without margin. A naked put has only the broker's margin requirement
+posted, which is far less than the full collateral. Cash-secured puts
+are allowed in IRAs; naked puts require a margin account and a higher
+options approval level. For retail investors learning this strategy,
+always cash-secured.
+
+**Q2: Why 30 days? Why not 7 or 90?**
+
+A: Theta — option time decay — is fastest in the 21-45 day window. A
+7-day option pays much less premium for the capital tied up; a 90-day
+option pays more dollars but has worse daily decay and locks the
+collateral up longer. The 30-45 day band has been the empirical sweet
+spot for retail premium-sellers for decades, and there is no strong
+reason for it to change.
+
+**Q3: What if my CSP gets assigned and I don't want the stock anymore?**
+
+A: That is a portfolio-management question, not an options question.
+You sell the assigned shares immediately, take the loss (or gain) net
+of premium, and stop writing puts on that name. The discipline is set
+*before* selling the put: only write CSPs on stocks you would actively
+welcome owning at the strike. If your conviction has changed, close
+the put before expiry instead of being assigned.
+
+**Q4: Can I close the option early instead of waiting for expiry?**
+
+A: Yes, you "buy to close" at any time. A common heuristic: if the
+option has lost 50-80% of its value with weeks still to go, buy it
+back, lock in the realised gain, and write the next one. The opposite
+case — option price has doubled against you — is the moment to think
+hard about whether you still want assignment at the strike. If not,
+buy it back at a loss and reset.
+
+**Q5: Why does the lesson keep saying "100 shares" instead of any
+quantity?**
+
+A: One US equity options contract represents 100 shares. That is the
+contract spec — there is no smaller unit. If you want 50-share
+exposure, options are not the right tool; use a limit order. If you
+want 250-share exposure, you sell two contracts and use a 50-share
+limit order for the residual.
+
+**Q6: Does this strategy work better in a bull market or a bear market?**
+
+A: Both, differently. In a slow-grind bull market, neither side is
+assigned often: the puts expire worthless (you keep premium), the
+calls are sometimes called away at your target (you sell at your
+target plus premium). In a bear market the puts get assigned at
+strikes that look expensive in hindsight, but the assignment was
+exactly the trade you set up; the calls expire worthless and pay
+income to cushion the drawdown. Where it works *poorly* is a vertical
+melt-up — your covered calls cap you below the rally — or a sharp
+crash — your CSPs assign at strikes far above market.
+
+**Q7: Why "$50k account with 100 shares of XYZ" — is that a typo?**
+
+A: Anchored deliberately. One options contract controls 100 shares; you
+cannot write a covered call against fewer. The "$50k account" framing
+is the realistic retail balance sheet — $50k can comfortably support
+one covered call and one cash-secured put on a $100 stock with $30k of
+free cash to spare. Smaller accounts typically write only the call OR
+only the put, not both at once.
+
+**Q8: What about taxes — short-term capital gains every month?**
+
+A: Yes, every premium banked in a taxable account is short-term
+capital gain at ordinary income rates, every month. This is why
+SOUL #15 puts the strategy mostly in tax-advantaged accounts (IRA,
+Roth IRA), where the premium income compounds untaxed. In a taxable
+account the after-tax yield is 30-40% lower than the headline.
+
+**Q9: My broker rejected my "sell-to-open put" order. Why?**
+
+A: Almost certainly an options approval level. Brokers tier options
+permissions: Level 1 is covered calls only; Level 2 adds long puts /
+calls; Level 3 adds cash-secured puts and credit spreads; Level 4 adds
+naked options. You need at least Level 2 or 3 for cash-secured puts.
+Apply for the level once, mention this strategy, and approval is
+typically routine for a retail account with experience.
+
+**Q10: Is the wheel — alternating CSP and CC — the same thing?**
+
+A: Yes, the wheel is exactly the strategy in this lesson, run on a
+loop: CSP until assigned, then CC on the assigned shares until called
+away, then CSP again. We will deep-dive the wheel in Week 28 once both
+sides are individually well understood (CC in Week 27, CSP in Week 28).
+This week is the conceptual unlock; the next two weeks are the
+operating manuals.
+
+**Q11: Implied volatility just spiked — should I sell more options?**
+
+A: Carefully. High IV means premiums are larger, which is the obvious
+attraction. But high IV also means the market is pricing in a real
+move, and the assignment probability is correspondingly higher. A
+useful framing: high IV is the market paying you a fair price for the
+extra risk you're underwriting, not a free lunch. Size accordingly.
+
+**Q12: Do dividends complicate covered calls?**
+
+A: They can. American-style call options can be exercised early —
+particularly the day before an ex-dividend date if the dividend is
+larger than the call's remaining time value. The shares are then
+called away early, and the dividend goes to the new owner. To avoid
+this, either roll the call forward before ex-div, or only write
+covered calls on stocks where the time-value cushion comfortably
+exceeds the upcoming dividend. Most ETFs (SPY etc.) pay quarterly
+dividends well below typical option time value, so this is rarely an
+issue.
+
+---
+
+## Part 2: YouTube Script
+
+---
+
+**VIDEO TITLE:** Options as Limit Orders — Getting Paid to Leave Instructions on the Table (Week 26)
+**RUNTIME TARGET:** ~18 minutes
+**HOSTS:** Horace, Stella
+
+---
+
+[INTRO — 0:00]
+
+[VISUAL: Title card. "Week 26 - Options as Limit Orders - Getting paid to wait." Soft-coloured background with a $90 put and a $110 call ticket overlay.]
+
+**Stella:** Welcome back. We are in week 26, the second week of the
+options arc. Last week was vocabulary — calls, puts, strikes, time
+decay. This week we unlock the mental model that turns vocabulary into
+something you can actually run on a real account.
+
+**Horace:** And the model is one sentence. A sold option is a limit
+order that pays you to wait. A cash-secured put is a limit *buy*
+order with a cheque attached. A covered call is a limit *sell* order
+with a cheque attached. Same trigger price, same buy-low / sell-high
+discipline, plus income for the time the trigger sits unfilled.
+
+**Stella:** That is much less scary than "selling options."
+
+**Horace:** It is the same thing, just stated honestly. Most retail
+investors already know how to place a limit order. We're going to
+show that the option version is a strict upgrade in P&L terms — never
+worse, sometimes better — at one specific cost we'll be very clear
+about: the option has an expiry, the limit order doesn't.
+
+---
+
+[THE REFERENCE BOOK — 1:30]
+
+**Stella:** Set the stage with the example we'll use all the way
+through.
+
+**Horace:** Picture a $50,000 account. We're going to keep the math
+clean: 100 shares of XYZ — think of it as a SPY-equivalent ETF —
+trading at $100 a share. That's $10,000 of stock and $40,000 of cash.
+Big enough to write one covered call and one cash-secured put without
+breaking a sweat.
+
+**Stella:** And the two strikes we're picking?
+
+**Horace:** Ten percent above and ten percent below. We're willing to
+buy more XYZ at $90, and we're willing to sell our 100 shares at $110.
+Those are not random numbers — they are the prices we already set as
+"the prices I would happily transact at" before the lesson started.
+
+**Stella:** Premiums?
+
+**Horace:** Front-month, 30 days to expiry. The $90 put pays $2.00 a
+share, so $200 a contract. The $110 call pays $1.50, so $150. Two
+clicks, $350 in income on a $50k book, against trigger prices we
+already wanted to act on.
+
+[VISUAL: account balance sheet appearing. Stock $10k, Cash $40k. Two
+tickets sliding in: "Sell $90 put -> +$200" and "Sell $110 call ->
++$150". Total income ticker: $350.]
+
+---
+
+[THE CSP WALKTHROUGH — 3:30]
+
+**Stella:** Take the cash-secured put first. What just happened
+mechanically when I clicked sell-to-open?
+
+**Horace:** Three things. One: the broker reserved $9,000 of your
+$40,000 cash sleeve. That's the strike, $90, times 100 shares. Two:
+$200 of premium landed in your account, immediately, today. Three:
+you now owe a contract — if XYZ closes below $90 at expiry, you must
+buy 100 shares at $90.
+
+**Stella:** And in plain English, that's...
+
+**Horace:** ...the same instruction you would already give your
+broker for free. "Buy 100 XYZ at $90 or below." The limit order does
+this for $0. The CSP does it for +$200.
+
+[VISUAL: image/week26_csp_payoff.png — the shaded payoff diagram from
+$60 to $140, max profit $200 above $90, breakeven at $88, max loss
+$8800 at $0.]
+
+**Stella:** Walk the three scenarios in slow motion.
+
+**Horace:** Scenario one, by far the most common: XYZ closes at $96.
+The put expires worthless, the $9,000 collateral releases, you keep
+$200. Annualised yield on the cash that was actually tied up: $200 on
+$9,000 over 30 days is 2.22%, times twelve, call it 27%. That's the
+headline number — and we'll be honest that it only describes months
+where nothing happens.
+
+**Stella:** Scenario two?
+
+**Horace:** XYZ closes at exactly $89. You're assigned: you buy 100
+shares at $90, $9,000 leaves the account, 100 XYZ arrive. But your
+*effective* cost basis is $90 minus the $2 premium — so $88. You just
+bought XYZ for less than where it actually printed. The CSP gave you
+a discount versus the limit order at the same strike.
+
+**Stella:** Scenario three — the bad one?
+
+**Horace:** XYZ closes at $80. Same assignment, same effective $88
+cost basis. Now you are sitting on a mark-to-market loss of $800. But
+look: the limit-order buyer at $90 is in *exactly the same situation*,
+just $200 worse. The CSP never does worse than the limit order. The
+worst case — XYZ to $0 — is minus $8,800 instead of minus $9,000.
+
+[VISUAL: side-by-side comparison. "Limit buy at $90 / fill price $90 /
+worst case -$9,000" vs. "CSP $90 strike / effective $88 / worst case
+-$8,800." A green arrow points from limit order to CSP labelled "+$200
+in every scenario."]
+
+---
+
+[THE CC WALKTHROUGH — 7:30]
+
+**Stella:** Now flip it. The covered call.
+
+**Horace:** Same conceptual move on the exit side. You own 100 shares
+of XYZ at $100. You'd be happy to sell at $110. The plain-vanilla
+version is a limit sell order — costs nothing, pays nothing. The
+option version says: I'll sell at $110, the shares are the collateral,
+pay me $1.50 a share to hold that instruction for 30 days.
+
+**Stella:** And the three scenarios?
+
+**Horace:** XYZ at $105. Call expires worthless. You keep the 100
+shares, you keep the $150. That $150 on a $10,000 stock position is
+1.5% in 30 days, or 18% annualised — assuming nothing happens, which
+again we'll caveat in a minute.
+
+[VISUAL: image/week26_cc_payoff.png — payoff diagram capping at $1,150
+above strike, breakeven at $98.50, downside slope down to -$9,850 at
+$0.]
+
+**Stella:** XYZ at $112?
+
+**Horace:** Called away. Shares delivered at $110, you keep the $150
+premium. Total proceeds $111.50 a share, $11,150 on the position.
+That's a $1,150 gain on a $10,000 stock — 11.5% — which is the
+maximum the covered-call package can ever earn on this trade.
+
+**Stella:** And if XYZ goes to $130?
+
+**Horace:** Same $11,150. The $20 above $110 belongs to whoever bought
+your call. That is the cost of running this strategy: you cap your
+upside at the strike-plus-premium. The trade-off is, you collected
+income for capping it.
+
+**Stella:** And the downside?
+
+**Horace:** Stock to $80, position is worth $8,000 plus $150 premium,
+so net $8,150 against your $10,000 cost — minus $1,850. Without the
+call you'd have been minus $2,000. The covered call is *cushion*, not
+hedge. $150 doesn't save you in a 20% drawdown — but it is real, and
+it accumulates if you write one every month.
+
+[VISUAL: cushion vs. hedge graphic. "Cushion: $150 in the worst-case
+month. Hedge: a long put — Week 29." Arrows differentiate the two.]
+
+---
+
+[THE DOUBLE-WRITE — 11:00]
+
+**Stella:** OK, walk the *combined* trade. Both options open at once.
+
+**Horace:** Day zero, same $50k account. Two clicks. Sell-to-open the
+$90 put — $9,000 cash reserved, $200 in. Sell-to-open the $110 call
+— 100 shares frozen as collateral, $150 in. Total income: $350. The
+account balance hasn't changed in *exposure* — you still own 100 XYZ,
+you still have $40k cash — but you've handed over two pre-commitments
+the market will execute for you for free.
+
+**Stella:** And then what does the next 30 days look like?
+
+**Horace:** You check positions weekly, not daily. XYZ at $98 — do
+nothing. XYZ at $103 — do nothing. XYZ at $115 — the call's in the
+money, you'll be called away on expiry; don't panic, that's the trade
+you set up. XYZ at $86 — the put's in the money, you'll be assigned;
+again, that's the trade you set up.
+
+**Stella:** And on expiration day?
+
+**Horace:** Brokers settle automatically overnight. Either, both, or
+neither contract assigns. You wake up with whatever combination of
+cash and stock the price action wrote out, plus the $350 you booked
+on day zero. Then you write the next month's pair.
+
+[VISUAL: timeline graphic. Day 0: two tickets sold, $350 in. Days 1-29:
+"check weekly, do nothing." Day 30: settlement — four panels showing
+each combination of (assigned/not) x (called/not).]
+
+---
+
+[THE INTERACTIVE — 13:00]
+
+**Stella:** Show the lab.
+
+**Horace:** This is `week26_orders_lab.html` in the interactive folder.
+Pick CSP or CC at the top. Move the spot price, the strike, the
+premium and the days-to-expiry sliders. The payoff diagram redraws,
+breakeven and max profit recalculate, and the "annualised yield-on-
+cash" number updates in real time.
+
+[VISUAL: interactive/week26_orders_lab.html on screen. Toggle from CSP
+to CC; slide strike from $90 down to $85, watch the premium-implied-
+yield drop. Slide days-to-expiry from 30 down to 7, watch annualised
+yield rise but realised dollar income fall.]
+
+**Stella:** What's the lesson from playing with the sliders?
+
+**Horace:** Two things. One: yield-on-cash *rises* as you shorten the
+expiry — that's the fast-theta corner of the chain — but the dollar
+income *falls*, so you trade more often for less per ticket. Two:
+moving the strike further out of the money collapses the premium
+faster than it lowers the assignment risk. There's a sweet spot
+around 30-45 days, ~5-10% out of the money, that has been the retail
+premium-seller's home base for decades. The lab lets you see why with
+your own hands.
+
+---
+
+[BARBELL & TAX FRAME — 15:30]
+
+**Stella:** Where does this fit in the SOUL philosophy?
+
+**Horace:** Two places. First, the barbell — Soul #14. The barbell
+holds high-conviction safety on one end and asymmetric speculation on
+the other; the L2 sleeve in between is the high-quality long-only
+names you're willing to own and to sell at known prices. That sleeve
+is run almost entirely on covered calls and cash-secured puts. The
+CSP/CC pair is the income engine of the L2 tranche.
+
+**Stella:** And the second place?
+
+**Horace:** Tax — Soul #15. The largest unspoken fee in long-only
+investing is capital gains. Covered calls let you reduce *exposure*
+on a winner without selling the *share*; the tax lot keeps aging,
+the delta drops. Cash-secured puts let you build a position over
+multiple expiries — each expiration that closes worthless banks income
+that lowers the effective entry. Pair both with a Roth or traditional
+IRA wrapper and the income compounds without the tax drag. In a
+taxable account you have to pencil in the ordinary-income hit before
+the headline yield is real.
+
+[VISUAL: barbell illustration with "Safety," "L2 income (CC + CSP),"
+"Asymmetric edge." Arrow points at L2: "this lesson lives here."]
+
+---
+
+[OUTRO — 17:00]
+
+**Stella:** What's the one-line takeaway?
+
+**Horace:** A sold option is a limit order with a cheque. The cheque
+is the income. The price is the expiry. The discipline is — only
+write puts on names you actually want to own at the strike, and only
+write calls at exit prices you'd already pre-commit to. If you're
+willing to act, get paid for the willingness.
+
+**Stella:** Next week?
+
+**Horace:** Week 27, covered calls deep dive. Strike selection, when
+to roll, what to do when the call goes deep ITM, and how to size CCs
+across a portfolio of L2 names. Then week 28 takes the same scalpel
+to cash-secured puts, and week 29 closes the arc with protective
+puts and collars.
+
+**Stella:** See you next week.
+
+[VISUAL: closing card. "Next: Week 27 — Covered Calls Deep Dive."]
+
+[END — 17:55]

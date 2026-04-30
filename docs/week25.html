@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Week 25: Introduction to Options - Chanma Investment Tutorial</title>
+    <title>Week 25: Introduction to options — calls, puts, premium, intrinsic and time value - Chanma Investment Tutorial</title>
     <script>(function(){try{var t=localStorage.getItem('preferred-theme');if(!t){t=window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();</script>
     <style>
 :root, html[data-theme="light"] {
@@ -1247,704 +1247,640 @@ html[data-theme="dark"] .nav-btn:hover .btn-label { color: rgba(15,23,36,0.7); }
     <main class="main-wrap">
         <div class="content-area">
             <div id="content-en" class="lang-content active">
-                <h1>Week 25: Introduction to Options</h1>
-<h2>Reading Section</h2>
-<h3>a) Why This Is Important</h3>
+                <h1>Week 25: Introduction to options — calls, puts, premium, intrinsic and time value</h1>
+<hr>
+<h3>1. Why This Is Important</h3>
 <p>
-Options are one of the most powerful and versatile financial instruments available to individual investors. Yet they are also one of the most misunderstood. Many investors avoid options entirely because they seem complex or risky. Others dive in without proper understanding and suffer painful losses. Neither approach is optimal.
+For twelve weeks the course was about owning things. For the next six
+weeks it is about owning <em>contracts on</em> things. An option is not a
+share, not a bond, not an index — it is a piece of paper that says
+<em>"if certain conditions hold at a certain date, money changes hands."</em>
+That is a stranger object than it sounds, and the only way to get
+comfortable with the strategies in weeks 26-30 is to spend a week
+inside the contract itself.
 </p>
 <p>
-Understanding options is important for several reasons:
+You need this lesson for four concrete reasons.
 </p>
 <p>
-<strong>Risk Management (Hedging):</strong> Options were originally created as insurance contracts. Just as you buy home insurance to protect against catastrophic loss, you can buy options to protect your investment portfolio. A long-term investor holding $500,000 in stocks can purchase protective puts for a fraction of that amount, ensuring they will never lose more than a predetermined percentage even in a market crash. Without options knowledge, you are essentially driving without insurance.
+<strong>(1) The vocabulary is dense, and almost every word is a small trap.</strong>
+"Premium" means three different things depending on context. "ITM" is
+not the same idea for a call as for a put. "Exercise" and
+"assignment" are the same event seen from two sides of the trade. Most
+retail blow-ups in options come from people who learned the strategy
+before they learned the vocabulary, and end up holding a position
+whose mechanics they cannot describe in one sentence. Spend the week
+on the words; the strategies are easy after.
 </p>
 <p>
-<strong>Income Generation:</strong> Options can generate consistent income on stocks you already own or stocks you would like to own. Covered calls and cash-secured puts (which we will explore in Weeks 27 and 28) can produce yields of 8-15% annually, often 2-3 times what dividends alone would provide. In a flat or mildly bullish market, this income can make a significant difference in your total returns.
+**(2) Premium decomposition is the engine behind every option income
+strategy.<em>* Every option price has two pieces — </em>intrinsic value*
+(real, frozen, immune to time) and <em>time value</em> (a wasting asset). The
+covered calls and cash-secured puts of weeks 26-28 are *time-value
+harvesting* trades. If you cannot look at a quote and tell those two
+numbers apart, you cannot tell whether a strategy is paying you to
+take risk or taking risk for free. The decomposition image in this
+lesson is the single most important picture in the second half of the
+course.
 </p>
 <p>
-<strong>Capital Efficiency:</strong> Options allow you to control a large amount of stock with a relatively small capital outlay. One options contract controls 100 shares. This leverage can be used responsibly to enhance returns or irresponsibly to blow up an account. Understanding the mechanics helps you stay on the right side of that line.
+**(3) The four basic positions are a coordinate system, not four
+trades.** Long call, short call, long put, short put. Every option
+strategy you will meet for the rest of your life is a combination of
+those four — a vertical spread is two of them, an iron condor is four,
+a covered call is one of them plus 100 shares of stock. Internalise
+the four payoff shapes once and the rest of options is bookkeeping.
 </p>
 <p>
-<strong>Market Insight:</strong> Even if you never trade a single option, understanding how the options market works gives you valuable insight into market sentiment. The VIX (Volatility Index), implied volatility, put/call ratios, and unusual options activity all provide signals about what large, sophisticated investors expect the market to do. This information is hiding in plain sight for those who understand how to read it.
-</p>
-<p>
-<strong>Better Stock Investing:</strong> Options knowledge makes you a better stock investor. When you understand concepts like time decay and implied volatility, you gain a deeper appreciation for the role that time and uncertainty play in all investments, not just options. You begin to think probabilistically, which is how the best investors in the world approach markets.
-</p>
-<p>
-In this course, we focus on four specific, conservative options strategies that complement a long-term investment approach. We are not teaching you to be a day trader or a speculative options gambler. We are teaching you to use options as tools that enhance your existing investment strategy.
+<strong>(4) This is foundation for SOUL #14, #15, and #6.</strong> The barbell
+(#14) holds long-dated calls on the safety end and uses short
+near-dated puts/calls on the income middle — both are option
+positions. The tax stack (#15) reaches for options because they let
+you reshape exposure without realising a sale. The vol-tail-wags-dog
+mechanic (#6) only makes sense once you understand that dealers
+<em>hedge</em> the options they sell, and that hedging flow moves the spot.
+Without this week, three of Horace's sixteen items remain abstract.
 </p>
 <hr>
-<h3>b) What You Need to Know</h3>
-<h4>What Is an Option?</h4>
+<h3>2. What You Need to Know</h3>
+<h4>2.1 An option is a contract — right on one side, obligation on the other</h4>
 <p>
-An option is a contract that gives the buyer the <strong>right, but not the obligation</strong>, to buy or sell a specific stock at a specific price on or before a specific date. This is the single most important sentence in options education. Read it again.
+An option is a contract between two parties:
 </p>
+<ul><li>A <strong>buyer</strong> (also "long" or "holder") who pays a <em>premium</em> in cash</li>
 <p>
-The key word is <strong>right</strong>. The buyer of an option has a choice. They can exercise the option if it benefits them, or they can let it expire worthless if it does not. The seller (also called the writer) of an option has an <strong>obligation</strong>. If the buyer chooses to exercise, the seller must fulfill the contract.
+</ul>  up front, and in return receives a <em>right</em>.
 </p>
+<ul><li>A <strong>seller</strong> (also "short" or "writer") who receives that premium,</li>
 <p>
-This asymmetry between rights and obligations is what makes options unique and is the foundation of everything that follows.
+</ul>  and in return takes on an <em>obligation</em>.
 </p>
-<h4>The Two Types: Calls and Puts</h4>
 <p>
-There are only two types of options:
+The right and the obligation are exact mirrors. If the buyer chooses
+to use the right, the seller is forced to deliver. The whole edifice
+of options pricing is just the question *"how much should the buyer
+pay the seller for taking on that obligation?"*
 </p>
 <p>
-<strong>Call Option:</strong> Gives the buyer the right to <strong>buy</strong> a stock at a specific price.
+There are exactly two flavours.
 </p>
-<ul><li>You buy a call when you think the stock will go UP.</li>
-<li>Think of it as a "reservation to buy."</li>
 <p>
-</ul>
-<strong>Put Option:</strong> Gives the buyer the right to <strong>sell</strong> a stock at a specific price.
+A <strong>call</strong> is the right to <em>buy</em> the underlying at a fixed price.
+You buy a call when you want upside exposure to the stock without
+putting up the full share price.
 </p>
-<ul><li>You buy a put when you think the stock will go DOWN (or want to protect against it).</li>
-<li>Think of it as an "insurance policy."</li>
 <p>
-</ul>
-Every option contract has four essential components:
+A <strong>put</strong> is the right to <em>sell</em> the underlying at a fixed price.
+You buy a put when you want a floor under the stock — protection,
+or a directional bet that it will fall.
 </p>
-<pre><code class="language-">+----------------------------------------------------------+
-<table><thead><tr><th>OPTION CONTRACT</th></tr></thead><tbody><tr><td>1. UNDERLYING ASSET:  The stock (e.g., AAPL, MSFT)</td></tr><tr><td>2. STRIKE PRICE:      The agreed upon price</td></tr><tr><td>3. EXPIRATION DATE:   When the contract expires</td></tr><tr><td>4. TYPE:              Call or Put</td></tr><tr></tr><tr><td>Example: "AAPL Jan 17 2026 $200 Call"</td></tr><tr><td>= Right to BUY 100 shares of AAPL at $200/share</td></tr><tr><td>on or before January 17, 2026</td></tr></tbody></table>+----------------------------------------------------------+
 <p>
-</code></pre>
+A complete US-listed equity option is identified by five fields:
 </p>
-<h4>Contract Size</h4>
+<li><strong>Underlying</strong> — the ticker (<code>SPY</code>, <code>AAPL</code>).</li>
+<li><strong>Expiration date</strong> — the last day the right can be exercised.</li>
+<li><strong>Strike price (K)</strong> — the fixed price at which the buy/sell</li>
 <p>
-One options contract controls <strong>100 shares</strong> of the underlying stock. This is standard across U.S. equity options. When you see an option quoted at $3.50, you pay $3.50 per share, meaning $350 per contract ($3.50 x 100 shares).
+happens if the right is exercised.
 </p>
-<pre><code class="language-">Option Price (Premium):   $3.50 per share
+<li><strong>Type</strong> — call or put.</li>
+<li><strong>Style</strong> — American or European (covered in §2.5).</li>
 <p>
-Shares per Contract:      x 100
-Total Cost per Contract:  = $350.00
-</code></pre>
+A typical broker-screen quote: <code>AAPL 16-Jan-2026 200 C @ 8.50 / 8.65</code>.
+Read this as *"AAPL January-16-2026, $200 strike, call. Bid 8.50, ask
+8.65."* That single line contains all five identifiers plus the live
+market for the contract.
 </p>
-<h4>Rights vs. Obligations</h4>
+<h4>2.2 The contract is for 100 shares — and the premium is per share</h4>
 <p>
-This table clarifies who has rights and who has obligations:
+The most common stumble for a new options trader is the units. US
+listed equity options are <em>standardised at 100 shares per contract</em>.
+The premium is quoted <em>per share</em>, not per contract. To get the
+dollar amount that actually moves in your account, multiply by 100.
 </p>
-<pre><code class="language-">+------------------+------------------------+------------------------+
 <p>
-|                  |     CALL OPTION        |     PUT OPTION         |
-+------------------+------------------------+------------------------+
-|  BUYER (Long)    | Right to BUY stock     | Right to SELL stock    |
-|                  | at strike price        | at strike price        |
-|                  | Pays premium           | Pays premium           |
-|                  | Max loss = premium     | Max loss = premium     |
-+------------------+------------------------+------------------------+
-|  SELLER (Short)  | Obligation to SELL     | Obligation to BUY      |
-|                  | stock at strike price  | stock at strike price  |
-|                  | Receives premium       | Receives premium       |
-|                  | Max loss = unlimited<em>  | Max loss = large</em>*     |
-+------------------+------------------------+------------------------+
+For the AAPL example above, "ask 8.65" means <strong>$865 per contract</strong>
+($8.65 x 100). One contract gives the buyer the right to buy 100
+shares of AAPL at $200 each — a $20,000 notional position — for an
+upfront payment of $865. That is the leverage.
 </p>
-<ul><li>For naked calls, loss is theoretically unlimited as stock can rise infinitely.</li>
 <p>
-</ul>** For naked puts, max loss = strike price x 100 (if stock goes to $0).
-</code></pre>
+Two consequences fall out of the 100-share spec:
 </p>
-<h4>Strike Price and Moneyness</h4>
+<ul><li>Anything below $20,000 of stock notional and you can't buy/sell</li>
 <p>
-The <strong>strike price</strong> (also called the exercise price) is the price at which the option holder can buy (for calls) or sell (for puts) the underlying stock.
+</ul>  fractional contracts. There is no half-contract. If the strategy
+needs a 50-share hedge, options are not the right tool.
 </p>
+<ul><li><em>Account size matters.</em> A cash-secured put at the $200 strike</li>
 <p>
-The relationship between the strike price and the current stock price determines the option's <strong>moneyness</strong>:
+</ul>  ties up $20,000 of collateral. If your whole account is $30,000,
+this strategy lives in larger names like SPY or QQQ where you can
+go far enough out-of-the-money to make a $5,000 collateral commit
+reasonable.
 </p>
 <p>
-<strong>For Call Options:</strong>
+The 100-share unit is also why every example in this course quotes
+position size in <em>contracts</em> rather than dollars — saying "sell 1
+$200 SPY put" is unambiguous; saying "sell $20,000 worth" requires
+arithmetic at every step.
 </p>
-<pre><code class="language-">Stock Price = $150
+<h4>2.3 Moneyness — ITM, ATM, OTM</h4>
 <p>
-In-The-Money (ITM)     At-The-Money (ATM)    Out-of-The-Money (OTM)
-Strike &lt; Stock Price    Strike = Stock Price   Strike &gt; Stock Price
-Strike = $140           Strike = $150          Strike = $160
-Intrinsic Value = $10   Intrinsic Value = $0   Intrinsic Value = $0
-|                       |                       |
-v                       v                       v
-[====|==========]       [=========|=]           [==========|====]
-$130  $140  $150        $140  $150  $160        $150  $160  $170
-Higher Value            Some Value              Lower Value
-Higher Premium          Moderate Premium        Lower Premium
-</code></pre>
+The relationship between the strike <code>K</code> and the current spot <code>S</code>
+defines the option's <em>moneyness</em>.
 </p>
 <p>
-<strong>For Put Options (opposite direction):</strong>
+For a <strong>call</strong>, "moneyness" measures how far above the strike the
+spot is — i.e. how much real value the right contains right now:
 </p>
-<pre><code class="language-">Stock Price = $150
+<table><thead><tr><th>Term</th><th>Condition (call)</th><th>Intrinsic value</th></tr></thead><tbody><tr><td>In-the-money (ITM)</td><td><code>S > K</code></td><td><code>S - K</code></td></tr><tr><td>At-the-money (ATM)</td><td><code>S ~= K</code></td><td>~0</td></tr><tr><td>Out-of-the-money (OTM)</td><td><code>S < K</code></td><td>0</td></tr></tbody></table>
 <p>
-In-The-Money (ITM)     At-The-Money (ATM)    Out-of-The-Money (OTM)
-Strike &gt; Stock Price    Strike = Stock Price   Strike &lt; Stock Price
-Strike = $160           Strike = $150          Strike = $140
-Intrinsic Value = $10   Intrinsic Value = $0   Intrinsic Value = $0
-</code></pre>
+For a <strong>put</strong>, the inequalities flip — the right is to <em>sell</em> at K,
+which is valuable when spot is <em>below</em> K:
 </p>
+<table><thead><tr><th>Term</th><th>Condition (put)</th><th>Intrinsic value</th></tr></thead><tbody><tr><td>In-the-money (ITM)</td><td><code>S < K</code></td><td><code>K - S</code></td></tr><tr><td>At-the-money (ATM)</td><td><code>S ~= K</code></td><td>~0</td></tr><tr><td>Out-of-the-money (OTM)</td><td><code>S > K</code></td><td>0</td></tr></tbody></table>
 <p>
-The moneyness of an option directly affects its price and behavior. ITM options are more expensive, move more closely with the stock, and have higher probability of being exercised. OTM options are cheaper, move less with the stock, and usually expire worthless.
+A call ITM is a put OTM at the same strike, and vice versa. For a
+call at K=100 with spot at S=110: the call is $10 ITM (intrinsic
+value $10), and the corresponding put at the same strike is $10 OTM
+(intrinsic value 0). They are sides of the same coin.
 </p>
-<h4>Intrinsic Value vs. Extrinsic Value</h4>
 <p>
-Every option's price (called the <strong>premium</strong>) is composed of two parts:
+Three practical observations.
 </p>
 <p>
-<strong>Intrinsic Value</strong> = The amount the option is in the money. This is the value the option would have if exercised right now.
+ATM options have <em>the most time value</em>. They are the closest to the
+boundary between worth-something and worth-nothing, so the
+"insurance premium" the seller charges for being on the wrong side
+of a small move is largest there. For premium-sellers (weeks 26-28),
+ATM contracts pay the most absolute premium per day; for tail-hedge
+buyers (week 29), OTM contracts pay the most leverage per dollar of
+premium.
 </p>
-<ul><li>For calls: max(0, Stock Price - Strike Price)</li>
-<li>For puts: max(0, Strike Price - Stock Price)</li>
 <p>
-</ul>
-<strong>Extrinsic Value</strong> (also called Time Value) = Everything else. This is the extra premium above intrinsic value that reflects the possibility of the option becoming more valuable before expiration.
+Deep ITM options behave almost like the stock itself (delta near 1
+for calls, near -1 for puts) — they are leverage substitutes more
+than they are options. Deep OTM options behave almost like lottery
+tickets — most expire worthless, a few pay 5-50x when the tail
+event happens.
 </p>
-<pre><code class="language-">Option Premium = Intrinsic Value + Extrinsic Value
 <p>
-Example: AAPL trading at $155
-AAPL $150 Call trading at $8.50
+The "moneyness" axis is one of the two main axes of the option
+chain (the other is expiry). Every screenshot of an options chain
+in this course is a 2D grid: strikes down, expirations across.
 </p>
+<h4>2.4 Premium = intrinsic value + time value</h4>
 <p>
-Intrinsic Value  = $155 - $150 = $5.00  (the option is $5 in the money)
-Extrinsic Value  = $8.50 - $5.00 = $3.50 (time value, volatility premium)
-Total Premium    = $5.00 + $3.50 = $8.50
+Every option premium decomposes into exactly two pieces.
 </p>
 <p>
-+---------------------------------------------------+
+<strong>Intrinsic value</strong> is what you would receive if you exercised the
+option <em>right now</em>. It is the moneyness, in dollars. It cannot be
+negative (you would simply not exercise) — it is <code>max(S - K, 0)</code> for
+a call, <code>max(K - S, 0)</code> for a put.
 </p>
-<table><thead><tr><th>OPTION PREMIUM: $8.50</th></tr></thead><tbody><tr><td>[===== INTRINSIC: $5.00 =====][== EXTRINSIC ==]</td></tr><tr><td>[===== (In the Money) =======][== $3.50 ======]</td></tr><tr></tr><tr><td>Intrinsic: Real, tangible     Extrinsic: Hope,</td></tr><tr><td>value right now.              time, uncertainty.</td></tr><tr><td>Cannot be negative.           Decays over time.</td></tr></tbody></table>+---------------------------------------------------+
 <p>
-</code></pre>
+<strong>Time value</strong> (also called <em>extrinsic value</em>) is everything else.
+It is the premium paid <em>over</em> the intrinsic value, and it
+compensates the seller for the risk that, between now and expiry,
+the option ends up further in-the-money than it is today. Time
+value depends on three things:
 </p>
+<li><strong>Time to expiry (DTE).</strong> More days until expiry = more chances</li>
 <p>
-An out-of-the-money option has <strong>zero intrinsic value</strong>. Its entire premium is extrinsic value, meaning it is purely a bet on future movement.
+for the spot to move, so more time value. Time value decays
+toward zero as expiry approaches; the decay accelerates in the
+final 2-3 weeks (the "theta wall").
 </p>
-<h4>The Option Chain</h4>
+<li><strong>Implied volatility (IV).</strong> A higher expected move = a wider</li>
 <p>
-An <strong>option chain</strong> is the full listing of all available options for a particular stock. It shows every available combination of strike price, expiration date, and type (call/put). Here is a simplified representation:
+future range = more time value. IV is the option market's
+forecast of the underlying's volatility through expiry.
 </p>
-<pre><code class="language-">                    AAPL Option Chain - Stock Price: $155.00
+<li><strong>Risk-free interest rate.</strong> Modest effect — the call is a</li>
 <p>
-Expiration: March 21, 2026
+deferred-purchase, so higher rates make a call slightly more
+valuable; the put is a deferred-sale, so higher rates make a
+put slightly less valuable. This effect is usually small for
+front-month options.
 </p>
 <p>
-====================== CALLS ======================  ====== PUTS ======
-Bid    Ask    Last   Volume  OI    Strike   Bid    Ask    Last   Volume  OI
------------------------------------------------------------------------
-17.20  17.50  17.35   1,205  8,432  $140    1.85   1.95   1.90    892  5,210
-12.40  12.70  12.55   2,847  12,105 $145    3.10   3.25   3.15  1,540  7,890
-8.30   8.55   8.42   5,120  18,760 $150    5.20   5.40   5.30  3,210  11,450
-5.10   5.30   5.20   8,450  22,340 $155    7.80   8.05   7.90  2,870  9,870
-2.85   3.00   2.92   6,780  19,540 $160   11.50  11.80  11.65  1,650  6,540
-1.40   1.55   1.47   4,320  14,890 $165   16.20  16.50  16.35    780  3,210
-0.55   0.65   0.60   2,150   9,870 $170   21.30  21.60  21.45    340  1,890
+The image below shows premium decomposition for a 30-day call at
+strike $100 with sigma=20% and r=4%, across spots from $50 to $150.
+The shaded <em>intrinsic</em> area is the linear <code>max(S - K, 0)</code> payoff;
+the shaded <em>time value</em> sits on top. Notice how time value is
+<em>largest at the strike</em> and tapers to near-zero at both ends.
 </p>
+<img src="image/week25_premium_decomposition.png" alt="Premium decomposition for a 30-day call at strike $100, sigma 20%, r 4%, spot $50-$150. The total premium curve sits above the linear intrinsic-value floor; the gap between the two — time value — peaks at the strike and tapers to nearly zero deep in- or out-of-the-money.">
 <p>
-ITM calls are above this line    &lt;--- ATM ($155) ---&gt;    ITM puts are above
-OTM calls are below this line                            OTM puts are below
+The reason ATM time value peaks is symmetry. At spot = strike, the
+option has equal odds of expiring on either side of the strike, so
+the seller is taking the most actuarial uncertainty per dollar of
+premium and charges accordingly. Far ITM, the option is "almost
+certainly going to be exercised" — its price is mostly real
+intrinsic, with a thin wrapper of optionality. Far OTM, the option
+is "almost certainly going to expire worthless" — its price is a
+small lottery-ticket wrapper with no intrinsic.
 </p>
 <p>
-Key:  Bid = highest price buyers will pay
-Ask = lowest price sellers will accept
-OI  = Open Interest (number of existing contracts)
-</code></pre>
+This decomposition is the single most useful framing in this whole
+half of the course. Premium-selling strategies (weeks 26, 27, 28)
+make money when the time-value piece decays to zero. Premium-buying
+strategies (week 29 protective puts, week 30 long calls as
+substitutes) pay for that time value up front and need the spot to
+move enough to recover it.
 </p>
+<h4>2.5 Expiry — weekly, monthly, LEAPS, and American vs European</h4>
 <p>
-Notice several important patterns:
+US listed equity options come in three calendar flavours:
 </p>
-<ul><li>As you move away from ATM in either direction, premiums decrease.</li>
-<li>ITM options have higher premiums because they contain intrinsic value.</li>
-<li>ATM options typically have the highest volume and open interest (most liquid).</li>
-<li>The bid-ask spread is tightest for ATM options and widens for deep ITM/OTM.</li>
+<ul><li><strong>Weekly options</strong> ("weeklies") expire every Friday. Most</li>
 <p>
-</ul>
+</ul>  high-volume names (SPY, QQQ, AAPL, NVDA, etc.) have weeklies for
+every Friday in the next 4-8 weeks. Weeklies trade huge volumes
+and are the workhorse for short-dated hedging and gamma trades.
 </p>
-<h4>Expiration Dates</h4>
+<ul><li><strong>Monthly options</strong> expire on the <em>third Friday of the month</em>.</li>
 <p>
-Options do not last forever. Every option has an <strong>expiration date</strong>, which is the last day the option can be exercised. After this date, the option ceases to exist.
+</ul>  This is the historical default; "monthlies" have the deepest
+open interest, the tightest bid-ask, and the most strikes
+listed. The 30-45 DTE monthly is the canonical "premium-sell"
+contract for retail.
 </p>
+<ul><li><strong>LEAPS</strong> (Long-term Equity AnticiPation Securities) are</li>
 <p>
-Common expiration cycles:
+</ul>  options with more than 9 months to expiry. They go out as far as
+~2.5 years on the most active names. LEAPS are the building
+block for the <em>long-call-as-stock-substitute</em> trades on the safe
+end of Horace's barbell — they let you control 100 shares for
+~15-25% of the share price, with capped downside, and let the
+position age into long-term-capital-gains tax treatment.
 </p>
-<pre><code class="language-">+-------------------------------------------------------------------+
 <p>
-|  TYPE              | EXPIRATION          | TYPICAL USE             |
-+-------------------------------------------------------------------+
-|  Weekly Options    | Every Friday        | Short-term trading      |
-|  Monthly Options   | 3rd Friday of month | Most common, liquid     |
-|  Quarterly Options | End of quarter      | Index options           |
-|  LEAPS             | 1-3 years out       | Long-term strategies    |
-+-------------------------------------------------------------------+
+Two <strong>exercise styles</strong> matter for retail:
 </p>
+<ul><li><strong>American style.</strong> The right can be exercised on <em>any</em> business</li>
 <p>
-Timeline Example (from today):
+</ul>  day from purchase up to and including expiry. All US listed
+<em>equity</em> options (AAPL, SPY, QQQ, etc.) are American-style.
 </p>
+<ul><li><strong>European style.</strong> The right can only be exercised *on the</li>
 <p>
-Today          2 weeks       1 month        3 months       1 year
-|               |             |               |             |
-v               v             v               v             v
-[NOW]---[Weekly]---[Monthly]---[Quarterly]------[LEAPS]--------&gt;
+</ul>  expiry date itself<em>. US listed </em>cash-settled index* options
+(SPX, NDX, RUT) are European-style.
 </p>
 <p>
-Higher Theta &lt;--------------------------------&gt; Lower Theta
-(faster decay)                                  (slower decay)
-Lower Premium &lt;--------------------------------&gt; Higher Premium
-</code></pre>
+For most retail option strategies, the practical difference is small
+because <em>early exercise is almost always suboptimal</em> — exercising
+early throws away the remaining time value. The two cases where
+American-style early exercise actually happens: deep-ITM puts (the
+holder gets cash earlier) and the day before a large dividend on a
+deep-ITM call (the holder captures the dividend). These edge cases
+matter for the <em>seller</em> of those contracts — you can be assigned
+unexpectedly. We treat them as they come up in week 27.
 </p>
 <p>
-<strong>LEAPS</strong> (Long-Term Equity Anticipation Securities) are options with expiration dates more than one year in the future. They are particularly useful for long-term investors because they allow you to take positions with less time decay pressure.
+Settlement is also worth knowing. Equity options settle <em>physically</em>:
+exercise of an AAPL call delivers 100 shares of AAPL. Index options
+settle in <em>cash</em>: exercise of an SPX put pays out the difference
+between strike and settlement value, no shares change hands. This
+matters when sizing — a deep-ITM SPX put pays cash on Friday;
+a deep-ITM SPY put delivers a <em>short stock position</em> that has to be
+closed by Monday.
 </p>
-<h4>American vs. European Style Options</h4>
+<h4>2.6 The four basic positions</h4>
 <p>
-<strong>American-Style Options:</strong> Can be exercised at any time before expiration. Most individual stock options in the U.S. are American-style.
+Strip away all the strategy names and there are exactly four
+positions a retail account can take in a single contract: long call,
+short call, long put, short put. Every strategy in weeks 26-30 is
+either one of these four or a combination of them with the
+underlying stock.
 </p>
 <p>
-<strong>European-Style Options:</strong> Can only be exercised on the expiration date itself. Most index options (SPX, NDX) are European-style.
+The image below is the 2x2 grid of payoff diagrams <em>at expiration</em>
+for those four. Each panel shows P&L per share as a function of spot
+at expiry, with breakeven, max profit, and max loss annotated.
 </p>
-<pre><code class="language-">American Style:
+<img src="image/week25_four_positions.png" alt="Four payoff diagrams in a 2x2 grid: long call (capped loss at premium paid, unbounded upside above strike+premium), short call (capped gain at premium received, unbounded loss above strike+premium), long put (capped loss at premium paid, large gain as spot falls toward zero), short put (capped gain at premium received, large loss as spot falls toward zero). Each panel has breakeven, max profit, and max loss labelled.">
 <p>
-[Purchase]=====[Can Exercise Any Time]=====[Expiration]
-|                                          |
-+------ Exercise window is OPEN -----------+
+A one-line summary of each:
 </p>
 <p>
-European Style:
-[Purchase]=====[Cannot Exercise]=====[Expiration]
-|                                    |
-+-- Can ONLY exercise on this day ---+
-</code></pre>
+<strong>Long call.</strong> Pay premium <code>c</code> for the right to buy at K. Max loss
+= <code>c</code> (option expires worthless). Breakeven at expiry: <code>K + c</code>.
+Upside unbounded above breakeven. <em>Use case:</em> directional bullish
+bet with capped loss; LEAPS-as-stock-substitute on the safe end of
+the barbell.
 </p>
 <p>
-For our purposes in this course, we will focus on American-style options on individual stocks. The practical difference matters primarily for early assignment risk, which we will address in the covered calls lesson (Week 27).
+<strong>Short call.</strong> Receive premium <code>c</code>, take on obligation to sell at
+K. Max gain = <code>c</code>. Breakeven at expiry: <code>K + c</code>. Loss <em>unbounded</em>
+above breakeven. <strong>Naked</strong> short calls are dangerous. <strong>Covered</strong>
+calls (with 100 shares as collateral, week 27) cap the loss at
+"the unrealised gain you didn't get to keep" — bounded, not
+unbounded.
 </p>
-<h4>Time Decay (Theta)</h4>
 <p>
-One of the most important concepts in options is <strong>time decay</strong>, also known as <strong>theta</strong>. Extrinsic value decays as the option approaches expiration. This decay is not linear; it accelerates as expiration nears.
+<strong>Long put.</strong> Pay premium <code>p</code> for the right to sell at K. Max loss
+= <code>p</code>. Breakeven at expiry: <code>K - p</code>. Max gain = <code>K - p</code> (spot goes
+to zero). <em>Use case:</em> portfolio insurance (week 29), bearish
+directional bet, vol-spike trades.
 </p>
-<pre><code class="language-">  Extrinsic
 <p>
-Value ($)
-|
-8 |*
-|  *
-7 |    *
-|      *
-6 |        *
-|          *
-5 |            *
-|              *
-4 |                *
-|                  *
-3 |                    *
-|                      **
-2 |                        **
-|                          <em>*</em>
-1 |                             <em>*</em>*
-|                                 <strong><em>*</em></strong>
-0 |____________________________________<strong>*</strong>__
-90   75   60   45   30   15    5    0
-Days to Expiration
+<strong>Short put.</strong> Receive premium <code>p</code>, take on obligation to buy at K.
+Max gain = <code>p</code>. Breakeven at expiry: <code>K - p</code>. Max loss = <code>K - p</code>
+(spot goes to zero — the seller still has to buy at K). <strong>Naked</strong>
+short puts are dangerous in size; <strong>cash-secured</strong> puts (week 28)
+have the full collateral set aside and the loss is bounded — and
+identical, in P&L terms, to a limit-buy order at K filled at
 </p>
+<code>K - p</code>. This is one of the most useful retail option positions.
 <p>
-Key observation: Most time decay occurs in the LAST 30 days.
-The curve accelerates dramatically in the final 2 weeks.
-</code></pre>
+The four positions plus the underlying stock (long shares, short
+shares) give six primitives. Every named strategy you will see —
+covered call, cash-secured put, vertical spread, iron condor,
+collar, straddle, strangle, calendar — is a combination of those
+six. Memorise the four payoff shapes; the rest is bookkeeping.
 </p>
+<h4>2.7 Where this lesson fits — barbell, tax, and the vol tail</h4>
 <p>
-This decay curve has enormous practical implications:
+Three of Horace's SOUL items lean directly on the foundation laid
+this week.
 </p>
-<ul><li><strong>Option buyers</strong> are fighting against time. Every day that passes, their option loses value, all else being equal. They need the stock to move enough, fast enough, to overcome this decay.</li>
-<li><strong>Option sellers</strong> benefit from time decay. They collect premium upfront and profit as that premium erodes. Time is literally on their side.</li>
 <p>
-</ul>
-This is why, in this course, we focus primarily on <strong>option selling strategies</strong> (covered calls and cash-secured puts). As conservative investors, we want time working for us, not against us.
+<strong>SOUL #14, the barbell.</strong> The safe end of Horace's barbell uses
+<em>long-dated, deep-ITM calls</em> (LEAPS) as a capital-efficient share
+substitute — you control the upside of 100 shares with 20% of the
+capital, the loss is capped at the premium, and you free up cash
+for the speculative end. The income middle (the L2 sleeve) writes
+<em>short calls and short puts</em> against quality names to harvest time
+value. Both ends of the barbell are options; the lesson this week
+is the dictionary that lets you read either end.
 </p>
-<h4>Why Options Exist: Three Primary Purposes</h4>
 <p>
-<strong>1. Hedging (Insurance)</strong>
+<strong>SOUL #15, options as a tax tool.</strong> The covered call lets you
+reduce delta on a winner <em>without</em> selling the share — the lot
+keeps aging toward long-term-capital-gains treatment, no taxable
+event, exposure shifts. The cash-secured put lets you build a
+position at a chosen entry over multiple expiries, with each
+unfilled expiration banking premium that lowers the eventual cost
+basis. Both depend on the time-value/intrinsic-value split from
+§2.4 — the part being harvested is the time value.
 </p>
 <p>
-A portfolio manager holding $10 million in stocks can buy put options as insurance against a market crash. If the market drops 30%, the puts increase in value, offsetting the stock losses. The cost of this insurance (the put premium) is the price of sleeping well at night.
+<strong>SOUL #6, the option tail wags the equity dog.</strong> Dealers who sell
+options to retail and institutions hedge their books in the
+underlying stock. Their hedge depends on the option's <em>delta</em>,
+which itself depends on spot, strike, IV, and time. When spot moves,
+deltas move, dealer hedges move — and that mechanical hedging flow
+<em>moves the spot further</em>. The 2021 GameStop squeeze was that
+mechanism running in reverse: retail bought calls, dealers were
+forced to buy spot to hedge, the spot ran, and the rally was
+self-reinforcing until the calls expired. We will not work the math
+of dealer hedging in this course, but you cannot understand modern
+US equity microstructure without knowing that the option chain is
+no longer a sideshow to the spot tape. It is increasingly the <em>cause</em>
+of the spot tape.
 </p>
-<pre><code class="language-">Without Hedging:                    With Protective Puts:
 <p>
-Portfolio: $10M                     Portfolio: $10M
-Put Cost: $200K (2%)
-</p>
-<p>
-Market drops 30%:                   Market drops 30%:
-Portfolio: $7M                      Stocks: $7M
-Loss: -$3M (-30%)                   Puts gain: +$2.8M
-Net: $9.8M - $0.2M = $9.6M
-Loss: -$400K (-4%)
-</code></pre>
-</p>
-<p>
-<strong>2. Speculation (Leverage)</strong>
-</p>
-<p>
-A trader who believes AAPL will rise from $155 to $175 in the next month could:
-</p>
-<ul><li>Buy 100 shares at $155 = $15,500 investment, $2,000 profit (+12.9%)</li>
-<li>Buy 1 ATM call for $5.20 = $520 investment, ~$1,480 profit (+284.6%)</li>
-<p>
-</ul>
-The option provides much higher percentage returns but also much higher risk of total loss if the stock does not move as expected.
-</p>
-<p>
-<strong>3. Income Generation</strong>
-</p>
-<p>
-An investor holding 500 shares of AAPL at $155 ($77,500 in stock) can sell 5 covered call contracts at the $165 strike for $1.47 each, collecting $735 in premium. If the stock stays below $165, they keep the shares and the $735. Repeating this monthly could generate $8,820 per year, an 11.4% annual yield on top of dividends.
-</p>
-<pre><code class="language-">Income Comparison (on $77,500 portfolio):
-<p>
-Dividends Only:          Dividends + Covered Calls:
-AAPL dividend ~0.65%     AAPL dividend ~0.65%
-Annual: ~$504            Covered call income: ~$8,820
-Annual: ~$9,324
-Yield: ~12.0%
-</code></pre>
-</p>
-<h4>Option Pricing: What Determines the Premium?</h4>
-<p>
-Six factors affect an option's price:
-</p>
-<pre><code class="language-">+----------------------------------------------------------------+
-<p>
-| FACTOR               | CALL EFFECT      | PUT EFFECT           |
-+----------------------------------------------------------------+
-| Stock price UP       | Premium UP       | Premium DOWN         |
-| Stock price DOWN     | Premium DOWN     | Premium UP           |
-| Strike price (high)  | Premium DOWN     | Premium UP           |
-| Time to expiration+  | Premium UP       | Premium UP           |
-| Volatility UP        | Premium UP       | Premium UP           |
-| Interest rates UP    | Premium UP       | Premium DOWN (minor) |
-| Dividends UP         | Premium DOWN     | Premium UP           |
-+----------------------------------------------------------------+
-</p>
-<p>
-Most Important Factors (in order):
-</p>
-<li>Stock price relative to strike (intrinsic value)</li>
-<li>Time to expiration (time value)</li>
-<li>Implied volatility (market's expected movement)</li>
-<p>
-</code></pre>
-</p>
-<p>
-<strong>Implied Volatility (IV)</strong> deserves special attention. IV represents the market's expectation of how much the stock will move in the future. High IV means the market expects large moves (perhaps before an earnings report), so options are expensive. Low IV means the market expects calm conditions, so options are cheap.
-</p>
-<pre><code class="language-">Implied Volatility and Option Prices:
-<p>
-Low IV (15-20%):                    High IV (40-50%):
-Stock is expected to be calm.       Stock is expected to be volatile.
-Options are CHEAP.                  Options are EXPENSIVE.
-</p>
-<p>
-Example: AAPL $155, ATM Call        Example: AAPL $155, ATM Call
-30 days, IV = 18%                   30 days, IV = 45%
-Premium: ~$3.20                     Premium: ~$7.80
-</p>
-<p>
-Good time to BUY options.           Good time to SELL options.
-</code></pre>
-</p>
-<h4>The Greeks: A Practical Introduction</h4>
-<p>
-While a deep mathematical understanding of the Greeks is not necessary for the strategies in this course, a working knowledge of the four main Greeks helps you make better decisions.
-</p>
-<pre><code class="language-">THE FOUR MAIN GREEKS:
-<p>
-+-------------------------------------------------------------------+
-| GREEK  | MEASURES                  | PRACTICAL MEANING             |
-+-------------------------------------------------------------------+
-| DELTA  | Price sensitivity to      | How much the option moves     |
-|  (Δ)   | stock price movement      | per $1 stock price change     |
-|        | Range: 0 to 1.0 (calls)   | Delta 0.50 = moves $0.50      |
-|        | Range: 0 to -1.0 (puts)   | per $1 stock move             |
-+-------------------------------------------------------------------+
-| GAMMA  | Rate of change of delta   | How much delta changes        |
-|  (Γ)   |                           | per $1 stock price change     |
-|        |                           | Highest for ATM options       |
-+-------------------------------------------------------------------+
-| THETA  | Time decay per day        | How much value the option     |
-|  (Θ)   | Always negative for       | loses each day from time      |
-|        | long options              | decay alone                   |
-+-------------------------------------------------------------------+
-| VEGA   | Sensitivity to implied    | How much the option price     |
-|  (V)   | volatility changes        | changes per 1% change in IV   |
-+-------------------------------------------------------------------+
-</code></pre>
-</p>
-<p>
-<strong>Delta in Practice:</strong>
-</p>
-<p>
-Delta serves double duty. It tells you how much your option price will change and it gives you an approximate probability that the option will be in the money at expiration.
-</p>
-<pre><code class="language-">DELTA AS A PROBABILITY GUIDE:
-<p>
-Delta    Approximate Probability    Moneyness
-=====    ========================   ===========
-0.80     ~80% chance ITM at expiry  Deep ITM
-0.60     ~60% chance ITM at expiry  Slightly ITM
-0.50     ~50% chance ITM at expiry  ATM
-0.30     ~30% chance ITM at expiry  Slightly OTM
-0.15     ~15% chance ITM at expiry  OTM
-0.05     ~5% chance ITM at expiry   Far OTM
-</p>
-<p>
-For COVERED CALLS: Sell calls with delta 0.20-0.30
-(20-30% chance of being called away)
-</p>
-<p>
-For CASH-SECURED PUTS: Sell puts with delta -0.20 to -0.30
-(20-30% chance of being assigned)
-</code></pre>
-</p>
-<p>
-<strong>Theta in Practice:</strong>
-</p>
-<p>
-Theta tells you the daily "rent" you pay for holding an option (if you are a buyer) or the daily "rent" you collect (if you are a seller).
-</p>
-<pre><code class="language-">THETA EXAMPLE:
-<p>
-AAPL $155 Call, 30 days to expiration
-Price: $4.20
-Theta: -$0.08
-</p>
-<p>
-This means:
-</p>
-<ul><li>The option loses $0.08 per share per day from time decay</li>
-<li>Per contract: $0.08 x 100 = $8.00 per day</li>
-<li>Over a week: $56 in decay (all else equal)</li>
-<li>Over the full 30 days: Not $240 (because theta accelerates)</li>
-<p>
-</ul>    but rather about $350-$400 (since theta increases daily)
-</p>
-<p>
-FOR SELLERS: You earn this theta every day. Weekends too.
-FOR BUYERS: You lose this theta every day. The clock never stops.
-</code></pre>
-</p>
-<h4>Reading an Options Quote</h4>
-<p>
-When you look at an option on your brokerage platform, you will see a standardized format. Let us learn to read it:
-</p>
-<pre><code class="language-">OPTION QUOTE BREAKDOWN:
-<p>
-AAPL  Mar 21 2026  $160  Call
-</p>
-<p>
-|       |            |     |
-|       |            |     +-- Type: Call option
-|       |            +-------- Strike: $160 per share
-|       +--------------------- Expiry: March 21, 2026
-+----------------------------- Underlying: Apple Inc.
-</p>
-<p>
-Bid:     $3.20     (price buyers will pay you)
-Ask:     $3.40     (price you must pay to buy)
-Last:    $3.30     (most recent trade price)
-Volume:  2,847     (contracts traded today)
-Open Interest: 18,760  (total existing contracts)
-</p>
-<p>
-Greeks:
-Delta:   0.35      (moves $0.35 per $1 AAPL move)
-Gamma:   0.025     (delta changes 0.025 per $1 move)
-Theta:   -0.065    (loses $0.065/share per day)
-Vega:    0.18      (changes $0.18 per 1% IV change)
-IV:      24.3%     (implied volatility)
-</code></pre>
-</p>
-<h4>The VIX: The Market's Fear Gauge</h4>
-<p>
-The <strong>VIX</strong> (CBOE Volatility Index) measures the implied volatility of S&P 500 options. It is often called the "fear gauge" because it rises when investors are nervous and drops when they are calm.
-</p>
-<pre><code class="language-">VIX LEVELS AND WHAT THEY MEAN:
-<p>
-VIX Level    Market Mood         Options Implication
-=========    ===========         ==================
-10-15        Very calm/complacent Options are CHEAP
-15-20        Normal               Options are fairly priced
-20-25        Elevated concern     Options are getting expensive
-25-30        Fearful              Options are expensive (good for sellers)
-30-40        Very fearful         Options are very expensive
-40+          Panic                Options are extremely expensive
-(rare: 2008, 2020 COVID crash)
-</p>
-<p>
-KEY INSIGHT FOR OPTION SELLERS:
-When VIX is high (25+), premiums are fat.
-This is the BEST time to sell covered calls and cash-secured puts.
-You get paid more for the same obligation.
-</p>
-<p>
-When VIX is low (12-15), premiums are thin.
-You may want to reduce option selling or use tighter strikes.
-</code></pre>
-</p>
-<p>
-Understanding the VIX gives you an edge in timing your options trades. You do not need to predict market direction, but knowing whether options are cheap or expensive helps you decide how aggressively to sell premium.
-</p>
-<h4>A Complete Example</h4>
-<p>
-Let us walk through a complete, practical example to tie all these concepts together.
-</p>
-<p>
-<strong>Scenario:</strong> AAPL is trading at $155. You believe it will rise to $170 within 60 days.
-</p>
-<p>
-<strong>Option chosen:</strong> AAPL $160 Call, expiring in 60 days, trading at $3.50.
-</p>
-<pre><code class="language-">Analysis:
-<p>
-Type:              Call (right to buy)
-Strike:            $160
-Current Stock:     $155
-Moneyness:         Out-of-the-money ($5 OTM)
-Intrinsic Value:   $0 (OTM, no intrinsic value)
-Extrinsic Value:   $3.50 (entire premium is time value)
-Cost:              $3.50 x 100 = $350 per contract
-Breakeven:         $160 + $3.50 = $163.50
-</p>
-<p>
-Possible Outcomes at Expiration:
-</p>
-<p>
-Stock at $170:  Option worth $10.00  -&gt; Profit: $650 (+185.7%)
-Stock at $165:  Option worth $5.00   -&gt; Profit: $150 (+42.9%)
-Stock at $163.50: Option worth $3.50 -&gt; Breakeven ($0)
-Stock at $160:  Option worth $0.00   -&gt; Loss: -$350 (-100%)
-Stock at $155:  Option worth $0.00   -&gt; Loss: -$350 (-100%)
-Stock at $150:  Option worth $0.00   -&gt; Loss: -$350 (-100%)
-</p>
-<p>
-Payoff Diagram:
-</p>
-<p>
-Profit
-($)
-|
-+650|                                          <strong>*</strong>
-|                                      <em>*</em>*
-+300|                                 <em>*</em>*
-|                            <em>*</em>*
-0|----------------------<strong>*</strong>----- Stock Price ($) ---&gt;
-|                  *
--350|<strong><em><em></em></strong><strong><em></em></em></strong><em>*</em>    &lt;-- Max loss = premium paid
-|
-+---|---|---|---|---|---|---|---|---
-140  145  150  155  160  165  170  175
-</p>
-<p>
-Breakeven at $163.50 (Strike + Premium)
-</code></pre>
+The interactive lab for this week
+(<a href="interactive/week25_option_explorer.html">course/interactive/week25_option_explorer.html</a>)
+lets you pick any of the four positions, drag the strike, expiry,
+volatility, rate, and spot sliders, and watch the premium
+decomposition update in real time alongside the at-expiry payoff.
+Spend twenty minutes in it before reading week 26. Six weeks of
+strategy material rest on those five sliders.
 </p>
 <hr>
-<h3>c) Common Misconceptions</h3>
+<h3>3. Common Misconceptions</h3>
+<li><strong>"Buying calls is how you get rich."</strong> Calls are <em>time-decaying</em></li>
 <p>
-<strong>Misconception 1: "Options are always risky and speculative."</strong>
+instruments. The median outcome of buying an OTM front-month call
+is total loss of the premium. Single-call buyers historically
+underperform — sometimes by enormous margins — buy-and-hold
+investors in the same name. Calls are tools, not lottery
+tickets, and the cases where they make sense (LEAPS substitutes,
+targeted event trades) are narrow.
 </p>
+<li><strong>"Options are too risky for retail investors."</strong> <em>Naked</em> short</li>
 <p>
-This is perhaps the most damaging misconception. Options themselves are neither inherently risky nor safe. They are tools, and like any tool, their risk depends entirely on how you use them. Buying far out-of-the-money weekly options with your entire account is extremely risky. Selling covered calls on stocks you already own is one of the most conservative strategies in investing. A chain saw is dangerous in the hands of a child, but a lumberjack uses one safely every day. The same principle applies to options.
+options are risky for retail. Long calls, long puts, covered
+calls, and cash-secured puts have <em>bounded, fully-knowable</em> worst
+cases at the moment you place the trade. The biggest risk in
+options is the gap between <em>what the strategy actually does</em> and
+<em>what the trader thinks it does</em> — fix that gap and the risk
+profile is no scarier than the stock itself.
 </p>
+<li><strong>"The premium is the cost of the option."</strong> The premium is the</li>
 <p>
-<strong>Misconception 2: "Most options expire worthless, so selling options is free money."</strong>
+cost <em>only if you're the buyer</em>. If you're the seller, the
+premium is your <em>income</em> — and the cost is the obligation you
+took on. Every dollar of premium has two signs depending on
+which side of the trade you're sitting on. Half the lesson is
+noticing that.
 </p>
+<li><strong>"Out-of-the-money options are 'safer' because they're cheap."</strong></li>
 <p>
-While it is true that a significant percentage of options expire worthless (roughly 60-70% of options that are held to expiration), this statistic is misleading. Many options are closed before expiration for a profit. Additionally, when an option seller loses, the loss can be much larger than the premium collected. Selling options is not free money; it is accepting a high probability of small gains in exchange for a low probability of large losses. Responsible position sizing is essential.
+Cheap and safe are different. A $0.10 OTM call is cheap in
+absolute dollars, but it has a ~95% probability of expiring
+worthless. Buying a basket of cheap OTM calls is one of the
+most consistent ways retail traders bleed capital. Cheap
+measures dollars per contract; safe measures probability of
+loss.
 </p>
+<li><strong>"At-the-money options have no value because intrinsic is zero."</strong></li>
 <p>
-<strong>Misconception 3: "Options are too complicated for regular investors."</strong>
+ATM options are <em>all time value</em> and time value is largest at
+the strike. An ATM 30-day option on SPY is one of the most
+valuable single contracts in the chain — not despite zero
+intrinsic, <em>because</em> of maximum time value. Don't confuse "no
+intrinsic value" with "no value."
 </p>
+<li><strong>"Exercising the option is what makes you the money."</strong> For</li>
 <p>
-The basic strategies we cover in this course (covered calls and cash-secured puts) are straightforward once you understand the fundamentals. You do not need to understand the Black-Scholes model, Greek calculations, or complex multi-leg strategies to use options effectively. A 30-year-old learning to drive does not need to understand internal combustion engineering. Similarly, you can use basic options strategies effectively with a solid understanding of the concepts in this lesson.
+retail traders, exercising is almost always wrong. Exercising
+throws away the remaining time value; instead you *sell to
+close* the option in the market and capture both intrinsic
+<em>and</em> time value. Exercise is a settlement event handled by
+the broker on the few cases where it's optimal. Beginners who
+reflexively exercise ITM longs leave money on the table.
 </p>
+<li>**"American options are more valuable because you can exercise</li>
 <p>
-<strong>Misconception 4: "If I buy a call option, I have to buy the stock."</strong>
+any time."** Slightly more valuable in theory; in practice
+essentially identical to European on equity. The American-style
+premium is real for deep-ITM puts and dividend-day calls; for
+most front-month at- or near-the-money positions, it is a
+rounding error.
 </p>
+<li><strong>"One contract = one share."</strong> One contract = 100 shares. The</li>
 <p>
-No. The buyer of an option has the <strong>right</strong>, not the obligation. If the option is profitable at expiration, you can either exercise it (buy the stock at the strike price) or simply sell the option to close your position and pocket the profit. Most options traders never exercise; they simply trade the options themselves. If the option is not profitable, you simply let it expire and lose only the premium you paid.
+single most common rookie mistake is reading "premium 8.50" as
+"$8.50 to buy" rather than "$850 to buy." Always multiply.
 </p>
+<li><strong>"LEAPS are basically the same as monthly options, just longer."</strong></li>
 <p>
-<strong>Misconception 5: "Implied volatility is the same as historical volatility."</strong>
+LEAPS behave very differently. Most of their value is intrinsic
+(or near-intrinsic with low theta). Vega is the dominant Greek,
+not theta. They are leverage instruments far more than they are
+pure optionality. Strategies that work with monthlies
+(premium-selling, gamma scalping) often don't work with LEAPS,
+and vice versa.
 </p>
+<li><strong>"If I learn the Greeks I'll understand options."</strong> Backwards.</li>
 <p>
-Historical volatility measures how much the stock has actually moved in the past. Implied volatility is the market's expectation of how much it will move in the future. They are related but different. Before earnings announcements, implied volatility can spike well above historical volatility because the market expects a large move. After the announcement, IV typically collapses (known as "IV crush"), even if the stock moves significantly. Understanding this difference is crucial for timing options trades.
-</p>
-<p>
-<strong>Misconception 6: "A stock option is the same as an employee stock option."</strong>
-</p>
-<p>
-Exchange-traded options (what we discuss in this course) are standardized contracts traded on public exchanges. Employee stock options (ESOs) are compensation grants from employers with different rules regarding exercise, expiration, taxation, and transferability. While they share the same underlying concept, the mechanics and strategies differ significantly.
+The Greeks are calculus on top of the four payoff shapes; if
+the four shapes aren't second nature, the Greeks are
+incomprehensible. Learn the four positions first. Greeks come
+in week 26 onward, in context, when they matter.
 </p>
 <hr>
-<h3>d) Common Questions and Answers</h3>
+<h3>4. Q&A Section</h3>
 <p>
-<strong>Q1: How much money do I need to start trading options?</strong>
+**Q1: I keep getting confused by "long" and "short" in options. Can
+you give me a one-line rule?**
 </p>
 <p>
-A: The capital requirement depends on the strategy. Buying a single option contract might cost as little as $50-$500. Selling cash-secured puts requires enough cash to buy 100 shares at the strike price (e.g., a $150 strike put requires $15,000 in cash). Covered calls require owning 100 shares of the underlying stock. For most investors starting with conservative options strategies, $10,000-$25,000 is a reasonable starting point, though some brokers allow smaller accounts.
+A: *Long = paid the premium up-front and now hold a right. Short =
+received the premium and now hold an obligation.* Long anything (call
+or put) means you are the <em>buyer</em>; short anything means you are the
+<em>seller/writer</em>. The direction of the underlying view is independent
+— "long the stock" goes up means up; "long a put" goes up means the
+stock went down. Don't merge the two dimensions.
 </p>
 <p>
-<strong>Q2: What happens if I just let an option expire?</strong>
+**Q2: Why do options expire? Wouldn't they be more useful if they
+didn't?**
 </p>
 <p>
-A: If the option is out of the money at expiration, it expires worthless. You lose the premium you paid (if you bought it) or keep the premium (if you sold it). If the option is in the money at expiration, most brokers will automatically exercise it (known as "auto-exercise"). If you bought an ITM call, you will end up buying 100 shares at the strike price. If you cannot afford this, close the position before expiration.
+A: Without expiry there would be no time-value premium and no
+seller would write contracts at a positive price. Expiry is what
+turns an option from a permanent right (which would be priceless)
+into a finite, tradeable contract. The seller is being paid for the
+finite window of risk; without that window there is nothing to be
+paid for.
 </p>
 <p>
-<strong>Q3: Can I lose more than the premium I paid when buying an option?</strong>
+<strong>Q3: How do I read a chain quote like <code>AAPL 1/16/26 200C 8.50/8.65</code>?</strong>
 </p>
 <p>
-A: No. When you buy an option (long call or long put), your maximum loss is always limited to the premium you paid. This is one of the key advantages of buying options. However, when you sell options (short call or short put), your potential losses can be much larger than the premium received.
+A: Underlying = AAPL; expiry = January 16, 2026; strike = $200; type
+= Call; bid = $8.50, ask = $8.65 <em>per share</em>. To trade one contract
+the buyer pays the ask x 100 = $865; the seller receives the bid x
+100 = $850. The $15 spread is the market-maker's compensation for
+quoting both sides.
 </p>
 <p>
-<strong>Q4: What is the difference between "open interest" and "volume"?</strong>
+<strong>Q4: Why does ATM have the most time value?</strong>
 </p>
 <p>
-A: Volume is the number of contracts traded on a particular day. Open interest is the total number of contracts that currently exist and have not been closed or exercised. High open interest indicates a liquid option with tight bid-ask spreads. Increasing open interest suggests new money is flowing into that option. Volume can exceed open interest if there is heavy day trading.
+A: Because at the strike, the option has equal odds of expiring on
+either side of the strike, so the *uncertainty per dollar of
+premium* is largest there. Move spot $20 above K — the call is now
+"almost certainly exercised" and the time-value wrapper shrinks.
+Move spot $20 below K — the call is now "almost certainly worthless"
+and the time-value wrapper shrinks. The peak is at the strike for
+the same reason a flipped coin's outcome is most uncertain when it's
+spinning.
 </p>
 <p>
-<strong>Q5: Why should I care about the bid-ask spread?</strong>
+<strong>Q5: Should I exercise or sell my in-the-money long option?</strong>
 </p>
 <p>
-A: The bid-ask spread is the difference between the price buyers are willing to pay (bid) and the price sellers are asking (ask). A wide spread means higher transaction costs and makes it harder to enter and exit positions profitably. For example, an option with a bid of $2.00 and ask of $2.50 has a $0.50 spread, meaning you immediately lose $50 per contract when you buy. Always look for options with tight spreads, typically found in high-volume, liquid stocks.
+A: Almost always <em>sell</em>, never exercise. Exercising throws away the
+remaining time value; selling captures both intrinsic and time
+value. The only retail exception is if you actually want the 100
+shares of stock and the option is past the ex-dividend date or
+nearly at expiry — and even then, "exercise + immediately sell" and
+"sell the option" net to roughly the same dollars after spreads.
 </p>
 <p>
-<strong>Q6: Do I need to understand the Greeks to trade options?</strong>
+<strong>Q6: What does it mean to "be assigned"?</strong>
 </p>
 <p>
-A: For the basic strategies in this course, a deep understanding of the Greeks is not required, but a conceptual understanding of two key Greeks is helpful:
-</p>
-<ul><li><strong>Delta:</strong> How much the option price moves when the stock moves $1. A delta of 0.50 means the option gains $0.50 for every $1 the stock rises (for calls).</li>
-<li><strong>Theta:</strong> How much value the option loses each day from time decay. A theta of -0.05 means the option loses $5 per day ($0.05 x 100 shares).</li>
-<p>
-</ul>Understanding delta helps you select appropriate strike prices, and understanding theta helps you appreciate why time works for sellers and against buyers.
-</p>
-<p>
-<strong>Q7: What stocks are best for options trading?</strong>
+A: Assignment is the seller-side event where the buyer chose to
+exercise. As the seller, you are <em>forced</em> to deliver the underlying
+(short call -> forced to sell 100 shares; short put -> forced to buy
+100 shares). Assignment can happen any business day for American-
+style equity options, but in practice almost always at or near
+expiry. Cash-secured puts and covered calls treat assignment as the
+<em>intended outcome</em>, not a failure mode.
 </p>
 <p>
-A: Look for stocks with: (1) high trading volume and open interest for tight bid-ask spreads, (2) moderate implied volatility for reasonable premiums, (3) stocks you are willing to own long-term (for put selling and covered call strategies), and (4) stocks in the $50-$300 range for manageable position sizes. Popular options-friendly stocks include large-cap names like AAPL, MSFT, AMZN, GOOGL, JPM, and broad ETFs like SPY, QQQ, and IWM.
+<strong>Q7: Can I lose more than I put in?</strong>
 </p>
 <p>
-<strong>Q8: Is there a difference between closing an option and exercising it?</strong>
+A: It depends on the position. Long calls and long puts: max loss
+is the premium paid — full stop. Short <em>covered</em> calls: max loss is
+"the upside you didn't capture" — bounded. Short <em>cash-secured</em>
+puts: max loss is <code>(strike x 100) - premium</code>, fully collateralised.
+Naked short calls: theoretically unlimited (don't do it without
+deep training and clear risk limits). Naked short puts: bounded but
+larger than the collateral typically posted on margin (also avoid
+without training).
 </p>
 <p>
-A: Yes, and this distinction is important. Closing an option means selling it back in the market (if you bought it) or buying it back (if you sold it). Exercising means using the right the option gives you to buy or sell the underlying stock. In most cases, closing is preferable to exercising because closing captures the remaining extrinsic value, while exercising only captures intrinsic value. The only common reason to exercise early is to capture a dividend on an ITM call option.
+<strong>Q8: How is implied volatility different from realised volatility?</strong>
 </p>
 <p>
-<strong>Q9: What is assignment, and should I be worried about it?</strong>
+A: Realised vol = how much the stock has <em>actually</em> moved over a
+recent window (a backward-looking measurement). Implied vol = the
+volatility figure that, plugged into the Black-Scholes formula,
+returns the option's <em>current market price</em> (a forward-looking
+forecast embedded in the price). When IV > recent realised, the
+options market expects movement to pick up; when IV < realised, the
+market expects calm to return. The gap between the two is one of
+the oldest signals in derivatives.
 </p>
 <p>
-A: Assignment occurs when an option seller is required to fulfill their obligation because the option buyer exercised their right. If you sold a call and get assigned, you must sell 100 shares at the strike price. If you sold a put and get assigned, you must buy 100 shares at the strike price. Early assignment is possible with American-style options but is uncommon except when (a) the option is deep in the money near expiration, or (b) there is an upcoming dividend. For the covered call and cash-secured put strategies we teach, assignment is not a disaster; it simply means you sold your stock at your target price (for calls) or bought stock at your target price (for puts).
+<strong>Q9: Why 30-45 days to expiry for retail premium-selling?</strong>
 </p>
 <p>
-<strong>Q10: How are options taxed?</strong>
+A: Theta — the rate of time-value decay — is fastest in the 21-45
+DTE band. Shorter than 21 days and the daily premium is small per
+contract for the capital tied up; longer than 45 days and the daily
+decay slows down meaningfully and you're locking up collateral for
+a smaller daily yield. The 30-45 DTE band has been the empirical
+sweet spot for retail premium-sellers for decades; SPY weeklies and
+30-day monthlies are the workhorse contracts.
 </p>
 <p>
-A: Options taxation depends on the strategy and holding period. Generally, option premiums received from selling options are treated as short-term capital gains. If you are assigned on a covered call, the premium is added to your selling price. If you are assigned on a cash-secured put, the premium reduces your cost basis. LEAPS held for more than one year may qualify for long-term capital gains rates. Consult a tax professional for your specific situation, as options taxation can be complex.
+<strong>Q10: What's the smallest options account that makes sense?</strong>
+</p>
+<p>
+A: Roughly $25,000-$50,000 to do cash-secured puts and covered
+calls on liquid US ETFs (SPY, QQQ, IWM) with one or two contracts at
+a time. Below that, the 100-share contract size forces you into
+penny names where the bid-ask spread eats the premium. Below
+$10,000, options are not the right tool — stick to share-buying
+discipline. The contracts are not scaled for very small accounts.
+</p>
+<p>
+<strong>Q11: I've heard "options trading is zero-sum." Is that true?</strong>
+</p>
+<p>
+A: Yes, <em>in dollars before fees</em>. Every dollar a buyer makes is a
+dollar a seller loses, and vice versa, for any single contract.
+This is different from the stock market, which is positive-sum
+(companies generate cash flows). In options, you are negotiating who
+takes which slice of an existing risk. After fees and bid-ask
+spreads, options are <em>negative-sum</em>. This is why the strategy
+matters more than the prediction — being on the right side of the
+asymmetry beats being right about direction.
+</p>
+<p>
+**Q12: When does this lesson stop being theoretical and start being
+useful?**
+</p>
+<p>
+A: Week 26. Every concept introduced this week — premium = intrinsic
++ time, the four positions, ITM/ATM/OTM, weekly vs monthly vs LEAPS
+— gets used immediately in week 26 (options as limit orders), week
+27 (covered calls), week 28 (cash-secured puts), week 29
+(protective puts), week 30 (LEAPS-as-stock). This is the dictionary
+week. Keep the interactive open in another tab while you read the
+next five.
 </p>
             </div>
             <div id="content-hk" class="lang-content">

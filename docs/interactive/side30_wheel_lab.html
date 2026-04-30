@@ -1,0 +1,828 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Wheel Strategy Lab — Interactive (Side 30)</title>
+<script src="https://cdn.plot.ly/plotly-2.35.2.min.js" charset="utf-8"></script>
+<style>
+html, body { margin: 0; padding: 0; background: var(--wh-bg); }
+:root {
+    --wh-bg: #fdfbf5;
+    --wh-text: #1a2332;
+    --wh-muted: #6b7280;
+    --wh-border: #d6d3c4;
+    --wh-card: #fdfbf5;
+    --wh-pos: #2e7d32;
+    --wh-neg: #b71c1c;
+    --wh-mid: #0d47a1;
+    --wh-accent: #b8860b;
+    --wh-purple: #6a1b9a;
+}
+html[data-theme="dark"] .wh-root,
+.wh-root[data-theme="dark"] {
+    --wh-bg: #0f1724;
+    --wh-text: #e6e6e6;
+    --wh-muted: #9aa3b2;
+    --wh-border: #2a3441;
+    --wh-card: #0f1724;
+    --wh-pos: #66bb6a;
+    --wh-neg: #ef5350;
+    --wh-mid: #5a8dee;
+    --wh-purple: #c89bdb;
+}
+.wh-root {
+    font-family: 'Segoe UI', Helvetica, Arial, sans-serif;
+    background: var(--wh-bg);
+    color: var(--wh-text);
+    padding: 12px;
+    margin: 0;
+}
+.wh-pillbar-wrap {
+    margin-bottom: 12px;
+    padding: 10px 12px;
+    background: var(--wh-card);
+    border: 1px solid var(--wh-border);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 14px;
+}
+.wh-pillgroup {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.wh-label {
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--wh-muted);
+}
+.wh-pillbar {
+    display: inline-flex;
+    border: 1px solid var(--wh-border);
+    border-radius: 999px;
+    overflow: hidden;
+    background: var(--wh-card);
+}
+.wh-pillbar button {
+    border: none;
+    background: transparent;
+    color: var(--wh-muted);
+    padding: 6px 12px;
+    font: inherit;
+    font-size: 0.85rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.15s, color 0.15s;
+}
+.wh-pillbar button:hover { color: var(--wh-text); }
+.wh-pillbar button.active {
+    background: var(--wh-accent);
+    color: #fff;
+}
+.wh-controls {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 12px;
+    margin-bottom: 14px;
+    padding: 12px;
+    background: var(--wh-card);
+    border: 1px solid var(--wh-border);
+    border-radius: 8px;
+}
+.wh-slider-wrap {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    font-size: 0.82rem;
+    color: var(--wh-muted);
+}
+.wh-slider-wrap .wh-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.wh-slider-wrap input[type="range"] {
+    flex: 1;
+    accent-color: var(--wh-accent);
+}
+.wh-slider-wrap .wh-val {
+    white-space: nowrap;
+    color: var(--wh-text);
+    font-weight: 700;
+    font-variant-numeric: tabular-nums;
+    min-width: 100px;
+    text-align: right;
+}
+.wh-slider-wrap .wh-name {
+    font-weight: 600;
+    color: var(--wh-text);
+}
+.wh-bigrow {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin-bottom: 14px;
+}
+.wh-big {
+    background: var(--wh-card);
+    border: 1px solid var(--wh-border);
+    border-left: 4px solid var(--wh-accent);
+    border-radius: 8px;
+    padding: 12px 14px;
+}
+.wh-big.wh-big-mid { border-left-color: var(--wh-mid); }
+.wh-big.wh-big-pos { border-left-color: var(--wh-pos); }
+.wh-big.wh-big-neg { border-left-color: var(--wh-neg); }
+.wh-big.wh-big-pur { border-left-color: var(--wh-purple); }
+.wh-big .wh-big-name {
+    font-size: 0.74rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--wh-muted);
+}
+.wh-big .wh-big-val {
+    font-size: 1.5rem;
+    font-weight: 800;
+    margin-top: 4px;
+    font-variant-numeric: tabular-nums;
+    color: var(--wh-text);
+}
+.wh-big .wh-big-detail {
+    font-size: 0.76rem;
+    color: var(--wh-muted);
+    margin-top: 2px;
+    font-variant-numeric: tabular-nums;
+}
+.wh-chart {
+    width: 100%;
+    height: 360px;
+    background: var(--wh-card);
+    border-radius: 8px;
+    border: 1px solid var(--wh-border);
+    margin-bottom: 12px;
+}
+.wh-verdict {
+    margin-bottom: 12px;
+    padding: 12px 14px;
+    background: var(--wh-card);
+    border: 1px solid var(--wh-border);
+    border-left: 4px solid var(--wh-accent);
+    border-radius: 8px;
+    font-size: 0.92rem;
+    color: var(--wh-text);
+    line-height: 1.5;
+}
+.wh-verdict.wh-v-good { border-left-color: var(--wh-pos); }
+.wh-verdict.wh-v-meh  { border-left-color: var(--wh-accent); }
+.wh-verdict.wh-v-bad  { border-left-color: var(--wh-neg); }
+.wh-verdict h4 {
+    margin: 0 0 4px 0;
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--wh-muted);
+}
+.wh-caption {
+    margin-top: 8px;
+    font-size: 0.78rem;
+    color: var(--wh-muted);
+    line-height: 1.45;
+}
+@media (max-width: 720px) {
+    .wh-bigrow { grid-template-columns: 1fr; }
+    .wh-chart { height: 320px; }
+}
+</style>
+</head>
+<body>
+
+<div class="wh-root" id="wh-root">
+
+    <div class="wh-pillbar-wrap">
+        <div class="wh-pillgroup">
+            <span class="wh-label" id="wh-und-label">Underlying</span>
+            <div class="wh-pillbar" id="wh-und-pills" role="tablist">
+                <button type="button" data-und="AAPL" class="active">AAPL</button>
+                <button type="button" data-und="MSFT">MSFT</button>
+                <button type="button" data-und="SPY">SPY</button>
+                <button type="button" data-und="QQQ">QQQ</button>
+            </div>
+        </div>
+        <div class="wh-pillgroup">
+            <span class="wh-label" id="wh-dte-label">DTE</span>
+            <div class="wh-pillbar" id="wh-dte-pills" role="tablist">
+                <button type="button" data-dte="7">7</button>
+                <button type="button" data-dte="14">14</button>
+                <button type="button" data-dte="30" class="active">30</button>
+                <button type="button" data-dte="45">45</button>
+            </div>
+        </div>
+        <div class="wh-pillgroup">
+            <span class="wh-label" id="wh-delta-label">Target &Delta;</span>
+            <div class="wh-pillbar" id="wh-delta-pills" role="tablist">
+                <button type="button" data-d="10">10</button>
+                <button type="button" data-d="20">20</button>
+                <button type="button" data-d="30" class="active">30</button>
+                <button type="button" data-d="40">40</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="wh-controls">
+        <div class="wh-slider-wrap">
+            <div class="wh-name" id="wh-name-cap">Capital deployed</div>
+            <div class="wh-row">
+                <input type="range" id="wh-cap" min="10000" max="500000" step="5000" value="100000">
+                <span class="wh-val" id="wh-val-cap">$100,000</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="wh-bigrow">
+        <div class="wh-big">
+            <div class="wh-big-name" id="wh-bn-prem">Estimated monthly premium</div>
+            <div class="wh-big-val" id="wh-bv-prem">—</div>
+            <div class="wh-big-detail" id="wh-bd-prem">—</div>
+        </div>
+        <div class="wh-big wh-big-pos">
+            <div class="wh-big-name" id="wh-bn-yield">Annualized yield</div>
+            <div class="wh-big-val" id="wh-bv-yield">—</div>
+            <div class="wh-big-detail" id="wh-bd-yield">—</div>
+        </div>
+        <div class="wh-big wh-big-mid">
+            <div class="wh-big-name" id="wh-bn-cap2">Contracts (share wheel)</div>
+            <div class="wh-big-val" id="wh-bv-cap2">—</div>
+            <div class="wh-big-detail" id="wh-bd-cap2">—</div>
+        </div>
+        <div class="wh-big wh-big-pur">
+            <div class="wh-big-name" id="wh-bn-pmcc">Contracts (PMCC wheel)</div>
+            <div class="wh-big-val" id="wh-bv-pmcc">—</div>
+            <div class="wh-big-detail" id="wh-bd-pmcc">—</div>
+        </div>
+        <div class="wh-big wh-big-neg">
+            <div class="wh-big-name" id="wh-bn-mdd">Expected 5-yr drawdown</div>
+            <div class="wh-big-val" id="wh-bv-mdd">—</div>
+            <div class="wh-big-detail" id="wh-bd-mdd">—</div>
+        </div>
+        <div class="wh-big">
+            <div class="wh-big-name" id="wh-bn-vsbh">Wheel vs buy-and-hold</div>
+            <div class="wh-big-val" id="wh-bv-vsbh">—</div>
+            <div class="wh-big-detail" id="wh-bd-vsbh">—</div>
+        </div>
+    </div>
+
+    <div id="wh-chart" class="wh-chart"></div>
+
+    <div class="wh-verdict" id="wh-verdict">
+        <h4 id="wh-verdict-label">Verdict</h4>
+        <div id="wh-verdict-body">—</div>
+    </div>
+
+    <p class="wh-caption" id="wh-caption">
+        Black-Scholes premium for an OTM cash-secured put on the chosen underlying. Assignment-drag and call-cap effects modelled by a 5-yr Monte Carlo (deterministic LCG) using each name's historical drift and vol. Default settings (AAPL, 30 DTE, 30-delta) reproduce the canonical retail wheel — about 1.0-1.3% per month, 14-16% annualized, drawdown low-20s.
+    </p>
+</div>
+
+<script>
+(function () {
+
+    // April 2026 approximations.
+    // px = spot, sigma = annualized IV, mu = annualized total-return drift,
+    // sigma_real = realized vol used for MC.
+    const PRESETS = {
+        AAPL: { px: 215, sigma: 0.235, mu: 0.155, sigma_real: 0.255 },
+        MSFT: { px: 420, sigma: 0.220, mu: 0.165, sigma_real: 0.235 },
+        SPY:  { px: 560, sigma: 0.180, mu: 0.105, sigma_real: 0.165 },
+        QQQ:  { px: 480, sigma: 0.220, mu: 0.135, sigma_real: 0.215 },
+    };
+    const RFR = 0.04;
+    const TBILL = 0.04;
+
+    const I18N = {
+        en: {
+            und_label:    "Underlying",
+            dte_label:    "DTE",
+            delta_label:  "Target Δ",
+            name_cap:     "Capital deployed",
+            bn_prem:      "Estimated monthly premium",
+            bn_yield:     "Annualized yield (incl. T-bill)",
+            bn_cap2:      "Contracts (share wheel)",
+            bn_pmcc:      "Contracts (PMCC wheel)",
+            bn_mdd:       "Expected 5-yr drawdown",
+            bn_vsbh:      "Wheel vs buy-and-hold",
+            bd_prem:      "{n}× contracts × $\u202F{p}/contract",
+            bd_yield:     "Premium {pm} + T-bill {tb}",
+            bd_cap2:      "Strike $\u202F{k}, $\u202F{coll} / lot",
+            bd_pmcc:      "LEAPS ≈ {pct}% of strike, $\u202F{leaps}/lot",
+            bd_mdd:       "vs buy-and-hold {bh}",
+            bd_vsbh:      "Wheel CAGR {w} / BH CAGR {b}",
+            chart_title:  "5-year wealth path: $\u202F{cap} on the wheel vs buy-and-hold (10,000-path Monte Carlo, median + 10/90 band)",
+            x_title:      "Year",
+            y_title:      "Wealth ($)",
+            wh_label:     "Wheel (median)",
+            bh_label:     "Buy-and-hold (median)",
+            wh_band:      "Wheel 10-90 %ile",
+            bh_band:      "BH 10-90 %ile",
+            verdict_label:"Verdict",
+            v_good:       "Solid wheel setup. Annualized yield in the 12-18% range, drawdown under 25%, capital efficient. This is the canonical retail wheel.",
+            v_meh:        "Workable but path-dependent. Yield is OK but either the drawdown is meaningful or the cap-out hurts the upside. Consider a closer-to-money strike or a different DTE.",
+            v_bad:        "Yield is too thin OR drawdown too deep for the premium received. Either move closer to the money (higher delta) or pick a higher-vol underlying. ATM puts (40Δ) on a low-vol name don't pay enough; 40Δ on a high-vol name eats real drawdown.",
+            v_pmcc:       " For an account this size, the PMCC wheel deploys {x}× more contracts at the same premium per contract — consider it.",
+            caption:      "Black-Scholes premium for an OTM cash-secured put on the chosen underlying. Assignment-drag and call-cap effects modelled by a 5-yr Monte Carlo (deterministic LCG) using each name's historical drift and vol. Default settings (AAPL, 30 DTE, 30-delta) reproduce the canonical retail wheel — about 1.0-1.3% per month, 14-16% annualized, drawdown low-20s.",
+        },
+        hk: {
+            und_label:    "標的",
+            dte_label:    "到期天數",
+            delta_label:  "目標 Δ",
+            name_cap:     "投入資金",
+            bn_prem:      "預估每月權利金",
+            bn_yield:     "年化收益率(含國庫券)",
+            bn_cap2:      "張數(股票輪轉)",
+            bn_pmcc:      "張數(PMCC 輪轉)",
+            bn_mdd:       "5 年預期最大回撤",
+            bn_vsbh:      "輪轉 vs 持有",
+            bd_prem:      "{n} 張 × $\u202F{p}/張",
+            bd_yield:     "權利金 {pm} + 國庫券 {tb}",
+            bd_cap2:      "行使價 $\u202F{k},每組 $\u202F{coll}",
+            bd_pmcc:      "LEAPS ≈ 行使價 {pct}%,每組 $\u202F{leaps}",
+            bd_mdd:       "持有同股回撤 {bh}",
+            bd_vsbh:      "輪轉 {w} / 持有 {b}",
+            chart_title:  "5 年資產路徑:$\u202F{cap} 輪轉策略 vs 持有(10,000 條 MC,中位數 + 10/90)",
+            x_title:      "年份",
+            y_title:      "資產($)",
+            wh_label:     "輪轉(中位數)",
+            bh_label:     "持有(中位數)",
+            wh_band:      "輪轉 10-90 百分位",
+            bh_band:      "持有 10-90 百分位",
+            verdict_label:"評估",
+            v_good:       "穩健的輪轉配置。年化收益落在 12-18%,回撤低於 25%,資金效率良好,屬經典零售輪轉設置。",
+            v_meh:        "可行但波動較大。收益尚可,但回撤明顯或上行被買權封死。可考慮較深的行使價或不同到期日。",
+            v_bad:        "收益過薄,或回撤相對權利金過深。可考慮較深價內(較高 Delta)或波動更大的標的。低波動標的的 40Δ 賣權收益不足;高波動標的的 40Δ 賣權回撤太大。",
+            v_pmcc:       " 以此資金規模,PMCC 輪轉可在相同權利金下開出 {x} 倍張數,值得考慮。",
+            caption:      "Black-Scholes 計算的價外現金擔保賣權權利金。指派拖累與買權封頂效應透過 5 年蒙地卡羅(確定性 LCG)模擬,使用各標的歷史漂移率與波動率。預設(AAPL、30 天、30Δ)即經典零售輪轉 — 月收益約 1.0-1.3%,年化 14-16%,回撤約 20%。",
+        },
+        tw: {
+            und_label:    "標的",
+            dte_label:    "到期天數",
+            delta_label:  "目標 Δ",
+            name_cap:     "投入資金",
+            bn_prem:      "預估每月權利金",
+            bn_yield:     "年化收益率(含國庫券)",
+            bn_cap2:      "張數(股票輪轉)",
+            bn_pmcc:      "張數(PMCC 輪轉)",
+            bn_mdd:       "5 年預期最大回撤",
+            bn_vsbh:      "輪轉 vs 持有",
+            bd_prem:      "{n} 張 × $\u202F{p}/張",
+            bd_yield:     "權利金 {pm} + 國庫券 {tb}",
+            bd_cap2:      "履約價 $\u202F{k},每組 $\u202F{coll}",
+            bd_pmcc:      "LEAPS ≈ 履約價 {pct}%,每組 $\u202F{leaps}",
+            bd_mdd:       "持有同股回撤 {bh}",
+            bd_vsbh:      "輪轉 {w} / 持有 {b}",
+            chart_title:  "5 年資產路徑:$\u202F{cap} 輪轉策略 vs 持有(10,000 條 MC,中位數 + 10/90)",
+            x_title:      "年份",
+            y_title:      "資產($)",
+            wh_label:     "輪轉(中位數)",
+            bh_label:     "持有(中位數)",
+            wh_band:      "輪轉 10-90 百分位",
+            bh_band:      "持有 10-90 百分位",
+            verdict_label:"評估",
+            v_good:       "穩健的輪轉配置。年化收益落在 12-18%,回撤低於 25%,資金效率良好,屬經典零售輪轉設置。",
+            v_meh:        "可行但波動較大。收益尚可,但回撤明顯或上行被買權封死。可考慮較深的履約價或不同到期日。",
+            v_bad:        "收益過薄,或回撤相對權利金過深。可考慮較深價內(較高 Delta)或波動更大的標的。低波動標的的 40Δ 賣權收益不足;高波動標的的 40Δ 賣權回撤太大。",
+            v_pmcc:       " 以此資金規模,PMCC 輪轉可在相同權利金下開出 {x} 倍張數,值得考慮。",
+            caption:      "Black-Scholes 計算的價外現金擔保賣權權利金。指派拖累與買權封頂效應透過 5 年蒙地卡羅(確定性 LCG)模擬,使用各標的歷史漂移率與波動率。預設(AAPL、30 天、30Δ)即經典零售輪轉 — 月收益約 1.0-1.3%,年化 14-16%,回撤約 20%。",
+        },
+        cn: {
+            und_label:    "标的",
+            dte_label:    "到期天数",
+            delta_label:  "目标 Δ",
+            name_cap:     "投入资金",
+            bn_prem:      "预估每月权利金",
+            bn_yield:     "年化收益率(含国库券)",
+            bn_cap2:      "张数(股票轮转)",
+            bn_pmcc:      "张数(PMCC 轮转)",
+            bn_mdd:       "5 年预期最大回撤",
+            bn_vsbh:      "轮转 vs 持有",
+            bd_prem:      "{n} 张 × $\u202F{p}/张",
+            bd_yield:     "权利金 {pm} + 国库券 {tb}",
+            bd_cap2:      "行权价 $\u202F{k},每组 $\u202F{coll}",
+            bd_pmcc:      "LEAPS ≈ 行权价 {pct}%,每组 $\u202F{leaps}",
+            bd_mdd:       "持有同股回撤 {bh}",
+            bd_vsbh:      "轮转 {w} / 持有 {b}",
+            chart_title:  "5 年资产路径:$\u202F{cap} 轮转策略 vs 持有(10,000 条 MC,中位数 + 10/90)",
+            x_title:      "年份",
+            y_title:      "资产($)",
+            wh_label:     "轮转(中位数)",
+            bh_label:     "持有(中位数)",
+            wh_band:      "轮转 10-90 百分位",
+            bh_band:      "持有 10-90 百分位",
+            verdict_label:"评估",
+            v_good:       "稳健的轮转配置。年化收益落在 12-18%,回撤低于 25%,资金效率良好,属经典零售轮转设置。",
+            v_meh:        "可行但波动较大。收益尚可,但回撤明显或上行被买权封死。可考虑较深的行权价或不同到期日。",
+            v_bad:        "收益过薄,或回撤相对权利金过深。可考虑较深价内(较高 Delta)或波动更大的标的。低波动标的的 40Δ 卖权收益不足;高波动标的的 40Δ 卖权回撤太大。",
+            v_pmcc:       " 以此资金规模,PMCC 轮转可在相同权利金下开出 {x} 倍张数,值得考虑。",
+            caption:      "Black-Scholes 计算的价外现金担保卖权权利金。指派拖累与买权封顶效应通过 5 年蒙特卡洛(确定性 LCG)模拟,使用各标的历史漂移率与波动率。默认(AAPL、30 天、30Δ)即经典零售轮转 — 月收益约 1.0-1.3%,年化 14-16%,回撤约 20%。",
+        },
+    };
+
+    function currentLang() {
+        const p = new URLSearchParams(window.location.search);
+        const l = (p.get("lang") || "en").toLowerCase();
+        return I18N.hasOwnProperty(l) ? l : "en";
+    }
+    const T = I18N[currentLang()];
+
+    // ---------------- Black-Scholes ----------------
+    function normCdf(x) {
+        const a1=0.254829592, a2=-0.284496736, a3=1.421413741, a4=-1.453152027, a5=1.061405429, p=0.3275911;
+        const sign = x < 0 ? -1 : 1;
+        const ax = Math.abs(x) / Math.SQRT2;
+        const t = 1.0 / (1.0 + p * ax);
+        const y = 1.0 - (((((a5*t + a4)*t) + a3)*t + a2)*t + a1)*t * Math.exp(-ax*ax);
+        return 0.5 * (1.0 + sign * y);
+    }
+    function bsPut(s, k, r, sigma, t) {
+        const sqrtT = Math.sqrt(t);
+        const d1 = (Math.log(s/k) + (r + 0.5*sigma*sigma)*t) / (sigma*sqrtT);
+        const d2 = d1 - sigma*sqrtT;
+        return k * Math.exp(-r*t) * normCdf(-d2) - s * normCdf(-d1);
+    }
+    function putDelta(s, k, r, sigma, t) {
+        const d1 = (Math.log(s/k) + (r + 0.5*sigma*sigma)*t) / (sigma*Math.sqrt(t));
+        return normCdf(-d1);
+    }
+    function strikeForDelta(targetDelta, s, r, sigma, t) {
+        let lo = 0.30 * s, hi = s * 1.05;
+        for (let i = 0; i < 80; i++) {
+            const mid = 0.5 * (lo + hi);
+            const d = putDelta(s, mid, r, sigma, t);
+            if (d < targetDelta) lo = mid; else hi = mid;
+        }
+        return 0.5 * (lo + hi);
+    }
+
+    // ---------------- Deterministic LCG + Box-Muller ----------------
+    function makeRand(seed) {
+        let state = seed >>> 0;
+        return function() {
+            state = (state * 1664525 + 1013904223) >>> 0;
+            return state / 4294967296;
+        };
+    }
+    function bm(rand) {
+        const u1 = Math.max(rand(), 1e-12);
+        const u2 = rand();
+        return Math.sqrt(-2 * Math.log(u1)) * Math.cos(2 * Math.PI * u2);
+    }
+
+    // ---------------- Wheel monthly model ----------------
+    // Same calibration as side30_wheel_pnl.py: 3-regime piecewise.
+    function wheelMonth(r, prem, upCap) {
+        if (r >= 0) return Math.min(prem + 0.32 * r, upCap);
+        if (r >= -0.025) return prem + r;
+        if (r >= -0.07)  return prem - 0.025 + 0.55 * (r + 0.025);
+        return prem - 0.025 + 0.55 * (-0.045) + 0.92 * (r + 0.07);
+    }
+
+    // ---------------- 5-yr Monte Carlo: paths for wheel + BH ----------------
+    function simulate(undKey, premPctMonthly, upCapMonthly) {
+        // 60 months, NPATHS paths, deterministic seed.
+        const p = PRESETS[undKey];
+        const NPATHS = 600;          // keep light for browser
+        const NMONTHS = 60;
+        const muM = (p.mu) / 12.0;
+        const sigM = p.sigma_real / Math.sqrt(12);
+        const rand = makeRand(20260429);
+
+        const wPaths = new Float64Array(NPATHS * (NMONTHS + 1));
+        const bPaths = new Float64Array(NPATHS * (NMONTHS + 1));
+        for (let i = 0; i < NPATHS; i++) {
+            wPaths[i * (NMONTHS + 1)] = 1.0;
+            bPaths[i * (NMONTHS + 1)] = 1.0;
+        }
+        let wMaxDD = 0, bMaxDD = 0;
+        for (let i = 0; i < NPATHS; i++) {
+            let pw = 1.0, pb = 1.0, peakW = 1.0, peakB = 1.0;
+            let mddW = 0, mddB = 0;
+            for (let t = 1; t <= NMONTHS; t++) {
+                const z = bm(rand);
+                const r = muM + sigM * z;
+                pb = pb * (1 + r);
+                pw = pw * (1 + wheelMonth(r, premPctMonthly, upCapMonthly));
+                if (pb > peakB) peakB = pb;
+                if (pw > peakW) peakW = pw;
+                const ddB = pb / peakB - 1;
+                const ddW = pw / peakW - 1;
+                if (ddB < mddB) mddB = ddB;
+                if (ddW < mddW) mddW = ddW;
+                wPaths[i * (NMONTHS + 1) + t] = pw;
+                bPaths[i * (NMONTHS + 1) + t] = pb;
+            }
+            wMaxDD += mddW; bMaxDD += mddB;
+        }
+        // Percentile bands (10/50/90) at each month.
+        const wMed = new Float64Array(NMONTHS + 1);
+        const bMed = new Float64Array(NMONTHS + 1);
+        const wLo = new Float64Array(NMONTHS + 1);
+        const bLo = new Float64Array(NMONTHS + 1);
+        const wHi = new Float64Array(NMONTHS + 1);
+        const bHi = new Float64Array(NMONTHS + 1);
+        const tmpW = new Float64Array(NPATHS);
+        const tmpB = new Float64Array(NPATHS);
+        for (let t = 0; t <= NMONTHS; t++) {
+            for (let i = 0; i < NPATHS; i++) {
+                tmpW[i] = wPaths[i * (NMONTHS + 1) + t];
+                tmpB[i] = bPaths[i * (NMONTHS + 1) + t];
+            }
+            tmpW.sort(); tmpB.sort();
+            wLo[t]  = tmpW[Math.floor(NPATHS * 0.10)];
+            wMed[t] = tmpW[Math.floor(NPATHS * 0.50)];
+            wHi[t]  = tmpW[Math.floor(NPATHS * 0.90)];
+            bLo[t]  = tmpB[Math.floor(NPATHS * 0.10)];
+            bMed[t] = tmpB[Math.floor(NPATHS * 0.50)];
+            bHi[t]  = tmpB[Math.floor(NPATHS * 0.90)];
+        }
+        return {
+            wMed, bMed, wLo, wHi, bLo, bHi,
+            wAvgMDD: wMaxDD / NPATHS,
+            bAvgMDD: bMaxDD / NPATHS,
+            wCAGR: Math.pow(wMed[NMONTHS], 12 / NMONTHS) - 1,
+            bCAGR: Math.pow(bMed[NMONTHS], 12 / NMONTHS) - 1,
+        };
+    }
+
+    // ---------------- DOM ----------------
+    const ROOT = document.getElementById("wh-root");
+    const CHART = document.getElementById("wh-chart");
+    const UND_PILLS = document.getElementById("wh-und-pills");
+    const DTE_PILLS = document.getElementById("wh-dte-pills");
+    const D_PILLS = document.getElementById("wh-delta-pills");
+    const CAP = document.getElementById("wh-cap");
+    let activeUnd = "AAPL";
+    let activeDTE = 30;
+    let activeDelta = 30;
+
+    function getCssVar(n) {
+        return getComputedStyle(ROOT).getPropertyValue(n).trim();
+    }
+    function darkMode() {
+        return document.documentElement.getAttribute("data-theme") === "dark";
+    }
+    function fmtNum(n, d) {
+        if (!isFinite(n)) return "—";
+        return n.toLocaleString(undefined, {
+            minimumFractionDigits: d, maximumFractionDigits: d,
+        });
+    }
+    function fmtMoney(n, d) {
+        if (!isFinite(n)) return "—";
+        const dd = d == null ? 2 : d;
+        return "$" + fmtNum(n, dd);
+    }
+    function fmtPct(n, d) { return n.toFixed(d == null ? 1 : d) + "%"; }
+
+    function render() {
+        const cap = parseInt(CAP.value, 10);
+        document.getElementById("wh-val-cap").textContent = "$" + cap.toLocaleString();
+
+        const p = PRESETS[activeUnd];
+        const tDelta = activeDelta / 100.0;
+        const tT = activeDTE / 365.0;
+        const k = strikeForDelta(tDelta, p.px, RFR, p.sigma, tT);
+        const prem = bsPut(p.px, k, RFR, p.sigma, tT);
+
+        // Per-cycle yield on this strike.
+        const cyclesPerYear = 365.0 / activeDTE;
+        const premYieldAnn = (prem / k) * cyclesPerYear;
+        // Convert into an "average monthly premium %".
+        const premPctMonthly = (prem / k) * (cyclesPerYear / 12.0);
+        // Up-side cap: ATM call premium is a bit higher than the put.
+        // Approximate cap as premPctMonthly + 0.6% (call premium net of opportunity cost).
+        const upCapMonthly = premPctMonthly * 1.20 + 0.006;
+
+        // Capital efficiency.
+        const collateralPerLot = k * 100.0;                  // share wheel
+        const leapsPctOfStrike = 0.30;                       // ~30% deep-ITM LEAPS proxy
+        const leapsPerLot = collateralPerLot * leapsPctOfStrike;
+        const nShareLots = Math.max(0, Math.floor(cap / collateralPerLot));
+        const nPmccLots  = Math.max(0, Math.floor(cap / leapsPerLot));
+
+        const monthlyPremDollars = prem * 100 * nShareLots;
+
+        // 5-yr MC simulation: wealth path on $cap deployed wheel-style.
+        const sim = simulate(activeUnd, premPctMonthly, upCapMonthly);
+
+        // KPIs
+        document.getElementById("wh-bv-prem").textContent = fmtMoney(monthlyPremDollars, 0);
+        document.getElementById("wh-bd-prem").textContent =
+            T.bd_prem.replace("{n}", nShareLots).replace("{p}", fmtNum(prem * 100, 0));
+
+        const totalAnnYield = premYieldAnn * 100 + TBILL * 100;
+        document.getElementById("wh-bv-yield").textContent = fmtPct(totalAnnYield, 1);
+        document.getElementById("wh-bd-yield").textContent =
+            T.bd_yield.replace("{pm}", fmtPct(premYieldAnn * 100, 1))
+                      .replace("{tb}", fmtPct(TBILL * 100, 1));
+
+        document.getElementById("wh-bv-cap2").textContent = nShareLots.toLocaleString();
+        document.getElementById("wh-bd-cap2").textContent =
+            T.bd_cap2.replace("{k}", fmtNum(k, 0)).replace("{coll}", fmtNum(collateralPerLot, 0));
+
+        document.getElementById("wh-bv-pmcc").textContent = nPmccLots.toLocaleString();
+        document.getElementById("wh-bd-pmcc").textContent =
+            T.bd_pmcc.replace("{pct}", (leapsPctOfStrike * 100).toFixed(0))
+                     .replace("{leaps}", fmtNum(leapsPerLot, 0));
+
+        document.getElementById("wh-bv-mdd").textContent = fmtPct(sim.wAvgMDD * 100, 1);
+        document.getElementById("wh-bd-mdd").textContent =
+            T.bd_mdd.replace("{bh}", fmtPct(sim.bAvgMDD * 100, 1));
+
+        document.getElementById("wh-bv-vsbh").textContent =
+            (sim.wCAGR / Math.max(sim.bCAGR, 1e-6) * 100).toFixed(0) + "%";
+        document.getElementById("wh-bd-vsbh").textContent =
+            T.bd_vsbh.replace("{w}", fmtPct(sim.wCAGR * 100, 1))
+                     .replace("{b}", fmtPct(sim.bCAGR * 100, 1));
+
+        // Verdict.
+        const yldNum = totalAnnYield;
+        const ddNum = sim.wAvgMDD * 100;
+        const verdict = document.getElementById("wh-verdict");
+        const verdictBody = document.getElementById("wh-verdict-body");
+        verdict.classList.remove("wh-v-good", "wh-v-meh", "wh-v-bad");
+        let key;
+        if (yldNum >= 11 && ddNum >= -25) {
+            key = "v_good"; verdict.classList.add("wh-v-good");
+        } else if (yldNum >= 7 && ddNum >= -32) {
+            key = "v_meh"; verdict.classList.add("wh-v-meh");
+        } else {
+            key = "v_bad"; verdict.classList.add("wh-v-bad");
+        }
+        let body = T[key];
+        // PMCC tip when capital is small or share lots ≤ 1.
+        if (nShareLots <= 1 && nPmccLots >= 2) {
+            const x = (nPmccLots / Math.max(nShareLots, 1)).toFixed(1);
+            body += T.v_pmcc.replace("{x}", x);
+        }
+        verdictBody.textContent = body;
+
+        // ---------------- Chart ----------------
+        const colorText  = getCssVar("--wh-text");
+        const colorMuted = getCssVar("--wh-muted");
+        const colorBg    = getCssVar("--wh-card");
+        const colorAcc   = getCssVar("--wh-accent");
+        const colorMid   = getCssVar("--wh-mid");
+        const colorGrid  = darkMode() ? "rgba(255,255,255,0.08)" : "rgba(0,0,0,0.07)";
+
+        const months = Array.from({length: 61}, (_, i) => i / 12.0);
+        const wMed = Array.from(sim.wMed).map(x => x * cap);
+        const bMed = Array.from(sim.bMed).map(x => x * cap);
+        const wLo = Array.from(sim.wLo).map(x => x * cap);
+        const wHi = Array.from(sim.wHi).map(x => x * cap);
+        const bLo = Array.from(sim.bLo).map(x => x * cap);
+        const bHi = Array.from(sim.bHi).map(x => x * cap);
+
+        // Convert hex -> rgba for fill.
+        function hexToRgba(hex, a) {
+            const h = hex.replace("#", "");
+            const v = h.length === 3 ? h.split("").map(c => c + c).join("") : h;
+            const r = parseInt(v.slice(0, 2), 16);
+            const g = parseInt(v.slice(2, 4), 16);
+            const b = parseInt(v.slice(4, 6), 16);
+            return `rgba(${r},${g},${b},${a})`;
+        }
+
+        const traceWBand = {
+            x: months.concat(months.slice().reverse()),
+            y: wHi.concat(wLo.slice().reverse()),
+            type: "scatter", mode: "lines",
+            fill: "toself",
+            fillcolor: hexToRgba(colorAcc.startsWith("#") ? colorAcc : "#b8860b", 0.15),
+            line: { color: "transparent" },
+            name: T.wh_band, hoverinfo: "skip", showlegend: false,
+        };
+        const traceBBand = {
+            x: months.concat(months.slice().reverse()),
+            y: bHi.concat(bLo.slice().reverse()),
+            type: "scatter", mode: "lines",
+            fill: "toself",
+            fillcolor: hexToRgba(colorMid.startsWith("#") ? colorMid : "#0d47a1", 0.10),
+            line: { color: "transparent" },
+            name: T.bh_band, hoverinfo: "skip", showlegend: false,
+        };
+        const traceW = {
+            x: months, y: wMed, type: "scatter", mode: "lines",
+            line: { color: colorAcc, width: 2.6 },
+            name: T.wh_label,
+            hovertemplate: "y=%{x:.1f}<br>%{y:$,.0f}<extra></extra>",
+        };
+        const traceB = {
+            x: months, y: bMed, type: "scatter", mode: "lines",
+            line: { color: colorMid, width: 2.6 },
+            name: T.bh_label,
+            hovertemplate: "y=%{x:.1f}<br>%{y:$,.0f}<extra></extra>",
+        };
+
+        const layout = {
+            margin: { l: 70, r: 28, t: 44, b: 56 },
+            paper_bgcolor: colorBg,
+            plot_bgcolor: colorBg,
+            font: { family: "Segoe UI, Helvetica, Arial, sans-serif", color: colorText, size: 12 },
+            xaxis: {
+                title: { text: T.x_title, font: { color: colorMuted, size: 11 } },
+                gridcolor: colorGrid, color: colorText,
+                tickformat: ".0f", ticksuffix: "y",
+            },
+            yaxis: {
+                title: { text: T.y_title, font: { color: colorMuted, size: 11 } },
+                gridcolor: colorGrid, color: colorText,
+                tickformat: "$,.0f",
+            },
+            title: {
+                text: T.chart_title.replace("{cap}", fmtNum(cap, 0)),
+                x: 0, xanchor: "left",
+                font: { color: colorText, size: 13, weight: 700 },
+            },
+            legend: { orientation: "h", y: 1.08, x: 0, xanchor: "left",
+                      bgcolor: "rgba(0,0,0,0)", font: { color: colorText, size: 11 } },
+            hovermode: "x unified",
+        };
+        Plotly.react(CHART, [traceBBand, traceWBand, traceB, traceW], layout, {
+            displayModeBar: false, responsive: true,
+        });
+    }
+
+    // ---------------- Bind ----------------
+    UND_PILLS.querySelectorAll("button").forEach(btn => {
+        btn.addEventListener("click", () => {
+            UND_PILLS.querySelectorAll("button").forEach(b => b.classList.remove("active"));
+            btn.classList.add("active");
+            activeUnd = btn.dataset.und;
+            render();
+        });
+    });
+    DTE_PILLS.querySelectorAll("button").forEach(btn => {
+        btn.addEventListener("click", () => {
+            DTE_PILLS.querySelectorAll("button").forEach(b => b.classList.remove("active"));
+            btn.classList.add("active");
+            activeDTE = parseInt(btn.dataset.dte, 10);
+            render();
+        });
+    });
+    D_PILLS.querySelectorAll("button").forEach(btn => {
+        btn.addEventListener("click", () => {
+            D_PILLS.querySelectorAll("button").forEach(b => b.classList.remove("active"));
+            btn.classList.add("active");
+            activeDelta = parseInt(btn.dataset.d, 10);
+            render();
+        });
+    });
+    CAP.addEventListener("input", render);
+
+    function applyI18n() {
+        document.getElementById("wh-und-label").textContent = T.und_label;
+        document.getElementById("wh-dte-label").textContent = T.dte_label;
+        document.getElementById("wh-delta-label").innerHTML = T.delta_label.replace("Δ", "&Delta;");
+        document.getElementById("wh-name-cap").textContent = T.name_cap;
+        document.getElementById("wh-bn-prem").textContent = T.bn_prem;
+        document.getElementById("wh-bn-yield").textContent = T.bn_yield;
+        document.getElementById("wh-bn-cap2").textContent = T.bn_cap2;
+        document.getElementById("wh-bn-pmcc").textContent = T.bn_pmcc;
+        document.getElementById("wh-bn-mdd").textContent = T.bn_mdd;
+        document.getElementById("wh-bn-vsbh").textContent = T.bn_vsbh;
+        document.getElementById("wh-verdict-label").textContent = T.verdict_label;
+        document.getElementById("wh-caption").textContent = T.caption;
+    }
+    applyI18n();
+
+    // postMessage resize.
+    function reportHeight() {
+        try {
+            const h = Math.ceil(document.documentElement.scrollHeight);
+            parent.postMessage({ type: 'lesson-interactive-resize', height: h }, '*');
+        } catch (e) {}
+    }
+    if (typeof ResizeObserver !== "undefined") {
+        new ResizeObserver(reportHeight).observe(document.body);
+    }
+    window.addEventListener("resize", reportHeight);
+    setTimeout(reportHeight, 50);
+    setTimeout(reportHeight, 500);
+
+    // Theme observer.
+    const themeObs = new MutationObserver(render);
+    themeObs.observe(document.documentElement, {
+        attributes: true, attributeFilter: ["data-theme"],
+    });
+
+    render();
+})();
+</script>
+
+</body>
+</html>

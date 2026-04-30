@@ -1,0 +1,586 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Position Sizer — Interactive (Week 41)</title>
+<script src="https://cdn.plot.ly/plotly-2.35.2.min.js" charset="utf-8"></script>
+<style>
+html, body { margin: 0; padding: 0; background: var(--ps-bg); }
+:root {
+    --ps-bg: #fdfbf5;
+    --ps-text: #1a2332;
+    --ps-muted: #6b7280;
+    --ps-border: #d6d3c4;
+    --ps-card: #fdfbf5;
+    --ps-pos: #2e7d32;
+    --ps-neg: #b71c1c;
+    --ps-mid: #0d47a1;
+    --ps-accent: #b8860b;
+    --ps-warn: #e65100;
+}
+html[data-theme="dark"] .ps-root,
+.ps-root[data-theme="dark"] {
+    --ps-bg: #0f1724;
+    --ps-text: #e6e6e6;
+    --ps-muted: #9aa3b2;
+    --ps-border: #2a3441;
+    --ps-card: #0f1724;
+    --ps-pos: #66bb6a;
+    --ps-neg: #ef5350;
+    --ps-mid: #5a8dee;
+    --ps-warn: #ffa726;
+}
+.ps-root {
+    font-family: 'Segoe UI', Helvetica, Arial, sans-serif;
+    background: var(--ps-bg);
+    color: var(--ps-text);
+    padding: 12px;
+    margin: 0;
+}
+.ps-controls {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px 18px;
+    margin-bottom: 14px;
+    padding: 12px 14px;
+    background: var(--ps-card);
+    border: 1px solid var(--ps-border);
+    border-radius: 8px;
+}
+.ps-slider-wrap {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.85rem;
+    color: var(--ps-muted);
+}
+.ps-slider-wrap input[type="range"] {
+    flex: 1;
+    accent-color: var(--ps-accent);
+    min-width: 80px;
+}
+.ps-slider-wrap .ps-h-label {
+    white-space: nowrap;
+    color: var(--ps-text);
+    font-weight: 600;
+    font-variant-numeric: tabular-nums;
+    min-width: 86px;
+    text-align: right;
+}
+.ps-slider-wrap .ps-name {
+    white-space: nowrap;
+    min-width: 130px;
+    color: var(--ps-text);
+}
+.ps-stats {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 10px;
+    margin-bottom: 14px;
+}
+.ps-stat {
+    background: var(--ps-card);
+    border: 1px solid var(--ps-border);
+    border-left: 4px solid var(--ps-muted);
+    border-radius: 8px;
+    padding: 10px 12px;
+}
+.ps-stat.ps-stat-acc { border-left-color: var(--ps-accent); }
+.ps-stat.ps-stat-mid { border-left-color: var(--ps-mid); }
+.ps-stat.ps-stat-neg { border-left-color: var(--ps-neg); }
+.ps-stat.ps-stat-warn { border-left-color: var(--ps-warn); }
+.ps-stat .ps-stat-name {
+    font-size: 0.74rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--ps-muted);
+}
+.ps-stat .ps-stat-val {
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-top: 4px;
+    font-variant-numeric: tabular-nums;
+}
+.ps-stat .ps-stat-detail {
+    font-size: 0.74rem;
+    color: var(--ps-muted);
+    margin-top: 2px;
+    font-variant-numeric: tabular-nums;
+}
+.ps-chart {
+    width: 100%;
+    height: 360px;
+    background: var(--ps-card);
+    border-radius: 8px;
+    border: 1px solid var(--ps-border);
+}
+.ps-caption {
+    margin-top: 12px;
+    font-size: 0.78rem;
+    color: var(--ps-muted);
+    line-height: 1.45;
+}
+@media (max-width: 760px) {
+    .ps-controls { grid-template-columns: 1fr; }
+    .ps-stats { grid-template-columns: repeat(2, 1fr); }
+    .ps-chart { height: 300px; }
+}
+</style>
+</head>
+<body>
+
+<div class="ps-root" id="ps-root">
+    <div class="ps-controls">
+        <div class="ps-slider-wrap">
+            <span class="ps-name" id="ps-bk-label">Bankroll</span>
+            <input type="range" id="ps-bk-slider" min="10000" max="2000000" step="5000" value="100000">
+            <span class="ps-h-label" id="ps-bk-value">$100,000</span>
+        </div>
+        <div class="ps-slider-wrap">
+            <span class="ps-name" id="ps-ml-label">Max loss / trade</span>
+            <input type="range" id="ps-ml-slider" min="0.1" max="5" step="0.1" value="1">
+            <span class="ps-h-label" id="ps-ml-value">1.0%</span>
+        </div>
+        <div class="ps-slider-wrap">
+            <span class="ps-name" id="ps-eg-label">Expected edge / trade</span>
+            <input type="range" id="ps-eg-slider" min="0" max="200" step="5" value="50">
+            <span class="ps-h-label" id="ps-eg-value">50 bps</span>
+        </div>
+        <div class="ps-slider-wrap">
+            <span class="ps-name" id="ps-kf-label">Edge confidence (Kelly fraction)</span>
+            <input type="range" id="ps-kf-slider" min="0" max="100" step="5" value="25">
+            <span class="ps-h-label" id="ps-kf-value">0.25</span>
+        </div>
+        <div class="ps-slider-wrap">
+            <span class="ps-name" id="ps-vt-label">Per-trade vol</span>
+            <input type="range" id="ps-vt-slider" min="1" max="30" step="0.5" value="5">
+            <span class="ps-h-label" id="ps-vt-value">5.0%</span>
+        </div>
+        <div class="ps-slider-wrap">
+            <span class="ps-name" id="ps-nt-label">Trades per year</span>
+            <input type="range" id="ps-nt-slider" min="10" max="500" step="10" value="100">
+            <span class="ps-h-label" id="ps-nt-value">100</span>
+        </div>
+    </div>
+
+    <div class="ps-stats">
+        <div class="ps-stat ps-stat-acc">
+            <div class="ps-stat-name" id="ps-name-size">Recommended position size</div>
+            <div class="ps-stat-val" id="ps-val-size">—</div>
+            <div class="ps-stat-detail" id="ps-det-size">per trade</div>
+        </div>
+        <div class="ps-stat ps-stat-mid">
+            <div class="ps-stat-name" id="ps-name-count">Max simultaneous positions</div>
+            <div class="ps-stat-val" id="ps-val-count">—</div>
+            <div class="ps-stat-detail" id="ps-det-count">at sector cap 8%</div>
+        </div>
+        <div class="ps-stat ps-stat-neg">
+            <div class="ps-stat-name" id="ps-name-dd">Expected max drawdown</div>
+            <div class="ps-stat-val" id="ps-val-dd">—</div>
+            <div class="ps-stat-detail" id="ps-det-dd">over 5 years</div>
+        </div>
+        <div class="ps-stat ps-stat-warn">
+            <div class="ps-stat-name" id="ps-name-blow">Blowup probability</div>
+            <div class="ps-stat-val" id="ps-val-blow">—</div>
+            <div class="ps-stat-detail" id="ps-det-blow">prob ruin (-50% DD)</div>
+        </div>
+    </div>
+
+    <div id="ps-chart" class="ps-chart"></div>
+
+    <p class="ps-caption" id="ps-caption">
+        Tune the sliders. Sizing follows the 1-2% per-trade rule capped by k * Kelly with k = edge confidence. Drawdown
+        is approximated from sigma scaled by trades / year and Kelly fraction; blowup probability uses a normal-tail
+        approximation on the per-period geometric return distribution.
+    </p>
+</div>
+
+<script>
+(function () {
+    const I18N = {
+        en: {
+            bk: "Bankroll",
+            ml: "Max loss / trade",
+            eg: "Expected edge / trade",
+            kf: "Edge confidence (Kelly fraction)",
+            vt: "Per-trade vol",
+            nt: "Trades per year",
+            name_size: "Recommended position size",
+            name_count: "Max simultaneous positions",
+            name_dd:   "Expected max drawdown",
+            name_blow: "Blowup probability",
+            det_size:  "per trade",
+            det_count: "at sector cap 8%",
+            det_dd:    "over 5 years",
+            det_blow:  "prob ruin (-50% DD)",
+            chart_title: "Bankroll path: median + 5/95 percentile bands over 5 years",
+            x_label:   "Trade #",
+            y_label:   "Bankroll ($)",
+            median:    "Median",
+            p5:        "5th pct",
+            p95:       "95th pct",
+            ruin:      "Ruin line (-50%)",
+            caption:   "Tune the sliders. Sizing = min(max-loss-per-trade dollars / vol, k * Kelly * bankroll). DD is the worst path-level drawdown sampled over 1,000 Monte Carlo paths. Blowup = paths that hit -50% from start. Quarter-Kelly (0.25) is the retail default; full Kelly (1.0) is suspicious unless you literally counted the deck.",
+        },
+        hk: {
+            bk: "本金",
+            ml: "每筆最大虧損",
+            eg: "每筆預期邊緣",
+            kf: "邊緣信心(Kelly 分數)",
+            vt: "每筆波幅",
+            nt: "每年交易數",
+            name_size: "建議倉位",
+            name_count: "最大同時持倉數",
+            name_dd:   "預期最大回撚",
+            name_blow: "爆煲機率",
+            det_size:  "每筆",
+            det_count: "板塊上限 8%",
+            det_dd:    "5 年內",
+            det_blow:  "毀滅機率(-50% DD)",
+            chart_title: "本金路徑:5 年中位數 + 5/95 百分位帶",
+            x_label:   "交易編號",
+            y_label:   "本金(美元)",
+            median:    "中位數",
+            p5:        "第 5 百分位",
+            p95:       "第 95 百分位",
+            ruin:      "毀滅線(-50%)",
+            caption:   "調整滑桿。倉位 = min(每筆最大虧損美元 / 波幅, k * Kelly * 本金)。DD 為 1,000 條蒙地卡羅路徑的最壞路徑回撚。爆煲 = 自起點下跌 50% 的路徑。零售預設四分一 Kelly(0.25);全 Kelly(1.0)除非你真的數過牌否則可疑。",
+        },
+        tw: {
+            bk: "本金",
+            ml: "每筆最大虧損",
+            eg: "每筆預期邊緣",
+            kf: "邊緣信心(Kelly 分數)",
+            vt: "每筆波動",
+            nt: "每年交易數",
+            name_size: "建議部位",
+            name_count: "最大同時持倉數",
+            name_dd:   "預期最大回檔",
+            name_blow: "爆倉機率",
+            det_size:  "每筆",
+            det_count: "類股上限 8%",
+            det_dd:    "5 年內",
+            det_blow:  "毀滅機率(-50% DD)",
+            chart_title: "本金路徑:5 年中位數 + 5/95 百分位帶",
+            x_label:   "交易編號",
+            y_label:   "本金(美元)",
+            median:    "中位數",
+            p5:        "第 5 百分位",
+            p95:       "第 95 百分位",
+            ruin:      "毀滅線(-50%)",
+            caption:   "調整滑桿。部位 = min(每筆最大虧損美元 / 波動, k * Kelly * 本金)。DD 為 1,000 條蒙地卡羅路徑的最壞路徑回檔。爆倉 = 自起點下跌 50% 的路徑。散戶預設四分之一 Kelly(0.25);全 Kelly(1.0)除非你真的算過牌否則可疑。",
+        },
+        cn: {
+            bk: "本金",
+            ml: "每笔最大亏损",
+            eg: "每笔预期边缘",
+            kf: "边缘信心(Kelly 分数)",
+            vt: "每笔波动",
+            nt: "每年交易数",
+            name_size: "建议仓位",
+            name_count: "最大同时持仓数",
+            name_dd:   "预期最大回撚",
+            name_blow: "爆仓概率",
+            det_size:  "每笔",
+            det_count: "板块上限 8%",
+            det_dd:    "5 年内",
+            det_blow:  "毁灭概率(-50% DD)",
+            chart_title: "本金路径:5 年中位数 + 5/95 百分位带",
+            x_label:   "交易编号",
+            y_label:   "本金(美元)",
+            median:    "中位数",
+            p5:        "第 5 百分位",
+            p95:       "第 95 百分位",
+            ruin:      "毁灭线(-50%)",
+            caption:   "调整滑块。仓位 = min(每笔最大亏损美元 / 波动, k * Kelly * 本金)。DD 为 1,000 条蒙特卡洛路径的最坏路径回撚。爆仓 = 自起点下跌 50% 的路径。零售默认四分之一 Kelly(0.25);全 Kelly(1.0)除非你真的数过牌否则可疑。",
+        },
+    };
+    function currentLang() {
+        const p = new URLSearchParams(window.location.search);
+        const l = (p.get("lang") || "en").toLowerCase();
+        return I18N.hasOwnProperty(l) ? l : "en";
+    }
+    const T = I18N[currentLang()];
+
+    const ROOT = document.getElementById("ps-root");
+    const CHART = document.getElementById("ps-chart");
+    const SL = {
+        bk: document.getElementById("ps-bk-slider"),
+        ml: document.getElementById("ps-ml-slider"),
+        eg: document.getElementById("ps-eg-slider"),
+        kf: document.getElementById("ps-kf-slider"),
+        vt: document.getElementById("ps-vt-slider"),
+        nt: document.getElementById("ps-nt-slider"),
+    };
+    const VL = {
+        bk: document.getElementById("ps-bk-value"),
+        ml: document.getElementById("ps-ml-value"),
+        eg: document.getElementById("ps-eg-value"),
+        kf: document.getElementById("ps-kf-value"),
+        vt: document.getElementById("ps-vt-value"),
+        nt: document.getElementById("ps-nt-value"),
+    };
+
+    function fmtMoney(v) {
+        if (!isFinite(v)) return "—";
+        if (v >= 1e6) return "$" + (v / 1e6).toFixed(2) + "M";
+        if (v >= 1e3) return "$" + Math.round(v / 1000) + "k";
+        return "$" + Math.round(v);
+    }
+    function fmtMoneyExact(v) {
+        if (!isFinite(v)) return "—";
+        return "$" + Math.round(v).toLocaleString();
+    }
+    function fmtPct(v, d) {
+        if (!isFinite(v)) return "—";
+        return (v * 100).toFixed(d === undefined ? 1 : d) + "%";
+    }
+    function getCssVar(name) {
+        return getComputedStyle(ROOT).getPropertyValue(name).trim();
+    }
+    function darkMode() {
+        return document.documentElement.getAttribute("data-theme") === "dark";
+    }
+
+    // Standard normal CDF approximation (Abramowitz & Stegun 26.2.17).
+    function normCdf(x) {
+        const a1 = 0.254829592, a2 = -0.284496736, a3 = 1.421413741;
+        const a4 = -1.453152027, a5 = 1.061405429, p = 0.3275911;
+        const sign = x < 0 ? -1 : 1;
+        const ax = Math.abs(x) / Math.sqrt(2);
+        const t = 1 / (1 + p * ax);
+        const y = 1 - (((((a5 * t + a4) * t) + a3) * t + a2) * t + a1) * t * Math.exp(-ax * ax);
+        return 0.5 * (1 + sign * y);
+    }
+
+    // LCG + Box-Muller deterministic normal draw.
+    let lcgState = 1;
+    function lcgReset(seed) { lcgState = (seed | 0) || 1; }
+    function lcgUnif() {
+        lcgState = (lcgState * 1103515245 + 12345) & 0x7fffffff;
+        return (lcgState + 1) / 0x80000001;
+    }
+    function lcgNormal() {
+        let u1 = lcgUnif(); let u2 = lcgUnif();
+        if (u1 < 1e-12) u1 = 1e-12;
+        return Math.sqrt(-2 * Math.log(u1)) * Math.cos(2 * Math.PI * u2);
+    }
+
+    function compute() {
+        const bankroll = parseFloat(SL.bk.value);
+        const maxLossPct = parseFloat(SL.ml.value) / 100;     // e.g. 0.01
+        const edgePct = parseFloat(SL.eg.value) / 10000;      // bps to fraction
+        const kFrac = parseFloat(SL.kf.value) / 100;          // 0..1
+        const tradeVol = parseFloat(SL.vt.value) / 100;       // e.g. 0.05
+        const tradesPerYear = parseFloat(SL.nt.value);
+
+        // Implied win prob from edge / vol (one-sided).
+        // mu_per_trade = edge; sigma_per_trade = vol. p ~ Phi(edge / vol).
+        const p = normCdf(edgePct / Math.max(tradeVol, 1e-6));
+        const q = 1 - p;
+        // Use b = 1 (symmetric R:R) as default Kelly assumption.
+        const b = 1.0;
+        const kellyStar = (b * p - q) / b;
+        const kellyApplied = Math.max(0, kFrac * kellyStar);
+
+        // Position size by max-loss rule: dollars-at-risk / per-trade-vol gives notional s.t. sigma*notional = $-at-risk.
+        const dollarRisk = bankroll * maxLossPct;
+        const sizeByRisk = dollarRisk / Math.max(tradeVol, 1e-6);
+        const sizeByKelly = kellyApplied * bankroll;
+        const positionSize = Math.max(0, Math.min(sizeByRisk, sizeByKelly));
+
+        // Effective per-trade risk fraction (geometric):
+        // f = positionSize / bankroll
+        const f = positionSize / Math.max(bankroll, 1);
+        // Per-trade geometric drift and vol on bankroll:
+        const muTrade = f * edgePct - 0.5 * (f * tradeVol) ** 2;
+        const sigTrade = f * tradeVol;
+
+        // Monte Carlo over 5y * tradesPerYear trades, 1000 paths.
+        const nTrades = Math.min(2500, Math.round(tradesPerYear * 5));
+        const nPaths = 1000;
+        lcgReset(42);
+        const medianPath = new Float64Array(nTrades + 1);
+        const p5Path = new Float64Array(nTrades + 1);
+        const p95Path = new Float64Array(nTrades + 1);
+        const finals = [];
+        let nBlowup = 0;
+        let mddSum = 0;
+
+        // We'll record value at each step across all paths to compute percentiles later.
+        // To save memory: store nPaths x nTrades matrix of log wealth.
+        const logBuf = new Float64Array(nPaths * (nTrades + 1));
+        for (let i = 0; i < nPaths; i++) {
+            let log_w = 0;
+            let logPeak = 0;
+            let pathMdd = 0;
+            let blew = false;
+            logBuf[i * (nTrades + 1) + 0] = 0;
+            for (let t = 1; t <= nTrades; t++) {
+                const z = lcgNormal();
+                log_w += muTrade + sigTrade * z;
+                logBuf[i * (nTrades + 1) + t] = log_w;
+                if (log_w > logPeak) logPeak = log_w;
+                const dd = Math.exp(log_w - logPeak) - 1;
+                if (dd < pathMdd) pathMdd = dd;
+                // Blowup if drawdown from start hits -50% (log -0.693).
+                if (!blew && (Math.exp(log_w) - 1) <= -0.5) blew = true;
+            }
+            mddSum += -pathMdd;
+            if (blew) nBlowup += 1;
+            finals.push(Math.exp(log_w));
+        }
+        const expectedMdd = mddSum / nPaths;
+        const blowupProb = nBlowup / nPaths;
+
+        // Per-step percentiles (sample subset of indices for speed).
+        const idxStep = Math.max(1, Math.floor((nTrades + 1) / 80));
+        const xs = [];
+        const med = [], p5a = [], p95a = [];
+        for (let t = 0; t <= nTrades; t += idxStep) {
+            const col = new Float64Array(nPaths);
+            for (let i = 0; i < nPaths; i++) col[i] = logBuf[i * (nTrades + 1) + t];
+            col.sort();
+            const med_l = col[Math.floor(0.5 * nPaths)];
+            const p5_l = col[Math.floor(0.05 * nPaths)];
+            const p95_l = col[Math.floor(0.95 * nPaths)];
+            xs.push(t);
+            med.push(bankroll * Math.exp(med_l));
+            p5a.push(bankroll * Math.exp(p5_l));
+            p95a.push(bankroll * Math.exp(p95_l));
+        }
+
+        // Position count using sector cap 8% bankroll dollar-at-risk:
+        // each position consumes maxLossPct of bankroll in risk; cap = 8%.
+        const sectorCap = 0.08;
+        const maxPositions = maxLossPct > 0 ? Math.floor(sectorCap / maxLossPct) : 0;
+
+        return { p, kellyStar, kellyApplied, positionSize, maxPositions,
+                 expectedMdd, blowupProb, xs, med, p5a, p95a, bankroll };
+    }
+
+    function render() {
+        const r = compute();
+        document.getElementById("ps-val-size").textContent = fmtMoneyExact(r.positionSize);
+        document.getElementById("ps-det-size").textContent =
+            fmtPct(r.positionSize / Math.max(r.bankroll, 1), 1) + " of bankroll · k·Kelly = " + (r.kellyApplied * 100).toFixed(2) + "%";
+        document.getElementById("ps-val-count").textContent = String(r.maxPositions);
+        document.getElementById("ps-det-count").textContent = T.det_count;
+        document.getElementById("ps-val-dd").textContent = "-" + fmtPct(r.expectedMdd, 1);
+        document.getElementById("ps-det-dd").textContent = T.det_dd;
+        document.getElementById("ps-val-blow").textContent = (r.blowupProb * 100).toFixed(1) + "%";
+        document.getElementById("ps-det-blow").textContent = T.det_blow;
+
+        // Colour blowup card by severity
+        const bcard = document.getElementById("ps-val-blow").parentElement;
+        bcard.classList.remove("ps-stat-warn", "ps-stat-neg", "ps-stat-acc");
+        if (r.blowupProb < 0.005) bcard.classList.add("ps-stat-acc");
+        else if (r.blowupProb < 0.05) bcard.classList.add("ps-stat-warn");
+        else bcard.classList.add("ps-stat-neg");
+
+        const colorAcc = getCssVar("--ps-accent");
+        const colorMid = getCssVar("--ps-mid");
+        const colorNeg = getCssVar("--ps-neg");
+        const colorText = getCssVar("--ps-text");
+        const colorMuted = getCssVar("--ps-muted");
+        const colorGrid = darkMode() ? "rgba(255,255,255,0.08)" : "rgba(0,0,0,0.07)";
+        const colorBg = getCssVar("--ps-card");
+
+        const traces = [
+            {
+                x: r.xs.concat(r.xs.slice().reverse()),
+                y: r.p95a.concat(r.p5a.slice().reverse()),
+                fill: "toself",
+                fillcolor: darkMode() ? "rgba(184,134,11,0.18)" : "rgba(184,134,11,0.15)",
+                line: { color: "rgba(0,0,0,0)" },
+                hoverinfo: "skip",
+                name: T.p5 + " - " + T.p95,
+                type: "scatter",
+                showlegend: true,
+            },
+            {
+                x: r.xs, y: r.med, type: "scatter", mode: "lines",
+                line: { color: colorAcc, width: 2.4 },
+                name: T.median,
+                hovertemplate: "%{x}: $%{y:,.0f}<extra></extra>",
+            },
+            {
+                x: [r.xs[0], r.xs[r.xs.length - 1]],
+                y: [r.bankroll * 0.5, r.bankroll * 0.5],
+                type: "scatter", mode: "lines",
+                line: { color: colorNeg, width: 1.4, dash: "dash" },
+                name: T.ruin,
+                hovertemplate: "ruin<extra></extra>",
+            },
+        ];
+        const layout = {
+            margin: { l: 64, r: 16, t: 38, b: 44 },
+            paper_bgcolor: colorBg,
+            plot_bgcolor: colorBg,
+            font: { family: "Segoe UI, Helvetica, Arial, sans-serif", color: colorText, size: 11 },
+            title: { text: T.chart_title, x: 0, xanchor: "left", font: { size: 12.5, color: colorText } },
+            xaxis: { title: { text: T.x_label, font: { color: colorMuted } }, gridcolor: colorGrid, color: colorText, zerolinecolor: colorGrid },
+            yaxis: { title: { text: T.y_label, font: { color: colorMuted } }, gridcolor: colorGrid, color: colorText, type: "log" },
+            legend: { orientation: "h", y: -0.18, x: 0, font: { color: colorText, size: 10 } },
+            hovermode: "x unified",
+        };
+        Plotly.react(CHART, traces, layout, { displayModeBar: false, responsive: true });
+    }
+
+    function applyI18n() {
+        document.getElementById("ps-bk-label").textContent = T.bk;
+        document.getElementById("ps-ml-label").textContent = T.ml;
+        document.getElementById("ps-eg-label").textContent = T.eg;
+        document.getElementById("ps-kf-label").textContent = T.kf;
+        document.getElementById("ps-vt-label").textContent = T.vt;
+        document.getElementById("ps-nt-label").textContent = T.nt;
+        document.getElementById("ps-name-size").textContent = T.name_size;
+        document.getElementById("ps-name-count").textContent = T.name_count;
+        document.getElementById("ps-name-dd").textContent = T.name_dd;
+        document.getElementById("ps-name-blow").textContent = T.name_blow;
+        document.getElementById("ps-caption").textContent = T.caption;
+    }
+
+    function updateLabels() {
+        VL.bk.textContent = fmtMoney(parseFloat(SL.bk.value));
+        VL.ml.textContent = parseFloat(SL.ml.value).toFixed(1) + "%";
+        VL.eg.textContent = SL.eg.value + " bps";
+        VL.kf.textContent = (parseFloat(SL.kf.value) / 100).toFixed(2);
+        VL.vt.textContent = parseFloat(SL.vt.value).toFixed(1) + "%";
+        VL.nt.textContent = SL.nt.value;
+    }
+
+    Object.values(SL).forEach(s => {
+        s.addEventListener("input", () => { updateLabels(); render(); });
+    });
+
+    applyI18n();
+    updateLabels();
+
+    function reportHeight() {
+        try {
+            var h = Math.ceil(document.documentElement.scrollHeight);
+            parent.postMessage({ type: 'lesson-interactive-resize', height: h }, '*');
+        } catch (e) { /* ignore */ }
+    }
+    if (typeof ResizeObserver !== 'undefined') {
+        new ResizeObserver(reportHeight).observe(document.body);
+    }
+    window.addEventListener('resize', reportHeight);
+    setTimeout(reportHeight, 50);
+    setTimeout(reportHeight, 500);
+
+    const themeObserver = new MutationObserver(render);
+    themeObserver.observe(document.documentElement, {
+        attributes: true,
+        attributeFilter: ["data-theme"],
+    });
+
+    render();
+})();
+</script>
+
+</body>
+</html>

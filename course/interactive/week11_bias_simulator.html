@@ -1,0 +1,609 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Bias Simulator — Interactive (Week 11)</title>
+<script src="https://cdn.plot.ly/plotly-2.35.2.min.js" charset="utf-8"></script>
+<style>
+html, body { margin: 0; padding: 0; background: var(--bs-bg); }
+:root {
+    --bs-bg: #fdfbf5;
+    --bs-text: #1a2332;
+    --bs-muted: #6b7280;
+    --bs-border: #d6d3c4;
+    --bs-card: #fdfbf5;
+    --bs-pos: #2e7d32;
+    --bs-neg: #b71c1c;
+    --bs-mid: #0d47a1;
+    --bs-accent: #b8860b;
+    --bs-grey: #5a5a5a;
+}
+html[data-theme="dark"] .bs-root,
+.bs-root[data-theme="dark"] {
+    --bs-bg: #0f1724;
+    --bs-text: #e6e6e6;
+    --bs-muted: #9aa3b2;
+    --bs-border: #2a3441;
+    --bs-card: #0f1724;
+    --bs-pos: #66bb6a;
+    --bs-neg: #ef5350;
+    --bs-mid: #5a8dee;
+    --bs-grey: #a0a0a0;
+}
+.bs-root {
+    font-family: 'Segoe UI', Helvetica, Arial, sans-serif;
+    background: var(--bs-bg);
+    color: var(--bs-text);
+    padding: 12px;
+    margin: 0;
+}
+.bs-controls {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+    margin-bottom: 14px;
+    padding: 12px 14px;
+    background: var(--bs-card);
+    border: 1px solid var(--bs-border);
+    border-radius: 8px;
+}
+.bs-toggle-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 8px 10px;
+    border: 1px solid var(--bs-border);
+    border-radius: 6px;
+    background: var(--bs-card);
+}
+.bs-toggle-text {
+    font-size: 0.85rem;
+    line-height: 1.3;
+    color: var(--bs-text);
+    flex: 1;
+}
+.bs-toggle-text .bs-toggle-sub {
+    display: block;
+    font-size: 0.74rem;
+    color: var(--bs-muted);
+    margin-top: 2px;
+    font-weight: 400;
+}
+.bs-toggle-switch {
+    flex: 0 0 auto;
+    display: inline-flex;
+    border: 1px solid var(--bs-border);
+    border-radius: 999px;
+    overflow: hidden;
+    background: var(--bs-card);
+}
+.bs-toggle-switch button {
+    border: none;
+    background: transparent;
+    color: var(--bs-muted);
+    padding: 5px 12px;
+    font: inherit;
+    font-size: 0.8rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.15s, color 0.15s;
+}
+.bs-toggle-switch button.active {
+    background: var(--bs-accent);
+    color: #fff;
+}
+.bs-toggle-switch button.active.bs-off {
+    background: var(--bs-grey);
+}
+.bs-charts {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+}
+.bs-chart {
+    background: var(--bs-card);
+    border-radius: 8px;
+    border: 1px solid var(--bs-border);
+}
+.bs-chart-line { height: 380px; }
+.bs-chart-bar  { height: 380px; }
+.bs-stats {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 10px;
+    margin-top: 14px;
+}
+.bs-stat {
+    background: var(--bs-card);
+    border: 1px solid var(--bs-border);
+    border-left: 4px solid var(--bs-muted);
+    border-radius: 8px;
+    padding: 10px 12px;
+}
+.bs-stat.bs-stat-bh   { border-left-color: var(--bs-mid); }
+.bs-stat.bs-stat-bias { border-left-color: var(--bs-neg); }
+.bs-stat.bs-stat-gap  { border-left-color: var(--bs-accent); }
+.bs-stat .bs-stat-name {
+    font-size: 0.74rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--bs-muted);
+}
+.bs-stat .bs-stat-val {
+    font-size: 1.35rem;
+    font-weight: 700;
+    margin-top: 4px;
+    font-variant-numeric: tabular-nums;
+}
+.bs-stat .bs-stat-detail {
+    font-size: 0.76rem;
+    color: var(--bs-muted);
+    margin-top: 2px;
+    font-variant-numeric: tabular-nums;
+}
+.bs-caption {
+    margin-top: 10px;
+    font-size: 0.78rem;
+    color: var(--bs-muted);
+    line-height: 1.5;
+}
+@media (max-width: 760px) {
+    .bs-controls { grid-template-columns: 1fr; }
+    .bs-charts { grid-template-columns: 1fr; }
+    .bs-stats { grid-template-columns: 1fr; }
+    .bs-chart-line, .bs-chart-bar { height: 320px; }
+}
+</style>
+</head>
+<body>
+
+<div class="bs-root" id="bs-root">
+    <div class="bs-controls" id="bs-controls"></div>
+    <div class="bs-charts">
+        <div id="bs-chart-line" class="bs-chart bs-chart-line"></div>
+        <div id="bs-chart-bar"  class="bs-chart bs-chart-bar"></div>
+    </div>
+    <div class="bs-stats">
+        <div class="bs-stat bs-stat-bh">
+            <div class="bs-stat-name" id="bs-name-bh">Buy &amp; hold terminal wealth</div>
+            <div class="bs-stat-val"  id="bs-val-bh">—</div>
+            <div class="bs-stat-detail" id="bs-det-bh">—</div>
+        </div>
+        <div class="bs-stat bs-stat-bias">
+            <div class="bs-stat-name" id="bs-name-bias">Bias-driven terminal wealth</div>
+            <div class="bs-stat-val"  id="bs-val-bias">—</div>
+            <div class="bs-stat-detail" id="bs-det-bias">—</div>
+        </div>
+        <div class="bs-stat bs-stat-gap">
+            <div class="bs-stat-name" id="bs-name-gap">Behaviour gap (CAGR)</div>
+            <div class="bs-stat-val"  id="bs-val-gap">—</div>
+            <div class="bs-stat-detail" id="bs-det-gap">—</div>
+        </div>
+    </div>
+    <p class="bs-caption" id="bs-caption">
+        Toggle bias actions on and off. The wealth path of the bias-driven version is plotted against simple buy-and-hold of the S&P 500 from 1928 to 2024 (Damodaran annual data). Bonds are the 10-year Treasury total return; "exits to bonds" use that series the year the bias triggers.
+    </p>
+</div>
+
+<script>
+(function () {
+    const I18N = {
+        en: {
+            bias1_title: "Sell after a 20%+ drawdown",
+            bias1_sub:   "Sit in bonds the year after any -20% or worse equity year. Re-enter once equity prints a positive year.",
+            bias2_title: "Buy on margin after a 20%+ rally",
+            bias2_sub:   "Add 30% leverage (financed at the T-bill rate) the year after any +20% equity year.",
+            bias3_title: "Switch to bonds after two down years in a row",
+            bias3_sub:   "Capitulate to bonds when the prior two equity years were both negative. Return to equities once equities print a positive year.",
+            bias4_title: "Pile into the prior year's winner (stocks vs bonds)",
+            bias4_sub:   "Each year, hold whichever of stocks or bonds had the higher return last year.",
+            on:          "ON",
+            off:         "OFF",
+            line_title:  "Wealth path of $1 invested in 1928",
+            bar_title:   "Terminal wealth, end of 2024",
+            x_year:      "Year",
+            y_wealth:    "Wealth ($, log scale)",
+            bh:          "Buy &amp; hold S&P 500",
+            bias_lbl:    "Bias-driven",
+            stat_bh:     "Buy & hold terminal wealth",
+            stat_bias:   "Bias-driven terminal wealth",
+            stat_gap:    "Behaviour gap (CAGR)",
+            cagr_lbl:    "CAGR {c}",
+            yrs_lbl:     "{n} years",
+            none_active: "(no biases active -- both lines identical)",
+            caption:     "Toggle bias actions on and off. The wealth path of the bias-driven version is plotted against simple buy-and-hold of the S&P 500 from 1928 to 2024 (Damodaran annual data). Bonds are the 10-year Treasury total return; 'exits to bonds' use that series the year the bias triggers.",
+        },
+        hk: {
+            bias1_title: "回撤超過 20% 後賣出",
+            bias1_sub:   "任何 -20% 或更差的股票年後,翌年改持債券。直至股票再次錄得正回報才重新買入。",
+            bias2_title: "上漲超過 20% 後加按揭買入",
+            bias2_sub:   "任何 +20% 股票年後,翌年加 30% 槓桿(以短期國庫券利率融資)。",
+            bias3_title: "連續兩年下跌後切換至債券",
+            bias3_sub:   "當前兩個股票年都為負,投降轉去債券。直至股票再次錄得正回報才回去股票。",
+            bias4_title: "追逐上年贏家(股票 vs 債券)",
+            bias4_sub:   "每年持有股票或債券中上一年回報較高的那一個。",
+            on:          "開",
+            off:         "關",
+            line_title:  "1928 年投入 1 美元的財富路徑",
+            bar_title:   "2024 年底終值財富",
+            x_year:      "年份",
+            y_wealth:    "財富(美元,對數軸)",
+            bh:          "買入並持有 標普 500",
+            bias_lbl:    "行為驅動",
+            stat_bh:     "買入並持有 終值財富",
+            stat_bias:   "行為驅動 終值財富",
+            stat_gap:    "行為落差(年化)",
+            cagr_lbl:    "年化 {c}",
+            yrs_lbl:     "{n} 年",
+            none_active: "(沒有任何偏誤啟動 -- 兩條線重合)",
+            caption:     "切換偏誤動作的開關。行為驅動版本的財富路徑與 1928 至 2024 年簡單買入並持有 標普 500 對照(Damodaran 年度數據)。債券為 10 年期國庫券總回報;「轉去債券」使用偏誤觸發當年的該序列。",
+        },
+        tw: {
+            bias1_title: "回檔超過 20% 後賣出",
+            bias1_sub:   "任何 -20% 或更差的股票年後,翌年改持債券。直至股票再次錄得正報酬才重新買入。",
+            bias2_title: "上漲超過 20% 後加保證金買入",
+            bias2_sub:   "任何 +20% 股票年後,翌年加 30% 槓桿(以短期國庫券利率融資)。",
+            bias3_title: "連續兩年下跌後切換至債券",
+            bias3_sub:   "當前兩個股票年都為負,投降轉去債券。直至股票再次錄得正報酬才回去股票。",
+            bias4_title: "追逐上年贏家(股票 vs 債券)",
+            bias4_sub:   "每年持有股票或債券中上一年報酬較高的那一個。",
+            on:          "開",
+            off:         "關",
+            line_title:  "1928 年投入 1 美元的財富路徑",
+            bar_title:   "2024 年底終值財富",
+            x_year:      "年份",
+            y_wealth:    "財富(美元,對數軸)",
+            bh:          "買入並持有 標普 500",
+            bias_lbl:    "行為驅動",
+            stat_bh:     "買入並持有 終值財富",
+            stat_bias:   "行為驅動 終值財富",
+            stat_gap:    "行為落差(年化)",
+            cagr_lbl:    "年化 {c}",
+            yrs_lbl:     "{n} 年",
+            none_active: "(沒有任何偏誤啟動 -- 兩條線重合)",
+            caption:     "切換偏誤動作的開關。行為驅動版本的財富路徑與 1928 至 2024 年簡單買入並持有 標普 500 對照(Damodaran 年度資料)。債券為 10 年期公債總報酬;「轉去債券」使用偏誤觸發當年的該序列。",
+        },
+        cn: {
+            bias1_title: "回撤超过 20% 后卖出",
+            bias1_sub:   "任何 -20% 或更差的股票年后,次年改持债券。直至股票再次录得正回报才重新买入。",
+            bias2_title: "上涨超过 20% 后加保证金买入",
+            bias2_sub:   "任何 +20% 股票年后,次年加 30% 杠杆(以短期国库券利率融资)。",
+            bias3_title: "连续两年下跌后切换至债券",
+            bias3_sub:   "当前两个股票年都为负,投降转去债券。直至股票再次录得正回报才回去股票。",
+            bias4_title: "追逐上年赢家(股票 vs 债券)",
+            bias4_sub:   "每年持有股票或债券中上一年回报较高的那一个。",
+            on:          "开",
+            off:         "关",
+            line_title:  "1928 年投入 1 美元的财富路径",
+            bar_title:   "2024 年底终值财富",
+            x_year:      "年份",
+            y_wealth:    "财富(美元,对数轴)",
+            bh:          "买入并持有 标普 500",
+            bias_lbl:    "行为驱动",
+            stat_bh:     "买入并持有 终值财富",
+            stat_bias:   "行为驱动 终值财富",
+            stat_gap:    "行为落差(年化)",
+            cagr_lbl:    "年化 {c}",
+            yrs_lbl:     "{n} 年",
+            none_active: "(没有任何偏误启动 -- 两条线重合)",
+            caption:     "切换偏误动作的开关。行为驱动版本的财富路径与 1928 至 2024 年简单买入并持有 标普 500 对照(Damodaran 年度数据)。债券为 10 年期国债总回报;「转去债券」使用偏误触发当年的该序列。",
+        },
+    };
+    function currentLang() {
+        const p = new URLSearchParams(window.location.search);
+        const l = (p.get("lang") || "en").toLowerCase();
+        return I18N.hasOwnProperty(l) ? l : "en";
+    }
+    const T = I18N[currentLang()];
+
+    // Damodaran annual dataset, 1928..2024 (decimals).
+    const YEARS = [];
+    for (let y = 1928; y <= 2024; y++) YEARS.push(y);
+    const SP500 = [
+        0.4381,-0.0830,-0.2512,-0.4384,-0.0864,0.4998,-0.0119,0.4674,0.3194,-0.3534,
+        0.2928,-0.0110,-0.1067,-0.1277,0.1917,0.2506,0.1903,0.3582,-0.0843,0.0520,
+        0.0570,0.1830,0.3081,0.2368,0.1815,-0.0121,0.5256,0.3260,0.0744,-0.1046,
+        0.4372,0.1206,0.0034,0.2664,-0.0881,0.2280,0.1648,0.1245,-0.1006,0.2398,
+        0.1106,-0.0850,0.0386,0.1430,0.1899,-0.1469,-0.2647,0.3723,0.2393,-0.0716,
+        0.0657,0.1861,0.3250,-0.0492,0.2155,0.2256,0.0627,0.3173,0.1867,0.0525,
+        0.1661,0.3169,-0.0310,0.3047,0.0762,0.1008,0.0132,0.3758,0.2296,0.3336,
+        0.2858,0.2104,-0.0910,-0.1189,-0.2210,0.2868,0.1088,0.0491,0.1579,0.0549,
+       -0.3700,0.2646,0.1506,0.0211,0.1600,0.3239,0.1369,0.0138,0.1196,0.2183,
+       -0.0438,0.3149,0.1840,0.2871,-0.1811,0.2629,0.2502
+    ];
+    const TBOND = [
+        0.0084,0.0420,0.0454,-0.0256,0.0879,0.0186,0.0796,0.0447,0.0502,0.0138,
+        0.0421,0.0441,0.0540,-0.0202,0.0229,0.0249,0.0258,0.0380,0.0313,0.0092,
+        0.0195,0.0466,0.0043,-0.0030,0.0227,0.0414,0.0329,-0.0134,-0.0226,0.0680,
+       -0.0210,-0.0265,0.1164,0.0206,0.0564,0.0181,0.0383,0.0069,0.0299,-0.0172,
+        0.0298,-0.0509,0.1875,0.1387,0.0369,0.0179,0.0369,0.0218,0.1364,0.0069,
+       -0.0118,-0.0123,-0.0304,0.0823,0.3281,0.0320,0.1373,0.2571,0.2428,-0.0496,
+        0.0822,0.1769,0.0624,0.1500,0.0936,0.1421,-0.0804,0.2348,0.0143,0.0994,
+        0.1492,-0.0825,0.1666,0.0557,0.1512,0.0038,0.0449,0.0287,0.0196,0.1021,
+        0.2010,-0.1112,0.0846,0.1604,0.0297,-0.0910,0.1075,0.0128,0.0069,0.0280,
+       -0.0002,0.0964,0.1133,-0.0442,-0.1777,0.0303,-0.0170
+    ];
+    const TBILL = [
+        0.0308,0.0316,0.0455,0.0231,0.0107,0.0096,0.0032,0.0018,0.0017,0.0030,
+        0.0008,0.0004,0.0003,0.0008,0.0034,0.0038,0.0038,0.0038,0.0038,0.0058,
+        0.0104,0.0110,0.0120,0.0149,0.0166,0.0182,0.0086,0.0157,0.0246,0.0314,
+        0.0154,0.0295,0.0266,0.0213,0.0273,0.0312,0.0354,0.0393,0.0476,0.0421,
+        0.0521,0.0658,0.0653,0.0439,0.0384,0.0693,0.0800,0.0580,0.0508,0.0512,
+        0.0718,0.1038,0.1124,0.1471,0.1054,0.0880,0.0985,0.0772,0.0616,0.0547,
+        0.0635,0.0837,0.0781,0.0560,0.0351,0.0290,0.0390,0.0560,0.0521,0.0526,
+        0.0486,0.0468,0.0589,0.0383,0.0165,0.0102,0.0120,0.0298,0.0479,0.0466,
+        0.0160,0.0010,0.0012,0.0004,0.0006,0.0002,0.0002,0.0002,0.0020,0.0080,
+        0.0193,0.0206,0.0036,0.0006,0.0202,0.0511,0.0495
+    ];
+
+    const ROOT = document.getElementById("bs-root");
+    const CONTROLS = document.getElementById("bs-controls");
+    const CHART_LINE = document.getElementById("bs-chart-line");
+    const CHART_BAR  = document.getElementById("bs-chart-bar");
+
+    const state = { b1: false, b2: false, b3: false, b4: false };
+
+    function buildToggle(key, titleKey, subKey) {
+        const wrap = document.createElement("div");
+        wrap.className = "bs-toggle-row";
+        const txt = document.createElement("div");
+        txt.className = "bs-toggle-text";
+        const tEl = document.createElement("strong");
+        tEl.textContent = T[titleKey];
+        const sEl = document.createElement("span");
+        sEl.className = "bs-toggle-sub";
+        sEl.textContent = T[subKey];
+        txt.appendChild(tEl);
+        txt.appendChild(sEl);
+        const sw = document.createElement("div");
+        sw.className = "bs-toggle-switch";
+        const onBtn = document.createElement("button");
+        onBtn.type = "button";
+        onBtn.textContent = T.on;
+        const offBtn = document.createElement("button");
+        offBtn.type = "button";
+        offBtn.textContent = T.off;
+        offBtn.classList.add("bs-off", "active");
+        onBtn.addEventListener("click", () => {
+            state[key] = true;
+            onBtn.classList.add("active");
+            offBtn.classList.remove("active");
+            render();
+        });
+        offBtn.addEventListener("click", () => {
+            state[key] = false;
+            offBtn.classList.add("active");
+            onBtn.classList.remove("active");
+            render();
+        });
+        sw.appendChild(onBtn);
+        sw.appendChild(offBtn);
+        wrap.appendChild(txt);
+        wrap.appendChild(sw);
+        CONTROLS.appendChild(wrap);
+    }
+    buildToggle("b1", "bias1_title", "bias1_sub");
+    buildToggle("b2", "bias2_title", "bias2_sub");
+    buildToggle("b3", "bias3_title", "bias3_sub");
+    buildToggle("b4", "bias4_title", "bias4_sub");
+
+    function backtest(s) {
+        // s = {b1,b2,b3,b4}. Returns wealth path arrays for buy-and-hold and bias.
+        const n = SP500.length;
+        const wBH   = new Array(n + 1).fill(1.0);
+        const wBias = new Array(n + 1).fill(1.0);
+        // Buy & hold: 100% stocks every year.
+        for (let i = 0; i < n; i++) {
+            wBH[i + 1] = wBH[i] * (1 + SP500[i]);
+        }
+        // Bias path
+        let inEquityCooloff = false;       // for bias1 (sit out until equity prints +)
+        for (let i = 0; i < n; i++) {
+            // Determine allocation for year i
+            // Default: 100% stocks, leverage 1.0
+            let weightStocks = 1.0;
+            let leverage = 1.0;
+            let toBonds = false;
+
+            // Bias 1: sit in bonds for the year following any -20% equity year,
+            // and stay out until equity prints a positive year.
+            if (s.b1) {
+                if (i >= 1 && SP500[i - 1] <= -0.20) inEquityCooloff = true;
+                if (inEquityCooloff) {
+                    toBonds = true;
+                    if (i >= 1 && SP500[i - 1] > 0) {
+                        // exit cooloff after a positive year (this year is re-entry)
+                        // but the original rule says re-enter after a positive year:
+                        // we're in year i, last year was positive => re-enter now
+                        inEquityCooloff = false;
+                        toBonds = false;
+                    }
+                }
+            } else {
+                inEquityCooloff = false;
+            }
+
+            // Bias 3: switch to bonds when prior two equity years both negative;
+            // return to equities once equity prints a positive year.
+            if (s.b3 && i >= 2 && SP500[i - 1] < 0 && SP500[i - 2] < 0) {
+                toBonds = true;
+            }
+
+            // Bias 4: hold whichever of stocks/bonds had higher return last year.
+            if (s.b4 && i >= 1) {
+                if (TBOND[i - 1] > SP500[i - 1]) toBonds = true;
+            }
+
+            if (toBonds) {
+                weightStocks = 0.0;
+                leverage = 1.0;
+            } else if (s.b2 && i >= 1 && SP500[i - 1] >= 0.20) {
+                // Bias 2: 30% leverage after a +20% year, only if we are in equities.
+                leverage = 1.3;
+            }
+
+            let yearReturn;
+            if (toBonds) {
+                yearReturn = TBOND[i];
+            } else {
+                // leveraged stocks: lev * stock - (lev-1) * tbill (margin cost)
+                yearReturn = leverage * SP500[i] - (leverage - 1.0) * TBILL[i];
+            }
+            wBias[i + 1] = wBias[i] * (1 + yearReturn);
+        }
+        return { wBH, wBias };
+    }
+
+    function getCssVar(name) {
+        return getComputedStyle(ROOT).getPropertyValue(name).trim();
+    }
+    function darkMode() {
+        return document.documentElement.getAttribute("data-theme") === "dark";
+    }
+    function fmtMoney(v) {
+        if (!isFinite(v)) return "—";
+        if (v >= 1000) return "$" + Math.round(v).toLocaleString();
+        return "$" + v.toFixed(2);
+    }
+    function fmtPctSigned(v) {
+        if (!isFinite(v)) return "—";
+        const sign = v >= 0 ? "+" : "";
+        return sign + (v * 100).toFixed(2) + "%";
+    }
+
+    function render() {
+        const { wBH, wBias } = backtest(state);
+        const xYears = [YEARS[0] - 1, ...YEARS];
+        const n = SP500.length;
+        const cagrBH   = Math.pow(wBH[n],   1 / n) - 1;
+        const cagrBias = Math.pow(wBias[n], 1 / n) - 1;
+        const gap = cagrBias - cagrBH;
+        const anyActive = state.b1 || state.b2 || state.b3 || state.b4;
+
+        const colorPos   = getCssVar("--bs-pos");
+        const colorNeg   = getCssVar("--bs-neg");
+        const colorMid   = getCssVar("--bs-mid");
+        const colorAcc   = getCssVar("--bs-accent");
+        const colorText  = getCssVar("--bs-text");
+        const colorMuted = getCssVar("--bs-muted");
+        const colorGrid  = darkMode() ? "rgba(255,255,255,0.08)" : "rgba(0,0,0,0.07)";
+        const colorBg    = getCssVar("--bs-card");
+
+        // ---- Line chart ----
+        const tracesLine = [
+            {
+                x: xYears, y: wBH, type: "scatter", mode: "lines",
+                name: T.bh.replace(/&amp;/g, "&"),
+                line: { color: colorMid, width: 2.4 },
+                hovertemplate: "%{x}: $%{y:,.2f}<extra></extra>",
+            },
+            {
+                x: xYears, y: wBias, type: "scatter", mode: "lines",
+                name: T.bias_lbl,
+                line: { color: anyActive ? colorNeg : colorMid,
+                        width: 2.4,
+                        dash: anyActive ? "solid" : "dot" },
+                hovertemplate: "%{x}: $%{y:,.2f}<extra></extra>",
+            },
+        ];
+        const layoutLine = {
+            margin: { l: 64, r: 18, t: 38, b: 44 },
+            paper_bgcolor: colorBg,
+            plot_bgcolor: colorBg,
+            font: { family: "Segoe UI, Helvetica, Arial, sans-serif", color: colorText, size: 12 },
+            title: { text: T.line_title, font: { color: colorText, size: 13 }, x: 0.0, xanchor: "left" },
+            xaxis: {
+                title: { text: T.x_year, font: { color: colorMuted, size: 11 } },
+                gridcolor: colorGrid, zerolinecolor: colorMuted, color: colorText,
+            },
+            yaxis: {
+                title: { text: T.y_wealth, font: { color: colorMuted, size: 11 } },
+                type: "log",
+                gridcolor: colorGrid, zerolinecolor: colorGrid, color: colorText,
+            },
+            legend: { orientation: "h", x: 0, y: 1.08, font: { color: colorText, size: 11 } },
+            hovermode: "x unified",
+        };
+        Plotly.react(CHART_LINE, tracesLine, layoutLine,
+            { displayModeBar: false, responsive: true });
+
+        // ---- Bar chart: terminal wealth ----
+        const tracesBar = [{
+            type: "bar",
+            x: [T.bh.replace(/&amp;/g, "&"), T.bias_lbl],
+            y: [wBH[n], wBias[n]],
+            marker: { color: [colorMid, anyActive ? colorNeg : colorMid] },
+            text: [fmtMoney(wBH[n]), fmtMoney(wBias[n])],
+            textposition: "outside",
+            textfont: { color: colorText, size: 12 },
+            hovertemplate: "%{x}: $%{y:,.0f}<extra></extra>",
+        }];
+        const layoutBar = {
+            margin: { l: 64, r: 18, t: 38, b: 60 },
+            paper_bgcolor: colorBg,
+            plot_bgcolor: colorBg,
+            font: { family: "Segoe UI, Helvetica, Arial, sans-serif", color: colorText, size: 12 },
+            title: { text: T.bar_title, font: { color: colorText, size: 13 }, x: 0.0, xanchor: "left" },
+            xaxis: { color: colorText, gridcolor: colorGrid },
+            yaxis: {
+                title: { text: T.y_wealth, font: { color: colorMuted, size: 11 } },
+                type: "log",
+                gridcolor: colorGrid, color: colorText,
+            },
+            showlegend: false,
+        };
+        Plotly.react(CHART_BAR, tracesBar, layoutBar,
+            { displayModeBar: false, responsive: true });
+
+        // Stats
+        document.getElementById("bs-val-bh").textContent = fmtMoney(wBH[n]);
+        document.getElementById("bs-det-bh").textContent =
+            T.cagr_lbl.replace("{c}", (cagrBH * 100).toFixed(2) + "%")
+            + "  ·  " + T.yrs_lbl.replace("{n}", n);
+        document.getElementById("bs-val-bias").textContent = fmtMoney(wBias[n]);
+        document.getElementById("bs-det-bias").textContent =
+            T.cagr_lbl.replace("{c}", (cagrBias * 100).toFixed(2) + "%")
+            + (anyActive ? "" : "  ·  " + T.none_active);
+        const gapEl = document.getElementById("bs-val-gap");
+        gapEl.textContent = fmtPctSigned(gap);
+        gapEl.style.color = gap < 0 ? colorNeg : (gap > 0 ? colorPos : colorText);
+        document.getElementById("bs-det-gap").textContent =
+            "$" + (wBias[n] - wBH[n]).toLocaleString(undefined, { maximumFractionDigits: 0 });
+    }
+
+    function applyI18n() {
+        document.getElementById("bs-name-bh").innerHTML   = T.stat_bh;
+        document.getElementById("bs-name-bias").textContent = T.stat_bias;
+        document.getElementById("bs-name-gap").textContent  = T.stat_gap;
+        document.getElementById("bs-caption").textContent   = T.caption;
+    }
+    applyI18n();
+
+    function reportHeight() {
+        try {
+            const h = Math.ceil(document.documentElement.scrollHeight);
+            parent.postMessage({ type: 'lesson-interactive-resize', height: h }, '*');
+        } catch (e) { /* ignore */ }
+    }
+    if (typeof ResizeObserver !== 'undefined') {
+        new ResizeObserver(reportHeight).observe(document.body);
+    }
+    window.addEventListener('resize', reportHeight);
+    setTimeout(reportHeight, 50);
+    setTimeout(reportHeight, 500);
+
+    const themeObserver = new MutationObserver(render);
+    themeObserver.observe(document.documentElement, {
+        attributes: true,
+        attributeFilter: ["data-theme"],
+    });
+
+    render();
+})();
+</script>
+
+</body>
+</html>

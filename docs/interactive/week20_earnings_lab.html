@@ -1,0 +1,488 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Earnings vs Cash Flow Lab — Interactive (Week 20)</title>
+<script src="https://cdn.plot.ly/plotly-2.35.2.min.js" charset="utf-8"></script>
+<style>
+html, body { margin: 0; padding: 0; background: var(--el-bg); }
+:root {
+    --el-bg: #fdfbf5;
+    --el-text: #1a2332;
+    --el-muted: #6b7280;
+    --el-border: #d6d3c4;
+    --el-card: #fdfbf5;
+    --el-eps: #0d47a1;
+    --el-fcf: #b8860b;
+    --el-pos: #2e7d32;
+    --el-neg: #b71c1c;
+    --el-accent: #b8860b;
+}
+html[data-theme="dark"] .el-root,
+.el-root[data-theme="dark"] {
+    --el-bg: #0f1724;
+    --el-text: #e6e6e6;
+    --el-muted: #9aa3b2;
+    --el-border: #2a3441;
+    --el-card: #0f1724;
+    --el-eps: #5a8dee;
+    --el-fcf: #d8a93b;
+    --el-pos: #66bb6a;
+    --el-neg: #ef5350;
+    --el-accent: #d8a93b;
+}
+.el-root {
+    font-family: 'Segoe UI', Helvetica, Arial, sans-serif;
+    background: var(--el-bg);
+    color: var(--el-text);
+    padding: 12px;
+    margin: 0;
+}
+.el-controls {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 14px;
+    padding: 10px 12px;
+    background: var(--el-card);
+    border: 1px solid var(--el-border);
+    border-radius: 8px;
+}
+.el-pillbar {
+    display: inline-flex;
+    border: 1px solid var(--el-border);
+    border-radius: 999px;
+    overflow: hidden;
+    background: var(--el-card);
+}
+.el-pillbar button {
+    border: none;
+    background: transparent;
+    color: var(--el-muted);
+    padding: 6px 14px;
+    font: inherit;
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.15s, color 0.15s;
+}
+.el-pillbar button:hover { color: var(--el-text); }
+.el-pillbar button.active {
+    background: var(--el-accent);
+    color: #fff;
+}
+.el-label {
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--el-muted);
+}
+.el-chart {
+    width: 100%;
+    height: 320px;
+    background: var(--el-card);
+    border-radius: 8px;
+    border: 1px solid var(--el-border);
+}
+.el-chart.el-acc {
+    height: 240px;
+    margin-top: 14px;
+}
+.el-summary {
+    margin-top: 14px;
+    padding: 12px 14px;
+    background: var(--el-card);
+    border: 1px solid var(--el-border);
+    border-radius: 8px;
+    font-size: 0.86rem;
+    color: var(--el-text);
+    line-height: 1.55;
+}
+.el-summary b { color: var(--el-text); }
+.el-summary .el-tag {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 999px;
+    font-size: 0.74rem;
+    font-weight: 700;
+    margin-left: 6px;
+    color: #fff;
+}
+.el-tag.el-good { background: var(--el-pos); }
+.el-tag.el-bad  { background: var(--el-neg); }
+.el-tag.el-mid  { background: var(--el-muted); }
+.el-caption {
+    margin-top: 10px;
+    font-size: 0.78rem;
+    color: var(--el-muted);
+    line-height: 1.45;
+}
+@media (max-width: 720px) {
+    .el-chart    { height: 280px; }
+    .el-chart.el-acc { height: 220px; }
+    .el-pillbar button { padding: 5px 10px; font-size: 0.8rem; }
+}
+</style>
+</head>
+<body>
+
+<div class="el-root" id="el-root">
+    <div class="el-controls">
+        <span class="el-label" id="el-co-label">Company</span>
+        <div class="el-pillbar el-co" id="el-co-pills" role="tablist">
+            <button type="button" data-co="AAPL" class="active">AAPL</button>
+            <button type="button" data-co="MSFT">MSFT</button>
+            <button type="button" data-co="AMZN">AMZN</button>
+            <button type="button" data-co="JPM">JPM</button>
+            <button type="button" data-co="KO">KO</button>
+            <button type="button" data-co="GE">GE</button>
+        </div>
+    </div>
+    <div id="el-chart-main" class="el-chart"></div>
+    <div id="el-chart-acc" class="el-chart el-acc"></div>
+    <div class="el-summary" id="el-summary"></div>
+    <p class="el-caption" id="el-caption"></p>
+</div>
+
+<script>
+(function () {
+
+    // ---------------------------------------------------------------
+    // Embedded data: FY2020-2024 EPS (diluted) and FCF / share, USD.
+    // Approximate values from public 10-K filings, split-adjusted.
+    // For the bank (JPM), FCF/share is approximated as net income
+    // less small capex per share — banks do not have a meaningful
+    // FCF in the industrial sense. Treat with care.
+    // ---------------------------------------------------------------
+    const YEARS = [2020, 2021, 2022, 2023, 2024];
+
+    const DATA = {
+        AAPL: {
+            eps: [3.28, 5.61, 6.11, 6.13, 6.08],
+            fcf: [4.31, 5.62, 6.50, 6.16, 7.08],
+            note_key: "AAPL",
+        },
+        MSFT: {
+            eps: [5.76, 8.05, 9.65, 9.68, 11.80],
+            fcf: [6.71, 7.45, 8.27, 7.82, 9.58],
+            note_key: "MSFT",
+        },
+        AMZN: {
+            // Split-adjusted (20:1 in 2022).
+            eps: [1.15, 3.30, -0.27, 2.90, 5.53],
+            fcf: [3.07, -1.40, -1.16, 3.18, 3.21],
+            note_key: "AMZN",
+        },
+        JPM: {
+            // Bank: FCF is approximated. Banks do not report FCF.
+            eps:  [8.88, 15.36, 12.09, 16.23, 19.75],
+            fcf:  [7.50, 13.20, 10.40, 13.80, 17.00],
+            note_key: "JPM",
+        },
+        KO: {
+            eps: [1.79, 2.25, 2.19, 2.47, 2.46],
+            fcf: [2.02, 2.61, 2.18, 2.24, 2.22],
+            note_key: "KO",
+        },
+        GE: {
+            // GE post-restructuring (continuing ops, approximate).
+            eps: [-0.46, -6.07, 0.22, 8.52, 6.60],
+            fcf: [ 0.46,  1.93, 4.34, 5.10, 5.79],
+            note_key: "GE",
+        },
+    };
+
+    const I18N = {
+        en: {
+            co_label:   "Company",
+            chart_y:    "USD per share",
+            chart_x:    "Fiscal year",
+            acc_y:      "Accrual = EPS - FCF/share",
+            eps_lbl:    "Diluted EPS",
+            fcf_lbl:    "FCF / share",
+            acc_lbl:    "Accrual",
+            tag_good:   "CASH-BACKED",
+            tag_bad:    "ACCRUAL-HEAVY",
+            tag_mid:    "MIXED",
+            sum_lead:   "5-year totals",
+            sum_eps:    "Sum EPS",
+            sum_fcf:    "Sum FCF/share",
+            sum_acc:    "Sum accrual",
+            sum_avg:    "Avg accrual ratio",
+            sum_quality:"Earnings quality",
+            caption:    "Five-year diluted EPS and free cash flow per share, FY2020-FY2024. Accrual per share = EPS - FCF/share. A persistent positive accrual gap is a quality concern; a persistent negative gap (FCF > EPS) is a sign of a capital-light business with non-cash charges. JPM is a bank; bank FCF is not directly comparable.",
+            notes: {
+                AAPL: "Apple's FCF runs slightly above EPS most years — the classic capital-light, working-capital-favourable profile. The 2024 gap widened on a one-time ~$10B EU State-aid tax charge that depressed reported earnings.",
+                MSFT: "Microsoft's FCF lagged EPS in FY2023-2024 because of a capex spike for AI data centres. The earnings are real; the cash is being plowed back. Watch capex intensity here, not earnings quality.",
+                AMZN: "Amazon's accrual gap is the textbook case: huge non-cash D&A from AWS data centres makes reported EPS look thin, but the cash story (post-2022 capex moderation) is what matters. FY2021-2022 negative FCF reflects the capex bulge.",
+                JPM:  "Banks do not have a meaningful 'FCF'. The numbers shown are net income less small capex per share, as a rough proxy. Use ROTCE and tangible book growth instead — Week 19 covers this for financials.",
+                KO:   "Coca-Cola is the steady-state benchmark: EPS and FCF/share track each other within pennies. The accrual line hugs zero. This is what high-quality earnings look like over time.",
+                GE:   "GE is the messy real-world case: a multi-year restructuring with huge non-cash charges (write-downs, pension remeasurements). FCF tells the truth about the underlying industrial businesses far better than reported EPS.",
+            },
+        },
+        hk: {
+            co_label:   "公司",
+            chart_y:    "每股美元",
+            chart_x:    "財政年度",
+            acc_y:      "應計 = EPS - 每股 FCF",
+            eps_lbl:    "攤薄每股盈利",
+            fcf_lbl:    "每股自由現金流",
+            acc_lbl:    "應計",
+            tag_good:   "現金支撐",
+            tag_bad:    "應計偏重",
+            tag_mid:    "混合",
+            sum_lead:   "5 年合計",
+            sum_eps:    "EPS 合計",
+            sum_fcf:    "FCF/股 合計",
+            sum_acc:    "應計合計",
+            sum_avg:    "平均應計比率",
+            sum_quality:"盈利質量",
+            caption:    "FY2020-FY2024 攤薄 EPS 與每股自由現金流。每股應計 = EPS - FCF/股。持續為正屬質量警號;持續為負(FCF > EPS)反映輕資產企業有非現金費用。JPM 為銀行,銀行 FCF 無法直接比較。",
+            notes: {
+                AAPL: "蘋果 FCF 多年略高於 EPS — 典型輕資產、營運資金順風。2024 年因歐盟一次性約 100 億美元稅項,差距擴大。",
+                MSFT: "微軟 FY2023-2024 FCF 落後 EPS,因 AI 數據中心資本開支飆升。盈利是真的,現金被再投資。要看資本開支密度,不是盈利質量。",
+                AMZN: "亞馬遜的應計差距是教科書案例:AWS 數據中心的鉅額非現金折舊使 EPS 看似偏低,但 2022 年後資本開支放緩,現金故事才是重點。",
+                JPM:  "銀行沒有意義上的「自由現金流」。圖中的數字只是淨利減少量資本開支的粗略代理。請用 ROTCE 與有形股本增長 — 第 19 週金融業專門處理。",
+                KO:   "可口可樂是穩態基準:EPS 與每股 FCF 多年差距不到幾美分,應計線貼近零。長期高質量盈利就是這樣。",
+                GE:   "GE 是現實中的雜訊案例:多年重組伴隨鉅額非現金費用(減值、退休金重估)。FCF 比帳面 EPS 更真實地反映工業業務的本質。",
+            },
+        },
+        tw: {
+            co_label:   "公司",
+            chart_y:    "每股美元",
+            chart_x:    "會計年度",
+            acc_y:      "應計 = EPS - 每股 FCF",
+            eps_lbl:    "稀釋每股盈餘",
+            fcf_lbl:    "每股自由現金流",
+            acc_lbl:    "應計",
+            tag_good:   "現金支撐",
+            tag_bad:    "應計偏重",
+            tag_mid:    "混合",
+            sum_lead:   "5 年合計",
+            sum_eps:    "EPS 合計",
+            sum_fcf:    "FCF/股 合計",
+            sum_acc:    "應計合計",
+            sum_avg:    "平均應計比率",
+            sum_quality:"盈餘品質",
+            caption:    "FY2020-FY2024 稀釋 EPS 與每股自由現金流。每股應計 = EPS - FCF/股。持續為正屬品質警訊;持續為負(FCF > EPS)反映輕資產企業有非現金費用。JPM 為銀行,銀行 FCF 無法直接比較。",
+            notes: {
+                AAPL: "蘋果 FCF 多年略高於 EPS — 典型輕資產、營運資金順風。2024 年因歐盟一次性約 100 億美元稅費,差距擴大。",
+                MSFT: "微軟 FY2023-2024 FCF 落後 EPS,因 AI 資料中心資本支出飆升。盈餘是真的,現金被再投資。要看資本支出密度,不是盈餘品質。",
+                AMZN: "亞馬遜的應計差距是教科書案例:AWS 資料中心的鉅額非現金折舊使 EPS 看似偏低,但 2022 年後資本支出放緩,現金故事才是重點。",
+                JPM:  "銀行沒有意義上的「自由現金流」。圖中的數字只是淨利減少量資本支出的粗略代理。請用 ROTCE 與有形股本成長 — 第 19 週金融業專門處理。",
+                KO:   "可口可樂是穩態基準:EPS 與每股 FCF 多年差距不到幾美分,應計線貼近零。長期高品質盈餘就是這樣。",
+                GE:   "GE 是現實中的雜訊案例:多年重組伴隨鉅額非現金費用(減損、退休金重估)。FCF 比帳面 EPS 更真實地反映工業業務的本質。",
+            },
+        },
+        cn: {
+            co_label:   "公司",
+            chart_y:    "每股美元",
+            chart_x:    "财政年度",
+            acc_y:      "应计 = EPS - 每股 FCF",
+            eps_lbl:    "摊薄每股盈利",
+            fcf_lbl:    "每股自由现金流",
+            acc_lbl:    "应计",
+            tag_good:   "现金支撑",
+            tag_bad:    "应计偏重",
+            tag_mid:    "混合",
+            sum_lead:   "5 年合计",
+            sum_eps:    "EPS 合计",
+            sum_fcf:    "FCF/股 合计",
+            sum_acc:    "应计合计",
+            sum_avg:    "平均应计比率",
+            sum_quality:"盈利质量",
+            caption:    "FY2020-FY2024 摊薄 EPS 与每股自由现金流。每股应计 = EPS - FCF/股。持续为正属质量警讯;持续为负(FCF > EPS)反映轻资产企业有非现金费用。JPM 为银行,银行 FCF 无法直接比较。",
+            notes: {
+                AAPL: "苹果 FCF 多年略高于 EPS — 典型轻资产、营运资金顺风。2024 年因欧盟一次性约 100 亿美元税项,差距扩大。",
+                MSFT: "微软 FY2023-2024 FCF 落后 EPS,因 AI 数据中心资本开支飙升。盈利是真的,现金被再投资。要看资本开支密度,不是盈利质量。",
+                AMZN: "亚马逊的应计差距是教科书案例:AWS 数据中心的巨额非现金折旧使 EPS 看似偏低,但 2022 年后资本开支放缓,现金故事才是重点。",
+                JPM:  "银行没有意义上的「自由现金流」。图中数字只是净利减少量资本开支的粗略代理。请用 ROTCE 与有形股本增长 — 第 19 周金融业专门处理。",
+                KO:   "可口可乐是稳态基准:EPS 与每股 FCF 多年差距不到几美分,应计线贴近零。长期高质量盈利就是这样。",
+                GE:   "GE 是现实中的杂讯案例:多年重组伴随巨额非现金费用(减值、养老金重估)。FCF 比账面 EPS 更真实地反映工业业务本质。",
+            },
+        },
+    };
+
+    function currentLang() {
+        const p = new URLSearchParams(window.location.search);
+        const l = (p.get("lang") || "en").toLowerCase();
+        return I18N.hasOwnProperty(l) ? l : "en";
+    }
+    const T = I18N[currentLang()];
+
+    const ROOT = document.getElementById("el-root");
+    const CHART_MAIN = document.getElementById("el-chart-main");
+    const CHART_ACC  = document.getElementById("el-chart-acc");
+    const CO_PILLS = document.getElementById("el-co-pills");
+    const SUMMARY = document.getElementById("el-summary");
+
+    let company = "AAPL";
+
+    function getCssVar(name) {
+        return getComputedStyle(ROOT).getPropertyValue(name).trim();
+    }
+    function darkMode() {
+        return document.documentElement.getAttribute("data-theme") === "dark";
+    }
+
+    function fmt(v) {
+        if (v === null || v === undefined || isNaN(v)) return "-";
+        return (v >= 0 ? "$" : "-$") + Math.abs(v).toFixed(2);
+    }
+    function fmtPct(v) {
+        if (v === null || v === undefined || isNaN(v)) return "-";
+        const sign = v >= 0 ? "+" : "-";
+        return sign + Math.abs(v).toFixed(0) + "%";
+    }
+
+    function qualityTag(ratio) {
+        // ratio = sum(accrual) / sum(|EPS|).  positive -> bad.
+        if (ratio <= -0.05) return ["el-good", T.tag_good];
+        if (ratio >=  0.10) return ["el-bad",  T.tag_bad];
+        return ["el-mid",  T.tag_mid];
+    }
+
+    function render() {
+        const d = DATA[company];
+        const eps = d.eps;
+        const fcf = d.fcf;
+        const acc = eps.map((e, i) => +(e - fcf[i]).toFixed(2));
+
+        const colorEps = getCssVar("--el-eps");
+        const colorFcf = getCssVar("--el-fcf");
+        const colorPos = getCssVar("--el-pos");
+        const colorNeg = getCssVar("--el-neg");
+        const colorText = getCssVar("--el-text");
+        const colorMuted = getCssVar("--el-muted");
+        const colorGrid = darkMode() ? "rgba(255,255,255,0.08)" : "rgba(0,0,0,0.07)";
+        const colorBg = getCssVar("--el-card");
+
+        // ---- Top chart: EPS vs FCF/share grouped bars
+        const traceEps = {
+            x: YEARS, y: eps, type: "bar", name: T.eps_lbl,
+            marker: { color: colorEps },
+            hovertemplate: "%{x}: $%{y:.2f}<extra>" + T.eps_lbl + "</extra>",
+        };
+        const traceFcf = {
+            x: YEARS, y: fcf, type: "bar", name: T.fcf_lbl,
+            marker: { color: colorFcf },
+            hovertemplate: "%{x}: $%{y:.2f}<extra>" + T.fcf_lbl + "</extra>",
+        };
+        const layoutMain = {
+            margin: { l: 56, r: 24, t: 28, b: 36 },
+            paper_bgcolor: colorBg,
+            plot_bgcolor: colorBg,
+            font: { family: "Segoe UI, Helvetica, Arial, sans-serif", color: colorText, size: 12 },
+            barmode: "group",
+            bargap: 0.22,
+            bargroupgap: 0.06,
+            xaxis: {
+                title: { text: T.chart_x, font: { color: colorMuted, size: 11 } },
+                gridcolor: colorGrid, zerolinecolor: colorMuted,
+                color: colorText, tickmode: "array", tickvals: YEARS,
+            },
+            yaxis: {
+                title: { text: T.chart_y, font: { color: colorMuted, size: 11 } },
+                gridcolor: colorGrid, zerolinecolor: colorMuted, color: colorText,
+            },
+            legend: {
+                orientation: "h", x: 0, y: 1.10, xanchor: "left",
+                font: { color: colorText, size: 11 }, bgcolor: "rgba(0,0,0,0)",
+            },
+            hovermode: "x unified",
+        };
+        Plotly.react(CHART_MAIN, [traceEps, traceFcf], layoutMain,
+                     { displayModeBar: false, responsive: true });
+
+        // ---- Bottom chart: Accrual = EPS - FCF/share
+        const accColors = acc.map(v => v > 0 ? colorNeg : colorPos);
+        const traceAcc = {
+            x: YEARS, y: acc, type: "bar", name: T.acc_lbl,
+            marker: { color: accColors },
+            hovertemplate: "%{x}: $%{y:.2f}<extra>" + T.acc_lbl + "</extra>",
+        };
+        const layoutAcc = {
+            margin: { l: 56, r: 24, t: 22, b: 36 },
+            paper_bgcolor: colorBg,
+            plot_bgcolor: colorBg,
+            font: { family: "Segoe UI, Helvetica, Arial, sans-serif", color: colorText, size: 12 },
+            bargap: 0.30,
+            xaxis: {
+                title: { text: T.chart_x, font: { color: colorMuted, size: 11 } },
+                gridcolor: colorGrid, zerolinecolor: colorMuted,
+                color: colorText, tickmode: "array", tickvals: YEARS,
+            },
+            yaxis: {
+                title: { text: T.acc_y, font: { color: colorMuted, size: 11 } },
+                gridcolor: colorGrid, zerolinecolor: colorMuted, color: colorText,
+                zeroline: true,
+            },
+            showlegend: false,
+            hovermode: "x unified",
+        };
+        Plotly.react(CHART_ACC, [traceAcc], layoutAcc,
+                     { displayModeBar: false, responsive: true });
+
+        // ---- Summary card
+        const sumEps = eps.reduce((a, b) => a + b, 0);
+        const sumFcf = fcf.reduce((a, b) => a + b, 0);
+        const sumAcc = acc.reduce((a, b) => a + b, 0);
+        const denom  = eps.reduce((a, b) => a + Math.abs(b), 0) || 1;
+        const ratio  = sumAcc / denom;
+        const [tagCls, tagTxt] = qualityTag(ratio);
+
+        const note = T.notes[d.note_key] || "";
+        SUMMARY.innerHTML =
+            "<div><b>" + company + "</b> &middot; " + T.sum_lead + ": " +
+              T.sum_eps + " " + fmt(sumEps) + "  &middot;  " +
+              T.sum_fcf + " " + fmt(sumFcf) + "  &middot;  " +
+              T.sum_acc + " " + fmt(sumAcc) +
+              "  &middot;  " + T.sum_avg + " " + fmtPct(ratio * 100) +
+              "  <span class='el-tag " + tagCls + "'>" + tagTxt + "</span>" +
+            "</div>" +
+            "<div style='margin-top:8px;color:var(--el-muted);'>" + note + "</div>";
+    }
+
+    CO_PILLS.querySelectorAll("button").forEach(btn => {
+        btn.addEventListener("click", () => {
+            CO_PILLS.querySelectorAll("button").forEach(b => b.classList.remove("active"));
+            btn.classList.add("active");
+            company = btn.dataset.co;
+            render();
+        });
+    });
+
+    function applyI18n() {
+        document.getElementById("el-co-label").textContent = T.co_label;
+        document.getElementById("el-caption").textContent = T.caption;
+    }
+    applyI18n();
+
+    function reportHeight() {
+        try {
+            var h = Math.ceil(document.documentElement.scrollHeight);
+            parent.postMessage({ type: 'lesson-interactive-resize', height: h }, '*');
+        } catch (e) { /* ignore */ }
+    }
+    if (typeof ResizeObserver !== 'undefined') {
+        new ResizeObserver(reportHeight).observe(document.body);
+    }
+    window.addEventListener('resize', reportHeight);
+    setTimeout(reportHeight, 50);
+    setTimeout(reportHeight, 500);
+
+    const themeObserver = new MutationObserver(render);
+    themeObserver.observe(document.documentElement, {
+        attributes: true,
+        attributeFilter: ["data-theme"],
+    });
+
+    render();
+})();
+</script>
+
+</body>
+</html>

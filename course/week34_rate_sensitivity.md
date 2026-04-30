@@ -1,1021 +1,348 @@
-# Week 34: Interest Rate Sensitivity Across Assets
+# Week 34: Rate Sensitivity Across Asset Classes
 
 ---
 
-## Reading Section
+## Part 1: Reading Section
 
 ---
 
-### a) Why This Is Important
+### 1. Why This Is Important
 
-Most investors think about interest rates as a bond market issue. When rates rise, bond prices fall. Simple enough. But interest rates are far more pervasive than that -- they are the gravitational force of all financial markets. Every single asset class is affected by interest rates, often in ways that are not immediately obvious.
+Every asset on Earth is priced by discounting its future cash flows back to today. The discount rate is built on top of the risk-free rate -- the yield on a US Treasury. Move the Treasury, and you move every price in the world. That is not a metaphor. It is arithmetic.
 
-Consider these real-world impacts:
+1. **Diversification is conditional, not unconditional.** The 60/40 portfolio rests on a single assumption: that stocks and bonds zig and zag against each other. In 2022 they did not. The S&P 500 fell 18%, the 10-year Treasury fell 18%, REITs fell 24%, gold barely budged, and the dollar rallied 8%. A "balanced" portfolio dropped 16-17%. The reason was simple: the same +400bps shock hit both legs at once, and rate sensitivity dominated correlation.
 
-1. **Equities as long-duration assets**: When the Federal Reserve raised rates aggressively in 2022, the Nasdaq-100 fell over 30%. High-growth technology stocks -- companies with earnings far in the future -- were hit hardest. Why? Because equities, especially growth stocks, behave like long-duration bonds. Their value comes from cash flows decades into the future, and higher discount rates crush the present value of those distant cash flows.
+2. **The 40-year tailwind reversed (SOUL #2).** From 1981 to 2020 the 10-year Treasury yield fell from 15% to 0.5%. Falling rates lift every duration-sensitive asset: bonds, growth equity, REITs, private credit, venture capital, leveraged buyouts. That tailwind made an entire generation of "long anything" portfolios look skilled. When the tailwind reversed in 2022, the same portfolios looked panicked. The investor who does not know which assets are duration-sensitive is the investor who got blindsided.
 
-2. **Real estate depends on rates**: The housing market slowed dramatically when 30-year mortgage rates went from 3% to 7% in 2022-2023. Commercial real estate suffered even more, with some office buildings losing 40-50% of their value. Real estate is among the most rate-sensitive asset classes because it is heavily financed with debt.
+3. **Rate shocks are not rare events.** Since 1980 the US has lived through Volcker (rates +1,000bps), 2008 (rates -400bps), 2020 (rates -150bps), and 2022 (rates +525bps). That is roughly one regime-changing rate move per decade. Designing a portfolio that ignores rate shocks is designing a portfolio for a world that does not exist.
 
-3. **Rate regimes define investment eras**: The period from 1981 to 2020 was a secular bull market in bonds, with rates falling from 15% to near zero. This tailwind lifted all asset prices. Now that rates have normalized, the investment playbook is fundamentally different. Understanding rate sensitivity tells you which assets will thrive and which will struggle in different rate environments.
+4. **Position sizing depends on this.** Once you know that a 30-year bond falls roughly 16% on +100bps and a long-duration growth ETF like ARKK falls 12-15% on the same shock, you can stop treating them as two different assets. They are the same trade in different costumes. Rate sensitivity is a unifying lens (SOUL #6: vol-tail-wags-dog -- the tail risks share a common root).
 
-4. **Corporate behavior changes with rates**: When rates are low, companies borrow cheaply to buy back stock, fund acquisitions, and invest in speculative projects. When rates rise, these activities contract. Leverage that was sustainable at 3% rates can become crushing at 6%. Understanding this dynamic helps you identify which companies are most vulnerable.
-
-5. **Portfolio construction**: If you do not understand rate sensitivity, you cannot build a robust portfolio. You might think you are diversified, but if all your assets are highly rate-sensitive in the same direction, a rate shock can hit your entire portfolio at once.
-
-This lesson connects the dots between interest rates and every major asset class, giving you the framework to anticipate how rate changes will ripple through your portfolio.
+This lesson gives you the cross-asset playbook for the next +100bps and the next -100bps. Week 47 will use it to size a tail-risk hedge.
 
 ---
 
-### b) What You Need to Know
+### 2. What You Need to Know
 
-#### 1. Equities as Long-Duration Assets
+#### 2.1 The Master Formula
 
-Most investors do not think of stocks as having "duration," but they absolutely do. In bond math, duration measures how sensitive a bond's price is to interest rate changes. The same concept applies to equities.
+Every asset's price equals the present value of its cash flows:
 
-**The Duration of an Equity:**
+$$P = \sum_{t=1}^{\infty} \frac{CF_t}{(1+r)^t}$$
 
-A stock's value equals the present value of all future cash flows (dividends, earnings, free cash flow). These cash flows stretch decades into the future. The discount rate used to calculate present value is directly influenced by interest rates.
+Modified duration $D$ is the percentage price change for a 1% change in $r$:
 
-```
-Stock Value = Sum of [ CF(t) / (1 + r)^t ] for t = 1 to infinity
+$$\frac{\Delta P}{P} \approx -D \cdot \Delta r$$
 
-Where:
-  CF(t) = Expected cash flow in year t
-  r = Discount rate (risk-free rate + equity risk premium)
-  t = Time period
+That is the entire game. The longer the cash flow timeline, the larger $D$, and the more violent the price reaction to a rate move. A 30-year zero-coupon bond has $D \approx 30$. A short-duration value stock has $D \approx 5$. A long-duration unprofitable growth name has $D \approx 30$ as well -- which is why ARKK and TLT moved together in 2022.
 
-When r increases, the denominator grows, and the present value falls.
-The further into the future the cash flow, the more it is discounted.
-```
+#### 2.2 The Rate-Shock Cheat Sheet
 
-**Illustrative Example -- Impact of a 1% Rate Increase:**
+Estimated price impact of a parallel +100bps shock at the long end of the curve (mid-2026 starting yields, broadly representative):
 
-```
-Company A: "Value Stock"
-  - Earns $10/share today, growing at 3%/year
-  - Most value comes from near-term cash flows
-  - Duration estimate: ~15 years
-  - Price impact of +1% rates: approximately -15%
+| Asset class | Approx. $D$ | Δ price for +100bps |
+|:--|:--:|--:|
+| 3-month T-Bill | 0.25 | -0.25% |
+| 5-year Treasury | 4.5 | -4.5% |
+| 10-year Treasury | 8 | -8% |
+| 30-year Treasury | 16 | -16% |
+| Investment-grade corp (LQD) | 9 | -10% |
+| High-yield corp (HYG) | 4 | -6% |
+| S&P 500 broad | 18 | -7% |
+| Value equity (VTV) | 10 | -3% |
+| Growth equity (VUG / QQQ) | 22 | -12% |
+| REITs (VNQ) | 18 | -10% |
+| Gold (GLD) | -- | -2% to +5% |
+| Long-duration crypto / unprofitable tech | 30+ | -20% or worse |
+| US dollar (DXY) | -- | +1% to +3% |
 
-Company B: "Growth Stock"
-  - Earns $1/share today, growing at 25%/year
-  - Most value comes from cash flows 10-20 years out
-  - Duration estimate: ~35 years
-  - Price impact of +1% rates: approximately -35%
-```
+Two assets break the duration formula. Gold has no cash flow, so you cannot compute duration directly -- its rate sensitivity comes through inflation expectations. The dollar is a relative price, not a discounted cash flow, so it moves with the *spread* between US rates and foreign rates. We handle both separately in §2.5 and §2.6. See `image/week34_rate_shock_grid.png` for the visual.
 
-This explains why growth stocks are far more volatile in response to rate changes than value stocks.
+#### 2.3 Bonds: Linear in Duration
 
-**Equity Duration by Style:**
+Bonds are the textbook case. A 30-year Treasury is roughly twice as rate-sensitive as a 10-year, which is roughly twice as sensitive as a 5-year. A barbell of T-Bills + 30-year zeros has the same average duration as a bullet of 10-years but very different convexity. For most portfolios the right anchor is the 5- to 10-year intermediate Treasury (IEF, IEI). The 30-year (TLT, EDV) is a *speculative* rate trade -- it loses 16% on +100bps and gains 16% on -100bps. That belongs in the alpha sleeve, not the bond sleeve (SOUL #13: four tranches).
 
-```
-Style/Sector             | Estimated Duration | Rate Sensitivity
--------------------------|-------------------|------------------
-Deep Value (banks, etc.) | 8 - 12 years      | Low
-Dividend stocks          | 12 - 18 years     | Moderate
-Broad market (S&P 500)  | 18 - 25 years     | Moderate-High
-Growth stocks            | 25 - 40 years     | High
-Unprofitable tech       | 40 - 60+ years    | Very High
-Pre-revenue biotech     | 50 - 80+ years    | Extreme
-```
+#### 2.4 Equities: Duration in Disguise
 
-**Why did this matter in 2022?**
+Growth equities are long-duration assets in everything but name. The 2022 case is the cleanest evidence we have ever had:
 
-```
-Asset                    | 2022 Return | Rate Sensitivity Explanation
--------------------------|------------|----------------------------------
-Profitable value stocks  | -5%        | Short duration, near-term cash flows
-S&P 500                  | -18%       | Mix of growth and value
-Nasdaq-100               | -33%       | Growth-heavy, longer duration
-ARK Innovation ETF (ARKK)| -67%      | Unprofitable growth, extreme duration
-30-Year Treasury Bond    | -33%       | Long-duration fixed income
+- 10-year Treasury yield rose from 1.5% to 4.0% (+250bps).
+- ARKK (long-duration unprofitable tech) fell ~67%.
+- QQQ (large-cap profitable tech) fell ~33%.
+- VTV (value, short duration) fell ~5%.
+- That ranking matches the duration ladder exactly.
 
-Fed Funds Rate: 0.25% -> 4.50% (425 bps increase)
-```
+The rule: for every doubling of the time-to-payoff of a company's cash flows, double its rate sensitivity. A bank earning $5 today and $5.20 next year has tiny duration. A SaaS company earning -$1 today and projected to earn $50 in 2035 has enormous duration. Growth multiples are duration multiples.
 
-Notice how the most rate-sensitive equities fell as much or more than long-term bonds. This is not a coincidence -- it reflects their similar duration characteristics.
+#### 2.5 Real Estate: Levered Duration
 
-#### 2. Growth vs. Value Duration
+REITs are *highly* rate-sensitive for two compounding reasons. First, the rent stream is long-dated (cap rates compress and decompress with the 10-year). Second, the underlying properties are levered roughly 50%, so refinancing risk amplifies rate shocks. Office REITs in 2022-2024 lost 40-50% of equity value as cap rates went from 5% to 7-8% on the same rent. Residential and industrial held up better, but VNQ as a whole drew down 30%+ in 2022. Rule of thumb: REITs trade like a leveraged 15-year bond.
 
-The growth-vs.-value debate has a rate sensitivity dimension that many investors miss.
+Mortgage rates are the second-order channel: 30-year fixed rates went from 3% to 7.8% in 2022-2023, killing housing transaction volume. Anyone with a floating-rate construction loan was forced to refinance into much higher rates -- many did not survive.
 
-**Why Growth Has Higher Duration:**
+#### 2.6 Gold: A Function of *Real* Rates, Not Nominal
 
-Growth companies reinvest most of their earnings into future expansion rather than paying dividends. Their value proposition is: "We will earn enormous profits in the future, even if profits are slim today." This means most of their intrinsic value comes from cash flows 10, 15, or 20+ years into the future.
+Gold has no cash flow, no yield, and no earnings. Its price is the inverse of confidence in fiat. The driving variable is *real* rates -- the 10-year nominal yield minus expected inflation (the TIPS breakeven). When real rates rise, gold falls (the opportunity cost of holding zero-yield gold goes up). When real rates fall, gold rises.
 
-Value companies, by contrast, are already generating significant cash flows today. They pay dividends, buy back stock, and generate free cash flow now. Their value is concentrated in nearer-term cash flows.
+That is why 2022 was so unusual: nominal rates rose violently, but inflation also rose violently, so *real* rates only rose modestly. Gold ended the year at +0.4%. In 1980 the same arithmetic ran the other way: Volcker hiked nominal rates above inflation, real rates went strongly positive, and gold collapsed from $850 to $300. SOUL #3: gold is a store of value because enough people *believe* it is. Real rates are the mechanism of that belief.
 
-```
-Cash Flow Distribution Over Time:
+#### 2.7 The Dollar: A Spread, Not a Level
 
-Value Stock:
-Year:  1   2   3   4   5   6   7   8   9   10  11  12  13  14  15+
-       $$$ $$$ $$  $$  $$  $$  $   $   $   $   .   .   .   .   .
-       ^^^^^^^^^^^^^^^
-       Most value here (near-term)
+DXY measures the dollar against a basket of trading-partner currencies. It moves with the *spread* between US rates and foreign rates, plus a risk-on/risk-off premium. When the Fed hikes faster than the ECB and BoJ (2022), the dollar rallies. When it hikes slower (2002-2004, 2017-2018), the dollar falls. A +100bps shock to US rates that is matched by foreign hikes does roughly nothing to DXY. A +100bps shock that is purely US -- the 2022 case -- pushes DXY up 5-10%.
 
-Growth Stock:
-Year:  1   2   3   4   5   6   7   8   9   10  11  12  13  14  15+
-       $   $   $   $   $$  $$  $$  $$$ $$$ $$$ $$$ $$$ $$$ $$$ $$$
-                                       ^^^^^^^^^^^^^^^^^^^^^^^
-                                       Most value here (far future)
-```
+The second-order effects of a strong dollar matter: emerging markets weaken, US multinational earnings translation hurts (~50% of S&P 500 revenue is overseas), and gold faces a headwind. SOUL #16 says we stay US-only on the long side; the dollar is the reason that works.
 
-**Historical Pattern:**
+#### 2.8 The 2022 Case Study: Why Diversification Failed
 
-```
-Rate Environment       | Growth vs. Value Performance
------------------------|-------------------------------
-Falling rates          | Growth outperforms value
-Rising rates           | Value outperforms growth
-Stable low rates       | Growth outperforms value
-Stable high rates      | Value outperforms growth (usually)
-Rate transition (any)  | Maximum divergence between styles
-```
+Calendar-year 2022 returns by asset class (Damodaran + standard data):
 
-This is not a perfect relationship, but it is a strong tendency. The massive outperformance of growth over value from 2009-2021 coincided with a period of persistently falling and near-zero rates. The value resurgence in 2022 coincided with the fastest rate hiking cycle in decades.
+- S&P 500: -18%.
+- 10-year Treasury: -18%.
+- 30-year Treasury (TLT): -31%.
+- High-yield corporates (HYG): -11%.
+- REITs (VNQ): -24%.
+- Gold (GLD): +0.4%.
+- DXY: +8%.
+- Bitcoin: -65%.
 
-#### 3. The Equity Duration Concept in Depth
+A textbook 60/40 lost 16-17%. Risk-parity portfolios (which lever bonds) lost even more. The reason was singular: a +425bps Fed shock simultaneously hit every long-duration asset. Correlation was not "broken" -- correlation was always conditional, and the condition was a benign rate environment. When the rate environment became hostile, correlation showed its true face. See `image/week34_2022_case.png`.
 
-Let us formalize the equity duration concept with a simplified model:
-
-**Gordon Growth Model and Duration:**
-
-```
-Price = D1 / (r - g)
-
-Where:
-  D1 = Next year's dividend (or free cash flow)
-  r = Required return (risk-free rate + equity risk premium)
-  g = Growth rate
-
-Duration (approximate) = 1 / (r - g)
-
-Example 1: Mature utility
-  r = 8%, g = 2%
-  Duration = 1 / (0.08 - 0.02) = 1 / 0.06 = 16.7 years
-  Price sensitivity to +1% rates: approximately -16.7%
-
-Example 2: High-growth tech
-  r = 10%, g = 8%
-  Duration = 1 / (0.10 - 0.08) = 1 / 0.02 = 50 years
-  Price sensitivity to +1% rates: approximately -50%
-```
-
-This simplified model shows why the gap between growth rates and discount rates matters so much. When g is close to r, duration becomes extremely long, and the stock becomes extremely sensitive to rate changes.
-
-**Two-Stage Dividend Discount Model Duration:**
-
-For a more realistic estimate, consider a company with a high-growth phase followed by a mature phase:
-
-```
-Stage 1: Years 1-10, growth = 20%/year, payout = 0%
-Stage 2: Year 11+, growth = 3%/year, payout = 60%
-
-With r = 9%:
-  PV of Stage 1 cash flows: $0 (no payout)
-  PV of Stage 2 cash flows: all value comes from year 11+
-  Effective duration: ~40 years
-
-With r = 10% (+1%):
-  PV of Stage 2 cash flows drops significantly
-  Price decline: approximately 30-40%
-```
-
-This illustrates why unprofitable growth companies that reinvest everything are so rate-sensitive -- literally 100% of their value comes from the distant future.
-
-#### 4. Real Estate Sensitivity to Interest Rates
-
-Real estate is one of the most interest-rate-sensitive asset classes, for several interconnected reasons:
-
-**Channel 1: Financing Costs**
-
-Most real estate is purchased with significant leverage (debt). A typical commercial property might be financed with 60-70% debt.
-
-```
-Impact of Rising Rates on Property Cash Flow:
-
-Scenario: $10 million property, 65% LTV, 10-year loan
-
-At 4% interest rate:
-  Loan amount: $6,500,000
-  Annual interest: $260,000
-  Net Operating Income: $600,000
-  Debt Service Coverage Ratio: 2.3x
-  Cash flow after debt service: $340,000
-  Cash-on-cash return: 9.7% ($340K / $3.5M equity)
-
-At 7% interest rate:
-  Loan amount: $6,500,000
-  Annual interest: $455,000
-  Net Operating Income: $600,000
-  Debt Service Coverage Ratio: 1.3x
-  Cash flow after debt service: $145,000
-  Cash-on-cash return: 4.1% ($145K / $3.5M equity)
-
-The same property's cash flow to equity investors drops 57%
-when rates rise from 4% to 7%.
-```
-
-**Channel 2: Cap Rate Expansion**
-
-Capitalization rates (cap rates) are the real estate equivalent of earnings yields. They tend to rise when interest rates rise, because investors demand higher yields from real estate when risk-free alternatives become more attractive.
-
-```
-Cap Rate = Net Operating Income / Property Value
-
-When cap rates rise, property values fall:
-
-NOI = $600,000
-
-At 5% cap rate: Property value = $600,000 / 0.05 = $12,000,000
-At 6% cap rate: Property value = $600,000 / 0.06 = $10,000,000
-At 7% cap rate: Property value = $600,000 / 0.07 =  $8,571,429
-
-A 200-basis-point increase in cap rates (5% to 7%)
-reduces property value by 29%.
-```
-
-**Channel 3: Demand Reduction**
-
-Higher rates reduce housing affordability and business expansion, lowering demand for real estate:
-
-```
-Monthly Payment on $400,000 Mortgage (30-year fixed):
-
-  At 3.0%: $1,686/month
-  At 4.0%: $1,910/month  (+13%)
-  At 5.0%: $2,147/month  (+27%)
-  At 6.0%: $2,398/month  (+42%)
-  At 7.0%: $2,661/month  (+58%)
-  At 8.0%: $2,935/month  (+74%)
-
-Doubling the rate from 3% to 6% increases the monthly
-payment by 42%, pricing many buyers out of the market.
-```
-
-**Real Estate Sectors by Rate Sensitivity:**
-
-```
-Sector              | Rate Sensitivity | Why
---------------------|-----------------|----------------------------------
-Office              | Very High       | Long leases, high leverage, secular headwinds
-Retail Malls        | High            | Leverage, competition from e-commerce
-Multifamily/Apts    | High            | Cap rate sensitive, high leverage
-Industrial/Logistics| Moderate        | Strong demand partially offsets rate impact
-Data Centers        | Moderate        | Secular growth in demand
-Self-Storage        | Moderate        | Short leases allow rent adjustment
-Cell Towers         | Lower           | Long contracts, inflation escalators
-Healthcare          | Lower           | Demographic demand relatively inelastic
-```
-
-**REITs vs. Physical Real Estate:**
-
-REITs (Real Estate Investment Trusts) trade on stock exchanges and therefore react to rate changes immediately. Physical real estate reacts more slowly because properties are illiquid and repriced infrequently. This creates a pattern where REITs lead physical real estate by 6-12 months in reflecting rate impacts.
-
-#### 5. Commodity and Interest Rate Relationship
-
-The relationship between commodities and interest rates is complex and works through multiple channels:
-
-**Channel 1: Carrying Cost (Cost of Carry)**
-
-Holding physical commodities requires financing the inventory. Higher rates increase this carrying cost, putting downward pressure on commodity prices (or more precisely, on the futures curve).
-
-```
-Cost of Carry = Storage Costs + Financing Costs - Convenience Yield
-
-When rates rise:
-  Financing costs increase
-  Carrying cost increases
-  Futures prices relative to spot prices increase (contango steepens)
-  Economic incentive to hold inventory decreases
-```
-
-**Channel 2: US Dollar Relationship**
-
-Higher US interest rates typically strengthen the US dollar. Since most commodities are priced in dollars, a stronger dollar makes commodities more expensive for foreign buyers, reducing demand and putting downward pressure on prices.
-
-```
-Higher US Rates --> Stronger Dollar --> Commodity Prices Under Pressure
-
-This relationship is strong but not absolute:
-  - Correlation between DXY (Dollar Index) and commodity prices: ~-0.5
-  - The relationship can break down when supply disruptions dominate
-```
-
-**Channel 3: Economic Activity**
-
-Interest rates affect economic growth, which drives commodity demand:
-
-```
-Rate Impact Chain:
-  Higher rates
-    --> Slower economic growth
-      --> Lower industrial production
-        --> Lower demand for industrial commodities (copper, steel, oil)
-          --> Lower commodity prices
-
-But also:
-  Higher rates
-    --> Reduced investment in new supply (mining, drilling)
-      --> Future supply constraints
-        --> Eventually higher commodity prices
-```
-
-**Channel 4: Gold's Special Relationship with Rates**
-
-Gold has a unique relationship with interest rates because it is a zero-yielding asset:
-
-```
-Gold's "Opportunity Cost" Framework:
-
-  Gold yield = 0%
-  Real interest rate = Nominal rate - Inflation
-
-  When real rates are negative (rate < inflation):
-    Gold's opportunity cost is minimal
-    Gold tends to perform well
-
-  When real rates are positive (rate > inflation):
-    Gold's opportunity cost is significant
-    Gold tends to underperform
-
-  Historical correlation between gold and real rates: approximately -0.7
-```
-
-```
-Commodity Rate Sensitivity Summary:
-
-  Commodity       | Primary Rate Channel    | Sensitivity
-  ----------------|------------------------|------------
-  Gold            | Real rates, USD        | High (inverse)
-  Oil             | Economic growth, USD   | Moderate
-  Copper          | Economic growth        | Moderate-High
-  Agricultural    | USD, financing costs   | Low-Moderate
-  Natural Gas     | Domestic demand        | Low
-  Precious metals | Real rates, USD        | High (inverse)
-```
-
-#### 6. Rate Impact on Leverage and Buybacks
-
-Interest rates fundamentally change corporate behavior, especially regarding leverage and capital allocation:
-
-**Leverage Sensitivity:**
-
-```
-Company XYZ Financial Profile:
-
-  EBITDA: $500 million
-  Total Debt: $2 billion
-  Debt/EBITDA: 4.0x
-
-  At 4% average interest rate:
-    Interest expense: $80 million
-    Interest coverage: 6.3x (comfortable)
-    After-tax cost of debt: 3.0% (assuming 25% tax rate)
-    Stock buybacks funded by cheap debt: accretive
-
-  At 7% average interest rate:
-    Interest expense: $140 million (+75%)
-    Interest coverage: 3.6x (tighter)
-    After-tax cost of debt: 5.25%
-    Stock buybacks funded by expensive debt: often dilutive
-
-  At 10% average interest rate:
-    Interest expense: $200 million (+150%)
-    Interest coverage: 2.5x (uncomfortable)
-    After-tax cost of debt: 7.5%
-    Company shifts to deleveraging mode
-```
-
-**The Buyback Machine:**
-
-During the low-rate era (2010-2021), US companies bought back over $7 trillion in stock, much of it funded by cheap debt. This leveraged buyback strategy worked as follows:
-
-```
-How Debt-Funded Buybacks Work:
-
-  Step 1: Borrow $1 billion at 3% interest ($30M/year after-tax cost: ~$22.5M)
-  Step 2: Buy back $1 billion in stock
-  Step 3: If earnings yield on stock > after-tax cost of debt, EPS increases
-  Step 4: Higher EPS -> higher stock price -> repeat
-
-  Example at low rates:
-    Earnings yield: 5%  ($50M earnings from $1B buyback)
-    After-tax debt cost: 2.25% ($22.5M)
-    Net EPS accretion: 2.75% per $1B buyback
-    Verdict: ACCRETIVE -- do more buybacks
-
-  Example at high rates:
-    Earnings yield: 5%  ($50M earnings from $1B buyback)
-    After-tax debt cost: 5.25% ($52.5M)
-    Net EPS accretion: -0.25% per $1B buyback
-    Verdict: DILUTIVE -- stop buybacks, start deleveraging
-```
-
-**Sectors Most Affected by Rate Changes on Leverage:**
-
-```
-Sector                  | Typical Leverage | Rate Impact on Sector
-------------------------|-----------------|---------------------------
-Utilities               | 3-5x Debt/EBITDA| Moderate (regulated returns)
-REITs                   | 4-8x Debt/EBITDA| High (leveraged, rate-sensitive)
-Telecoms                | 3-5x Debt/EBITDA| Moderate-High
-Private Equity-backed   | 5-8x Debt/EBITDA| Very High
-Airlines                | 3-6x Debt/EBITDA| High (lease-heavy)
-Banks                   | N/A (asset-based)| Complex (NIM vs. credit risk)
-Technology (large cap)  | 0-1x Debt/EBITDA| Low (cash-rich)
-Healthcare              | 1-3x Debt/EBITDA| Low-Moderate
-```
-
-#### 7. Rate Regime Mapping to Asset Allocation
-
-Different interest rate environments favor different asset allocations. Understanding which "regime" we are in helps position portfolios appropriately.
-
-**Four Rate Regimes:**
-
-```
-Regime 1: LOW AND FALLING RATES
-  (Example: 2010-2020)
-  |
-  |-- Favored assets:
-  |     Growth stocks (long duration benefits)
-  |     Long-term bonds (price appreciation)
-  |     REITs (declining cap rates, cheap financing)
-  |     Private equity (leverage is cheap)
-  |     Gold (low opportunity cost)
-  |
-  |-- Challenged assets:
-  |     Bank stocks (compressed NIMs)
-  |     Cash (near-zero yields)
-  |     Money market funds
-  |     Short-term bonds (low yield)
-  |     Value stocks (less need for current income)
-
-Regime 2: LOW AND RISING RATES
-  (Example: 2022)
-  |
-  |-- Favored assets:
-  |     Value stocks (shorter duration)
-  |     Bank stocks (expanding NIMs)
-  |     Floating-rate loans
-  |     Cash and short-term bonds
-  |     Commodities (early cycle)
-  |     Energy stocks
-  |
-  |-- Challenged assets:
-  |     Growth stocks (duration pain)
-  |     Long-term bonds (price decline)
-  |     REITs (cap rate expansion)
-  |     Unprofitable companies (funding costs rise)
-  |     Highly leveraged companies
-
-Regime 3: HIGH AND STABLE RATES
-  (Example: mid-2000s, or potentially current era)
-  |
-  |-- Favored assets:
-  |     High-quality corporate bonds (attractive yields)
-  |     Dividend stocks
-  |     Short-duration bonds
-  |     Cash equivalents (meaningful yield)
-  |     Quality factor (strong balance sheets)
-  |
-  |-- Challenged assets:
-  |     Speculative growth
-  |     Highly leveraged companies
-  |     Rate-sensitive real estate
-  |     Long-duration bonds
-
-Regime 4: HIGH AND FALLING RATES
-  (Example: early 1980s, or potential future scenario)
-  |
-  |-- Favored assets:
-  |     Long-term bonds (massive price appreciation)
-  |     Growth stocks (duration tailwind)
-  |     REITs (cap rate compression)
-  |     ALL risk assets benefit
-  |     Quality growth companies
-  |
-  |-- Challenged assets:
-  |     Cash (yields declining)
-  |     Floating-rate instruments (yields declining)
-  |     Short-term bonds (less price appreciation)
-```
-
-**Rate Regime Identification Checklist:**
-
-```
-To identify the current rate regime, assess:
-
-  1. Level: Are rates above or below the long-term average?
-     Long-term average 10Y Treasury: ~4-5%
-     Below average = "low" rate environment
-     Above average = "high" rate environment
-
-  2. Direction: Are rates rising, falling, or stable?
-     Look at: Fed policy stance, inflation trajectory, economic growth
-
-  3. Speed: How fast are rates changing?
-     Rapid changes cause more dislocation than gradual ones
-     2022 was extreme: 425 bps in 9 months
-
-  4. Expectations: What does the market expect going forward?
-     Fed funds futures, yield curve shape, TIPS breakevens
-     Surprises matter more than anticipated changes
-
-  Current Regime Assessment Framework:
-  ┌─────────────────────────────────────────────┐
-  │  Are rates above historical average?        │
-  │    YES --> Are they rising or falling?       │
-  │      Rising  --> Regime 2 (most painful)     │
-  │      Falling --> Regime 4 (most bullish)     │
-  │      Stable  --> Regime 3                    │
-  │    NO  --> Are they rising or falling?       │
-  │      Rising  --> Regime 2 (transition)       │
-  │      Falling --> Regime 1                    │
-  │      Stable  --> Regime 1                    │
-  └─────────────────────────────────────────────┘
-```
-
-#### 8. Practical Rate Hedging
-
-Investors can manage interest rate sensitivity through various hedging strategies:
-
-**Strategy 1: Duration Management**
-
-```
-Reduce portfolio duration when you expect rates to rise:
-  - Shorten bond maturities
-  - Shift from growth to value stocks
-  - Reduce REIT exposure
-  - Hold more cash
-
-Increase portfolio duration when you expect rates to fall:
-  - Extend bond maturities
-  - Increase growth stock allocation
-  - Add REIT exposure
-  - Reduce cash holdings
-```
-
-**Strategy 2: Natural Hedges**
-
-Some assets naturally benefit from rising rates and can offset losses elsewhere:
-
-```
-Natural Rate Hedges:
-  Asset                         | Benefit from Rising Rates
-  ------------------------------|-----------------------------------
-  Bank stocks                   | Net interest margins expand
-  Insurance companies           | Investment income increases
-  Floating-rate bonds/loans     | Coupon payments increase
-  Cash and money markets        | Yields increase
-  Short positions in bonds      | Profit from bond price declines
-  Treasury Inflation Protected  | Protect against inflation-driven
-    Securities (TIPS)           |   rate increases
-```
-
-**Strategy 3: Derivative Hedges**
-
-```
-Interest Rate Derivatives for Hedging:
-
-  Instrument          | How It Hedges                      | Complexity
-  --------------------|------------------------------------|-----------
-  Treasury futures    | Short futures profit when          | Moderate
-    (short)           | rates rise                         |
-  Interest rate swaps | Pay fixed/receive floating to      | High
-                      | benefit from rising rates          |
-  Put options on      | Right to sell bonds at a set       | Moderate
-    bond ETFs         | price, limiting downside           |
-  Swaptions           | Option to enter an interest        | Very High
-                      | rate swap                          |
-  Rate caps/floors    | Insurance against rate moves       | High
-                      | beyond a threshold                 |
-```
-
-**Strategy 4: Sector Rotation**
-
-```
-Rate-Based Sector Rotation Framework:
-
-  Rates Rising:
-    Overweight --> Financials, Energy, Industrials, Materials
-    Underweight --> Utilities, REITs, Consumer Staples, High-Growth Tech
-
-  Rates Falling:
-    Overweight --> Utilities, REITs, Growth Tech, Consumer Staples
-    Underweight --> Financials (short-term), Cyclicals
-
-  Rates Stable (High):
-    Overweight --> Quality, Dividends, Value
-    Underweight --> Speculative Growth, Leveraged Companies
-
-  Rates Stable (Low):
-    Overweight --> Growth, Innovation, Leverage plays
-    Underweight --> Cash, Short-duration fixed income
-```
-
-**Strategy 5: The Yield Curve and What It Tells You**
-
-The yield curve -- the relationship between bond yields and their maturities -- is one of the most important rate signals for asset allocation.
-
-```
-Yield Curve Shapes and Their Implications:
-
-  Normal (Upward Sloping):
-    Short rates < Long rates
-    Signal: Economy is healthy, growth expected
-    Favors: Banks (borrow short, lend long), cyclical stocks
-
-    Yield |          ___...---
-          |      _--'
-          |   _-'
-          | _'
-          |'________________________
-            3m  1y  2y  5y  10y  30y
-
-  Flat:
-    Short rates = Long rates
-    Signal: Economic uncertainty, transition period
-    Favors: Cash equivalents, quality stocks, short duration
-
-    Yield |
-          |  ________________________
-          |
-          |
-          |________________________
-            3m  1y  2y  5y  10y  30y
-
-  Inverted (Downward Sloping):
-    Short rates > Long rates
-    Signal: Recession warning -- has preceded every US
-            recession since 1970
-    Favors: Cash, short-term bonds, defensive stocks
-
-    Yield |
-          | \
-          |  \___
-          |      '---...____
-          |________________________
-            3m  1y  2y  5y  10y  30y
-
-  Steep (Very Upward Sloping):
-    Short rates << Long rates (large gap)
-    Signal: Recovery underway, easy monetary policy
-    Favors: Banks (maximum NIM), cyclicals, risk assets
-
-    Yield |                    ___...---
-          |               _--'
-          |           _--'
-          |       _--'
-          | __--'
-          |'________________________
-            3m  1y  2y  5y  10y  30y
-```
-
-**Historical Yield Curve Inversions and Subsequent Recessions:**
-
-```
-Inversion Date     | Recession Start  | Lead Time
--------------------|-----------------|------------------
-December 1978      | January 1980    | 13 months
-September 1980     | July 1981       | 10 months
-January 1989       | July 1990       | 18 months
-February 2000      | March 2001      | 13 months
-December 2005      | December 2007   | 24 months
-March 2022         | ???             | TBD
-
-Average lead time: approximately 14-16 months
-Every inversion has been followed by a recession,
-but the timing varies significantly.
-```
-
-**How to Trade the Yield Curve:**
-
-```
-Phase 1: Curve Steepening (from normal)
-  - Usually means Fed is easing
-  - Banks and financials benefit most
-  - Shift portfolio toward cyclicals and risk
-
-Phase 2: Curve Flattening
-  - Usually means Fed is tightening
-  - Growth stocks begin to underperform
-  - Start building defensive positioning
-
-Phase 3: Curve Inversion
-  - Recession signal, but timing is uncertain
-  - Reduce risk, increase cash and short-term bonds
-  - Watch credit spreads for confirmation
-
-Phase 4: Curve Re-steepening (from inverted)
-  - Recession is usually imminent or underway
-  - Paradoxically, this is often the BEST time to start
-    adding risk for the recovery ahead
-  - Long-term bonds rally as the Fed cuts rates
-```
-
-**Strategy 6: Multi-Asset Rate Sensitivity Dashboard**
-
-```
-Asset Class          | Duration | Direction | Magnitude of
-                     | Estimate | of Impact | Rate Sensitivity
----------------------|----------|-----------|------------------
-Cash                 | 0        | Positive  | Zero price risk
-T-Bills (3-month)    | 0.25     | Positive  | Negligible
-2-Year Treasury      | 2        | Negative  | Low
-10-Year Treasury     | 8        | Negative  | Moderate
-30-Year Treasury     | 20       | Negative  | High
-IG Corporate Bonds   | 7        | Negative  | Moderate
-HY Corporate Bonds   | 4        | Negative  | Low-Moderate
-TIPS                 | 7        | Mixed     | Depends on type of rate move
-Value Stocks         | 12       | Negative  | Low
-S&P 500              | 20       | Negative  | Moderate
-Growth Stocks        | 35       | Negative  | High
-REITs                | 15       | Negative  | High
-Gold                 | 15       | Negative  | Moderate (real rates)
-Commodities (ex-gold)| N/A      | Mixed     | Moderate
-Bank Stocks          | -5       | Positive  | Moderate (benefit)
-Floating-Rate Loans  | 0.25     | Positive  | Low (benefit)
-```
+The investor's takeaway is not "diversification is dead." It is "diversification is over the *driving variable*." If your six assets all share rate sensitivity, you do not own six assets -- you own one trade in six wrappers. To diversify in a rate-driven world you need exposures that respond to *different* drivers: cash, gold (real-rate hedge), short volatility (vol-tail-wags-dog, SOUL #6), or genuine alpha (SOUL #5).
 
 ---
 
-### c) Common Misconceptions
+### 3. Common Misconceptions
 
-**Misconception 1: "Only bonds are affected by interest rates."**
+1. **"Stocks always hedge bonds."** Only when growth shocks dominate rate shocks. In an inflation-driven regime they fall together. The 1970s and 2022 are the proof.
 
-This is the most dangerous misconception. As we have shown, equities, real estate, commodities, and even private investments are all profoundly affected by interest rates. The 2022 experience should have dispelled this myth permanently: the Nasdaq fell 33%, the S&P 500 fell 18%, REITs fell 25%, and long-term bonds fell 30% -- all driven primarily by rising interest rates. Understanding rate sensitivity across all asset classes is essential for portfolio construction.
+2. **"Growth stocks are equity, not bonds."** Mathematically false. A stock priced on cash flows 15 years out has more duration than a 15-year bond. The label does not change the math.
 
-**Misconception 2: "Growth stocks always outperform value stocks."**
+3. **"Gold is an inflation hedge."** Gold is a *real-rate* hedge. If inflation rises and nominal rates rise faster (1980), gold falls. If inflation rises and nominal rates lag (2020-2024), gold rises.
 
-Growth stocks outperformed value from roughly 2007 to 2021, leading many investors to believe this was a permanent state. But this outperformance coincided with a secular decline in interest rates. When rates rose sharply in 2022, value outperformed growth by the widest margin in decades. The growth-value cycle is heavily influenced by the rate cycle. Neither style is permanently superior; it depends on the rate environment.
+4. **"REITs are real assets, so they hedge rates."** No. REITs are levered long-duration cash flow streams. They are *more* rate-sensitive than the stock market, not less.
 
-**Misconception 3: "Rising rates are always bad for stocks."**
+5. **"The dollar always rallies in a crisis."** True for liquidity crises (2008, 2020), false for confidence crises in the dollar itself (2002-2003, late-1970s). The driver is the rate spread, not the panic level.
 
-This is an oversimplification. The reason rates are rising matters enormously. If rates rise because the economy is booming and corporate profits are surging, stocks can do well despite higher rates. The rate increase is offset by higher earnings. If rates rise because inflation is out of control and the Fed is slamming on the brakes, stocks suffer because higher rates coincide with deteriorating earnings. Context matters more than direction.
+6. **"+100bps is a rare event."** The Fed has moved +100bps in a single year roughly once a decade since 1970. Pricing portfolios for 0bps moves is a cognitive bias, not a calibration.
 
-**Misconception 4: "REITs are just like bonds."**
+7. **"Bond duration is just the maturity."** Modified duration accounts for coupons. A 30-year zero has $D \approx 30$. A 30-year coupon bond has $D \approx 16$. Big difference.
 
-REITs and bonds both produce income, but REITs also offer growth potential through rent increases and property appreciation. During periods of moderate inflation and stable rates, REITs can perform well because rents adjust upward. REITs suffer most during rapid rate increases (like 2022) but can recover when rates stabilize, even at higher levels. Treating REITs as bond substitutes misses their growth dimension.
+8. **"Diversification is about owning many things."** It is about owning many *uncorrelated* things. Owning ten long-duration assets is owning one trade ten times.
 
-**Misconception 5: "Gold is an inflation hedge."**
+9. **"Crypto is a hedge."** Bitcoin in 2022 was the highest-duration asset in the world: -65% on a +425bps shock. Hedge is the opposite of what it did.
 
-Gold's relationship with inflation is indirect. Gold is better described as a hedge against negative real interest rates. When real rates are deeply negative (inflation is much higher than interest rates), gold shines. When real rates are positive and rising, gold struggles -- even if inflation itself is elevated. In 2022, inflation was running at 8-9%, but gold fell slightly because real rates were rising rapidly.
-
-**Misconception 6: "You can hedge rate risk perfectly."**
-
-While derivative instruments can hedge specific rate exposures, perfectly hedging an entire portfolio's rate sensitivity is extremely difficult and expensive. Different assets respond to different parts of the yield curve (short rates vs. long rates), different types of rate moves (nominal vs. real), and with different timing. Over-hedging can be as costly as under-hedging if rates move in your favor and you have eliminated that upside.
-
-**Misconception 7: "Low rates are good for everyone."**
-
-Low rates help borrowers but hurt savers. They boost asset prices but also inflate speculative bubbles. They make pensions and insurance companies' liabilities more expensive to fund. They encourage excessive risk-taking and malinvestment. The "everything bubble" thesis argues that persistently low rates inflated all asset prices to unsustainable levels, creating fragility that was revealed when rates normalized.
+10. **"Real estate doesn't move much because it's illiquid."** It moves the same amount, just on a lag. Public REIT prices reveal the truth in real time; private real estate marks lag by 12-18 months.
 
 ---
 
-### d) Common Questions and Answers
+### 4. Q&A Section
 
-**Q1: How do I calculate the duration of my stock portfolio?**
+**Q1: How do I quickly estimate the rate impact on a stock I own?**
+A: Look at its forward P/E. A P/E of 30 implies most of the value is far-future cash flow, and duration is roughly P/E × 0.7. A P/E of 30 stock has $D \approx 21$, so +100bps takes off ~21%. A P/E of 12 stock has $D \approx 8$, so the same shock takes off ~8%. It is a back-of-envelope rule but it is shockingly close.
 
-A: There is no standard calculation for equity duration like there is for bond duration. However, you can approximate it using sensitivity analysis. Look at how your portfolio (or similar portfolios) performed during the 2022 rate hiking cycle. If your portfolio fell 25% while rates rose 3%, your portfolio's effective duration is approximately 25/3 = 8.3 "years" of duration. More sophisticated approaches use dividend discount models to estimate the weighted-average timing of expected cash flows.
+**Q2: Should I avoid long bonds entirely?**
+A: No -- you should own them deliberately. A 30-year Treasury (TLT, EDV) is one of the only assets that *positively* benefits from a recession-driven rate cut. In a recession scenario stocks fall and TLT rises 20-30%. The trick is sizing it small enough that the 16% loss on +100bps is survivable. Treat TLT as a tail-risk hedge, not a bond holding.
 
-**Q2: Should I move entirely to value stocks when rates are rising?**
+**Q3: What about TIPS?**
+A: Treasury Inflation-Protected Securities have *lower* duration than nominal Treasuries because part of the cash flow comes from CPI accruals. A 10-year TIPS has $D \approx 7$ and reacts to *real* rates only. They are the cleanest rate hedge if you specifically fear stagflation.
 
-A: Dramatic style shifts are usually a mistake. Rate environments change, and if you are wrong about the direction of rates, you will underperform. A better approach is to tilt your portfolio modestly toward lower-duration assets when you expect rates to rise. Instead of a 60/40 growth/value split, you might shift to 45/55. This captures some of the rate-driven outperformance without making a concentrated bet.
+**Q4: Why did my "balanced" 60/40 fund lose 17% in 2022?**
+A: Both legs shared the same driver (long-duration discounting). When the discount rate jumped 250bps, both legs marked down at once. The same fund made money in 2008 because that was a *growth* shock, not a *rate* shock -- bonds rallied while stocks fell. Different driver, different outcome.
 
-**Q3: How do banks benefit from rising rates?**
+**Q5: How do I hedge rate risk without selling everything?**
+A: Three options: (1) shorten bond duration by replacing TLT with IEI or even SHV; (2) buy puts on TLT or QQQ (cheap when realized vol is low -- SOUL #15 tax-via-options); (3) hold cash equivalents (BIL, SGOV) which have zero duration and earn the front-end rate. We will cover put-spread tail hedges in Week 47.
 
-A: Banks profit from the "net interest margin" (NIM) -- the difference between what they earn on loans and what they pay on deposits. When rates rise, banks can often increase lending rates faster than deposit rates, expanding their NIM. However, this benefit has limits. If rates rise too fast or too far, loan defaults increase, deposit competition intensifies, and bond portfolios (which banks hold) lose value. The optimal environment for banks is gradually rising rates with a steep yield curve.
+**Q6: Does this apply internationally?**
+A: Yes, but with the dollar overlay. A foreign bond hit by +100bps in the local rate falls by its local duration in local currency. If the dollar simultaneously rallies, the dollar-translated loss is amplified. SOUL #16: this is one reason we keep the long sleeve US-only.
 
-**Q4: Why do utility stocks act like bonds?**
+**Q7: Why are utilities and consumer staples called "bond proxies"?**
+A: Their dividends are stable and slow-growing, so most of their value is far-future cash flow. They have duration similar to a 15-year bond. In 2022 utilities fell 1% (resilient); in 2008 they fell 30% (credit shock dominated). They behave like bonds *as long as the rate channel is the only channel firing*.
 
-A: Utilities have several bond-like characteristics: stable and predictable cash flows, high dividend payouts, regulated returns on capital, and significant leverage. Because their earnings are stable and regulated, investors value utilities primarily for their dividends. When rates rise, the relative attractiveness of utility dividends declines (why take equity risk for a 3.5% yield when Treasuries yield 5%?), and their stock prices fall. When rates fall, utility stocks rally as their yields become more attractive.
+**Q8: What is the "rate sensitivity" of my emergency fund?**
+A: Zero, by construction. T-Bills (BIL, SGOV), money-market funds, and savings accounts have $D < 0.25$. That is the point: the cash sleeve is the only sleeve that does not move with rates, which makes it the only true diversifier in a rate-driven world. SOUL #14 (barbell) has cash on one end for exactly this reason.
 
-**Q5: How does the yield curve shape affect asset allocation?**
+**Q9: How much can the +100bps move actually be?**
+A: Historically, the Fed has moved +400 to +525bps in a single tightening cycle (1981, 1994, 2004-2006, 2022-2023). Pricing your portfolio for "+100bps" is the *modest* scenario. The interactive lab lets you push the shock to ±300bps to see what the tail looks like.
 
-A: The yield curve (the difference between long-term and short-term rates) provides important signals. A steep curve (long rates much higher than short rates) favors banks and financial stocks. A flat curve suggests the economy is slowing. An inverted curve (short rates above long rates) has preceded every US recession since 1970. When the curve inverts, consider shifting to defensive assets. When it steepens from inversion, the recession is usually either underway or imminent -- but the subsequent recovery often favors cyclical assets.
-
-**Q6: Should I avoid real estate when rates are rising?**
-
-A: Not necessarily. Location, property type, and lease structure matter enormously. Properties with short-term leases (like hotels or self-storage) can adjust rents upward to offset higher financing costs. Properties in supply-constrained markets may hold value despite higher rates. And if you are buying (not already owning), higher rates often create buying opportunities as sellers capitulate. The key is understanding how much leverage is involved and whether cash flows can support higher financing costs.
-
-**Q7: How do negative interest rates affect these frameworks?**
-
-A: Negative rates (which existed in Europe and Japan) push these dynamics to extremes. With negative rates, all asset durations effectively increase because the discount rate is lower. Cash becomes costly to hold (you pay the bank to store it). Asset prices are supported by the extreme cheapness of financing. When rates eventually normalize from negative levels, the adjustment can be violent -- as European bond markets experienced in 2022 when the ECB began raising rates from -0.5%.
-
-**Q8: How do TIPS (Treasury Inflation-Protected Securities) fit into this framework?**
-
-A: TIPS are unique because they are sensitive to real interest rates, not nominal rates. If nominal rates rise because inflation expectations increase, TIPS are relatively protected (their principal adjusts for inflation). If nominal rates rise because real rates increase (tighter monetary policy), TIPS decline like regular bonds. TIPS are most valuable when you expect inflation to exceed market expectations but real rates to remain stable or decline.
-
-**Q9: How quickly do different asset classes react to rate changes?**
-
-A: Publicly traded assets (stocks, REITs, publicly traded bonds) react within minutes to hours. Private real estate takes months to reprice because appraisals lag market conditions. Private equity valuations adjust quarterly. Bank deposit rates are "sticky" -- they move slowly even when market rates change rapidly. Understanding these timing differences helps you anticipate which assets will be affected first and which will follow with a lag.
-
-**Q10: What is the single most important thing to monitor regarding rates?**
-
-A: The real interest rate -- the nominal rate minus inflation expectations. This is the true cost of capital for the economy. Most asset classes respond more to real rates than nominal rates. You can approximate real rates by looking at TIPS yields (which directly reflect real rates) or by subtracting breakeven inflation expectations from nominal Treasury yields. When real rates are rising, almost all asset classes face headwinds. When real rates are falling, almost all asset classes get a tailwind.
+**Q10: Where does this fit in the four-tranche framework (SOUL #13)?**
+A: Cash tranche: zero rate sensitivity. Beta tranche: holds the unavoidable rate exposure of the equity index ($D \approx 18$). Factor tranche: tilted toward shorter-duration value (lower $D$) for partial hedging. Alpha tranche: deliberately uses TLT, options on TLT, and gold to take rate views actively. Knowing the duration of each tranche is the first step in deciding how much rate risk you actually carry.
 
 ---
 
-## YouTube Script
+## Part 2: YouTube Script
 
 ---
 
-**[VISUAL: Title card -- "Week 34: Interest Rate Sensitivity Across Assets" with a rising interest rate curve superimposed over various asset icons: stocks, bonds, houses, gold bars]**
-
-**Horace:** Welcome back. Last week, we covered credit analysis. Today, we are going even broader. We are going to talk about the gravitational force of all financial markets -- interest rates. And I do not just mean how rates affect bonds. I mean how rates affect everything.
-
-**Stella:** Everything? I know higher rates make bond prices go down, but are stocks and real estate really that connected to rates?
-
-**Horace:** Let me answer with a question. What was the worst-performing major asset class in 2022?
-
-**Stella:** I would guess long-term bonds? Or maybe the Nasdaq?
-
-**Horace:** Trick question -- they performed almost identically. The 30-year Treasury fell about 33%. The Nasdaq-100 fell about 33%. And the reason was the same: interest rates went from near zero to over 4% in just nine months.
-
-**[VISUAL: Side-by-side chart showing 2022 performance of 30-year Treasuries and Nasdaq-100, both declining roughly 33%]**
-
-**Stella:** Wait, the same percentage? That cannot be a coincidence.
-
-**Horace:** It is not. And this is the key insight of today's lesson: stocks have duration, just like bonds. Duration measures how sensitive an asset's price is to changes in interest rates. Growth stocks, especially unprofitable growth stocks, have extremely long duration -- sometimes 40 to 60 years.
-
-**Stella:** How can a stock have "duration"? That is a bond concept.
-
-**Horace:** Think about what determines a stock's value. It is the present value of all future cash flows -- dividends, earnings, free cash flow stretching decades into the future. You discount those cash flows back to today using a discount rate that includes the risk-free interest rate. When rates go up, that discount rate goes up, and the present value goes down.
-
-**[ANIMATION: Reference animation/week34_rate_sensitivity.py -- Animated visualization showing a timeline of future cash flows for two companies: a value stock with large near-term cash flows that taper off, and a growth stock with small near-term cash flows that grow much larger over time. As the discount rate slider increases, both bars shrink, but the growth stock's bars shrink dramatically more because its cash flows are further in the future.]**
-
-**Horace:** Here is the critical difference between a value stock and a growth stock. A value stock generates most of its cash flows in the next few years. A growth stock generates most of its cash flows 10, 15, 20 years from now. When you raise the discount rate, those distant cash flows get crushed.
-
-**Stella:** So a growth stock is like a long-term bond, and a value stock is like a short-term bond?
-
-**Horace:** Exactly. A mature utility company paying a 4% dividend with slow growth might have an effective duration of 15 years. A high-growth tech company reinvesting all its profits might have a duration of 40 years or more. An unprofitable biotech company? Its duration could be 60 to 80 years.
-
-**[VISUAL: Table showing equity duration by style -- Deep Value (8-12 years), Dividend stocks (12-18), S&P 500 (18-25), Growth (25-40), Unprofitable Growth (40-60+)]**
-
-**Stella:** That explains why the ARK Innovation ETF fell 67% in 2022 while the S&P only fell 18%.
-
-**Horace:** Precisely. ARK was loaded with unprofitable, high-growth companies -- the longest-duration equities you can buy. When rates went up 4 percentage points, those stocks were devastated. Meanwhile, bank stocks and energy stocks -- short-duration assets -- actually went up.
-
-**Stella:** So the whole growth-versus-value debate is really about interest rates?
-
-**Horace:** To a large degree, yes. Growth massively outperformed value from 2009 to 2021. But that period saw rates falling from about 3% to near zero. It was a 12-year tailwind for long-duration assets. In 2022, when rates reversed sharply, value outperformed growth by the widest margin in decades.
-
-**[VISUAL: 20-year chart showing growth vs. value performance with the 10-year Treasury yield overlaid, showing the inverse relationship]**
-
-**Horace:** This does not mean growth is bad or value is good. It means the rate environment determines which style has the wind at its back. Neither is permanently superior.
-
-**Stella:** OK, what about real estate? I know mortgage rates matter, but how big is the impact?
-
-**Horace:** Real estate might be the single most interest-rate-sensitive major asset class, and for three distinct reasons.
-
-**[VISUAL: Three-pillar graphic -- "Financing Costs," "Cap Rates," "Demand" -- each connected to interest rates]**
-
-**Horace:** Pillar one: financing costs. Most real estate is bought with 60 to 70 percent debt. When the interest rate on that debt goes from 4% to 7%, the annual interest expense nearly doubles. For our example of a ten-million-dollar property with 65% leverage, the cash flow to the equity investor drops by 57%.
-
-**Stella:** 57%? From a 3-percentage-point rate increase?
-
-**Horace:** Yes, because leverage amplifies the impact. This is the double-edged sword of leverage -- it magnifies returns on the way up and magnifies losses on the way down.
-
-**[VISUAL: Before/after comparison showing the same property's cash flow at 4% vs 7% interest rates, with the equity investor's cash flow highlighted]**
-
-**Horace:** Pillar two: cap rate expansion. The cap rate is real estate's version of the earnings yield. When interest rates rise, investors demand higher cap rates. And when cap rates rise, property values fall. A 200-basis-point increase in cap rates can reduce a property's value by nearly 30%.
-
-**Stella:** That is enormous. And what is the third pillar?
-
-**Horace:** Demand reduction. Consider residential housing. A 30-year mortgage at 3% on a $400,000 loan costs $1,686 per month. At 7%, the same loan costs $2,661 per month -- that is 58% more. Many potential buyers simply cannot afford that, so demand drops, inventory builds, and prices soften.
-
-**[ANIMATION: Reference animation/week34_rate_sensitivity.py -- Animated bar chart showing monthly mortgage payments at different interest rates from 3% to 8% on a $400,000 loan, with each bar growing taller and a "buyer affordability threshold" line showing fewer and fewer buyers can afford the payment as rates rise.]**
-
-**Stella:** What about commercial real estate? I have heard the office market is in trouble.
-
-**Horace:** Office is facing a double whammy -- higher rates plus the secular shift to remote work. Some office buildings have lost 40 to 50 percent of their value. But not all real estate is equally affected. Industrial properties like warehouses and data centers have strong secular demand that partially offsets rate headwinds. Self-storage has short-term leases that allow quick rent adjustments.
-
-**[VISUAL: Table showing real estate sectors by rate sensitivity, from "Very High" (Office) to "Lower" (Cell Towers, Healthcare)]**
-
-**Stella:** Let us talk about commodities. Gold went up a lot recently, but I have also heard gold does poorly when rates rise?
-
-**Horace:** This is where the misconceptions run deep. People say gold is an inflation hedge. But that is imprecise. Gold is really a hedge against negative real interest rates.
-
-**Stella:** What are real interest rates?
-
-**Horace:** The real rate is the nominal interest rate minus inflation. If the nominal rate is 5% and inflation is 3%, the real rate is 2%. If the nominal rate is 2% and inflation is 5%, the real rate is negative 3%.
-
-**[VISUAL: Simple equation graphic -- "Real Rate = Nominal Rate - Inflation" with examples showing positive and negative real rates]**
-
-**Horace:** Gold does not generate any income -- no dividends, no coupons, no rent. So when real rates are positive and rising, holding gold means you are giving up meaningful yield to own a non-yielding asset. The opportunity cost is high, and gold tends to decline.
-
-**Stella:** But when real rates are negative?
-
-**Horace:** When real rates are negative, cash is losing purchasing power even in a savings account. In that environment, gold's zero yield does not look so bad compared to a guaranteed real loss. That is when gold tends to shine.
-
-**[VISUAL: Scatter plot showing gold price changes vs. real interest rate changes, demonstrating the inverse relationship with ~-0.7 correlation]**
-
-**Stella:** What about other commodities like oil and copper?
-
-**Horace:** They work through different channels. Higher rates strengthen the dollar, and since commodities are priced in dollars, a stronger dollar puts downward pressure on commodity prices. Higher rates also slow economic growth, reducing demand for industrial commodities. But the supply side matters too -- if rates are high enough to discourage new mining or drilling, future supply constraints can eventually push prices higher.
-
-**Stella:** So commodity analysis is complicated.
-
-**Horace:** It is. There is no single clean relationship like there is for bonds. You have to think about which channel dominates in each specific situation.
-
-**Stella:** Let us talk about corporate behavior. You mentioned that rates affect how companies use leverage and buybacks.
-
-**Horace:** This is hugely important and often overlooked. During the low-rate era from 2010 to 2021, US companies bought back over seven trillion dollars in stock. A large portion was funded by cheap debt.
-
-**[VISUAL: Chart showing cumulative stock buybacks by US companies over the past 15 years, with the Fed Funds rate overlaid]**
-
-**Horace:** The math was simple. Borrow at 3%, buy back stock with a 5% earnings yield, and you create 2% of value for remaining shareholders. But when borrowing costs go to 6 or 7 percent, the math flips. Now buybacks destroy value. The company would be better off paying down debt.
-
-**Stella:** So do buybacks stop when rates rise?
-
-**Horace:** They slow dramatically. Companies shift from "buy back stock and increase leverage" mode to "pay down debt and strengthen the balance sheet" mode. This matters for equity investors because a significant portion of equity returns over the past decade came from buyback-driven EPS growth. Remove that tailwind, and equity returns may be more modest going forward.
-
-**[VISUAL: Two-scenario comparison showing how the same $1B buyback is EPS-accretive at 3% rates but EPS-dilutive at 7% rates]**
-
-**Stella:** Which sectors are most vulnerable to this?
-
-**Horace:** Any sector with high leverage is vulnerable. Utilities, REITs, telecoms, and especially private-equity-backed companies, which often carry 5 to 8 times debt-to-EBITDA. When rates rise 3 percentage points on that much debt, it can turn a comfortable situation into a crisis.
-
-**Stella:** So how do I put all of this together for my portfolio?
-
-**Horace:** That is where rate regime mapping comes in. I think about four distinct rate environments, and each one favors a different mix of assets.
-
-**[ANIMATION: Reference animation/week34_rate_sensitivity.py -- Four-quadrant animated diagram showing rate regimes (Low/Falling, Low/Rising, High/Stable, High/Falling) with asset class performance indicators rotating into each quadrant. For each regime, favored assets light up green and challenged assets turn red.]**
-
-**Horace:** Regime one: low and falling rates. Think 2010 to 2020. Growth stocks, long bonds, REITs, and gold all benefited. Regime two: low and rising rates. Think 2022. Value stocks, bank stocks, floating-rate instruments, and cash were the winners. Regime three: high and stable rates. Think the mid-2000s. High-quality bonds, dividend stocks, and quality companies do well. Regime four: high and falling rates. Think the early 1980s. Everything rallies because the starting yields are high and rates are declining.
-
-**Stella:** Which regime are we in now?
-
-**Horace:** That is the critical question every investor needs to answer for themselves. Look at the level of rates relative to history, the direction they are heading, the speed of change, and what the market expects. The answers to these questions should drive your asset allocation.
-
-**[VISUAL: Rate regime identification decision tree/flowchart]**
-
-**Stella:** What if I am wrong about the direction of rates?
-
-**Horace:** That is why hedging matters. There are several approaches. The simplest is duration management -- if you think rates are rising, shorten your portfolio's duration by owning more value stocks, shorter-term bonds, and less real estate. If you think rates are falling, extend duration.
-
-**Stella:** What about using derivatives to hedge?
-
-**Horace:** You can use Treasury futures, interest rate swaps, or options on bond ETFs to hedge rate exposure. But for most individual investors, the simpler approach is more practical: use asset allocation and sector rotation to manage rate sensitivity. Tilt toward financials and value when you expect rising rates. Tilt toward growth and REITs when you expect falling rates.
-
-**Stella:** Are there any natural hedges -- assets that benefit from rising rates?
-
-**Horace:** Yes. Bank stocks tend to benefit because their net interest margins expand. Insurance companies earn more on their investment portfolios. Floating-rate loans and bonds see their coupon payments increase. Cash and money market funds start yielding more. These can serve as natural offsets to the rate sensitivity in the rest of your portfolio.
-
-**[VISUAL: "Natural Rate Hedges" table showing assets that benefit from rising rates with explanations of why]**
-
-**Stella:** Before we wrap up, I want to ask about the yield curve. You added a section about it in the reading material. Can you explain why it matters for asset allocation?
-
-**Horace:** The yield curve is the relationship between bond yields and their maturities. Normally, longer-term bonds yield more than shorter-term ones -- that is a "normal" upward-sloping curve. But sometimes the curve inverts -- short-term rates exceed long-term rates. And that is one of the most powerful recession signals in finance.
-
-**[VISUAL: Three yield curve shapes shown side by side -- Normal (upward sloping), Flat, and Inverted (downward sloping) with labels]**
-
-**Stella:** I have heard that an inverted yield curve predicts recessions. Is that really true?
-
-**Horace:** It has preceded every US recession since 1970 without exception. The average lead time is about 14 to 16 months. Now, it is not perfect -- the timing varies a lot, and there have been a few false signals in other countries. But it is the single most reliable recession indicator we have.
-
-**Stella:** Why does an inverted curve predict recessions?
-
-**Horace:** There are two explanations. The market-based explanation is that when investors expect economic weakness, they buy long-term bonds as a safe haven, pushing long-term yields down. When they expect the Fed will eventually cut rates, long-term yields fall relative to short-term yields. The mechanical explanation is that banks borrow short and lend long. When the curve inverts, banking becomes unprofitable, lending slows, and the economy contracts.
-
-**[VISUAL: Diagram showing the bank lending channel -- banks borrow at short-term rates, lend at long-term rates, and the spread between them is their profit margin. When the curve inverts, the margin disappears or goes negative.]**
-
-**Stella:** How should I adjust my portfolio when the curve inverts?
-
-**Horace:** When the curve first inverts, reduce risk gradually. Do not panic -- the recession may be 12 to 18 months away. Start building cash reserves. Shift from cyclical stocks to defensive sectors. Consider extending bond duration to lock in the higher short-term rates before they fall. And watch credit spreads for confirmation -- if both the yield curve is inverted and credit spreads are widening, the signal is stronger.
-
-**Stella:** What about when the curve un-inverts -- when it goes from inverted back to normal?
-
-**Horace:** This is actually the scariest moment. Paradoxically, when the curve re-steepens from an inverted position, the recession is usually imminent or already starting. The Fed is cutting rates because the economy is weakening, which pushes short-term rates down and steepens the curve. But here is the opportunity -- this is often the best time to start positioning for the recovery. Long-term bonds rally strongly when the Fed cuts rates, and the eventual recovery rewards investors who added risk during the downturn.
-
-**[ANIMATION: Reference animation/week34_rate_sensitivity.py -- Timeline animation showing the yield curve shape evolving through a full economic cycle: normal curve during expansion, flattening as the Fed hikes, inverting before recession, re-steepening during recession as the Fed cuts, and returning to normal during recovery. Asset class performance indicators update at each phase.]**
-
-**Stella:** That is fascinating. The curve shape essentially tells you where you are in the economic cycle.
-
-**Horace:** Exactly. Combine the yield curve shape with the rate level and direction, and you have a powerful framework for positioning your portfolio across all asset classes.
-
-**Stella:** What is the single most important rate metric I should watch?
-
-**Horace:** The real interest rate. Not the nominal rate, not the Fed Funds rate, but the real rate -- the nominal rate minus inflation expectations. You can see this directly by looking at TIPS yields. When real rates are rising, almost every asset class faces headwinds. When real rates are falling, almost everything gets a boost. Real rates are the true gravitational force of financial markets.
-
-**[VISUAL: 20-year chart of real interest rates (TIPS yields) with annotations showing how different asset classes performed during different real rate regimes]**
-
-**Stella:** This has been eye-opening. Let me try to summarize. Stocks have duration just like bonds -- growth stocks have long duration and are very rate-sensitive, while value stocks have shorter duration. Real estate is extremely rate-sensitive because of leverage, cap rates, and demand effects. Gold responds to real rates, not nominal rates. And I should map the rate regime to my asset allocation.
-
-**Horace:** That is an excellent summary. And remember -- the reason rates are changing matters as much as the direction. Rising rates driven by strong economic growth are very different from rising rates driven by inflation and Fed tightening. Context is king.
-
-**Stella:** Thanks Horace. Next week we dive into advanced financial statement analysis. I am looking forward to getting into the weeds on earnings quality.
-
-**Horace:** It will be a great one. We will cover some of my favorite tools for detecting accounting manipulation. See you next week.
-
-**[VISUAL: End card with key takeaways:
-1. Equities have duration -- growth stocks are long-duration, value stocks are short-duration
-2. Real estate is among the most rate-sensitive asset classes due to leverage and cap rate effects
-3. Gold responds to real interest rates, not nominal rates or inflation directly
-4. Rate regimes (level + direction) should drive asset allocation decisions
-5. The real interest rate is the single most important rate metric to monitor]**
+**VIDEO TITLE:** Rate Sensitivity Across Every Asset Class -- The Hidden Variable That Moves Everything (Week 34)
+**RUNTIME TARGET:** ~18 minutes
+**HOSTS:** Horace, Stella
 
 ---
 
-*End of Week 34*
+### INTRO (00:00-01:30)
+
+**STELLA:** Welcome back. I'm Stella, and I'm here with Horace. Today is Week 34, and the topic is one of those things that sounds dry until you realize it secretly explains every market crisis of the last fifty years.
+
+**HORACE:** Rate sensitivity. The single hidden variable that connects bonds, stocks, real estate, gold, and even the dollar.
+
+**STELLA:** Why is this so important?
+
+**HORACE:** Because in 2022 a lot of people learned that diversification is not a free lunch. The 60/40 portfolio lost 17%. Risk-parity funds lost more. People who thought they were spread across uncorrelated assets discovered that *one* variable -- the discount rate -- was driving everything they owned.
+
+**STELLA:** And that is what we are going to unpack today. By the end of this video you will be able to estimate, in your head, how much each asset class moves on a +100bps Fed shock.
+
+**HORACE:** Let's start with the master formula.
+
+[VISUAL: image/week34_rate_shock_grid.png]
+
+---
+
+### SECTION 1 -- THE MASTER FORMULA (01:30-03:30)
+
+**HORACE:** Every asset on Earth is priced as the present value of its future cash flows. Stella, you remember the formula?
+
+**STELLA:** Price equals the sum of cash flow at time t, divided by 1 plus the discount rate, raised to the t.
+
+**HORACE:** Exactly. And modified duration is just the percentage price change for a 1% change in r. The longer the cash flow timeline, the larger the duration, the more violently the asset moves on a rate shock.
+
+**STELLA:** So duration is not just a bond concept.
+
+**HORACE:** Right. It applies to anything with future cash flows. Stocks, real estate, infrastructure, private equity. The trick is most people stop teaching duration after the bond chapter, so they never realize that QQQ has the duration of a 22-year bond.
+
+**STELLA:** OK, so let's go through the asset classes.
+
+---
+
+### SECTION 2 -- THE BAR CHART (03:30-07:00)
+
+[VISUAL: image/week34_rate_shock_grid.png]
+
+**HORACE:** This bar chart shows the estimated price impact of a parallel +100bps shock across eight asset classes.
+
+**STELLA:** Walk me through it from left to right.
+
+**HORACE:** 5-year Treasury: down 4.5%. 10-year: down 8%. 30-year: down 16%. That is the bond ladder, and the relationship is roughly linear in duration.
+
+**STELLA:** Then equities.
+
+**HORACE:** Growth equity, the QQQ-style basket: down 12%. Value equity, the VTV-style basket: down only 3%. Why the gap?
+
+**STELLA:** Different durations.
+
+**HORACE:** Exactly. A growth company's value lives 15-20 years out. A value company's value lives 3-5 years out. Same shock, four times the impact on growth.
+
+**STELLA:** Then REITs.
+
+**HORACE:** Down 10%. REITs are basically a leveraged 15-year bond -- long-dated rent streams, levered roughly 50% on debt. They are *more* rate-sensitive than the broad market.
+
+**STELLA:** Gold and the dollar?
+
+**HORACE:** Gold is mixed: anywhere from -2% to +5% depending on whether the rate move is real or nominal. We will get to that. The dollar typically rallies 1-3% on a hawkish surprise.
+
+**STELLA:** So if I held a "diversified" portfolio of growth stocks, REITs, and 30-year bonds, I'm not actually diversified.
+
+**HORACE:** You own one trade three times.
+
+---
+
+### SECTION 3 -- BONDS AND EQUITIES, ONE LADDER (07:00-09:30)
+
+**HORACE:** This is the conceptual jump that fixes most of people's portfolio mistakes. Stocks and bonds are on the *same* duration ladder.
+
+**STELLA:** Show me the proof.
+
+**HORACE:** 2022 was the cleanest natural experiment we have ever had. The 10-year Treasury yield rose from 1.5% to 4%. ARKK fell 67%. QQQ fell 33%. VTV fell 5%. That ranking is a perfect duration ladder. The labels say "tech ETF" and "value ETF," but the math says "long-duration cash flow" and "short-duration cash flow."
+
+**STELLA:** And the bond ladder ran in parallel.
+
+**HORACE:** TLT fell 31%. The 10-year fell 18%. The 5-year fell 9%. Stocks and bonds were not "decoupled" or "broken" -- they were behaving exactly the way the duration formula predicts.
+
+---
+
+### SECTION 4 -- REAL ESTATE AND THE LEVERAGE AMPLIFIER (09:30-11:30)
+
+**HORACE:** Real estate deserves its own callout because it has a leverage amplifier.
+
+**STELLA:** What does that mean?
+
+**HORACE:** Most commercial real estate is financed roughly 50% with debt. So when rates rise, two things happen at once. First, cap rates expand, which means future rents are discounted at a higher rate. Second, refinancing the existing debt becomes more expensive. Both effects push equity value down.
+
+**STELLA:** And the office sector got hit worst.
+
+**HORACE:** 2022-2024, some office buildings lost 40 to 50% of equity value. Cap rates went from 5% to 7 or 8% on the same rent. That is duration plus leverage -- a brutal combination.
+
+**STELLA:** So if I want real estate exposure with less rate risk?
+
+**HORACE:** Pick lower-leverage REITs, shorter-lease sectors like industrial or self-storage, and size the position smaller than you would for the broad market. Or just hold the broad VNQ and treat it as the leveraged 15-year bond it actually is.
+
+---
+
+### SECTION 5 -- GOLD AND THE REAL-RATE LENS (11:30-13:30)
+
+**HORACE:** Gold breaks the duration formula because it has no cash flow.
+
+**STELLA:** So how do we price it?
+
+**HORACE:** As a function of *real* rates. The 10-year nominal yield, minus the breakeven inflation rate. When real rates rise, gold falls -- the opportunity cost of holding zero-yield gold went up. When real rates fall, gold rises.
+
+**STELLA:** What about 2022 then? Rates rose, but gold barely moved.
+
+**HORACE:** Because nominal rates rose violently *and* inflation rose violently. Real rates only edged up. So gold ended the year at +0.4%. It is the case study that proves the real-rate framework. Compare that to 1980 when Volcker pushed nominal rates above inflation -- real rates went sharply positive and gold collapsed from $850 to $300.
+
+**STELLA:** And SOUL #3 says gold is a store of value because enough people believe it is.
+
+**HORACE:** Real rates are the mechanism of that belief. When real rates are positive and stable, the gold story weakens. When real rates are negative, the story gets stronger.
+
+---
+
+### SECTION 6 -- THE DOLLAR AS A SPREAD (13:30-14:30)
+
+**HORACE:** The dollar is the last piece. DXY is not a level, it is a relative price -- US rates versus foreign rates.
+
+**STELLA:** So a +100bps shock to the world doesn't move DXY.
+
+**HORACE:** Right. A +100bps shock to *just* the US, with the ECB and BoJ on hold, pushes DXY up 5-10%. That is what 2022 was. SOUL #16 says we stay US-only on the long side, and the dollar is exactly the reason that works -- when the dollar rallies, we are paid in the strong currency while foreign markets get hit by both their own rate move and the FX translation.
+
+---
+
+### SECTION 7 -- THE 2022 CASE STUDY (14:30-16:30)
+
+[VISUAL: image/week34_2022_case.png]
+
+**HORACE:** Here is the bar chart of calendar-year 2022 returns. S&P 500: -18%. 10-year Treasury: -18%. TLT: -31%. REITs: -24%. Gold: +0.4%. DXY: +8%. Bitcoin: -65%.
+
+**STELLA:** Diversification looks dead in this picture.
+
+**HORACE:** Diversification was always conditional on the *driving variable* not being shared. In a rate-driven year, every long-duration asset moves together. The only things that worked in 2022 were the assets with low or negative rate sensitivity: cash, gold, the dollar, and certain commodities.
+
+**STELLA:** So the lesson is...
+
+**HORACE:** Diversify over drivers, not over labels. Owning ten long-duration ETFs is owning one trade ten times.
+
+---
+
+### SECTION 8 -- THE INTERACTIVE LAB (16:30-17:30)
+
+[VISUAL: interactive/week34_shock_lab.html]
+
+**HORACE:** The interactive this week is a stress-test lab. Three sliders: rate shock from minus 300 to plus 300 basis points, inflation shock from minus 3 to plus 3 percent, and dollar shock from minus 10 to plus 10 percent. Move them and watch the eight asset-class bars update in real time.
+
+**STELLA:** And you have presets for famous regimes.
+
+**HORACE:** 1981 Volcker, 2008 GFC, 2020 COVID, 2022 inflation shock, and a 2026 mild scenario. Click each one and you can see what each historical episode did to a balanced portfolio.
+
+**STELLA:** The Volcker preset is shocking.
+
+**HORACE:** That is the regime the parents of most of our viewers lived through. It is the regime SOUL #2 says we have to take seriously again.
+
+---
+
+### OUTRO (17:30-18:00)
+
+**HORACE:** Three takeaways. One: every asset's duration is its rate sensitivity, not just bonds. Two: in a rate-driven year, all long-duration assets correlate to one. Three: the only true diversifiers are cash, gold via real rates, and assets with genuinely different drivers.
+
+**STELLA:** Next week is Week 35 -- Treasury Inflation-Protected Securities. The clean rate hedge.
+
+**HORACE:** And in Week 47 we will use the framework from today to size a tail-risk hedge against the next 2022.
+
+**STELLA:** See you next week.

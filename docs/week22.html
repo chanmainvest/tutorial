@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Week 22: Currency and International Diversification - Chanma Investment Tutorial</title>
+    <title>Week 22: Currency and International Diversification — DXY, FX Hedging, and Why Most US Investors Should Stay Home - Chanma Investment Tutorial</title>
     <script>(function(){try{var t=localStorage.getItem('preferred-theme');if(!t){t=window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();</script>
     <style>
 :root, html[data-theme="light"] {
@@ -1247,769 +1247,175 @@ html[data-theme="dark"] .nav-btn:hover .btn-label { color: rgba(15,23,36,0.7); }
     <main class="main-wrap">
         <div class="content-area">
             <div id="content-en" class="lang-content active">
-                <h1>Week 22: Currency and International Diversification</h1>
+                <h1>Week 22: Currency and International Diversification — DXY, FX Hedging, and Why Most US Investors Should Stay Home</h1>
 <hr>
-<h2>Reading Section</h2>
-<h3>a) Why This Is Important</h3>
+<h3>1. Why This Is Important</h3>
 <p>
-Most investors suffer from a bias they do not even know they have: home bias. Studies consistently show that investors in every country dramatically overweight their domestic stock market relative to its share of global market capitalization. American investors put roughly 75-80% of their equity allocation into US stocks, even though the US represents only about 60% of global stock market value. Japanese investors are even more extreme, with over 90% domestic allocation despite Japan being only about 6% of the global market. European investors show similar patterns.
+The textbook chapter on international investing reads like a travel brochure. Lower correlations! Untapped growth! Cheaper valuations! Diversify or perish! All of it is academically defensible and operationally misleading for a US-based retail investor in April 2026. The honest version of this lesson, which the textbook will not give you, is that <strong>owning international equities is a position on a foreign currency stapled to a position on foreign equities, and the currency leg routinely overwhelms the equity leg over any horizon you actually care about</strong>.
 </p>
 <p>
-This matters for several critical reasons:
+There are four reasons this lesson exists in spite of the conclusion it lands on.
 </p>
-<li><strong>Concentration risk.</strong> Putting most of your money in one country means your wealth is tied to the fortunes of a single economy, a single currency, a single regulatory regime, and a single set of political risks. No matter how strong the US economy appears today, economic leadership rotates over decades. Japan was the world's most exciting market in the 1980s. The Nikkei peaked in December 1989 and did not regain that level for over 34 years.</li>
-<li><strong>Missing diversification benefits.</strong> International markets do not move in perfect lockstep with the US market. Correlations between US and international stocks are meaningful (around 0.6-0.8) but far from 1.0. This means adding international stocks to a US portfolio reduces overall volatility without necessarily sacrificing long-term returns.</li>
-<li><strong>Currency exposure as a distinct asset class.</strong> When you invest internationally, you are making two bets: one on the foreign stock market, and one on the foreign currency versus your home currency. Currency movements can significantly enhance or erode your returns, and understanding this dual exposure is essential for informed international investing.</li>
-<li><strong>Access to different growth opportunities.</strong> Some of the fastest-growing economies and companies are outside the US. Emerging markets like India, Vietnam, and parts of Africa are experiencing rapid economic development. Developed markets like Europe and Japan contain world-class companies at valuations often lower than their US peers.</li>
+<li><strong>The DXY is news.</strong> The US dollar index moves the price of everything you own that is denominated in or competes with the dollar — emerging-market debt, gold, oil, Apple's overseas revenue, Treasury demand. You cannot read the financial press without bumping into "dollar strength" and "dollar weakness" headlines, and you should know what they actually measure. The DXY is not "the dollar versus the world"; it is a fixed-weight basket of EUR (57.6%), JPY (13.6%), GBP (11.9%), CAD (9.1%), SEK (4.2%), and CHF (3.6%) — six developed-market currencies, locked at their 1973 weights, untouched since the euro's 1999 retrofit. Two-thirds of it is <em>Europe</em>. There is no Chinese yuan, no Mexican peso, no Indian rupee. Knowing that is the first defence against confused commentary.</li>
+<li><strong>The currency arithmetic is brutal and asymmetric.</strong> When you buy an unhedged international ETF and the dollar rallies 10% over your holding period, you eat a roughly 10% headwind on top of whatever the foreign equity market did. A flat year for European stocks in euro terms is a -10% year in your USD brokerage statement. Most retail investors have never explicitly priced this overlay, which is why every multi-year USD bull cycle ends with the same blog posts asking why "international" disappointed.</li>
+<li><strong>There is a hedged version, and it is not free.</strong> ETFs like HEFA (iShares MSCI EAFE Hedged) and DBEF (Xtrackers MSCI EAFE Hedged) systematically remove the currency overlay using rolling forward contracts. The cost of the hedge is approximately the <strong>interest-rate differential</strong> between the US and the foreign country, plus a small operational drag. With Fed funds at 4.5% and ECB at 2.5% in April 2026, hedging EUR exposure costs you roughly 2% per year before you have earned a single basis point on the equity. Over decades, those hedge costs compound into a real handicap.</li>
+<li><strong>The conclusion is contrarian to the textbook and matches SOUL #16.</strong> The world's best-in-class businesses — chip design, hyperscale cloud, payments, biotech, defence majors — are disproportionately US-listed. The S&P 500 already has roughly 40% of its revenue coming from outside the US, so you are buying global earnings via American legal protection and dollar settlement. Adding broad EXUS (ex-US) exposure layers a currency overlay and a governance discount on top of earnings you largely already own. For most US-based retail readers, the right size for international exposure is <strong>5-15% of equity</strong>, <strong>hedged</strong>, used as a small diversifier rather than a strategic pillar. This week will walk you through <em>why</em> that is the conclusion, not just hand it to you.</li>
 <p>
-This lesson will equip you with the knowledge to think globally about your portfolio, understand currency dynamics, and make informed decisions about how much international exposure to hold and whether to hedge the currency risk.
-</p>
-<hr>
-<h3>b) What You Need to Know</h3>
-<h4>1. The Home Bias Problem</h4>
-<p>
-Home bias is the tendency for investors to over-allocate to their own country's stock market relative to that country's weight in the global market.
-</p>
-<pre><code class="language-">HOME BIAS BY COUNTRY
-<p>
-====================
-</p>
-<p>
-Country         Domestic     Country's Share of     Home Bias
-Allocation   Global Market Cap      (Overweight)
----------       ----------   ------------------     -----------
-USA             ~78%         ~60%                   +18%
-Japan           ~93%         ~6%                    +87%
-UK              ~70%         ~4%                    +66%
-Canada          ~60%         ~3%                    +57%
-Australia       ~65%         ~2%                    +63%
-Germany         ~55%         ~3%                    +52%
-</p>
-<p>
-A truly global, unbiased portfolio would match
-each country's weight in the global market.
-</code></pre>
-</p>
-<p>
-<strong>Why does home bias exist?</strong>
-</p>
-<ul><li>Familiarity: investors are more comfortable with companies they know</li>
-<li>Information advantage: easier to follow domestic news and reports</li>
-<li>Currency risk avoidance: international investing adds currency complexity</li>
-<li>Tax complications: foreign tax credits, withholding taxes</li>
-<li>Historical returns: US has outperformed recently, reinforcing the bias</li>
-<li>Behavioral inertia: defaulting to what feels safe</li>
-<p>
-</ul>
-<strong>Why home bias is costly:</strong>
-</p>
-<pre><code class="language-">ROLLING 10-YEAR PERIODS: US vs. INTERNATIONAL LEADERSHIP
-<p>
-=========================================================
-</p>
-<p>
-Period              US Better?     International Better?
-------              ----------     ---------------------
-1970-1979                          X (International won)
-1980-1989                          X (Japan-led boom)
-1990-1999           X
-2000-2009                          X (Lost decade for US)
-2010-2019           X
-2020-2029           ?              ?
-</p>
-<p>
-Leadership alternates! Concentrating in one region
-means you will inevitably suffer through extended
-periods of underperformance.
-</code></pre>
+The travel brochure argues for a 30-40% international weight. The plumbing argues for closer to zero. This lesson lands in between, with the bias toward zero.
 </p>
 <hr>
-<h4>2. Benefits of International Diversification</h4>
+<h3>2. What You Need to Know</h3>
+<h4>2.1 The DXY Basket — Six Currencies, Frozen Weights</h4>
 <p>
-<strong>Correlation and Diversification:</strong>
+The US Dollar Index (ticker DXY, futures symbol DX) is published by ICE Futures and goes back to March 1973, when it was set at 100 against a basket of ten currencies. After the euro absorbed the German mark, French franc, Italian lira, Dutch guilder, and Belgian franc in 1999, the index was reduced to the six survivors. The weights have not been updated since:
 </p>
-<pre><code class="language-">CORRELATION MATRIX (APPROXIMATE)
-<p>
-=================================
-</p>
-<p>
-US      Developed   Emerging
-Stocks  Int'l       Markets
-------  ---------   --------
-US Stocks     1.00
-Dev. Int'l    0.75    1.00
-Emerg. Mkts   0.65    0.70        1.00
-</p>
-<p>
-KEY INSIGHT: Correlations below 1.0 create
-diversification benefit. The lower the
-correlation, the greater the benefit.
-</p>
-<p>
-Portfolio volatility is ALWAYS less than
-the weighted average volatility of its
-components when correlations are below 1.0.
-</code></pre>
-</p>
-<p>
-<strong>The Efficient Frontier Effect:</strong>
-</p>
-<p>
-Adding international stocks to an all-domestic portfolio shifts the efficient frontier upward and to the left -- meaning you can achieve either:
-</p>
-<ul><li>The same return with less risk, or</li>
-<li>Higher return with the same risk</li>
+<ul><li><strong>EUR — 57.6%.</strong> The combined euro replaced five of the original ten currencies and inherited their summed weight. Two-thirds of the DXY is, effectively, "the euro relative to the dollar."</li>
+<li><strong>JPY — 13.6%.</strong> Japan was the second-largest US trading partner in 1973, and the weight has stuck.</li>
+<li><strong>GBP — 11.9%.</strong> The pound's weight reflects pre-euro London-as-financial-centre, not current trade.</li>
+<li><strong>CAD — 9.1%.</strong> Canada is by far the US's largest goods trading partner today, but the DXY only gives it 9%.</li>
+<li><strong>SEK — 4.2%.</strong> Sweden, in 2026, has roughly the trade footprint of New Jersey.</li>
+<li><strong>CHF — 3.6%.</strong> Swiss franc, the safe-haven satellite.</li>
 <p>
 </ul>
+The chart in <code>image/week22_dxy_decade.png</code> plots DXY from 1985 through April 2026, with five regime markers: the <strong>1985 Plaza Accord</strong> that orchestrated the post-1985 dollar decline; the <strong>2002 dollar peak</strong> at ~120 ahead of the dot-com unwind; the <strong>2008 trough near 71</strong> during the financial crisis as the Fed slashed rates; the <strong>post-2014 structural USD bid</strong> that has dominated the last decade; and the <strong>2025 policy-driven reset</strong> as the new administration's tariff regime forced the dollar lower against the basket.
 </p>
-<pre><code class="language-">EFFICIENT FRONTIER WITH INTERNATIONAL DIVERSIFICATION
+<img src="image/week22_dxy_decade.png" alt="DXY from 1985 to April 2026">
 <p>
-=====================================================
+The honest health-warning on the DXY is that <strong>it is not a measure of the dollar</strong>. It is a measure of the dollar against a 1973-frozen basket dominated by Europe. The Fed publishes a properly weighted, trade-broad alternative (the Trade-Weighted US Dollar Index, FRED series <code>DTWEXBGS</code>) that includes the Chinese yuan, Mexican peso, Korean won, and other actual trading partners. The broad index moves differently from DXY in any given quarter, and the gap matters when you are sizing FX risk against your actual dollar liabilities. For most retail commentary, however, DXY <em>is</em> the dollar — because that is what the screen shows.
 </p>
+<h4>2.2 The Currency Overlay — Why Your International ETF Is Two Bets</h4>
 <p>
-Return
-^
-|              * Global Portfolio
-|           *     (better risk/return)
-|        *   /
-|      *   /
-|    *   /  &lt;-- US Only Portfolio
-|  *   /
-| *  /
-|* /
-|/
-+---------------------------------&gt; Risk
+When you buy <code>EFA</code> (iShares MSCI EAFE, the developed-international benchmark), you are taking on two distinct exposures simultaneously:
+</p>
+<li>The price action of foreign equities in their <strong>local</strong> currencies (euros, yen, pounds, Swiss francs, etc.).</li>
+<li>The price action of those currencies versus the <strong>dollar</strong>.</li>
+<p>
+The total USD return for a single year is approximately:
 </p>
 <p>
-Adding international stocks generally improves
-the risk-return tradeoff.
-</code></pre>
+$$ R_{\text{USD}} \approx (1 + R_{\text{local}}) \times (1 + R_{\text{FX}}) - 1 $$
+</p>
+<p>
+where $R_{\text{FX}}$ is the foreign currency's appreciation versus the dollar. The two effects compound rather than add, but for small-to-moderate moves the simple sum is a fine approximation: a foreign equity market that rises 8% in local currency, in a year when the foreign currency strengthens 5% against the dollar, returns roughly <strong>+13% in USD</strong>. The same equity market, in a year when the foreign currency <em>weakens</em> 10%, returns roughly <strong>-2% in USD</strong> — flat equities turned into a loss by the FX leg.
+</p>
+<p>
+This is not a side effect; it is the dominant story in many years. From 2014 through 2024, US equities (SPY) compounded at roughly 12.5% annualised. Unhedged developed-international (EFA) compounded at roughly 5%. Hedged developed-international (HEFA, MSCI EAFE Hedged) compounded at roughly 8%. The ~3 percentage points per year between EFA and HEFA over that decade was <em>almost entirely</em> the dollar overlay — the equities themselves did similar things in their own currencies. Investors who held EFA spent ten years funding a structural short euro / short yen position they did not realise they had. The chart in <code>image/week22_us_vs_intl.png</code> makes the picture concrete.
+</p>
+<img src="image/week22_us_vs_intl.png" alt="Cumulative wealth: SPY vs unhedged EAFE vs hedged EAFE, 2000-2024">
+<p>
+There is one caveat that matters and will not be obvious from the picture. Over a single decade, the FX overlay can be the entire return story. Over very long horizons (30+ years), purchasing-power parity <em>roughly</em> anchors major currencies, and the FX overlay's net contribution shrinks toward zero. The investor still has to <em>survive</em> the multi-year deviations, which routinely run to ±30% from PPP and last for a decade. "Wash out over decades" is small consolation if the unhedged drag costs you 30% during the years you actually wanted to retire on.
+</p>
+<h4>2.3 FX Hedging — How HEFA Works and What It Costs</h4>
+<p>
+A currency-hedged ETF removes the FX overlay using <strong>rolling currency forwards</strong>. The fund manager calculates the dollar value of each foreign-currency position, then sells that currency forward (typically one month at a time) and rolls the contract at expiry. The forwards are priced by <strong>covered interest parity</strong>, which says the forward rate equals the spot rate adjusted for the interest-rate differential between the two currencies:
+</p>
+<p>
+$$ F = S \times \frac{1 + r_{\text{foreign}}}{1 + r_{\text{US}}} $$
+</p>
+<p>
+When US rates are higher than foreign rates (the typical post-2022 regime), the forward sells the foreign currency at a <em>lower</em> implied rate than spot — the hedger earns the rate differential. When US rates are lower than foreign rates (less common; emerging markets often invert this), hedging <em>costs</em> the differential. In April 2026:
+</p>
+<ul><li><strong>EUR hedge cost:</strong> ~2.0% per year (Fed 4.5% vs ECB 2.5%; the hedger is <em>paid</em> the differential, but operational + spread drag offsets most of it; net cost is small but positive).</li>
+<li><strong>JPY hedge cost:</strong> ~3.5% per year favourable, because Japan still has near-zero rates while the Fed sits at 4.5%. Hedging yen is one of the cheaper hedges in the developed world.</li>
+<li><strong>GBP hedge cost:</strong> ~0.5% per year, because BoE and Fed have converged.</li>
+<li><strong>EM currency hedges:</strong> ~5-15% per year <em>cost</em>, because EM rates run well above US rates. Hedging EM is almost never worth it; the hedge eats the equity return.</li>
+<p>
+</ul>
+The practical rule: <strong>hedge developed-market FX, do not hedge emerging-market FX</strong>. HEFA and DBEF are the two large developed-international hedged options. For emerging markets, you hold VWO unhedged and accept the currency risk as part of the asset class — there is no clean way to strip it out.
+</p>
+<h4>2.4 Japan's Lost Decade vs US Tech — A Cautionary Tale Both Ways</h4>
+<p>
+The Nikkei 225 peaked at 38,915 on December 29, 1989. It did not regain that level until February 2024 — a <strong>34-year round trip to flat</strong>. For Western textbook writers, Japan is the standard cautionary tale that "stocks for the long run" can fail in a single market, and the mandatory lesson is to diversify internationally. The conclusion is reasonable. The implementation is harder than the textbook admits.
+</p>
+<p>
+A US-based investor who bought Japanese equities at the 1989 peak in <em>yen</em> terms is still close to break-even over 35 years. The same investor who bought via an unhedged dollar-denominated vehicle had a meaningfully worse experience because the yen weakened roughly 30% against the dollar over the same period. The investor who hedged the yen exposure had a slightly better experience but still spent 25 years underwater. Diversifying <em>out of</em> Japan into US equities in 1989 would have produced one of the best 30-year stretches in market history — but only if you had identified Japan as the bubble <em>at the time</em>, which the consensus emphatically did not.
+</p>
+<p>
+The mirror image applies looking forward from April 2026. The S&P 500 has compounded at roughly 13% annualised for the past 15 years, driven by a small handful of US tech megacaps. CAPE sits in the most expensive decile of US-stock-market history (Week 21). It is entirely possible — not predicted, but possible — that the next 15 years for US equities look more like 1990s Japan than the 2010s. The honest defence against that scenario is a small allocation to non-US developed (hedged), a small allocation to emerging (unhedged, sized for ruin), and the four-tranche framework from SOUL #13. <strong>Diversification is insurance, not arbitrage.</strong> It costs a little in expected return for a little less variance in possible outcomes. Buying EXUS because "Japan once happened" is a reasonable insurance trade. Buying it because "international should outperform" is a story you cannot defend with the data.
+</p>
+<h4>2.5 The Post-2010 Structural Dollar Bid</h4>
+<p>
+Something changed around 2011-2014. The DXY broke out of a 30-year range, and despite the Fed cutting to zero, the dollar climbed and stayed there. The structural drivers are not mysterious:
+</p>
+<ul><li><strong>The Fed's relative tightness.</strong> Even at zero, US real rates ran higher than European or Japanese real rates because the Eurozone tipped into outright deflation and Japan never escaped it. Capital flows toward the higher real rate.</li>
+<li><strong>Shale.</strong> The US shale revolution turned the country from the world's largest oil importer into the world's largest producer. The persistent current-account drag from energy imports vanished, removing a chronic supply of dollars from foreign exchange markets.</li>
+<li><strong>Reserve status.</strong> The 2008 crisis demonstrated that, paradoxically, a US-originated financial crisis still produced a flight <em>into</em> dollars rather than out of them. The dollar's reserve role strengthened, not weakened, when its issuer was at the centre of the storm.</li>
+<li><strong>Big-tech earnings.</strong> US companies repatriated foreign earnings during the 2017 tax reform window and have continued to dominate global capital expenditure. The dollar capex cycle has been disproportionately a US capex cycle.</li>
+<p>
+</ul>
+The 2025 administration's tariff and dollar-policy shift was the first serious challenge to the structural bid in over a decade. The DXY fell ~12% from its early-2025 peak through April 2026. Whether that is the start of a multi-year reset or a tactical retracement inside the longer-term bid is not knowable from the chart alone. What it does mean: <strong>the dollar's direction over the next decade is more uncertain than at any point since the Plaza Accord</strong>. That uncertainty is itself an argument for hedging — both directions of FX surprise hurt, and removing the variable lets you hold international equities for the equity reasons.
+</p>
+<h4>2.6 The Honest Conclusion — Per SOUL #16</h4>
+<p>
+The four constraints stack on top of each other:
+</p>
+<li><strong>Capital controls and governance</strong> make most emerging-market direct exposure operationally hostile (China, Russia post-2022, India for most US retail accounts, etc.). What is left of EM you mostly hold via VWO, accepting both the equity and currency risk.</li>
+<li><strong>The hedge cost</strong> on developed-market international is small but real (~1-2% per year), and over decades that compound into materially less wealth.</li>
+<li><strong>Your liabilities are USD-denominated.</strong> Rent, groceries, healthcare, retirement spending — all settle in dollars. Holding unhedged international equity is a structural short on your own home currency, which is the wrong direction of FX bet for someone whose bills are in dollars.</li>
+<li><strong>The S&P 500 is already global.</strong> Roughly 40% of S&P revenue comes from outside the US. You are not missing global earnings by holding US-listed stocks; you are accessing them through American legal protection.</li>
+<p>
+Per SOUL principle #16, the developed-market equity book a serious retail investor should hold is <strong>US-listed companies as the default</strong>, with a small (5-15%) international sleeve held in <strong>hedged form</strong> as a diversifier. Emerging markets, if held at all, sit in a "tranche 4" exploration sleeve (SOUL #13) sized for total loss. The travel-brochure 40% international weight does not survive the four constraints above. The plumbing wins.
+</p>
+<p>
+The interactive lab <code>interactive/week22_fx_lab.html</code> lets you crank the two underlying levers — annual USD strengthening and foreign equity local return — and watch the unhedged versus hedged USD totals diverge in real time, with one-click presets for the 1985 Plaza, 2002 EUR creation, 2014 USD bid, and 2025 reset regimes. Spend ten minutes there before deciding what your international weight should be.
 </p>
 <hr>
-<h4>3. Currency Risk and Return</h4>
-<p>
-When you buy a foreign stock, your return has two components:
-</p>
-<pre><code class="language-">TOTAL RETURN FROM FOREIGN INVESTMENT
-<p>
-=====================================
-</p>
-<p>
-Total Return = Local Market Return + Currency Return
-</p>
-<p>
-Example 1: Positive Currency Effect
--------------------------------------
-You buy a European stock ETF:
-</p>
-<ul><li>European stocks rise 8% in euro terms</li>
-<li>Euro appreciates 5% vs. USD</li>
-<li>Your return in USD = +8% + 5% = ~+13%</li>
-<p>
-</ul>  (approximately; compound formula is slightly different)
-</p>
-<p>
-Example 2: Negative Currency Effect
--------------------------------------
-You buy a Japanese stock ETF:
-</p>
-<ul><li>Japanese stocks rise 10% in yen terms</li>
-<li>Yen depreciates 7% vs. USD</li>
-<li>Your return in USD = +10% - 7% = ~+3%</li>
-<p>
-</ul>
-Example 3: Currency Dominates
--------------------------------------
-You buy a Brazilian stock ETF:
-</p>
-<ul><li>Brazilian stocks rise 15% in real terms</li>
-<li>Brazilian real depreciates 20% vs. USD</li>
-<li>Your return in USD = +15% - 20% = ~-5%</li>
-<p>
-</ul>  (Lost money despite strong local returns!)
-</code></pre>
-</p>
-<p>
-<strong>Key insight:</strong> For short-term investors, currency movements can overwhelm stock market returns. For long-term investors, currency effects tend to wash out over decades, but can dominate returns over any period of one to five years.
-</p>
+<h3>3. Common Misconceptions</h3>
+<li><strong>"The DXY measures the dollar against the world."</strong> No — it measures the dollar against six currencies, two-thirds of it the euro, with weights frozen since 1973. There is no yuan, peso, or rupee in it.</li>
+<li><strong>"Unhedged international gives me real diversification."</strong> It gives you a foreign equity bet plus a foreign currency bet. The currency leg often dominates the equity leg over any horizon under a decade.</li>
+<li><strong>"International is cheap, US is expensive, so international should outperform."</strong> Valuation gaps between regions can persist for 15-25 years (Japan post-1989, Europe post-2010). Cheap can stay cheap, and the FX overlay can swallow the valuation re-rating.</li>
+<li><strong>"FX hedging is a free lunch — it just removes risk."</strong> The hedge costs the interest-rate differential. Over a decade of US rates above Eurozone rates, hedging EUR is small drag; over a decade of EM hedging it would be most of your return.</li>
+<li><strong>"Emerging markets have higher expected returns."</strong> That is the textbook claim. The realised returns on the MSCI Emerging Markets index from 2008 through 2024 have been miserable (roughly 2% annualised in USD), well below US large-cap and below developed-international.</li>
+<li><strong>"The S&P 500 is purely a US bet."</strong> It is 40-45% global by revenue. A weak dollar already helps S&P earnings translation; a strong dollar hurts. You already have currency exposure through US large-caps; adding more via EXUS doubles up.</li>
+<li><strong>"I should match my portfolio to global market-cap weights."</strong> This is the classic "global passive" argument. It ignores the four constraints above (governance, hedge cost, USD liabilities, embedded global exposure). The cap-weighted global portfolio is a textbook construct, not an investable plan for a US retail investor.</li>
+<li><strong>"Hedging defeats the purpose of international investing."</strong> It defeats one purpose (currency diversification) and preserves another (equity diversification across countries, sectors, central banks). Most of the diversification benefit literature was written before low-cost hedged ETFs existed; updated studies favour hedged.</li>
+<li><strong>"PPP says the dollar is overvalued, so EXUS will outperform."</strong> PPP is a 5-15-year anchor at best, and currencies routinely run 30%+ from PPP for a decade. As Keynes put it (SOUL #12), the market can stay irrational longer than you can stay solvent — and that is doubly true in FX.</li>
+<li><strong>"ADRs are the same as buying the foreign stock."</strong> ADRs trade in USD on US exchanges, but they still carry the underlying currency exposure (the ADR price moves with both the home-market price and the FX rate). They are convenient access; they are not a hedge.</li>
 <hr>
-<h4>4. FX Quote Conventions</h4>
+<h3>4. Q&A Section</h3>
 <p>
-Understanding how currencies are quoted is essential for interpreting financial news and making international investment decisions.
+<strong>Q: How much international should I actually hold?</strong>
+A: For most US-based retail readers in April 2026, 5-15% of equity in hedged developed-international (HEFA or DBEF) and 0-5% in emerging (VWO, unhedged), with the remaining 80-95% in US-listed names. The exact number depends on age, liability profile, and whether you can stomach a multi-year underperformance versus pure US. Zero international is a defensible choice. Forty percent international is not, given the constraints in §2.6.
 </p>
 <p>
-<strong>Direct vs. Indirect Quotes:</strong>
+<strong>Q: HEFA or DBEF — which hedged international ETF?</strong>
+A: Functionally near-identical. HEFA (iShares, 0.35% expense ratio) is larger and more liquid; DBEF (Xtrackers, 0.36%) is the older product. Pick based on liquidity in your account size. The tracking difference is rounding error.
 </p>
-<pre><code class="language-">FX QUOTING CONVENTIONS
 <p>
-=======================
+<strong>Q: Should I hedge emerging markets too?</strong>
+A: Almost never. EM hedge costs run 5-15% per year because EM short rates are well above US short rates. The hedge eats the equity return. Hold VWO unhedged and accept that the currency exposure is part of the asset class — or do not hold EM at all.
 </p>
 <p>
-A currency pair is written as: BASE/QUOTE
+<strong>Q: What about the yuan? Will it ever be in DXY?</strong>
+A: Not in the foreseeable future. ICE has shown no interest in re-weighting DXY, and the contract has $20 billion+ of derivatives priced off the legacy basket. The Fed's broad trade-weighted index (FRED <code>DTWEXBGS</code>) does include CNY at ~16% — use that index if you want a dollar measure with the yuan in it. DXY is what the financial press will keep quoting.
 </p>
 <p>
-EUR/USD = 1.10 means:
-1 Euro costs 1.10 US Dollars
-EUR is the BASE currency
-USD is the QUOTE currency
+<strong>Q: Why did EFA underperform SPY so badly from 2010 to 2024?</strong>
+A: Roughly half the gap was the equity itself (US tech compounded faster than European industrials and Japanese financials), and roughly half was the dollar overlay (the dollar rose ~25% against the euro and ~50% against the yen over that window). HEFA cut the gap roughly in half — better, but still well behind SPY. The structural dollar bid was the dominant factor, not stock-picking.
 </p>
 <p>
-USD/JPY = 150 means:
-1 US Dollar costs 150 Japanese Yen
-USD is the BASE currency
-JPY is the QUOTE currency
+<strong>Q: Is direct foreign-stock ownership different from ETF ownership?</strong>
+A: Mechanically the same currency exposure, but with extra friction. Buying Toyota directly on the Tokyo exchange requires a JPY brokerage account, JPY funding, withholding tax forms, and worse spreads than the TM ADR. For a retail investor, ADR (TM, NSRGY, SHEL, etc.) or hedged ETF (HEFA) is essentially always the right choice — direct foreign-exchange ownership pays no extra premium for the extra paperwork.
 </p>
 <p>
-For a US-based investor:
+<strong>Q: The DXY chart shows a 12% drop from early 2025 — does that mean unhedged international is now the trade?</strong>
+A: It means unhedged international has <em>already</em> outperformed hedged international over the last twelve months. Whether that continues depends on whether the 2025 reset is the start of a multi-year dollar bear or a tactical retracement inside the longer-term bid. Trying to time which it is, is exactly the sort of macro call SOUL #12 warns against. The honest answer: hold the hedged base position, and add a small unhedged sleeve only if you have a specific FX thesis you can defend.
 </p>
-<ul><li>EUR/USD going UP means euro is STRENGTHENING</li>
 <p>
-</ul>  (it costs MORE dollars to buy one euro)
+<strong>Q: What about the European Stoxx 600 vs MSCI EAFE? Are they interchangeable?</strong>
+A: Stoxx 600 is Europe-only; EAFE includes Japan, Australia, and Hong Kong (with all the SOUL #16 caveats on HK). For a US investor wanting one developed-international exposure, EAFE-based ETFs (EFA / HEFA / IEFA) are the more diversified default. Pure-Europe ETFs (FEZ, IEUR) make sense only if you have a specific Europe-only thesis.
 </p>
-<ul><li>USD/JPY going UP means dollar is STRENGTHENING</li>
 <p>
-</ul>  (one dollar buys MORE yen)
-equivalently, yen is WEAKENING
+<strong>Q: Does the post-2008 quantitative-easing regime change the international diversification math?</strong>
+A: Yes, materially. Coordinated central-bank action (Fed, ECB, BoJ all easing or tightening together) has driven equity correlations across developed markets above 0.8 — much higher than the pre-2008 ~0.6 the textbook studies were built on. You get less diversification benefit from EXUS in the QE-era than the academic literature suggests, which is another reason to size the international sleeve small.
 </p>
 <p>
-COMMON CURRENCY PAIRS AND NICKNAMES
-====================================
-EUR/USD  "Euro"           ~1.08-1.15 typical range
-GBP/USD  "Cable"          ~1.20-1.35 typical range
-USD/JPY  "Dollar-Yen"     ~100-155 typical range
-USD/CHF  "Swissy"         ~0.85-1.00 typical range
-AUD/USD  "Aussie"         ~0.60-0.80 typical range
-USD/CAD  "Loonie"         ~1.25-1.40 typical range
-</code></pre>
+<strong>Q: Should I use ACWI as a one-fund global solution?</strong>
+A: ACWI (iShares MSCI ACWI, ~0.32% expense ratio) holds ~3,000 global names cap-weighted. It is roughly 60% US, 30% developed-international (unhedged), and 10% emerging. For a reader who wants a <em>single</em> equity ETF and refuses to think about geographic weights, ACWI is defensible. For anyone willing to think about it for ten minutes, the right shape is "VOO + small HEFA + tiny VWO" with explicit weights — same exposure with hedged developed and lower expense ratios.
 </p>
 <p>
-<strong>Bid-Ask Spread in FX:</strong>
-</p>
-<pre><code class="language-">FX TRANSACTION COSTS
-<p>
-=====================
-</p>
-<p>
-Interbank market:     EUR/USD 1.1000/1.1002 (0.02% spread)
-Retail forex broker:  EUR/USD 1.0995/1.1005 (0.09% spread)
-Airport exchange:     EUR/USD 1.0700/1.1300 (5.5% spread!)
-Credit card abroad:   Usually 1-3% markup
-</p>
-<p>
-For investors using ETFs:
-</p>
-<ul><li>Currency conversion costs are embedded in the ETF</li>
-<li>Typically 0.01-0.05% for major currencies</li>
-<li>Higher for emerging market currencies (0.1-0.5%)</li>
-<p>
-</ul></code></pre>
-</p>
-<hr>
-<h4>5. Purchasing Power Parity (PPP)</h4>
-<p>
-PPP is a theory that exchange rates should adjust so that identical goods cost the same in different countries when expressed in a common currency.
-</p>
-<p>
-<strong>The Big Mac Index (made famous by The Economist):</strong>
-</p>
-<pre><code class="language-">BIG MAC INDEX -- PPP ILLUSTRATION
-<p>
-===================================
-</p>
-<p>
-If a Big Mac costs:
-</p>
-<ul><li>$5.50 in the US</li>
-<li>4.50 euros in Germany</li>
-<li>480 yen in Japan</li>
-<p>
-</ul>
-Then PPP exchange rates would be:
-</p>
-<ul><li>EUR/USD = 5.50 / 4.50 = 1.22</li>
-<li>USD/JPY = 480 / 5.50 = 87.3</li>
-<p>
-</ul>
-If actual market rates are:
-</p>
-<ul><li>EUR/USD = 1.10  --&gt; Euro is 10% undervalued vs PPP</li>
-<li>USD/JPY = 150   --&gt; Yen is 42% undervalued vs PPP</li>
-<p>
-</ul>
-INTERPRETATION:
-PPP provides a long-term anchor for exchange rates.
-Currencies far from PPP tend to revert toward it
-over very long periods (5-15 years).
-But short-term deviations can be enormous and persistent.
-</code></pre>
-</p>
-<p>
-<strong>Implications for investors:</strong>
-</p>
-<ul><li>A currency significantly below PPP may offer a long-term tailwind for foreign investors</li>
-<li>A currency significantly above PPP may create a long-term headwind</li>
-<li>PPP is a terrible short-term predictor but a reasonable long-term anchor</li>
-<li>Investing in countries with undervalued currencies (on a PPP basis) gives you a potential double benefit: cheap stocks + potential currency appreciation</li>
-<p>
-</ul>
-</p>
-<hr>
-<h4>6. Developed vs. Emerging Markets</h4>
-<pre><code class="language-">MARKET CLASSIFICATION
-<p>
-======================
-</p>
-<p>
-DEVELOPED MARKETS            EMERGING MARKETS
-=================            ================
-</p>
-<ul><li>US, Canada                 - China, India, Brazil</li>
-<li>UK, Germany, France        - Taiwan, South Korea*</li>
-<li>Japan, Australia           - South Africa, Mexico</li>
-<li>Switzerland, Sweden        - Indonesia, Thailand</li>
-<li>etc.                       - Poland, Turkey, etc.</li>
-<p>
-</ul>
-Characteristics:             Characteristics:
-</p>
-<ul><li>Stable legal systems       - Higher growth potential</li>
-<li>Deep, liquid markets       - Higher volatility</li>
-<li>Strong regulation          - Political/regulatory risk</li>
-<li>Lower expected returns     - Currency volatility</li>
-<li>Lower risk                 - Liquidity issues</li>
-<li>Governance concerns</li>
-<p>
-</ul>
-*South Korea is classified as Emerging by MSCI
-despite being a highly developed economy -- an
-ongoing debate in the index world.
-</code></pre>
-</p>
-<p>
-<strong>Risk-Return Profile:</strong>
-</p>
-<pre><code class="language-">RISK-RETURN SPECTRUM
-<p>
-=====================
-</p>
-<p>
-Return
-^
-|                           * Emerging Markets
-|                      *      (higher return, higher risk)
-|                 *
-|            *
-|       * Developed Int'l
-|  *
-| * US Stocks
-|
-+-----------------------------------------&gt; Risk
-Low                              High
-</p>
-<p>
-Note: This is the theoretical expectation.
-In practice, emerging markets have not always
-delivered higher returns to compensate for
-their higher risk. Country selection and
-entry valuation matter enormously.
-</code></pre>
-</p>
-<p>
-<strong>Emerging Market Specific Risks:</strong>
-</p>
-<pre><code class="language-">EMERGING MARKET RISK CHECKLIST
-<p>
-===============================
-</p>
-<li>Political Risk</li>
-<ul><li>Regime change, nationalization, sanctions</li>
-<li>Example: Russia 2022 -- foreign investors lost access</li>
-<p>
-</ul>
-</p>
-<li>Currency Risk</li>
-<ul><li>EM currencies can depreciate 20-50% in crises</li>
-<li>Example: Turkish lira lost 80%+ from 2018-2023</li>
-<p>
-</ul>
-</p>
-<li>Liquidity Risk</li>
-<ul><li>Harder to buy/sell, wider bid-ask spreads</li>
-<li>Markets may close during crises</li>
-<p>
-</ul>
-</p>
-<li>Governance Risk</li>
-<ul><li>Weaker shareholder protections</li>
-<li>State-owned enterprises may not prioritize shareholders</li>
-<p>
-</ul>
-</p>
-<li>Capital Controls</li>
-<ul><li>Some countries restrict money flows in/out</li>
-<li>You might not be able to sell when you want to</li>
-<p>
-</ul>
-</p>
-<li>Information Risk</li>
-<ul><li>Less transparency, different accounting standards</li>
-<li>Language barriers in financial reporting</li>
-<p>
-</ul></code></pre>
-</p>
-<hr>
-<h4>7. ADRs -- American Depositary Receipts</h4>
-<p>
-ADRs allow US investors to buy shares of foreign companies on US exchanges in US dollars.
-</p>
-<pre><code class="language-">HOW ADRs WORK
-<p>
-==============
-</p>
-<p>
-Foreign Company              US Market
-(e.g., Nestle in             (e.g., NYSE)
-Switzerland)
-|                           |
-|   Shares deposited        |
-|   with custodian bank     |
-| ========================&gt; |
-|                           |
-|   Bank issues ADR         |
-|   receipts                |
-|                           |
-|                     ADR trades like
-|                     a regular US stock
-|                     in USD
-|                           |
-|   Dividends converted     |
-|   from CHF to USD         |
-| &lt;======================== |
-</p>
-<p>
-ADR TYPES:
------------
-Level 1: Trade over-the-counter (OTC), minimal SEC requirements
-Level 2: Listed on major US exchange (NYSE, NASDAQ)
-Level 3: Full SEC registration, can raise capital in US
-</p>
-<p>
-EXAMPLES OF POPULAR ADRs:
-</p>
-<ul><li>Toyota (TM) -- Japan</li>
-<li>Nestle (NSRGY) -- Switzerland</li>
-<li>Samsung (SSNLF) -- South Korea (OTC)</li>
-<li>Alibaba (BABA) -- China</li>
-<li>TSMC (TSM) -- Taiwan</li>
-<li>Shell (SHEL) -- UK/Netherlands</li>
-<p>
-</ul></code></pre>
-</p>
-<p>
-<strong>ADR Advantages:</strong>
-</p>
-<ul><li>Trade in USD during US market hours</li>
-<li>Easy to buy through any US brokerage</li>
-<li>Dividends paid in USD</li>
-<li>Familiar settlement and custody</li>
-<p>
-</ul>
-<strong>ADR Disadvantages:</strong>
-</p>
-<ul><li>Limited selection (not all foreign companies have ADRs)</li>
-<li>Foreign withholding tax on dividends (can claim credit)</li>
-<li>ADR fees (small annual fee charged against dividends)</li>
-<li>Still exposed to currency risk (price tracks foreign shares)</li>
-<li>May trade at premium or discount to underlying shares</li>
-<p>
-</ul>
-</p>
-<hr>
-<h4>8. International ETFs</h4>
-<p>
-ETFs have made international investing dramatically easier and cheaper.
-</p>
-<pre><code class="language-">MAJOR INTERNATIONAL ETF CATEGORIES
-<p>
-====================================
-</p>
-<p>
-BROAD INTERNATIONAL:
-</p>
-<ul><li>Total International Stock (ex-US)</li>
-<p>
-</ul>  Covers both developed and emerging
-Examples: VXUS, IXUS
-</p>
-<p>
-DEVELOPED MARKETS:
-</p>
-<ul><li>Developed International (ex-US)</li>
-<p>
-</ul>  Europe, Japan, Australia, Canada
-Examples: VEA, IEFA, EFA
-</p>
-<p>
-EMERGING MARKETS:
-</p>
-<ul><li>Broad Emerging Markets</li>
-<p>
-</ul>  China, India, Taiwan, Brazil, etc.
-Examples: VWO, IEMG, EEM
-</p>
-<p>
-SINGLE COUNTRY:
-</p>
-<ul><li>Japan (EWJ), Germany (EWG), India (INDA)</li>
-<li>China (MCHI, FXI), Brazil (EWZ)</li>
-<li>Dozens of single-country ETFs available</li>
-<p>
-</ul>
-REGIONAL:
-</p>
-<ul><li>Europe (VGK), Asia Pacific (VPL)</li>
-<li>Latin America (ILF)</li>
-<p>
-</ul>
-EXPENSE RATIOS (typical):
-</p>
-<ul><li>Developed markets: 0.04-0.12%</li>
-<li>Emerging markets: 0.10-0.25%</li>
-<li>Single country: 0.30-0.60%</li>
-<p>
-</ul></code></pre>
-</p>
-<hr>
-<h4>9. Hedged vs. Unhedged</h4>
-<p>
-When investing internationally, you can choose to accept currency risk (unhedged) or eliminate it (hedged).
-</p>
-<pre><code class="language-">HEDGED vs. UNHEDGED -- HOW IT WORKS
-<p>
-=====================================
-</p>
-<p>
-UNHEDGED ETF (e.g., VEA):
-</p>
-<ul><li>You get the full local market return PLUS currency effect</li>
-<li>If European stocks +8% and Euro +5% vs USD, you get ~+13%</li>
-<li>If European stocks +8% and Euro -5% vs USD, you get ~+3%</li>
-<li>More volatile, but captures long-term currency movements</li>
-<p>
-</ul>
-HEDGED ETF (e.g., HEZU -- hedged Eurozone):
-</p>
-<ul><li>Currency risk is neutralized through forward contracts</li>
-<li>You get approximately the local market return only</li>
-<li>European stocks +8%, regardless of currency = you get ~+8%</li>
-<li>Less volatile short-term, but hedging has a cost</li>
-<p>
-</ul>
-HEDGING COST:
-</p>
-<ul><li>Based on interest rate differential between countries</li>
-<li>If US rates = 5% and Euro rates = 3%, hedging cost ~2%/year</li>
-<li>If US rates = 5% and Japan rates = 0.5%, hedging cost ~4.5%/year</li>
-<li>This cost eats into returns!</li>
-<p>
-</ul>
-DECISION FRAMEWORK:
-====================
-</p>
-<p>
-Factor                          Unhedged     Hedged
-------                          --------     ------
-Time horizon &gt; 10 years         Preferred
-Time horizon &lt; 3 years                       Preferred
-Foreign currency undervalued    Preferred
-Foreign currency overvalued                  Preferred
-Want simplicity                 Preferred
-Want lower short-term vol.                   Preferred
-Interest rate differential
-is large (costly to hedge)    Preferred
-Interest rate differential
-is small                                   Preferred
-</code></pre>
-</p>
-<p>
-<strong>The Academic Consensus:</strong>
-</p>
-<p>
-For long-term investors (10+ year horizons), most academic research suggests leaving equity investments unhedged because:
-</p>
-<li>Currency effects tend to mean-revert over long periods</li>
-<li>Hedging has a direct cost (interest rate differential)</li>
-<li>Currency diversification itself provides portfolio benefits</li>
-<li>Transaction costs of rolling hedges add up over time</li>
-<p>
-For bonds, hedging is generally recommended because bond returns are much smaller than equity returns, and currency volatility can easily overwhelm the bond income.
-</p>
-<pre><code class="language-">HEDGING RULE OF THUMB
-<p>
-=====================
-</p>
-<p>
-Equities:  Generally leave UNHEDGED (for long-term investors)
-Bonds:     Generally HEDGE (currency vol &gt; bond returns)
-</p>
-<p>
-Exception: If you have a strong view on currency
-direction, you may choose to hedge or not
-based on your outlook. But be humble -- currency
-forecasting is notoriously difficult.
-</code></pre>
-</p>
-<hr>
-<h4>10. How Much International Should You Hold?</h4>
-<pre><code class="language-">ALLOCATION FRAMEWORKS
-<p>
-======================
-</p>
-<p>
-Approach 1: Market Cap Weight
-</p>
-<ul><li>Hold each country in proportion to its global market cap</li>
-<li>Currently: ~60% US, ~30% developed int'l, ~10% emerging</li>
-<li>Most theoretically sound, but heavy in whatever is "hot"</li>
-<p>
-</ul>
-Approach 2: GDP Weight
-</p>
-<ul><li>Hold each region in proportion to its share of global GDP</li>
-<li>Currently: ~25% US, ~40% developed int'l, ~35% emerging</li>
-<li>More exposure to fast-growing economies</li>
-<li>Problem: stock market size does not track GDP closely</li>
-<p>
-</ul>
-Approach 3: Pragmatic Split
-</p>
-<ul><li>60-70% US, 20-30% developed international, 5-10% emerging</li>
-<li>Balances diversification with simplicity</li>
-<li>Most commonly recommended by financial advisors</li>
-<p>
-</ul>
-Approach 4: Equal Weight by Region
-</p>
-<ul><li>33% US, 33% developed int'l, 33% emerging</li>
-<li>Maximum diversification, significant emerging exposure</li>
-<li>Most contrarian, highest tracking error vs. US</li>
-<p>
-</ul>
-RECOMMENDED STARTING POINT:
-============================
-60% US Stocks
-25% Developed International
-15% Emerging Markets
-</p>
-<p>
-Adjust based on:
-</p>
-<ul><li>Your views on relative valuation</li>
-<li>Your comfort with currency risk</li>
-<li>Your time horizon</li>
-<li>Tax considerations</li>
-<p>
-</ul></code></pre>
-</p>
-<hr>
-<h3>c) Common Misconceptions</h3>
-<p>
-<strong>Misconception 1: "The US market has always outperformed, so I do not need international."</strong>
-</p>
-<p>
-Reality: The US outperformance since 2010 has been historically unusual, driven largely by the dominance of US technology companies and a rising dollar. From 2000-2009, US stocks returned approximately zero while international stocks delivered positive returns. From 1970-1989, international stocks dramatically outperformed the US. Performance leadership rotates, and the best time to diversify internationally is before the rotation happens -- which you cannot predict.
-</p>
-<p>
-<strong>Misconception 2: "US companies are already global, so owning the S&P 500 gives me international exposure."</strong>
-</p>
-<p>
-Reality: While many S&P 500 companies derive significant revenue from abroad, their stock prices are still primarily driven by the US market, US regulatory environment, US interest rates, and the US dollar. Owning Coca-Cola does not give you the same portfolio diversification benefit as owning a European beverage company. The stocks move differently because they are priced by different investor bases in different markets.
-</p>
-<p>
-<strong>Misconception 3: "Emerging markets are too risky."</strong>
-</p>
-<p>
-Reality: Emerging markets are more volatile than developed markets on a stand-alone basis, but in a portfolio context, their imperfect correlation with developed markets can actually reduce overall portfolio risk. Furthermore, "risk" cuts both ways -- emerging markets have delivered some of the highest returns in history during favorable periods. The key is appropriate sizing (not going overboard) and diversification across multiple countries rather than concentrating in one or two.
-</p>
-<p>
-<strong>Misconception 4: "Currency hedging eliminates a risk, so it is always better."</strong>
-</p>
-<p>
-Reality: Hedging eliminates currency fluctuations but at a cost, and that cost can be substantial when interest rate differentials are wide. Moreover, currency exposure itself provides diversification -- the US dollar does not always strengthen. During periods of dollar weakness, unhedged international investments get a return boost. For long-term equity investors, most evidence suggests that unhedged is the better default.
-</p>
-<p>
-<strong>Misconception 5: "ADRs eliminate currency risk."</strong>
-</p>
-<p>
-Reality: ADRs are simply receipts representing foreign shares. The underlying shares are still denominated in the foreign currency, and the ADR price reflects currency movements. If Nestle's stock is flat in Swiss francs but the franc appreciates 10% against the dollar, the ADR price will rise approximately 10%. ADRs provide convenience, not currency protection.
-</p>
-<p>
-<strong>Misconception 6: "You can predict which currencies will strengthen."</strong>
-</p>
-<p>
-Reality: Currency forecasting is one of the most notoriously difficult tasks in finance. Academic studies consistently find that professional forecasters do little better than a coin flip at predicting short-term currency movements. Even fundamental approaches like purchasing power parity only work over very long horizons (5-15 years) and can be wrong for extended periods. Humility about currency direction is a virtue.
-</p>
-<hr>
-<h3>d) Common Questions and Answers</h3>
-<p>
-<strong>Q1: If correlations between markets are increasing due to globalization, does international diversification still help?</strong>
-</p>
-<p>
-A: Yes, though the benefit has modestly decreased over time. While correlations have risen from roughly 0.4-0.5 in the 1990s to 0.6-0.8 today, they are still well below 1.0, meaning diversification still reduces portfolio risk. Importantly, correlations tend to be unstable -- they spike during global crises (when you need diversification least) but remain moderate during normal times. Over full market cycles, international diversification continues to improve the risk-return profile.
-</p>
-<p>
-<strong>Q2: Should I invest in international bonds as well as international stocks?</strong>
-</p>
-<p>
-A: International bonds can add diversification, but the case is more nuanced than for stocks. The return spread between US and foreign government bonds is often small, and currency volatility can dominate bond returns. If you do invest in international bonds, hedging the currency risk is strongly recommended. Many investors keep their bond allocation domestic (or currency-hedged) for simplicity and stability.
-</p>
-<p>
-<strong>Q3: How do foreign taxes affect my international investment returns?</strong>
-</p>
-<p>
-A: Most countries withhold tax on dividends paid to foreign investors, typically 10-30%. As a US investor, you can claim a Foreign Tax Credit on your US tax return to avoid double taxation. In taxable accounts, this credit directly reduces your US tax bill. In tax-advantaged accounts (IRA, 401k), the foreign tax is lost -- you cannot claim the credit. This means taxable accounts are often slightly better for holding international funds, all else equal.
-</p>
-<p>
-<strong>Q4: What about frontier markets -- are they worth considering?</strong>
-</p>
-<p>
-A: Frontier markets (countries like Vietnam, Kenya, Bangladesh, Sri Lanka) are even less developed than emerging markets. They offer potentially high returns but come with extreme risks: very low liquidity, limited regulatory protection, political instability, and often difficult market access. For most individual investors, frontier market exposure through a diversified emerging markets ETF (which may hold small allocations to frontier markets) is sufficient. Direct frontier market investing is best left to specialists.
-</p>
-<p>
-<strong>Q5: How often should I rebalance my international allocation?</strong>
-</p>
-<p>
-A: Annual rebalancing is typically sufficient. Currency movements and divergent market returns will cause your allocation to drift over time. If your target is 60/25/15 (US/developed/emerging) and after a strong US year it has drifted to 68/20/12, rebalancing back to target forces you to sell high (US) and buy low (international), which is a systematic value discipline. Rebalancing more frequently than annually adds transaction costs without significantly improving outcomes.
-</p>
-<p>
-<strong>Q6: What is the difference between MSCI EAFE and FTSE Developed ex-US?</strong>
-</p>
-<p>
-A: These are the two main developed international stock indexes. MSCI EAFE (Europe, Australasia, Far East) is the older, more established index. FTSE Developed ex-US is used by Vanguard and includes small-cap stocks and South Korea (which MSCI classifies as emerging). The performance difference is small. The most important decision is having international exposure, not which specific index you track.
-</p>
-<p>
-<strong>Q7: Do international stocks protect against US-specific risks?</strong>
-</p>
-<p>
-A: Yes. Events like US government shutdowns, US regulatory changes, US fiscal crises, or a US dollar decline would disproportionately affect US stocks and US dollar-denominated assets. International stocks provide a hedge against US-specific political and economic risks. This is separate from global risks (like pandemics or global recessions) which affect all markets.
-</p>
-<p>
-<strong>Q8: How does currency risk change over different time horizons?</strong>
-</p>
-<p>
-A: Over short periods (1-3 years), currency movements can add or subtract 5-15% from international returns, often dominating stock market returns. Over medium periods (3-10 years), currency effects remain significant but begin to moderate. Over very long periods (15+ years), currency effects tend to average out toward zero, especially between developed market currencies. This is why long-term investors can generally afford to remain unhedged.
-</p>
-<p>
-<strong>Q9: Is it better to use one total international fund or separate developed and emerging market funds?</strong>
-</p>
-<p>
-A: Either approach works. A single total international fund (like VXUS) is simpler and provides broad exposure with one holding. Separate funds (like VEA + VWO) give you more control over your developed vs. emerging allocation and allow you to tilt toward one or the other based on your views. The total cost is similar either way. For most investors, simplicity favors the single-fund approach.
-</p>
-<p>
-<strong>Q10: What about investing in international real estate or commodities for additional diversification?</strong>
-</p>
-<p>
-A: International REITs add another dimension of diversification -- exposure to foreign property markets and currencies. International commodity producers (mining companies, oil companies) are heavily influenced by global commodity prices rather than their home market, providing natural diversification. Both can be useful satellite positions, but your core international allocation should be broad equity exposure before adding these specialty categories.
+<strong>Q: What FX-related signals actually matter for portfolio decisions?</strong>
+A: Three: (1) the <strong>interest-rate differential</strong> between the US and the foreign country (predicts hedge cost over the next year), (2) the <strong>PPP gap</strong> (5-15-year mean-reversion anchor), and (3) the <strong>direction of the broad trade-weighted dollar</strong> (DTWEXBGS, not DXY) over the past 12 months (momentum signal — see SOUL #8 on regime-aware playbooks). DXY itself is a news-watch instrument, not a decision input.
 </p>
             </div>
             <div id="content-hk" class="lang-content">

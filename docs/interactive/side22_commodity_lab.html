@@ -1,0 +1,570 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Commodity Lab - Interactive (Side 22)</title>
+<script src="https://cdn.plot.ly/plotly-2.35.2.min.js" charset="utf-8"></script>
+<style>
+html, body { margin: 0; padding: 0; background: var(--co-bg); }
+:root {
+    --co-bg: #fdfbf5;
+    --co-text: #1a2332;
+    --co-muted: #6b7280;
+    --co-border: #d6d3c4;
+    --co-card: #fdfbf5;
+    --co-accent: #b8860b;
+    --co-blue: #0d47a1;
+    --co-red: #b71c1c;
+    --co-green: #2e7d32;
+    --co-purple: #6a1b9a;
+    --co-orange: #e65100;
+    --co-grey: #5a5a5a;
+}
+html[data-theme="dark"] .co-root,
+.co-root[data-theme="dark"] {
+    --co-bg: #0f1724;
+    --co-text: #e6e6e6;
+    --co-muted: #9aa3b2;
+    --co-border: #2a3441;
+    --co-card: #0f1724;
+    --co-blue: #5a8dee;
+    --co-red: #ef5350;
+    --co-green: #66bb6a;
+    --co-purple: #ba68c8;
+    --co-orange: #ffa726;
+    --co-grey: #aaaaaa;
+}
+.co-root {
+    font-family: 'Segoe UI', Helvetica, Arial, sans-serif;
+    background: var(--co-bg);
+    color: var(--co-text);
+    padding: 12px;
+    margin: 0;
+}
+.co-controls {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    margin-bottom: 14px;
+    padding: 12px;
+    background: var(--co-card);
+    border: 1px solid var(--co-border);
+    border-radius: 8px;
+}
+.co-slider-wrap {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    font-size: 0.82rem;
+    color: var(--co-muted);
+}
+.co-slider-wrap .co-row {
+    display: flex; align-items: center; gap: 10px;
+}
+.co-slider-wrap input[type="range"] {
+    flex: 1;
+    accent-color: var(--co-accent);
+}
+.co-slider-wrap .co-val {
+    white-space: nowrap;
+    color: var(--co-text);
+    font-weight: 700;
+    font-variant-numeric: tabular-nums;
+    min-width: 64px;
+    text-align: right;
+}
+.co-slider-wrap .co-name {
+    font-weight: 600; color: var(--co-text);
+}
+.co-bigrow {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 8px;
+    margin-bottom: 14px;
+}
+.co-big {
+    background: var(--co-card);
+    border: 1px solid var(--co-border);
+    border-left: 4px solid var(--co-accent);
+    border-radius: 8px;
+    padding: 10px 12px;
+}
+.co-big.co-b-hedge { border-left-color: var(--co-blue); }
+.co-big.co-b-real  { border-left-color: var(--co-green); }
+.co-big.co-b-drag  { border-left-color: var(--co-red); }
+.co-big.co-b-sleeve{ border-left-color: var(--co-purple); }
+.co-big .co-big-name {
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--co-muted);
+}
+.co-big .co-big-val {
+    font-size: 1.4rem;
+    font-weight: 800;
+    margin-top: 4px;
+    font-variant-numeric: tabular-nums;
+    color: var(--co-text);
+}
+.co-big .co-big-detail {
+    font-size: 0.72rem;
+    color: var(--co-muted);
+    margin-top: 2px;
+}
+.co-charts {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+}
+.co-chart {
+    width: 100%;
+    height: 360px;
+    background: var(--co-card);
+    border-radius: 8px;
+    border: 1px solid var(--co-border);
+}
+.co-verdict {
+    margin-top: 12px;
+    padding: 10px 12px;
+    border-radius: 8px;
+    border: 1px solid var(--co-border);
+    border-left: 4px solid var(--co-accent);
+    background: var(--co-card);
+    font-size: 0.88rem;
+    line-height: 1.45;
+    color: var(--co-text);
+}
+.co-verdict.good { border-left-color: var(--co-green); }
+.co-verdict.bad  { border-left-color: var(--co-red); }
+.co-verdict.meh  { border-left-color: var(--co-orange); }
+.co-caption {
+    margin-top: 10px;
+    font-size: 0.78rem;
+    color: var(--co-muted);
+    line-height: 1.45;
+}
+@media (max-width: 1000px) {
+    .co-charts { grid-template-columns: 1fr; }
+    .co-bigrow { grid-template-columns: 1fr 1fr; }
+    .co-controls { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<div class="co-root" id="co-root">
+    <div class="co-controls">
+        <div class="co-slider-wrap">
+            <div class="co-name" id="co-name-GOLD">Gold (GLDM, physical bullion) %</div>
+            <div class="co-row">
+                <input type="range" id="co-GOLD" min="0" max="30" step="0.5" value="3">
+                <span class="co-val" id="co-val-GOLD">3.0%</span>
+            </div>
+        </div>
+        <div class="co-slider-wrap">
+            <div class="co-name" id="co-name-BCOM">Broad commodity (BCI / DBC) %</div>
+            <div class="co-row">
+                <input type="range" id="co-BCOM" min="0" max="30" step="0.5" value="5">
+                <span class="co-val" id="co-val-BCOM">5.0%</span>
+            </div>
+        </div>
+        <div class="co-slider-wrap">
+            <div class="co-name" id="co-name-USO">Oil futures (USO) %</div>
+            <div class="co-row">
+                <input type="range" id="co-USO" min="0" max="20" step="0.5" value="0">
+                <span class="co-val" id="co-val-USO">0.0%</span>
+            </div>
+        </div>
+        <div class="co-slider-wrap">
+            <div class="co-name" id="co-name-INF">Expected inflation regime (%/yr)</div>
+            <div class="co-row">
+                <input type="range" id="co-INF" min="0" max="10" step="0.1" value="3">
+                <span class="co-val" id="co-val-INF">3.0%</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="co-bigrow">
+        <div class="co-big co-b-hedge">
+            <div class="co-big-name" id="co-bn-hedge">Inflation-hedge effectiveness</div>
+            <div class="co-big-val" id="co-bv-hedge">—</div>
+            <div class="co-big-detail" id="co-bd-hedge">portfolio sensitivity to +1% CPI shock</div>
+        </div>
+        <div class="co-big co-b-real">
+            <div class="co-big-name" id="co-bn-real">Expected real return</div>
+            <div class="co-big-val" id="co-bv-real">—</div>
+            <div class="co-big-detail" id="co-bd-real">commodity sleeve only, after CPI</div>
+        </div>
+        <div class="co-big co-b-drag">
+            <div class="co-big-name" id="co-bn-drag">Roll/contango drag</div>
+            <div class="co-big-val" id="co-bv-drag">—</div>
+            <div class="co-big-detail" id="co-bd-drag">USO + BCOM weighted</div>
+        </div>
+        <div class="co-big co-b-sleeve">
+            <div class="co-big-name" id="co-bn-sleeve">Total commodity sleeve</div>
+            <div class="co-big-val" id="co-bv-sleeve">—</div>
+            <div class="co-big-detail" id="co-bd-sleeve">gold + BCOM + USO</div>
+        </div>
+    </div>
+
+    <div class="co-charts">
+        <div id="co-chart-w" class="co-chart"></div>
+        <div id="co-chart-c" class="co-chart"></div>
+    </div>
+
+    <div class="co-verdict" id="co-verdict">—</div>
+
+    <p class="co-caption" id="co-caption">
+        Per-asset model (April 2026 calibration): GLDM real return = 3.0% + 0.40 * (CPI - 2.5%); BCI real return = -0.5% + 0.80 * (CPI - 2.5%) - 1.5% structural roll drag; USO real return = -2.0% + 0.50 * (CPI - 2.5%) - 7.0% contango drag. Inflation-hedge beta is the weighted dCAGR/dCPI of the commodity sleeve. The verdict checks total sleeve size (canonical 5-15%), USO concentration (>3% triggers warning), and zero-commodity portfolios (miss supply-shock hedge).
+    </p>
+</div>
+
+<script>
+(function () {
+    var I18N = {
+        en: {
+            name_GOLD: "Gold (GLDM, physical bullion) %",
+            name_BCOM: "Broad commodity (BCI / DBC) %",
+            name_USO:  "Oil futures (USO) %",
+            name_INF:  "Expected inflation regime (%/yr)",
+            bn_hedge: "Inflation-hedge effectiveness",
+            bn_real:  "Expected real return",
+            bn_drag:  "Roll/contango drag",
+            bn_sleeve:"Total commodity sleeve",
+            bd_hedge: "portfolio sensitivity to +1% CPI shock",
+            bd_real:  "commodity sleeve only, after CPI",
+            bd_drag:  "USO + BCOM weighted",
+            bd_sleeve:"gold + BCOM + USO",
+            chart_w_title: "Real-return contribution by sleeve",
+            x_w: "Real annualised contribution (weighted)",
+            chart_c_title: "Sensitivity to a +1% CPI shock",
+            x_c: "Real return at CPI = baseline + 1%",
+            tr_gold: "Gold (GLDM)",
+            tr_bcom: "Broad (BCI)",
+            tr_uso:  "USO",
+            verdict_good: "Balanced sleeve. {totalSleeve}% total commodity allocation with hedge effectiveness {hedge}% per +1% CPI shock. Within the canonical 5-15% range, gold-heavy enough to catch the store-of-value tailwind without over-paying the futures roll.",
+            verdict_meh:  "Workable but suboptimal. Sleeve is {totalSleeve}%. Watch the USO weight at {uso}% -- the contango drag is structural at -7%/yr and does not reverse during normal regimes. Prefer producer equities (XOM, FCX) for tactical oil views.",
+            verdict_bad_zero: "No commodity exposure. The portfolio loses about 30-50bp of long-run Sharpe from missing the supply-shock hedge (1973, 2008, 2022). Consider 3-5% GLDM as a minimum store-of-value sleeve per SOUL #3.",
+            verdict_bad_big: "Sleeve too large at {totalSleeve}%. Long-run real return of broad commodities is approximately zero (Erb-Harvey 2006); above 15% you are paying drag for diversification you no longer need. Trim BCI/USO and keep gold.",
+            verdict_bad_uso: "USO concentration too high at {uso}%. Roll drag of -7%/yr structural means every year you are not in a supply shock costs the position. Treat single-commodity ETFs as <1% tactical positions only.",
+            caption: "Per-asset model (April 2026 calibration): GLDM real return = 3.0% + 0.40 * (CPI - 2.5%); BCI real return = -0.5% + 0.80 * (CPI - 2.5%) - 1.5% structural roll drag; USO real return = -2.0% + 0.50 * (CPI - 2.5%) - 7.0% contango drag. Inflation-hedge beta is the weighted dCAGR/dCPI of the commodity sleeve. The verdict checks total sleeve size (canonical 5-15%), USO concentration (>3% triggers warning), and zero-commodity portfolios (miss supply-shock hedge).",
+        },
+        hk: {
+            name_GOLD: "黃金(GLDM,實物金條)%",
+            name_BCOM: "廣泛商品(BCI / DBC)%",
+            name_USO:  "石油期貨(USO)%",
+            name_INF:  "預期通脹環境(%/年)",
+            bn_hedge: "通脹避險有效度",
+            bn_real:  "預期實質回報",
+            bn_drag:  "展期/Contango 損耗",
+            bn_sleeve:"商品板塊合計",
+            bd_hedge: "對 +1% CPI 衝擊的敏感度",
+            bd_real:  "僅商品板塊,經 CPI 折算",
+            bd_drag:  "USO + BCOM 加權",
+            bd_sleeve:"黃金 + BCOM + USO",
+            chart_w_title: "各板塊實質回報貢獻",
+            x_w: "實質年化貢獻(加權)",
+            chart_c_title: "對 +1% CPI 衝擊的敏感度",
+            x_c: "CPI = 基準 +1% 時的實質回報",
+            tr_gold: "黃金(GLDM)",
+            tr_bcom: "廣泛商品(BCI)",
+            tr_uso:  "USO",
+            verdict_good: "配置平衡。商品板塊合計 {totalSleeve}%,對 +1% CPI 衝擊有 {hedge}% 避險效果。位於 5-15% 標竿區間,黃金偏重足以捕捉價值儲存的順風,亦未過度承擔期貨展期成本。",
+            verdict_meh:  "可行但非最佳。板塊為 {totalSleeve}%。USO 權重 {uso}% 須留意 -- contango 損耗為結構性 -7%/年,在正常環境下不會逆轉。對油價的戰術看法宜以生產商股票(XOM、FCX)表達。",
+            verdict_bad_zero: "完全沒有商品配置。組合長期將損失約 30-50bp Sharpe,因為缺少供給衝擊(1973、2008、2022)的避險。建議至少 3-5% GLDM 作為價值儲存底倉(SOUL #3)。",
+            verdict_bad_big: "板塊過大({totalSleeve}%)。廣泛商品長期實質回報約零(Erb-Harvey 2006);超過 15% 等於為已不再需要的分散付出損耗。建議削減 BCI/USO,保留黃金。",
+            verdict_bad_uso: "USO 權重過高({uso}%)。-7%/年結構性展期損耗意味著每個非供給衝擊年度都在虧錢。單一商品 ETF 應視為 <1% 戰術部位。",
+            caption: "各資產模型(2026 年 4 月校準):GLDM 實質回報 = 3.0% + 0.40 *(CPI - 2.5%);BCI 實質回報 = -0.5% + 0.80 *(CPI - 2.5%)- 1.5% 結構性展期損耗;USO 實質回報 = -2.0% + 0.50 *(CPI - 2.5%)- 7.0% contango 損耗。通脹避險 beta 為商品板塊加權的 dCAGR/dCPI。判斷依板塊總大小(標竿 5-15%)、USO 集中度(>3% 觸警)及零商品組合(缺供給衝擊避險)。",
+        },
+        tw: {
+            name_GOLD: "黃金(GLDM,實體金條)%",
+            name_BCOM: "廣泛商品(BCI / DBC)%",
+            name_USO:  "石油期貨(USO)%",
+            name_INF:  "預期通膨環境(%/年)",
+            bn_hedge: "通膨避險有效度",
+            bn_real:  "預期實質報酬",
+            bn_drag:  "展期/Contango 耗損",
+            bn_sleeve:"商品板塊合計",
+            bd_hedge: "對 +1% CPI 衝擊的敏感度",
+            bd_real:  "僅商品板塊,經 CPI 折算",
+            bd_drag:  "USO + BCOM 加權",
+            bd_sleeve:"黃金 + BCOM + USO",
+            chart_w_title: "各板塊實質報酬貢獻",
+            x_w: "實質年化貢獻(加權)",
+            chart_c_title: "對 +1% CPI 衝擊的敏感度",
+            x_c: "CPI = 基準 +1% 時的實質報酬",
+            tr_gold: "黃金(GLDM)",
+            tr_bcom: "廣泛商品(BCI)",
+            tr_uso:  "USO",
+            verdict_good: "配置平衡。商品板塊合計 {totalSleeve}%,對 +1% CPI 衝擊有 {hedge}% 避險效果。位於 5-15% 標竿區間,黃金偏重足以捕捉價值儲存順風,亦未過度承擔期貨展期成本。",
+            verdict_meh:  "可行但非最佳。板塊為 {totalSleeve}%。USO 權重 {uso}% 須留意 -- contango 耗損為結構性 -7%/年,正常環境下不會逆轉。油價戰術看法宜以生產商股票(XOM、FCX)表達。",
+            verdict_bad_zero: "完全沒有商品配置。組合長期將損失約 30-50bp Sharpe,因為缺少供給衝擊(1973、2008、2022)避險。建議至少 3-5% GLDM 作為價值儲存底倉(SOUL #3)。",
+            verdict_bad_big: "板塊過大({totalSleeve}%)。廣泛商品長期實質報酬約零(Erb-Harvey 2006);超過 15% 等於為已不再需要的分散付出耗損。建議削減 BCI/USO,保留黃金。",
+            verdict_bad_uso: "USO 權重過高({uso}%)。-7%/年結構性展期耗損意味著每個非供給衝擊年度都在虧錢。單一商品 ETF 應視為 <1% 戰術部位。",
+            caption: "各資產模型(2026 年 4 月校準):GLDM 實質報酬 = 3.0% + 0.40 *(CPI - 2.5%);BCI 實質報酬 = -0.5% + 0.80 *(CPI - 2.5%)- 1.5% 結構性展期耗損;USO 實質報酬 = -2.0% + 0.50 *(CPI - 2.5%)- 7.0% contango 耗損。通膨避險 beta 為商品板塊加權的 dCAGR/dCPI。判斷依板塊總大小(標竿 5-15%)、USO 集中度(>3% 觸警)及零商品組合(缺供給衝擊避險)。",
+        },
+        cn: {
+            name_GOLD: "黄金(GLDM,实物金条)%",
+            name_BCOM: "广泛商品(BCI / DBC)%",
+            name_USO:  "石油期货(USO)%",
+            name_INF:  "预期通胀环境(%/年)",
+            bn_hedge: "通胀避险有效度",
+            bn_real:  "预期实际回报",
+            bn_drag:  "展期/Contango 损耗",
+            bn_sleeve:"商品板块合计",
+            bd_hedge: "对 +1% CPI 冲击的敏感度",
+            bd_real:  "仅商品板块,经 CPI 折算",
+            bd_drag:  "USO + BCOM 加权",
+            bd_sleeve:"黄金 + BCOM + USO",
+            chart_w_title: "各板块实际回报贡献",
+            x_w: "实际年化贡献(加权)",
+            chart_c_title: "对 +1% CPI 冲击的敏感度",
+            x_c: "CPI = 基准 +1% 时的实际回报",
+            tr_gold: "黄金(GLDM)",
+            tr_bcom: "广泛商品(BCI)",
+            tr_uso:  "USO",
+            verdict_good: "配置均衡。商品板块合计 {totalSleeve}%,对 +1% CPI 冲击有 {hedge}% 避险效果。位于 5-15% 标杆区间,黄金偏重足以捕捉价值储存顺风,亦未过度承担期货展期成本。",
+            verdict_meh:  "可行但非最佳。板块为 {totalSleeve}%。USO 权重 {uso}% 须留意 -- contango 损耗为结构性 -7%/年,正常环境下不会逆转。油价战术看法宜以生产商股票(XOM、FCX)表达。",
+            verdict_bad_zero: "完全没有商品配置。组合长期将损失约 30-50bp Sharpe,因为缺少供给冲击(1973、2008、2022)避险。建议至少 3-5% GLDM 作为价值储存底仓(SOUL #3)。",
+            verdict_bad_big: "板块过大({totalSleeve}%)。广泛商品长期实际回报约零(Erb-Harvey 2006);超过 15% 等于为已不再需要的分散付出损耗。建议削减 BCI/USO,保留黄金。",
+            verdict_bad_uso: "USO 权重过高({uso}%)。-7%/年结构性展期损耗意味着每个非供给冲击年度都在亏钱。单一商品 ETF 应视为 <1% 战术仓位。",
+            caption: "各资产模型(2026 年 4 月校准):GLDM 实际回报 = 3.0% + 0.40 *(CPI - 2.5%);BCI 实际回报 = -0.5% + 0.80 *(CPI - 2.5%)- 1.5% 结构性展期损耗;USO 实际回报 = -2.0% + 0.50 *(CPI - 2.5%)- 7.0% contango 损耗。通胀避险 beta 为商品板块加权的 dCAGR/dCPI。判断依板块总大小(标杆 5-15%)、USO 集中度(>3% 触警)及零商品组合(缺供给冲击避险)。",
+        },
+    };
+
+    function currentLang() {
+        var p = new URLSearchParams(window.location.search);
+        var l = (p.get("lang") || "en").toLowerCase();
+        return I18N.hasOwnProperty(l) ? l : "en";
+    }
+    var T = I18N[currentLang()];
+
+    // Asset model. Real return = base + sens*(infl - 2.5%) [- structural drag].
+    // Calibrated April 2026:
+    //   GLDM: real 3.0% baseline (anomalous high due to central-bank de-USD buying since 2022),
+    //          modest inflation beta 0.40, no roll drag.
+    //   BCI:  real -0.5% baseline (Erb-Harvey ~zero), inflation beta 0.80,
+    //         already-included structural roll drag captured in baseline.
+    //   USO:  real -2.0% baseline, inflation beta 0.50, plus -7% chronic
+    //         contango drag (added separately so the slider shows it).
+    var ASSETS = {
+        gold: { real: 0.030, sens: 0.40, drag: 0.000, color: "co-accent" },
+        bcom: { real:-0.005, sens: 0.80, drag: 0.015, color: "co-blue"   },
+        uso:  { real:-0.020, sens: 0.50, drag: 0.070, color: "co-red"    },
+    };
+    var BASE_INF = 0.025;
+
+    var ROOT = document.getElementById("co-root");
+    var GOLD_EL = document.getElementById("co-GOLD");
+    var BCOM_EL = document.getElementById("co-BCOM");
+    var USO_EL  = document.getElementById("co-USO");
+    var INF_EL  = document.getElementById("co-INF");
+    var CHART_W = document.getElementById("co-chart-w");
+    var CHART_C = document.getElementById("co-chart-c");
+
+    function darkMode() {
+        return document.documentElement.getAttribute("data-theme") === "dark";
+    }
+    function getCssVar(name) {
+        return getComputedStyle(ROOT).getPropertyValue(name).trim();
+    }
+    function fmtPct(n, d) {
+        if (!isFinite(n)) return "—";
+        return (n * 100).toFixed(d == null ? 1 : d) + "%";
+    }
+    function realReturn(k, infl) {
+        var a = ASSETS[k];
+        return a.real + a.sens * (infl - BASE_INF);
+    }
+    function applyI18n() {
+        document.getElementById("co-name-GOLD").textContent = T.name_GOLD;
+        document.getElementById("co-name-BCOM").textContent = T.name_BCOM;
+        document.getElementById("co-name-USO").textContent  = T.name_USO;
+        document.getElementById("co-name-INF").textContent  = T.name_INF;
+        document.getElementById("co-bn-hedge").textContent  = T.bn_hedge;
+        document.getElementById("co-bn-real").textContent   = T.bn_real;
+        document.getElementById("co-bn-drag").textContent   = T.bn_drag;
+        document.getElementById("co-bn-sleeve").textContent = T.bn_sleeve;
+        document.getElementById("co-bd-hedge").textContent  = T.bd_hedge;
+        document.getElementById("co-bd-real").textContent   = T.bd_real;
+        document.getElementById("co-bd-drag").textContent   = T.bd_drag;
+        document.getElementById("co-bd-sleeve").textContent = T.bd_sleeve;
+        document.getElementById("co-caption").textContent   = T.caption;
+    }
+
+    function render() {
+        var wG = parseFloat(GOLD_EL.value) / 100.0;
+        var wB = parseFloat(BCOM_EL.value) / 100.0;
+        var wU = parseFloat(USO_EL.value)  / 100.0;
+        var infl = parseFloat(INF_EL.value) / 100.0;
+
+        document.getElementById("co-val-GOLD").textContent = (wG * 100).toFixed(1) + "%";
+        document.getElementById("co-val-BCOM").textContent = (wB * 100).toFixed(1) + "%";
+        document.getElementById("co-val-USO").textContent  = (wU * 100).toFixed(1) + "%";
+        document.getElementById("co-val-INF").textContent  = (infl * 100).toFixed(1) + "%";
+
+        var sleeve = wG + wB + wU;
+        // Real returns net of drag.
+        var rG = realReturn("gold", infl) - ASSETS.gold.drag;
+        var rB = realReturn("bcom", infl) - ASSETS.bcom.drag;
+        var rU = realReturn("uso",  infl) - ASSETS.uso.drag;
+        // Sleeve real return = portfolio-weighted within sleeve (so you see
+        // the commodity bucket's expected return; not blended with stocks/bonds).
+        var sleeveReal = sleeve > 1e-6
+            ? (wG * rG + wB * rB + wU * rU) / sleeve : 0;
+
+        // Inflation-hedge beta: dportfolio_real_return / d(infl).
+        // d(real)/d(infl) = sens - 1 / (1+infl)^2 approx (sens). Use sens directly
+        // weighted by portfolio weight (not normalised) -- this is the % CPI shock
+        // pass-through to the *full portfolio*.
+        var hedgeBeta = wG * ASSETS.gold.sens
+                      + wB * ASSETS.bcom.sens
+                      + wU * ASSETS.uso.sens;
+        // weighted drag (USO + BCOM only)
+        var dragWeighted = wG * ASSETS.gold.drag
+                         + wB * ASSETS.bcom.drag
+                         + wU * ASSETS.uso.drag;
+
+        document.getElementById("co-bv-hedge").textContent  = fmtPct(hedgeBeta, 2);
+        document.getElementById("co-bv-real").textContent   = fmtPct(sleeveReal, 2);
+        document.getElementById("co-bv-real").style.color = sleeveReal >= 0
+            ? getCssVar("--co-green") : getCssVar("--co-red");
+        document.getElementById("co-bv-drag").textContent   = fmtPct(-dragWeighted, 2);
+        document.getElementById("co-bv-drag").style.color = getCssVar("--co-red");
+        document.getElementById("co-bv-sleeve").textContent = fmtPct(sleeve, 1);
+
+        // Verdict.
+        var v = document.getElementById("co-verdict");
+        v.classList.remove("good", "meh", "bad");
+        var verdictText;
+        var totalSleevePct = (sleeve * 100).toFixed(1);
+        var hedgePct = (hedgeBeta * 100).toFixed(2);
+        var usoPct = (wU * 100).toFixed(1);
+        if (sleeve < 0.001) {
+            verdictText = T.verdict_bad_zero;
+            v.classList.add("bad");
+        } else if (wU > 0.03) {
+            verdictText = T.verdict_bad_uso;
+            v.classList.add("bad");
+        } else if (sleeve > 0.15) {
+            verdictText = T.verdict_bad_big;
+            v.classList.add("bad");
+        } else if (sleeve >= 0.05 && sleeve <= 0.15 && wG >= 0.02) {
+            verdictText = T.verdict_good;
+            v.classList.add("good");
+        } else {
+            verdictText = T.verdict_meh;
+            v.classList.add("meh");
+        }
+        v.textContent = verdictText
+            .replace("{totalSleeve}", totalSleevePct)
+            .replace("{hedge}", hedgePct)
+            .replace("{uso}", usoPct);
+
+        var colorBlue   = getCssVar("--co-blue");
+        var colorRed    = getCssVar("--co-red");
+        var colorGreen  = getCssVar("--co-green");
+        var colorAccent = getCssVar("--co-accent");
+        var colorText   = getCssVar("--co-text");
+        var colorMuted  = getCssVar("--co-muted");
+        var colorBg     = getCssVar("--co-card");
+        var colorGrid   = darkMode() ? "rgba(255,255,255,0.08)" : "rgba(0,0,0,0.07)";
+
+        // Chart 1 -- horizontal bars: real-return contribution by sleeve.
+        var contrib = [
+            wG * rG,
+            wB * rB,
+            wU * rU,
+        ];
+        var labels  = [T.tr_gold, T.tr_bcom, T.tr_uso];
+        var bcolors = [colorAccent, colorBlue, colorRed];
+        var traceW = {
+            x: contrib, y: labels, type: "bar", orientation: "h",
+            marker: { color: bcolors, line: { color: colorBg, width: 1 } },
+            text: contrib.map(function (v) { return (v * 100).toFixed(2) + "%"; }),
+            textposition: "outside",
+            textfont: { color: colorText, size: 11 },
+            cliponaxis: false,
+            hovertemplate: "%{y}<br>contribution: %{x:.2%}<extra></extra>",
+        };
+        var layoutW = {
+            margin: { l: 130, r: 60, t: 40, b: 46 },
+            paper_bgcolor: colorBg, plot_bgcolor: colorBg,
+            font: { family: "Segoe UI, Helvetica, Arial, sans-serif", color: colorText, size: 12 },
+            xaxis: { title: { text: T.x_w, font: { color: colorMuted, size: 11 } },
+                     tickformat: ".1%", gridcolor: colorGrid,
+                     zerolinecolor: colorMuted, color: colorText },
+            yaxis: { color: colorText, automargin: true },
+            title: { text: T.chart_w_title, x: 0, xanchor: "left",
+                     font: { color: colorText, size: 13, weight: 700 } },
+        };
+        Plotly.react(CHART_W, [traceW], layoutW,
+                     { displayModeBar: false, responsive: true });
+
+        // Chart 2 -- sensitivity: real return at CPI = baseline + 1% for each.
+        var inflShock = infl + 0.01;
+        var sens = [
+            realReturn("gold", inflShock) - ASSETS.gold.drag - rG,
+            realReturn("bcom", inflShock) - ASSETS.bcom.drag - rB,
+            realReturn("uso",  inflShock) - ASSETS.uso.drag  - rU,
+        ];
+        var traceC = {
+            x: sens, y: labels, type: "bar", orientation: "h",
+            marker: {
+                color: sens.map(function (v) {
+                    return v >= 0 ? colorGreen : colorRed;
+                }),
+                line: { color: colorBg, width: 1 },
+            },
+            text: sens.map(function (v) { return (v * 100).toFixed(2) + "%"; }),
+            textposition: "outside",
+            textfont: { color: colorText, size: 11 },
+            cliponaxis: false,
+            hovertemplate: "%{y}<br>delta: %{x:.2%}<extra></extra>",
+        };
+        var layoutC = {
+            margin: { l: 130, r: 60, t: 40, b: 46 },
+            paper_bgcolor: colorBg, plot_bgcolor: colorBg,
+            font: { family: "Segoe UI, Helvetica, Arial, sans-serif", color: colorText, size: 12 },
+            xaxis: { title: { text: T.x_c, font: { color: colorMuted, size: 11 } },
+                     tickformat: ".1%", gridcolor: colorGrid,
+                     zerolinecolor: colorMuted, color: colorText },
+            yaxis: { color: colorText, automargin: true },
+            title: { text: T.chart_c_title, x: 0, xanchor: "left",
+                     font: { color: colorText, size: 13, weight: 700 } },
+        };
+        Plotly.react(CHART_C, [traceC], layoutC,
+                     { displayModeBar: false, responsive: true });
+    }
+
+    applyI18n();
+    [GOLD_EL, BCOM_EL, USO_EL, INF_EL].forEach(function (el) {
+        el.addEventListener("input", render);
+    });
+
+    function reportHeight() {
+        try {
+            var h = Math.ceil(document.documentElement.scrollHeight);
+            parent.postMessage({ type: "lesson-interactive-resize", height: h }, "*");
+        } catch (e) { /* ignore */ }
+    }
+    if (typeof ResizeObserver !== "undefined") {
+        new ResizeObserver(reportHeight).observe(document.body);
+    }
+    window.addEventListener("resize", reportHeight);
+    setTimeout(reportHeight, 50);
+    setTimeout(reportHeight, 500);
+
+    var themeObserver = new MutationObserver(render);
+    themeObserver.observe(document.documentElement, {
+        attributes: true, attributeFilter: ["data-theme"],
+    });
+
+    render();
+})();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,637 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Futures Lab - Interactive (Week 39)</title>
+<script src="https://cdn.plot.ly/plotly-2.35.2.min.js" charset="utf-8"></script>
+<style>
+html, body { margin: 0; padding: 0; background: var(--fl2-bg); }
+:root {
+    --fl2-bg: #fdfbf5;
+    --fl2-text: #1a2332;
+    --fl2-muted: #6b7280;
+    --fl2-border: #d6d3c4;
+    --fl2-card: #fdfbf5;
+    --fl2-accent: #b8860b;
+    --fl2-blue: #0d47a1;
+    --fl2-red: #b71c1c;
+    --fl2-green: #2e7d32;
+    --fl2-purple: #6a1b9a;
+    --fl2-orange: #e65100;
+}
+html[data-theme="dark"] .fl2-root,
+.fl2-root[data-theme="dark"] {
+    --fl2-bg: #0f1724;
+    --fl2-text: #e6e6e6;
+    --fl2-muted: #9aa3b2;
+    --fl2-border: #2a3441;
+    --fl2-card: #0f1724;
+    --fl2-blue: #5a8dee;
+    --fl2-red: #ef5350;
+    --fl2-green: #66bb6a;
+    --fl2-purple: #ba68c8;
+    --fl2-orange: #ffa726;
+}
+.fl2-root {
+    font-family: 'Segoe UI', Helvetica, Arial, sans-serif;
+    background: var(--fl2-bg);
+    color: var(--fl2-text);
+    padding: 12px;
+    margin: 0;
+}
+.fl2-pillbar-wrap {
+    margin-bottom: 12px;
+    padding: 10px 12px;
+    background: var(--fl2-card);
+    border: 1px solid var(--fl2-border);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+.fl2-label {
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--fl2-muted);
+}
+.fl2-pillbar {
+    display: inline-flex;
+    border: 1px solid var(--fl2-border);
+    border-radius: 999px;
+    overflow: hidden;
+    background: var(--fl2-card);
+}
+.fl2-pillbar button {
+    border: none;
+    background: transparent;
+    color: var(--fl2-muted);
+    padding: 6px 14px;
+    font: inherit;
+    font-size: 0.85rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.15s, color 0.15s;
+}
+.fl2-pillbar button:hover { color: var(--fl2-text); }
+.fl2-pillbar button.active {
+    background: var(--fl2-accent);
+    color: #fff;
+}
+.fl2-controls {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 12px;
+    margin-bottom: 14px;
+    padding: 12px;
+    background: var(--fl2-card);
+    border: 1px solid var(--fl2-border);
+    border-radius: 8px;
+}
+.fl2-slider-wrap {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    font-size: 0.82rem;
+    color: var(--fl2-muted);
+}
+.fl2-slider-wrap .fl2-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.fl2-slider-wrap input[type="range"] {
+    flex: 1;
+    accent-color: var(--fl2-accent);
+}
+.fl2-slider-wrap .fl2-val {
+    white-space: nowrap;
+    color: var(--fl2-text);
+    font-weight: 700;
+    font-variant-numeric: tabular-nums;
+    min-width: 92px;
+    text-align: right;
+}
+.fl2-slider-wrap .fl2-name {
+    font-weight: 600;
+    color: var(--fl2-text);
+}
+.fl2-kpis {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 10px;
+    margin-bottom: 14px;
+}
+.fl2-kpi {
+    background: var(--fl2-card);
+    border: 1px solid var(--fl2-border);
+    border-radius: 8px;
+    padding: 10px 12px;
+}
+.fl2-kpi .fl2-kpi-label {
+    font-size: 0.72rem;
+    color: var(--fl2-muted);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+}
+.fl2-kpi .fl2-kpi-val {
+    margin-top: 4px;
+    font-size: 1.18rem;
+    font-weight: 800;
+    color: var(--fl2-text);
+    font-variant-numeric: tabular-nums;
+}
+.fl2-kpi .fl2-kpi-val.fl2-pos { color: var(--fl2-green); }
+.fl2-kpi .fl2-kpi-val.fl2-neg { color: var(--fl2-red); }
+.fl2-kpi .fl2-kpi-sub {
+    margin-top: 2px;
+    font-size: 0.74rem;
+    color: var(--fl2-muted);
+}
+.fl2-chart {
+    width: 100%;
+    height: 360px;
+    background: var(--fl2-card);
+    border-radius: 8px;
+    border: 1px solid var(--fl2-border);
+}
+.fl2-caption {
+    margin-top: 10px;
+    font-size: 0.78rem;
+    color: var(--fl2-muted);
+    line-height: 1.45;
+}
+.fl2-warn {
+    color: var(--fl2-red);
+    font-weight: 700;
+}
+@media (max-width: 900px) {
+    .fl2-controls { grid-template-columns: 1fr 1fr; }
+    .fl2-kpis { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 600px) {
+    .fl2-controls { grid-template-columns: 1fr; }
+    .fl2-kpis { grid-template-columns: 1fr; }
+    .fl2-chart { height: 320px; }
+}
+</style>
+</head>
+<body>
+
+<div class="fl2-root" id="fl2-root">
+    <div class="fl2-pillbar-wrap">
+        <span class="fl2-label" id="fl2-prod-label">Product</span>
+        <div class="fl2-pillbar" id="fl2-prod-pills" role="tablist">
+            <button type="button" data-prod="MES" class="active">/MES</button>
+            <button type="button" data-prod="MNQ">/MNQ</button>
+            <button type="button" data-prod="MCL">/MCL</button>
+            <button type="button" data-prod="MGC">/MGC</button>
+        </div>
+        <span class="fl2-label" id="fl2-bracket-label">Tax bracket</span>
+        <div class="fl2-pillbar" id="fl2-bracket-pills">
+            <button type="button" data-br="22">22%</button>
+            <button type="button" data-br="32" class="active">32%</button>
+            <button type="button" data-br="37">37%</button>
+        </div>
+    </div>
+
+    <div class="fl2-controls">
+        <div class="fl2-slider-wrap">
+            <div class="fl2-name" id="fl2-name-N">Contracts traded</div>
+            <div class="fl2-row">
+                <input type="range" id="fl2-N" min="1" max="20" step="1" value="3">
+                <span class="fl2-val" id="fl2-val-N">3</span>
+            </div>
+        </div>
+        <div class="fl2-slider-wrap">
+            <div class="fl2-name" id="fl2-name-acct">Account size ($)</div>
+            <div class="fl2-row">
+                <input type="range" id="fl2-acct" min="10000" max="500000" step="1000" value="100000">
+                <span class="fl2-val" id="fl2-val-acct">$100,000</span>
+            </div>
+        </div>
+        <div class="fl2-slider-wrap">
+            <div class="fl2-name" id="fl2-name-move">Expected monthly move (%)</div>
+            <div class="fl2-row">
+                <input type="range" id="fl2-move" min="-15" max="15" step="0.1" value="4">
+                <span class="fl2-val" id="fl2-val-move">+4.0%</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="fl2-kpis">
+        <div class="fl2-kpi">
+            <div class="fl2-kpi-label" id="fl2-k-not-l">Notional exposure</div>
+            <div class="fl2-kpi-val" id="fl2-k-not-v">$0</div>
+            <div class="fl2-kpi-sub" id="fl2-k-not-s">&nbsp;</div>
+        </div>
+        <div class="fl2-kpi">
+            <div class="fl2-kpi-label" id="fl2-k-mar-l">Margin used</div>
+            <div class="fl2-kpi-val" id="fl2-k-mar-v">$0</div>
+            <div class="fl2-kpi-sub" id="fl2-k-mar-s">&nbsp;</div>
+        </div>
+        <div class="fl2-kpi">
+            <div class="fl2-kpi-label" id="fl2-k-lev-l">Portfolio leverage</div>
+            <div class="fl2-kpi-val" id="fl2-k-lev-v">0.0x</div>
+            <div class="fl2-kpi-sub" id="fl2-k-lev-s">&nbsp;</div>
+        </div>
+        <div class="fl2-kpi">
+            <div class="fl2-kpi-label" id="fl2-k-pnl-l">Gross P&L on move</div>
+            <div class="fl2-kpi-val" id="fl2-k-pnl-v">$0</div>
+            <div class="fl2-kpi-sub" id="fl2-k-pnl-s">&nbsp;</div>
+        </div>
+        <div class="fl2-kpi">
+            <div class="fl2-kpi-label" id="fl2-k-net-l">After-tax 60/40 P&L</div>
+            <div class="fl2-kpi-val" id="fl2-k-net-v">$0</div>
+            <div class="fl2-kpi-sub" id="fl2-k-net-s">&nbsp;</div>
+        </div>
+    </div>
+
+    <div id="fl2-chart" class="fl2-chart"></div>
+    <p class="fl2-caption" id="fl2-caption">
+        Section 1256 taxes 60% of every gain at long-term capital gains and 40% at ordinary income, regardless of holding period. The dashed comparison shows what the same gross P&L would cost in tax if it were instead a short-term equity gain. Drag the contracts slider to see notional exposure and margin scale linearly with size.
+    </p>
+</div>
+
+<script>
+(function () {
+    var I18N = {
+        en: {
+            prod_label: "Product",
+            bracket_label: "Tax bracket",
+            N_name: "Contracts traded",
+            acct_name: "Account size ($)",
+            move_name: "Expected monthly move (%)",
+            k_not: "Notional exposure", k_mar: "Margin used",
+            k_lev: "Portfolio leverage", k_pnl: "Gross P&L on move",
+            k_net: "After-tax 60/40 P&L",
+            sub_pct_acct: "{p}% of account",
+            sub_lev_warn: "watch margin call risk",
+            sub_lev_ok: "modest leverage",
+            sub_lev_high: "aggressive",
+            sub_lev_extreme: "DANGER - sized for blow-up",
+            sub_pnl: "{m}% on $50k notl",
+            sub_net_vs_st: "vs ${st} at short-term equity rate",
+            sub_not_per: "{n} x {sym} at ${each}",
+            chart_title: "After-tax P&L vs underlying move ({sym}, 60/40 tax @ {br}%)",
+            x_title: "Underlying move (%)",
+            y_title: "After-tax P&L ($)",
+            trace_1256: "Section 1256 60/40",
+            trace_eq_st: "Equity short-term (compare)",
+            caption: "Section 1256 taxes 60% of every gain at long-term capital gains and 40% at ordinary income, regardless of holding period. The dashed comparison shows what the same gross P&L would cost in tax if it were instead a short-term equity gain. Drag the contracts slider to see notional exposure and margin scale linearly with size.",
+        },
+        hk: {
+            prod_label: "產品",
+            bracket_label: "稅階",
+            N_name: "合約口數",
+            acct_name: "帳戶總值(美元)",
+            move_name: "1 個月預期漲幅(%)",
+            k_not: "名義敞口", k_mar: "佔用保證金",
+            k_lev: "整體槓桿", k_pnl: "情境毛損益",
+            k_net: "60/40 稅後損益",
+            sub_pct_acct: "佔帳戶 {p}%",
+            sub_lev_warn: "留意爆倉風險",
+            sub_lev_ok: "槓桿溫和",
+            sub_lev_high: "進取",
+            sub_lev_extreme: "危險 - 一招爆倉",
+            sub_pnl: "{m}% × $50k 名義",
+            sub_net_vs_st: "若按股票短稅:${st}",
+            sub_not_per: "{n} 張 {sym} 每張 ${each}",
+            chart_title: "稅後損益 vs 標的漲幅({sym}、60/40 @ {br}%)",
+            x_title: "標的漲幅(%)",
+            y_title: "稅後損益(美元)",
+            trace_1256: "1256 條 60/40",
+            trace_eq_st: "股票短期稅率(對照)",
+            caption: "1256 條對所有收益按 60% 長期資本利得 + 40% 普通所得徵稅,無論持有期。虛線為相同毛利按股票短期稅率的應稅金額。拖動口數滑桿可見敞口與保證金按倍數放大。",
+        },
+        tw: {
+            prod_label: "產品",
+            bracket_label: "稅階",
+            N_name: "合約口數",
+            acct_name: "帳戶總額(美元)",
+            move_name: "1 個月預期漲幅(%)",
+            k_not: "名目部位", k_mar: "占用保證金",
+            k_lev: "總槓桿", k_pnl: "情境毛損益",
+            k_net: "60/40 稅後損益",
+            sub_pct_acct: "占帳戶 {p}%",
+            sub_lev_warn: "注意斷頭風險",
+            sub_lev_ok: "槓桿溫和",
+            sub_lev_high: "積極",
+            sub_lev_extreme: "危險 - 一招斷頭",
+            sub_pnl: "{m}% × $50k 名目",
+            sub_net_vs_st: "若按股票短稅:${st}",
+            sub_not_per: "{n} 口 {sym} 每口 ${each}",
+            chart_title: "稅後損益 vs 標的漲幅({sym}、60/40 @ {br}%)",
+            x_title: "標的漲幅(%)",
+            y_title: "稅後損益(美元)",
+            trace_1256: "1256 條 60/40",
+            trace_eq_st: "股票短期稅率(對照)",
+            caption: "1256 條對所有獲利按 60% 長期 + 40% 普通課稅,不論持有期間。虛線為相同毛利按股票短期稅率所繳之稅。拖動口數滑桿可看敞口與保證金等比例放大。",
+        },
+        cn: {
+            prod_label: "产品",
+            bracket_label: "税阶",
+            N_name: "合约张数",
+            acct_name: "账户总额(美元)",
+            move_name: "1 个月预期涨幅(%)",
+            k_not: "名义敞口", k_mar: "占用保证金",
+            k_lev: "整体杠杆", k_pnl: "情境毛盈亏",
+            k_net: "60/40 税后盈亏",
+            sub_pct_acct: "占账户 {p}%",
+            sub_lev_warn: "注意爆仓风险",
+            sub_lev_ok: "杠杆温和",
+            sub_lev_high: "激进",
+            sub_lev_extreme: "危险 - 极易爆仓",
+            sub_pnl: "{m}% × $50k 名义",
+            sub_net_vs_st: "按股票短税:${st}",
+            sub_not_per: "{n} 张 {sym} 每张 ${each}",
+            chart_title: "税后盈亏 vs 标的涨幅({sym}、60/40 @ {br}%)",
+            x_title: "标的涨幅(%)",
+            y_title: "税后盈亏(美元)",
+            trace_1256: "1256 条 60/40",
+            trace_eq_st: "股票短期税率(对照)",
+            caption: "1256 条对全部收益按 60% 长期 + 40% 普通课税,不论持有期。虚线为同样毛利按股票短期税率的应税额。拖动张数滑杆可见敞口与保证金等比放大。",
+        },
+    };
+
+    function currentLang() {
+        var p = new URLSearchParams(window.location.search);
+        var l = (p.get("lang") || "en").toLowerCase();
+        return I18N.hasOwnProperty(l) ? l : "en";
+    }
+    var T = I18N[currentLang()];
+
+    // Product specs (April 2026 anchors).
+    var PRODUCTS = {
+        MES: { sym: "/MES", spot: 5200, multiplier: 5,   margin: 2000,  unit: "pt" },
+        MNQ: { sym: "/MNQ", spot: 19000, multiplier: 2,  margin: 3300,  unit: "pt" },
+        MCL: { sym: "/MCL", spot: 72,   multiplier: 100, margin: 750,   unit: "bbl" },
+        MGC: { sym: "/MGC", spot: 2400, multiplier: 10,  margin: 1500,  unit: "oz"  },
+    };
+
+    var product = "MES";
+    var bracket = 32;     // 22 | 32 | 37
+    var LTCG_RATE = 0.15; // long-term cap gain rate
+
+    function blendedRate(br) {
+        return 0.6 * LTCG_RATE + 0.4 * (br / 100.0);
+    }
+    function shortRate(br) {
+        return br / 100.0;
+    }
+
+    var ROOT = document.getElementById("fl2-root");
+    var CHART = document.getElementById("fl2-chart");
+    var PROD_PILLS = document.getElementById("fl2-prod-pills");
+    var BR_PILLS = document.getElementById("fl2-bracket-pills");
+    var N_EL = document.getElementById("fl2-N");
+    var ACCT_EL = document.getElementById("fl2-acct");
+    var MOVE_EL = document.getElementById("fl2-move");
+
+    function getCssVar(name) {
+        return getComputedStyle(ROOT).getPropertyValue(name).trim();
+    }
+    function darkMode() {
+        return document.documentElement.getAttribute("data-theme") === "dark";
+    }
+
+    function fmtUsd(n, d) {
+        if (!isFinite(n)) return "-";
+        d = (d == null) ? 0 : d;
+        var abs = Math.abs(n);
+        var sign = n < 0 ? "-" : "";
+        return sign + "$" + abs.toLocaleString(undefined, {
+            minimumFractionDigits: d, maximumFractionDigits: d });
+    }
+    function fmtPct(n, d) {
+        if (!isFinite(n)) return "-";
+        d = (d == null) ? 1 : d;
+        return (n >= 0 ? "+" : "") + n.toFixed(d) + "%";
+    }
+
+    // Compute the trade snapshot.
+    function snapshot(product, N, acct, movePct, br) {
+        var p = PRODUCTS[product];
+        var notionalEach = p.spot * p.multiplier;
+        var notional = N * notionalEach;
+        var margin = N * p.margin;
+        var leverage = notional / acct;
+        var marginPct = margin / acct * 100.0;
+        var pnl = notional * (movePct / 100.0);
+        var taxBlended = (pnl > 0) ? pnl * blendedRate(br) : 0;
+        var afterTax1256 = pnl - taxBlended;
+        var taxShort = (pnl > 0) ? pnl * shortRate(br) : 0;
+        var afterTaxShort = pnl - taxShort;
+        return {
+            notionalEach: notionalEach, notional: notional, margin: margin,
+            leverage: leverage, marginPct: marginPct, pnl: pnl,
+            tax1256: taxBlended, afterTax1256: afterTax1256,
+            taxShort: taxShort, afterTaxShort: afterTaxShort,
+        };
+    }
+
+    function readInputs() {
+        return {
+            product: product,
+            N: parseInt(N_EL.value, 10),
+            acct: parseFloat(ACCT_EL.value),
+            move: parseFloat(MOVE_EL.value),
+            br: bracket,
+        };
+    }
+
+    function setText(id, txt, cls) {
+        var el = document.getElementById(id);
+        el.textContent = txt;
+        if (cls != null) {
+            el.classList.remove("fl2-pos", "fl2-neg");
+            if (cls) el.classList.add(cls);
+        }
+    }
+
+    function levTone(lev) {
+        if (lev < 1.0) return ["fl2-pos", T.sub_lev_ok];
+        if (lev < 2.0) return ["", T.sub_lev_high];
+        if (lev < 3.5) return ["fl2-neg", T.sub_lev_warn];
+        return ["fl2-neg", T.sub_lev_extreme];
+    }
+
+    function applyI18n() {
+        document.getElementById("fl2-prod-label").textContent = T.prod_label;
+        document.getElementById("fl2-bracket-label").textContent = T.bracket_label;
+        document.getElementById("fl2-name-N").textContent = T.N_name;
+        document.getElementById("fl2-name-acct").textContent = T.acct_name;
+        document.getElementById("fl2-name-move").textContent = T.move_name;
+        document.getElementById("fl2-k-not-l").textContent = T.k_not;
+        document.getElementById("fl2-k-mar-l").textContent = T.k_mar;
+        document.getElementById("fl2-k-lev-l").textContent = T.k_lev;
+        document.getElementById("fl2-k-pnl-l").textContent = T.k_pnl;
+        document.getElementById("fl2-k-net-l").textContent = T.k_net;
+        document.getElementById("fl2-caption").textContent = T.caption;
+    }
+
+    function updateLabels(p) {
+        document.getElementById("fl2-val-N").textContent = String(p.N);
+        document.getElementById("fl2-val-acct").textContent = "$" + p.acct.toLocaleString();
+        document.getElementById("fl2-val-move").textContent = fmtPct(p.move, 1);
+    }
+
+    function fillKPIs(p) {
+        var s = snapshot(p.product, p.N, p.acct, p.move, p.br);
+        var spec = PRODUCTS[p.product];
+
+        setText("fl2-k-not-v", fmtUsd(s.notional, 0));
+        document.getElementById("fl2-k-not-s").textContent =
+            T.sub_not_per
+                .replace("{n}", p.N)
+                .replace("{sym}", spec.sym)
+                .replace("{each}", s.notionalEach.toLocaleString());
+
+        setText("fl2-k-mar-v", fmtUsd(s.margin, 0));
+        document.getElementById("fl2-k-mar-s").textContent =
+            T.sub_pct_acct.replace("{p}", s.marginPct.toFixed(1));
+
+        var lt = levTone(s.leverage);
+        setText("fl2-k-lev-v", s.leverage.toFixed(2) + "x", lt[0]);
+        document.getElementById("fl2-k-lev-s").textContent = lt[1];
+
+        var pnlClass = s.pnl >= 0 ? "fl2-pos" : "fl2-neg";
+        setText("fl2-k-pnl-v", fmtUsd(s.pnl, 0), pnlClass);
+        document.getElementById("fl2-k-pnl-s").textContent =
+            (p.move >= 0 ? "+" : "") + p.move.toFixed(1) + "% x " + fmtUsd(s.notional, 0);
+
+        var netClass = s.afterTax1256 >= 0 ? "fl2-pos" : "fl2-neg";
+        setText("fl2-k-net-v", fmtUsd(s.afterTax1256, 0), netClass);
+        document.getElementById("fl2-k-net-s").textContent =
+            T.sub_net_vs_st.replace("{st}",
+                Math.round(s.afterTaxShort).toLocaleString());
+    }
+
+    function renderChart(p) {
+        var spec = PRODUCTS[p.product];
+        var s = snapshot(p.product, p.N, p.acct, p.move, p.br);
+        var moves = [];
+        for (var m = -10; m <= 10; m += 0.25) moves.push(Math.round(m * 100) / 100);
+        var ys1256 = moves.map(function (mm) {
+            var ss = snapshot(p.product, p.N, p.acct, mm, p.br);
+            return ss.afterTax1256;
+        });
+        var ysShort = moves.map(function (mm) {
+            var ss = snapshot(p.product, p.N, p.acct, mm, p.br);
+            return ss.afterTaxShort;
+        });
+
+        var colorText = getCssVar("--fl2-text");
+        var colorMuted = getCssVar("--fl2-muted");
+        var colorBg = getCssVar("--fl2-card");
+        var colorAccent = getCssVar("--fl2-accent");
+        var colorBlue = getCssVar("--fl2-blue");
+        var colorGrid = darkMode() ? "rgba(255,255,255,0.08)" : "rgba(0,0,0,0.07)";
+
+        var traces = [
+            {
+                x: moves, y: ys1256, type: "scatter", mode: "lines",
+                line: { color: colorAccent, width: 2.6 },
+                name: T.trace_1256,
+                hovertemplate: T.trace_1256 + "<br>%{x}% -> $%{y:,.0f}<extra></extra>",
+            },
+            {
+                x: moves, y: ysShort, type: "scatter", mode: "lines",
+                line: { color: colorBlue, width: 1.8, dash: "dash" },
+                name: T.trace_eq_st,
+                hovertemplate: T.trace_eq_st + "<br>%{x}% -> $%{y:,.0f}<extra></extra>",
+            },
+        ];
+
+        var layout = {
+            margin: { l: 70, r: 24, t: 36, b: 50 },
+            paper_bgcolor: colorBg, plot_bgcolor: colorBg,
+            font: { family: "Segoe UI, Helvetica, Arial, sans-serif",
+                    color: colorText, size: 12 },
+            xaxis: {
+                title: { text: T.x_title, font: { color: colorMuted, size: 11 } },
+                gridcolor: colorGrid, color: colorText,
+                ticksuffix: "%", zerolinecolor: colorMuted,
+            },
+            yaxis: {
+                title: { text: T.y_title, font: { color: colorMuted, size: 11 } },
+                gridcolor: colorGrid, zerolinecolor: colorMuted, color: colorText,
+                tickprefix: "$",
+            },
+            title: {
+                text: T.chart_title.replace("{sym}", spec.sym).replace("{br}", p.br),
+                x: 0, xanchor: "left",
+                font: { color: colorText, size: 13, weight: 700 },
+            },
+            shapes: [{
+                type: "line", xref: "x", yref: "paper",
+                x0: p.move, x1: p.move, y0: 0, y1: 1,
+                line: { color: colorMuted, width: 1, dash: "dash" },
+            }],
+            legend: { orientation: "h", x: 0, y: -0.18, font: { size: 10.5 } },
+            hovermode: "x unified",
+        };
+        Plotly.react(CHART, traces, layout, {
+            displayModeBar: false, responsive: true,
+        });
+    }
+
+    function render() {
+        var p = readInputs();
+        updateLabels(p);
+        fillKPIs(p);
+        renderChart(p);
+    }
+
+    PROD_PILLS.querySelectorAll("button").forEach(function (btn) {
+        btn.addEventListener("click", function () {
+            PROD_PILLS.querySelectorAll("button").forEach(function (b) {
+                b.classList.remove("active");
+            });
+            btn.classList.add("active");
+            product = btn.dataset.prod;
+            render();
+        });
+    });
+    BR_PILLS.querySelectorAll("button").forEach(function (btn) {
+        btn.addEventListener("click", function () {
+            BR_PILLS.querySelectorAll("button").forEach(function (b) {
+                b.classList.remove("active");
+            });
+            btn.classList.add("active");
+            bracket = parseInt(btn.dataset.br, 10);
+            render();
+        });
+    });
+    [N_EL, ACCT_EL, MOVE_EL].forEach(function (el) {
+        el.addEventListener("input", render);
+    });
+
+    applyI18n();
+
+    function reportHeight() {
+        try {
+            var h = Math.ceil(document.documentElement.scrollHeight);
+            parent.postMessage({ type: "lesson-interactive-resize", height: h }, "*");
+        } catch (e) { /* ignore */ }
+    }
+    if (typeof ResizeObserver !== "undefined") {
+        new ResizeObserver(reportHeight).observe(document.body);
+    }
+    window.addEventListener("resize", reportHeight);
+
+    // Theme observer.
+    var mo = new MutationObserver(function () { render(); reportHeight(); });
+    mo.observe(document.documentElement, { attributes: true, attributeFilter: ["data-theme"] });
+
+    render();
+    setTimeout(reportHeight, 50);
+    setTimeout(reportHeight, 300);
+})();
+</script>
+</body>
+</html>

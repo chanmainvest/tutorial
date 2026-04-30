@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Week 29: The Option Greeks - Measuring and Managing Risk - Chanma Investment Tutorial</title>
+    <title>Week 29: The Greeks - Delta, Gamma, Theta, Vega, Rho - Chanma Investment Tutorial</title>
     <script>(function(){try{var t=localStorage.getItem('preferred-theme');if(!t){t=window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();</script>
     <style>
 :root, html[data-theme="light"] {
@@ -1247,791 +1247,619 @@ html[data-theme="dark"] .nav-btn:hover .btn-label { color: rgba(15,23,36,0.7); }
     <main class="main-wrap">
         <div class="content-area">
             <div id="content-en" class="lang-content active">
-                <h1>Week 29: The Option Greeks - Measuring and Managing Risk</h1>
-<h2>Reading Section</h2>
-<h3>a) Why This Is Important</h3>
+                <h1>Week 29: The Greeks - Delta, Gamma, Theta, Vega, Rho</h1>
+<hr>
+<h3>1. Why This Is Important</h3>
 <p>
-In Weeks 25 through 28, you learned how to use options as tools: buying calls and puts, selling covered calls, and selling cash-secured puts. You understood the basic mechanics of how options work. But knowing how to drive a car is different from understanding the dashboard. The Greeks are your dashboard. They tell you exactly how your options position will behave when market conditions change.
+Weeks 25-28 taught you the <em>mechanics</em> of options: what a call is, what a
+put is, how to sell a covered call against stock you own, how to sell a
+cash-secured put against cash you would deploy anyway. You can already
+open positions and you understand the payoff diagrams at expiration.
+What you cannot yet do is answer the questions a position asks of you
+<em>before</em> expiration: the underlying moved $2 today, why did my call only
+go up $0.40? I sold a put two weeks ago, the stock has not moved, why
+am I up half my premium already? The S&P is flat and the VIX collapsed
+five points, why did my long call get crushed? Each of these is a Greek
+question, and the Greeks have closed-form answers.
 </p>
 <p>
-<strong>Why every options trader needs to understand the Greeks:</strong>
+The Greeks are the partial derivatives of the Black-Scholes premium
+with respect to each of its inputs. That is a sentence calculus
+students recognise; for everyone else the practical translation is:
+*how much does the option's price change when one input moves and
+everything else stays put?* Five inputs matter (spot, time, vol, rate,
+and the strike, which does not move), so there are five Greeks. They
+are not optional reading - by Week 30 we layer multiple options into
+spreads and condors, and a spread is exactly a *combination of Greek
+exposures* designed to isolate one risk while neutralising another.
+You cannot think about a vertical or an iron condor coherently without
+delta, gamma, theta, and vega in your head.
 </p>
 <p>
-<strong>1. Without the Greeks, you are flying blind.</strong> Suppose you sell a covered call and the stock moves up $3. How much did your call option lose? How much did it gain from time passing overnight? How much will it change if implied volatility drops by 2%? Without the Greeks, you are guessing. With the Greeks, you can answer each of these questions with precision. Professional options traders never enter a position without knowing their Greek exposures. Neither should you.
+Four reasons to put the work in:
+</p>
+<li><strong>Greeks turn confusion into accounting.</strong> When a position behaves</li>
+<p>
+in a way you did not expect, the Greeks decompose the surprise into
+line items: *delta P&L plus gamma P&L plus theta P&L plus vega P&L
+plus rho P&L equals what your account did today.* That decomposition
+is the difference between "options are weird" and "options are
+measured."
+</p>
+<li><strong>Greeks let you size by risk, not by ticket count.</strong> "I sold three</li>
+<p>
+calls" is not a position description. "I am short 150 deltas, long
+$9 of theta per day, short $40 of vega per vol-point" is. The first
+tells you nothing about how the position breathes; the second lets
+you compare the trade to every other trade in your book on the
+same dimensions.
+</p>
+<li><strong>Greeks expose the second-order risk that kills option sellers.</strong></li>
+<p>
+Theta-collectors (covered calls, cash-secured puts, condors)
+sound like an income strategy and feel like an income strategy
+right up until volatility expands. The position is short vega and
+short gamma; both work against you when realised volatility ticks
+higher. SOUL #6 - vol-tail-wags-dog - is fundamentally a statement
+about gamma and vega risk that the Greek decomposition makes
+literal.
+</p>
+<li><strong>Greeks are the language of every advanced lesson that follows.</strong></li>
+<p>
+Spreads (Week 30), LEAPS (Week 38), the VIX (Week 40), volatility
+surfaces, and the entire side25 lesson on second-order Greeks all
+assume you can think <em>natively</em> in Δ, Γ, Θ, ν. This week is the
+foundation those lessons build on.
 </p>
 <p>
-<strong>2. The Greeks explain why your position made or lost money.</strong> Many beginning options traders are confused when their call option does not go up even though the stock went up. Or they are puzzled when their put option lost value despite the stock dropping. The Greeks explain these apparent paradoxes. Perhaps volatility crushed offset the directional gain. Perhaps time decay ate through the premium. Understanding the Greeks turns confusion into clarity.
-</p>
-<p>
-<strong>3. The Greeks allow you to manage risk before it becomes a problem.</strong> If you know your portfolio has a delta of +500, you know you will gain approximately $500 if the market goes up $1 and lose approximately $500 if the market drops $1. If that exposure is too large, you can adjust before the market moves, not after. Risk management is the difference between professional trading and gambling.
-</p>
-<p>
-<strong>4. The Greeks connect to everything that follows.</strong> Weeks 30 (spreads and condors), 37 (options leverage), 38 (LEAPS), and 40 (VIX and volatility) all assume you can think in terms of Greeks. Spreads are fundamentally about combining Greek exposures. Volatility trading is impossible without understanding vega. LEAPS analysis relies on understanding how delta and theta behave at long durations. This week is the foundation for all advanced options material.
-</p>
-<p>
-<strong>5. The Greeks give you a common language with the market.</strong> When financial media says "gamma squeeze" or "vega risk," you will know exactly what they mean. When your brokerage platform displays Greek values, you will know how to interpret them. You become conversant in the professional language of options.
-</p>
-<p>
-We will cover all five major Greeks: delta, gamma, theta, vega, and rho. We will also explore how they interact with each other and how to use them for practical position management. By the end of this lesson, you will be able to look at any options position and understand exactly what risks you are taking and how the position will behave as markets move.
+We will derive each Greek from Black-Scholes, work a single example
+end-to-end on a $100 stock with a 30-day at-the-money call, look at
+how each Greek moves with spot and with time, and then translate the
+Greek profiles into how the four conservative strategies from Weeks
+25-28 actually breathe in your account.
 </p>
 <hr>
-<h3>b) What You Need to Know</h3>
-<h4>Overview of the Greeks</h4>
+<h3>2. What You Need to Know</h3>
+<h4>2.1 The Five Greeks at a Glance</h4>
 <p>
-The Greeks are sensitivity measures. Each Greek tells you how much an option's price will change when one specific input changes, holding everything else constant. They are partial derivatives for those who remember calculus, but you do not need calculus to use them effectively.
+There are five primary Greeks. Each is a partial derivative of the
+option premium $P$ with respect to one input, holding the other four
+fixed. The standard symbols and what they measure:
 </p>
-<pre><code class="language-">THE FIVE MAJOR GREEKS:
 <p>
-Greek    Measures Sensitivity To     Range (Long Call)    Analogy
-=====    =========================  ==================   ==============
-Delta    Stock price movement        0 to +1.0           Speedometer
-Gamma    Change in delta             Always positive      Acceleration
-Theta    Time passing                Always negative      Melting ice
-Vega     Implied volatility change   Always positive      Weather vane
-Rho      Interest rate change        Small positive       Thermostat
+$$
+\Delta = \frac{\partial P}{\partial S} \qquad
+\Gamma = \frac{\partial^2 P}{\partial S^2} \qquad
+\Theta = \frac{\partial P}{\partial t} \qquad
+\nu = \frac{\partial P}{\partial \sigma} \qquad
+\rho = \frac{\partial P}{\partial r}
+$$
 </p>
 <p>
-NOTE: These are for LONG calls. Signs flip for short positions
-and some flip for puts vs. calls (see detailed sections below).
-</code></pre>
+Plain English, in order: delta is the option's <em>speedometer</em> (how
+much premium changes per $1 of spot), gamma is its <em>acceleration</em>
+(how much delta itself changes per $1 of spot), theta is its
+<em>time-decay clock</em> (how much premium melts per calendar day), vega
+is its <em>vol-sensitivity</em> (how much premium changes per one
+percentage-point move in implied volatility), and rho is its
+<em>rate-sensitivity</em> (how much premium changes per one percentage-
+point move in the risk-free rate).
 </p>
 <p>
-Think of it this way. If an option is a car, delta tells you how fast you are going (speed), gamma tells you how quickly your speed is changing (acceleration), theta tells you how much fuel you burn per hour (cost of time), vega tells you how sensitive you are to road conditions (volatility), and rho tells you how much the air temperature matters (interest rates, usually minor).
+There is a caution about units before we go further. Brokerage
+platforms quote theta as <em>per calendar day</em> (annual theta divided by
+365), vega as <em>per one volatility point</em> (vega divided by 100), and
+rho as <em>per one percentage-point of rate</em> (also divided by 100).
+Black-Scholes-the-formula gives them in continuous-time, per-unit
+form; everything in this lesson is in the <em>broker-quoted, practical</em>
+form because that is what your trading screen will show you.
 </p>
-<h4>Delta: Directional Exposure</h4>
+<h4>2.2 The Black-Scholes Engine, in One Box</h4>
 <p>
-Delta is the most important Greek for most investors. It measures how much an option's price changes when the underlying stock moves by $1.
+For a non-dividend-paying European call with spot $S$, strike $K$,
+time-to-expiry $T$ (in years), implied vol $\sigma$, and risk-free
+rate $r$:
 </p>
-<pre><code class="language-">DELTA VALUES:
 <p>
-Long Call:  Delta ranges from 0 to +1.0
-Long Put:   Delta ranges from -1.0 to 0
-Short Call: Delta ranges from -1.0 to 0
-Short Put:  Delta ranges from 0 to +1.0
+$$
+d_1 = \frac{\ln(S/K) + (r + \tfrac{1}{2}\sigma^2)T}{\sigma \sqrt{T}}, \qquad
+d_2 = d_1 - \sigma \sqrt{T}
+$$
 </p>
 <p>
-STOCK (for reference):
-Long 100 shares  = Delta of +100 (or +1.0 per share)
-Short 100 shares = Delta of -100 (or -1.0 per share)
-</code></pre>
+$$
+C = S \, N(d_1) - K e^{-rT} N(d_2)
+$$
 </p>
 <p>
-<strong>Example:</strong> If a call option has a delta of 0.60, it will gain approximately $0.60 when the stock goes up $1, and lose approximately $0.60 when the stock drops $1. Since one contract controls 100 shares, the contract gains or loses about $60 per $1 stock move.
+where $N(\cdot)$ is the standard-normal CDF. Each Greek then has a
+closed form:
 </p>
-<pre><code class="language-">DELTA AND MONEYNESS:
 <p>
-Stock Price = $150
+$$
+\Delta_{\text{call}} = N(d_1), \qquad
+\Gamma = \frac{\varphi(d_1)}{S \sigma \sqrt{T}}
+$$
 </p>
 <p>
-Deep ITM Call ($120 strike):   Delta ~ 0.95
-ITM Call ($140 strike):        Delta ~ 0.75
-ATM Call ($150 strike):        Delta ~ 0.50
-OTM Call ($160 strike):        Delta ~ 0.30
-Deep OTM Call ($180 strike):   Delta ~ 0.05
+$$
+\Theta_{\text{call}} = -\frac{S \varphi(d_1) \sigma}{2\sqrt{T}}
 </p>
+<ul><li>r K e^{-rT} N(d_2)</li>
 <p>
-Delta Curve for a Call Option:
+</ul>$$
 </p>
 <p>
-Delta
-1.0 |                                      ___________
-|                                  ___/
-0.8 |                              ___/
-|                          ___/
-0.6 |                      ___/
-|                  ___/
-0.4 |              ___/
-|          ___/
-0.2 |      ___/
-|  ___/
-0.0 |_/
-+----+----+----+----+----+----+----+----+----+----
-80   90  100  110  120  130  140  150  160  170
-Stock Price
-(Strike = $130)
-</code></pre>
+$$
+\nu = S \varphi(d_1) \sqrt{T}, \qquad
+\rho_{\text{call}} = K T e^{-rT} N(d_2)
+$$
 </p>
 <p>
-<strong>Delta as Probability Approximation:</strong> Delta roughly approximates the probability that the option will expire in the money. A delta of 0.30 suggests roughly a 30% chance of expiring ITM. This is not mathematically precise (delta and probability of ITM are calculated differently), but it is a useful mental shortcut.
+Here $\varphi(x) = \frac{1}{\sqrt{2\pi}} e^{-x^2/2}$ is the standard-
+normal density. For puts, delta becomes $N(d_1) - 1$, the rho term
+flips sign and uses $-N(-d_2)$, and the second term in theta flips
+sign; gamma and vega are <em>identical</em> for calls and puts at the same
+strike (this is one of the cleanest facts in option pricing - any
+asymmetry between calls and puts at the same strike has to live in
+delta, theta-via-rate, or rho).
 </p>
 <p>
-<strong>Delta as Share Equivalence:</strong> Delta tells you how many shares your option behaves like. Owning one call with a delta of 0.50 is roughly equivalent to owning 50 shares. This concept is called the "delta-equivalent position."
+You do not need to memorise these. You need to recognise that every
+Greek is just one input changing and the rest held fixed - and that
+the closed forms make every panel of every chart in this lesson a
+two-line Python function.
 </p>
-<pre><code class="language-">DELTA-EQUIVALENT POSITIONS:
+<h4>2.3 The Worked Example - $100 Stock, 30-Day ATM Call</h4>
 <p>
-Position                         Delta    Equivalent To
-==============================   =====    ======================
-Long 1 ATM Call (delta 0.50)     +50      Long 50 shares
-Long 2 ATM Calls (delta 0.50)   +100     Long 100 shares
-Long 1 ITM Call (delta 0.80)     +80      Long 80 shares
-Short 1 ATM Put (delta -0.50)    +50      Long 50 shares
-Covered Call (stock + short       +30      Long 30 shares
-ATM call: +100 + (-70))
-</code></pre>
+Spot $S = \$100$, strike $K = \$100$, expiry in 30 calendar days
+($T = 30/365 \approx 0.0822$ years), implied vol $\sigma = 20\%$,
+risk-free rate $r = 4\%$. Plugging into the formulas:
 </p>
-<h4>Gamma: The Rate of Change of Delta</h4>
+<table><thead><tr><th>Quantity</th><th>Value</th></tr></thead><tbody><tr><td>$d_1$</td><td>$0.086$</td></tr><tr><td>$d_2$</td><td>$0.029$</td></tr><tr><td>$N(d_1)$</td><td>$0.534$</td></tr><tr><td>$N(d_2)$</td><td>$0.511$</td></tr><tr><td>Call premium $C$</td><td>$\$2.45$</td></tr><tr><td><strong>Delta</strong></td><td><strong>+0.534</strong></td></tr><tr><td><strong>Gamma</strong></td><td><strong>+0.069</strong></td></tr><tr><td><strong>Theta / day</strong></td><td><strong>-$0.044</strong></td></tr><tr><td><strong>Vega / 1 vol-pt</strong></td><td><strong>+0.114</strong></td></tr><tr><td><strong>Rho / 1% rate</strong></td><td><strong>+0.042</strong></td></tr></tbody></table>
 <p>
-Gamma measures how much delta changes when the stock price moves by $1. If delta is speed, gamma is acceleration. Gamma tells you how quickly your directional exposure is shifting.
+Read those rows like a position briefing. The call costs $2.45.
+For every $1 the stock moves up, the call gains roughly $0.53
+(delta). For every additional $1 of upside <em>after</em> that first dollar,
+the option gains another ~$0.07 <em>more</em> than the previous dollar
+(gamma). One day passing costs you 4.4 cents per share even if
+nothing else changes (theta). If implied vol ticks up from 20% to
+21%, you make 11 cents (vega). If the Fed surprised the market by
+hiking rates 100 basis points overnight (it does not), you would
+make about 4 cents (rho). Multiply every dollar by 100 because one
+contract controls 100 shares: this $2.45 option is a $245 ticket
+with a $53 / $1-stock-move directional exposure.
 </p>
-<pre><code class="language-">GAMMA BEHAVIOR:
 <p>
-Gamma is HIGHEST for:
+[image: image/week29_greeks_vs_spot.png — The four primary Greeks
+plotted across spot for this same option.]
 </p>
-<ul><li>At-the-money options (delta ~ 0.50)</li>
-<li>Options near expiration (&lt; 7 days)</li>
-<li>Lower volatility environments</li>
+<h4>2.4 Delta - Direction and "Probability ITM"</h4>
 <p>
-</ul>
-Gamma is LOWEST for:
+Delta is the most-used Greek. It tells you the *equivalent stock
+position* the option behaves like, and it doubles as a quick-and-
+dirty estimate of the probability the option finishes in the money.
 </p>
-<ul><li>Deep ITM or deep OTM options</li>
-<li>Options far from expiration (&gt; 90 days)</li>
-<li>Higher volatility environments</li>
 <p>
-</ul>
-Gamma Profile by Moneyness (30 days to expiration):
+Three ways to read the same number:
 </p>
+<ul><li><strong>As a hedge ratio.</strong> A call with $\Delta = 0.50$ moves like</li>
 <p>
-Gamma
-0.05 |
-|           <strong>*</strong>
-0.04 |        <strong><em>     </em></strong>
-|      <strong>           </strong>
-0.03 |    <strong>               </strong>
-|   <em>                   </em>
-0.02 |  <em>                     </em>
-| <em>                       </em>
-0.01 |<em>                         </em>
-|                           *
-0.00 +----+----+----+----+----+----
-80   90  100  110  120  130  140
-Stock Price
-(Strike = $110)
-</code></pre>
+</ul>  half a share of stock. To hedge ten such calls (1,000 share-
+equivalents) to delta-neutral, you sell 500 shares against them.
 </p>
+<ul><li><strong>As a directional exposure.</strong> A portfolio of options with net</li>
 <p>
-<strong>Why Gamma Matters:</strong>
+</ul>  delta $+150$ behaves like 150 shares of the underlying for small
+moves. If the stock moves up $1 you make ~$150; if it moves
+down $1 you lose ~$150.
 </p>
+<ul><li><strong>As a probability proxy.</strong> Under Black-Scholes, $N(d_1)$ and</li>
 <p>
-When you are long gamma (bought options), delta moves in your favor. If the stock goes up, your delta increases and you make more on further upside. If the stock goes down, your delta decreases and you lose less on further downside. Long gamma is like having a built-in adjustment mechanism.
+</ul>  $N(d_2)$ are <em>not the same probability</em>; the true risk-neutral
+probability of finishing ITM is $N(d_2)$, not delta. But the two
+are close for ATM options - close enough that traders quote
+"30-delta put" and "30% chance of expiring ITM" interchangeably,
+which is fine for quick decisions and wrong for anything
+requiring three decimals.
 </p>
 <p>
-When you are short gamma (sold options), delta moves against you. If the stock goes up, your short call becomes more negative delta (you are increasingly short). If the stock drops, your short put becomes more positive delta (you are increasingly long a falling stock). Short gamma is the risk sellers take in exchange for collecting premium.
+Delta runs from 0 to +1 for calls and 0 to -1 for puts. ATM
+options have $|\Delta| \approx 0.5$. Deep ITM calls converge to
++1 (they behave like the underlying). Deep OTM calls converge to
+0 (they behave like nothing).
 </p>
-<pre><code class="language-">GAMMA EFFECT ON DELTA:
+<h4>2.5 Gamma - The Curvature That Bites Sellers</h4>
 <p>
-Example: AAPL ATM Call, Strike $150, Delta = 0.50, Gamma = 0.03
+Gamma is the <em>rate of change of delta</em> per $1 move in the underlying.
+Two facts about gamma drive the bulk of Greek-aware risk management:
 </p>
+<li><strong>Gamma peaks at-the-money.</strong> Delta is most rapidly changing where</li>
 <p>
-Stock moves UP $1 to $151:
-New Delta = 0.50 + 0.03 = 0.53
-The option now moves $0.53 for each additional $1 up
+the option is closest to flipping between "expiring in" and
+"expiring out". Far ITM and far OTM options have stable deltas
+(near 1 and near 0 respectively); ATM options have delta that
+ricochets with every dollar of spot.
 </p>
+<li><strong>Gamma explodes near expiry.</strong> As $T \to 0$, the gamma of an</li>
 <p>
-Stock moves DOWN $1 to $149:
-New Delta = 0.50 - 0.03 = 0.47
-The option now moves $0.47 for each additional $1 down
+ATM option diverges. A 30-day ATM call has gamma ~0.07; a 1-day
+ATM call can have gamma north of 1.0. This is why the last
+week before expiry is qualitatively different from any earlier
+week and why option sellers either close or roll before they
+carry a short ATM strike into expiration week.
 </p>
 <p>
-Stock moves UP $5 to $155:
-Delta shifts from 0.50 toward ~0.65 (gamma adds ~0.03 per $1)
-The option acts increasingly like stock on the way up
+Long gamma (you bought the option) is good news on a move - your
+delta moves with you. Stock rallies → your call's delta climbs from
+0.50 toward 0.70, so you participate more in further upside. Stock
+drops → delta falls toward 0.30, so you bleed less on further
+downside. <em>Long gamma decelerates losses and accelerates gains.</em>
+That is what you are paying theta for.
 </p>
 <p>
-Stock moves DOWN $5 to $145:
-Delta shifts from 0.50 toward ~0.35
-The option becomes less sensitive on the way down
+Short gamma (you sold the option) is the mirror image. Stock rallies
+against your short call → your delta gets <em>more</em> short, so each
+additional dollar of upside hurts more. Stock drops against your
+short put → your delta gets <em>more</em> long, so each additional dollar
+of downside hurts more. SOUL #6 says volatility-tails wag the dog;
+<em>the mechanism is short gamma</em>. The position looks like steady
+income at low realised vol and bleeds at compounding speed when
+vol arrives.
 </p>
+<h4>2.6 Theta - The Cost of Carrying Time</h4>
 <p>
-This is the beauty of long gamma: you accelerate into winners
-and decelerate into losers.
-</code></pre>
+Theta is negative for long options (you lose value each calendar
+day) and positive for short options (you collect each calendar day).
+Three things to know about theta:
 </p>
+<li><strong>Theta is highest at-the-money.</strong> Same logic as gamma - the</li>
 <p>
-<strong>Gamma Risk Near Expiration:</strong>
+ATM option has the most extrinsic value to lose, so the daily
+melt is biggest there in absolute dollars. ITM and OTM options
+have less extrinsic to lose, so their theta is smaller.
 </p>
+<li><strong>Theta accelerates as expiry approaches.</strong> A 90-day ATM call</li>
 <p>
-Gamma explodes near expiration for at-the-money options. This is why expiration week is dangerous for option sellers. An ATM option with one day to expiration might have a gamma of 0.15 or higher, meaning delta swings wildly with small stock moves.
+loses theta at maybe $0.013 per day; a 30-day ATM call loses
+$0.04 per day; a 7-day ATM call loses $0.10 per day; a 1-day
+ATM call can lose $0.20 per day or more. The decay is non-
+linear - roughly <em>two-thirds</em> of a 90-day ATM call's premium
+is gone by the time DTE hits 30.
 </p>
-<pre><code class="language-">GAMMA BY TIME TO EXPIRATION (ATM Option):
+<li><strong>Theta and gamma are joined at the hip.</strong> A position cannot</li>
 <p>
-Days to Exp    Gamma      Interpretation
-===========    =====      ====================================
-90 days        0.012      Delta changes slowly, stable position
-60 days        0.015      Moderate delta sensitivity
-30 days        0.022      Delta becoming more reactive
-14 days        0.035      Noticeable delta swings on moves
-7 days         0.055      Delta is quite jumpy
-3 days         0.090      Delta swings significantly
-1 day          0.180      Delta is extremely unstable
-Expiration     HUGE       ATM option flips between 0 and 1.0
-</code></pre>
+be long gamma without paying theta and cannot be short gamma
+without collecting theta. The arbitrage-free price of carrying
+gamma is theta. *That trade-off is what option-selling income
+strategies are.*
 </p>
-<h4>Theta: Time Decay</h4>
 <p>
-Theta measures how much an option's price decreases as one day passes, all else being equal. We introduced this concept in Week 25, but now we quantify it precisely.
+[image: image/week29_theta_decay.png — Theta acceleration and
+the corresponding premium decay curve from 90 DTE down to 1 DTE
+on the same ATM call.]
 </p>
-<pre><code class="language-">THETA CHARACTERISTICS:
 <p>
-Long options:  Theta is NEGATIVE (you lose money each day)
-Short options: Theta is POSITIVE (you earn money each day)
+The 30-45 DTE window is the conventional sweet spot for theta-
+collectors. Earlier than that, daily decay is small relative to
+premium received; later than that, gamma starts to bite and the
+position swings around violently with small spot moves. Weeks 27
+and 28 used 30-45 DTE for exactly this reason - now you can see
+on the chart why.
 </p>
+<h4>2.7 Vega - The Greek That Hides In Plain Sight</h4>
 <p>
-Theta is LARGEST (most negative) for:
+Vega is the change in premium per <em>one percentage point</em> move in
+implied vol. It is positive for <em>both</em> long calls and long puts
+(buyers benefit when vol expands), negative for both short calls
+and short puts (sellers benefit when vol contracts).
 </p>
-<ul><li>At-the-money options</li>
-<li>Options near expiration</li>
-<li>High implied volatility options</li>
 <p>
-</ul>
-Theta Decay Curve (ATM Option, $5.00 initial premium):
+Three properties:
 </p>
+<li><strong>Vega peaks at-the-money</strong> - same shape as gamma.</li>
+<li><strong>Vega is largest for <em>long-dated</em> options.</strong> This is the</li>
 <p>
-Value
-$5 |*
-| *
-$4 |  *
-|   *
-$3 |    **
-|      **
-$2 |        <em>*</em>
-|           <em>*</em>
-$1 |              <strong>*</strong>
-|                   <strong><em><em></em></strong></em>*
-$0 +----+----+----+----+----+----
-90   75   60   45   30   15   0
-Days to Expiration
-</code></pre>
+cleanest counter-example to "all Greeks behave like gamma":
+gamma peaks near expiry, vega peaks far from expiry. A 1-year
+ATM option might have vega ~$0.40; a 30-day ATM option ~$0.11;
+a 1-day ATM option ~$0.02. Long-duration options are *vol
+instruments* almost more than they are direction instruments.
 </p>
+<li><strong>Vol crush is a vega event.</strong> When you buy an option ahead of</li>
 <p>
-<strong>Theta as Daily Cost:</strong>
+earnings and IV ranks at the 90th percentile, you are buying
+30-50 vega-points of "earnings premium" that the market will
+evaporate the moment the print drops. The stock can move
+exactly the way you predicted and you can still lose money,
+because the directional gain (delta + gamma) does not cover
+the vega loss. Beginners learn this once.
 </p>
 <p>
-If theta is -$0.05, the option loses $0.05 per share per day, or $5.00 per contract per day. Over a weekend (two non-trading days), the option loses approximately $10.00.
+Vega-aware position management is what separates *income
+strategies<em> from </em>vol strategies*. A covered call sold at 15% IV
+in a calm market has small vega; the same covered call sold at
+40% IV during a market panic has large negative vega and can
+print you a fast profit if vol mean-reverts even with the stock
+unchanged. Side25 develops this further.
 </p>
-<pre><code class="language-">THETA BY STRIKE AND EXPIRATION (Stock at $150):
+<h4>2.8 Rho - The Greek You Mostly Ignore</h4>
 <p>
-30 Days to Expiration:
-Strike    Type    Premium    Theta/Day    Days to Lose 50%
-======    ====    =======    =========    ================
-$140      Call    $12.50     -$0.03       ~208 days (deep ITM)
-$145      Call    $8.20      -$0.05       ~82 days
-$150      Call    $5.00      -$0.08       ~31 days
-$155      Call    $2.80      -$0.07       ~20 days
-$160      Call    $1.20      -$0.04       ~15 days
+Rho measures sensitivity to the risk-free rate. For a 30-day ATM
+call on a $100 stock, rho is about $0.04 per 1% rate move - so
+even a Fed-meeting-day swing of 25 bp moves the option's price
+by about a <em>penny</em>. For most retail option positions on most days
+of most months, rho is a rounding error.
 </p>
 <p>
-NOTE: ATM options have highest absolute theta, but OTM options
-lose a higher PERCENTAGE of their value per day.
+When does rho actually matter?
 </p>
+<li><strong>LEAPS</strong> - long-dated equity options (1-3 year expiries) have</li>
 <p>
-7 Days to Expiration:
-Strike    Type    Premium    Theta/Day    % Lost/Day
-======    ====    =======    =========    ==========
-$145      Call    $5.80      -$0.04       0.7%
-$150      Call    $1.80      -$0.18       10.0%
-$155      Call    $0.40      -$0.10       25.0%
+rho large enough to register. A 2-year ATM LEAPS call on a
+$100 stock has rho near $1.40 per 1% rate move - that <em>is</em>
+meaningful.
 </p>
+<li><strong>Regime transitions.</strong> When the Fed is moving 75 bp at a</li>
 <p>
-ATM theta TRIPLES in the last week compared to 30 days out.
-</code></pre>
+meeting (think Q1 2022 or Q3 2025), even short-dated rho
+compounds across positions in a way you should at least be
+aware of.
 </p>
 <p>
-<strong>Why Theta Matters for Strategy Selection:</strong>
+Outside those, rho lives at the back of the dashboard. We mention
+it for completeness; we do not optimise around it.
 </p>
+<h4>2.9 How the Greeks Drive the Strategies You Already Know</h4>
 <p>
-When you sell options (covered calls, cash-secured puts), theta is your profit engine. You want maximum theta, which means selling ATM or slightly OTM options with 30-45 days to expiration. When you buy options, theta is your cost of doing business. You want to minimize it by buying longer-dated options or ITM options (higher percentage of intrinsic value, less extrinsic to decay).
+The four conservative strategies from Weeks 25-28 each have a
+characteristic Greek signature. Knowing it lets you predict how
+each will breathe.
 </p>
-<h4>Vega: Volatility Sensitivity</h4>
 <p>
-Vega measures how much an option's price changes when implied volatility changes by one percentage point. Unlike delta and theta, vega is the same sign for both calls and puts.
+<strong>Long calls (Week 25/26):</strong> $\Delta > 0$, $\Gamma > 0$, $\Theta < 0$,
+$\nu > 0$. You are paying theta and rho-bleed every day for the
+right to participate in upside <em>and</em> benefit from a vol expansion.
+This is a directional + vol bet wearing a leverage costume.
 </p>
-<pre><code class="language-">VEGA CHARACTERISTICS:
 <p>
-Long options (calls or puts):  Vega is POSITIVE
--&gt; You benefit when IV rises, you lose when IV falls
+<strong>Long puts (Week 25):</strong> $\Delta < 0$, $\Gamma > 0$, $\Theta < 0$,
+$\nu > 0$. Same Greek shape as a long call but with negative delta -
+you are buying <em>insurance</em> against a drawdown, and the vega
+component is precisely the reason puts get more expensive <em>during</em>
+a sell-off (vol expands, vega works in your favour, but you
+already paid for the put before the move).
 </p>
 <p>
-Short options (calls or puts): Vega is NEGATIVE
--&gt; You benefit when IV falls, you lose when IV rises
+<strong>Covered calls (Week 27):</strong> stock + short call. Net Greek:
+$\Delta \approx 100 - 50 = +50$ per share-pair, $\Gamma < 0$ (small),
+$\Theta > 0$ (you collect daily), $\nu < 0$ (small). You have
+muted upside, retained most of the downside, and traded both for
+a steady theta drip. SOUL #15 - the income SHOULD count as a tax-
+shifting tool, not as alpha.
 </p>
 <p>
-Vega is LARGEST for:
+<strong>Cash-secured puts (Week 28):</strong> short put + cash. Net Greek:
+$\Delta \approx +50$ per contract (similar directional exposure
+to a covered call), $\Gamma < 0$, $\Theta > 0$, $\nu < 0$. The
+trade is <em>equivalent</em> to a covered call by put-call parity - same
+Greek skeleton, same risk profile, same theta engine. The
+brokerage-margin treatment differs, the strategic logic does not.
 </p>
-<ul><li>At-the-money options</li>
-<li>Options with MORE time to expiration (opposite of theta!)</li>
-<li>Higher-priced stocks (in absolute terms)</li>
 <p>
-</ul></code></pre>
+<strong>Iron condors and verticals (Week 30, preview):</strong> combinations
+designed to be <em>delta-neutral</em> and *short gamma + short vega +
+long theta*. The trade is "I think realised vol will be lower
+than implied vol." The Greeks let you measure exactly how much
+vol-edge you need to break even.
 </p>
-<pre><code class="language-">VEGA EXAMPLE:
 <p>
-AAPL $150 Call, 30 days to expiration
-Current IV = 25%, Premium = $4.00, Vega = $0.10
+The interactive at the end of this lesson lets you set spot,
+strike, DTE, vol, and rate, and watch all five Greeks live as
+sliders move - including a chart that sweeps the chosen Greek
+across spot. *Drag the DTE slider and watch gamma climb at the
+strike; that is the entire risk profile of selling weekly options
+in one animation.*
 </p>
 <p>
-If IV rises from 25% to 27% (+2 points):
-Premium change = +2 x $0.10 = +$0.20
-New premium = $4.20
-</p>
-<p>
-If IV drops from 25% to 22% (-3 points):
-Premium change = -3 x $0.10 = -$0.30
-New premium = $3.70
-</p>
-<p>
-Per contract (100 shares):
-IV up 2 points: gain $20
-IV down 3 points: lose $30
-</code></pre>
-</p>
-<p>
-<strong>Volatility Crush:</strong> This is why vega matters enormously. Before earnings announcements, implied volatility spikes as the market anticipates a big move. After the announcement, IV collapses back to normal levels. This is called "volatility crush" or "IV crush."
-</p>
-<pre><code class="language-">VOLATILITY CRUSH EXAMPLE:
-<p>
-AAPL $150 Call, 7 days before earnings:
-IV = 45%, Premium = $6.00, Vega = $0.08
-</p>
-<p>
-AAPL reports earnings. Stock moves from $150 to $153 (+$3).
-But IV drops from 45% to 28% (-17 points).
-</p>
-<p>
-Delta gain:  +$3 x 0.50 delta = +$1.50
-Vega loss:   -17 x $0.08 vega  = -$1.36
-Theta loss:  -1 day x $0.15    = -$0.15
-</p>
-<p>
-Net change: +$1.50 - $1.36 - $0.15 = -$0.01
-</p>
-<p>
-THE STOCK WENT UP $3 AND THE CALL OPTION BROKE EVEN.
-</p>
-<p>
-This is vega at work. Many beginners buy calls before earnings,
-correctly predict the direction, and STILL lose money because
-they did not account for volatility crush.
-</code></pre>
-</p>
-<pre><code class="language-">VEGA BY TIME TO EXPIRATION (ATM Option, Stock at $150):
-<p>
-Days to Exp    Vega/1% IV    Premium at 25% IV
-===========    ==========    ==================
-7 days         $0.04         $2.10
-14 days        $0.06         $3.00
-30 days        $0.10         $4.30
-60 days        $0.14         $6.10
-90 days        $0.17         $7.50
-180 days       $0.24         $10.60
-365 days       $0.34         $15.00
-</p>
-<p>
-KEY INSIGHT: Longer-dated options have MORE vega.
-LEAPS are very sensitive to IV changes.
-Short-dated options have LESS vega but MORE gamma.
-</code></pre>
-</p>
-<h4>Rho: Interest Rate Sensitivity</h4>
-<p>
-Rho measures how much an option's price changes when interest rates change by one percentage point. Rho is the least important Greek for most retail traders because interest rates change slowly and the effect is small for short-dated options.
-</p>
-<pre><code class="language-">RHO CHARACTERISTICS:
-<p>
-Long Calls:  Rho is POSITIVE (higher rates -&gt; higher call prices)
-Long Puts:   Rho is NEGATIVE (higher rates -&gt; lower put prices)
-</p>
-<p>
-Why? Higher rates increase the cost of carrying stock.
-A call is a substitute for buying stock, so it becomes
-more valuable when the alternative (buying stock) is more
-expensive to finance.
-</p>
-<p>
-RHO EXAMPLE:
-</p>
-<p>
-AAPL $150 Call, 90 days to expiration, Rho = $0.08
-</p>
-<p>
-If rates rise 1% (e.g., from 4.5% to 5.5%):
-Premium change = +$0.08 per share (+$8 per contract)
-</p>
-<p>
-For LEAPS (365+ days), Rho can be $0.30-$0.50
-For weekly options, Rho is near zero.
-</p>
-<p>
-WHEN RHO MATTERS:
-</p>
-<ul><li>LEAPS positions held during rate-changing cycles</li>
-<li>Large portfolios with significant options exposure</li>
-<li>Periods of rapid Fed rate changes (like 2022-2023)</li>
-<p>
-</ul></code></pre>
-</p>
-<h4>How the Greeks Interact</h4>
-<p>
-The Greeks do not operate in isolation. Real market moves change multiple factors simultaneously, and the Greeks interact with each other in important ways.
-</p>
-<pre><code class="language-">INTERACTION MAP:
-<p>
-+------------------+
-|   STOCK PRICE    |-----&gt; Delta (primary)
-|    changes       |-----&gt; Gamma (adjusts delta)
-+------------------+       Theta (affected by moneyness)
-Vega (affected by moneyness)
-</p>
-<p>
-+------------------+
-|  TIME PASSING    |-----&gt; Theta (primary)
-|                  |-----&gt; Gamma (increases near exp)
-+------------------+       Vega (decreases near exp)
-Delta (ATM stays ~0.50)
-</p>
-<p>
-+------------------+
-|  VOLATILITY      |-----&gt; Vega (primary)
-|   changes        |-----&gt; Delta (shifts toward 0.50)
-+------------------+       Gamma (decreases with high IV)
-Theta (increases with high IV)
-</p>
-<p>
-+------------------+
-|  INTEREST RATE   |-----&gt; Rho (primary)
-|   changes        |       (minor interactions with others)
-+------------------+
-</code></pre>
-</p>
-<p>
-<strong>Key Interaction 1: Gamma and Theta are Opposites</strong>
-</p>
-<p>
-This is the most important interaction. Options that have high gamma also have high theta. You cannot get one without the other. This creates a fundamental tradeoff:
-</p>
-<pre><code class="language-">THE GAMMA-THETA TRADEOFF:
-<p>
-Long Options (bought):
-+ Positive Gamma (delta moves in your favor)
-</p>
-<ul><li>Negative Theta (you pay for this benefit daily)</li>
-<p>
-</ul>
-Short Options (sold):
-+ Positive Theta (you earn money daily)
-</p>
-<ul><li>Negative Gamma (delta moves against you)</li>
-<p>
-</ul>
-You CANNOT have positive gamma and positive theta.
-This is the iron law of options.
-</p>
-<p>
-Example: Long ATM Call
-Delta = +0.50, Gamma = +0.03, Theta = -0.08, Vega = +0.10
-</p>
-<p>
-Example: Short ATM Call
-Delta = -0.50, Gamma = -0.03, Theta = +0.08, Vega = -0.10
-</p>
-<p>
-The question every options trader faces:
-"Do I want to pay theta to own gamma, or collect theta
-and accept gamma risk?"
-</code></pre>
-</p>
-<p>
-<strong>Key Interaction 2: Vega and Time</strong>
-</p>
-<p>
-Options with more time have more vega but less gamma. Options with less time have more gamma but less vega. This means the dominant risk factor shifts as expiration approaches.
-</p>
-<pre><code class="language-">DOMINANT RISK BY TIME HORIZON:
-<p>
-Time to Exp     Dominant Greek    Key Risk
-===========     ==============    =========================
-&gt; 60 days       Vega              IV changes drive P&amp;L
-30-60 days      Vega/Theta        Both matter significantly
-14-30 days      Theta/Gamma       Decay accelerates, gamma grows
-&lt; 14 days       Gamma/Theta       Gamma risk dominates
-&lt; 3 days        Gamma             Pure gamma risk for ATM
-</code></pre>
-</p>
-<p>
-<strong>Key Interaction 3: All Greeks in a Real Scenario</strong>
-</p>
-<pre><code class="language-">COMPLETE GREEK ANALYSIS:
-<p>
-Position: Long 5 AAPL $150 Calls, 30 days to expiration
-Stock at $148, IV = 28%
-</p>
-<p>
-Per Contract    x5 Contracts    Meaning
-============    ============    ================================
-Delta: +0.45    +225            ~Equivalent to long 225 shares
-Gamma: +0.025   +12.5           Delta increases 12.5 per $1 up
-Theta: -$0.07   -$35/day        Position costs $35/day to hold
-Vega:  +$0.10   +$50/1% IV      Each 1% IV rise adds $50
-Rho:   +$0.06   +$30/1% rate    Minimal concern
-</p>
-<p>
-SCENARIO A: Stock goes to $153 (+$5), IV stays, 5 days pass
-Delta P&amp;L:  +$5 x 225 = +$1,125 (approximate, delta changes)
-Theta P&amp;L:  -$35 x 5 = -$175
-Gamma adj:  Delta rose from 225 to ~288, accelerating gains
-NET: approximately +$1,050
-</p>
-<p>
-SCENARIO B: Stock stays at $148, IV drops 3%, 5 days pass
-Delta P&amp;L:  $0
-Vega P&amp;L:   -3 x $50 = -$150
-Theta P&amp;L:  -$35 x 5 = -$175
-NET: approximately -$325
-</p>
-<p>
-SCENARIO C: Stock drops to $143 (-$5), IV spikes +5%, 5 days pass
-Delta P&amp;L:  -$5 x 225 = -$1,125 (approximate)
-Vega P&amp;L:   +5 x $50 = +$250
-Theta P&amp;L:  -$35 x 5 = -$175
-Gamma adj:  Delta fell from 225 to ~163, decelerating losses
-NET: approximately -$900 (vega partially offset delta loss)
-</code></pre>
-</p>
-<h4>Practical Position Management Using the Greeks</h4>
-<p>
-Now let us apply the Greeks to the strategies you already know.
-</p>
-<p>
-<strong>Covered Call Greek Profile:</strong>
-</p>
-<pre><code class="language-">COVERED CALL: Long 100 shares + Short 1 ATM Call
-<p>
-Component             Delta    Gamma    Theta    Vega
-====================  ======   ======   ======   ======
-Long 100 shares       +100     0        0        0
-Short 1 ATM Call      -50      -0.025   +0.08    -0.10
----------------------------------------------------------
-NET POSITION          +50      -0.025   +0.08    -0.10
-</p>
-<p>
-Interpretation:
-</p>
-<ul><li>Delta +50: You are still bullish, but only half as much as</li>
-<p>
-</ul>    owning stock outright. You profit from moderate upside.
-</p>
-<ul><li>Gamma -0.025: Delta moves against you on big moves. If stock</li>
-<p>
-</ul>    surges, your net delta SHRINKS (capped upside). If stock
-drops, your net delta GROWS (increasing loss exposure).
-</p>
-<ul><li>Theta +0.08: You earn ~$8/day from time decay. This is your</li>
-<p>
-</ul>    income stream.
-</p>
-<ul><li>Vega -0.10: You benefit from falling IV. If IV drops, your</li>
-<p>
-</ul>    short call loses value (good for you since you sold it).
-</code></pre>
-</p>
-<p>
-<strong>Cash-Secured Put Greek Profile:</strong>
-</p>
-<pre><code class="language-">CASH-SECURED PUT: Cash + Short 1 ATM Put
-<p>
-Component             Delta    Gamma    Theta    Vega
-====================  ======   ======   ======   ======
-Cash                  0        0        0        0
-Short 1 ATM Put       +50      -0.025   +0.08    -0.10
----------------------------------------------------------
-NET POSITION          +50      -0.025   +0.08    -0.10
-</p>
-<p>
-Notice: The Greek profile is nearly IDENTICAL to the covered call.
-This is not a coincidence. Put-call parity tells us that a
-covered call and a cash-secured put at the same strike have
-equivalent risk/reward profiles.
-</code></pre>
-</p>
-<p>
-<strong>Portfolio-Level Greek Management:</strong>
-</p>
-<pre><code class="language-">SAMPLE OPTIONS PORTFOLIO:
-<p>
-Position                          Delta  Gamma  Theta  Vega
-================================  =====  =====  =====  =====
-Long 200 sh AAPL                  +200   0      0      0
-Short 2 AAPL $155 Calls (30d)    -110   -0.06  +0.18  -0.22
-Short 1 MSFT $400 Put (45d)       +40   -0.02  +0.06  -0.12
-Long 3 SPY $520 Puts (60d)       -120   +0.05  -0.15  +0.36
-================================================================
-PORTFOLIO TOTALS                  +10    -0.03  +0.09  +0.02
-</p>
-<p>
-ANALYSIS:
-</p>
-<ul><li>Delta +10:  Nearly neutral. $1 market move = ~$10 P&amp;L.</li>
-<p>
-</ul>                This is a well-hedged portfolio.
-</p>
-<ul><li>Gamma -0.03: Slightly short gamma. Big moves hurt slightly.</li>
-<li>Theta +0.09: Earning ~$9/day net. Positive carry.</li>
-<li>Vega +0.02: Near neutral on IV. Slight benefit if IV rises.</li>
-<p>
-</ul>
-This portfolio earns income from theta while being
-approximately market-neutral. The protective puts offset
-the directional risk of the stock position and short calls.
-</code></pre>
-</p>
-<pre><code class="language-">WHEN TO ADJUST (RULES OF THUMB):
-<p>
-Greek      Warning Level            Adjustment Options
-=====      ====================     ==============================
-Delta      &gt; 70% of portfolio       Sell calls, buy puts, reduce
-value in one direction   stock, add hedges
-</p>
-<p>
-Gamma      High short gamma near    Close or roll positions away
-expiration               from expiration week
-</p>
-<p>
-Theta      Negative theta on a      Switch from buying to selling
-position held for        strategies, or add income
-income generation        overlay
-</p>
-<p>
-Vega       Large vega before        Reduce vega before known
-earnings/events          events, or accept the risk
-</p>
-<p>
-Rho        Only for LEAPS           Factor rate expectations
-portfolios               into LEAPS timing
-</code></pre>
-</p>
-<h4>The Greeks Over the Life of an Option</h4>
-<p>
-Understanding how Greeks evolve is essential for timing entries and exits.
-</p>
-<pre><code class="language-">LIFECYCLE OF AN ATM CALL OPTION:
-<p>
-Day    Delta   Gamma   Theta    Vega     Phase
-====   =====   =====   ======   =====    ================
-90     0.52    0.012   -$0.04   $0.17    Vega-dominant
-75     0.51    0.013   -$0.04   $0.15    Vega still primary
-60     0.51    0.015   -$0.05   $0.14    Transition begins
-45     0.51    0.018   -$0.06   $0.12    Theta growing
-30     0.50    0.022   -$0.08   $0.10    Theta and gamma rise
-21     0.50    0.028   -$0.09   $0.08    Gamma accelerating
-14     0.50    0.035   -$0.11   $0.06    Gamma dominates vega
-7      0.50    0.055   -$0.15   $0.04    High gamma, high theta
-3      0.50    0.090   -$0.22   $0.02    Extreme gamma/theta
-1      0.50    0.180   -$0.40   $0.01    Explosive gamma risk
-0      0/1.0   Inf     N/A      0        Binary outcome
-</p>
-<p>
-MANAGEMENT IMPLICATION:
-</p>
-<ul><li>Sell options 30-45 days out to capture theta efficiently</li>
-<li>Close short options at 50-75% profit or roll before &lt; 14 days</li>
-<li>Avoid holding short ATM options into expiration week</li>
-<li>Buy options farther out (60-90 days) to minimize theta cost</li>
-<p>
-</ul></code></pre>
+[interactive: interactive/week29_greeks_lab.html]
 </p>
 <hr>
-<h3>c) Common Misconceptions</h3>
+<h3>3. Common Misconceptions</h3>
+<li><strong>"Delta is the probability of finishing in the money."</strong> It is</li>
 <p>
-<strong>Misconception 1: "Delta is the probability that the option will expire in the money."</strong>
+<em>close</em>, not equal. The risk-neutral probability of finishing ITM
+is $N(d_2)$, not $N(d_1) = \Delta$. The two diverge when vol or
+time is large. Use delta as a quick proxy; do not bet money on
+it being exact.
 </p>
+<li><strong>"Theta is the same every day."</strong> No. Theta on a 90-day option</li>
 <p>
-Delta approximates this probability but is not equal to it. The mathematical probability of expiring ITM (from the options pricing model) is given by N(d2) in the Black-Scholes formula, while delta is N(d1). For practical purposes, delta is close enough to serve as a quick estimate, but if you need precise probabilities, use your brokerage platform's probability calculator. The difference is largest for high-volatility, long-dated options.
+is small; on a 7-day option it is large. The headline number
+you read at trade entry is <em>today's</em> theta, not the path-average.
+The whole point of the theta-decay chart is that it accelerates.
 </p>
+<li><strong>"If gamma is positive, I always make money on a move."</strong> Long</li>
 <p>
-<strong>Misconception 2: "Theta is constant and predictable."</strong>
+gamma helps you on <em>any</em> move, but you still pay theta to hold
+it. If realised volatility is below implied (i.e. the move is
+smaller than what the option priced in), theta wins and you
+lose. Long gamma is profitable only when realised vol exceeds
+implied vol over the holding period. *Every long-gamma trade is
+implicitly a long-vol trade.*
 </p>
+<li><strong>"Vega and gamma are the same Greek."</strong> They peak at the same</li>
 <p>
-Theta is neither constant nor perfectly predictable. It changes every day based on moneyness, time to expiration, and implied volatility. An option's theta today might be -$0.05 and next week -$0.08. Do not project current theta forward linearly. Also, theta decay does not happen uniformly throughout the trading day. Academic models assume continuous decay, but in practice, much of the daily theta loss is priced in at the overnight close.
+strike (ATM) and have similar bell shapes versus spot, but they
+do <em>opposite</em> things versus time: gamma rises as expiry
+approaches, vega falls. A 1-day ATM option is mostly gamma; a
+1-year ATM option is mostly vega. Confusing them costs money
+when DTE matters.
 </p>
+<li><strong>"Short options have unlimited risk because of theta."</strong> Theta</li>
 <p>
-<strong>Misconception 3: "I should only care about delta because it is the biggest Greek."</strong>
+is <em>positive</em> for short options - it is your friend, not your
+enemy. The unlimited risk on a naked short call comes from
+<em>delta</em> (the underlying can run away from you) compounded by
+<em>gamma</em> (your delta gets shorter as it does). Theta is the
+payment you collect for accepting that risk, not the source
+of it.
 </p>
+<li><strong>"Higher delta is always better for a call buyer."</strong> Higher</li>
 <p>
-For short-term, directional trades, delta is indeed dominant. But for income strategies like covered calls and cash-secured puts, theta is your primary profit driver. For earnings plays, vega may be more important than delta. The "most important" Greek depends entirely on your strategy and time horizon. Professional traders manage all five Greeks simultaneously.
+delta means more directional participation, but it also means
+<em>more capital outlay</em> (deep-ITM calls cost almost as much as
+the stock) and <em>lower vega</em> (you give up the IV-expansion
+bet). The 0.30-0.40 delta range is the conventional "speculative
+long" sweet spot precisely because it balances directional
+exposure against capital efficiency and convex vega payoff.
 </p>
+<li><strong>"Vega only matters around earnings."</strong> It matters every day</li>
 <p>
-<strong>Misconception 4: "The Greeks are exact predictions."</strong>
+any time IV is far from its long-run average. Owning long
+options at 30% IV when the post-FOMC reality is 18% IV is a
+guaranteed slow bleed independent of what the stock does.
+Persistent IV crush is the reason most retail directional
+options trades lose money even when the directional view was
+right.
 </p>
+<li><strong>"Rho is irrelevant."</strong> Almost true for short-dated options;</li>
 <p>
-The Greeks are instantaneous measures based on current conditions and a mathematical model. They change constantly. An option with delta 0.50 now might have delta 0.55 after a $2 stock move, even though the original delta predicted a $1.00 gain on a $2 move ($0.50 x 2). That is gamma at work. The Greeks are first-order approximations, and they work best for small changes over short time periods.
+not true for LEAPS. A 2-year ATM call on a $200 stock has
+meaningful rho. If you trade LEAPS without checking rho, you
+are leaving exposure unmonitored.
 </p>
+<li>**"I can ignore the Greeks because my broker shows me a P&L</li>
 <p>
-<strong>Misconception 5: "Selling options is free money because of positive theta."</strong>
+chart."** A P&L chart at expiration is one slice of a five-
+dimensional surface. Greeks tell you the <em>path</em> between today
+and expiration. The chart tells you what happens <em>only</em> if you
+hold to the bell. Most positions are closed before that.
 </p>
+<li><strong>"The Greeks are too mathematical for retail traders."</strong> The</li>
 <p>
-Positive theta is earned in exchange for negative gamma. You collect small daily income but accept the risk of large losses during big moves. The income is not free; it is compensation for bearing risk. An option seller who only thinks about theta and ignores gamma is like an insurance company that only counts premiums and ignores claims. Eventually, a catastrophic event arrives.
-</p>
-<p>
-<strong>Misconception 6: "Vega does not matter for covered calls and cash-secured puts."</strong>
-</p>
-<p>
-It absolutely does. If you sell a covered call when IV is low and then IV spikes, your short call increases in value, creating an unrealized loss. You want to sell options when IV is high (you collect more premium and benefit when IV drops) and buy options when IV is low. Ignoring vega means you may consistently sell cheap options and buy expensive ones.
-</p>
-<p>
-<strong>Misconception 7: "Rho is irrelevant and can be completely ignored."</strong>
-</p>
-<p>
-For short-dated options, rho is indeed negligible. But for LEAPS (options with a year or more to expiration), rho can have a meaningful impact. During the 2022-2023 rate hiking cycle, rho effects moved LEAPS prices noticeably. If you trade LEAPS (which we cover in Week 38), you need to factor in rho.
+formulas are mathematical; the <em>concepts</em> are arithmetic. If
+you can read a speedometer (delta), accept that the speedometer
+itself shifts under you (gamma), pay rent on parking (theta),
+and own a thermostat for fear (vega), you understand the
+Greeks. You do not need to derive Black-Scholes to use them.
 </p>
 <hr>
-<h3>d) Q&A</h3>
+<h3>4. Q&A Section</h3>
 <p>
-<strong>Q: How do I find the Greeks for my options positions?</strong>
+**Q: What is the easiest way to estimate delta if I don't have a
+calculator?**
+A: For ATM options, delta is approximately 0.50 for calls and -0.50
+for puts. For each $1 of moneyness (ITM or OTM), shift delta by
+about $0.05 / (\sigma \sqrt{T})$ - so for a 30-day, 20% vol option,
+that is roughly $0.05 / 0.057 \approx 0.88$ per $1 of moneyness,
+capped at $\pm 1$. In practice, just read it off your broker.
 </p>
 <p>
-A: Every major brokerage platform displays the Greeks. In most platforms, you can add columns for delta, gamma, theta, vega, and rho to your options chain display. When you have an open position, the portfolio view typically shows the position-level Greeks (per-contract values multiplied by the number of contracts). If your platform does not display Greeks prominently, look for an "options analytics" or "risk profile" section.
+<strong>Q: Why does my long call lose money on a flat day?</strong>
+A: Theta. Even with spot, vol, and rate unchanged, one calendar day
+passing burns extrinsic value. For a 30-day ATM call that is roughly
+$0.04 per share. If you bought 5 contracts, that is $20 of theta
+across the day - on a quiet Tuesday, that is the entire P&L.
 </p>
 <p>
-<strong>Q: Do the Greeks change over the weekend?</strong>
+<strong>Q: When should I worry about gamma the most?</strong>
+A: Two situations. First, when you are <em>short</em> options inside the
+last two weeks before expiration with the stock close to your
+strike - gamma there is large enough to flip you from "winning the
+trade" to "underwater on the trade" with one news headline. Second,
+when you are running multiple short-option positions in the same
+underlying - gammas add, and a portfolio that is short 30 gamma is
+qualitatively different from one short 5 gamma.
 </p>
 <p>
-A: The Greeks themselves (the sensitivity measures) are recalculated when the market opens on Monday. However, theta decay does occur over the weekend. Most options pricing models assume 365-day decay, meaning the option loses about 2/365 of its time value over a two-day weekend. Some traders debate exactly how weekends are priced, but empirically, selling options on Friday and buying them back on Monday often captures weekend theta. This is a minor point for long-term strategy but relevant for short-term traders.
+<strong>Q: Are gamma and vega the same thing?</strong>
+A: No, but they share the at-the-money peak. Their <em>time profiles</em>
+are opposite: gamma rises into expiry, vega falls. A short-dated
+ATM option is mostly a gamma instrument; a long-dated ATM option
+is mostly a vega instrument. This is why "selling weeklies" and
+"selling LEAPS-puts" are very different strategies even though
+both are short premium.
 </p>
 <p>
-<strong>Q: How do I calculate the Greeks for an entire portfolio?</strong>
+<strong>Q: What is "vol crush" and which Greek explains it?</strong>
+A: Vega. Implied volatility tends to be elevated before
+known-event dates (earnings, FOMC, biotech FDA decisions) and to
+collapse the moment the event passes. If you own long options
+across the event, you collect the directional move (delta and
+gamma) but you also eat the IV collapse (a vega loss). Net P&L
+is whatever wins. Beginners assume "stock moved my way → I made
+money"; the Greek decomposition makes the loss diagnosable.
 </p>
 <p>
-A: Portfolio Greeks are additive. Simply sum the delta, gamma, theta, and vega of each individual position. Long positions contribute their natural sign, and short positions contribute the opposite sign. Most brokerage platforms calculate portfolio Greeks automatically. This is how professional traders manage risk: they monitor portfolio-level Greeks and adjust when any Greek gets too large in one direction.
+<strong>Q: How big is rho really? Should I ever worry about it?</strong>
+A: For a 30-day ATM call, rho is about $0.04 per 1% rate move per
+share. So a 25 bp Fed move is about a penny. Don't worry about
+it on short-dated trades. For LEAPS (1-3 year expiries) rho can
+be $1-$3 per 1% per share - large enough that a Fed pivot moves
+the LEAPS premium materially even with the stock unchanged. So:
+LEAPS yes, weeklies no.
 </p>
 <p>
-<strong>Q: What is "delta-neutral" and should I try to be delta-neutral?</strong>
+**Q: If I sell a covered call, what does my net Greek profile look
+like?**
+A: Stock + short call. Per-100-shares-plus-one-short-call:
+delta $\approx +50$ (you have ceded half your upside delta to the
+short call), gamma slightly negative, theta positive (you are
+collecting), vega slightly negative. The position has muted
+upside, almost full downside, and a positive theta drip. SOUL #15
+</p>
+<ul><li>the daily theta is income, not alpha.</li>
+<p>
+</ul>
+<strong>Q: What changes if I sell a cash-secured put instead?</strong>
+A: The Greek skeleton is identical to a covered call by put-call
+parity - same delta, same gamma, same theta, same vega. The
+<em>broker margin treatment</em> differs (one ties up shares, the other
+ties up cash), but the risk profile is the same trade in two
+costumes.
 </p>
 <p>
-A: A delta-neutral position has a net delta near zero, meaning it does not benefit or suffer from small stock price movements. Market makers maintain delta-neutral books constantly. For a retail investor running income strategies, perfect delta neutrality is not necessary. However, understanding how close to neutral you are helps you manage risk. If your portfolio delta is +800, you are essentially long 800 shares worth of exposure. That might be appropriate or it might be too aggressive, depending on your risk tolerance and portfolio size.
+<strong>Q: Can a short option position ever be long gamma?</strong>
+A: Not on a single short option. <em>Combinations</em> can engineer any
+Greek profile - a long calendar (sell front-month, buy back-
+month at the same strike) is short gamma but long vega; a long
+straddle (buy a call and a put at the same strike) is long both.
+Once you start composing positions, the Greeks add and you can
+build essentially any signature you want.
 </p>
 <p>
-<strong>Q: What is the "gamma squeeze" that I hear about in the news?</strong>
+<strong>Q: How fast do the Greeks change in real markets?</strong>
+A: Delta changes continuously as spot moves (that is gamma).
+Gamma drifts up as expiry approaches and explodes in the last
+week. Theta accelerates non-linearly - the chart in §2.6 shows
+the curve. Vega changes any time IV moves, which on equity
+options is daily and on event-driven names hourly. Rho changes
+with the rate curve, which is slow on most days. The five
+Greeks together are a <em>time-varying</em> dashboard; nothing about
+them is set at trade entry.
 </p>
 <p>
-A: A gamma squeeze occurs when market makers who sold call options need to buy stock to hedge their positions as the stock rises. Here is the chain reaction: retail traders buy calls, market makers sell those calls and are now short gamma and short delta. To hedge, market makers buy shares proportional to their delta exposure. As the stock rises, the calls' delta increases (gamma), so market makers must buy even more shares. This additional buying pushes the stock higher, which increases delta further, creating a feedback loop. The GameStop (GME) event in January 2021 was partly driven by a gamma squeeze.
+<strong>Q: Where do dividends fit in?</strong>
+A: We deliberately used the no-dividend version of Black-Scholes
+to keep this lesson clean. For dividend-paying stocks, a known
+discrete dividend reduces call values and increases put values
+(forward price drops by the PV of dividends). The Greeks shift
+correspondingly, and continuous-dividend yield $q$ enters the
+formulas as $S \to S e^{-qT}$ throughout. The shape of every
+Greek profile is unchanged; the levels move modestly. For most
+retail option work, ignoring dividends is a small error.
 </p>
 <p>
-<strong>Q: How much does it cost me per day to hold a long options position?</strong>
-</p>
-<p>
-A: Check the theta value. If theta is -$0.05 per share, it costs you $5 per contract per day. Over 30 days, that is $150 per contract. Compare this cost to the potential gain you expect from delta (directional move) and any vega benefit. If your expected gain from a stock move does not comfortably exceed the theta cost over your expected holding period, the trade has poor risk-reward from a Greek perspective.
-</p>
-<p>
-<strong>Q: Should I adjust my position when one Greek gets extreme?</strong>
-</p>
-<p>
-A: Yes, but do not over-adjust. The most common adjustment triggers are: (1) Delta gets too large relative to your risk tolerance, suggesting you should hedge or reduce the position. (2) Gamma becomes very high near expiration on short positions, suggesting you should close or roll. (3) Vega exposure is large going into a known volatility event like earnings. For income strategies (covered calls, cash-secured puts), the most practical adjustment is rolling: closing the current position and opening a new one at a different strike or expiration. We discussed rolling mechanics in Weeks 27 and 28.
-</p>
-<p>
-<strong>Q: Are the Greeks the same in the Black-Scholes model and in real markets?</strong>
-</p>
-<p>
-A: The conceptual meanings are the same, but the actual values differ depending on the model used. Black-Scholes assumes constant volatility and log-normal price distribution. In reality, volatility varies, prices have fat tails, and the volatility smile (different IVs for different strikes) affects the Greeks. Market-made Greeks use more sophisticated models that account for these factors. For a retail investor using Greek values from a brokerage platform, the values are accurate enough for position management. You do not need to worry about the mathematical model differences.
+<strong>Q: What is the single biggest practical use of the Greeks?</strong>
+A: Position sizing. "Three short puts" is uninformative;
+"+150 deltas, +$8 theta per day, -$35 vega per vol-point,
+-12 gamma" describes the trade. With those numbers you can ask:
+*at what spot move do I lose all my theta? at what vol expansion
+does my vega loss exceed two weeks of theta collected? what
+does my delta become if the stock drops 5%?* Those are the
+questions a Greek-aware trader answers before the trade is open;
+a beginner answers them after the loss is realised.
 </p>
             </div>
             <div id="content-hk" class="lang-content">

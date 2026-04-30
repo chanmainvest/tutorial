@@ -1,960 +1,752 @@
-# Week 20: Earnings and Cash Flow - Quality, Manipulation, and Free Cash Flow
+# Week 20: Earnings vs Cash Flow — Drift, Accruals, and Why FCF Beats EPS
 
 ---
 
-## Reading Section
-
-### a) Why This Is Important
-
-Earnings are the single most important number in investing. Stock prices ultimately follow earnings over time. But here is the uncomfortable truth that every investor must confront: earnings are an opinion, while cash flow is a fact.
-
-When a company reports "earnings per share of $3.50," that number is the product of dozens of accounting judgments, estimates, and choices. How fast to depreciate assets, when to recognize revenue, how much to reserve for bad debts, whether to capitalize or expense a cost -- every one of these decisions affects reported earnings. Some of these choices are legitimate reflections of economic reality. Others are deliberate manipulation designed to make the company look more profitable than it is.
-
-The difference between a good investor and a great investor often comes down to this skill: the ability to look beyond reported earnings and assess their quality. Is the company truly generating the profits it claims? Are those profits backed by actual cash flowing into the business? Or is the company using accounting tricks to inflate a number that will eventually be revealed as a mirage?
-
-This matters for critical reasons:
-
-1. **Earnings manipulation precedes most spectacular corporate failures.** Enron, WorldCom, Luckin Coffee, Wirecard -- every major corporate fraud involved earnings manipulation that, in hindsight, was detectable from publicly available financial statements. Investors who understood earnings quality avoided these disasters.
-
-2. **The gap between earnings and cash flow reveals management quality.** Companies whose cash flow consistently exceeds reported earnings tend to have conservative, trustworthy management. Companies whose earnings consistently outpace cash flow are either genuinely investing heavily for growth or are playing accounting games. Distinguishing between these two scenarios is essential.
-
-3. **Free cash flow, not earnings, determines intrinsic value.** The DCF model we learned in Week 21 discounts free cash flow, not accounting earnings. A company can report growing earnings while free cash flow deteriorates -- that company is becoming less valuable, not more, regardless of what the income statement says.
-
-4. **Earnings quality predicts future stock returns.** Academic research by Sloan (1996) and others has consistently shown that companies with high-quality earnings (backed by cash flow) outperform those with low-quality earnings (driven by accruals) by several percentage points per year. This is one of the most robust anomalies in finance.
-
-This lesson gives you the complete toolkit to evaluate earnings quality, understand the difference between accrual and cash-based accounting, calculate and interpret free cash flow, identify manipulation red flags, and use FCF yield as a valuation metric.
+## Part 1: Reading Section
 
 ---
 
-### b) What You Need to Know
+### 1. Why This Is Important
 
-#### 1. Earnings Per Share (EPS) -- The Basics
+Earnings are an opinion. Cash is a fact. That sentence is older than
+any of the textbooks that quote it, and it is still the single most
+useful sentence in fundamental investing.
 
-EPS is the most widely cited earnings metric. It represents the profit attributable to each share of common stock.
+Reported earnings per share — the number on the wire at 4:01 PM
+Eastern that the algorithms react to in milliseconds — is the output
+of dozens of accounting choices. When to recognise revenue. How fast
+to depreciate. What to capitalise versus expense. How much to
+reserve for bad debts. Each choice is, individually, defensible.
+Stacked together, they create enough latitude that the same
+underlying business can print a $2.10 EPS or a $1.85 EPS depending
+on the mood of the CFO and the patience of the auditor.
 
-```
-EPS FUNDAMENTALS
-==================
+Free cash flow is harder to fake. Cash either showed up in the bank
+account, or it did not. The cash flow statement is not free of
+accounting judgement — classification of operating versus investing
+flows is genuinely ambiguous in places — but the *level* of cash
+moves much less than the level of reported earnings under management
+discretion. That asymmetry is why this week matters:
 
-Basic EPS = Net Income / Weighted Average Shares Outstanding
+1. **Two of the most durable academic anomalies are about earnings
+   quality, not earnings level.** Bernard & Thomas (1989) documented
+   the post-earnings-announcement drift — stocks with positive
+   surprises continue drifting up for sixty days, stocks with
+   negative surprises continue drifting down. Sloan (1996)
+   documented the accruals anomaly — firms whose earnings are mostly
+   accruals underperform firms whose earnings are mostly cash by
+   roughly seven to ten percentage points per year over the
+   following year. Both anomalies have been replicated dozens of
+   times. Both have weakened since publication. Neither has
+   inverted.
 
-Diluted EPS = Net Income / (Shares + Options + Convertibles)
+2. **Almost every spectacular fraud is detectable from earnings
+   quality.** Enron, WorldCom, Wirecard, Luckin, Valeant. In each
+   case, the gap between reported earnings and operating cash flow
+   was screaming for years before the headline. Reading the gap is
+   not a substitute for an audit. It is a way to never own the
+   companies the auditor will eventually have to disown.
 
-Example:
-  Net Income:           $500 million
-  Shares Outstanding:   200 million
-  Stock Options:         20 million (in the money)
-  Convertible Bonds:     5 million equivalent shares
+3. **Free cash flow is what valuation actually discounts.** The DCF
+   model in [Week 21](week21_valuation_dcf.md) discounts FCF, not
+   EPS. A company whose EPS is growing while FCF is shrinking is, by
+   that model, becoming less valuable, not more — regardless of
+   what the analyst note says.
 
-  Basic EPS  = $500M / 200M = $2.50
-  Diluted EPS = $500M / 225M = $2.22
+4. **EPS-vs-FCF dispersion widens late in the cycle.** When growth
+   is getting harder to find, earnings management gets more
+   aggressive. Receivables stretch out. Inventory builds. Costs get
+   capitalised. Buybacks juice EPS even as FCF flatlines. The
+   dispersion is itself a regime signal.
 
-ALWAYS use diluted EPS for valuation. Basic EPS
-overstates per-share earnings by ignoring future dilution.
-
-EPS COMPONENTS -- THE INCOME STATEMENT PATH
-=============================================
-
-Revenue                             $1,000M
- - Cost of Goods Sold                ($600M)
-= Gross Profit                        $400M  <-- Gross Margin: 40%
- - Operating Expenses                ($200M)
-= Operating Income (EBIT)             $200M  <-- Operating Margin: 20%
- - Interest Expense                   ($30M)
-= Pre-Tax Income                      $170M
- - Taxes (25%)                        ($42.5M)
-= Net Income                          $127.5M  <-- Net Margin: 12.75%
-
-EPS = $127.5M / 200M shares = $0.6375
-
-EACH LINE INVOLVES ACCOUNTING JUDGMENTS
-that can increase or decrease reported earnings.
-```
-
-**Earnings "Beats" and "Misses":**
-
-```
-THE EARNINGS EXPECTATIONS GAME
-=================================
-
-Wall Street analysts publish EPS estimates before
-each quarterly report. The stock price reaction
-depends on the result versus expectations:
-
-  Result vs. Estimate       Typical Stock Reaction
-  --------------------       ----------------------
-  Beat by 10%+ ("blowout")  +5% to +15% (often gaps up)
-  Beat by 1-5%              +1% to +5%
-  In-line (meet)            -1% to +1% (sometimes sells off)
-  Miss by 1-5%              -3% to -8%
-  Miss by 10%+ ("disaster") -10% to -30%
-
-IMPORTANT: Management teams actively manage
-expectations. They "guide" analysts to set
-estimates the company can beat. This is called
-"managing the whisper number." An earnings
-"beat" might simply mean management sandbagged
-the guidance, not that business is booming.
-
-THE MANIPULATION OF "BEATS"
-=============================
-
-Real-World Example:
-  True earnings power:     $1.00/share
-  Management guides:       $0.85 (conservatively)
-  Analysts estimate:       $0.90
-  Company reports:         $0.92
-  
-  Headlines: "Company BEATS estimates!"
-  Reality: Company missed its actual potential
-  by pulling forward expenses / deferring revenue
-  to "save" earnings for future quarters.
-```
+This is one of the structural alpha sources from Horace's
+[SOUL.md](../SOUL.md) #5: cash-versus-accruals interpretation. It is
+not a secret. It is not crowded out either, because most of the
+market still trades on the headline number.
 
 ---
 
-#### 2. Accrual Accounting vs. Cash Accounting -- The Critical Difference
+### 2. What You Need to Know
 
-This is perhaps the most important concept in this entire lesson. The financial statements you read are based on accrual accounting, which recognizes revenues when earned and expenses when incurred, regardless of when cash changes hands. This creates a gap between reported earnings and actual cash flow.
+#### 2.1 The Identity: Accruals = Earnings − Cash Flow
 
-```
-ACCRUAL vs. CASH ACCOUNTING
-==============================
+Start with arithmetic. For any period:
 
-ACCRUAL (what the income statement shows):
-  Record revenue when EARNED (goods delivered, services rendered)
-  Record expenses when INCURRED (obligation created)
-  Timing of cash flow is IGNORED
+- Net income = Operating cash flow + Total accruals
+- Total accruals = Net income − Operating cash flow
 
-CASH (what the cash flow statement shows):
-  Record revenue when CASH IS RECEIVED
-  Record expenses when CASH IS PAID
-  Timing of economic activity is IGNORED
+That is not a model. That is the definition. Operating cash flow is
+already net income with the accruals stripped out — depreciation
+added back, working-capital changes adjusted, deferred tax adjusted.
+What is left over after the bridge from net income to OCF is, by
+construction, accruals.
 
-EXAMPLE: SOFTWARE COMPANY
-============================
+Accruals are not bad. They exist for a reason. Revenue earned but
+not yet collected — receivables — is a real asset. Inventory built
+ahead of demand is a real economic activity. Depreciation, the
+largest single accrual at most industrial firms, is an honest
+attempt to match an asset's cost to the periods that asset is
+producing.
 
-January: Signs 3-year, $3 million contract.
-         Customer pays nothing upfront.
+The problem is that accruals are *also* the lever managers reach
+for when the quarter is short. Every line on the bridge from net
+income to OCF is a discretionary judgement, and every one of them,
+when pushed hard enough, increases reported earnings without
+increasing real cash.
 
-ACCRUAL ACCOUNTING (Income Statement):
-  January revenue: $83,333 (1 month of 36-month contract)
-  Q1 revenue: $250,000
-  Year 1 revenue: $1,000,000
+**Two ways to compute accruals for a stock screen:**
 
-CASH ACCOUNTING (Cash Flow):
-  January cash received: $0
-  Q1 cash received: $0 (customer has not paid yet)
-  Year 1 cash received: $1,000,000 (annual payment)
+- **Balance-sheet method (Sloan):** change in non-cash current
+  assets, minus change in current liabilities (excl. short-term
+  debt), minus depreciation. Scale by average total assets. Sort
+  firms into quintiles annually. Long Q1 (lowest), short Q5
+  (highest).
+- **Cash-flow method:** simply `(Net income − Operating cash flow) /
+  average total assets`. Equivalent in spirit, slightly cleaner
+  since 2002 when SFAS rules tightened.
 
-The income statement shows smooth, predictable revenue.
-The cash flow statement shows lumpy, real money.
+The accruals anomaly is shown below:
 
-NEITHER IS "WRONG" -- they measure different things.
-But cash is harder to fake.
-```
+![Bar chart: average annual one-year-ahead return for the five quintiles of accruals-to-assets, US-listed firms, 1990-2020. Quintile 1 (lowest accruals) averages 16.8%, Q2 14.2%, Q3 12.4%, Q4 10.1%, Q5 (highest accruals) 7.6%. Cross-sectional average around 12%. Spread Q1 minus Q5 is roughly 9% per year. Quintiles are colour-graded from green (Q1) to red (Q5).](image/week20_accruals_anomaly.png)
 
-**Why This Matters for Investors:**
+The Q1-minus-Q5 spread is the academic estimate of the alpha. In a
+real portfolio, half of it gets eaten by transaction costs, capacity
+limits, and short-borrow fees on the Q5 leg. But even after that,
+this is one of the best risk-adjusted long-short signals ever
+documented in equity markets.
 
-```
-THE ACCRUAL QUALITY SPECTRUM
-==============================
+#### 2.2 The Post-Earnings-Announcement Drift (PEAD)
 
-HIGH QUALITY                                LOW QUALITY
-(Cash > Earnings)                           (Earnings > Cash)
-     |                                           |
-     v                                           v
-Revenue is received           Revenue is "earned" but cash
-in cash before or             is not collected for months
-at time of sale               or years (or ever)
+The PEAD is the closest cousin to the accruals anomaly. Bernard &
+Thomas (1989) ranked every quarterly earnings announcement by
+standardised unexpected earnings (SUE) — the surprise relative to
+analyst consensus, divided by the historical standard deviation of
+that surprise. Top quintile vs bottom quintile, post-announcement
+returns over sixty trading days, averaged over thousands of
+announcements: the result is stable enough to be boring.
 
-Expenses are paid             Expenses are capitalized
-when incurred                 (spread over future periods)
-                              to boost current earnings
+![Schematic line chart of cumulative abnormal return over 60 trading days after the earnings release. Top quintile (positive surprise) drifts upward in a concave path to roughly +3.6%; bottom quintile drifts to roughly -2.9%; middle quintile sits near zero. The market reaction on Day 0 is incomplete; the drift continues for two to three months before fading.](image/week20_pead_drift.png)
 
-Depreciation reflects         Depreciation understated
-real asset wear               to inflate earnings
+The drift is incomplete absorption of news. The market reacts on
+Day 0 — the day of the release and the conference call — but the
+reaction is, on average, only about two thirds of what it should
+be. The remaining third leaks out over the next sixty days as
+analyst revisions catch up, as the next quarter's pre-announcement
+narrows expectations, and as slower investors finally trade on what
+fast ones already saw.
 
-Reserves are adequate         Reserves inadequate to
-                              flatter current results
+Why does this not get arbitraged away? Three reasons that show up
+across all of the persistent earnings anomalies:
 
-QUALITY INDICATOR:
-                Net Income
-Accrual Ratio = ─────────── - 1
-                Operating CF
+- **Limits to arbitrage.** Borrow on the Q5 leg is genuinely
+  expensive. Many of the most accrual-heavy firms are small-cap or
+  mid-cap with shallow short-borrow markets. The frictions eat the
+  alpha for funds that need to size up.
+- **Career risk.** A long-short manager whose Q1 leg has a six-month
+  drawdown will be redeemed before the academic mean-reversion
+  arrives. Fading the crowd is correct on average and dangerous in
+  any individual year.
+- **The signal is slow.** PEAD is a sixty-day phenomenon. The
+  accruals anomaly is a twelve-month phenomenon. Most of the market
+  is trading on a one-day phenomenon: the print versus the
+  consensus. The slow signals are not crowded by the fast traders.
 
-If ratio > 0: Earnings exceed cash flow (CAUTION)
-If ratio < 0: Cash flow exceeds earnings (GOOD)
-If ratio >> 0: Earnings far exceed cash flow (RED FLAG)
-```
+This connects to Horace's [SOUL.md](../SOUL.md) #8 on momentum and
+mean-reversion. PEAD is fundamentally a momentum effect — the stock
+that surprised up keeps drifting up — because the *information* is
+travelling through the market slower than the price. The accruals
+anomaly is a mean-reversion effect — earnings inflated by accruals
+revert toward cash over the following year. They sit on opposite
+sides of the same coin.
 
----
+#### 2.3 Free Cash Flow, Carefully Defined
 
-#### 3. Free Cash Flow -- The Most Important Number
+FCF gets quoted three different ways in the wild. You need to know
+which one you are reading.
 
-Free cash flow (FCF) is the cash a company generates after accounting for capital expenditures needed to maintain and grow its asset base. It represents the cash truly available to shareholders -- for dividends, buybacks, debt reduction, or investment.
+- **FCF to the firm (FCFF) = OCF − Capex.** The plain definition.
+  The cash left over after maintaining and growing the asset base,
+  before any return to debt or equity holders. This is the number
+  the DCF model wants.
+- **FCF to equity (FCFE) = FCFF − Net debt repayment + Net debt
+  issuance.** The cash left over for *equity* holders specifically.
+  Used in dividend-discount frameworks.
+- **"Adjusted FCF" (whatever management says it is).** Sometimes
+  adds back stock-based compensation. Sometimes excludes
+  acquisition-related capex. Sometimes excludes "one-time"
+  working-capital movements that have shown up four years in a row.
+  Treat all adjusted FCF the way you treat adjusted EBITDA: with
+  one eyebrow permanently raised.
 
-```
-FREE CASH FLOW CALCULATION
-=============================
+For screening, use FCFF. Use a multi-year average — three to five
+years — because single-year FCF is noisy from working-capital and
+capex timing. The Apple FY2014-FY2024 chart from
+[Week 8](week08_financial_statements.md) is the canonical example:
+EPS and FCF/share track within pennies most years, and where they
+diverge (FY2020 working-capital release; FY2024 EU tax charge), the
+divergence has a clean accounting explanation.
 
-Method 1 (from Cash Flow Statement):
-  Operating Cash Flow
-  - Capital Expenditures (Capex)
-  = Free Cash Flow
+The interactive lab below lets you flip between six representative
+companies and see the EPS-vs-FCF profile and the per-year accrual:
 
-Method 2 (from Income Statement):
-  Net Income
-  + Depreciation & Amortization
-  + Other Non-Cash Charges
-  - Changes in Working Capital
-  - Capital Expenditures
-  = Free Cash Flow
+[Open: Earnings vs Cash Flow Lab](interactive/week20_earnings_lab.html)
 
-WORKED EXAMPLE
-================
+The pattern matters more than any single year. Apple's FCF runs
+above EPS most years — capital-light, working-capital favourable.
+Coca-Cola's two lines hug each other within pennies — steady-state
+brand-rent business. Microsoft's FCF lagged EPS in FY2023-2024 not
+because of manipulation but because of the AI capex bulge — that is
+an investment story, not a quality story. Amazon shows the textbook
+cash-light-but-EPS-light case where huge non-cash D&A makes earnings
+look thin while the cash story (post-2022 capex moderation) is what
+actually matters. GE shows the opposite — multi-year restructuring
+charges depress EPS far below the underlying cash. JPM is a bank;
+"FCF" for a bank is conceptually meaningless, and you need ROTCE
+instead (covered in [Week 19](week19_corporate_finance.md)).
 
-Company ABC -- Annual Financial Data:
+#### 2.4 Earnings Quality Red Flags — The Five That Matter
 
-Operating Cash Flow:         $350 million
-Capital Expenditures:       ($120 million)
-                            ─────────────
-Free Cash Flow:              $230 million
+A short list. Most quality work in the wild is a variation of
+these five.
 
-Cross-Check from Income Statement:
-Net Income:                  $200 million
-+ Depreciation:              $100 million
-+ Stock-Based Compensation:   $50 million
-- Working Capital Increase:  ($80 million)
-                              = Operating CF: $270 million
-  Wait -- why does this not match?
+**1. Days sales outstanding (DSO) rising faster than revenue.** DSO
+= receivables / (revenue / 365). If revenue grew 12% and DSO grew
+30%, the company is "selling" to customers who are not yet paying.
+Revenue is being recognised earlier in the cycle, or to customers
+who will not actually pay. Aggressive DSO is the most common
+precursor to a revenue restatement.
 
-Adjustments explanation:
-  Operating CF per statement includes other items
-  (deferred taxes, etc.) that bring it to $350M
+**2. Days inventory outstanding (DIO) rising faster than revenue.**
+DIO = inventory / (COGS / 365). Inventory builds either because the
+company is building ahead of expected demand (sometimes legitimate)
+or because the inventory the company already produced is not
+selling (usually the bad version). Either way, it is a use of cash
+that does not show up on the income statement until the markdown
+finally hits COGS.
 
-INTERPRETATION
-================
+**3. Capitalisation of costs that should be expensed.** R&D under
+US GAAP is mostly expensed; under IFRS, much of it can be
+capitalised. Software development costs, content production costs,
+acquisition-related "integration" costs — the more cost a firm
+moves to the balance sheet, the higher today's earnings and the
+lower tomorrow's. WorldCom's fraud was, mechanically, this exact
+move on $11B of network operating expense.
 
-Net Income:     $200M
-Operating CF:   $350M  <-- Cash generation EXCEEDS earnings (GOOD)
-Free Cash Flow: $230M  <-- After maintaining assets, $230M is
-                           truly "free" for shareholders
+**4. Recurring "one-time" charges.** A company that takes a large
+restructuring charge in three out of four years is not
+restructuring; it is telling you the underlying earnings power is
+lower than the "adjusted" headline. The charges are real cost. They
+just keep getting flagged as not-real-cost.
 
-FCF > Net Income suggests HIGH QUALITY earnings.
-Net Income > FCF suggests potential QUALITY CONCERNS.
-```
+**5. The accrual ratio itself.** `(Net income − OCF) / Net income`,
+or scaled by average assets, year after year. A persistent positive
+gap is a quality concern. A persistent *negative* gap (FCF > EPS)
+is the opposite — the signature of a capital-light business with
+non-cash charges dragging on earnings.
 
-**Maintenance Capex vs. Growth Capex:**
+None of these are deterministic. Each has a legitimate version. But
+in a screen, the firms that flunk three of the five tests have a
+materially worse forward return distribution than the firms that
+pass them all.
 
-```
-TYPES OF CAPITAL EXPENDITURE
-===============================
+#### 2.5 Late-Cycle Dispersion — Why This Week Matters in 2026
 
-MAINTENANCE CAPEX (Required)                GROWTH CAPEX (Optional)
----------------------------                 -----------------------
-Replacing worn equipment                    Building new factories
-Repairing facilities                        Entering new markets
-Mandatory regulatory upgrades               R&D for new products
-Keeping existing operations                 Capacity expansion
-running at current capacity
+Through 2024 and into 2025, the EPS-vs-FCF dispersion in the S&P
+500 widened. Reported earnings continued to grow at 8-10% per year
+while operating cash flow growth slowed to 3-4%. Some of that gap
+is real — AI capex is genuinely investment, not manipulation. Some
+of it is the late-cycle pattern — DSO and DIO drifting up,
+"adjusted" metrics drifting further from GAAP, share buybacks
+juicing EPS while FCF flatlines. The cycle is not the same every
+time. The gap behaves roughly the same every time.
 
-If you only subtract maintenance capex,     Growth capex is an
-you get "owner earnings" -- what             investment, not a
-Buffett calls the true earning power         cost of doing business.
-of the business.
-
-PROBLEM: Companies do NOT separately report
-maintenance vs. growth capex. You must estimate.
-
-RULE OF THUMB:
-  If capex roughly equals depreciation --> mostly maintenance
-  If capex far exceeds depreciation --> significant growth investing
-  If capex is below depreciation --> company may be underinvesting
-                                     (consuming its asset base)
-
-CAPEX ANALYSIS
-================
-
-                     Company X    Company Y
-                     ---------    ---------
-Depreciation:        $80M         $80M
-Total Capex:         $85M         $200M
-Capex/Depreciation:  1.06x        2.50x
-Interpretation:      Maintenance  Heavy growth
-                     mode         investment
-```
-
----
-
-#### 4. Quality of Earnings -- How to Spot the Real Thing
-
-High-quality earnings are sustainable, repeatable, and backed by cash flow. Low-quality earnings are inflated by one-time items, aggressive accounting, or financial engineering.
-
-```
-EARNINGS QUALITY CHECKLIST
-=============================
-
-CHECK 1: Cash Flow Confirmation
-  Operating Cash Flow / Net Income > 1.0?
-  If consistently YES --> High quality
-  If consistently NO  --> Investigate
-
-CHECK 2: Accrual Level
-  Large increase in accruals (receivables, inventory,
-  deferred revenue changes) without corresponding
-  revenue growth? --> WARNING
-
-CHECK 3: Revenue Quality
-  Is revenue growing from:
-  [GOOD] More customers, higher prices, new products
-  [BAD]  Channel stuffing, bill-and-hold, reclassifications
-
-CHECK 4: Recurring vs. Non-Recurring
-  What % of earnings comes from:
-  [GOOD] Core operations, recurring sources
-  [BAD]  Asset sales, lawsuit settlements, tax benefits,
-         pension income, gain on investments
-
-CHECK 5: Consistency
-  Do earnings grow smoothly while the business is cyclical?
-  Suspiciously smooth earnings often indicate manipulation.
-  Real businesses have ups and downs.
-
-CHECK 6: Margin Trajectory
-  Are margins expanding due to:
-  [GOOD] Scale, efficiency, pricing power
-  [BAD]  Cutting R&D, reducing maintenance, one-time savings
-
-QUALITY SCORECARD
-===================
-
-  High Quality                  Low Quality
-  ============                  ===========
-  OCF/NI > 1.0                 OCF/NI < 0.8
-  Low accruals                  High accruals
-  Recurring revenue             One-time gains
-  Consistent with peers         Outlier margins
-  Conservative estimates        Aggressive assumptions
-  Clean audit opinion           Qualified audit opinion
-  Management owns stock         Management sells stock
-  Earnings match guidance       Frequent "beats" by $0.01
-```
+The contrarian read: the firms whose FCF is keeping pace with EPS
+in this environment are getting a quality premium that the headline
+EPS multiple does not yet reflect. The firms whose EPS-FCF gap has
+widened for three years running are tomorrow's accrual reversion
+candidates. This is why Horace lists "look at cash, not earnings"
+as [SOUL.md](../SOUL.md) #5: it is structural, not tactical. It
+works in every regime. It works hardest when the rest of the
+market has stopped checking.
 
 ---
 
-#### 5. Earnings Manipulation Red Flags
+### 3. Common Misconceptions
 
-Companies manipulate earnings for many reasons: to meet analyst expectations, trigger management bonuses, maintain the stock price, or hide deteriorating fundamentals. Here are the techniques to watch for and how to detect them.
+1. **"FCF is always better than EPS."** Wrong. FCF is more useful
+   for *quality* questions; EPS is more useful for *profitability*
+   comparisons within a stable industry. A capex-heavy firm in
+   year-three of a four-year build will show ugly FCF and fine EPS.
+   That is not a quality problem. It is a timing problem.
 
-```
-MANIPULATION TECHNIQUE 1: REVENUE MANIPULATION
-=================================================
+2. **"Accruals are accounting fraud."** Wrong. Accruals are
+   accounting. Without them you would have cash accounting, which
+   is useless for businesses with multi-period contracts, inventory,
+   or long-lived assets. The question is not whether accruals
+   exist; it is whether they are growing faster than economic
+   reality.
 
-Technique               How It Works              Detection
----------               ------------              ---------
-Channel Stuffing        Ship excess product to     Check: Receivables
-                        distributors at quarter    growing faster than
-                        end; they return it next   revenue? Returns
-                        quarter                    increasing?
+3. **"PEAD has been arbitraged away."** Mostly wrong. The drift has
+   shrunk — Bernard & Thomas reported a 60-day spread of 4-5% in
+   the 1980s; modern estimates are 2-3% for the top vs bottom
+   quintile. But the asymmetry has not flipped, and the drift is
+   still detectable in every replication through 2024.
 
-Bill-and-Hold           Record revenue for goods   Check: Inventory
-                        that customer has not      remaining at company
-                        actually taken delivery    facilities? Unusual
-                        of yet                     revenue spikes at
-                                                   quarter end?
+4. **"A negative FCF year is always bad."** Wrong. Amazon ran
+   negative or near-zero FCF for most of its first decade as a
+   public company while building infrastructure that is now
+   generating tens of billions per year. Negative FCF in service
+   of a high-return investment programme is great. Negative FCF
+   because the working capital is hemorrhaging is fatal. Look at
+   the *cause*.
 
-Round-Tripping          Company A sells to         Check: Related party
-                        Company B, Company B       transactions? Revenue
-                        sells back to Company A    without economic
-                                                   substance?
+5. **"EPS beats are what matter."** Misleading. The EPS print
+   versus consensus matters in the *next 24 hours*. The PEAD says
+   it also matters in the next 60 days. But the multi-year story —
+   quality of those earnings, conversion to cash — is what
+   compounds the stock price over a 5-10-year hold.
 
-Early Recognition       Record multi-year          Check: Deferred
-                        contract revenue upfront   revenue declining?
-                        instead of over time       Revenue recognition
-                                                   policy changes?
+6. **"Stock-based compensation is non-cash so I should add it
+   back."** Wrong, mostly. SBC is a real cost — the firm is giving
+   away part of the company. The cash that would have been spent on
+   payroll is instead being raised by issuing new shares, which
+   dilutes you. The right adjustment is to subtract SBC from FCF,
+   not add it back, and many "adjusted FCF" presentations get this
+   exactly backwards.
 
-MANIPULATION TECHNIQUE 2: EXPENSE MANIPULATION
-=================================================
+7. **"Revenue can't be faked."** Wrong. Revenue is the most
+   audit-tested line, but channel-stuffing, bill-and-hold,
+   round-trip transactions, and aggressive percentage-of-completion
+   accounting have all been used to inflate revenue in real cases.
+   The DSO check exists precisely because revenue *can* be pulled
+   forward.
 
-Technique               How It Works              Detection
----------               ------------              ---------
-Capitalizing            Record an operating        Check: Capitalized
-Expenses                expense as an asset        costs growing?
-                        (e.g., put marketing       Cash flow from
-                        costs on balance sheet)    operations diverging
-                                                   from earnings?
+8. **"If a company beats earnings, it's a good investment."**
+   Wrong. The PEAD says you get some drift after a beat, on
+   average, in excess of the immediate reaction. But the average
+   masks dispersion — beats that come with deteriorating cash flow
+   tend to mean-revert hard. Beat plus rising accruals is a worse
+   profile than in-line plus stable accruals.
 
-Under-Depreciating      Use unrealistically long   Check: Asset useful
-                        useful life assumptions    lives longer than
-                        for assets                 industry norms?
-                                                   Compare depreciation
-                                                   rates to peers
+9. **"FCF yield is the new P/E."** Useful, not magical. FCF yield
+   (FCF / market cap) is a cleaner valuation metric for mature
+   non-bank businesses than P/E. For high-growth firms with
+   negative FCF, it is meaningless. For banks and insurers, it is
+   meaningless. For asset-heavy capex-cycle firms, single-year FCF
+   yield is noisy — average over five years.
 
-Cookie Jar              Take large reserves in     Check: Unusual
-Reserves                good years, release them   reserve releases in
-                        in bad years to smooth     weak quarters?
-                        earnings                   Reserves declining
-                                                   without explanation?
-
-Pension                 Use aggressive return       Check: Pension
-Assumptions             assumptions to reduce       return assumptions
-                        pension expense            vs. actual returns?
-                                                   Higher than peers?
-
-MANIPULATION TECHNIQUE 3: BALANCE SHEET MANIPULATION
-=====================================================
-
-Technique               How It Works              Detection
----------               ------------              ---------
-Off-Balance-Sheet       Move liabilities to        Check: Footnotes
-Entities                special purpose entities   about unconsolidated
-                        to hide debt               entities, guarantees,
-                        (Enron's playbook)         or commitments
-
-Goodwill                Avoid writing down          Check: Goodwill
-Overstatement           impaired acquisition       as % of total
-                        goodwill to prevent a      assets? Acquisitions
-                        large earnings charge      underperforming?
-
-Inventory               Understate obsolete        Check: Inventory
-Manipulation            inventory to avoid         turnover declining?
-                        write-downs                Days inventory
-                                                   increasing?
-```
-
-```
-THE MANIPULATION DETECTION FRAMEWORK
-=======================================
-
-Step 1: Compare Net Income to Operating Cash Flow
-  +--------+--------+---------+--------+--------+
-  | Year   |  Net   | Oper.   | FCF    | OCF/NI |
-  |        | Income | Cash Fl.|        | Ratio  |
-  +--------+--------+---------+--------+--------+
-  | Year 1 | $100M  |  $130M  | $80M   | 1.30   | GOOD
-  | Year 2 | $120M  |  $140M  | $90M   | 1.17   | GOOD
-  | Year 3 | $150M  |  $125M  | $70M   | 0.83   | CONCERN
-  | Year 4 | $180M  |  $100M  | $30M   | 0.56   | RED FLAG
-  | Year 5 | $200M  |   $60M  |($20M)  | 0.30   | DANGER
-  +--------+--------+---------+--------+--------+
-
-  Earnings are growing 19%/year. Looks great!
-  Cash flow is DECLINING. The earnings are a mirage.
-
-Step 2: Check Balance Sheet Build-Up
-  - Are receivables growing faster than revenue?
-  - Is inventory growing faster than cost of goods sold?
-  - Are accrued liabilities (reserves) being released?
-  - Is capex being capitalized aggressively?
-
-Step 3: Read the Footnotes
-  - Revenue recognition policy changes?
-  - Accounting estimate changes?
-  - Related party transactions?
-  - Off-balance-sheet commitments?
-
-Step 4: Compare to Peers
-  - Are margins out of line with peers?
-  - Is the company an outlier on OCF/NI ratio?
-  - Are accounting policies more aggressive?
-```
+10. **"Forensic accounting is for activists, not retail
+    investors."** Wrong. The five red flags above are computable
+    from the standard 10-K filing in 30 minutes per company. They
+    will not catch a sophisticated fraud. They will catch the
+    obvious ones, and they will tell you which 10-Ks deserve
+    another hour of your time.
 
 ---
 
-#### 6. Free Cash Flow Yield -- A Powerful Valuation Metric
+### 4. Q&A Section
 
-FCF yield is one of the most useful valuation metrics because it is based on cash (harder to manipulate) rather than earnings (easy to manipulate). It tells you what cash return you are getting for the price you pay.
+**Q1: How quickly can I screen for accruals on US-listed
+equities?**
+A: With a paid data feed (Compustat, FactSet, S&P Capital IQ) the
+ratio is one column and the quintile sort is one query. With free
+sources, pull (Net Income − OCF) from the 10-K cash flow statement
+for each name in your watchlist; scale by average total assets. A
+twenty-name watchlist takes an hour the first time and ten minutes
+per quarter to refresh.
 
-```
-FCF YIELD CALCULATION
-=======================
+**Q2: Should I short the high-accrual names?**
+A: Probably not as a retail investor. Short borrow on small- and
+mid-cap names is expensive, mark-to-market drawdowns can be sharp,
+and short squeezes happen even on terminal cases. The cleaner
+implementation is to screen those names *out* of your long book
+and concentrate on the low-accrual side. That captures most of the
+asymmetry without the operational complexity (per
+[SOUL.md](../SOUL.md) #13, "the four tranches" — long-cash quality
+goes in the core; the short side is a specialty tranche).
 
-                Free Cash Flow
-FCF Yield = ─────────────────────
-              Market Capitalization
+**Q3: Why does PEAD drift continue for 60 days and not longer?**
+A: Around the 60-day mark the next quarter's pre-announcement
+window opens and forward expectations start being discounted into
+the price. The "old" surprise is no longer the marginal news.
+Empirically the drift fades into the next earnings cycle, not after
+a fixed calendar window.
 
-Or equivalently:
+**Q4: Is the accruals anomaly the same as the quality factor?**
+A: Related, not identical. The "quality" factor as MSCI and others
+construct it usually combines accruals, gross profitability,
+leverage, and earnings stability. Accruals is one input. The pure
+accruals anomaly is more concentrated than the blended quality
+factor and historically had a bigger Sharpe.
 
-                FCF Per Share
-FCF Yield = ─────────────────────
-              Stock Price
+**Q5: What about non-US markets?**
+A: The accruals anomaly has been replicated in most developed
+markets — UK, Japan, Australia, Western Europe — at varying
+strengths. In emerging markets the data quality is weaker and the
+shorting frictions worse. Per [SOUL.md](../SOUL.md) #16, our
+investable universe is US-listed equities anyway, so this is not a
+real constraint for us.
 
-EXAMPLE:
-  Free Cash Flow:     $500 million
-  Market Cap:         $10 billion
-  FCF Yield:          $500M / $10B = 5.0%
+**Q6: How do I use FCF yield in valuation?**
+A: For mature non-bank firms, an FCF yield (5-year average FCF
+over current market cap) above the long Treasury yield plus a
+sensible equity premium is a reasonable starting screen. So if
+10-year Treasuries are at 4.5% and you want a 4-5% equity premium,
+you are looking for FCF yield above 8.5-9.5%. Below that you are
+paying for expected growth; above that you are being paid to wait.
 
-Interpretation: For every $100 invested, the company
-generates $5 in free cash flow annually.
+**Q7: Why did Microsoft's FCF lag EPS in 2024?**
+A: Capex. Microsoft is spending $50-60B per year on AI data
+centres, chips, and cooling infrastructure. That capex is real and
+is flattening FCF even though OCF and EPS are at all-time highs.
+Whether the AI capex earns its cost of capital is the real
+question — the FCF gap itself is informative but not by itself a
+quality problem.
 
-FCF YIELD BENCHMARKS
-======================
+**Q8: What's the difference between "earnings management" and
+"earnings manipulation"?**
+A: Mostly intent and degree. Both shift earnings between periods
+using legal accounting choices. Management is done quietly to
+smooth quarterly volatility — almost every public company does
+some of it. Manipulation is done aggressively to hit a target the
+company would otherwise miss, and shades into fraud when the
+choices stop having a defensible accounting basis. The
+earnings-quality red flags catch both.
 
-FCF Yield     Interpretation          Notes
----------     ---------------         -----
-< 0%          Negative FCF            Company is consuming
-                                      cash (may be investing
-                                      for growth or in trouble)
+**Q9: How does this lesson interact with valuation (Week 21)?**
+A: Directly. The DCF in [Week 21](week21_valuation_dcf.md)
+discounts free cash flow, which means everything you learned this
+week about the *quality* of FCF feeds straight in. Two firms with
+identical projected FCF deserve different multiples if one has a
+clean accruals profile and the other does not. The market does not
+always price that gap; you can.
 
-0 - 2%        Very low yield          Typical for high-growth
-                                      companies reinvesting
-                                      everything
+**Q10: What about software companies with deferred revenue and
+SBC?**
+A: Two complications, opposite directions. Deferred revenue (cash
+received for services not yet rendered) inflates OCF relative to
+EPS; that is a *legitimate* tilt, not a quality issue, as long as
+the underlying contracts are renewable. SBC, as discussed in
+misconception #6, is a real cost and should be subtracted from FCF
+to get the true equity-holder cash. The net effect varies by firm
+— modern SaaS often shows very high OCF and middling SBC-adjusted
+FCF.
 
-2 - 4%        Below average           Growth company with
-                                      some cash generation
+**Q11: Is there a "bad" version of FCF > EPS?**
+A: Rarely, but yes. A firm that is shrinking — drawing down
+working capital and not replacing assets — can post FCF above EPS
+for a year or two while the business is being liquidated. The clue
+is declining revenue and declining capex. The healthy version of
+FCF > EPS is a stable or growing capital-light business. The
+unhealthy version is a melting ice cube monetising its inventory
+and receivables one last time.
 
-4 - 6%        Average / Fair          Typical mature company;
-                                      roughly in line with
-                                      market average
-
-6 - 8%        Above average           Potentially undervalued
-                                      or slow-growth
-
-8 - 12%       High yield              Either very undervalued
-                                      or market sees risk
-
-> 12%         Very high yield         Likely a value trap OR
-                                      extraordinary opportunity;
-                                      investigate deeply
-
-COMPARISON: FCF YIELD vs. EARNINGS YIELD vs. DIVIDEND YIELD
-==============================================================
-
-                    FCF Yield    Earnings     Dividend
-                                 Yield (1/PE) Yield
-                    ---------    ----------   --------
-Based on:           Cash flow    Accounting   Cash paid
-                    (hard to     earnings     to share-
-                    fake)        (can be      holders
-                                 managed)
-
-Captures:           All free     All net      Only the
-                    cash for     income       portion
-                    shareholders              paid out
-
-Includes capex:     Yes          Partially    No
-                                 (via deprec.)
-
-Best for:           Absolute     Quick P/E    Income
-                    valuation    comparison   investors
-
-Manipulation        Low          Moderate     Very low
-risk:                            to high
-```
-
----
-
-#### 7. Cash Flow Statement Analysis -- The Investor's X-Ray Machine
-
-The cash flow statement is divided into three sections. Each tells a different story.
-
-```
-THE THREE SECTIONS OF THE CASH FLOW STATEMENT
-================================================
-
-+--------------------------------------------------+
-|  OPERATING CASH FLOW (OCF)                       |
-|  Cash generated from core business operations     |
-|                                                   |
-|  Healthy company: POSITIVE and growing            |
-|  Starts with Net Income, adjusts for non-cash     |
-|  items and working capital changes                |
-+--------------------------------------------------+
-              |
-              | This is the "engine"
-              v
-+--------------------------------------------------+
-|  INVESTING CASH FLOW (ICF)                       |
-|  Cash spent on / received from investments        |
-|                                                   |
-|  Growing company: NEGATIVE (spending on growth)   |
-|  Includes: capex, acquisitions, asset sales       |
-+--------------------------------------------------+
-              |
-              | This is "reinvestment"
-              v
-+--------------------------------------------------+
-|  FINANCING CASH FLOW (FCF_fin)                   |
-|  Cash from / to capital providers                 |
-|                                                   |
-|  Mature company: NEGATIVE (returning cash)        |
-|  Includes: debt issuance/repayment, dividends,    |
-|  buybacks, equity issuance                        |
-+--------------------------------------------------+
-
-CASH FLOW PATTERN ANALYSIS
-=============================
-
-Pattern           Operating  Investing  Financing   Diagnosis
--------           ---------  ---------  ---------   ---------
-Healthy mature      (+)        (-)        (-)       Using cash from
-company                                             operations to invest
-                                                    and return to holders
-
-Growth company      (+)        (--)       (+)       Operations + new
-                                                    capital fund heavy
-                                                    investment
-
-Startup / turnaround (-)       (-)        (+)       Burning cash; relying
-                                                    on external funding
-
-Cash cow            (+)        (small)    (--)      Returning most cash;
-                                                    little reinvestment
-
-Restructuring       (+)        (+)        (-)       Selling assets, paying
-                                                    down debt
-
-Distressed          (-)        (+)        (-)       Selling assets to pay
-                                                    obligations; death spiral
-
-IMPORTANT: Read the cash flow statement EVERY QUARTER.
-It is the single most reliable financial statement.
-Income statements involve judgment. Balance sheets
-involve estimates. Cash flow statements count money.
-```
+**Q12: How much weight should I put on a single quarter?**
+A: Less than the headlines do. PEAD says the print does matter for
+the next 60 days. But the 12-month forward return is much more
+correlated with multi-year accrual quality and cash-flow conversion
+than with any single quarter's surprise. Quarter-to-quarter
+volatility is mostly noise; the trend in EPS-vs-FCF dispersion is
+signal.
 
 ---
 
-#### 8. Putting It All Together -- The Earnings Quality Diagnostic
-
-```
-COMPLETE EARNINGS QUALITY DIAGNOSTIC
-=======================================
-
-STEP 1: THE 5-YEAR TREND TEST
----------------------------------
-
-Plot these metrics over 5 years:
-
-Revenue          Net Income       Operating CF       FCF
---------         ----------       ------------       ---
-$500M            $50M             $70M               $40M
-$550M            $60M             $80M               $50M
-$600M            $75M             $95M               $60M
-$650M            $85M             $105M              $65M
-$700M            $100M            $120M              $75M
-
-ALL growing together? GOOD QUALITY.
-
-Now a problematic company:
-
-Revenue          Net Income       Operating CF       FCF
---------         ----------       ------------       ---
-$500M            $50M             $70M               $40M
-$580M            $70M             $65M               $30M
-$650M            $95M             $55M               $10M
-$720M            $115M            $40M              ($15M)
-$800M            $140M            $20M              ($50M)
-
-Earnings growing but cash flow DECLINING = RED FLAG.
-The earnings growth is an accounting illusion.
-
-STEP 2: THE ACCRUAL RATIO
----------------------------------
-
-                  (Net Income - Operating CF)
-Accrual Ratio = ─────────────────────────────
-                      Total Assets
-
-Interpretation:
-  < -10%:  Extremely high quality (rare, maybe one-time)
-  -10% to -5%: Very high quality
-  -5% to 0%:   Good quality
-  0% to 5%:    Average quality
-  5% to 10%:   Below average quality
-  > 10%:       Poor quality / potential manipulation
-
-STEP 3: THE BENEISH M-SCORE
----------------------------------
-
-The M-Score is a mathematical model that uses 8
-financial ratios to detect earnings manipulation.
-
-M-Score > -1.78: HIGH probability of manipulation
-M-Score < -1.78: LOW probability of manipulation
-
-Key inputs include:
-  - Days Sales in Receivables Index (DSRI)
-  - Gross Margin Index (GMI)
-  - Asset Quality Index (AQI)
-  - Sales Growth Index (SGI)
-  - Total Accruals to Total Assets (TATA)
-
-Studies show the M-Score correctly identified
-Enron's manipulation years before the collapse.
-
-STEP 4: PEER COMPARISON
----------------------------------
-
-Compare your company's ratios to industry peers:
-
-                    Company    Industry    Verdict
-                    -------    --------    -------
-OCF/Net Income      0.7x       1.1x       POOR
-Receivables Days    85         60          CONCERN
-Inventory Days      120        90          CONCERN
-Accrual Ratio       8%         -3%         RED FLAG
-FCF Margin          2%         8%          POOR
-Capex/Depreciation  0.8x       1.2x       Underinvesting
-
-If the company is an outlier on multiple metrics,
-investigate further before investing.
-```
+## Part 2: YouTube Script
 
 ---
 
-### c) Common Misconceptions
-
-**Misconception 1: "EPS growth always means the business is growing."**
-
-Reality: EPS can grow even when the underlying business is stagnant or declining. Share buybacks reduce the denominator (shares outstanding), mechanically increasing EPS without any improvement in net income. A company that earns the same $100 million year after year but buys back 5% of its shares annually will show 5% EPS growth. Check total net income and free cash flow growth, not just EPS.
-
-**Misconception 2: "A company that beats earnings estimates is doing well."**
-
-Reality: The earnings expectations game is heavily managed. Companies deliberately guide analysts to set beatable estimates. A company that "beats by a penny" every single quarter is almost certainly managing expectations, not outperforming. Look at the actual year-over-year earnings growth and cash flow trends, not the beat/miss versus artificially managed estimates.
-
-**Misconception 3: "Revenue growth is always good."**
-
-Reality: Revenue growth that comes with declining margins, increasing receivables, or negative free cash flow can actually destroy value. A company that grows revenue by 20% but offers increasingly generous credit terms (extending payments to customers who may not pay) is booking illusory revenue. Revenue quality matters as much as revenue quantity.
-
-**Misconception 4: "Depreciation is just an accounting entry and can be ignored."**
-
-Reality: Depreciation represents the consumption of real assets. A factory that depreciates $10 million per year will eventually need to be replaced or refurbished at a real cash cost. Ignoring depreciation overstates the cash available to shareholders. This is why free cash flow (which subtracts capex) is more reliable than EBITDA (which adds back depreciation) as a measure of true profitability.
-
-**Misconception 5: "Negative free cash flow always means the company is in trouble."**
-
-Reality: High-growth companies often have negative free cash flow because they are investing heavily in future growth -- building warehouses, developing software, expanding into new markets. Amazon had negative or minimal free cash flow for years while building its logistics empire. The key question is whether the investments will eventually generate returns above the cost of capital. Negative FCF from growth investment is very different from negative FCF due to a broken business model.
-
-**Misconception 6: "The income statement is the most important financial statement."**
-
-Reality: For investors, the cash flow statement is arguably more important because it is harder to manipulate and shows actual cash generation. Profitable companies can run out of cash and go bankrupt (if all their "profit" is locked in receivables or inventory). Unprofitable companies can thrive for years if they generate positive cash flow (through collecting cash before delivering services). Always cross-reference income statement claims with the cash flow statement.
+**VIDEO TITLE:** Earnings Are an Opinion. Cash Is a Fact. — Week 20
+**RUNTIME TARGET:** ~18 minutes
+**HOSTS:** Horace, Stella
 
 ---
 
-### d) Common Questions and Answers
+**[INTRO — 0:00]**
 
-**Q1: Where do I find free cash flow? Is it on the financial statements?**
+**Stella:** Welcome back. This is Week 20, and the question for the
+next eighteen minutes is the oldest question in fundamental
+investing: when a company tells you it earned a dollar per share,
+how much of that dollar is real?
 
-A: Free cash flow is not directly reported on any standard financial statement. You calculate it by taking Operating Cash Flow (from the cash flow statement) and subtracting Capital Expenditures (also on the cash flow statement, under "Investing Activities"). Many financial data providers like Yahoo Finance, Morningstar, and company investor relations pages calculate and display FCF, but always verify by doing the calculation yourself. Some providers include or exclude different items, so the numbers may not match exactly.
+**Horace:** Hong Kong markets just closed. The Apple result the
+night before printed an EPS beat by three cents. The stock gapped
+up two percent in the after-hours, traded sideways through the
+Asia session, and you can already see analysts on Bloomberg arguing
+whether the beat is "high quality" or "low quality." That argument
+is not new and it is not going away. It is the topic of this week.
 
-**Q2: How do I distinguish between legitimate growth investment and earnings manipulation?**
+**Stella:** Two facts to anchor on before we get into the
+mechanics. One: the difference between net income and operating
+cash flow is called total accruals, and it has predicted future
+stock returns, on average, with a meaningful spread, in every
+replication study since Sloan published the original paper in 1996.
+Two: stocks that beat earnings drift up for the next sixty trading
+days, and stocks that miss drift down, also documented since 1989.
+Both effects have weakened over time. Neither has inverted.
 
-A: Ask three questions. First, is the company transparent about its investments? Legitimate growth investing comes with clear explanations of what is being built and expected returns. Second, are peers making similar investments? If the entire industry is expanding capacity, heavy capex is expected. Third, does management have a track record of generating returns on past investments? Check ROIC trends. Companies with a history of high ROIC are more likely to be genuinely investing for growth. Companies with low ROIC that keep spending heavily may be empire building.
-
-**Q3: What is stock-based compensation and should I add it back to free cash flow?**
-
-A: Stock-based compensation (SBC) is when companies pay employees with stock options or restricted stock units instead of cash. It appears as a non-cash expense on the income statement and is added back in the operating cash flow calculation. Some investors argue SBC should be added back to FCF because it is non-cash. Others (including Warren Buffett) argue it should be subtracted because it is a real cost that dilutes shareholders. The second view is correct. SBC is a real expense -- it transfers value from shareholders to employees. Always subtract SBC from FCF if the cash flow statement has added it back.
-
-**Q4: What is the difference between EBITDA and free cash flow?**
-
-A: EBITDA (Earnings Before Interest, Taxes, Depreciation, and Amortization) is a measure of operating profit before non-cash charges. Free cash flow is the actual cash available after all operating expenses AND capital expenditures. The main differences: (1) EBITDA ignores capex -- it assumes the business requires no reinvestment, which is rarely true. (2) EBITDA ignores working capital changes -- a company may report high EBITDA but consume cash through growing receivables and inventory. (3) EBITDA ignores taxes -- real businesses pay taxes in cash. FCF is a more complete and honest metric.
-
-**Q5: How do I use the Beneish M-Score?**
-
-A: The Beneish M-Score uses eight financial ratios to generate a score that indicates the likelihood of earnings manipulation. An M-Score greater than -1.78 suggests a high probability of manipulation. You can calculate it manually using data from the financial statements, but many financial analysis platforms and screening tools now include it. The key inputs include changes in receivables relative to sales, gross margin trends, asset quality, and the ratio of total accruals to total assets. While not perfect, studies show it would have flagged companies like Enron and WorldCom before their collapses.
-
-**Q6: What is "channel stuffing" and how do I detect it?**
-
-A: Channel stuffing occurs when a company ships excess product to distributors or retailers at the end of a quarter to inflate reported revenue. The distributors have not actually sold the product and will likely return it next quarter. Detection clues: (1) Revenue spikes at quarter-end with no corresponding demand increase. (2) Accounts receivable growing significantly faster than revenue (product shipped but not paid for). (3) Increases in sales returns and allowances in subsequent quarters. (4) Inventory at distributors (if disclosed) growing faster than end-customer demand. Companies in consumer products, technology hardware, and pharmaceuticals are most susceptible.
-
-**Q7: What is the relationship between earnings quality and stock returns?**
-
-A: The Sloan Accrual Anomaly (1996) is one of the best-documented findings in financial research. Stocks with high accruals (earnings far exceeding cash flow) consistently underperform stocks with low accruals (cash flow exceeding earnings) by 5-10% annually over subsequent years. The market appears to naively extrapolate headline earnings without examining whether those earnings are backed by cash. Value investors can exploit this by screening for companies with high cash flow relative to earnings and avoiding those where the reverse is true.
-
-**Q8: Can a company have positive earnings but negative free cash flow indefinitely?**
-
-A: Not indefinitely, but it can persist for many years, particularly for companies in heavy growth phases. Amazon reported positive net income as early as 2003 but had negative or minimal free cash flow for many years afterward because of massive capital expenditures on warehouses, data centers, and logistics. Eventually, the gap must close -- either the investments start generating enough cash to turn FCF positive, or the earnings were an illusion. If a mature, non-growing company consistently has earnings above FCF, that is a serious red flag.
-
-**Q9: How should I handle companies that report "adjusted EPS" instead of GAAP EPS?**
-
-A: Be very cautious with adjusted (non-GAAP) EPS. Companies exclude "one-time" charges like restructuring costs, acquisition expenses, and stock-based compensation to present a rosier picture. Some adjustments are legitimate -- truly one-time events that distort the ongoing picture. But many companies have "one-time" charges every single quarter, which means they are not one-time at all. Always compare adjusted EPS to GAAP EPS and to free cash flow. If adjusted EPS is consistently 30-50% higher than GAAP EPS, the company is likely overstating its profitability. If adjusted EPS is close to GAAP EPS, the adjustments are probably reasonable.
-
-**Q10: How do I build a simple earnings quality screen?**
-
-A: Start with these four filters: (1) Operating Cash Flow / Net Income greater than 1.0 for at least 3 of the last 5 years. (2) Free Cash Flow positive for at least 4 of the last 5 years. (3) Accrual ratio below 5% (total accruals as a percentage of total assets). (4) Receivables growing no faster than revenue over the past 3 years. This simple screen will eliminate most earnings manipulation and low-quality earnings situations. Layer in valuation metrics like FCF yield to find stocks that are both high quality and reasonably priced.
+**Horace:** From [SOUL.md](../SOUL.md) #5, this is one of our
+structural alpha sources. "Look at cash, not earnings." It sounds
+trite. It is also genuinely persistent, because most of the market
+is trading on the headline.
 
 ---
 
-## YouTube Script
-
-[VISUAL: Animated intro with title "Week 20: Earnings and Cash Flow - Quality, Manipulation, and Free Cash Flow"]
-
-**Horace:** Welcome back everyone. Today we are going to learn a skill that separates truly sophisticated investors from everyone else -- the ability to tell whether a company's reported profits are real or a mirage. We are talking about earnings quality, cash flow analysis, and how to spot manipulation.
-
-**Stella:** This sounds almost forensic. Like we are going to become financial detectives.
-
-**Horace:** That is exactly what we are going to become. And here is why this matters so much. Every major corporate collapse in the last 25 years -- Enron, WorldCom, Luckin Coffee, Wirecard -- involved earnings manipulation that was actually detectable from publicly available financial statements. Investors who knew how to read the cash flow statement and compare it to earnings were not surprised. They had already moved on.
-
-**Stella:** Okay, I am hooked. Where do we start?
-
-**Horace:** Let us start with the most basic metric every investor sees -- earnings per share, or EPS. When a company reports quarterly results, the headline number is almost always EPS. "Company X reports EPS of $2.15, beating estimates of $2.08." That is the format you see everywhere.
-
-[VISUAL: Mock-up of a financial news headline showing "TechCorp Reports Q3 EPS of $2.15 vs. $2.08 Expected -- Stock Jumps 5%"]
-
-**Stella:** Right, I see those headlines all the time. And the stock usually goes up if they beat and down if they miss.
-
-**Horace:** Correct. But here is what most people do not understand. That $2.15 is not a fact like the temperature outside. It is the output of dozens of accounting judgments, estimates, and management choices. How quickly are they depreciating their equipment? When are they recognizing revenue? How much are they reserving for customer returns? Each of these decisions affects the final EPS number.
-
-**Stella:** So earnings are not just "how much money the company made?"
-
-**Horace:** Not exactly. This brings us to one of the most important concepts in all of finance -- the difference between accrual accounting and cash accounting.
-
-[VISUAL: Title card "Accrual vs. Cash Accounting -- The Most Important Distinction in Financial Analysis"]
-
-**Horace:** The income statement -- where EPS comes from -- is based on accrual accounting. This means revenue is recorded when it is earned, not when cash is received. And expenses are recorded when they are incurred, not when they are paid.
-
-**Stella:** Can you give me a concrete example?
-
-**Horace:** Sure. Imagine a software company signs a three-year, $3 million contract on January 1st. Under accrual accounting, the company recognizes $83,000 in revenue each month -- one thirty-sixth of the contract value. But the customer might not actually pay anything until six months in. The income statement shows revenue. The bank account shows no money.
-
-**Stella:** So the company looks profitable on the income statement but might not have any cash?
-
-**Horace:** Exactly. And this is why the cash flow statement is arguably more important than the income statement for investors. Cash flow tells you what actually went into and out of the bank account. It is much harder to manipulate because you either have the cash or you do not.
-
-[ANIMATION: animation/week20_accrual_vs_cash.py - Two parallel timelines showing the same company's year. The top timeline (Income Statement) shows smooth, growing revenue bars each quarter. The bottom timeline (Cash Flow) shows lumpy, irregular cash receipts and payments. The revenue line looks beautiful and consistent. The cash flow line looks messy but real. Annotations highlight the gap: "The income statement tells a story. The cash flow statement tells the truth."]
-
-**Stella:** If cash flow is harder to fake, why do companies use accrual accounting at all?
-
-**Horace:** Because accrual accounting actually gives a better picture of economic performance in most cases. If a company delivers $100 million in products this quarter but has not collected payment yet, the accrual approach correctly shows $100 million in economic activity. Cash accounting would show zero until the money arrives, which could be misleading. Accrual accounting is not bad -- it is when companies abuse the judgment calls within accrual accounting that problems arise.
-
-**Stella:** So the key is comparing the two -- what the income statement says versus what the cash flow statement says?
-
-**Horace:** Precisely. And this brings us to one of the most powerful tools in an investor's arsenal: the operating cash flow to net income ratio.
-
-[VISUAL: Large formula display: "OCF / Net Income Ratio -- Compare every quarter"]
-
-**Horace:** You simply divide operating cash flow by net income. If the ratio is above 1.0, cash flow exceeds reported earnings, which is a positive quality signal. If it is below 1.0, earnings exceed cash flow, and you need to investigate why.
-
-**Stella:** What would a good company look like versus a suspicious one?
-
-**Horace:** Let me show you a five-year comparison. A high-quality company might look like this. Year one, net income is $100 million and operating cash flow is $130 million. Year two, $120 million and $140 million. Year three, $150 million and $170 million. Both are growing, and cash flow consistently exceeds earnings.
-
-**Stella:** And the suspicious company?
-
-**Horace:** The suspicious company shows net income growing from $100 million to $200 million over five years -- impressive headline growth. But operating cash flow goes from $130 million down to $60 million. Earnings are going up and cash flow is going down. That divergence is one of the most reliable red flags in all of financial analysis.
-
-[ANIMATION: animation/week20_divergence.py - Two line charts animating over 5 years. Chart A ("High Quality Company") shows net income and operating cash flow lines both rising, with OCF consistently above net income. Chart B ("Red Flag Company") shows net income rising while operating cash flow declines, with the lines crossing and then diverging dramatically. At the crossover point, a warning icon flashes. The final frame highlights: "When earnings go up but cash flow goes down, the earnings are likely not real."]
-
-**Stella:** That is powerful. But how does a company manage to report growing earnings while cash flow declines?
-
-**Horace:** Several ways, and this is where it gets really interesting. Let me walk you through the most common manipulation techniques.
-
-**Horace:** First, there is revenue manipulation. The most famous technique is called channel stuffing. A company ships excess product to its distributors right before the quarter ends. On the income statement, that counts as revenue because the product has been "sold." But the distributors did not actually need the product, and they will return it next quarter.
-
-**Stella:** So the company is just borrowing revenue from the future?
-
-**Horace:** Exactly. And it shows up in the financials if you know where to look. Accounts receivable -- the money customers owe the company -- will grow much faster than revenue. Why? Because the company is shipping product to distributors who have not paid for it and probably will not.
-
-[VISUAL: A chart showing Revenue growing at 10% per year side by side with Accounts Receivable growing at 30% per year. An alarm bell icon appears with the caption: "When receivables grow faster than revenue, someone is not paying -- or the revenue is not real."]
-
-**Stella:** What about expense manipulation?
-
-**Horace:** One of the most common techniques is capitalizing expenses. Normally, when you spend money on something that gets consumed quickly -- like marketing or maintenance -- it flows through the income statement as an expense, reducing earnings. But if you capitalize it -- put it on the balance sheet as an asset -- it does not hit earnings this year. Instead, you depreciate it slowly over many years.
-
-**Stella:** So the company is hiding current expenses by pretending they are long-term investments?
-
-**Horace:** Exactly. WorldCom did this with billions of dollars of ordinary operating costs. They classified regular maintenance expenses as capital investments, which inflated their earnings by billions. On the income statement, everything looked fine. But on the cash flow statement, the cash was obviously going out the door. The cash flow statement does not care whether you call something capex or an expense -- cash spent is cash spent.
-
-**Stella:** This is really making me appreciate the cash flow statement.
-
-**Horace:** It should. Which brings us to free cash flow -- the single most important number for long-term investors.
-
-[VISUAL: Title card "Free Cash Flow: The Most Important Number in Investing"]
-
-**Horace:** Free cash flow is operating cash flow minus capital expenditures. It represents the cash a company generates after spending what it needs to maintain and grow its operations. It is the cash truly available to shareholders -- for dividends, buybacks, debt payoff, or further investment.
-
-**Stella:** Why is FCF more important than net income for investors?
-
-**Horace:** Because net income includes non-cash items and accounting estimates that can distort reality. Free cash flow strips all of that away and tells you: how much cash did the business actually produce that could be handed to me, the owner?
-
-**Horace:** Let me use a concrete example. Suppose Company ABC reports $200 million in net income. Sounds great. But when you calculate free cash flow, you discover it is only $50 million. Where did the other $150 million go? Maybe $100 million went to depreciation adjustments that artificially inflated net income. Maybe $50 million went to a build-up in accounts receivable -- revenue was booked but cash was never collected.
-
-[VISUAL: Waterfall chart starting with Net Income of $200M, then showing adjustments: +$100M depreciation, +$50M stock-based compensation, -$80M working capital build-up, = $270M Operating Cash Flow, -$220M Capital Expenditures, = $50M Free Cash Flow. The contrast between $200M in net income and $50M in FCF is stark and visually dramatic.]
-
-**Stella:** $200 million in earnings but only $50 million in free cash flow. That is a huge gap.
-
-**Horace:** And it tells you the reported earnings are overstating the company's actual cash-generating ability. Now, there are legitimate reasons for a gap. A company investing heavily in growth -- building new factories, developing new technology -- will have high capex that reduces FCF below net income. Amazon was in this situation for years. The question is whether those investments will generate future returns above the cost of capital.
-
-**Stella:** How do I tell the difference between good investment and waste?
-
-**Horace:** Three things to check. One, look at the company's return on invested capital, or ROIC. If past investments have consistently generated returns above the WACC we learned about last week, management has earned the benefit of the doubt. Two, look at what peers are spending. If the entire industry is investing heavily, the capex is likely necessary. Three, listen to what management says and whether their past promises about investment returns actually materialized. Some CEOs repeatedly promise returns from new investments that never pan out -- that is a pattern of capital destruction.
-
-**Stella:** Now, you mentioned FCF yield as a valuation metric. How does that work?
-
-**Horace:** FCF yield is free cash flow divided by market cap. It tells you the cash return you are getting for the price you pay. Think of it like the yield on a bond, but for a stock.
-
-[VISUAL: Simple calculation showing: "FCF: $500M, Market Cap: $10B, FCF Yield: 5.0%". Below it, a comparison bar chart showing FCF yields for the S&P 500 (3-4%), a value stock (7%), a growth stock (1%), and the 10-year Treasury yield (4.5%), providing context for what constitutes a high or low FCF yield.]
-
-**Horace:** If a company has an FCF yield of 5%, it generates $5 in cash for every $100 of market value. You can compare this directly to bond yields. If the 10-year Treasury yields 4.5% and a stock has an FCF yield of 7%, the stock is generating more cash than the bond -- and that cash can grow, unlike bond coupons.
-
-**Stella:** What is a good FCF yield?
-
-**Horace:** The average for the S&P 500 is roughly 3 to 5%. Below 2% is typical for high-growth companies that reinvest everything. Above 6% is above average and potentially attractive. Above 10% is either a deep value opportunity or a value trap -- you need to figure out which.
-
-**Stella:** How do you tell the difference?
-
-**Horace:** A high FCF yield is a genuine opportunity if the company's cash flows are sustainable, the business is stable, and the market is just being pessimistic. It is a value trap if cash flows are about to decline due to competitive threats, expiring contracts, or secular headwinds. This is where the qualitative analysis -- understanding the business -- meets the quantitative analysis.
-
-**Stella:** Let me ask about something practical. When I am looking at a company's financial statements, how should I actually read the cash flow statement?
-
-**Horace:** The cash flow statement has three sections, and each tells a different story. The first section is operating cash flow -- cash generated from the core business. This should be positive and growing for any mature company. If it is negative, the company is not self-sustaining.
-
-**Horace:** The second section is investing cash flow -- cash spent on investments like equipment, acquisitions, or financial assets. For a growing company, this is usually negative, which is fine. For a declining company selling assets to stay alive, it might be positive -- and that is a warning sign.
-
-**Horace:** The third section is financing cash flow -- cash from or to capital providers. This includes issuing or repaying debt, issuing or buying back stock, and paying dividends. For mature companies returning capital, this is typically negative.
-
-[ANIMATION: animation/week20_cash_flow_sections.py - Three animated funnels representing the three sections of the cash flow statement. Green dollars flow through the Operating funnel (largest, flowing in). Red dollars flow through the Investing funnel (flowing out for capex). Blue dollars flow through the Financing funnel (flowing out for dividends and buybacks). The net of all three flows into a "Cash Balance" bucket at the bottom, which fills or drains based on the totals. Different company profiles are shown -- healthy mature company, high-growth company, and distressed company -- each with dramatically different flow patterns.]
-
-**Stella:** This is really clicking. Let me try to put it all together. When I analyze a company, I should look at EPS for the headline, but then immediately check operating cash flow to see if the earnings are backed by real cash. I should calculate free cash flow to see what is actually available to me as a shareholder. And I should compare FCF yield to other investments to see if the valuation makes sense.
-
-**Horace:** That is an excellent framework. And I want to add one more layer. Always look at trends over time, not just a single year. One year of low cash flow relative to earnings might be a timing issue. Three or four consecutive years of deteriorating cash flow quality is a serious red flag that the reported earnings may not be sustainable.
-
-**Stella:** Are there any tools or quick metrics I can use to screen for earnings quality?
-
-**Horace:** Yes. There is a model called the Beneish M-Score that uses eight financial ratios to estimate the probability that a company is manipulating its earnings. An M-Score above negative 1.78 suggests a high probability of manipulation. It is not perfect, but studies show it would have flagged companies like Enron before they collapsed. Many financial analysis platforms now include it.
-
-**Stella:** For the average investor who does not want to run complex models, what are the top three things to check?
-
-**Horace:** Number one, check the OCF to net income ratio. It should be above 1.0 most years. Number two, check whether receivables are growing faster than revenue. That is the simplest and most reliable manipulation flag. Number three, read the auditor's opinion in the annual report. If it is anything other than a clean, unqualified opinion -- or if the auditor recently changed -- investigate further.
-
-[VISUAL: A "Quick Earnings Quality Check" card with three items:
-1. OCF / Net Income > 1.0? (check mark or X)
-2. Receivables growing slower than revenue? (check mark or X)
-3. Clean audit opinion? (check mark or X)
-"If all three check marks: proceed with confidence. If any X: investigate before investing."]
-
-**Stella:** What about adjusted earnings? I see a lot of companies reporting "adjusted EPS" that is higher than the regular number.
-
-**Horace:** This is one of my pet peeves. Many companies report "non-GAAP" or "adjusted" earnings that exclude things like stock-based compensation, restructuring charges, and acquisition costs. The problem is that some of these "one-time" charges happen every single quarter. Stock-based compensation is a real cost -- it dilutes shareholders. Restructuring charges year after year suggest the business is perpetually struggling.
-
-**Stella:** So I should ignore adjusted earnings?
-
-**Horace:** Not ignore, but be deeply skeptical. Always compare adjusted EPS to GAAP EPS. If the gap is small -- say 5 to 10% -- the adjustments are probably reasonable. If the gap is 30, 40, 50% -- the company is painting a dramatically different picture than reality, and you should rely on the GAAP number and free cash flow instead.
-
-**Stella:** This episode has fundamentally changed how I will look at financial statements. I feel like I had been reading only the income statement and completely ignoring the cash flow statement.
-
-**Horace:** You are not alone. Most retail investors focus almost exclusively on earnings and revenue because that is what the financial media emphasizes. But the smart money -- professional value investors, short sellers, forensic accountants -- they start with the cash flow statement and work backward. If the cash flow supports the earnings, great. If it does not, there is a problem, regardless of how good the headline EPS looks.
-
-**Stella:** One final question. Where should someone start if they want to practice this analysis?
-
-**Horace:** Pick five companies you own or are interested in. Pull up their cash flow statements on the SEC's EDGAR website or any financial data provider. For each company, calculate the OCF to net income ratio for the last five years. Calculate free cash flow and FCF yield. Check if receivables are growing faster than revenue. You will be amazed at what you find. Some companies you thought were great will have concerning quality signals, and some you overlooked will turn out to be cash flow machines.
-
-[VISUAL: End screen with key takeaways:
-- Earnings are an opinion; cash flow is a fact
-- OCF/Net Income > 1.0 signals high quality
-- Free Cash Flow = Operating Cash Flow minus Capex
-- FCF Yield is a valuation metric based on real cash
-- Receivables growing faster than revenue is a red flag
-- Always compare GAAP EPS to adjusted EPS
-- The cash flow statement is the investor's X-ray machine]
-
-**Stella:** What is next week?
-
-**Horace:** Next week is equity valuation -- we are going to bring everything together and learn how to actually determine what a stock is worth using P/E ratios, EV/EBITDA, and discounted cash flow analysis. All the earnings and cash flow analysis we learned today feeds directly into valuation.
-
-[VISUAL: Preview card for Week 21 with "Equity Valuation: P/E, P/B, and DCF"]
-
-**Horace:** Thanks for watching everyone. If you have ever bought a stock based purely on EPS growth without checking the cash flow statement, today's lesson just saved you from potentially costly mistakes in the future. Share it with anyone who invests based on headlines without reading the financials. See you next week.
-
-[VISUAL: Outro animation with subscribe button and links to previous episodes]
+**[SECTION 1 — ACCRUALS, THE IDENTITY — 1:30]**
+
+**Stella:** Start with the arithmetic. For any company, in any
+period, net income equals operating cash flow plus total accruals.
+That is not a model. That is the definition.
+
+**Horace:** Accruals are not a dirty word. They are how accounting
+matches revenue to the period it was earned and expenses to the
+period they were incurred, regardless of when cash moved. That is
+useful. A subscription business that bills annually but delivers
+monthly *should* recognise the revenue across twelve months. That
+is an accrual, and it is correct.
+
+**Stella:** The problem is that every line on the bridge from net
+income to operating cash flow is a discretionary judgement. Pace
+of depreciation. Reserves for bad debts. Capitalisation versus
+expensing. Working-capital classification. Each is individually
+defensible. Stacked, they create enough latitude that the same
+underlying business can print quite different EPS depending on the
+mood of the CFO and the patience of the auditor.
+
+**Horace:** And cash, by contrast, is much harder to fake. Either
+it showed up in the bank account or it did not. The cash flow
+statement is not free of judgement — operating versus investing
+classification is genuinely ambiguous in places — but the *level*
+of cash moves much less than the level of reported earnings under
+management discretion.
+
+---
+
+**[SECTION 2 — THE ACCRUALS ANOMALY — 4:00]**
+
+**Stella:** Sloan, 1996. Take every US-listed firm. Each year,
+compute total accruals scaled by average total assets. Sort firms
+into five quintiles. Q1 is lowest accruals — most cash-backed
+earnings. Q5 is highest accruals — most accrual-heavy earnings.
+Hold each quintile for the next twelve months. Repeat every year
+for thirty years.
+
+[VISUAL: image/week20_accruals_anomaly.png]
+
+**Horace:** The picture is the result. Q1 averages roughly 16.8
+percent. Q2 14.2. Q3 12.4. Q4 10.1. Q5, 7.6. The cross-sectional
+average is around twelve percent. The Q1-minus-Q5 spread is about
+nine percentage points per year. That is the academic estimate of
+the alpha, and it is one of the largest robust spreads ever
+documented in equity markets.
+
+**Stella:** A few caveats. Half of the spread gets eaten by
+transaction costs, capacity limits, and short-borrow fees on the
+Q5 leg in any real implementation. The signal has weakened since
+the paper was published — which always happens to good signals
+once they are public. And the implementation of the short side, in
+particular, is harder than the academic study suggests, because
+the worst accruals firms are often small-caps with shallow
+short-borrow markets.
+
+**Horace:** Practical version for a retail book: do not short. Use
+the screen to *exclude* high-accrual names from your long
+portfolio. You will get most of the asymmetry without the
+operational complexity. That is also a [SOUL.md](../SOUL.md) #13
+thing — long quality goes in the core tranche; the short side, if
+you do it at all, goes in the specialty tranche, with size limits.
+
+---
+
+**[SECTION 3 — POST-EARNINGS-ANNOUNCEMENT DRIFT — 7:30]**
+
+**Stella:** The accruals anomaly is a twelve-month phenomenon. Its
+faster cousin is the post-earnings-announcement drift, sixty days
+after the print.
+
+[VISUAL: image/week20_pead_drift.png]
+
+**Horace:** Bernard and Thomas, 1989. Rank every quarterly
+earnings release by standardised unexpected earnings — basically,
+the surprise relative to consensus, scaled by the firm's typical
+surprise volatility. Top quintile drifts up. Bottom quintile drifts
+down. The middle quintile sits near zero. The drift continues for
+about sixty trading days, then fades into the next earnings cycle.
+
+**Stella:** In modern data the drift is smaller than the picture
+suggests — replications through 2024 put the top-vs-bottom spread
+at roughly two to three percent over sixty days, not the four to
+five percent Bernard and Thomas reported in the original paper.
+But the sign is stable. The drift has not inverted. The
+information from the print is still being absorbed by the market
+more slowly than a fully efficient model would predict.
+
+**Horace:** Why does the market not arbitrage this away? Limits to
+arbitrage, career risk, and the slow horizon. The accruals anomaly
+takes twelve months to play out. PEAD takes sixty days. Most of
+the trading volume in this market is operating on a one-day
+horizon — the print versus the consensus. The slow signals do not
+compete with the fast traders.
+
+**Stella:** This is also where it touches Horace's
+[SOUL.md](../SOUL.md) #8 — momentum and mean-reversion as twin
+phenomena. PEAD is fundamentally a momentum effect — the stock
+that surprised up keeps drifting up, because the information is
+travelling through the market slower than the price. The accruals
+anomaly is a mean-reversion effect — earnings inflated by accruals
+revert toward cash over the next year. Same coin, opposite faces.
+
+---
+
+**[SECTION 4 — FREE CASH FLOW, CAREFULLY — 10:30]**
+
+**Horace:** Free cash flow gets quoted three different ways in the
+wild. We need the right one for screening.
+
+**Stella:** FCF to the firm — operating cash flow minus capex.
+That is the plain definition and the one the DCF model wants. FCF
+to equity — FCFF minus net debt repayment plus net debt issuance —
+is what the dividend-discount frameworks use. And then there is
+"adjusted FCF," which is whatever management says it is. Adjusted
+FCF gets the same eyebrow as adjusted EBITDA. Permanently raised.
+
+**Horace:** Stock-based compensation deserves a side note. SBC is
+a real cost. The company is handing out part of itself to
+employees. The cash that would have been spent on payroll is
+instead being raised by issuing new shares, which dilutes you. The
+right adjustment is to *subtract* SBC from FCF, not add it back.
+Many "adjusted FCF" presentations in software earnings releases
+get this exactly backwards. Treat them accordingly.
+
+[VISUAL: interactive/week20_earnings_lab.html]
+
+**Stella:** The interactive lab embedded in the lesson lets you
+flip between six representative companies. Apple, Microsoft,
+Amazon, JPM, Coca-Cola, GE. For each one we plot diluted EPS and
+FCF per share over fiscal years 2020 through 2024, and then a
+separate bar chart of the per-year accrual, defined as EPS minus
+FCF per share.
+
+**Horace:** Apple is the textbook capital-light name — FCF runs
+slightly above EPS most years, because non-cash charges and
+working capital favour cash. The 2024 gap widened on a one-time
+European tax charge that depressed reported earnings. Coca-Cola is
+the steady-state benchmark — the two lines hug each other within
+pennies year after year. That is what high-quality earnings look
+like over time.
+
+**Stella:** Microsoft's FCF lagged EPS in fiscal 2023 and 2024,
+but not because of manipulation — because of a capex bulge for AI
+data centres. That is an investment story, not a quality story.
+Whether the capex earns its cost of capital is the right question,
+and the gap is informative rather than damning. Amazon shows the
+opposite case — huge non-cash D&A from AWS makes EPS look thin
+while the underlying cash story is much better.
+
+**Horace:** GE shows the messy real-world case, multi-year
+restructuring with huge non-cash charges, where FCF is telling the
+truth about the underlying industrial businesses better than
+reported EPS does. JPM is in there as a reminder — banks do not
+have a meaningful FCF in the industrial sense. Use ROTCE for
+banks, [Week 19](week19_corporate_finance.md) covered it.
+
+---
+
+**[SECTION 5 — THE FIVE RED FLAGS — 14:00]**
+
+**Stella:** A short list of earnings-quality red flags. Most of
+the forensic accounting work in the wild is a variation of these
+five.
+
+**Horace:** One. Days sales outstanding rising faster than
+revenue. DSO is receivables divided by daily revenue. If revenue
+grew twelve percent and DSO grew thirty, the company is "selling"
+to customers who are not yet paying. That is the most common
+precursor to a revenue restatement.
+
+**Stella:** Two. Days inventory outstanding rising faster than
+revenue. Inventory builds either because the company is producing
+ahead of demand — sometimes legitimate — or because what was
+already produced is not selling, which is the bad version. Either
+way, it is cash going into the warehouse instead of into the bank.
+
+**Horace:** Three. Capitalisation of costs that should be
+expensed. WorldCom's fraud was, mechanically, exactly this —
+eleven billion dollars of network operating expense moved to the
+balance sheet as capital. R&D, software development, content
+production, "integration" costs after acquisitions. The more cost
+a firm moves to the balance sheet, the higher today's earnings and
+the lower tomorrow's.
+
+**Stella:** Four. Recurring "one-time" charges. A company taking a
+restructuring charge in three out of four years is not
+restructuring; it is telling you the underlying earnings power is
+below the "adjusted" headline. The charges are real costs that
+keep getting labelled as not-real-costs.
+
+**Horace:** Five. The accrual ratio itself. Net income minus
+operating cash flow, scaled by assets, year after year. A
+persistent positive gap is a quality concern. A persistent
+*negative* gap — FCF above EPS — is the opposite signature, the
+capital-light business with non-cash charges weighing on reported
+earnings.
+
+**Stella:** None of these red flags is deterministic. Each has a
+legitimate version. But in a screen, firms that flunk three of the
+five tests have a materially worse forward return distribution
+than firms that pass them all.
+
+---
+
+**[SECTION 6 — LATE-CYCLE DISPERSION, 2026 — 16:00]**
+
+**Horace:** Where this takes us, in April 2026. Through 2024 and
+into 2025, the EPS-versus-FCF dispersion in the S&P 500 widened.
+Reported earnings continued to grow at eight to ten percent per
+year. Operating cash flow growth slowed to three to four. Some of
+that gap is real — AI capex is genuinely investment, not
+manipulation. Some of it is the late-cycle pattern — DSO and DIO
+drifting up, "adjusted" metrics drifting further from GAAP, share
+buybacks juicing per-share earnings even as total cash flow
+flatlines.
+
+**Stella:** The contrarian read. The firms whose FCF is keeping
+pace with EPS in this environment are getting a quality premium
+that the headline EPS multiple does not yet fully reflect. The
+firms whose EPS-FCF gap has widened for three years running are
+tomorrow's accrual reversion candidates. That is the screen we run
+for the quality tranche.
+
+**Horace:** And per [SOUL.md](../SOUL.md) #5, this is structural,
+not tactical. Cash-versus-accruals interpretation works in every
+regime. It works hardest when the rest of the market has stopped
+checking. Which, late in the cycle, they tend to do.
+
+---
+
+**[OUTRO — 17:30]**
+
+**Stella:** Three takeaways for the week.
+
+**Horace:** One. Accruals equals net income minus operating cash
+flow. The Q1 minus Q5 spread on accruals-to-assets has been worth
+roughly seven to ten percentage points per year, and is one of the
+most replicated alphas in finance.
+
+**Stella:** Two. Post-earnings-announcement drift exists. The
+print matters for the next sixty days, not just the next twenty-
+four hours. Top quintile drifts up about two to three percent;
+bottom quintile drifts down about the same. The fade comes around
+the next pre-announcement window.
+
+**Horace:** Three. Free cash flow, multi-year averaged, is the
+right input to valuation. Watch the accrual ratio over time.
+Rising DSO, rising DIO, capitalised costs, recurring "one-times,"
+persistent positive accrual gap — three of those five flunked is
+worth excluding from the long book.
+
+**Stella:** Next week, [Week 21](week21_valuation_dcf.md) — the
+discounted cash flow model. Now that we know which cash flow to
+trust, we can put it in a spreadsheet and discount it.
+
+**Horace:** Cash is the fact. Earnings are the opinion. Trust the
+cash line.

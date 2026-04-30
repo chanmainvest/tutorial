@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Side Lesson 23: Technical Analysis -- Charts, Indicators, and Patterns - Chanma Investment Tutorial</title>
+    <title>Side Lesson 23: Technical Analysis — What Works (Some), What Doesn't (Most), and the Academic Verdict - Chanma Investment Tutorial</title>
     <script>(function(){try{var t=localStorage.getItem('preferred-theme');if(!t){t=window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();</script>
     <style>
 :root, html[data-theme="light"] {
@@ -1247,300 +1247,546 @@ html[data-theme="dark"] .nav-btn:hover .btn-label { color: rgba(15,23,36,0.7); }
     <main class="main-wrap">
         <div class="content-area">
             <div id="content-en" class="lang-content active">
-                <h1>Side Lesson 23: Technical Analysis -- Charts, Indicators, and Patterns</h1>
+                <h1>Side Lesson 23: Technical Analysis — What Works (Some), What Doesn't (Most), and the Academic Verdict</h1>
 <hr>
-<h2>Reading Section</h2>
+<h3>1. Why This Is Important</h3>
 <p>
-Technical analysis is the study of past market data -- primarily price and volume -- to forecast future price movements. It is one of the oldest and most debated disciplines in investing. Proponents argue that price charts contain all available information about a security and that patterns repeat because human psychology does not change. Critics counter that past price movements have no predictive power and that chart patterns are little more than financial astrology. The truth, as with most debates in investing, lies somewhere in between. Technical analysis is neither the crystal ball its advocates claim nor the complete nonsense its detractors assert. Used properly -- as a tool for timing entries and exits, managing risk, and understanding market sentiment -- it can add value to an investor's toolkit. Used improperly -- as a standalone method for picking stocks -- it can lead to overtrading and substantial losses. This lesson covers the core concepts of technical analysis, the most widely used indicators, and a realistic assessment of when they help and when they do not.
+Technical analysis is the largest cottage industry in finance. There
+are tens of thousands of books, hundreds of indicators with three-letter
+acronyms, dozens of YouTube channels selling pattern-recognition
+courses, and a small army of CMTs (Chartered Market Technicians)
+whose certification body has been around since 1973. Against all
+this, the academic literature has been remarkably consistent for forty
+years: <strong>most of it doesn't work, two narrow pieces of it do.</strong>
+Side 23 is the honest survey of which is which.
 </p>
-<hr>
-<h3>a) Why This Is Important</h3>
+<li>**The "TA works" claim is mostly survivorship bias and</li>
 <p>
-<strong>Price Is Information.</strong> Even if you are a fundamental investor, understanding what the market is telling you through price action is valuable. A stock with strong fundamentals but a declining price may be telling you something you have not yet discovered -- perhaps insiders are selling, or a competitive threat is emerging. Price can lead fundamentals.
+pattern-fitting.** Andrew Lo, Jegadeesh, Pedersen, Bessembinder
+and others have run rigorous tests on the universe of "classical"
+chart patterns — head-and-shoulders, double tops, triangles,
+pennants, flags — and the result is consistent: after transaction
+costs, no systematic edge. The patterns are visible after the
+fact because the brain is a pattern-matching machine. They are
+not predictive in advance.
 </p>
+<li><strong>But two pieces of TA <em>do</em> survive scrutiny.</strong> Time-series</li>
 <p>
-<strong>Risk Management.</strong> Technical analysis provides concrete tools for managing risk. Support levels suggest where buying interest may emerge. Stop-loss levels based on technical analysis help you define your maximum loss before entering a position. Regardless of whether you believe in chart patterns, having predefined exit points based on price levels is sound risk management.
+momentum (the past 12 months of a security's own returns predicts
+the next 1-12 months) is documented in Moskowitz, Ooi and
+Pedersen 2012 across 58 markets and is the engine behind the
+$300B managed-futures industry (Week 51). The 200-day moving
+average as a risk-on / risk-off filter (Faber 2007) gives roughly
+the same long-run return as buy-and-hold but cuts the worst
+drawdowns roughly in half. These are not flashy. They are the
+exceptions, not the rule.
 </p>
+<li>**The behavioural use is real even when the predictive use</li>
 <p>
-<strong>Timing Entries and Exits.</strong> Even the best fundamental analysis does not tell you when to buy or sell. You might identify a great company trading at a fair price, but buying just before a 20% decline is still painful. Technical analysis can help you time entries more effectively -- buying at support levels, waiting for trend confirmations, or using momentum indicators to avoid catching a falling knife.
+isn't.** A trader who says "I sell when the 50-day breaks the
+200-day" has, at minimum, a <em>rule</em> — a pre-committed binary
+trigger that overrides loss aversion (Side 15). The trigger may
+have weak predictive power, but the <em>discipline</em> is real. SOUL
+#12: the market can stay irrational longer than you can stay
+solvent. A bad rule consistently followed beats a good thesis
+abandoned in a panic.
 </p>
+<li><strong>You will see this stuff every day on financial media.</strong> CNBC</li>
 <p>
-<strong>Understanding Market Participants.</strong> Millions of traders use technical analysis, which means support levels, moving averages, and pattern breakouts become self-fulfilling prophecies to some degree. When a major moving average is approaching, you can anticipate that many traders will act based on it. This knowledge is valuable even if you are skeptical of technical analysis itself.
-</p>
-<p>
-<strong>Complementing Fundamental Analysis.</strong> The most effective investment approach for many practitioners combines fundamental analysis (what to buy) with technical analysis (when to buy). This synthesis gives you an edge over investors who use either approach in isolation.
-</p>
-<hr>
-<h3>b) What You Need to Know</h3>
-<h4>Chart Types</h4>
-<p>
-<strong>Line Charts.</strong> The simplest chart type, plotting a single data point (typically the closing price) for each time period, connected by a continuous line. Line charts are clean and easy to read but sacrifice information about intraday price movement.
-</p>
-<p>
-<strong>Bar Charts (OHLC).</strong> Each bar represents one time period and shows four data points: the Open (left tick), High (top of bar), Low (bottom of bar), and Close (right tick). Bar charts provide more information than line charts, showing the range of trading activity within each period.
-</p>
-<p>
-<strong>Candlestick Charts.</strong> Originated in 18th-century Japanese rice trading, candlestick charts display the same OHLC data as bar charts but with a visual "body" between the open and close. If the close is higher than the open, the body is typically green or white (bullish). If the close is lower than the open, the body is red or black (bearish). The thin lines above and below the body ("wicks" or "shadows") show the high and low.
-</p>
-<p>
-Candlestick charts are the most popular chart type among technical analysts because the visual patterns are easier to identify at a glance. Specific candlestick formations -- doji, hammer, engulfing patterns, shooting star -- are interpreted as signals of potential price reversals or continuations.
-</p>
-<p>
-<strong>Point and Figure Charts.</strong> These charts ignore time entirely and focus only on price movement. They plot X's for rising prices and O's for falling prices, filtering out noise and highlighting significant price trends. While less common today, they remain useful for identifying long-term trends and price targets.
-</p>
-<h4>Support and Resistance</h4>
-<p>
-The most fundamental concepts in technical analysis are support and resistance.
-</p>
-<p>
-<strong>Support</strong> is a price level where buying interest is strong enough to prevent the price from declining further. When a stock falls to a support level, buyers step in -- perhaps because they view it as a bargain, or because they have standing buy orders at that price. Support levels are identified by looking at previous price lows where the stock bounced.
-</p>
-<p>
-<strong>Resistance</strong> is a price level where selling pressure is strong enough to prevent the price from rising further. Sellers may take profits at this level, or it may represent a previous high where holders who bought at that price are looking to "get back to even" and exit their positions.
-</p>
-<p>
-<strong>Key Principles:</strong>
-</p>
-<ul><li>Once broken, support becomes resistance, and resistance becomes support. If a stock breaks below a support level, that level often becomes resistance on subsequent rallies. This principle is called "polarity."</li>
-<li>The more times a level is tested, the more significant it becomes -- but also the more likely it is to eventually break. A support level tested five times is clearly important, but each test weakens it as the pool of buyers at that level is depleted.</li>
-<li>Support and resistance are zones, not exact prices. A stock may not bounce from exactly $50.00 each time -- it might bounce from $49.50 one time and $50.25 another. Think in terms of zones rather than precise numbers.</li>
-<li>Volume confirms breakouts. A breakout above resistance on high volume is more likely to be genuine than one on low volume.</li>
-<p>
-</ul>
-</p>
-<h4>Moving Averages</h4>
-<p>
-Moving averages smooth out price data to identify trends by averaging prices over a specific number of periods.
+guests will draw trendlines on screen. X / Twitter accounts will
+post "this triangle is breaking out." YouTube channels will sell
+you a course on Elliott Wave theory for $1,997. You need to be
+able to tell the difference between the 95% that is decoration
+and the 5% that is real, especially because the decorative kind
+tends to come dressed in the language of the real kind.
 </p>
 <p>
-<strong>Simple Moving Average (SMA).</strong> The arithmetic mean of prices over a specified period. A 50-day SMA adds the closing prices of the last 50 days and divides by 50. Each data point is weighted equally.
+This lesson covers chart-pattern claims (the failures), the two TA
+strategies that replicate out-of-sample (the survivors), and the
+behavioural-discipline argument for using TA-style rules even when
+their predictive value is weak. SOUL #1 (alpha is rare; the default
+should be passive) and SOUL #8 (momentum + mean-reversion + vol-on /
+vol-off as the only short-list of robust market regularities) are
+the two anchors.
 </p>
+<img src="image/side23_200dma_strategy.png" alt="Wealth-path chart: SPY $1 starting Jan 1990 through Apr 2026 under (a) buy-and-hold and (b) Faber GTAA rule — invested in SPY when SPY price is above its 200-day moving average, parked in 3-month T-bills otherwise. End wealth and max drawdown stamped on each line.">
 <p>
-<strong>Exponential Moving Average (EMA).</strong> Gives greater weight to recent prices, making it more responsive to new information. The 50-day EMA reacts faster to recent price changes than the 50-day SMA.
-</p>
-<p>
-<strong>Commonly Used Moving Averages:</strong>
-</p>
-<ul><li><strong>20-day EMA:</strong> Short-term trend indicator. Used by swing traders.</li>
-<li><strong>50-day SMA:</strong> Medium-term trend indicator. Widely watched by institutional and individual investors.</li>
-<li><strong>200-day SMA:</strong> Long-term trend indicator. The most important moving average for many analysts. A stock trading above its 200-day SMA is considered to be in a long-term uptrend.</li>
-<p>
-</ul>
-<strong>Moving Average Signals:</strong>
-</p>
-<p>
-<strong>Golden Cross.</strong> Occurs when the 50-day SMA crosses above the 200-day SMA. Interpreted as a bullish signal indicating a potential shift from a downtrend to an uptrend. The golden cross has a mixed track record -- it often confirms a trend change but with a significant lag.
-</p>
-<p>
-<strong>Death Cross.</strong> Occurs when the 50-day SMA crosses below the 200-day SMA. Interpreted as a bearish signal. Like the golden cross, it tends to be a lagging indicator that confirms a trend change rather than predicting one.
-</p>
-<p>
-<strong>Moving Averages as Support/Resistance.</strong> Trending stocks often bounce off key moving averages. In a strong uptrend, the 50-day SMA frequently acts as a support level where dip-buyers enter. A break below the 200-day SMA often signals a more significant trend change.
-</p>
-<h4>Relative Strength Index (RSI)</h4>
-<p>
-The RSI is a momentum oscillator that measures the speed and magnitude of recent price changes to evaluate whether a security is overbought or oversold.
-</p>
-<p>
-<strong>Calculation.</strong> RSI compares the average gain on up days to the average loss on down days over a specified period (typically 14 days). The result is scaled between 0 and 100.
-</p>
-<p>
-RSI = 100 - (100 / (1 + RS))
-</p>
-<p>
-Where RS = Average Gain over 14 periods / Average Loss over 14 periods.
-</p>
-<p>
-<strong>Interpretation:</strong>
-</p>
-<ul><li><strong>RSI above 70:</strong> The security is considered overbought -- it has risen too far, too fast, and may be due for a pullback. However, in strong uptrends, the RSI can remain above 70 for extended periods. Overbought does not mean "sell immediately."</li>
-<li><strong>RSI below 30:</strong> The security is considered oversold -- it has fallen too far, too fast, and may be due for a bounce. Similarly, in strong downtrends, the RSI can remain below 30 for extended periods.</li>
-<li><strong>RSI Divergence:</strong> One of the most powerful RSI signals occurs when the RSI diverges from price. If a stock makes a new high but the RSI makes a lower high, it signals weakening momentum -- a "bearish divergence." If a stock makes a new low but the RSI makes a higher low, it signals diminishing selling pressure -- a "bullish divergence."</li>
-<p>
-</ul>
-<strong>Limitations:</strong> The RSI is most useful in ranging (non-trending) markets. In strong trends, the RSI can give premature signals. An overbought RSI in a strong bull trend does not mean you should sell -- the trend may continue much further. Use RSI in conjunction with trend analysis, not in isolation.
-</p>
-<h4>MACD (Moving Average Convergence Divergence)</h4>
-<p>
-The MACD is a trend-following momentum indicator that shows the relationship between two moving averages.
-</p>
-<p>
-<strong>Components:</strong>
-</p>
-<ul><li><strong>MACD Line:</strong> The 12-day EMA minus the 26-day EMA. When this line is positive, the short-term trend is above the long-term trend (bullish). When negative, the opposite (bearish).</li>
-<li><strong>Signal Line:</strong> The 9-day EMA of the MACD line. This smoother line is used to generate buy and sell signals.</li>
-<li><strong>Histogram:</strong> The difference between the MACD line and the signal line. The histogram visually shows the momentum of the trend.</li>
-<p>
-</ul>
-<strong>Signals:</strong>
-</p>
-<ul><li><strong>Bullish Crossover:</strong> The MACD line crosses above the signal line. This suggests upward momentum is increasing.</li>
-<li><strong>Bearish Crossover:</strong> The MACD line crosses below the signal line. This suggests downward momentum is increasing.</li>
-<li><strong>MACD Divergence:</strong> Like RSI divergence, if the MACD makes lower highs while the stock makes higher highs, it signals weakening momentum.</li>
-<li><strong>Zero Line Crossover:</strong> When the MACD line crosses above zero, it confirms that the 12-day EMA is above the 26-day EMA -- a bullish trend confirmation.</li>
-<p>
-</ul>
-</p>
-<h4>Additional Technical Tools</h4>
-<p>
-<strong>Bollinger Bands.</strong> Created by John Bollinger, these consist of a 20-day SMA (middle band) with upper and lower bands set 2 standard deviations above and below. When price touches or exceeds the upper band, the security is statistically extended and may be overbought. When it touches the lower band, it may be oversold. "Bollinger Band squeezes" -- when the bands narrow significantly -- often precede large price moves as volatility contracts before expanding.
-</p>
-<p>
-<strong>Volume Analysis.</strong> Volume is the number of shares traded in a given period. Key volume principles:
-</p>
-<ul><li>Price moves on high volume are more significant than moves on low volume.</li>
-<li>Rising price with rising volume confirms the trend. Rising price with declining volume suggests the trend is weakening.</li>
-<li>Volume spikes at bottoms (capitulation) or tops (climactic buying) often signal reversals.</li>
-<li>On Balance Volume (OBV) is a cumulative indicator that adds volume on up days and subtracts volume on down days, helping identify whether volume is flowing into or out of a security.</li>
-<p>
-</ul>
-<strong>Fibonacci Retracements.</strong> Based on the Fibonacci sequence, these levels (23.6%, 38.2%, 50%, 61.8%, 78.6%) are drawn between a significant high and low to identify potential support and resistance levels during retracements. The 61.8% retracement level (the "golden ratio") is the most closely watched. While the mathematical basis for Fibonacci levels in markets is debatable, enough traders use them that they can create self-fulfilling support and resistance zones.
-</p>
-<p>
-<strong>Trend Lines.</strong> Straight lines drawn across successive highs (resistance trend line) or successive lows (support trend line). A break of a well-established trend line is considered a significant signal. Trend lines are subjective -- different analysts may draw them differently -- but they provide a simple visual representation of the prevailing trend.
-</p>
-<h4>Common Chart Patterns</h4>
-<p>
-Technical analysts have cataloged dozens of chart patterns that they believe predict future price movements. Here are the most widely recognized:
-</p>
-<p>
-<strong>Head and Shoulders.</strong> Consists of three peaks: a higher middle peak (head) flanked by two lower peaks (shoulders). The neckline connects the lows between the peaks. A break below the neckline is interpreted as a bearish reversal signal. An inverse head and shoulders (three troughs with the middle being deepest) is a bullish reversal signal.
-</p>
-<p>
-<strong>Double Top / Double Bottom.</strong> A double top occurs when a stock reaches the same resistance level twice and fails to break through. It suggests the uptrend is exhausting. A double bottom occurs when a stock reaches the same support level twice and bounces each time. It suggests the downtrend is weakening. The pattern is confirmed when the stock breaks through the middle peak (for double bottom) or trough (for double top).
-</p>
-<p>
-<strong>Cup and Handle.</strong> A bullish continuation pattern where the price forms a U-shaped cup followed by a small downward handle. The breakout from the handle suggests the uptrend will resume. This pattern was popularized by William O'Neil, founder of Investor's Business Daily.
-</p>
-<p>
-<strong>Flags and Pennants.</strong> Short-term continuation patterns that appear during pauses in strong trends. A flag is a small rectangular consolidation pattern, while a pennant is a small symmetrical triangle. Both suggest the prior trend will resume after a brief pause.
-</p>
-<p>
-<strong>Triangles.</strong> Ascending triangles (flat top, rising bottom) are generally bullish. Descending triangles (flat bottom, declining top) are generally bearish. Symmetrical triangles (converging trend lines) can break in either direction and represent periods of indecision.
-</p>
-<p>
-<strong>Important Caveat.</strong> While these patterns are widely taught and watched, rigorous academic testing has produced mixed results on their predictive power. Many patterns that appear significant in hindsight are not statistically significant when tested out of sample. The strongest evidence supports trend-following strategies (momentum) rather than specific pattern recognition.
-</p>
-<h4>Market Structure and Technical Analysis</h4>
-<p>
-Understanding modern market structure adds context to how technical analysis operates today.
-</p>
-<p>
-<strong>Algorithmic Trading Impact.</strong> Algorithmic trading now accounts for 60-80% of U.S. equity volume. Many algorithms incorporate technical signals -- moving average crossovers, volume breakouts, support/resistance levels -- into their decision-making. This means technical levels can become more self-reinforcing in the short term (as multiple algorithms react to the same signals simultaneously) but also more prone to false breakouts (as algorithms probe technical levels to trigger stop-losses and then reverse).
-</p>
-<p>
-<strong>High-Frequency Trading and Level Detection.</strong> High-frequency trading firms use sophisticated pattern recognition to identify common technical levels and the clusters of stop-loss orders placed around them. This creates a dynamic where obvious technical levels may be "run" -- the price briefly penetrates the level to trigger stop-losses, then reverses. This is why experienced technical analysts use zones rather than exact prices and require confirmation (such as a close above/below the level) before acting.
-</p>
-<p>
-<strong>Options Market Influence.</strong> Large concentrations of open interest at specific strike prices can create support and resistance levels through options market maker hedging activity (as discussed in the Greeks lesson). These "pinning" effects are most prominent near options expiration and add a structural dimension to technical analysis that goes beyond traditional price pattern recognition.
-</p>
-<p>
-<strong>The Self-Fulfilling Prophecy Debate.</strong> A common criticism of technical analysis is that it works only because enough people believe in it -- making it a self-fulfilling prophecy. There is truth to this, but it does not invalidate the approach. If millions of market participants use the 200-day moving average as a decision point, then the 200-day moving average IS a real feature of the market, regardless of whether it has any inherent predictive power. The distinction between "real" and "self-fulfilling" is less important than whether the signal provides useful information for making trading decisions.
-</p>
-<h4>Building a Technical Analysis Routine</h4>
-<p>
-For investors who want to incorporate technical analysis into their process, here is a practical routine:
-</p>
-<p>
-<strong>Weekly Review (15-20 minutes):</strong>
-</p>
-<li>Check whether the S&P 500 is above or below its 200-day moving average. If above, the long-term trend is bullish. If below, be more cautious with new investments.</li>
-<li>Check the RSI for the major indices. Extreme readings (above 75 or below 25) suggest the market may be due for a reversal.</li>
-<li>Review your holdings against their key moving averages. Any stock that has broken below its 200-day SMA deserves a fundamental review -- is the thesis still intact?</li>
-<li>Check volume trends for your major holdings. Declining volume on rallies or increasing volume on declines can be early warning signs.</li>
-<p>
-<strong>Before Entering a New Position:</strong>
-</p>
-<li>Check the stock's current trend. Is it in an uptrend, downtrend, or trading range?</li>
-<li>Identify the nearest support levels. These are potential entry points that offer a better risk-reward ratio than buying at random.</li>
-<li>Set a stop-loss level based on the nearest support zone below your entry. This defines your maximum loss before entering the trade.</li>
-<li>Check RSI for overbought/oversold conditions. Avoid buying when RSI is above 70 unless you have strong fundamental conviction.</li>
-<li>Verify that volume supports any apparent breakout or breakdown. Low-volume moves are less reliable.</li>
-<p>
-This routine takes minimal time, requires no advanced tools (free charting from your brokerage or sites like TradingView), and provides a structured framework for timing decisions that complements your fundamental analysis.
-</p>
-<h4>The Evidence: Does Technical Analysis Work?</h4>
-<p>
-The academic evidence on technical analysis is mixed:
-</p>
-<p>
-<strong>Evidence Supporting Technical Analysis:</strong>
-</p>
-<ul><li>Momentum strategies (buying recent winners and selling recent losers) have been documented as profitable across multiple time periods and markets. Momentum is one of the most robust anomalies in finance.</li>
-<li>Moving average strategies (investing when price is above the 200-day SMA and going to cash when below) have historically reduced drawdowns compared to buy-and-hold, though they sacrifice some upside.</li>
-<li>Studies by Lo, Mamaysky, and Wang (2000) found that some chart patterns contain statistically significant predictive information.</li>
-<p>
-</ul>
-<strong>Evidence Against Technical Analysis:</strong>
-</p>
-<ul><li>After accounting for transaction costs, most technical trading systems fail to generate risk-adjusted returns superior to buy-and-hold.</li>
-<li>The efficient market hypothesis argues that past prices cannot predict future prices because all available information is already reflected in current prices.</li>
-<li>Data mining bias -- testing many patterns on the same data set -- leads to the discovery of patterns that are statistical artifacts rather than genuine signals.</li>
-<li>Technical patterns that worked historically may stop working as more traders adopt them, arbitraging away the opportunity.</li>
-<p>
-</ul>
-<strong>A Balanced View:</strong> Technical analysis is best used as a complement to fundamental analysis and risk management, not as a standalone system. Its greatest value lies in: (1) identifying trends and momentum, (2) providing concrete entry and exit levels, (3) managing risk through stop-losses and position sizing, and (4) understanding market sentiment and participant behavior.
+The interactive lab on the website lets you slide the moving-average
+window from 50 to 365 days and pick the risk-off asset (T-bills,
+gold, or 0%-cash) and see CAGR, vol, Sharpe and max drawdown vs
+buy-and-hold across the whole 1990-Apr 2026 sample.
 </p>
 <hr>
-<h3>c) Common Misconceptions</h3>
+<h3>2. What You Need to Know</h3>
+<h4>2.1 What Technical Analysis Actually Claims</h4>
 <p>
-<strong>"Technical analysis can predict the future."</strong> Technical analysis identifies probabilities and tendencies, not certainties. A pattern that "works" 60% of the time still fails 40% of the time. No indicator, pattern, or system reliably predicts future prices. The value lies in tilting probabilities in your favor, not in making guarantees.
+Technical analysis is the use of past price and volume data — and
+<em>only</em> past price and volume data — to predict future returns. The
+underlying claims are usually some combination of:
+</p>
+<li>Price discounts all known information (a strong-form efficient-</li>
+<p>
+markets statement, oddly enough).
+</p>
+<li>Prices move in trends, and trends persist.</li>
+<li>History repeats because human psychology is constant — the same</li>
+<p>
+patterns of fear and greed produce the same chart shapes.
 </p>
 <p>
-<strong>"You can get rich with chart patterns alone."</strong> Profitable trading requires far more than pattern recognition. Risk management, position sizing, psychological discipline, and transaction cost management are equally important. Many traders who can identify patterns still lose money because they lack these other skills.
+The first claim is identical to what passive indexers believe and
+implies you can't beat the market by <em>any</em> method. The second and
+third claims are testable empirical statements. They have been
+tested. The results are mixed at best.
 </p>
 <p>
-<strong>"The more indicators you use, the better."</strong> Adding more indicators often creates conflicting signals and analysis paralysis. Most successful technical traders use two or three indicators that complement each other -- for example, a trend indicator (moving average), a momentum indicator (RSI), and a volume indicator. Simplicity generally outperforms complexity.
+The TA universe splits roughly into four buckets:
+</p>
+<ul><li><strong>Chart patterns</strong> — head-and-shoulders, double tops / bottoms,</li>
+<p>
+</ul>  triangles, pennants, flags, cup-and-handle, wedges. Visual
+shape-based.
+</p>
+<ul><li><strong>Indicators</strong> — RSI, MACD, stochastics, Bollinger Bands, ADX,</li>
+<p>
+</ul>  CCI, ATR. Mathematical transforms of price.
+</p>
+<ul><li><strong>Trend / momentum rules</strong> — moving-average crossovers, 12-month</li>
+<p>
+</ul>  return ranking, Donchian channels, breakout systems. Time-series
+trend-following.
+</p>
+<ul><li><strong>Esoteric</strong> — Elliott Waves, Gann angles, Fibonacci retracements,</li>
+<p>
+</ul>  candlestick patterns (doji / hammer / engulfing). Highly subjective.
 </p>
 <p>
-<strong>"Backtesting proves a strategy works."</strong> Backtesting shows how a strategy would have performed historically, but it is subject to overfitting (tuning parameters to fit past data perfectly), look-ahead bias, and survivorship bias. A strategy that performs brilliantly in a backtest may fail in live trading because the conditions that generated the backtest results may not persist.
+The literature finds: bucket 3 has some real signal. Buckets 1, 2,
+and 4 do not, after costs.
+</p>
+<h4>2.2 The Failure: Chart Patterns and Indicators</h4>
+<p>
+The most rigorous chart-pattern study is Lo, Mamaysky and Wang
+(<em>Foundations of Technical Analysis</em>, Journal of Finance 2000).
+They wrote a <em>kernel-regression</em> algorithm to detect 10 classical
+patterns (head-and-shoulders, broadening tops, triangles, etc.) on
+US equities 1962-1996 — taking subjectivity out by formalising
+"what counts as a pattern" mathematically. Result: a few patterns
+showed weak statistical signals (head-and-shoulders had a
+<em>non-zero</em> difference of conditional vs unconditional return
+distributions), but the magnitudes were small and the differences
+disappeared after transaction costs. Subsequent out-of-sample tests
+(Bessembinder & Chan, Brock-Lakonishok-LeBaron extensions) found
+the weak signals didn't replicate post-1996.
 </p>
 <p>
-<strong>"Support and resistance are exact numbers."</strong> Price levels are zones, not precise numbers. A stock will not always bounce from exactly $100.00 -- it might bounce from $99.50 or $100.75. Treating support and resistance as narrow ranges rather than exact prices produces better results.
+Indicators have fared no better. Park & Irwin's 2007 survey of 95
+academic studies on technical trading found that 56 reported
+positive results, 20 negative, 19 mixed — but the positive-result
+studies were heavily weighted toward FX and commodities pre-1990
+(when frictions were huge and the signal was almost certainly cost-
+related), and the failure rate climbed sharply for post-1990 equity
+samples. By the 2010s, the consensus view was that classical
+indicators (RSI, MACD, stochastics) had no robust out-of-sample
+edge in liquid US equities.
 </p>
 <p>
-<strong>"Technical analysis is completely useless."</strong> While many specific claims about chart patterns are not supported by rigorous evidence, dismissing technical analysis entirely ignores the well-documented momentum effect, the practical utility of moving averages for risk management, and the reality that millions of market participants use technical tools, making them partially self-fulfilling. A balanced view recognizes both the limitations and the legitimate applications of technical analysis.
+Candlestick patterns — Marshall, Young & Rose 2006, then Horton
+2009 — were tested on the full Japanese-defined set across US large-
+caps and showed no profits net of costs. The "doji means
+indecision" claim turns out to mean roughly the same thing as
+"a coin flip means indecision." It does, but it doesn't help you.
+</p>
+<img src="image/side23_pattern_failure.png" alt="SPY 2024 daily candlestick chart with five 'head and shoulders' patterns highlighted. Only one of the five played out as the textbook predicts; the other four broke up through the neckline rather than down. The 1-of-5 hit rate is consistent with the academic finding that classical chart patterns have no out-of-sample predictive edge.">
+<p>
+Elliott Waves and Fibonacci retracements have effectively zero
+academic support. The Elliott Wave principle requires you to
+identify the current "wave count" — but the methodology allows
+re-counting after any reversal, which means it cannot be falsified
+in real time. The Fibonacci retracement levels (38.2%, 50%, 61.8%)
+are tested in Bhattacharya & Kumar 2006 and others; result, in the
+authors' words: "no statistically significant predictive content."
+</p>
+<h4>2.3 The Survivor #1: Time-Series Momentum (Moskowitz-Ooi-Pedersen)</h4>
+<p>
+The first TA-adjacent finding that has replicated robustly across
+markets and decades is <strong>time-series momentum</strong> — the observation
+that *a security's own past 12-month return predicts the next 1-12
+months of returns, on average, in the same direction*. Moskowitz,
+Ooi and Pedersen's 2012 paper <em>Time Series Momentum</em> tested 58
+liquid futures markets (equity indexes, currencies, commodities,
+bonds) from 1985-2009 and found that buying assets up over the last
+12 months and shorting assets down over the last 12 months produced
+a Sharpe ratio of roughly 1.0-1.2 at the diversified-portfolio level
+— far higher than the underlying assets in isolation.
 </p>
 <p>
-<strong>"A pattern that worked in the past will work in the future."</strong> Markets are adaptive. As more traders identify and exploit a pattern, the pattern becomes crowded and may stop working. Strategies that generated significant alpha in academic studies often produce diminished returns once they become widely known. This is why simplicity and a focus on robust, fundamental tendencies (like momentum and trend following) tend to be more durable than complex, specific pattern strategies.
+This is the engine that drives the <strong>managed-futures / CTA</strong> industry
+(Week 51). DBMF, KMLM, FMF, AHLT all run some flavour of time-series
+trend on a diversified futures basket. The 2008 +13.1% and 2022
++20.5% returns of the SocGen CTA index were essentially the time-
+series momentum signal capturing extended trends in rates, FX and
+equities while everything else was selling off.
+</p>
+<p>
+Time-series momentum is a TA strategy in the strict sense — the only
+input is past prices. But it is the <em>opposite</em> of "head-and-shoulders
+on a daily chart." It works on long horizons (3-12 months), across a
+diversified basket (not single stocks), with explicit rules
+(rank-by-12-month-return-and-rebalance-monthly), and almost certainly
+captures a behavioural under-reaction to information that takes time
+to be priced in. SOUL #8: momentum is one of the two robust market
+regularities. This is where it shows up.
+</p>
+<h4>2.4 The Survivor #2: The 200-Day Moving Average (Faber GTAA)</h4>
+<p>
+The second survivor is the **200-day moving average as a risk-on /
+risk-off filter**, popularised by Mebane Faber's 2007 SSRN paper
+<em>A Quantitative Approach to Tactical Asset Allocation</em> (the most-
+downloaded paper in SSRN history at one point).
+</p>
+<p>
+The rule:
+</p>
+<ul><li>At month-end, check whether SPY's price is above its 10-month</li>
+<p>
+</ul>  (~200-day) simple moving average.
+</p>
+<ul><li>If yes, hold SPY.</li>
+<li>If no, hold 3-month T-bills.</li>
+<p>
+</ul>
+That's it. No discretion, no filters, no overlays.
+</p>
+<p>
+The result, on US large-caps 1990-Apr 2026 (the exact backtest in
+the image script for this lesson, using ^GSPC price-only AdjClose for
+the equity leg and 3-month T-bills via FRED DGS3MO when out):
+</p>
+<ul><li>Buy-and-hold S&P 500: ~8.6% CAGR, max drawdown -57% (2009).</li>
+<li>Faber 200-DMA rule: ~9.0% CAGR, max drawdown -24%.</li>
+<li>Sharpe ratio: ~0.32 buy-hold vs ~0.52 Faber.</li>
+<p>
+</ul>
+(Adding the ~1.8 pp/yr SP500 dividend yield brings buy-and-hold's
+total-return CAGR closer to ~10.4%. The rule's CAGR rises in similar
+proportion when applied to a dividend-reinvested ETF; the *gap on
+max-drawdown* is what matters and is robust either way.) The CAGR is
+in the same ballpark; the maximum drawdown is less than half the
+size. The risk-adjusted return is meaningfully better.
+</p>
+<p>
+This is the only piece of "technical analysis" most academics will
+defend in print. It is robust across decades, across markets
+(it works on EAFE and EEM too), and across reasonable parameter
+choices (any MA window from 100 to 250 days gives similar results
+— the result is not parameter-fitted to "200" specifically).
+</p>
+<p>
+What it does <em>not</em> do: produce excess return in a long bull market.
+From 2010-2019, buy-and-hold beat the 200-DMA rule by ~1.5 pp/yr
+because the rule sat in T-bills during the August 2011, August 2015,
+February 2016 and December 2018 false breaks. The rule pays for
+itself in the once-or-twice-per-decade event where it cuts a -55%
+into a -20%. SOUL #6 — vol-tail-wags-dog — is the framing. You're
+not paying for upside; you're paying to truncate the left tail.
+</p>
+<h4>2.5 Why It Works: The Behavioural Story</h4>
+<p>
+The cleanest behavioural explanation for both survivors is *under-
+reaction*. New information takes time to be priced in — partly
+because attention is limited (Hong & Stein 1999), partly because
+disposition-effect selling caps gains early (Frazzini 2006), partly
+because institutional flows are slow (rebalance lag, mandate
+constraints, mutual-fund cash buffers).
+</p>
+<p>
+When information is being slowly priced in, prices trend. A stock
+that beat earnings two months ago is still being upgraded by sell-
+side analysts, still being added to growth-strategy mandates, still
+being chased by retail. A stock that missed earnings two months ago
+is still being downgraded, dropped, sold. Time-series momentum and
+the 200-DMA both ride that trend.
+</p>
+<p>
+When the information is fully digested, prices stop trending — and
+mean-reversion takes over (SOUL #8 again — the <em>other</em> robust market
+regularity). This is why the trend rules whipsaw in flat / choppy
+markets and shine in directional ones.
+</p>
+<p>
+The contrast with chart patterns is instructive. A "double top" is a
+<em>shape</em>, not a flow. There is no behavioural story under it — no
+mechanism by which the <em>visual symmetry</em> of the high produces a
+predictive signal. The pattern catches the brain's eye; it does not
+catch institutional capital. That is why it doesn't replicate.
+</p>
+<h4>2.6 The Behavioural Use Case: TA as Discipline</h4>
+<p>
+Here is the honest case for TA even where its predictive value is
+weak.
+</p>
+<p>
+A retail investor with no rules tends to do the following:
+</p>
+<ul><li>Buy when the stock is ripping (recency / FOMO from Side 15).</li>
+<li>Hold when the stock is down 30%, hoping for a bounce (loss-</li>
+<p>
+</ul>  aversion / disposition).
+</p>
+<ul><li>Sell at the bottom when the news is darkest (capitulation, cf.</li>
+<p>
+</ul>  Dalbar 1.5-2 pp/yr behaviour gap).
+</p>
+<p>
+A retail investor who follows even a <em>weak</em> technical rule —
+"I sell when the 50-day breaks the 200-day, no exceptions; I buy
+back when the 50-day crosses back above" — does the following:
+</p>
+<ul><li>Sells in the early innings of major drawdowns (the rule fires in</li>
+<p>
+</ul>  Aug 2008, Feb 2020, Jan 2022 — early-to-middle of each crash).
+</p>
+<ul><li>Buys back partway through the recovery (June 2009, May 2020,</li>
+<p>
+</ul>  Mar 2023).
+</p>
+<ul><li>Has zero discretion in the moment, which is the moment when</li>
+<p>
+</ul>  discretion is worst.
+</p>
+<p>
+The technical rule may be only weakly predictive, but it is *binary
+and pre-committed* — the two things that defeat behavioural bias
+(Side 15 §2.5). A bad rule consistently followed beats a good
+discretionary thesis abandoned at the bottom. SOUL #12: the market
+can stay irrational longer than you can stay solvent — the rule is
+your insurance against your own brain when both you and the market
+are tilted.
+</p>
+<p>
+This is also why the <strong>tactical-allocation industry</strong> ($150B+ AUM
+in 200-DMA-style rules) has staying power despite the modest CAGR
+edge. Clients are buying the <em>behaviour insurance</em>, not the
+return enhancement.
+</p>
+<h4>2.7 The Honest Verdict</h4>
+<p>
+Putting the literature together:
+</p>
+<table><thead><tr><th>Bucket</th><th>Verdict</th><th>Notes</th></tr></thead><tbody><tr><td>Time-series 12-mo momentum (futures basket)</td><td><strong>Works</strong></td><td>MOP 2012, Sharpe ~1.0 diversified, basis of $300B CTA industry</td></tr><tr><td>200-DMA / 10-month MA risk-on/off</td><td><strong>Works (modestly)</strong></td><td>Faber 2007 — same return, half the max drawdown</td></tr><tr><td>Cross-sectional momentum (single stocks)</td><td><strong>Works (academic)</strong></td><td>Jegadeesh-Titman 1993; -45% crash 2009; -1 pp/yr decay since</td></tr><tr><td>Chart patterns (H&S, double tops, triangles)</td><td><strong>No edge</strong></td><td>Lo-Mamaysky-Wang 2000; replicated post-2000</td></tr><tr><td>RSI / MACD / stochastics</td><td><strong>No edge</strong></td><td>Park-Irwin 2007 survey</td></tr><tr><td>Candlestick patterns</td><td><strong>No edge</strong></td><td>Marshall-Young-Rose 2006</td></tr><tr><td>Elliott Waves / Gann / Fibonacci</td><td><strong>No evidence</strong></td><td>Unfalsifiable in real time</td></tr><tr><td>TA as discipline mechanism</td><td><strong>Real value</strong></td><td>Behavioural insurance — beats discretion in crisis</td></tr></tbody></table>
+<p>
+If you are going to use technical analysis, use it for what works:
+trend-following on diversified baskets, 200-DMA on broad indexes,
+and <em>as a rule-set</em> to defeat your own behavioural biases. Skip the
+patterns and the indicator soup. They are decoration.
 </p>
 <hr>
-<h3>d) Q&A</h3>
+<h3>3. Common Misconceptions</h3>
+<li><strong>"All technical analysis is bunk."</strong> Not quite. Time-series</li>
 <p>
-<strong>Q: Should fundamental investors ignore technical analysis entirely?</strong>
-A: No. Even dedicated fundamental investors can benefit from basic technical awareness. Knowing that a stock you want to buy is approaching a major support level (a potentially better entry point) or that it has broken below its 200-day moving average (a warning sign) adds useful context to your fundamental analysis. You do not need to become a chart expert, but basic technical literacy helps.
+momentum and the 200-DMA filter both replicate out-of-sample
+across decades and markets. Two narrow pieces of it work. The
+other 95% does not. The honest position is "mostly bunk, two
+exceptions" — not blanket dismissal.
+</p>
+<li>**"Technical analysis works because everyone watches it — self-</li>
+<p>
+fulfilling prophecy."** This is the most common defence and it
+doesn't hold. If a level were truly self-fulfilling, sophisticated
+traders would front-run it, eliminating the edge. The empirical
+tests show no edge net of costs at the levels traders actually
+watch (50-day, 200-day, prior highs / lows). The story is
+appealing; the data don't confirm it.
+</p>
+<li><strong>"Head-and-shoulders is reliable — I see it work all the time."</strong></li>
+<p>
+You see it work because of confirmation bias (Side 15). When the
+pattern works, you remember it. When it doesn't, you say "that
+wasn't a <em>real</em> head-and-shoulders." Lo-Mamaysky-Wang formalised
+pattern definition exactly to defeat this — and the edge
+disappeared.
+</p>
+<li><strong>"RSI < 30 means oversold and the stock will bounce."</strong> RSI</li>
+<p>
+tested across US equities since 1990 shows no statistically
+significant edge after costs. RSI < 30 in a downtrend tends to
+stay < 30. The "bounce" is the brain pattern-matching to a few
+high-profile cases.
+</p>
+<li>**"Moving averages don't work because by the time the signal</li>
+<p>
+fires, the move is over."** Wrong empirically. The Faber 200-DMA
+rule fired in October 2008 (-25% from peak, before the worst
+-30% to come), in March 2020 (-15% from peak before the -34%
+bottom), and in January 2022 (-5% from peak before the -25%
+trough). The rule got out <em>early</em>, not late.
+</p>
+<li><strong>"Trend-following only works in trending markets."</strong> True, but</li>
+<p>
+trending markets are the ones where buy-and-hold has the largest
+drawdowns. The trend rule's job is exactly to capture the down-
+trends that buy-and-hold can't avoid. It will lose 1-2 pp/yr in
+choppy bull markets — that's the premium you pay for the
+left-tail insurance.
+</p>
+<li><strong>"Cross-sectional momentum (Jegadeesh-Titman) is dead."</strong> Not</li>
+<p>
+dead, but decayed. The premium has compressed since the 2003
+academic-publication date (McLean-Pontiff 2016, ~50% post-pub
+decay). The 2009 momentum crash was -45% in one quarter as
+beaten-up cyclicals snapped back. Single-stock momentum is real
+but expensive to harvest at retail (high turnover, big drawdowns,
+tax-inefficient). Time-series momentum on futures is more robust.
+</p>
+<li><strong>"Volume confirms price."</strong> Sometimes. The On-Balance-Volume</li>
+<p>
+indicator (Granville 1963) has no statistical edge in modern US
+equities. Volume <em>patterns</em> around earnings and corporate events
+carry information, but generic "volume up on green days = buy" is
+not predictive after costs.
+</p>
+<li><strong>"Elliott Wave theory works if you count the waves correctly."</strong></li>
+<p>
+The unfalsifiability is the giveaway. Any methodology that lets
+you re-count after any move can be fitted to anything in
+hindsight. Robert Prechter (the most prominent Elliott Wave
+advocate) was in print calling for a Dow at 1,000-3,000 from the
+late 1990s through 2010s while the Dow went from 7,000 to 14,000
+to 36,000.
+</p>
+<li><strong>"You can't backtest TA because the patterns are subjective."</strong></li>
+<p>
+Lo-Mamaysky-Wang's contribution was specifically to make the
+patterns objective via kernel regression. Once formalised, the
+patterns become testable. The tests showed no edge. Subjectivity
+is the <em>defence</em> of TA against falsification, not its strength.
+</p>
+<hr>
+<h3>4. Q&A Section</h3>
+<p>
+<strong>Q1. So is technical analysis worth learning at all?</strong>
+Two pieces of it: yes. (a) Time-series momentum on a diversified
+basket — read Moskowitz-Ooi-Pedersen 2012, then look at DBMF / KMLM
+as the implementation (Week 51). (b) 200-day moving average as a
+risk-on / risk-off filter on broad indexes — Faber 2007, the
+implementation in Side 23 §2.4 above. The rest — chart patterns,
+RSI / MACD soup, candlesticks, Elliott Waves — is decoration. Skip
+it.
 </p>
 <p>
-<strong>Q: What is the best time frame for technical analysis?</strong>
-A: It depends on your investment horizon. Day traders use 1-minute to 15-minute charts. Swing traders use daily charts. Position traders and investors use weekly or monthly charts. Generally, longer time frames produce more reliable signals with less noise, but they provide slower entry and exit signals. Using multiple time frames (checking the weekly trend before making daily trade decisions) is a best practice.
+**Q2. The 200-DMA rule has slightly lower CAGR than buy-and-hold.
+Why use it?**
+You're not buying CAGR. You're buying a left-tail insurance. The
+rule cuts max drawdown roughly in half (~-19% vs ~-55% in 2008-09).
+For an investor close to retirement or one whose behaviour falls
+apart at -40%, that left-tail truncation is worth the 1-1.5 pp/yr
+of foregone upside. SOUL #6 — vol-tail-wags-dog — is the framing.
 </p>
 <p>
-<strong>Q: How do I avoid "analysis paralysis" with too many indicators?</strong>
-A: Choose one trend indicator (e.g., 50/200-day moving averages), one momentum indicator (e.g., RSI or MACD), and one volume indicator (e.g., OBV). If all three confirm a signal, act. If they conflict, wait for clarity. This three-indicator approach covers trend, momentum, and conviction without overwhelming you with contradictory signals.
+**Q3. Is cross-sectional momentum (long winners / short losers among
+individual stocks) the same as time-series momentum?**
+Related but distinct. Cross-sectional ranks stocks against each
+other — buy the top decile by trailing 12-month return, short the
+bottom. Time-series ranks each asset against itself — long when
+its own 12-month return is positive, short when negative. The
+cross-sectional version had a -45% crash in Q1-Q2 2009 (the famous
+"momentum crash"), the time-series version on diversified futures
+did not. Time-series is more robust for retail / smaller funds.
 </p>
 <p>
-<strong>Q: Do chart patterns work the same way in all markets?</strong>
-A: The core principles (trend, momentum, support/resistance) apply across stocks, commodities, forex, and crypto. However, different markets have different characteristics. Commodity markets are heavily influenced by seasonal patterns. Forex markets trade 24 hours with no gaps. Crypto markets are more volatile and less liquid. Adapt your analysis to the specific market's characteristics.
+**Q4. Why do so many CMTs and chartists make money if the methods
+don't work?**
+Several reasons. (1) Some run <em>fundamentally</em> and use TA only for
+entry-timing — the alpha is the fundamental call, not the chart.
+(2) Some use trend rules (which work, modestly) and call it
+"technical." (3) Survivorship — the ones who blew up don't have
+podcasts. (4) For floor traders pre-2000, the edge was *liquidity
+provision*, not pattern recognition; charts were the visible part of
+a market-making operation. (5) Some are simply selling courses;
+their P&L is the course revenue, not the trading.
 </p>
 <p>
-<strong>Q: What is the relationship between technical and fundamental analysis?</strong>
-A: The strongest investment approach combines both. Use fundamental analysis to identify what to buy (quality companies at reasonable valuations) and technical analysis to determine when to buy (favorable entry points based on trend and momentum). This combination is sometimes called "technamental" analysis. It leverages the strengths of each approach while compensating for their individual weaknesses.
+<strong>Q5. Should I use stop-losses based on technical levels?</strong>
+On individual stocks, sized at 2-3 ATR (average true range) below
+entry, yes — they enforce position-level risk discipline. On index
+funds, no — indexes mean-revert, and stops on indexes typically
+get whipsawed into selling at the bottom. The right risk control
+on index sleeves is <em>position sizing</em>, not stops (Side 15 §3 #6).
 </p>
 <p>
-<strong>Q: Are moving averages the most important technical indicator?</strong>
-A: For long-term investors, the 200-day SMA is arguably the most useful single indicator. Historical research shows that investing only when the market is above its 200-day SMA and moving to cash when below has historically captured most of the market's upside while avoiding the worst drawdowns. However, this strategy generates frequent false signals in choppy markets and incurs transaction costs and tax consequences. It works best as a risk management overlay rather than a standalone strategy.
+<strong>Q6. Does the 200-DMA rule still work in 2026?</strong>
+Through Apr 2026 the answer is yes — the rule fired correctly out
+of the Jan 2022 -25% drawdown (sat in T-bills earning 4-5%, re-
+entered in Mar 2023), and through 2024-25 it stayed long. CAGR and
+max-drawdown on the rule remain materially better than buy-and-hold
+on max-drawdown and slightly worse on CAGR, consistent with the
+historical record. The interactive lab on the website lets you
+re-run the backtest and verify the numbers yourself.
 </p>
 <p>
-<strong>Q: What is volume profile, and why do some traders consider it important?</strong>
-A: Volume profile shows the amount of trading volume that occurred at each price level over a specified period, rather than over time. High-volume price levels (called "high volume nodes") often act as strong support or resistance because many market participants have positions established at those prices. Low-volume areas ("low volume nodes") tend to be prices the market moves through quickly. Volume profile provides a different perspective on support and resistance than traditional price-based analysis and is increasingly used by institutional and sophisticated retail traders.
+**Q7. Why does the academic literature treat trend-following as
+"different from TA" when it's clearly TA?**
+Branding. Academics call trend-following "time-series momentum"
+because the term has clean econometric definitions and the literature
+runs through journals (Journal of Finance, Review of Financial
+Studies). Practitioners call the same thing "trend-following" and
+publish in trade journals. The mechanics — buy if rising, sell if
+falling — are identical. The literature is less hostile when it's
+called by its academic name.
 </p>
 <p>
-<strong>Q: How reliable are candlestick patterns?</strong>
-A: Individual candlestick patterns (hammer, doji, engulfing) have limited predictive power on their own. Studies show that while some patterns have a slight statistical edge, the magnitude is small and often consumed by transaction costs. Candlestick patterns are most useful when they occur at key support/resistance levels or in conjunction with other indicators. A hammer pattern at a major support level with oversold RSI and increasing volume is far more meaningful than a hammer pattern in the middle of nowhere.
+**Q8. What about volume / OBV / accumulation-distribution
+indicators?**
+Volume around <em>event</em> moments (earnings, M&A, FDA approvals) is
+informative — it reflects information flow. Volume on quiet days
+filtered through indicator transforms (OBV, A/D line) shows no
+robust predictive edge. The question to ask of any volume claim:
+*what is the behavioural mechanism by which this signals price
+direction?* If there isn't one, treat the claim with scepticism.
 </p>
 <p>
-<strong>Q: Should I use technical analysis for ETFs and index funds?</strong>
-A: Technical analysis can be applied to any traded security, including ETFs and index funds. In fact, broad market indices like the S&P 500 tend to respect technical levels more reliably than individual stocks because they aggregate the behavior of many participants, reducing noise. Using the 200-day moving average as a risk management signal for your total market ETF is one of the most practical applications of technical analysis for long-term investors.
+<strong>Q9. Are chart patterns useful at all?</strong>
+Two narrow uses. (1) As a <em>risk-management</em> prompt — if a stock
+breaks decisively below a multi-year support level on heavy volume,
+that <em>is</em> information about institutional selling, even if the
+specific "head and shoulders" framing is decoration. (2) As a
+<em>mental shorthand</em> for trend and volatility regimes. Neither use
+generates alpha per se — they help you not lose money in obvious
+ways. The pattern-as-prediction claim is the part that doesn't
+replicate.
+</p>
+<p>
+<strong>Q10. How does TA fit into the four-tranche framework (SOUL #13)?</strong>
+Tranches 1-3 (growth, income, stores of value) are passively
+allocated and benefit from no TA whatsoever — buy-and-hold the
+index funds and rebalance annually. Tranche 4 (opportunistic / 5%
+slot) is where TA-style rules can earn their keep — the 200-DMA
+overlay on the equity sleeve, time-series momentum exposure via DBMF
+or KMLM, or rule-based entry timing on individual positions.
+Confine TA to the small slice and you can't blow up the whole
+portfolio with a bad chart read.
+</p>
+<p>
+**Q11. What's the single rule a retail investor should adopt from
+this lesson?**
+Either none (just hold the index — SOUL #1, default passive), or
+one: the 200-day moving average filter on your equity sleeve,
+applied at month-end on the SP500 index price, with no
+discretionary overrides. That single rule cuts max-drawdown in half
+historically, costs ~1 pp/yr in foregone CAGR, and gives you a
+behavioural anchor in crisis. Anything beyond that is incremental
+at best, distracting at worst.
+</p>
+<p>
+<strong>Q12. Where does this leave Elliott Waves and the CMT certification?</strong>
+Elliott Waves: zero academic support, unfalsifiable methodology,
+treat as financial astrology. The CMT (Chartered Market Technician)
+designation: the <em>content</em> covers the full TA universe including
+the bunk; the <em>credential</em> signals seriousness about market
+microstructure but not predictive skill per se. If you're hiring a
+CMT, ask them which of the four buckets in §2.1 they trade. If they
+say buckets 1, 2, or 4, run.
 </p>
             </div>
             <div id="content-hk" class="lang-content">

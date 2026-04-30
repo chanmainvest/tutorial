@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Week 46: Backtesting and Strategy Validation - Chanma Investment Tutorial</title>
+    <title>Week 46: Backtesting — Survivorship Bias, Look-Ahead Bias, Transaction Costs, and the Deflated Sharpe - Chanma Investment Tutorial</title>
     <script>(function(){try{var t=localStorage.getItem('preferred-theme');if(!t){t=window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();</script>
     <style>
 :root, html[data-theme="light"] {
@@ -1247,996 +1247,473 @@ html[data-theme="dark"] .nav-btn:hover .btn-label { color: rgba(15,23,36,0.7); }
     <main class="main-wrap">
         <div class="content-area">
             <div id="content-en" class="lang-content active">
-                <h1>Week 46: Backtesting and Strategy Validation</h1>
+                <h1>Week 46: Backtesting — Survivorship Bias, Look-Ahead Bias, Transaction Costs, and the Deflated Sharpe</h1>
 <hr>
-<h2>Reading Section</h2>
-<h3>a) Why This Is Important</h3>
-<p>
-Backtesting -- the process of testing an investment strategy on historical data to see how it would have performed -- is perhaps the most dangerous tool in the investor's toolkit. It is dangerous not because it is useless, but because it is seductive. A well-constructed backtest can make you rich. A poorly constructed one will make you confident while losing money, which is worse than losing money while knowing you are gambling.
-</p>
-<p>
-The financial industry runs on backtests. Every new ETF, every factor strategy, every quantitative hedge fund, every robo-advisor algorithm was backtested before launch. The problem is that backtests are subject to a devastating array of biases, each of which makes historical performance look better than reality. Understanding these biases is essential because:
-</p>
-<ul><li><strong>Backtests almost always overstate future performance</strong>: Empirical research consistently finds that strategies perform 30-70% worse in live trading than in backtests. This is not a small discrepancy -- it is the difference between a strategy that "generates 15% returns" and one that actually generates 5-8%. The gap comes from biases that are easy to overlook and hard to correct.</li>
-<li><strong>Lookahead bias can make any strategy look brilliant</strong>: If your backtest accidentally uses information that was not available at the time of the trade -- future earnings, data revisions, index membership changes -- it will show artificially superior returns. Lookahead bias is insidious because it often hides in data sources you trust. Companies report financial data with delays, databases get corrected retroactively, and index compositions change. Any of these can contaminate a backtest.</li>
-<li><strong>Survivorship bias inflates returns by excluding failures</strong>: If your universe of securities includes only companies that survived to the present, you are excluding the bankruptcies, delistings, and mergers that a real investor would have experienced. This bias can add 1-3% per year to backtested returns. A strategy that appears to return 12% annually may truly return 9-10%.</li>
-<li><strong>Overfitting is the single most common cause of backtest failure</strong>: Adding parameters, optimizing cutoff points, and fine-tuning entry/exit rules to maximize historical performance creates a model that is perfectly adapted to the past and useless for the future. A strategy with 20 optimized parameters fitted to 15 years of data has memorized historical noise, not discovered a persistent edge.</li>
-<li><strong>Transaction costs can eliminate an entire edge</strong>: Many backtested strategies show attractive returns before costs but generate returns below a simple index fund after accounting for spreads, slippage, market impact, and commissions. Transaction cost modeling is the single most important -- and most frequently botched -- component of backtesting.</li>
-<li><strong>Walk-forward analysis is the gold standard for validation</strong>: Simply splitting data into "training" and "testing" sets helps but is insufficient. Walk-forward analysis -- where you repeatedly train on a rolling window and test on the subsequent period -- mimics the experience of a live trader who must make decisions with only past data available. It is the closest a backtest can come to simulating reality.</li>
-<p>
-</ul>
-This lesson will teach you how to build, evaluate, and criticize backtests so you can distinguish genuine edges from statistical mirages.
-</p>
-<hr>
-<h3>b) What You Need to Know</h3>
-<h4>1. The Backtesting Framework</h4>
-<p>
-A backtest simulates what would have happened if you had followed a specific strategy in the past. The framework has several essential components.
-</p>
-<pre><code class="language-">BACKTESTING FRAMEWORK: CORE COMPONENTS
-<p>
-┌────────────────────────────────────────────────┐
-│                                                │
-│  1. STRATEGY DEFINITION                        │
-│     - Entry rules (when to buy)                │
-│     - Exit rules (when to sell)                │
-│     - Position sizing (how much)               │
-│     - Universe selection (which securities)     │
-│     - Rebalancing frequency (how often)        │
-│                                                │
-│  2. DATA                                       │
-│     - Price data (adjusted for splits/divs)    │
-│     - Fundamental data (point-in-time)         │
-│     - Universe data (index membership history) │
-│     - Transaction cost estimates               │
-│                                                │
-│  3. EXECUTION SIMULATION                       │
-│     - Order placement timing                   │
-│     - Fill assumptions (what price?)           │
-│     - Slippage model                           │
-│     - Capacity constraints                     │
-│                                                │
-│  4. PERFORMANCE MEASUREMENT                    │
-│     - Returns (total, excess, risk-adjusted)   │
-│     - Drawdowns (max, duration, recovery)      │
-│     - Turnover (trading frequency)             │
-│     - Net-of-cost returns                      │
-│                                                │
-│  5. VALIDATION                                 │
-│     - In-sample vs. out-of-sample              │
-│     - Walk-forward analysis                    │
-│     - Monte Carlo simulation                   │
-│     - Sensitivity analysis                     │
-│                                                │
-└────────────────────────────────────────────────┘
-</p>
-<p>
-TIMELINE OF A BACKTEST:
-</p>
-<p>
-Data Available
-├──────────────────────────────────────────┤
-│  In-Sample (Training)  │  Out-of-Sample │
-│  2000 ──────── 2015    │  2015 ── 2025  │
-│                        │                │
-│  Develop and optimize  │  Test ONCE.    │
-│  strategy here.        │  No peeking.   │
-│  Iterate as needed.    │  No re-doing.  │
-└────────────────────────┴────────────────┘
-</p>
-<p>
-CRITICAL RULE: Once you look at out-of-sample
-results, that data is "used." You cannot go
-back, adjust your strategy, and re-test on
-the same out-of-sample period. That turns it
-into in-sample data.
-</code></pre>
-</p>
-<pre><code class="language-">BACKTESTING EXAMPLE: SIMPLE MOMENTUM STRATEGY
-<p>
-STRATEGY DEFINITION:
-Universe: S&amp;P 500 stocks
-Signal: 12-month total return (momentum)
-Rule: Each month, buy the top 50 stocks by
-12-month return. Equal weight.
-Sell any holding that drops out of top 50.
-</p>
-<p>
-STEP-BY-STEP BACKTEST (ONE MONTH):
-</p>
-<p>
-Date: January 31, 2015
-</p>
-<p>
-Step 1: Look up S&amp;P 500 members AS OF Jan 2015
-(NOT current members -- this prevents
-survivorship bias)
-</p>
-<p>
-Step 2: For each member, calculate 12-month
-total return (Feb 2014 - Jan 2015)
-Using data available ON Jan 31, 2015
-(no future data)
-</p>
-<p>
-Step 3: Rank all stocks by 12-month return
-</p>
-<p>
-Step 4: Select top 50
-</p>
-<p>
-Step 5: Compare to current holdings from
-December 2014
-</p>
-<p>
-Step 6: Calculate trades needed:
-</p>
-<ul><li>Sell stocks that dropped out of top 50</li>
-<li>Buy stocks that entered top 50</li>
-<li>Rebalance to equal weight</li>
-<p>
-</ul>
-Step 7: Apply transaction costs:
-</p>
-<ul><li>Spread cost: 0.05% per trade</li>
-<li>Market impact: 0.10% per trade</li>
-<li>Total: 0.15% per trade</li>
-<p>
-</ul>
-Step 8: Calculate portfolio return for Feb 2015:
-Sum of (weight * return) for all 50 stocks
-Minus transaction costs on trades executed
-</p>
-<p>
-Step 9: Record portfolio value, return, turnover
-</p>
-<p>
-Step 10: Repeat for next month (Feb 28, 2015)
-</p>
-<p>
-Repeat Step 1-10 for every month in the
-backtest period. Aggregate into performance
-statistics.
-</p>
-<p>
-MONTHLY TURNOVER CALCULATION:
-If 8 stocks dropped out and 8 new stocks entered:
-Turnover = 8/50 = 16% monthly
-Annual turnover = 16% * 12 = 192%
-</p>
-<p>
-With 0.15% cost per trade (buy + sell = 2 trades):
-Annual cost = 192% <em> 2 </em> 0.15% = 0.576%
-</p>
-<p>
-This is SIGNIFICANT. A strategy returning 12%
-gross returns only 11.4% net. If the benchmark
-returns 10%, the net alpha is only 1.4%, and
-much of that may be noise.
-</code></pre>
-</p>
-<h4>2. Lookahead Bias</h4>
-<p>
-Lookahead bias occurs when a backtest uses information that was not available at the time of the simulated trade. It is the most insidious bias because it can hide in perfectly reasonable-looking data.
-</p>
-<pre><code class="language-">LOOKAHEAD BIAS: SOURCES AND EXAMPLES
-<p>
-SOURCE 1: FINANCIAL DATA REVISIONS
-</p>
-<p>
-GDP is initially reported as "advance estimate,"
-then revised in "second estimate" and "third estimate."
-</p>
-<p>
-Advance GDP (reported Jan 30): +2.5%
-Second estimate (Feb 28):      +2.8%
-Third estimate (Mar 30):       +2.2%
-</p>
-<p>
-If your backtest uses the FINAL GDP figure on
-Jan 30 (the date of the advance release), you
-are using data that was not available until
-March 30. This is lookahead bias.
-</p>
-<p>
-CORRECT: Use real-time (vintage) data -- the
-number that was actually available on each date.
-</p>
-<p>
-SOURCE 2: EARNINGS REPORTING DELAYS
-</p>
-<p>
-Company reports Q4 earnings on February 15.
-Many databases assign Q4 data to December 31.
-</p>
-<p>
-If your backtest uses Q4 earnings to make a
-trade on January 2, you are trading on data
-that will not exist for 6 weeks.
-</p>
-<p>
-┌──────────────────────────────────────────────┐
-│  TIMELINE:                                   │
-│                                              │
-│  Dec 31          Jan 2           Feb 15      │
-│  (fiscal Q4      (your trade)   (earnings    │
-│   end date)                      reported)   │
-│                                              │
-│  Database says: Q4 EPS = $2.50 on Dec 31    │
-│  Reality: $2.50 was NOT known until Feb 15  │
-│                                              │
-│  Your backtest bought on Jan 2 using         │
-│  earnings that would not be reported for     │
-│  6 more weeks. LOOKAHEAD BIAS.               │
-└──────────────────────────────────────────────┘
-</p>
-<p>
-CORRECT: Use a lag of 60-90 days after fiscal
-quarter end before using fundamental data.
-Or use a point-in-time database that records
-exactly when each data point became available.
-</p>
-<p>
-SOURCE 3: INDEX MEMBERSHIP CHANGES
-</p>
-<p>
-Tesla was added to the S&amp;P 500 on Dec 21, 2020.
-If your backtest of "S&amp;P 500 stocks" in 2019
-includes Tesla, you have lookahead bias.
-Tesla was NOT in the S&amp;P 500 in 2019.
-</p>
-<p>
-CORRECT: Use historical index constituent
-lists. The S&amp;P 500 of 2019 included different
-companies than the S&amp;P 500 of 2024.
-</p>
-<p>
-SOURCE 4: PRICE ADJUSTMENTS
-</p>
-<p>
-Stock split 4:1 on August 1, 2020.
-Pre-split price: $400. Post-split: $100.
-Databases retroactively adjust all pre-split
-prices by dividing by 4.
-</p>
-<p>
-If your backtest uses a $50 stop-loss on a
-pre-split price of $100 (adjusted), the ACTUAL
-price the investor saw was $400. A $50 stop
-would not have been triggered on the real $400.
-</p>
-<p>
-CORRECT: Be aware of split-adjusted vs. actual
-prices. Use split-adjusted for return calculations,
-actual prices for order-level simulation.
-</p>
-<p>
-SOURCE 5: DIVIDEND ADJUSTMENTS
-</p>
-<p>
-Total return data includes dividends reinvested.
-But dividends are not known in advance.
-Special dividends, dividend cuts, and ex-dates
-are forward-looking information.
-</p>
-<p>
-CORRECT: Use dividend data only AFTER the
-ex-dividend date, which is when the market
-price adjusts.
-</code></pre>
-</p>
-<h4>3. Survivorship Bias in Backtesting</h4>
-<pre><code class="language-">SURVIVORSHIP BIAS: THE SILENT RETURN INFLATOR
-<p>
-WHAT IT IS:
-Your backtest universe includes only securities
-that survived to the present. Dead companies --
-bankruptcies, delistings, acquisitions at low
-prices -- are excluded.
-</p>
-<p>
-MAGNITUDE OF THE BIAS:
-</p>
-<p>
-Asset Class       Estimated Annual Bias
-──────────────────────────────────────────
-US large-cap stocks     0.5 - 1.0%
-US small-cap stocks     1.0 - 3.0%
-International stocks    1.0 - 2.0%
-Mutual funds            1.0 - 2.0%
-Hedge funds             3.0 - 5.0%
-Venture capital         5.0 - 10.0%
-</p>
-<p>
-EXAMPLE: SMALL-CAP VALUE STRATEGY
-</p>
-<p>
-You backtest a small-cap value strategy from
-2000 to 2020 using a CURRENT database of stocks.
-</p>
-<p>
-What you INCLUDE:
-</p>
-<ul><li>All companies that exist today and were</li>
-<p>
-</ul>    small and cheap at some point during 2000-2020
-</p>
-<ul><li>Companies that survived and thrived</li>
-<p>
-</ul>
-What you EXCLUDE:
-</p>
-<ul><li>Companies that went bankrupt (return = -100%)</li>
-<li>Companies that were delisted for fraud</li>
-<li>Companies acquired at distressed prices</li>
-<li>Companies that merged and ceased to exist</li>
-<p>
-</ul>
-THE SURVIVORS were small and cheap AND recovered.
-THE FAILURES were small and cheap AND died.
-</p>
-<p>
-Your backtest only sees the recoveries, not
-the deaths. Result: backtested return is
-artificially high.
-</p>
-<p>
-┌──────────────────────────────────────────────┐
-│  BACKTEST WITH SURVIVORSHIP BIAS:            │
-│                                              │
-│  Small-cap value return: 14.2% per year      │
-│  Looks great! Beats the market by 4%.        │
-│                                              │
-│  BACKTEST WITHOUT SURVIVORSHIP BIAS:         │
-│                                              │
-│  Small-cap value return: 11.8% per year      │
-│  Still good, but 2.4% less impressive.       │
-│  The excess return is 1.6%, not 4%.          │
-│  After transaction costs: maybe 0.5%.        │
-│  Barely worth the effort.                    │
-└──────────────────────────────────────────────┘
-</p>
-<p>
-HOW TO FIX SURVIVORSHIP BIAS:
-1. Use a survivorship-bias-free database
-(CRSP, Compustat with delisting returns)
-2. Include delisting returns (what happened
-when the stock was removed)
-3. Use historical index constituents, not
-current constituents
-4. Track what happened to stocks that left
-the universe
-</code></pre>
-</p>
-<h4>4. Overfitting</h4>
-<p>
-Overfitting is the process of creating a model so tightly fitted to historical data that it captures noise rather than signal. It is the most common cause of backtest failure.
-</p>
-<pre><code class="language-">OVERFITTING: HOW TO RECOGNIZE AND AVOID IT
-<p>
-THE FUNDAMENTAL PROBLEM:
-</p>
-<p>
-Historical data = Signal + Noise
-</p>
-<p>
-Signal: Persistent, exploitable patterns
-Noise: Random fluctuations specific to that period
-</p>
-<p>
-A simple model captures mostly signal.
-A complex model captures signal AND noise.
-</p>
-<p>
-┌──────────────────────────────────────────────┐
-│  NUMBER OF PARAMETERS vs. PERFORMANCE        │
-│                                              │
-│  In-Sample                                   │
-│  Performance    *                             │
-│      |       <em>  </em>  <em>  </em>  <em>  </em>  <em>  </em>          │
-│      |     *                                  │
-│      |   *                                    │
-│      | *                                      │
-│      |*                                       │
-│      └────────────────────────────────────    │
-│      1   3   5   7   9  11  13  15  17       │
-│              Number of Parameters             │
-│                                              │
-│  Out-of-Sample                               │
-│  Performance                                  │
-│      |   <em>  </em>                                 │
-│      | <em>      </em>  *                            │
-│      |<em>          </em>                            │
-│      |              *                         │
-│      |                *                       │
-│      |                  <em>  </em>  <em>  </em>  *         │
-│      └────────────────────────────────────    │
-│      1   3   5   7   9  11  13  15  17       │
-│              Number of Parameters             │
-│                                              │
-│  SWEET SPOT: 3-5 parameters for most         │
-│  financial models. Beyond that, you are       │
-│  fitting noise.                               │
-└──────────────────────────────────────────────┘
-</p>
-<p>
-SIGNS OF OVERFITTING:
-</p>
-<p>
-1. Strategy has many rules and parameters
-"Buy when RSI &lt; 30 AND MACD crosses above
-signal AND volume is 1.5x average AND
-it is a Tuesday AND price is above 200-day
-MA but below 50-day MA AND..."
-</p>
-<p>
-Every additional condition was likely added
-to improve historical performance. Each one
-reduces future reliability.
-</p>
-<p>
-2. Performance is dramatically better in-sample
-than out-of-sample.
-</p>
-<p>
-In-sample Sharpe: 2.5
-Out-of-sample Sharpe: 0.3
-</p>
-<p>
-This is textbook overfitting.
-</p>
-<p>
-3. Strategy works only in a specific time period
-or market regime.
-</p>
-<p>
-"Works great 2010-2020 but not 2000-2010."
-The model fit the regime-specific features
-of 2010-2020, not universal market dynamics.
-</p>
-<p>
-4. Small changes in parameters cause large
-changes in results.
-</p>
-<p>
-Lookback of 11 months: Sharpe 1.8
-Lookback of 12 months: Sharpe 0.4
-Lookback of 13 months: Sharpe 1.5
-</p>
-<p>
-A genuine effect should be robust to small
-parameter changes. Sharp sensitivity to
-parameters indicates overfitting.
-</p>
-<p>
-5. Strategy requires precise timing.
-</p>
-<p>
-"Rebalance on the 3rd Wednesday of each
-month at 2:47 PM for best results."
-</p>
-<p>
-A genuine edge should not depend on the
-specific minute you trade.
-</p>
-<p>
-HOW TO PREVENT OVERFITTING:
-</p>
-<p>
-RULE 1: Fewer parameters is better.
-Minimum observations per parameter: 50:1
-60 months of data -&gt; max 1 parameter
-300 months of data -&gt; max 6 parameters
-</p>
-<p>
-RULE 2: Every parameter needs economic justification.
-WHY is a 12-month lookback better than 6 or 18?
-If you cannot explain it, you found noise.
-</p>
-<p>
-RULE 3: Test parameter stability.
-If the optimal parameter is 12, the strategy
-should also work well with 10 or 14.
-Plot performance vs. parameter value.
-It should be a smooth curve, not spiky.
-</p>
-<p>
-RULE 4: Use regularization.
-Penalize model complexity mathematically.
-AIC, BIC, LASSO, Ridge regression.
-These techniques automatically balance fit
-against complexity.
-</p>
-<p>
-RULE 5: Cross-validate.
-Do not rely on a single train/test split.
-Use k-fold cross-validation or walk-forward
-analysis (see below).
-</code></pre>
-</p>
-<h4>5. In-Sample vs. Out-of-Sample Testing</h4>
-<pre><code class="language-">IN-SAMPLE vs. OUT-OF-SAMPLE
-<p>
-IN-SAMPLE (training):
-The data used to develop and optimize the strategy.
-Performance on this data is UNRELIABLE because
-the strategy was designed to fit it.
-</p>
-<p>
-OUT-OF-SAMPLE (testing):
-Data the strategy has NEVER seen.
-Performance on this data is the best estimate
-of future performance.
-</p>
-<p>
-THE SIMPLE SPLIT:
-</p>
-<p>
-┌───────────────────────────┬────────────────┐
-│   IN-SAMPLE (70%)        │   OOS (30%)    │
-│   2000 ──────── 2017     │  2017 ── 2025  │
-│                          │                │
-│   Develop strategy.      │  Test once.    │
-│   Optimize parameters.   │  Report this.  │
-└──────────────────────────┴────────────────┘
-</p>
-<p>
-PROBLEMS WITH A SIMPLE SPLIT:
-</p>
-<p>
-1. One test is not enough. Your out-of-sample
-period could be unusual (e.g., all bull market
-or dominated by COVID crash).
-</p>
-<p>
-2. You might unconsciously peek. If you look at
-out-of-sample results, go back and "improve"
-the strategy, then re-test, you have turned
-out-of-sample into in-sample.
-</p>
-<p>
-3. Sample period selection can be gamed. Choosing
-where to split can itself introduce bias.
-</p>
-<p>
-EXPECTED PERFORMANCE DECAY:
-</p>
-<p>
-┌──────────────────────────────────────────────┐
-│  TYPICAL PERFORMANCE DEGRADATION             │
-│                                              │
-│  In-sample Sharpe ratio:        2.0          │
-│  Out-of-sample Sharpe ratio:    1.0 - 1.3   │
-│  Live trading Sharpe ratio:     0.5 - 0.8   │
-│                                              │
-│  RULE OF THUMB:                              │
-│  Expect live performance to be 30-60% worse  │
-│  than in-sample performance.                 │
-│                                              │
-│  If in-sample Sharpe &lt; 1.5, the strategy     │
-│  is unlikely to survive live trading.        │
-└──────────────────────────────────────────────┘
-</code></pre>
-</p>
-<h4>6. Walk-Forward Analysis</h4>
-<p>
-Walk-forward analysis is the gold standard for backtesting validation. It simulates how a strategy would be managed in real time.
-</p>
-<pre><code class="language-">WALK-FORWARD ANALYSIS
-<p>
-CONCEPT:
-Instead of one train/test split, perform MANY
-splits that roll forward through time.
-</p>
-<p>
-┌──────────────────────────────────────────────┐
-│                                              │
-│  Period 1:                                   │
-│  Train: 2000-2004 | Test: 2005              │
-│  ████████████████ | ████                     │
-│                                              │
-│  Period 2:                                   │
-│  Train: 2001-2005 | Test: 2006              │
-│    ████████████████ | ████                   │
-│                                              │
-│  Period 3:                                   │
-│  Train: 2002-2006 | Test: 2007              │
-│      ████████████████ | ████                 │
-│                                              │
-│  Period 4:                                   │
-│  Train: 2003-2007 | Test: 2008              │
-│        ████████████████ | ████               │
-│                                              │
-│  ...continue through all available data...   │
-│                                              │
-│  Period 16:                                  │
-│  Train: 2015-2019 | Test: 2020              │
-│                      ████████████████ | ████ │
-│                                              │
-└──────────────────────────────────────────────┘
-</p>
-<p>
-At each period:
-1. Optimize strategy on training window
-2. Apply (without changes) to test window
-3. Record test window performance
-</p>
-<p>
-The AGGREGATE performance across all test
-windows is the walk-forward estimate of
-strategy quality.
-</p>
-<p>
-ADVANTAGES:
-+ Simulates live trading experience
-+ Multiple out-of-sample tests, not just one
-+ Strategy adapts to changing markets
-+ Exposes regime-dependent strategies
-+ Most realistic estimate of future performance
-</p>
-<p>
-DISADVANTAGES:
-</p>
-<ul><li>Requires more data (need enough for many periods)</li>
-<li>Computationally intensive (many optimizations)</li>
-<li>Results depend on window length choices</li>
-<li>Cannot fully prevent overfitting if you iterate</li>
-<p>
-</ul>    on the walk-forward results themselves
-</p>
-<p>
-WALK-FORWARD RESULTS INTERPRETATION:
-</p>
-<p>
-If walk-forward Sharpe &gt; 0.5 consistently
-across all test periods: Potentially viable.
-</p>
-<p>
-If walk-forward Sharpe varies wildly between
-test periods: Strategy is regime-dependent.
-Proceed with extreme caution.
-</p>
-<p>
-If walk-forward Sharpe is negative in several
-periods: Strategy does not generalize. Reject.
-</p>
-<p>
-Walk-Forward          In-Sample     Assessment
-Sharpe                Sharpe
-──────────────────────────────────────────────
-&gt; 0.8                 &gt; 1.5         Strong
-0.5 - 0.8             &gt; 1.5         Moderate
-0.3 - 0.5             &gt; 1.5         Weak
-&lt; 0.3                 &gt; 1.5         Overfit
-~0 or negative        &gt; 1.5         Pure noise
-</code></pre>
-</p>
-<h4>7. Transaction Costs in Backtests</h4>
-<p>
-Transaction costs are frequently underestimated or omitted in backtests. Realistic cost modeling is the difference between a strategy that works on paper and one that works with real money.
-</p>
-<pre><code class="language-">TRANSACTION COSTS: THE STRATEGY KILLER
-<p>
-COMPONENTS OF TRANSACTION COST:
-</p>
-<p>
-1. SPREAD COST
-You buy at the ask, sell at the bid.
-Cost = half-spread per trade.
-</p>
-<p>
-Liquid large-cap: 0.01-0.03%
-Mid-cap: 0.05-0.15%
-Small-cap: 0.15-0.50%
-Micro-cap: 0.50-2.00%
-</p>
-<p>
-2. MARKET IMPACT
-Your trade moves the price against you.
-Depends on order size relative to volume.
-</p>
-<p>
-Small order (&lt; 1% of daily volume): 0.05%
-Medium order (1-5% of volume): 0.10-0.30%
-Large order (&gt; 5% of volume): 0.30-1.00%+
-</p>
-<p>
-3. SLIPPAGE
-Difference between intended price and actual fill.
-Caused by price movement during execution.
-</p>
-<p>
-Typical: 0.02-0.10%
-</p>
-<p>
-4. OPPORTUNITY COST
-Unfilled orders. Your limit order did not execute,
-and the stock moved away from you.
-Hard to model but real.
-</p>
-<p>
-IMPACT ON DIFFERENT STRATEGIES:
-</p>
-<p>
-Strategy          Annual     Cost per   Net     Is It
-Turnover   Trade      Annual  Worth
-(%)        (%)        Cost    It?
-──────────────────────────────────────────────────────
-Buy-and-hold      5%         0.10%      0.01%  Yes
-Annual rebalance  25%        0.10%      0.05%  Yes
-Quarterly factor  100%       0.15%      0.30%  Maybe
-Monthly momentum  200%       0.15%      0.60%  Risky
-Weekly mean rev.  500%       0.20%      2.00%  Unlikely
-Daily trading     2000%      0.10%      4.00%  HFT only
-Intraday scalp    5000%+     0.05%      5.00%+ No
-</p>
-<p>
-EXAMPLE: TRANSACTION COSTS DESTROY ALPHA
-</p>
-<p>
-Strategy: Monthly momentum (top decile stocks)
-</p>
-<p>
-Gross return:  15.0% per year
-Benchmark:     10.0% per year
-Gross alpha:   5.0% per year
-</p>
-<p>
-Transaction costs:
-</p>
-<ul><li>Annual turnover: 200%</li>
-<li>Cost per trade: 0.15% (spread + impact)</li>
-<li>One-way trades: 200% * 2 = 400% of portfolio</li>
-<li>Total cost: 400% * 0.15% = 0.60%</li>
-<p>
-</ul>
-Wait, that does not seem too bad. But let us
-use more realistic costs for the smaller stocks
-that momentum strategies tend to buy:
-</p>
-<ul><li>Cost per trade: 0.30% (small/mid-cap impact)</li>
-<li>Total cost: 400% * 0.30% = 1.20%</li>
-<p>
-</ul>
-Hmm. Now add slippage:
-</p>
-<ul><li>Slippage: 0.10% per trade</li>
-<li>Total: 400% * (0.30% + 0.10%) = 1.60%</li>
-<p>
-</ul>
-Net alpha: 5.0% - 1.60% = 3.40%
-</p>
-<p>
-But wait -- this assumes no capacity constraints.
-With $100M in the strategy, market impact doubles:
-</p>
-<ul><li>Total cost: 400% * 0.50% = 2.00%</li>
-<p>
-</ul>
-Net alpha: 5.0% - 2.00% = 3.00%
-</p>
-<p>
-And after management fees (1%) and performance
-fees (20% of alpha):
-</p>
-<ul><li>Fees: 1% + 20% * 3% = 1.60%</li>
-<li>Investor net alpha: 3.00% - 1.60% = 1.40%</li>
-<p>
-</ul>
-From 5% gross alpha to 1.4% investor alpha.
-And we have not even discussed the risk that
-the gross alpha is overestimated due to other
-biases.
-</p>
-<p>
-┌──────────────────────────────────────────────┐
-│  THE WATERFALL OF ALPHA DECAY:               │
-│                                              │
-│  Backtested alpha:         5.0%              │
-│  After survivorship bias:  4.2%              │
-│  After lookahead bias:     3.8%              │
-│  After transaction costs:  2.2%              │
-│  After slippage:           1.8%              │
-│  After management fees:    0.8%              │
-│  After performance fees:   0.5%              │
-│  After implementation:     0.2%              │
-│                                              │
-│  5% became 0.2%. And 0.2% is within the     │
-│  noise of random chance.                     │
-└──────────────────────────────────────────────┘
-</code></pre>
-</p>
-<h4>8. When to Trust a Backtest</h4>
-<pre><code class="language-">WHEN TO TRUST (AND DISTRUST) A BACKTEST
-<p>
-TRUST A BACKTEST WHEN:
-</p>
-<p>
-✓ It has an economic rationale
-WHY does this edge exist? WHO loses?
-"Value works because investors overpay for
-growth" -- clear rationale, identifiable
-behavioral bias.
-</p>
-<p>
-✓ It uses few parameters
-A strategy with 1-3 parameters fitted on
-20+ years of data is less likely overfit.
-</p>
-<p>
-✓ It survives walk-forward analysis
-Consistent performance across many test
-periods, not just one favorable window.
-</p>
-<p>
-✓ It survives realistic transaction costs
-Returns are still attractive after spreads,
-impact, slippage, and fees.
-</p>
-<p>
-✓ It works in multiple markets and time periods
-US and international. Pre-2000 and post-2000.
-Emerging and developed markets.
-</p>
-<p>
-✓ It has been documented by independent researchers
-Academic papers, replicated by others.
-Not just the fund manager's internal research.
-</p>
-<p>
-✓ The in-sample to out-of-sample decay is modest
-In-sample Sharpe 1.5, out-of-sample Sharpe 1.0
-is encouraging. In-sample 3.0, OOS 0.5 is not.
-</p>
-<p>
-DISTRUST A BACKTEST WHEN:
-</p>
-<p>
-✗ No economic rationale
-"We found that this works" without explaining
-WHY it should work or persist.
-</p>
-<p>
-✗ Many parameters and rules
-"Buy when A AND B AND NOT C AND D &gt; 2.5 AND..."
-More rules = more overfitting risk.
-</p>
-<p>
-✗ Only tested on one period in one market
-US stocks 2010-2020. A ten-year bull market.
-How did it do in 2000-2002 or 2008?
-</p>
-<p>
-✗ Transaction costs are ignored or unrealistic
-"Assuming zero transaction costs" or
-"0.01% per trade" for a small-cap strategy.
-</p>
-<p>
-✗ Returns are too good
-Any strategy showing &gt; 25% annual returns
-with low volatility should be presumed overfit
-until proven otherwise. The world's best
-investors earn 15-20%.
-</p>
-<p>
-✗ Excessive curve-fitting of parameters
-"The optimal lookback is exactly 11.5 months."
-Real effects are robust to parameter choice.
-</p>
-<p>
-✗ Data starts from an arbitrary, convenient date
-"Starting from March 2009..." (the market
-bottom). Convenient start dates inflate returns.
-</p>
-<p>
-BACKTEST EVALUATION SCORECARD:
-</p>
-<p>
-Criterion                    Points (0-2)
-──────────────────────────────────────────
-Economic rationale             /2
-Simplicity (&lt; 5 params)       /2
-Walk-forward positive          /2
-Realistic costs deducted       /2
-Multiple markets tested        /2
-Independent replication        /2
-Modest in-to-OOS decay         /2
-20+ year sample period         /2
-Survivorship bias free         /2
-No lookahead bias              /2
-──────────────────────────────────────────
-Total                          /20
-</p>
-<p>
-16-20: High confidence
-12-15: Moderate confidence, proceed with caution
-8-11:  Low confidence, probably overfit
-0-7:   Reject -- likely noise
-</code></pre>
+<h3>1. Why This Is Important</h3>
+<p>
+A backtest is a story you tell yourself about a strategy. It is the
+most persuasive financial document in the world: a smooth equity
+curve, a tidy Sharpe number, a table of annual returns, all
+generated in a few seconds by a program you wrote yesterday. The
+problem is that almost every backtest is wrong, and almost every
+backtest is wrong in the same direction — too optimistic. Empirical
+work by Lopez de Prado, Bailey, and others shows that the median
+in-sample Sharpe of a published quant strategy roughly <em>halves</em>
+out of sample. Strategies that look like 1.5 Sharpe machines on
+paper deliver 0.6 in production, if anything at all. Most retail
+"systems" sold online deliver zero or negative excess return after
+realistic frictions.
+</p>
+<p>
+You need this material for four reasons.
+</p>
+<li>**You will see, build, or buy backtests for the rest of your</li>
+<p>
+investing life.** Every ETF prospectus, every robo-advisor
+pitch, every YouTube quant influencer leads with a backtest.
+If you cannot reflexively spot survivorship bias, look-ahead
+bias, and the multiple-testing trap, you will mis-allocate
+capital. SOUL #1 says alpha is rare; almost every backtest
+is selling you alpha. Reconcile.
+</p>
+<li><strong>The deflated Sharpe ratio is now the institutional standard.</strong></li>
+<p>
+Bailey and Lopez de Prado's 2014 paper formalised what
+sceptical practitioners always knew: try a thousand strategies,
+the best one will look great by chance. Their formula
+converts a raw in-sample Sharpe into one that explicitly
+penalises the number of trials. Modern allocators ask for it.
+You should compute it on your own ideas.
+</p>
+<li><strong>Transaction costs are usually the entire alpha.</strong> A</li>
+<p>
+backtested edge of 4% per year, run weekly with 30 bps
+round-trip costs and ~50 turnovers per year, evaporates: 50 ×
+0.30% = 15% gross drag, swamping the edge by a factor of three.
+Most "discoveries" by retail systems live or die on cost
+modelling — which is why the slick PowerPoints all quietly
+omit it.
+</p>
+<li><strong>Backtesting connects to SOUL #1, #6, #12, and #16.</strong> Alpha</li>
+<p>
+is rare (#1). Vol-tail wags the dog so a five-year backtest
+without a crisis is meaningless (#6). Markets stay irrational
+long enough to stop you out before reverting (#12). And the
+liquid US equity universe is the one place a sceptical
+backtester can actually validate point-in-time data without
+drowning in survivor noise (#16).
+</p>
+<p>
+This lesson walks through the seven canonical backtest pathologies,
+the math of the deflated Sharpe, and a working calculator that
+takes your in-sample number and tells you what to actually expect
+out of sample.
 </p>
 <hr>
-<h3>c) Common Misconceptions</h3>
+<h3>2. What You Need to Know</h3>
+<h4>2.1 Survivorship Bias — The Universe You Don't See</h4>
 <p>
-<strong>Misconception 1: "If a backtest shows good returns, the strategy works."</strong>
+The simplest, most pernicious bias. Open any data terminal, ask
+for "all S&P 500 stocks since 1990, equal-weighted, monthly
+rebalance." Your terminal returns the <strong>current</strong> S&P 500. Lehman
+Brothers is missing. Bear Stearns is missing. WorldCom is
+missing. Sears, Kodak, Polaroid, Wachovia, Washington Mutual,
+Countrywide — all missing. You have backtested the strategy on a
+universe of survivors.
 </p>
 <p>
-Backtested returns are the UPPER BOUND of what a strategy can deliver. Every bias -- survivorship, lookahead, overfitting, understated costs -- works in the direction of inflating backtested performance. A strategy that shows 12% backtested returns may deliver 6-8% in live trading. A strategy that shows 6-8% backtested returns may deliver less than a passive index fund after all biases and costs are properly accounted for. The default assumption should be that a backtest is overstated until proven otherwise.
+Survivorship inflates returns by roughly 1-3% per year on a US
+large-cap universe, more on small-caps, far more on emerging
+markets and on hedge fund databases that only list funds still
+reporting. A "long-only quality" backtest run on the survivors
+of 1990 looks brilliant. The same strategy run on the actual
+1990 universe — including the names that bankrupted — looks
+mediocre.
 </p>
 <p>
-<strong>Misconception 2: "I split my data into training and testing, so I am protected from overfitting."</strong>
+The fix is <strong>point-in-time index membership</strong>. CRSP, Norgate,
+S&P's IHS-Markit, and Compustat-CapIQ all sell historical
+constituent files that mark which tickers were in the index on
+which date. Free data sources rarely have this; if you backtest
+with a free source, assume your top-line return is overstated
+by 100-300 bps.
+</p>
+<h4>2.2 Look-Ahead Bias — Using Tomorrow's Data Today</h4>
+<p>
+Look-ahead bias is when your trading rule on date <em>t</em> uses
+information that was not actually available on date <em>t</em>. The
+mechanisms are subtle.
+</p>
+<ul><li><strong>Restated fundamentals.</strong> Compustat shows you AAPL's FY2024</li>
+<p>
+</ul>  revenue as currently restated. The version available in
+January 2025 — before the 10-K filed in November 2025 was
+amended in March 2026 — was different. A backtest using
+current-vintage fundamentals is using future data.
+</p>
+<ul><li><strong>Index reconstitutions announced before effective.</strong> S&P</li>
+<p>
+</ul>  announces additions ~5 trading days before they take effect.
+A backtest that uses "in-the-index-on-date-t" with current
+vintage data will pick up tomorrow's adds today.
+</p>
+<ul><li><strong>End-of-day prices used as fill prices.</strong> Your signal fires</li>
+<p>
+</ul>  at 4:00 pm; you fill at the 4:00 pm close. In reality you
+filled the next morning, often at a worse price for momentum
+strategies and a better one for mean-reversion strategies.
+Look-ahead in fill timing flatters momentum and punishes MR.
+</p>
+<ul><li><strong>Earnings dates.</strong> A reported "EPS surprise" backtest that</li>
+<p>
+</ul>  uses the current Compustat earnings-date field will pick up
+some companies one day <em>before</em> the announcement, because
+the field has been retroactively normalised.
 </p>
 <p>
-A single train-test split is better than nothing but far from sufficient. The test period may be unrepresentative (e.g., entirely within a bull market). You may unconsciously peek at the test results and adjust your strategy. And the specific split point can itself be optimized -- you may choose the split that gives the best test results. Walk-forward analysis with many rolling windows is a much stronger test. Even so, if you iterate on the walk-forward results themselves, you are overfitting to the walk-forward process.
+The fix is <strong>point-in-time data with as-reported timestamps</strong>, and
+a one-day lag rule: any signal computed on date <em>t</em> is acted on at
+the open of date <em>t</em>+1. Without this rule, expect 2-5% per year
+of phantom alpha.
+</p>
+<h4>2.3 Transaction-Cost Modelling — Where Most Edges Die</h4>
+<p>
+For US-listed liquid equities (SPY, QQQ, large caps), realistic
+all-in round-trip transaction costs in April 2026 are:
+</p>
+<table><thead><tr><th>Universe</th><th>Round-trip cost (bps)</th><th>Notes</th></tr></thead><tbody><tr><td>SPY, QQQ, top-50 mega-caps</td><td>1-3 bps</td><td>Tight spread + tiny impact</td></tr><tr><td>S&P 500 large-caps</td><td>5-15 bps</td><td>Avg spread ~3 bps + impact</td></tr><tr><td>Russell 1000 mid-caps</td><td>15-30 bps</td><td>Wider spread + slippage</td></tr><tr><td>Russell 2000 small-caps</td><td>30-80 bps</td><td>Spread + impact + sometimes ADV-cap</td></tr><tr><td>Microcap, OTC, illiquid</td><td>100-300 bps</td><td>And you may not get the size you want</td></tr></tbody></table>
+<p>
+These are <em>all-in</em>: bid-ask spread, market impact, exchange and
+SEC fees, plus brokerage commissions (now mostly zero for retail
+in the US). For institutions trading size, market impact dominates
+and rises roughly with the square root of (order size / ADV).
 </p>
 <p>
-<strong>Misconception 3: "Zero-commission brokers mean transaction costs are negligible."</strong>
+The arithmetic is brutal. A strategy with annualised gross alpha
+$\alpha$ and turnover $\tau$ (round-trips per year) and round-trip
+cost $c$ delivers net alpha:
 </p>
 <p>
-Commission is a small fraction of total transaction cost. The spread, market impact, slippage, and opportunity cost of unfilled orders typically dwarf commissions. A strategy with 200% annual turnover trading mid-cap stocks faces 1-2% annual transaction costs even with zero commissions. For small-cap and micro-cap stocks, costs can be 3-5% or more. The shift to zero commissions has made it cheaper to execute individual trades but has NOT eliminated the core costs that destroy high-turnover strategies.
+$$ \alpha_{\text{net}} = \alpha_{\text{gross}} - \tau \cdot c $$
 </p>
 <p>
-<strong>Misconception 4: "More data always makes a backtest more reliable."</strong>
+A 4% gross alpha at:
+</p>
+<ul><li>$\tau = 0.5$ (annual rebalance), $c = 10$ bps → net = 3.95% — costs negligible.</li>
+<li>$\tau = 6$ (monthly), $c = 10$ bps → net = 3.40% — modest drag.</li>
+<li>$\tau = 50$ (weekly), $c = 30$ bps → net = -11% — entire alpha and then some lost.</li>
+<li>$\tau = 252$ (daily), $c = 30$ bps → net = -71.6% — strategy is a furnace.</li>
+<p>
+</ul>
+This is why daily and intraday strategies rarely survive in
+illiquid universes: even tiny gross edges are eaten alive by
+turnover × cost. The chart in §2.5 makes this concrete.
+</p>
+<img src="image/week46_cost_drag.png" alt="Annualised return after costs as a function of round-trip transaction cost (0/10/30/100 bps) for four turnover regimes (annual / monthly / weekly / daily rebalance), each starting from a 4% gross-alpha baseline. The annual-rebalance line is roughly flat; monthly drops modestly; the weekly line crosses zero between 30 and 100 bps; the daily line crosses zero before 10 bps and is deeply negative at 30 bps. Cost is the silent killer of high-turnover edges.">
+<p>
+The diagonal lines fan out from the same starting point on the
+left. By the time you reach 30 bps round-trip — typical for
+small-cap US — the daily strategy has lost all of its alpha and
+then some. This is why most published "high-frequency" retail
+systems are pure storytelling: they look great in zero-cost
+simulations and are catastrophic with realistic friction.
+</p>
+<h4>2.4 The Multiple-Testing Problem — 1000 Random Strategies</h4>
+<p>
+Here is the single most under-appreciated fact in retail
+quant: **if you try enough strategies, some will look great by
+chance**. This is not a hypothesis. It is arithmetic.
 </p>
 <p>
-Using 50 years of data sounds rigorous, but market structure has changed dramatically over that period. Decimalization (2001), the rise of electronic trading, the growth of passive investing, and changes in regulation have fundamentally altered market behavior. A strategy that worked from 1970-2000 may not work in the post-2000 electronic market. The right amount of data balances statistical power against regime relevance. For most strategies, 15-25 years of data -- covering multiple market cycles in a relatively consistent structural regime -- is the sweet spot.
+Suppose you simulate 1000 strategies, each with **zero true
+edge** — pure noise. Each generates an in-sample annualised
+Sharpe estimate. Because Sharpe is a noisy estimator (with finite
+sample size), the <em>distribution</em> of those 1000 estimates is wide.
+For a one-year window of daily returns, the standard error of the
+estimated annualised Sharpe is roughly 1.0. So out of 1000 random
+strategies you should expect, by pure chance:
+</p>
+<ul><li>~25 with Sharpe > 2.0 (one-tail probability ~ 2.5%).</li>
+<li>~160 with Sharpe > 1.0 (~ 16%).</li>
+<li>~3 with Sharpe > 3.0 (~ 0.3%).</li>
+<p>
+</ul>
+Every one of these is pure noise. Yet a researcher who ran a
+1000-strategy grid search and <em>only reports the best</em> would
+proudly publish a "Sharpe 3 strategy" with a t-stat of 3, and the
+reviewer who does not adjust for the trial count will believe it.
+</p>
+<img src="image/week46_deflated_sharpe.png" alt="Histogram of 1000 simulated random-strategy Sharpe ratios (true Sharpe = 0, 252 daily observations), with the theoretical null distribution overlaid as a smooth curve and the 2.0 and 3.0 thresholds marked with vertical lines. About 25 of the 1000 random strategies clear Sharpe > 2 by chance, and about 3 clear Sharpe > 3 — none of which are real edges. The chart visualises why "I tried 1000 things and the best one had Sharpe 2.5" is not evidence.">
+<p>
+The vertical lines are at Sharpe = 2 and Sharpe = 3. Every bar to
+the right of those lines is a strategy with **literally zero
+alpha** that nonetheless tested above the conventional thresholds.
+</p>
+<h4>2.5 The Deflated Sharpe Ratio — Bailey & Lopez de Prado</h4>
+<p>
+Bailey, Borwein, Lopez de Prado, and Zhu (2014) wrote down a
+formal correction. The <strong>deflated Sharpe ratio</strong> (DSR) starts
+from the observed in-sample Sharpe $\widehat{SR}$, subtracts the
+expected maximum-of-N null Sharpe, and divides by the
+distribution-aware standard error of the Sharpe estimator:
 </p>
 <p>
-<strong>Misconception 5: "If a strategy has a high Sharpe ratio in the backtest, it will have a high Sharpe ratio live."</strong>
+$$ \widehat{SR}_0 \approx \sqrt{\frac{2 \ln N}{T}} \quad \text{(expected max under null, large N)} $$
 </p>
 <p>
-Backtested Sharpe ratios almost always overstate live performance. The typical decay is 40-60%. A backtested Sharpe of 2.0 typically delivers a live Sharpe of 0.8-1.2. This means a backtested Sharpe below 1.5 is unlikely to deliver a live Sharpe above 0.5, which is borderline for practical use. Any backtested Sharpe above 3.0 should be viewed with extreme suspicion -- it almost certainly reflects overfitting, data errors, or unrealistic assumptions.
+where $N$ is the number of strategy variants tried and $T$ is the
+sample length in periods.
 </p>
 <p>
-<strong>Misconception 6: "Walk-forward analysis proves a strategy works."</strong>
+$$ \text{DSR} = \Phi\!\left(\frac{(\widehat{SR} - \widehat{SR}_0)\sqrt{T-1}}{\sqrt{1 - \gamma_3 \widehat{SR} + \frac{\gamma_4 - 1}{4}\widehat{SR}^2}}\right) $$
 </p>
 <p>
-Walk-forward analysis is the best validation tool available, but it is not proof. A strategy can pass walk-forward analysis and still fail in live trading if market conditions change, if the strategy's edge gets arbitraged away by other participants who discover the same signal, or if the walk-forward process itself was iterated upon (making the walk-forward results effectively in-sample). Walk-forward analysis reduces confidence in bad strategies but does not guarantee confidence in strategies that pass.
+Here $\gamma_3$ is skewness and $\gamma_4$ is kurtosis of returns;
+$\Phi$ is the standard-normal CDF. Read the output as a
+probability: DSR is the chance that the strategy's true Sharpe is
+above the multiple-testing-adjusted null. A DSR of 0.95 means 95%
+confident the strategy is real; 0.50 means a coin flip; 0.30 is
+"probably noise."
+</p>
+<p>
+The intuition is simple even if the formula is not: **reporting
+the best of N tries is like running a one-tailed test at
+significance level 1/N**. To clear that bar, your raw Sharpe has
+to beat $\sqrt{2 \ln N / T}$ — and for N = 1000 trials over T = 5
+years of daily data, that haircut is roughly $\sqrt{2 \times 6.91
+/ 1260} \approx 0.10$ on a <em>daily</em> SR, or about 1.66 on an
+annualised SR. So a researcher reporting Sharpe 2.0 from a
+1000-strategy search has, after deflation, an effective Sharpe of
+roughly 0.34 — barely better than the bond market.
+</p>
+<h4>2.6 Walk-Forward Analysis — The Gold Standard</h4>
+<p>
+The honest way to validate a strategy is <strong>walk-forward</strong>: fit
+parameters on a rolling window, test on the immediately
+subsequent out-of-sample window, then roll forward. For example:
+fit on 2010-2014, test 2015; fit on 2011-2015, test 2016; and so
+on. The concatenation of the test-period returns is your true
+out-of-sample track record.
+</p>
+<p>
+Walk-forward kills three birds:
+</p>
+<ul><li><strong>Look-ahead.</strong> You can only fit on data older than the test</li>
+<p>
+</ul>  window, by construction.
+</p>
+<ul><li><strong>Overfitting.</strong> If your strategy needs 12 parameters to look</li>
+<p>
+</ul>  good in-sample, the rolling refits will produce wildly different
+parameter sets each window — a tell that the parameters are not
+capturing a real signal.
+</p>
+<ul><li><strong>Regime drift.</strong> A strategy that worked 1995-2005 but failed</li>
+<p>
+</ul>  2015-2025 will show in the walk-forward equity curve as a clean
+break. A naïve full-sample backtest hides that break inside the
+averages.
+</p>
+<p>
+A strategy whose walk-forward Sharpe is <em>less than half</em> of its
+full-sample in-sample Sharpe is overfit. Most published retail
+systems fail this test on inspection.
+</p>
+<h4>2.7 Regime-Shift Robustness</h4>
+<p>
+Even after deflation, walk-forward, and proper costs, one final
+question remains: <em>does the strategy work in different regimes?</em>
+A momentum strategy that backtests beautifully on 2010-2021 (one
+long QE-driven uptrend) is not the same as one that backtests
+across 1929-32, 1973-74, 2000-02, 2008, and 2020 stress windows.
+</p>
+<p>
+A useful discipline: split your sample into the canonical regime
+buckets (Week 10's framework) and report Sharpe, drawdown, and
+hit-rate <strong>within each regime</strong>. A strategy that works in three
+of four regimes and fails in one is potentially deployable with
+a regime overlay. A strategy that only works in one regime is a
+beta exposure dressed up as alpha. SOUL #2: the 1980-2020 regime
+was anomalous; do not let your sample window inherit its
+flattering arithmetic.
+</p>
+<p>
+The interactive at the end of this lesson lets you drag five
+sliders — in-sample Sharpe, years of backtest, number of
+strategies tried, round-trip cost, and trades per year — and
+watch four numbers update live: deflated Sharpe (multiple-testing
+penalty), out-of-sample Sharpe estimate, Sharpe-after-costs, and
+the probability the strategy is real. Most "great" backtests
+collapse instantly under realistic settings.
 </p>
 <hr>
-<h3>d) Common Questions and Answers</h3>
+<h3>3. Common Misconceptions</h3>
+<li><strong>"My backtest looks great, so the strategy works."</strong> Your</li>
 <p>
-<strong>Q1: What is the minimum amount of data I need for a reliable backtest?</strong>
+backtest is a <em>best-case</em> simulation under your particular
+choices of data, costs, and timing. The realised performance
+is almost always worse — and SOUL #1 says alpha is rare, so
+the prior on any backtest is that it is overstated.
 </p>
+<li><strong>"Survivorship bias is a problem only for small-caps."</strong> It</li>
 <p>
-A: The absolute minimum is enough data to cover at least two full market cycles, including both bull and bear markets. For US equities, this typically means at least 15 years (e.g., 2007-2022 captures the financial crisis, recovery, COVID crash, and the 2022 drawdown). For monthly strategies, 15 years gives you 180 observations. For daily strategies, it gives you roughly 3,750 trading days. If your strategy depends on rare events (recessions, crises), you need more data to capture enough events -- ideally 25-30 years or more. For walk-forward analysis, you need even more data because each training window consumes 3-5 years.
+is a problem everywhere. Lehman, Bear, WorldCom, Enron, GE
+removed from the Dow — all large-cap. The bias is universal;
+it is just larger in noisier universes.
 </p>
+<li><strong>"I used adjusted prices, so I'm fine."</strong> Split- and</li>
 <p>
-<strong>Q2: How should I model transaction costs in a backtest?</strong>
+dividend-adjusted prices fix one issue (corporate-action
+distortion) but tell you nothing about whether the ticker
+was in the relevant universe at the historical date.
 </p>
+<li>**"Transaction costs are negligible for retail because</li>
 <p>
-A: At minimum, include the half-spread cost for each trade. For large-cap US stocks, use 0.03-0.05% per trade. For mid-cap, use 0.10-0.20%. For small-cap, use 0.25-0.50%. Add a market impact component that scales with order size relative to average daily volume: 0.05% for small orders, 0.10-0.20% for medium, and 0.30%+ for large. Add slippage of 0.02-0.05%. As a rough total, use 0.10% per trade for liquid large-caps and 0.50% for less liquid small-caps. These are conservatively estimated -- many real-world traders experience higher costs. It is always better to overestimate transaction costs than underestimate them.
+commissions are zero."** Zero commission ≠ zero cost. Spread
+plus market impact still costs you 5-30 bps round-trip on
+most US equities, and far more on small-caps. The
+"commission-free" branding is marketing.
 </p>
+<li><strong>"I tested in-sample and out-of-sample, so I'm fine."</strong> A</li>
 <p>
-<strong>Q3: How do I avoid survivorship bias in a stock backtest?</strong>
+single in/out split is barely better than no split when you
+chose the split point after seeing the data. Walk-forward is
+the standard.
 </p>
+<li><strong>"P-value below 0.05 means the strategy is real."</strong> Not if</li>
 <p>
-A: Use a database that includes delisted securities and their delisting returns. The CRSP database from the University of Chicago is the gold standard for US stocks and includes all delistings with their final returns. Compustat's Point-in-Time database provides fundamental data free of lookahead bias. If you cannot access these (they are expensive), at minimum ensure your data source includes delisted stocks. Many free data sources (Yahoo Finance, Google Finance) only include currently active securities. When you notice your universe has no bankrupt companies, you have survivorship bias.
+you tried more than 20 variants. Multiple-testing correction
+(Bonferroni, FDR, or DSR) is mandatory.
 </p>
+<li>**"Deflated Sharpe is too conservative — it kills good</li>
 <p>
-<strong>Q4: What is a realistic expectation for how much a strategy degrades from backtest to live trading?</strong>
+strategies."<em>* It kills </em>most* strategies, and that is
+correct. SOUL #1 again: alpha is rare.
 </p>
+<li><strong>"Higher in-sample Sharpe is better."</strong> Higher in-sample</li>
 <p>
-A: Expect a 30-60% decline in risk-adjusted returns. If your backtest shows a Sharpe ratio of 2.0, plan for a live Sharpe of 0.8-1.4. If it shows annual alpha of 5%, plan for 2-3% live alpha. If it shows 12% annual returns, plan for 8-9% live returns. These degradation rates are averages; some strategies degrade more, some less. Strategies with fewer parameters, longer holding periods, and trading liquid securities tend to degrade less. Strategies with many parameters, high turnover, and illiquid securities tend to degrade more.
+Sharpe with fixed sample size and fixed turnover is better,
+yes. Higher in-sample Sharpe coming from a larger search
+space is <em>worse</em> — because you tried more.
 </p>
+<li><strong>"Walk-forward eliminates overfitting."</strong> It reduces it; it</li>
 <p>
-<strong>Q5: Should I ever use a backtest to make investment decisions?</strong>
+does not eliminate it. If the underlying strategy class is
+overfit (e.g., 12 parameters), walk-forward parameters will
+still flap around and out-of-sample performance will still
+degrade, just less catastrophically.
 </p>
+<li><strong>"Regime-robust strategies are the only good ones."</strong> Some</li>
 <p>
-A: Yes, but with appropriate skepticism. A well-constructed backtest -- one that uses survivorship-free data, avoids lookahead bias, includes realistic transaction costs, uses few parameters, and passes walk-forward analysis -- provides genuinely useful information about a strategy's characteristics. The key is to use the backtest to understand the strategy's behavior (when it works, when it fails, how much it drawdown) rather than to predict its exact future returns. Think of a backtest as a stress test, not a forecast. A strategy that fails a proper backtest is almost certainly bad. A strategy that passes is possibly good but needs live verification with small capital before scaling up.
-</p>
-<p>
-<strong>Q6: How can I tell if a fund manager's backtest is trustworthy?</strong>
-</p>
-<p>
-A: Ask pointed questions. What database did they use? Does it include delisted securities? Did they use point-in-time data or retroactively available data? How many parameters does the strategy have? What are the total transaction cost assumptions? Did they perform walk-forward analysis? What is the in-sample versus out-of-sample performance? How does the strategy perform in different market regimes (bull, bear, high volatility, low volatility)? A trustworthy manager will have clear, detailed answers. A manager who cannot answer these questions -- or who dismisses them as "technical details" -- is either careless or deliberately obscuring the weaknesses of their approach.
-</p>
-<p>
-<strong>Q7: What are the best free tools for backtesting?</strong>
-</p>
-<p>
-A: For Python users, <code>backtrader</code> and <code>zipline</code> are popular open-source backtesting frameworks. <code>QuantConnect</code> offers a cloud-based platform with free data for limited use. <code>Portfolio Visualizer</code> (portfoliovisualizer.com) provides simple backtesting of asset allocation strategies without coding. For options backtesting, <code>OptionStack</code> offers limited free access. The biggest challenge is data quality: free price data (Yahoo Finance) lacks delisting returns and has survivorship bias. Serious backtesting requires paid data (CRSP, Bloomberg, or similar), which costs hundreds to thousands of dollars per year. The gap between free and paid data quality is large, and using free data introduces biases that can invalidate your results.
+perfectly good strategies work only in specific regimes
+(trend-following in trending markets, value in mean-reverting
+ones). The honest play is to <em>acknowledge</em> the regime and
+size accordingly, not to pretend the strategy is
+all-weather.
 </p>
 <hr>
+<h3>4. Q&A Section</h3>
+<p>
+<strong>Q1. How many strategy variants do I have to declare?</strong>
+A1. Every variation tried — across asset universes, parameter
+grids, signal definitions, and rebalance frequencies. If you ran
+a 5×5×4 grid search, $N = 100$. Including the variants you tried
+and discarded "because they didn't look good" is critical;
+omitting them is the heart of p-hacking.
+</p>
+<p>
+<strong>Q2. What's a realistic out-of-sample haircut on the in-sample Sharpe?</strong>
+A2. The literature finds the median OOS Sharpe of published quant
+strategies is roughly 50% of the in-sample Sharpe, and the worst
+quartile delivers zero or negative. A reasonable working
+assumption: $\widehat{SR}_{\text{OOS}} \approx 0.5 \times
+\widehat{SR}_{\text{IS}}$ before costs.
+</p>
+<p>
+<strong>Q3. What round-trip cost should I assume for a Russell 2000 strategy?</strong>
+A3. 30-50 bps for institutional sizing on liquid small-caps. Up
+to 80-100 bps for the bottom decile of small-caps where ADV is
+low. Retail traders moving small notional can sometimes do 15-25
+bps but cannot scale it.
+</p>
+<p>
+**Q4. My in-sample Sharpe is 1.5 over 5 years and I tried 200
+variants. Is that worth deploying?**
+A4. Run the deflated Sharpe. With $T \approx 1260$ days and $N =
+200$, $\widehat{SR}_0 \approx \sqrt{2 \ln 200 / 1260} \approx 0.092$
+on a daily basis, or about 1.46 annualised. So your 1.5 IS Sharpe
+is essentially the multiple-testing null — DSR will be near 50%.
+That is a coin flip, not a strategy.
+</p>
+<p>
+<strong>Q5. Why is daily-frequency a graveyard for retail quants?</strong>
+A5. Daily turnover at 252 round-trips per year times even 10 bps
+cost is 25.2% annualised drag. You need a 25%+ gross edge before
+you net anything. SOUL #1 plus arithmetic: those edges effectively
+do not exist for retail.
+</p>
+<p>
+**Q6. How do I get point-in-time fundamental data without paying
+for Compustat?**
+A6. Imperfectly. Free EDGAR scraping gets you as-filed financials
+with proper timestamps, but reconstructing the full universe is
+painful. Quandl (now Nasdaq Data Link) sells some point-in-time
+slices at retail prices. For most retail purposes, lag your
+fundamental data by 90 days as a crude correction.
+</p>
+<p>
+<strong>Q7. Does walk-forward preserve transaction-cost realism?</strong>
+A7. Yes — and it should. The cost model applies inside each
+walk-forward step exactly as it would in live trading. If
+anything, walk-forward exposes cost-sensitivity better than
+full-sample backtests because it reveals turnover changes across
+parameter refits.
+</p>
+<p>
+**Q8. My strategy works in bull markets and fails in bear
+markets. Is it deployable?**
+A8. Maybe — with a regime overlay. Identify the trigger
+(e.g., 200-day moving average, VIX threshold) that turns it on
+and off, and incorporate that switch into the backtest. If the
+strategy is profitable only with the regime overlay, your
+"alpha" is partly the overlay's alpha. Be honest about
+attribution.
+</p>
+<p>
+**Q9. Should I use bootstrap or block-bootstrap to estimate
+Sharpe confidence intervals?**
+A9. Block bootstrap (with block length matched to the
+auto-correlation of the strategy's returns) is the right tool
+for serially correlated strategies — most of them. Naïve i.i.d.
+bootstrap understates the variance.
+</p>
+<p>
+<strong>Q10. What's the simplest defensible backtest workflow?</strong>
+A10. Five steps. (1) Define the strategy in one paragraph
+<em>before</em> looking at data. (2) Use point-in-time data with a
+one-day signal-to-execution lag. (3) Apply realistic costs based
+on the universe. (4) Walk-forward at quarterly or yearly
+re-fits. (5) Compute deflated Sharpe with honest $N$. If the
+deflated Sharpe is below ~0.7, do not deploy.
+</p>
+<p>
+<em>*Q11. Can survivor bias ever flatter a strategy </em>less* than
+expected?**
+A11. Rarely, in highly distressed periods where the strategy was
+specifically betting on the survivors (e.g., long-quality through
+2008). Even then, the bias usually rounds in favour of the
+backtest. Default assumption: survivorship adds 100-300 bps/year.
+</p>
+<p>
+**Q12. How does Horace size a strategy after passing all of these
+tests?**
+A12. SOUL #14 barbell at the L4 sleeve level. A strategy that
+deflates to a Sharpe of ~1 OOS, with realistic costs and a
+multi-regime sample, gets a small slice of the *opportunity
+sleeve* — usually 1-3% of total wealth. If it works, fine. If it
+does not, the 90%+ core is unaffected. Backtests are not
+permission to bet large; they are permission to bet <em>some</em>.
+</p>
             </div>
             <div id="content-hk" class="lang-content">
                 <h1>第46週：回測與策略驗證</h1>

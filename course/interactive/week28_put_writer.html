@@ -1,0 +1,732 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Put Writer Lab — Interactive (Week 28)</title>
+<script src="https://cdn.plot.ly/plotly-2.35.2.min.js" charset="utf-8"></script>
+<style>
+html, body { margin: 0; padding: 0; background: var(--pw-bg); }
+:root {
+    --pw-bg: #fdfbf5;
+    --pw-text: #1a2332;
+    --pw-muted: #6b7280;
+    --pw-border: #d6d3c4;
+    --pw-card: #fdfbf5;
+    --pw-pos: #2e7d32;
+    --pw-neg: #b71c1c;
+    --pw-mid: #0d47a1;
+    --pw-accent: #b8860b;
+}
+html[data-theme="dark"] .pw-root,
+.pw-root[data-theme="dark"] {
+    --pw-bg: #0f1724;
+    --pw-text: #e6e6e6;
+    --pw-muted: #9aa3b2;
+    --pw-border: #2a3441;
+    --pw-card: #0f1724;
+    --pw-pos: #66bb6a;
+    --pw-neg: #ef5350;
+    --pw-mid: #5a8dee;
+}
+.pw-root {
+    font-family: 'Segoe UI', Helvetica, Arial, sans-serif;
+    background: var(--pw-bg);
+    color: var(--pw-text);
+    padding: 12px;
+    margin: 0;
+}
+.pw-pillbar-wrap {
+    margin-bottom: 12px;
+    padding: 10px 12px;
+    background: var(--pw-card);
+    border: 1px solid var(--pw-border);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+.pw-label {
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--pw-muted);
+}
+.pw-pillbar {
+    display: inline-flex;
+    border: 1px solid var(--pw-border);
+    border-radius: 999px;
+    overflow: hidden;
+    background: var(--pw-card);
+}
+.pw-pillbar button {
+    border: none;
+    background: transparent;
+    color: var(--pw-muted);
+    padding: 6px 14px;
+    font: inherit;
+    font-size: 0.85rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.15s, color 0.15s;
+}
+.pw-pillbar button:hover { color: var(--pw-text); }
+.pw-pillbar button.active {
+    background: var(--pw-accent);
+    color: #fff;
+}
+.pw-controls {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+    margin-bottom: 14px;
+    padding: 12px;
+    background: var(--pw-card);
+    border: 1px solid var(--pw-border);
+    border-radius: 8px;
+}
+.pw-slider-wrap {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    font-size: 0.82rem;
+    color: var(--pw-muted);
+}
+.pw-slider-wrap .pw-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.pw-slider-wrap input[type="range"] {
+    flex: 1;
+    accent-color: var(--pw-accent);
+}
+.pw-slider-wrap .pw-val {
+    white-space: nowrap;
+    color: var(--pw-text);
+    font-weight: 700;
+    font-variant-numeric: tabular-nums;
+    min-width: 64px;
+    text-align: right;
+}
+.pw-slider-wrap .pw-name {
+    font-weight: 600;
+    color: var(--pw-text);
+}
+.pw-bigrow {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin-bottom: 14px;
+}
+.pw-big {
+    background: var(--pw-card);
+    border: 1px solid var(--pw-border);
+    border-left: 4px solid var(--pw-accent);
+    border-radius: 8px;
+    padding: 12px 14px;
+}
+.pw-big.pw-big-mid { border-left-color: var(--pw-mid); }
+.pw-big.pw-big-pos { border-left-color: var(--pw-pos); }
+.pw-big.pw-big-neg { border-left-color: var(--pw-neg); }
+.pw-big .pw-big-name {
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--pw-muted);
+}
+.pw-big .pw-big-val {
+    font-size: 1.55rem;
+    font-weight: 800;
+    margin-top: 4px;
+    font-variant-numeric: tabular-nums;
+    color: var(--pw-text);
+}
+.pw-big .pw-big-detail {
+    font-size: 0.76rem;
+    color: var(--pw-muted);
+    margin-top: 2px;
+    font-variant-numeric: tabular-nums;
+}
+.pw-chart {
+    width: 100%;
+    height: 360px;
+    background: var(--pw-card);
+    border-radius: 8px;
+    border: 1px solid var(--pw-border);
+    margin-bottom: 12px;
+}
+.pw-ladder {
+    background: var(--pw-card);
+    border: 1px solid var(--pw-border);
+    border-radius: 8px;
+    padding: 10px 12px;
+    margin-bottom: 10px;
+}
+.pw-ladder h4 {
+    margin: 0 0 8px 0;
+    font-size: 0.85rem;
+    color: var(--pw-text);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+}
+.pw-ladder table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.82rem;
+    font-variant-numeric: tabular-nums;
+}
+.pw-ladder th, .pw-ladder td {
+    text-align: right;
+    padding: 5px 8px;
+    border-bottom: 1px solid var(--pw-border);
+    color: var(--pw-text);
+}
+.pw-ladder th {
+    color: var(--pw-muted);
+    font-weight: 700;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+}
+.pw-ladder td:first-child, .pw-ladder th:first-child { text-align: left; }
+.pw-ladder tr.pw-row-active td {
+    background: rgba(184, 134, 11, 0.10);
+    font-weight: 700;
+}
+.pw-caption {
+    margin-top: 8px;
+    font-size: 0.78rem;
+    color: var(--pw-muted);
+    line-height: 1.45;
+}
+@media (max-width: 720px) {
+    .pw-controls { grid-template-columns: 1fr; }
+    .pw-bigrow { grid-template-columns: 1fr; }
+    .pw-chart { height: 320px; }
+}
+</style>
+</head>
+<body>
+
+<div class="pw-root" id="pw-root">
+    <div class="pw-pillbar-wrap">
+        <span class="pw-label" id="pw-und-label">Underlying</span>
+        <div class="pw-pillbar" id="pw-und-pills" role="tablist">
+            <button type="button" data-und="SPY" class="active">SPY</button>
+            <button type="button" data-und="QQQ">QQQ</button>
+            <button type="button" data-und="AAPL">AAPL</button>
+            <button type="button" data-und="MSFT">MSFT</button>
+            <button type="button" data-und="KO">KO</button>
+        </div>
+        <span class="pw-label" id="pw-und-detail"></span>
+    </div>
+
+    <div class="pw-controls">
+        <div class="pw-slider-wrap">
+            <div class="pw-name" id="pw-name-delta">Target put delta</div>
+            <div class="pw-row">
+                <input type="range" id="pw-delta" min="5" max="50" step="1" value="16">
+                <span class="pw-val" id="pw-val-delta">16&Delta;</span>
+            </div>
+        </div>
+        <div class="pw-slider-wrap">
+            <div class="pw-name" id="pw-name-dte">Days to expiration</div>
+            <div class="pw-row">
+                <input type="range" id="pw-dte" min="7" max="60" step="1" value="30">
+                <span class="pw-val" id="pw-val-dte">30 d</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="pw-bigrow">
+        <div class="pw-big">
+            <div class="pw-big-name" id="pw-bn-prem">Premium / contract</div>
+            <div class="pw-big-val" id="pw-bv-prem">—</div>
+            <div class="pw-big-detail" id="pw-bd-prem">—</div>
+        </div>
+        <div class="pw-big pw-big-mid">
+            <div class="pw-big-name" id="pw-bn-be">Breakeven (effective cost)</div>
+            <div class="pw-big-val" id="pw-bv-be">—</div>
+            <div class="pw-big-detail" id="pw-bd-be">—</div>
+        </div>
+        <div class="pw-big pw-big-pos">
+            <div class="pw-big-name" id="pw-bn-yld">Yield on cash, annualized</div>
+            <div class="pw-big-val" id="pw-bv-yld">—</div>
+            <div class="pw-big-detail" id="pw-bd-yld">—</div>
+        </div>
+        <div class="pw-big">
+            <div class="pw-big-name" id="pw-bn-disc">Discount from spot</div>
+            <div class="pw-big-val" id="pw-bv-disc">—</div>
+            <div class="pw-big-detail" id="pw-bd-disc">—</div>
+        </div>
+        <div class="pw-big pw-big-mid">
+            <div class="pw-big-name" id="pw-bn-potm">Probability OTM at expiry</div>
+            <div class="pw-big-val" id="pw-bv-potm">—</div>
+            <div class="pw-big-detail" id="pw-bd-potm">—</div>
+        </div>
+        <div class="pw-big pw-big-neg">
+            <div class="pw-big-name" id="pw-bn-cap">Capital required</div>
+            <div class="pw-big-val" id="pw-bv-cap">—</div>
+            <div class="pw-big-detail" id="pw-bd-cap">—</div>
+        </div>
+    </div>
+
+    <div id="pw-chart" class="pw-chart"></div>
+
+    <div class="pw-ladder">
+        <h4 id="pw-ladder-title">Assignment scenario ladder</h4>
+        <table>
+            <thead>
+                <tr>
+                    <th id="pw-th-delta">Delta</th>
+                    <th id="pw-th-strike">Strike</th>
+                    <th id="pw-th-otm">% OTM</th>
+                    <th id="pw-th-prem">Premium</th>
+                    <th id="pw-th-eff">Effective cost</th>
+                    <th id="pw-th-disc">Discount</th>
+                    <th id="pw-th-yld">Ann. yield</th>
+                </tr>
+            </thead>
+            <tbody id="pw-ladder-body"></tbody>
+        </table>
+    </div>
+
+    <p class="pw-caption" id="pw-caption">
+        Black-Scholes premium for an out-of-the-money cash-secured put on the chosen underlying. Cost basis if assigned = strike - premium. Annualized yield on cash includes the ~4% T-bill yield earned on the collateral. Inputs are April 2026 approximations.
+    </p>
+</div>
+
+<script>
+(function () {
+
+    // Underlying presets (April 2026 approx).
+    // px = spot, sigma = 30-day implied vol annualized.
+    const PRESETS = {
+        SPY:  { px: 560, sigma: 0.18 },
+        QQQ:  { px: 480, sigma: 0.22 },
+        AAPL: { px: 215, sigma: 0.27 },
+        MSFT: { px: 420, sigma: 0.24 },
+        KO:   { px: 70,  sigma: 0.16 },
+    };
+    const TICKERS = ["SPY", "QQQ", "AAPL", "MSFT", "KO"];
+    const RFR = 0.04;          // risk-free / T-bill rate
+    const TBILL_YIELD = 0.04;  // assumed cash collateral yield
+
+    const I18N = {
+        en: {
+            und_label:    "Underlying",
+            und_detail:   "{tick}: spot \\${p}, IV {iv}%",
+            name_delta:   "Target put delta",
+            name_dte:     "Days to expiration",
+            bn_prem:      "Premium / contract",
+            bn_be:        "Breakeven (effective cost)",
+            bn_yld:       "Yield on cash, annualized",
+            bn_disc:      "Discount from spot",
+            bn_potm:      "Probability OTM at expiry",
+            bn_cap:       "Capital required",
+            bd_prem:      "{p} per share x 100 shares",
+            bd_be:        "Strike {k} - premium {p}",
+            bd_yld:       "T-bill {tb} + premium {pm}",
+            bd_disc:      "{k} below spot {s}",
+            bd_potm:      "Implied by {iv}% IV",
+            bd_cap:       "Strike x 100 shares",
+            chart_title:  "Premium yield vs strike-delta (this underlying, {dte}-day)",
+            x_title:      "Put delta",
+            y_title:      "Annualized premium yield (%)",
+            ladder_title: "Assignment scenario ladder",
+            th_delta:     "Delta",
+            th_strike:    "Strike",
+            th_otm:       "% OTM",
+            th_prem:      "Premium",
+            th_eff:       "Effective cost",
+            th_disc:      "Discount",
+            th_yld:       "Ann. yield",
+            caption:      "Black-Scholes premium for an out-of-the-money cash-secured put on the chosen underlying. Cost basis if assigned = strike - premium. Annualized yield on cash includes the ~4% T-bill yield earned on the collateral. Inputs are April 2026 approximations.",
+            current_marker: "Current",
+        },
+        hk: {
+            und_label:    "標的",
+            und_detail:   "{tick}:現價 \\${p},IV {iv}%",
+            name_delta:   "目標 Delta",
+            name_dte:     "到期天數",
+            bn_prem:      "權利金 / 合約",
+            bn_be:        "盈虧平衡(實際成本)",
+            bn_yld:       "現金年化收益率",
+            bn_disc:      "相對現價折讓",
+            bn_potm:      "到期價外機率",
+            bn_cap:       "佔用資金",
+            bd_prem:      "每股 {p} x 100 股",
+            bd_be:        "行使價 {k} - 權利金 {p}",
+            bd_yld:       "國庫券 {tb} + 權利金 {pm}",
+            bd_disc:      "比現價 {s} 低 {k}",
+            bd_potm:      "由 {iv}% IV 推算",
+            bd_cap:       "行使價 x 100 股",
+            chart_title:  "權利金收益率隨 Delta 變化(本標的,{dte} 天)",
+            x_title:      "賣權 Delta",
+            y_title:      "年化權利金收益率(%)",
+            ladder_title: "被指派情境階梯",
+            th_delta:     "Delta",
+            th_strike:    "行使價",
+            th_otm:       "價外 %",
+            th_prem:      "權利金",
+            th_eff:       "實際成本",
+            th_disc:      "折讓",
+            th_yld:       "年化收益",
+            caption:      "Black-Scholes 計算的價外現金擔保賣權權利金。被指派後成本 = 行使價 - 權利金。年化收益率包含現金擔保賺取的約 4% 國庫券收益。預設值為 2026 年 4 月近似。",
+            current_marker: "目前",
+        },
+        tw: {
+            und_label:    "標的",
+            und_detail:   "{tick}:現價 \\${p},IV {iv}%",
+            name_delta:   "目標 Delta",
+            name_dte:     "到期天數",
+            bn_prem:      "權利金 / 合約",
+            bn_be:        "損益兩平(實際成本)",
+            bn_yld:       "現金年化收益率",
+            bn_disc:      "相對現價折讓",
+            bn_potm:      "到期價外機率",
+            bn_cap:       "占用資金",
+            bd_prem:      "每股 {p} x 100 股",
+            bd_be:        "履約價 {k} - 權利金 {p}",
+            bd_yld:       "國庫券 {tb} + 權利金 {pm}",
+            bd_disc:      "比現價 {s} 低 {k}",
+            bd_potm:      "由 {iv}% IV 推算",
+            bd_cap:       "履約價 x 100 股",
+            chart_title:  "權利金收益率隨 Delta 變化(本標的,{dte} 天)",
+            x_title:      "賣權 Delta",
+            y_title:      "年化權利金收益率(%)",
+            ladder_title: "被指派情境階梯",
+            th_delta:     "Delta",
+            th_strike:    "履約價",
+            th_otm:       "價外 %",
+            th_prem:      "權利金",
+            th_eff:       "實際成本",
+            th_disc:      "折讓",
+            th_yld:       "年化收益",
+            caption:      "Black-Scholes 計算的價外現金擔保賣權權利金。被指派後成本 = 履約價 - 權利金。年化收益率包含現金擔保賺取的約 4% 國庫券收益。預設值為 2026 年 4 月近似。",
+            current_marker: "目前",
+        },
+        cn: {
+            und_label:    "标的",
+            und_detail:   "{tick}:现价 \\${p},IV {iv}%",
+            name_delta:   "目标 Delta",
+            name_dte:     "到期天数",
+            bn_prem:      "权利金 / 合约",
+            bn_be:        "盈亏平衡(实际成本)",
+            bn_yld:       "现金年化收益率",
+            bn_disc:      "相对现价折让",
+            bn_potm:      "到期价外概率",
+            bn_cap:       "占用资金",
+            bd_prem:      "每股 {p} x 100 股",
+            bd_be:        "行权价 {k} - 权利金 {p}",
+            bd_yld:       "国库券 {tb} + 权利金 {pm}",
+            bd_disc:      "比现价 {s} 低 {k}",
+            bd_potm:      "由 {iv}% IV 推算",
+            bd_cap:       "行权价 x 100 股",
+            chart_title:  "权利金收益率随 Delta 变化(本标的,{dte} 天)",
+            x_title:      "卖权 Delta",
+            y_title:      "年化权利金收益率(%)",
+            ladder_title: "被指派情境阶梯",
+            th_delta:     "Delta",
+            th_strike:    "行权价",
+            th_otm:       "价外 %",
+            th_prem:      "权利金",
+            th_eff:       "实际成本",
+            th_disc:      "折让",
+            th_yld:       "年化收益",
+            caption:      "Black-Scholes 计算的价外现金担保卖权权利金。被指派后成本 = 行权价 - 权利金。年化收益率包含现金担保赚取的约 4% 国库券收益。预设值为 2026 年 4 月近似。",
+            current_marker: "当前",
+        },
+    };
+
+    function currentLang() {
+        const p = new URLSearchParams(window.location.search);
+        const l = (p.get("lang") || "en").toLowerCase();
+        return I18N.hasOwnProperty(l) ? l : "en";
+    }
+    const T = I18N[currentLang()];
+
+    // ------------------------------------------------------------
+    // Black-Scholes math.
+    // ------------------------------------------------------------
+    function normCdf(x) {
+        // Abramowitz-Stegun approximation of the standard normal CDF.
+        const a1 =  0.254829592;
+        const a2 = -0.284496736;
+        const a3 =  1.421413741;
+        const a4 = -1.453152027;
+        const a5 =  1.061405429;
+        const p  =  0.3275911;
+        const sign = x < 0 ? -1 : 1;
+        const ax = Math.abs(x) / Math.SQRT2;
+        const t = 1.0 / (1.0 + p * ax);
+        const y = 1.0 - (((((a5 * t + a4) * t) + a3) * t + a2) * t + a1) * t * Math.exp(-ax * ax);
+        return 0.5 * (1.0 + sign * y);
+    }
+    function bsPut(s, k, r, sigma, t) {
+        const sqrtT = Math.sqrt(t);
+        const d1 = (Math.log(s / k) + (r + 0.5 * sigma * sigma) * t) / (sigma * sqrtT);
+        const d2 = d1 - sigma * sqrtT;
+        return k * Math.exp(-r * t) * normCdf(-d2) - s * normCdf(-d1);
+    }
+    function putDelta(s, k, r, sigma, t) {
+        const d1 = (Math.log(s / k) + (r + 0.5 * sigma * sigma) * t) / (sigma * Math.sqrt(t));
+        return normCdf(-d1);   // |delta| of put as positive 0..1
+    }
+    // Probability that S_T > K (put OTM at expiry) under risk-neutral GBM.
+    function probOtm(s, k, r, sigma, t) {
+        const d2 = (Math.log(s / k) + (r - 0.5 * sigma * sigma) * t) / (sigma * Math.sqrt(t));
+        return normCdf(d2);
+    }
+    function strikeForDelta(targetDelta, s, r, sigma, t) {
+        let lo = 0.4 * s, hi = s;
+        for (let i = 0; i < 80; i++) {
+            const mid = 0.5 * (lo + hi);
+            const d = putDelta(s, mid, r, sigma, t);
+            if (d < targetDelta) lo = mid; else hi = mid;
+        }
+        return 0.5 * (lo + hi);
+    }
+
+    // ------------------------------------------------------------
+    // DOM.
+    // ------------------------------------------------------------
+    const ROOT = document.getElementById("pw-root");
+    const CHART = document.getElementById("pw-chart");
+    const UND_PILLS = document.getElementById("pw-und-pills");
+    const DELTA = document.getElementById("pw-delta");
+    const DTE = document.getElementById("pw-dte");
+    let active = "SPY";
+
+    function getCssVar(n) {
+        return getComputedStyle(ROOT).getPropertyValue(n).trim();
+    }
+    function darkMode() {
+        return document.documentElement.getAttribute("data-theme") === "dark";
+    }
+    function fmtNum(n, d) {
+        if (!isFinite(n)) return "—";
+        return n.toLocaleString(undefined, {
+            minimumFractionDigits: d, maximumFractionDigits: d,
+        });
+    }
+    function fmtMoney(n, d) {
+        if (!isFinite(n)) return "—";
+        const dd = d == null ? 2 : d;
+        return "$" + fmtNum(n, dd);
+    }
+    function fmtPct(n, d) {
+        if (!isFinite(n)) return "—";
+        return n.toFixed(d == null ? 1 : d) + "%";
+    }
+
+    function render() {
+        const tDelta = parseInt(DELTA.value, 10) / 100.0;
+        const dteDays = parseInt(DTE.value, 10);
+        document.getElementById("pw-val-delta").textContent = (tDelta * 100).toFixed(0) + "\u0394";
+        document.getElementById("pw-val-dte").textContent = dteDays + " d";
+
+        const p = PRESETS[active];
+        const t = dteDays / 365.0;
+        const k = strikeForDelta(tDelta, p.px, RFR, p.sigma, t);
+        const prem = bsPut(p.px, k, RFR, p.sigma, t);
+        const breakeven = k - prem;
+        const cap = k * 100.0;
+        const otmPct = (p.px - k) / p.px * 100.0;
+        const premYieldAnn = (prem / k) * (365.0 / dteDays) * 100.0;
+        const totalYieldAnn = premYieldAnn + TBILL_YIELD * 100.0;
+        const pOtm = probOtm(p.px, k, RFR, p.sigma, t) * 100.0;
+
+        // Big numbers.
+        document.getElementById("pw-bv-prem").textContent = fmtMoney(prem * 100.0, 0);
+        document.getElementById("pw-bd-prem").textContent =
+            T.bd_prem.replace("{p}", fmtMoney(prem));
+        document.getElementById("pw-bv-be").textContent = fmtMoney(breakeven);
+        document.getElementById("pw-bd-be").textContent =
+            T.bd_be.replace("{k}", fmtMoney(k)).replace("{p}", fmtMoney(prem));
+        document.getElementById("pw-bv-yld").textContent = fmtPct(totalYieldAnn, 1);
+        document.getElementById("pw-bd-yld").textContent =
+            T.bd_yld.replace("{tb}", fmtPct(TBILL_YIELD * 100, 1))
+                    .replace("{pm}", fmtPct(premYieldAnn, 1));
+        document.getElementById("pw-bv-disc").textContent = fmtPct(otmPct, 1);
+        document.getElementById("pw-bd-disc").textContent =
+            T.bd_disc.replace("{k}", fmtMoney(p.px - k))
+                     .replace("{s}", fmtMoney(p.px));
+        document.getElementById("pw-bv-potm").textContent = fmtPct(pOtm, 0);
+        document.getElementById("pw-bd-potm").textContent =
+            T.bd_potm.replace("{iv}", (p.sigma * 100).toFixed(0));
+        document.getElementById("pw-bv-cap").textContent = fmtMoney(cap, 0);
+        document.getElementById("pw-bd-cap").textContent = T.bd_cap;
+
+        // Underlying detail.
+        document.getElementById("pw-und-detail").textContent =
+            T.und_detail.replace("\\$", "$").replace("{tick}", active)
+                        .replace("{p}", fmtNum(p.px, 0))
+                        .replace("{iv}", (p.sigma * 100).toFixed(0));
+
+        // Chart: yield curve across deltas at current DTE.
+        const chartDeltas = [10, 16, 25, 30, 40, 50];
+        const xs = [];
+        const ys = [];
+        const strikes = [];
+        for (const dd of chartDeltas) {
+            const td = dd / 100.0;
+            const ks = strikeForDelta(td, p.px, RFR, p.sigma, t);
+            const pm = bsPut(p.px, ks, RFR, p.sigma, t);
+            xs.push(dd);
+            ys.push((pm / ks) * (365.0 / dteDays) * 100.0);
+            strikes.push(ks);
+        }
+        const colors = chartDeltas.map(dd =>
+            dd === parseInt(DELTA.value, 10) ||
+            (parseInt(DELTA.value, 10) > dd - 3 && parseInt(DELTA.value, 10) < dd + 3)
+                ? getCssVar("--pw-accent")
+                : getCssVar("--pw-mid")
+        );
+
+        const colorText = getCssVar("--pw-text");
+        const colorMuted = getCssVar("--pw-muted");
+        const colorBg = getCssVar("--pw-card");
+        const colorGrid = darkMode() ? "rgba(255,255,255,0.08)" : "rgba(0,0,0,0.07)";
+
+        const trace = {
+            x: xs.map(d => d + "\u0394"),
+            y: ys,
+            type: "bar",
+            marker: { color: colors, line: { width: 0 } },
+            text: strikes.map((ks, i) => "K=$" + ks.toFixed(0)),
+            textposition: "outside",
+            textfont: { color: colorText, size: 11 },
+            hovertemplate: "%{x}: %{y:.2f}% / yr<br>strike %{text}<extra></extra>",
+        };
+
+        const layout = {
+            margin: { l: 60, r: 24, t: 36, b: 56 },
+            paper_bgcolor: colorBg,
+            plot_bgcolor: colorBg,
+            font: { family: "Segoe UI, Helvetica, Arial, sans-serif", color: colorText, size: 12 },
+            xaxis: {
+                title: { text: T.x_title, font: { color: colorMuted, size: 11 } },
+                gridcolor: colorGrid,
+                color: colorText,
+            },
+            yaxis: {
+                title: { text: T.y_title, font: { color: colorMuted, size: 11 } },
+                gridcolor: colorGrid,
+                zerolinecolor: colorMuted,
+                color: colorText,
+                ticksuffix: "%",
+            },
+            title: {
+                text: T.chart_title.replace("{dte}", dteDays),
+                x: 0, xanchor: "left",
+                font: { color: colorText, size: 13, weight: 700 },
+            },
+            showlegend: false,
+        };
+        Plotly.react(CHART, [trace], layout, {
+            displayModeBar: false, responsive: true,
+        });
+
+        // Ladder: across the same chartDeltas, show full row.
+        const tbody = document.getElementById("pw-ladder-body");
+        tbody.innerHTML = "";
+        const userDelta = parseInt(DELTA.value, 10);
+        for (let i = 0; i < chartDeltas.length; i++) {
+            const dd = chartDeltas[i];
+            const ks = strikes[i];
+            const td = dd / 100.0;
+            const tt = dteDays / 365.0;
+            const pm = bsPut(p.px, ks, RFR, p.sigma, tt);
+            const eff = ks - pm;
+            const otm = (p.px - ks) / p.px * 100.0;
+            const disc = (p.px - eff) / p.px * 100.0;
+            const yld = (pm / ks) * (365.0 / dteDays) * 100.0 + TBILL_YIELD * 100.0;
+            const tr = document.createElement("tr");
+            const isActive = (dd === userDelta) ||
+                             (Math.abs(dd - userDelta) < 3 && i === chartDeltas.length - 1) ||
+                             (i === 0 && userDelta < chartDeltas[0]);
+            // Cleaner active rule: closest delta in chartDeltas.
+            const closest = chartDeltas.reduce((a, b) =>
+                Math.abs(b - userDelta) < Math.abs(a - userDelta) ? b : a
+            );
+            if (dd === closest) tr.classList.add("pw-row-active");
+            tr.innerHTML =
+                "<td>" + dd + "\u0394</td>" +
+                "<td>" + fmtMoney(ks, 2) + "</td>" +
+                "<td>" + fmtPct(otm, 1) + "</td>" +
+                "<td>" + fmtMoney(pm, 2) + "</td>" +
+                "<td>" + fmtMoney(eff, 2) + "</td>" +
+                "<td>" + fmtPct(disc, 1) + "</td>" +
+                "<td>" + fmtPct(yld, 1) + "</td>";
+            tbody.appendChild(tr);
+        }
+    }
+
+    // ------------------------------------------------------------
+    // Bind.
+    // ------------------------------------------------------------
+    UND_PILLS.querySelectorAll("button").forEach(btn => {
+        btn.addEventListener("click", () => {
+            UND_PILLS.querySelectorAll("button").forEach(b => b.classList.remove("active"));
+            btn.classList.add("active");
+            active = btn.dataset.und;
+            render();
+        });
+    });
+    DELTA.addEventListener("input", render);
+    DTE.addEventListener("input", render);
+
+    function applyI18n() {
+        document.getElementById("pw-und-label").textContent = T.und_label;
+        document.getElementById("pw-name-delta").textContent = T.name_delta;
+        document.getElementById("pw-name-dte").textContent = T.name_dte;
+        document.getElementById("pw-bn-prem").textContent = T.bn_prem;
+        document.getElementById("pw-bn-be").textContent = T.bn_be;
+        document.getElementById("pw-bn-yld").textContent = T.bn_yld;
+        document.getElementById("pw-bn-disc").textContent = T.bn_disc;
+        document.getElementById("pw-bn-potm").textContent = T.bn_potm;
+        document.getElementById("pw-bn-cap").textContent = T.bn_cap;
+        document.getElementById("pw-ladder-title").textContent = T.ladder_title;
+        document.getElementById("pw-th-delta").textContent = T.th_delta;
+        document.getElementById("pw-th-strike").textContent = T.th_strike;
+        document.getElementById("pw-th-otm").textContent = T.th_otm;
+        document.getElementById("pw-th-prem").textContent = T.th_prem;
+        document.getElementById("pw-th-eff").textContent = T.th_eff;
+        document.getElementById("pw-th-disc").textContent = T.th_disc;
+        document.getElementById("pw-th-yld").textContent = T.th_yld;
+        document.getElementById("pw-caption").textContent = T.caption;
+    }
+    applyI18n();
+
+    // postMessage resize.
+    function reportHeight() {
+        try {
+            const h = Math.ceil(document.documentElement.scrollHeight);
+            parent.postMessage({ type: 'lesson-interactive-resize', height: h }, '*');
+        } catch (e) { /* ignore */ }
+    }
+    if (typeof ResizeObserver !== "undefined") {
+        new ResizeObserver(reportHeight).observe(document.body);
+    }
+    window.addEventListener("resize", reportHeight);
+    setTimeout(reportHeight, 50);
+    setTimeout(reportHeight, 500);
+
+    // Theme observer.
+    const themeObs = new MutationObserver(render);
+    themeObs.observe(document.documentElement, {
+        attributes: true, attributeFilter: ["data-theme"],
+    });
+
+    render();
+})();
+</script>
+
+</body>
+</html>

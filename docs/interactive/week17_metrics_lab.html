@@ -1,0 +1,586 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Performance Metrics Lab — Interactive (Week 17)</title>
+<script src="https://cdn.plot.ly/plotly-2.35.2.min.js" charset="utf-8"></script>
+<style>
+html, body { margin: 0; padding: 0; background: var(--ml-bg); }
+:root {
+    --ml-bg: #fdfbf5;
+    --ml-text: #1a2332;
+    --ml-muted: #6b7280;
+    --ml-border: #d6d3c4;
+    --ml-card: #fdfbf5;
+    --ml-pos: #2e7d32;
+    --ml-neg: #b71c1c;
+    --ml-mid: #0d47a1;
+    --ml-accent: #b8860b;
+}
+html[data-theme="dark"] .ml-root,
+.ml-root[data-theme="dark"] {
+    --ml-bg: #0f1724;
+    --ml-text: #e6e6e6;
+    --ml-muted: #9aa3b2;
+    --ml-border: #2a3441;
+    --ml-card: #0f1724;
+    --ml-pos: #66bb6a;
+    --ml-neg: #ef5350;
+    --ml-mid: #5a8dee;
+}
+.ml-root {
+    font-family: 'Segoe UI', Helvetica, Arial, sans-serif;
+    background: var(--ml-bg);
+    color: var(--ml-text);
+    padding: 12px;
+    margin: 0;
+}
+.ml-controls {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 18px;
+    margin-bottom: 14px;
+    padding: 10px 14px;
+    background: var(--ml-card);
+    border: 1px solid var(--ml-border);
+    border-radius: 8px;
+}
+.ml-slider-wrap {
+    flex: 1;
+    min-width: 240px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.85rem;
+    color: var(--ml-muted);
+}
+.ml-slider-wrap input[type="range"] {
+    flex: 1;
+    accent-color: var(--ml-accent);
+}
+.ml-slider-wrap .ml-h-label {
+    white-space: nowrap;
+    color: var(--ml-text);
+    font-weight: 600;
+    font-variant-numeric: tabular-nums;
+    min-width: 88px;
+    text-align: right;
+}
+.ml-charts {
+    display: grid;
+    grid-template-columns: 3fr 2fr;
+    gap: 14px;
+}
+.ml-chart {
+    width: 100%;
+    height: 360px;
+    background: var(--ml-card);
+    border-radius: 8px;
+    border: 1px solid var(--ml-border);
+}
+.ml-stats {
+    display: grid;
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    gap: 10px;
+    margin-top: 14px;
+}
+.ml-stat {
+    background: var(--ml-card);
+    border: 1px solid var(--ml-border);
+    border-left: 4px solid var(--ml-muted);
+    border-radius: 8px;
+    padding: 10px 12px;
+}
+.ml-stat.ml-stat-pos { border-left-color: var(--ml-pos); }
+.ml-stat.ml-stat-neg { border-left-color: var(--ml-neg); }
+.ml-stat.ml-stat-mid { border-left-color: var(--ml-mid); }
+.ml-stat.ml-stat-acc { border-left-color: var(--ml-accent); }
+.ml-stat .ml-stat-name {
+    font-size: 0.74rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--ml-muted);
+}
+.ml-stat .ml-stat-val {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-top: 4px;
+    font-variant-numeric: tabular-nums;
+}
+.ml-stat .ml-stat-detail {
+    font-size: 0.75rem;
+    color: var(--ml-muted);
+    margin-top: 2px;
+    font-variant-numeric: tabular-nums;
+}
+.ml-caption {
+    margin-top: 12px;
+    font-size: 0.78rem;
+    color: var(--ml-muted);
+    line-height: 1.45;
+}
+@media (max-width: 760px) {
+    .ml-charts { grid-template-columns: 1fr; }
+    .ml-stats { grid-template-columns: repeat(3, 1fr); }
+    .ml-chart { height: 300px; }
+}
+@media (max-width: 480px) {
+    .ml-stats { grid-template-columns: repeat(2, 1fr); }
+}
+</style>
+</head>
+<body>
+
+<div class="ml-root" id="ml-root">
+    <div class="ml-controls">
+        <div class="ml-slider-wrap">
+            <span id="ml-w-label">Stock weight</span>
+            <input type="range" id="ml-w-slider" min="0" max="100" step="5" value="60">
+            <span class="ml-h-label" id="ml-w-value">60% / 40%</span>
+        </div>
+        <div class="ml-slider-wrap">
+            <span id="ml-y-label">Start year</span>
+            <input type="range" id="ml-y-slider" min="1928" max="2010" step="1" value="1928">
+            <span class="ml-h-label" id="ml-y-value">1928</span>
+        </div>
+    </div>
+
+    <div class="ml-charts">
+        <div id="ml-chart-wealth" class="ml-chart"></div>
+        <div id="ml-chart-capm" class="ml-chart"></div>
+    </div>
+
+    <div class="ml-stats">
+        <div class="ml-stat ml-stat-acc">
+            <div class="ml-stat-name" id="ml-name-cagr">Geo. ann return</div>
+            <div class="ml-stat-val" id="ml-val-cagr">—</div>
+            <div class="ml-stat-detail" id="ml-det-cagr">—</div>
+        </div>
+        <div class="ml-stat ml-stat-mid">
+            <div class="ml-stat-name" id="ml-name-vol">Volatility</div>
+            <div class="ml-stat-val" id="ml-val-vol">—</div>
+            <div class="ml-stat-detail">annual std dev</div>
+        </div>
+        <div class="ml-stat ml-stat-pos">
+            <div class="ml-stat-name" id="ml-name-sharpe">Sharpe</div>
+            <div class="ml-stat-val" id="ml-val-sharpe">—</div>
+            <div class="ml-stat-detail" id="ml-det-sharpe">over T-Bill</div>
+        </div>
+        <div class="ml-stat ml-stat-pos">
+            <div class="ml-stat-name" id="ml-name-sortino">Sortino</div>
+            <div class="ml-stat-val" id="ml-val-sortino">—</div>
+            <div class="ml-stat-detail">downside-only</div>
+        </div>
+        <div class="ml-stat ml-stat-acc">
+            <div class="ml-stat-name" id="ml-name-calmar">Calmar</div>
+            <div class="ml-stat-val" id="ml-val-calmar">—</div>
+            <div class="ml-stat-detail">return / |MDD|</div>
+        </div>
+        <div class="ml-stat ml-stat-neg">
+            <div class="ml-stat-name" id="ml-name-mdd">Max drawdown</div>
+            <div class="ml-stat-val" id="ml-val-mdd">—</div>
+            <div class="ml-stat-detail" id="ml-det-mdd">peak-to-trough</div>
+        </div>
+    </div>
+
+    <p class="ml-caption" id="ml-caption">
+        Adjust the stock weight and start year. Both charts and all six metrics update live.
+    </p>
+</div>
+
+<script>
+(function () {
+    const I18N = {
+        en: {
+            w_label:    "Stock weight",
+            y_label:    "Start year",
+            name_cagr:  "Geo. ann return",
+            name_vol:   "Volatility",
+            name_sharpe:"Sharpe",
+            name_sortino:"Sortino",
+            name_calmar:"Calmar",
+            name_mdd:   "Max drawdown",
+            det_cagr:   "{n} years to 2024",
+            det_sharpe: "over T-Bill",
+            det_mdd:    "peak-to-trough",
+            wealth_title:"Cumulative growth of $1, your portfolio vs S&P 500",
+            wealth_x:   "Year",
+            wealth_y:   "Wealth ($, log)",
+            port_label: "Your {w}/{b} portfolio",
+            sp_label:   "S&P 500",
+            capm_title: "CAPM scatter: portfolio vs S&P 500 (excess returns)",
+            capm_x:     "S&P 500 excess return",
+            capm_y:     "Portfolio excess return",
+            scatter:    "Annual obs.",
+            regline:    "Fit: alpha={a:.2%}, beta={b:.2f}",
+            caption:    "Each year on the Damodaran 1928-2024 dataset is one observation. The left chart compounds $1 in your stock-bond portfolio (annual rebalance) versus 100% S&P 500. The right chart regresses your portfolio's excess return on the S&P 500's excess return: slope is beta, intercept is annual alpha. Six metrics update live. Watch how Sharpe and Sortino diverge when you tilt toward stocks (left tail dominates) and how Calmar collapses if your start year is 1928 or 1929.",
+        },
+        hk: {
+            w_label:    "股票比重",
+            y_label:    "起始年份",
+            name_cagr:  "幾何年化回報",
+            name_vol:   "波動率",
+            name_sharpe:"夏普",
+            name_sortino:"索提諾",
+            name_calmar:"卡馬爾",
+            name_mdd:   "最大回撚",
+            det_cagr:   "至 2024 共 {n} 年",
+            det_sharpe: "對 T-Bill",
+            det_mdd:    "前高至谷底",
+            wealth_title:"$1 累計增長:你的組合 vs 標普 500",
+            wealth_x:   "年份",
+            wealth_y:   "財富(美元,對數軸)",
+            port_label: "你的 {w}/{b} 組合",
+            sp_label:   "標普 500",
+            capm_title: "CAPM 散點:組合 vs 標普 500(超額回報)",
+            capm_x:     "標普 500 超額回報",
+            capm_y:     "組合超額回報",
+            scatter:    "每年一點",
+            regline:    "擬合線:alpha={a:.2%}、beta={b:.2f}",
+            caption:    "Damodaran 1928-2024 數據,每年一個觀測。左圖以你的股債組合(每年再平衡)複利 $1,對比 100% 標普 500。右圖把組合超額回報迴歸於標普 500 超額回報:斜率為 beta,截距為年化 alpha。六個指標即時更新。當你向股票傾斜時,Sharpe 與 Sortino 會出現分歧(左尾主導);若起始年為 1928 或 1929,Calmar 會崩塌。",
+        },
+        tw: {
+            w_label:    "股票比重",
+            y_label:    "起始年份",
+            name_cagr:  "幾何年化報酬",
+            name_vol:   "波動率",
+            name_sharpe:"夏普",
+            name_sortino:"索提諾",
+            name_calmar:"卡馬爾",
+            name_mdd:   "最大回檔",
+            det_cagr:   "至 2024 共 {n} 年",
+            det_sharpe: "對 T-Bill",
+            det_mdd:    "前高至谷底",
+            wealth_title:"$1 累計成長:你的組合 vs 標普 500",
+            wealth_x:   "年份",
+            wealth_y:   "財富(美元,對數軸)",
+            port_label: "你的 {w}/{b} 組合",
+            sp_label:   "標普 500",
+            capm_title: "CAPM 散點:組合 vs 標普 500(超額報酬)",
+            capm_x:     "標普 500 超額報酬",
+            capm_y:     "組合超額報酬",
+            scatter:    "每年一點",
+            regline:    "擬合線:alpha={a:.2%}、beta={b:.2f}",
+            caption:    "Damodaran 1928-2024 資料,每年一個觀測。左圖以你的股債組合(每年再平衡)複利 $1,對比 100% 標普 500。右圖把組合超額報酬迴歸於標普 500 超額報酬:斜率為 beta,截距為年化 alpha。六個指標即時更新。當你向股票傾斜時,Sharpe 與 Sortino 會出現分歧(左尾主導);若起始年為 1928 或 1929,Calmar 會崩塌。",
+        },
+        cn: {
+            w_label:    "股票权重",
+            y_label:    "起始年份",
+            name_cagr:  "几何年化回报",
+            name_vol:   "波动率",
+            name_sharpe:"夏普",
+            name_sortino:"索提诺",
+            name_calmar:"卡马尔",
+            name_mdd:   "最大回撚",
+            det_cagr:   "至 2024 共 {n} 年",
+            det_sharpe: "对 T-Bill",
+            det_mdd:    "前高至谷底",
+            wealth_title:"$1 累计增长:你的组合 vs 标普 500",
+            wealth_x:   "年份",
+            wealth_y:   "财富(美元,对数轴)",
+            port_label: "你的 {w}/{b} 组合",
+            sp_label:   "标普 500",
+            capm_title: "CAPM 散点:组合 vs 标普 500(超额回报)",
+            capm_x:     "标普 500 超额回报",
+            capm_y:     "组合超额回报",
+            scatter:    "每年一点",
+            regline:    "拟合线:alpha={a:.2%}、beta={b:.2f}",
+            caption:    "Damodaran 1928-2024 数据,每年一个观测。左图以你的股债组合(每年再平衡)复利 $1,对比 100% 标普 500。右图把组合超额回报回归于标普 500 超额回报:斜率为 beta,截距为年化 alpha。六个指标实时更新。当你向股票倾斜时,Sharpe 与 Sortino 会出现分歧(左尾主导);若起始年为 1928 或 1929,Calmar 会崩塌。",
+        },
+    };
+    function currentLang() {
+        const p = new URLSearchParams(window.location.search);
+        const l = (p.get("lang") || "en").toLowerCase();
+        return I18N.hasOwnProperty(l) ? l : "en";
+    }
+    const T = I18N[currentLang()];
+
+    // Damodaran annual dataset, 1928..2024.
+    const YEARS = [];
+    for (let y = 1928; y <= 2024; y++) YEARS.push(y);
+    const SP500 = [
+        0.4381,-0.0830,-0.2512,-0.4384,-0.0864,0.4998,-0.0119,0.4674,0.3194,-0.3534,
+        0.2928,-0.0110,-0.1067,-0.1277,0.1917,0.2506,0.1903,0.3582,-0.0843,0.0520,
+        0.0570,0.1830,0.3081,0.2368,0.1815,-0.0121,0.5256,0.3260,0.0744,-0.1046,
+        0.4372,0.1206,0.0034,0.2664,-0.0881,0.2280,0.1648,0.1245,-0.1006,0.2398,
+        0.1106,-0.0850,0.0386,0.1430,0.1899,-0.1469,-0.2647,0.3723,0.2393,-0.0716,
+        0.0657,0.1861,0.3250,-0.0492,0.2155,0.2256,0.0627,0.3173,0.1867,0.0525,
+        0.1661,0.3169,-0.0310,0.3047,0.0762,0.1008,0.0132,0.3758,0.2296,0.3336,
+        0.2858,0.2104,-0.0910,-0.1189,-0.2210,0.2868,0.1088,0.0491,0.1579,0.0549,
+       -0.3700,0.2646,0.1506,0.0211,0.1600,0.3239,0.1369,0.0138,0.1196,0.2183,
+       -0.0438,0.3149,0.1840,0.2871,-0.1811,0.2629,0.2502
+    ];
+    const TBILL = [
+        0.0308,0.0316,0.0455,0.0231,0.0107,0.0096,0.0032,0.0018,0.0017,0.0030,
+        0.0008,0.0004,0.0003,0.0008,0.0034,0.0038,0.0038,0.0038,0.0038,0.0058,
+        0.0104,0.0110,0.0120,0.0149,0.0166,0.0182,0.0086,0.0157,0.0246,0.0314,
+        0.0154,0.0295,0.0266,0.0213,0.0273,0.0312,0.0354,0.0393,0.0476,0.0421,
+        0.0521,0.0658,0.0653,0.0439,0.0384,0.0693,0.0800,0.0580,0.0508,0.0512,
+        0.0718,0.1038,0.1124,0.1471,0.1054,0.0880,0.0985,0.0772,0.0616,0.0547,
+        0.0635,0.0837,0.0781,0.0560,0.0351,0.0290,0.0390,0.0560,0.0521,0.0526,
+        0.0486,0.0468,0.0589,0.0383,0.0165,0.0102,0.0120,0.0298,0.0479,0.0466,
+        0.0160,0.0010,0.0012,0.0004,0.0006,0.0002,0.0002,0.0002,0.0020,0.0080,
+        0.0193,0.0206,0.0036,0.0006,0.0202,0.0511,0.0495
+    ];
+    const TBOND = [
+        0.0084,0.0420,0.0454,-0.0256,0.0879,0.0186,0.0796,0.0447,0.0502,0.0138,
+        0.0421,0.0441,0.0540,-0.0202,0.0229,0.0249,0.0258,0.0380,0.0313,0.0092,
+        0.0195,0.0466,0.0043,-0.0030,0.0227,0.0414,0.0329,-0.0134,-0.0226,0.0680,
+       -0.0210,-0.0265,0.1164,0.0206,0.0564,0.0181,0.0383,0.0069,0.0299,-0.0172,
+        0.0298,-0.0509,0.1875,0.1387,0.0369,0.0179,0.0369,0.0218,0.1364,0.0069,
+       -0.0118,-0.0123,-0.0304,0.0823,0.3281,0.0320,0.1373,0.2571,0.2428,-0.0496,
+        0.0822,0.1769,0.0624,0.1500,0.0936,0.1421,-0.0804,0.2348,0.0143,0.0994,
+        0.1492,-0.0825,0.1666,0.0557,0.1512,0.0038,0.0449,0.0287,0.0196,0.1021,
+        0.2010,-0.1112,0.0846,0.1604,0.0297,-0.0910,0.1075,0.0128,0.0069,0.0280,
+       -0.0002,0.0964,0.1133,-0.0442,-0.1777,0.0303,-0.0170
+    ];
+
+    const ROOT = document.getElementById("ml-root");
+    const CHART_W = document.getElementById("ml-chart-wealth");
+    const CHART_C = document.getElementById("ml-chart-capm");
+    const W_SLIDER = document.getElementById("ml-w-slider");
+    const Y_SLIDER = document.getElementById("ml-y-slider");
+    const W_VAL = document.getElementById("ml-w-value");
+    const Y_VAL = document.getElementById("ml-y-value");
+
+    let stockWeight = 0.60;   // 0..1
+    let startYear = 1928;
+
+    function fmtPct(v, places) {
+        if (v === null || v === undefined || !isFinite(v)) return "—";
+        const sign = v >= 0 ? "+" : "";
+        return sign + (v * 100).toFixed(places === undefined ? 1 : places) + "%";
+    }
+    function fmtNum(v, places) {
+        if (v === null || v === undefined || !isFinite(v)) return "—";
+        return v.toFixed(places === undefined ? 2 : places);
+    }
+    function getCssVar(name) {
+        return getComputedStyle(ROOT).getPropertyValue(name).trim();
+    }
+    function darkMode() {
+        return document.documentElement.getAttribute("data-theme") === "dark";
+    }
+
+    function buildSeries() {
+        const i0 = startYear - 1928;
+        const yrs = YEARS.slice(i0);
+        const sp = SP500.slice(i0);
+        const bd = TBOND.slice(i0);
+        const rf = TBILL.slice(i0);
+        const r = sp.map((s, k) => stockWeight * s + (1 - stockWeight) * bd[k]);
+        const excess = r.map((v, k) => v - rf[k]);
+        const spExcess = sp.map((v, k) => v - rf[k]);
+        return { yrs, sp, bd, rf, r, excess, spExcess };
+    }
+
+    function metrics(series) {
+        const { r, excess, spExcess } = series;
+        const n = r.length;
+        const mean = a => a.reduce((x, y) => x + y, 0) / a.length;
+        const stdSample = a => {
+            const m = mean(a);
+            const v = a.reduce((acc, x) => acc + (x - m) ** 2, 0) / (a.length - 1);
+            return Math.sqrt(v);
+        };
+        const vol = stdSample(r);
+        const meanEx = mean(excess);
+        const stdEx = stdSample(excess);
+        const sharpe = stdEx > 0 ? meanEx / stdEx : NaN;
+        // Sortino: target = 0
+        const negs = r.map(x => x < 0 ? x : 0);
+        const dd = Math.sqrt(negs.reduce((a, x) => a + x * x, 0) / n);
+        const sortino = dd > 0 ? meanEx / dd : NaN;
+        // Wealth + drawdown
+        let cum = 1.0;
+        const wealth = [];
+        let peak = 1.0;
+        let mdd = 0.0;
+        for (const x of r) {
+            cum *= (1 + x);
+            wealth.push(cum);
+            if (cum > peak) peak = cum;
+            const cur = cum / peak - 1;
+            if (cur < mdd) mdd = cur;
+        }
+        const cagr = Math.pow(wealth[wealth.length - 1], 1 / n) - 1;
+        const calmar = mdd < 0 ? cagr / Math.abs(mdd) : NaN;
+        // CAPM beta and alpha (annualised)
+        const meanSp = mean(spExcess);
+        let cov = 0, var_sp = 0;
+        for (let i = 0; i < n; i++) {
+            cov += (excess[i] - meanEx) * (spExcess[i] - meanSp);
+            var_sp += (spExcess[i] - meanSp) ** 2;
+        }
+        cov /= (n - 1);
+        var_sp /= (n - 1);
+        const beta = var_sp > 0 ? cov / var_sp : NaN;
+        const alpha = isFinite(beta) ? meanEx - beta * meanSp : NaN;
+        // S&P wealth for comparison
+        let cumSp = 1.0;
+        const wealthSp = [];
+        for (const x of series.sp) { cumSp *= (1 + x); wealthSp.push(cumSp); }
+        return { n, vol, sharpe, sortino, cagr, mdd, calmar, beta, alpha, wealth, wealthSp };
+    }
+
+    function render() {
+        const series = buildSeries();
+        const m = metrics(series);
+        const colorPos = getCssVar("--ml-pos");
+        const colorNeg = getCssVar("--ml-neg");
+        const colorMid = getCssVar("--ml-mid");
+        const colorAcc = getCssVar("--ml-accent");
+        const colorText = getCssVar("--ml-text");
+        const colorMuted = getCssVar("--ml-muted");
+        const colorGrid = darkMode() ? "rgba(255,255,255,0.08)" : "rgba(0,0,0,0.07)";
+        const colorBg = getCssVar("--ml-card");
+        const wPct = Math.round(stockWeight * 100);
+        const bPct = 100 - wPct;
+
+        // Wealth chart
+        const wTraces = [
+            {
+                x: series.yrs, y: m.wealth, type: "scatter", mode: "lines",
+                line: { color: colorAcc, width: 2.4 },
+                name: T.port_label.replace("{w}", wPct).replace("{b}", bPct),
+                hovertemplate: "%{x}: $%{y:.2f}<extra></extra>",
+            },
+            {
+                x: series.yrs, y: m.wealthSp, type: "scatter", mode: "lines",
+                line: { color: colorMid, width: 1.6, dash: "dot" },
+                name: T.sp_label,
+                hovertemplate: "%{x}: $%{y:.2f}<extra></extra>",
+            },
+        ];
+        const wLayout = {
+            margin: { l: 56, r: 16, t: 36, b: 40 },
+            paper_bgcolor: colorBg,
+            plot_bgcolor: colorBg,
+            font: { family: "Segoe UI, Helvetica, Arial, sans-serif", color: colorText, size: 11 },
+            title: { text: T.wealth_title, x: 0, xanchor: "left", font: { size: 12.5, color: colorText } },
+            xaxis: { title: { text: T.wealth_x, font: { color: colorMuted } }, gridcolor: colorGrid, color: colorText, zerolinecolor: colorGrid },
+            yaxis: { title: { text: T.wealth_y, font: { color: colorMuted } }, gridcolor: colorGrid, color: colorText, type: "log" },
+            legend: { orientation: "h", y: -0.18, x: 0, font: { color: colorText, size: 10 } },
+            hovermode: "x unified",
+        };
+        Plotly.react(CHART_W, wTraces, wLayout, { displayModeBar: false, responsive: true });
+
+        // CAPM scatter chart
+        const xs = series.spExcess;
+        const ys = series.excess;
+        const beta = m.beta;
+        const alpha = m.alpha;
+        // line: y = alpha + beta * x
+        const xMin = Math.min(...xs);
+        const xMax = Math.max(...xs);
+        const lineX = [xMin, xMax];
+        const lineY = lineX.map(x => alpha + beta * x);
+        const cTraces = [
+            {
+                x: xs, y: ys, type: "scatter", mode: "markers",
+                marker: { color: colorAcc, size: 7, opacity: 0.75, line: { width: 0 } },
+                name: T.scatter,
+                hovertemplate: T.capm_x + ": %{x:.1%}<br>" + T.capm_y + ": %{y:.1%}<extra></extra>",
+            },
+            {
+                x: lineX, y: lineY, type: "scatter", mode: "lines",
+                line: { color: colorMid, width: 2 },
+                name: T.regline.replace("{a}", (alpha).toFixed(4)).replace("{b}", beta.toFixed(2))
+                    .replace(/\{a:[^}]+\}/, fmtPct(alpha, 2))
+                    .replace(/\{b:[^}]+\}/, fmtNum(beta, 2)),
+                hovertemplate: "fit<extra></extra>",
+            },
+        ];
+        const regText = (T.regline
+            .replace(/\{a:[^}]+\}/, fmtPct(alpha, 2))
+            .replace(/\{b:[^}]+\}/, fmtNum(beta, 2)));
+        cTraces[1].name = regText;
+
+        const cLayout = {
+            margin: { l: 56, r: 16, t: 36, b: 40 },
+            paper_bgcolor: colorBg,
+            plot_bgcolor: colorBg,
+            font: { family: "Segoe UI, Helvetica, Arial, sans-serif", color: colorText, size: 11 },
+            title: { text: T.capm_title, x: 0, xanchor: "left", font: { size: 12.5, color: colorText } },
+            xaxis: { title: { text: T.capm_x, font: { color: colorMuted } }, gridcolor: colorGrid, color: colorText, zerolinecolor: colorMuted, tickformat: ".0%" },
+            yaxis: { title: { text: T.capm_y, font: { color: colorMuted } }, gridcolor: colorGrid, color: colorText, zerolinecolor: colorMuted, tickformat: ".0%" },
+            legend: { orientation: "h", y: -0.18, x: 0, font: { color: colorText, size: 10 } },
+            hovermode: "closest",
+            shapes: [
+                { type: "line", xref: "x", yref: "paper", x0: 0, x1: 0, y0: 0, y1: 1, line: { color: colorMuted, width: 1, dash: "dot" } },
+                { type: "line", xref: "paper", yref: "y", x0: 0, x1: 1, y0: 0, y1: 0, line: { color: colorMuted, width: 1, dash: "dot" } },
+            ],
+        };
+        Plotly.react(CHART_C, cTraces, cLayout, { displayModeBar: false, responsive: true });
+
+        // Stat cards
+        document.getElementById("ml-val-cagr").textContent = fmtPct(m.cagr, 2);
+        document.getElementById("ml-det-cagr").textContent = T.det_cagr.replace("{n}", m.n);
+        document.getElementById("ml-val-vol").textContent = fmtPct(m.vol, 1).replace("+", "");
+        document.getElementById("ml-val-sharpe").textContent = fmtNum(m.sharpe, 2);
+        document.getElementById("ml-det-sharpe").textContent = "alpha " + fmtPct(m.alpha, 2) + "  ·  beta " + fmtNum(m.beta, 2);
+        document.getElementById("ml-val-sortino").textContent = fmtNum(m.sortino, 2);
+        document.getElementById("ml-val-calmar").textContent = fmtNum(m.calmar, 2);
+        document.getElementById("ml-val-mdd").textContent = fmtPct(m.mdd, 1);
+    }
+
+    function applyI18n() {
+        document.getElementById("ml-w-label").textContent = T.w_label;
+        document.getElementById("ml-y-label").textContent = T.y_label;
+        document.getElementById("ml-name-cagr").textContent = T.name_cagr;
+        document.getElementById("ml-name-vol").textContent = T.name_vol;
+        document.getElementById("ml-name-sharpe").textContent = T.name_sharpe;
+        document.getElementById("ml-name-sortino").textContent = T.name_sortino;
+        document.getElementById("ml-name-calmar").textContent = T.name_calmar;
+        document.getElementById("ml-name-mdd").textContent = T.name_mdd;
+        document.getElementById("ml-caption").textContent = T.caption;
+    }
+
+    function updateLabels() {
+        const wPct = Math.round(stockWeight * 100);
+        W_VAL.textContent = wPct + "% / " + (100 - wPct) + "%";
+        Y_VAL.textContent = String(startYear);
+    }
+
+    W_SLIDER.addEventListener("input", () => {
+        stockWeight = parseInt(W_SLIDER.value, 10) / 100;
+        updateLabels();
+        render();
+    });
+    Y_SLIDER.addEventListener("input", () => {
+        startYear = parseInt(Y_SLIDER.value, 10);
+        updateLabels();
+        render();
+    });
+
+    applyI18n();
+    updateLabels();
+
+    function reportHeight() {
+        try {
+            var h = Math.ceil(document.documentElement.scrollHeight);
+            parent.postMessage({ type: 'lesson-interactive-resize', height: h }, '*');
+        } catch (e) { /* ignore */ }
+    }
+    if (typeof ResizeObserver !== 'undefined') {
+        new ResizeObserver(reportHeight).observe(document.body);
+    }
+    window.addEventListener('resize', reportHeight);
+    setTimeout(reportHeight, 50);
+    setTimeout(reportHeight, 500);
+
+    const themeObserver = new MutationObserver(render);
+    themeObserver.observe(document.documentElement, {
+        attributes: true,
+        attributeFilter: ["data-theme"],
+    });
+
+    render();
+})();
+</script>
+
+</body>
+</html>

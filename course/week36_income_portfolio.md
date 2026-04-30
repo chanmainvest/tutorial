@@ -1,967 +1,736 @@
-# Week 36: Building an Income-Generating Portfolio
+# Week 36: Building an Income Portfolio — the L3 Capstone
 
 ---
 
-## Reading Section
+## Part 1: Reading Section
 
 ---
 
-### a) Why This Is Important
+### 1. Why This Is Important
 
-At some point, every investor transitions from accumulating wealth to drawing income from it. Whether you are a retiree living off your portfolio, an institution funding ongoing operations, or simply someone who wants passive income to supplement their salary, the ability to build a sustainable income-generating portfolio is a critical skill.
+Every other week in this tutorial has assumed you are accumulating —
+working, saving, and compounding. This week assumes the opposite. You
+have the pile. Now you need it to *pay you*. Whether that pile funds
+retirement at 65, supports a partner who stopped working, or simply
+covers the tuition cheque that arrives every September, the moment you
+flip from accumulation to distribution the optimisation problem
+changes shape entirely. You stop optimising for terminal wealth and
+start optimising for *cash that lands in the chequing account on
+schedule, after tax, with the smallest possible chance of running out*.
 
-Here is why this matters:
+Four reasons this matters as the capstone for the L3 income block.
 
-1. **The retirement challenge is enormous.** A retiree with a $1 million portfolio who needs $50,000 per year in income faces a 5% withdrawal rate. At today's interest rates, this cannot be achieved safely with government bonds alone. Building a diversified income portfolio that generates sufficient yield without taking excessive risk is one of the most important problems in personal finance.
+1. **Income is mechanically harder than growth.** A growth portfolio
+   only has to compound. An income portfolio has to compound *and*
+   produce reliable cash *and* survive a bad first decade — the
+   "sequence-of-returns risk" that the famous 4% rule was invented to
+   answer. We will explain why the 4% rule is correct in spirit and
+   misleading in detail in 2026.
+2. **Sources of yield are not interchangeable.** A 5% Treasury coupon,
+   a 5% qualified dividend, a 5% REIT distribution, and a 5%
+   covered-call premium look identical on a brokerage statement and
+   are radically different products. They have different default
+   risks, different inflation sensitivities, different drawdown
+   profiles, and — most expensively — different tax treatments. A
+   portfolio that ignores the difference can lose 30% of its
+   *spendable* yield to the IRS for no good reason.
+3. **The hierarchy of after-tax yield is the single biggest lever you
+   control.** SOUL #15 is the explicit anchor. In the 32% federal
+   bracket, a qualified dividend keeps about 80 cents of every dollar.
+   A bond coupon keeps about 63 cents. A short-term option premium
+   keeps the same 63 cents — sometimes less, depending on state. The
+   *order* in which you fill your taxable, IRA, and Roth accounts with
+   these income streams is worth more than picking better individual
+   tickers ever will be.
+4. **The four-tranche framework (SOUL #13) and the barbell (SOUL #14)
+   need a distribution-side translation.** During accumulation, the
+   four tranches govern *how you allocate*. During distribution they
+   govern *which sleeve you draw from this quarter*. The income
+   capstone is what stitches everything from Weeks 4-5 (60/40 and
+   bonds), Weeks 14-15 (pair trades and barbell), and Weeks 26-28
+   (options as orders) into a single cash-producing machine.
 
-2. **Yield traps are everywhere.** The most dangerous mistake income investors make is chasing the highest yield without understanding the risks. A stock yielding 10% might look attractive until you realize the dividend is about to be cut or the stock price is declining to reflect deteriorating fundamentals. Understanding sustainable yield is the difference between reliable income and painful losses.
-
-3. **Tax efficiency matters enormously for income.** Different types of income are taxed differently. Qualified dividends are taxed at preferential rates. Bond interest is taxed as ordinary income. Municipal bond interest is often tax-free. Option premiums have complex tax treatment. Constructing an income portfolio without considering taxes can cost you 30-40% of your income.
-
-4. **Income needs change over time.** A 60-year-old retiree has different income needs than an 80-year-old. A 40-year-old seeking supplemental income has different requirements than a pension fund. Understanding how to balance current income with long-term growth ensures your portfolio serves you throughout your life.
-
-5. **Multiple income sources provide resilience.** Relying on a single source of income -- all dividends, all bonds, or all rental income -- creates concentration risk. If dividend stocks cut their payments or bond issuers default, your income disappears. Diversifying across income sources creates a more resilient income stream.
-
-The framework we present here draws on decades of research on sustainable withdrawal rates, portfolio construction, and income optimization. By the end of this lesson, you will understand how to build an income portfolio tailored to your specific needs.
+This lesson lays out the four real income sources, the after-tax
+ladder, the canonical product menu (SCHD / VYM / DVY / SPYI for
+dividend equity, BND / VTEB / PFF for fixed income, VNQ for REITs,
+JEPI / JEPQ for premium-write), the 4% rule and its 2026 critique, and
+ends with two model portfolios — one taxable, one tax-advantaged —
+that target a 4-5% sustainable yield with bond-like volatility.
 
 ---
 
-### b) What You Need to Know
-
-#### 1. Income Sources: A Comprehensive Overview
-
-There are many ways a portfolio can generate income. Each has different characteristics:
-
-**Dividends:**
-
-```
-What:     Cash payments from companies to shareholders, typically
-          paid quarterly (US) or semi-annually (international).
-
-Types:
-  Regular dividends:    Routine quarterly payments
-  Special dividends:    One-time extraordinary payments
-  Qualified dividends:  Taxed at capital gains rates (15-20%)
-  Non-qualified:        Taxed as ordinary income (up to 37%)
-
-Typical Yields:
-  S&P 500 average:          ~1.3-1.7%
-  Dividend-focused stocks:  2.5-4.5%
-  High-dividend stocks:     4.0-7.0%
-  Utility stocks:           3.0-5.0%
-  REITs:                    3.0-8.0%
-
-Advantages:
-  + Potential for dividend growth over time
-  + Qualified dividends have favorable tax treatment
-  + Companies with long dividend histories tend to be stable
-  + Inflation protection through dividend growth
-
-Disadvantages:
-  - Dividends can be cut or eliminated
-  - High-dividend stocks may have limited growth potential
-  - Not guaranteed (unlike bond coupons)
-  - Subject to corporate earnings volatility
-```
-
-**Bond Coupons:**
-
-```
-What:     Regular interest payments from bond issuers to bondholders,
-          typically paid semi-annually.
-
-Types:
-  Treasury bonds:       Backed by US government
-  Municipal bonds:      Issued by state/local governments
-  Corporate bonds (IG): Investment-grade companies
-  Corporate bonds (HY): High-yield (junk) bonds
-  TIPS:                 Inflation-adjusted Treasury bonds
-
-Typical Yields (current approximate ranges):
-  Treasury bonds:       3.5-5.0%
-  Municipal bonds:      2.5-4.0% (tax-equivalent: 3.5-6.5%)
-  IG corporate bonds:   4.5-6.0%
-  HY corporate bonds:   6.0-9.0%
-  TIPS:                 1.5-2.5% (plus inflation adjustment)
-
-Advantages:
-  + Predictable income stream
-  + Legal obligation to pay (unlike dividends)
-  + Range of credit qualities available
-  + Municipal bond income often tax-free
-
-Disadvantages:
-  - Fixed coupon does not grow with inflation (except TIPS)
-  - Interest rate risk (bond prices fall when rates rise)
-  - Credit risk (issuer may default)
-  - Taxed as ordinary income (except munis)
-```
-
-**Option Premiums:**
-
-```
-What:     Income earned by selling (writing) options contracts.
-
-Common Strategies:
-  Covered calls:
-    - Own stock, sell call options against it
-    - Collect premium, give up upside beyond strike price
-    - Typical yield enhancement: 2-5% annually
-
-  Cash-secured puts:
-    - Hold cash, sell put options
-    - Collect premium, agree to buy stock if it falls below strike
-    - Typical yield: 3-8% annually (depends on volatility)
-
-  Put spreads:
-    - Sell put, buy lower-strike put for protection
-    - Limited risk, limited premium
-    - Typical yield: 2-4% annually
-
-Typical Yields:
-  Conservative covered call strategies: 2-4% annually
-  Moderate strategies:                  4-8% annually
-  Aggressive strategies:                8-15% annually (higher risk)
-
-Advantages:
-  + Additional income on existing holdings
-  + Works in flat or mildly bullish markets
-  + Premium received is immediate cash
-  + Can enhance total return
-
-Disadvantages:
-  - Caps upside potential (covered calls)
-  - Obligation to buy if stock drops (puts)
-  - Complex tax treatment (short-term capital gains)
-  - Requires active management
-  - Not suitable for all investors
-```
-
-**REIT Distributions:**
-
-```
-What:     REITs must distribute at least 90% of taxable income to
-          shareholders, resulting in higher yields than typical stocks.
-
-Types:
-  Equity REITs:     Own and operate income-producing real estate
-  Mortgage REITs:   Invest in mortgages and mortgage-backed securities
-  Hybrid REITs:     Combination of equity and mortgage REIT activities
-
-Typical Yields:
-  Equity REITs:     3.0-5.0%
-  Mortgage REITs:   8.0-14.0% (higher risk)
-  Specialty REITs:  3.0-6.0%
-
-Advantages:
-  + High current yield (legally required distributions)
-  + Real estate exposure without direct ownership
-  + Professional management
-  + Liquidity (traded on exchanges)
-  + Inflation protection through rent increases
-
-Disadvantages:
-  - Distributions mostly taxed as ordinary income
-  - Sensitive to interest rates
-  - Sector concentration risk
-  - Mortgage REITs can be very volatile
-  - REIT distributions may include return of capital (complex tax)
-```
-
-**Other Income Sources:**
-
-```
-  MLPs (Master Limited Partnerships):
-    Yield: 5-10%, primarily from energy infrastructure
-    Tax: Complex (K-1 forms, return of capital, UBTI issues)
-
-  Preferred Stock:
-    Yield: 4-7%, fixed dividend with priority over common stock
-    Tax: Often qualified dividends
-
-  Closed-End Funds (CEFs):
-    Yield: 5-12%, may use leverage and return of capital
-    Tax: Varies by distribution type
-
-  Annuities:
-    Yield: Varies, guaranteed income for life (insurance product)
-    Tax: Gains taxed as ordinary income
-
-  Peer-to-Peer Lending:
-    Yield: 5-10%, direct lending to individuals/businesses
-    Tax: Ordinary income, high default risk
-
-  Dividend ETFs and Mutual Funds:
-    Yield: 2-5%, diversified dividend exposure
-    Tax: Pass-through of qualified and non-qualified dividends
-```
-
-#### 2. Yield vs. Total Return
-
-One of the most important concepts in income investing is the distinction between yield and total return. Many investors focus exclusively on yield and miss the bigger picture.
-
-**Defining the Terms:**
-
-```
-Yield = Annual Income / Current Price
-  Examples:
-    4% dividend yield = $4 per year on a $100 stock
-    5% bond yield = $50 per year on a $1,000 bond
-
-Total Return = Income + Price Change
-  Examples:
-    Stock: 3% dividend yield + 7% price appreciation = 10% total return
-    Bond: 5% coupon yield - 2% price decline = 3% total return
-
-Key Insight:
-  A 2% yield with 8% growth = 10% total return
-  A 6% yield with 0% growth = 6% total return
-
-  The lower-yielding portfolio actually generates more
-  wealth over time if total return is higher.
-```
-
-**The "Yield Trap":**
-
-```
-Warning Signs of a Yield Trap:
-
-  [!] Yield significantly above sector average
-      (If utilities average 3.5% and one yields 8%, ask why)
-
-  [!] Payout ratio > 80% for stocks (or > 90% for REITs)
-      (Company may not be earning enough to sustain dividend)
-
-  [!] Declining stock price offsetting dividend income
-      (High yield is a symptom of price decline, not a feature)
-
-  [!] Declining earnings or cash flow
-      (The dividend is eating into the company's financial resources)
-
-  [!] Debt increasing to fund dividend payments
-      (Borrowing to pay dividends is unsustainable)
-
-  [!] Dividend history shows cuts or freezes
-      (Past behavior predicts future behavior)
-
-Example of a Yield Trap:
-  Stock price: $50 --> $25 (50% decline)
-  Annual dividend: $3/share
-  Original yield: 6% ($3/$50)
-  Current yield: 12% ($3/$25) -- looks "amazing"!
-
-  But the yield is high because the price crashed.
-  If the dividend gets cut to $1.50 (likely if business is deteriorating):
-    New yield: 6% ($1.50/$25)
-    Total loss: -47% price decline + meager income
-```
-
-**The Total Return Approach:**
-
-```
-Instead of maximizing yield, maximize total return and then
-"create" income as needed through systematic withdrawals.
-
-Portfolio A (Yield-focused):
-  100% high-dividend stocks
-  Yield: 5%
-  Growth: 2%
-  Total return: 7%
-  Income from $1M: $50,000/year
-  After 10 years: portfolio grows to ~$1.19M (with 2% growth)
-
-Portfolio B (Total return):
-  60% growth stocks, 40% bonds
-  Yield: 2%
-  Growth: 6%
-  Total return: 8%
-  Income from $1M: $20,000 + $30,000 systematic withdrawal = $50,000
-  After 10 years: portfolio grows to ~$1.34M (with 6% growth,
-                  minus withdrawals, roughly estimated)
-
-Portfolio B generates the same income but preserves more capital.
-The total return approach is often superior, especially after taxes.
-```
-
-#### 3. Sustainable Withdrawal Rates
-
-The concept of sustainable withdrawal rates answers the fundamental question: "How much can I take from my portfolio each year without running out of money?"
-
-**The 4% Rule (William Bengen, 1994):**
-
-```
-The Original Research:
-  - Studied US market data from 1926-1992
-  - Found that a 4% initial withdrawal rate, adjusted for inflation
-    each year, survived at least 30 years in every historical period
-  - Assumed a 50/50 stock/bond portfolio
-
-How It Works:
-  Year 1: Withdraw 4% of initial portfolio value
-    Portfolio: $1,000,000
-    Withdrawal: $40,000
-
-  Year 2: Adjust year 1 withdrawal for inflation
-    If inflation = 3%: $40,000 x 1.03 = $41,200
-    (Note: this is 4% of the ORIGINAL value, adjusted for inflation,
-     NOT 4% of the current portfolio value)
-
-  Year 3: Adjust again
-    $41,200 x 1.03 = $42,436
-
-  Continue for 30 years.
-```
-
-**Updated Research and Alternative Withdrawal Rates:**
-
-```
-Scenario              | Suggested Rate | Notes
-----------------------|---------------|---------------------------
-Very conservative     | 3.0 - 3.3%   | 40+ year horizon, global stocks
-Conservative          | 3.5%          | 35-year horizon, diversified
-Moderate (classic)    | 4.0%          | 30-year horizon, 50/50 portfolio
-Moderate-aggressive   | 4.5%          | 25-year horizon, strong markets
-Aggressive            | 5.0%+         | 20-year horizon, higher risk
-
-Factors That Affect Safe Withdrawal Rate:
-
-  Higher safe rate:               Lower safe rate:
-  + Shorter time horizon          - Longer time horizon
-  + Flexible spending             - Fixed spending needs
-  + Social Security/pension       - No other income sources
-  + Willingness to work part-time - Complete retirement
-  + Lower portfolio fees          - Higher portfolio fees
-  + Tax-efficient structure       - Tax-inefficient structure
-  + Moderate inflation            - High or volatile inflation
-```
-
-**Dynamic Withdrawal Strategies:**
-
-```
-Strategy 1: Guardrails (Guyton-Klinger)
-  Start at 5% withdrawal rate
-  If portfolio grows >20% above starting value:
-    Increase withdrawal by 10%
-  If portfolio drops >20% below starting value:
-    Decrease withdrawal by 10%
-  Result: Higher initial income, but varies with markets
-
-Strategy 2: Percentage of Portfolio
-  Withdraw a fixed percentage (e.g., 4%) of current portfolio
-  value each year
-  Pro: Can never run out of money
-  Con: Income fluctuates with market
-
-Strategy 3: Bucket Strategy
-  Bucket 1 (Years 1-3): Cash and short-term bonds
-    Purpose: Immediate income, protected from market volatility
-  Bucket 2 (Years 4-10): Intermediate bonds, dividend stocks
-    Purpose: Moderate growth and income
-  Bucket 3 (Years 11+): Growth stocks, equity funds
-    Purpose: Long-term growth to refill buckets 1 and 2
-
-  Psychologically appealing because near-term spending
-  is protected from market downturns.
-
-Strategy 4: Income Floor + Upside
-  Build a "floor" of guaranteed income:
-    Social Security + pension + TIPS ladder + annuity
-  Invest remaining assets for growth:
-    Diversified equity portfolio
-  Draw from growth portfolio only when markets are favorable
-```
-
-#### 4. Income Portfolio Construction
-
-Building an income portfolio requires balancing several competing objectives:
-
-```
-Objectives:
-  1. Sufficient current income
-  2. Income growth (to keep up with inflation)
-  3. Capital preservation
-  4. Diversification across income sources
-  5. Tax efficiency
-  6. Liquidity for unexpected needs
-  7. Simplicity (manageable number of holdings)
-```
-
-**Core Principles:**
-
-```
-Principle 1: Diversify income sources
-  Do not rely on a single type of income.
-  Mix dividends, bond coupons, REIT distributions, and
-  possibly option premiums.
-
-Principle 2: Match duration to time horizon
-  Near-term income needs (1-5 years): short-term bonds, cash
-  Medium-term (5-15 years): intermediate bonds, dividend stocks
-  Long-term (15+ years): growth stocks, equity funds
-
-Principle 3: Do not sacrifice total return for yield
-  A 3% yield with 5% growth beats a 6% yield with 0% growth
-  over any time horizon longer than about 7 years.
-
-Principle 4: Build in growth
-  Even in retirement, you need some growth to offset inflation.
-  A 100% bond portfolio is not "safe" if inflation erodes
-  your purchasing power.
-
-Principle 5: Maintain a cash buffer
-  Keep 6-12 months of expenses in cash or very short-term bonds.
-  This prevents you from selling investments at distressed prices
-  during market downturns.
-
-Principle 6: Rebalance systematically
-  Rebalance by spending from overweight asset classes.
-  This naturally maintains your target allocation.
-```
-
-**Asset Allocation for Income by Age/Stage:**
-
-```
-Early Accumulation (25-45):
-  Focus: Total return, not income
-  Stocks: 80-90%
-  Bonds: 10-20%
-  Cash: minimal
-  Income yield: 1-2% (incidental, not targeted)
-
-Late Accumulation (45-60):
-  Focus: Transitioning toward income
-  Stocks: 60-70% (shifting toward dividend payers)
-  Bonds: 25-35%
-  Cash: 5%
-  Income yield: 2-3%
-
-Early Retirement (60-75):
-  Focus: Sustainable income + moderate growth
-  Dividend stocks: 25-35%
-  Bonds (mixed): 30-40%
-  REITs: 5-10%
-  Growth stocks: 10-20%
-  Cash: 5-10%
-  Income yield: 3-4%
-
-Late Retirement (75+):
-  Focus: Reliable income + capital preservation
-  Dividend stocks: 15-25%
-  Bonds (shorter duration): 40-50%
-  REITs: 5-10%
-  Cash: 10-15%
-  Growth stocks: 5-10%
-  Income yield: 3.5-5%
-```
-
-#### 5. Balancing Yield with Growth
-
-The tension between yield and growth is central to income portfolio management.
-
-**The Dividend Growth Framework:**
-
-```
-Strategy: Buy companies with moderate yields but strong
-          dividend growth rates.
-
-Example Comparison Over 20 Years:
-
-  Stock A: "High Yield, Low Growth"
-    Current yield: 5%
-    Dividend growth: 2%/year
-    Starting dividend: $50/share ($1,000 investment)
-
-    Year 1: $50.00    Year 10: $60.95    Year 20: $74.30
-    Yield on original cost at Year 20: 7.4%
-    Cumulative dividends received: $1,215
-
-  Stock B: "Moderate Yield, High Growth"
-    Current yield: 2%
-    Dividend growth: 10%/year
-    Starting dividend: $20/share ($1,000 investment)
-
-    Year 1: $20.00    Year 10: $51.87    Year 20: $134.55
-    Yield on original cost at Year 20: 13.5%
-    Cumulative dividends received: $1,146
-
-  After Year 13, Stock B's annual dividend exceeds Stock A's.
-  By Year 20, Stock B pays nearly double.
-  And Stock B's share price likely appreciated far more as well.
-```
-
-```
-The Dividend Growth Sweet Spot:
-
-  Yield   | Growth | Characteristic           | Example Sectors
-  --------|--------|--------------------------|------------------
-  1-2%    | 12-20% | High growth, low income  | Tech, Healthcare
-  2-3%    | 8-12%  | SWEET SPOT               | Industrials, Financials
-  3-4%    | 4-8%   | Balanced                 | Consumer Staples
-  4-6%    | 0-4%   | High income, low growth  | Utilities, Telecoms
-  6%+     | 0% or  | Yield trap territory     | Distressed companies
-          | negative|                          |
-```
-
-**The Dividend Aristocrats:**
-
-```
-What: S&P 500 companies that have increased dividends for
-      25+ consecutive years.
-
-Why They Matter:
-  - Track record demonstrates commitment and ability to pay
-  - Average yield: ~2.5% (moderate)
-  - Average dividend growth: ~7% per year
-  - Historically lower volatility than S&P 500
-  - Strong balance sheets (necessary to maintain streak)
-
-Notable Dividend Aristocrats (as of recent data):
-  Company          | Consecutive Years | Yield  | Sector
-  -----------------|-------------------|--------|------------------
-  Procter & Gamble | 68+               | ~2.5%  | Consumer Staples
-  Coca-Cola        | 62+               | ~3.0%  | Consumer Staples
-  Johnson & Johnson| 62+               | ~2.8%  | Healthcare
-  3M               | 65+               | ~5.5%  | Industrial
-  Walmart          | 50+               | ~1.4%  | Consumer Staples
-  Target           | 56+               | ~2.8%  | Consumer Discret.
-  Exxon Mobil      | 41+               | ~3.3%  | Energy
-```
-
-#### 6. Tax Implications of Income
-
-Tax treatment varies dramatically across income types. Proper tax planning can add 1-2% to your effective after-tax income.
-
-**Tax Treatment by Income Type:**
-
-```
-Income Type          | Tax Treatment               | Rate (2024)
----------------------|-----------------------------|--------------
-Qualified Dividends  | Preferential capital gains  | 0/15/20%
-Non-Qualified Divs   | Ordinary income             | 10-37%
-Bond Interest        | Ordinary income             | 10-37%
-Municipal Bond Int.  | Federal tax-free            | 0% (usually)
-Treasury Bond Int.   | State/local tax-free        | Federal only
-REIT Distributions   | Mostly ordinary income      | 10-37%
-                     | (20% QBI deduction may apply)|
-Option Premiums      | Short-term capital gains    | 10-37%
-MLP Distributions    | Return of capital (deferred)| Complex
-Capital Gains (LT)   | Preferential rate           | 0/15/20%
-Social Security      | Up to 85% taxable           | Varies
-Annuity Income       | Ordinary income (gains)     | 10-37%
-```
-
-**Tax-Efficient Account Placement:**
-
-```
-Tax-Advantaged Accounts (IRA, 401k, Roth):
-  Best for: High-tax income
-  Put here:
-    - Taxable bonds (interest taxed as ordinary income)
-    - REITs (distributions taxed as ordinary income)
-    - High-turnover strategies (frequent trading)
-    - Non-qualified dividends
-
-Taxable Brokerage Accounts:
-  Best for: Tax-efficient income
-  Put here:
-    - Qualified dividend stocks (lower tax rate)
-    - Municipal bonds (tax-free income)
-    - Long-term growth stocks (defer capital gains)
-    - Tax-managed funds
-
-Roth IRA/Roth 401k (if available):
-  Best for: Highest growth potential
-  Put here:
-    - Growth stocks (all gains tax-free at withdrawal)
-    - High-yield bonds (interest tax-free at withdrawal)
-    - REITs (distributions tax-free at withdrawal)
-```
-
-**Tax-Equivalent Yield Calculation:**
-
-```
-When comparing municipal bonds to taxable bonds:
-
-  Tax-Equivalent Yield = Municipal Yield / (1 - Tax Rate)
-
-  Example at 37% federal tax bracket:
-    Municipal bond yield: 3.5%
-    Tax-equivalent yield: 3.5% / (1 - 0.37) = 5.56%
-
-    You would need a taxable bond yielding 5.56% to match
-    the after-tax income from a 3.5% municipal bond.
-
-  For investors in high-tax states (CA, NY, NJ):
-    Combined federal + state rate may exceed 50%
-    Tax-equivalent yield: 3.5% / (1 - 0.50) = 7.0%
-
-    State-specific municipal bonds provide both federal AND
-    state tax exemption, further increasing the tax advantage.
-```
-
-#### 7. Sample Income Portfolios
-
-Here are sample portfolios for different income needs and risk profiles:
-
-**Portfolio 1: Conservative Income (Low Risk)**
-
-```
-Target: 3.5-4.0% yield, minimal volatility
-Suitable for: Late retirees, very risk-averse investors
-
-Allocation:
-  35% - Short/Intermediate Treasury Bonds    | Yield: ~4.0%
-  20% - Investment-Grade Corporate Bonds     | Yield: ~5.0%
-  15% - Municipal Bonds (if taxable account) | Yield: ~3.5% (tax-free)
-  15% - Dividend Aristocrat Stocks           | Yield: ~2.5%
-  10% - TIPS (Inflation Protected)           | Yield: ~2.0% + inflation
-   5% - Cash/Money Market                    | Yield: ~4.5%
-
-Weighted Portfolio Yield: ~3.7%
-Income from $1M: ~$37,000/year
-Growth Potential: Low (1-3% per year)
-Risk Level: Low
-Inflation Protection: Moderate (TIPS + dividend growth)
-```
-
-**Portfolio 2: Balanced Income (Moderate Risk)**
-
-```
-Target: 3.5-4.5% yield, moderate growth
-Suitable for: Early retirees, moderate risk tolerance
-
-Allocation:
-  25% - Dividend Growth Stocks (Aristocrats) | Yield: ~2.5%
-  20% - Investment-Grade Corporate Bonds     | Yield: ~5.0%
-  15% - High-Yield Corporate Bonds           | Yield: ~7.0%
-  10% - Equity REITs                         | Yield: ~4.0%
-  10% - International Dividend Stocks        | Yield: ~3.5%
-  10% - Treasury/TIPS Bonds                  | Yield: ~3.5%
-   5% - Preferred Stock                      | Yield: ~5.5%
-   5% - Cash/Money Market                    | Yield: ~4.5%
-
-Weighted Portfolio Yield: ~4.1%
-Income from $1M: ~$41,000/year
-Growth Potential: Moderate (3-5% per year)
-Risk Level: Moderate
-Inflation Protection: Good (dividend growth + TIPS + REIT rent growth)
-```
-
-**Portfolio 3: Growth + Income (Moderate-High Risk)**
-
-```
-Target: 2.5-3.5% yield + capital appreciation
-Suitable for: Late accumulators, early retirees with pension
-
-Allocation:
-  30% - Dividend Growth Stocks               | Yield: ~2.0%
-  15% - Growth Stocks (lower/no dividend)     | Yield: ~0.5%
-  15% - Investment-Grade Corporate Bonds      | Yield: ~5.0%
-  10% - International Equity (mixed)          | Yield: ~2.5%
-  10% - Equity REITs                          | Yield: ~4.0%
-  10% - High-Yield Bonds                      | Yield: ~7.0%
-   5% - Covered Call ETF                      | Yield: ~8.0%
-   5% - Cash/Money Market                     | Yield: ~4.5%
-
-Weighted Portfolio Yield: ~3.2%
-Income from $1M: ~$32,000/year
-Growth Potential: Moderate-High (4-6% per year)
-Risk Level: Moderate-High
-Inflation Protection: Strong (equity exposure + REIT growth)
-```
-
-**Portfolio 4: Maximum Income (Higher Risk)**
-
-```
-Target: 5.0-7.0% yield
-Suitable for: Investors prioritizing current income, shorter horizons
-
-Allocation:
-  20% - High-Yield Corporate Bonds           | Yield: ~7.0%
-  20% - High-Dividend Stocks                 | Yield: ~5.0%
-  15% - Equity REITs                         | Yield: ~4.5%
-  10% - Preferred Stock                      | Yield: ~5.5%
-  10% - Mortgage REITs                       | Yield: ~10.0%
-  10% - Covered Call / Option Income ETFs    | Yield: ~8.0%
-   5% - MLPs / Energy Infrastructure         | Yield: ~7.0%
-   5% - Emerging Market Bonds                | Yield: ~6.5%
-   5% - Cash/Money Market                    | Yield: ~4.5%
-
-Weighted Portfolio Yield: ~6.2%
-Income from $1M: ~$62,000/year
-Growth Potential: Low (0-2% per year)
-Risk Level: Higher (income may not be sustainable in stress)
-Inflation Protection: Weak (limited growth to offset inflation)
-
-WARNING: Higher-yield portfolios face significant risks:
-  - Dividend/coupon cuts during recessions
-  - Credit defaults in HY and EM bonds
-  - mREIT dividend cuts in rate-volatile environments
-  - Limited growth to offset purchasing power erosion
-```
-
-**Portfolio Construction Checklist:**
-
-```
-Before finalizing your income portfolio:
-
-  [ ] Income meets your spending needs (with margin of safety)
-  [ ] Diversified across at least 3-4 income sources
-  [ ] No single position > 5% of portfolio
-  [ ] No single sector > 25% of portfolio
-  [ ] Cash buffer of 6-12 months of expenses
-  [ ] Tax-efficient placement (right assets in right accounts)
-  [ ] Growth component to offset inflation (at least 20% in equities)
-  [ ] Stress-tested: what happens if yields drop 20%?
-  [ ] Withdrawal rate is sustainable (below 4-5%)
-  [ ] Reviewed and rebalanced at least annually
-```
+### 2. What You Need to Know
+
+#### 2.1 The Four Real Sources of Portfolio Income
+
+Strip away every product wrapper and there are only four ways a US
+portfolio actually produces cash. Memorise this list. Every yield ETF
+ever launched is some packaging of these four ingredients.
+
+1. **Treasury coupons.** The US government promises to pay. Default
+   risk is rounded to zero. State and local income tax do not apply.
+   Federal tax applies at ordinary rates. The 2-year Treasury is the
+   floor your safe sleeve cannot reasonably go below; the 10-year is
+   the duration anchor for a balanced portfolio.
+2. **Investment-grade and high-yield corporate coupons.** Companies
+   pay you to lend to them. IG (LQD, AGG's corporate slice, BND's
+   corporate slice) yields 80-150 bps above Treasuries. HY (HYG, JNK)
+   yields 250-450 bps above. Both pay ordinary income at the federal
+   *and* state level, which is critical when you compute after-tax.
+3. **Qualified dividends.** Long-held common stock dividends meeting
+   the IRS holding-period test are taxed at long-term capital-gains
+   rates: 0/15/20% federal depending on bracket, plus state. The
+   S&P 500 yields about 1.4% as of April 2026. Curated dividend ETFs
+   (SCHD, VYM, DVY) yield 2.5-3.7%. The premium over the index is
+   compensation for tilting toward "boring" sectors — staples,
+   healthcare, financials, industrials — and away from the cap-light
+   compounders that drove the post-2020 rally.
+4. **Option premium.** Selling calls or puts (Weeks 26-28) creates
+   short-term income. With near-zero exception, equity-option premium
+   is taxed as short-term capital gains at the federal *and* state
+   level. The headline distribution yields on JEPI (~7-8%), QYLD,
+   PUTW, SPYI, and the entire buy-write fund family are large
+   precisely because the IRS gets a big bite first.
+
+A fifth category you will see in marketing — REIT distributions —
+is partly category 2 (the REIT pays through interest and rent
+collected) and partly category 3 (qualified dividends from any equity
+holdings). REITs as a wrapper get a 20% Section 199A deduction at the
+investor level since 2018, which makes them somewhat tax-friendlier
+than raw bond coupons but still meaningfully worse than qualified
+dividends.
+
+The yield-hierarchy chart shows the *headline* (pre-tax) numbers as of
+April 2026. Read it as the menu before tax.
+
+![Bar chart of pre-tax yield by income source as of April 2026: 2-year Treasury 3.9%, 10-year Treasury 4.2%, LQD (IG corporate) 5.0%, HYG (high-yield corporate) 7.5%, S&P 500 dividend yield 1.4%, VYM 2.9%, SCHD 3.6%, VNQ 3.8%, JEPI 7.8%. Bars are coloured by tax category — Treasuries blue, corporates red, qualified-dividend equity green, REITs purple, option-premium gold — to preview the after-tax sort that comes next.](image/week36_yield_hierarchy.png)
+
+#### 2.2 The After-Tax Hierarchy and Why It Reverses the Menu
+
+Pre-tax, JEPI's 7.8% looks like the obvious winner. After tax in a
+taxable account at the 32% federal bracket plus 5% state, the picture
+inverts. The next chart applies the right tax rate to each line item:
+
+- Treasury coupons: 32% federal, 0% state ⇒ 32% effective.
+- IG / HY corporate coupons: 32% + 5% = 37% effective.
+- Qualified dividends (S&P 500, SCHD, VYM, DVY): 15% federal LTCG +
+  5% state = 20% effective.
+- REIT distributions (VNQ): 37% combined, but the 199A deduction
+  reduces the *taxable* portion to 80%, giving roughly 29.6%
+  effective.
+- Option-premium ETFs (JEPI/QYLD/SPYI): 32% + 5% = 37% effective.
+
+After-tax, SCHD's 3.6% becomes 2.9%. JEPI's 7.8% becomes 4.9%. The
+11-bp gap on the y-axis is much smaller than it looked. And after you
+adjust for option-premium ETFs' historical underperformance versus
+their underlying index (Week 27, QYLD vs QQQ; Week 28, PUTW vs SPY),
+the apparent yield premium is mostly a tax leak you are paying *to
+yourself*.
+
+![After-tax yield bars at the 32% federal + 5% state bracket: Treasuries lose 32% of yield (2-year drops to 2.7%, 10-year to 2.9%), corporate coupons lose 37%, qualified-dividend equity keeps 80% (SCHD drops only from 3.6% to 2.9%), REITs lose ~30%, option premium loses 37% (JEPI drops from 7.8% to 4.9%). The chart shows a hierarchy: qualified dividends keep the most of their yield, option premium and corporate coupons keep the least.](image/week36_tax_adjusted.png)
+
+The operational rule that falls out:
+
+- **Hold qualified-dividend equity in the taxable account** — the
+  preferential rate is the whole point.
+- **Hold option-premium and HY-corporate sleeves in the IRA / 401(k)** —
+  the IRS bite gets deferred (traditional) or eliminated (Roth).
+- **Hold Treasuries in the taxable account if you live in a high
+  state-tax state** (CA/NY/HI) — the state exemption is a free 5%.
+- **Hold REITs in the IRA** if your bracket is high enough that the
+  199A deduction does not fully offset your state rate.
+
+This is location, not allocation. It is one of the few free lunches
+SOUL #15 gives you.
+
+#### 2.3 The Canonical Product Menu
+
+Theory only matters if you can implement it with three or four
+tickers at a Vanguard, Fidelity, or Schwab account. Here is the
+April-2026 product menu by sleeve.
+
+**Dividend equity (qualified yield, growth-of-income).**
+- `SCHD` — Schwab US Dividend Equity. ~100 holdings, 10-year
+  dividend-growth screen, sector-balanced toward industrials,
+  staples, healthcare. Yield ~3.6%, expense ratio 6 bps.
+- `VYM` — Vanguard High Dividend Yield. ~440 holdings, market-cap
+  weighted within the high-yield half of the index. Yield ~2.9%,
+  ER 6 bps.
+- `DVY` — iShares Select Dividend. ~100 holdings, value-heavier than
+  SCHD. Yield ~3.4%, ER 38 bps.
+- `SPYI` — NEOS S&P 500 High-Income. Index-tracking with a partial
+  call-write overlay; positions itself as a hybrid of dividend equity
+  and option premium. Yield ~12% headline but the option-premium
+  share inherits the option-premium tax problem.
+
+The yield ladder is real. SCHD sits in the middle of the ladder by
+design — the dividend-growth screen filters out the highest-yielding
+names that are in distress. That is a *feature*, not a bug, and is
+why we treat SCHD as the default dividend sleeve for the model
+portfolio in §2.6.
+
+**Fixed income.**
+- `BND` — Vanguard Total Bond Market. Treasuries + IG corporates +
+  agency MBS, intermediate duration ~6 years. The default core bond.
+- `VTEB` — Vanguard Tax-Exempt Bond. Investment-grade municipals.
+  Tax-equivalent yield rises sharply for high-bracket investors in
+  taxable accounts; this is the right tool for the bond sleeve in a
+  taxable account if your federal bracket is 32% or higher.
+- `PFF` — iShares Preferred & Income Securities. Preferred stock,
+  yields 6-7%, but most preferreds are issued by financial firms so
+  this sleeve is a bet on bank credit risk, not a pure bond.
+- `TLT` / `IEF` — long and intermediate Treasury duration tools when
+  you want pure interest-rate exposure separated from credit.
+
+**Real assets / inflation hedge.**
+- `VNQ` — Vanguard Real Estate. The REIT sleeve. Yield ~3.8%,
+  inflation sensitivity comes through rent escalators and replacement-
+  cost equity in real estate.
+- `SCHH` — cheaper REIT alternative, similar profile.
+
+**Option premium (Weeks 26-28).**
+- `JEPI` — JPMorgan Equity Premium Income. ~80% defensive low-vol
+  equity + ~20% equity-linked notes that synthesise call-write
+  premium. Yield ~7-8%, ER 35 bps. The single largest fund in the
+  category.
+- `JEPQ` — Nasdaq cousin of JEPI. Higher volatility, higher yield,
+  closer to QYLD's payoff shape but with active selection on the
+  equity sleeve.
+- `QYLD` / `XYLD` / `RYLD` — passive monthly at-the-money buy-write
+  on QQQ / SPY / IWM. Pure call-write exposure; the cap-on-upside
+  is severe (Week 27).
+- `PUTW` / `WTPI` — systematic put-write ETFs. Mirror image of
+  buy-writes; cap-on-upside replaced with cushion-on-downside (Week 28).
+
+#### 2.4 The 4% Rule and Why It Needs an Update for 2026
+
+Bengen (1994) and the Trinity study (1998) gave retirees the most
+quoted rule of thumb in finance: with a 60/40 portfolio, you can
+safely withdraw 4% of the *initial* balance, increase that dollar
+amount by inflation each year, and have a 95%+ chance of not running
+out over a 30-year retirement. The rule is based on rolling 30-year
+windows of US data 1926-1995.
+
+Three things have changed.
+
+1. **Bond yields started Bengen's window above 7% and a typical
+   retirement window started above 5%.** The 2010-2021 zero-rate
+   regime crushed the bond contribution to 4%-rule sustainability.
+   Updates by Pfau and others put the safe withdrawal rate as low as
+   2.8% for portfolios *starting* in 2010-2020. The 2022-2024 yield
+   reset has lifted that back to roughly 3.5-3.8%. April 2026 is the
+   first time since 2008 that the math works close to the original
+   number again, but it is not 4%.
+2. **Sequence-of-returns risk dominates.** A retiree drawing 4%
+   through 1973-1974 (60/40 down a real ~30%) ran out of money in
+   roughly year 22. A retiree drawing 4% through 1995-1999 (60/40 up
+   a real ~140%) finished with roughly ten times the starting
+   balance. The same rule, the same numerical sequence, the same
+   asset mix — totally different lived experience.
+3. **Variable-spending rules dominate fixed-real spending.** Guyton-
+   Klinger guard rails, the Bogleheads' "spend a percent of current
+   balance," and Vanguard's "dynamic spending" all beat the rigid 4%
+   rule by 50-100 bps of safe withdrawal in Monte-Carlo, with
+   essentially no behavioural cost. This week's interactive uses a
+   simplified version: target 4-5% of *current balance*, with a hard
+   floor and ceiling.
+
+The honest April-2026 number for a 60/40 portfolio with no
+discretionary-spending flexibility is roughly 3.7%. With the
+flexibility to cut 10-15% in bad years, 4.5%. The model income
+portfolio in §2.6 is engineered around that 4-5% target.
+
+#### 2.5 The Distribution-Side Four-Tranche Framework
+
+SOUL #13's four tranches in accumulation translate cleanly to
+distribution. The same buckets exist; the *direction of cash flow*
+reverses.
+
+| Tranche | Accumulation purpose | Distribution purpose |
+|---|---|---|
+| 1. Cash / T-bills | Emergency fund | 1-2 years of spending, the "no-sell zone" |
+| 2. Bonds | Volatility ballast | 5-7 years of spending; refilled from sleeve 3 in good years |
+| 3. Diversified equity | Compounding engine | The wealth machine; refills sleeve 2 |
+| 4. Concentrated bets | Asymmetric upside | Optional yield overlays (JEPI, premium-write) |
+
+The barbell from SOUL #14 is the cross-section: short-duration safe
+income on one end (T-bills, 2-year Treasuries, VTEB if taxable), and
+long-duration real assets on the other (VNQ, equity dividend growers,
+optional premium overlay). The middle — long-duration intermediate
+Treasuries — is the *least* useful sleeve in a distribution portfolio
+relative to the two ends, because it has neither the nominal-rate
+sensitivity that long Treasuries give nor the inflation pass-through
+that equities and real estate give.
+
+The interactive in §2.7 is the live version of this. You set the
+five-sleeve mix and get blended yield, after-tax yield (with bracket
+toggle), expected volatility, and expected drawdown.
+
+#### 2.6 Two Model Portfolios
+
+Two reference points. Both target a 4-5% pre-tax distribution yield
+with bond-like volatility (8-10% annualised standard deviation).
+Both are buildable today at any major US broker for under 12 bps in
+weighted expense ratio.
+
+**Model A — Taxable, 32% federal bracket.**
+
+| Sleeve | Ticker | Weight | Yield | Rationale |
+|---|---|---:|---:|---|
+| Dividend equity | SCHD | 35% | 3.6% | Qualified dividends, low ER, sector diversity |
+| Dividend equity | VYM | 10% | 2.9% | Adds breadth, market-cap weight |
+| Tax-exempt bonds | VTEB | 25% | 3.4% (≈5.0% TEY) | Federal exempt; lifts after-tax yield substantially |
+| REITs | VNQ | 10% | 3.8% | Inflation pass-through; 199A partial relief |
+| Treasuries | IEF (7-10yr) | 15% | 4.2% | State-tax-exempt anchor |
+| T-bills | SGOV | 5% | 4.5% | Spending buffer |
+| **Blended** | | **100%** | **3.7%** | After-tax ≈ 3.0% |
+
+Volatility ~9% annualised; max-drawdown estimate -22% (1973-style
+inflation shock or 2022-style dual decline). After-tax distribution
+yield 3.0%; with a balance-of-portfolio variable-spending rule you can
+sustain 4.0-4.5% real spending.
+
+**Model B — Tax-advantaged (IRA / 401(k)), 32% bracket.**
+
+| Sleeve | Ticker | Weight | Yield | Rationale |
+|---|---|---:|---:|---|
+| Dividend equity | SCHD | 30% | 3.6% | Qualified-dividend feature wasted; here for dividend-growth |
+| Premium-write | JEPI | 15% | 7.8% | Highest pre-tax yield; tax irrelevant inside IRA |
+| Total bond | BND | 25% | 4.6% | IG + Treasury blend |
+| HY corporate | HYG | 10% | 7.5% | Credit premium; HY taxed punitively in taxable |
+| REITs | VNQ | 10% | 3.8% | 199A irrelevant inside IRA |
+| Cash | SGOV | 10% | 4.5% | Buffer |
+| **Blended** | | **100%** | **5.1%** | After-tax = 5.1% (no tax inside) |
+
+Volatility ~10% annualised; max-drawdown estimate -25%. The IRA
+portfolio runs higher pre-tax yield because every income source is
+taxed identically — so you load up on the punitively-taxed sleeves
+exactly here, where the punishment does not apply.
+
+The interactive lets you build either, and the bracket toggle shows
+the Model-A and Model-B after-tax numbers side by side.
+
+#### 2.7 The Live Builder
+
+The interactive is a five-sleeve allocator: Treasuries, IG corporate,
+qualified dividends, REITs, premium-write. It computes pre-tax yield
+(weighted average), after-tax yield (weighted by tax category at the
+selected bracket), expected volatility (square-root of weighted
+covariance), and expected maximum drawdown (heuristic: 0.6 × peak
+historical loss for each sleeve, blended by weight). The
+tax-bracket toggle covers 12% / 22% / 32% / 37%, which is the four
+brackets where real allocation decisions get made. Use it to verify
+the §2.6 model portfolios; use it to test your own.
 
 ---
 
-### c) Common Misconceptions
+### 3. Common Misconceptions
 
-**Misconception 1: "A high yield means a good income investment."**
-
-High yield is often a warning sign, not an advantage. When a stock's yield is significantly above its sector average, it usually means the stock price has fallen (pushing the yield up mathematically) because the market expects a dividend cut. Similarly, very high-yielding bonds reflect elevated credit risk. The best income investments often have moderate yields (2-4%) combined with reliable dividend growth. A stock yielding 2.5% that grows its dividend 8% per year will produce more income than a 6% yielder with no growth within about 8 years.
-
-**Misconception 2: "Bonds are safe."**
-
-Bonds are safer than stocks in terms of credit priority (bondholders get paid before stockholders in bankruptcy), but they are not risk-free. Long-term bonds can lose 20-30% of their value in a rising rate environment, as 2022 demonstrated. High-yield bonds can default. Even Treasury bonds carry inflation risk -- if inflation exceeds the coupon, you are losing purchasing power. Bond "safety" depends on the type, duration, and credit quality of the specific bonds.
-
-**Misconception 3: "I should only invest for income when I am close to retirement."**
-
-Building an income-generating portfolio is a skill that takes time to develop. Starting to incorporate dividend-growth stocks and bonds in your 40s or 50s gives you time to build positions, learn from experience, and benefit from compounding dividend growth. A stock you buy at a 2% yield in your 40s might yield 5-6% on your original cost by the time you retire, thanks to dividend growth.
-
-**Misconception 4: "The 4% rule guarantees I will not run out of money."**
-
-The 4% rule was based on historical US market data during one of the best periods for financial markets in human history. It does not account for high fees, poor diversification, behavioral mistakes (panic selling), or the possibility that future returns may be lower than historical averages. It is a useful guideline, not a guarantee. Many financial planners now recommend 3-3.5% as a safer starting point, especially for early retirees with 40+ year horizons.
-
-**Misconception 5: "Covered call writing is free money."**
-
-Covered calls generate income, but they cap your upside. If the stock rises sharply above your strike price, you miss out on significant gains. Over time, the premium income you collect may not fully compensate for the upside you sacrifice, especially in strong bull markets. Covered calls work best in flat to mildly bullish markets. In strong bull markets, they underperform. In bear markets, the premium provides limited downside protection. They are a tool, not a magic income generator.
-
-**Misconception 6: "Municipal bonds are only for wealthy investors."**
-
-While municipal bonds offer the most tax benefit to high-income investors (who pay the highest marginal tax rates), they can make sense for anyone in the 22%+ federal tax bracket, especially in high-tax states. The key is the tax-equivalent yield calculation. If a muni bond yielding 3.5% has a tax-equivalent yield of 5%+ in your tax bracket, and comparable taxable bonds yield less than 5%, the muni is the better deal regardless of your net worth.
-
-**Misconception 7: "I need a huge portfolio to generate meaningful income."**
-
-While a larger portfolio obviously generates more income, even modest portfolios can produce meaningful supplemental income. A $200,000 portfolio yielding 4% generates $8,000 per year -- enough to cover several months of essential expenses. Combined with Social Security, a pension, or part-time work, a smaller income portfolio can make a significant difference. The principles of diversification and sustainability apply regardless of portfolio size.
-
----
-
-### d) Common Questions and Answers
-
-**Q1: How do I decide between individual bonds and bond funds?**
-
-A: Individual bonds offer certainty -- if you hold to maturity and the issuer does not default, you get your principal back plus all coupon payments. This "maturity guarantee" does not exist with bond funds, which have no maturity date and fluctuate in value. However, bond funds offer diversification, professional management, liquidity, and accessibility (you can invest small amounts). For most investors with less than $500,000 allocated to bonds, funds or ETFs make more sense. For larger allocations, a ladder of individual bonds can provide the certainty of maturity while maintaining diversification.
-
-**Q2: How do I build a bond ladder?**
-
-A: A bond ladder involves buying bonds with staggered maturities. For example, buy bonds maturing in 1, 2, 3, 4, and 5 years. When the 1-year bond matures, reinvest the proceeds in a new 5-year bond. This creates a rolling portfolio with predictable income and regular reinvestment opportunities. If rates rise, you reinvest maturing bonds at higher rates. If rates fall, you still benefit from the higher rates locked in on longer-dated bonds. Ladders work well with Treasury bonds, CDs, or investment-grade corporate bonds.
-
-**Q3: What is the ideal number of dividend stocks for an income portfolio?**
-
-A: For adequate diversification, aim for 20-40 individual stocks across at least 8-10 sectors. With fewer than 15 stocks, a single dividend cut can significantly impact your income. With more than 50, you are essentially creating your own index fund and might be better served by an ETF. Many income investors hold a core position in dividend ETFs (for broad diversification) supplemented by 10-15 individual stocks they know well.
-
-**Q4: How do I evaluate whether a dividend is sustainable?**
-
-A: Check these metrics: (1) Payout ratio -- dividends divided by earnings should ideally be below 60% for most companies (below 80% for utilities and REITs). (2) Free cash flow coverage -- dividends divided by free cash flow should be below 70%. (3) Dividend growth history -- companies that have grown dividends consistently for 10+ years are less likely to cut. (4) Debt levels -- highly leveraged companies may cut dividends to service debt. (5) Industry stability -- cyclical industries (energy, materials) have less reliable dividends than defensive ones (staples, healthcare).
-
-**Q5: Should I reinvest dividends during retirement?**
-
-A: It depends on your income needs. If your dividends and other income exceed your spending needs, reinvesting the excess allows your portfolio to continue growing. If you need all the income for spending, take the cash. A middle-ground approach: reinvest dividends in your tax-advantaged accounts (where they grow tax-free) and take dividends as cash in your taxable accounts (where you would owe tax on reinvested dividends anyway).
-
-**Q6: How do covered call ETFs work?**
-
-A: Covered call ETFs (like QYLD, XYLD, or JEPI) hold a portfolio of stocks and systematically sell call options against them. The option premiums generate income, which is distributed to shareholders. The trade-off is reduced upside potential. These ETFs typically yield 7-12% but may lag in bull markets because the options cap gains. They perform best in flat or mildly rising markets. Be aware that much of the income may be classified as return of capital or short-term capital gains, which are tax-inefficient.
-
-**Q7: What happens to my income portfolio during a recession?**
-
-A: Expect some disruption. During a typical recession: 5-10% of high-yield bonds may default, some companies cut dividends, REIT distributions may decline, and option premiums increase (higher volatility). However, a well-diversified income portfolio should weather a recession with modest income reduction (10-20%), not catastrophic failure. The key is having a cash buffer (6-12 months of expenses) so you do not have to sell investments at depressed prices to fund spending.
-
-**Q8: Are annuities a good income tool?**
-
-A: Annuities can be appropriate for some investors but come with significant trade-offs. Fixed annuities provide guaranteed income for life, eliminating longevity risk (the risk of outliving your money). However, they typically offer lower returns than self-managed portfolios, lock up your capital (reducing flexibility), and the income usually does not grow with inflation. Consider an annuity for a portion of your income "floor" -- covering essential expenses -- while investing the remainder for growth. Never put your entire portfolio into an annuity.
-
-**Q9: How does Social Security factor into income portfolio planning?**
-
-A: Social Security is like a high-quality inflation-indexed bond. It provides guaranteed, inflation-adjusted income for life. When planning your income portfolio, first calculate your expected Social Security benefit (available at ssa.gov). Then determine the gap between your Social Security income and your total spending needs. Your investment portfolio only needs to cover this gap. This means you can potentially take less risk in your portfolio, or afford a lower portfolio yield, than you might think. Delaying Social Security to age 70 (which increases the benefit by about 8% per year from age 62) is often one of the best "investments" a retiree can make.
-
-**Q10: How often should I review and rebalance my income portfolio?**
-
-A: Review at least annually, with a more thorough review when personal circumstances change (retirement, health events, large expenses). Rebalance when allocations drift more than 5 percentage points from targets. However, for income portfolios, "rebalance by spending" -- take income from the most overweight asset class. This naturally brings the portfolio back toward target allocations without triggering unnecessary transactions or taxes. Also review individual holdings if a company cuts its dividend, downgrades its credit, or shows fundamental deterioration.
+1. **"High yield is always better."** No. Pre-tax yield without an
+   after-tax conversion and a default-risk adjustment is
+   marketing-grade arithmetic. JEPI's 7.8% in a taxable account at the
+   37% bracket is 4.9%. SCHD's 3.6% in the same account is 2.9%. The
+   gap is one-third of the headline.
+2. **"Treasuries are tax-free."** Treasuries are *state*-tax-free. They
+   are fully federally taxable. In Texas, Florida, or Tennessee that
+   distinction is meaningless; in California or New York it is worth
+   roughly 5% of the coupon.
+3. **"Municipals are always better than Treasuries."** Only if your
+   federal bracket × (1 - state rate adjustment) makes the
+   tax-equivalent yield higher. At the 12% federal bracket, munis
+   almost never win; at the 32% federal bracket, they almost always
+   do.
+4. **"Covered-call ETFs have free yield."** No. The yield is the
+   pre-paid sale of upside (Week 27). Over a full cycle, JEPI and
+   QYLD lag their unhedged underlyings by 300-500 bps annualised.
+5. **"REIT dividends are qualified dividends."** Mostly false. Most
+   REIT distributions are non-qualified ordinary income, partially
+   sheltered by the 20% 199A deduction.
+6. **"Dividend stocks are safer than the index."** Sometimes. The
+   dividend-paying half of the S&P 500 has a lower beta than the
+   index, but in a credit/financial crisis (2008) banks and REITs —
+   which dominate dividend ETFs — drop further than the index.
+7. **"You should reinvest dividends in retirement."** If you actually
+   need the cash, no — that is buying with one hand and selling with
+   the other, and creates avoidable tax in a taxable account.
+8. **"4% withdrawal works in any market regime."** It works for the
+   1926-1995 sample of US data. It has *failed* in retro-tested
+   non-US samples and in zero-rate windows. April 2026 has the math
+   close to working again; for low-flexibility retirees, plan for
+   3.5-4.0%.
+9. **"Bonds are always negatively correlated with stocks."** Week 4
+   covered this in detail. The 1970s and 2022 are existence proofs of
+   the opposite.
+10. **"You should pick the sleeve with the highest yield first and
+    fill in the others."** Backwards. Pick the sleeve with the
+    highest *after-tax expected return per unit of drawdown
+    contribution* first.
 
 ---
 
-## YouTube Script
+### 4. Q&A Section
+
+**Q1: My broker is showing JEPI's "30-day SEC yield" as 8.4% but the
+"distribution yield" as 7.6%. Which is right?**
+
+Distribution yield is what landed in your account over the trailing
+12 months divided by current price. SEC yield is a regulator-defined
+forward-looking estimate based on the most recent month's cash flow,
+annualised. For a stable holding, the two should be within 50 bps.
+For premium-income funds where the option-premium varies with VIX,
+the SEC yield can be misleading in either direction. Use distribution
+yield for budgeting; use SEC yield for cross-fund comparisons.
+
+**Q2: Should I buy individual bonds or BND?**
+
+For amounts under roughly $100k of bond exposure, BND. The fund has
+~10,000 bonds and you cannot replicate that diversification at retail
+sizes. Above that, individual Treasuries on the auction market are
+attractive — you control the maturity, you can ladder, and you skip
+the 3 bp expense ratio. Individual *corporate* bonds at retail are a
+trap: spreads are wide, liquidity is thin, and a credit event sinks
+the position completely.
+
+**Q3: What about a "60/40 of yield" — half qualified dividends, half
+bond coupons?**
+
+That is essentially Model A in §2.6. The distribution yield works out
+to 3.7% pre-tax, ~3.0% after-tax in the 32% bracket. The volatility
+is bond-like (~9%). For a baseline retiree-style portfolio that is
+the right ballpark — but tilt the bonds toward VTEB if you are
+taxable, and prefer SCHD over VYM for the dividend-growth tilt.
+
+**Q4: Is the "yield-on-cost" metric useful?**
+
+For pep-talk purposes, yes. For decisions, no. Yield-on-cost rises
+because the price you paid is fixed and the dividend grows. It tells
+you nothing about whether your *current capital* is generating an
+adequate yield versus alternatives. Always compare current
+distribution yields, not cost-basis yields.
+
+**Q5: How do I know if a high yield is sustainable?**
+
+Three quick screens. (a) Payout ratio: dividend / earnings under 70%
+for industrials and staples, under 90% for utilities, under 95% for
+REITs. (b) Free-cash-flow coverage: dividends plus buybacks under
+free cash flow. (c) The fund's distribution history: did it cut in
+2008, 2020, 2022? A buy-write fund cutting in 2022 is normal; an
+equity-dividend fund cutting is a signal.
+
+**Q6: What about preferred stock?**
+
+PFF yields ~6.5% and feels like a bond. It is not. Preferreds are
+junior to bonds, senior to common, and almost entirely issued by
+banks and insurers. The 2008 crisis was a near-total wipe of bank
+preferreds. Sized at 5-10% of a bond sleeve they are a fine yield
+enhancer; sized at 30%+ they are a concentrated bank-credit bet.
+
+**Q7: Should I use leverage on bonds (NTSX, RPAR, etc.)?**
+
+Levered "stocks-and-bonds in the same fund" products amplify the
+correlation assumption. They worked beautifully 1995-2021 and
+melted down in 2022 when stocks and bonds fell together. They are an
+accumulation tool, not a distribution tool. Do not use them for the
+income sleeve.
+
+**Q8: How often should I rebalance an income portfolio?**
+
+Annually, plus a calendar-driven cash-refill of the spending-buffer
+sleeve. The "smart" rule is: in a year where the equity sleeve is up
+sharply, refill 18 months of spending into cash and bonds; in a flat
+or down year, do not sell equities — draw from cash and bonds. This
+is the four-tranche framework working in reverse.
+
+**Q9: What about international dividend ETFs (VYMI, IDV)?**
+
+Per SOUL #16, our default is US-only investable. International
+dividend ETFs add concentration in financials and energy and
+introduce withholding-tax leakage that takes a bite out of the
+qualified-dividend rate. If you want non-US exposure, take it on the
+*total-return* side of the portfolio (the equity growth sleeve), not
+the income sleeve.
+
+**Q10: Is there a fund-of-funds that does all of this for me?**
+
+The closest is `VTINX` (Vanguard Target Retirement Income), `AOK`
+(iShares conservative allocation), or `JAAA` + `JBBB` (Janus
+Henderson AAA / BBB CLO funds for a credit-tilted income sleeve). All
+of them solve part of the problem and none solve the
+account-location problem in §2.2 — which is the largest source of
+after-tax yield uplift available to you. Build it sleeve by sleeve.
+
+**Q11: How much cash should I hold?**
+
+For a retiree, 1-2 years of spending. For a working accumulator,
+3-6 months. The reason for the asymmetry is the tail. A retiree who
+is *forced* to sell equities at a 30% drawdown to fund this month's
+groceries is destroying compounding more than any 1% cash drag could
+cost. The cash sleeve is insurance against the bad-sequence tail
+(SOUL #6).
+
+**Q12: What about annuities?**
+
+A single-premium immediate annuity (SPIA) at age 75-80 looks much
+better than the 4% rule for *that portion* of the portfolio you
+genuinely need to floor. The right framing is not "annuity vs no
+annuity" but "what fraction of base spending does Social Security
+cover, and do I need to top up the rest with a SPIA?" That is a
+financial-planning question more than an investment one — and a
+fine reason to talk to a fee-only fiduciary at the right age.
 
 ---
 
-**[VISUAL: Title card -- "Week 36: Building an Income-Generating Portfolio" with income streams flowing from different asset class icons into a central portfolio]**
-
-**Horace:** Welcome back. Over the past few weeks, we have covered credit analysis, interest rate sensitivity, and financial statement analysis. Today, we are getting very practical. We are building an income-generating portfolio from scratch.
-
-**Stella:** This is probably the most requested topic from our audience. Everyone wants to know how to generate income from their investments.
-
-**Horace:** And for good reason. Whether you are retired and living off your portfolio, or working and looking for passive income, the ability to build a sustainable income portfolio is one of the most valuable skills in investing.
-
-**Stella:** So where do we start?
-
-**Horace:** Let us start by mapping out all the ways a portfolio can generate income. Most people only think of dividends and bond interest, but there are actually quite a few sources.
-
-**[VISUAL: Mind map showing income sources: Dividends, Bond Coupons, REIT Distributions, Option Premiums, MLP Distributions, Preferred Stock Dividends, with yield ranges for each]**
-
-**Horace:** Dividends from stocks, typically yielding 1.5 to 5 percent. Bond coupons, yielding 3.5 to 9 percent depending on credit quality. REIT distributions, yielding 3 to 8 percent for equity REITs, up to 14 percent for mortgage REITs. Option premiums from covered call strategies, adding 2 to 5 percent. Preferred stock, yielding 4 to 7 percent. And MLPs from energy infrastructure, yielding 5 to 10 percent.
-
-**Stella:** Wow, that is a lot of options. I imagine they are not all created equal?
-
-**Horace:** Not at all. And this brings us to the single most important concept in income investing -- the distinction between yield and total return.
-
-**Stella:** What is the difference?
-
-**Horace:** Yield is just the income divided by the price. Total return is income plus price change. Here is why this matters.
-
-**[ANIMATION: Reference animation/week36_income_sources.py -- Animated comparison of two portfolio paths over 20 years. Portfolio A starts with a 5% yield and 2% growth (total return 7%). Portfolio B starts with a 2% yield and 6% growth (total return 8%). The animation shows year-by-year income and portfolio value. By year 13, Portfolio B's annual income exceeds Portfolio A's. By year 20, Portfolio B generates nearly double the income and the portfolio value is significantly larger.]**
-
-**Horace:** Imagine two portfolios. Portfolio A yields 5% with 2% growth -- a total return of 7%. Portfolio B yields 2% with 6% growth -- a total return of 8%. In year one, Portfolio A generates more income. But by around year 13, Portfolio B's income catches up and surpasses it. By year 20, Portfolio B is generating nearly double the income, and the portfolio itself is worth far more.
-
-**Stella:** So chasing the highest yield can actually leave you with less income over time?
-
-**Horace:** Exactly. This is the power of dividend growth investing. A company with a moderate yield but strong and growing dividends will produce more income over time than a high-yielding company with no growth.
-
-**Stella:** But what if I need the income right now? I cannot wait 13 years.
-
-**Horace:** Good point. That is where the total return approach comes in. You can build a portfolio optimized for total return and then create your own income through systematic withdrawals -- selling small amounts periodically. As long as your withdrawal rate is sustainable, you get the income you need while preserving more capital for the future.
-
-**[VISUAL: Side-by-side comparison -- "Yield-focused" portfolio ($50K income, $1.19M after 10 years) vs. "Total return" portfolio ($50K income through partial withdrawals, $1.34M after 10 years)]**
-
-**Stella:** That makes sense. But it leads to the big question -- how much can you withdraw sustainably?
-
-**Horace:** This is one of the most studied questions in personal finance. The famous "4% rule" comes from research by William Bengen in 1994.
-
-**Stella:** The 4% rule -- I have heard of this but never fully understood it.
-
-**Horace:** It says that if you withdraw 4% of your portfolio in year one, then adjust that dollar amount for inflation each year, your portfolio should survive at least 30 years based on historical US market returns with a 50-50 stock-bond mix.
-
-**[VISUAL: Visual timeline showing how the 4% rule works -- $1M portfolio, year 1 withdrawal of $40K, year 2 adjusted for 3% inflation to $41.2K, continuing for 30 years]**
-
-**Horace:** But here is the important caveat -- this was based on the best-performing stock market in human history: the US from 1926 to 1992. It also does not account for high fees, taxes, or behavioral mistakes like panic selling.
-
-**Stella:** So should I use 4% or something different?
-
-**Horace:** Many planners now recommend 3 to 3.5% for early retirees with 40-plus year horizons. For shorter horizons, 4 to 4.5% may be fine. The right number depends on your time horizon, flexibility, other income sources, and risk tolerance.
-
-**Stella:** What about more dynamic approaches?
-
-**Horace:** There are several. The guardrails approach starts at a higher withdrawal rate, maybe 5%, but requires you to cut spending if the portfolio drops significantly and allows you to increase spending if it rises significantly. The bucket strategy divides your portfolio into three buckets.
-
-**[VISUAL: Three-bucket diagram -- Bucket 1 (Years 1-3): Cash and short-term bonds for immediate income. Bucket 2 (Years 4-10): Intermediate bonds and dividend stocks. Bucket 3 (Years 11+): Growth stocks for long-term refilling.]**
-
-**Horace:** Bucket 1 holds 2 to 3 years of expenses in cash and short-term bonds. This is your immediate spending money, protected from market volatility. Bucket 2 holds intermediate-term investments that will refill Bucket 1 in a few years. Bucket 3 holds growth investments that refill Bucket 2 over the longer term.
-
-**Stella:** I like that psychologically. Even if the stock market crashes, I know my next three years of spending are safe in cash.
-
-**Horace:** Exactly. It prevents the panic selling that destroys so many retirement portfolios.
-
-**Stella:** OK, let us talk about the actual yield trap. How do I avoid it?
-
-**Horace:** The yield trap is one of the most dangerous pitfalls in income investing. It works like this: a company's business deteriorates, the stock price falls, and the mathematical yield goes up because you are dividing the same dividend by a lower price. Investors see the high yield and buy, thinking they are getting a great deal. Then the dividend gets cut, the stock falls further, and they are left with both lower income and a capital loss.
-
-**[VISUAL: Yield trap example -- Stock drops from $50 to $25, yield "doubles" from 6% to 12%, then dividend is cut 50%, actual yield returns to 6% but investor has lost 50% of capital]**
-
-**Stella:** How do I tell the difference between a genuinely high-yielding stock and a yield trap?
-
-**Horace:** Several warning signs. The payout ratio -- dividends divided by earnings -- should be below 60% for most companies. If it is above 80%, the company is paying out almost everything it earns, leaving no margin for error. Check if earnings and cash flow are growing or declining. Look at the debt level -- if the company is borrowing to fund its dividend, that is a red flag. And compare the yield to sector peers. If one utility yields 3.5% and another yields 8%, there is a reason the market is pricing that higher risk into the second one.
-
-**Stella:** What about dividends versus bond interest from a tax perspective?
-
-**Horace:** This is huge and often overlooked. Qualified dividends from US stocks are taxed at 0, 15, or 20 percent depending on your income bracket. Bond interest is taxed as ordinary income at your marginal tax rate, which could be as high as 37%. Municipal bond interest is usually completely tax-free at the federal level and often at the state level too.
-
-**[VISUAL: Tax comparison chart showing after-tax income on $10,000 of each type: qualified dividends, bond interest, muni bond interest, and REIT distributions, for an investor in the 32% tax bracket]**
-
-**Horace:** This means a 3.5% municipal bond might actually deliver more after-tax income than a 5.5% corporate bond for someone in a high tax bracket. The tax-equivalent yield formula makes this comparison precise.
-
-**Stella:** How does it work?
-
-**Horace:** Tax-equivalent yield equals the muni yield divided by one minus your tax rate. So if you are in the 37% bracket, a 3.5% muni has a tax-equivalent yield of 3.5 divided by 0.63, which is 5.56%. You would need a taxable bond yielding more than 5.56% to beat that muni after taxes.
-
-**Stella:** That is a big difference. What about account placement -- which assets go in which account?
-
-**Horace:** Great question. Put tax-inefficient income -- bond interest, REIT distributions, and non-qualified dividends -- inside tax-advantaged accounts like IRAs and 401ks, where the tax is deferred or eliminated. Put tax-efficient income -- qualified dividends and municipal bonds -- in your taxable brokerage account. And put your highest-growth assets in Roth accounts, where all gains and income are tax-free.
-
-**[VISUAL: Three-column layout showing Taxable Account, Traditional IRA/401k, and Roth IRA, with optimal asset types listed under each]**
-
-**Stella:** That is smart. You are essentially placing each asset where it receives the most favorable tax treatment.
-
-**Horace:** Exactly. This asset location strategy can add 0.5 to 1.0 percent to your after-tax returns annually. Over a 30-year retirement, that adds up to hundreds of thousands of dollars.
-
-**Stella:** Let us look at some concrete portfolio examples. What does a conservative income portfolio look like?
-
-**Horace:** For a conservative investor -- someone prioritizing stability and reliable income above all else -- I would suggest something like this.
-
-**[ANIMATION: Reference animation/week36_income_sources.py -- Animated pie chart assembling a conservative income portfolio piece by piece: 35% short/intermediate Treasuries, 20% IG corporate bonds, 15% municipal bonds, 15% Dividend Aristocrat stocks, 10% TIPS, 5% cash. As each slice appears, its yield and characteristics are displayed. The total weighted yield calculates to approximately 3.7%.]**
-
-**Horace:** Thirty-five percent in Treasury bonds for safety. Twenty percent in investment-grade corporate bonds for a yield pickup. Fifteen percent in municipal bonds for tax-free income. Fifteen percent in Dividend Aristocrat stocks for income growth. Ten percent in TIPS for inflation protection. And 5% in cash as a buffer.
-
-**Stella:** What is the total yield?
-
-**Horace:** About 3.7%, or $37,000 per year on a million-dollar portfolio. The growth potential is modest -- maybe 1 to 3 percent per year -- but the income is reliable and the portfolio should hold up well in recessions.
-
-**Stella:** And for someone willing to take more risk for more income?
-
-**Horace:** A balanced income portfolio might look like this: 25% Dividend Aristocrats, 20% investment-grade bonds, 15% high-yield bonds, 10% REITs, 10% international dividend stocks, 10% Treasuries and TIPS, 5% preferred stock, 5% cash. That gets you to about a 4.1% yield with better growth potential.
-
-**[VISUAL: Pie chart of balanced income portfolio with yield and growth characteristics]**
-
-**Horace:** For maximum income seekers, you can push yields to 6% or higher by adding mortgage REITs, covered call ETFs, MLPs, and more high-yield bonds. But I want to be very clear about the risks.
-
-**Stella:** What are the risks?
-
-**Horace:** Higher-yield portfolios are much more vulnerable to economic downturns. Mortgage REITs can cut dividends 30 to 50 percent in volatile rate environments. High-yield bonds can default. Covered call strategies underperform in strong bull markets. And most importantly, very little growth means inflation eats your purchasing power over time. A portfolio yielding 6% today might still yield 6% in twenty years, but that 6% buys a lot less after two decades of inflation.
-
-**Stella:** So the sweet spot is probably in the middle?
-
-**Horace:** For most investors, yes. A balanced approach with moderate yield, some growth, and good diversification across income sources is the most sustainable path. The exact mix depends on your specific circumstances -- age, other income sources, risk tolerance, tax situation, and spending needs.
-
-**Stella:** What happens during a recession? How resilient are these income streams?
-
-**Horace:** Let me walk through each source during a typical recession. Dividends: some companies cut, but Dividend Aristocrats rarely do. Historically, about 5 to 10% of S&P 500 companies cut dividends during a recession. Bond coupons: investment-grade bonds continue paying; high-yield defaults spike to 5 to 8%. REIT distributions: some reduce distributions, especially office and retail. Option premiums: actually increase during recessions because volatility rises.
-
-**[VISUAL: Stress test results showing a balanced income portfolio's income during a typical recession -- income drops approximately 10-15% but remains substantial]**
-
-**Horace:** A well-diversified income portfolio might see its income drop 10 to 15 percent during a recession. That is manageable if you have a cash buffer covering 6 to 12 months of expenses. The worst outcome is being forced to sell investments at depressed prices to cover spending -- the cash buffer prevents that.
-
-**Stella:** Should I factor in Social Security?
-
-**Horace:** Absolutely. Social Security is essentially a high-quality, inflation-indexed bond that pays for life. For many retirees, it covers 30 to 50% of expenses. Your investment portfolio only needs to fill the gap. This means you may be able to take less risk than you think or target a lower portfolio yield.
-
-**[VISUAL: Income waterfall chart -- Social Security covers the base, pension (if any) covers more, and the investment portfolio covers the remainder. The "gap" the portfolio must fill is highlighted.]**
-
-**Horace:** One more thing: delaying Social Security from 62 to 70 increases your annual benefit by roughly 77 percent. That is an 8% per year guaranteed, inflation-adjusted return. For most people in good health, delaying is one of the single best financial decisions you can make. Draw from your portfolio to bridge the gap, and let Social Security grow.
-
-**Stella:** That is a great point. So to summarize today's lesson: income can come from dividends, bonds, REITs, options, and other sources. Total return often matters more than yield. The 4% rule is a guideline, not a guarantee. Tax efficiency is huge -- put the right assets in the right accounts. Diversify across income sources. And keep a cash buffer to avoid forced selling during downturns.
-
-**Horace:** Perfect summary. And I would add: start building your income skills before you need the income. Buy dividend growth stocks in your 40s and 50s so they are generating meaningful income by the time you retire. The compounding of dividend growth is a powerful force that rewards patience.
-
-**Stella:** Thank you, Horace. This four-week block -- credit analysis, rate sensitivity, financial statement analysis, and income portfolio construction -- really ties together beautifully. Each lesson builds on the others.
-
-**Horace:** That was intentional. You cannot build a good income portfolio without understanding credit quality, interest rate sensitivity, and earnings quality. These are all connected. Investing is not about isolated skills -- it is about integrating knowledge across disciplines.
-
-**Stella:** Absolutely. Thanks everyone for watching. We will be back next week with more investment education.
-
-**Horace:** See you then.
-
-**[VISUAL: End card with key takeaways:
-1. Diversify income sources: dividends, bonds, REITs, options, preferred stock
-2. Yield vs. total return: higher yield does not always mean more wealth
-3. Sustainable withdrawal rates: 3.5-4% for most retirees, adjust dynamically
-4. Tax efficiency: place high-tax income in tax-advantaged accounts
-5. Avoid yield traps: high yield from a falling price is a warning, not an opportunity
-6. Keep 6-12 months of expenses in cash as a buffer against market downturns
-7. Dividend growth investing often beats high-yield investing over 10+ year horizons]**
+## Part 2: YouTube Script
 
 ---
 
-*End of Week 36*
+**VIDEO TITLE:** Building an Income Portfolio That Actually Pays You — the L3 Capstone (Week 36)
+
+**RUNTIME TARGET:** ~18 minutes
+
+**HOSTS:** Horace, Stella
+
+---
+
+### INTRO
+
+**[VISUAL: title card "Week 36 — Building an Income Portfolio"]**
+
+**Stella:** Horace, this is the capstone of the income block. Weeks
+4 and 5 we did 60/40 and bonds. Weeks 26, 27, 28 we did options as
+limit orders. Now we put it all together. What's the one sentence?
+
+**Horace:** Pre-tax yield is what gets advertised. After-tax yield is
+what gets *spent*. And the gap is bigger than almost anyone realises.
+
+**Stella:** And we're doing this in April 2026, with the yield
+environment that finally makes the math work again.
+
+**Horace:** Right. Two-year Treasury 3.9, ten-year 4.2, IG corporate
+5, high-yield 7.5, S&P 500 dividend 1.4, SCHD 3.6, JEPI 7.8. That
+menu has been *unobtainable* for almost a decade. We're not going
+back to ZIRP for a while. So this is the lesson where we stop
+optimising for terminal wealth and start optimising for cash that
+lands in the chequing account on schedule.
+
+**Stella:** Walk me through the four real income sources first, and
+then we'll do the after-tax conversion that flips the menu upside
+down.
+
+---
+
+### PART 1 — THE FOUR INCOME SOURCES
+
+**[VISUAL: image/week36_yield_hierarchy.png]**
+
+**Horace:** Strip every product wrapper off and there are exactly
+four ways a US portfolio produces cash. Treasury coupons. Corporate
+coupons — investment grade or high yield, the credit-risk ladder.
+Qualified dividends from common stock. And option premium. That's
+the menu. Everything else is packaging.
+
+**Stella:** REITs?
+
+**Horace:** REITs are a hybrid. Most of the distribution is non-
+qualified ordinary income because it comes from rent, but a piece is
+genuine qualified dividend from any stock the REIT operates as a
+holding. The IRS gives them a 20% Section 199A discount on the
+ordinary slice, which is why they sit between corporate coupons and
+qualified dividends on the after-tax chart.
+
+**Stella:** And the chart on screen — that's the pre-tax menu.
+
+**Horace:** Yeah. Look at the bars. JEPI at 7.8 looks like the
+champion. HYG at 7.5 looks great. SCHD at 3.6 looks middling. The
+S&P 500 dividend yield at 1.4 looks irrelevant.
+
+**Stella:** Now do tax.
+
+---
+
+### PART 2 — THE AFTER-TAX FLIP
+
+**[VISUAL: image/week36_tax_adjusted.png]**
+
+**Horace:** This is the same chart, after a 32% federal bracket plus
+5% state. Treasuries lose 32% of their yield because they're
+state-exempt. Corporate bonds lose 37% because they're not. Qualified
+dividends — SCHD, VYM, S&P 500 — only lose 20% because they get the
+LTCG rate. REITs lose around 30% after the 199A discount.
+Option-premium funds — JEPI, QYLD, SPYI — lose the full 37% because
+short-term option premium is short-term capital gain.
+
+**Stella:** So JEPI 7.8 becomes...
+
+**Horace:** 4.9%.
+
+**Stella:** And SCHD 3.6 becomes...
+
+**Horace:** 2.9%. The gap was 4.2% pre-tax. After-tax, in a taxable
+account, the gap is 2.0%. You just paid the IRS 2.2 cents per dollar
+of yield to *create* the apparent advantage.
+
+**Stella:** And we haven't even gotten to JEPI lagging the S&P 500
+by 300 to 500 bps a year on total return.
+
+**Horace:** Right. That's a Week 27 conversation — the cap-on-upside
+problem. After-tax yield *plus* total-return drag, and the JEPI
+advantage in a taxable account is actually negative.
+
+**Stella:** What's the operational rule that drops out?
+
+**Horace:** Account location. SOUL principle 15. Qualified-dividend
+equity goes in the taxable account because the LTCG rate is the
+whole point. Option-premium and high-yield-corporate sleeves go in
+the IRA, where the IRS bite gets deferred or eliminated. Treasuries
+go in the taxable account if you live in a high-state-tax state.
+REITs go in the IRA at a high bracket. This isn't about *picking*
+better funds. It's about *placing* them.
+
+---
+
+### PART 3 — THE PRODUCT MENU
+
+**Horace:** Quick tour through the canonical product menu. You can
+build the entire thing with eight tickers.
+
+**Stella:** Dividend equity sleeve.
+
+**Horace:** SCHD is the default. Schwab US Dividend Equity. About 100
+holdings, 10-year dividend-growth screen, 6 bps expense ratio, 3.6%
+yield. VYM is the breadth alternative — 440 holdings, market-cap
+weighted, 2.9% yield. DVY is value-heavier. SPYI is a hybrid that
+adds an option-premium overlay; I'd treat it as part dividend equity
+and part premium-write — and the premium-write piece inherits the
+premium-write tax problem.
+
+**Stella:** Fixed income.
+
+**Horace:** BND for the core bond — Treasuries plus IG corporates
+plus agency MBS. VTEB for the muni equivalent in a taxable account.
+PFF for preferreds, but cap that at five to ten percent of the bond
+sleeve because preferreds are mostly bank credit risk in a bond
+wrapper. TLT and IEF for pure-duration tools.
+
+**Stella:** Real assets.
+
+**Horace:** VNQ for REITs. SCHH is the cheaper alternative. That's
+your inflation-pass-through sleeve.
+
+**Stella:** Premium-write.
+
+**Horace:** JEPI is the giant. Eighty percent low-vol equity, twenty
+percent equity-linked notes synthesising call-write premium. ER 35
+bps. JEPQ is the Nasdaq cousin. QYLD, XYLD, RYLD are the passive
+buy-writes from Week 27. PUTW is the Week-28 put-write equivalent.
+
+---
+
+### PART 4 — THE 4% RULE IN APRIL 2026
+
+**Horace:** Stella, you remember the 4% rule.
+
+**Stella:** Bengen 1994, Trinity 1998. Retire with a 60/40, withdraw
+4% of the *initial* balance, inflation-adjust the dollar amount, hold
+for thirty years, success rate 95%-plus.
+
+**Horace:** Three things have changed. One — that rule was calibrated
+on US data 1926-1995, and the typical 30-year window started with
+bond yields north of 5%. The 2010-2021 zero-rate regime crushed it.
+Pfau and others ran the numbers; the safe withdrawal rate dropped to
+about 2.8% for retirements *starting* in that window.
+
+**Stella:** And now?
+
+**Horace:** The 2022-2024 yield reset has lifted it back to about
+3.5-3.8%. April 2026 is the first time since 2008 that the math
+works *near* the original number. It's still not 4 — it's 3.7 if
+you're rigid about inflation-adjusting the dollar amount.
+
+**Stella:** Two?
+
+**Horace:** Sequence of returns. Same numerical sequence, same asset
+mix, but reversed in time — totally different lived experience. The
+1973 retiree ran out in year 22. The 1995 retiree finished with ten
+times the starting balance.
+
+**Stella:** Three?
+
+**Horace:** Variable spending dominates fixed spending. Guyton-
+Klinger guard rails, percent-of-current-balance withdrawal, Vanguard
+dynamic spending — they all add 50 to 100 bps to the safe withdrawal
+rate, with essentially zero behavioural cost. For a retiree willing
+to cut 10-15% in bad years, the 4.5% number is achievable.
+
+---
+
+### PART 5 — THE INTERACTIVE: BUILD-YOUR-OWN
+
+**[VISUAL: interactive/week36_income_builder.html]**
+
+**Stella:** Walk me through the builder.
+
+**Horace:** Five sliders, one per sleeve. Treasuries, IG corporate
+bonds, qualified dividends, REITs, premium-write. They sum to 100.
+There's a tax-bracket toggle — 12, 22, 32, 37. The four numbers up
+top are pre-tax yield, after-tax yield, expected volatility, and
+expected max drawdown.
+
+**Stella:** Let's load Model A — the taxable-account portfolio.
+
+**Horace:** Treasuries 20, IG corporate 25 — call that the bond
+sleeve including the muni proxy — qualified dividends 45, REITs 10,
+premium-write 0. At the 32% bracket the after-tax yield is about
+3.0%. Vol around 9%. Drawdown estimate 22%. That's a bond-like-vol
+portfolio with three percent of spendable yield, and you supplement
+to 4-4.5% with a variable-spending rule.
+
+**Stella:** Now Model B — the IRA portfolio.
+
+**Horace:** Treasuries 10, IG 25, qualified dividends 30, REITs 10,
+premium-write 25. The bracket toggle is irrelevant inside an IRA so
+your after-tax equals your pre-tax — about 5.1%. Vol 10%. Drawdown
+25%. The IRA portfolio runs richer because the punitive-tax sleeves
+no longer have the punishment.
+
+**Stella:** What happens at the 12% bracket?
+
+**Horace:** Move the bracket toggle. The whole right side of the
+chart flattens — the after-tax yields rise. Qualified dividends are
+zero-percent-taxed federally in the 12% bracket! At 12% federal plus
+5% state, qualified-dividend equity is a 5% effective rate. That is
+the cheapest income you can buy.
+
+**Stella:** Anchor it back to SOUL.
+
+**Horace:** The four-tranche framework — principle 13 — translates
+directly. Cash sleeve is one to two years of spending, your no-sell
+zone. Bonds are five to seven years of spending, refilled from
+equity in good years. Equity is the wealth machine. The optional
+fourth sleeve is your premium-write or concentrated income overlay.
+And the barbell — principle 14 — is the cross-section. Short-duration
+safe income on one end, long-duration real assets on the other. The
+middle is the *least* useful sleeve in distribution, exactly opposite
+to what most target-date funds offer.
+
+---
+
+### OUTRO
+
+**Stella:** Three takeaways.
+
+**Horace:** One. Pre-tax yield is marketing. After-tax yield is what
+gets spent. Convert before you decide. Two. Account location — which
+sleeve goes in which account — is worth more than picking better
+tickers. SOUL principle 15 again. Three. The 4% rule works again as
+of 2026, but only with variable spending; if you need rigid
+inflation-adjusted spending, plan for 3.5-3.8%, not 4%.
+
+**Stella:** Next week — Week 37 — we'll cover the dynamic-withdrawal
+mechanics in detail: Guyton-Klinger guard rails, the 4-percent-of-
+current-balance rule, and how to implement them at a real broker.
+
+**Horace:** And after that, the L3 block wraps and we're into the
+final stretch.
+
+**[END]**

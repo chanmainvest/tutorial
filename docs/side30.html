@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Side Lesson 30: The Wheel Strategy - Chanma Investment Tutorial</title>
+    <title>Side Lesson 30: The Wheel — One Cycle, Three Premiums, Two Tranches - Chanma Investment Tutorial</title>
     <script>(function(){try{var t=localStorage.getItem('preferred-theme');if(!t){t=window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();</script>
     <style>
 :root, html[data-theme="light"] {
@@ -1247,277 +1247,230 @@ html[data-theme="dark"] .nav-btn:hover .btn-label { color: rgba(15,23,36,0.7); }
     <main class="main-wrap">
         <div class="content-area">
             <div id="content-en" class="lang-content active">
-                <h1>Side Lesson 30: The Wheel Strategy</h1>
+                <h1>Side Lesson 30: The Wheel — One Cycle, Three Premiums, Two Tranches</h1>
 <hr>
-<h3>Introduction</h3>
+<h3>1. Why This Is Important</h3>
 <p>
-The Wheel Strategy is one of the most popular options-based income strategies among individual investors. It combines two strategies you may already know, selling cash-secured puts and selling covered calls, into a repeating cycle that generates premium income while systematically buying stocks at prices you choose and selling them at prices you target. The concept is elegantly simple: sell a put on a stock you want to own. If assigned, sell a covered call on the stock you now hold. If the call is exercised, sell another put. Repeat. The "wheel" keeps turning, collecting premium at each step. While it sounds like a money-printing machine, understanding the real risks, realistic returns, and proper execution is critical for success.
+The wheel is the only options strategy in this course where every leg is something you have already learned. Sell a cash-secured put on a stock you would like to own (Week 28). If assigned, sell a covered call against the shares you now hold (Week 27). When the call gets assigned and the shares get called away, sell another CSP. Loop. The mechanics are mechanical. The hard parts are stock selection, sizing, and tax wrapper, and those are the parts retail gets wrong.
+</p>
+<p>
+Because this is the final side lesson — the closing bracket on the entire 52-week + 30-side sequence — we are going to be very honest about what the wheel actually delivers. The short version: 1.0-1.5% per month on capital deployed, when run correctly on a high-quality underlying, with a Sharpe materially better than buy-and-hold but a total return materially worse. It is not a way to beat the index. It is a way to extract the variance risk premium (Week 49) on a sleeve of capital you were going to keep in stocks anyway, while simultaneously <em>imposing</em> a buy-low / sell-high rhythm on yourself. Horace's whole pitch in SOUL #15 is that options + IRAs is one of the cleanest legal alpha sources retail has access to. The wheel is the practical expression of that pitch.
+</p>
+<p>
+Four reasons this lesson closes the loop:
+</p>
+<p>
+<strong>1. It compresses Weeks 25-30 into one mechanical procedure.</strong> Every concept from the options block lives inside the wheel: strike-by-delta (W27), DTE selection (W28), Greeks management (W29), defending vs rolling (W30). If you can run a 30-delta wheel on AAPL for a year and explain every decision, you have functionally mastered retail options.
+</p>
+<p>
+<strong>2. It is the cleanest place to harvest the variance risk premium.</strong> Week 49 showed the VRP is structurally 3-4 vol points wide and persistent across 40 years of data. Retail cannot easily short variance directly — the instruments (VIX futures, var swaps, dispersion) are wrong-shape or wrong-size. CSPs and CCs <em>are</em> the retail-shape variance trade. The wheel just runs them on a loop on a stock you wanted anyway.
+</p>
+<p>
+<strong>3. The capital-efficient variant — the PMCC wheel — is hidden inside Week 38.</strong> Replacing the 100 shares with a deep-ITM LEAPS gives you the same exposure for ~1/3 the capital. The freed cash earns T-bills (~4%/yr in 2026). For accounts under $50k where SPY's full-share cost basis is prohibitive, this is the only realistic way to run the strategy.
+</p>
+<p>
+<strong>4. The IRA framing closes SOUL #15 for retail.</strong> Premium income is short-term capital gain — taxed as ordinary income — every single time. In a 32%+ federal bracket this destroys ~30-35% of the realized yield. In a Roth IRA the entire premium stream compounds tax-free. The wheel is one of the few strategies where the <em>wrapper</em> matters more than the <em>trade</em>. Run it in IRA, not taxable.
+</p>
+<p>
+By the end of this lesson you should be able to: pick a wheel candidate from a five-name list, choose a 30-delta strike at 30 DTE, compute the expected monthly premium and worst-case drawdown to within ±20%, and explain why the same setup in a taxable account is materially worse than the same setup in a Roth. If you can do those four things, you are done with this course.
 </p>
 <hr>
-<h3>A) Why Important</h3>
+<h3>2. What You Need to Know</h3>
+<h4>2.1 The Cycle in One Diagram</h4>
 <p>
-<strong>Income generation.</strong> The Wheel Strategy generates regular premium income from options sales. In a low-yield environment, this provides a meaningful alternative source of cash flow. Many wheel practitioners generate annualized yields of 10-20% on their capital, though this comes with equity risk that must be understood.
+The wheel has three states and two transitions. You are always in exactly one of:
 </p>
-<p>
-<strong>Disciplined buying and selling.</strong> The strategy imposes discipline on two of the hardest decisions in investing: when to buy and when to sell. By selecting strike prices in advance, you commit to buying at a price you consider attractive and selling at a price you consider fair. This removes emotional decision-making from the process.
-</p>
-<p>
-<strong>Stock acquisition at a discount.</strong> When you sell a put and the stock declines to your strike price, you are assigned the stock at the strike price minus the premium received. This effectively creates a purchase price below where the stock was trading when you sold the put. You get paid to wait for a price you wanted.
-</p>
-<p>
-<strong>Capital efficiency.</strong> The strategy keeps your capital working at all times. When you are not holding the stock, your cash is earning put premium. When you are holding the stock, your shares are earning call premium. There is no idle period.
-</p>
-<p>
-<strong>Skill development.</strong> The Wheel teaches fundamental options concepts, including time decay, implied volatility, assignment mechanics, and risk management, in a practical, repeatable framework. It is an excellent bridge from basic options knowledge to more sophisticated strategies.
-</p>
-<p>
-<strong>Flexibility.</strong> The strategy adapts to different market environments. In sideways markets, you collect premium without assignment. In declining markets, you acquire stocks at discount prices. In rising markets, you profit from stock appreciation plus call premium. Each phase of the wheel has its own characteristics.
-</p>
-<hr>
-<h3>B) What You Need to Know</h3>
-<h4>The Complete Wheel Cycle</h4>
-<p>
-The Wheel Strategy consists of three distinct phases that repeat continuously.
-</p>
-<p>
-<strong>Phase 1: Sell a Cash-Secured Put</strong>
-</p>
-<p>
-You sell a put option on a stock you would be happy to own at the strike price. The put is "cash-secured" because you hold enough cash in your account to purchase the stock if assigned (100 shares per contract at the strike price).
-</p>
-<p>
-For example, Stock XYZ trades at $50. You sell a $47.50 put expiring in 30 days and receive $1.20 in premium ($120 per contract). You must hold $4,750 in cash as collateral. Two outcomes are possible:
-</p>
-<p>
-Outcome A: The stock stays above $47.50 at expiration. The put expires worthless. You keep the $120 premium. Your annualized return on the $4,750 in collateral is approximately 30%. Return to Phase 1 and sell another put.
-</p>
-<p>
-Outcome B: The stock falls below $47.50 at expiration. You are assigned 100 shares at $47.50. Your effective cost basis is $47.50 minus $1.20 premium = $46.30. Move to Phase 2.
-</p>
-<p>
-<strong>Phase 2: Hold the Stock (Transition)</strong>
-</p>
-<p>
-You now own 100 shares with a cost basis of $46.30. The stock might be trading at $45, $47, or any price. This is a brief transition phase where you assess the situation and prepare to sell a covered call.
-</p>
-<p>
-Some practitioners sell the covered call immediately upon assignment. Others wait for a bounce in the stock price to sell calls at a higher strike. The right approach depends on your outlook and the available premiums.
-</p>
-<p>
-<strong>Phase 3: Sell a Covered Call</strong>
-</p>
-<p>
-You sell a call option against your 100 shares, choosing a strike price at or above your cost basis. This is critical: selling a call below your cost basis locks in a loss if the stock is called away.
-</p>
-<p>
-Continuing the example, you own 100 shares with a $46.30 cost basis. The stock is trading at $47. You sell a $50 call expiring in 30 days and receive $0.80 in premium ($80 per contract). Two outcomes are possible:
-</p>
-<p>
-Outcome A: The stock stays below $50 at expiration. The call expires worthless. You keep the $80 premium. Your cost basis effectively drops to $46.30 minus $0.80 = $45.50. Return to Phase 3 and sell another call.
-</p>
-<p>
-Outcome B: The stock rises above $50 at expiration. Your shares are called away at $50. You receive $5,000 for the shares. Your total profit is: $5,000 minus $4,630 (cost basis) plus $80 (call premium) = $450. Return to Phase 1 and sell another put.
-</p>
-<p>
-The cycle then repeats indefinitely.
-</p>
-<h4>Selecting the Right Stocks</h4>
-<p>
-Stock selection is the most important factor in the Wheel Strategy's success. A wheel on a bad stock will lose money regardless of how well you manage the options.
-</p>
-<p>
-<strong>Quality first.</strong> Choose stocks you would happily own for months or years. The strategy occasionally requires holding through significant drawdowns. If you would not buy and hold the stock at your put strike price, do not sell puts on it.
-</p>
-<p>
-<strong>Sufficient liquidity.</strong> The stock should have high options volume and tight bid-ask spreads. Minimum criteria: average daily stock volume above 1 million shares, options open interest above 500 contracts per strike, and bid-ask spreads on options no wider than $0.10-$0.15.
-</p>
-<p>
-<strong>Price range.</strong> Stocks in the $20-$100 range are ideal for most individual investors. Below $20, the premiums are too small to be meaningful. Above $100, each contract requires significant capital ($10,000+ in collateral per put contract). Stocks priced at $50 require $5,000 per contract, which is manageable for most portfolios.
-</p>
-<p>
-<strong>Moderate implied volatility.</strong> Higher implied volatility means fatter premiums but also more risk of large price moves. Sweet spot is implied volatility in the 25-45% range. Below 25%, premiums are too thin. Above 45%, the stock is too volatile and assignment at bad prices becomes likely.
-</p>
-<p>
-<strong>Avoid earnings and binary events.</strong> Do not sell puts or calls that span earnings announcements unless you are specifically seeking the elevated premium and accept the risk. Stock prices can gap 10-20% after earnings, potentially resulting in assignment far from your target price. Similarly, avoid biotech stocks awaiting FDA decisions, companies in merger negotiations, or any situation where a binary outcome could cause extreme price movement.
-</p>
-<p>
-<strong>Favorable sectors.</strong> Technology, consumer staples, financials, and healthcare tend to offer good wheel candidates. Highly cyclical sectors like energy and materials can work but require more careful timing. Avoid meme stocks, SPACs, and recent IPOs, as their volatility patterns are unpredictable.
-</p>
-<h4>Strike Selection and Expiration</h4>
-<p>
-<strong>Put strike selection.</strong> Most wheel practitioners sell puts at strikes 5-10% below the current stock price (out of the money). This provides a buffer against small declines. The trade-off: lower strikes mean lower premiums but higher probability of the put expiring worthless (keeping premium without assignment).
-</p>
-<p>
-Delta is a useful guide. A put with a delta of -0.20 to -0.30 has roughly a 20-30% probability of being in the money at expiration. This is a common target range. Higher deltas (closer to the money) generate more premium but increase assignment probability.
-</p>
-<p>
-<strong>Call strike selection.</strong> Sell calls at or above your cost basis. Choosing a strike above cost basis ensures a profit on the stock if called away. Common approach: sell calls with a delta of 0.25-0.35, giving the stock room to appreciate while still collecting meaningful premium.
-</p>
-<p>
-<strong>Expiration selection.</strong> Most wheel practitioners favor 30-45 day expirations (one options cycle). This timeframe offers the best balance between premium received and time decay acceleration. Options lose value fastest in the final 30 days before expiration, so selling in this window maximizes the rate of time decay (theta) working in your favor.
-</p>
-<p>
-Weekly options (7-14 days to expiration) offer faster turnover and more frequent premium collection but require more management and have higher annualized transaction costs. Monthly options (30-45 days) are the most popular choice for balance and efficiency.
-</p>
-<p>
-Longer-dated options (60-90 days) collect more total premium per trade but at a lower daily rate of time decay. They also tie up capital longer and provide less flexibility to adjust.
-</p>
-<h4>Income Calculation and Realistic Returns</h4>
-<p>
-Understanding realistic returns prevents disappointment and poor risk management.
-</p>
-<p>
-<strong>Per-cycle calculation.</strong> On a $50 stock with $4,750 in collateral (selling a $47.50 put):
-</p>
-<ul><li>Premium received: $120 (assuming $1.20 per share)</li>
-<li>Time period: 30 days</li>
-<li>Return on capital: $120 / $4,750 = 2.5% per month</li>
-<li>Annualized: approximately 30% if every cycle goes perfectly</li>
+<ul><li><strong>State A — Cash + short put.</strong> You hold cash collateral equal to (strike × 100) and a single short put. Your job: collect theta, watch for assignment.</li>
+<li><strong>State B — Long shares + short call.</strong> Assignment happened. You now own 100 shares plus a short call written above your cost basis. Your job: collect more theta, watch for the call going in-the-money.</li>
+<li><strong>State C — Cash, momentarily.</strong> The call was assigned. Shares went away at strike. You have cash again. Sell a new put. Back to A.</li>
 <p>
 </ul>
-<strong>Reality check.</strong> Not every cycle goes perfectly. Some months you are assigned and hold the stock through a decline. Some months the stock drops sharply and you must wait weeks or months selling calls to recover. Some months volatility is low and premiums are thin. Realistic annualized returns for a well-executed wheel strategy on quality stocks are 10-20%, not 30%+.
+The transitions are:
+</p>
+<ul><li><strong>A → B: Put assignment.</strong> Stock closed below strike at expiry. You bought 100 shares at the strike. Effective cost basis = strike − put premium received.</li>
+<li><strong>B → A: Call assignment.</strong> Stock closed above strike at expiry. You sold 100 shares at the call strike. Total realized P/L for the cycle = (call strike − cost basis) × 100 + call premium.</li>
+<p>
+</ul>
+[VISUAL: image/side30_wheel_flow.png]
 </p>
 <p>
-<strong>The assignment drag.</strong> When assigned on a put, the stock may continue declining. If you sell a $47.50 put and the stock drops to $40, you own shares at $47.50 (minus premium) while the stock is at $40. You cannot sell a covered call above your cost basis without going far out in time. This assignment drag is the primary reason actual returns are lower than theoretical maximum returns.
+The image above lays out one full revolution on a hypothetical AAPL wheel with spot ≈ $215, 30-delta puts and calls, and 30-DTE expiries. Each transition is annotated with a typical premium magnitude. Most cycles in a calm market never reach state B at all: the put just expires worthless and you write another one. The wheel only actually "spins" two or three times a year on a normal-volatility name; the rest of the time you are just sitting in state A collecting put rent.
 </p>
 <p>
-<strong>Transaction costs.</strong> Options commissions, though lower than they used to be, still add up. At $0.65 per contract per leg, each complete wheel cycle costs $1.30. On a $120 premium, that is roughly 1% of revenue. Over 12 cycles per year, commissions reduce returns by approximately 0.5-1.0%.
+The crucial mental shift retail needs: state A is not "waiting." State A <em>is</em> the trade. State B is the punishment for being assigned at a strike the stock then blew through, and the goal of the strategy is to <em>minimize</em> time in state B by picking quality underlyings. The forum-meme version of the wheel — where assignment is celebrated as "free shares!" — has the framing exactly backwards.
+</p>
+<h4>2.2 Realistic Returns: 1-1.5% / Month, Not 30% / Year</h4>
+<p>
+The arithmetic that makes wheel YouTubers rich is: 30-delta puts pay ~2% premium per 30-day cycle. Repeat 12 times. That is 24% annualized. Sometimes more.
 </p>
 <p>
-<strong>Tax treatment.</strong> Options premium income is generally taxed as short-term capital gains regardless of how long you hold the option. This means premium income is taxed at your ordinary income rate, not the lower long-term capital gains rate. In a taxable account, this significantly reduces after-tax returns. Consider running the wheel in a tax-advantaged account (IRA) where feasible.
+The arithmetic that survives a real five-year run on a real underlying is different. On a calm AAPL/MSFT/SPY/QQQ wheel run on monthly 30-delta strikes:
 </p>
-<h4>Managing Assignments and Drawdowns</h4>
+<pre><code class="language-">Component                                        Per month     Per year
 <p>
-The biggest challenge of the Wheel Strategy is managing the stock-holding phase when the stock has declined significantly below your assignment price.
-</p>
-<p>
-<strong>Patience is essential.</strong> When assigned at $47.50 on a stock now trading at $40, do not panic sell. The whole premise of the strategy is that you selected a stock you are willing to hold. Continue selling covered calls to reduce your cost basis incrementally.
-</p>
-<p>
-<strong>Covered call premium math.</strong> If the stock is at $40 and your cost basis is $46.30, selling $42 calls for $0.50 each month reduces your cost basis by $0.50 per cycle. After four months, your cost basis drops to $44.30. After eight months, $42.30. Eventually, your cost basis may decline to the current stock price, and you can sell calls at or above your cost basis for a profit when called away.
-</p>
-<p>
-<strong>Rolling down.</strong> If the stock declines further after assignment, you may need to sell calls at lower strikes (but still above your adjusted cost basis). This generates less premium but continues the income stream while you wait for recovery.
+============================================     ==========    ==========
+Gross put premium (30-delta, ~2% OTM, 22% IV)    ~1.8-2.4%     ~22-29%
+Less: assignment-drag months (-3% to -8% nett)   ~3 months/yr   -3 to -8%
+Less: covered-call recovery drag (capped upside) ~1 month/yr    -1 to -2%
+Less: T-bill earned on collateral (positive!)    ~0.33%/mo     +4.0%
+Less: option commissions (~$1.30 / cycle)        small         ~-0.3%
+Less: bid-ask slippage (~5-10c per leg)          small         ~-0.5%
 </p>
 <p>
-<strong>The danger of selling calls below cost basis.</strong> Never sell a covered call with a strike below your cost basis unless you have decided to take a loss on the position. If the stock rallies and your shares are called away at a strike below your cost basis, you lock in a loss that cannot be recovered through the wheel.
+Net realized return on capital deployed                          12-18%
+Standard deviation of monthly returns                            ~9-11%
+Sharpe (vs 4% T-bill)                                            ~0.95-1.30
+Max drawdown over 5 years                                        -18 to -28%
+</code></pre>
 </p>
 <p>
-<strong>When to break the wheel.</strong> If the stock's fundamentals deteriorate (not just the price), it may be better to sell the stock at a loss and redeploy capital into a better wheel candidate. Holding a fundamentally broken stock while selling tiny covered call premiums is a recipe for slow destruction of capital. Apply the same fundamental analysis to your wheel positions that you would to any stock position.
+Compare to buy-and-hold AAPL over the same window: ~16-18%/yr return, ~24%/yr vol, max drawdown ~-30 to -34%, Sharpe ~0.6-0.7. The wheel does <em>less</em> total return (because the covered calls cap the right tail), at <em>meaningfully lower vol</em> (because the premium income smooths every month), with <em>similar drawdowns</em> (because the put assignment hurts you in any real correction).
 </p>
 <p>
-<strong>Position sizing.</strong> Never commit more than 5-10% of your portfolio to a single wheel position. If the stock declines 30-40%, the impact on your total portfolio should be manageable. Diversification across 5-10 wheel positions reduces single-stock risk.
-</p>
-<h4>Advanced Wheel Variations</h4>
-<p>
-<strong>The aggressive wheel.</strong> Sell at-the-money or slightly in-the-money puts for higher premium. This increases assignment probability but generates significantly more income per cycle. Suitable for strongly bullish conviction on the underlying stock.
+Said another way: the wheel does roughly <strong>half the total return of the underlying with about 60% of the vol</strong>. The Sharpe is better. The dollar wealth is worse. Picking the wheel over buy-and-hold is a deliberate trade of upside for smoothness — usually justified only when you are spending the income (retiree), or when the income lives in an IRA (so the smoothness compounds tax-free).
 </p>
 <p>
-<strong>The conservative wheel.</strong> Sell puts at 15-20% out of the money and calls at 10-15% out of the money. Lower premium per cycle but much lower assignment probability and more room for stock appreciation. Suitable for volatile markets or expensive stocks.
+[VISUAL: image/side30_wheel_pnl.png]
 </p>
 <p>
-<strong>The dividend wheel.</strong> Target dividend-paying stocks and time the wheel to collect dividends during the stock-holding phase. Sell puts shortly after ex-dividend dates (when the stock dips), get assigned, collect the next dividend, then sell calls.
+The chart shows wealth growth of $100k deployed in two strategies on AAPL from January 2020 through April 2026: the 30-delta monthly wheel versus simple buy-and-hold. The wheel ends meaningfully behind buy-and-hold in dollar terms but spends most of 2022 above it (premium income offset the drawdown), and the realized vol is materially lower throughout. This is the pattern. The wheel is for investors who care about the <em>path</em>, not the endpoint.
+</p>
+<h4>2.3 Three Real Risks (Not the YouTube Version)</h4>
+<p>
+The forum framing is "the only risk is the stock goes to zero." That is technically true and practically useless. The three risks that actually destroy wheel programs:
 </p>
 <p>
-<strong>The poor man's wheel.</strong> Instead of selling cash-secured puts, sell put spreads (sell a put and buy a lower-strike put as protection). This reduces the capital requirement but caps the potential loss and reduces premium collected. Suitable for smaller accounts.
+<strong>Risk 1: Gap-down on assignment.</strong> The stock closes Friday at $216, your $210 put expires worthless, you happily roll into a new $208 put for next month. Monday it gaps to $185 on bad earnings. Your <em>new</em> put is now $23 in the money with 28 DTE. You take assignment at $208 with the stock at $185 — an instant -$2,300 / contract paper loss. Premium income in an entire year on this contract was maybe $4,000. You just gave back six months of premium in a single overnight gap. This is the canonical wheel blowup. Defenses: avoid earnings inside the contract life (period.), prefer index ETFs over single names, use slightly further-OTM strikes (15-20Δ) on names with binary-event exposure.
 </p>
 <p>
-<strong>Multi-leg wheel.</strong> Sell puts at multiple strike prices simultaneously to ladder into positions. If assigned on the lower strike, sell calls at correspondingly lower prices. This averages into positions during declines rather than going all-in at one price.
-</p>
-<h4>Record Keeping and Performance Tracking</h4>
-<p>
-Disciplined record keeping is essential for evaluating whether the wheel is actually working for you.
+<strong>Risk 2: Cap-out on the recovery.</strong> You got assigned at $210, stock dropped to $195, you sell $210 covered calls at $1.20 each month to defend the cost basis. Three months later the stock has recovered to $235 — but your call gets assigned at $210 and you miss the entire $25 recovery. Net P/L: premium collected (~$3.60 / contract) minus the $25 missed upside = ~-$2,140 / contract. The wheel structurally caps the recovery from a drawdown, which is exactly when buy-and-hold investors make their money back. Defenses: roll the call up-and-out aggressively when the stock recovers (do not let it get assigned at your cost basis if the trend is your friend), or accept the cap as the cost of having had premium income during the drawdown. There is no clean answer.
 </p>
 <p>
-<strong>Track every trade.</strong> Record the date, underlying stock, option type (put or call), strike price, expiration date, premium received, and outcome (expired, assigned, closed early). This creates a complete history of your wheel activity.
+<strong>Risk 3: Tax inefficiency in taxable accounts.</strong> Every put that expires worthless: short-term capital gain. Every call that expires worthless: short-term capital gain. Every assignment-and-call-away cycle: a separate short-term realized gain on the share leg and a short-term gain on the option premium. There is no long-term holding-period exception, no qualified dividend, no §1256 60/40 (W39). If you run a 15%/yr wheel in a 35% bracket, you net 9.75%/yr after tax. The same wheel in a Roth IRA nets the full 15%. <strong>Run the wheel in IRA. Always.</strong> SOUL #15 is not a suggestion here; it is the difference between the strategy working and the strategy not working.
 </p>
 <p>
-<strong>Calculate true returns.</strong> Your actual annualized return should account for all periods, including the time spent holding stock after assignment when returns may be negative. Reporting only the winning put cycles and ignoring the losing stock-holding periods is self-deception.
+The honest summary: the wheel is a great IRA strategy and a mediocre taxable strategy.
+</p>
+<h4>2.4 Underlying Selection: The Goldilocks Vol Window</h4>
+<p>
+The wheel needs an underlying with enough implied volatility to pay decent premium but not so much that gap-down risk dominates. The sweet spot is roughly <strong>18-30% annualized IV</strong>.
+</p>
+<pre><code class="language-">IV regime         Premium   Gap risk    Verdict for wheeling
+<p>
+==============    =======   =========   ===========================
+&lt; 15% (KO, JNJ)   too thin  low         not worth the capital
+15-20% (SPY)      OK        low         ideal — index proof
+20-25% (AAPL/    decent     moderate    sweet spot for single names
+MSFT/QQQ)
+25-35% (NVDA,    fat        elevated    workable with strict 15-20Δ
+AMD, GOOGL)                             and earnings-avoidance
+35-50% (TSLA,    very fat   high        wheel candidates only with
+PLTR)                                    extreme position-size discipline
+&gt; 50% (meme,     huge       extreme     do not wheel. period.
+biotech)
+</code></pre>
 </p>
 <p>
-<strong>Compare to benchmarks.</strong> Compare your wheel returns to simply buying and holding the same stocks, and to a passive index fund. If the wheel is not outperforming buy-and-hold on the same stocks after accounting for time and effort, the additional complexity may not be justified.
+The four canonical retail wheel underlyings are <strong>AAPL, MSFT, SPY, QQQ</strong>. They are large-cap, deeply liquid, have penny-wide options strikes, run earnings only quarterly (avoidable), and sit in the 18-25% IV band. SPY in particular is the institutional choice — PUTW (Week 28) is exactly this trade run mechanically — because it has no idiosyncratic single-name risk at all.
 </p>
 <p>
-<strong>Track by stock.</strong> Some stocks consistently produce profitable wheel cycles while others consistently result in assignment and losses. Over time, your records reveal which stocks are good wheel candidates and which should be avoided. This data-driven approach to stock selection improves results significantly.
+A useful filter: if you would not happily own 100 shares of the underlying for the next 18 months at the strike price, do not sell the put. The wheel is structurally a <em>forced</em> accumulation strategy. The premium is the rebate for accepting that forcing function. If you do not want the shares, the rebate is not actually compensating you — it is paying you to take an exposure you didn't want.
+</p>
+<h4>2.5 The PMCC Wheel — Capital Efficiency, Real Math</h4>
+<p>
+The poor man's covered call (Week 38) replaces the 100 shares with a deep-ITM LEAPS. The PMCC <em>wheel</em> extends this idea: instead of cash-secured puts on the underlying, you run the cycle on the LEAPS itself. Mechanics:
+</p>
+<li>Buy a 12-month, 80-delta LEAPS on AAPL. Cost ≈ 30% of stock price.</li>
+<li>Sell 30-day calls against it just like a covered call. Pocket premium.</li>
+<li>If the short call gets assigned, the LEAPS provides the shares (you sell the LEAPS or close it).</li>
+<li>If the short call expires worthless, sell another one. Loop.</li>
+<p>
+The "put leg" of the wheel is conceptually replaced by the structure of the LEAPS itself: your downside is limited to the LEAPS premium paid. You do not need full cash-secured-put collateral.
+</p>
+<pre><code class="language-">Account: $50,000.   April 2026, AAPL @ $215.
+<p>
+Strategy           Capital used    Premium / month    Notes
+==============     ============    ===============    ============================
+Wheel on shares    $21,500 / lot   ~$430 / contract   1 contract chews 43% of acct
+Wheel on LEAPS     ~$6,500 / lot   ~$430 / contract   Same premium, 1/3 the capital
+Freed $15k earns ~$50/mo
+in T-bills
+</code></pre>
 </p>
 <p>
-<strong>Monitor win rate.</strong> Track the percentage of put cycles that expire worthless (wins) versus result in assignment. A healthy wheel operation typically has a 65-75% win rate on puts. If your win rate drops below 60%, your strike selection may be too aggressive.
+The PMCC wheel triples your contract count for the same account size, holding gross premium constant. It also caps your downside at the LEAPS price (about $6,500/contract) instead of the strike-based maximum loss of ~$21,500/contract. The trade-off is that the LEAPS itself has decay (theta), and if the underlying drifts sideways for 12 months you can lose 10-20% of the LEAPS price purely to time decay. On a ranging market, the share-based wheel out-performs; on a trending or volatile market, the PMCC wheel out-performs.
+</p>
+<p>
+For accounts under $50k, the PMCC wheel is the only realistic way to run this strategy on AAPL/MSFT and the only way at all on SPY/QQQ.
+</p>
+<h4>2.6 Sizing and the Barbell</h4>
+<p>
+SOUL #14 places the wheel firmly on the <strong>safe / known-bad</strong> end of the barbell. The structure has bounded downside (strike × 100), monotone P/L within that bound, and a defined cycle length. None of those properties hold for the speculation end.
+</p>
+<p>
+Three sizing rules for retail:
+</p>
+<li><strong>Per-name cap: 5-10% of total portfolio per wheel position.</strong> A 30% gap-down on one name should hurt but not threaten the portfolio. On a $400k portfolio that's 1-2 contracts of AAPL, 1-2 contracts of MSFT, etc.</li>
+<li><strong>Total wheel sleeve: 20-40% of investable assets.</strong> The rest sits in index funds (Tranches 1-2) and tail hedges (W47). The wheel is <em>a</em> sleeve in the L4 capstone (W52), not the whole portfolio.</li>
+<li><strong>Strike discipline: 30Δ default, 16Δ for elevated-IV names, never deeper than 40Δ.</strong> The 50Δ ATM put pays the most premium and has 50% assignment probability — that is not a strategy, that is gambling with extra steps.</li>
+<p>
+Under these rules a five-position wheel running on AAPL/MSFT/SPY/QQQ/IWM (one diversifier) with monthly 30-delta strikes generates roughly 1.0-1.3% per month on the wheel sleeve, before tax, with a 5-year max drawdown of 18-25%. That is the realistic envelope.
+</p>
+<p>
+[INTERACTIVE: interactive/side30_wheel_lab.html]
+</p>
+<p>
+The interactive lets you set capital, underlying, DTE, and delta target; it will compute estimated monthly premium, annualized yield, capital efficiency vs PMCC, expected drawdown, and the wheel-vs-buy-hold comparison in real time. Use it to find the combination that fits your account size and your risk tolerance. The default settings (AAPL, 30 DTE, 30-delta) are the canonical retail wheel and produce numbers that match this lesson's discussion.
 </p>
 <hr>
-<h3>C) Common Misconceptions</h3>
-<p>
-<strong>Misconception 1: "The Wheel Strategy is risk-free income."</strong>
-The Wheel carries full downside equity risk. When you sell a cash-secured put and are assigned, you own the stock. If the stock drops 50%, you have a 50% loss on your capital, minus whatever premium you collected. The premium income provides a small buffer but does not protect against large declines. The risk profile is identical to owning the stock with a slightly lower cost basis.
-</p>
-<p>
-<strong>Misconception 2: "I can wheel any stock and make money."</strong>
-Stock selection is paramount. Running the wheel on a stock in structural decline (like a retailer being disrupted by e-commerce or a company with deteriorating fundamentals) will result in losses that no amount of premium can offset. The wheel works best on fundamentally strong companies experiencing temporary price weakness, not on cheap stocks that are cheap for good reasons.
-</p>
-<p>
-<strong>Misconception 3: "The annualized return on each trade represents my actual annual return."</strong>
-Annualizing a single trade's return is misleading. A 2.5% return in 30 days annualizes to 30%, but you will not achieve this every month for a year. Some months you will be assigned and stuck holding a declining stock with no premium income. Some months volatility will be low and premiums thin. Actual annual returns of 10-20% are realistic for experienced practitioners, but 30%+ year after year is extremely unlikely.
-</p>
-<p>
-<strong>Misconception 4: "Assignment is always bad."</strong>
-Assignment is a planned outcome in the wheel, not a failure. You selected the strike price because you wanted to own the stock at that price. Getting assigned means you are buying a stock you want at a price you chose, minus the premium you already collected. The only bad assignment is on a stock you should not have been wheeling in the first place.
-</p>
-<p>
-<strong>Misconception 5: "I should sell calls below my cost basis to generate income while waiting."</strong>
-This is one of the most dangerous mistakes in the wheel. Selling calls below your cost basis caps your recovery. If the stock bounces and gets called away at a strike below your cost basis, you lock in a loss permanently. Always sell calls at or above your adjusted cost basis, even if the premium is small. Patience is more profitable than desperation.
-</p>
-<p>
-<strong>Misconception 6: "The Wheel works in all market conditions."</strong>
-The wheel struggles in two environments. In a strong bull market, puts expire worthless but you miss the stock's full upside because you are never assigned (or your calls cap gains if holding shares). In a severe bear market, you get assigned repeatedly at declining prices, and covered call premiums cannot offset the losses. The strategy performs best in sideways to mildly bullish markets with moderate volatility.
-</p>
-<p>
-<strong>Misconception 7: "I should always sell the highest premium options."</strong>
-The highest premium options are the most dangerous. They are either at-the-money (high assignment probability) or on volatile underlying stocks (high risk of large moves). Chasing premium is the most common way to lose money with the wheel. Instead, find the balance between adequate premium and acceptable risk. A 1.5% monthly premium on a quality stock is far better than a 4% premium on a speculative one.
-</p>
-<p>
-<strong>Misconception 8: "The Wheel is a passive income strategy."</strong>
-While some describe it as passive income, the wheel requires active management. You need to monitor positions, decide when to roll or close options early, evaluate whether to continue wheeling a stock after assignment, track your cost basis, and manage expiration timing. It is not as time-intensive as day trading, but it requires regular attention, typically 30-60 minutes per week for 5-10 positions. Investors who treat it as truly passive tend to make costly mistakes.
-</p>
+<h3>3. Common Misconceptions</h3>
+<li><strong>"The wheel is a money-printing machine."</strong> No. It is a vol-risk-premium harvester with bounded downside. On a 5-year horizon it returns roughly half of the underlying with ~60% of the vol. Better Sharpe, worse total return. Picking it over buy-and-hold is a deliberate trade.</li>
+<li><strong>"Assignment is good — you get free shares!"</strong> Assignment is the <em>triggering event</em> of the strategy, but it is not "free." Your effective cost is (strike − premium), which is below the market price <em>before</em> the gap that caused assignment, but typically <em>above</em> the market price right after. The recovery comes from selling covered calls; it is not automatic.</li>
+<li><strong>"Sell at-the-money puts for maximum premium."</strong> ATM puts have ~50% assignment probability. The wheel becomes a forced-buy machine that runs you into every dip. Use 30Δ on quality names, 16Δ on volatile names. Never deeper than 40Δ.</li>
+<li><strong>"Sell weekly options because the annualized yield is huge."</strong> Theta is concentrated in the last 7 days but so is gamma. A single bad earnings week eats months of premium. Monthly 30-45 DTE is the institutional default for a reason. PUTW (mechanical SPX put-write ETF) sells monthlies, not weeklies.</li>
+<li><strong>"Run the wheel in any account — the math works either way."</strong> Premium income is short-term capital gain, taxed at ordinary rates. In a 32% bracket the wheel loses ~30% of its return to taxes. In a Roth IRA it loses zero. SOUL #15 is the dominant variable, not the strike selection.</li>
+<li><strong>"You should sell calls below your cost basis to keep collecting premium during a drawdown."</strong> This locks in a permanent loss. If the stock recovers to a price between your call strike and your cost basis, your shares get called away below cost basis and the loss is realized. Always sell calls at-or-above cost basis. If no strike works, accept the no-call-this-month outcome and wait.</li>
+<li><strong>"The PMCC wheel is just a cheaper version of the regular wheel."</strong> The risk profiles are different. Regular wheel: bounded share-side downside, theta-positive on the call, dividend-eligible during state B. PMCC wheel: bounded LEAPS-side downside (capped at LEAPS premium), theta-negative on the LEAPS leg, no dividend, more sensitivity to IV changes (vega). They are related but not interchangeable.</li>
+<li><strong>"You can avoid all gap risk by buying protective puts."</strong> Adding a long put to the wheel turns it into an iron-condor-like structure (W30) and consumes 40-60% of the premium income. The defense works but the strategy stops paying enough to be worth running. The right gap defense is <em>underlying selection</em> (avoid earnings, prefer index), not protective puts on every cycle.</li>
+<li><strong>"PUTW lags SPY, so the wheel is obviously a bad strategy."</strong> PUTW is <em>one variant</em> of the wheel (mechanical, indiscriminate, ATM-ish, taxable wrapper). A targeted retail wheel — 30Δ, 30 DTE, 4-5 quality names, run inside an IRA — is a substantially different product with a substantially different return profile. Conflating them is the classic motte-and-bailey error.</li>
+<li><strong>"The wheel beats the index over decades."</strong> No serious paper or 30-year backtest supports this. The wheel beats the index on Sharpe, often. It does not beat the index on terminal wealth in any rolling 10-year window since 1990. If your goal is maximum terminal wealth, buy SPY. If your goal is income with bounded vol, run the wheel.</li>
 <hr>
-<h3>D) Q&A Section</h3>
+<h3>4. Q&A</h3>
 <p>
-<strong>Q1: How much capital do I need to start the Wheel Strategy?</strong>
-A1: At minimum, you need enough to buy 100 shares of your chosen stock at the put strike price. For a $50 stock with a $47.50 put, that is $4,750. Ideally, you want enough capital to run 3-5 wheel positions simultaneously for diversification, which suggests $15,000-$25,000 minimum. Some brokers offer mini options on certain ETFs (10 shares per contract), reducing the capital requirement tenfold.
+<strong>Q1. How much capital do I need to start?</strong> One contract on the cheapest viable underlying. SPY at $560 is $56k/contract — too much for most retail. AAPL at $215 is $21,500. KO at $70 is $7,000. The PMCC wheel cuts those by ~3x. A reasonable starting account is $25k-$40k, which lets you run one share-wheel on AAPL or two PMCC wheels on AAPL/MSFT.
 </p>
 <p>
-<strong>Q2: Which account type is best for the Wheel Strategy?</strong>
-A2: A Roth IRA is ideal because all premium income grows tax-free and withdrawals in retirement are tax-free. A traditional IRA is the next best option because income is tax-deferred. In a taxable account, premium income is taxed as short-term capital gains (ordinary income rates), which can significantly reduce after-tax returns. Many successful wheel practitioners run the strategy exclusively in IRAs.
+<strong>Q2. Should I sell weekly or monthly options?</strong> Monthly. Theta-per-day is highest in week 1 of a weekly contract, but gamma is also highest, which means a single 1.5% adverse move ruins a month of premium in a single day. The 30-45 DTE window has the best theta-to-gamma ratio for retail size and frequency.
 </p>
 <p>
-<strong>Q3: How do I handle early assignment?</strong>
-A3: Early assignment on puts is rare but can occur, particularly on deep in-the-money puts near expiration or just before an ex-dividend date. If assigned early, simply move to Phase 3 (sell covered calls) sooner than planned. Early assignment on calls is also rare unless the call is deep in the money near an ex-dividend date. In that case, your shares are called away and you return to Phase 1. Early assignment is not a crisis; it simply accelerates the wheel cycle.
+<strong>Q3. What if the stock gaps down 15% overnight?</strong> You take the assignment at the strike, your cost basis = strike − premium, and you start state B with a paper loss equal to (strike − premium − current price) × 100. Sell the next month's covered call <em>above</em> the cost basis. Do not sell below cost basis to "feel productive." If no strike above cost basis offers a meaningful premium, skip the call this month and just hold the shares.
 </p>
 <p>
-<strong>Q4: Can I run the Wheel on ETFs instead of individual stocks?</strong>
-A4: Absolutely, and many practitioners prefer it. SPY (S&P 500), QQQ (Nasdaq 100), and IWM (Russell 2000) are popular wheel candidates. ETFs provide built-in diversification, eliminating single-stock risk. The premiums per dollar of capital are often lower than individual stocks, but the reduced risk can make the risk-adjusted returns comparable or better. The biggest drawback is the high capital requirement for SPY (approximately $50,000+ per contract).
+<strong>Q4. Should I roll losing puts down-and-out?</strong> Once. Maybe twice. Beyond two rolls you are deferring rather than managing the loss; the gap between the rolling strike and the current spot keeps widening. Set the rule before the position is open: "roll once, accept assignment thereafter."
 </p>
 <p>
-<strong>Q5: What happens if the stock gaps down significantly on an earnings announcement?</strong>
-A5: If you sold a put that spans earnings and the stock gaps down 20%, you will be assigned at your strike price on a stock now trading far below it. Your loss is the gap down minus your premium received. This is why most wheel practitioners avoid selling options that span earnings dates. If you do choose to sell through earnings, sell puts further out of the money (15-20% below current price) to provide a larger buffer, and accept the lower premium.
+<strong>Q5. Does the wheel work on dividend stocks?</strong> Yes, with a wrinkle: covered calls have a small early-assignment risk on the day before ex-dividend if the call is in-the-money and the dividend is large. In practice on SPY/AAPL/MSFT this is negligible. On high-dividend names (T, MO, KO) it is a real consideration; sell calls outside the dividend window or be willing to lose the dividend.
 </p>
 <p>
-<strong>Q6: How does the Wheel compare to simply buying and holding the stock?</strong>
-A6: In a strong bull market, buy and hold outperforms the wheel because the wheel's covered calls cap upside. In a flat or mildly bullish market, the wheel outperforms because the premium income exceeds the limited price appreciation. In a bear market, the wheel slightly outperforms because premium income partially offsets the decline. Over long periods, studies suggest the wheel generates similar total returns to buy-and-hold but with lower volatility and more consistent income. The trade-off is capped upside for reduced downside.
+<strong>Q6. Can I run the wheel in a regular taxable brokerage account?</strong> Yes, mechanically. But the after-tax return is roughly 65-70% of the pre-tax return at top marginal brackets, which destroys most of the Sharpe advantage over buy-and-hold (which gets long-term capital gains). The only honest answer: run the wheel in an IRA where you can. If you must run it taxable, run it on SPX index options for §1256 60/40 treatment (W39) — but that requires SPX-level capital ($560k notional per contract).
 </p>
 <p>
-<strong>Q7: Should I close my options early or let them expire?</strong>
-A7: A common best practice is to close puts and calls when they have lost 50-75% of their value, even if there are days remaining until expiration. For example, if you sold a put for $1.20 and it is now worth $0.30, buying it back captures $0.90 of profit and frees your capital for the next cycle. Waiting for the last $0.30 exposes you to reversal risk for diminishing returns. This practice increases the number of annual cycles and improves annualized returns.
+<strong>Q7. How is the wheel different from PUTW?</strong> PUTW writes ATM (~50Δ) monthly SPX puts mechanically. The retail wheel writes OTM (~30Δ) puts on chosen names with assignment management. PUTW is the worst-realistic implementation; the retail wheel is the best-case hand-curated version.
 </p>
 <p>
-<strong>Q8: How many wheel positions should I run simultaneously?</strong>
-A8: Diversification across 5-10 positions in different sectors is ideal. This reduces single-stock risk and ensures that one bad assignment does not devastate your portfolio. With 5-10 positions, you will typically have some in the put-selling phase, some holding stock and selling calls, and the income stream becomes more consistent. Start with 2-3 positions and expand as you gain experience and confidence.
+<strong>Q8. What's the expected drawdown?</strong> On a 30-delta monthly wheel run on AAPL/MSFT/SPY/QQQ over 2020-Apr 2026, the worst drawdown was ~-22 to -28% (March 2020 + 2022 bear). This is comparable to the underlying buy-and-hold drawdown of ~-30 to -34%. The wheel does <em>not</em> materially reduce drawdown risk — the put gets blown through in any real correction. It does reduce monthly volatility by 30-40%.
 </p>
 <p>
-<strong>Q9: How does implied volatility affect my wheel decisions?</strong>
-A9: Implied volatility (IV) directly affects premium levels. When IV is high, premiums are fat and the wheel generates more income per cycle. When IV is low, premiums are thin and returns compress. Some wheel practitioners only sell options when IV is above its historical average for that stock, waiting for elevated premiums before entering new positions. The IV percentile (where current IV ranks relative to the past year) is a useful metric. An IV percentile above 50 means premiums are above average, creating favorable conditions for option selling. Below 30, premiums may be too thin to justify the equity risk.
+<strong>Q9. PMCC wheel vs share wheel — which is better?</strong> PMCC wins on capital efficiency (3x), loses on dividend income and theta-positivity. PMCC works better in trending or strongly bullish markets (the LEAPS appreciates fast); share wheel works better in flat-to-mildly-down markets (no LEAPS theta drag). For accounts under $50k, PMCC is the only viable option. For accounts over $250k, share wheel is cleaner.
 </p>
 <p>
-<strong>Q10: What is the biggest mistake beginners make with the Wheel Strategy?</strong>
-A10: The biggest mistake is selecting stocks based on premium size rather than fundamental quality. A stock with a 5% monthly put premium is incredibly tempting, but that premium is high because the market prices the stock as highly risky. These tend to be volatile stocks with weak fundamentals: meme stocks, overvalued growth companies, or companies facing existential threats. Beginners chase the premium and end up assigned on stocks that drop 30-40%, wiping out months of income. Always choose the stock first based on fundamentals, then evaluate whether the premium is adequate compensation for the risk. If you would not buy the stock outright at the put strike price and hold it for a year, do not sell puts on it.
+<strong>Q10. Is the wheel a "passive" income strategy?</strong> No. Plan on 30-60 minutes per week monitoring 5-10 wheel positions: deciding when to close winning puts early (at 50-70% of max profit), rolling threatened puts, deciding whether to skip a covered call after assignment, etc. Less active than day trading; more active than buy-and-hold. Investors who treat it as set-and-forget under-perform mechanical PUTW.
+</p>
+<p>
+<strong>Q11. Where does the wheel fit in the four-tranche framework (SOUL #13)?</strong> Tranche 2 (income / cash-flow) primarily, because the cash flows are predictable and short-dated. Some practitioners place the share-side exposure in Tranche 1 (growth) — fine if the underlyings are SPY/QQQ. The PMCC wheel sits in Tranche 4 (opportunistic) because the leverage and time-decay risk are higher than Tranche-1 standards.
+</p>
+<p>
+<strong>Q12. After 30 weeks plus 30 sides — what should I actually do tomorrow?</strong> Open an IRA if you don't have one. Move 20-30% of investable assets into it. Park 60% of the IRA in VTI/VXUS, 30% in BND/TIPS, 10% in cash. With the cash, sell one 30-delta, 30-DTE cash-secured put on SPY (or PMCC variant if capital is tight). When it expires or assigns, do it again. That is the entire course in three sentences.
 </p>
             </div>
             <div id="content-hk" class="lang-content">

@@ -1,1132 +1,874 @@
-# Week 10: Economic Cycles and Your Portfolio
+# Week 10: Economic Cycles — Expansion, Peak, Contraction, Trough, and What They Do to Assets
 
 ---
 
-## Reading Section
-
-### a) Why This Is Important
-
-The economy does not move in a straight line. It expands, peaks, contracts, and recovers in a recurring pattern known as the business cycle. These cycles affect everything -- corporate earnings, interest rates, employment, consumer spending, and ultimately, the returns on your investments. Understanding where you are in the cycle does not give you a crystal ball, but it gives you a compass. It helps you understand why certain assets are performing well or poorly, what risks are building, and how to position your portfolio with greater awareness.
-
-Understanding economic cycles matters for several critical reasons:
-
-1. **Different assets perform best at different phases.** Stocks, bonds, commodities, and cash each have phases where they shine and phases where they struggle. A portfolio that works brilliantly during an expansion may be devastated during a contraction. Understanding the cycle helps you build a portfolio that is resilient across environments, not one that only works when times are good.
-
-2. **Cycles explain market behavior that otherwise seems random.** When the stock market drops 20% and the news is full of panic, understanding that contractions are a normal and inevitable part of the cycle provides psychological grounding. You are less likely to sell at the bottom if you recognize that every contraction in modern history has been followed by a recovery and a new expansion.
-
-3. **Economic indicators are publicly available and free.** Unlike company-specific financial data that requires analysis skills, key economic indicators -- GDP growth, unemployment, PMI, consumer confidence -- are published on regular schedules and widely reported. You do not need a Bloomberg terminal or a finance degree to track them. You just need to know which ones matter and what they are telling you.
-
-4. **Central bank policy follows the cycle.** The Federal Reserve and other central banks adjust interest rates and monetary policy in response to the business cycle. When you understand the cycle, you can better anticipate policy changes and their effects on bond yields, stock valuations, and mortgage rates. This knowledge has direct practical value in your financial life.
-
-5. **Career and personal finance decisions are cycle-sensitive.** The business cycle affects more than your portfolio. It affects your job security, your salary growth, the housing market, and the cost of borrowing. Understanding where you are in the cycle helps you make better decisions about when to buy a home, when to negotiate a raise, and when to build an emergency fund.
-
-This lesson covers the four phases of the business cycle, the three categories of economic indicators, the most important specific indicators you should track, and how different asset classes historically perform during each phase.
+## Part 1: Reading Section
 
 ---
 
-### b) What You Need to Know
+### 1. Why This Is Important
 
-#### 1. The Four Phases of the Business Cycle
+The economy does not move in a straight line, and neither does any
+asset that ultimately depends on the economy for its cash flow. It
+expands, it overheats, it contracts, it recovers, and then it does
+the whole thing again. The names for the four stops on that loop —
+expansion, peak, contraction, trough — are over a hundred years old.
+The pattern is older than that.
 
-The business cycle describes the natural fluctuation of economic activity over time. While no two cycles are identical in duration or magnitude, they all follow the same general pattern of four phases:
+You need to take cycles seriously for four reasons.
 
-```
-THE BUSINESS CYCLE
-====================
+1. **The cycle decides which asset wins.** Stocks lead in early
+   expansion, commodities lead in late expansion, long bonds lead
+   into and through recession, cash leads only briefly at the very
+   top. A portfolio built for one phase can spend a year or two
+   doing nothing right and a year doing everything wrong. You do
+   not have to time the cycle precisely; you do have to know which
+   phase you are in roughly, because *some* assets are quietly
+   cheap at every point in the cycle and *some* are quietly
+   expensive, and the difference is usually larger than the equity
+   risk premium itself.
+2. **Recessions arrive on a schedule, even if the timing is fuzzy.**
+   Since 1945 the United States has had thirteen recessions. The
+   average expansion is about five years and the average
+   contraction is about eleven months. Anyone who tells you "the
+   business cycle is dead" is forgetting that the same thing was
+   said in 1929, 1968, 1999, and 2007. The cycle does not
+   disappear. It just changes shape.
+3. **The yield curve has called every recession since 1955 with one
+   ambiguous exception.** That is an extraordinary track record for
+   a single indicator, and it is freely published. If you ignore
+   only one signal in this entire course, do not let it be the 10y
+   minus 2y Treasury spread.
+4. **Cycle awareness is what separates a thoughtful 60/40 from a
+   complacent one.** Week 4 showed that the long-run statistics on
+   60/40 are excellent. This week shows the statistics underneath
+   the statistics: 60/40 *is* a regime bet, and the regime can
+   change. SOUL anchor #2 — passive index investing has worked for
+   forty years, and that does not make it permanent — lives or
+   dies on the cycle.
 
-                          PEAK
-                         /    \
-                        /      \
-                       /        \
-         EXPANSION    /          \    CONTRACTION
-                     /            \   (Recession)
-                    /              \
-                   /                \
-        TROUGH ---+                  +--- TROUGH
-        (Recovery)                        (Next cycle begins)
-
-
-GDP
-Growth  ^
-Rate    |     . .
-        |    .     .
-   +2%  |   .       .
-        |  .         .
-    0%  |-.-----------.------------
-        | .            .         .
-   -2%  |.              .       .
-        |                .     .
-   -4%  |                 . . .
-        +-----|-----|-----|-----|----> Time
-         Trough  Expansion Peak Contraction
-              (Recovery)
-
-Average U.S. business cycle since 1945:
-- Expansion: ~58 months (about 5 years)
-- Contraction: ~11 months (about 1 year)
-- Full cycle: ~69 months (about 5.75 years)
-
-Key insight: Expansions last roughly 5x longer
-than contractions. The economy spends most of
-its time growing, not shrinking.
-```
-
-**Phase 1: Trough (Early Recovery)**
-
-The trough is the bottom of the cycle. The economy has been contracting and has reached its lowest point. Unemployment is high, consumer confidence is low, businesses have cut costs and inventory, and asset prices are often depressed. However, the seeds of recovery are being planted: interest rates are typically low (the central bank has cut rates to stimulate growth), inventories are lean (meaning any pickup in demand requires new production), and the worst news is usually priced into markets.
-
-```
-TROUGH CHARACTERISTICS
-========================
-
-Economy:
-- GDP growth: negative or barely positive
-- Unemployment: at or near cycle high
-- Consumer confidence: low
-- Business investment: minimal
-- Inventory levels: depleted
-
-Policy:
-- Interest rates: low (stimulative)
-- Fiscal policy: expansionary (stimulus spending)
-- Central bank: accommodative
-
-Markets:
-- Stock prices: often near cycle lows
-- Bond yields: low (prices high)
-- Credit spreads: wide (fear of default)
-- Commodities: weak (low demand)
-
-Investor sentiment: FEAR / DESPAIR
-(This is often the best time to invest)
-```
-
-**Phase 2: Expansion (Mid-Cycle)**
-
-The expansion is the longest phase. The economy is growing: businesses are hiring, consumers are spending, corporate earnings are rising, and confidence is building. Early in the expansion, there is still significant slack in the economy -- unused factory capacity, unemployed workers -- which allows growth without much inflation. As the expansion matures, slack diminishes, wages begin rising, and inflationary pressures start to build.
-
-```
-EXPANSION CHARACTERISTICS
-===========================
-
-Economy:
-- GDP growth: positive and accelerating
-- Unemployment: declining steadily
-- Consumer confidence: rising
-- Business investment: increasing
-- Credit growth: expanding
-
-Policy:
-- Interest rates: gradually rising
-- Central bank: shifting from easing to neutral
-- Fiscal policy: normalizing
-
-Markets:
-- Stock prices: rising, driven by earnings growth
-- Bond yields: slowly rising (prices falling)
-- Credit spreads: narrowing (confidence)
-- Commodities: strengthening (rising demand)
-
-Investor sentiment: OPTIMISM -> ENTHUSIASM
-(Stocks generally perform well, but best
-returns are typically in early expansion)
-```
-
-**Phase 3: Peak (Late Cycle)**
-
-The peak marks the transition from expansion to contraction. The economy is running hot: unemployment is very low, wages are rising rapidly, inflation is elevated, and capacity constraints are binding. The central bank is typically raising interest rates to cool the economy and prevent inflation from spiraling. Corporate profit margins may be under pressure from rising input costs (wages, raw materials, borrowing costs). Asset valuations are often stretched, and speculative behavior increases.
-
-```
-PEAK CHARACTERISTICS
-======================
-
-Economy:
-- GDP growth: positive but decelerating
-- Unemployment: at cycle low
-- Inflation: elevated and possibly accelerating
-- Wage growth: strong (labor shortages)
-- Capacity utilization: high
-
-Policy:
-- Interest rates: at or near cycle high
-- Central bank: restrictive (fighting inflation)
-- Yield curve: flat or inverted
-
-Markets:
-- Stock prices: elevated, volatility increasing
-- Bond yields: high (prices low)
-- Credit spreads: starting to widen
-- Commodities: strong (supply constraints)
-
-Investor sentiment: EUPHORIA -> ANXIETY
-(Danger zone: valuations stretched, risk high)
-```
-
-**Phase 4: Contraction (Recession)**
-
-A contraction (recession) occurs when economic activity declines. The textbook definition is two consecutive quarters of negative GDP growth, although the official arbiter in the United States -- the NBER -- uses a broader set of criteria. During contractions, businesses cut costs, lay off workers, and reduce investment. Consumers pull back spending. Earnings decline, defaults rise, and asset prices fall. The central bank responds by cutting interest rates, and the government may implement fiscal stimulus.
-
-```
-CONTRACTION CHARACTERISTICS
-==============================
-
-Economy:
-- GDP growth: negative
-- Unemployment: rising rapidly
-- Consumer confidence: plunging
-- Business investment: falling
-- Credit conditions: tightening (banks cautious)
-- Defaults: rising
-
-Policy:
-- Interest rates: being cut aggressively
-- Central bank: stimulative / emergency measures
-- Fiscal policy: stimulus packages
-
-Markets:
-- Stock prices: falling, high volatility
-- Bond yields: falling sharply (prices rising)
-- Credit spreads: spiking (fear of default)
-- Commodities: falling (demand destruction)
-
-Investor sentiment: ANXIETY -> PANIC -> DESPAIR
-(Pain feels unbearable, but this is when the
-foundation for the next bull market is laid)
-```
+This lesson covers NBER dating, the layered short / medium / long
+cycles, the three families of indicators, the yield curve in
+detail, the asset-class playbook by phase, and what 2008, 2020,
+2022, and the 2026 setup teach about how the textbook fails when
+the cycle stops cooperating.
 
 ---
 
-#### 2. The Three Categories of Economic Indicators
+### 2. What You Need to Know
 
-Economists classify indicators by their timing relationship to the overall business cycle. Understanding this classification is essential for interpreting economic data correctly.
+#### 2.1 NBER Dating — Who Decides a Recession Has Happened
 
-```
-THREE TYPES OF ECONOMIC INDICATORS
-=====================================
+The popular shorthand "two consecutive quarters of negative GDP" is
+*not* the official US definition. The actual arbiter is the
+**Business Cycle Dating Committee of the National Bureau of
+Economic Research (NBER)** — eight academic economists who, after
+the fact, declare a peak month and a trough month. Their working
+definition of a recession:
 
-LEADING INDICATORS (Predict future direction)
-+--------------------------------------------------+
-| These move BEFORE the economy turns.             |
-| They are your early warning system.              |
-|                                                  |
-| Examples:                                        |
-| - Stock market (S&P 500)                         |
-| - Yield curve (10Y minus 2Y Treasury)            |
-| - Building permits                               |
-| - Initial jobless claims (inverted)              |
-| - ISM Manufacturing New Orders                   |
-| - Consumer expectations                          |
-| - Average weekly hours (manufacturing)           |
-| - Leading Economic Index (LEI)                   |
-+--------------------------------------------------+
-           |
-           | (Leads by 6-12 months typically)
-           v
-COINCIDENT INDICATORS (Move with the economy)
-+--------------------------------------------------+
-| These move AT THE SAME TIME as the economy.      |
-| They tell you where you ARE right now.           |
-|                                                  |
-| Examples:                                        |
-| - GDP (Gross Domestic Product)                   |
-| - Industrial production                          |
-| - Personal income (ex-transfers)                 |
-| - Nonfarm payrolls (employment)                  |
-| - Retail sales                                   |
-| - Manufacturing and trade sales                  |
-+--------------------------------------------------+
-           |
-           | (Follows by 3-9 months typically)
-           v
-LAGGING INDICATORS (Confirm past direction)
-+--------------------------------------------------+
-| These move AFTER the economy has already turned. |
-| They confirm what already happened.              |
-|                                                  |
-| Examples:                                        |
-| - Unemployment rate                              |
-| - CPI inflation (core)                           |
-| - Corporate profits (reported)                   |
-| - Bank lending (commercial loans)                |
-| - Average duration of unemployment               |
-| - Labor cost per unit of output                  |
-| - Consumer credit to income ratio                |
-+--------------------------------------------------+
+> A significant decline in economic activity that is spread across
+> the economy and lasts more than a few months, normally visible in
+> real GDP, real income, employment, industrial production, and
+> wholesale-retail sales.
 
-KEY INSIGHT:
-The unemployment rate is a LAGGING indicator.
-By the time unemployment peaks, the recession
-is usually already over. This is counterintuitive
-but critical to understand.
-```
+Three things follow.
 
-This classification has profound implications. If you wait for lagging indicators like unemployment to improve before investing, you will miss the early (and often strongest) portion of the recovery. The stock market itself is a leading indicator -- it typically bottoms 3 to 6 months before the economy does.
+- **Recessions are dated by month, not quarter.** February 2020 is
+  the peak; April 2020 is the trough. Two months long — the
+  shortest US recession ever. The "two-quarter" rule would have
+  missed it entirely.
+- **Recessions are declared late.** The committee waits until
+  revisions have settled, which is typically six to eighteen months
+  *after* the peak. By the time NBER officially calls the start of
+  a recession, the stock market has often already bottomed and
+  begun rallying. This is the single biggest practical reason that
+  retail investors who "wait until the recession is confirmed" buy
+  late and miss the recovery leg.
+- **The criteria are plural.** Real GDP can be negative for two
+  quarters without an NBER recession (the technical-recession of
+  the first half of 2022 was *not* dated as one, because employment
+  and industrial production kept rising). And NBER can call a
+  recession with one positive quarter mixed in (1980).
 
-```
-TIMING RELATIONSHIP: MARKETS vs. ECONOMY
-==========================================
+The full US post-1945 recession list, with peak → trough months:
 
-         Stock Market    Economy    Unemployment
-              |             |            |
-              v             v            v
-   Bottoms HERE      Bottoms HERE   Peaks HERE
-        |                 |              |
-   |----+------6 mo------+-----6 mo-----+---->
-   |         (approx)          (approx)
-   |
-   Stock market leads the economy by ~6 months.
-   Unemployment lags the economy by ~6 months.
-   Total gap between market bottom and unemployment
-   peak: approximately 12 months.
+| # | Peak | Trough | Length |
+|---|---|---|---|
+| 1 | Nov 1948 | Oct 1949 | 11 mo |
+| 2 | Jul 1953 | May 1954 | 10 mo |
+| 3 | Aug 1957 | Apr 1958 | 8 mo |
+| 4 | Apr 1960 | Feb 1961 | 10 mo |
+| 5 | Dec 1969 | Nov 1970 | 11 mo |
+| 6 | Nov 1973 | Mar 1975 | 16 mo |
+| 7 | Jan 1980 | Jul 1980 | 6 mo |
+| 8 | Jul 1981 | Nov 1982 | 16 mo |
+| 9 | Jul 1990 | Mar 1991 | 8 mo |
+| 10 | Mar 2001 | Nov 2001 | 8 mo |
+| 11 | Dec 2007 | Jun 2009 | 18 mo |
+| 12 | Feb 2020 | Apr 2020 | 2 mo |
 
-   This is why "waiting for things to get better"
-   before investing is a losing strategy. By the
-   time things LOOK better, the market has already
-   recovered significantly.
-```
+Twelve recessions in eighty years. Average expansion length
+between them: about sixty-three months. The longest expansion ever
+recorded — June 2009 through February 2020 — was 128 months and
+ended only because of an exogenous shock (COVID), not internal
+overheating. That fact matters: not every cycle ends from the
+inside.
+
+#### 2.2 Cycles Within Cycles — Kitchin, Juglar, Kondratieff
+
+The textbook usually presents one cycle. The honest picture is
+that there are several, layered on top of each other.
+
+- **Kitchin (~3–5 years).** Inventory cycle. Firms over-order →
+  inventory glut → cut orders → inventory drawdown → re-order. This
+  is what the manufacturing PMI moves on. Most of the noise in
+  monthly economic data is Kitchin.
+- **Juglar (~7–11 years).** Capex cycle. Firms invest in fixed
+  capital (factories, equipment, software). Capacity overshoots
+  demand, capex contracts, recession ensues, the cycle resets. This
+  is the recession cycle most investors mean when they say "the
+  business cycle." Average post-war US expansion length sits
+  squarely inside the Juglar window.
+- **Kondratieff (~40–60 years).** Long wave. Driven by
+  technological revolutions, demographic regimes, monetary regimes.
+  Steam, rail, electrification, the auto, semiconductors, the
+  internet — each anchored a long wave. **This is the wave SOUL
+  anchor #2 is talking about.** The 1981–2021 disinflationary
+  bull market in stocks and bonds was one Kondratieff up-leg. The
+  next one will not look identical.
+
+We do **not** trade Kitchin / Juglar / Kondratieff as numerology
+("the next 9.6-year cycle peaks in October 2027"). The numbers
+above are not deterministic. We use the *intuition* — that there
+are short, medium, and long cycles superimposed, and that the
+phase you are in depends on which cycle you are looking at. The
+2022 inflation shock was a Juglar peak inside a possibly-cresting
+Kondratieff. That is a different setup from 2008, when both
+medium and long waves were still on the up-leg of disinflation,
+and it explains why the same playbook (Fed cuts → bonds rally,
+stocks rally) worked in 2008 and *did not* work in 2022.
+
+The four-quadrant framework — growth up/down crossed with
+inflation up/down — is the practical version of this. We use it
+in §2.5.
+
+#### 2.3 Leading, Coincident, and Lagging Indicators
+
+Every economic data series falls into one of three categories
+according to its timing relative to the cycle.
+
+- **Leading indicators** turn *before* the economy does. The
+  yield-curve slope, building permits, the ISM new-orders
+  sub-index, initial jobless claims, the S&P 500 itself, and the
+  Conference Board's Leading Economic Index (LEI) are the
+  classics. Lead time: typically six to eighteen months.
+- **Coincident indicators** turn *with* the economy. Industrial
+  production, real personal income excluding transfers, real
+  manufacturing and retail sales, and especially **non-farm
+  payrolls**. These four are roughly the variables NBER actually
+  uses to date the cycle. Lead time: zero.
+- **Lagging indicators** turn *after* the economy does. The
+  unemployment rate, core CPI, the prime lending rate, the
+  duration of unemployment, the ratio of consumer credit to
+  personal income. Lag time: three to twelve months.
+
+The single most common retail mistake is to treat **lagging**
+indicators as decision-grade. "The unemployment rate is 3.8% — the
+economy is fine" is a 2007 sentence. Unemployment was 4.7% in
+November 2007, the month the previous expansion peaked, and it
+peaked at 10.0% twenty-three months later. By the time
+unemployment confirms a recession is underway, the stock market
+has already lost a third of its value. The yield curve, by
+contrast, told you there was a problem in mid-2006.
+
+The honest hierarchy: **price data first, soft data second, hard
+data third, lagging data never as a primary signal.** Price data
+is the yield curve, credit spreads, equity sector leadership, the
+copper-to-gold ratio. Soft data is the surveys (ISM, consumer
+confidence). Hard data is the official prints (payrolls, GDP,
+production). Each is roughly a quarter slower than the one
+before. The cycle's leading edge lives in markets, not in the
+data release calendar.
+
+#### 2.4 The Yield Curve — The Master Leading Indicator
+
+The single most reliable leading indicator of US recessions is
+the **slope of the Treasury yield curve**, conventionally measured
+as the 10-year yield minus the 2-year yield (or the 10-year minus
+the 3-month). When that spread goes negative — long rates *below*
+short rates — the curve is **inverted**.
+
+![10-year minus 2-year US Treasury spread from 1976 through April 2026 (FRED T10Y2Y / DGS10 minus DGS2). Grey vertical bands shade NBER recessions (1980, 1981–82, 1990–91, 2001, 2008–09, 2020). Each NBER recession in the period is preceded by a multi-month inversion of the spread; the lead time from first inversion to recession start ranges from about ten to twenty-four months. The 2022–2024 inversion is the deepest of the post-1976 era; the curve re-steepened through 2024–25 ahead of the slowdown markets are pricing into spring 2026.](image/week10_yield_curve_recessions.png)
+
+Why does inversion predict recession?
+
+- **It compresses bank profitability.** Banks borrow short and
+  lend long. When short rates exceed long rates, the spread on
+  every new loan they write is squeezed. Banks pull back lending,
+  credit creation slows, and the most cyclical sectors (housing,
+  capex, autos, small business) starve first.
+- **It is the bond market's verdict on Fed policy.** A 10-year
+  yield below the 2-year yield is the long end saying *the Fed has
+  raised short rates too far, growth and inflation will both fall,
+  and rates will be lower in the future*. The bond market is
+  collectively wrong less often than any other market on
+  macroeconomic forecasts of this kind.
+- **Inversion → expectation → behavior.** Once corporate
+  treasurers, bank credit officers, and the financial press are all
+  staring at an inverted curve, the *anticipation* of recession
+  itself causes the recession. Capex gets deferred, hiring slows,
+  layoffs get planned. The signal is partly self-fulfilling.
+
+Lead time from first inversion to NBER peak in the post-1976 era:
+
+| First inversion | NBER peak | Lead |
+|---|---|---|
+| Aug 1978 | Jan 1980 | 17 mo |
+| Sep 1980 | Jul 1981 | 10 mo |
+| Dec 1988 | Jul 1990 | 19 mo |
+| Feb 2000 | Mar 2001 | 13 mo |
+| Jan 2006 | Dec 2007 | 23 mo |
+| Aug 2019 | Feb 2020 | 6 mo (then COVID) |
+| Jul 2022 | TBD 2026? | 22+ mo |
+
+Two warnings before you turn this into a personal market-timing
+system. **First**, the lead time is variable — you cannot use
+inversion as a "sell now" signal without giving up two to three
+years of late-cycle equity returns. **Second**, the *un*-inversion
+(when the curve re-steepens after being inverted) is historically
+a closer-to-the-event signal than the inversion itself. The
+re-steepening in late 2024 / early 2025 is the part of this
+playbook to watch through 2026.
+
+#### 2.5 Asset Performance by Regime
+
+The single best summary of how asset classes behave across the
+cycle uses a four-regime framework based on the *direction* of
+real GDP growth and proximity to a recession.
+
+- **Early-cycle (recovery).** Recession just ended; growth is
+  rebounding; inflation is still falling; rates are low. **Stocks
+  > corporate bonds > Treasuries > cash > commodities.** Equity
+  beta wins; cyclical sectors lead; small-caps and high-yield
+  bonds outperform. This is the *highest-Sharpe* phase of the
+  cycle for risk assets — historical S&P 500 returns in the first
+  twelve months out of an NBER trough average roughly +35%.
+- **Mid-cycle.** Growth is steady, inflation is contained, rates
+  are normalising. **Stocks > corporate bonds > commodities >
+  Treasuries > cash.** Equities still win but the leadership
+  rotates from cyclicals to growth/quality. This is the longest
+  phase by duration and the easiest to be passively long.
+- **Late-cycle.** Growth is still positive but decelerating;
+  inflation is rising; the central bank is tightening. **Gold /
+  commodities > cash > stocks > corporate bonds > Treasuries.**
+  Real assets lead; energy and materials outperform; long-duration
+  bonds get punished as yields rise. This is the phase where
+  60/40 starts to fail because both legs come under pressure
+  simultaneously — 2008 and 2022 both belong in this bucket.
+- **Recession.** Growth is negative; inflation is falling (the
+  exception is stagflation, see §2.6); the central bank is cutting.
+  **Long Treasuries > gold > cash > stocks > commodities** *on
+  the way down*, but recession-tagged years usually contain a
+  recovery rally too (1933, 1954, 2009), which lifts the realised
+  full-year stock average. Duration wins; defensive equity sectors
+  (staples, health care, utilities) outperform cyclicals; gold
+  does well as real rates fall.
+
+A static bar chart of the four-regime average annual return for
+the four major asset classes across 1929–2024:
+
+![Average annual return by asset class across four regimes (early-cycle, mid-cycle, late-cycle, recession), 1929–2024. Stocks (S&P 500 total return), 10-year Treasuries, 3-month T-bills, gold. Each year tagged with one regime; bars show the simple average of nominal annual returns within each regime. Stocks earn their highest average in mid-cycle (~+16%) and their lowest in recession (~+8%, dragged up by snap-back years like 1933 and 1954); long bonds earn their highest in recession (~+6%) and their lowest in late-cycle (~+2%); T-bills are roughly flat across regimes (2-4%); gold is best in late-cycle (~+15%) and worst in mid-cycle (~+3%).](image/week10_asset_class_by_regime.png)
+
+Read the chart with three mental rules:
+
+- **The regime gap is large for the volatile assets.** Stocks vary
+  about 8 percentage points across regimes; gold varies about 12;
+  long bonds vary about 4. Even crude phase detection moves the
+  expected return by more than a full year of equity-risk-premium.
+- **Recession-year stock returns look surprisingly positive.**
+  That is because NBER recession years often *contain* the recovery
+  rally — 1933 (+50%), 1954 (+53%), 2009 (+26%) all sit inside
+  recession years. The bear-market damage is concentrated in the
+  *late-cycle* tag (which catches 2008 and 2022), not in recession
+  itself.
+- **No single asset wins every regime.** That is why the four
+  tranches in the SOUL framework (anchor #13) include a barbell
+  of equities and long Treasuries plus a real-asset sleeve. The
+  leg the cycle is hostile to *now* is exactly the leg that wins
+  when the cycle changes.
+
+The interactive **Regime Explorer** below lets you click any
+year from 1929 forward and see (a) which regime it was tagged
+with, (b) the realised one-year forward return of each of the
+four asset classes from that year, and (c) the average of all
+years sharing that regime. The exercise that does the most for
+your intuition: click 2007, then 2008, then 2009. Watch the
+sequence flip from late-cycle to recession to early-cycle, and
+watch the optimal asset class flip with it.
+
+#### 2.6 2008, 2020, 2022, and 2026
+
+Four recent setups, each useful for a different reason.
+
+**2008 — the disinflation playbook works.** Late-cycle imbalance
+(housing credit), recession, Fed cuts to zero, inflation
+collapses, long Treasuries rally violently (+20% in 2008),
+equities bottom in March 2009, the textbook 60/40 recovery
+unfolds across 2009–2010 almost on schedule. The cycle obeyed
+the textbook.
+
+**2020 — the exogenous shock case.** A global health shock
+arrives, NBER calls the shortest recession in history (two
+months), the Fed and Treasury combine for the largest stimulus
+in peacetime. Long Treasuries, gold, and stocks all rally
+together because the response was overwhelming. This was *not*
+a cycle in the Juglar sense; the imbalances had not built up.
+Importantly, that response left a gigantic monetary overhang
+that became the input for 2022.
+
+**2022 — the textbook fails.** Inflation surges to 9% on the
+back of the 2020–21 stimulus and supply shocks. The Fed hikes
+425 bp in nine months. Long Treasuries lose 18%. Stocks lose
+18%. **60/40 has its second-worst calendar year in history.**
+The cycle was not a normal late-cycle / recession arc; it was a
+late-cycle inflation shock without a recession, and the
+disinflation playbook stopped working. SOUL anchor #2 — *forty
+years does not make passive permanent* — earned its keep that
+year.
+
+**2026 (the live setup as of this writing).** The yield curve
+inverted in July 2022 and re-steepened over 2024–25. Headline
+inflation is back near 3% but services inflation is sticky.
+Unemployment has drifted from a cycle low of 3.4% to roughly
+4.5%. The S&P 500 hit a new high in late 2024 driven mostly by
+megacap AI capex. The leading indicators — yield curve
+re-steepening, ISM new-orders sub-50, jobless claims drifting
+up — are pointing at a 2026 slowdown. Whether it gets dated as
+a recession is a coin flip. **The lesson is not which way to
+bet but which signals to watch:** payroll diffusion, the credit
+spread index, and the ratio of cyclicals to defensives in the
+S&P 500. Those will turn before the price index does.
+
+#### 2.7 The Forty-Year Frame — Where SOUL #2 Lives
+
+Each Juglar cycle is about a decade. Each Kondratieff is about
+forty years. The forty-year disinflationary bull market that ran
+from August 1981 (Volcker peak) through the 2021 zero-rate top
+was one Kondratieff up-leg. *Within* it there were five Juglar
+recessions (1990, 2001, 2008, 2020) and roughly ten Kitchin
+inventory cycles. Every one of those Juglar recessions was
+followed by a stronger up-leg, because the Kondratieff backdrop
+was still disinflation and falling rates.
+
+The 2022 inflation shock was the first material data point
+suggesting the Kondratieff backdrop may have flipped. We do not
+know yet — these things resolve over a decade, not a quarter.
+But the *possibility* of the flip is what makes the discipline
+of cycle-aware allocation matter more in the next ten years
+than it did in the last forty. When the backdrop is a smooth
+disinflationary tailwind, "buy and hold the index" is right
+~95% of years. When the backdrop is uncertain, the cycle is
+the difference between making 8% real and losing 4% real.
 
 ---
 
-#### 3. Key Economic Indicators in Detail
+### 3. Common Misconceptions
 
-**GDP (Gross Domestic Product)**
+1. **"A recession means the stock market has crashed."** No. The
+   stock market typically peaks six to nine months *before* the
+   NBER peak and bottoms six to nine months *before* the NBER
+   trough. By the time a recession is confirmed, the market has
+   usually done most of its damage and is partway through its
+   recovery. Investors who wait for the headline announcement to
+   re-enter buy the recovery rather than the bottom.
 
-GDP is the broadest measure of economic activity. It represents the total value of all goods and services produced within a country's borders over a specific period. GDP is reported quarterly in the United States, with advance, second, and third estimates released in successive months.
+2. **"Two negative quarters of GDP equals a recession."** A
+   useful headline but not the official rule. NBER uses depth,
+   diffusion, and duration across multiple series. The first half
+   of 2022 was negative real GDP and was *not* dated as a
+   recession because employment kept rising.
 
-```
-GDP COMPONENTS
-================
+3. **"The yield curve has stopped working."** This is said before
+   every recession ("a new economy"), and was said again in 2023
+   when the recession people expected within a year of inversion
+   did not arrive. The signal's lead time has always been wide
+   (six to twenty-four months); a twenty-month delay is normal,
+   not a failure.
 
-GDP = C + I + G + (X - M)
+4. **"Unemployment is low so the economy is fine."** Unemployment
+   is the most lagging of the lagging indicators. It is the worst
+   summary statistic for current cycle position and the best
+   summary statistic for the *previous* cycle position.
 
-Where:
-C = Consumer Spending        (~68% of U.S. GDP)
-I = Business Investment      (~18% of U.S. GDP)
-G = Government Spending      (~17% of U.S. GDP)
-(X-M) = Net Exports          (~-3% of U.S. GDP)
-                              (negative = trade deficit)
+5. **"The Fed will save the market like it always does."** The Fed
+   saves the market when inflation is below target. When
+   inflation is above target, as in 2022, the Fed and the market
+   are on opposite sides of the trade — that is the entire point
+   of the dual mandate. Conditioning on the post-1995 era of
+   Greenspan / Bernanke / Yellen / Powell *put* expectations is
+   an example of recency bias.
 
-+---------------------------------------------------+
-|                    U.S. GDP                        |
-|                                                   |
-|  +---------------------------------------------+ |
-|  |           Consumer Spending (68%)            | |
-|  +---------------------------------------------+ |
-|  +------------------+  +-----------------+        |
-|  | Business Inv(18%)|  | Government (17%)|        |
-|  +------------------+  +-----------------+        |
-|  +-----+                                          |
-|  |Net X|  (Net Exports is small/negative)         |
-|  |(-3%)|                                          |
-|  +-----+                                          |
-+---------------------------------------------------+
+6. **"Cycles are too noisy to use — you can't time them."** False
+   dichotomy between *precise* timing (impossible) and *broad
+   phase awareness* (clearly value-additive in the historical
+   record). The four-regime asset performance gap is large enough
+   that you do not need to be early or right at every turn.
+   Getting one phase shift correct per decade pays for the
+   discipline.
 
-KEY INSIGHT: The U.S. economy is overwhelmingly
-driven by consumer spending. When consumers stop
-spending, the economy contracts. This is why
-consumer confidence and retail sales data are
-so closely watched.
-```
+7. **"60/40 is broken because of 2022."** 2022 was the worst
+   60/40 year in eighty-five years and the second-worst in
+   ninety-five. That is a statistically uncomfortable
+   observation, not a structural one. Across the 95-year record,
+   60/40 has produced positive nominal returns in roughly 80% of
+   calendar years. The 2022 lesson is that the stock-bond
+   correlation is regime-dependent — a refinement, not a refutation.
 
-**Real GDP vs. Nominal GDP:** Nominal GDP includes the effect of price changes (inflation). Real GDP strips out inflation to show the actual change in output. When economists say "GDP grew 2.5%," they almost always mean real GDP. If nominal GDP grew 5% and inflation was 2.5%, then real GDP grew approximately 2.5%.
+8. **"Commodities always hedge inflation."** They hedge the kind
+   of inflation that runs through tradeable goods (energy, metals,
+   food). They *do not* hedge service-sector inflation (rents,
+   wages, healthcare). The 2022 inflation shock was tradeable; the
+   2024–25 stickiness is service-sector. Different hedge needed.
 
-**The Unemployment Rate and the Jobs Report**
+9. **"Gold only works during inflation."** Gold's performance is
+   primarily driven by *real* interest rates. Falling real rates
+   help gold; rising real rates hurt it. That happens to coincide
+   with inflation surprises sometimes, but the cleaner driver is
+   the real-rate path, which is also why gold rallied from
+   $1,800 in late 2023 to over $3,000 by 2025 even as headline
+   inflation moderated.
 
-The monthly employment report from the Bureau of Labor Statistics is arguably the single most market-moving economic release. It contains two key numbers:
-
-```
-THE EMPLOYMENT REPORT
-=======================
-
-1. NONFARM PAYROLLS (from establishment survey)
-   - Number of jobs added or lost in the month
-   - Covers ~145,000 businesses and government agencies
-   - Considered more reliable for job COUNTS
-   
-   Interpretation:
-   +300,000 or more = Very strong
-   +150,000 to +300,000 = Healthy
-   +50,000 to +150,000 = Slowing
-   Below +50,000 = Weak / recessionary risk
-   Negative = Job losses (contraction)
-
-2. UNEMPLOYMENT RATE (from household survey)
-   - Percentage of labor force without a job
-   - Surveys ~60,000 households
-   - Considered more reliable for RATE
-
-   The unemployment rate:
-   - Typically ranges from 3.5% to 10% over a cycle
-   - Below 4%: tight labor market (late cycle)
-   - 4-5%: roughly "full employment"
-   - 5-7%: elevated (early recovery or slowdown)
-   - Above 7%: recessionary conditions
-
-IMPORTANT NUANCE:
-The unemployment rate can FALL for bad reasons.
-If people stop looking for work (leave the labor
-force), they are no longer counted as "unemployed."
-The LABOR FORCE PARTICIPATION RATE captures this:
-
-LFPR = (Employed + Unemployed looking) / Working Age Pop
-
-A falling unemployment rate with a falling LFPR
-is NOT good news -- people are giving up.
-```
-
-**PMI (Purchasing Managers' Index)**
-
-The PMI is one of the most reliable leading indicators and one of the first data points released each month. It surveys purchasing managers at hundreds of companies about new orders, production, employment, supplier deliveries, and inventories.
-
-```
-PMI INTERPRETATION
-====================
-
-The ISM Manufacturing PMI:
-
-     60+ |  Very strong growth / overheating
-         |
-     55  |  Solid expansion
-         |
-  -> 50  |  DIVIDING LINE: above = growth, below = contraction
-         |
-     45  |  Moderate contraction
-         |
-     40  |  Severe contraction (recession likely)
-
-How to read the components:
-
-  New Orders       Most forward-looking component.
-                   Rising orders = future production growth.
-
-  Production       Current activity level.
-                   Confirms or contradicts new orders signal.
-
-  Employment       Hiring/firing intentions.
-                   Leads the official jobs report.
-
-  Supplier         Longer deliveries = supply chain stress
-  Deliveries       (counterintuitively, this ADDS to PMI)
-
-  Inventories      Rising inventories can mean slowing demand
-                   (involuntary buildup) or preparation for
-                   expected demand (voluntary buildup). Context
-                   matters.
-
-KEY INSIGHT: Watch the NEW ORDERS minus INVENTORIES
-spread. When new orders are falling but inventories
-are rising, it signals production cuts ahead. This
-spread often leads the headline PMI by 1-2 months.
-```
-
-There are two PMI surveys: ISM Manufacturing (covers ~12% of GDP but is highly cyclical and leading) and ISM Services (covers ~80% of GDP and is more stable). Both matter, but the manufacturing PMI tends to turn first.
-
-**The Yield Curve**
-
-The yield curve plots the interest rates on government bonds of different maturities. Under normal conditions, longer-term bonds have higher yields than shorter-term bonds (because investors demand compensation for the additional risk of lending for longer periods). When short-term rates rise above long-term rates, the curve "inverts," and this is one of the most reliable recession predictors in history.
-
-```
-YIELD CURVE SHAPES
-====================
-
-NORMAL (Expansion -- economy healthy):
-Yield ^
-      |                        ___...---
-      |                  _.---'
-      |            _.---'
-      |      _.---'
-      |_.---'
-      +-----|-----|-----|-----|-----|----> Maturity
-           3mo   1yr   5yr   10yr  30yr
-Long-term yields > short-term yields
-
-
-FLAT (Transition -- late cycle warning):
-Yield ^
-      |
-      |     ___________________________
-      |----'
-      |
-      +-----|-----|-----|-----|-----|----> Maturity
-           3mo   1yr   5yr   10yr  30yr
-Long-term yields = short-term yields
-
-
-INVERTED (Recession signal -- danger):
-Yield ^
-      |
-      |___
-      |    '---.__
-      |           '---.__
-      |                   '---.__
-      +-----|-----|-----|-----|-----|----> Maturity
-           3mo   1yr   5yr   10yr  30yr
-Long-term yields < short-term yields
-(Market expects rates to FALL, meaning the
- central bank will need to cut due to recession)
-
-
-THE TRACK RECORD:
-An inverted yield curve (10Y minus 2Y < 0) has
-preceded EVERY U.S. recession since 1960 with
-only one false signal. The lead time varies
-from 6 to 24 months, making it a reliable but
-imprecise timing tool.
-```
-
-**Consumer Confidence and Sentiment**
-
-Two major surveys measure consumer attitudes: the Conference Board Consumer Confidence Index and the University of Michigan Consumer Sentiment Index. Both gauge how consumers feel about current conditions and future expectations.
-
-```
-CONSUMER CONFIDENCE COMPONENTS
-=================================
-
-Conference Board Index:
-  Present Situation  -->  How do consumers view
-                          the economy RIGHT NOW?
-                          (coincident indicator)
-
-  Expectations       -->  How do consumers expect
-                          the economy to perform
-                          in 6 MONTHS?
-                          (leading indicator)
-
-When to worry:
-- Present Situation falls while Expectations are
-  already low = recession is arriving
-- Expectations plunge while Present Situation holds =
-  recession may be coming but has not arrived yet
-
-Why it matters:
-Consumer spending = 68% of GDP
-Consumer confidence drives spending decisions
-Especially for big-ticket items:
-  - Cars (financed purchases)
-  - Homes (largest purchase most people make)
-  - Appliances and furniture
-  - Vacations and discretionary services
-```
-
-**Inflation Indicators: CPI and PCE**
-
-```
-INFLATION MEASURES
-====================
-
-CPI (Consumer Price Index):
-- Published by Bureau of Labor Statistics
-- Measures price changes for a basket of
-  consumer goods and services
-- Most widely reported inflation measure
-- Headline CPI includes food and energy
-- Core CPI excludes food and energy (volatile)
-
-PCE (Personal Consumption Expenditures):
-- Published by Bureau of Economic Analysis
-- THE FED'S PREFERRED INFLATION MEASURE
-- Broader coverage than CPI
-- Accounts for substitution effects
-  (if beef gets expensive, people buy chicken)
-- Tends to run ~0.3% lower than CPI
-
-Fed Target: 2% annual PCE inflation
-
-Interpretation:
-Below 1.5%:   Disinflation risk (too low)
-1.5% - 2.5%:  Goldilocks zone (on target)
-2.5% - 4.0%:  Elevated (Fed may tighten)
-Above 4.0%:   Concerning (aggressive tightening)
-Above 6.0%:   Crisis-level (emergency response)
-
-CORE vs. HEADLINE:
-The Fed focuses on core PCE because food and
-energy prices are volatile and often driven by
-supply shocks (weather, geopolitics) rather than
-underlying economic conditions. However, consumers
-experience HEADLINE inflation (they buy food and
-gas), creating a disconnect between policy focus
-and public perception.
-```
+10. **"This time it's different."** Said before every cycle peak.
+    The technology, the leadership stocks, and the policy details
+    *are* different every time. The *cycle structure* — credit
+    expansion, capex overshoot, central-bank tightening, slowdown,
+    cuts, recovery — is not. Both halves of that statement matter.
 
 ---
 
-#### 4. Asset Performance Across the Business Cycle
+### 4. Q&A Section
 
-Different asset classes perform predictably differently at each phase of the cycle. While no relationship is guaranteed, understanding historical patterns provides valuable context.
+**Q1. If recessions are dated only after the fact, how is the
+information useful in real time?**
+A. It is useful in two ways. First, the *historical* pattern lets
+you put present readings (yield curve, payroll diffusion, ISM,
+high-yield credit spreads) on a calibration curve and assign
+rough probabilities. Second, the *response*-side discipline does
+not depend on knowing the start date precisely: when the leading
+indicators turn negative, you trim equity beta and add long-bond
+duration *gradually*. That is far cheaper than waiting for the
+NBER announcement, which arrives after the easy money has been
+made.
 
-```
-ASSET PERFORMANCE BY CYCLE PHASE
-====================================
+**Q2. Should I sell stocks the moment the yield curve inverts?**
+A. No. The lead time from first inversion to recession peak has
+ranged from six to twenty-four months. Selling on day one of
+inversion has historically meant giving up six to twelve months
+of further equity gains, often the best of the cycle. A more
+defensible playbook: at first inversion, stop adding equity
+risk, lengthen bond duration, and let payrolls / claims / credit
+spreads tell you when the actual rollover begins.
 
-              Trough/       Mid-         Late
-              Early         Cycle        Cycle        Contraction
-              Recovery      Expansion    (Peak)       (Recession)
-              ---------     ---------    ---------    -----------
-Stocks
-  Large-Cap   +++           ++           +/-          ---
-  Small-Cap   ++++          ++           -            ---
-  Growth      +++           +++          +/-          --
-  Value       ++++          +            +            --
-  Cyclicals   ++++          ++           -            ---
-  Defensives  +             +            ++           -
+**Q3. Why does cash do so badly across most regimes?**
+A. Cash earns roughly the short rate, which is roughly inflation
+plus a small real premium in the long run. After taxes and
+inflation, the long-run real return on cash is close to zero.
+The only regime where cash strictly wins is the very brief
+window at the cycle peak when yields are high and risk assets
+are falling — and that window is usually six to twelve months,
+not the multi-year holdings most retail "cash on the sidelines"
+positions become.
 
-Bonds
-  Government  +             -            +/-          +++
-  Corporate   ++            +            -            +/-
-  High-Yield  +++           +            -            ---
+**Q4. What is the difference between a recession and a bear
+market?**
+A. A recession is an economic event (output, employment, sales,
+income falling). A bear market is a price event (a major index
+falling 20% or more from its peak). They overlap but are not the
+same: 2018's S&P 500 drawdown was 19.8% with no recession;
+2008–09 had both. The bear market is usually the bond market's
+and the stock market's *anticipation* of the recession to come
+plus the reaction once it arrives.
 
-Other
-  Commodities +/-           ++           +++          ---
-  Real Estate ++            ++           +/-          --
-  Cash        -             -            +            ++
+**Q5. Are emerging markets and the US on the same cycle?**
+A. Loosely. US monetary policy is the gravitational center —
+when the Fed tightens, dollar liquidity tightens for the world —
+but emerging market cycles can lead or lag the US by quarters
+because of commodity exposure, debt structure, and capital
+flows. We do not invest in non-US equity directly per SOUL
+anchor #16; if you want exposure to the EM cycle, do it through
+US-listed multinationals or US-listed EM ETFs.
 
-Legend: ++++ = Strongest  --- = Weakest
-        +    = Moderate    -  = Underperform
+**Q6. What is "stagflation" and where does it fit in the
+four-quadrant framework?**
+A. Stagflation is the diagonal: growth falling *and* inflation
+rising. Late-cycle into recession with inflation refusing to roll
+over. Asset performance under stagflation is genuinely difficult
+because both legs of 60/40 lose: stocks fall on growth, long
+bonds fall on inflation. Commodities, gold, short-duration
+inflation-protected bonds, and equity sectors with pricing power
+(energy, staples) are the survivors. 1973–75 and 2022 are the
+two clearest US examples of the post-war era.
 
-CAUTION: These are HISTORICAL TENDENCIES, not
-guarantees. Every cycle is different. Use this
-as a framework, not a recipe.
-```
+**Q7. How long is the average expansion really?**
+A. Post-1945, US expansions have averaged about sixty-three
+months from trough to next peak. Six of the twelve post-1945
+expansions ran longer than five years. The two longest — 1991–
+2001 and 2009–2020 — both ended with a one-time event (tech
+bubble unwinding plus 2001 recession; COVID for 2020), and
+without those endings each would have run further. Expansions
+do not die of old age; they die of imbalance plus a trigger.
 
-```
-THE INVESTMENT CLOCK
-======================
+**Q8. Where does the Federal Reserve's balance sheet fit in this
+framework?**
+A. As a *liquidity* layer underneath the cycle. The textbook
+cycle is about the real economy. Quantitative easing and
+quantitative tightening change the price of risk assets even
+when the real-economy cycle has not changed. The 2009–2014 QE
+era and the 2020–21 QE pulse are both clearer in equity index
+prices than in GDP data — which is part of why headline P/E
+ratios have drifted upward without earnings growth keeping
+pace. We come back to this in the central bank week.
 
-The "Investment Clock" (also called the "Business
-Cycle Clock") maps asset performance to cycle phases:
+**Q9. Should retirees and accumulators read the cycle the same
+way?**
+A. No. An accumulator with twenty years to compound benefits
+from buying *into* recessions because they are dollar-cost
+averaging at lower prices. A retiree with a five-to-ten-year
+spending horizon is on the wrong side of the cycle if the
+sequence of returns is bad early. The barbell (long Treasuries
++ equities) and the four-tranche structure exist mostly for the
+retiree case; an accumulator can run a simpler 60/40 if they
+have the discipline to keep buying through a 2008.
 
-               PEAK (Overheating)
-              Commodities shine
-             Rising inflation
-            /                \
-           /                  \
-      EXPANSION               CONTRACTION
-      (Goldilocks)            (Stagflation)
-      Stocks shine            Cash is king
-      Moderate growth &       Falling growth &
-      low inflation           high inflation
-           \                  /
-            \                /
-             \              /
-              TROUGH (Deflation)
-              Bonds shine
-              Falling inflation
-
-         +----------+----------+
-         |          |          |
-         | BONDS    | COMMOD.  |
-         | (Trough) | (Peak)   |
-         |          |          |
-         +----------+----------+
-         |          |          |
-         | STOCKS   | CASH     |
-         | (Expand) | (Contract)|
-         |          |          |
-         +----------+----------+
-
-This is a simplified model. In practice, the
-transitions are gradual and asset performance
-overlaps between phases.
-```
-
----
-
-#### 5. Sector Rotation Through the Cycle
-
-Just as asset classes rotate, sectors within the stock market also rotate based on the business cycle:
-
-```
-SECTOR ROTATION THROUGH THE CYCLE
-=====================================
-
-EARLY RECOVERY (Trough -> Early Expansion):
-Best sectors:   Consumer Discretionary, Financials,
-                Industrials, Real Estate
-Why:            Rate-sensitive sectors benefit from
-                low/falling rates. Pent-up demand
-                is unleashed. Credit begins flowing.
-
-MID-CYCLE (Expansion):
-Best sectors:   Technology, Industrials,
-                Communication Services
-Why:            Business investment accelerates.
-                Corporate spending on tech and
-                equipment. Ad spending rises.
-
-LATE CYCLE (Peak):
-Best sectors:   Energy, Materials, Staples,
-                Healthcare
-Why:            Commodity prices rise with inflation.
-                Defensive sectors hold up as growth
-                decelerates. Energy benefits from
-                supply constraints.
-
-CONTRACTION (Recession):
-Best sectors:   Utilities, Healthcare,
-                Consumer Staples
-Why:            Defensive sectors with stable demand.
-                People still need electricity, medicine,
-                and food regardless of the economy.
-                Often pay reliable dividends.
-
-SECTOR ROTATION MAP:
-                    PEAK
-                   Energy
-                  Materials
-                 /         \
-           Tech /           \ Staples
-          Ind. /             \ Health
-              /               \
-    EXPANSION                  CONTRACTION
-              \               /
-          Fin. \             / Utilities
-         Disc. \           / Healthcare
-          RE    \         /  Staples
-                 TROUGH
-```
+**Q10. Is the 2026 setup more like 1973–75, 2008, or 2020?**
+A. None of them cleanly. The closest analogue is probably the
+late 1960s into the early 1970s — the end of one Kondratieff
+disinflationary regime, sticky service inflation, an asset
+bubble in a narrow leadership group (Nifty Fifty then, AI
+megacaps now), and a fiscal trajectory that constrains how much
+the Fed can ease without re-igniting inflation. The lesson from
+that era is *not* "buy gold and run for the hills" — equity
+markets returned roughly nothing in real terms over the
+1965–1982 stretch, but the years inside it were highly tradeable
+on a phase-aware basis. The discipline this lesson is teaching
+matters a great deal more in that kind of decade than it did
+in 2010–2020.
 
 ---
 
-#### 6. The Role of the Federal Reserve
-
-The Federal Reserve (the "Fed") is the central bank of the United States. Its primary tools are the federal funds rate (the overnight lending rate between banks) and its balance sheet (quantitative easing or tightening). The Fed's actions are deeply intertwined with the business cycle.
-
-```
-FED POLICY THROUGH THE CYCLE
-===============================
-
-TROUGH / EARLY RECOVERY:
-- Rates: at or near zero
-- Balance sheet: expanding (QE)
-- Language: "accommodative," "patient"
-- Goal: stimulate borrowing and spending
-- Effect: pushes investors into riskier assets
-         (stocks, corporate bonds) because safe
-         assets yield almost nothing
-
-MID-CYCLE EXPANSION:
-- Rates: gradually rising
-- Balance sheet: stable or beginning to shrink
-- Language: "data dependent," "gradual"
-- Goal: normalize policy, remove accommodation
-- Effect: valuations may compress, but earnings
-         growth typically offsets rate increases
-
-LATE CYCLE / PEAK:
-- Rates: at or near cycle high
-- Balance sheet: shrinking (QT)
-- Language: "restrictive," "inflation target"
-- Goal: cool the economy, control inflation
-- Effect: higher borrowing costs pressure housing,
-         autos, business investment. Yield curve
-         may invert.
-
-CONTRACTION:
-- Rates: being cut, sometimes aggressively
-- Balance sheet: expanding again (new QE)
-- Language: "whatever it takes," "emergency"
-- Goal: prevent financial crisis, stimulate recovery
-- Effect: stabilizes markets, lowers borrowing
-         costs, sets stage for next recovery
-
-THE FED'S DILEMMA:
-Move too slowly -> inflation gets out of control
-Move too fast   -> trigger the recession you are
-                   trying to prevent
-
-This is why "soft landings" (slowing growth without
-recession) are so difficult and rare.
-```
+## Part 2: YouTube Script
 
 ---
 
-#### 7. Putting It All Together: Building an Economic Dashboard
-
-```
-YOUR PERSONAL ECONOMIC DASHBOARD
-====================================
-
-Indicator              Where to Find It       Frequency
----------              ----------------       ---------
-GDP Growth             BEA (bea.gov)          Quarterly
-Nonfarm Payrolls       BLS (bls.gov)          Monthly
-Unemployment Rate      BLS (bls.gov)          Monthly
-ISM Manufacturing PMI  ISM (ismworld.org)     Monthly
-ISM Services PMI       ISM (ismworld.org)     Monthly
-CPI Inflation          BLS (bls.gov)          Monthly
-PCE Inflation          BEA (bea.gov)          Monthly
-Consumer Confidence    Conf. Board            Monthly
-Yield Curve (10Y-2Y)   FRED (fred.stlouisfed) Daily
-Initial Jobless Claims DOL (dol.gov)          Weekly
-S&P 500 Performance    Any financial site     Daily
-
-HOW TO USE THE DASHBOARD:
-1. Check leading indicators FIRST
-   (PMI, yield curve, initial claims, LEI)
-2. Confirm with coincident indicators
-   (GDP, payrolls, industrial production)
-3. Use lagging indicators for context
-   (unemployment rate, CPI, corporate profits)
-
-If leading indicators are deteriorating while
-coincident indicators are still strong, prepare
-for a potential slowdown. If leading indicators
-are improving while lagging indicators are still
-weak, the recovery is likely underway.
-```
+**VIDEO TITLE:** Economic Cycles, Honestly — Expansion, Peak, Contraction, Trough, and What Each One Does to Your Portfolio (Week 10)
+**RUNTIME TARGET:** ~18 minutes
+**HOSTS:** Horace, Stella
 
 ---
 
-#### 8. Historical Perspective: U.S. Business Cycles Since 1945
+**[INTRO — 0:00–1:00]**
 
-```
-U.S. BUSINESS CYCLES (POST-WWII)
-====================================
+**HORACE:** Welcome back to Week 10. Today we are going to do
+something that the textbook treats as folklore and the trading
+desks treat as the most important variable in the room: the
+business cycle.
 
-Peak        Trough      Duration    Duration
-                        (Expansion) (Contraction)
--------     -------     ----------  ------------
-Nov 1948    Oct 1949    37 months   11 months
-Jul 1953    May 1954    45 months   10 months
-Aug 1957    Apr 1958    39 months    8 months
-Apr 1960    Feb 1961    24 months   10 months
-Dec 1969    Nov 1970   106 months   11 months
-Nov 1973    Mar 1975    36 months   16 months
-Jan 1980    Jul 1980    58 months    6 months
-Jul 1981    Nov 1982    12 months   16 months
-Jul 1990    Mar 1991    92 months    8 months
-Mar 2001    Nov 2001   120 months    8 months
-Dec 2007    Jun 2009    73 months   18 months
-Feb 2020    Apr 2020   128 months    2 months
+**STELLA:** "Folklore" is harsh. Most personal-finance books at
+least mention recessions.
 
-OBSERVATIONS:
-1. Expansions have gotten LONGER over time
-   (average 58 months pre-1980, 103 months post-1980)
-2. Contractions have gotten SHORTER
-   (average 10 months pre-1980, 9 months post-1980,
-    excluding the anomalous 2-month COVID recession)
-3. The 2007-2009 contraction (Great Recession) was
-   the deepest since the Great Depression
-4. The 2020 contraction was the shortest on record
-   but also one of the sharpest in terms of GDP decline
+**HORACE:** They mention recessions. They almost never tell you
+that the average gap between the best asset and the worst asset
+is *bigger across cycle phases than the equity risk premium
+itself*. That is a quietly enormous fact. If you only know one
+thing about the cycle, you outperform a passive 60/40 over the
+next decade — assuming you have the discipline to act on it.
 
-IMPORTANT: These are identified by the NBER
-(National Bureau of Economic Research) after
-the fact. You often do not know you are in a
-recession until months after it has begun.
-```
+**STELLA:** Big claim. Let's earn it.
 
 ---
 
-### c) Common Misconceptions
+**[ACT 1 — NBER DATING — 1:00–3:30]**
 
-**Misconception 1: "Two quarters of negative GDP growth equals a recession."**
+**HORACE:** First, who decides a recession has happened. In the
+United States it is not the BBC, not the White House, not two
+quarters of negative GDP. It is eight academic economists at
+NBER, the National Bureau of Economic Research. They look at
+real GDP, real income, employment, industrial production, and
+wholesale-retail sales. When enough of those fall together for
+long enough, they pick a peak month and a trough month. After
+the fact.
 
-Reality: This is a popular rule of thumb, but it is not the official definition. In the United States, recessions are declared by the National Bureau of Economic Research (NBER), which considers a broad range of factors including employment, industrial production, personal income, and retail sales. It is possible to have two quarters of slightly negative GDP growth without the NBER calling it a recession (if employment and income remain strong), and it is possible to have a recession without two consecutive negative quarters (if one quarter is deeply negative followed by a tiny positive quarter).
+**STELLA:** How long after?
 
-**Misconception 2: "The unemployment rate tells you where the economy is heading."**
+**HORACE:** Six to eighteen months. Usually after the worst of
+the recession is already in the rearview mirror, and the stock
+market has already started its recovery. Which is why "wait
+until the recession is confirmed before buying back in" is a
+self-defeating rule.
 
-Reality: The unemployment rate is a lagging indicator. It peaks after the recession has already ended, sometimes by 6 to 12 months. If you wait for unemployment to improve before investing, you will miss a substantial portion of the recovery. Initial jobless claims (a weekly measure of new unemployment filings) is a much better leading indicator -- it tends to turn before the economy does.
+**STELLA:** Twelve recessions since 1945, average expansion
+about five years.
 
-**Misconception 3: "A yield curve inversion means a recession is starting now."**
-
-Reality: The yield curve is a reliable recession predictor, but the timing is imprecise. Historically, recessions have begun 6 to 24 months after the initial inversion. Some of the strongest stock market returns in history have occurred between the inversion signal and the actual recession. Inverting your portfolio to 100% cash at the first sign of inversion would have caused you to miss significant gains in many past cycles.
-
-**Misconception 4: "You should sell stocks before a recession and buy them back at the bottom."**
-
-Reality: This sounds logical but is nearly impossible to execute. You would need to correctly identify both the peak (when to sell) and the trough (when to buy). Professional investors, with teams of analysts and decades of experience, consistently fail to do this reliably. Even if you correctly sold before the downturn, the anxiety of deciding when to buy back in typically causes you to miss the sharpest recovery moves. A better approach is to maintain a diversified portfolio and rebalance systematically.
-
-**Misconception 5: "Recessions are caused by external shocks that cannot be predicted."**
-
-Reality: While external shocks (pandemics, geopolitical events) can trigger recessions, most recessions are caused by internal imbalances -- excessive leverage, asset bubbles, overheating, or policy mistakes. These imbalances build up during expansions and are visible in the economic data if you know where to look. The yield curve, credit spreads, debt-to-income ratios, and leading indicators often signal trouble well in advance. The 2020 COVID recession was an exception, caused by an exogenous health shock, but even then, the severity was amplified by pre-existing vulnerabilities.
-
-**Misconception 6: "The best time to invest is when the economy is strong."**
-
-Reality: If you buy when everyone is optimistic and the economy is booming, you are buying at elevated valuations. Historically, the best forward returns come from investing when the economy is weak and sentiment is negative -- near the trough. This is psychologically very difficult because everything feels terrible at the bottom. But $10,000 invested at the March 2009 bottom grew to over $70,000 by 2024, while the same amount invested at the October 2007 peak took years just to break even.
-
----
-
-### d) Q&A
-
-**Q1: How do I know which phase of the business cycle we are currently in?**
-
-A: You generally cannot know with precision in real time. The NBER, which officially dates recessions, typically does not make its call until 6 to 12 months after a recession has begun. However, you can use a weight-of-the-evidence approach by examining multiple indicators simultaneously. If the PMI is above 50 and rising, payrolls are growing, consumer confidence is improving, and leading indicators are positive, you are likely in an expansion. If the PMI is falling below 50, initial claims are rising, and the yield curve has recently inverted, you may be approaching a contraction. No single indicator is definitive -- look at the mosaic.
-
-**Q2: Should I try to adjust my portfolio based on the business cycle?**
-
-A: For most individual investors, aggressive tactical allocation based on cycle timing does more harm than good. The transitions between phases are difficult to identify in real time, and the penalties for being wrong are severe (missing a recovery rally, for example). A better approach is to maintain a strategically diversified portfolio and make modest tilts based on where you believe you are in the cycle. For example, if you believe you are in a late-cycle environment, you might slightly increase your allocation to defensive sectors and reduce your most speculative positions -- but you should not overhaul your entire portfolio.
-
-**Q3: What is the most reliable recession indicator?**
-
-A: The yield curve (specifically, the 10-year minus 2-year Treasury spread going negative) has the strongest track record, having preceded every U.S. recession since 1960 with only one false signal. However, the lead time varies widely (6 to 24 months), making it useful for awareness but poor for precise timing. Initial jobless claims are also very reliable -- a sustained trend of rising claims (moving above the 4-week average by more than 10-15%) has historically signaled recession onset within 3 to 6 months.
-
-**Q4: Why do stock prices often fall before a recession is officially declared?**
-
-A: Because the stock market is a leading indicator. Market participants are forward-looking -- they trade on expectations about future earnings, not past earnings. When investors see leading indicators deteriorating (falling PMI, rising initial claims, inverted yield curve), they begin pricing in lower future earnings before those lower earnings actually materialize. This is why the market often peaks months before the economy does and bottoms months before the economy recovers.
-
-**Q5: What does the Fed mean by a "soft landing"?**
-
-A: A soft landing occurs when the Fed raises interest rates enough to slow inflation and cool an overheating economy without triggering a recession. The economy decelerates from an unsustainable pace to a healthy one, and unemployment rises only modestly. Soft landings are rare because the lag between rate hikes and their economic effects makes calibration extremely difficult. The Fed is essentially trying to slow a car on an icy road -- the brakes work with a delay, so you do not know if you have applied enough pressure until it is too late to adjust.
-
-**Q6: How does inflation affect my portfolio in practical terms?**
-
-A: Inflation erodes purchasing power. If your portfolio returns 7% in a year when inflation is 5%, your real (inflation-adjusted) return is only about 2%. Different asset classes respond differently to inflation. Stocks of companies with pricing power (they can raise prices) tend to hold up well. Fixed-rate bonds suffer because their fixed payments are worth less in real terms. Commodities often rise with inflation. Real estate generally keeps pace. Cash and savings accounts lose purchasing power unless their rates match or exceed inflation. TIPS (Treasury Inflation-Protected Securities) are explicitly designed to hedge inflation risk.
-
-**Q7: What is the Conference Board's Leading Economic Index (LEI)?**
-
-A: The LEI is a composite of 10 leading indicators combined into a single number. It includes the yield curve spread, stock market returns, building permits, initial claims, ISM new orders, consumer expectations, and several other components. The rule of thumb is that three consecutive monthly declines in the LEI signal a potential recession within the next 12 months. It is a convenient summary statistic, but examining the individual components provides richer information about which parts of the economy are weakening.
-
-**Q8: Do business cycles affect the bond market the same way they affect stocks?**
-
-A: In some ways, bonds and stocks respond inversely to the cycle. During expansions, stock returns are generally strong while bond returns are weak (because rising rates push bond prices down). During contractions, government bond returns are typically strong (because falling rates push bond prices up) while stock returns are poor. This is the fundamental reason why a stock-bond portfolio provides diversification -- the two asset classes tend to perform well at different times. However, this relationship breaks down during periods of rising inflation, when both stocks and bonds can suffer simultaneously (as occurred in 2022).
-
-**Q9: How long do recessions typically last, and how severe are they?**
-
-A: Post-World War II U.S. recessions have averaged about 10 months in duration. The shortest was the COVID recession at 2 months (February to April 2020), and the longest was the Great Recession at 18 months (December 2007 to June 2009). In terms of severity, the average peak-to-trough GDP decline has been about 2.5%, though the Great Recession saw a decline of about 4.3% and the COVID recession saw a decline of about 9.1% (annualized) in its worst quarter. Stock market declines during recessions have ranged from about 14% to 57%.
-
-**Q10: Should I hold more cash during late-cycle periods?**
-
-A: Modestly increasing cash or short-term bond holdings during late-cycle periods is a reasonable risk management strategy, but be careful not to overdo it. Late-cycle periods can last much longer than expected -- the market can continue rising for a year or more after you think it is "too late." A common approach is to raise cash from 5% to 10-15% of your portfolio during late-cycle environments, funded by trimming your most speculative positions. This gives you dry powder to deploy during the next downturn without sacrificing too much upside if the cycle extends. But going to 50% cash because you think a recession is coming is a timing bet that usually costs more than it saves.
+**HORACE:** Correct. The longest expansion ever recorded was
+2009 through 2020 — eleven years — and it ended only because of
+COVID. Not because the economy overheated. Important caveat:
+not every cycle ends from the inside.
 
 ---
 
-## YouTube Script
+**[ACT 2 — KITCHIN, JUGLAR, KONDRATIEFF — 3:30–6:00]**
 
-[VISUAL: Animated intro with title "Week 10: Economic Cycles and Your Portfolio"]
+**HORACE:** Now the layered picture. There is not one cycle —
+there are at least three.
 
-**Horace:** Welcome back everyone. Last week we pulled apart market indexes and learned what is really inside an index fund. Today we are zooming out even further to look at the biggest force driving financial markets -- the business cycle. This is the rhythm of the economy, and once you understand it, a lot of market behavior that seems random starts to make sense.
+**STELLA:** Tell me they have boring names.
 
-**Stella:** I have heard people talk about "where we are in the cycle" but I have never fully understood what that means. Is the economy just going in circles?
+**HORACE:** Kitchin, Juglar, Kondratieff.
 
-**Horace:** Not exactly circles, but cycles -- the economy expands, reaches a peak, contracts, hits a trough, and then expands again. It is like the seasons. Winter always ends and spring arrives, but you do not know exactly when the first warm day will come or how harsh the winter will be.
+**STELLA:** Of course they do.
 
-[VISUAL: Animated sine wave showing the business cycle with seasons overlaid -- spring for recovery, summer for expansion, fall for peak, winter for contraction. Trees and landscape change with each season.]
+**HORACE:** Kitchin is the inventory cycle, three to five years.
+Juglar is the capex cycle, seven to eleven years — that is the
+"recession cycle" most people mean. Kondratieff is the long
+wave, forty to sixty years, driven by technology and monetary
+regime.
 
-**Stella:** So there are four phases?
+**STELLA:** And the one we care about most is —
 
-**Horace:** Yes. Let me walk you through each one.
+**HORACE:** All three. Different decisions. The Kitchin tells
+you about the next year of earnings. The Juglar tells you when
+to expect the next recession. The Kondratieff tells you whether
+the *playbook* of the past forty years still applies.
 
-[ANIMATION: animation/week10_business_cycle.py - Animated business cycle diagram. A smooth curve oscillates over time, with GDP growth rate on the y-axis and time on the x-axis. As the cycle progresses, each phase lights up in a different color: trough in blue, expansion in green, peak in orange, contraction in red. Key characteristics appear alongside each phase -- unemployment direction, corporate earnings, consumer confidence, Fed policy. A small dashboard in the corner shows real-time values for these indicators as the animation moves through the cycle.]
+**STELLA:** SOUL anchor number two.
 
-**Horace:** Phase one is the trough, also called the early recovery. This is the bottom. The economy has been shrinking, unemployment is high, businesses have cut costs to the bone, and everyone is pessimistic. But paradoxically, this is when the foundation for recovery is being laid. Interest rates are low because the Fed has been cutting to stimulate growth. Inventories are depleted, which means any pickup in demand requires new production. And importantly, asset prices are cheap.
-
-**Stella:** So the trough is actually a good time to invest? Even though everything feels terrible?
-
-**Horace:** One of the best. And I want to stress how counterintuitive that is. At the trough, the news is relentlessly negative. Headlines are about layoffs, bankruptcies, and financial stress. Your instinct is to sell everything and hide in cash. But historically, the biggest gains come from investing when fear is at its peak.
-
-**Stella:** That takes serious discipline.
-
-**Horace:** It does. And this is why understanding the cycle matters so much -- it gives you the intellectual framework to act against your emotions. You know that troughs do not last forever because they never have.
-
-[VISUAL: Timeline showing every U.S. recession since 1945 with duration bars. Each recession is followed by a much longer expansion bar, visually demonstrating that recoveries dwarf contractions.]
-
-**Stella:** What about phase two -- the expansion?
-
-**Horace:** The expansion is the good times. The economy is growing, unemployment is falling, businesses are hiring and investing, consumers are spending, and corporate earnings are rising. This is the longest phase of the cycle -- historically, expansions have lasted about five years on average, and they have been getting longer over time. The expansion from 2009 to 2020 lasted nearly 11 years.
-
-**Stella:** Is there a danger in the expansion?
-
-**Horace:** The danger is complacency. As the expansion continues and everything feels good, people take on more risk. They borrow more, speculate more, and assume the good times will continue forever. Corporations take on debt, banks loosen lending standards, and valuations climb. These excesses plant the seeds of the next contraction.
-
-**Stella:** So the expansion creates the conditions for its own end?
-
-**Horace:** That is a really important insight, and yes, historically that is exactly what happens. The late-cycle phase -- the peak -- is where those excesses become unsustainable.
-
-[VISUAL: Animated chart showing key indicators during a typical expansion: GDP rising, unemployment falling, corporate debt rising, stock valuations rising, consumer confidence rising -- with accelerating slope in the late stage indicating overheating]
-
-**Horace:** At the peak, the economy is running hot. Unemployment is very low, which sounds great, but it means labor is scarce. Wages are rising fast, which squeezes corporate margins. Inflation is elevated. The Fed is raising rates to cool things down. And here is the critical tension -- the Fed is trying to slow the economy enough to control inflation without tipping it into recession.
-
-**Stella:** That sounds like a tightrope walk.
-
-**Horace:** It is, and it is called the "soft landing" challenge. The problem is that monetary policy works with a lag. When the Fed raises rates today, the full effect does not hit the economy for 12 to 18 months. So the Fed is essentially driving while looking in the rearview mirror, pressing the brake pedal and not knowing for over a year whether it was too much or too little.
-
-[VISUAL: Car analogy showing a driver on an icy road labeled "The Economy." The brake pedal is labeled "Rate Hikes" and there is a sign that says "Effect Delay: 12-18 months." Two possible outcomes are shown: a smooth stop (soft landing) and skidding off the road (recession).]
-
-**Stella:** And the fourth phase is the contraction -- the recession.
-
-**Horace:** Right. A contraction is when economic activity actually declines. Businesses cut costs, lay off workers, and reduce investment. Consumer spending falls. Corporate earnings drop. Defaults and bankruptcies rise. The stock market falls, often sharply. It is painful. But -- and this is crucial -- every single contraction in modern American history has been followed by a recovery.
-
-**Stella:** How long do recessions typically last?
-
-**Horace:** The average post-World War II recession has lasted about 10 months. The shortest was the COVID recession at just 2 months. The longest was the Great Recession at 18 months. By contrast, the average expansion has lasted about five years. So the economy spends roughly five times as much time growing as it does shrinking.
-
-[VISUAL: Horizontal timeline showing alternating expansion (green) and contraction (red) bars since 1945. The expansions are dramatically longer than the contractions, visually reinforcing that growth is the default state.]
-
-**Stella:** That is reassuring. Now, you mentioned economic indicators earlier. How do we actually track where we are in the cycle?
-
-**Horace:** Great question. Economic indicators fall into three categories based on their timing relationship to the cycle: leading, coincident, and lagging. And understanding the difference is absolutely critical.
-
-**Stella:** What is the difference?
-
-**Horace:** Leading indicators move before the economy turns. They are your early warning system. Coincident indicators move at the same time as the economy -- they tell you where you are right now. And lagging indicators move after the economy has already turned -- they confirm what already happened.
-
-[VISUAL: Three traffic signals side by side. The first (leading) is yellow/caution, labeled "What's ahead." The second (coincident) is green, labeled "Where you are." The third (lagging) is red/confirmation, labeled "What just happened." Examples appear below each.]
-
-**Stella:** Give me the most important indicator in each category.
-
-**Horace:** For leading indicators, I would say the yield curve is the most powerful single predictor. When long-term interest rates fall below short-term rates -- a condition called an inverted yield curve -- it has preceded every U.S. recession since 1960.
-
-**Stella:** Every single one?
-
-**Horace:** Every single one, with only one false signal. The challenge is timing -- the recession can come 6 months later or 24 months later. So the yield curve tells you a recession is coming, but not exactly when.
-
-[ANIMATION: animation/week10_business_cycle.py - Animated yield curve visualization. Three bond yield curves are shown: normal (upward sloping), flat, and inverted (downward sloping). The animation transitions between the three shapes, showing how the curve evolves through the business cycle. Historical overlays show the actual 10Y-2Y spread over time, with shaded bars marking recessions. The relationship between inversion and subsequent recession onset is highlighted with connecting arrows and time-lag labels.]
-
-**Stella:** What about the PMI? I have seen that mentioned a lot.
-
-**Horace:** The Purchasing Managers' Index is one of the most valuable monthly indicators. It surveys purchasing managers at companies across the country about new orders, production, employment, and inventories. The magic number is 50 -- above 50 means the manufacturing sector is expanding, below 50 means it is contracting.
-
-**Stella:** So if the PMI is 48, that is bad?
-
-**Horace:** It means manufacturing is contracting, yes. But here is a more nuanced way to use it. Look at the new orders component separately -- it is the most forward-looking part of the PMI. If new orders are falling while finished goods inventories are rising, it means companies are making stuff that is not selling. That signals production cuts are coming, which means layoffs, which means less consumer spending. One indicator tells you a cascading story.
-
-[VISUAL: Flowchart showing the cascade: Falling New Orders -> Rising Inventories -> Production Cuts -> Layoffs -> Less Consumer Spending -> Lower GDP. Each step is connected with arrows and timing estimates.]
-
-**Stella:** That is powerful. What about coincident indicators?
-
-**Horace:** The big one is nonfarm payrolls -- the monthly jobs report. It tells you how many jobs the economy added or lost in the previous month. If the economy is adding 200,000 or more jobs per month, it is healthy. If that number starts falling toward zero or goes negative, the economy is weakening in real time.
-
-**Stella:** And lagging indicators?
-
-**Horace:** The unemployment rate is the classic lagging indicator, and understanding this is so important. The unemployment rate typically does not peak until after the recession is already over. Let me say that again -- by the time unemployment is at its worst, the economy is usually already recovering.
-
-**Stella:** That is really counterintuitive. So if I wait until unemployment improves to start investing, I have already missed the recovery?
-
-**Horace:** Exactly. The stock market typically bottoms about 6 months before the economy does, and the economy recovers about 6 months before unemployment peaks. So there is roughly a 12-month gap between when the market bottoms and when unemployment is at its worst. If you are using unemployment as your signal, you are about a year late.
-
-[VISUAL: Three overlapping timelines showing the stock market bottom, the economic trough, and the unemployment peak, with 6-month gaps between each. A stick figure labeled "Waiting for unemployment to improve" is standing at the far right, watching the market rally pass by.]
-
-**Stella:** So what should investors do with all this information?
-
-**Horace:** The most important thing is to understand what the data is telling you so you do not make emotional mistakes. During a recession, when the data is terrible and the news is frightening, you need to recognize that the market has already priced in much of the bad news and is likely looking ahead to recovery. During a peak, when the data looks great and everyone is euphoric, you need to recognize that risks are building even though nothing bad has happened yet.
-
-**Stella:** Are there specific portfolio adjustments I should make based on the cycle?
-
-**Horace:** Let me show you how different asset classes perform in each phase.
-
-[VISUAL: Four-quadrant chart showing the business cycle phases with top-performing asset classes in each quadrant. Trough: bonds and early-cycle stocks. Expansion: stocks broadly. Peak: commodities and energy. Contraction: government bonds and cash.]
-
-**Horace:** In the early recovery -- the trough -- the best-performing assets tend to be small-cap stocks, high-yield bonds, and interest-rate-sensitive sectors like financials and real estate. These are the beaten-down areas that benefit most from the recovery in confidence and declining interest rates.
-
-**Stella:** What about during the expansion?
-
-**Horace:** Mid-cycle is broadly good for stocks, especially technology and industrials. Business investment is growing, corporate earnings are rising, and the economy has a healthy growth-inflation balance. This is the "Goldilocks" phase -- not too hot, not too cold.
-
-**Stella:** And late cycle?
-
-**Horace:** Late cycle tends to favor commodities, energy stocks, and defensive sectors like healthcare and consumer staples. Inflation is picking up, which benefits real assets. Defensive sectors hold up because their businesses are less economically sensitive -- people need electricity, medicine, and food regardless of the cycle.
-
-**Stella:** What performs best during a recession?
-
-**Horace:** Government bonds are the classic recession winner. When the economy contracts, the Fed cuts rates, which pushes bond prices up. Cash also outperforms on a relative basis simply by not losing money. Defensive stocks -- utilities, staples, healthcare -- tend to fall less than the broader market.
-
-[ANIMATION: animation/week10_business_cycle.py - Animated sector rotation wheel showing sectors highlighted as the cycle progresses. The animation moves clockwise through the four phases, with outperforming sectors lighting up in green and underperforming sectors dimming to gray. A performance bar chart updates in real time, showing the relative returns of each sector during the highlighted phase. Historical data from actual cycles is used to calibrate the magnitudes.]
-
-**Stella:** This is like a playbook for the cycle.
-
-**Horace:** It is a historical tendency, not a playbook -- and that distinction matters. Every cycle is different. The 2020 recession was caused by a pandemic, not an overheating economy, and the recovery was V-shaped because of massive fiscal stimulus. The 2007-2009 recession was caused by a financial crisis and the recovery was slow and grinding. The sectors and assets that outperformed in each case did not perfectly match the textbook rotation.
-
-**Stella:** So how should I use this information without treating it as a crystal ball?
-
-**Horace:** Three practical guidelines. First, maintain a diversified portfolio that includes assets that perform well in different phases. This way, you do not need to predict the cycle -- your portfolio has something working in every environment. Second, make modest tilts, not wholesale changes. If you believe you are in a late-cycle environment, maybe increase your allocation to defensive stocks from 15% to 20% and trim your most speculative holdings. But do not go to 100% cash or 100% commodities. Third, use the indicators as a risk management tool, not a timing tool. They tell you when to be more cautious and when to be more aggressive, but the timing will never be precise.
-
-[VISUAL: Two portfolio pie charts side by side -- "Early/Mid Cycle Tilt" and "Late Cycle / Defensive Tilt" -- showing modest shifts in allocation rather than dramatic changes. The differences are highlighted with arrows showing which wedges grew and which shrank.]
-
-**Stella:** Let me ask about something I see in the news all the time -- GDP. What exactly is it and why does everyone care so much?
-
-**Horace:** GDP -- Gross Domestic Product -- is the total value of everything produced in the economy over a period. It is the broadest single measure of economic activity. In the U.S., it is reported quarterly. The key thing to know is that nearly 70% of U.S. GDP is consumer spending. So the American economy is fundamentally driven by whether consumers are spending money.
-
-**Stella:** That is a lot. So if consumers pull back, the whole economy suffers?
-
-**Horace:** Exactly. And this is why consumer confidence surveys, retail sales data, and employment figures are so closely watched -- they all feed into whether consumers will keep spending. When people lose their jobs, their confidence drops, and they cut spending. When spending drops, businesses see lower revenue. When revenue drops, businesses cut costs, including laying off workers. That is the vicious cycle of a recession.
-
-[VISUAL: Circular diagram showing the recession feedback loop: Job Losses -> Lower Confidence -> Less Spending -> Lower Revenue -> Cost Cuts -> More Job Losses, with arrows connecting each step in a circle]
-
-**Stella:** What about inflation? Where does that fit in?
-
-**Horace:** Inflation is the silent tax on your portfolio and the central obsession of the Federal Reserve. There are two main measures -- CPI, the Consumer Price Index, which gets all the headlines, and PCE, the Personal Consumption Expenditures index, which is what the Fed actually targets. The Fed's target is 2% annual PCE inflation.
-
-**Stella:** Why 2%? Why not zero?
-
-**Horace:** Zero inflation, or worse, deflation -- falling prices -- is actually more dangerous than moderate inflation. If consumers expect prices to fall, they delay purchases. Why buy a car today if it will be cheaper next month? That delay in spending slows the economy. A small positive inflation rate encourages spending and investment. Two percent is considered the sweet spot -- enough to encourage economic activity without eroding purchasing power too quickly.
-
-[VISUAL: Temperature gauge showing the "Goldilocks zone" for inflation. Below 1% is labeled "Too Cold (Deflation Risk)." Between 1.5% and 2.5% is green and labeled "Just Right." Between 2.5% and 4% is yellow. Above 4% is red and labeled "Too Hot (Aggressive Tightening)."]
-
-**Stella:** How does inflation affect my investments specifically?
-
-**Horace:** It depends on the asset. Stocks of companies with pricing power -- meaning they can raise prices and customers still buy -- tend to do fine in moderate inflation. Think consumer staples brands or tech companies with subscription models. Bonds get hurt because their fixed interest payments lose purchasing power. If you own a bond paying 3% and inflation is 4%, your real return is negative 1%. Commodities and real estate tend to benefit from inflation because they are real assets whose prices rise with the general price level. And cash under the mattress is the worst -- it loses purchasing power every single day.
-
-**Stella:** So in an inflationary environment, you want to own things, not hold paper?
-
-**Horace:** That is a good rule of thumb for high inflation environments, yes. TIPS -- Treasury Inflation-Protected Securities -- are specifically designed for this. Their principal adjusts with inflation, so your purchasing power is protected. They are essentially a bond with built-in inflation insurance.
-
-**Stella:** Let us talk about the Fed for a minute. I know they set interest rates, but how does that actually transmit through the economy?
-
-**Horace:** The Fed controls the federal funds rate, which is the overnight lending rate between banks. When the Fed raises this rate, it becomes more expensive for banks to borrow, so they raise the rates they charge consumers and businesses. Mortgage rates go up, auto loan rates go up, business borrowing costs go up. This slows spending and investment, which cools the economy. When the Fed cuts the rate, the opposite happens -- borrowing gets cheaper, spending increases, the economy accelerates.
-
-[VISUAL: Transmission mechanism diagram showing the Fed at the top, with arrows flowing down through bank lending rates, then branching to mortgages (affecting housing), business loans (affecting investment), and consumer credit (affecting spending). Each branch shows real-world examples.]
-
-**Stella:** How long does it take for a rate change to affect the economy?
-
-**Horace:** That is the million-dollar question. The consensus is 12 to 18 months for the full effect to be felt. This lag is what makes monetary policy so difficult. The Fed is making decisions today based on where they think the economy will be a year from now. If they get it wrong -- if they tighten too much and cause a recession, or too little and let inflation run -- the consequences are severe and they cannot be reversed quickly.
-
-**Stella:** So when the Fed raises rates, the economy might still look fine for a year?
-
-**Horace:** Exactly. And this causes a dangerous illusion. People look at the strong economy and say "see, the rate hikes are not a problem." But the full impact has not hit yet. This is why watching leading indicators is so important -- they can detect the cracks forming before the lagging data confirms the damage.
-
-**Stella:** Let us pull this all together. If I am a regular investor with a diversified portfolio, what is the practical takeaway from all of this?
-
-**Horace:** I think there are five key principles.
-
-**Stella:** Give me all five.
-
-**Horace:** First, the economy is cyclical and that is normal. Recessions are not failures of the system -- they are a natural part of how the economy self-corrects. Knowing this keeps you from panicking when a contraction inevitably arrives.
-
-**Stella:** Second?
-
-**Horace:** Second, watch leading indicators, not lagging ones. If you are making decisions based on the unemployment rate or last quarter's GDP, you are looking in the rearview mirror. The yield curve, PMI, initial jobless claims, and building permits tell you what is coming.
-
-[VISUAL: Dashboard layout showing "What to Watch" with four panels: Yield Curve (10Y-2Y spread chart), ISM Manufacturing PMI (monthly bar chart), Initial Jobless Claims (weekly line chart), and Building Permits (monthly line chart). Each panel has a green/yellow/red signal indicator based on current readings.]
-
-**Stella:** Third?
-
-**Horace:** Third, different assets perform differently at different phases. You do not need to perfectly time the cycle, but understanding these relationships helps you maintain realistic expectations and avoid emotional decisions. If your stock portfolio is struggling during a contraction, knowing that bonds and cash are doing their job in the background helps you stay the course.
-
-**Stella:** Fourth?
-
-**Horace:** Fourth, do not try to be a hero with cycle timing. Making modest tilts based on where you think you are in the cycle is reasonable. Going all-in on any single thesis -- "we are definitely going into a recession" or "this expansion will never end" -- is dangerous. The history of investing is littered with people who were right about the direction but wrong about the timing, and being wrong about timing can be just as costly as being wrong about direction.
-
-**Stella:** And fifth?
-
-**Horace:** Fifth, use the cycle framework to make better personal finance decisions, not just portfolio decisions. If you think you are in a late-cycle environment, this is a good time to build your emergency fund, pay down variable-rate debt, and make sure your job skills are current. If you think you are in an early-cycle environment, this is a good time to invest aggressively, lock in low mortgage rates, and negotiate for a raise because labor demand is growing.
-
-[VISUAL: Split screen showing "Portfolio Decisions" on the left (asset allocation, rebalancing, sector tilts) and "Personal Finance Decisions" on the right (emergency fund, debt management, career moves, home buying) -- both connected to a central business cycle diagram]
-
-**Stella:** That last point is really powerful. The business cycle affects way more than just my brokerage account.
-
-**Horace:** It affects your whole financial life. And the investors who understand this big picture -- who can zoom out from individual stock picks and see the economic forest -- tend to make better decisions across the board. They buy homes when rates are low and sellers are desperate. They negotiate raises when the labor market is tight. They invest aggressively when everyone else is terrified. And they build reserves when everyone else is celebrating.
-
-**Stella:** Three takeaways for the summary?
-
-**Horace:** First, the business cycle has four predictable phases -- trough, expansion, peak, and contraction. Different assets perform best in different phases, and understanding this helps you build a resilient portfolio and maintain realistic expectations.
-
-**Stella:** Second?
-
-**Horace:** Leading indicators like the yield curve, PMI, and initial jobless claims tell you where the economy is headed. Lagging indicators like the unemployment rate tell you where it has been. Do not confuse the two -- decisions based on lagging data will consistently leave you behind the curve.
-
-**Stella:** And third?
-
-**Horace:** Do not try to time the cycle perfectly -- nobody can. Instead, use your understanding of the cycle to make modest, informed adjustments to your portfolio and your broader financial decisions. Diversification across asset classes that perform well in different environments is far more reliable than trying to predict the exact turning points.
-
-[VISUAL: Summary card with three key takeaways. A preview graphic for next week's lesson appears at the bottom.]
-
-**Stella:** This was one of the most valuable lessons yet. I feel like I have a new lens for looking at the financial world.
-
-**Horace:** That is exactly the goal -- to give you a framework that makes the noise of daily financial news less overwhelming and more interpretable. When you hear "the PMI came in at 48" or "the yield curve just inverted," you now know what those signals mean and how they fit into the bigger picture. Next week, we continue building your toolkit. See you then.
-
-**Stella:** Thanks everyone for watching!
-
-[VISUAL: End screen with subscribe button and links to previous lessons]
+**HORACE:** Exactly. Passive index investing has worked for
+forty years. That does not make it permanent. When the
+Kondratieff up-leg flips, the playbook has to flip. Watch for
+it; do not assume it.
 
 ---
+
+**[ACT 3 — INDICATORS — 6:00–8:30]**
+
+**HORACE:** Three categories. Leading, coincident, lagging.
+
+**STELLA:** Definitions for the audience.
+
+**HORACE:** Leading indicators turn before the economy. Yield
+curve, building permits, ISM new orders, jobless claims, the
+S&P 500 itself. Coincident indicators turn with the economy.
+Industrial production, real income, payrolls, manufacturing and
+retail sales — those are roughly what NBER actually uses to
+date the cycle. Lagging indicators turn after the economy.
+Unemployment rate, core CPI, prime lending rate.
+
+**STELLA:** And the most common retail mistake —
+
+**HORACE:** Treating lagging as leading. "Unemployment is 3.8%,
+the economy is fine." That was 2007. Unemployment was 4.7% the
+month the previous expansion ended. By the time unemployment
+confirms a recession, the stock market has already lost a third
+of its value.
+
+**STELLA:** Hierarchy of trust.
+
+**HORACE:** Price data first — yield curve, credit spreads,
+sector leadership. Soft data second — surveys. Hard data third
+— official prints. Lagging never as a primary signal. Each
+layer is roughly a quarter slower than the one before. The
+leading edge of the cycle lives in markets, not in the data
+release calendar.
+
+---
+
+**[ACT 4 — YIELD CURVE WALK-THROUGH — 8:30–11:30]**
+
+**HORACE:** [VISUAL: image/week10_yield_curve_recessions.png]
+This is the chart of the cycle. Ten-year Treasury yield minus
+two-year Treasury yield, 1976 through April 2026. The grey
+bands are NBER recessions.
+
+**STELLA:** Every grey band has a dip below zero before it.
+
+**HORACE:** Every one. 1978 inversion, 1980 recession.
+1980 inversion, 1981 recession. 1988 inversion, 1990
+recession. 2000 inversion, 2001 recession. 2006 inversion,
+2008 recession. 2019 inversion, 2020 recession. The lead
+time runs from about ten months to about twenty-four months.
+Variable, but always positive.
+
+**STELLA:** And 2022?
+
+**HORACE:** Inverted in July 2022, deepest inversion of the
+post-1976 era, re-steepened over 2024 and 2025. As we record
+this in April 2026, the question is whether NBER ends up
+dating a recession in 2026 or whether this becomes the second
+recorded "inversion without recession" — the 1966 false
+positive being the only ambiguous prior case.
+
+**STELLA:** Why does inversion predict recession at all?
+
+**HORACE:** Banks borrow short and lend long. When short rates
+exceed long rates, every new loan is squeezed. Credit creation
+slows. Cyclical sectors — housing, capex, autos, small business
+— starve first. And on top of the mechanical channel, the bond
+market itself is voting that the Fed has gone too far. The
+collective view of the bond market on macro forecasts of this
+kind is wrong less often than any other market.
+
+**STELLA:** Important warning before anyone uses this as a
+sell signal.
+
+**HORACE:** Two warnings. One: the lead time is long, so
+selling on the inversion gives up six to twelve months of late
+cycle equity gains, usually the best of the cycle. Two: the
+*re-steepening* is the closer-to-the-event signal. When the
+inversion ends — when the curve normalises — that is closer to
+the recession start than the inversion itself was. Which is
+exactly the part of the playbook that matters in 2026.
+
+---
+
+**[ACT 5 — ASSET PERFORMANCE BY REGIME — 11:30–14:30]**
+
+**HORACE:** [VISUAL: image/week10_asset_class_by_regime.png]
+This is where the cycle pays you. Average annual return for
+stocks, ten-year Treasuries, three-month T-bills, and gold,
+across four regimes — early-cycle, mid-cycle, late-cycle,
+recession. 1929 through 2024.
+
+**STELLA:** Stocks are highest in mid-cycle, around plus
+sixteen.
+
+**HORACE:** That is the long quiet expansion. Earnings
+compound, rates are normalising, the cycle is the boring kind.
+Early-cycle is plus twelve — the snap-back year right after the
+trough. Late-cycle drops to plus nine because that bucket
+includes 2008 and 2022. Recession is plus eight, which sounds
+wrong until you remember 1933 and 1954 are *inside* recession
+years.
+
+**STELLA:** Gold.
+
+**HORACE:** Almost mirror-image. Mid-cycle gold earns nothing,
+late-cycle gold earns plus fifteen. The late-cycle bucket is
+where inflation is rising and real rates compress. That is the
+regime gold lives for.
+
+**STELLA:** Long bonds.
+
+**HORACE:** Best in recession at plus six — the disinflation
+playbook. Worst in late-cycle at plus two — because that is
+when the Fed is hiking. T-bills are roughly flat at three to
+four percent across all four regimes. Cash never strictly wins
+for long.
+
+**STELLA:** And the practical takeaway —
+
+**HORACE:** No single asset wins every regime. The cross-
+sectional gap between best and worst asset *within* a single
+regime is usually larger than the equity risk premium itself.
+Phase awareness is paid for in dollars even with very crude
+detection.
+
+---
+
+**[ACT 6 — INTERACTIVE WALK-THROUGH — 14:30–16:00]**
+
+**HORACE:** [VISUAL: course/interactive/week10_regime_explorer.html]
+Open the Regime Explorer. Click 2007.
+
+**STELLA:** Late-cycle. One-year forward return for the S&P
+500 — minus thirty-seven percent. Bonds plus twenty percent.
+Cash plus one-and-a-half. Gold plus five.
+
+**HORACE:** Now click 2008.
+
+**STELLA:** Recession. Forward stocks plus twenty-six. Bonds
+plus negative eleven. Cash near zero. Gold plus twenty-four.
+
+**HORACE:** That is the regime *change*, year by year. Late-
+cycle in 2007 — the textbook says reduce equity, add duration.
+Recession year tagged in 2008 — the textbook says still
+defensive but you are now buying the bottom for the next cycle.
+Click 2009.
+
+**STELLA:** Early-cycle. Forward stocks plus fifteen. Long
+bonds plus eight. Gold plus thirty.
+
+**HORACE:** That is the playbook. The chart underneath each
+year's panel is the average across *all* years sharing that
+regime. The point of clicking through it is that the average
+matters less than the *regime change*. Two consecutive years
+in different regimes will have wildly different forward
+returns, even if every other variable looks similar.
+
+---
+
+**[ACT 7 — 2008 / 2020 / 2022 / 2026 — 16:00–17:30]**
+
+**HORACE:** Four recent setups, each teaches something
+different. 2008 — the textbook works. Late-cycle imbalance,
+recession, Fed cuts, long bonds rally, stocks bottom in March
+2009, 60/40 recovery on schedule.
+
+**STELLA:** 2020.
+
+**HORACE:** Exogenous shock. Two-month NBER recession, biggest
+peacetime stimulus on record, every asset rallies together
+because the response was overwhelming. Not a normal Juglar.
+Important because it left the monetary overhang that became
+2022's input.
+
+**STELLA:** 2022.
+
+**HORACE:** Inflation surges, Fed hikes 425 basis points, long
+bonds and stocks fall together, 60/40 has its second-worst year
+in ninety-five. The disinflation playbook stopped working
+because the regime was different. SOUL anchor two earned its
+keep that year.
+
+**STELLA:** 2026.
+
+**HORACE:** Live. Inverted in 2022, re-steepened through
+2024–25, headline inflation near three percent but services
+sticky. Unemployment drifting up from 3.4 to 4.5. Leading
+indicators rolling over. Whether 2026 gets dated as a
+recession is a coin flip, but the signals to watch are
+payroll diffusion, credit spreads, and the cyclical-versus-
+defensive ratio inside the S&P 500.
+
+**STELLA:** And the answer is not "bet on a recession."
+
+**HORACE:** The answer is "be aware of which regime you're in,
+keep the four tranches in shape, do not assume the post-2009
+playbook still works automatically." Cycle-aware allocation
+matters more in the next ten years than it did in the last
+forty.
+
+---
+
+**[OUTRO — 17:30–18:00]**
+
+**STELLA:** Recap?
+
+**HORACE:** NBER dates recessions after the fact. Three layered
+cycles — Kitchin, Juglar, Kondratieff — and the long one is
+where SOUL number two lives. Three indicator families: leading,
+coincident, lagging — trust the leaders, never lead with the
+laggers. The yield curve has called every recession since 1955
+with one ambiguous exception, with a six-to-twenty-four month
+lead. Asset performance by regime: stocks dominate early,
+commodities and gold dominate late, long bonds dominate
+recession. Cash never strictly wins for long. Phase awareness
+is worth four times the equity risk premium across the
+historical record.
+
+**STELLA:** And next week —
+
+**HORACE:** Inflation. The single most important macro variable
+for every asset class, and the variable that decides whether
+the Kondratieff up-leg of the last forty years gets a sequel.
+
+**STELLA:** See you next week.

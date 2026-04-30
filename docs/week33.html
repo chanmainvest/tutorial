@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Week 33: Credit Analysis and Bond Selection - Chanma Investment Tutorial</title>
+    <title>Week 33: Credit Analysis — Investment Grade, High Yield, and the Spread - Chanma Investment Tutorial</title>
     <script>(function(){try{var t=localStorage.getItem('preferred-theme');if(!t){t=window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();</script>
     <style>
 :root, html[data-theme="light"] {
@@ -1247,683 +1247,372 @@ html[data-theme="dark"] .nav-btn:hover .btn-label { color: rgba(15,23,36,0.7); }
     <main class="main-wrap">
         <div class="content-area">
             <div id="content-en" class="lang-content active">
-                <h1>Week 33: Credit Analysis and Bond Selection</h1>
+                <h1>Week 33: Credit Analysis — Investment Grade, High Yield, and the Spread</h1>
 <hr>
-<h2>Reading Section</h2>
-<hr>
-<h3>a) Why This Is Important</h3>
+<h3>1. Why This Is Important</h3>
 <p>
-When most people think of investing, they picture the stock market -- flashing tickers, volatile price swings, fortunes made and lost overnight. But the global bond market is actually <strong>larger</strong> than the global equity market. As of recent estimates, the global bond market exceeds $130 trillion in outstanding debt, compared to roughly $100 trillion in global equity market capitalization.
+Week 5 introduced the bond contract and the price-yield curve. Week 8 looked
+at the income statement that funds the coupons. This week we put those two
+together and ask the only question that matters in corporate credit: **will
+the borrower actually pay you back, and what is fair compensation for the
+chance that they won't?**
 </p>
 <p>
-Understanding credit analysis is essential for several reasons:
+Credit is the part of fixed income where the math stops being arithmetic and
+starts being probability. A 10-year Treasury at 4.4% is — in nominal dollars
+— a riskless cash flow. A 10-year BB-rated bond at 4.4% + 320 bps = 7.6% is
+a <em>distribution</em> of cash flows, where the right tail is "you collect every
+coupon and your face back" and the left tail is "the issuer files Chapter 11
+in year 4 and you recover 40 cents on the dollar in restructuring." The
+320 bps spread is the market's price for that distribution.
 </p>
-<li><strong>Portfolio diversification</strong>: Bonds serve as a counterbalance to equities. But not all bonds are created equal. A poorly chosen bond portfolio can be just as risky as an equity portfolio -- or worse, because bond losses from defaults are often permanent.</li>
-<li><strong>Income generation</strong>: For investors seeking reliable income streams -- retirees, endowments, pension funds -- the ability to evaluate credit quality determines whether that income is sustainable or illusory.</li>
-<li><strong>Risk management</strong>: Credit spreads are one of the most powerful signals in financial markets. Widening spreads often precede economic downturns. Understanding what drives credit spreads gives you an early warning system for broader market stress.</li>
-<li><strong>Career relevance</strong>: Credit analysis is the backbone of fixed income investing, corporate finance, banking, and insurance. Whether you manage money professionally or evaluate your own bond holdings, these skills are indispensable.</li>
-<li><strong>Avoiding catastrophic losses</strong>: Unlike equities, where a stock can recover from a 50% decline, a bond default often results in permanent loss of principal. The ability to distinguish between safe and risky credits protects your capital.</li>
 <p>
-Consider the 2008 financial crisis: investors who held AAA-rated mortgage-backed securities believed they owned safe assets. When those ratings proved wrong, trillions of dollars evaporated. Credit analysis skills would have revealed the underlying fragility.
+Four reasons this lesson earns its place.
 </p>
+<li><strong>Spreads are the bond market's volatility index.</strong> Equity vol gets the</li>
 <p>
-Or consider the corporate bond market during COVID-19: in March 2020, credit spreads on investment-grade bonds blew out from about 100 basis points to over 370 basis points in just weeks. Investors who understood credit analysis recognized this as a buying opportunity of a generation. Those who panicked sold at the worst possible time.
+headlines (the VIX), but the high-yield option-adjusted spread —
 </p>
+<code>BAMLH0A0HYM2</code> on FRED — is arguably a better leading indicator. It blew
 <p>
-Credit analysis is not just about avoiding bad bonds -- it is about finding value where others see only risk.
+through 2,000 bps in November 2008, well before equities bottomed in
+March 2009. It hit 1,100 bps in March 2020, days before the equity low.
+SOUL principle #6 says vol-tail-wags-dog: when the credit tail is
+screaming, the equity dog is about to follow.
 </p>
-<hr>
-<h3>b) What You Need to Know</h3>
-<h4>1. The Credit Rating System</h4>
+<li>**The investment-grade / high-yield boundary is not a gradient — it is a</li>
 <p>
-Three major agencies dominate the global credit rating landscape:
+cliff.** A bond rated BBB- is held by every pension fund, mutual fund,
+and insurance company on earth, often by mandate. Cut it one notch to
+BB+ and a wave of forced sellers hits. The rating-agency boundary
+(Baa3/BBB-) is the most important price discontinuity in fixed income.
 </p>
+<li><strong>High yield is an alpha source, not just a coupon stream.</strong> SOUL</li>
 <p>
-<strong>Rating Scale Comparison:</strong>
+principle #5 lists alpha sources: information, structure, time horizon,
+illiquidity, and behavioural. HY bonds compensate you for <em>all five</em> —
+under-researched, structurally avoided by IG-only mandates, illiquid
+through stress, and behaviourally dumped at the worst time. Buying HY at
+1,000 bps is one of the few asymmetric trades a retail investor can find
+without leverage.
 </p>
-<pre><code class="language-">Quality Tier       | Moody's | S&amp;P    | Fitch  | Description
+<li>**You will not understand any "balanced" portfolio without knowing where</li>
 <p>
--------------------|---------|--------|--------|---------------------------
-Highest Quality    | Aaa     | AAA    | AAA    | Extremely strong capacity
-High Quality       | Aa1     | AA+    | AA+    | Very strong capacity
-| Aa2     | AA     | AA     |
-| Aa3     | AA-    | AA-    |
-Upper Medium       | A1      | A+     | A+     | Strong capacity
-| A2      | A      | A      |
-| A3      | A-     | A-     |
-Medium Grade       | Baa1    | BBB+   | BBB+   | Adequate capacity
-| Baa2    | BBB    | BBB    |
-| Baa3    | BBB-   | BBB-   |
------ INVESTMENT GRADE / HIGH YIELD BOUNDARY -----
-Speculative        | Ba1     | BB+    | BB+    | Less vulnerable near-term
-| Ba2     | BB     | BB     |
-| Ba3     | BB-    | BB-    |
-Highly Speculative | B1      | B+     | B+     | More vulnerable
-| B2      | B      | B      |
-| B3      | B-     | B-     |
-Substantial Risk   | Caa1    | CCC+   | CCC    | Currently vulnerable
-| Caa2    | CCC    |        |
-| Caa3    | CCC-   |        |
-Extremely Spec.    | Ca      | CC     | CC     | Highly vulnerable
-| C       | C      | C      |
-In Default         | C       | D      | D      | Payment default
-</code></pre>
-</p>
-<p>
-<strong>Key things to understand about ratings:</strong>
-</p>
-<ul><li>Ratings reflect the <strong>probability of default</strong> and, in some cases, the <strong>expected loss given default</strong>.</li>
-<li>A rating is an <strong>opinion</strong>, not a guarantee. Agencies have been wrong before (see: Enron, Lehman Brothers, subprime MBS).</li>
-<li>Ratings change slowly. Markets price credit risk in real time; ratings follow with a lag. This creates opportunities for investors who do their own analysis.</li>
-<li>Each agency also provides an <strong>outlook</strong> (positive, negative, stable) and may place issuers on <strong>credit watch</strong> for potential near-term changes.</li>
-<p>
-</ul>
-<strong>Split Ratings</strong>: When agencies disagree, the bond has a "split rating." For example, a bond rated BBB by S&P but Ba1 by Moody's sits right at the investment grade boundary. Institutional investors with mandates to hold only investment-grade bonds must pay close attention to split ratings.
-</p>
-<h4>2. Investment Grade vs. High Yield</h4>
-<p>
-The dividing line between investment grade (IG) and high yield (HY) -- also called "junk bonds" or "speculative grade" -- sits at BBB-/Baa3. This boundary is not just a label; it has profound practical consequences:
-</p>
-<p>
-<strong>Market Characteristics:</strong>
-</p>
-<pre><code class="language-">Feature                  | Investment Grade        | High Yield
-<p>
--------------------------|------------------------|------------------------
-Typical Spread (bps)     | 50 - 200               | 300 - 800+
-Historical Default Rate  | ~0.1% per year          | ~3-5% per year
-Recovery Rate (avg)      | 40-50%                  | 30-40%
-Typical Issuers          | Large, stable companies | Smaller, leveraged cos
-Market Size              | ~$8 trillion (US)       | ~$1.5 trillion (US)
-Correlation with Equity  | Low to moderate         | High
-Interest Rate Sensitivity| Higher (longer duration)| Lower (shorter duration)
-Liquidity                | Generally good          | Can dry up in stress
-</code></pre>
-</p>
-<p>
-<strong>The "Fallen Angel" and "Rising Star" Dynamic:</strong>
-</p>
-<ul><li>A <strong>fallen angel</strong> is a bond downgraded from investment grade to high yield. This triggers forced selling by IG-mandate funds, often pushing the price below fair value. Savvy high-yield investors watch for fallen angels as buying opportunities.</li>
-<li>A <strong>rising star</strong> is a bond upgraded from high yield to investment grade. This brings in new buyers (IG funds that can now purchase it), often driving the price up.</li>
-<p>
-</ul>
-The BBB segment has grown enormously over the past two decades. As of recent data, BBB-rated bonds make up roughly 50% of the investment-grade universe, up from about 30% in the early 2000s. This "BBB cliff" is a systemic risk: a wave of downgrades could flood the high-yield market, overwhelming demand and causing dislocations.
-</p>
-<h4>3. Credit Spreads</h4>
-<p>
-The <strong>credit spread</strong> is the additional yield a bond offers above a risk-free benchmark (typically Treasury bonds of similar maturity). It compensates investors for:
-</p>
-<li><strong>Default risk</strong>: The probability that the issuer fails to pay.</li>
-<li><strong>Recovery risk</strong>: The uncertainty about how much you would recover in default.</li>
-<li><strong>Liquidity risk</strong>: The risk that you cannot sell the bond quickly at a fair price.</li>
-<li><strong>Downgrade risk</strong>: The risk that the bond is downgraded, causing its price to fall.</li>
-<li><strong>Event risk</strong>: Mergers, leveraged buyouts, or other events that damage credit quality.</li>
-<p>
-<strong>Spread Decomposition (Conceptual):</strong>
-</p>
-<pre><code class="language-">Total Credit Spread
-<p>
-|
-|--- Expected Default Loss (~30-40% of spread for IG)
-|      |--- Probability of Default x Loss Given Default
-|
-|--- Credit Risk Premium (~30-40% of spread for IG)
-|      |--- Compensation for bearing systematic credit risk
-|      |--- Varies with economic cycle and risk appetite
-|
-|--- Liquidity Premium (~20-30% of spread for IG)
-|      |--- Compensation for lower liquidity vs. Treasuries
-|      |--- Varies by issue size, age of bond, market conditions
-|
-|--- Other (tax, regulatory, supply/demand)
-</code></pre>
-</p>
-<p>
-<strong>Why spreads matter beyond bonds:</strong>
-</p>
-<p>
-Credit spreads are a barometer of financial health. When spreads are tight (low), markets are confident. When spreads blow out, fear dominates. Equity investors, macro traders, and even central bankers watch credit spreads closely.
-</p>
-<p>
-<strong>Historical spread ranges (US Investment Grade, OAS in basis points):</strong>
-</p>
-<pre><code class="language-">Period                    | Spread Level | Context
-<p>
---------------------------|-------------|---------------------------
-Normal/calm market        | 80 - 120    | Economic expansion
-Mild stress               | 150 - 200   | Slowdown concerns
-Moderate stress           | 200 - 300   | Recession fears
-Severe stress             | 300 - 500   | Financial crisis
-Extreme (2008 peak)       | 600+        | Systemic crisis
-Extreme (2020 COVID peak) | 370         | Pandemic shock
-</code></pre>
-</p>
-<h4>4. Default Rates and Recovery Rates</h4>
-<p>
-<strong>Historical Annual Default Rates by Rating (Moody's long-term averages):</strong>
-</p>
-<pre><code class="language-">Rating     | 1-Year Default | 5-Year Cumulative | 10-Year Cumulative
-<p>
------------|---------------|-------------------|-------------------
-Aaa        | 0.00%         | 0.08%             | 0.52%
-Aa         | 0.02%         | 0.21%             | 0.68%
-A          | 0.05%         | 0.46%             | 1.38%
-Baa        | 0.15%         | 1.36%             | 3.24%
-Ba         | 0.82%         | 6.64%             | 13.53%
-B          | 3.48%         | 19.16%            | 30.88%
-Caa-C      | 13.67%        | 43.37%            | 55.84%
-</code></pre>
-</p>
-<p>
-Notice the enormous jump between Baa (investment grade) and Ba (high yield). This cliff is why the IG/HY boundary matters so much.
-</p>
-<p>
-<strong>Recovery Rates by Seniority:</strong>
-</p>
-<p>
-When a company defaults, not all creditors are treated equally. The capital structure determines who gets paid first:
-</p>
-<pre><code class="language-">Seniority Level              | Average Recovery Rate | Range
-<p>
------------------------------|----------------------|----------
-Bank Loans (Senior Secured)  | 65 - 80%            | 40 - 95%
-Senior Secured Bonds         | 50 - 65%            | 25 - 90%
-Senior Unsecured Bonds       | 35 - 50%            | 10 - 80%
-Subordinated Bonds           | 20 - 35%            | 5 - 60%
-Junior Subordinated          | 10 - 20%            | 0 - 40%
-Preferred Stock              | 5 - 15%             | 0 - 30%
-Common Equity                | 0 - 5%              | 0 - 20%
-</code></pre>
-</p>
-<p>
-Recovery rates vary significantly by industry, economic conditions, and the specifics of each bankruptcy. Tangible-asset-heavy industries (utilities, real estate) tend to have higher recoveries. Service-based companies with few hard assets tend to have lower recoveries.
-</p>
-<p>
-<strong>Expected Loss Calculation:</strong>
-</p>
-<pre><code class="language-">Expected Loss = Probability of Default x (1 - Recovery Rate)
-<p>
-Example:
-BB-rated bond, 5-year horizon
-Cumulative default probability: ~6.64%
-Expected recovery rate: 40%
-Expected loss = 6.64% x (1 - 0.40) = 6.64% x 0.60 = 3.98%
-Annualized expected loss: ~0.80% per year
-</p>
-<p>
-If the credit spread is 300 bps (3.00%), and expected loss is ~80 bps,
-the remaining 220 bps compensate for risk premium, liquidity, and other factors.
-</code></pre>
-</p>
-<h4>5. The Credit Analysis Framework: The 4 Cs</h4>
-<p>
-Professional credit analysts use a structured framework known as the <strong>4 Cs</strong>:
-</p>
-<p>
-<strong>C1: Capacity (most important)</strong>
-</p>
-<p>
-Capacity measures the issuer's ability to service its debt obligations from its cash flows and financial resources.
-</p>
-<p>
-Key metrics to evaluate capacity:
-</p>
-<pre><code class="language-">Metric                           | Formula                                    | IG Threshold  | HY Threshold
-<p>
----------------------------------|--------------------------------------------|--------------|-------------
-Interest Coverage Ratio          | EBIT / Interest Expense                    | &gt; 4.0x       | &gt; 1.5x
-Debt / EBITDA                    | Total Debt / EBITDA                        | &lt; 3.0x       | &lt; 5.0x
-Free Cash Flow / Total Debt      | FCF / Total Debt                           | &gt; 15%        | &gt; 5%
-EBITDA Margin                    | EBITDA / Revenue                           | &gt; 15%        | &gt; 10%
-Debt / Total Capital             | Total Debt / (Debt + Equity)               | &lt; 50%        | &lt; 65%
-FFO / Debt                       | Funds From Operations / Total Debt         | &gt; 30%        | &gt; 12%
-Retained Cash Flow / Net Debt    | (FFO - Dividends) / Net Debt               | &gt; 25%        | &gt; 10%
-</code></pre>
-</p>
-<p>
-Beyond ratios, capacity analysis considers:
-</p>
-<ul><li>Revenue stability and diversification</li>
-<li>Industry cyclicality</li>
-<li>Competitive position (market share, barriers to entry)</li>
-<li>Management quality and track record</li>
-<li>Access to capital markets (can they refinance when debt matures?)</li>
-<p>
-</ul>
-<strong>C2: Collateral</strong>
-</p>
-<p>
-Collateral refers to the assets backing the debt. This becomes especially important if the borrower defaults.
-</p>
-<p>
-Consider:
-</p>
-<ul><li><strong>Tangible assets</strong>: Property, equipment, inventory, receivables</li>
-<li><strong>Intangible assets</strong>: Patents, brands, licenses (harder to liquidate)</li>
-<li><strong>Asset quality</strong>: Are assets easily valued and sold? A fleet of standard trucks is easier to liquidate than a custom-built factory.</li>
-<li><strong>Depreciation vs. maintenance capex</strong>: Are assets deteriorating faster than they are being maintained?</li>
-<li><strong>Lien position</strong>: Who has first claim on which assets?</li>
-<p>
-</ul>
-</p>
-<pre><code class="language-">Asset Liquidity Spectrum:
-<p>
-Most Liquid                                        Least Liquid
-|                                                          |
-Cash -&gt; Receivables -&gt; Inventory -&gt; Equipment -&gt; Real Estate -&gt; Goodwill/IP
-</code></pre>
-</p>
-<p>
-<strong>C3: Covenants</strong>
-</p>
-<p>
-Covenants are the contractual protections built into bond indentures and loan agreements. They restrict what the borrower can do, protecting lenders from value-destructive actions.
-</p>
-<p>
-Types of covenants:
-</p>
-<pre><code class="language-">Affirmative Covenants (Must Do):
-<ul><li>Maintain financial statements and audits</li>
-<li>Pay taxes and maintain insurance</li>
-<li>Comply with laws</li>
-<li>Maintain assets in good condition</li>
-<p>
-</ul>
-Negative Covenants (Must Not Do):
-</p>
-<ul><li>Limit on additional debt issuance</li>
-<li>Restrictions on asset sales</li>
-<li>Limitations on dividends and share buybacks</li>
-<li>Change of control provisions</li>
-<li>Restrictions on mergers and acquisitions</li>
-<li>Limitation on secured debt (negative pledge)</li>
-<p>
-</ul>
-Financial Covenants (Maintenance Tests):
-</p>
-<ul><li>Minimum interest coverage ratio</li>
-<li>Maximum leverage ratio</li>
-<li>Minimum net worth</li>
-<li>Maximum capital expenditure limits</li>
-<p>
-</ul></code></pre>
-</p>
-<p>
-<strong>Covenant quality has deteriorated significantly</strong> in recent years. "Covenant-lite" (cov-lite) loans and bonds have become common, especially in the leveraged loan market. As of recent data, over 80% of leveraged loans are cov-lite, compared to less than 30% before 2008. This means lenders have fewer protections, and problems may not surface until it is too late.
-</p>
-<p>
-<strong>C4: Character</strong>
-</p>
-<p>
-Character assesses the integrity, competence, and track record of management and the company's governance.
-</p>
-<p>
-Factors to evaluate:
-</p>
-<ul><li>Management's track record with previous debt obligations</li>
-<li>History of accounting irregularities or restatements</li>
-<li>Related-party transactions</li>
-<li>Executive compensation alignment with creditor interests (not just equity holders)</li>
-<li>Board independence and oversight quality</li>
-<li>Transparency in financial reporting</li>
-<li>Willingness to communicate openly with creditors</li>
-<li>History of shareholder-friendly actions that may harm creditors (excessive buybacks, special dividends funded by debt)</li>
-<p>
-</ul>
-</p>
-<pre><code class="language-">Character Red Flags:
-<p>
-[!] Frequent changes in auditors
-[!] Aggressive accounting policies
-[!] Opaque corporate structures
-[!] Related-party transactions at non-market terms
-[!] Management compensation heavily tied to stock price
-[!] History of legal/regulatory violations
-[!] Poor labor relations
-[!] Resistance to creditor inquiries
-</code></pre>
-</p>
-<h4>6. Sovereign Credit Risk</h4>
-<p>
-Sovereign bonds are issued by national governments. Analyzing sovereign credit requires a different framework than corporate credit:
-</p>
-<p>
-<strong>Key Factors in Sovereign Credit Analysis:</strong>
-</p>
-<pre><code class="language-">Factor                          | What to Assess
-<p>
---------------------------------|------------------------------------------
-Economic Strength               | GDP per capita, growth rate, diversification
-Institutional Strength          | Rule of law, corruption, policy effectiveness
-Fiscal Strength                 | Debt/GDP, deficit trajectory, tax capacity
-Monetary Flexibility            | Central bank independence, inflation history
-External Position               | Current account, foreign reserves, external debt
-Political Stability             | Government effectiveness, social cohesion
-Willingness to Pay              | History of default, political commitment
-Currency Status                 | Reserve currency? Hard or soft currency?
-</code></pre>
-</p>
-<p>
-<strong>Sovereign Default History:</strong>
-</p>
-<p>
-Countries do default. Argentina has defaulted eight times. Greece restructured its debt in 2012. Russia defaulted in 1998.
-</p>
-<p>
-Key distinction: A government that borrows in its own currency (like the US borrowing in dollars) can always print money to service debt -- but may cause inflation. A government borrowing in foreign currency (like Argentina borrowing in dollars) faces a genuine default risk because it cannot print the foreign currency.
-</p>
-<pre><code class="language-">Sovereign Debt/GDP Ranges (approximate guidelines):
-<p>
-Debt/GDP     | Developed Markets    | Emerging Markets
--------------|---------------------|------------------
-&lt; 30%        | Very manageable     | Comfortable
-30 - 60%     | Manageable          | Moderate concern
-60 - 90%     | Elevated concern    | Significant risk
-90 - 120%    | High concern        | Dangerous
-&gt; 120%       | Sustainability risk | Crisis territory
-</p>
-<p>
-Note: Japan's debt/GDP exceeds 250% but is mostly domestically held
-and denominated in yen, making it a special case.
-</code></pre>
-</p>
-<h4>7. Credit Spread as Compensation for Risk</h4>
-<p>
-Understanding whether a credit spread adequately compensates you for the risk you are taking is the central question of credit investing.
-</p>
-<p>
-<strong>Framework for Evaluating Spread Adequacy:</strong>
-</p>
-<pre><code class="language-">Step 1: Estimate expected loss
-<p>
-Expected loss = P(default) x (1 - recovery rate)
-</p>
-<p>
-Step 2: Compare spread to expected loss
-Excess spread = Credit spread - Expected loss
-</p>
-<p>
-Step 3: Evaluate excess spread relative to:
-</p>
-<ul><li>Historical average excess spread for this rating</li>
-<li>Current economic environment</li>
-<li>Issuer-specific factors</li>
-<li>Liquidity conditions</li>
-<p>
-</ul>
-Decision Matrix:
-Excess Spread vs. Historical Average | Action
---------------------------------------|------------------
-Significantly above average           | Consider buying
-At or near average                    | Hold / neutral
-Below average                         | Consider avoiding
-Negative (spread &lt; expected loss)     | Avoid entirely
-</code></pre>
-</p>
-<p>
-<strong>The Credit Cycle:</strong>
-</p>
-<p>
-Credit quality and spreads move in cycles:
-</p>
-<pre><code class="language-">Phase 1: RECOVERY
-<ul><li>Economy improving</li>
-<li>Spreads tightening from wide levels</li>
-<li>Defaults declining</li>
-<li>Best time to own credit risk</li>
-<li>Ratings: upgrades &gt; downgrades</li>
-<p>
-</ul>
-Phase 2: EXPANSION
-</p>
-<ul><li>Economy strong</li>
-<li>Spreads tight</li>
-<li>Low defaults</li>
-<li>Underwriting standards loosening</li>
-<li>Leverage increasing</li>
-<li>Seeds of next downturn being planted</li>
-<p>
-</ul>
-Phase 3: DETERIORATION
-</p>
-<ul><li>Economy slowing</li>
-<li>Spreads widening</li>
-<li>Defaults beginning to rise</li>
-<li>Covenant violations increasing</li>
-<li>Refinancing becomes harder</li>
-<p>
-</ul>
-Phase 4: CONTRACTION / CRISIS
-</p>
-<ul><li>Economy in recession</li>
-<li>Spreads very wide</li>
-<li>Defaults spiking</li>
-<li>Forced selling and liquidity crises</li>
-<li>Distressed debt opportunities emerge</li>
-<li>Ratings: downgrades &gt;&gt; upgrades</li>
-<p>
-</ul></code></pre>
-</p>
-<h4>8. Distressed Debt Investing</h4>
-<p>
-Distressed debt investing is a specialized area of credit analysis where investors purchase the bonds of companies in or near default at deep discounts, seeking profit from recovery or restructuring.
-</p>
-<pre><code class="language-">Distressed Debt Categories:
-<p>
-Category           | Typical Price | Yield     | Situation
--------------------|---------------|-----------|---------------------------
-Stressed           | 70-90 cents   | 10-15%    | Company facing pressure
-Distressed         | 40-70 cents   | 15-25%    | Default risk is high
-Defaulted          | 10-40 cents   | N/A       | Company in bankruptcy
-Deep Distress      | &lt;10 cents     | N/A       | Recovery expected to be low
-</p>
-<p>
-How Distressed Investors Make Money:
-</p>
-<p>
-Scenario 1: "Fulcrum Security" Strategy
-Buy the most senior class of debt that will NOT be paid in full.
-In restructuring, this debt converts to equity in the new company.
-If the company recovers, equity value exceeds purchase price.
-</p>
-<p>
-Scenario 2: "Loan-to-Own" Strategy
-Buy enough debt to control the restructuring process.
-Convert debt to equity, take control of the company.
-Improve operations, sell at a profit.
-</p>
-<p>
-Scenario 3: "Par Recovery" Strategy
-Buy performing stressed bonds at 70-80 cents.
-If company avoids default, bond returns to par (100 cents).
-Profit: 25-40% plus coupon income.
-</p>
-<p>
-Scenario 4: "Liquidation" Strategy
-Buy deeply discounted debt of a company being liquidated.
-Recovery from asset sales exceeds purchase price.
-Works best with asset-heavy companies.
-</code></pre>
-</p>
-<p>
-<strong>Famous Distressed Debt Investments:</strong>
-</p>
-<pre><code class="language-">  Investor             | Situation               | Outcome
-<p>
----------------------|-------------------------|------------------
-Apollo Global Mgmt   | Caesars Entertainment   | Converted debt to
-| (2015 bankruptcy)       | equity, major profit
-Oaktree Capital      | Energy sector (2015-16) | Bought distressed
-|                         | at deep discounts
-Elliott Management   | Argentina sovereign     | Held out for full
-| debt (2001-2016)        | par recovery
-Various hedge funds  | Lehman Brothers claims  | Bought at 10-15 cents,
-| (2008-2018)             | recovered 30-40 cents
-</code></pre>
-</p>
-<p>
-Distressed debt investing requires deep legal knowledge (bankruptcy law, priority of claims), operational expertise (evaluating turnaround potential), and strong risk management (high single-name concentration risk). It is primarily an institutional strategy, but understanding it helps all credit investors assess risk at the lower end of the quality spectrum.
-</p>
-<h4>9. Practical Credit Analysis Process</h4>
-<p>
-Here is a step-by-step process for analyzing a corporate bond:
-</p>
-<pre><code class="language-">Step 1: Industry Analysis
-<p>
-|-- What industry is the issuer in?
-|-- Is it cyclical or defensive?
-|-- What are the competitive dynamics?
-|-- Are there regulatory risks?
-</p>
-<p>
-Step 2: Company Analysis (The 4 Cs)
-|-- Capacity: Review 5 years of financials
-|     |-- Calculate key ratios (coverage, leverage)
-|     |-- Assess revenue stability
-|     |-- Evaluate free cash flow generation
-|
-|-- Collateral: Review the balance sheet
-|     |-- What tangible assets exist?
-|     |-- What is the lien structure?
-|     |-- Would assets fetch value in liquidation?
-|
-|-- Covenants: Read the bond indenture
-|     |-- What protections exist?
-|     |-- How do they compare to similar issuances?
-|     |-- Are there any unusual provisions?
-|
-|-- Character: Evaluate management
-|     |-- Track record with creditors
-|     |-- Governance quality
-|     |-- Accounting aggressiveness
-</p>
-<p>
-Step 3: Relative Value Analysis
-|-- Compare spread to:
-|     |-- Same issuer's other bonds
-|     |-- Same-rated peers in same industry
-|     |-- Historical spread range for this issuer
-|     |-- Fair value based on expected loss + risk premium
-</p>
-<p>
-Step 4: Scenario Analysis
-|-- Base case: normal operations continue
-|-- Stress case: revenue drops 20-30%
-|-- Severe stress: full recession scenario
-|-- For each scenario: can the issuer still service its debt?
-</p>
-<p>
-Step 5: Decision and Monitoring
-|-- Buy, hold, or sell?
-|-- What triggers would change your view?
-|-- How often do you revisit the analysis?
-</code></pre>
+its bond sleeve sits on the rating curve.** Most "core bond" funds (AGG,
+BND) are 100% IG. Most "income" funds (HYG, JNK) are 100% HY. The risk
+profile of those two sleeves under a recession is not even close.
+Confusing them — buying yield without seeing the rating — is how
+retirees blow up in year 1.
 </p>
 <hr>
-<h3>c) Common Misconceptions</h3>
+<h3>2. What You Need to Know</h3>
+<h4>2.1 The Rating Ladder</h4>
 <p>
-<strong>Misconception 1: "Higher-rated bonds are always better investments."</strong>
+Three agencies — Moody's, S&P, and Fitch — publish letter ratings that slot
+every issuer into one of about twenty buckets. The buckets that matter for
+a US investor are:
+</p>
+<table><thead><tr><th>Tier</th><th>S&P / Fitch</th><th>Moody's</th><th>Plain-English meaning</th></tr></thead><tbody><tr><td>Investment grade</td><td>AAA, AA, A, BBB</td><td>Aaa, Aa, A, Baa</td><td>Default unlikely in normal times. Pension-fund eligible.</td></tr><tr><td>High yield ("junk")</td><td>BB, B, CCC</td><td>Ba, B, Caa</td><td>Default is a real probability. Speculative.</td></tr><tr><td>Distressed</td><td>CC, C, D</td><td>Ca, C, D</td><td>Default imminent or already happened.</td></tr></tbody></table>
+<p>
+The line between BBB- and BB+ is the **investment-grade / high-yield
+divide**. Index providers and most regulated investors treat that line as a
+binary cliff. A Friday-afternoon downgrade across that line can blow out a
+bond's spread by 100-300 bps in a single session — not because the business
+changed but because the <em>holder base</em> has to change.
 </p>
 <p>
-This is false. A AAA-rated bond yielding 4% might be a worse investment than a BBB-rated bond yielding 6% if the BBB bond's spread more than compensates for its additional risk. The question is not "which is safer?" but "which offers better risk-adjusted returns?" Over long periods, diversified portfolios of BBB and BB-rated bonds have often outperformed AAA bonds on a total-return basis, even after accounting for defaults.
+For the rest of the lesson we collapse the ladder to seven buckets (AAA,
+AA, A, BBB, BB, B, CCC) — the granularity that actually shows up in default
+statistics.
+</p>
+<h4>2.2 What the Rating Predicts: Annual Default Rates</h4>
+<p>
+Moody's publishes an annual study of historical default rates by rating
+bucket, going back to 1920. The long-run averages are striking:
+</p>
+<img src="image/week33_default_rates.png" alt="Annual default rate by rating bucket — Moody's long-run averages">
+<p>
+A AAA-rated bond defaults roughly <strong>never</strong> in any one year. A BBB-rated
+bond — the lowest IG bucket — defaults at about 0.18% per year, less than
+one in five hundred. Cross the cliff into BB and the rate jumps to about
+1.16%, then to 4.1% at single-B, and to 23.3% at CCC. **The progression is
+non-linear** — each notch down doesn't just add risk, it multiplies it.
 </p>
 <p>
-<strong>Misconception 2: "Credit ratings are always accurate and timely."</strong>
+Three caveats. First, these are <em>long-run averages</em>. In a recession year,
+BB defaults can hit 4-6% and CCC can hit 35-45%. SOUL principle #6 again:
+tails dominate. Second, the averages assume cycles repeat — they include
+1932 and 2008. Use them as a base rate, not a forecast. Third, default ≠
+total loss. Recovery is the second leg.
+</p>
+<h4>2.3 Recovery Rates and Expected Loss</h4>
+<p>
+When an issuer defaults, bondholders don't go to zero. They go through
+restructuring (Chapter 11 in the US) and recover some fraction of par based
+on <strong>seniority</strong> in the capital stack:
+</p>
+<ul><li>Secured debt:        ~65-70% recovery</li>
+<li>Senior unsecured:    ~38-42% recovery (the canonical "40%")</li>
+<li>Subordinated:        ~25-30% recovery</li>
+<li>Preferred / equity:   0-10% recovery</li>
+<p>
+</ul>
+The math an analyst actually does is the <strong>expected loss (EL)</strong> per year:
 </p>
 <p>
-Ratings agencies have a poor track record of anticipating crises. They rated Enron investment grade four days before it filed for bankruptcy. They gave AAA ratings to subprime mortgage securities that were worthless. Ratings are useful as a starting point but should never be the sole basis for investment decisions. Think of ratings like a restaurant's health inspection grade: it tells you something, but you still want to look at the kitchen.
+$$ EL = PD \times LGD = PD \times (1 - R) $$
 </p>
 <p>
-<strong>Misconception 3: "High-yield bonds are too risky for conservative investors."</strong>
+where $PD$ is annualised default probability and $R$ is recovery rate. For
+a senior unsecured single-B bond:
 </p>
 <p>
-High-yield bonds, when held in diversified portfolios, have historically delivered equity-like returns with lower volatility. The key is diversification: any single high-yield bond might default, but a portfolio of 100 high-yield bonds can absorb several defaults and still deliver attractive returns. The default rate averages 3-5% per year, and recovery rates average 30-40%, meaning the actual annual loss rate is about 2-3% -- well within the spread cushion that high-yield bonds provide.
+$$ EL = 4.1\% \times (1 - 40\%) = 4.1\% \times 0.60 = 2.46\% \text{ per year}. $$
 </p>
 <p>
-<strong>Misconception 4: "Government bonds never default."</strong>
+That 2.46% is the <em>credit-loss tax</em> on the bond's stated yield. If the
+B-rated bond yields Treasury + 425 bps, the <strong>expected</strong> excess return is
+425 - 246 = 179 bps. The remaining 179 bps is the liquidity premium plus
+the risk premium — your compensation for <em>bearing</em> the default distribution
+rather than just paying out its mean.
+</p>
+<h4>2.4 The Anatomy of a Spread</h4>
+<p>
+Putting it together, the spread of a corporate bond over a maturity-matched
+Treasury decomposes into three components:
 </p>
 <p>
-Sovereign defaults have occurred throughout history. Argentina, Russia, Greece, Ecuador, Lebanon, and many others have defaulted or restructured their debt. Even governments that borrow in their own currency can effectively default through hyperinflation, which destroys the real value of bondholders' claims. No credit is truly risk-free; some are simply lower risk than others.
+$$ \text{Spread} = \underbrace{PD \cdot (1-R)}_{\text{expected loss}} + \underbrace{\pi_{\text{liq}}}_{\text{liquidity}} + \underbrace{\pi_{\text{risk}}}_{\text{risk premium}}. $$
 </p>
 <p>
-<strong>Misconception 5: "Credit spreads only reflect default risk."</strong>
+For investment grade, expected loss is tiny (<10 bps for AA, ~30 bps for
+BBB) and the bulk of the spread is liquidity + risk premium. A BBB bond
+trading at 130 bps over Treasuries is paying you ~25 bps of expected-loss
+compensation and ~105 bps of "I had to hold this through 2008 without
+forced selling" premium.
 </p>
 <p>
-As discussed, credit spreads compensate for default risk, liquidity risk, downgrade risk, event risk, and a pure risk premium. In fact, for investment-grade bonds, the actual expected default loss typically accounts for only 30-40% of the credit spread. The rest is compensation for other risks and a risk premium. This is why credit investing can be profitable even if you never experience a default.
+For high yield, the expected-loss component is the <em>majority</em> of the spread
+in normal times. A B-rated bond at 425 bps is split roughly 250 bps loss /
+175 bps premium. In recessions the proportions invert: the spread blows out
+to 800-1,500 bps but the realised loss only doubles, so the risk premium
+dominates and forward returns are spectacular for those buying the panic.
+</p>
+<h4>2.5 The BAA and HY Series: Reading the Tape</h4>
+<p>
+Two FRED series give you a real-time read on the credit cycle:
+</p>
+<ul><li><strong><code>BAA10Y</code></strong> — the spread of Moody's BAA (lowest IG) corporate yield over</li>
+<p>
+</ul>  the 10-year Treasury. Long-run average ~190 bps. Below 150 bps is "credit
+complacency"; above 350 bps is recession pricing.
+</p>
+<ul><li><strong><code>BAMLH0A0HYM2</code></strong> — the ICE BofA US High Yield Index option-adjusted</li>
+<p>
+</ul>  spread. Long-run average ~520 bps. Below 350 bps is "reach for yield";
+above 1,000 bps is genuine panic.
 </p>
 <p>
-<strong>Misconception 6: "The bond market is boring and predictable."</strong>
+Below is the high-yield series since 1997. Notice the four spike events:
+</p>
+<img src="image/week33_hy_spread_history.png" alt="High-yield OAS, 1997 to April 2026 — four panic prints">
+<ul><li><strong>2002</strong>, ~1,000 bps. Telecom and accounting-fraud collapse (WorldCom,</li>
+<p>
+</ul>  Enron). HY had been issued aggressively to telecom and energy through
+1998-2001; the implosion forced the market to mark to reality.
+</p>
+<ul><li><strong>2008</strong>, ~2,180 bps at the November peak. Lehman, money-market freeze,</li>
+<p>
+</ul>  no bid for risk. The all-time wide on this series.
+</p>
+<ul><li><strong>2020</strong>, ~1,100 bps in mid-March. COVID lockdowns; spreads round-tripped</li>
+<p>
+</ul>  in 90 days as the Fed announced it would buy IG and HY ETFs.
+</p>
+<ul><li><strong>2022 Q4</strong>, ~600 bps. The fastest Fed hiking cycle in 40 years dragged</li>
+<p>
+</ul>  HY duration losses on top of widening spreads — the rare "rates and
+credit lose together" tape.
 </p>
 <p>
-The bond market experiences dramatic moves. In 2020, the investment-grade credit market saw a round trip of roughly 20% in price (from peak to trough and back) in just a few months. High-yield bonds moved even more. The 2022 rate hiking cycle saw the aggregate bond index suffer its worst year on record. The bond market is dynamic, complex, and full of opportunities for informed investors.
+Apr 2026 reading: HY OAS is back near its long-run average — neither the
+1,000-bps "buy with both hands" tape of 2020 nor the 350-bps "reach for
+yield" tape of 2007 or 2021. A boring, fairly-priced credit market.
+</p>
+<h4>2.6 What This Means for the Retail Investor</h4>
+<p>
+Three practical takeaways.
+</p>
+<li><strong>Don't buy HY at sub-400 bps spreads.</strong> That's the "complacency" zone —</li>
+<p>
+you're being paid less than the historical expected loss for B-rated
+paper. SOUL principle #14 (barbell): when HY is rich, the right move is
+Treasuries on one side and equity beta on the other, not stretching for
+50 bps in junk.
+</p>
+<li><strong>Do buy HY at 800+ bps spreads, with size.</strong> Every 800-bps wide print</li>
+<p>
+since 1997 has been a 2-year buying opportunity. SOUL principle #5 says
+behavioural alpha is real; HY-at-panic is the cleanest expression of it
+that doesn't require options or shorting.
+</p>
+<li><strong>Use ETFs, not single names.</strong> Default risk on a single B-rated bond is</li>
+<p>
+binary; on an index of 1,500 of them it's a smooth statistical process.
+HYG and JNK are the canonical high-yield ETFs; LQD is the canonical IG
+ETF. SOUL principle #16 (US-only investable) — these are the instruments
+a retail investor can actually use.
 </p>
 <p>
-<strong>Misconception 7: "Covenants do not matter in good times."</strong>
+The interactive lets you turn each of the levers — maturity, coupon,
+Treasury yield, spread, default probability, recovery rate — and watch
+implied price, credit-adjusted YTM, expected return, and breakeven default
+rate move. Try the 2008 preset: 10y, 6% coupon, 4% Treasury, 1,800 bps
+spread, 6% PD, 40% recovery. The expected return is still +9% per year.
+That's what panic looks like in the math.
 </p>
 <p>
-Covenants are like insurance: you buy them hoping you never need them, but you are grateful when you do. The time to evaluate covenant quality is before you buy the bond, not when the company is already in trouble. Weak covenants mean that by the time a company violates them, the situation may already be dire. Strong covenants provide early warning signals and limit value-destructive behavior.
+<a href="interactive/week33_credit_pricer.html">Open the interactive credit pricer →</a>
 </p>
 <hr>
-<h3>d) Common Questions and Answers</h3>
+<h3>3. Common Misconceptions</h3>
+<li><strong>"Investment grade is safe."</strong> IG defaults are rare but recoveries are</li>
 <p>
-<strong>Q1: How do I actually look up a bond's credit rating?</strong>
+not 100%. Lehman was A-rated 18 months before it went to zero. IG
+protects you against default <em>frequency</em>, not default <em>severity</em>.
+</p>
+<li><strong>"High yield is always overpaid for the risk."</strong> Long-run, HY has</li>
+<p>
+delivered ~200-300 bps per year over Treasuries net of defaults. Not
+spectacular, but real, and uncorrelated to the equity premium in a
+useful way.
+</p>
+<li><strong>"BBB and BB are basically the same."</strong> BBB is in every pension bucket;</li>
+<p>
+BB is in none of them. The cliff is institutional, not credit-fundamental,
+but it dictates the trading dynamics.
+</p>
+<li><strong>"Credit spreads predict recessions."</strong> They predict <em>credit stress</em>.</li>
+<p>
+Sometimes that's a recession (2008), sometimes a sector blow-up (2002),
+sometimes a vol shock (March 2020). Treat them as stress indicators, not
+GDP forecasts.
+</p>
+<li><strong>"40% recovery is a constant."</strong> It's a long-run mean. Recoveries were</li>
+<p>
+~25% in 2008-2009 (too many bonds in restructuring at once) and ~55% in
+2003-2007 (light default flow, recoveries clear faster).
+</p>
+<li><strong>"Higher yield means higher return."</strong> Higher <em>gross</em> yield. After the</li>
+<p>
+expected-loss tax, a CCC bond at 1,500 bps over Treasuries may have a
+<em>lower</em> expected return than a BB at 350 bps — because the 25% PD eats
+more than the spread compensates.
+</p>
+<li><strong>"Treasuries have no credit risk so they have no risk."</strong> Duration risk</li>
+<p>
+is not credit risk. 2022 Treasuries lost 17% in price terms. The risks
+are different but neither is zero.
+</p>
+<li><strong>"HY ETFs always recover."</strong> The ETF wrapper does, the underlying bonds</li>
+<p>
+usually do — but holders who sell at the panic print do not. SOUL
+principle #12: the market can stay irrational longer than you can stay
+solvent. Size your HY position for the path, not the endpoint.
+</p>
+<hr>
+<h3>4. Q&A</h3>
+<p>
+<strong>Q1. What's the difference between a credit spread and a yield spread?</strong>
+A. They're the same number expressed two ways. "Spread" usually means the
+bond's option-adjusted yield minus the matched-maturity Treasury, quoted in
+basis points. "Yield spread" sometimes means the difference between two
+corporate yields (e.g., HY minus IG). Read the legend.
 </p>
 <p>
-A: Most financial data services (Bloomberg, Refinitiv, FINRA's EMMA for municipal bonds, or even free sites like FINRA's Market Data Center) display credit ratings. If you use a brokerage platform, bond listings typically show ratings from at least one agency. For sovereign ratings, all three major agencies publish their ratings on their websites for free. For individual corporate bonds, you may need a subscription to the rating agency's service for detailed reports, but the actual rating letter grade is widely available.
+**Q2. Why does the BAA spread bottom around 150 bps even when defaults are
+zero?**
+A. Liquidity premium and risk premium don't go to zero. Even a perfectly
+safe corporate has to compensate you for being less liquid than a Treasury
+and for the fact you can't refinance it instantly. 150 bps is roughly the
+floor across cycles since 1980.
 </p>
 <p>
-<strong>Q2: What happens when a bond is downgraded?</strong>
+<strong>Q3. Should I prefer individual bonds or a bond ETF?</strong>
+A. For Treasuries it doesn't matter much (no credit risk, deep liquidity).
+For corporates, retail investors should use an ETF. Single bonds have wide
+bid-ask, lumpy default risk, and a knowledge edge that favours the dealer.
+SOUL principle #1: alpha is rare — single-name credit alpha is one of the
+rarest forms.
 </p>
 <p>
-A: The bond's price typically drops (and its yield rises) to reflect the higher perceived risk. If the downgrade crosses the investment-grade/high-yield boundary, the price impact can be severe because many institutional investors are forced to sell bonds that lose their investment-grade status. These forced sellers create opportunities for high-yield investors willing to absorb the supply. The reverse happens with upgrades: rising stars get a price boost as new buyers enter.
+<strong>Q4. What's the biggest risk holding HYG through a recession?</strong>
+A. Forced selling at the spread peak. The fund itself is fine (it can hold
+defaulted bonds through restructuring), but if you panic-sell at 1,500 bps
+wide, you crystallise the loss before the recovery. Size for the tape, not
+the average.
 </p>
 <p>
-<strong>Q3: Should I do my own credit analysis if the agencies have already rated the bond?</strong>
+<strong>Q5. Are credit ratings reliable?</strong>
+A. Reasonably, with three caveats. (1) They lag — rating changes follow
+market spreads, not lead them. (2) Structured products were mis-rated in
+</p>
+<li>(3) Sovereign ratings have a political bias. For plain-vanilla US</li>
+<p>
+corporates, the rating is a useful starting point.
 </p>
 <p>
-A: Yes, for two reasons. First, ratings are backward-looking and slow to change. By the time an agency downgrades a bond, the market has usually already repriced it. Second, ratings are opinions about relative default probability -- they do not tell you whether the spread compensates you adequately for the risk. Your own analysis adds the relative value dimension that ratings lack.
+<strong>Q6. What does "fallen angel" mean?</strong>
+A. A bond that was IG at issue and got downgraded to HY. The interesting
+thing is the technical cliff: the IG-only fund universe must sell it, the
+HY universe is just absorbing it. Spreads usually overshoot on the way
+down — there's an alpha source here for patient buyers (SOUL principle #5,
+structural).
 </p>
 <p>
-<strong>Q4: How do I analyze a company I have never looked at before?</strong>
+<strong>Q7. How do I decompose a 320-bps spread?</strong>
+A. Look up the rating bucket's annualised default rate (e.g., BB ~1.2%),
+multiply by (1 - 40%) for senior unsecured = 72 bps of expected loss. The
+remaining 248 bps is liquidity + risk premium. If the bond is secured,
+expected loss is ~36 bps and the premium grows.
 </p>
 <p>
-A: Start with the 4 Cs framework. Pull the company's last 5 years of financial statements (10-K filings for US companies). Calculate the key ratios (interest coverage, leverage, free cash flow). Read the bond indenture for covenant details. Look up management's track record. Then compare the bond's spread to similarly rated peers. This process takes a few hours for a new issuer but gets faster as you build familiarity with industries.
+<strong>Q8. Why are HY spreads measured option-adjusted?</strong>
+A. Most HY bonds are callable. The issuer's call option reduces what the
+holder will earn if rates fall, so a naive yield-to-maturity overstates
+expected return. Option-adjusted spread (OAS) strips the call option's
+value out so you can compare bonds on a like-for-like basis. Both
+</p>
+<code>BAMLH0A0HYM2</code> and modern IG indices are quoted OAS.
+<p>
+<strong>Q9. What's the right HY weight in a portfolio?</strong>
+A. SOUL principle #13 says four tranches. HY belongs in the "yield" tranche
+alongside BBB IG, REITs, and option-income strategies — not in the Treasury
+sleeve. A 5-15% HY weight is reasonable for a moderate portfolio; size up
+only when spreads are above 800 bps.
 </p>
 <p>
-<strong>Q5: How many bonds do I need for adequate diversification in a high-yield portfolio?</strong>
+<strong>Q10. Did 2022's HY drawdown follow the script?</strong>
+A. No. Spreads only widened to ~600 bps but rates rose 4%, so duration and
+spread losses compounded. Realised default losses stayed near long-run
+averages (~3% in 2023). The lesson: HY is short rate duration too — the
+2022 tape isolated the rate leg from the credit leg in a way the textbook
+doesn't always emphasise.
 </p>
 <p>
-A: Academic research and industry practice suggest that 40-60 bonds across different industries provides reasonable diversification. With fewer than 20 bonds, a single default can have a significant impact on portfolio returns. Many individual investors achieve this diversification through high-yield bond funds or ETFs rather than building portfolios bond-by-bond.
+<strong>Q11. Are leveraged loans a substitute for HY?</strong>
+A. Similar credit risk (mostly B-rated borrowers), but floating-rate
+coupons. They've outperformed when rates rose (2022) and underperformed
+when rates fell (2020 Q1). Different rate-duration profile, same
+credit-duration profile. BKLN is the retail vehicle.
 </p>
 <p>
-<strong>Q6: What is the relationship between credit spreads and the stock market?</strong>
-</p>
-<p>
-A: Credit spreads and equity markets are inversely correlated: when stocks rise, spreads tend to tighten (narrow), and when stocks fall, spreads tend to widen. High-yield spreads in particular are closely correlated with equity market movements because high-yield issuers are often the same companies whose stocks are most sensitive to economic conditions. Some investors use credit spreads as a leading indicator for equity markets.
-</p>
-<p>
-<strong>Q7: How do credit ratings affect a company's borrowing costs?</strong>
-</p>
-<p>
-A: Enormously. A one-notch downgrade can increase borrowing costs by 20-50 basis points or more. For a company with $10 billion in debt, a 50-basis-point increase in borrowing costs means an additional $50 million in annual interest expense. This is why CFOs spend significant time managing their credit ratings and maintaining relationships with rating agencies.
-</p>
-<p>
-<strong>Q8: What are credit default swaps (CDS) and how do they relate to credit analysis?</strong>
-</p>
-<p>
-A: A CDS is a derivative contract that functions like insurance on a bond. The buyer pays a periodic premium (the CDS spread) to the seller. If the reference entity defaults, the seller pays the buyer the face value minus recovery. CDS spreads are market-determined and update in real time, making them a more timely indicator of credit risk than agency ratings. CDS spreads and bond credit spreads generally move together but can diverge due to technical factors.
-</p>
-<p>
-<strong>Q9: Is it better to buy individual bonds or bond funds?</strong>
-</p>
-<p>
-A: For most individual investors, bond funds (mutual funds or ETFs) offer better diversification, liquidity, and professional management. However, individual bonds offer the certainty of holding to maturity (no interest rate risk if you hold to maturity and the issuer does not default), exact control over credit quality, and no ongoing management fees. Investors with smaller portfolios (under $500,000 for bonds) generally benefit more from funds. Larger portfolios can consider a mix of individual bonds and funds.
-</p>
-<p>
-<strong>Q10: How do rising interest rates affect credit analysis?</strong>
-</p>
-<p>
-A: Rising rates affect credit quality through several channels: (1) they increase refinancing costs for issuers with maturing debt, (2) they slow economic growth, which can reduce revenue and cash flow, (3) they increase the discount rate applied to future cash flows, reducing collateral values, and (4) they can reduce access to capital markets. All of these pressures tend to weaken credit quality, especially for highly leveraged issuers. During rising-rate environments, credit analysts pay extra attention to near-term debt maturities and variable-rate debt exposure.
+**Q12. When credit spreads tighten and equity vol rises, what does that
+mean?**
+A. Usually a bullish signal in disguise. Credit leads equity vol — if HY is
+unfazed, the equity vol shock is probably positioning, not fundamentals.
+The opposite divergence (credit widening, equity calm) is the red flag —
+that was July 2007 in real time.
 </p>
             </div>
             <div id="content-hk" class="lang-content">

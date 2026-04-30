@@ -1,0 +1,607 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Bear Market History Explorer - Interactive (Side 16)</title>
+<script src="https://cdn.plot.ly/plotly-2.35.2.min.js" charset="utf-8"></script>
+<style>
+html, body { margin: 0; padding: 0; background: var(--he-bg); }
+:root {
+    --he-bg: #fdfbf5;
+    --he-text: #1a2332;
+    --he-muted: #6b7280;
+    --he-border: #d6d3c4;
+    --he-card: #fdfbf5;
+    --he-accent: #b8860b;
+    --he-blue: #0d47a1;
+    --he-red: #b71c1c;
+    --he-green: #2e7d32;
+    --he-purple: #6a1b9a;
+    --he-orange: #e65100;
+    --he-grey: #5a5a5a;
+}
+html[data-theme="dark"] .he-root,
+.he-root[data-theme="dark"] {
+    --he-bg: #0f1724;
+    --he-text: #e6e6e6;
+    --he-muted: #9aa3b2;
+    --he-border: #2a3441;
+    --he-card: #0f1724;
+    --he-blue: #5a8dee;
+    --he-red: #ef5350;
+    --he-green: #66bb6a;
+    --he-purple: #ba68c8;
+    --he-orange: #ffa726;
+    --he-grey: #aaaaaa;
+}
+.he-root {
+    font-family: 'Segoe UI', Helvetica, Arial, sans-serif;
+    background: var(--he-bg);
+    color: var(--he-text);
+    padding: 12px;
+    margin: 0;
+}
+.he-eras {
+    display: flex; flex-wrap: wrap; gap: 6px;
+    margin-bottom: 14px;
+}
+.he-pill {
+    border: 1px solid var(--he-border);
+    background: var(--he-card);
+    color: var(--he-text);
+    padding: 6px 12px;
+    border-radius: 999px;
+    cursor: pointer;
+    font: inherit;
+    font-size: 0.82rem;
+    font-weight: 600;
+}
+.he-pill:hover { background: var(--he-accent); color: #fff; }
+.he-pill.he-active {
+    background: var(--he-accent);
+    color: #fff;
+    border-color: var(--he-accent);
+}
+.he-pill.he-bull {
+    border-color: var(--he-green);
+    color: var(--he-green);
+}
+.he-pill.he-bull.he-active {
+    background: var(--he-green);
+    color: #fff;
+    border-color: var(--he-green);
+}
+.he-bigrow {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 8px;
+    margin-bottom: 14px;
+}
+.he-big {
+    background: var(--he-card);
+    border: 1px solid var(--he-border);
+    border-left: 4px solid var(--he-accent);
+    border-radius: 8px;
+    padding: 10px 12px;
+}
+.he-big.he-b-depth { border-left-color: var(--he-red); }
+.he-big.he-b-dur { border-left-color: var(--he-orange); }
+.he-big.he-b-recov { border-left-color: var(--he-blue); }
+.he-big .he-big-name {
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--he-muted);
+}
+.he-big .he-big-val {
+    font-size: 1.5rem;
+    font-weight: 800;
+    margin-top: 4px;
+    font-variant-numeric: tabular-nums;
+    color: var(--he-text);
+}
+.he-big .he-big-detail {
+    font-size: 0.72rem;
+    color: var(--he-muted);
+    margin-top: 2px;
+}
+.he-info {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 10px;
+    margin-bottom: 14px;
+}
+.he-card {
+    background: var(--he-card);
+    border: 1px solid var(--he-border);
+    border-left: 4px solid var(--he-grey);
+    border-radius: 8px;
+    padding: 10px 14px;
+    font-size: 0.86rem;
+    line-height: 1.45;
+    color: var(--he-text);
+}
+.he-card.he-c-trigger { border-left-color: var(--he-red); }
+.he-card.he-c-end { border-left-color: var(--he-blue); }
+.he-card.he-c-do { border-left-color: var(--he-green); }
+.he-card .he-card-name {
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--he-muted);
+    margin-bottom: 4px;
+}
+.he-chart {
+    width: 100%;
+    height: 360px;
+    background: var(--he-card);
+    border-radius: 8px;
+    border: 1px solid var(--he-border);
+}
+.he-caption {
+    margin-top: 10px;
+    font-size: 0.78rem;
+    color: var(--he-muted);
+    line-height: 1.45;
+}
+@media (max-width: 1000px) {
+    .he-bigrow { grid-template-columns: 1fr 1fr; }
+    .he-info { grid-template-columns: 1fr; }
+}
+@media (max-width: 600px) {
+    .he-bigrow { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<div class="he-root" id="he-root">
+    <div class="he-eras" id="he-eras"></div>
+
+    <div class="he-bigrow">
+        <div class="he-big he-b-depth">
+            <div class="he-big-name" id="he-bn-depth">Drawdown depth</div>
+            <div class="he-big-val" id="he-bv-depth">—</div>
+            <div class="he-big-detail" id="he-bd-depth">peak to trough</div>
+        </div>
+        <div class="he-big he-b-dur">
+            <div class="he-big-name" id="he-bn-dur">Bear duration</div>
+            <div class="he-big-val" id="he-bv-dur">—</div>
+            <div class="he-big-detail" id="he-bd-dur">peak to trough (months)</div>
+        </div>
+        <div class="he-big he-b-recov">
+            <div class="he-big-name" id="he-bn-recov">Recovery time</div>
+            <div class="he-big-val" id="he-bv-recov">—</div>
+            <div class="he-big-detail" id="he-bd-recov">trough to new high</div>
+        </div>
+    </div>
+
+    <div class="he-info">
+        <div class="he-card he-c-trigger">
+            <div class="he-card-name" id="he-cn-trigger">What triggered it</div>
+            <div id="he-cv-trigger">—</div>
+        </div>
+        <div class="he-card he-c-end">
+            <div class="he-card-name" id="he-cn-end">What ended it</div>
+            <div id="he-cv-end">—</div>
+        </div>
+        <div class="he-card he-c-do">
+            <div class="he-card-name" id="he-cn-do">What investors should have done</div>
+            <div id="he-cv-do">—</div>
+        </div>
+    </div>
+
+    <div id="he-chart" class="he-chart"></div>
+
+    <p class="he-caption" id="he-caption">
+        Pick any era above to see its depth, duration, recovery time, trigger, ending policy, and the textbook playbook. Chart shows a stylised drawdown profile of that era versus the others on the same axis. Source: Damodaran SP500 annual 1928-1984; Yahoo ^GSPC monthly 1985-Apr 2026; National Bureau of Economic Research recession dating; Federal Reserve policy archive.
+    </p>
+</div>
+
+<script>
+(function () {
+    var I18N = {
+        en: {
+            bn_depth: "Drawdown depth",
+            bn_dur: "Bear duration",
+            bn_recov: "Recovery time",
+            bd_depth: "peak to trough",
+            bd_dur: "peak to trough (months)",
+            bd_recov: "trough to new high",
+            cn_trigger: "What triggered it",
+            cn_end: "What ended it",
+            cn_do: "What investors should have done",
+            chart_title: "Drawdown profile - selected era highlighted, all others greyed",
+            x_label: "Months from prior peak",
+            y_label: "Drawdown (%)",
+            tr_selected: "Selected era",
+            tr_others: "Other bears (reference)",
+            caption_text: "Pick any era above to see its depth, duration, recovery time, trigger, ending policy, and the textbook playbook. Chart shows a stylised drawdown profile of that era versus the others on the same axis. Source: Damodaran SP500 annual 1928-1984; Yahoo ^GSPC monthly 1985-Apr 2026; NBER recession dating; Federal Reserve policy archive.",
+            mo: "mo",
+            currentTag: "current",
+        },
+        hk: {
+            bn_depth: "跌幅深度",
+            bn_dur: "熊市時長",
+            bn_recov: "復原時間",
+            bd_depth: "高位到谷底",
+            bd_dur: "高位到谷底(月)",
+            bd_recov: "谷底到新高",
+            cn_trigger: "觸發原因",
+            cn_end: "結束原因",
+            cn_do: "投資者應該怎麼做",
+            chart_title: "跌幅曲線 — 已選時段為主,其他熊市灰底參照",
+            x_label: "距前高位月數",
+            y_label: "跌幅 (%)",
+            tr_selected: "選定時段",
+            tr_others: "其他熊市(參考)",
+            caption_text: "選擇上方任何時段,查看其深度、時長、復原時間、觸發、結束政策及經典操作。圖中顯示該時段與其他熊市在同一軸上的標準化跌幅曲線。資料:Damodaran 標普 500 年度 1928-1984;Yahoo ^GSPC 月度 1985-2026 年 4 月;NBER 衰退斷代;聯儲局政策檔案。",
+            mo: "月",
+            currentTag: "當下",
+        },
+        tw: {
+            bn_depth: "跌幅深度",
+            bn_dur: "空頭時長",
+            bn_recov: "恢復時間",
+            bd_depth: "高點到谷底",
+            bd_dur: "高點到谷底(月)",
+            bd_recov: "谷底到新高",
+            cn_trigger: "觸發原因",
+            cn_end: "結束原因",
+            cn_do: "投資人該怎麼做",
+            chart_title: "跌幅曲線 — 已選時段為主,其他空頭灰底參照",
+            x_label: "距前高點月數",
+            y_label: "跌幅 (%)",
+            tr_selected: "選定時段",
+            tr_others: "其他空頭(參考)",
+            caption_text: "選擇上方任何時段,查看深度、時長、恢復時間、觸發、結束政策及經典操作。圖中顯示該時段與其他空頭在同一軸上的標準化跌幅曲線。資料:Damodaran 標普 500 年度 1928-1984;Yahoo ^GSPC 月度 1985-2026 年 4 月;NBER 衰退斷代;聯準會政策檔案。",
+            mo: "月",
+            currentTag: "當前",
+        },
+        cn: {
+            bn_depth: "回撤深度",
+            bn_dur: "熊市时长",
+            bn_recov: "恢复时间",
+            bd_depth: "高点到谷底",
+            bd_dur: "高点到谷底(月)",
+            bd_recov: "谷底到新高",
+            cn_trigger: "触发原因",
+            cn_end: "结束原因",
+            cn_do: "投资者该怎么做",
+            chart_title: "回撤曲线 — 选定时段为主,其他熊市灰底参照",
+            x_label: "距前高点月数",
+            y_label: "回撤 (%)",
+            tr_selected: "选定时段",
+            tr_others: "其他熊市(参考)",
+            caption_text: "选择上方任何时段,查看深度、时长、恢复时间、触发、结束政策及经典操作。图中显示该时段与其他熊市在同一轴上的标准化回撤曲线。数据:Damodaran 标普 500 年度 1928-1984;Yahoo ^GSPC 月度 1985-2026 年 4 月;NBER 衰退断代;美联储政策档案。",
+            mo: "月",
+            currentTag: "当下",
+        },
+    };
+
+    // Era data. Each era: depth (negative pct), bearMonths (peak->trough),
+    // recovMonths (trough->new high), per-locale trigger/end/do.
+    // The drawdown profile is a stylised (negative) curve sampled at
+    // monthly resolution, used only for the chart trace shape.
+    var ERAS_BASE = [
+        { key: "1929", label: "1929-32",  depth: -86, bearMonths: 34, recovMonths: 180, isBull: false,
+          peak: { x: -3, y: 0 }, profile: { trough: 34, recov: 180 } },
+        { key: "1937", label: "1937-42",  depth: -49, bearMonths: 12, recovMonths: 49,  isBull: false,
+          peak: { x: -3, y: 0 }, profile: { trough: 12, recov: 49 } },
+        { key: "1968", label: "1968-70",  depth: -36, bearMonths: 18, recovMonths: 21,  isBull: false,
+          peak: { x: -3, y: 0 }, profile: { trough: 18, recov: 21 } },
+        { key: "1973", label: "1973-74",  depth: -48, bearMonths: 21, recovMonths: 21,  isBull: false,
+          peak: { x: -3, y: 0 }, profile: { trough: 21, recov: 21 } },
+        { key: "1987", label: "1987",     depth: -34, bearMonths: 3,  recovMonths: 20,  isBull: false,
+          peak: { x: -2, y: 0 }, profile: { trough: 3,  recov: 20 } },
+        { key: "2000", label: "2000-02",  depth: -49, bearMonths: 31, recovMonths: 85,  isBull: false,
+          peak: { x: -3, y: 0 }, profile: { trough: 31, recov: 85 } },
+        { key: "2007", label: "2007-09",  depth: -57, bearMonths: 17, recovMonths: 49,  isBull: false,
+          peak: { x: -3, y: 0 }, profile: { trough: 17, recov: 49 } },
+        { key: "2020", label: "2020",     depth: -34, bearMonths: 2,  recovMonths: 5,   isBull: false,
+          peak: { x: -2, y: 0 }, profile: { trough: 2,  recov: 5 } },
+        { key: "2022", label: "2022",     depth: -25, bearMonths: 10, recovMonths: 21,  isBull: false,
+          peak: { x: -3, y: 0 }, profile: { trough: 10, recov: 21 } },
+        { key: "now",  label: "Apr 2026", depth: -3,  bearMonths: 0,  recovMonths: 0,   isBull: true,
+          peak: { x: -3, y: 0 }, profile: { trough: 0, recov: 0 } },
+    ];
+
+    var ERA_TEXT = {
+        en: {
+            "1929": {
+                trigger: "Margin debt 90% of stock price, fraudulent banks, no FDIC, no SEC. The 1920s speculative boom met its ceiling on Sep 3, 1929.",
+                end: "Roosevelt's New Deal (1933): the dollar devalued, FDIC created, banking holiday, 1934 Securities Exchange Act. Fiscal-monetary regime change, not cheap valuations.",
+                doDo: "Hold the index, reinvest dividends, do not sell. Anyone who held through 1929-1932 and reinvested dividends was made whole by approximately 1944. Anyone who panicked at -50% in 1930 (it was only halfway down) sold near the worst possible point."
+            },
+            "1937": {
+                trigger: "Premature Fed tightening - reserve requirements doubled in 1936-37 - plus a wartime sentiment shock. The recovery rolled over into a second leg.",
+                end: "Fed reversed, the war economy ramped, deficit spending exploded. Recovered in roughly 4 years. The forgotten bear that taught Bernanke not to tighten too soon in 2009-15.",
+                doDo: "Same lesson as 1929: stay invested, do not try to time the second leg. The investor who sold in 1937 to 'wait for stability' missed the 1938 bottom and the war-era rally."
+            },
+            "1968": {
+                trigger: "End of the Bretton Woods regime, rising inflation, Vietnam, and the first cracks in the post-war 'nifty fifty' growth-stock leadership. A slow erosion bear.",
+                end: "Mostly time. Markets recovered nominally in 21 months but were trapped in a flat range until 1982 in real terms. Recovery is only real if it is total-return AND inflation-adjusted.",
+                doDo: "Begin shifting allocation toward real assets (gold post-1971, commodities, real estate). The textbook 'stocks always recover' assumption was about to be tested by the 1973 oil shock and the inflation regime."
+            },
+            "1973": {
+                trigger: "OPEC oil embargo (Oct 1973) quadrupled crude prices in 6 months. Combined with Bretton Woods break, runaway inflation, Watergate, and a recession. Both stocks and bonds fell in real terms.",
+                end: "Stocks bottomed Oct 1974 and recovered nominally in 21 months, but the underlying inflation regime did not break until Volcker hiked the funds rate to 19% in 1981. Real recovery took 8 more years.",
+                doDo: "TIPS did not exist yet, so the 70s playbook was gold (+18% real per year), commodities (+12% real), and short-duration bonds. Long bonds were the worst major asset class. SOUL #14 barbell with explicit Stores-of-Value sleeve."
+            },
+            "1987": {
+                trigger: "Computerised portfolio insurance: as prices fell, systematic strategies sold automatically, creating a self-reinforcing cascade. -22.6% in a single day, the largest one-day decline ever.",
+                end: "Greenspan, two months into his Fed chair, flooded the system with liquidity overnight. Discount window open at any size, lowest rate. The bear ended in 48 hours. Nominal recovery in 20 months.",
+                doDo: "If you happened to be sitting on cash, this was the cleanest buy-the-dip in history - no fundamental damage to the real economy. Most retail investors who held through it did fine. The first instance of the 'Fed put' that defines the post-1987 regime."
+            },
+            "2000": {
+                trigger: "Dot-com bubble unwinding (Nasdaq -80% peak to trough), the 2001 recession, plus 9/11 in the middle. The slow grinding bear: 31 months from peak to bottom.",
+                end: "Fed cut funds rate from 6.5% to 1% over 2.5 years AND the housing-credit cycle started its borrowing-driven recovery (which would itself trigger 2008). Recovery took 7 years - longest of the modern era.",
+                doDo: "Rebalance into the bear, but not aggressively early - the bear was a 31-month grind, not an event. Anyone who bought 'cheap' tech in early 2001 was still down 60% by late 2002. SOUL #6: vol-tail-wags-dog. The dot-com peak was not retaken until October 2007."
+            },
+            "2007": {
+                trigger: "Mortgage-credit crisis. Subprime defaults broke MBS, broke Bear Stearns (Mar 2008), broke Lehman (Sep 2008), broke AIG. The shadow banking system seized.",
+                end: "ZIRP (rates to 0% Dec 2008), Quantitative Easing (Fed bought trillions in bonds), TARP ($700B bank recapitalisation). Policy response on the order of the 1933 New Deal, executed in 9 months. Bottom March 2009; full recovery March 2013.",
+                doDo: "Continue dollar-cost-averaging through the bottom. The investor who kept buying through Mar 2009 caught the entire 4x recovery into 2024. Anyone who waited 'for clarity' missed 30%+ off the bottom in the first 6 months."
+            },
+            "2020": {
+                trigger: "COVID-19 lockdowns: economic activity stopped instantaneously. -34% in 23 trading days, the fastest crash in history.",
+                end: "Fed cut to 0% in two weeks, started buying corporate bonds for the first time ever, plus Congressional fiscal stimulus of ~12% of GDP. Bottom March 23, 2020; new all-time high August 2020. Five months total.",
+                doDo: "If you reacted at all, you missed the recovery. The bottom was 23 trading days from the peak; the recovery was 110 trading days. This was the live demonstration that you cannot time bear markets. SOUL #12: irrational longer than solvent runs both ways."
+            },
+            "2022": {
+                trigger: "The Fed itself - hiking from 0% to 5.25% in 16 months, the fastest cycle since Volcker, to break post-COVID inflation that hit 9.1%. First bear since 1973 to hit BOTH stocks and long bonds together (TLT -31%).",
+                end: "Markets priced the peak hiking rate by October 2022 and rallied even before inflation came down. Bear ended on the second derivative, not the level. New all-time high January 2024.",
+                doDo: "60/40 had its worst real-return year on record. The lesson: stock-bond correlation is regime-dependent, and the post-2000 negative correlation was a regime, not a law. Add an explicit Stores-of-Value sleeve (SOUL #13). Trend-followers and managed-futures (DBMF, KMLM) earned +20%+ as a long-vol overlay - week 51."
+            },
+            "now": {
+                trigger: "Currently in a bull phase. As of April 2026, the S&P is near all-time highs, ~3% off peak, in the third year of the post-2022 recovery. The bull-market clock is ticking but no obvious catalyst is mature.",
+                end: "Bulls end when policy gets tighter than the economy can support, or when an exogenous shock (geopolitics, banking failure, supply shock) cracks the consensus. Watch the unemployment rate, the yield curve, and the credit spread - these turned in every prior cycle 6-18 months before the bear.",
+                doDo: "Continue mechanical dollar-cost-averaging. Rebalance back to target weights. Hold 2 years of cash for retirees, 3-6 months for accumulators. Pre-commit your -20%, -30%, -40% rebalance triggers, in writing, before the bear arrives. Plan for a worse you."
+            }
+        },
+        hk: {
+            "1929": { trigger: "保證金債務佔股價 90%、欺詐銀行、無 FDIC、無 SEC。1929 年 9 月 3 日 1920 年代投機潮見頂。", end: "羅斯福新政(1933):美元貶值、成立 FDIC、銀行假期、1934 年證券交易法。財政貨幣政策大轉向,非估值便宜。", doDo: "持有指數、再投資股息、不賣。1929-32 年持有並再投資股息者約 1944 年回本。1930 年 -50% 時驚惶賣出者(其實只跌一半)在最差位賣。" },
+            "1937": { trigger: "聯儲過早收緊 — 1936-37 年存款準備金率倍增 — 加上戰時情緒衝擊。復原折返第二腳。", end: "聯儲掉頭、戰爭經濟啟動、赤字大爆炸。約 4 年復原。被遺忘的熊市,正是 Bernanke 2009-15 不敢過早收緊的原因。", doDo: "與 1929 同:堅守,勿時點第二腳。1937 年因『等穩定』賣出者錯過 1938 谷底及戰時反彈。" },
+            "1968": { trigger: "Bretton Woods 結束、通脹上升、越戰、戰後『漂亮 50』成長股領導出現裂痕。慢侵蝕熊。", end: "主要是時間。21 個月名義復原,但實質至 1982 年才見復原。所謂復原須是總回報且通脹調整後才算。", doDo: "開始向實物資產傾斜(1971 後黃金、商品、地產)。教科書『股票總會回來』即將被 1973 油震及通脹體制檢驗。" },
+            "1973": { trigger: "OPEC 石油禁運(1973 年 10 月)6 個月內油價飆 4 倍。連同 Bretton Woods 結束、惡性通脹、水門、衰退。股債實質皆跌。", end: "股市 1974 年 10 月見底,21 個月名義復原,但底層通脹體制要 1981 年 Volcker 把利率推到 19% 才破。實質復原再 8 年。", doDo: "當時無 TIPS,70 年代劇本為黃金(實質 +18%/年)、商品(+12% 實質)、短存續債。長債最差大類資產。SOUL #14 啞鈴 + 明確 SoV 倉。" },
+            "1987": { trigger: "電腦化投資組合保險:跌價時自動賣出,自我強化雪崩。單日 -22.6%,史上最大單日跌幅。", end: "Greenspan 接任聯儲主席兩個月,連夜灌入流動性。貼現窗任何規模、最低利率。熊市 48 小時內結束。20 個月名義復原。", doDo: "若手上有現金,這是史上最乾淨的逢低買入 — 實體經濟無基本面損傷。多數散戶持有度過皆無事。後 1987 年體制 Fed put 首例。" },
+            "2000": { trigger: "科網泡沫破裂(納指高位回落 -80%)、2001 年衰退、加上中段 9/11。慢磨熊:31 個月由高至底。", end: "聯儲基金利率由 6.5% 降至 1%,再加上房貸信貸週期啟動借貸驅動復甦(自身則導致 2008)。復原 7 年 — 現代最長。", doDo: "熊市中再平衡但勿太早重壓 — 此熊是 31 個月慢磨,不是事件。2001 年初買『便宜』科技到 2002 年底仍 -60%。SOUL #6:波動尾巴搖狗。科網高位 2007 年 10 月才再見一面。" },
+            "2007": { trigger: "按揭信貸危機。次按違約打破 MBS、Bear Stearns(2008.3)、Lehman(2008.9)、AIG。影子銀行體系凍結。", end: "ZIRP(2008.12 利率到 0%)、QE(聯儲買數萬億債券)、TARP(7000 億救銀行)。9 個月內推出 1933 新政級政策。2009.3 見底;2013.3 完全復原。", doDo: "繼續定期定額穿越底部。2009.3 持續買入者捕獲到 2024 年的 4 倍復原。等『清晰』者首半年錯過 30%+ 反彈。" },
+            "2020": { trigger: "COVID-19 封城:經濟活動瞬間停止。23 個交易日 -34%,史上最快崩盤。", end: "聯儲兩星期降至 0%、首次買企業債,加上國會 ~12% GDP 財政刺激。2020.3.23 見底;2020.8 創新高。共 5 個月。", doDo: "若你有任何反應就錯失復原。底距高位 23 個交易日,復原 110 個交易日。實證示範:你無法時點熊市。SOUL #12:非理性可比償付能力久 — 兩個方向都是。" },
+            "2022": { trigger: "聯儲自身 — 16 個月由 0% 加至 5.25%,自 Volcker 後最快週期,目的破後 COVID 達 9.1% 通脹。自 1973 後首次股債齊跌(TLT -31%)。", end: "2022.10 市場 priced 加息頂,通脹未跌已先反彈。熊市結於二階導,而非水準。2024.1 創歷史新高。", doDo: "60/40 年實質回報史上最差。教訓:股債相關性視體制而定,2000 年後負相關是體制非定律。明確加 SoV 倉(SOUL #13)。趨勢追蹤(DBMF、KMLM)+20% 作長波動覆蓋 — 週 51。" },
+            "now": { trigger: "現處牛市階段。2026 年 4 月,標普近歷史高位,距高位 ~3%,後 2022 復原第三年。牛市計時器在走但暫無明顯成熟催化劑。", end: "牛市結束於政策緊得過經濟能承受,或外生衝擊(地緣政治、銀行倒閉、供應衝擊)打破共識。觀察失業率、收益率曲線、信用息差 — 上一週期皆於熊市前 6-18 個月轉向。", doDo: "繼續機械式定期定額。回到目標權重再平衡。退休者持有 2 年現金,累積期者 3-6 個月。先寫下 -20%、-30%、-40% 再平衡觸發點。為更糟的自己作準備。" }
+        },
+        tw: {
+            "1929": { trigger: "保證金債務佔股價 90%、詐欺銀行、無 FDIC、無 SEC。1929 年 9 月 3 日 1920 年代投機熱見頂。", end: "羅斯福新政(1933):美元貶值、成立 FDIC、銀行假期、1934 年證交法。財政貨幣大轉向,並非估值便宜。", doDo: "持有指數、再投資股息、不賣。1929-32 年持有並再投資股息者約 1944 年回本。1930 年 -50% 時恐慌賣出者(其實才跌一半)在最差時點賣。" },
+            "1937": { trigger: "聯準會過早收緊 — 1936-37 年存款準備率倍增 — 加上戰時情緒衝擊。復原翻轉成第二腳。", end: "聯準會掉頭、戰時經濟啟動、赤字爆量。約 4 年復原。被遺忘的空頭,正是 Bernanke 2009-15 不敢過早收緊的原因。", doDo: "同 1929:堅守、勿時點第二腳。1937 年因『等穩定』而賣的投資人錯過 1938 谷底及戰時反彈。" },
+            "1968": { trigger: "Bretton Woods 結束、通膨上升、越戰、戰後『漂亮 50』成長股領導出現裂痕。慢侵蝕空頭。", end: "主要是時間。21 個月名義恢復,但實質至 1982 才完成。所謂恢復必須是總報酬且通膨調整後才算。", doDo: "開始向實物資產傾斜(1971 後黃金、商品、不動產)。教科書『股票總會回來』即將被 1973 油震及通膨體制檢驗。" },
+            "1973": { trigger: "OPEC 石油禁運(1973 年 10 月)6 個月內油價漲 4 倍。加上 Bretton Woods 結束、惡性通膨、水門案、衰退。股債實質皆跌。", end: "股市 1974 年 10 月見底,21 個月名義恢復,但底層通膨體制要等 1981 年 Volcker 把利率推上 19% 才破。實質恢復再 8 年。", doDo: "當時無 TIPS,70 年代劇本為黃金(實質 +18%/年)、商品(+12% 實質)、短存續債。長債最差大類資產。SOUL #14 啞鈴 + 明確 SoV 子袋。" },
+            "1987": { trigger: "電腦化投組保險:跌價時自動賣出,自我強化崩落。單日 -22.6%,史上最大單日跌幅。", end: "Greenspan 接任聯準會主席兩個月,連夜灌入流動性。貼現窗任意規模、最低利率。空頭 48 小時內結束。20 個月名義恢復。", doDo: "若手上有現金,這是史上最乾淨的逢低買入 — 實體經濟無基本面損傷。多數散戶硬撐都沒事。後 1987 年體制 Fed put 第一例。" },
+            "2000": { trigger: "網路泡沫破裂(納指高位 -80%)、2001 年衰退、加上中段 911。慢磨型空頭:31 個月由高點到底部。", end: "聯準會基金利率由 6.5% 降至 1%,再加上房貸信用週期啟動借貸驅動復甦(自身又引發 2008)。恢復 7 年 — 現代最長。", doDo: "空頭中再平衡但勿太早重壓 — 此空頭是 31 個月慢磨,非事件。2001 年初買『便宜』科技到 2002 年底仍 -60%。SOUL #6:波動尾巴搖狗。網路高點 2007 年 10 月才再見一次。" },
+            "2007": { trigger: "房貸信用危機。次貸違約打破 MBS、Bear Stearns(2008.3)、Lehman(2008.9)、AIG。影子銀行系統凍結。", end: "ZIRP(2008.12 利率到 0%)、QE(聯準會買入數兆債券)、TARP(7000 億救銀行)。9 個月內推出 1933 新政等級政策。2009.3 見底;2013.3 完全恢復。", doDo: "持續定期定額穿越底部。2009.3 持續買入者抓到 2024 年的 4 倍恢復。等『清晰』者首半年錯過 30%+ 反彈。" },
+            "2020": { trigger: "COVID-19 封城:經濟活動瞬間停止。23 個交易日 -34%,史上最快崩盤。", end: "聯準會兩週降至 0%、首次買進公司債,加上國會 ~12% GDP 財政刺激。2020.3.23 見底;2020.8 創新高。共 5 個月。", doDo: "若你有任何反應就錯失恢復。底距高點 23 個交易日,恢復 110 個交易日。實證示範:你無法時點空頭。SOUL #12:非理性可比償付能力久 — 雙向皆然。" },
+            "2022": { trigger: "聯準會自身 — 16 個月由 0% 升至 5.25%,自 Volcker 後最快循環,目的破後 COVID 達 9.1% 通膨。自 1973 後首次股債齊跌(TLT -31%)。", end: "2022.10 市場 price 完升息頂,通膨還沒降就先反彈。空頭結束於二階導數,而非水準。2024.1 創歷史新高。", doDo: "60/40 年實質報酬史上最差。教訓:股債相關性視體制而定,2000 年後負相關是體制非定律。明確加 SoV 子袋(SOUL #13)。趨勢追蹤(DBMF、KMLM)+20% 作長波動疊加 — 週 51。" },
+            "now": { trigger: "目前處多頭階段。2026 年 4 月,標普近歷史新高,距高點 ~3%,後 2022 恢復第三年。多頭計時器在跑但暫無明顯成熟催化劑。", end: "多頭結束於政策緊得超過經濟能承受,或外生衝擊(地緣、銀行倒閉、供應衝擊)打破共識。觀察失業率、殖利率曲線、信用利差 — 過去循環皆於空頭前 6-18 個月轉向。", doDo: "持續機械式定期定額。回歸目標權重再平衡。退休族持 2 年現金,累積期者 3-6 個月。先寫下 -20%、-30%、-40% 再平衡觸發點。為更糟的自己準備。" }
+        },
+        cn: {
+            "1929": { trigger: "保证金债务占股价 90%、欺诈银行、无 FDIC、无 SEC。1929 年 9 月 3 日 1920 年代投机潮见顶。", end: "罗斯福新政(1933):美元贬值、成立 FDIC、银行假期、1934 年证交法。财政货币大转向,非估值便宜。", doDo: "持有指数、再投资股息、不卖。1929-32 持有并再投资股息者约 1944 年回本。1930 年 -50% 时恐慌卖出者(其实才跌一半)在最差点位卖。" },
+            "1937": { trigger: "美联储过早收紧 — 1936-37 年存款准备金率翻倍 — 加上战时情绪冲击。恢复转折为第二腿。", end: "美联储掉头、战时经济启动、赤字爆量。约 4 年恢复。被遗忘的熊市,正是 Bernanke 2009-15 不敢过早收紧的原因。", doDo: "同 1929:坚守、勿时点第二腿。1937 因『等稳定』而卖出者错过 1938 谷底及战时反弹。" },
+            "1968": { trigger: "Bretton Woods 结束、通胀上升、越战、战后『漂亮 50』成长股领导出现裂缝。慢侵蚀熊。", end: "主要是时间。21 个月名义恢复,但实质至 1982 年才完成。所谓恢复必须是总回报且通胀调整后才算。", doDo: "开始向实物资产倾斜(1971 后黄金、商品、不动产)。教科书『股票总会回来』即将被 1973 油震及通胀体制检验。" },
+            "1973": { trigger: "OPEC 石油禁运(1973 年 10 月)6 个月内油价飙 4 倍。加上 Bretton Woods 结束、恶性通胀、水门、衰退。股债实质皆跌。", end: "股市 1974 年 10 月见底,21 个月名义恢复,但底层通胀体制要 1981 年 Volcker 把利率推到 19% 才破。实质恢复再 8 年。", doDo: "当时无 TIPS,70 年代剧本为黄金(实质 +18%/年)、商品(+12% 实质)、短久期债。长债最差大类资产。SOUL #14 杠铃 + 明确 SoV 仓。" },
+            "1987": { trigger: "计算机化投资组合保险:跌价时自动卖出,自我强化雪崩。单日 -22.6%,史上最大单日跌幅。", end: "Greenspan 接任美联储主席两个月,连夜灌入流动性。贴现窗口任何规模、最低利率。熊市 48 小时内结束。20 个月名义恢复。", doDo: "若手上有现金,这是史上最干净的逢低买入 — 实体经济无基本面损伤。多数散户硬扛都没事。后 1987 年体制 Fed put 首例。" },
+            "2000": { trigger: "网络泡沫破裂(纳指高位 -80%)、2001 衰退、加上中段 911。慢磨型熊市:31 个月由高点到底部。", end: "美联储基金利率由 6.5% 降至 1%,再加上房贷信用周期启动借贷驱动复苏(自身又引发 2008)。恢复 7 年 — 现代最长。", doDo: "熊市中再平衡但勿太早重压 — 此熊市是 31 个月慢磨,非事件。2001 初买『便宜』科技到 2002 底仍 -60%。SOUL #6:波动尾巴摇狗。网络高点 2007 年 10 月才再见一次。" },
+            "2007": { trigger: "房贷信用危机。次贷违约打破 MBS、Bear Stearns(2008.3)、Lehman(2008.9)、AIG。影子银行系统冻结。", end: "ZIRP(2008.12 利率到 0%)、QE(美联储买入数万亿债券)、TARP(7000 亿救银行)。9 个月内推出 1933 新政级政策。2009.3 见底;2013.3 完全恢复。", doDo: "持续定期定额穿越底部。2009.3 持续买入者抓到 2024 年的 4 倍恢复。等『清晰』者首半年错过 30%+ 反弹。" },
+            "2020": { trigger: "COVID-19 封城:经济活动瞬间停止。23 个交易日 -34%,史上最快崩盘。", end: "美联储两周降至 0%、首次买入公司债,加上国会 ~12% GDP 财政刺激。2020.3.23 见底;2020.8 创新高。共 5 个月。", doDo: "若你有任何反应就错失恢复。底距高点 23 个交易日,恢复 110 个交易日。实证示范:你无法时点熊市。SOUL #12:非理性可比偿付能力久 — 双向皆然。" },
+            "2022": { trigger: "美联储自身 — 16 个月由 0% 升至 5.25%,自 Volcker 后最快周期,目的破后 COVID 达 9.1% 通胀。自 1973 后首次股债齐跌(TLT -31%)。", end: "2022.10 市场 price 完加息顶,通胀还没降就先反弹。熊市结束于二阶导,而非水准。2024.1 创历史新高。", doDo: "60/40 年实质回报史上最差。教训:股债相关性视体制而定,2000 后负相关是体制非定律。明确加 SoV 仓(SOUL #13)。趋势追踪(DBMF、KMLM)+20% 作长波动叠加 — 周 51。" },
+            "now": { trigger: "目前处牛市阶段。2026 年 4 月,标普近历史新高,距高点 ~3%,后 2022 恢复第三年。牛市计时器在走但暂无明显成熟催化剂。", end: "牛市结束于政策紧得超过经济能承受,或外生冲击(地缘、银行倒闭、供应冲击)打破共识。观察失业率、收益率曲线、信用利差 — 过去周期皆于熊市前 6-18 个月转向。", doDo: "持续机械式定期定额。回归目标权重再平衡。退休者持 2 年现金,累积期者 3-6 个月。先写下 -20%、-30%、-40% 再平衡触发点。为更糟的自己准备。" }
+        }
+    };
+
+    function currentLang() {
+        var p = new URLSearchParams(window.location.search);
+        var l = (p.get("lang") || "en").toLowerCase();
+        return I18N.hasOwnProperty(l) ? l : "en";
+    }
+    var LANG = currentLang();
+    var T = I18N[LANG];
+    var TX = ERA_TEXT[LANG];
+
+    var ROOT = document.getElementById("he-root");
+    var ERAS_EL = document.getElementById("he-eras");
+    var CHART = document.getElementById("he-chart");
+    var activeKey = "2007";
+
+    function darkMode() {
+        return document.documentElement.getAttribute("data-theme") === "dark";
+    }
+    function getCssVar(name) {
+        return getComputedStyle(ROOT).getPropertyValue(name).trim();
+    }
+
+    /**
+     * Build a stylised drawdown trace for the era. Months on the x-axis from
+     * the prior peak (negative or zero), drawdown percent on y. Trough at
+     * `bearMonths`, recovery (back to 0) at `bearMonths + recovMonths`.
+     */
+    function buildProfile(era) {
+        if (era.isBull) {
+            // Recent bull: -3% wobble around 0 over recent months.
+            var xs = [];
+            var ys = [];
+            for (var t = -12; t <= 0; t += 1) {
+                xs.push(t);
+                ys.push(-1.5 + Math.sin(t * 0.7) * 1.5);
+            }
+            return { xs: xs, ys: ys };
+        }
+        var trough = era.bearMonths;
+        var recov = trough + era.recovMonths;
+        // Cap x range to 60 months for readability; if recov > 60 truncate.
+        var maxX = Math.min(recov, 84);
+        var xs2 = [];
+        var ys2 = [];
+        // Pre-peak segment.
+        for (var i = -3; i < 0; i += 1) {
+            xs2.push(i); ys2.push(0);
+        }
+        // Down to trough (concave).
+        var nDown = Math.max(2, Math.round(trough));
+        for (var k = 0; k <= nDown; k += 1) {
+            var f = k / nDown;
+            // ease: 1 - (1-f)^1.6 to give a faster initial drop then slowing.
+            var ease = 1 - Math.pow(1 - f, 1.6);
+            xs2.push(f * trough);
+            ys2.push(era.depth * ease);
+        }
+        // Recovery from trough back to 0 (concave up).
+        var recovEnd = Math.min(maxX, recov);
+        var nUp = Math.max(2, Math.round(recovEnd - trough));
+        for (var j = 1; j <= nUp; j += 1) {
+            var u = j / nUp;
+            // ease: u^0.7 for a fast initial bounce that flattens.
+            var easeUp = Math.pow(u, 0.7);
+            xs2.push(trough + u * (recovEnd - trough));
+            ys2.push(era.depth * (1 - easeUp));
+        }
+        // If truncated, do not push to 0 (still negative).
+        return { xs: xs2, ys: ys2 };
+    }
+
+    function buildEras() {
+        ERAS_EL.innerHTML = "";
+        ERAS_BASE.forEach(function (e) {
+            var btn = document.createElement("button");
+            btn.type = "button";
+            var cls = "he-pill";
+            if (e.isBull) cls += " he-bull";
+            if (e.key === activeKey) cls += " he-active";
+            btn.className = cls;
+            var lbl = e.label;
+            if (e.isBull) lbl = lbl + " (" + T.currentTag + ")";
+            btn.textContent = lbl;
+            btn.dataset.key = e.key;
+            btn.addEventListener("click", function () {
+                activeKey = e.key;
+                Array.prototype.forEach.call(
+                    ERAS_EL.querySelectorAll(".he-pill"),
+                    function (b) { b.classList.toggle("he-active", b.dataset.key === activeKey); }
+                );
+                render();
+            });
+            ERAS_EL.appendChild(btn);
+        });
+    }
+
+    function applyI18n() {
+        document.getElementById("he-bn-depth").textContent = T.bn_depth;
+        document.getElementById("he-bn-dur").textContent = T.bn_dur;
+        document.getElementById("he-bn-recov").textContent = T.bn_recov;
+        document.getElementById("he-bd-depth").textContent = T.bd_depth;
+        document.getElementById("he-bd-dur").textContent = T.bd_dur;
+        document.getElementById("he-bd-recov").textContent = T.bd_recov;
+        document.getElementById("he-cn-trigger").textContent = T.cn_trigger;
+        document.getElementById("he-cn-end").textContent = T.cn_end;
+        document.getElementById("he-cn-do").textContent = T.cn_do;
+        document.getElementById("he-caption").textContent = T.caption_text;
+    }
+
+    function render() {
+        var era = ERAS_BASE.find(function (e) { return e.key === activeKey; });
+        var txt = TX[activeKey];
+
+        // KPI cards.
+        document.getElementById("he-bv-depth").textContent =
+            era.isBull ? "—" : (era.depth + "%");
+        document.getElementById("he-bv-dur").textContent =
+            era.isBull ? "—" : (era.bearMonths + " " + T.mo);
+        document.getElementById("he-bv-recov").textContent =
+            era.isBull ? "—" : (era.recovMonths + " " + T.mo);
+
+        document.getElementById("he-cv-trigger").textContent = txt.trigger;
+        document.getElementById("he-cv-end").textContent = txt.end;
+        document.getElementById("he-cv-do").textContent = txt.doDo;
+
+        // Chart: selected era foreground, others greyed reference.
+        var colorBlue = getCssVar("--he-blue");
+        var colorRed = getCssVar("--he-red");
+        var colorMuted = getCssVar("--he-muted");
+        var colorText = getCssVar("--he-text");
+        var colorBg = getCssVar("--he-card");
+        var colorGreen = getCssVar("--he-green");
+        var colorGrid = darkMode() ? "rgba(255,255,255,0.08)" : "rgba(0,0,0,0.07)";
+
+        var traces = [];
+        ERAS_BASE.forEach(function (e) {
+            if (e.key === activeKey) return;
+            var prof = buildProfile(e);
+            traces.push({
+                x: prof.xs, y: prof.ys, type: "scatter", mode: "lines",
+                name: e.label,
+                line: { color: colorMuted, width: 1.0, dash: "dot" },
+                opacity: 0.45,
+                hovertemplate: e.label + "<br>month %{x:.0f}: %{y:.1f}%<extra></extra>",
+                showlegend: false,
+            });
+        });
+        var profSel = buildProfile(era);
+        traces.push({
+            x: profSel.xs, y: profSel.ys, type: "scatter", mode: "lines",
+            name: era.label,
+            line: { color: era.isBull ? colorGreen : colorRed, width: 3.0 },
+            fill: "tozeroy",
+            fillcolor: era.isBull ? "rgba(46,125,50,0.18)" : "rgba(183,28,28,0.18)",
+            hovertemplate: era.label + "<br>month %{x:.0f}: %{y:.1f}%<extra></extra>",
+        });
+
+        var layout = {
+            margin: { l: 60, r: 20, t: 50, b: 50 },
+            paper_bgcolor: colorBg, plot_bgcolor: colorBg,
+            font: { family: "Segoe UI, Helvetica, Arial, sans-serif", color: colorText, size: 12 },
+            xaxis: {
+                title: { text: T.x_label, font: { color: colorMuted, size: 11 } },
+                gridcolor: colorGrid, color: colorText, zerolinecolor: colorMuted,
+            },
+            yaxis: {
+                title: { text: T.y_label, font: { color: colorMuted, size: 11 } },
+                gridcolor: colorGrid, color: colorText, zerolinecolor: colorMuted,
+                ticksuffix: "%",
+            },
+            title: {
+                text: T.chart_title, x: 0, xanchor: "left",
+                font: { color: colorText, size: 13, weight: 700 },
+            },
+            hovermode: "x unified",
+            showlegend: false,
+        };
+        Plotly.react(CHART, traces, layout, { displayModeBar: false, responsive: true });
+    }
+
+    applyI18n();
+    buildEras();
+    render();
+
+    function reportHeight() {
+        try {
+            var h = Math.ceil(document.documentElement.scrollHeight);
+            parent.postMessage({ type: "lesson-interactive-resize", height: h }, "*");
+        } catch (e) { /* ignore */ }
+    }
+    if (typeof ResizeObserver !== "undefined") {
+        new ResizeObserver(reportHeight).observe(document.body);
+    }
+    window.addEventListener("resize", reportHeight);
+    setTimeout(reportHeight, 50);
+    setTimeout(reportHeight, 500);
+
+    var themeObserver = new MutationObserver(render);
+    themeObserver.observe(document.documentElement, {
+        attributes: true, attributeFilter: ["data-theme"],
+    });
+})();
+</script>
+
+</body>
+</html>

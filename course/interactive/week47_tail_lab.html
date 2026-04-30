@@ -1,0 +1,651 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Tail Hedge Lab - Interactive (Week 47)</title>
+<script src="https://cdn.plot.ly/plotly-2.35.2.min.js" charset="utf-8"></script>
+<style>
+html, body { margin: 0; padding: 0; background: var(--tl-bg); }
+:root {
+    --tl-bg: #fdfbf5;
+    --tl-text: #1a2332;
+    --tl-muted: #6b7280;
+    --tl-border: #d6d3c4;
+    --tl-card: #fdfbf5;
+    --tl-accent: #b8860b;
+    --tl-blue: #0d47a1;
+    --tl-red: #b71c1c;
+    --tl-green: #2e7d32;
+    --tl-purple: #6a1b9a;
+    --tl-orange: #e65100;
+}
+html[data-theme="dark"] .tl-root,
+.tl-root[data-theme="dark"] {
+    --tl-bg: #0f1724;
+    --tl-text: #e6e6e6;
+    --tl-muted: #9aa3b2;
+    --tl-border: #2a3441;
+    --tl-card: #0f1724;
+    --tl-blue: #5a8dee;
+    --tl-red: #ef5350;
+    --tl-green: #66bb6a;
+    --tl-purple: #ba68c8;
+    --tl-orange: #ffa726;
+}
+.tl-root {
+    font-family: 'Segoe UI', Helvetica, Arial, sans-serif;
+    background: var(--tl-bg);
+    color: var(--tl-text);
+    padding: 12px;
+    margin: 0;
+}
+.tl-pillbar-wrap {
+    margin-bottom: 12px;
+    padding: 10px 12px;
+    background: var(--tl-card);
+    border: 1px solid var(--tl-border);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+.tl-label {
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--tl-muted);
+}
+.tl-pillbar {
+    display: inline-flex;
+    border: 1px solid var(--tl-border);
+    border-radius: 999px;
+    overflow: hidden;
+    background: var(--tl-card);
+}
+.tl-pillbar button {
+    border: none;
+    background: transparent;
+    color: var(--tl-muted);
+    padding: 6px 14px;
+    font: inherit;
+    font-size: 0.85rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.15s, color 0.15s;
+}
+.tl-pillbar button:hover { color: var(--tl-text); }
+.tl-pillbar button.active {
+    background: var(--tl-red);
+    color: #fff;
+}
+.tl-controls {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 12px;
+    margin-bottom: 14px;
+    padding: 12px;
+    background: var(--tl-card);
+    border: 1px solid var(--tl-border);
+    border-radius: 8px;
+}
+.tl-slider-wrap {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    font-size: 0.82rem;
+    color: var(--tl-muted);
+}
+.tl-slider-wrap .tl-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.tl-slider-wrap input[type="range"] {
+    flex: 1;
+    accent-color: var(--tl-accent);
+}
+.tl-slider-wrap .tl-val {
+    white-space: nowrap;
+    color: var(--tl-text);
+    font-weight: 700;
+    font-variant-numeric: tabular-nums;
+    min-width: 70px;
+    text-align: right;
+}
+.tl-slider-wrap .tl-name {
+    font-weight: 600;
+    color: var(--tl-text);
+}
+.tl-bigrow {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 8px;
+    margin-bottom: 14px;
+}
+.tl-big {
+    background: var(--tl-card);
+    border: 1px solid var(--tl-border);
+    border-left: 4px solid var(--tl-accent);
+    border-radius: 8px;
+    padding: 10px 12px;
+}
+.tl-big.tl-b-cost   { border-left-color: var(--tl-orange); }
+.tl-big.tl-b-pay    { border-left-color: var(--tl-green); }
+.tl-big.tl-b-unh    { border-left-color: var(--tl-red); }
+.tl-big.tl-b-hed    { border-left-color: var(--tl-blue); }
+.tl-big.tl-b-drag   { border-left-color: var(--tl-purple); }
+.tl-big .tl-big-name {
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--tl-muted);
+}
+.tl-big .tl-big-val {
+    font-size: 1.4rem;
+    font-weight: 800;
+    margin-top: 4px;
+    font-variant-numeric: tabular-nums;
+    color: var(--tl-text);
+}
+.tl-big .tl-big-detail {
+    font-size: 0.72rem;
+    color: var(--tl-muted);
+    margin-top: 2px;
+}
+.tl-chart {
+    width: 100%;
+    height: 380px;
+    background: var(--tl-card);
+    border-radius: 8px;
+    border: 1px solid var(--tl-border);
+}
+.tl-caption {
+    margin-top: 10px;
+    font-size: 0.78rem;
+    color: var(--tl-muted);
+    line-height: 1.45;
+}
+@media (max-width: 900px) {
+    .tl-controls { grid-template-columns: 1fr 1fr; }
+    .tl-bigrow   { grid-template-columns: 1fr 1fr 1fr; }
+}
+@media (max-width: 600px) {
+    .tl-controls { grid-template-columns: 1fr; }
+    .tl-bigrow   { grid-template-columns: 1fr 1fr; }
+    .tl-chart { height: 320px; }
+}
+</style>
+</head>
+<body>
+
+<div class="tl-root" id="tl-root">
+    <div class="tl-pillbar-wrap">
+        <span class="tl-label" id="tl-sc-label">Crash scenario</span>
+        <div class="tl-pillbar" id="tl-sc-pills" role="tablist">
+            <button type="button" data-sc="-0.10">-10%</button>
+            <button type="button" data-sc="-0.20">-20%</button>
+            <button type="button" data-sc="-0.30" class="active">-30%</button>
+            <button type="button" data-sc="-0.50">-50%</button>
+        </div>
+    </div>
+
+    <div class="tl-controls">
+        <div class="tl-slider-wrap">
+            <div class="tl-name" id="tl-name-NAV">Portfolio size ($)</div>
+            <div class="tl-row">
+                <input type="range" id="tl-NAV" min="10000" max="2000000" step="10000" value="100000">
+                <span class="tl-val" id="tl-val-NAV">$100,000</span>
+            </div>
+        </div>
+        <div class="tl-slider-wrap">
+            <div class="tl-name" id="tl-name-BUD">Hedge budget (% of NAV / yr)</div>
+            <div class="tl-row">
+                <input type="range" id="tl-BUD" min="0.1" max="5" step="0.1" value="1">
+                <span class="tl-val" id="tl-val-BUD">1.0%</span>
+            </div>
+        </div>
+        <div class="tl-slider-wrap">
+            <div class="tl-name" id="tl-name-OTM">Strike (% OTM)</div>
+            <div class="tl-row">
+                <input type="range" id="tl-OTM" min="2" max="40" step="1" value="15">
+                <span class="tl-val" id="tl-val-OTM">15%</span>
+            </div>
+        </div>
+        <div class="tl-slider-wrap">
+            <div class="tl-name" id="tl-name-DTE">DTE (days)</div>
+            <div class="tl-row">
+                <input type="range" id="tl-DTE" min="14" max="180" step="1" value="90">
+                <span class="tl-val" id="tl-val-DTE">90</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="tl-bigrow">
+        <div class="tl-big tl-b-cost">
+            <div class="tl-big-name" id="tl-bn-cost">Hedge cost (per roll)</div>
+            <div class="tl-big-val" id="tl-bv-cost">—</div>
+            <div class="tl-big-detail" id="tl-bd-cost">premium paid this period</div>
+        </div>
+        <div class="tl-big tl-b-pay">
+            <div class="tl-big-name" id="tl-bn-pay">Hedge payoff in scenario</div>
+            <div class="tl-big-val" id="tl-bv-pay">—</div>
+            <div class="tl-big-detail" id="tl-bd-pay">put intrinsic - premium</div>
+        </div>
+        <div class="tl-big tl-b-unh">
+            <div class="tl-big-name" id="tl-bn-unh">Unhedged drawdown</div>
+            <div class="tl-big-val" id="tl-bv-unh">—</div>
+            <div class="tl-big-detail" id="tl-bd-unh">stock-only P&L</div>
+        </div>
+        <div class="tl-big tl-b-hed">
+            <div class="tl-big-name" id="tl-bn-hed">Hedged total P&L</div>
+            <div class="tl-big-val" id="tl-bv-hed">—</div>
+            <div class="tl-big-detail" id="tl-bd-hed">stock + hedge</div>
+        </div>
+        <div class="tl-big tl-b-drag">
+            <div class="tl-big-name" id="tl-bn-drag">Annual drag (no crash)</div>
+            <div class="tl-big-val" id="tl-bv-drag">—</div>
+            <div class="tl-big-detail" id="tl-bd-drag">if all rolls expire worthless</div>
+        </div>
+    </div>
+
+    <div id="tl-chart" class="tl-chart"></div>
+    <p class="tl-caption" id="tl-caption">
+        Hedge sleeve = SPY puts at strike (1 - OTM%) * spot, priced via Black-Scholes (sigma = 19%, r = 4.3%, q = 1.3%). Sleeve dollar size = budget% / (4 rolls per year) * NAV. Number of contracts = floor(sleeve / (premium * 100)). Annual drag = budget% if every roll expires worthless. Spot = $520 SPY (April 2026 reference).
+    </p>
+</div>
+
+<script>
+(function () {
+    var I18N = {
+        en: {
+            sc_label: "Crash scenario",
+            name_NAV: "Portfolio size ($)",
+            name_BUD: "Hedge budget (% of NAV / yr)",
+            name_OTM: "Strike (% OTM)",
+            name_DTE: "DTE (days)",
+            bn_cost: "Hedge cost (per roll)",
+            bn_pay:  "Hedge payoff in scenario",
+            bn_unh:  "Unhedged drawdown",
+            bn_hed:  "Hedged total P&L",
+            bn_drag: "Annual drag (no crash)",
+            bd_cost: "premium paid this period",
+            bd_pay:  "put intrinsic - premium",
+            bd_unh:  "stock-only P&L",
+            bd_hed:  "stock + hedge",
+            bd_drag: "if all rolls expire worthless",
+            chart_title: "Portfolio P&L vs SPY return at expiry",
+            x_title: "SPY return at expiry",
+            y_title: "Total portfolio P&L ($)",
+            unh_label: "Unhedged",
+            hed_label: "Hedged",
+            scen_label: "Scenario",
+            caption: "Hedge sleeve = SPY puts at strike (1 - OTM%) * spot, priced via Black-Scholes (sigma = 19%, r = 4.3%, q = 1.3%). Sleeve dollar size = budget% / (4 rolls per year) * NAV. Number of contracts = floor(sleeve / (premium * 100)). Annual drag = budget% if every roll expires worthless. Spot = $520 SPY (April 2026 reference).",
+        },
+        hk: {
+            sc_label: "崩盤情境",
+            name_NAV: "組合規模 ($)",
+            name_BUD: "對沖預算 (% NAV / 年)",
+            name_OTM: "行使價 (% OTM)",
+            name_DTE: "距到期日 (日)",
+            bn_cost: "每次對沖成本",
+            bn_pay:  "情境下對沖派出",
+            bn_unh:  "無對沖回撚",
+            bn_hed:  "對沖後總損益",
+            bn_drag: "正常年份拖累",
+            bd_cost: "本期繳付權利金",
+            bd_pay:  "認沽內在值 - 權利金",
+            bd_unh:  "純股票損益",
+            bd_hed:  "股票 + 對沖",
+            bd_drag: "假設全部到期歸零",
+            chart_title: "組合損益 vs 到期 SPY 回報",
+            x_title: "到期 SPY 回報",
+            y_title: "組合總損益 ($)",
+            unh_label: "無對沖",
+            hed_label: "對沖後",
+            scen_label: "情境",
+            caption: "對沖部分 = SPY 認沽,行使價 = (1 - OTM%) * 現價,Black-Scholes 定價 (sigma = 19%, r = 4.3%, q = 1.3%)。每次美元規模 = 預算% / (一年 4 次) * NAV。合約張數 = floor(規模 / (權利金 * 100))。年度拖累 = 預算%,假設全部到期歸零。現價 = $520 SPY (2026 年 4 月參考)。",
+        },
+        tw: {
+            sc_label: "崩盤情境",
+            name_NAV: "組合規模 ($)",
+            name_BUD: "避險預算 (% NAV / 年)",
+            name_OTM: "履約價 (% OTM)",
+            name_DTE: "距到期日 (日)",
+            bn_cost: "每次避險成本",
+            bn_pay:  "情境下避險支付",
+            bn_unh:  "未避險回檔",
+            bn_hed:  "避險後總損益",
+            bn_drag: "正常年份拖累",
+            bd_cost: "本期繳付權利金",
+            bd_pay:  "賣權內在值 - 權利金",
+            bd_unh:  "純股票損益",
+            bd_hed:  "股票 + 避險",
+            bd_drag: "假設全部到期歸零",
+            chart_title: "組合損益 vs 到期 SPY 報酬",
+            x_title: "到期 SPY 報酬",
+            y_title: "組合總損益 ($)",
+            unh_label: "未避險",
+            hed_label: "避險後",
+            scen_label: "情境",
+            caption: "避險部分 = SPY 賣權,履約價 = (1 - OTM%) * 現價,Black-Scholes 定價 (sigma = 19%, r = 4.3%, q = 1.3%)。每次美元規模 = 預算% / (一年 4 次) * NAV。合約張數 = floor(規模 / (權利金 * 100))。年度拖累 = 預算%,假設全部到期歸零。現價 = $520 SPY (2026 年 4 月參考)。",
+        },
+        cn: {
+            sc_label: "崩盘情境",
+            name_NAV: "组合规模 ($)",
+            name_BUD: "对冲预算 (% NAV / 年)",
+            name_OTM: "行权价 (% OTM)",
+            name_DTE: "距到期日 (天)",
+            bn_cost: "每次对冲成本",
+            bn_pay:  "情境下对冲派出",
+            bn_unh:  "无对冲回撚",
+            bn_hed:  "对冲后总损益",
+            bn_drag: "正常年份拖累",
+            bd_cost: "本期支付权利金",
+            bd_pay:  "看跌内在值 - 权利金",
+            bd_unh:  "纯股票损益",
+            bd_hed:  "股票 + 对冲",
+            bd_drag: "假设全部到期归零",
+            chart_title: "组合损益 vs 到期 SPY 回报",
+            x_title: "到期 SPY 回报",
+            y_title: "组合总损益 ($)",
+            unh_label: "无对冲",
+            hed_label: "对冲后",
+            scen_label: "情境",
+            caption: "对冲部分 = SPY 看跌,行权价 = (1 - OTM%) * 现价,Black-Scholes 定价 (sigma = 19%, r = 4.3%, q = 1.3%)。每次美元规模 = 预算% / (一年 4 次) * NAV。合约张数 = floor(规模 / (权利金 * 100))。年度拖累 = 预算%,假设全部到期归零。现价 = $520 SPY (2026 年 4 月参考)。",
+        },
+    };
+    function currentLang() {
+        var p = new URLSearchParams(window.location.search);
+        var l = (p.get("lang") || "en").toLowerCase();
+        return I18N.hasOwnProperty(l) ? l : "en";
+    }
+    var T = I18N[currentLang()];
+
+    // Black-Scholes put with continuous dividend yield q.
+    function erf(x) {
+        var sign = x < 0 ? -1 : 1; x = Math.abs(x);
+        var a1 = 0.254829592, a2 = -0.284496736, a3 = 1.421413741;
+        var a4 = -1.453152027, a5 = 1.061405429, p = 0.3275911;
+        var t = 1.0 / (1.0 + p * x);
+        var y = 1.0 - (((((a5 * t + a4) * t) + a3) * t + a2) * t + a1) * t
+                     * Math.exp(-x * x);
+        return sign * y;
+    }
+    function Phi(x) { return 0.5 * (1.0 + erf(x / Math.SQRT2)); }
+    function bsmPut(S, K, Tt, sig, r, q) {
+        if (Tt <= 0) return Math.max(K - S, 0);
+        var sq = Math.sqrt(Tt);
+        var d1 = (Math.log(S / K) + (r - q + 0.5 * sig * sig) * Tt) / (sig * sq);
+        var d2 = d1 - sig * sq;
+        return K * Math.exp(-r * Tt) * Phi(-d2) - S * Math.exp(-q * Tt) * Phi(-d1);
+    }
+
+    // ---- constants ----
+    var SPOT = 520.0;
+    var SIG = 0.19;
+    var R = 0.043;
+    var Q = 0.013;
+    var ROLLS_PER_YEAR = 4;
+
+    // ---- DOM ----
+    var ROOT = document.getElementById("tl-root");
+    var CHART = document.getElementById("tl-chart");
+    var SC_PILLS = document.getElementById("tl-sc-pills");
+    var NAV_EL = document.getElementById("tl-NAV");
+    var BUD_EL = document.getElementById("tl-BUD");
+    var OTM_EL = document.getElementById("tl-OTM");
+    var DTE_EL = document.getElementById("tl-DTE");
+
+    var scenario = -0.30;
+
+    function getCssVar(name) {
+        return getComputedStyle(ROOT).getPropertyValue(name).trim();
+    }
+    function darkMode() {
+        return document.documentElement.getAttribute("data-theme") === "dark";
+    }
+    function fmtMoney(n) {
+        if (!isFinite(n)) return "—";
+        var sign = n < 0 ? "-" : "";
+        var v = Math.round(Math.abs(n));
+        return sign + "$" + v.toLocaleString();
+    }
+    function fmtMoneyShort(n) {
+        if (!isFinite(n)) return "—";
+        var sign = n < 0 ? "-" : "";
+        var a = Math.abs(n);
+        if (a >= 1e6) return sign + "$" + (a / 1e6).toFixed(2) + "M";
+        if (a >= 1e3) return sign + "$" + (a / 1e3).toFixed(1) + "k";
+        return sign + "$" + a.toFixed(0);
+    }
+    function fmtPct(n, d) {
+        if (!isFinite(n)) return "—";
+        return (n * 100).toFixed(d == null ? 1 : d) + "%";
+    }
+
+    function applyI18n() {
+        document.getElementById("tl-sc-label").textContent = T.sc_label;
+        document.getElementById("tl-name-NAV").textContent = T.name_NAV;
+        document.getElementById("tl-name-BUD").textContent = T.name_BUD;
+        document.getElementById("tl-name-OTM").textContent = T.name_OTM;
+        document.getElementById("tl-name-DTE").textContent = T.name_DTE;
+        document.getElementById("tl-bn-cost").textContent = T.bn_cost;
+        document.getElementById("tl-bn-pay").textContent  = T.bn_pay;
+        document.getElementById("tl-bn-unh").textContent  = T.bn_unh;
+        document.getElementById("tl-bn-hed").textContent  = T.bn_hed;
+        document.getElementById("tl-bn-drag").textContent = T.bn_drag;
+        document.getElementById("tl-bd-cost").textContent = T.bd_cost;
+        document.getElementById("tl-bd-pay").textContent  = T.bd_pay;
+        document.getElementById("tl-bd-unh").textContent  = T.bd_unh;
+        document.getElementById("tl-bd-hed").textContent  = T.bd_hed;
+        document.getElementById("tl-bd-drag").textContent = T.bd_drag;
+        document.getElementById("tl-caption").textContent = T.caption;
+    }
+
+    function readSliders() {
+        return {
+            NAV: parseFloat(NAV_EL.value),
+            BUD: parseFloat(BUD_EL.value) / 100.0,
+            OTM: parseFloat(OTM_EL.value) / 100.0,
+            DTE: parseFloat(DTE_EL.value),
+        };
+    }
+    function updateLabels(s) {
+        document.getElementById("tl-val-NAV").textContent = "$" + Math.round(s.NAV).toLocaleString();
+        document.getElementById("tl-val-BUD").textContent = (s.BUD * 100).toFixed(1) + "%";
+        document.getElementById("tl-val-OTM").textContent = (s.OTM * 100).toFixed(0) + "%";
+        document.getElementById("tl-val-DTE").textContent = String(Math.round(s.DTE));
+    }
+
+    // Compute hedge sleeve and per-share dollar quantities.
+    function compute(s) {
+        var Tt = s.DTE / 365.0;
+        var K = SPOT * (1.0 - s.OTM);
+        var premiumPerShare = bsmPut(SPOT, K, Tt, SIG, R, Q);
+        // Sleeve dollars per roll = annual budget / rolls per year.
+        var sleeveDollars = s.NAV * s.BUD / ROLLS_PER_YEAR;
+        // Number of whole contracts (each = 100 shares).
+        var contracts = premiumPerShare > 0 ? Math.floor(sleeveDollars / (premiumPerShare * 100)) : 0;
+        if (contracts < 0) contracts = 0;
+        var actualSpend = contracts * 100 * premiumPerShare;
+        // Stock shares at SPOT.
+        var stockShares = s.NAV / SPOT;
+        return {
+            Tt: Tt, K: K,
+            premiumPerShare: premiumPerShare,
+            sleeveDollars: sleeveDollars,
+            contracts: contracts,
+            actualSpend: actualSpend,
+            stockShares: stockShares,
+        };
+    }
+    function payoffAt(s, c, ret) {
+        // Stock P&L
+        var sExp = SPOT * (1.0 + ret);
+        var stockPnl = c.stockShares * (sExp - SPOT);
+        // Put intrinsic at expiry (per share)
+        var putIntr = Math.max(c.K - sExp, 0);
+        // Hedge sleeve P&L = contracts * 100 * intrinsic - actualSpend
+        var hedgePnl = c.contracts * 100 * putIntr - c.actualSpend;
+        return { stock: stockPnl, hedge: hedgePnl, total: stockPnl + hedgePnl };
+    }
+
+    function render() {
+        var s = readSliders();
+        updateLabels(s);
+        var c = compute(s);
+
+        // Stat-row values.
+        document.getElementById("tl-bv-cost").textContent = fmtMoneyShort(c.actualSpend);
+        document.getElementById("tl-bd-cost").textContent =
+            (c.contracts) + " contracts at $" + c.premiumPerShare.toFixed(2) + " = " + fmtMoneyShort(c.actualSpend);
+
+        var atScen = payoffAt(s, c, scenario);
+        document.getElementById("tl-bv-pay").textContent = fmtMoneyShort(atScen.hedge);
+        document.getElementById("tl-bv-pay").style.color = atScen.hedge > 0
+            ? getCssVar("--tl-green") : getCssVar("--tl-red");
+
+        document.getElementById("tl-bv-unh").textContent = fmtMoneyShort(atScen.stock);
+        document.getElementById("tl-bv-unh").style.color = getCssVar("--tl-red");
+
+        document.getElementById("tl-bv-hed").textContent = fmtMoneyShort(atScen.total);
+        document.getElementById("tl-bv-hed").style.color = atScen.total >= 0
+            ? getCssVar("--tl-green") : getCssVar("--tl-red");
+
+        // Annual drag = budget% if all rolls expire worthless.
+        // Express as % of NAV per year and as $ per year.
+        var dragPct = s.BUD;
+        var dragDollars = s.NAV * dragPct;
+        document.getElementById("tl-bv-drag").textContent =
+            "-" + fmtPct(dragPct, 2) + " / yr";
+        document.getElementById("tl-bd-drag").textContent =
+            "-" + fmtMoneyShort(dragDollars) + " / yr if all rolls expire worthless";
+
+        // Chart sweep.
+        var rets = [];
+        var unh = [];
+        var hed = [];
+        var N = 401;
+        var loR = -0.55, hiR = 0.20;
+        for (var i = 0; i < N; i++) {
+            var r = loR + (hiR - loR) * i / (N - 1);
+            var p = payoffAt(s, c, r);
+            rets.push(r);
+            unh.push(p.stock);
+            hed.push(p.total);
+        }
+
+        var colorBlue = getCssVar("--tl-blue");
+        var colorRed = getCssVar("--tl-red");
+        var colorGreen = getCssVar("--tl-green");
+        var colorAcc = getCssVar("--tl-accent");
+        var colorText = getCssVar("--tl-text");
+        var colorMuted = getCssVar("--tl-muted");
+        var colorBg = getCssVar("--tl-card");
+        var colorGrid = darkMode() ? "rgba(255,255,255,0.08)" : "rgba(0,0,0,0.07)";
+
+        var traces = [
+            { x: rets, y: unh, type: "scatter", mode: "lines",
+              name: T.unh_label,
+              line: { color: colorRed, width: 2.0, dash: "dash" },
+              hovertemplate: "%{x:.1%}<br>" + T.unh_label + ": $%{y:,.0f}<extra></extra>" },
+            { x: rets, y: hed, type: "scatter", mode: "lines",
+              name: T.hed_label,
+              line: { color: colorBlue, width: 3.0 },
+              hovertemplate: "%{x:.1%}<br>" + T.hed_label + ": $%{y:,.0f}<extra></extra>" },
+        ];
+
+        var shapes = [
+            { type: "line", xref: "paper", yref: "y",
+              x0: 0, x1: 1, y0: 0, y1: 0,
+              line: { color: colorMuted, width: 0.8 } },
+            { type: "line", xref: "x", yref: "paper",
+              x0: scenario, x1: scenario, y0: 0, y1: 1,
+              line: { color: colorAcc, width: 1.4, dash: "dot" } },
+        ];
+
+        var annotations = [
+            { x: scenario, y: 1.0, xref: "x", yref: "paper",
+              text: T.scen_label + ": " + (scenario * 100).toFixed(0) + "%",
+              showarrow: false, font: { color: colorAcc, size: 11, weight: 700 },
+              xanchor: "left", yanchor: "top",
+              xshift: 4 },
+        ];
+
+        var layout = {
+            margin: { l: 70, r: 24, t: 40, b: 50 },
+            paper_bgcolor: colorBg,
+            plot_bgcolor: colorBg,
+            font: { family: "Segoe UI, Helvetica, Arial, sans-serif",
+                    color: colorText, size: 12 },
+            xaxis: {
+                title: { text: T.x_title, font: { color: colorMuted, size: 11 } },
+                tickformat: ".0%",
+                gridcolor: colorGrid, color: colorText,
+            },
+            yaxis: {
+                title: { text: T.y_title, font: { color: colorMuted, size: 11 } },
+                tickprefix: "$", tickformat: ",.0f",
+                gridcolor: colorGrid, zerolinecolor: colorMuted, color: colorText,
+            },
+            title: {
+                text: T.chart_title,
+                x: 0, xanchor: "left",
+                font: { color: colorText, size: 13, weight: 700 },
+            },
+            shapes: shapes,
+            annotations: annotations,
+            legend: { orientation: "h", x: 0, y: 1.08, xanchor: "left",
+                      font: { color: colorText } },
+            hovermode: "x unified",
+        };
+        Plotly.react(CHART, traces, layout, {
+            displayModeBar: false, responsive: true,
+        });
+    }
+
+    // ---- bindings ----
+    SC_PILLS.querySelectorAll("button").forEach(function (btn) {
+        btn.addEventListener("click", function () {
+            SC_PILLS.querySelectorAll("button").forEach(function (b) {
+                b.classList.remove("active");
+            });
+            btn.classList.add("active");
+            scenario = parseFloat(btn.dataset.sc);
+            render();
+        });
+    });
+    [NAV_EL, BUD_EL, OTM_EL, DTE_EL].forEach(function (el) {
+        el.addEventListener("input", render);
+    });
+
+    applyI18n();
+
+    function reportHeight() {
+        try {
+            var h = Math.ceil(document.documentElement.scrollHeight);
+            parent.postMessage({ type: "lesson-interactive-resize", height: h }, "*");
+        } catch (e) { /* ignore */ }
+    }
+    if (typeof ResizeObserver !== "undefined") {
+        new ResizeObserver(reportHeight).observe(document.body);
+    }
+    window.addEventListener("resize", reportHeight);
+    setTimeout(reportHeight, 50);
+    setTimeout(reportHeight, 500);
+
+    var themeObserver = new MutationObserver(render);
+    themeObserver.observe(document.documentElement, {
+        attributes: true, attributeFilter: ["data-theme"],
+    });
+
+    render();
+})();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,700 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>All-Weather Builder — Interactive (Week 15)</title>
+<script src="https://cdn.plot.ly/plotly-2.35.2.min.js" charset="utf-8"></script>
+<style>
+html, body { margin: 0; padding: 0; background: var(--aw-bg); }
+:root {
+    --aw-bg: #fdfbf5;
+    --aw-text: #1a2332;
+    --aw-muted: #6b7280;
+    --aw-border: #d6d3c4;
+    --aw-card: #fdfbf5;
+    --aw-pos: #2e7d32;
+    --aw-neg: #b71c1c;
+    --aw-mid: #0d47a1;
+    --aw-accent: #b8860b;
+    --aw-purple: #6a1b9a;
+}
+html[data-theme="dark"] .aw-root,
+.aw-root[data-theme="dark"] {
+    --aw-bg: #0f1724;
+    --aw-text: #e6e6e6;
+    --aw-muted: #9aa3b2;
+    --aw-border: #2a3441;
+    --aw-card: #0f1724;
+    --aw-pos: #66bb6a;
+    --aw-neg: #ef5350;
+    --aw-mid: #5a8dee;
+}
+.aw-root {
+    font-family: 'Segoe UI', Helvetica, Arial, sans-serif;
+    background: var(--aw-bg);
+    color: var(--aw-text);
+    padding: 12px;
+    margin: 0;
+}
+.aw-presets {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-bottom: 10px;
+}
+.aw-preset {
+    border: 1px solid var(--aw-border);
+    background: var(--aw-card);
+    color: var(--aw-muted);
+    padding: 4px 10px;
+    font: inherit;
+    font-size: 0.78rem;
+    font-weight: 600;
+    border-radius: 999px;
+    cursor: pointer;
+}
+.aw-preset.active {
+    background: var(--aw-mid);
+    color: #fff;
+    border-color: var(--aw-mid);
+}
+.aw-controls {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 12px;
+    margin-bottom: 12px;
+    padding: 12px;
+    background: var(--aw-card);
+    border: 1px solid var(--aw-border);
+    border-radius: 8px;
+}
+.aw-slider-block {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    font-size: 0.85rem;
+    color: var(--aw-muted);
+}
+.aw-slider-block .aw-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+}
+.aw-slider-block .aw-name {
+    font-weight: 700;
+    font-size: 0.9rem;
+}
+.aw-slider-block .aw-val {
+    color: var(--aw-text);
+    font-weight: 700;
+    font-variant-numeric: tabular-nums;
+}
+.aw-slider-block input[type="range"] {
+    width: 100%;
+}
+.aw-slider-block.disabled input[type="range"] { opacity: 0.35; pointer-events: none; }
+.aw-slider-block.disabled .aw-val { opacity: 0.7; }
+.aw-block-g input { accent-color: var(--aw-neg); }
+.aw-block-i input { accent-color: var(--aw-mid); }
+.aw-block-s input { accent-color: var(--aw-accent); }
+.aw-block-o input { accent-color: var(--aw-pos); }
+.aw-block-g .aw-name { color: var(--aw-neg); }
+.aw-block-i .aw-name { color: var(--aw-mid); }
+.aw-block-s .aw-name { color: var(--aw-accent); }
+.aw-block-o .aw-name { color: var(--aw-pos); }
+.aw-stats {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 10px;
+    margin: 0 0 12px 0;
+}
+.aw-stat {
+    background: var(--aw-card);
+    border: 1px solid var(--aw-border);
+    border-left: 4px solid var(--aw-muted);
+    border-radius: 8px;
+    padding: 10px 12px;
+}
+.aw-stat-pos { border-left-color: var(--aw-pos); }
+.aw-stat-neg { border-left-color: var(--aw-neg); }
+.aw-stat-mid { border-left-color: var(--aw-mid); }
+.aw-stat-acc { border-left-color: var(--aw-accent); }
+.aw-stat .aw-stat-name {
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--aw-muted);
+}
+.aw-stat .aw-stat-val {
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-top: 4px;
+    font-variant-numeric: tabular-nums;
+}
+.aw-stat .aw-stat-detail {
+    font-size: 0.78rem;
+    color: var(--aw-muted);
+    margin-top: 2px;
+    font-variant-numeric: tabular-nums;
+}
+.aw-chart {
+    width: 100%;
+    height: 320px;
+    background: var(--aw-card);
+    border-radius: 8px;
+    border: 1px solid var(--aw-border);
+}
+.aw-caption {
+    margin-top: 10px;
+    font-size: 0.78rem;
+    color: var(--aw-muted);
+    line-height: 1.45;
+}
+@media (max-width: 720px) {
+    .aw-controls { grid-template-columns: repeat(2, 1fr); }
+    .aw-stats { grid-template-columns: repeat(2, 1fr); }
+    .aw-chart { height: 260px; }
+}
+</style>
+</head>
+<body>
+
+<div class="aw-root" id="aw-root">
+    <div class="aw-presets" id="aw-presets"></div>
+    <div class="aw-controls">
+        <div class="aw-slider-block aw-block-g" id="aw-block-g">
+            <div class="aw-row"><span class="aw-name" id="aw-lab-g">Growth</span>
+                <span class="aw-val" id="aw-val-g">40%</span></div>
+            <input type="range" id="aw-slider-g" min="0" max="100" step="5" value="40">
+        </div>
+        <div class="aw-slider-block aw-block-i" id="aw-block-i">
+            <div class="aw-row"><span class="aw-name" id="aw-lab-i">Income</span>
+                <span class="aw-val" id="aw-val-i">30%</span></div>
+            <input type="range" id="aw-slider-i" min="0" max="100" step="5" value="30">
+        </div>
+        <div class="aw-slider-block aw-block-s" id="aw-block-s">
+            <div class="aw-row"><span class="aw-name" id="aw-lab-s">Store-of-value</span>
+                <span class="aw-val" id="aw-val-s">20%</span></div>
+            <input type="range" id="aw-slider-s" min="0" max="100" step="5" value="20">
+        </div>
+        <div class="aw-slider-block aw-block-o disabled" id="aw-block-o">
+            <div class="aw-row"><span class="aw-name" id="aw-lab-o">Opportunistic</span>
+                <span class="aw-val" id="aw-val-o">10%</span></div>
+            <input type="range" id="aw-slider-o" min="0" max="100" step="5" value="10" disabled>
+        </div>
+    </div>
+    <div class="aw-stats">
+        <div class="aw-stat aw-stat-pos">
+            <div class="aw-stat-name" id="aw-name-cagr">CAGR (nominal)</div>
+            <div class="aw-stat-val" id="aw-val-cagr">—</div>
+            <div class="aw-stat-detail" id="aw-det-cagr">—</div>
+        </div>
+        <div class="aw-stat aw-stat-mid">
+            <div class="aw-stat-name" id="aw-name-sharpe">Sharpe (over T-bills)</div>
+            <div class="aw-stat-val" id="aw-val-sharpe">—</div>
+            <div class="aw-stat-detail" id="aw-det-sharpe">—</div>
+        </div>
+        <div class="aw-stat aw-stat-neg">
+            <div class="aw-stat-name" id="aw-name-dd">Max drawdown</div>
+            <div class="aw-stat-val" id="aw-val-dd">—</div>
+            <div class="aw-stat-detail" id="aw-det-dd">—</div>
+        </div>
+        <div class="aw-stat aw-stat-acc">
+            <div class="aw-stat-name" id="aw-name-ddur">DD duration</div>
+            <div class="aw-stat-val" id="aw-val-ddur">—</div>
+            <div class="aw-stat-detail" id="aw-det-ddur">—</div>
+        </div>
+    </div>
+    <div id="aw-chart" class="aw-chart"></div>
+    <p class="aw-caption" id="aw-caption">
+        Damodaran 1928-2024 annual data: SP500 total return, 10-year Treasury, T-bills, CPI; gold proxied at 4% nominal real-flat pre-1971 and London PM-fix YoY post-1971. Annual rebalance. Drawdown duration is the longest run of months between a wealth peak and the recovery to that peak.
+    </p>
+</div>
+
+<script>
+(function () {
+    const I18N = {
+        en: {
+            lab_g:        "Growth",
+            lab_i:        "Income",
+            lab_s:        "Store-of-value",
+            lab_o:        "Opportunistic",
+            name_cagr:    "CAGR (nominal)",
+            name_sharpe:  "Sharpe (over T-bills)",
+            name_dd:      "Max drawdown",
+            name_ddur:    "DD duration",
+            chart_y:      "Wealth ($, log scale)",
+            chart_t:      "Wealth path of $1, 1928-2024",
+            tr_pf:        "Your mix",
+            tr_60:        "60/40 baseline",
+            tr_eq:        "100% equity",
+            preset_inst:  "Bridgewater 1996 (30/55/8/7)",
+            preset_aw:    "All-Weather retail (40/30/20/10)",
+            preset_60:    "60/40 (60/40/0/0)",
+            preset_barb:  "SOUL #14 barbell (60/10/20/10)",
+            preset_eq:    "100% equity",
+            preset_cust:  "Custom",
+            yrs:          "years",
+            wealth_lbl:   "$1 →",
+            stress_lbl:   "Worst calendar year",
+            caption:      "Damodaran 1928-2024 annual data: SP500 total return, 10-year Treasury, T-bills, CPI; gold proxied at 4% nominal flat-real pre-1971 and London PM-fix YoY post-1971. Annual rebalance. Drawdown duration is the longest run of years between a wealth peak and the recovery to that peak.",
+        },
+        hk: {
+            lab_g:        "增長層",
+            lab_i:        "收益層",
+            lab_s:        "保值層",
+            lab_o:        "機會層",
+            name_cagr:    "年化複利(名義)",
+            name_sharpe:  "夏普比率(超 T-bills)",
+            name_dd:      "最大回撤",
+            name_ddur:    "回撤持續",
+            chart_y:      "資產淨值($,對數軸)",
+            chart_t:      "$1 的財富路徑,1928-2024",
+            tr_pf:        "你的配置",
+            tr_60:        "60/40 基準",
+            tr_eq:        "100% 股票",
+            preset_inst:  "橋水 1996 (30/55/8/7)",
+            preset_aw:    "全天候散戶版 (40/30/20/10)",
+            preset_60:    "60/40 (60/40/0/0)",
+            preset_barb:  "SOUL #14 啞鈴 (60/10/20/10)",
+            preset_eq:    "100% 股票",
+            preset_cust:  "自定義",
+            yrs:          "年",
+            wealth_lbl:   "$1 →",
+            stress_lbl:   "最差日曆年",
+            caption:      "Damodaran 1928-2024 年度數據:標普 500 總回報、十年期國債、短期國庫券、CPI;1971 年前以 4% 名義回報近似黃金,1971 年後採用倫敦下午定盤年回報。每年再平衡。回撤持續為從財富峰值到完全恢復之間最長年數。",
+        },
+        tw: {
+            lab_g:        "成長層",
+            lab_i:        "收益層",
+            lab_s:        "保值層",
+            lab_o:        "機會層",
+            name_cagr:    "年化複利(名目)",
+            name_sharpe:  "夏普比率(超國庫券)",
+            name_dd:      "最大回檔",
+            name_ddur:    "回檔持續",
+            chart_y:      "資產淨值($,對數軸)",
+            chart_t:      "$1 的財富路徑,1928-2024",
+            tr_pf:        "你的配置",
+            tr_60:        "60/40 基準",
+            tr_eq:        "100% 股票",
+            preset_inst:  "橋水 1996 (30/55/8/7)",
+            preset_aw:    "全天候散戶版 (40/30/20/10)",
+            preset_60:    "60/40 (60/40/0/0)",
+            preset_barb:  "SOUL #14 啞鈴 (60/10/20/10)",
+            preset_eq:    "100% 股票",
+            preset_cust:  "自訂",
+            yrs:          "年",
+            wealth_lbl:   "$1 →",
+            stress_lbl:   "最差年度",
+            caption:      "Damodaran 1928-2024 年度資料:標普 500 總報酬、十年期公債、國庫券、CPI;1971 年前以 4% 名目回報近似黃金,1971 年後採用倫敦下午定盤年回報。每年再平衡。回檔持續為從財富峰值到完全恢復之間最長年數。",
+        },
+        cn: {
+            lab_g:        "增长层",
+            lab_i:        "收益层",
+            lab_s:        "保值层",
+            lab_o:        "机会层",
+            name_cagr:    "年化复利(名义)",
+            name_sharpe:  "夏普比率(超 T-bills)",
+            name_dd:      "最大回撤",
+            name_ddur:    "回撤持续",
+            chart_y:      "资产净值($,对数轴)",
+            chart_t:      "$1 的财富路径,1928-2024",
+            tr_pf:        "你的配置",
+            tr_60:        "60/40 基准",
+            tr_eq:        "100% 股票",
+            preset_inst:  "桥水 1996 (30/55/8/7)",
+            preset_aw:    "全天候散户版 (40/30/20/10)",
+            preset_60:    "60/40 (60/40/0/0)",
+            preset_barb:  "SOUL #14 哑铃 (60/10/20/10)",
+            preset_eq:    "100% 股票",
+            preset_cust:  "自定义",
+            yrs:          "年",
+            wealth_lbl:   "$1 →",
+            stress_lbl:   "最差日历年",
+            caption:      "Damodaran 1928-2024 年度数据:标普 500 总回报、十年期国债、短期国库券、CPI;1971 年前以 4% 名义回报近似黄金,1971 年后采用伦敦下午定盘年回报。每年再平衡。回撤持续为从财富峰值到完全恢复之间最长年数。",
+        },
+    };
+    function currentLang() {
+        const p = new URLSearchParams(window.location.search);
+        const l = (p.get("lang") || "en").toLowerCase();
+        return I18N.hasOwnProperty(l) ? l : "en";
+    }
+    const T = I18N[currentLang()];
+
+    // Damodaran 1928..2024 annual returns (decimals).
+    const YEARS = [];
+    for (let y = 1928; y <= 2024; y++) YEARS.push(y);
+    const SP500 = [
+        0.4381,-0.0830,-0.2512,-0.4384,-0.0864,0.4998,-0.0119,0.4674,0.3194,-0.3534,
+        0.2928,-0.0110,-0.1067,-0.1277,0.1917,0.2506,0.1903,0.3582,-0.0843,0.0520,
+        0.0570,0.1830,0.3081,0.2368,0.1815,-0.0121,0.5256,0.3260,0.0744,-0.1046,
+        0.4372,0.1206,0.0034,0.2664,-0.0881,0.2280,0.1648,0.1245,-0.1006,0.2398,
+        0.1106,-0.0850,0.0386,0.1430,0.1899,-0.1469,-0.2647,0.3723,0.2393,-0.0716,
+        0.0657,0.1861,0.3250,-0.0492,0.2155,0.2256,0.0627,0.3173,0.1867,0.0525,
+        0.1661,0.3169,-0.0310,0.3047,0.0762,0.1008,0.0132,0.3758,0.2296,0.3336,
+        0.2858,0.2104,-0.0910,-0.1189,-0.2210,0.2868,0.1088,0.0491,0.1579,0.0549,
+       -0.3700,0.2646,0.1506,0.0211,0.1600,0.3239,0.1369,0.0138,0.1196,0.2183,
+       -0.0438,0.3149,0.1840,0.2871,-0.1811,0.2629,0.2502
+    ];
+    const TBOND = [
+        0.0084,0.0420,0.0454,-0.0256,0.0879,0.0186,0.0796,0.0447,0.0502,0.0138,
+        0.0421,0.0441,0.0540,-0.0202,0.0229,0.0249,0.0258,0.0380,0.0313,0.0092,
+        0.0195,0.0466,0.0043,-0.0030,0.0227,0.0414,0.0329,-0.0134,-0.0226,0.0680,
+       -0.0210,-0.0265,0.1164,0.0206,0.0564,0.0181,0.0383,0.0069,0.0299,-0.0172,
+        0.0298,-0.0509,0.1875,0.1387,0.0369,0.0179,0.0369,0.0218,0.1364,0.0069,
+       -0.0118,-0.0123,-0.0304,0.0823,0.3281,0.0320,0.1373,0.2571,0.2428,-0.0496,
+        0.0822,0.1769,0.0624,0.1500,0.0936,0.1421,-0.0804,0.2348,0.0143,0.0994,
+        0.1492,-0.0825,0.1666,0.0557,0.1512,0.0038,0.0449,0.0287,0.0196,0.1021,
+        0.2010,-0.1112,0.0846,0.1604,0.0297,-0.0910,0.1075,0.0128,0.0069,0.0280,
+       -0.0002,0.0964,0.1133,-0.0442,-0.1777,0.0303,-0.0170
+    ];
+    const TBILL = [
+        0.0308,0.0316,0.0455,0.0231,0.0107,0.0096,0.0032,0.0018,0.0017,0.0030,
+        0.0008,0.0004,0.0003,0.0008,0.0034,0.0038,0.0038,0.0038,0.0038,0.0058,
+        0.0104,0.0110,0.0120,0.0149,0.0166,0.0182,0.0086,0.0157,0.0246,0.0314,
+        0.0154,0.0295,0.0266,0.0213,0.0273,0.0312,0.0354,0.0393,0.0476,0.0421,
+        0.0521,0.0658,0.0653,0.0439,0.0384,0.0693,0.0800,0.0580,0.0508,0.0512,
+        0.0718,0.1038,0.1124,0.1471,0.1054,0.0880,0.0985,0.0772,0.0616,0.0547,
+        0.0635,0.0837,0.0781,0.0560,0.0351,0.0290,0.0390,0.0560,0.0521,0.0526,
+        0.0486,0.0468,0.0589,0.0383,0.0165,0.0102,0.0120,0.0298,0.0479,0.0466,
+        0.0160,0.0010,0.0012,0.0004,0.0006,0.0002,0.0002,0.0002,0.0020,0.0080,
+        0.0193,0.0206,0.0036,0.0006,0.0202,0.0511,0.0495
+    ];
+    const CPI = [
+       -0.0117,0.0058,-0.0640,-0.0932,-0.1027,0.0076,0.0152,0.0299,0.0145,0.0286,
+       -0.0278,-0.0048,0.0096,0.0972,0.0929,0.0316,0.0211,0.0225,0.1817,0.0901,
+        0.0271,-0.0180,0.0579,0.0587,0.0088,0.0062,-0.0050,0.0037,0.0286,0.0302,
+        0.0176,0.0150,0.0148,0.0067,0.0122,0.0165,0.0119,0.0192,0.0335,0.0304,
+        0.0472,0.0611,0.0549,0.0336,0.0341,0.0880,0.1220,0.0701,0.0481,0.0677,
+        0.0903,0.1331,0.1240,0.0894,0.0387,0.0380,0.0395,0.0377,0.0113,0.0441,
+        0.0442,0.0465,0.0611,0.0306,0.0290,0.0275,0.0267,0.0254,0.0332,0.0170,
+        0.0161,0.0268,0.0339,0.0155,0.0238,0.0188,0.0326,0.0342,0.0254,0.0408,
+        0.0009,0.0272,0.0150,0.0296,0.0174,0.0150,0.0076,0.0073,0.0207,0.0211,
+        0.0191,0.0229,0.0136,0.0703,0.0645,0.0341,0.0289
+    ];
+    // Gold annual return (London PM fix YoY) post-1971; pre-1971 fill: 4% nominal flat = (1+CPI) approx,
+    // but spec says "4% real flat" which we apply as a constant 4% nominal each year (price was effectively
+    // pegged at $35/oz under Bretton Woods until 1968-71, so use 4% flat nominal as a clean proxy).
+    const GOLD = (function () {
+        // 1928-1970: 43 years of 4% flat nominal.
+        const arr = [];
+        for (let i = 0; i < 43; i++) arr.push(0.04);
+        // 1971..2024 (54 entries): London PM fix annual.
+        const post = [
+            0.1366, 0.4922, 0.7350, 0.6675,-0.2480,-0.0298, 0.2256, 0.3697, 1.2655,
+            0.1525,-0.3263, 0.1492,-0.1632,-0.1923, 0.0568, 0.2128, 0.2452,-0.1576,
+           -0.0226,-0.0247,-0.1014,-0.0570, 0.1768,-0.0218, 0.0070,-0.0461,-0.2141,
+           -0.0058, 0.0085,-0.0539, 0.0249, 0.2484, 0.1937, 0.0552, 0.1797, 0.2295,
+            0.3094, 0.0541, 0.2403, 0.2949, 0.1014, 0.0703,-0.2802,-0.0167,-0.1041,
+            0.0855, 0.1349,-0.0156, 0.1834, 0.2461,-0.0362,-0.0028, 0.1308, 0.2700
+        ];
+        return arr.concat(post);
+    })();
+
+    const ROOT = document.getElementById("aw-root");
+    const CHART = document.getElementById("aw-chart");
+    const SLIDERS = {
+        g: document.getElementById("aw-slider-g"),
+        i: document.getElementById("aw-slider-i"),
+        s: document.getElementById("aw-slider-s"),
+        o: document.getElementById("aw-slider-o"),
+    };
+    const VALS = {
+        g: document.getElementById("aw-val-g"),
+        i: document.getElementById("aw-val-i"),
+        s: document.getElementById("aw-val-s"),
+        o: document.getElementById("aw-val-o"),
+    };
+
+    const PRESETS = [
+        { id: "inst", g: 30, i: 55, s: 8,  o: 7  },
+        { id: "aw",   g: 40, i: 30, s: 20, o: 10 },
+        { id: "60",   g: 60, i: 40, s: 0,  o: 0  },
+        { id: "barb", g: 60, i: 10, s: 20, o: 10 },
+        { id: "eq",   g: 100,i: 0,  s: 0,  o: 0  },
+    ];
+
+    const state = { g: 0.40, i: 0.30, s: 0.20, o: 0.10 };
+
+    function getCssVar(name) {
+        return getComputedStyle(ROOT).getPropertyValue(name).trim();
+    }
+    function darkMode() {
+        return document.documentElement.getAttribute("data-theme") === "dark";
+    }
+
+    function simulate(weights) {
+        // weights: { g, i, s, o }, sum to 1.
+        const wealth = [1.0];
+        let v = 1.0;
+        for (let t = 0; t < SP500.length; t++) {
+            const r = weights.g * SP500[t]
+                    + weights.i * TBOND[t]
+                    + weights.s * GOLD[t]
+                    + weights.o * TBILL[t];
+            v *= (1 + r);
+            wealth.push(v);
+        }
+        return wealth;
+    }
+
+    function annualReturns(weights) {
+        const arr = [];
+        for (let t = 0; t < SP500.length; t++) {
+            arr.push(
+                weights.g * SP500[t]
+              + weights.i * TBOND[t]
+              + weights.s * GOLD[t]
+              + weights.o * TBILL[t]
+            );
+        }
+        return arr;
+    }
+
+    function maxDDInfo(wealth) {
+        let peak = wealth[0];
+        let peakIdx = 0;
+        let dd = 0;
+        let dur = 0;       // longest peak-to-recovery in years
+        let curRunStart = 0;
+        let curRunDur = 0;
+        for (let i = 1; i < wealth.length; i++) {
+            if (wealth[i] >= peak) {
+                if (curRunDur > dur) dur = curRunDur;
+                peak = wealth[i];
+                peakIdx = i;
+                curRunDur = 0;
+                curRunStart = i;
+            } else {
+                curRunDur = i - peakIdx;
+                if (curRunDur > dur) dur = curRunDur;
+                const drop = wealth[i] / peak - 1;
+                if (drop < dd) dd = drop;
+            }
+        }
+        // If never recovered, the open run still counts but isn't a true recovery.
+        return { dd, dur };
+    }
+
+    function sharpe(rets, tbill) {
+        // Annual-frequency Sharpe of excess returns, using sample std.
+        const ex = rets.map((r, i) => r - tbill[i]);
+        const n = ex.length;
+        const mean = ex.reduce((a, b) => a + b, 0) / n;
+        let v = 0;
+        for (let i = 0; i < n; i++) v += (ex[i] - mean) * (ex[i] - mean);
+        const sd = Math.sqrt(v / (n - 1));
+        return sd > 1e-9 ? mean / sd : NaN;
+    }
+
+    function pct(v, dec) {
+        if (!isFinite(v)) return "—";
+        const d = dec === undefined ? 1 : dec;
+        const sign = v >= 0 ? "+" : "";
+        return sign + (v * 100).toFixed(d) + "%";
+    }
+    function pctNoSign(v, dec) {
+        if (!isFinite(v)) return "—";
+        const d = dec === undefined ? 1 : dec;
+        return (v * 100).toFixed(d) + "%";
+    }
+
+    function render() {
+        const w = state;
+        const wealth = simulate(w);
+        const rets = annualReturns(w);
+        const ddInfo = maxDDInfo(wealth);
+        const sh = sharpe(rets, TBILL);
+        const n = SP500.length;
+        const cagr = Math.pow(wealth[wealth.length - 1], 1 / n) - 1;
+
+        // Worst calendar year
+        let worst = 0, worstYr = YEARS[0];
+        for (let i = 0; i < rets.length; i++) {
+            if (rets[i] < worst) { worst = rets[i]; worstYr = YEARS[i]; }
+        }
+
+        // Reference: 60/40 and 100% equity
+        const wealth60 = simulate({ g: 0.60, i: 0.40, s: 0, o: 0 });
+        const wealthEq = simulate({ g: 1.00, i: 0,    s: 0, o: 0 });
+
+        const colorPos = getCssVar("--aw-pos");
+        const colorNeg = getCssVar("--aw-neg");
+        const colorMid = getCssVar("--aw-mid");
+        const colorAcc = getCssVar("--aw-accent");
+        const colorText = getCssVar("--aw-text");
+        const colorMuted = getCssVar("--aw-muted");
+        const colorGrid = darkMode() ? "rgba(255,255,255,0.08)" : "rgba(0,0,0,0.07)";
+        const colorBg = getCssVar("--aw-card");
+
+        const xs = [YEARS[0] - 1].concat(YEARS);
+
+        const traces = [
+            {
+                x: xs, y: wealthEq,
+                mode: "lines", name: T.tr_eq,
+                line: { color: colorNeg, width: 1.4, dash: "dot" },
+                hovertemplate: "%{x}: $%{y:,.2f}<extra>" + T.tr_eq + "</extra>",
+            },
+            {
+                x: xs, y: wealth60,
+                mode: "lines", name: T.tr_60,
+                line: { color: colorMid, width: 1.4, dash: "dash" },
+                hovertemplate: "%{x}: $%{y:,.2f}<extra>" + T.tr_60 + "</extra>",
+            },
+            {
+                x: xs, y: wealth,
+                mode: "lines", name: T.tr_pf,
+                line: { color: colorAcc, width: 2.6 },
+                hovertemplate: "%{x}: $%{y:,.2f}<extra>" + T.tr_pf + "</extra>",
+            },
+        ];
+
+        const layout = {
+            margin: { l: 60, r: 18, t: 38, b: 40 },
+            paper_bgcolor: colorBg,
+            plot_bgcolor: colorBg,
+            font: { family: "Segoe UI, Helvetica, Arial, sans-serif", color: colorText, size: 11 },
+            title: { text: T.chart_t, font: { color: colorText, size: 12.5 }, x: 0.01, xanchor: "left" },
+            xaxis: { gridcolor: colorGrid, color: colorText, zerolinecolor: colorGrid },
+            yaxis: {
+                title: { text: T.chart_y, font: { color: colorMuted, size: 10 } },
+                gridcolor: colorGrid, color: colorText, zerolinecolor: colorGrid,
+                type: "log",
+            },
+            legend: {
+                orientation: "h", x: 0.01, y: 1.10, xanchor: "left",
+                bgcolor: "rgba(0,0,0,0)", font: { color: colorText, size: 10 },
+            },
+            hovermode: "x unified",
+        };
+        Plotly.react(CHART, traces, layout, { displayModeBar: false, responsive: true });
+
+        document.getElementById("aw-val-cagr").textContent = pct(cagr, 2);
+        document.getElementById("aw-det-cagr").textContent = T.wealth_lbl + " $" + wealth[wealth.length - 1].toFixed(0);
+        document.getElementById("aw-val-sharpe").textContent = isFinite(sh) ? sh.toFixed(2) : "—";
+        document.getElementById("aw-det-sharpe").textContent = n + " " + T.yrs;
+        document.getElementById("aw-val-dd").textContent = pct(ddInfo.dd, 1);
+        document.getElementById("aw-det-dd").textContent = T.stress_lbl + ": " + worstYr + " " + pct(worst, 1);
+        document.getElementById("aw-val-ddur").textContent = ddInfo.dur + " " + T.yrs;
+        document.getElementById("aw-det-ddur").textContent = T.tr_pf;
+
+        // Highlight matching preset
+        const cur = [Math.round(state.g * 100), Math.round(state.i * 100),
+                     Math.round(state.s * 100), Math.round(state.o * 100)];
+        let activeId = "cust";
+        for (const p of PRESETS) {
+            if (p.g === cur[0] && p.i === cur[1] && p.s === cur[2] && p.o === cur[3]) {
+                activeId = p.id; break;
+            }
+        }
+        document.querySelectorAll(".aw-preset").forEach(btn => {
+            btn.classList.toggle("active", btn.dataset.preset === activeId);
+        });
+        reportHeight();
+    }
+
+    function setWeights(g, i, s) {
+        // g, i, s are percentages 0..100. o is the residual.
+        const o = Math.max(0, 100 - g - i - s);
+        // If sum > 100, scale down the third slider proportionally.
+        // (sliders enforce step 5 and 0..100; we only need to clamp residual.)
+        state.g = g / 100;
+        state.i = i / 100;
+        state.s = s / 100;
+        state.o = o / 100;
+        SLIDERS.g.value = g;
+        SLIDERS.i.value = i;
+        SLIDERS.s.value = s;
+        SLIDERS.o.value = Math.round(o);
+        VALS.g.textContent = g + "%";
+        VALS.i.textContent = i + "%";
+        VALS.s.textContent = s + "%";
+        VALS.o.textContent = Math.round(o) + "%";
+        render();
+    }
+
+    function clampAndApply() {
+        let g = parseInt(SLIDERS.g.value, 10);
+        let i = parseInt(SLIDERS.i.value, 10);
+        let s = parseInt(SLIDERS.s.value, 10);
+        let total = g + i + s;
+        if (total > 100) {
+            // Scale down i and s proportionally to leave room for o>=0.
+            const excess = total - 100;
+            const adjustable = i + s;
+            if (adjustable > 0) {
+                const ni = Math.max(0, Math.round(i - (excess * i / adjustable) / 5) * 5);
+                const ns = Math.max(0, 100 - g - ni);
+                i = ni;
+                s = ns;
+            } else {
+                g = 100; i = 0; s = 0;
+            }
+        }
+        setWeights(g, i, s);
+    }
+
+    SLIDERS.g.addEventListener("input", clampAndApply);
+    SLIDERS.i.addEventListener("input", clampAndApply);
+    SLIDERS.s.addEventListener("input", clampAndApply);
+
+    // Build presets row
+    const PRESETS_DIV = document.getElementById("aw-presets");
+    PRESETS.forEach(p => {
+        const btn = document.createElement("button");
+        btn.className = "aw-preset";
+        btn.dataset.preset = p.id;
+        btn.textContent = T["preset_" + p.id];
+        btn.addEventListener("click", () => setWeights(p.g, p.i, p.s));
+        PRESETS_DIV.appendChild(btn);
+    });
+    const cust = document.createElement("button");
+    cust.className = "aw-preset";
+    cust.dataset.preset = "cust";
+    cust.textContent = T.preset_cust;
+    cust.addEventListener("click", () => {});
+    PRESETS_DIV.appendChild(cust);
+
+    function applyI18n() {
+        document.getElementById("aw-lab-g").textContent = T.lab_g;
+        document.getElementById("aw-lab-i").textContent = T.lab_i;
+        document.getElementById("aw-lab-s").textContent = T.lab_s;
+        document.getElementById("aw-lab-o").textContent = T.lab_o;
+        document.getElementById("aw-name-cagr").textContent = T.name_cagr;
+        document.getElementById("aw-name-sharpe").textContent = T.name_sharpe;
+        document.getElementById("aw-name-dd").textContent = T.name_dd;
+        document.getElementById("aw-name-ddur").textContent = T.name_ddur;
+        document.getElementById("aw-caption").textContent = T.caption;
+    }
+    applyI18n();
+
+    function reportHeight() {
+        try {
+            var h = Math.ceil(document.documentElement.scrollHeight);
+            parent.postMessage({ type: 'lesson-interactive-resize', height: h }, '*');
+        } catch (e) { /* ignore */ }
+    }
+    if (typeof ResizeObserver !== 'undefined') {
+        new ResizeObserver(reportHeight).observe(document.body);
+    }
+    window.addEventListener('resize', reportHeight);
+    setTimeout(reportHeight, 50);
+    setTimeout(reportHeight, 500);
+
+    const themeObserver = new MutationObserver(render);
+    themeObserver.observe(document.documentElement, {
+        attributes: true,
+        attributeFilter: ["data-theme"],
+    });
+
+    // Initial state — All-Weather retail.
+    setWeights(40, 30, 20);
+})();
+</script>
+
+</body>
+</html>

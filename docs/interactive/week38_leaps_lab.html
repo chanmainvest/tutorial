@@ -1,0 +1,852 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>LEAPS Lab - Interactive (Week 38)</title>
+<script src="https://cdn.plot.ly/plotly-2.35.2.min.js" charset="utf-8"></script>
+<style>
+html, body { margin: 0; padding: 0; background: var(--lp-bg); }
+:root {
+    --lp-bg: #fdfbf5;
+    --lp-text: #1a2332;
+    --lp-muted: #6b7280;
+    --lp-border: #d6d3c4;
+    --lp-card: #fdfbf5;
+    --lp-accent: #b8860b;
+    --lp-blue: #0d47a1;
+    --lp-red: #b71c1c;
+    --lp-green: #2e7d32;
+    --lp-purple: #6a1b9a;
+    --lp-orange: #e65100;
+}
+html[data-theme="dark"] .lp-root,
+.lp-root[data-theme="dark"] {
+    --lp-bg: #0f1724;
+    --lp-text: #e6e6e6;
+    --lp-muted: #9aa3b2;
+    --lp-border: #2a3441;
+    --lp-card: #0f1724;
+    --lp-blue: #5a8dee;
+    --lp-red: #ef5350;
+    --lp-green: #66bb6a;
+    --lp-purple: #ba68c8;
+    --lp-orange: #ffa726;
+}
+.lp-root {
+    font-family: 'Segoe UI', Helvetica, Arial, sans-serif;
+    background: var(--lp-bg);
+    color: var(--lp-text);
+    padding: 12px;
+    margin: 0;
+}
+.lp-pillbar-wrap {
+    margin-bottom: 12px;
+    padding: 10px 12px;
+    background: var(--lp-card);
+    border: 1px solid var(--lp-border);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+.lp-label {
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--lp-muted);
+}
+.lp-pillbar {
+    display: inline-flex;
+    border: 1px solid var(--lp-border);
+    border-radius: 999px;
+    overflow: hidden;
+    background: var(--lp-card);
+}
+.lp-pillbar button {
+    border: none;
+    background: transparent;
+    color: var(--lp-muted);
+    padding: 6px 14px;
+    font: inherit;
+    font-size: 0.85rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.15s, color 0.15s;
+}
+.lp-pillbar button:hover { color: var(--lp-text); }
+.lp-pillbar button.active {
+    background: var(--lp-accent);
+    color: #fff;
+}
+.lp-controls {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 12px;
+    margin-bottom: 14px;
+    padding: 12px;
+    background: var(--lp-card);
+    border: 1px solid var(--lp-border);
+    border-radius: 8px;
+}
+.lp-slider-wrap {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    font-size: 0.82rem;
+    color: var(--lp-muted);
+}
+.lp-slider-wrap.lp-disabled { opacity: 0.4; pointer-events: none; }
+.lp-slider-wrap .lp-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.lp-slider-wrap input[type="range"] {
+    flex: 1;
+    accent-color: var(--lp-accent);
+}
+.lp-slider-wrap .lp-val {
+    white-space: nowrap;
+    color: var(--lp-text);
+    font-weight: 700;
+    font-variant-numeric: tabular-nums;
+    min-width: 88px;
+    text-align: right;
+}
+.lp-slider-wrap .lp-name {
+    font-weight: 600;
+    color: var(--lp-text);
+}
+.lp-stats {
+    display: grid;
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    gap: 10px;
+    margin-bottom: 14px;
+}
+.lp-stat {
+    background: var(--lp-card);
+    border: 1px solid var(--lp-border);
+    border-radius: 8px;
+    padding: 10px 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+.lp-stat-label {
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+    color: var(--lp-muted);
+}
+.lp-stat-val {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--lp-text);
+    font-variant-numeric: tabular-nums;
+}
+.lp-stat-val.lp-pos { color: var(--lp-green); }
+.lp-stat-val.lp-neg { color: var(--lp-red); }
+.lp-chart {
+    width: 100%;
+    height: 380px;
+    background: var(--lp-card);
+    border-radius: 8px;
+    border: 1px solid var(--lp-border);
+}
+.lp-caption {
+    margin-top: 10px;
+    font-size: 0.78rem;
+    color: var(--lp-muted);
+    line-height: 1.45;
+}
+@media (max-width: 900px) {
+    .lp-controls { grid-template-columns: 1fr 1fr; }
+    .lp-stats { grid-template-columns: repeat(3, minmax(0,1fr)); }
+}
+@media (max-width: 600px) {
+    .lp-controls { grid-template-columns: 1fr; }
+    .lp-stats { grid-template-columns: repeat(2, minmax(0,1fr)); }
+    .lp-chart { height: 320px; }
+}
+</style>
+</head>
+<body>
+
+<div class="lp-root" id="lp-root">
+    <div class="lp-pillbar-wrap">
+        <span class="lp-label" id="lp-strat-label">Strategy</span>
+        <div class="lp-pillbar" id="lp-strat-pills" role="tablist">
+            <button type="button" data-strat="stock">Stock</button>
+            <button type="button" data-strat="leaps" class="active">LEAPS only</button>
+            <button type="button" data-strat="pmcc">PMCC</button>
+            <button type="button" data-strat="married">LEAPS + put</button>
+        </div>
+    </div>
+
+    <div class="lp-controls">
+        <div class="lp-slider-wrap" id="lp-w-spot">
+            <div class="lp-name" id="lp-name-spot">Spot price ($)</div>
+            <div class="lp-row">
+                <input type="range" id="lp-spot" min="50" max="200" step="1" value="100">
+                <span class="lp-val" id="lp-val-spot">$100</span>
+            </div>
+        </div>
+        <div class="lp-slider-wrap" id="lp-w-lk">
+            <div class="lp-name" id="lp-name-lk">LEAPS strike (% of spot)</div>
+            <div class="lp-row">
+                <input type="range" id="lp-lk" min="50" max="120" step="1" value="80">
+                <span class="lp-val" id="lp-val-lk">80%</span>
+            </div>
+        </div>
+        <div class="lp-slider-wrap" id="lp-w-ldte">
+            <div class="lp-name" id="lp-name-ldte">LEAPS DTE (days)</div>
+            <div class="lp-row">
+                <input type="range" id="lp-ldte" min="30" max="1095" step="5" value="730">
+                <span class="lp-val" id="lp-val-ldte">730</span>
+            </div>
+        </div>
+        <div class="lp-slider-wrap" id="lp-w-sk">
+            <div class="lp-name" id="lp-name-sk">Short leg strike (% of spot)</div>
+            <div class="lp-row">
+                <input type="range" id="lp-sk" min="80" max="140" step="1" value="110">
+                <span class="lp-val" id="lp-val-sk">110%</span>
+            </div>
+        </div>
+        <div class="lp-slider-wrap" id="lp-w-sdte">
+            <div class="lp-name" id="lp-name-sdte">Short leg DTE (days)</div>
+            <div class="lp-row">
+                <input type="range" id="lp-sdte" min="7" max="90" step="1" value="30">
+                <span class="lp-val" id="lp-val-sdte">30</span>
+            </div>
+        </div>
+        <div class="lp-slider-wrap" id="lp-w-sigma">
+            <div class="lp-name" id="lp-name-sigma">Implied vol (%)</div>
+            <div class="lp-row">
+                <input type="range" id="lp-sigma" min="8" max="60" step="0.5" value="22">
+                <span class="lp-val" id="lp-val-sigma">22.0%</span>
+            </div>
+        </div>
+        <div class="lp-slider-wrap" id="lp-w-r">
+            <div class="lp-name" id="lp-name-r">Risk-free rate (%)</div>
+            <div class="lp-row">
+                <input type="range" id="lp-r" min="0" max="8" step="0.1" value="4.0">
+                <span class="lp-val" id="lp-val-r">4.0%</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="lp-stats">
+        <div class="lp-stat">
+            <span class="lp-stat-label" id="lp-l-debit">Net debit</span>
+            <span class="lp-stat-val" id="lp-v-debit">--</span>
+        </div>
+        <div class="lp-stat">
+            <span class="lp-stat-label" id="lp-l-be">Breakeven</span>
+            <span class="lp-stat-val" id="lp-v-be">--</span>
+        </div>
+        <div class="lp-stat">
+            <span class="lp-stat-label" id="lp-l-mp">Max profit</span>
+            <span class="lp-stat-val lp-pos" id="lp-v-mp">--</span>
+        </div>
+        <div class="lp-stat">
+            <span class="lp-stat-label" id="lp-l-ml">Max loss</span>
+            <span class="lp-stat-val lp-neg" id="lp-v-ml">--</span>
+        </div>
+        <div class="lp-stat">
+            <span class="lp-stat-label" id="lp-l-theta">Daily theta</span>
+            <span class="lp-stat-val" id="lp-v-theta">--</span>
+        </div>
+        <div class="lp-stat">
+            <span class="lp-stat-label" id="lp-l-delta">Position delta</span>
+            <span class="lp-stat-val" id="lp-v-delta">--</span>
+        </div>
+    </div>
+
+    <div id="lp-chart" class="lp-chart"></div>
+    <p class="lp-caption" id="lp-caption">
+        Black-Scholes pricing for all option legs. The chart shows P&L per share at the short-leg expiration date (or 30 days for stock/LEAPS-only). Dashed lines show each leg in isolation; solid blue is the combined position. Max profit, max loss, breakeven, position theta and delta update live as you drag.
+    </p>
+</div>
+
+<script>
+(function () {
+    var I18N = {
+        en: {
+            strat_label: "Strategy",
+            strat_stock: "Stock", strat_leaps: "LEAPS only",
+            strat_pmcc: "PMCC", strat_married: "LEAPS + put",
+            spot_name: "Spot price ($)",
+            lk_name: "LEAPS strike (% of spot)",
+            ldte_name: "LEAPS DTE (days)",
+            sk_name: "Short leg strike (% of spot)",
+            sdte_name: "Short leg DTE (days)",
+            sigma_name: "Implied vol (%)",
+            r_name: "Risk-free rate (%)",
+            l_debit: "Net debit", l_be: "Breakeven",
+            l_mp: "Max profit", l_ml: "Max loss",
+            l_theta: "Daily theta", l_delta: "Position delta",
+            unlimited: "unlimited",
+            chart_title: "P&L per share at short-leg expiry",
+            x_title: "Underlying price at expiry ($)",
+            y_title: "Net P&L per share ($)",
+            leg_long: "Long LEAPS (residual value)",
+            leg_short: "Short call leg",
+            leg_put: "Long put leg",
+            leg_stock: "Stock P&L",
+            leg_net: "Net position P&L",
+            caption: "Black-Scholes pricing for all option legs. The chart shows P&L per share at the short-leg expiration date (or 30 days for stock/LEAPS-only). Dashed lines show each leg in isolation; solid blue is the combined position. Max profit, max loss, breakeven, position theta and delta update live as you drag.",
+        },
+        hk: {
+            strat_label: "策略",
+            strat_stock: "股票", strat_leaps: "純 LEAPS",
+            strat_pmcc: "PMCC", strat_married: "LEAPS + 認沽",
+            spot_name: "現價(美元)",
+            lk_name: "LEAPS 行使價(現價百分比)",
+            ldte_name: "LEAPS 距到期(日)",
+            sk_name: "短腿行使價(現價百分比)",
+            sdte_name: "短腿距到期(日)",
+            sigma_name: "隱含波幅(%)",
+            r_name: "無風險利率(%)",
+            l_debit: "淨支出", l_be: "盈虧平衡",
+            l_mp: "最大利潤", l_ml: "最大虧損",
+            l_theta: "每日 Theta", l_delta: "持倉 Delta",
+            unlimited: "無上限",
+            chart_title: "短腿到期時每股損益",
+            x_title: "到期時標的價格(美元)",
+            y_title: "每股淨損益(美元)",
+            leg_long: "持有 LEAPS(剩餘價值)",
+            leg_short: "短期認購",
+            leg_put: "持有認沽",
+            leg_stock: "股票損益",
+            leg_net: "淨倉損益",
+            caption: "所有期權腿使用 Black-Scholes 定價。圖示為短腿到期時(或股票/純 LEAPS 30 日後)的每股損益。虛線為個別腿,藍色實線為淨倉位。最大利潤、最大虧損、盈虧平衡、倉位 theta 與 delta 即時更新。",
+        },
+        tw: {
+            strat_label: "策略",
+            strat_stock: "股票", strat_leaps: "純 LEAPS",
+            strat_pmcc: "PMCC", strat_married: "LEAPS + 賣權",
+            spot_name: "現價(美元)",
+            lk_name: "LEAPS 履約價(現價百分比)",
+            ldte_name: "LEAPS 距到期(日)",
+            sk_name: "短腿履約價(現價百分比)",
+            sdte_name: "短腿距到期(日)",
+            sigma_name: "隱含波動率(%)",
+            r_name: "無風險利率(%)",
+            l_debit: "淨支出", l_be: "損益平衡",
+            l_mp: "最大獲利", l_ml: "最大虧損",
+            l_theta: "每日 Theta", l_delta: "部位 Delta",
+            unlimited: "無上限",
+            chart_title: "短腿到期時每股損益",
+            x_title: "到期時標的價(美元)",
+            y_title: "每股淨損益(美元)",
+            leg_long: "持有 LEAPS(剩餘價值)",
+            leg_short: "短期買權",
+            leg_put: "持有賣權",
+            leg_stock: "股票損益",
+            leg_net: "淨部位損益",
+            caption: "全部期權腿使用 Black-Scholes 定價。圖為短腿到期時(或股票/純 LEAPS 30 日後)的每股損益。虛線為個別腿,藍色實線為合併部位。最大獲利、最大虧損、損益平衡、部位 theta 與 delta 即時更新。",
+        },
+        cn: {
+            strat_label: "策略",
+            strat_stock: "股票", strat_leaps: "纯 LEAPS",
+            strat_pmcc: "PMCC", strat_married: "LEAPS + 看跌",
+            spot_name: "现价(美元)",
+            lk_name: "LEAPS 行权价(现价百分比)",
+            ldte_name: "LEAPS 距到期(日)",
+            sk_name: "短腿行权价(现价百分比)",
+            sdte_name: "短腿距到期(日)",
+            sigma_name: "隐含波动率(%)",
+            r_name: "无风险利率(%)",
+            l_debit: "净支出", l_be: "盈亏平衡",
+            l_mp: "最大利润", l_ml: "最大亏损",
+            l_theta: "每日 Theta", l_delta: "持仓 Delta",
+            unlimited: "无上限",
+            chart_title: "短腿到期时每股盈亏",
+            x_title: "到期时标的价格(美元)",
+            y_title: "每股净盈亏(美元)",
+            leg_long: "持有 LEAPS(剩余价值)",
+            leg_short: "短期看涨",
+            leg_put: "持有看跌",
+            leg_stock: "股票盈亏",
+            leg_net: "净仓盈亏",
+            caption: "所有期权腿使用 Black-Scholes 定价。图为短腿到期时(或股票/纯 LEAPS 30 日后)的每股盈亏。虚线为单腿,蓝色实线为净仓位。最大利润、最大亏损、盈亏平衡、仓位 theta 与 delta 实时更新。",
+        },
+    };
+
+    function currentLang() {
+        var p = new URLSearchParams(window.location.search);
+        var l = (p.get("lang") || "en").toLowerCase();
+        return I18N.hasOwnProperty(l) ? l : "en";
+    }
+    var T = I18N[currentLang()];
+
+    // ---------------- Black-Scholes ----------------
+    function erf(x) {
+        var sign = x < 0 ? -1 : 1;
+        x = Math.abs(x);
+        var a1 = 0.254829592, a2 = -0.284496736, a3 = 1.421413741;
+        var a4 = -1.453152027, a5 = 1.061405429, p = 0.3275911;
+        var t = 1.0 / (1.0 + p * x);
+        var y = 1.0 - (((((a5*t + a4)*t) + a3)*t + a2)*t + a1)*t * Math.exp(-x*x);
+        return sign * y;
+    }
+    function Phi(x) { return 0.5 * (1.0 + erf(x / Math.SQRT2)); }
+    function phi(x) { return Math.exp(-0.5*x*x) / Math.sqrt(2.0*Math.PI); }
+
+    function callPrice(S, K, T_yr, sig, r) {
+        if (T_yr <= 1e-9) return Math.max(S - K, 0);
+        var sqrtT = Math.sqrt(T_yr);
+        var d1 = (Math.log(S/K) + (r + 0.5*sig*sig)*T_yr) / (sig*sqrtT);
+        var d2 = d1 - sig*sqrtT;
+        return S * Phi(d1) - K * Math.exp(-r*T_yr) * Phi(d2);
+    }
+    function putPrice(S, K, T_yr, sig, r) {
+        if (T_yr <= 1e-9) return Math.max(K - S, 0);
+        var sqrtT = Math.sqrt(T_yr);
+        var d1 = (Math.log(S/K) + (r + 0.5*sig*sig)*T_yr) / (sig*sqrtT);
+        var d2 = d1 - sig*sqrtT;
+        return K * Math.exp(-r*T_yr) * Phi(-d2) - S * Phi(-d1);
+    }
+    function callDelta(S, K, T_yr, sig, r) {
+        if (T_yr <= 1e-9) return S > K ? 1 : 0;
+        var sqrtT = Math.sqrt(T_yr);
+        var d1 = (Math.log(S/K) + (r + 0.5*sig*sig)*T_yr) / (sig*sqrtT);
+        return Phi(d1);
+    }
+    function putDelta(S, K, T_yr, sig, r) {
+        return callDelta(S, K, T_yr, sig, r) - 1.0;
+    }
+    function callThetaDay(S, K, T_yr, sig, r) {
+        if (T_yr <= 1e-9) return 0;
+        var sqrtT = Math.sqrt(T_yr);
+        var d1 = (Math.log(S/K) + (r + 0.5*sig*sig)*T_yr) / (sig*sqrtT);
+        var d2 = d1 - sig*sqrtT;
+        var th = -S*phi(d1)*sig/(2.0*sqrtT) - r*K*Math.exp(-r*T_yr)*Phi(d2);
+        return th / 365.0;
+    }
+    function putThetaDay(S, K, T_yr, sig, r) {
+        if (T_yr <= 1e-9) return 0;
+        var sqrtT = Math.sqrt(T_yr);
+        var d1 = (Math.log(S/K) + (r + 0.5*sig*sig)*T_yr) / (sig*sqrtT);
+        var d2 = d1 - sig*sqrtT;
+        var th = -S*phi(d1)*sig/(2.0*sqrtT) + r*K*Math.exp(-r*T_yr)*Phi(-d2);
+        return th / 365.0;
+    }
+
+    // ---------------- DOM ----------------
+    var ROOT = document.getElementById("lp-root");
+    var CHART = document.getElementById("lp-chart");
+    var STRAT_PILLS = document.getElementById("lp-strat-pills");
+    var EL = {
+        spot: document.getElementById("lp-spot"),
+        lk: document.getElementById("lp-lk"),
+        ldte: document.getElementById("lp-ldte"),
+        sk: document.getElementById("lp-sk"),
+        sdte: document.getElementById("lp-sdte"),
+        sigma: document.getElementById("lp-sigma"),
+        r: document.getElementById("lp-r"),
+    };
+    var WRAP = {
+        spot: document.getElementById("lp-w-spot"),
+        lk: document.getElementById("lp-w-lk"),
+        ldte: document.getElementById("lp-w-ldte"),
+        sk: document.getElementById("lp-w-sk"),
+        sdte: document.getElementById("lp-w-sdte"),
+        sigma: document.getElementById("lp-w-sigma"),
+        r: document.getElementById("lp-w-r"),
+    };
+
+    var strategy = "leaps";
+
+    function getCssVar(name) {
+        return getComputedStyle(ROOT).getPropertyValue(name).trim();
+    }
+    function darkMode() {
+        return document.documentElement.getAttribute("data-theme") === "dark";
+    }
+    function fmtUsd(n, d) {
+        if (!isFinite(n)) return "--";
+        d = (d == null) ? 2 : d;
+        var sign = n < 0 ? "-" : "";
+        return sign + "$" + Math.abs(n).toLocaleString(undefined, {
+            minimumFractionDigits: d, maximumFractionDigits: d });
+    }
+    function fmtSigned(n, d) {
+        if (!isFinite(n)) return "--";
+        d = (d == null) ? 2 : d;
+        return (n >= 0 ? "+" : "-") + "$" + Math.abs(n).toLocaleString(undefined, {
+            minimumFractionDigits: d, maximumFractionDigits: d });
+    }
+
+    function readInputs() {
+        return {
+            spot:  parseFloat(EL.spot.value),
+            lk:    parseFloat(EL.lk.value) / 100.0,
+            ldte:  parseFloat(EL.ldte.value),
+            sk:    parseFloat(EL.sk.value) / 100.0,
+            sdte:  parseFloat(EL.sdte.value),
+            sigma: parseFloat(EL.sigma.value) / 100.0,
+            r:     parseFloat(EL.r.value) / 100.0,
+        };
+    }
+
+    function updateLabels(p) {
+        document.getElementById("lp-val-spot").textContent = "$" + p.spot.toFixed(0);
+        document.getElementById("lp-val-lk").textContent = (p.lk * 100).toFixed(0) + "%";
+        document.getElementById("lp-val-ldte").textContent = p.ldte.toFixed(0);
+        document.getElementById("lp-val-sk").textContent = (p.sk * 100).toFixed(0) + "%";
+        document.getElementById("lp-val-sdte").textContent = p.sdte.toFixed(0);
+        document.getElementById("lp-val-sigma").textContent = (p.sigma*100).toFixed(1) + "%";
+        document.getElementById("lp-val-r").textContent = (p.r*100).toFixed(1) + "%";
+    }
+
+    function applyStrategyEnable() {
+        // Default enabled: spot, sigma, r always.
+        // stock: only spot, sdte (use as "horizon")
+        // leaps: + lk, ldte
+        // pmcc: + lk, ldte, sk, sdte
+        // married: + lk, ldte, sk, sdte (sk = put strike % of spot, sdte = put DTE)
+        var enabled = { spot:1, sigma:1, r:1 };
+        if (strategy === "stock") {
+            enabled.sdte = 1;
+        } else if (strategy === "leaps") {
+            enabled.lk = 1; enabled.ldte = 1; enabled.sdte = 1;
+        } else if (strategy === "pmcc" || strategy === "married") {
+            enabled.lk = 1; enabled.ldte = 1; enabled.sk = 1; enabled.sdte = 1;
+        }
+        Object.keys(WRAP).forEach(function (k) {
+            WRAP[k].classList.toggle("lp-disabled", !enabled[k]);
+        });
+        // Dynamic short-leg label for married strategy.
+        if (strategy === "married") {
+            document.getElementById("lp-name-sk").textContent =
+                T.sk_name.replace("Short leg strike", "Put strike")
+                         .replace("短腿行使價", "認沽行使價")
+                         .replace("短腿履約價", "賣權履約價")
+                         .replace("短腿行权价", "看跌行权价");
+        } else {
+            document.getElementById("lp-name-sk").textContent = T.sk_name;
+        }
+    }
+
+    // Build position legs based on strategy.
+    // Returns list of legs: { type: 'long_stock'|'long_call'|'short_call'|'long_put',
+    //                         K, T_yr (residual), entry_premium }
+    function buildPosition(p) {
+        var legs = [];
+        var T_horizon_days = 30;
+        if (strategy === "stock") {
+            legs.push({ type: "long_stock", K: 0, T_yr: 0, entry: p.spot });
+            T_horizon_days = p.sdte;
+        } else if (strategy === "leaps") {
+            var Kl = p.lk * p.spot;
+            var prem_l = callPrice(p.spot, Kl, p.ldte/365, p.sigma, p.r);
+            legs.push({ type: "long_call", K: Kl, init_dte: p.ldte, entry: prem_l });
+            T_horizon_days = p.sdte;
+        } else if (strategy === "pmcc") {
+            var Kl = p.lk * p.spot;
+            var prem_l = callPrice(p.spot, Kl, p.ldte/365, p.sigma, p.r);
+            legs.push({ type: "long_call", K: Kl, init_dte: p.ldte, entry: prem_l });
+            var Ks = p.sk * p.spot;
+            var prem_s = callPrice(p.spot, Ks, p.sdte/365, p.sigma, p.r);
+            legs.push({ type: "short_call", K: Ks, init_dte: p.sdte, entry: prem_s });
+            T_horizon_days = p.sdte;
+        } else if (strategy === "married") {
+            var Kl = p.lk * p.spot;
+            var prem_l = callPrice(p.spot, Kl, p.ldte/365, p.sigma, p.r);
+            legs.push({ type: "long_call", K: Kl, init_dte: p.ldte, entry: prem_l });
+            var Kp = p.sk * p.spot;
+            var prem_p = putPrice(p.spot, Kp, p.sdte/365, p.sigma, p.r);
+            legs.push({ type: "long_put", K: Kp, init_dte: p.sdte, entry: prem_p });
+            T_horizon_days = p.sdte;
+        }
+        return { legs: legs, T_horizon_days: T_horizon_days };
+    }
+
+    // P&L per share at horizon for a single underlying price S.
+    function legValueAtHorizon(leg, S, p, horizon_days) {
+        if (leg.type === "long_stock") return S - leg.entry;
+        var resid_dte = leg.init_dte - horizon_days;
+        if (leg.type === "long_call") {
+            var v = (resid_dte > 0)
+                ? callPrice(S, leg.K, resid_dte/365, p.sigma, p.r)
+                : Math.max(S - leg.K, 0);
+            return v - leg.entry;
+        }
+        if (leg.type === "short_call") {
+            var v = (resid_dte > 0)
+                ? callPrice(S, leg.K, resid_dte/365, p.sigma, p.r)
+                : Math.max(S - leg.K, 0);
+            return leg.entry - v;
+        }
+        if (leg.type === "long_put") {
+            var v = (resid_dte > 0)
+                ? putPrice(S, leg.K, resid_dte/365, p.sigma, p.r)
+                : Math.max(leg.K - S, 0);
+            return v - leg.entry;
+        }
+        return 0;
+    }
+
+    // Position theta & delta at t=0 (current).
+    function positionTheta(pos, p) {
+        var th = 0;
+        pos.legs.forEach(function (leg) {
+            if (leg.type === "long_call") {
+                th += callThetaDay(p.spot, leg.K, leg.init_dte/365, p.sigma, p.r);
+            } else if (leg.type === "short_call") {
+                th -= callThetaDay(p.spot, leg.K, leg.init_dte/365, p.sigma, p.r);
+            } else if (leg.type === "long_put") {
+                th += putThetaDay(p.spot, leg.K, leg.init_dte/365, p.sigma, p.r);
+            }
+        });
+        return th;
+    }
+    function positionDelta(pos, p) {
+        var d = 0;
+        pos.legs.forEach(function (leg) {
+            if (leg.type === "long_stock") d += 1.0;
+            else if (leg.type === "long_call") {
+                d += callDelta(p.spot, leg.K, leg.init_dte/365, p.sigma, p.r);
+            } else if (leg.type === "short_call") {
+                d -= callDelta(p.spot, leg.K, leg.init_dte/365, p.sigma, p.r);
+            } else if (leg.type === "long_put") {
+                d += putDelta(p.spot, leg.K, leg.init_dte/365, p.sigma, p.r);
+            }
+        });
+        return d;
+    }
+
+    // Net debit (entry cost; positive = paid).
+    function netDebit(pos) {
+        var d = 0;
+        pos.legs.forEach(function (leg) {
+            if (leg.type === "long_stock") d += leg.entry;
+            else if (leg.type === "long_call") d += leg.entry;
+            else if (leg.type === "long_put") d += leg.entry;
+            else if (leg.type === "short_call") d -= leg.entry;
+        });
+        return d;
+    }
+
+    function computeStats(p) {
+        var pos = buildPosition(p);
+        var Smin = p.spot * 0.4, Smax = p.spot * 1.8;
+        var grid = [];
+        var step = (Smax - Smin) / 400;
+        for (var i = 0; i <= 400; i++) grid.push(Smin + i*step);
+        var pnls = grid.map(function (S) {
+            var sum = 0;
+            pos.legs.forEach(function (leg) {
+                sum += legValueAtHorizon(leg, S, p, pos.T_horizon_days);
+            });
+            return sum;
+        });
+        // breakeven: leftmost S where pnl crosses zero from negative to positive.
+        var be = NaN;
+        for (var i = 0; i < pnls.length-1; i++) {
+            if (pnls[i] <= 0 && pnls[i+1] > 0) {
+                var x0 = grid[i], x1 = grid[i+1], y0 = pnls[i], y1 = pnls[i+1];
+                be = x0 + (0 - y0)/(y1 - y0)*(x1-x0);
+                break;
+            }
+        }
+        // max profit / max loss within [0.4*spot, 1.8*spot]; capped strategies have hard limits.
+        var maxP = -Infinity, maxL = Infinity;
+        for (var i = 0; i < pnls.length; i++) {
+            if (pnls[i] > maxP) maxP = pnls[i];
+            if (pnls[i] < maxL) maxL = pnls[i];
+        }
+        // For uncapped (stock alone, leaps alone, married) extrapolate upside past Smax linearly.
+        var capped_up = (strategy === "pmcc");
+        var capped_dn = (strategy === "married");
+        var uncapped_up = !capped_up;
+        var uncapped_dn = !capped_dn && strategy !== "stock";
+        // For LEAPS-only / married, max loss = net debit; for stock, max loss is unbounded down (but capped at -spot for long stock).
+        var debit = netDebit(pos);
+        if (strategy === "leaps" || strategy === "pmcc" || strategy === "married") {
+            maxL = -debit;
+        } else if (strategy === "stock") {
+            maxL = -p.spot;  // worst case stock to zero
+        }
+
+        var theta = positionTheta(pos, p);
+        var delta = positionDelta(pos, p);
+
+        return {
+            grid: grid, pnls: pnls, debit: debit, breakeven: be,
+            maxProfit: maxP, maxLoss: maxL, theta: theta, delta: delta,
+            position: pos, uncapped_up: uncapped_up,
+        };
+    }
+
+    function applyI18n() {
+        document.getElementById("lp-strat-label").textContent = T.strat_label;
+        var pills = STRAT_PILLS.querySelectorAll("button");
+        pills[0].textContent = T.strat_stock;
+        pills[1].textContent = T.strat_leaps;
+        pills[2].textContent = T.strat_pmcc;
+        pills[3].textContent = T.strat_married;
+
+        document.getElementById("lp-name-spot").textContent = T.spot_name;
+        document.getElementById("lp-name-lk").textContent = T.lk_name;
+        document.getElementById("lp-name-ldte").textContent = T.ldte_name;
+        document.getElementById("lp-name-sk").textContent = T.sk_name;
+        document.getElementById("lp-name-sdte").textContent = T.sdte_name;
+        document.getElementById("lp-name-sigma").textContent = T.sigma_name;
+        document.getElementById("lp-name-r").textContent = T.r_name;
+
+        document.getElementById("lp-l-debit").textContent = T.l_debit;
+        document.getElementById("lp-l-be").textContent = T.l_be;
+        document.getElementById("lp-l-mp").textContent = T.l_mp;
+        document.getElementById("lp-l-ml").textContent = T.l_ml;
+        document.getElementById("lp-l-theta").textContent = T.l_theta;
+        document.getElementById("lp-l-delta").textContent = T.l_delta;
+        document.getElementById("lp-caption").textContent = T.caption;
+    }
+
+    function fillStats(stats) {
+        document.getElementById("lp-v-debit").textContent = fmtUsd(stats.debit, 2);
+        document.getElementById("lp-v-be").textContent = isFinite(stats.breakeven) ? fmtUsd(stats.breakeven, 2) : "--";
+        document.getElementById("lp-v-mp").textContent =
+            (stats.uncapped_up && strategy !== "pmcc") ? T.unlimited : fmtUsd(stats.maxProfit, 2);
+        document.getElementById("lp-v-ml").textContent = fmtSigned(stats.maxLoss, 2);
+        document.getElementById("lp-v-theta").textContent = fmtSigned(stats.theta, 3);
+        document.getElementById("lp-v-delta").textContent = stats.delta.toFixed(3);
+    }
+
+    function renderChart(stats, p) {
+        var pos = stats.position;
+        // Per-leg traces.
+        var traces = [];
+        var muted = getCssVar("--lp-muted");
+        var blue = getCssVar("--lp-blue");
+        var green = getCssVar("--lp-green");
+        var red = getCssVar("--lp-red");
+        var purple = getCssVar("--lp-purple");
+        var orange = getCssVar("--lp-orange");
+
+        pos.legs.forEach(function (leg) {
+            var ys = stats.grid.map(function (S) {
+                return legValueAtHorizon(leg, S, p, pos.T_horizon_days);
+            });
+            var nm, col;
+            if (leg.type === "long_stock") { nm = T.leg_stock; col = blue; }
+            else if (leg.type === "long_call") { nm = T.leg_long; col = green; }
+            else if (leg.type === "short_call") { nm = T.leg_short; col = red; }
+            else if (leg.type === "long_put") { nm = T.leg_put; col = purple; }
+            traces.push({
+                x: stats.grid, y: ys, type: "scatter", mode: "lines",
+                line: { color: col, width: 1.4, dash: "dash" },
+                name: nm, hoverinfo: "skip", opacity: 0.8,
+            });
+        });
+        traces.push({
+            x: stats.grid, y: stats.pnls, type: "scatter", mode: "lines",
+            line: { color: blue, width: 2.6 }, name: T.leg_net,
+            hovertemplate: "S=$%{x:.2f}<br>P&L=$%{y:.2f}<extra></extra>",
+        });
+
+        var colorText = getCssVar("--lp-text");
+        var colorMuted = getCssVar("--lp-muted");
+        var colorBg = getCssVar("--lp-card");
+        var colorGrid = darkMode() ? "rgba(255,255,255,0.08)" : "rgba(0,0,0,0.07)";
+
+        var shapes = [
+            { type: "line", xref: "x", yref: "paper",
+              x0: p.spot, x1: p.spot, y0: 0, y1: 1,
+              line: { color: muted, width: 1, dash: "dot" } },
+        ];
+        if (isFinite(stats.breakeven)) {
+            shapes.push({
+                type: "line", xref: "x", yref: "paper",
+                x0: stats.breakeven, x1: stats.breakeven, y0: 0, y1: 1,
+                line: { color: orange, width: 1, dash: "dash" }
+            });
+        }
+
+        var layout = {
+            margin: { l: 70, r: 24, t: 36, b: 50 },
+            paper_bgcolor: colorBg, plot_bgcolor: colorBg,
+            font: { family: "Segoe UI, Helvetica, Arial, sans-serif",
+                    color: colorText, size: 12 },
+            xaxis: {
+                title: { text: T.x_title, font: { color: colorMuted, size: 11 } },
+                gridcolor: colorGrid, color: colorText,
+                tickprefix: "$", zerolinecolor: colorMuted,
+            },
+            yaxis: {
+                title: { text: T.y_title, font: { color: colorMuted, size: 11 } },
+                gridcolor: colorGrid, zerolinecolor: colorMuted, color: colorText,
+                tickprefix: "$",
+            },
+            title: {
+                text: T.chart_title, x: 0, xanchor: "left",
+                font: { color: colorText, size: 13, weight: 700 },
+            },
+            shapes: shapes,
+            legend: { orientation: "h", x: 0, y: -0.18,
+                      font: { size: 10.5 } },
+            hovermode: "x unified",
+        };
+        Plotly.react(CHART, traces, layout, {
+            displayModeBar: false, responsive: true,
+        });
+    }
+
+    function render() {
+        var p = readInputs();
+        updateLabels(p);
+        applyStrategyEnable();
+        var stats = computeStats(p);
+        fillStats(stats);
+        renderChart(stats, p);
+    }
+
+    // ---------------- bindings ----------------
+    STRAT_PILLS.querySelectorAll("button").forEach(function (btn) {
+        btn.addEventListener("click", function () {
+            STRAT_PILLS.querySelectorAll("button").forEach(function (b) {
+                b.classList.remove("active");
+            });
+            btn.classList.add("active");
+            strategy = btn.dataset.strat;
+            render();
+        });
+    });
+    Object.keys(EL).forEach(function (k) {
+        EL[k].addEventListener("input", render);
+    });
+
+    applyI18n();
+
+    // postMessage resize.
+    function reportHeight() {
+        try {
+            var h = Math.ceil(document.documentElement.scrollHeight);
+            parent.postMessage({ type: "lesson-interactive-resize", height: h }, "*");
+        } catch (e) { /* ignore */ }
+    }
+    if (typeof ResizeObserver !== "undefined") {
+        new ResizeObserver(reportHeight).observe(document.body);
+    }
+    window.addEventListener("resize", reportHeight);
+    setTimeout(reportHeight, 50);
+    setTimeout(reportHeight, 500);
+
+    // Theme observer.
+    var themeObserver = new MutationObserver(render);
+    themeObserver.observe(document.documentElement, {
+        attributes: true, attributeFilter: ["data-theme"],
+    });
+
+    render();
+})();
+</script>
+
+</body>
+</html>

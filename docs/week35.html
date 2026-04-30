@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Week 35: Advanced Financial Statement Analysis - Chanma Investment Tutorial</title>
+    <title>Week 35: Advanced Financial Statement Analysis — DuPont, Working Capital, and Distress Models - Chanma Investment Tutorial</title>
     <script>(function(){try{var t=localStorage.getItem('preferred-theme');if(!t){t=window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();</script>
     <style>
 :root, html[data-theme="light"] {
@@ -1247,886 +1247,407 @@ html[data-theme="dark"] .nav-btn:hover .btn-label { color: rgba(15,23,36,0.7); }
     <main class="main-wrap">
         <div class="content-area">
             <div id="content-en" class="lang-content active">
-                <h1>Week 35: Advanced Financial Statement Analysis</h1>
+                <h1>Week 35: Advanced Financial Statement Analysis — DuPont, Working Capital, and Distress Models</h1>
 <hr>
-<h2>Reading Section</h2>
-<hr>
-<h3>a) Why This Is Important</h3>
-<p>
-Basic financial statement analysis -- reading an income statement, balance sheet, and cash flow statement -- is a skill that many investors develop early. But basic analysis only scratches the surface. The most important insights (and the most dangerous traps) lie beneath the surface numbers, in the adjustments, assumptions, and accounting choices that companies make.
-</p>
-<p>
-Here is why advanced financial statement analysis matters:
-</p>
-<li><strong>Earnings quality separates winners from losers.</strong> Not all earnings are created equal. A dollar of earnings backed by real cash flow is worth far more than a dollar of earnings manufactured through accounting tricks. Research consistently shows that stocks with high earnings quality outperform those with low earnings quality by 3-5% per year.</li>
-<li><strong>Accounting manipulation is more common than you think.</strong> Studies suggest that roughly 10-15% of public companies engage in some form of earnings management in any given year. Most of this is legal "gray area" manipulation -- aggressive but technically permissible accounting. Some crosses the line into fraud. The ability to detect red flags protects your capital.</li>
-<li><strong>Off-balance-sheet items can be enormous.</strong> Before accounting rule changes, companies could hide massive liabilities off their balance sheets. Operating leases, special purpose entities, pension obligations -- these can dwarf on-balance-sheet debt. Ignoring them gives you a dangerously incomplete picture of a company's financial health.</li>
-<li><strong>GAAP and IFRS differences matter for global investors.</strong> If you invest internationally, you need to understand how the same business can look different under different accounting standards. Revenue recognition, R&D treatment, inventory methods, and depreciation can all differ, making cross-border comparisons misleading without adjustment.</li>
-<li><strong>Quantitative screening tools like the Beneish M-Score and Altman Z-Score provide systematic ways to flag potential problems.</strong> Rather than relying solely on subjective judgment, these models combine multiple financial ratios into a single score that quantifies the probability of manipulation or bankruptcy.</li>
-<p>
-Consider the case of Wirecard, the German payments company that collapsed in 2020 when $2 billion in cash turned out not to exist. Sophisticated financial statement analysis would have flagged numerous red flags years before the fraud was exposed. Or consider Valeant Pharmaceuticals (now Bausch Health), where aggressive accounting masked deteriorating fundamentals until the stock fell over 90%.
-</p>
-<p>
-The goal of this lesson is to give you the tools to see through the numbers and understand what is really happening in a company's finances.
-</p>
-<hr>
-<h3>b) What You Need to Know</h3>
-<h4>1. Stock-Based Compensation (SBC) Adjustments</h4>
-<p>
-Stock-based compensation is one of the most contentious issues in modern financial analysis. Under GAAP and IFRS, companies must expense the fair value of stock options and restricted stock units (RSUs) on their income statements. However, many companies add this expense back when reporting "adjusted" or "non-GAAP" earnings.
-</p>
-<p>
-<strong>Why SBC Matters:</strong>
-</p>
-<pre><code class="language-">The SBC Debate:
-<p>
-Management's argument:
-"SBC is a non-cash expense. It does not reduce our cash flow.
-Our adjusted earnings (excluding SBC) better reflect
-our true profitability."
-</p>
-<p>
-The counterargument:
-"SBC IS a real cost. It dilutes existing shareholders.
-If you did not use SBC, you would need to pay higher
-cash salaries, which would reduce cash flow.
-Excluding SBC overstates true profitability."
-</p>
-<p>
-The truth:
-SBC is a REAL economic cost that transfers value from
-existing shareholders to employees. Adding it back to
-arrive at "adjusted earnings" is misleading.
-</code></pre>
-</p>
-<p>
-<strong>Quantifying the SBC Impact:</strong>
-</p>
-<pre><code class="language-">Example: Tech Company XYZ
-<p>
-GAAP Net Income:            $500 million
-Stock-Based Compensation:   $200 million
-"Adjusted" Net Income:      $700 million
-</p>
-<p>
-Shares Outstanding:         1 billion
-GAAP EPS:                   $0.50
-"Adjusted" EPS:             $0.70  (40% higher!)
-</p>
-<p>
-Share dilution from SBC:    ~3% per year
-Cumulative dilution (5yr):  ~15%
-</p>
-<p>
-If you value the stock at 20x "adjusted" earnings:   $14.00
-If you value the stock at 20x GAAP earnings:         $10.00
-Difference:                                          40%!
-</p>
-<p>
-For some tech companies, SBC exceeds 20% of revenue.
-Ignoring it can lead to massive overvaluation.
-</code></pre>
-</p>
-<p>
-<strong>How to Adjust for SBC:</strong>
-</p>
-<pre><code class="language-">Step 1: Use GAAP earnings as your starting point (include SBC expense)
-<p>
-Step 2: Track diluted share count over time
-Step 3: Calculate SBC as a percentage of revenue
-Step 4: Compare SBC to peer companies
-</p>
-<p>
-SBC Red Flags:
-[!] SBC &gt; 15% of revenue
-[!] SBC growing faster than revenue
-[!] Diluted share count increasing &gt;3% per year
-[!] Company consistently excludes SBC from "adjusted" metrics
-[!] SBC as a percentage of operating cash flow &gt; 30%
-</code></pre>
-</p>
-<h4>2. Operating Leases on the Balance Sheet</h4>
-<p>
-Before the implementation of ASC 842 (US GAAP, effective 2019) and IFRS 16 (effective 2019), companies could keep operating leases off their balance sheets. Under the old rules, only capital (finance) leases appeared as assets and liabilities. Operating leases were disclosed only in footnotes.
-</p>
-<p>
-The new rules require companies to recognize "right-of-use" assets and lease liabilities for most leases, bringing them onto the balance sheet.
-</p>
-<p>
-<strong>Impact of Lease Capitalization:</strong>
-</p>
-<pre><code class="language-">Before ASC 842/IFRS 16:
-<p>
-Balance Sheet:
-Assets:           $10 billion
-Debt:              $3 billion
-Equity:            $7 billion
-Debt/Equity:       0.43x
-Debt/Assets:       30%
-</p>
-<p>
-Off-balance-sheet operating leases: $4 billion (PV of future payments)
-</p>
-<p>
-After ASC 842/IFRS 16:
-</p>
-<p>
-Balance Sheet:
-Assets:           $14 billion  (+$4B right-of-use assets)
-Debt:              $3 billion
-Lease Liabilities: $4 billion
-Total Obligations: $7 billion
-Equity:            $7 billion
-(Debt + Leases)/Equity: 1.00x  (more than doubled!)
-Total Obligations/Assets: 50%
-</p>
-<p>
-The company's true leverage was much higher than
-the pre-rule balance sheet suggested.
-</code></pre>
-</p>
-<p>
-<strong>Industries Most Affected by Lease Capitalization:</strong>
-</p>
-<pre><code class="language-">Industry        | Typical Lease Impact     | Why
-<p>
-----------------|--------------------------|---------------------------
-Airlines        | Very High                | Aircraft and gate leases
-Retail          | Very High                | Store leases
-Restaurants     | High                     | Restaurant location leases
-Telecommunications| Moderate-High          | Cell tower and equipment leases
-Healthcare      | Moderate                 | Facility leases
-Technology      | Moderate                 | Office and data center leases
-Manufacturing   | Low-Moderate             | Factory leases (many owned)
-Mining/Energy   | Low                      | Assets typically owned
-</code></pre>
-</p>
-<p>
-<strong>How to Analyze Leases:</strong>
-</p>
-<pre><code class="language-">Key Questions:
-<p>
-1. What is the total present value of lease obligations?
-2. How does this compare to on-balance-sheet debt?
-3. What are the annual lease payments?
-4. What is the weighted-average remaining lease term?
-5. Are there significant lease renewals or extensions coming?
-</p>
-<p>
-Adjustment for Older Analysis:
-If comparing to historical data (pre-2019), you must either:
-a) Add lease liabilities back to older financials for consistency, or
-b) Remove lease effects from current financials for comparison
-</p>
-<p>
-For credit analysis, always include lease obligations in
-your leverage calculations regardless of accounting treatment.
-</code></pre>
-</p>
-<h4>3. Pension Obligations</h4>
-<p>
-Defined benefit pension plans can create enormous liabilities that are not always transparent from the face of the financial statements.
-</p>
-<p>
-<strong>Understanding Pension Accounting:</strong>
-</p>
-<pre><code class="language-">Key Components:
-<p>
-Plan Assets (A):
-The investment portfolio (stocks, bonds, etc.) that
-funds future pension payments.
-</p>
-<p>
-Projected Benefit Obligation (PBO):
-The present value of all pension benefits earned by
-employees, based on assumptions about salary growth,
-mortality, and discount rates.
-</p>
-<p>
-Funded Status = Plan Assets - PBO
-Overfunded:  A &gt; PBO  (asset on balance sheet)
-Underfunded: A &lt; PBO  (liability on balance sheet)
-</p>
-<p>
-The Catch:
-Small changes in assumptions can dramatically change the PBO.
-</code></pre>
-</p>
-<p>
-<strong>Sensitivity of Pension Obligations:</strong>
-</p>
-<pre><code class="language-">Example: Company with $10 billion PBO
-<p>
-Discount Rate Sensitivity:
-+0.5% discount rate change: PBO decreases ~$750M  (7.5%)
--0.5% discount rate change: PBO increases ~$800M  (8.0%)
-</p>
-<p>
-Salary Growth Assumption:
-+0.5% salary growth: PBO increases ~$300M  (3.0%)
--0.5% salary growth: PBO decreases ~$280M  (2.8%)
-</p>
-<p>
-Mortality Assumption:
-If employees live 1 year longer: PBO increases ~$300-500M
-</p>
-<p>
-These sensitivities mean management can significantly influence
-the reported pension liability by tweaking assumptions.
-</code></pre>
-</p>
-<p>
-<strong>Red Flags in Pension Accounting:</strong>
-</p>
-<pre><code class="language-">  [!] Discount rate significantly higher than peer companies
-<p>
-[!] Expected return on plan assets higher than historical returns
-[!] Plan assumptions becoming more aggressive over time
-[!] Large and growing pension deficit
-[!] Pension contributions significantly less than pension expense
-[!] Company freezing or terminating pension plans (may indicate
-inability to fund obligations)
-</code></pre>
-</p>
-<p>
-<strong>Pension-Heavy Industries:</strong>
-</p>
-<pre><code class="language-">Industry            | Pension Exposure | Notable Examples
-<p>
---------------------|-----------------|---------------------------
-Aerospace/Defense   | Very High       | Boeing, Lockheed Martin
-Automotive          | Very High       | GM, Ford
-Utilities           | High            | Many regulated utilities
-Telecommunications  | High            | AT&amp;T, Verizon
-Consumer Staples    | Moderate        | Procter &amp; Gamble, PepsiCo
-Technology          | Low             | Most tech companies use
-|                 | defined contribution plans
-</code></pre>
-</p>
-<h4>4. Goodwill and Impairment</h4>
-<p>
-Goodwill is the premium a company pays above the fair value of identifiable assets when it acquires another company. It represents intangible factors like brand value, customer relationships, and synergies.
-</p>
-<p>
-<strong>The Goodwill Problem:</strong>
-</p>
-<pre><code class="language-">Acquisition Example:
-<p>
-Company A acquires Company B for $5 billion
-</p>
-<p>
-Fair value of Company B's identifiable assets:
-Tangible assets:    $1.5 billion
-Identifiable intangibles: $1.0 billion
-Liabilities:        -$0.5 billion
-Net identifiable:    $2.0 billion
-</p>
-<p>
-Goodwill = Purchase Price - Net Identifiable Assets
-Goodwill = $5.0B - $2.0B = $3.0B
-</p>
-<p>
-This $3.0B is recorded as an asset on Company A's balance sheet.
-It sits there indefinitely until/unless it is "impaired."
-</code></pre>
-</p>
-<p>
-<strong>Why Goodwill Matters:</strong>
-</p>
-<pre><code class="language-">Goodwill as a Percentage of Total Assets (Examples):
-<p>
-Company Type                    | Goodwill / Total Assets
---------------------------------|------------------------
-Serial acquirer (pharma, tech)  | 30 - 60%
-Diversified industrial          | 20 - 40%
-Financial company               | 5 - 15%
-Asset-heavy company (utility)   | 5 - 10%
-</p>
-<p>
-When goodwill is a large portion of assets, the balance sheet
-is built on a foundation of past acquisition premiums.
-If those acquisitions do not perform, goodwill must be impaired.
-</code></pre>
-</p>
-<p>
-<strong>Goodwill Impairment:</strong>
-</p>
-<p>
-Under current rules, goodwill is tested for impairment annually. If the fair value of the acquired business falls below its carrying value (including goodwill), the goodwill must be written down.
-</p>
-<pre><code class="language-">Impairment Test (Simplified):
-<p>
-Carrying value of business unit (including goodwill): $5.0 billion
-Current fair value of business unit:                  $3.5 billion
-</p>
-<p>
-Impairment = $5.0B - $3.5B = $1.5 billion write-down
-</p>
-<p>
-This $1.5B charge hits the income statement as a loss.
-It does NOT affect cash flow (non-cash charge).
-But it signals that the company overpaid for the acquisition.
-</code></pre>
-</p>
-<p>
-<strong>Red Flags Related to Goodwill:</strong>
-</p>
-<pre><code class="language-">  [!] Goodwill &gt; 50% of total assets
-<p>
-[!] Goodwill &gt; total shareholders' equity
-[!] History of large acquisitions at high premiums
-[!] Acquired businesses underperforming original projections
-[!] Management repeatedly claiming acquisitions will create
-"synergies" without delivering
-[!] Industry downturns affecting acquired businesses
-[!] Discount rates used in impairment testing are unusually low
-(this inflates fair value and avoids impairment)
-</code></pre>
-</p>
-<h4>5. Off-Balance-Sheet Items</h4>
-<p>
-Despite accounting reforms, several types of obligations can still remain effectively off-balance-sheet or be obscured:
-</p>
-<pre><code class="language-">Common Off-Balance-Sheet Items:
-<p>
-1. Unconsolidated Joint Ventures and Associates
-</p>
-<ul><li>Company owns 20-49% of another entity</li>
-<li>Only the equity investment appears on balance sheet</li>
-<li>The JV's debt does not appear on the parent's balance sheet</li>
-<li>Must read footnotes to assess proportional debt exposure</li>
-<p>
-</ul>
-2. Variable Interest Entities (VIEs)
-</p>
-<ul><li>Special purpose entities that may or may not be consolidated</li>
-<li>Used in securitization, project finance, and structured finance</li>
-<li>Complex rules determine whether consolidation is required</li>
-<li>Enron famously used VIEs to hide billions in debt</li>
-<p>
-</ul>
-3. Purchase Commitments and Contingencies
-</p>
-<ul><li>Firm purchase obligations (take-or-pay contracts)</li>
-<li>Guarantee obligations</li>
-<li>Litigation contingencies</li>
-<li>Environmental liabilities</li>
-<li>These appear in footnotes, not on the balance sheet</li>
-<p>
-</ul>
-4. Factoring/Securitization of Receivables
-</p>
-<ul><li>Company sells receivables to a third party for cash</li>
-<li>If structured properly, removes receivables from balance sheet</li>
-<li>Can make leverage ratios look better</li>
-<li>May obscure deteriorating collection performance</li>
-<p>
-</ul>
-5. Operating Leases (Pre-2019 Legacy)
-</p>
-<ul><li>While new rules bring most leases on-balance-sheet,</li>
-<p>
-</ul>       some short-term and low-value leases remain off
-</p>
-<ul><li>When comparing to historical data, older operating leases</li>
-<p>
-</ul>       are still off-balance-sheet
-</code></pre>
-</p>
-<p>
-<strong>How to Find Off-Balance-Sheet Items:</strong>
-</p>
-<pre><code class="language-">Where to Look:
-<p>
-10-K Annual Report:
-</p>
-<ul><li>Footnote: "Commitments and Contingencies"</li>
-<li>Footnote: "Variable Interest Entities"</li>
-<li>Footnote: "Investments in Affiliates"</li>
-<li>Footnote: "Guarantees"</li>
-<li>MD&amp;A section: "Off-Balance-Sheet Arrangements"</li>
-<p>
-</ul>      (SEC requires disclosure in this section)
-</p>
-<p>
-For each off-balance-sheet item, ask:
-1. What is the maximum potential exposure?
-2. How likely is the exposure to materialize?
-3. Would this exposure change my leverage calculations?
-4. Would this change my assessment of the company's risk?
-</code></pre>
-</p>
-<h4>6. Earnings Quality Scoring</h4>
-<p>
-Earnings quality refers to how well reported earnings reflect the underlying economic reality of the business. High-quality earnings are sustainable, cash-backed, and free from accounting manipulation.
-</p>
-<p>
-<strong>Dimensions of Earnings Quality:</strong>
-</p>
-<pre><code class="language-">Dimension                | High Quality                  | Low Quality
-<p>
--------------------------|-------------------------------|---------------------------
-Cash Conversion          | Earnings backed by cash flow  | Earnings exceed cash flow
-Persistence              | Earnings are recurring        | One-time gains inflate
-Predictability           | Stable and forecastable       | Volatile and erratic
-Accrual Level            | Low accruals                  | High accruals
-Source                   | Core operations               | Non-operating items
-Conservatism             | Conservative assumptions      | Aggressive assumptions
-Transparency             | Clear and disclosed           | Opaque and complex
-</code></pre>
-</p>
-<p>
-<strong>Cash Flow Quality Test:</strong>
-</p>
-<pre><code class="language-">The simplest earnings quality test:
-<p>
-Operating Cash Flow / Net Income Ratio
-</p>
-<p>
-Interpretation:
-&gt; 1.0   High quality (cash flow exceeds reported earnings)
-0.8-1.0 Good quality
-0.5-0.8 Moderate quality (investigate accruals)
-&lt; 0.5   Low quality (earnings may not be real)
-&lt; 0     Red flag (company reports profits but burns cash)
-</p>
-<p>
-Apply over a 3-5 year period to smooth out timing differences.
-</code></pre>
-</p>
-<p>
-<strong>Accrual Analysis:</strong>
-</p>
-<p>
-Accruals are the difference between reported earnings and cash flow. High accruals often signal future earnings reversals.
-</p>
-<pre><code class="language-">Total Accruals = Net Income - Operating Cash Flow
-<p>
-or more precisely:
-</p>
-<p>
-Total Accruals = (Change in Non-Cash Current Assets)
-</p>
-<ul><li>(Change in Current Liabilities ex-Debt)</li>
-<li>Depreciation &amp; Amortization</li>
-<p>
-</ul>
-Accrual Ratio = Total Accruals / Average Total Assets
-</p>
-<p>
-Interpretation:
-Accrual Ratio &lt; -5%:   Very conservative (high quality)
-Accrual Ratio -5% to 0%: Conservative
-Accrual Ratio 0% to +5%: Moderate
-Accrual Ratio +5% to +10%: Aggressive (lower quality)
-Accrual Ratio &gt; +10%:  Very aggressive (red flag)
-</p>
-<p>
-Research Finding (Sloan, 1996):
-Stocks with low accruals outperform stocks with high accruals
-by approximately 10% per year. This is the "accrual anomaly."
-</code></pre>
-</p>
-<h4>7. The Beneish M-Score</h4>
-<p>
-The Beneish M-Score is a mathematical model that uses financial ratios to detect the probability of earnings manipulation. Developed by Professor Messod Beneish at Indiana University, it has proven remarkably effective at flagging manipulators.
-</p>
-<p>
-<strong>The M-Score Formula:</strong>
-</p>
-<pre><code class="language-">M-Score = -4.84
-<p>
-+ 0.920 x DSRI   (Days Sales in Receivables Index)
-+ 0.528 x GMI    (Gross Margin Index)
-+ 0.404 x AQI    (Asset Quality Index)
-+ 0.892 x SGI    (Sales Growth Index)
-+ 0.115 x DEPI   (Depreciation Index)
-</p>
-<ul><li>0.172 x SGAI   (SGA Expense Index)</li>
-<p>
-</ul>        + 4.679 x TATA   (Total Accruals to Total Assets)
-</p>
-<ul><li>0.327 x LVGI   (Leverage Index)</li>
-<p>
-</ul></code></pre>
-</p>
-<p>
-<strong>Variable Definitions:</strong>
-</p>
-<pre><code class="language-">DSRI = (Receivables(t)/Sales(t)) / (Receivables(t-1)/Sales(t-1))
-<p>
-Measures if receivables are growing faster than sales.
-Values &gt; 1.0 suggest revenue recognition issues.
-</p>
-<p>
-GMI = Gross Margin(t-1) / Gross Margin(t)
-Measures if gross margins are deteriorating.
-Values &gt; 1.0 suggest margin pressure (motive to manipulate).
-</p>
-<p>
-AQI = [1 - (Current Assets(t) + PP&amp;E(t)) / Total Assets(t)] /
-[1 - (Current Assets(t-1) + PP&amp;E(t-1)) / Total Assets(t-1)]
-Measures change in asset quality (more intangibles = lower quality).
-Values &gt; 1.0 suggest increased capitalization of expenses.
-</p>
-<p>
-SGI = Sales(t) / Sales(t-1)
-Measures sales growth rate.
-High growth companies face more pressure to maintain growth.
-</p>
-<p>
-DEPI = Depreciation Rate(t-1) / Depreciation Rate(t)
-Measures if depreciation is slowing.
-Values &gt; 1.0 suggest company is extending asset lives to boost earnings.
-</p>
-<p>
-SGAI = (SGA(t)/Sales(t)) / (SGA(t-1)/Sales(t-1))
-Measures change in SGA efficiency.
-Values &gt; 1.0 suggest declining efficiency.
-</p>
-<p>
-TATA = (Net Income - Cash Flow from Operations) / Total Assets
-Measures accrual level relative to assets.
-Higher values suggest more aggressive accrual accounting.
-</p>
-<p>
-LVGI = Total Debt(t)/Total Assets(t) / (Total Debt(t-1)/Total Assets(t-1))
-Measures change in leverage.
-Values &gt; 1.0 suggest increasing leverage.
-</code></pre>
-</p>
-<p>
-<strong>Interpreting the M-Score:</strong>
-</p>
-<pre><code class="language-">  M-Score &gt; -1.78:  HIGH probability of manipulation
-<p>
-M-Score &lt; -1.78:  LOW probability of manipulation
-</p>
-<p>
-The threshold of -1.78 correctly identifies about 76% of
-historical manipulators, with a false positive rate of about 17%.
-</p>
-<p>
-Famous Applications:
-</p>
-<ul><li>Enron's M-Score exceeded -1.78 years before its collapse</li>
-<li>WorldCom showed elevated M-Score before the fraud was revealed</li>
-<li>Many subprime-era financial companies showed high M-Scores</li>
-<p>
-</ul></code></pre>
-</p>
-<h4>8. The Altman Z-Score</h4>
-<p>
-The Altman Z-Score is one of the most well-known bankruptcy prediction models. Developed by Professor Edward Altman at NYU in 1968, it combines five financial ratios into a single score that predicts the probability of bankruptcy.
-</p>
-<p>
-<strong>The Z-Score Formula (for public manufacturing companies):</strong>
-</p>
-<pre><code class="language-">Z-Score = 1.2 x X1 + 1.4 x X2 + 3.3 x X3 + 0.6 x X4 + 1.0 x X5
-<p>
-Where:
-X1 = Working Capital / Total Assets
-(measures liquidity relative to company size)
-</p>
-<p>
-X2 = Retained Earnings / Total Assets
-(measures cumulative profitability and age of firm)
-</p>
-<p>
-X3 = EBIT / Total Assets
-(measures operating efficiency)
-</p>
-<p>
-X4 = Market Value of Equity / Book Value of Total Liabilities
-(measures solvency -- how far assets can decline before
-liabilities exceed assets)
-</p>
-<p>
-X5 = Sales / Total Assets
-(measures asset turnover efficiency)
-</code></pre>
-</p>
-<p>
-<strong>Interpreting the Z-Score:</strong>
-</p>
-<pre><code class="language-">  Z-Score &gt; 2.99:   SAFE ZONE -- low probability of bankruptcy
-<p>
-Z-Score 1.81-2.99: GREY ZONE -- moderate probability
-Z-Score &lt; 1.81:   DISTRESS ZONE -- high probability of bankruptcy
-</p>
-<p>
-Historical accuracy:
-</p>
-<ul><li>Correctly predicted 72% of bankruptcies 2 years in advance</li>
-<li>Type II error rate (predicting bankruptcy when it did not occur): ~6%</li>
-<p>
-</ul></code></pre>
-</p>
-<p>
-<strong>Modified Z-Score for Non-Manufacturing Companies:</strong>
-</p>
-<pre><code class="language-">Z'-Score = 6.56 x X1 + 3.26 x X2 + 6.72 x X3 + 1.05 x X4
-<p>
-(Removes X5 because asset turnover varies too much across industries)
-</p>
-<p>
-Interpretation:
-Z' &gt; 2.60:  Safe zone
-Z' 1.10-2.60: Grey zone
-Z' &lt; 1.10:  Distress zone
-</code></pre>
-</p>
-<p>
-<strong>Modified Z-Score for Private Companies:</strong>
-</p>
-<pre><code class="language-">Z''-Score = 0.717 x X1 + 0.847 x X2 + 3.107 x X3 + 0.420 x X4' + 0.998 x X5
-<p>
-Where X4' = Book Value of Equity / Total Liabilities
-(uses book value instead of market value, since private companies
-do not have a market capitalization)
-</p>
-<p>
-Interpretation:
-Z'' &gt; 2.60: Safe zone
-Z'' 1.10-2.60: Grey zone
-Z'' &lt; 1.10: Distress zone
-</code></pre>
-</p>
-<p>
-<strong>Practical Application:</strong>
-</p>
-<pre><code class="language-">Example: Evaluating Company ABC
-<p>
-Working Capital:        $200M
-Total Assets:         $1,000M
-Retained Earnings:      $300M
-EBIT:                   $120M
-Market Cap:             $800M
-Total Liabilities:      $600M
-Sales:                $1,200M
-</p>
-<p>
-X1 = 200/1000 = 0.200
-X2 = 300/1000 = 0.300
-X3 = 120/1000 = 0.120
-X4 = 800/600  = 1.333
-X5 = 1200/1000 = 1.200
-</p>
-<p>
-Z = 1.2(0.200) + 1.4(0.300) + 3.3(0.120) + 0.6(1.333) + 1.0(1.200)
-Z = 0.240 + 0.420 + 0.396 + 0.800 + 1.200
-Z = 3.056
-</p>
-<p>
-Verdict: Safe Zone (Z &gt; 2.99)
-This company has a low probability of bankruptcy.
-</code></pre>
-</p>
-<h4>9. IFRS vs. GAAP: Key Differences</h4>
-<p>
-For investors who compare companies across borders, understanding the key differences between International Financial Reporting Standards (IFRS) and US Generally Accepted Accounting Principles (US GAAP) is essential.
-</p>
-<p>
-<strong>Major Differences:</strong>
-</p>
-<pre><code class="language-">Area               | US GAAP                    | IFRS
-<p>
--------------------|----------------------------|----------------------------
-Framework          | Rules-based                | Principles-based
-| (detailed specific rules)  | (broad guidelines)
-</p>
-<p>
-Inventory          | LIFO allowed               | LIFO prohibited
-| (many US companies use     | (must use FIFO or
-|  LIFO for tax benefits)    |  weighted average)
-</p>
-<p>
-R&amp;D Costs          | Generally expensed         | Development costs can be
-| immediately                | capitalized if criteria met
-|                            | Research always expensed
-</p>
-<p>
-Revenue            | ASC 606 (5-step model)     | IFRS 15 (very similar to
-Recognition        |                            | ASC 606 -- converged)
-</p>
-<p>
-Impairment of      | Write down to fair value   | Write down to recoverable
-Long-Lived Assets  | Not reversible             | amount; Reversible (except
-|                            | goodwill) if value recovers
-</p>
-<p>
-Investment         | Three categories: held-to- | Two categories: amortized
-Property           | maturity, trading,         | cost or fair value through
-| available-for-sale         | profit or loss
-</p>
-<p>
-Leases             | ASC 842: operating and     | IFRS 16: all leases
-| finance lease distinction  | treated as finance leases
-| retained on income stmt    | (single model on balance
-|                            | sheet)
-</p>
-<p>
-Extraordinary      | Prohibited                 | Prohibited (both converged
-Items              |                            | on this)
-</p>
-<p>
-Contingencies      | Probable = &gt;75% likely     | Probable = &gt;50% likely
-| (higher threshold)         | (lower threshold)
-</p>
-<p>
-Biological Assets  | Generally at cost          | At fair value less costs
-|                            | to sell
-</p>
-<p>
-Revaluation of     | Not allowed (historical    | Allowed (can write up
-Fixed Assets       | cost only)                 | asset values to fair
-|                            | value periodically)
-</code></pre>
-</p>
-<p>
-<strong>Practical Implications for Investors:</strong>
-</p>
-<pre><code class="language-">When comparing a US GAAP company to an IFRS company:
-<p>
-1. LIFO vs. FIFO:
-If the US company uses LIFO, its cost of goods sold is higher
-(during inflation) and its inventory value is lower.
-Adjust by adding the "LIFO reserve" (found in footnotes)
-to inventory and equity for comparison.
-</p>
-<p>
-2. R&amp;D Capitalization:
-The IFRS company may capitalize development costs, making its
-assets higher and expenses lower. For comparison, either:
-a) Capitalize the US company's development spending, or
-b) Expense the IFRS company's capitalized development costs
-</p>
-<p>
-3. Asset Revaluation:
-IFRS companies can write up asset values, inflating equity.
-Be cautious comparing book values and ROE across standards.
-</p>
-<p>
-4. Impairment Reversal:
-IFRS allows impairment reversals (except goodwill). This means
-an IFRS company's earnings can include gains from reversing
-previous write-downs, which would not appear under US GAAP.
-</p>
-<p>
-5. Lease Accounting:
-Under IFRS 16, all leases are treated as finance leases on
-the income statement (interest + depreciation). Under ASC 842,
-operating leases use straight-line lease expense. This means
-EBITDA may be higher for IFRS companies with significant
-operating leases, because lease payments are split between
-interest (below EBITDA) and depreciation (below EBITDA).
-</code></pre>
+<h3>1. Why This Is Important</h3>
+<p>
+Week 8 taught you to read the three statements. Week 19 taught you the
+capital structure they sit on. Week 20 taught you to trust cash over
+earnings. Week 21 taught you to discount the cash. This week is the
+operator's wrench set — the small number of compact ratios and scoring
+models that professional analysts actually use, every quarter, for every
+name they cover, to answer four very practical questions:
+</p>
+<li><strong>Where does this company's return on equity actually come from?</strong> A</li>
+<p>
+17% ROE at JPMorgan is a fundamentally different animal from a 17%
+ROE at Ford. One is built on a 12× balance sheet and a 4% margin,
+the other on a 7× balance sheet and a 3% margin doing very different
+work. The DuPont decomposition splits ROE into its three (or five)
+drivers so you can tell margin businesses from leverage businesses
+from turnover businesses, and notice when one of those legs starts to
+wobble.
+</p>
+<li><strong>Is the working capital a tailwind or a tap on the brake?</strong> A</li>
+<p>
+manufacturer that ships product before it gets paid, holds inventory
+for ninety days, and pays suppliers in thirty is bleeding cash even
+when the income statement looks fine. The cash conversion cycle —
+DSO + DIO − DPO — turns that into a single number you can track
+quarter to quarter and compare across competitors.
+</p>
+<li><strong>Are the earnings being managed?</strong> The Beneish M-score combines</li>
+<p>
+eight ratios into one probability that a firm is manipulating
+earnings. It will not catch every fraud (Wirecard's was a different
+class of lie), but Beneish flagged Enron in 1997, three years before
+it imploded. As an investor you do not need a perfect detector. You
+need something that fires often enough to make you actually open the
+10-K when the score lights up.
+</p>
+<li><strong>Is the company a going concern, or is it walking toward Chapter 11?</strong></li>
+<p>
+The Altman Z-score, published by Edward Altman in 1968 and barely
+modified since, predicts bankruptcy risk over the next two years with
+roughly 80–90% accuracy on the original test set. Its threshold zones
+— distress below 1.81, gray 1.81–2.99, safe above 2.99 — are crude,
+and that is the point. Crude rules survive regimes; finely tuned
+ones do not. SOUL #1 again: alpha is rare, but *avoiding negative
+alpha* is cheap, and a $0 ten-line spreadsheet is one of the cheapest
+sources.
+</p>
+<p>
+The chart below (<a href="image/week35_dupont_compare.png">image/week35_dupont_compare.png</a>)
+shows what DuPont looks like when you put five very different
+businesses next to each other. Apple is a margin machine with serious
+leverage from buybacks. JPMorgan is a leverage machine with thin
+margins and almost no asset turnover. Ford is a turnover machine with
+both thin margins and meaningful leverage. The same 13–17% ROE is being
+manufactured three different ways, and the path to a 0% ROE is
+different for each.
 </p>
 <hr>
-<h3>c) Common Misconceptions</h3>
+<h3>2. What You Need to Know</h3>
+<h4>2.1 DuPont Decomposition — Three-Factor and Five-Factor</h4>
 <p>
-<strong>Misconception 1: "Non-GAAP (adjusted) earnings are more accurate than GAAP earnings."</strong>
+The original DuPont formula, named after the analyst department at
+DuPont Corporation in the 1920s, is identity arithmetic:
 </p>
 <p>
-Companies often present "adjusted" earnings that exclude stock-based compensation, restructuring charges, amortization of intangibles, and other items. While management argues these adjustments provide a clearer picture, the reality is that adjusted earnings almost always paint a rosier picture. Restructuring charges, for example, may be labeled as "one-time" but some companies report restructuring charges year after year. SBC is a real cost of doing business. Start with GAAP earnings and make your own adjustments rather than accepting management's curated version.
+$$ \text{ROE} \;=\; \frac{\text{Net Income}}{\text{Equity}}
+\;=\; \underbrace{\frac{\text{NI}}{\text{Sales}}}_{\text{Net Profit Margin}}
+\;\times\; \underbrace{\frac{\text{Sales}}{\text{Assets}}}_{\text{Asset Turnover}}
+\;\times\; \underbrace{\frac{\text{Assets}}{\text{Equity}}}_{\text{Equity Multiplier}} $$
 </p>
 <p>
-<strong>Misconception 2: "Goodwill impairment charges do not matter because they are non-cash."</strong>
+The two middle ratios cancel algebraically. What survives is a
+description of <em>how</em> a company gets to its ROE. Margin × Turnover is
+operating efficiency; Equity Multiplier is leverage. A high ROE built
+on margin is a brand or moat business. A high ROE built on turnover is
+a logistics or scale business. A high ROE built on leverage is a
+financial business — or, when leverage rises in a non-financial, an
+early warning sign.
 </p>
 <p>
-While it is true that goodwill impairments do not directly affect cash flow, they signal that management overpaid for an acquisition and that the acquired business is underperforming expectations. This has real implications: it suggests poor capital allocation, potential management overconfidence, and the possibility that future acquisitions may similarly disappoint. A pattern of goodwill impairments is a serious red flag about management quality.
+The five-factor extension splits margin into three pieces — tax
+burden, interest burden, and operating margin — to isolate where
+profitability is being squeezed:
 </p>
 <p>
-<strong>Misconception 3: "A company with growing revenue and earnings is financially healthy."</strong>
+$$ \text{ROE} \;=\; \frac{\text{NI}}{\text{EBT}} \times \frac{\text{EBT}}{\text{EBIT}}
+\times \frac{\text{EBIT}}{\text{Sales}} \times \frac{\text{Sales}}{\text{Assets}}
+\times \frac{\text{Assets}}{\text{Equity}} $$
 </p>
 <p>
-Revenue and earnings growth can be manufactured through acquisitions, accounting tricks, or unsustainable practices. A company might grow revenue through channel stuffing (pushing excess inventory to distributors). It might grow earnings by reducing reserves, extending depreciation lives, or capitalizing expenses. Always look at cash flow quality alongside reported earnings. If earnings are growing but operating cash flow is flat or declining, something is wrong.
+Tax burden (NI/EBT) and interest burden (EBT/EBIT) are between zero
+and one. Each is a leak. The five-factor version is what you reach for
+when an ROE is moving and you cannot tell whether it is the operating
+business, the tax code, the cost of debt, the asset base, or the
+buyback that is doing the work. It almost always turns out to be more
+than one.
 </p>
 <p>
-<strong>Misconception 4: "The Altman Z-Score predicts all bankruptcies."</strong>
+For Apple in FY2024 the three-factor reads roughly NPM 24% × Turnover
+1.07 × Equity Multiplier 6.4 → ROE ≈ 165%. That equity multiplier is
+not leverage in the bad sense — it is the consequence of $725B of
+buybacks since 2013 (Week 19). Apple has shrunk the denominator faster
+than the numerator. ROE in that situation is no longer a measure of
+business quality; it is a measure of how aggressively the company has
+returned capital. Use ROIC (Week 21) for the cleaner read.
+</p>
+<h4>2.2 Cash Conversion Cycle and Working Capital Efficiency</h4>
+<p>
+The cash conversion cycle (CCC) is how many days a dollar of input
+spending stays trapped in the business before it comes back as a
+dollar of cash from a customer:
 </p>
 <p>
-The Z-Score is a useful screening tool, not an oracle. It was developed using manufacturing companies from the 1960s. It is less reliable for financial companies, service companies, and companies in industries that did not exist in 1968. It also does not capture qualitative factors like management fraud or sudden regulatory changes. Use it as one input among many, not as a standalone decision tool.
+$$ \text{CCC} \;=\; \text{DSO} + \text{DIO} - \text{DPO} $$
+</p>
+<ul><li><strong>DSO</strong> (days sales outstanding) = Receivables / Revenue × 365.</li>
+<p>
+</ul>  How long customers take to pay you.
+</p>
+<ul><li><strong>DIO</strong> (days inventory outstanding) = Inventory / COGS × 365.</li>
+<p>
+</ul>  How long product sits before being sold.
+</p>
+<ul><li><strong>DPO</strong> (days payables outstanding) = Payables / COGS × 365.</li>
+<p>
+</ul>  How long you take to pay suppliers.
 </p>
 <p>
-<strong>Misconception 5: "Off-balance-sheet items were eliminated by post-2008 accounting reforms."</strong>
+A negative CCC — Apple, Costco, Amazon — means suppliers finance your
+inventory. You are running on float. A positive CCC means <em>you</em> are
+financing the supply chain, which is a working-capital tax that grows
+with revenue. Watch the trend more than the level. Three rising
+quarters of DSO is one of the most reliable advance warnings of a
+revenue-recognition problem.
 </p>
 <p>
-While significant progress has been made -- operating leases are now on-balance-sheet, and consolidation rules for VIEs have been tightened -- many items still remain off-balance-sheet or buried in footnotes. Purchase commitments, guarantee obligations, contingent liabilities, and unconsolidated joint ventures can still represent significant hidden exposures. Always read the footnotes.
+A second working-capital ratio every analyst eventually internalises is
+the <strong>accruals ratio</strong>:
 </p>
 <p>
-<strong>Misconception 6: "IFRS and GAAP are essentially the same now."</strong>
+$$ \text{Accruals ratio} \;=\; \frac{\Delta\text{Working Capital} - \Delta\text{Cash}}
+{\text{Average Total Assets}} $$
 </p>
 <p>
-While convergence efforts have aligned the two standards in some areas (revenue recognition, lease accounting), significant differences remain. LIFO inventory, R&D capitalization, asset revaluation, and impairment reversal create meaningful differences in reported financials. Investors comparing companies across standards without adjustment can reach misleading conclusions.
+This is the Sloan (1996) accruals anomaly in summary form (see Week 20,
+<a href="image/week20_accruals_anomaly.png">image/week20_accruals_anomaly.png</a>).
+High positive values mean the income statement is leading the cash flow
+statement — the firm is booking revenue and profit faster than the cash
+arrives. Sloan's quintile spread averaged ~9% per year, and it has not
+inverted in three decades.
+</p>
+<h4>2.3 The Beneish M-Score — Earnings Manipulation Detector</h4>
+<p>
+Daniel Beneish's 1999 paper combined eight one-year-change ratios into a
+single probit-style score. The mnemonic: DSRI, GMI, AQI, SGI, DEPI,
+SGAI, LVGI, TATA. You will rarely compute it by hand — your data
+provider does it — but the intuition matters:
+</p>
+<table><thead><tr><th>Variable</th><th>What it captures</th></tr></thead><tbody><tr><td><strong>DSRI</strong> Days Sales in Receivables Index</td><td>Receivables growing faster than sales</td></tr><tr><td><strong>GMI</strong> Gross Margin Index</td><td>Margin deterioration year-over-year</td></tr><tr><td><strong>AQI</strong> Asset Quality Index</td><td>Non-current non-PPE assets rising (capitalised costs)</td></tr><tr><td><strong>SGI</strong> Sales Growth Index</td><td>Aggressive growth tempts management</td></tr><tr><td><strong>DEPI</strong> Depreciation Index</td><td>Slowing depreciation (longer useful lives)</td></tr><tr><td><strong>SGAI</strong> SG&A Index</td><td>SG&A rising faster than sales</td></tr><tr><td><strong>LVGI</strong> Leverage Index</td><td>Rising leverage</td></tr><tr><td><strong>TATA</strong> Total Accruals to Total Assets</td><td>The Sloan anomaly piece</td></tr></tbody></table>
+<p>
+The composite is:
 </p>
 <p>
-<strong>Misconception 7: "High accruals are always a sign of manipulation."</strong>
+$$ M \;=\; -4.84 + 0.92 \cdot \text{DSRI} + 0.528 \cdot \text{GMI} + 0.404 \cdot \text{AQI}
++ 0.892 \cdot \text{SGI} + 0.115 \cdot \text{DEPI} - 0.172 \cdot \text{SGAI}
+</p>
+<ul><li>0.327 \cdot \text{LVGI} + 4.679 \cdot \text{TATA} $$</li>
+<p>
+</ul>
+A score above −1.78 is classified as "likely manipulator". Beneish back-
+tested it against 74 known manipulators and flagged ~76% with a 17%
+false-positive rate. It famously fired on Enron in 1997 and 1998, on
+WorldCom in 1999, on Valeant in 2014. It missed Wirecard, because
+Wirecard simply made up the cash balance — there was no earnings
+manipulation footprint, just an outright lie. The lesson: M-score is a
+<em>screening filter</em> (SOUL #5, "look at the right numbers"), not a
+verdict. When it lights up, you read the 10-K. When it doesn't, you
+still read the 10-K, just with less urgency.
+</p>
+<h4>2.4 The Altman Z-Score — Bankruptcy Prediction</h4>
+<p>
+Edward Altman, NYU, 1968. Multiple discriminant analysis on 33 bankrupt
+and 33 non-bankrupt manufacturers. The original public-firm formula:
 </p>
 <p>
-High accruals can also result from legitimate business growth. A rapidly growing company may have increasing receivables and inventory simply because its business is expanding. The key is to assess whether accrual growth is proportionate to business growth. If receivables are growing twice as fast as revenue, that is concerning. If they are growing at the same rate, it is likely normal.
+$$ Z \;=\; 1.2 \, A + 1.4 \, B + 3.3 \, C + 0.6 \, D + 1.0 \, E $$
+</p>
+<table><thead><tr><th>Term</th><th>Definition</th><th>Interpretation</th></tr></thead><tbody><tr><td>A</td><td>Working capital / Total assets</td><td>Short-term liquidity buffer</td></tr><tr><td>B</td><td>Retained earnings / Total assets</td><td>Cumulative profitability</td></tr><tr><td>C</td><td>EBIT / Total assets</td><td>Operating productivity of assets</td></tr><tr><td>D</td><td>Market value of equity / Total liabilities</td><td>Market-tested solvency cushion</td></tr><tr><td>E</td><td>Sales / Total assets</td><td>Asset turnover</td></tr></tbody></table>
+<p>
+The cutoffs:
+</p>
+<ul><li><strong>Z > 2.99</strong> — "safe" zone. Bankruptcy in next 2 years rare.</li>
+<li><strong>1.81 ≤ Z ≤ 2.99</strong> — gray zone. Watch list.</li>
+<li><strong>Z < 1.81</strong> — distress zone. Materially elevated bankruptcy</li>
+<p>
+</ul>  probability.
+</p>
+<p>
+Two warnings. First, Altman calibrated the model on US manufacturers
+with public equity. The variants — Z' for private firms, Z'' for
+non-manufacturers and emerging markets — change the coefficients and
+cutoffs. Use the right one. Second, Z is a noisy point estimate; the
+<em>trend</em> matters more than any single reading. GE's Z drifted from 2.6
+in 2012 down to 1.2 by 2018, three years before the dividend cut and
+the breakup. The trend line was the signal; the absolute level was just
+the noise.
+</p>
+<p>
+The chart <a href="image/week35_zscore_distress.png">image/week35_zscore_distress.png</a>
+shows three trajectories. GE 2010-2024 (the deteriorate-and-recover
+curve), Ford 2018-2024 (perpetually parked in the gray zone, which is
+about right for a cyclical), and Apple 2020-2024 (deeply safe, the
+shape of a brand business with a clean balance sheet). Same model,
+same cutoffs, completely different stories.
+</p>
+<h4>2.5 Putting It Together — The Two-Page Health Check</h4>
+<p>
+In practice, here is what a compact diligence sheet looks like for a
+new name:
+</p>
+<li><strong>DuPont 3-factor and 5-factor for the trailing 5 years.</strong> Are any</li>
+<p>
+of the legs trending in a direction the management story does not
+explain?
+</p>
+<li><strong>CCC for the trailing 8 quarters.</strong> Direction matters more than</li>
+<p>
+level. Compare to two named competitors.
+</p>
+<li><strong>Accruals ratio for the trailing 5 years.</strong> Persistent positive</li>
+<p>
+reading is a yellow flag.
+</p>
+<li><strong>Beneish M-score, latest fiscal year.</strong> Above −1.78 is a yellow</li>
+<p>
+flag. Above −1.0 is a red flag.
+</p>
+<li><strong>Altman Z-score, latest 5 years.</strong> Below 1.81 in two consecutive</li>
+<p>
+years is a position-size question. Trending down through the gray
+zone is a research question.
+</p>
+<p>
+None of this is alpha generation in the SOUL #5 sense. It is the
+opposite: it is the <em>negative-alpha filter</em>. Most amateur portfolios
+underperform not because they failed to find the next Apple but because
+they held a Bear Stearns or a Valeant or a GE in the 2017 stretch when
+a five-minute screen would have asked them to think twice. The
+<a href="interactive/week35_fsa_lab.html">interactive lab</a> at the end of this
+lesson lets you pick a preset firm or punch in your own numbers and
+watch the Z-score band classification flip in real time.
 </p>
 <hr>
-<h3>d) Common Questions and Answers</h3>
+<h3>3. Common Misconceptions</h3>
+<li><strong>"High ROE is always good."</strong> A high ROE built entirely on a rising</li>
 <p>
-<strong>Q1: How do I calculate the Beneish M-Score for a company I am interested in?</strong>
+equity multiplier is leverage in disguise. Decompose it before you
+admire it.
+</p>
+<li><strong>"DuPont is just bookkeeping arithmetic."</strong> It is identity</li>
+<p>
+arithmetic, but the <em>change</em> in each factor is information. A
+margin compressing while turnover and leverage hold steady tells you
+exactly which line of the income statement to investigate.
+</p>
+<li><strong>"A negative cash conversion cycle is a goal."</strong> It is a</li>
+<p>
+<em>consequence</em> of supplier power and customer payment terms. You
+cannot will it into existence; chasing it through aggressive payable-
+stretching can break supplier relationships and collapses in
+recessions.
+</p>
+<li><strong>"The Beneish M-score is a fraud detector."</strong> It detects the</li>
+<p>
+<em>footprint</em> of accounting manipulation — receivables and accruals
+and margin changes. Frauds that bypass the books entirely (fake
+cash balance, fake invoices, related-party transactions) leave no
+M-score footprint.
+</p>
+<li><strong>"Altman Z below 1.81 means bankruptcy."</strong> It means *elevated</li>
+<p>
+probability* of bankruptcy in the next two years, not certainty.
+Plenty of firms live in the distress zone for years and emerge.
+Plenty of firms in the gray zone go to zero. Use it as a sizing and
+research signal, not an exit signal in isolation.
+</p>
+<li><strong>"These models work the same for banks and insurers."</strong> They do</li>
+<p>
+not. Banks have a balance sheet that is mostly financial assets;
+asset turnover is meaningless and Z-score variants are required.
+Use ROTCE and tangible book trends instead.
+</p>
+<li><strong>"You need a Bloomberg terminal to do this."</strong> You need an SEC</li>
+<p>
+EDGAR account, which is free, and a calculator. Every ratio in this
+lesson can be computed from a 10-K in under thirty minutes.
+</p>
+<li>**"If the M-score and Z-score both look fine, the company is</li>
+<p>
+safe."** They are necessary, not sufficient. Wirecard was fine on
+both. So was Bernie Madoff's "fund". The models score *what is in
+the books*. They do not audit whether the books are real.
+</p>
+<hr>
+<h3>4. Q&A Section</h3>
+<p>
+<strong>Q: Should I use three-factor DuPont or five-factor?</strong>
+A: Start with three-factor for screening across many names. Move to
+five-factor when one of the three is moving and you need to know which
+of tax, interest, or operating margin is doing the work. Five-factor
+is also essential for cross-country comparisons because tax burdens
+diverge sharply across jurisdictions.
 </p>
 <p>
-A: You need two years of financial data (current year and prior year) to calculate the eight input variables. Pull the data from 10-K filings or financial databases. Calculate each ratio (DSRI, GMI, AQI, SGI, DEPI, SGAI, TATA, LVGI), then plug them into the M-Score formula. Several free online calculators and spreadsheet templates are available. If the resulting M-Score is greater than -1.78, the company has a higher-than-normal probability of earnings manipulation.
+<strong>Q: How often should I recompute these ratios?</strong>
+A: Each fiscal quarter when the 10-Q drops, plus a clean run through
+the 10-K every January. Working capital ratios in particular are
+volatile quarter-to-quarter; trend over 4-8 quarters matters far more
+than a single point.
 </p>
 <p>
-<strong>Q2: What should I do if a company has a high Beneish M-Score?</strong>
+<strong>Q: What is the typical M-score for a clean blue-chip?</strong>
+A: For mature, slow-growing US large-caps the M-score sits around −2.5
+to −3.0. Apple, Microsoft, Coca-Cola, JPMorgan all run comfortably
+below the −1.78 threshold. Aggressive-growth names routinely score
+between −2.0 and −1.5 simply because the SGI (sales growth index) is
+elevated; that is a feature of the model, not necessarily a manipulation
+signal.
 </p>
 <p>
-A: A high M-Score does not prove manipulation -- it indicates elevated risk. Investigate further by examining which specific variables are driving the high score. If DSRI is high, dig into accounts receivable policies. If TATA is high, compare earnings to cash flow. If AQI is high, investigate capitalized costs. You may discover legitimate explanations or confirm your concerns. Either way, you are making a more informed decision.
+<strong>Q: Which of the four models is most useful?</strong>
+A: Honestly, the cash conversion cycle. It is the most robust to
+reporting style, easiest to compute, hardest to fake without leaving a
+trail elsewhere, and most directly tied to the operating reality. The
+M-score and Z-score are scoring composites; CCC is a measurement of an
+actual physical fact about the business.
 </p>
 <p>
-<strong>Q3: How much goodwill is "too much"?</strong>
+<strong>Q: Can I use the Z-score for an ETF or a fund?</strong>
+A: No. Z-score requires a single corporate balance sheet. For a fund
+or ETF you would aggregate the holdings — Bloomberg and similar tools
+report a weighted-average Z-score for index ETFs, but the
+interpretation is loose. The model was designed for single-firm
+distress prediction, not portfolio risk.
 </p>
 <p>
-A: There is no absolute threshold, but goodwill exceeding 50% of total assets or exceeding total shareholders' equity should trigger deeper investigation. Compare to industry peers. Evaluate whether the acquired businesses are performing as expected. If the company is a serial acquirer with growing goodwill and limited organic growth, be especially cautious. The risk is that a single large impairment could wipe out a significant portion of book value.
+<strong>Q: What is the right benchmark for DSO and DIO?</strong>
+A: The named competitor in the 10-K's own competitive section, plus
+the industry median. Direction matters more than level. A retailer
+with DIO of 90 and a competitor at 60 should worry; a retailer whose
+own DIO went from 60 to 90 over four quarters should worry more.
 </p>
 <p>
-<strong>Q4: How do I adjust for off-balance-sheet items in my analysis?</strong>
+<strong>Q: Why does AAPL's equity multiplier look so extreme?</strong>
+A: Buybacks. Apple has retired roughly $725B of equity since 2013
+(see Week 19 chart). The denominator of ROE has shrunk faster than
+the numerator. The "ROE" reading north of 150% is real arithmetic but
+not a meaningful measure of business quality at this point. Use ROIC
+or return on tangible assets instead.
 </p>
 <p>
-A: For each off-balance-sheet item, estimate its present value and add it to both assets and liabilities. For example, if footnotes disclose $2 billion in unconsolidated joint venture debt at 50% ownership, add $1 billion (your proportional share) to both assets and debt. For purchase commitments, estimate the present value of future payments. Then recalculate leverage ratios and coverage ratios with these adjusted figures.
+**Q: Does the M-score still work after 25 years of academic
+publication?**
+A: Less well than at publication, but it has not collapsed. The
+mechanical relationships it captures — receivables growing faster than
+sales, gross margin deteriorating, accruals running positive — remain
+the actual physical signatures of earnings management. Public
+disclosure of the formula has <em>raised the cost</em> of crude manipulation,
+which is itself a form of efficacy.
 </p>
 <p>
-<strong>Q5: Is it worth calculating these scores for every stock I consider buying?</strong>
+<strong>Q: How does this fit into Horace's four-tranche framework?</strong>
+A: Mostly Tranche 2 (factor / quality sleeve) and Tranche 3 (active /
+single-name alpha). Tranche 1 (passive index) does not need any of
+this; you bought the basket. Tranche 4 (cash and dry powder) does not
+need any of this either. The middle two tranches are where SOUL #5's
+"look at cash, look at quality" alpha sources live, and these are the
+ratios that operationalise that look.
 </p>
 <p>
-A: For individual stock picks, absolutely. The Beneish M-Score takes about 30 minutes to calculate manually (faster with a spreadsheet template) and can save you from catastrophic losses. The Altman Z-Score is even quicker. Think of them as inexpensive insurance -- a small time investment that can prevent large financial losses. For a diversified index fund or ETF, these tools are less necessary because the diversification inherently reduces the impact of any single company's manipulation or bankruptcy.
+<strong>Q: I have a stock with a low Z-score. Should I sell?</strong>
+A: Not on the basis of the score alone. First check the trend (is it
+deteriorating, stabilising, or recovering?). Second check whether the
+company is being correctly classified — banks, REITs, insurance, and
+asset-light tech do not behave like 1968 manufacturers. Third look at
+the bond market: if credit spreads on the company's debt are not
+widening, the bond market does not believe the equity model. The
+combination of a deteriorating Z trend and widening credit spreads is
+the actionable signal, not either alone.
 </p>
 <p>
-<strong>Q6: How do I detect revenue recognition manipulation?</strong>
-</p>
-<p>
-A: Look for these signals: (1) Receivables growing faster than revenue (DSRI > 1.0), which suggests the company is booking revenue before cash is collected. (2) Revenue spikes at quarter-end or year-end (channel stuffing). (3) Unusual related-party revenue. (4) Changes in revenue recognition policy disclosed in footnotes. (5) Deferred revenue declining while reported revenue grows (may suggest pulling forward future revenue). (6) Revenue growth significantly outpacing industry growth with no clear competitive explanation.
-</p>
-<p>
-<strong>Q7: What is the difference between earnings quality and earnings growth?</strong>
-</p>
-<p>
-A: Earnings growth tells you how fast earnings are increasing. Earnings quality tells you whether those earnings are real, sustainable, and cash-backed. A company can have high earnings growth but low quality -- for example, through aggressive accounting, one-time gains, or unsustainable cost cutting. Conversely, a company can have moderate growth but very high quality -- recurring revenue, strong cash conversion, conservative accounting. Over time, high-quality earnings tend to persist, while low-quality earnings tend to reverse.
-</p>
-<p>
-<strong>Q8: Why do companies engage in earnings management if analysts can detect it?</strong>
-</p>
-<p>
-A: Several reasons. First, most earnings management is legal "gray area" activity -- stretching the rules without technically breaking them. Second, analysts often focus on whether a company beats consensus estimates by a penny or two, creating intense pressure to manage earnings to hit targets. Third, executive compensation is often tied to earnings-based targets, creating personal financial incentives. Fourth, many investors and analysts focus on non-GAAP metrics that exclude the very items that would reveal the manipulation.
-</p>
-<p>
-<strong>Q9: How should I use the Altman Z-Score for bond investing?</strong>
-</p>
-<p>
-A: The Z-Score is particularly valuable for credit analysis. Before buying a corporate bond, calculate the issuer's Z-Score. If it is in the distress zone (below 1.81), the bond may offer a high yield, but the bankruptcy risk is real. Compare the yield spread to the bankruptcy probability implied by the Z-Score. Track the Z-Score over time -- a declining Z-Score is a warning sign even if it is still in the safe zone. For high-yield bonds, the Z-Score provides a useful quantitative supplement to the qualitative 4 Cs analysis from Week 33.
-</p>
-<p>
-<strong>Q10: What are the biggest "red flag" patterns across all these tools?</strong>
-</p>
-<p>
-A: The biggest red flag is when multiple indicators point in the same direction simultaneously. A company with a high Beneish M-Score, declining Z-Score, cash flow lagging reported earnings, growing goodwill, significant off-balance-sheet items, and aggressive non-GAAP adjustments is waving every possible warning flag. Individually, each factor has innocent explanations. Together, they paint a picture of a company where the financial statements cannot be trusted at face value.
+<strong>Q: Can these ratios be gamed by management?</strong>
+A: Yes, all of them, partially. Working capital can be window-dressed
+at quarter-end (factoring receivables, paying suppliers slowly).
+Margins can be smoothed by changing inventory accounting. Even
+bankruptcy probability can be lowered for a quarter by a debt-for-
+equity swap that drives up book equity. The defence is the trend, not
+the point. A company that consistently games one ratio will eventually
+break another.
 </p>
             </div>
             <div id="content-hk" class="lang-content">

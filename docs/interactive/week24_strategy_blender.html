@@ -1,0 +1,613 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Strategy Blender — Interactive (Week 24)</title>
+<script src="https://cdn.plot.ly/plotly-2.35.2.min.js" charset="utf-8"></script>
+<style>
+html, body { margin: 0; padding: 0; background: var(--sb-bg); }
+:root {
+    --sb-bg: #fdfbf5;
+    --sb-text: #1a2332;
+    --sb-muted: #6b7280;
+    --sb-border: #d6d3c4;
+    --sb-card: #fdfbf5;
+    --sb-beta: #0d47a1;
+    --sb-factor: #b8860b;
+    --sb-alpha: #2e7d32;
+    --sb-cash: #5a5a5a;
+    --sb-fees: #b71c1c;
+}
+html[data-theme="dark"] .sb-root,
+.sb-root[data-theme="dark"] {
+    --sb-bg: #0f1724;
+    --sb-text: #e6e6e6;
+    --sb-muted: #9aa3b2;
+    --sb-border: #2a3441;
+    --sb-card: #0f1724;
+    --sb-beta: #5a8dee;
+    --sb-factor: #d4a017;
+    --sb-alpha: #66bb6a;
+    --sb-cash: #9aa3b2;
+    --sb-fees: #ef5350;
+}
+.sb-root {
+    font-family: 'Segoe UI', Helvetica, Arial, sans-serif;
+    background: var(--sb-bg);
+    color: var(--sb-text);
+    padding: 12px;
+    margin: 0;
+}
+.sb-presets {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 12px;
+}
+.sb-preset-pill {
+    background: var(--sb-card);
+    border: 1px solid var(--sb-border);
+    color: var(--sb-text);
+    border-radius: 999px;
+    padding: 6px 14px;
+    font-size: 0.82rem;
+    cursor: pointer;
+    user-select: none;
+    transition: all 0.12s;
+}
+.sb-preset-pill:hover { border-color: var(--sb-beta); }
+.sb-preset-pill.sb-active {
+    background: var(--sb-beta);
+    color: white;
+    border-color: var(--sb-beta);
+}
+.sb-controls {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+    margin-bottom: 14px;
+    padding: 12px;
+    background: var(--sb-card);
+    border: 1px solid var(--sb-border);
+    border-radius: 8px;
+}
+.sb-slider-wrap {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    font-size: 0.82rem;
+    color: var(--sb-muted);
+}
+.sb-slider-wrap .sb-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.sb-slider-wrap input[type="range"] { flex: 1; }
+.sb-slider-wrap .sb-val {
+    white-space: nowrap;
+    color: var(--sb-text);
+    font-weight: 700;
+    font-variant-numeric: tabular-nums;
+    min-width: 48px;
+    text-align: right;
+}
+.sb-slider-wrap .sb-name { font-weight: 600; color: var(--sb-text); }
+.sb-slider-wrap.sb-beta   input[type="range"] { accent-color: var(--sb-beta); }
+.sb-slider-wrap.sb-factor input[type="range"] { accent-color: var(--sb-factor); }
+.sb-slider-wrap.sb-alpha  input[type="range"] { accent-color: var(--sb-alpha); }
+.sb-slider-wrap.sb-cash   input[type="range"] { accent-color: var(--sb-cash); }
+
+.sb-sumline {
+    grid-column: 1 / -1;
+    font-size: 0.8rem;
+    color: var(--sb-muted);
+    text-align: right;
+    margin-top: -4px;
+}
+.sb-sumline.sb-bad { color: var(--sb-fees); font-weight: 700; }
+
+.sb-chart {
+    width: 100%;
+    height: 300px;
+    background: var(--sb-card);
+    border-radius: 8px;
+    border: 1px solid var(--sb-border);
+}
+.sb-stats {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 10px;
+    margin-top: 14px;
+}
+.sb-stat {
+    background: var(--sb-card);
+    border: 1px solid var(--sb-border);
+    border-left: 4px solid var(--sb-muted);
+    border-radius: 8px;
+    padding: 10px 12px;
+}
+.sb-stat.sb-stat-ret  { border-left-color: var(--sb-beta); }
+.sb-stat.sb-stat-vol  { border-left-color: var(--sb-factor); }
+.sb-stat.sb-stat-shp  { border-left-color: var(--sb-alpha); }
+.sb-stat.sb-stat-fee  { border-left-color: var(--sb-fees); }
+.sb-stat .sb-stat-name {
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--sb-muted);
+}
+.sb-stat .sb-stat-val {
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin-top: 4px;
+    font-variant-numeric: tabular-nums;
+}
+.sb-stat .sb-stat-detail {
+    font-size: 0.78rem;
+    color: var(--sb-muted);
+    margin-top: 2px;
+    font-variant-numeric: tabular-nums;
+}
+.sb-caption {
+    margin-top: 10px;
+    font-size: 0.78rem;
+    color: var(--sb-muted);
+    line-height: 1.45;
+}
+@media (max-width: 720px) {
+    .sb-controls { grid-template-columns: 1fr; }
+    .sb-stats { grid-template-columns: repeat(2, 1fr); }
+    .sb-chart { height: 260px; }
+}
+</style>
+</head>
+<body>
+
+<div class="sb-root" id="sb-root">
+    <div class="sb-presets" id="sb-presets"></div>
+
+    <div class="sb-controls">
+        <div class="sb-slider-wrap sb-beta">
+            <div class="sb-name" id="sb-name-beta">Beta sleeve %</div>
+            <div class="sb-row">
+                <input type="range" id="sb-w-beta" min="0" max="100" step="1" value="80">
+                <span class="sb-val" id="sb-val-beta">80%</span>
+            </div>
+        </div>
+        <div class="sb-slider-wrap sb-factor">
+            <div class="sb-name" id="sb-name-factor">Factor sleeve %</div>
+            <div class="sb-row">
+                <input type="range" id="sb-w-factor" min="0" max="100" step="1" value="10">
+                <span class="sb-val" id="sb-val-factor">10%</span>
+            </div>
+        </div>
+        <div class="sb-slider-wrap sb-alpha">
+            <div class="sb-name" id="sb-name-alpha">Alpha sleeve %</div>
+            <div class="sb-row">
+                <input type="range" id="sb-w-alpha" min="0" max="100" step="1" value="5">
+                <span class="sb-val" id="sb-val-alpha">5%</span>
+            </div>
+        </div>
+        <div class="sb-slider-wrap sb-cash">
+            <div class="sb-name" id="sb-name-cash">Cash sleeve %</div>
+            <div class="sb-row">
+                <input type="range" id="sb-w-cash" min="0" max="100" step="1" value="5">
+                <span class="sb-val" id="sb-val-cash">5%</span>
+            </div>
+        </div>
+        <div class="sb-sumline" id="sb-sumline">Total: 100%</div>
+    </div>
+
+    <div id="sb-chart" class="sb-chart"></div>
+
+    <div class="sb-stats">
+        <div class="sb-stat sb-stat-ret">
+            <div class="sb-stat-name" id="sb-name-ret">Expected return (net)</div>
+            <div class="sb-stat-val" id="sb-val-ret">—</div>
+            <div class="sb-stat-detail" id="sb-det-ret">—</div>
+        </div>
+        <div class="sb-stat sb-stat-vol">
+            <div class="sb-stat-name" id="sb-name-vol">Expected vol</div>
+            <div class="sb-stat-val" id="sb-val-vol">—</div>
+            <div class="sb-stat-detail" id="sb-det-vol">—</div>
+        </div>
+        <div class="sb-stat sb-stat-shp">
+            <div class="sb-stat-name" id="sb-name-shp">Sharpe (excess of cash)</div>
+            <div class="sb-stat-val" id="sb-val-shp">—</div>
+            <div class="sb-stat-detail" id="sb-det-shp">—</div>
+        </div>
+        <div class="sb-stat sb-stat-fee">
+            <div class="sb-stat-name" id="sb-name-fee">Fee drag (annual)</div>
+            <div class="sb-stat-val" id="sb-val-fee">—</div>
+            <div class="sb-stat-detail" id="sb-det-fee">—</div>
+        </div>
+    </div>
+
+    <p class="sb-caption" id="sb-caption">
+        Inputs: beta 7% / 16%, factor 9% / 5% above beta, alpha 4% / 3% market-neutral, cash 4% / 0%. Correlations: beta-factor 0.95, beta-alpha 0.05, factor-alpha 0.10, all-cash 0. Fees: beta 4 bps / factor 20 bps / alpha 150 bps / cash 10 bps.
+    </p>
+</div>
+
+<script>
+(function () {
+    const I18N = {
+        en: {
+            name_beta:    "Beta sleeve %",
+            name_factor:  "Factor sleeve %",
+            name_alpha:   "Alpha sleeve %",
+            name_cash:    "Cash sleeve %",
+            name_ret:     "Expected return (net)",
+            name_vol:     "Expected vol",
+            name_shp:     "Sharpe (excess of cash)",
+            name_fee:     "Fee drag (annual)",
+            sum_ok:       "Total: {t}%",
+            sum_bad:      "Total: {t}%  (must equal 100)",
+            det_ret:      "gross {g}, net of {f} fees",
+            det_vol:      "vs all-VTI {b}",
+            det_shp:      "(ret - cash) / vol",
+            det_fee:      "weighted by sleeve",
+            chart_title:  "Sleeve contribution to expected return (%)",
+            x_title:      "Annual return contribution (%)",
+            y_label:      "Portfolio",
+            tr_beta:      "Beta",
+            tr_factor:    "Factor",
+            tr_alpha:     "Alpha",
+            tr_cash:      "Cash",
+            tr_fees:      "Fees",
+            tr_net:       "Net",
+            preset_label: "Presets:",
+            preset_cons:  "Conservative 90/0/0/10",
+            preset_mod:   "Moderate 80/10/5/5",
+            preset_aggr:  "Aggressive 65/15/15/5",
+            preset_inst:  "Institutional 70/15/13/2",
+            preset_fire:  "FIRE 70/5/10/15",
+            preset_pure:  "Pure VTI 100/0/0/0",
+            caption:      "Inputs: beta 7% / 16%, factor 9% / 5% above beta, alpha 4% / 3% market-neutral, cash 4% / 0%. Correlations: beta-factor 0.95, beta-alpha 0.05, factor-alpha 0.10, all-cash 0. Fees: beta 4 bps / factor 20 bps / alpha 150 bps / cash 10 bps.",
+        },
+        hk: {
+            name_beta:    "Beta 板塊 %",
+            name_factor:  "因子板塊 %",
+            name_alpha:   "Alpha 板塊 %",
+            name_cash:    "現金板塊 %",
+            name_ret:     "預期回報(淨)",
+            name_vol:     "預期波動",
+            name_shp:     "夏普(扣除現金)",
+            name_fee:     "費用拖累(年)",
+            sum_ok:       "合計:{t}%",
+            sum_bad:      "合計:{t}%(必須為 100)",
+            det_ret:      "毛 {g},扣費 {f}",
+            det_vol:      "對比 100% VTI 為 {b}",
+            det_shp:      "(回報 - 現金) / 波動",
+            det_fee:      "依板塊權重",
+            chart_title:  "板塊對預期回報的貢獻 (%)",
+            x_title:      "年化回報貢獻 (%)",
+            y_label:      "組合",
+            tr_beta:      "Beta",
+            tr_factor:    "因子",
+            tr_alpha:     "Alpha",
+            tr_cash:      "現金",
+            tr_fees:      "費用",
+            tr_net:       "淨",
+            preset_label: "預設:",
+            preset_cons:  "保守 90/0/0/10",
+            preset_mod:   "中庸 80/10/5/5",
+            preset_aggr:  "進取 65/15/15/5",
+            preset_inst:  "機構 70/15/13/2",
+            preset_fire:  "FIRE 70/5/10/15",
+            preset_pure:  "100% VTI 100/0/0/0",
+            caption:      "假設:beta 7% / 16%、因子 9% / 高於 beta 5%、alpha 4% / 3% 市場中性、現金 4% / 0%。相關性:beta-因子 0.95、beta-alpha 0.05、因子-alpha 0.10、現金與其他 0。費用:beta 4 bps / 因子 20 bps / alpha 150 bps / 現金 10 bps。",
+        },
+        tw: {
+            name_beta:    "Beta 板塊 %",
+            name_factor:  "因子板塊 %",
+            name_alpha:   "Alpha 板塊 %",
+            name_cash:    "現金板塊 %",
+            name_ret:     "預期報酬(淨)",
+            name_vol:     "預期波動",
+            name_shp:     "夏普(扣除現金)",
+            name_fee:     "費用拖累(年)",
+            sum_ok:       "合計:{t}%",
+            sum_bad:      "合計:{t}%(必須為 100)",
+            det_ret:      "毛 {g},扣費 {f}",
+            det_vol:      "對比 100% VTI 為 {b}",
+            det_shp:      "(報酬 - 現金) / 波動",
+            det_fee:      "依板塊權重",
+            chart_title:  "板塊對預期報酬的貢獻 (%)",
+            x_title:      "年化報酬貢獻 (%)",
+            y_label:      "組合",
+            tr_beta:      "Beta",
+            tr_factor:    "因子",
+            tr_alpha:     "Alpha",
+            tr_cash:      "現金",
+            tr_fees:      "費用",
+            tr_net:       "淨",
+            preset_label: "預設:",
+            preset_cons:  "保守 90/0/0/10",
+            preset_mod:   "中庸 80/10/5/5",
+            preset_aggr:  "積極 65/15/15/5",
+            preset_inst:  "機構 70/15/13/2",
+            preset_fire:  "FIRE 70/5/10/15",
+            preset_pure:  "100% VTI 100/0/0/0",
+            caption:      "假設:beta 7% / 16%、因子 9% / 高於 beta 5%、alpha 4% / 3% 市場中性、現金 4% / 0%。相關性:beta-因子 0.95、beta-alpha 0.05、因子-alpha 0.10、現金與其他 0。費用:beta 4 bps / 因子 20 bps / alpha 150 bps / 現金 10 bps。",
+        },
+        cn: {
+            name_beta:    "Beta 板块 %",
+            name_factor:  "因子板块 %",
+            name_alpha:   "Alpha 板块 %",
+            name_cash:    "现金板块 %",
+            name_ret:     "预期回报(净)",
+            name_vol:     "预期波动",
+            name_shp:     "夏普(扣除现金)",
+            name_fee:     "费用拖累(年)",
+            sum_ok:       "合计:{t}%",
+            sum_bad:      "合计:{t}%(必须为 100)",
+            det_ret:      "毛 {g},扣费 {f}",
+            det_vol:      "对比 100% VTI 为 {b}",
+            det_shp:      "(回报 - 现金) / 波动",
+            det_fee:      "按板块权重",
+            chart_title:  "板块对预期回报的贡献 (%)",
+            x_title:      "年化回报贡献 (%)",
+            y_label:      "组合",
+            tr_beta:      "Beta",
+            tr_factor:    "因子",
+            tr_alpha:     "Alpha",
+            tr_cash:      "现金",
+            tr_fees:      "费用",
+            tr_net:       "净",
+            preset_label: "预设:",
+            preset_cons:  "保守 90/0/0/10",
+            preset_mod:   "中庸 80/10/5/5",
+            preset_aggr:  "进取 65/15/15/5",
+            preset_inst:  "机构 70/15/13/2",
+            preset_fire:  "FIRE 70/5/10/15",
+            preset_pure:  "100% VTI 100/0/0/0",
+            caption:      "假设:beta 7% / 16%、因子 9% / 高于 beta 5%、alpha 4% / 3% 市场中性、现金 4% / 0%。相关性:beta-因子 0.95、beta-alpha 0.05、因子-alpha 0.10、现金与其他 0。费用:beta 4 bps / 因子 20 bps / alpha 150 bps / 现金 10 bps。",
+        },
+    };
+    function currentLang() {
+        const p = new URLSearchParams(window.location.search);
+        const l = (p.get("lang") || "en").toLowerCase();
+        return I18N.hasOwnProperty(l) ? l : "en";
+    }
+    const T = I18N[currentLang()];
+
+    // Inputs
+    const R_BETA = 0.07, R_FACTOR = 0.09, R_ALPHA = 0.04, R_CASH = 0.04;
+    const V_BETA = 0.16, V_FACTOR = 0.16, V_ALPHA = 0.03, V_CASH = 0.0;
+    // Note: factor sleeve total vol ~16% (it's still equity), with 0.95 corr to beta;
+    // the "5% factor vol" in the prompt refers to the residual factor-premium vol,
+    // we use total-vol modelling here for portfolio math.
+    const F_BETA = 0.0004, F_FACTOR = 0.0020, F_ALPHA = 0.0150, F_CASH = 0.0010;
+
+    // Correlation matrix order: beta, factor, alpha, cash
+    const CORR = [
+        [1.00, 0.95, 0.05, 0.00],
+        [0.95, 1.00, 0.10, 0.00],
+        [0.05, 0.10, 1.00, 0.00],
+        [0.00, 0.00, 0.00, 1.00],
+    ];
+
+    const PRESETS = [
+        { key: "cons", w: [90, 0, 0, 10] },
+        { key: "mod",  w: [80, 10, 5, 5] },
+        { key: "aggr", w: [65, 15, 15, 5] },
+        { key: "inst", w: [70, 15, 13, 2] },
+        { key: "fire", w: [70, 5, 10, 15] },
+        { key: "pure", w: [100, 0, 0, 0] },
+    ];
+
+    const ROOT = document.getElementById("sb-root");
+    const CHART = document.getElementById("sb-chart");
+    const W_BETA   = document.getElementById("sb-w-beta");
+    const W_FACTOR = document.getElementById("sb-w-factor");
+    const W_ALPHA  = document.getElementById("sb-w-alpha");
+    const W_CASH   = document.getElementById("sb-w-cash");
+    const VAL_BETA   = document.getElementById("sb-val-beta");
+    const VAL_FACTOR = document.getElementById("sb-val-factor");
+    const VAL_ALPHA  = document.getElementById("sb-val-alpha");
+    const VAL_CASH   = document.getElementById("sb-val-cash");
+    const SUMLINE    = document.getElementById("sb-sumline");
+    const PRESETBAR  = document.getElementById("sb-presets");
+
+    function getCssVar(name) {
+        return getComputedStyle(ROOT).getPropertyValue(name).trim();
+    }
+    function darkMode() {
+        return document.documentElement.getAttribute("data-theme") === "dark";
+    }
+    function pct(v, digits) {
+        if (!isFinite(v)) return "—";
+        const sign = v >= 0 ? "+" : "";
+        return sign + (v * 100).toFixed(digits == null ? 2 : digits) + "%";
+    }
+
+    // Build preset pills
+    PRESETS.forEach((p) => {
+        const pill = document.createElement("button");
+        pill.className = "sb-preset-pill";
+        pill.dataset.key = p.key;
+        pill.textContent = T["preset_" + p.key];
+        pill.addEventListener("click", () => {
+            W_BETA.value   = p.w[0];
+            W_FACTOR.value = p.w[1];
+            W_ALPHA.value  = p.w[2];
+            W_CASH.value   = p.w[3];
+            render();
+        });
+        PRESETBAR.appendChild(pill);
+    });
+
+    function render() {
+        const wb = parseFloat(W_BETA.value);
+        const wf = parseFloat(W_FACTOR.value);
+        const wa = parseFloat(W_ALPHA.value);
+        const wc = parseFloat(W_CASH.value);
+        const tot = wb + wf + wa + wc;
+
+        VAL_BETA.textContent   = wb.toFixed(0) + "%";
+        VAL_FACTOR.textContent = wf.toFixed(0) + "%";
+        VAL_ALPHA.textContent  = wa.toFixed(0) + "%";
+        VAL_CASH.textContent   = wc.toFixed(0) + "%";
+
+        const sumOk = Math.abs(tot - 100) < 0.5;
+        SUMLINE.textContent = (sumOk ? T.sum_ok : T.sum_bad).replace("{t}", tot.toFixed(0));
+        SUMLINE.classList.toggle("sb-bad", !sumOk);
+
+        // Highlight matching preset
+        Array.from(PRESETBAR.children).forEach((el) => {
+            const p = PRESETS.find(x => x.key === el.dataset.key);
+            const match = p && p.w[0] === wb && p.w[1] === wf && p.w[2] === wa && p.w[3] === wc;
+            el.classList.toggle("sb-active", match);
+        });
+
+        // Decimal weights
+        const w = [wb, wf, wa, wc].map(x => x / 100);
+        const r = [R_BETA, R_FACTOR, R_ALPHA, R_CASH];
+        const v = [V_BETA, V_FACTOR, V_ALPHA, V_CASH];
+        const f = [F_BETA, F_FACTOR, F_ALPHA, F_CASH];
+
+        // Gross return
+        let gross = 0;
+        for (let i = 0; i < 4; i++) gross += w[i] * r[i];
+        // Fee drag (weighted)
+        let fee = 0;
+        for (let i = 0; i < 4; i++) fee += w[i] * f[i];
+        const net = gross - fee;
+
+        // Variance via correlation matrix
+        let varSum = 0;
+        for (let i = 0; i < 4; i++) {
+            for (let j = 0; j < 4; j++) {
+                varSum += w[i] * w[j] * v[i] * v[j] * CORR[i][j];
+            }
+        }
+        const vol = Math.sqrt(Math.max(varSum, 0));
+        const sharpe = vol > 1e-9 ? (net - R_CASH) / vol : 0;
+
+        // Stat panel
+        document.getElementById("sb-val-ret").textContent = pct(net);
+        document.getElementById("sb-det-ret").textContent =
+            T.det_ret.replace("{g}", pct(gross)).replace("{f}", pct(fee, 2));
+
+        document.getElementById("sb-val-vol").textContent = pct(vol);
+        document.getElementById("sb-det-vol").textContent =
+            T.det_vol.replace("{b}", pct(V_BETA));
+
+        document.getElementById("sb-val-shp").textContent = sharpe.toFixed(2);
+        document.getElementById("sb-det-shp").textContent = T.det_shp;
+
+        document.getElementById("sb-val-fee").textContent = pct(fee, 2);
+        document.getElementById("sb-det-fee").textContent = T.det_fee;
+
+        // Chart: a single horizontal stacked bar of contributions
+        const cBeta   = w[0] * r[0] * 100;
+        const cFactor = w[1] * r[1] * 100;
+        const cAlpha  = w[2] * r[2] * 100;
+        const cCash   = w[3] * r[3] * 100;
+        const cFees   = -fee * 100;
+
+        const colorBg = getCssVar("--sb-card");
+        const colorText = getCssVar("--sb-text");
+        const colorMuted = getCssVar("--sb-muted");
+        const colorGrid = darkMode() ? "rgba(255,255,255,0.08)" : "rgba(0,0,0,0.07)";
+
+        const traces = [
+            { name: T.tr_beta,   x: [cBeta],   y: [T.y_label], type: "bar", orientation: "h", marker: { color: getCssVar("--sb-beta") },   text: [cBeta.toFixed(2)],   textposition: "inside", insidetextanchor: "middle", hovertemplate: T.tr_beta + ": %{x:.2f}%<extra></extra>" },
+            { name: T.tr_factor, x: [cFactor], y: [T.y_label], type: "bar", orientation: "h", marker: { color: getCssVar("--sb-factor") }, text: [cFactor.toFixed(2)], textposition: "inside", insidetextanchor: "middle", hovertemplate: T.tr_factor + ": %{x:.2f}%<extra></extra>" },
+            { name: T.tr_alpha,  x: [cAlpha],  y: [T.y_label], type: "bar", orientation: "h", marker: { color: getCssVar("--sb-alpha") },  text: [cAlpha.toFixed(2)],  textposition: "inside", insidetextanchor: "middle", hovertemplate: T.tr_alpha + ": %{x:.2f}%<extra></extra>" },
+            { name: T.tr_cash,   x: [cCash],   y: [T.y_label], type: "bar", orientation: "h", marker: { color: getCssVar("--sb-cash") },   text: [cCash.toFixed(2)],   textposition: "inside", insidetextanchor: "middle", hovertemplate: T.tr_cash + ": %{x:.2f}%<extra></extra>" },
+            { name: T.tr_fees,   x: [cFees],   y: [T.y_label], type: "bar", orientation: "h", marker: { color: getCssVar("--sb-fees") },   text: [cFees.toFixed(2)],   textposition: "inside", insidetextanchor: "middle", hovertemplate: T.tr_fees + ": %{x:.2f}%<extra></extra>" },
+        ];
+
+        const netLine = {
+            x: [net * 100, net * 100],
+            y: [-0.5, 0.5],
+            type: "scatter", mode: "lines",
+            name: T.tr_net,
+            line: { color: colorText, width: 3 },
+            hovertemplate: T.tr_net + ": %{x:.2f}%<extra></extra>",
+            showlegend: true,
+        };
+        traces.push(netLine);
+
+        const layout = {
+            barmode: "relative",
+            margin: { l: 64, r: 24, t: 38, b: 44 },
+            paper_bgcolor: colorBg,
+            plot_bgcolor: colorBg,
+            font: { family: "Segoe UI, Helvetica, Arial, sans-serif", color: colorText, size: 12 },
+            title: { text: T.chart_title, font: { color: colorText, size: 13 }, x: 0, xanchor: "left" },
+            xaxis: {
+                title: { text: T.x_title, font: { color: colorMuted, size: 11 } },
+                gridcolor: colorGrid,
+                color: colorText,
+                zerolinecolor: colorMuted,
+                ticksuffix: "%",
+            },
+            yaxis: {
+                gridcolor: colorGrid,
+                color: colorText,
+                showgrid: false,
+            },
+            legend: {
+                orientation: "h",
+                x: 0, y: -0.25,
+                bgcolor: "rgba(0,0,0,0)",
+                font: { color: colorText, size: 11 },
+            },
+            hovermode: "closest",
+            showlegend: true,
+        };
+
+        Plotly.react(CHART, traces, layout, {
+            displayModeBar: false,
+            responsive: true,
+        });
+    }
+
+    function applyI18n() {
+        document.getElementById("sb-name-beta").textContent   = T.name_beta;
+        document.getElementById("sb-name-factor").textContent = T.name_factor;
+        document.getElementById("sb-name-alpha").textContent  = T.name_alpha;
+        document.getElementById("sb-name-cash").textContent   = T.name_cash;
+        document.getElementById("sb-name-ret").textContent    = T.name_ret;
+        document.getElementById("sb-name-vol").textContent    = T.name_vol;
+        document.getElementById("sb-name-shp").textContent    = T.name_shp;
+        document.getElementById("sb-name-fee").textContent    = T.name_fee;
+        document.getElementById("sb-caption").textContent     = T.caption;
+    }
+
+    [W_BETA, W_FACTOR, W_ALPHA, W_CASH].forEach(el => {
+        el.addEventListener("input", render);
+    });
+
+    applyI18n();
+
+    function reportHeight() {
+        try {
+            var h = Math.ceil(document.documentElement.scrollHeight);
+            parent.postMessage({ type: 'lesson-interactive-resize', height: h }, '*');
+        } catch (e) { /* ignore */ }
+    }
+    if (typeof ResizeObserver !== 'undefined') {
+        new ResizeObserver(reportHeight).observe(document.body);
+    }
+    window.addEventListener('resize', reportHeight);
+    setTimeout(reportHeight, 50);
+    setTimeout(reportHeight, 500);
+
+    const themeObserver = new MutationObserver(render);
+    themeObserver.observe(document.documentElement, {
+        attributes: true,
+        attributeFilter: ["data-theme"],
+    });
+
+    render();
+})();
+</script>
+
+</body>
+</html>

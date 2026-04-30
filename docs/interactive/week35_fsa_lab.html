@@ -1,0 +1,711 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Advanced FSA Lab — Interactive (Week 35)</title>
+<script src="https://cdn.plot.ly/plotly-2.35.2.min.js" charset="utf-8"></script>
+<style>
+html, body { margin: 0; padding: 0; background: var(--fl-bg); }
+:root {
+    --fl-bg: #fdfbf5;
+    --fl-text: #1a2332;
+    --fl-muted: #6b7280;
+    --fl-border: #d6d3c4;
+    --fl-card: #fdfbf5;
+    --fl-accent: #b8860b;
+    --fl-blue: #0d47a1;
+    --fl-green: #2e7d32;
+    --fl-red: #b71c1c;
+    --fl-purple: #6a1b9a;
+}
+html[data-theme="dark"] .fl-root,
+.fl-root[data-theme="dark"] {
+    --fl-bg: #0f1724;
+    --fl-text: #e6e6e6;
+    --fl-muted: #9aa3b2;
+    --fl-border: #2a3441;
+    --fl-card: #0f1724;
+    --fl-accent: #d8a93b;
+    --fl-blue: #5a8dee;
+    --fl-green: #66bb6a;
+    --fl-red: #ef5350;
+    --fl-purple: #b06bcc;
+}
+.fl-root {
+    font-family: 'Segoe UI', Helvetica, Arial, sans-serif;
+    background: var(--fl-bg);
+    color: var(--fl-text);
+    padding: 12px;
+    margin: 0;
+}
+.fl-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+}
+@media (max-width: 760px) {
+    .fl-grid { grid-template-columns: 1fr; }
+}
+.fl-panel {
+    background: var(--fl-card);
+    border: 1px solid var(--fl-border);
+    border-radius: 8px;
+    padding: 14px 14px 10px 14px;
+}
+.fl-panel h3 {
+    margin: 0 0 10px 0;
+    font-size: 1.0rem;
+    color: var(--fl-text);
+    font-weight: 700;
+}
+.fl-pillbar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-bottom: 10px;
+}
+.fl-pillbar button {
+    border: 1px solid var(--fl-border);
+    background: transparent;
+    color: var(--fl-muted);
+    padding: 5px 11px;
+    font: inherit;
+    font-size: 0.78rem;
+    font-weight: 600;
+    cursor: pointer;
+    border-radius: 999px;
+    transition: background 0.15s, color 0.15s;
+}
+.fl-pillbar button:hover { color: var(--fl-text); }
+.fl-pillbar button.active {
+    background: var(--fl-accent);
+    color: #fff;
+    border-color: var(--fl-accent);
+}
+.fl-row {
+    display: grid;
+    grid-template-columns: 130px 1fr 80px;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 8px;
+}
+.fl-row label {
+    font-size: 0.82rem;
+    color: var(--fl-muted);
+    font-weight: 600;
+}
+.fl-row .fl-val {
+    font-size: 0.84rem;
+    color: var(--fl-text);
+    font-weight: 700;
+    text-align: right;
+    font-variant-numeric: tabular-nums;
+}
+.fl-row input[type=range] {
+    width: 100%;
+}
+.fl-result {
+    margin-top: 10px;
+    padding: 10px 12px;
+    border-radius: 8px;
+    background: var(--fl-card);
+    border: 1px solid var(--fl-border);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+.fl-bignum {
+    font-size: 1.55rem;
+    font-weight: 800;
+    color: var(--fl-accent);
+    font-variant-numeric: tabular-nums;
+    line-height: 1.0;
+}
+.fl-bignum-sub {
+    font-size: 0.74rem;
+    color: var(--fl-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-top: 2px;
+}
+.fl-band {
+    padding: 6px 14px;
+    border-radius: 999px;
+    font-size: 0.85rem;
+    font-weight: 800;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+.fl-band.fl-distress { background: var(--fl-red); }
+.fl-band.fl-gray     { background: var(--fl-accent); }
+.fl-band.fl-safe     { background: var(--fl-green); }
+.fl-chart {
+    width: 100%;
+    height: 240px;
+    margin-top: 10px;
+    background: var(--fl-card);
+    border-radius: 8px;
+    border: 1px solid var(--fl-border);
+}
+.fl-formula {
+    font-size: 0.78rem;
+    color: var(--fl-muted);
+    margin: 6px 0 10px 0;
+    line-height: 1.5;
+    font-family: 'Consolas', 'Courier New', monospace;
+}
+.fl-caption {
+    margin: 12px 0 0 0;
+    font-size: 0.78rem;
+    color: var(--fl-muted);
+    line-height: 1.45;
+}
+.fl-roe-display {
+    display: flex;
+    align-items: baseline;
+    gap: 14px;
+    flex-wrap: wrap;
+}
+.fl-roe-eq {
+    font-size: 0.86rem;
+    color: var(--fl-muted);
+    font-variant-numeric: tabular-nums;
+}
+.fl-roe-eq b { color: var(--fl-text); }
+</style>
+</head>
+<body>
+
+<div class="fl-root" id="fl-root">
+    <div class="fl-grid">
+        <!-- LEFT: Altman Z-score panel -->
+        <div class="fl-panel">
+            <h3 id="fl-z-title">Altman Z-score calculator</h3>
+            <div class="fl-formula" id="fl-z-formula">Z = 1.2 A + 1.4 B + 3.3 C + 0.6 D + 1.0 E</div>
+            <div class="fl-pillbar" id="fl-z-presets" role="tablist"></div>
+
+            <div class="fl-row">
+                <label id="fl-z-lblA">A: WC / TA</label>
+                <input type="range" id="fl-z-A" min="-0.4" max="0.6" step="0.005" value="0.20">
+                <div class="fl-val" id="fl-z-Aval">0.200</div>
+            </div>
+            <div class="fl-row">
+                <label id="fl-z-lblB">B: RE / TA</label>
+                <input type="range" id="fl-z-B" min="-0.6" max="1.0" step="0.005" value="0.40">
+                <div class="fl-val" id="fl-z-Bval">0.400</div>
+            </div>
+            <div class="fl-row">
+                <label id="fl-z-lblC">C: EBIT / TA</label>
+                <input type="range" id="fl-z-C" min="-0.2" max="0.5" step="0.005" value="0.12">
+                <div class="fl-val" id="fl-z-Cval">0.120</div>
+            </div>
+            <div class="fl-row">
+                <label id="fl-z-lblD">D: MVE / TL</label>
+                <input type="range" id="fl-z-D" min="0" max="8.0" step="0.05" value="2.50">
+                <div class="fl-val" id="fl-z-Dval">2.500</div>
+            </div>
+            <div class="fl-row">
+                <label id="fl-z-lblE">E: Sales / TA</label>
+                <input type="range" id="fl-z-E" min="0" max="3.0" step="0.01" value="1.00">
+                <div class="fl-val" id="fl-z-Eval">1.000</div>
+            </div>
+
+            <div class="fl-result">
+                <div>
+                    <div class="fl-bignum" id="fl-z-num">0.00</div>
+                    <div class="fl-bignum-sub" id="fl-z-numlbl">Z-score</div>
+                </div>
+                <div class="fl-band fl-gray" id="fl-z-band">GRAY</div>
+                <div style="font-size:0.78rem; color: var(--fl-muted); max-width: 230px;">
+                    <span id="fl-z-thresh">Distress &lt; 1.81 &middot; Safe &gt; 2.99</span>
+                </div>
+            </div>
+
+            <div id="fl-z-chart" class="fl-chart"></div>
+        </div>
+
+        <!-- RIGHT: DuPont panel -->
+        <div class="fl-panel">
+            <h3 id="fl-d-title">DuPont decomposition</h3>
+            <div class="fl-formula" id="fl-d-formula">ROE = NPM &times; Asset Turnover &times; Equity Multiplier</div>
+            <div class="fl-pillbar" id="fl-d-presets" role="tablist"></div>
+
+            <div class="fl-row">
+                <label id="fl-d-lblNPM">Net Profit Margin</label>
+                <input type="range" id="fl-d-NPM" min="-10" max="50" step="0.1" value="20">
+                <div class="fl-val" id="fl-d-NPMval">20.0%</div>
+            </div>
+            <div class="fl-row">
+                <label id="fl-d-lblAT">Asset Turnover</label>
+                <input type="range" id="fl-d-AT" min="0.02" max="3.0" step="0.01" value="1.00">
+                <div class="fl-val" id="fl-d-ATval">1.00</div>
+            </div>
+            <div class="fl-row">
+                <label id="fl-d-lblEM">Equity Multiplier</label>
+                <input type="range" id="fl-d-EM" min="1.0" max="15.0" step="0.05" value="2.50">
+                <div class="fl-val" id="fl-d-EMval">2.50</div>
+            </div>
+
+            <div class="fl-result">
+                <div>
+                    <div class="fl-bignum" id="fl-d-num">50.0%</div>
+                    <div class="fl-bignum-sub" id="fl-d-numlbl">ROE (NPM &times; AT &times; EM)</div>
+                </div>
+                <div class="fl-roe-eq" id="fl-d-eq"></div>
+            </div>
+
+            <div id="fl-d-chart" class="fl-chart"></div>
+        </div>
+    </div>
+    <p class="fl-caption" id="fl-caption"></p>
+</div>
+
+<script>
+(function () {
+
+    const I18N = {
+        en: {
+            z_title: "Altman Z-score calculator",
+            z_formula: "Z = 1.2 A + 1.4 B + 3.3 C + 0.6 D + 1.0 E",
+            z_lblA: "A: WC / TA",
+            z_lblB: "B: RE / TA",
+            z_lblC: "C: EBIT / TA",
+            z_lblD: "D: MVE / TL",
+            z_lblE: "E: Sales / TA",
+            z_numlbl: "Z-score",
+            z_thresh: "Distress < 1.81 \u00B7 Safe > 2.99",
+            z_band_distress: "DISTRESS",
+            z_band_gray: "GRAY",
+            z_band_safe: "SAFE",
+            z_chart_x: "Component",
+            z_chart_y: "Contribution to Z",
+            z_components: ["1.2 A (liquidity)", "1.4 B (cumulative profit)", "3.3 C (operating)", "0.6 D (market solvency)", "1.0 E (turnover)"],
+            d_title: "DuPont decomposition",
+            d_formula: "ROE = NPM \u00D7 Asset Turnover \u00D7 Equity Multiplier",
+            d_lblNPM: "Net Profit Margin",
+            d_lblAT: "Asset Turnover",
+            d_lblEM: "Equity Multiplier",
+            d_numlbl: "ROE (NPM \u00D7 AT \u00D7 EM)",
+            d_chart_x: "Firm",
+            d_chart_y: "ROE (%)",
+            d_chart_you: "Your inputs",
+            caption: "Altman Z-score components A=WC/TA, B=RetainedEarnings/TA, C=EBIT/TA, D=MarketEquity/TotalLiab, E=Sales/TA. Z<1.81 distress, 1.81-2.99 gray, >2.99 safe. DuPont: ROE = Net Profit Margin x Asset Turnover x Equity Multiplier. Presets are FY2024 approximations from public 10-Ks. Lehman 2007 preset shows a Z under 1 a year before the bankruptcy.",
+            preset_label: "Preset",
+            preset_custom: "Custom",
+        },
+        hk: {
+            z_title: "Altman Z 分數計算器",
+            z_formula: "Z = 1.2 A + 1.4 B + 3.3 C + 0.6 D + 1.0 E",
+            z_lblA: "A:營運資金/總資產",
+            z_lblB: "B:保留盈餘/總資產",
+            z_lblC: "C:EBIT/總資產",
+            z_lblD: "D:股票市值/總負債",
+            z_lblE: "E:銷售/總資產",
+            z_numlbl: "Z 分數",
+            z_thresh: "困境 < 1.81 \u00B7 安全 > 2.99",
+            z_band_distress: "困境",
+            z_band_gray: "灰色",
+            z_band_safe: "安全",
+            z_chart_x: "組成項",
+            z_chart_y: "對 Z 的貢獻",
+            z_components: ["1.2 A(流動性)", "1.4 B(累計獲利)", "3.3 C(營運生產)", "0.6 D(市場償付)", "1.0 E(周轉)"],
+            d_title: "杜邦分解",
+            d_formula: "ROE = 淨利率 \u00D7 資產周轉 \u00D7 權益乘數",
+            d_lblNPM: "淨利率",
+            d_lblAT: "資產周轉",
+            d_lblEM: "權益乘數",
+            d_numlbl: "ROE(淨利率 \u00D7 周轉 \u00D7 乘數)",
+            d_chart_x: "公司",
+            d_chart_y: "ROE(%)",
+            d_chart_you: "你的輸入",
+            caption: "Altman Z 組成項 A=WC/TA、B=保留盈餘/TA、C=EBIT/TA、D=市值股本/總負債、E=銷售/TA。Z<1.81 困境、1.81-2.99 灰色、>2.99 安全。杜邦:ROE = 淨利率 x 周轉 x 乘數。預設值為公開 FY2024 10-K 的近似。Lehman 2007 預設顯示破產前一年 Z 已低於 1。",
+            preset_label: "預設",
+            preset_custom: "自訂",
+        },
+        tw: {
+            z_title: "Altman Z 分數計算器",
+            z_formula: "Z = 1.2 A + 1.4 B + 3.3 C + 0.6 D + 1.0 E",
+            z_lblA: "A:營運資金/總資產",
+            z_lblB: "B:保留盈餘/總資產",
+            z_lblC: "C:EBIT/總資產",
+            z_lblD: "D:股票市值/總負債",
+            z_lblE: "E:銷售/總資產",
+            z_numlbl: "Z 分數",
+            z_thresh: "困境 < 1.81 \u00B7 安全 > 2.99",
+            z_band_distress: "困境",
+            z_band_gray: "灰色",
+            z_band_safe: "安全",
+            z_chart_x: "組成項",
+            z_chart_y: "對 Z 的貢獻",
+            z_components: ["1.2 A(流動性)", "1.4 B(累計獲利)", "3.3 C(營運生產)", "0.6 D(市場償付)", "1.0 E(周轉)"],
+            d_title: "杜邦分解",
+            d_formula: "ROE = 淨利率 \u00D7 資產周轉 \u00D7 權益乘數",
+            d_lblNPM: "淨利率",
+            d_lblAT: "資產周轉",
+            d_lblEM: "權益乘數",
+            d_numlbl: "ROE(淨利率 \u00D7 周轉 \u00D7 乘數)",
+            d_chart_x: "公司",
+            d_chart_y: "ROE(%)",
+            d_chart_you: "你的輸入",
+            caption: "Altman Z 組成項 A=WC/TA、B=保留盈餘/TA、C=EBIT/TA、D=市值股本/總負債、E=銷售/TA。Z<1.81 困境、1.81-2.99 灰色、>2.99 安全。杜邦:ROE = 淨利率 x 周轉 x 乘數。預設值為公開 FY2024 10-K 的近似。Lehman 2007 預設顯示破產前一年 Z 已低於 1。",
+            preset_label: "預設",
+            preset_custom: "自訂",
+        },
+        cn: {
+            z_title: "Altman Z 分数计算器",
+            z_formula: "Z = 1.2 A + 1.4 B + 3.3 C + 0.6 D + 1.0 E",
+            z_lblA: "A:营运资金/总资产",
+            z_lblB: "B:留存收益/总资产",
+            z_lblC: "C:EBIT/总资产",
+            z_lblD: "D:股票市值/总负债",
+            z_lblE: "E:销售/总资产",
+            z_numlbl: "Z 分数",
+            z_thresh: "困境 < 1.81 \u00B7 安全 > 2.99",
+            z_band_distress: "困境",
+            z_band_gray: "灰色",
+            z_band_safe: "安全",
+            z_chart_x: "组成项",
+            z_chart_y: "对 Z 的贡献",
+            z_components: ["1.2 A(流动性)", "1.4 B(累计盈利)", "3.3 C(运营生产)", "0.6 D(市场偿付)", "1.0 E(周转)"],
+            d_title: "杜邦分解",
+            d_formula: "ROE = 净利率 \u00D7 资产周转 \u00D7 权益乘数",
+            d_lblNPM: "净利率",
+            d_lblAT: "资产周转",
+            d_lblEM: "权益乘数",
+            d_numlbl: "ROE(净利率 \u00D7 周转 \u00D7 乘数)",
+            d_chart_x: "公司",
+            d_chart_y: "ROE(%)",
+            d_chart_you: "你的输入",
+            caption: "Altman Z 组成项 A=WC/TA、B=留存收益/TA、C=EBIT/TA、D=市值股本/总负债、E=销售/TA。Z<1.81 困境、1.81-2.99 灰色、>2.99 安全。杜邦:ROE = 净利率 x 周转 x 乘数。预设值为公开 FY2024 10-K 的近似。Lehman 2007 预设显示破产前一年 Z 已低于 1。",
+            preset_label: "预设",
+            preset_custom: "自定",
+        },
+    };
+
+    function currentLang() {
+        const p = new URLSearchParams(window.location.search);
+        const l = (p.get("lang") || "en").toLowerCase();
+        return I18N.hasOwnProperty(l) ? l : "en";
+    }
+    const T = I18N[currentLang()];
+
+    // ----- Z-score presets -----
+    // (label, A, B, C, D, E) — approximate from public 10-Ks
+    const Z_PRESETS = [
+        { id: "AAPL24",   label: "AAPL 24",   A: 0.020, B: -0.230, C: 0.349, D: 9.50, E: 1.07 },
+        { id: "MSFT24",   label: "MSFT 24",   A: 0.110, B: 0.350, C: 0.221, D: 12.00, E: 0.48 },
+        { id: "F18",      label: "F 18",      A: 0.060, B: 0.060, C: 0.040, D: 0.30, E: 0.60 },
+        { id: "GE18",     label: "GE 18",     A: -0.050, B: 0.040, C: 0.020, D: 0.45, E: 0.32 },
+        { id: "LEH07",    label: "LEH 07",    A: 0.005, B: 0.020, C: 0.012, D: 0.08, E: 0.07 },
+        { id: "CUSTOM",   label: "Custom",    A: null, B: null, C: null, D: null, E: null },
+    ];
+
+    // ----- DuPont presets -----
+    const D_PRESETS = [
+        { id: "AAPL", label: "AAPL", NPM: 23.97, AT: 1.07, EM: 6.40 },
+        { id: "MSFT", label: "MSFT", NPM: 35.94, AT: 0.48, EM: 1.91 },
+        { id: "KO",   label: "KO",   NPM: 22.74, AT: 0.47, EM: 4.04 },
+        { id: "JPM",  label: "JPM",  NPM: 37.00, AT: 0.04, EM: 11.60 },
+        { id: "F",    label: "F",    NPM:  3.18, AT: 0.65, EM: 6.63 },
+        { id: "CUSTOM", label: "Custom", NPM: null, AT: null, EM: null },
+    ];
+
+    const ROOT = document.getElementById("fl-root");
+
+    function getCssVar(name) {
+        return getComputedStyle(ROOT).getPropertyValue(name).trim();
+    }
+    function darkMode() {
+        return document.documentElement.getAttribute("data-theme") === "dark";
+    }
+
+    // ---- Build preset pillbars ----
+    function buildPills(containerId, presets, onClick) {
+        const c = document.getElementById(containerId);
+        c.innerHTML = "";
+        presets.forEach((p, i) => {
+            const btn = document.createElement("button");
+            btn.type = "button";
+            btn.dataset.id = p.id;
+            btn.textContent = p.id === "CUSTOM" ? T.preset_custom : p.label;
+            if (i === 0) btn.classList.add("active");
+            btn.addEventListener("click", () => {
+                c.querySelectorAll("button").forEach(b => b.classList.remove("active"));
+                btn.classList.add("active");
+                onClick(p);
+            });
+            c.appendChild(btn);
+        });
+    }
+
+    // ===========================================================
+    // Z-SCORE PANEL
+    // ===========================================================
+    const zEls = {
+        A: document.getElementById("fl-z-A"),
+        B: document.getElementById("fl-z-B"),
+        C: document.getElementById("fl-z-C"),
+        D: document.getElementById("fl-z-D"),
+        E: document.getElementById("fl-z-E"),
+        Aval: document.getElementById("fl-z-Aval"),
+        Bval: document.getElementById("fl-z-Bval"),
+        Cval: document.getElementById("fl-z-Cval"),
+        Dval: document.getElementById("fl-z-Dval"),
+        Eval: document.getElementById("fl-z-Eval"),
+        num: document.getElementById("fl-z-num"),
+        band: document.getElementById("fl-z-band"),
+        chart: document.getElementById("fl-z-chart"),
+    };
+
+    function setZSliders(p) {
+        if (p.A === null) return;
+        zEls.A.value = p.A;
+        zEls.B.value = p.B;
+        zEls.C.value = p.C;
+        zEls.D.value = p.D;
+        zEls.E.value = p.E;
+    }
+
+    function readZ() {
+        return {
+            A: parseFloat(zEls.A.value),
+            B: parseFloat(zEls.B.value),
+            C: parseFloat(zEls.C.value),
+            D: parseFloat(zEls.D.value),
+            E: parseFloat(zEls.E.value),
+        };
+    }
+
+    function renderZ() {
+        const v = readZ();
+        zEls.Aval.textContent = v.A.toFixed(3);
+        zEls.Bval.textContent = v.B.toFixed(3);
+        zEls.Cval.textContent = v.C.toFixed(3);
+        zEls.Dval.textContent = v.D.toFixed(3);
+        zEls.Eval.textContent = v.E.toFixed(3);
+
+        const contribs = [1.2*v.A, 1.4*v.B, 3.3*v.C, 0.6*v.D, 1.0*v.E];
+        const Z = contribs.reduce((a,b) => a+b, 0);
+        zEls.num.textContent = Z.toFixed(2);
+
+        zEls.band.classList.remove("fl-distress","fl-gray","fl-safe");
+        if (Z < 1.81) {
+            zEls.band.classList.add("fl-distress");
+            zEls.band.textContent = T.z_band_distress;
+        } else if (Z < 2.99) {
+            zEls.band.classList.add("fl-gray");
+            zEls.band.textContent = T.z_band_gray;
+        } else {
+            zEls.band.classList.add("fl-safe");
+            zEls.band.textContent = T.z_band_safe;
+        }
+
+        // Bar chart of contributions
+        const colorBg = getCssVar("--fl-card");
+        const colorText = getCssVar("--fl-text");
+        const colorMuted = getCssVar("--fl-muted");
+        const colorAccent = getCssVar("--fl-accent");
+        const colorBlue = getCssVar("--fl-blue");
+        const colorGreen = getCssVar("--fl-green");
+        const colorRed = getCssVar("--fl-red");
+        const colorPurple = getCssVar("--fl-purple");
+        const colorGrid = darkMode() ? "rgba(255,255,255,0.08)" : "rgba(0,0,0,0.07)";
+
+        const colors = [colorBlue, colorGreen, colorAccent, colorPurple, colorRed];
+        const barColors = contribs.map((c, i) => c < 0 ? colorRed : colors[i]);
+
+        const trace = {
+            x: T.z_components,
+            y: contribs,
+            type: "bar",
+            marker: { color: barColors },
+            text: contribs.map(c => c.toFixed(2)),
+            textposition: "outside",
+            hovertemplate: "%{x}<br>%{y:.2f}<extra></extra>",
+        };
+        const layout = {
+            margin: { l: 50, r: 16, t: 18, b: 60 },
+            paper_bgcolor: colorBg,
+            plot_bgcolor: colorBg,
+            font: { family: "Segoe UI, Helvetica, Arial, sans-serif", color: colorText, size: 11 },
+            xaxis: {
+                color: colorText, gridcolor: colorGrid, zerolinecolor: colorMuted,
+                tickfont: { size: 10 },
+            },
+            yaxis: {
+                title: { text: T.z_chart_y, font: { color: colorMuted, size: 11 } },
+                color: colorText, gridcolor: colorGrid, zerolinecolor: colorMuted,
+                zeroline: true,
+            },
+            showlegend: false,
+        };
+        Plotly.react(zEls.chart, [trace], layout, { displayModeBar: false, responsive: true });
+    }
+
+    ["A","B","C","D","E"].forEach(k => {
+        zEls[k].addEventListener("input", () => {
+            // switch to CUSTOM pill on manual input
+            const pills = document.getElementById("fl-z-presets");
+            pills.querySelectorAll("button").forEach(b => b.classList.remove("active"));
+            const cust = pills.querySelector("button[data-id='CUSTOM']");
+            if (cust) cust.classList.add("active");
+            renderZ();
+        });
+    });
+
+    buildPills("fl-z-presets", Z_PRESETS, (p) => {
+        if (p.id === "CUSTOM") { renderZ(); return; }
+        setZSliders(p); renderZ();
+    });
+
+    // ===========================================================
+    // DUPONT PANEL
+    // ===========================================================
+    const dEls = {
+        NPM: document.getElementById("fl-d-NPM"),
+        AT: document.getElementById("fl-d-AT"),
+        EM: document.getElementById("fl-d-EM"),
+        NPMval: document.getElementById("fl-d-NPMval"),
+        ATval: document.getElementById("fl-d-ATval"),
+        EMval: document.getElementById("fl-d-EMval"),
+        num: document.getElementById("fl-d-num"),
+        eq: document.getElementById("fl-d-eq"),
+        chart: document.getElementById("fl-d-chart"),
+    };
+
+    function setDSliders(p) {
+        if (p.NPM === null) return;
+        dEls.NPM.value = p.NPM;
+        dEls.AT.value = p.AT;
+        dEls.EM.value = p.EM;
+    }
+
+    function readD() {
+        return {
+            NPM: parseFloat(dEls.NPM.value),
+            AT: parseFloat(dEls.AT.value),
+            EM: parseFloat(dEls.EM.value),
+        };
+    }
+
+    function renderD() {
+        const v = readD();
+        dEls.NPMval.textContent = v.NPM.toFixed(1) + "%";
+        dEls.ATval.textContent = v.AT.toFixed(2);
+        dEls.EMval.textContent = v.EM.toFixed(2);
+        const ROE = (v.NPM/100) * v.AT * v.EM * 100;
+        dEls.num.textContent = ROE.toFixed(1) + "%";
+        dEls.eq.innerHTML =
+            "<b>" + v.NPM.toFixed(1) + "%</b> &times; <b>" + v.AT.toFixed(2) + "</b> &times; <b>" + v.EM.toFixed(2) + "</b>";
+
+        // Comparison bar: 5 firms + 'You'
+        const colorBg = getCssVar("--fl-card");
+        const colorText = getCssVar("--fl-text");
+        const colorMuted = getCssVar("--fl-muted");
+        const colorAccent = getCssVar("--fl-accent");
+        const colorBlue = getCssVar("--fl-blue");
+        const colorGrid = darkMode() ? "rgba(255,255,255,0.08)" : "rgba(0,0,0,0.07)";
+
+        const firms = ["AAPL","MSFT","KO","JPM","F"];
+        const firmRoe = firms.map(f => {
+            const p = D_PRESETS.find(x => x.id === f);
+            return (p.NPM/100) * p.AT * p.EM * 100;
+        });
+        const xs = firms.concat([T.d_chart_you]);
+        const ys = firmRoe.concat([ROE]);
+        const cols = firms.map(() => colorBlue).concat([colorAccent]);
+
+        const trace = {
+            x: xs, y: ys, type: "bar",
+            marker: { color: cols },
+            text: ys.map(y => y.toFixed(0) + "%"),
+            textposition: "outside",
+            hovertemplate: "%{x}<br>ROE %{y:.1f}%<extra></extra>",
+        };
+        const layout = {
+            margin: { l: 50, r: 16, t: 18, b: 36 },
+            paper_bgcolor: colorBg,
+            plot_bgcolor: colorBg,
+            font: { family: "Segoe UI, Helvetica, Arial, sans-serif", color: colorText, size: 11 },
+            xaxis: { color: colorText, gridcolor: colorGrid, zerolinecolor: colorMuted },
+            yaxis: {
+                title: { text: T.d_chart_y, font: { color: colorMuted, size: 11 } },
+                color: colorText, gridcolor: colorGrid, zerolinecolor: colorMuted,
+            },
+            showlegend: false,
+        };
+        Plotly.react(dEls.chart, [trace], layout, { displayModeBar: false, responsive: true });
+    }
+
+    ["NPM","AT","EM"].forEach(k => {
+        dEls[k].addEventListener("input", () => {
+            const pills = document.getElementById("fl-d-presets");
+            pills.querySelectorAll("button").forEach(b => b.classList.remove("active"));
+            const cust = pills.querySelector("button[data-id='CUSTOM']");
+            if (cust) cust.classList.add("active");
+            renderD();
+        });
+    });
+
+    buildPills("fl-d-presets", D_PRESETS, (p) => {
+        if (p.id === "CUSTOM") { renderD(); return; }
+        setDSliders(p); renderD();
+    });
+
+    // ----- Apply i18n labels -----
+    function applyI18n() {
+        document.getElementById("fl-z-title").textContent = T.z_title;
+        document.getElementById("fl-z-formula").textContent = T.z_formula;
+        document.getElementById("fl-z-lblA").textContent = T.z_lblA;
+        document.getElementById("fl-z-lblB").textContent = T.z_lblB;
+        document.getElementById("fl-z-lblC").textContent = T.z_lblC;
+        document.getElementById("fl-z-lblD").textContent = T.z_lblD;
+        document.getElementById("fl-z-lblE").textContent = T.z_lblE;
+        document.getElementById("fl-z-numlbl").textContent = T.z_numlbl;
+        document.getElementById("fl-z-thresh").textContent = T.z_thresh;
+        document.getElementById("fl-d-title").textContent = T.d_title;
+        document.getElementById("fl-d-formula").innerHTML = T.d_formula;
+        document.getElementById("fl-d-lblNPM").textContent = T.d_lblNPM;
+        document.getElementById("fl-d-lblAT").textContent = T.d_lblAT;
+        document.getElementById("fl-d-lblEM").textContent = T.d_lblEM;
+        document.getElementById("fl-d-numlbl").innerHTML = T.d_numlbl;
+        document.getElementById("fl-caption").textContent = T.caption;
+    }
+    applyI18n();
+
+    // initial render
+    setZSliders(Z_PRESETS[0]);
+    setDSliders(D_PRESETS[0]);
+    renderZ();
+    renderD();
+
+    // ----- Theme observer -----
+    const themeObserver = new MutationObserver(() => { renderZ(); renderD(); });
+    themeObserver.observe(document.documentElement, {
+        attributes: true,
+        attributeFilter: ["data-theme"],
+    });
+
+    // ----- Resize postMessage -----
+    function reportHeight() {
+        try {
+            var h = Math.ceil(document.documentElement.scrollHeight);
+            parent.postMessage({ type: 'lesson-interactive-resize', height: h }, '*');
+        } catch (e) { /* ignore */ }
+    }
+    if (typeof ResizeObserver !== 'undefined') {
+        new ResizeObserver(reportHeight).observe(document.body);
+    }
+    window.addEventListener('resize', reportHeight);
+    setTimeout(reportHeight, 50);
+    setTimeout(reportHeight, 500);
+
+})();
+</script>
+
+</body>
+</html>

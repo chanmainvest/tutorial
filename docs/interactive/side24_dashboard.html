@@ -1,0 +1,525 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Portfolio Dashboard - Interactive (Side 24)</title>
+<script src="https://cdn.plot.ly/plotly-2.35.2.min.js" charset="utf-8"></script>
+<style>
+html, body { margin: 0; padding: 0; background: var(--db-bg); }
+:root {
+    --db-bg: #fdfbf5;
+    --db-text: #1a2332;
+    --db-muted: #6b7280;
+    --db-border: #d6d3c4;
+    --db-card: #fdfbf5;
+    --db-accent: #b8860b;
+    --db-blue: #0d47a1;
+    --db-red: #b71c1c;
+    --db-green: #2e7d32;
+    --db-purple: #6a1b9a;
+    --db-teal: #00695c;
+    --db-orange: #e65100;
+    --db-grey: #5a5a5a;
+}
+html[data-theme="dark"] .db-root,
+.db-root[data-theme="dark"] {
+    --db-bg: #0f1724;
+    --db-text: #e6e6e6;
+    --db-muted: #9aa3b2;
+    --db-border: #2a3441;
+    --db-card: #0f1724;
+    --db-accent: #d4a02b;
+    --db-blue: #5a8dee;
+    --db-red: #ef5350;
+    --db-green: #66bb6a;
+    --db-purple: #a774d6;
+    --db-teal: #4db6ac;
+    --db-orange: #ff9248;
+    --db-grey: #9aa3b2;
+}
+.db-root {
+    font-family: 'Segoe UI', Helvetica, Arial, sans-serif;
+    background: var(--db-bg);
+    color: var(--db-text);
+    padding: 12px;
+    margin: 0;
+}
+.db-controls {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 10px;
+    margin-bottom: 14px;
+    padding: 12px;
+    background: var(--db-card);
+    border: 1px solid var(--db-border);
+    border-radius: 8px;
+}
+.db-slot { display: flex; flex-direction: column; gap: 4px; font-size: 0.82rem; color: var(--db-muted); }
+.db-slot select, .db-slot input {
+    background: var(--db-bg);
+    color: var(--db-text);
+    border: 1px solid var(--db-border);
+    border-radius: 4px;
+    padding: 4px 6px;
+    font: inherit;
+}
+.db-slot .db-row { display: flex; gap: 6px; align-items: center; }
+.db-slot .db-row input[type="number"] { width: 60px; text-align: right; }
+.db-slot .db-name { font-weight: 600; color: var(--db-text); }
+.db-stats { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px; margin-bottom: 14px; }
+.db-stat {
+    background: var(--db-card);
+    border: 1px solid var(--db-border);
+    border-left: 4px solid var(--db-accent);
+    border-radius: 8px;
+    padding: 10px 12px;
+}
+.db-stat .db-stat-name {
+    font-size: 0.74rem; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.5px; color: var(--db-muted);
+}
+.db-stat .db-stat-val { font-size: 1.45rem; font-weight: 700; margin-top: 4px; font-variant-numeric: tabular-nums; }
+.db-stat .db-stat-detail { font-size: 0.78rem; color: var(--db-muted); margin-top: 2px; }
+.db-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.db-pane {
+    background: var(--db-card);
+    border: 1px solid var(--db-border);
+    border-radius: 8px;
+    padding: 12px;
+}
+.db-section-title {
+    margin: 0 0 8px 0; font-size: 0.82rem; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.5px; color: var(--db-muted);
+}
+.db-chart { width: 100%; height: 320px; }
+.db-verdict {
+    margin-top: 10px;
+    padding: 10px 12px;
+    border-left: 4px solid var(--db-accent);
+    background: var(--db-card);
+    border: 1px solid var(--db-border);
+    border-radius: 6px;
+    font-size: 0.92rem;
+}
+.db-verdict.db-good { border-left-color: var(--db-green); }
+.db-verdict.db-bad  { border-left-color: var(--db-red); }
+.db-caption {
+    margin-top: 8px;
+    font-size: 0.78rem;
+    color: var(--db-muted);
+    line-height: 1.45;
+}
+@media (max-width: 920px) {
+    .db-controls { grid-template-columns: repeat(2, 1fr); }
+    .db-stats { grid-template-columns: repeat(2, 1fr); }
+    .db-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<div class="db-root" id="db-root">
+
+    <div class="db-controls" id="db-controls"></div>
+
+    <div class="db-stats">
+        <div class="db-stat" style="border-left-color: var(--db-blue);">
+            <div class="db-stat-name" id="db-name-tw">Total weight</div>
+            <div class="db-stat-val" id="db-val-tw">--</div>
+            <div class="db-stat-detail" id="db-det-tw">--</div>
+        </div>
+        <div class="db-stat" style="border-left-color: var(--db-accent);">
+            <div class="db-stat-name" id="db-name-er">Expense-weighted ER</div>
+            <div class="db-stat-val" id="db-val-er">--</div>
+            <div class="db-stat-detail" id="db-det-er">--</div>
+        </div>
+        <div class="db-stat" style="border-left-color: var(--db-green);">
+            <div class="db-stat-name" id="db-name-tc">Top asset class</div>
+            <div class="db-stat-val" id="db-val-tc">--</div>
+            <div class="db-stat-detail" id="db-det-tc">--</div>
+        </div>
+        <div class="db-stat" style="border-left-color: var(--db-red);">
+            <div class="db-stat-name" id="db-name-ov">Avg pairwise overlap</div>
+            <div class="db-stat-val" id="db-val-ov">--</div>
+            <div class="db-stat-detail" id="db-det-ov">--</div>
+        </div>
+    </div>
+
+    <div class="db-grid">
+        <div class="db-pane">
+            <div class="db-section-title" id="db-title-class">Asset-class breakdown</div>
+            <div id="db-chart-class" class="db-chart"></div>
+        </div>
+        <div class="db-pane">
+            <div class="db-section-title" id="db-title-overlap">Top-10 stock overlap matrix</div>
+            <div id="db-chart-overlap" class="db-chart"></div>
+        </div>
+    </div>
+
+    <div class="db-verdict" id="db-verdict"></div>
+
+    <div class="db-caption" id="db-caption"></div>
+</div>
+
+<script>
+(function () {
+
+    // -------- ETF universe (12) --------
+    // class shares sum to 1; top10 weights normalized within fund (top-N proxy).
+    const ETFS = {
+        VTI:  { name: "VTI",  er: 0.03, klass: { us_eq:1.00 },
+                top: { AAPL:6.4, MSFT:6.0, NVDA:5.4, AMZN:3.5, META:2.4, GOOGL:2.0, GOOG:1.7, AVGO:1.6, BRKB:1.6, TSLA:1.5 } },
+        VOO:  { name: "VOO",  er: 0.03, klass: { us_eq:1.00 },
+                top: { AAPL:7.0, MSFT:6.5, NVDA:5.9, AMZN:3.8, META:2.6, GOOGL:2.2, GOOG:1.9, AVGO:1.8, BRKB:1.8, TSLA:1.7 } },
+        QQQ:  { name: "QQQ",  er: 0.20, klass: { us_eq:1.00 },
+                top: { AAPL:8.5, MSFT:8.0, NVDA:7.4, AMZN:5.0, META:4.4, AVGO:4.5, GOOGL:3.6, GOOG:3.4, TSLA:2.8, NFLX:1.7 } },
+        SCHD: { name: "SCHD", er: 0.06, klass: { us_eq:1.00 },
+                top: { ABBV:4.5, VZ:4.6, HD:4.4, MRK:4.5, KO:4.4, PEP:4.4, CSCO:4.6, TXN:4.4, AMGN:4.5, BMY:4.4 } },
+        AVUV: { name: "AVUV", er: 0.25, klass: { us_eq:1.00 },
+                top: { COOP:1.4, JEF:1.3, BWXT:1.2, MUR:1.1, CWST:1.0, TMHC:1.0, SLG:0.9, EWBC:0.9, AGCO:0.9, RGA:0.9 } },
+        BND:  { name: "BND",  er: 0.03, klass: { bond:1.00 },
+                top: { UST_2Y:8, UST_5Y:7, UST_10Y:6, UST_30Y:5, FNMA:4, GNMA:4, MBS_AGG:4, AGNC:3, IG_AAA:3, IG_AA:3 } },
+        TLT:  { name: "TLT",  er: 0.15, klass: { bond:1.00 },
+                top: { UST_30Y:25, UST_25Y:14, UST_20Y:11, UST_28Y:10, UST_29Y:9, UST_27Y:7, UST_26Y:6, UST_22Y:5, UST_21Y:4, UST_23Y:4 } },
+        VXUS: { name: "VXUS", er: 0.05, klass: { intl_eq:1.00 },
+                top: { TSM:1.8, NESN:1.0, NOVO:0.9, ASML:0.9, SAP:0.7, RHHBY:0.7, TM:0.6, SHEL:0.6, AZN:0.6, HSBC:0.5 } },
+        VWO:  { name: "VWO",  er: 0.07, klass: { intl_eq:1.00 },
+                top: { TSM:7.0, TCEHY:3.9, BABA:3.0, SMSN:2.5, MELI:1.6, RELI:1.5, INFY:1.3, HDB:1.2, PDD:1.5, BIDU:1.0 } },
+        GLDM: { name: "GLDM", er: 0.10, klass: { gold:1.00 },
+                top: { GOLD_BAR:100 } },
+        IBIT: { name: "IBIT", er: 0.25, klass: { btc:1.00 },
+                top: { BTC:100 } },
+        SGOV: { name: "SGOV", er: 0.07, klass: { cash:1.00 },
+                top: { TBILL_4W:30, TBILL_8W:25, TBILL_13W:20, TBILL_17W:15, TBILL_26W:10 } },
+    };
+    const ETF_KEYS = Object.keys(ETFS);
+
+    const I18N = {
+        en: {
+            slot: ["Slot 1","Slot 2","Slot 3","Slot 4","Slot 5"],
+            weight: "Weight (%)",
+            name_tw: "Total weight", det_tw_ok:"Sums to 100% -- valid", det_tw_bad: "Off-target by {gap}pp",
+            name_er: "Expense-weighted ER",
+            det_er: "${dollars}/yr on $500k portfolio",
+            name_tc: "Top asset class",
+            det_tc: "{share}% of portfolio",
+            name_ov: "Avg pairwise overlap",
+            det_ov_low: "Low overlap -- diversified",
+            det_ov_med: "Moderate -- watch top names",
+            det_ov_hi:  "High overlap -- you own one bet",
+            klass: { us_eq:"US equity", intl_eq:"Intl equity", bond:"Bond", gold:"Gold", btc:"BTC", cash:"Cash" },
+            title_class: "Asset-class breakdown",
+            title_overlap: "Top-10 stock overlap matrix",
+            cb_class: "Weight (%)",
+            cb_overlap: "Overlap (%)",
+            verdict_good: "Diversified portfolio: low pairwise overlap, multiple asset classes, low expense-weighted fee. Monthly review only.",
+            verdict_meh: "Mixed: some overlap or single-class concentration. Inspect the X-Ray panel and consider replacing the most overlapping pair.",
+            verdict_bad: "Concentrated: high overlap and/or single asset class. You are paying multiple expense ratios for one bet. Consolidate.",
+            caption: "Pick 5 ETFs and assign weights. Asset-class breakdown is fund-pass-through (BND -> 100% bond, etc.). Overlap = sum of min top-10 weights between each pair, normalised. Tools used in production: Portfolio Visualizer, Morningstar X-Ray, Empower, brokerage built-ins."
+        },
+        hk: {
+            slot: ["位 1","位 2","位 3","位 4","位 5"],
+            weight: "權重(%)",
+            name_tw: "總權重", det_tw_ok:"合共 100% -- 有效", det_tw_bad: "偏離 {gap}pp",
+            name_er: "費用加權 ER",
+            det_er: "$50 萬組合年費 ${dollars}",
+            name_tc: "最大資產類別",
+            det_tc: "佔組合 {share}%",
+            name_ov: "平均兩兩重疊",
+            det_ov_low: "低重疊 -- 已分散",
+            det_ov_med: "中度 -- 留意頭部",
+            det_ov_hi:  "高重疊 -- 押同一注",
+            klass: { us_eq:"美股", intl_eq:"國際股", bond:"債券", gold:"黃金", btc:"比特幣", cash:"現金" },
+            title_class: "資產類別分佈",
+            title_overlap: "前十持股重疊矩陣",
+            cb_class: "權重(%)",
+            cb_overlap: "重疊(%)",
+            verdict_good: "已分散組合:重疊低、多類別、加權費用低。每月檢視即可。",
+            verdict_meh: "混合狀態:有重疊或單一類別偏重。檢視 X-Ray,考慮替換重疊最高那對。",
+            verdict_bad: "集中:重疊高或單一資產類別。你在為同一注付多份管理費。請合併。",
+            caption: "選 5 隻 ETF 並分配權重。資產類別為持股穿透計算(BND -> 100% 債券)。重疊 = 每對前十持股最小權重之和(經正規化)。實務工具:Portfolio Visualizer、晨星 X-Ray、Empower、券商內建。"
+        },
+        tw: {
+            slot: ["位 1","位 2","位 3","位 4","位 5"],
+            weight: "權重(%)",
+            name_tw: "總權重", det_tw_ok:"合計 100% -- 有效", det_tw_bad: "偏離 {gap}pp",
+            name_er: "費用加權 ER",
+            det_er: "$50 萬組合年費 ${dollars}",
+            name_tc: "最大資產類別",
+            det_tc: "占組合 {share}%",
+            name_ov: "平均兩兩重疊",
+            det_ov_low: "低重疊 -- 已分散",
+            det_ov_med: "中度 -- 留意頭部",
+            det_ov_hi:  "高重疊 -- 押同一注",
+            klass: { us_eq:"美股", intl_eq:"國際股", bond:"債券", gold:"黃金", btc:"比特幣", cash:"現金" },
+            title_class: "資產類別分布",
+            title_overlap: "前十持股重疊矩陣",
+            cb_class: "權重(%)",
+            cb_overlap: "重疊(%)",
+            verdict_good: "已分散組合:重疊低、多類別、加權費用低。每月檢視即可。",
+            verdict_meh: "混合狀態:有重疊或單一類別偏重。檢視 X-Ray,考慮替換重疊最高那對。",
+            verdict_bad: "集中:重疊高或單一資產類別。你在為同一注付多份管理費。請合併。",
+            caption: "選 5 檔 ETF 並分配權重。資產類別為持股穿透計算(BND -> 100% 債券)。重疊 = 每對前十持股最小權重之和(經標準化)。實務工具:Portfolio Visualizer、晨星 X-Ray、Empower、券商內建。"
+        },
+        cn: {
+            slot: ["位 1","位 2","位 3","位 4","位 5"],
+            weight: "权重(%)",
+            name_tw: "总权重", det_tw_ok:"合计 100% -- 有效", det_tw_bad: "偏离 {gap}pp",
+            name_er: "费用加权 ER",
+            det_er: "$50 万组合年费 ${dollars}",
+            name_tc: "最大资产类别",
+            det_tc: "占组合 {share}%",
+            name_ov: "平均两两重叠",
+            det_ov_low: "低重叠 -- 已分散",
+            det_ov_med: "中等 -- 留意头部",
+            det_ov_hi:  "高重叠 -- 押同一注",
+            klass: { us_eq:"美股", intl_eq:"国际股", bond:"债券", gold:"黄金", btc:"比特币", cash:"现金" },
+            title_class: "资产类别分布",
+            title_overlap: "前十持股重叠矩阵",
+            cb_class: "权重(%)",
+            cb_overlap: "重叠(%)",
+            verdict_good: "已分散组合:重叠低、多类别、加权费用低。每月检视即可。",
+            verdict_meh: "混合状态:有重叠或单一类别偏重。检视 X-Ray,考虑替换重叠最高那对。",
+            verdict_bad: "集中:重叠高或单一资产类别。你在为同一注付多份管理费。请合并。",
+            caption: "选 5 只 ETF 并分配权重。资产类别为持股穿透计算(BND -> 100% 债券)。重叠 = 每对前十持股最小权重之和(经归一化)。实务工具:Portfolio Visualizer、晨星 X-Ray、Empower、券商内建。"
+        }
+    };
+
+    const lang = (function () {
+        const q = new URLSearchParams(location.search).get('lang');
+        return I18N[q] ? q : 'en';
+    })();
+    const T = I18N[lang];
+
+    const root = document.getElementById('db-root');
+    const controls = document.getElementById('db-controls');
+
+    // default 5 picks
+    const DEFAULT_PICKS = ["VTI", "BND", "VXUS", "GLDM", "IBIT"];
+    const DEFAULT_WT    = [40, 25, 15, 10, 10];
+
+    // build controls
+    for (let i = 0; i < 5; i++) {
+        const slot = document.createElement('div');
+        slot.className = 'db-slot';
+        const optsHtml = ETF_KEYS.map(k => `<option value="${k}"${k===DEFAULT_PICKS[i]?' selected':''}>${k}</option>`).join('');
+        slot.innerHTML = `
+            <div class="db-name">${T.slot[i]}</div>
+            <select id="db-sel-${i}">${optsHtml}</select>
+            <div class="db-row">
+                <span style="font-size:0.78rem;">${T.weight}</span>
+                <input type="number" id="db-wt-${i}" min="0" max="100" step="1" value="${DEFAULT_WT[i]}">
+            </div>
+        `;
+        controls.appendChild(slot);
+    }
+
+    // ------- compute -------
+    function getPalette() {
+        const cs = getComputedStyle(root);
+        return {
+            bg: cs.getPropertyValue('--db-bg').trim(),
+            fg: cs.getPropertyValue('--db-text').trim(),
+            mu: cs.getPropertyValue('--db-muted').trim(),
+            grid: cs.getPropertyValue('--db-border').trim(),
+            blue: cs.getPropertyValue('--db-blue').trim(),
+            red: cs.getPropertyValue('--db-red').trim(),
+            green: cs.getPropertyValue('--db-green').trim(),
+            accent: cs.getPropertyValue('--db-accent').trim(),
+            purple: cs.getPropertyValue('--db-purple').trim(),
+            teal: cs.getPropertyValue('--db-teal').trim(),
+            orange: cs.getPropertyValue('--db-orange').trim(),
+            grey: cs.getPropertyValue('--db-grey').trim(),
+        };
+    }
+
+    function readState() {
+        const picks = []; const wts = [];
+        for (let i = 0; i < 5; i++) {
+            picks.push(document.getElementById('db-sel-' + i).value);
+            wts.push(Math.max(0, Number(document.getElementById('db-wt-' + i).value) || 0));
+        }
+        return { picks, wts };
+    }
+
+    function topNorm(top) {
+        const s = Object.values(top).reduce((a,b)=>a+b, 0) || 1;
+        const out = {};
+        for (const k in top) out[k] = top[k] / s;
+        return out;
+    }
+
+    function pairOverlap(a, b) {
+        const A = topNorm(a); const B = topNorm(b);
+        const keys = new Set([...Object.keys(A), ...Object.keys(B)]);
+        let s = 0;
+        keys.forEach(k => { s += Math.min(A[k]||0, B[k]||0); });
+        return s;
+    }
+
+    function compute() {
+        const { picks, wts } = readState();
+        const totW = wts.reduce((a,b)=>a+b, 0);
+
+        // expense-weighted ER (uses raw weights even if not 100% summed; rescale for ER % for clarity)
+        let er = 0;
+        let klass = { us_eq:0, intl_eq:0, bond:0, gold:0, btc:0, cash:0 };
+        if (totW > 0) {
+            for (let i = 0; i < 5; i++) {
+                const e = ETFS[picks[i]];
+                const w = wts[i] / totW;
+                er += w * e.er;
+                for (const k in e.klass) klass[k] += w * e.klass[k];
+            }
+        }
+        // pairwise overlap
+        const M = [];
+        for (let i = 0; i < 5; i++) {
+            const row = [];
+            for (let j = 0; j < 5; j++) {
+                row.push(pairOverlap(ETFS[picks[i]].top, ETFS[picks[j]].top));
+            }
+            M.push(row);
+        }
+        // average off-diagonal
+        let sumOff = 0, n = 0;
+        for (let i = 0; i < 5; i++) for (let j = i+1; j < 5; j++) { sumOff += M[i][j]; n++; }
+        const avgOv = n ? sumOff / n : 0;
+
+        return { picks, wts, totW, er, klass, M, avgOv };
+    }
+
+    function fmtPct(x, d=1) { return (x*100).toFixed(d) + '%'; }
+    function fmtPp(x, d=0) { return x.toFixed(d) + 'pp'; }
+
+    function render() {
+        const st = compute();
+        const P = getPalette();
+
+        // ----- KPIs -----
+        document.getElementById('db-val-tw').textContent = st.totW.toFixed(0) + '%';
+        const tw = document.getElementById('db-det-tw');
+        if (Math.abs(st.totW - 100) < 0.5) tw.textContent = T.det_tw_ok;
+        else tw.textContent = T.det_tw_bad.replace('{gap}', Math.abs(100 - st.totW).toFixed(0));
+
+        document.getElementById('db-val-er').textContent = (st.er*100).toFixed(2) + '%';
+        const dollars = (st.er * 500000).toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+        document.getElementById('db-det-er').textContent = T.det_er.replace('{dollars}', dollars);
+
+        // top class
+        const klassEntries = Object.entries(st.klass).filter(([,v])=>v>0).sort((a,b)=>b[1]-a[1]);
+        if (klassEntries.length) {
+            const [topK, topV] = klassEntries[0];
+            document.getElementById('db-val-tc').textContent = T.klass[topK];
+            document.getElementById('db-det-tc').textContent = T.det_tc.replace('{share}', (topV*100).toFixed(0));
+        }
+
+        document.getElementById('db-val-ov').textContent = (st.avgOv*100).toFixed(0) + '%';
+        const ovDet = document.getElementById('db-det-ov');
+        if (st.avgOv >= 0.40) ovDet.textContent = T.det_ov_hi;
+        else if (st.avgOv >= 0.20) ovDet.textContent = T.det_ov_med;
+        else ovDet.textContent = T.det_ov_low;
+
+        // ----- chart 1: asset-class breakdown -----
+        const klassKeys = ['us_eq','intl_eq','bond','gold','btc','cash'];
+        const klassCols = [P.blue, P.purple, P.red, P.accent, P.orange, P.grey];
+        const klassX = klassKeys.map(k=>T.klass[k]);
+        const klassY = klassKeys.map(k=>(st.klass[k]||0)*100);
+        const colors = klassCols;
+
+        Plotly.react('db-chart-class', [{
+            type: 'bar',
+            x: klassX, y: klassY,
+            marker: { color: colors, line: { color: P.grid, width: 0.5 } },
+            text: klassY.map(v=>v.toFixed(0)+'%'),
+            textposition: 'outside',
+            textfont: { color: P.fg, size: 11 },
+            hovertemplate: '%{x}: %{y:.1f}%<extra></extra>',
+        }], {
+            paper_bgcolor: P.bg, plot_bgcolor: P.bg,
+            font: { color: P.fg, family: "'Segoe UI', Helvetica, Arial, sans-serif" },
+            margin: { l: 50, r: 12, t: 14, b: 50 },
+            yaxis: { gridcolor: P.grid, ticksuffix: '%', range: [0, Math.max(110, Math.max(...klassY)*1.15)] },
+            xaxis: { gridcolor: P.grid },
+        }, { displayModeBar: false, responsive: true });
+
+        // ----- chart 2: overlap heatmap -----
+        const Mpct = st.M.map(row => row.map(v => v*100));
+        Plotly.react('db-chart-overlap', [{
+            type: 'heatmap',
+            z: Mpct,
+            x: st.picks, y: st.picks,
+            colorscale: [[0, P.bg], [0.25, '#fbe6cc'], [0.6, '#e89060'], [1, P.red]],
+            zmin: 0, zmax: 100,
+            colorbar: { title: { text: T.cb_overlap }, tickfont: { color: P.fg }, outlinewidth: 0 },
+            hovertemplate: '%{y} vs %{x}: %{z:.0f}%<extra></extra>',
+        }], {
+            paper_bgcolor: P.bg, plot_bgcolor: P.bg,
+            font: { color: P.fg, family: "'Segoe UI', Helvetica, Arial, sans-serif" },
+            margin: { l: 60, r: 12, t: 14, b: 50 },
+            xaxis: { side: 'bottom', tickfont: { color: P.fg } },
+            yaxis: { autorange: 'reversed', tickfont: { color: P.fg } },
+            annotations: (() => {
+                const a = [];
+                for (let i = 0; i < 5; i++) for (let j = 0; j < 5; j++) {
+                    const v = Mpct[i][j];
+                    a.push({
+                        x: st.picks[j], y: st.picks[i],
+                        text: v.toFixed(0) + '%',
+                        showarrow: false,
+                        font: { color: v > 60 ? '#ffffff' : P.fg, size: 11 }
+                    });
+                }
+                return a;
+            })(),
+        }, { displayModeBar: false, responsive: true });
+
+        // ----- verdict -----
+        const v = document.getElementById('db-verdict');
+        v.classList.remove('db-good','db-bad');
+        const numClasses = klassEntries.length;
+        let kind;
+        if (st.avgOv >= 0.40 || numClasses <= 1) kind = 'bad';
+        else if (st.avgOv < 0.15 && numClasses >= 3 && st.er < 0.0015) kind = 'good';
+        else kind = 'meh';
+        if (kind === 'good') { v.classList.add('db-good'); v.textContent = T.verdict_good; }
+        else if (kind === 'bad') { v.classList.add('db-bad'); v.textContent = T.verdict_bad; }
+        else { v.textContent = T.verdict_meh; }
+
+        // section titles + caption
+        document.getElementById('db-title-class').textContent = T.title_class;
+        document.getElementById('db-title-overlap').textContent = T.title_overlap;
+        document.getElementById('db-name-tw').textContent = T.name_tw;
+        document.getElementById('db-name-er').textContent = T.name_er;
+        document.getElementById('db-name-tc').textContent = T.name_tc;
+        document.getElementById('db-name-ov').textContent = T.name_ov;
+        document.getElementById('db-caption').textContent = T.caption;
+
+        sendResize();
+    }
+
+    function sendResize() {
+        try {
+            const h = document.documentElement.scrollHeight;
+            parent.postMessage({ type: 'lesson-interactive-resize', height: h }, '*');
+        } catch (e) {}
+    }
+
+    // ----- bind events -----
+    for (let i = 0; i < 5; i++) {
+        document.getElementById('db-sel-' + i).addEventListener('change', render);
+        document.getElementById('db-wt-' + i).addEventListener('input', render);
+    }
+
+    // theme observer
+    new MutationObserver(render).observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
+    window.addEventListener('resize', sendResize);
+
+    // initial
+    render();
+    sendResize();
+})();
+</script>
+</body>
+</html>

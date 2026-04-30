@@ -1,0 +1,723 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Hedge Fund Strategy Explorer -- Interactive (Side 25)</title>
+<script src="https://cdn.plot.ly/plotly-2.35.2.min.js" charset="utf-8"></script>
+<style>
+html, body { margin: 0; padding: 0; background: var(--hf-bg); }
+:root {
+    --hf-bg: #fdfbf5;
+    --hf-text: #1a2332;
+    --hf-muted: #6b7280;
+    --hf-border: #d6d3c4;
+    --hf-card: #fdfbf5;
+    --hf-pos: #2e7d32;
+    --hf-neg: #b71c1c;
+    --hf-mid: #0d47a1;
+    --hf-accent: #b8860b;
+    --hf-soft: rgba(13,71,161,0.07);
+}
+html[data-theme="dark"] .hf-root,
+.hf-root[data-theme="dark"] {
+    --hf-bg: #0f1724;
+    --hf-text: #e6e6e6;
+    --hf-muted: #9aa3b2;
+    --hf-border: #2a3441;
+    --hf-card: #0f1724;
+    --hf-pos: #66bb6a;
+    --hf-neg: #ef5350;
+    --hf-mid: #5a8dee;
+    --hf-soft: rgba(90,141,238,0.10);
+}
+.hf-root {
+    font-family: 'Segoe UI', Helvetica, Arial, sans-serif;
+    background: var(--hf-bg);
+    color: var(--hf-text);
+    padding: 12px;
+    margin: 0;
+}
+.hf-strategies {
+    display: flex; flex-wrap: wrap; gap: 8px;
+    margin-bottom: 12px; padding: 10px 12px;
+    background: var(--hf-card);
+    border: 1px solid var(--hf-border);
+    border-radius: 8px;
+    align-items: center;
+}
+.hf-pill {
+    border: 1px solid var(--hf-border);
+    background: var(--hf-card);
+    color: var(--hf-text);
+    padding: 8px 16px;
+    font-family: inherit;
+    font-size: 0.92rem;
+    font-weight: 700;
+    border-radius: 999px;
+    cursor: pointer;
+    transition: background 0.15s, color 0.15s, border-color 0.15s;
+}
+.hf-pill:hover { border-color: var(--hf-accent); }
+.hf-pill.active {
+    background: var(--hf-accent);
+    color: #fff;
+    border-color: var(--hf-accent);
+}
+.hf-strat-label {
+    font-size: 0.78rem;
+    color: var(--hf-muted);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-right: 4px;
+}
+.hf-summary {
+    background: var(--hf-card);
+    border: 1px solid var(--hf-border);
+    border-radius: 8px;
+    padding: 14px 16px;
+    margin-bottom: 12px;
+}
+.hf-strat-name {
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: var(--hf-text);
+    margin: 0 0 4px 0;
+}
+.hf-strat-desc {
+    font-size: 0.92rem;
+    color: var(--hf-muted);
+    line-height: 1.5;
+    margin: 0;
+}
+.hf-kpis {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 10px;
+    margin-bottom: 12px;
+}
+.hf-kpi {
+    background: var(--hf-card);
+    border: 1px solid var(--hf-border);
+    border-left: 4px solid var(--hf-mid);
+    border-radius: 8px;
+    padding: 10px 12px;
+}
+.hf-kpi.k-ret  { border-left-color: var(--hf-pos); }
+.hf-kpi.k-vol  { border-left-color: var(--hf-mid); }
+.hf-kpi.k-shp  { border-left-color: var(--hf-accent); }
+.hf-kpi.k-dd   { border-left-color: var(--hf-neg); }
+.hf-kpi-name {
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--hf-muted);
+}
+.hf-kpi-val {
+    font-size: 1.45rem;
+    font-weight: 700;
+    margin-top: 4px;
+    font-variant-numeric: tabular-nums;
+}
+.hf-kpi-sub {
+    font-size: 0.74rem;
+    color: var(--hf-muted);
+    margin-top: 2px;
+}
+.hf-grid {
+    display: grid;
+    grid-template-columns: 1.1fr 1fr;
+    gap: 12px;
+    margin-bottom: 12px;
+}
+.hf-card {
+    background: var(--hf-card);
+    border: 1px solid var(--hf-border);
+    border-radius: 8px;
+    padding: 14px 16px;
+}
+.hf-card h3 {
+    margin: 0 0 8px 0;
+    font-size: 0.86rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--hf-muted);
+}
+.hf-card p {
+    margin: 4px 0;
+    font-size: 0.94rem;
+    line-height: 1.55;
+}
+.hf-card p strong { color: var(--hf-text); }
+.hf-fee-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 4px 0;
+    border-bottom: 1px dotted var(--hf-border);
+    font-size: 0.92rem;
+}
+.hf-fee-row:last-child {
+    border-bottom: none;
+    border-top: 1.5px solid var(--hf-text);
+    font-weight: 700;
+    margin-top: 4px;
+    padding-top: 8px;
+}
+.hf-proxy {
+    background: var(--hf-soft);
+    border-left: 3px solid var(--hf-accent);
+    padding: 8px 12px;
+    margin-top: 6px;
+    border-radius: 4px;
+    font-size: 0.92rem;
+}
+.hf-chart {
+    background: var(--hf-card);
+    border: 1px solid var(--hf-border);
+    border-radius: 8px;
+    height: 360px;
+    margin-bottom: 12px;
+}
+.hf-caption {
+    margin-top: 6px;
+    font-size: 0.78rem;
+    color: var(--hf-muted);
+    line-height: 1.5;
+}
+@media (max-width: 900px) {
+    .hf-kpis { grid-template-columns: repeat(2, 1fr); }
+    .hf-grid { grid-template-columns: 1fr; }
+    .hf-chart { height: 320px; }
+}
+</style>
+</head>
+<body>
+
+<div class="hf-root" id="hf-root">
+
+    <div class="hf-strategies" id="hf-strategies">
+        <span class="hf-strat-label" id="hf-strat-label">STRATEGY</span>
+    </div>
+
+    <div class="hf-summary">
+        <p class="hf-strat-name" id="hf-strat-name">--</p>
+        <p class="hf-strat-desc" id="hf-strat-desc">--</p>
+    </div>
+
+    <div class="hf-kpis">
+        <div class="hf-kpi k-ret">
+            <div class="hf-kpi-name" id="hf-name-ret">Typical net return</div>
+            <div class="hf-kpi-val"  id="hf-val-ret">--</div>
+            <div class="hf-kpi-sub"  id="hf-sub-ret">After 2/20 fees, long-run avg</div>
+        </div>
+        <div class="hf-kpi k-vol">
+            <div class="hf-kpi-name" id="hf-name-vol">Annual volatility</div>
+            <div class="hf-kpi-val"  id="hf-val-vol">--</div>
+            <div class="hf-kpi-sub"  id="hf-sub-vol">Standard deviation of returns</div>
+        </div>
+        <div class="hf-kpi k-shp">
+            <div class="hf-kpi-name" id="hf-name-shp">Sharpe ratio</div>
+            <div class="hf-kpi-val"  id="hf-val-shp">--</div>
+            <div class="hf-kpi-sub"  id="hf-sub-shp">vs 2% risk-free rate</div>
+        </div>
+        <div class="hf-kpi k-dd">
+            <div class="hf-kpi-name" id="hf-name-dd">2008 drawdown</div>
+            <div class="hf-kpi-val"  id="hf-val-dd">--</div>
+            <div class="hf-kpi-sub"  id="hf-sub-dd">Calendar year 2008</div>
+        </div>
+    </div>
+
+    <div class="hf-grid">
+        <div class="hf-card">
+            <h3 id="hf-fee-title">Fee structure</h3>
+            <div id="hf-fee-rows"></div>
+            <p style="font-size:0.82rem; color: var(--hf-muted); margin-top: 10px;" id="hf-fee-note">--</p>
+        </div>
+        <div class="hf-card">
+            <h3 id="hf-proxy-title">Retail proxy</h3>
+            <div class="hf-proxy" id="hf-proxy-block">--</div>
+            <p style="font-size:0.86rem; color: var(--hf-text); margin-top: 10px;" id="hf-proxy-note">--</p>
+        </div>
+    </div>
+
+    <div id="hf-chart" class="hf-chart"></div>
+
+    <p class="hf-caption" id="hf-caption">
+        Pick a strategy bucket. The panel shows typical net-of-fee return, vol, Sharpe, 2008 drawdown,
+        the actual 2/20 fee math on a 10% gross year, and the daily-liquid retail proxy if one exists.
+        The chart shows the calendar-year return distribution of HFRI sub-indices over 2000-2024.
+    </p>
+</div>
+
+<script>
+(function () {
+    const I18N = {
+        en: {
+            strat_label: "STRATEGY",
+            strats: {
+                ls:    "Long/short equity",
+                macro: "Global macro",
+                event: "Event-driven",
+                arb:   "Relative-value arb",
+                multi: "Multi-strategy",
+            },
+            kpi_ret: "Typical net return",
+            kpi_vol: "Annual volatility",
+            kpi_shp: "Sharpe ratio",
+            kpi_dd:  "2008 calendar return",
+            sub_ret: "After 2/20 fees, long-run avg",
+            sub_vol: "Standard deviation of returns",
+            sub_shp: "vs 2% risk-free rate",
+            sub_dd:  "Calendar year 2008",
+            fee_title:   "Fee structure (10% gross year, $100M AUM)",
+            fee_rows: {
+                gross:  ["Gross return", "Manager generates"],
+                mgmt:   ["Management fee 2%", "Manager"],
+                pre:    ["Pre-incentive return", "LP"],
+                perf:   ["Performance fee 20%", "Manager"],
+                net:    ["Net to LP", "LP keeps"],
+                fofmgmt:["FoF fee 1%", "FoF wrapper"],
+                fofperf:["FoF perf 10%", "FoF wrapper"],
+                netfof: ["Net to FoF investor", "Final LP keeps"],
+            },
+            fee_note_direct: "Manager captures roughly 36% of gross alpha. The math gets worse in low-return years -- 2% management fee does not flex with returns.",
+            fee_note_fof:    "FoF wrapper captures another ~14%. Final LP keeps about half of gross. This is what most accredited investors actually buy.",
+            fee_note_pod:    "Pod shops add 2-7%/yr 'pass-through expense' (PM comp, tech, financing). All-in load 6-9%/yr. Closed to new capital.",
+            proxy_title: "Retail proxy",
+            proxy_note_label: "Substitutability:",
+            chart_title: "HFRI sub-index distribution: best year / worst year / typical year",
+            chart_x: "Calendar year",
+            chart_y: "Annual return",
+            cap: "Pick a strategy bucket. The panel shows typical net-of-fee return, vol, Sharpe, 2008 drawdown, the actual 2/20 fee math on a 10% gross year, and the daily-liquid retail proxy if one exists. The chart shows the calendar-year return distribution of HFRI sub-indices over 2000-2024.",
+        },
+        hk: {
+            strat_label: "策略",
+            strats: {
+                ls:    "多空股票",
+                macro: "全球宏觀",
+                event: "事件驅動",
+                arb:   "相對價值套利",
+                multi: "多策略",
+            },
+            kpi_ret: "扣費後典型回報",
+            kpi_vol: "年度波動率",
+            kpi_shp: "夏普比率",
+            kpi_dd:  "2008 年回報",
+            sub_ret: "扣 2/20 後長期平均",
+            sub_vol: "回報標準差",
+            sub_shp: "對比 2% 無風險率",
+            sub_dd:  "2008 整個日曆年",
+            fee_title: "費用結構(10% 毛回報年、1 億美元 AUM)",
+            fee_rows: {
+                gross:  ["毛回報", "經理產生"],
+                mgmt:   ["管理費 2%", "經理"],
+                pre:    ["扣管理費後", "LP"],
+                perf:   ["表現費 20%", "經理"],
+                net:    ["LP 淨得", "LP 留下"],
+                fofmgmt:["FoF 管理費 1%", "FoF 包裝"],
+                fofperf:["FoF 表現費 10%", "FoF 包裝"],
+                netfof: ["最終 LP 淨得", "終端 LP 留下"],
+            },
+            fee_note_direct: "經理捕獲約 36% 毛 alpha。低回報年更慘 -- 2% 管理費不隨回報浮動。",
+            fee_note_fof:    "FoF 包裝再吃約 14%。最終 LP 只留約一半毛回報。多數合資格投資者實際買到的就是這個。",
+            fee_note_pod:    "Pod shop 另加 2-7%/年「轉嫁費用」(PM 薪酬、科技、融資)。全包 6-9%/年。對新資金封閉。",
+            proxy_title: "散戶代用品",
+            proxy_note_label: "替代性:",
+            chart_title: "HFRI 子指數分佈:最佳年/最差年/典型年",
+            chart_x: "日曆年",
+            chart_y: "年度回報",
+            cap: "點選策略類別。面板顯示扣費後典型回報、波動率、夏普、2008 回撤、10% 毛回報年下 2/20 的真實費用數字,以及日線流動性散戶代用品。圖表顯示 2000-2024 年 HFRI 子指數的年度回報分佈。",
+        },
+        tw: {
+            strat_label: "策略",
+            strats: {
+                ls:    "多空股票",
+                macro: "全球宏觀",
+                event: "事件驅動",
+                arb:   "相對價值套利",
+                multi: "多策略",
+            },
+            kpi_ret: "扣費後典型報酬",
+            kpi_vol: "年度波動率",
+            kpi_shp: "夏普比率",
+            kpi_dd:  "2008 年報酬",
+            sub_ret: "扣 2/20 後長期平均",
+            sub_vol: "報酬標準差",
+            sub_shp: "對比 2% 無風險率",
+            sub_dd:  "2008 整個日曆年",
+            fee_title: "費用結構(10% 毛報酬年、1 億美元 AUM)",
+            fee_rows: {
+                gross:  ["毛報酬", "經理產生"],
+                mgmt:   ["管理費 2%", "經理"],
+                pre:    ["扣管理費後", "LP"],
+                perf:   ["績效費 20%", "經理"],
+                net:    ["LP 淨得", "LP 留下"],
+                fofmgmt:["FoF 管理費 1%", "FoF 包裝"],
+                fofperf:["FoF 績效費 10%", "FoF 包裝"],
+                netfof: ["最終 LP 淨得", "終端 LP 留下"],
+            },
+            fee_note_direct: "經理捕獲約 36% 毛 alpha。低報酬年更慘 -- 2% 管理費不隨報酬浮動。",
+            fee_note_fof:    "FoF 包裝再吃約 14%。最終 LP 只留約一半毛報酬。多數合格投資人實際買到的就是這個。",
+            fee_note_pod:    "Pod shop 另加 2-7%/年「轉嫁費用」(PM 薪酬、科技、融資)。全包 6-9%/年。對新資金封閉。",
+            proxy_title: "散戶代用品",
+            proxy_note_label: "替代性:",
+            chart_title: "HFRI 子指數分佈:最佳年/最差年/典型年",
+            chart_x: "日曆年",
+            chart_y: "年度報酬",
+            cap: "點選策略類別。面板顯示扣費後典型報酬、波動率、夏普、2008 回檔、10% 毛報酬年下 2/20 的真實費用數字,以及日線流動性散戶代用品。圖表顯示 2000-2024 年 HFRI 子指數的年度報酬分佈。",
+        },
+        cn: {
+            strat_label: "策略",
+            strats: {
+                ls:    "多空股票",
+                macro: "全球宏观",
+                event: "事件驱动",
+                arb:   "相对价值套利",
+                multi: "多策略",
+            },
+            kpi_ret: "扣费后典型回报",
+            kpi_vol: "年度波动率",
+            kpi_shp: "夏普比率",
+            kpi_dd:  "2008 年回报",
+            sub_ret: "扣 2/20 后长期平均",
+            sub_vol: "回报标准差",
+            sub_shp: "对比 2% 无风险率",
+            sub_dd:  "2008 整个日历年",
+            fee_title: "费用结构(10% 毛回报年、1 亿美元 AUM)",
+            fee_rows: {
+                gross:  ["毛回报", "经理产生"],
+                mgmt:   ["管理费 2%", "经理"],
+                pre:    ["扣管理费后", "LP"],
+                perf:   ["业绩费 20%", "经理"],
+                net:    ["LP 净得", "LP 留下"],
+                fofmgmt:["FoF 管理费 1%", "FoF 包装"],
+                fofperf:["FoF 业绩费 10%", "FoF 包装"],
+                netfof: ["最终 LP 净得", "终端 LP 留下"],
+            },
+            fee_note_direct: "经理捕获约 36% 毛 alpha。低回报年更惨 -- 2% 管理费不随回报浮动。",
+            fee_note_fof:    "FoF 包装再吃约 14%。最终 LP 只留约一半毛回报。多数合格投资者实际买到的就是这个。",
+            fee_note_pod:    "Pod shop 另加 2-7%/年「转嫁费用」(PM 薪酬、科技、融资)。全包 6-9%/年。对新资金封闭。",
+            proxy_title: "散户代用品",
+            proxy_note_label: "替代性:",
+            chart_title: "HFRI 子指数分布:最佳年/最差年/典型年",
+            chart_x: "日历年",
+            chart_y: "年度回报",
+            cap: "点选策略类别。面板显示扣费后典型回报、波动率、夏普、2008 回撤、10% 毛回报年下 2/20 的真实费用数字,以及日线流动性散户代用品。图表显示 2000-2024 年 HFRI 子指数的年度回报分布。",
+        },
+    };
+
+    function currentLang() {
+        const p = new URLSearchParams(window.location.search);
+        const l = (p.get("lang") || "en").toLowerCase();
+        return I18N.hasOwnProperty(l) ? l : "en";
+    }
+    const T = I18N[currentLang()];
+
+    // Strategy data (numbers reflect HFRI sub-index public summary stats 2000-2024).
+    // For each strat: typical net return, vol, sharpe (rf=2%), 2008 calendar
+    // return, fee_mode (direct/fof/pod), proxy info, descriptive paragraph,
+    // and 25-year yearly return series for distribution chart (HFRI sub).
+    const STRATS = {
+        ls: {
+            label_key: "ls",
+            ret: 0.058, vol: 0.080, shp: 0.475, dd2008: -0.262, fee_mode: "direct",
+            desc: {
+                en: "Buy outperformers, short underperformers. Net 30-70% / gross 130-200%. Alpha from stock selection both sides. Strategy declined 2010-2024 as short-side alpha collapsed and meme-stock squeezes punished real shorts.",
+                hk: "買看好的、空看淡的。淨 30-70%/毛 130-200%。Alpha 來自兩邊選股。2010-2024 年策略式微 -- 空頭 alpha 崩潰、meme 股軋空懲罰了真倉位。",
+                tw: "買看好的、空看淡的。淨 30-70%/毛 130-200%。Alpha 來自兩邊選股。2010-2024 年策略式微 -- 空頭 alpha 崩潰、meme 股軋空懲罰了真倉位。",
+                cn: "买看好的、空看淡的。净 30-70%/毛 130-200%。Alpha 来自两边选股。2010-2024 年策略式微 -- 空头 alpha 崩溃、meme 股逼空惩罚了真仓位。",
+            },
+            proxy: {
+                en: "BTAL (anti-beta long/short, 1.40% ER) or QLEIX (AQR Long/Short, 1.49%)",
+                hk: "BTAL(反 beta 多空,1.40% ER)或 QLEIX(AQR 多空,1.49%)",
+                tw: "BTAL(反 beta 多空,1.40% ER)或 QLEIX(AQR 多空,1.49%)",
+                cn: "BTAL(反 beta 多空,1.40% ER)或 QLEIX(AQR 多空,1.49%)",
+            },
+            sub: {
+                en: "Moderate -- factor exposure replicable, idiosyncratic stock-picking alpha is not.",
+                hk: "中等 -- 因子敞口可複製,個股選股 alpha 不可複製。",
+                tw: "中等 -- 因子敞口可複製,個股選股 alpha 不可複製。",
+                cn: "中等 -- 因子敞口可复制,个股选股 alpha 不可复制。",
+            },
+            yrly: [0.090,0.005,-0.045,0.175,0.110,0.085,0.115,0.105,-0.262,0.196,
+                   0.090,-0.082,0.072,0.140,0.018,-0.005,0.005,0.135,-0.072,0.122,
+                   0.103,0.080,-0.090,0.075,0.082],
+        },
+        macro: {
+            label_key: "macro",
+            ret: 0.052, vol: 0.060, shp: 0.533, dd2008: 0.144, fee_mode: "direct",
+            desc: {
+                en: "Top-down trades on currencies, rates, commodities, equity indices. Soros breaking BoE in 1992 is the canonical trade. Best year was 2008 (+14%) when treasuries and yen rallied as everything else cracked.",
+                hk: "由上而下交易貨幣、利率、商品、股指。1992 索羅斯狙擊英倫銀行為經典案例。最佳年份為 2008 年(+14%),公債與日圓齊漲時其他全跌。",
+                tw: "由上而下交易貨幣、利率、商品、股指。1992 索羅斯狙擊英倫銀行為經典案例。最佳年份為 2008 年(+14%),公債與日圓齊漲時其他全跌。",
+                cn: "自上而下交易货币、利率、商品、股指。1992 索罗斯阻击英伦银行为经典案例。最佳年份为 2008 年(+14%),公债与日元齐涨时其他全跌。",
+            },
+            proxy: {
+                en: "DBMF (managed futures, 0.85%) or KMLM (KFA Mt Lucas, 0.92%)",
+                hk: "DBMF(管理期貨,0.85%)或 KMLM(KFA Mt Lucas,0.92%)",
+                tw: "DBMF(管理期貨,0.85%)或 KMLM(KFA Mt Lucas,0.92%)",
+                cn: "DBMF(管理期货,0.85%)或 KMLM(KFA Mt Lucas,0.92%)",
+            },
+            sub: {
+                en: "Good -- trend-following sub-strategy is well-replicated by daily-liquid CTA ETFs (Week 51).",
+                hk: "良好 -- 趨勢追蹤子策略可由日線流動 CTA ETF 良好複製(第 51 週)。",
+                tw: "良好 -- 趨勢追蹤子策略可由日線流動 CTA ETF 良好複製(第 51 週)。",
+                cn: "良好 -- 趋势跟踪子策略可由日线流动 CTA ETF 良好复制(第 51 周)。",
+            },
+            yrly: [0.045,0.068,0.071,0.083,0.044,0.062,0.082,0.110,0.144,0.043,
+                   0.080,-0.043,-0.001,-0.001,0.058,-0.012,0.011,0.025,-0.037,0.061,
+                   0.052,0.073,0.092,-0.020,0.045],
+        },
+        event: {
+            label_key: "event",
+            ret: 0.067, vol: 0.075, shp: 0.627, dd2008: -0.213, fee_mode: "direct",
+            desc: {
+                en: "Catalysts: M&A, spinoffs, restructurings, activism, distressed credit. Best year 2009 (+25%) post-2008 recovery and merger-arb spreads at 12% annualised. Merger arb sub-strategy is one of the few with a 30-year clean track record.",
+                hk: "催化事件:併購、分拆、重組、維權、不良信用。最佳年份 2009(+25%),2008 後復蘇加併購套利息差年化 12%。併購套利為少數有 30 年清晰紀錄的子策略。",
+                tw: "催化事件:併購、分拆、重組、維權、不良信用。最佳年份 2009(+25%),2008 後復甦加併購套利息差年化 12%。併購套利為少數有 30 年清晰紀錄的子策略。",
+                cn: "催化事件:并购、分拆、重组、维权、不良信用。最佳年份 2009(+25%),2008 后复苏加并购套利息差年化 12%。并购套利为少数有 30 年清晰记录的子策略。",
+            },
+            proxy: {
+                en: "MERFX (Merger Fund, 1.30% ER, 30-yr track record)",
+                hk: "MERFX(Merger 基金,1.30% ER,30 年紀錄)",
+                tw: "MERFX(Merger 基金,1.30% ER,30 年紀錄)",
+                cn: "MERFX(Merger 基金,1.30% ER,30 年记录)",
+            },
+            sub: {
+                en: "Reasonable for merger arb only. Distressed and activist sub-strategies have no good retail proxy.",
+                hk: "僅併購套利合理替代。不良與維權子策略無好的散戶代用品。",
+                tw: "僅併購套利合理替代。不良與維權子策略無好的散戶代用品。",
+                cn: "仅并购套利合理替代。不良与维权子策略无好的散户代用品。",
+            },
+            yrly: [0.069,0.022,-0.040,0.205,0.150,0.075,0.156,0.067,-0.213,0.250,
+                   0.114,-0.039,0.085,0.124,0.011,-0.034,0.105,0.070,-0.020,0.083,
+                   0.072,0.118,-0.040,0.062,0.060],
+        },
+        arb: {
+            label_key: "arb",
+            ret: 0.044, vol: 0.090, shp: 0.267, dd2008: -0.337, fee_mode: "direct",
+            desc: {
+                en: "Convertible arb, fixed-income arb, statistical arb, vol arb. 'Two things should trade together but don't, lever 5-15x, collect spread.' LTCM in 1998 is the cautionary tale -- the strategy can crater spectacularly when leverage meets correlated dislocations.",
+                hk: "可換債套利、固收套利、統計套利、波動率套利。「兩個本應同向交易的東西出現背離,5-15 倍槓桿吃價差。」1998 LTCM 為前車之鑑 -- 槓桿遇上相關性錯位會慘烈爆倉。",
+                tw: "可轉債套利、固收套利、統計套利、波動率套利。「兩個本應同向交易的東西出現背離,5-15 倍槓桿吃價差。」1998 LTCM 為前車之鑑 -- 槓桿遇上相關性錯位會慘烈爆倉。",
+                cn: "可转债套利、固收套利、统计套利、波动率套利。「两个本应同向交易的东西出现背离,5-15 倍杠杆吃价差。」1998 LTCM 为前车之鉴 -- 杠杆遇上相关性错位会惨烈爆仓。",
+            },
+            proxy: {
+                en: "Essentially none. CWB (convertible long-only, 0.40%) misses the short leg.",
+                hk: "基本沒有。CWB(可換債純多頭,0.40%)缺空頭腿。",
+                tw: "基本沒有。CWB(可轉債純多頭,0.40%)缺空頭腿。",
+                cn: "基本没有。CWB(可转债纯多头,0.40%)缺空头腿。",
+            },
+            sub: {
+                en: "Poor -- the strategy lives or dies on cheap leverage and tight bid-ask. No 1099 wrapper can replicate.",
+                hk: "差 -- 策略命脈是便宜槓桿與緊價差。沒有 1099 包裝能複製。",
+                tw: "差 -- 策略命脈是便宜槓桿與緊價差。沒有 1099 包裝能複製。",
+                cn: "差 -- 策略命脉是便宜杠杆与紧价差。没有 1099 包装能复制。",
+            },
+            yrly: [0.110,0.077,-0.064,0.115,0.018,-0.025,0.137,0.057,-0.337,0.471,
+                   0.119,-0.054,0.080,0.063,0.013,-0.041,0.069,0.043,-0.040,0.044,
+                   0.065,0.063,-0.071,0.085,0.058],
+        },
+        multi: {
+            label_key: "multi",
+            ret: 0.080, vol: 0.045, shp: 1.333, dd2008: 0.080, fee_mode: "pod",
+            desc: {
+                en: "Pod shops: Citadel, Millennium, Point72, Balyasny. Internal capital allocation across 50-200 portfolio managers. Best Sharpe in the entire HF universe -- never down more than -2% in any calendar year since 2002 for top quartile. Closed to new capital almost universally.",
+                hk: "Pod shop:Citadel、Millennium、Point72、Balyasny。內部 50-200 位 PM 之間動態分配資本。整個對沖基金圈最佳夏普 -- 頂級四分位 2002 起未有任何日曆年虧損超 2%。基本對新資金封閉。",
+                tw: "Pod shop:Citadel、Millennium、Point72、Balyasny。內部 50-200 位 PM 之間動態分配資本。整個避險基金圈最佳夏普 -- 頂級四分位 2002 起未有任何日曆年虧損超 2%。基本對新資金封閉。",
+                cn: "Pod shop:Citadel、Millennium、Point72、Balyasny。内部 50-200 位 PM 之间动态分配资本。整个对冲基金圈最佳夏普 -- 顶级四分位 2002 起未有任何日历年亏损超 2%。基本对新资金封闭。",
+            },
+            proxy: {
+                en: "QAI (IQ Hedge Multi-Strat Tracker, 0.80%) -- distant approximation",
+                hk: "QAI(IQ Hedge 多策略追蹤,0.80%)-- 遠距離近似",
+                tw: "QAI(IQ Hedge 多策略追蹤,0.80%)-- 遠距離近似",
+                cn: "QAI(IQ Hedge 多策略追踪,0.80%)-- 远距离近似",
+            },
+            sub: {
+                en: "Poor. Pod shops generate alpha through internal capital allocation that no daily-liquid wrapper can replicate.",
+                hk: "差。Pod shop 透過內部資本分配生成 alpha,無 daily-liquid 包裝能複製。",
+                tw: "差。Pod shop 透過內部資本分配生成 alpha,無 daily-liquid 包裝能複製。",
+                cn: "差。Pod shop 通过内部资本分配生成 alpha,无 daily-liquid 包装能复制。",
+            },
+            yrly: [0.085,0.066,0.055,0.115,0.075,0.080,0.143,0.110,0.080,0.092,
+                   0.085,0.030,0.055,0.078,0.062,0.045,0.052,0.068,0.020,0.082,
+                   0.090,0.123,0.105,0.070,0.078],
+        },
+    };
+
+    let activeStrat = "ls";
+    const ROOT = document.getElementById("hf-root");
+    const STRAT_ROW = document.getElementById("hf-strategies");
+    document.getElementById("hf-strat-label").textContent = T.strat_label;
+
+    document.getElementById("hf-name-ret").textContent = T.kpi_ret;
+    document.getElementById("hf-name-vol").textContent = T.kpi_vol;
+    document.getElementById("hf-name-shp").textContent = T.kpi_shp;
+    document.getElementById("hf-name-dd").textContent  = T.kpi_dd;
+    document.getElementById("hf-sub-ret").textContent  = T.sub_ret;
+    document.getElementById("hf-sub-vol").textContent  = T.sub_vol;
+    document.getElementById("hf-sub-shp").textContent  = T.sub_shp;
+    document.getElementById("hf-sub-dd").textContent   = T.sub_dd;
+    document.getElementById("hf-fee-title").textContent  = T.fee_title;
+    document.getElementById("hf-proxy-title").textContent = T.proxy_title;
+    document.getElementById("hf-caption").textContent   = T.cap;
+
+    const STRAT_ORDER = ["ls", "macro", "event", "arb", "multi"];
+    STRAT_ORDER.forEach(key => {
+        const b = document.createElement("button");
+        b.className = "hf-pill";
+        b.type = "button";
+        b.textContent = T.strats[key];
+        b.dataset.strat = key;
+        if (key === activeStrat) b.classList.add("active");
+        b.addEventListener("click", () => {
+            activeStrat = key;
+            document.querySelectorAll(".hf-pill").forEach(p => p.classList.remove("active"));
+            b.classList.add("active");
+            render();
+        });
+        STRAT_ROW.appendChild(b);
+    });
+
+    function fmtPct(v, dp) {
+        const sign = v >= 0 ? "+" : "";
+        return sign + (v * 100).toFixed(dp || 1) + "%";
+    }
+    function fmtUSD(m) {
+        const sign = m < 0 ? "-" : "";
+        const a = Math.abs(m);
+        return sign + "$" + a.toFixed(1) + "M";
+    }
+
+    function buildFeeRows(strat) {
+        const lang = currentLang();
+        const rows = T.fee_rows;
+        const out = [];
+        out.push({label: rows.gross[0],   val: fmtUSD(10),    side: rows.gross[1]});
+        out.push({label: rows.mgmt[0],    val: fmtUSD(-2.0),  side: rows.mgmt[1]});
+        out.push({label: rows.pre[0],     val: fmtUSD(8.0),   side: rows.pre[1]});
+        out.push({label: rows.perf[0],    val: fmtUSD(-1.6),  side: rows.perf[1]});
+        if (strat.fee_mode === "fof" || strat.fee_mode === "pod") {
+            out.push({label: rows.net[0],     val: fmtUSD(6.4),   side: rows.net[1]});
+        }
+        if (strat.fee_mode === "fof") {
+            out.push({label: rows.fofmgmt[0], val: fmtUSD(-1.0),  side: rows.fofmgmt[1]});
+            out.push({label: rows.fofperf[0], val: fmtUSD(-0.4),  side: rows.fofperf[1]});
+            out.push({label: rows.netfof[0],  val: fmtUSD(5.0),   side: rows.netfof[1]});
+        } else {
+            out.push({label: rows.net[0],     val: fmtUSD(6.4),   side: rows.net[1]});
+        }
+        return out;
+    }
+
+    function render() {
+        const strat = STRATS[activeStrat];
+        const lang = currentLang();
+        document.getElementById("hf-strat-name").textContent = T.strats[strat.label_key];
+        document.getElementById("hf-strat-desc").textContent = strat.desc[lang] || strat.desc.en;
+
+        document.getElementById("hf-val-ret").textContent = fmtPct(strat.ret);
+        document.getElementById("hf-val-vol").textContent = (strat.vol * 100).toFixed(1) + "%";
+        document.getElementById("hf-val-shp").textContent = strat.shp.toFixed(2);
+        const ddEl = document.getElementById("hf-val-dd");
+        ddEl.textContent = fmtPct(strat.dd2008);
+        ddEl.style.color = strat.dd2008 < 0 ? "var(--hf-neg)" : "var(--hf-pos)";
+
+        // Fee rows
+        const feeRows = buildFeeRows(strat);
+        const feeBox = document.getElementById("hf-fee-rows");
+        feeBox.innerHTML = "";
+        feeRows.forEach(r => {
+            const div = document.createElement("div");
+            div.className = "hf-fee-row";
+            div.innerHTML = "<span>" + r.label + "</span><span>" + r.val
+                          + " <span style='color:var(--hf-muted); font-weight:400; font-size:0.82rem;'>(" + r.side + ")</span></span>";
+            feeBox.appendChild(div);
+        });
+        const feeNote = strat.fee_mode === "pod" ? T.fee_note_pod
+                       : strat.fee_mode === "fof" ? T.fee_note_fof
+                       : T.fee_note_direct;
+        document.getElementById("hf-fee-note").textContent = feeNote;
+
+        // Proxy
+        document.getElementById("hf-proxy-block").textContent = strat.proxy[lang] || strat.proxy.en;
+        document.getElementById("hf-proxy-note").innerHTML =
+            "<strong>" + T.proxy_note_label + "</strong> " + (strat.sub[lang] || strat.sub.en);
+
+        renderChart(strat);
+    }
+
+    function darkMode() {
+        return document.documentElement.getAttribute("data-theme") === "dark";
+    }
+    function getCssVar(name) {
+        return getComputedStyle(ROOT).getPropertyValue(name).trim();
+    }
+
+    function renderChart(strat) {
+        const colorBg    = getCssVar("--hf-card");
+        const colorText  = getCssVar("--hf-text");
+        const colorMuted = getCssVar("--hf-muted");
+        const colorPos   = getCssVar("--hf-pos");
+        const colorNeg   = getCssVar("--hf-neg");
+        const colorMid   = getCssVar("--hf-mid");
+        const colorAcc   = getCssVar("--hf-accent");
+        const colorGrid  = darkMode() ? "rgba(255,255,255,0.08)" : "rgba(0,0,0,0.07)";
+
+        const years = [];
+        for (let y = 2000; y <= 2024; y++) years.push(y);
+        const colors = strat.yrly.map(v => v >= 0 ? colorPos : colorNeg);
+
+        const traces = [
+            {
+                x: years, y: strat.yrly,
+                type: "bar",
+                marker: { color: colors, line: { color: colorBg, width: 0.8 } },
+                hovertemplate: "%{x}: %{y:.1%}<extra></extra>",
+                showlegend: false,
+            },
+        ];
+        const layout = {
+            margin: { l: 60, r: 18, t: 38, b: 50 },
+            paper_bgcolor: colorBg, plot_bgcolor: colorBg,
+            font: { family: "Segoe UI, Helvetica, Arial, sans-serif", color: colorText, size: 12 },
+            title: { text: T.chart_title, font: { color: colorText, size: 13 }, x: 0, xanchor: "left" },
+            xaxis: {
+                title: { text: T.chart_x, font: { color: colorMuted, size: 11 } },
+                gridcolor: colorGrid, zeroline: false, color: colorText,
+            },
+            yaxis: {
+                title: { text: T.chart_y, font: { color: colorMuted, size: 11 } },
+                gridcolor: colorGrid, zeroline: true, zerolinecolor: colorMuted, color: colorText,
+                tickformat: ".0%",
+            },
+        };
+        Plotly.react(document.getElementById("hf-chart"), traces, layout,
+            { displayModeBar: false, responsive: true });
+    }
+
+    function reportHeight() {
+        try {
+            const h = Math.ceil(document.documentElement.scrollHeight);
+            parent.postMessage({ type: 'lesson-interactive-resize', height: h }, '*');
+        } catch (e) { /* ignore */ }
+    }
+    if (typeof ResizeObserver !== 'undefined') {
+        new ResizeObserver(reportHeight).observe(document.body);
+    }
+    window.addEventListener('resize', reportHeight);
+    setTimeout(reportHeight, 50);
+    setTimeout(reportHeight, 500);
+
+    const themeObserver = new MutationObserver(render);
+    themeObserver.observe(document.documentElement, { attributes: true, attributeFilter: ["data-theme"] });
+
+    render();
+})();
+</script>
+
+</body>
+</html>

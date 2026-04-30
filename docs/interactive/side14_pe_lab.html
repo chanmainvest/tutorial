@@ -1,0 +1,823 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>PE Lab - Interactive (Side 14)</title>
+<script src="https://cdn.plot.ly/plotly-2.35.2.min.js" charset="utf-8"></script>
+<style>
+html, body { margin: 0; padding: 0; background: var(--pe-bg); }
+:root {
+    --pe-bg: #fdfbf5;
+    --pe-text: #1a2332;
+    --pe-muted: #6b7280;
+    --pe-border: #d6d3c4;
+    --pe-card: #fdfbf5;
+    --pe-accent: #b8860b;
+    --pe-blue: #0d47a1;
+    --pe-red: #b71c1c;
+    --pe-green: #2e7d32;
+    --pe-purple: #6a1b9a;
+    --pe-orange: #e65100;
+    --pe-grey: #5a5a5a;
+}
+html[data-theme="dark"] .pe-root,
+.pe-root[data-theme="dark"] {
+    --pe-bg: #0f1724;
+    --pe-text: #e6e6e6;
+    --pe-muted: #9aa3b2;
+    --pe-border: #2a3441;
+    --pe-card: #0f1724;
+    --pe-blue: #5a8dee;
+    --pe-red: #ef5350;
+    --pe-green: #66bb6a;
+    --pe-purple: #ba68c8;
+    --pe-orange: #ffa726;
+    --pe-grey: #aaaaaa;
+}
+.pe-root {
+    font-family: 'Segoe UI', Helvetica, Arial, sans-serif;
+    background: var(--pe-bg);
+    color: var(--pe-text);
+    padding: 12px;
+    margin: 0;
+}
+.pe-controls {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 12px;
+    margin-bottom: 14px;
+    padding: 12px;
+    background: var(--pe-card);
+    border: 1px solid var(--pe-border);
+    border-radius: 8px;
+}
+.pe-slider-wrap {
+    display: flex; flex-direction: column; gap: 4px;
+    font-size: 0.82rem; color: var(--pe-muted);
+}
+.pe-slider-wrap .pe-row {
+    display: flex; align-items: center; gap: 10px;
+}
+.pe-slider-wrap input[type="range"] {
+    flex: 1; accent-color: var(--pe-accent);
+}
+.pe-slider-wrap .pe-val {
+    white-space: nowrap; color: var(--pe-text);
+    font-weight: 700; font-variant-numeric: tabular-nums;
+    min-width: 80px; text-align: right;
+}
+.pe-slider-wrap .pe-name {
+    font-weight: 600; color: var(--pe-text);
+}
+.pe-presets {
+    display: flex; flex-wrap: wrap; gap: 6px;
+    margin-bottom: 14px;
+}
+.pe-pill {
+    border: 1px solid var(--pe-border);
+    background: var(--pe-card);
+    color: var(--pe-text);
+    padding: 4px 10px;
+    border-radius: 999px;
+    cursor: pointer;
+    font: inherit; font-size: 0.78rem; font-weight: 600;
+}
+.pe-pill:hover { background: var(--pe-accent); color: #fff; }
+.pe-pill.pe-active {
+    background: var(--pe-accent); color: #fff;
+    border-color: var(--pe-accent);
+}
+.pe-bigrow {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 8px;
+    margin-bottom: 14px;
+}
+.pe-big {
+    background: var(--pe-card);
+    border: 1px solid var(--pe-border);
+    border-left: 4px solid var(--pe-accent);
+    border-radius: 8px;
+    padding: 10px 12px;
+}
+.pe-big.pe-b-net   { border-left-color: var(--pe-blue); }
+.pe-big.pe-b-fees  { border-left-color: var(--pe-red); }
+.pe-big.pe-b-trough{ border-left-color: var(--pe-orange); }
+.pe-big.pe-b-mom   { border-left-color: var(--pe-green); }
+.pe-big .pe-big-name {
+    font-size: 0.72rem; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.5px;
+    color: var(--pe-muted);
+}
+.pe-big .pe-big-val {
+    font-size: 1.4rem; font-weight: 800; margin-top: 4px;
+    font-variant-numeric: tabular-nums; color: var(--pe-text);
+}
+.pe-big .pe-big-detail {
+    font-size: 0.72rem; color: var(--pe-muted); margin-top: 2px;
+}
+.pe-chart {
+    width: 100%; height: 380px;
+    background: var(--pe-card);
+    border-radius: 8px;
+    border: 1px solid var(--pe-border);
+}
+.pe-caption {
+    margin-top: 10px;
+    font-size: 0.78rem;
+    color: var(--pe-muted);
+    line-height: 1.45;
+}
+.pe-verdict {
+    margin-top: 12px;
+    padding: 10px 14px;
+    border: 1px solid var(--pe-border);
+    border-left: 4px solid var(--pe-orange);
+    background: var(--pe-card);
+    border-radius: 8px;
+    font-size: 0.85rem;
+    color: var(--pe-text);
+    line-height: 1.45;
+}
+.pe-verdict.good { border-left-color: var(--pe-green); }
+.pe-verdict.bad  { border-left-color: var(--pe-red); }
+@media (max-width: 1000px) {
+    .pe-controls { grid-template-columns: 1fr 1fr; }
+    .pe-bigrow   { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 600px) {
+    .pe-controls { grid-template-columns: 1fr; }
+    .pe-bigrow   { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<div class="pe-root" id="pe-root">
+    <div class="pe-presets" id="pe-presets"></div>
+
+    <div class="pe-controls">
+        <div class="pe-slider-wrap">
+            <div class="pe-name" id="pe-name-CAP">Capital commitment ($)</div>
+            <div class="pe-row">
+                <input type="range" id="pe-CAP" min="100000" max="5000000" step="50000" value="1000000">
+                <span class="pe-val" id="pe-val-CAP">$1,000,000</span>
+            </div>
+        </div>
+        <div class="pe-slider-wrap">
+            <div class="pe-name" id="pe-name-IRR">Gross IRR (%/yr)</div>
+            <div class="pe-row">
+                <input type="range" id="pe-IRR" min="0" max="25" step="0.5" value="15">
+                <span class="pe-val" id="pe-val-IRR">15.0%</span>
+            </div>
+        </div>
+        <div class="pe-slider-wrap">
+            <div class="pe-name" id="pe-name-FEE">Fee load (mgmt %/yr)</div>
+            <div class="pe-row">
+                <input type="range" id="pe-FEE" min="0" max="5" step="0.1" value="2.0">
+                <span class="pe-val" id="pe-val-FEE">2.0%</span>
+            </div>
+        </div>
+        <div class="pe-slider-wrap">
+            <div class="pe-name" id="pe-name-HOR">Holding horizon (years)</div>
+            <div class="pe-row">
+                <input type="range" id="pe-HOR" min="1" max="15" step="1" value="10">
+                <span class="pe-val" id="pe-val-HOR">10</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="pe-bigrow">
+        <div class="pe-big pe-b-net">
+            <div class="pe-big-name" id="pe-bn-net">Net IRR after fees</div>
+            <div class="pe-big-val" id="pe-bv-net">—</div>
+            <div class="pe-big-detail" id="pe-bd-net">to LP, net of mgmt + carry</div>
+        </div>
+        <div class="pe-big pe-b-fees">
+            <div class="pe-big-name" id="pe-bn-fees">Total fees paid</div>
+            <div class="pe-big-val" id="pe-bv-fees">—</div>
+            <div class="pe-big-detail" id="pe-bd-fees">mgmt + carry, $ to GP</div>
+        </div>
+        <div class="pe-big pe-b-trough">
+            <div class="pe-big-name" id="pe-bn-trough">J-curve depth</div>
+            <div class="pe-big-val" id="pe-bv-trough">—</div>
+            <div class="pe-big-detail" id="pe-bd-trough">max underwater % of commit</div>
+        </div>
+        <div class="pe-big pe-b-mom">
+            <div class="pe-big-name" id="pe-bn-mom">MOIC (net)</div>
+            <div class="pe-big-val" id="pe-bv-mom">—</div>
+            <div class="pe-big-detail" id="pe-bd-mom">total $ back / $ in</div>
+        </div>
+    </div>
+
+    <div id="pe-chart" class="pe-chart"></div>
+
+    <div class="pe-verdict" id="pe-verdict">—</div>
+
+    <p class="pe-caption" id="pe-caption">
+        Stylised PE fund cash flow. Capital calls front-load through years 1-5 (fixed pacing 20/25/22/18/15%); distributions back-load through years 4-10 scaled to hit your gross IRR target. Management fees accrue at the slider rate on commitments years 1-5 and on declining NAV thereafter; carried interest is 20% of profits above an 8% hurdle (with catch-up). Truncating the horizon below 10 years cuts off later distributions, magnifying the J-curve and reducing net IRR. Negative net IRRs are clipped on display.
+    </p>
+</div>
+
+<script>
+(function () {
+    var I18N = {
+        en: {
+            name_CAP: "Capital commitment ($)",
+            name_IRR: "Gross IRR (%/yr)",
+            name_FEE: "Fee load (mgmt %/yr)",
+            name_HOR: "Holding horizon (years)",
+            bn_net: "Net IRR after fees",
+            bn_fees: "Total fees paid",
+            bn_trough: "J-curve depth",
+            bn_mom: "MOIC (net)",
+            bd_net: "to LP, net of mgmt + carry",
+            bd_fees: "mgmt + carry, $ to GP",
+            bd_trough: "max underwater % of commit",
+            bd_mom: "total $ back / $ in",
+            chart_title: "Cash flows: red bars = capital calls, green bars = distributions, dark line = cumulative net cash flow.",
+            x_label: "Year of fund life",
+            y_label: "% of committed capital",
+            tr_calls: "Capital calls",
+            tr_dists: "Distributions",
+            tr_cum: "Cumulative net cash flow",
+            preset_label: "Presets:",
+            presets: {
+                topQ:    "Top quartile (gross 22%)",
+                medianBO:"Median buyout (gross 12%)",
+                hurdle:  "At 8% hurdle (no carry)",
+                weak:    "Weak fund (gross 6%)",
+                vc:      "VC home-run (gross 25%)",
+                bdc:     "Public BDC proxy (10%, 0% fee)",
+            },
+            verdict_good: "At your settings, net IRR comfortably beats a leveraged small-cap-value benchmark (~10%/yr). The 10-year lockup is earning its cost. This is the top-quartile zone.",
+            verdict_meh: "At your settings, net IRR is roughly in line with public small-cap-value (~10%/yr). The illiquidity premium has been consumed by fees. You are not being paid for the lockup.",
+            verdict_bad: "At your settings, net IRR is below public small-cap-value benchmarks. After fees, this fund destroys value relative to a liquid public alternative. Most retail-distributed private products land here.",
+            caption_text: "Stylised PE fund cash flow. Capital calls front-load through years 1-5 (fixed pacing 20/25/22/18/15%); distributions back-load through years 4-10 scaled to hit your gross IRR target. Management fees accrue at the slider rate on commitments years 1-5 and on declining NAV thereafter; carried interest is 20% of profits above an 8% hurdle (with catch-up). Truncating the horizon below 10 years cuts off later distributions, magnifying the J-curve and reducing net IRR.",
+        },
+        hk: {
+            name_CAP: "承諾資本 ($)",
+            name_IRR: "毛 IRR (%/年)",
+            name_FEE: "費率(管理費 %/年)",
+            name_HOR: "持有期(年)",
+            bn_net: "扣費後淨 IRR",
+            bn_fees: "已付總費用",
+            bn_trough: "J 曲線底部",
+            bn_mom: "MOIC(淨)",
+            bd_net: "LP 收到,扣管理費及 carry",
+            bd_fees: "管理費 + carry,流向 GP",
+            bd_trough: "承諾額最深水底 %",
+            bd_mom: "總分派 / 總出資",
+            chart_title: "現金流:紅 = 出資要求、綠 = 分派、深色線 = 累計淨現金。",
+            x_label: "基金生命週期年份",
+            y_label: "承諾資本 %",
+            tr_calls: "出資要求",
+            tr_dists: "分派",
+            tr_cum: "累計淨現金流",
+            preset_label: "預設:",
+            presets: {
+                topQ:    "頂級四分位(毛 22%)",
+                medianBO:"中位 buyout(毛 12%)",
+                hurdle:  "8% 門檻(無 carry)",
+                weak:    "弱基金(毛 6%)",
+                vc:      "VC home run(毛 25%)",
+                bdc:     "上市 BDC 代理(10%,0% 費)",
+            },
+            verdict_good: "在此設定下,淨 IRR 跑贏槓桿小型價值基準(~10%/年)。10 年鎖倉值得。此屬頂級四分位區。",
+            verdict_meh: "在此設定下,淨 IRR 約等於公開小型價值(~10%/年)。流動性溢價已被費用吃掉,鎖倉沒有得到補償。",
+            verdict_bad: "在此設定下,淨 IRR 低於公開小型價值基準。扣費後,此基金相對流動公開市場是淨銷毀價值。大部分零售管道私募產品都在此區。",
+            caption_text: "示意 PE 基金現金流。出資要求 1-5 年集中(固定比例 20/25/22/18/15%);分派 4-10 年集中,按毛 IRR 目標縮放。管理費按滑桿利率,1-5 年計於承諾額,之後計於遞減 NAV;carry 為 8% 門檻以上利潤的 20%(含 catch-up)。將持有期截短於 10 年會削掉後段分派,加深 J 曲線並降低淨 IRR。",
+        },
+        tw: {
+            name_CAP: "承諾資本 ($)",
+            name_IRR: "毛 IRR (%/年)",
+            name_FEE: "費率(管理費 %/年)",
+            name_HOR: "持有期(年)",
+            bn_net: "扣費後淨 IRR",
+            bn_fees: "已付總費用",
+            bn_trough: "J 曲線谷底",
+            bn_mom: "MOIC(淨)",
+            bd_net: "LP 收到,扣管理費及 carry",
+            bd_fees: "管理費 + carry,流向 GP",
+            bd_trough: "承諾額最深水下 %",
+            bd_mom: "總分配 / 總出資",
+            chart_title: "現金流:紅 = 出資需求、綠 = 分配、深色線 = 累計淨現金。",
+            x_label: "基金存續年份",
+            y_label: "承諾資本 %",
+            tr_calls: "出資需求",
+            tr_dists: "分配",
+            tr_cum: "累計淨現金流",
+            preset_label: "預設:",
+            presets: {
+                topQ:    "頂級四分位(毛 22%)",
+                medianBO:"中位 buyout(毛 12%)",
+                hurdle:  "8% 門檻(無 carry)",
+                weak:    "弱基金(毛 6%)",
+                vc:      "VC home run(毛 25%)",
+                bdc:     "上市 BDC 代理(10%,0% 費)",
+            },
+            verdict_good: "在此設定下,淨 IRR 跑贏槓桿小型價值基準(~10%/年)。10 年鎖倉值得。屬頂級四分位區。",
+            verdict_meh: "在此設定下,淨 IRR 約等於公開小型價值(~10%/年)。流動性溢價被費用吃掉,鎖倉沒得到補償。",
+            verdict_bad: "在此設定下,淨 IRR 低於公開小型價值基準。扣費後,此基金相對流動公開市場是淨銷毀價值。大部分零售通路私募產品都在此區。",
+            caption_text: "示意 PE 基金現金流。出資需求 1-5 年集中(固定比例 20/25/22/18/15%);分配 4-10 年集中,按毛 IRR 目標縮放。管理費按滑桿利率,1-5 年計於承諾額,之後計於遞減 NAV;carry 為 8% 門檻以上利潤的 20%(含 catch-up)。將持有期截短於 10 年會削掉後段分配,加深 J 曲線並降低淨 IRR。",
+        },
+        cn: {
+            name_CAP: "承诺资本 ($)",
+            name_IRR: "毛 IRR (%/年)",
+            name_FEE: "费率(管理费 %/年)",
+            name_HOR: "持有期(年)",
+            bn_net: "扣费后净 IRR",
+            bn_fees: "已付总费用",
+            bn_trough: "J 曲线谷底",
+            bn_mom: "MOIC(净)",
+            bd_net: "LP 收到,扣管理费及 carry",
+            bd_fees: "管理费 + carry,流向 GP",
+            bd_trough: "承诺额最深水下 %",
+            bd_mom: "总分配 / 总出资",
+            chart_title: "现金流:红 = 出资需求、绿 = 分配、深色线 = 累计净现金。",
+            x_label: "基金存续年份",
+            y_label: "承诺资本 %",
+            tr_calls: "出资需求",
+            tr_dists: "分配",
+            tr_cum: "累计净现金流",
+            preset_label: "预设:",
+            presets: {
+                topQ:    "顶级四分位(毛 22%)",
+                medianBO:"中位 buyout(毛 12%)",
+                hurdle:  "8% 门槛(无 carry)",
+                weak:    "弱基金(毛 6%)",
+                vc:      "VC home run(毛 25%)",
+                bdc:     "上市 BDC 代理(10%,0% 费)",
+            },
+            verdict_good: "在此设定下,净 IRR 跑赢杠杆小型价值基准(~10%/年)。10 年锁仓值得。属顶级四分位区。",
+            verdict_meh: "在此设定下,净 IRR 约等于公开小型价值(~10%/年)。流动性溢价被费用吃掉,锁仓没得到补偿。",
+            verdict_bad: "在此设定下,净 IRR 低于公开小型价值基准。扣费后,此基金相对流动公开市场是净销毁价值。大部分零售渠道私募产品都在此区。",
+            caption_text: "示意 PE 基金现金流。出资需求 1-5 年集中(固定比例 20/25/22/18/15%);分配 4-10 年集中,按毛 IRR 目标缩放。管理费按滑杆利率,1-5 年计于承诺额,之后计于递减 NAV;carry 为 8% 门槛以上利润的 20%(含 catch-up)。将持有期截短于 10 年会削掉后段分配,加深 J 曲线并降低净 IRR。",
+        },
+    };
+    function currentLang() {
+        var p = new URLSearchParams(window.location.search);
+        var l = (p.get("lang") || "en").toLowerCase();
+        return I18N.hasOwnProperty(l) ? l : "en";
+    }
+    var T = I18N[currentLang()];
+
+    var PRESETS = {
+        topQ:     { CAP: 1000000, IRR: 22, FEE: 2.0, HOR: 10 },
+        medianBO: { CAP: 1000000, IRR: 12, FEE: 2.0, HOR: 10 },
+        hurdle:   { CAP: 1000000, IRR:  8, FEE: 2.0, HOR: 10 },
+        weak:     { CAP: 1000000, IRR:  6, FEE: 2.0, HOR: 10 },
+        vc:       { CAP:  500000, IRR: 25, FEE: 2.5, HOR: 10 },
+        bdc:      { CAP: 1000000, IRR: 10, FEE: 0.0, HOR: 10 },
+    };
+    var DEFAULT_PRESET = "medianBO";
+
+    var ROOT = document.getElementById("pe-root");
+    var CAP_EL = document.getElementById("pe-CAP");
+    var IRR_EL = document.getElementById("pe-IRR");
+    var FEE_EL = document.getElementById("pe-FEE");
+    var HOR_EL = document.getElementById("pe-HOR");
+    var CHART = document.getElementById("pe-chart");
+    var PRESETS_EL = document.getElementById("pe-presets");
+    var VERDICT = document.getElementById("pe-verdict");
+    var activePreset = DEFAULT_PRESET;
+
+    function darkMode() {
+        return document.documentElement.getAttribute("data-theme") === "dark";
+    }
+    function getCssVar(name) {
+        return getComputedStyle(ROOT).getPropertyValue(name).trim();
+    }
+    function fmtMoney(n) {
+        if (!isFinite(n)) return "—";
+        var sign = n < 0 ? "-" : "";
+        var abs = Math.abs(n);
+        if (abs >= 1000000) return sign + "$" + (abs / 1000000).toFixed(2) + "M";
+        if (abs >= 1000) return sign + "$" + (abs / 1000).toFixed(0) + "k";
+        return sign + "$" + abs.toFixed(0);
+    }
+    function fmtPct(n, dp) {
+        dp = (dp == null) ? 1 : dp;
+        if (!isFinite(n)) return "—";
+        return (n >= 0 ? "+" : "") + (n * 100).toFixed(dp) + "%";
+    }
+    function fmtPctRaw(n, dp) {
+        dp = (dp == null) ? 1 : dp;
+        if (!isFinite(n)) return "—";
+        return (n * 100).toFixed(dp) + "%";
+    }
+
+    function applyI18n() {
+        document.getElementById("pe-name-CAP").textContent = T.name_CAP;
+        document.getElementById("pe-name-IRR").textContent = T.name_IRR;
+        document.getElementById("pe-name-FEE").textContent = T.name_FEE;
+        document.getElementById("pe-name-HOR").textContent = T.name_HOR;
+        document.getElementById("pe-bn-net").textContent = T.bn_net;
+        document.getElementById("pe-bn-fees").textContent = T.bn_fees;
+        document.getElementById("pe-bn-trough").textContent = T.bn_trough;
+        document.getElementById("pe-bn-mom").textContent = T.bn_mom;
+        document.getElementById("pe-bd-net").textContent = T.bd_net;
+        document.getElementById("pe-bd-fees").textContent = T.bd_fees;
+        document.getElementById("pe-bd-trough").textContent = T.bd_trough;
+        document.getElementById("pe-bd-mom").textContent = T.bd_mom;
+        document.getElementById("pe-caption").textContent = T.caption_text;
+    }
+
+    function buildPresets() {
+        PRESETS_EL.innerHTML = "";
+        Object.keys(PRESETS).forEach(function (key) {
+            var btn = document.createElement("button");
+            btn.type = "button";
+            btn.className = "pe-pill" + (key === activePreset ? " pe-active" : "");
+            btn.textContent = T.presets[key];
+            btn.dataset.preset = key;
+            btn.addEventListener("click", function () { applyPreset(key); });
+            PRESETS_EL.appendChild(btn);
+        });
+    }
+    function applyPreset(key) {
+        var p = PRESETS[key];
+        CAP_EL.value = p.CAP;
+        IRR_EL.value = p.IRR;
+        FEE_EL.value = p.FEE;
+        HOR_EL.value = p.HOR;
+        activePreset = key;
+        Array.prototype.forEach.call(
+            PRESETS_EL.querySelectorAll(".pe-pill"),
+            function (b) {
+                b.classList.toggle("pe-active", b.dataset.preset === key);
+            });
+        render();
+    }
+    function clearPreset() {
+        activePreset = null;
+        Array.prototype.forEach.call(
+            PRESETS_EL.querySelectorAll(".pe-pill"),
+            function (b) { b.classList.remove("pe-active"); });
+    }
+
+    // Capital call pacing as fraction of commitment, summing to 1.
+    var CALL_PACING = [0.20, 0.25, 0.22, 0.18, 0.15, 0, 0, 0, 0, 0];
+    // Distribution shape weights (summed to 1.0). Will be scaled by total payout.
+    var DIST_SHAPE  = [0.00, 0.00, 0.025, 0.06, 0.12, 0.20, 0.225, 0.185, 0.135, 0.05];
+    var FUND_LIFE = 10; // years
+
+    /**
+     * Solve IRR by bisection on the dated cash-flow series.
+     * cf[0] is year 1 cash flow, cf[i] is year i+1.
+     */
+    function solveIRR(cf) {
+        function npv(r) {
+            var v = 0;
+            for (var i = 0; i < cf.length; i++) {
+                v += cf[i] / Math.pow(1 + r, i + 1);
+            }
+            return v;
+        }
+        // Total positive must exceed total negative for finite IRR.
+        var sumPos = 0, sumNeg = 0;
+        for (var i = 0; i < cf.length; i++) {
+            if (cf[i] > 0) sumPos += cf[i];
+            else sumNeg += -cf[i];
+        }
+        if (sumPos <= 0) return -0.99;
+        if (sumNeg <= 0) return 1.0;
+        var lo = -0.95, hi = 2.0;
+        // Ensure bracketing.
+        var vLo = npv(lo), vHi = npv(hi);
+        if (vLo * vHi > 0) {
+            // No sign change in default bracket -- IRR is at edge.
+            return vLo > 0 ? hi : lo;
+        }
+        for (var k = 0; k < 80; k++) {
+            var mid = 0.5 * (lo + hi);
+            var v = npv(mid);
+            if (v > 0) lo = mid; else hi = mid;
+        }
+        return 0.5 * (lo + hi);
+    }
+
+    /**
+     * Build the gross cash-flow stream for a fund at a given gross IRR.
+     * Calls fixed at -CALL_PACING[i] * cap.
+     * Distributions = DIST_SHAPE[i] * total_payout * cap, where total_payout
+     * is the multiple-of-money chosen so the IRR of the dated series equals
+     * the gross IRR target.
+     *
+     * We solve for total_payout by numerical root finding on the implied IRR.
+     */
+    function buildGrossSeries(cap, grossIRR, fundLife) {
+        var calls = [];
+        for (var i = 0; i < fundLife; i++) {
+            calls.push(-CALL_PACING[i] * cap);
+        }
+        // Distribution shape over years 1..fundLife, padded if fundLife < 10.
+        var shape = DIST_SHAPE.slice(0, fundLife);
+        var shapeSum = shape.reduce(function (a, b) { return a + b; }, 0);
+        if (shapeSum <= 0) shapeSum = 1.0;
+        // Solve for moic such that IRR(calls + moic*cap*shape) == grossIRR.
+        function netCfForMOIC(moic) {
+            var cf = [];
+            for (var i = 0; i < fundLife; i++) {
+                cf.push(calls[i] + moic * cap * shape[i]);
+            }
+            return cf;
+        }
+        function diff(moic) {
+            return solveIRR(netCfForMOIC(moic)) - grossIRR;
+        }
+        // Bracket: moic between 0 and 10.
+        var lo = 0, hi = 10;
+        var dLo = diff(lo), dHi = diff(hi);
+        if (dLo > 0) {
+            // Even with no distribution, IRR > target -- impossible because IRR is -100% then.
+            return netCfForMOIC(0);
+        }
+        if (dHi < 0) hi = 50; // expand if needed
+        for (var k = 0; k < 60; k++) {
+            var mid = 0.5 * (lo + hi);
+            var v = diff(mid);
+            if (v < 0) lo = mid; else hi = mid;
+        }
+        var moicSol = 0.5 * (lo + hi);
+        var dists = [];
+        for (var i = 0; i < fundLife; i++) {
+            dists.push(moicSol * cap * shape[i]);
+        }
+        return { calls: calls, dists: dists, moicGross: moicSol };
+    }
+
+    /**
+     * Apply 2 and 20 fees (or generalized fee load).
+     *
+     *  - mgmt fee accrues at FEE rate per year. Years 1..5 base = commitment.
+     *    Years 6..10 base = invested NAV (declining as distributions occur).
+     *  - carry: 20% of profits above an 8% hurdle (with catch-up to 100/0
+     *    between hurdle and 10% hurdle equivalent), implemented as:
+     *      profit = sum(dists) - sum(calls_abs)
+     *      hurdle return on each capital draw = 8% per year of outstanding
+     *      simplified: lp_pre_carry = profit_total
+     *      hurdle_dollar = sum(calls_abs * 0.08 * (life - call_year))
+     *      if profit > hurdle_dollar:
+     *         excess = profit - hurdle_dollar
+     *         catch_up = min(excess, hurdle_dollar / 4) // gives GP 20% of total preferred return + excess
+     *         carry = catch_up + 0.20 * (excess - catch_up)
+     *      else: carry = 0
+     */
+    function applyFees(gross, cap, feePct, fundLife) {
+        // Management fees per year.
+        var mgmtFees = [];
+        var nav = 0;
+        var totalCalled = 0;
+        for (var i = 0; i < fundLife; i++) {
+            // Update NAV first by adding new called capital.
+            totalCalled += -gross.calls[i];
+            nav += -gross.calls[i];
+            // Fee base
+            var base;
+            if (i < 5) {
+                base = cap; // years 1..5 -> on commitment
+            } else {
+                base = Math.max(0, nav); // declining NAV
+            }
+            mgmtFees.push(feePct * base);
+            // After fee + distributions, NAV declines.
+            nav = Math.max(0, nav - gross.dists[i]);
+        }
+        // Compute total profit before carry.
+        var totalCalls = 0, totalDists = 0;
+        for (var i = 0; i < fundLife; i++) {
+            totalCalls += -gross.calls[i];
+            totalDists += gross.dists[i];
+        }
+        // Total mgmt fees come out of distributions.
+        var totalMgmt = mgmtFees.reduce(function (a, b) { return a + b; }, 0);
+        var distsAfterMgmt = [];
+        var remainingMgmt = totalMgmt;
+        for (var i = 0; i < fundLife; i++) {
+            var d = gross.dists[i];
+            var deduct = Math.min(d, remainingMgmt);
+            distsAfterMgmt.push(d - deduct);
+            remainingMgmt -= deduct;
+        }
+        // Profit after mgmt fees:
+        var profitAfterMgmt = totalDists - totalCalls - totalMgmt;
+        // Hurdle dollar: 8% per year on outstanding capital, weighted by call timing.
+        // Simplified: 8% * weighted-average-life * total_called
+        var hurdleRate = 0.08;
+        var weightedLife = 0;
+        for (var i = 0; i < fundLife; i++) {
+            // call at year i+1 stays outstanding ~ (fundLife - (i+0.5)) years -- rough
+            weightedLife += (-gross.calls[i]) * Math.max(0, fundLife - (i + 0.5));
+        }
+        var avgLife = totalCalls > 0 ? weightedLife / totalCalls : 0;
+        var hurdleDollar = totalCalls * (Math.pow(1 + hurdleRate, avgLife) - 1);
+        var carry = 0;
+        if (profitAfterMgmt > hurdleDollar) {
+            var excess = profitAfterMgmt - hurdleDollar;
+            // GP catch-up: GP gets 100% of excess until carry = 20% of (hurdleDollar + carry).
+            // Simplified: carry = 0.20 * profitAfterMgmt up to excess; capped at excess.
+            var carryFull = 0.20 * profitAfterMgmt;
+            carry = Math.min(excess, carryFull);
+        }
+        // Distribute carry pro-rata over remaining distributions (years where dists>0).
+        var distsAfterCarry = distsAfterMgmt.slice();
+        var totalLeft = distsAfterMgmt.reduce(function (a, b) { return a + b; }, 0);
+        if (totalLeft > 0 && carry > 0) {
+            var carryFrac = Math.min(1, carry / totalLeft);
+            for (var i = 0; i < fundLife; i++) {
+                distsAfterCarry[i] = distsAfterMgmt[i] * (1 - carryFrac);
+            }
+        }
+        // Total fee dollars (mgmt + carry)
+        var totalFees = totalMgmt + carry;
+        return {
+            calls: gross.calls.slice(),
+            dists: distsAfterCarry,
+            mgmtFees: mgmtFees,
+            totalMgmt: totalMgmt,
+            carry: carry,
+            totalFees: totalFees,
+            totalCalls: totalCalls,
+        };
+    }
+
+    function render() {
+        var cap = parseFloat(CAP_EL.value);
+        var grossIRR = parseFloat(IRR_EL.value) / 100.0;
+        var fee = parseFloat(FEE_EL.value) / 100.0;
+        var hor = parseInt(HOR_EL.value, 10);
+
+        document.getElementById("pe-val-CAP").textContent =
+            "$" + cap.toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+        document.getElementById("pe-val-IRR").textContent =
+            (grossIRR * 100).toFixed(1) + "%";
+        document.getElementById("pe-val-FEE").textContent =
+            (fee * 100).toFixed(1) + "%";
+        document.getElementById("pe-val-HOR").textContent = String(hor);
+
+        // Build gross series at full 10-yr life.
+        var gross = buildGrossSeries(cap, grossIRR, FUND_LIFE);
+        // Apply fees over 10-yr life.
+        var net = applyFees(gross, cap, fee, FUND_LIFE);
+        // Now truncate to user horizon.
+        var calls = net.calls.slice(0, hor);
+        var dists = net.dists.slice(0, hor);
+        // Net cash flows per year and cumulative.
+        var netCf = [];
+        var cum = [];
+        var s = 0;
+        for (var i = 0; i < hor; i++) {
+            var nc = calls[i] + dists[i];
+            netCf.push(nc);
+            s += nc;
+            cum.push(s);
+        }
+        // Compute net IRR over the horizon.
+        var netIRR = solveIRR(netCf);
+        // J-curve depth.
+        var trough = Math.min.apply(null, cum);
+        var troughPct = trough / cap;
+        // Distributions truncated only -- compute actual fees within horizon
+        // (mgmt fees over 1..min(hor,fundLife)).
+        var actualMgmt = 0;
+        for (var i = 0; i < hor; i++) actualMgmt += net.mgmtFees[i] || 0;
+        // If horizon is < 10, carry hasn't been fully paid; estimate carry
+        // proportionally to distributions actually realised.
+        var totalDistsFull = 0, distsHor = 0;
+        for (var i = 0; i < FUND_LIFE; i++) totalDistsFull += net.dists[i];
+        for (var i = 0; i < hor; i++) distsHor += net.dists[i];
+        var carryRealised = totalDistsFull > 0 ? net.carry * (distsHor / totalDistsFull) : 0;
+        var totalFeesHor = actualMgmt + carryRealised;
+        // MOIC net
+        var totalCallsHor = 0;
+        for (var i = 0; i < hor; i++) totalCallsHor += -calls[i];
+        var moicNet = totalCallsHor > 0 ? distsHor / totalCallsHor : 0;
+
+        document.getElementById("pe-bv-net").textContent =
+            (netIRR < -0.95 ? "—" : (netIRR >= 0 ? "+" : "") + (netIRR * 100).toFixed(1) + "%");
+        document.getElementById("pe-bv-net").style.color =
+            netIRR >= 0.10 ? getCssVar("--pe-green")
+            : (netIRR >= 0 ? getCssVar("--pe-text") : getCssVar("--pe-red"));
+        document.getElementById("pe-bv-fees").textContent = fmtMoney(totalFeesHor);
+        document.getElementById("pe-bv-fees").style.color = getCssVar("--pe-red");
+        document.getElementById("pe-bv-trough").textContent =
+            (troughPct * 100).toFixed(0) + "%";
+        document.getElementById("pe-bv-trough").style.color = getCssVar("--pe-orange");
+        document.getElementById("pe-bv-mom").textContent =
+            moicNet.toFixed(2) + "x";
+        document.getElementById("pe-bv-mom").style.color =
+            moicNet >= 1.5 ? getCssVar("--pe-green") : getCssVar("--pe-text");
+
+        // Verdict.
+        VERDICT.classList.remove("good", "bad");
+        if (netIRR >= 0.12) {
+            VERDICT.classList.add("good");
+            VERDICT.textContent = T.verdict_good;
+        } else if (netIRR >= 0.08) {
+            VERDICT.textContent = T.verdict_meh;
+        } else {
+            VERDICT.classList.add("bad");
+            VERDICT.textContent = T.verdict_bad;
+        }
+
+        // Chart.
+        var colorRed = getCssVar("--pe-red");
+        var colorGreen = getCssVar("--pe-green");
+        var colorText = getCssVar("--pe-text");
+        var colorMuted = getCssVar("--pe-muted");
+        var colorBg = getCssVar("--pe-card");
+        var colorGrid = darkMode() ? "rgba(255,255,255,0.08)" : "rgba(0,0,0,0.07)";
+
+        var xs = [];
+        for (var i = 0; i < hor; i++) xs.push(i + 1);
+        var callsPct = calls.map(function (v) { return v / cap * 100; });
+        var distsPct = dists.map(function (v) { return v / cap * 100; });
+        var cumPct = cum.map(function (v) { return v / cap * 100; });
+
+        var traceCalls = {
+            x: xs, y: callsPct, type: "bar",
+            name: T.tr_calls,
+            marker: { color: colorRed, line: { color: colorBg, width: 0.4 } },
+            opacity: 0.85,
+            offsetgroup: "calls",
+            hovertemplate: "yr %{x}<br>" + T.tr_calls + ": %{y:.1f}%<extra></extra>",
+        };
+        var traceDists = {
+            x: xs, y: distsPct, type: "bar",
+            name: T.tr_dists,
+            marker: { color: colorGreen, line: { color: colorBg, width: 0.4 } },
+            opacity: 0.85,
+            offsetgroup: "dists",
+            hovertemplate: "yr %{x}<br>" + T.tr_dists + ": %{y:.1f}%<extra></extra>",
+        };
+        var traceCum = {
+            x: xs, y: cumPct, type: "scatter", mode: "lines+markers",
+            name: T.tr_cum,
+            line: { color: colorText, width: 2.6 },
+            marker: { color: colorText, size: 7,
+                      line: { color: colorBg, width: 1.5 } },
+            hovertemplate: "yr %{x}<br>" + T.tr_cum + ": %{y:.1f}%<extra></extra>",
+        };
+
+        var layout = {
+            margin: { l: 60, r: 30, t: 50, b: 50 },
+            paper_bgcolor: colorBg, plot_bgcolor: colorBg,
+            font: { family: "Segoe UI, Helvetica, Arial, sans-serif", color: colorText, size: 12 },
+            barmode: "group",
+            xaxis: {
+                title: { text: T.x_label, font: { color: colorMuted, size: 11 } },
+                gridcolor: colorGrid, color: colorText,
+                tickmode: "linear", dtick: 1,
+            },
+            yaxis: {
+                title: { text: T.y_label, font: { color: colorMuted, size: 11 } },
+                gridcolor: colorGrid, color: colorText,
+                zerolinecolor: colorMuted,
+                ticksuffix: "%",
+            },
+            title: {
+                text: T.chart_title, x: 0, xanchor: "left",
+                font: { color: colorText, size: 13, weight: 700 },
+            },
+            legend: { orientation: "h", x: 0, y: 1.12, xanchor: "left",
+                      font: { color: colorText } },
+            hovermode: "x unified",
+        };
+        Plotly.react(CHART, [traceCalls, traceDists, traceCum],
+                     layout, { displayModeBar: false, responsive: true });
+    }
+
+    [CAP_EL, IRR_EL, FEE_EL, HOR_EL].forEach(function (el) {
+        el.addEventListener("input", function () { clearPreset(); render(); });
+    });
+
+    applyI18n();
+    buildPresets();
+    applyPreset(DEFAULT_PRESET);
+
+    function reportHeight() {
+        try {
+            var h = Math.ceil(document.documentElement.scrollHeight);
+            parent.postMessage({ type: "lesson-interactive-resize", height: h }, "*");
+        } catch (e) { /* ignore */ }
+    }
+    if (typeof ResizeObserver !== "undefined") {
+        new ResizeObserver(reportHeight).observe(document.body);
+    }
+    window.addEventListener("resize", reportHeight);
+    setTimeout(reportHeight, 50);
+    setTimeout(reportHeight, 500);
+
+    var themeObserver = new MutationObserver(render);
+    themeObserver.observe(document.documentElement, {
+        attributes: true, attributeFilter: ["data-theme"],
+    });
+
+    render();
+})();
+</script>
+
+</body>
+</html>

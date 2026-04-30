@@ -1,0 +1,660 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Option Explorer — Interactive (Week 25)</title>
+<script src="https://cdn.plot.ly/plotly-2.35.2.min.js" charset="utf-8"></script>
+<style>
+html, body { margin: 0; padding: 0; background: var(--oe-bg); }
+:root {
+    --oe-bg: #fdfbf5;
+    --oe-text: #1a2332;
+    --oe-muted: #6b7280;
+    --oe-border: #d6d3c4;
+    --oe-card: #fdfbf5;
+    --oe-pos: #2e7d32;
+    --oe-neg: #b71c1c;
+    --oe-mid: #0d47a1;
+    --oe-accent: #b8860b;
+    --oe-pill-bg: #f5f0df;
+    --oe-pill-active: #b8860b;
+    --oe-pill-active-text: #fdfbf5;
+}
+html[data-theme="dark"] .oe-root,
+.oe-root[data-theme="dark"] {
+    --oe-bg: #0f1724;
+    --oe-text: #e6e6e6;
+    --oe-muted: #9aa3b2;
+    --oe-border: #2a3441;
+    --oe-card: #0f1724;
+    --oe-pos: #66bb6a;
+    --oe-neg: #ef5350;
+    --oe-mid: #5a8dee;
+    --oe-pill-bg: #1c2533;
+    --oe-pill-active: #b8860b;
+    --oe-pill-active-text: #0f1724;
+}
+.oe-root {
+    font-family: 'Segoe UI', Helvetica, Arial, sans-serif;
+    background: var(--oe-bg);
+    color: var(--oe-text);
+    padding: 12px;
+    margin: 0;
+}
+.oe-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-bottom: 12px;
+}
+.oe-pill {
+    padding: 7px 14px;
+    background: var(--oe-pill-bg);
+    color: var(--oe-text);
+    border: 1px solid var(--oe-border);
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 0.85rem;
+    font-weight: 600;
+    user-select: none;
+    transition: background 0.12s, color 0.12s;
+}
+.oe-pill:hover {
+    border-color: var(--oe-accent);
+}
+.oe-pill.oe-pill-active {
+    background: var(--oe-pill-active);
+    color: var(--oe-pill-active-text);
+    border-color: var(--oe-pill-active);
+}
+.oe-controls {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 12px;
+    margin-bottom: 14px;
+    padding: 12px;
+    background: var(--oe-card);
+    border: 1px solid var(--oe-border);
+    border-radius: 8px;
+}
+.oe-slider-wrap {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    font-size: 0.82rem;
+    color: var(--oe-muted);
+}
+.oe-slider-wrap .oe-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.oe-slider-wrap input[type="range"] {
+    flex: 1;
+    accent-color: var(--oe-accent);
+    min-width: 0;
+}
+.oe-slider-wrap .oe-val {
+    white-space: nowrap;
+    color: var(--oe-text);
+    font-weight: 700;
+    font-variant-numeric: tabular-nums;
+    min-width: 56px;
+    text-align: right;
+    font-size: 0.85rem;
+}
+.oe-slider-wrap .oe-name {
+    font-weight: 600;
+    color: var(--oe-text);
+}
+.oe-chart {
+    width: 100%;
+    height: 440px;
+    background: var(--oe-card);
+    border-radius: 8px;
+    border: 1px solid var(--oe-border);
+}
+.oe-stats {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 10px;
+    margin-top: 14px;
+}
+.oe-stat {
+    background: var(--oe-card);
+    border: 1px solid var(--oe-border);
+    border-left: 4px solid var(--oe-muted);
+    border-radius: 8px;
+    padding: 10px 12px;
+}
+.oe-stat.oe-stat-mid { border-left-color: var(--oe-mid); }
+.oe-stat.oe-stat-acc { border-left-color: var(--oe-accent); }
+.oe-stat.oe-stat-pos { border-left-color: var(--oe-pos); }
+.oe-stat.oe-stat-neg { border-left-color: var(--oe-neg); }
+.oe-stat .oe-stat-name {
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--oe-muted);
+}
+.oe-stat .oe-stat-val {
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin-top: 4px;
+    font-variant-numeric: tabular-nums;
+}
+.oe-stat .oe-stat-detail {
+    font-size: 0.78rem;
+    color: var(--oe-muted);
+    margin-top: 2px;
+    font-variant-numeric: tabular-nums;
+}
+.oe-caption {
+    margin-top: 10px;
+    font-size: 0.78rem;
+    color: var(--oe-muted);
+    line-height: 1.45;
+}
+@media (max-width: 900px) {
+    .oe-controls { grid-template-columns: repeat(2, 1fr); }
+    .oe-stats { grid-template-columns: repeat(2, 1fr); }
+    .oe-chart { height: 360px; }
+}
+@media (max-width: 520px) {
+    .oe-controls { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<div class="oe-root" id="oe-root">
+    <div class="oe-pills" id="oe-pills"></div>
+
+    <div class="oe-controls">
+        <div class="oe-slider-wrap">
+            <div class="oe-name" id="oe-name-K">Strike K</div>
+            <div class="oe-row">
+                <input type="range" id="oe-K" min="50" max="150" step="1" value="100">
+                <span class="oe-val" id="oe-val-K">$100</span>
+            </div>
+        </div>
+        <div class="oe-slider-wrap">
+            <div class="oe-name" id="oe-name-T">Days to expiry</div>
+            <div class="oe-row">
+                <input type="range" id="oe-T" min="1" max="365" step="1" value="30">
+                <span class="oe-val" id="oe-val-T">30 d</span>
+            </div>
+        </div>
+        <div class="oe-slider-wrap">
+            <div class="oe-name" id="oe-name-sig">Implied vol &sigma;</div>
+            <div class="oe-row">
+                <input type="range" id="oe-sig" min="5" max="100" step="1" value="20">
+                <span class="oe-val" id="oe-val-sig">20%</span>
+            </div>
+        </div>
+        <div class="oe-slider-wrap">
+            <div class="oe-name" id="oe-name-r">Risk-free rate r</div>
+            <div class="oe-row">
+                <input type="range" id="oe-r" min="0" max="10" step="0.1" value="4">
+                <span class="oe-val" id="oe-val-r">4.0%</span>
+            </div>
+        </div>
+        <div class="oe-slider-wrap">
+            <div class="oe-name" id="oe-name-S">Spot S</div>
+            <div class="oe-row">
+                <input type="range" id="oe-S" min="50" max="150" step="0.5" value="100">
+                <span class="oe-val" id="oe-val-S">$100</span>
+            </div>
+        </div>
+    </div>
+
+    <div id="oe-chart" class="oe-chart"></div>
+
+    <div class="oe-stats">
+        <div class="oe-stat oe-stat-mid">
+            <div class="oe-stat-name" id="oe-name-prem">Premium</div>
+            <div class="oe-stat-val" id="oe-val-prem">—</div>
+            <div class="oe-stat-detail" id="oe-det-prem">—</div>
+        </div>
+        <div class="oe-stat oe-stat-acc">
+            <div class="oe-stat-name" id="oe-name-intr">Intrinsic value</div>
+            <div class="oe-stat-val" id="oe-val-intr">—</div>
+            <div class="oe-stat-detail" id="oe-det-intr">—</div>
+        </div>
+        <div class="oe-stat oe-stat-pos">
+            <div class="oe-stat-name" id="oe-name-time">Time value</div>
+            <div class="oe-stat-val" id="oe-val-time">—</div>
+            <div class="oe-stat-detail" id="oe-det-time">—</div>
+        </div>
+        <div class="oe-stat oe-stat-neg">
+            <div class="oe-stat-name" id="oe-name-be">Breakeven at expiry</div>
+            <div class="oe-stat-val" id="oe-val-be">—</div>
+            <div class="oe-stat-detail" id="oe-det-be">—</div>
+        </div>
+    </div>
+
+    <p class="oe-caption" id="oe-caption">
+        Black-Scholes premium plotted vs spot, with intrinsic-value floor and at-expiry payoff overlaid.
+    </p>
+</div>
+
+<script>
+(function () {
+    const I18N = {
+        en: {
+            pos_long_call:  "Long call",
+            pos_short_call: "Short call",
+            pos_long_put:   "Long put",
+            pos_short_put:  "Short put",
+            name_K:    "Strike K",
+            name_T:    "Days to expiry",
+            name_sig:  "Implied vol \u03c3",
+            name_r:    "Risk-free rate r",
+            name_S:    "Spot S",
+            name_prem: "Premium (now)",
+            name_intr: "Intrinsic value",
+            name_time: "Time value",
+            name_be:   "Breakeven at expiry",
+            trace_premium:   "Premium today (BSM)",
+            trace_intrinsic: "Intrinsic value (now)",
+            trace_payoff:    "P&L at expiry",
+            trace_spot:      "Current spot",
+            x_title:    "Spot price S ($)",
+            y_title:    "Per-share value / P&L ($)",
+            det_prem:   "{sign} for {who}, $ paid up front",
+            det_paid:   "buyer pays",
+            det_recv:   "seller receives",
+            det_intr:   "max(S-K,0) for calls; max(K-S,0) for puts",
+            det_time:   "premium - intrinsic; decays to 0 at expiry",
+            det_be:     "breakeven crosses zero P&L at expiry",
+            caption:    "Black-Scholes premium of the underlying option (call or put) plotted as a function of spot. The shaded floor is the intrinsic value (max(S-K,0) or max(K-S,0)). The dashed/dotted line overlay is the at-expiry P&L for the selected position (long or short, call or put), with the position premium (paid or received) folded in. Vertical line marks the current spot. Adjust K/DTE/sigma/r/S to see how premium and time value respond.",
+        },
+        hk: {
+            pos_long_call:  "買認購",
+            pos_short_call: "沽認購",
+            pos_long_put:   "買認沽",
+            pos_short_put:  "沽認沽",
+            name_K:    "行使價 K",
+            name_T:    "到期天數",
+            name_sig:  "隱含波動率 \u03c3",
+            name_r:    "無風險利率 r",
+            name_S:    "現貨價 S",
+            name_prem: "目前權利金",
+            name_intr: "內在價值",
+            name_time: "時間價值",
+            name_be:   "到期打和點",
+            trace_premium:   "今日權利金(BSM)",
+            trace_intrinsic: "內在價值(現時)",
+            trace_payoff:    "到期損益",
+            trace_spot:      "目前現貨",
+            x_title:    "現貨價 S(美元)",
+            y_title:    "每股價值 / 損益(美元)",
+            det_prem:   "{sign} {who},現付/收的金額",
+            det_paid:   "買方支付",
+            det_recv:   "賣方收取",
+            det_intr:   "認購為 max(S-K,0);認沽為 max(K-S,0)",
+            det_time:   "權利金 - 內在;到期衰減至 0",
+            det_be:     "到期損益穿過零的位置",
+            caption:    "以 Black-Scholes 計算的期權權利金,隨現貨變化的曲線。陰影底面是內在價值(認購為 max(S-K,0)、認沽為 max(K-S,0))。虛線疊加為所選持倉(買/沽 + 認購/認沽)的到期損益,已把權利金計入。垂直線標示目前現貨。拖動 K、到期天數、波動率、利率、現貨,觀察權利金與時間價值的變化。",
+        },
+        tw: {
+            pos_long_call:  "買進買權",
+            pos_short_call: "賣出買權",
+            pos_long_put:   "買進賣權",
+            pos_short_put:  "賣出賣權",
+            name_K:    "履約價 K",
+            name_T:    "到期天數",
+            name_sig:  "隱含波動率 \u03c3",
+            name_r:    "無風險利率 r",
+            name_S:    "現貨價 S",
+            name_prem: "目前權利金",
+            name_intr: "內含價值",
+            name_time: "時間價值",
+            name_be:   "到期損益兩平",
+            trace_premium:   "今日權利金(BSM)",
+            trace_intrinsic: "內含價值(現時)",
+            trace_payoff:    "到期損益",
+            trace_spot:      "目前現貨",
+            x_title:    "現貨價 S(美元)",
+            y_title:    "每股價值 / 損益(美元)",
+            det_prem:   "{sign} {who},現付/收的金額",
+            det_paid:   "買方支付",
+            det_recv:   "賣方收取",
+            det_intr:   "買權為 max(S-K,0);賣權為 max(K-S,0)",
+            det_time:   "權利金 - 內含;到期衰減至 0",
+            det_be:     "到期損益穿越零的位置",
+            caption:    "以 Black-Scholes 計算的選擇權權利金,隨現貨變化的曲線。陰影底面是內含價值(買權為 max(S-K,0)、賣權為 max(K-S,0))。虛線疊加為所選部位(買/賣 + 買權/賣權)的到期損益,已將權利金計入。垂直線標示目前現貨。拖動 K、到期天數、波動率、利率、現貨,觀察權利金與時間價值的變化。",
+        },
+        cn: {
+            pos_long_call:  "买入看涨",
+            pos_short_call: "卖出看涨",
+            pos_long_put:   "买入看跌",
+            pos_short_put:  "卖出看跌",
+            name_K:    "行权价 K",
+            name_T:    "到期天数",
+            name_sig:  "隐含波动率 \u03c3",
+            name_r:    "无风险利率 r",
+            name_S:    "现货价 S",
+            name_prem: "当前权利金",
+            name_intr: "内在价值",
+            name_time: "时间价值",
+            name_be:   "到期盈亏平衡",
+            trace_premium:   "今日权利金(BSM)",
+            trace_intrinsic: "内在价值(现时)",
+            trace_payoff:    "到期损益",
+            trace_spot:      "当前现货",
+            x_title:    "现货价 S(美元)",
+            y_title:    "每股价值 / 损益(美元)",
+            det_prem:   "{sign} {who},现付/收的金额",
+            det_paid:   "买方支付",
+            det_recv:   "卖方收取",
+            det_intr:   "看涨为 max(S-K,0);看跌为 max(K-S,0)",
+            det_time:   "权利金 - 内在;到期衰减至 0",
+            det_be:     "到期损益穿过零的位置",
+            caption:    "以 Black-Scholes 计算的期权权利金,随现货变化的曲线。阴影底面是内在价值(看涨为 max(S-K,0)、看跌为 max(K-S,0))。虚线叠加为所选持仓(买/卖 + 看涨/看跌)的到期损益,已将权利金计入。垂直线标示当前现货。拖动 K、到期天数、波动率、利率、现货,观察权利金与时间价值的变化。",
+        },
+    };
+    function currentLang() {
+        const p = new URLSearchParams(window.location.search);
+        const l = (p.get("lang") || "en").toLowerCase();
+        return I18N.hasOwnProperty(l) ? l : "en";
+    }
+    const T = I18N[currentLang()];
+
+    // ----- Black-Scholes -----
+    // Abramowitz & Stegun 7.1.26 erf approximation, accurate to ~1.5e-7.
+    function erf(x) {
+        const sign = x < 0 ? -1 : 1;
+        const ax = Math.abs(x);
+        const a1 =  0.254829592;
+        const a2 = -0.284496736;
+        const a3 =  1.421413741;
+        const a4 = -1.453152027;
+        const a5 =  1.061405429;
+        const p  =  0.3275911;
+        const t = 1.0 / (1.0 + p * ax);
+        const y = 1.0 - (((((a5 * t + a4) * t) + a3) * t + a2) * t + a1) * t * Math.exp(-ax * ax);
+        return sign * y;
+    }
+    function normCdf(x) { return 0.5 * (1.0 + erf(x / Math.SQRT2)); }
+
+    function bsPrice(S, K, r, sigma, Tyrs, kind) {
+        // kind: "call" or "put"
+        const eps = 1e-9;
+        const Tt = Math.max(Tyrs, eps);
+        const sT = Math.sqrt(Tt);
+        if (sigma <= 0 || sT <= 0) {
+            const intrinsic = kind === "call" ? Math.max(S - K, 0) : Math.max(K - S, 0);
+            return intrinsic;
+        }
+        const d1 = (Math.log(Math.max(S, eps) / K) + (r + 0.5 * sigma * sigma) * Tt) / (sigma * sT);
+        const d2 = d1 - sigma * sT;
+        if (kind === "call") {
+            return S * normCdf(d1) - K * Math.exp(-r * Tt) * normCdf(d2);
+        }
+        return K * Math.exp(-r * Tt) * normCdf(-d2) - S * normCdf(-d1);
+    }
+
+    // ----- DOM -----
+    const POSITIONS = [
+        { id: "long_call",  kind: "call", side: "long",  i18n: "pos_long_call"  },
+        { id: "short_call", kind: "call", side: "short", i18n: "pos_short_call" },
+        { id: "long_put",   kind: "put",  side: "long",  i18n: "pos_long_put"   },
+        { id: "short_put",  kind: "put",  side: "short", i18n: "pos_short_put"  },
+    ];
+    let activePos = POSITIONS[0];
+
+    const ROOT  = document.getElementById("oe-root");
+    const CHART = document.getElementById("oe-chart");
+    const PILLS = document.getElementById("oe-pills");
+    const KEL = document.getElementById("oe-K");
+    const TEL = document.getElementById("oe-T");
+    const SIGEL = document.getElementById("oe-sig");
+    const REL = document.getElementById("oe-r");
+    const SEL = document.getElementById("oe-S");
+
+    function buildPills() {
+        PILLS.innerHTML = "";
+        POSITIONS.forEach(p => {
+            const el = document.createElement("div");
+            el.className = "oe-pill" + (p.id === activePos.id ? " oe-pill-active" : "");
+            el.textContent = T[p.i18n];
+            el.dataset.pid = p.id;
+            el.addEventListener("click", () => {
+                activePos = POSITIONS.find(x => x.id === p.id);
+                buildPills();
+                render();
+            });
+            PILLS.appendChild(el);
+        });
+    }
+
+    function getCssVar(name) {
+        return getComputedStyle(ROOT).getPropertyValue(name).trim();
+    }
+    function darkMode() {
+        return document.documentElement.getAttribute("data-theme") === "dark";
+    }
+    function fmtUSD(v, dp) {
+        if (!isFinite(v)) return "—";
+        const d = dp == null ? 2 : dp;
+        const sign = v < 0 ? "-" : "";
+        return sign + "$" + Math.abs(v).toFixed(d);
+    }
+    function fmtPct(v, dp) {
+        if (!isFinite(v)) return "—";
+        return (v * 100).toFixed(dp == null ? 1 : dp) + "%";
+    }
+
+    function render() {
+        const K = parseFloat(KEL.value);
+        const Td = parseFloat(TEL.value);
+        const sigma = parseFloat(SIGEL.value) / 100.0;
+        const r = parseFloat(REL.value) / 100.0;
+        const S = parseFloat(SEL.value);
+
+        document.getElementById("oe-val-K").textContent = "$" + K.toFixed(0);
+        document.getElementById("oe-val-T").textContent = Td.toFixed(0) + " d";
+        document.getElementById("oe-val-sig").textContent = (sigma * 100).toFixed(0) + "%";
+        document.getElementById("oe-val-r").textContent = (r * 100).toFixed(1) + "%";
+        document.getElementById("oe-val-S").textContent = "$" + S.toFixed(1);
+
+        const Tyrs = Td / 365.0;
+        const kind = activePos.kind;
+        const side = activePos.side;
+        const sideSign = side === "long" ? 1 : -1;
+
+        // Sweep S over [50, 150]
+        const N = 201;
+        const Smin = 50, Smax = 150;
+        const xs = new Array(N);
+        const premY = new Array(N);
+        const intrY = new Array(N);
+        const payoffY = new Array(N);
+        for (let i = 0; i < N; i++) {
+            const s = Smin + (Smax - Smin) * (i / (N - 1));
+            xs[i] = s;
+            const p = bsPrice(s, K, r, sigma, Tyrs, kind);
+            premY[i] = p;
+            const intr = kind === "call" ? Math.max(s - K, 0) : Math.max(K - s, 0);
+            intrY[i] = intr;
+            // At-expiry P&L per share for the position (premium folded in)
+            // long: payoff_at_expiry - premium_paid_today
+            // short: premium_received_today - payoff_at_expiry
+            // For the at-expiry payoff trace, we use the option's CURRENT premium
+            // as the assumed entry price (i.e. trade was opened today). That way
+            // the payoff line crosses zero at the live breakeven and the chart
+            // is internally consistent across slider changes.
+            payoffY[i] = sideSign * (intr - bsPrice(S, K, r, sigma, Tyrs, kind));
+        }
+
+        // Stats at the current spot
+        const premiumNow = bsPrice(S, K, r, sigma, Tyrs, kind);
+        const intrinsicNow = kind === "call" ? Math.max(S - K, 0) : Math.max(K - S, 0);
+        const timeValueNow = Math.max(premiumNow - intrinsicNow, 0);
+        // Breakeven at expiry: long call: K + premium; short call: same; long put: K - premium; short put: same.
+        const breakeven = kind === "call" ? (K + premiumNow) : (K - premiumNow);
+
+        document.getElementById("oe-val-prem").textContent = fmtUSD(premiumNow);
+        document.getElementById("oe-det-prem").textContent =
+            T.det_prem
+                .replace("{sign}", side === "long" ? "-" : "+")
+                .replace("{who}", side === "long" ? T.det_paid : T.det_recv);
+
+        document.getElementById("oe-val-intr").textContent = fmtUSD(intrinsicNow);
+        document.getElementById("oe-det-intr").textContent = T.det_intr;
+
+        document.getElementById("oe-val-time").textContent = fmtUSD(timeValueNow);
+        document.getElementById("oe-det-time").textContent = T.det_time;
+
+        document.getElementById("oe-val-be").textContent = fmtUSD(breakeven);
+        document.getElementById("oe-det-be").textContent = T.det_be;
+
+        // Plotly traces
+        const colorMid   = getCssVar("--oe-mid");
+        const colorAcc   = getCssVar("--oe-accent");
+        const colorPos   = getCssVar("--oe-pos");
+        const colorNeg   = getCssVar("--oe-neg");
+        const colorText  = getCssVar("--oe-text");
+        const colorMuted = getCssVar("--oe-muted");
+        const colorGrid  = darkMode() ? "rgba(255,255,255,0.08)" : "rgba(0,0,0,0.07)";
+        const colorBg    = getCssVar("--oe-card");
+
+        const traces = [
+            // Intrinsic shaded floor.
+            {
+                x: xs, y: intrY,
+                type: "scatter", mode: "lines",
+                name: T.trace_intrinsic,
+                line: { color: colorAcc, width: 1.4, dash: "dash" },
+                fill: "tozeroy",
+                fillcolor: darkMode() ? "rgba(184,134,11,0.18)" : "rgba(184,134,11,0.18)",
+                hovertemplate: T.trace_intrinsic + ": $%{y:.2f}<extra></extra>",
+            },
+            // Premium curve.
+            {
+                x: xs, y: premY,
+                type: "scatter", mode: "lines",
+                name: T.trace_premium,
+                line: { color: colorMid, width: 2.6 },
+                hovertemplate: T.trace_premium + ": $%{y:.2f}<extra></extra>",
+            },
+            // At-expiry P&L for the chosen position (signed).
+            {
+                x: xs, y: payoffY,
+                type: "scatter", mode: "lines",
+                name: T.trace_payoff,
+                line: { color: side === "long" ? colorPos : colorNeg, width: 2.2, dash: "dot" },
+                hovertemplate: T.trace_payoff + ": $%{y:.2f}<extra></extra>",
+            },
+        ];
+
+        const layout = {
+            margin: { l: 56, r: 24, t: 18, b: 44 },
+            paper_bgcolor: colorBg,
+            plot_bgcolor: colorBg,
+            font: { family: "Segoe UI, Helvetica, Arial, sans-serif", color: colorText, size: 12 },
+            xaxis: {
+                title: { text: T.x_title, font: { color: colorMuted, size: 11 } },
+                gridcolor: colorGrid,
+                color: colorText,
+                range: [Smin, Smax],
+                zeroline: false,
+            },
+            yaxis: {
+                title: { text: T.y_title, font: { color: colorMuted, size: 11 } },
+                gridcolor: colorGrid,
+                color: colorText,
+                tickformat: "$,.1f",
+                zeroline: true,
+                zerolinecolor: colorMuted,
+                zerolinewidth: 1,
+            },
+            shapes: [
+                {
+                    type: "line", xref: "x", yref: "paper",
+                    x0: S, x1: S, y0: 0, y1: 1,
+                    line: { color: colorMuted, width: 1.2, dash: "dot" },
+                },
+                {
+                    type: "line", xref: "x", yref: "paper",
+                    x0: K, x1: K, y0: 0, y1: 1,
+                    line: { color: colorAcc, width: 1.0, dash: "dash" },
+                    opacity: 0.5,
+                },
+            ],
+            annotations: [
+                {
+                    x: S, y: 1, xref: "x", yref: "paper",
+                    text: T.trace_spot + " $" + S.toFixed(1),
+                    showarrow: false,
+                    yshift: -2,
+                    font: { color: colorMuted, size: 10 },
+                    bgcolor: colorBg,
+                    align: "center",
+                    xanchor: S > 100 ? "right" : "left",
+                },
+            ],
+            legend: {
+                orientation: "h",
+                x: 0, y: 1.10,
+                bgcolor: "rgba(0,0,0,0)",
+                font: { color: colorText, size: 11 },
+            },
+            hovermode: "x unified",
+            showlegend: true,
+        };
+
+        Plotly.react(CHART, traces, layout, {
+            displayModeBar: false,
+            responsive: true,
+        });
+    }
+
+    function applyI18n() {
+        document.getElementById("oe-name-K").textContent = T.name_K;
+        document.getElementById("oe-name-T").textContent = T.name_T;
+        document.getElementById("oe-name-sig").innerHTML = T.name_sig.replace("\u03c3", "&sigma;");
+        document.getElementById("oe-name-r").textContent = T.name_r;
+        document.getElementById("oe-name-S").textContent = T.name_S;
+        document.getElementById("oe-name-prem").textContent = T.name_prem;
+        document.getElementById("oe-name-intr").textContent = T.name_intr;
+        document.getElementById("oe-name-time").textContent = T.name_time;
+        document.getElementById("oe-name-be").textContent = T.name_be;
+        document.getElementById("oe-caption").textContent = T.caption;
+    }
+
+    [KEL, TEL, SIGEL, REL, SEL].forEach(el => {
+        el.addEventListener("input", render);
+    });
+
+    applyI18n();
+    buildPills();
+
+    function reportHeight() {
+        try {
+            var h = Math.ceil(document.documentElement.scrollHeight);
+            parent.postMessage({ type: 'lesson-interactive-resize', height: h }, '*');
+        } catch (e) { /* ignore */ }
+    }
+    if (typeof ResizeObserver !== 'undefined') {
+        new ResizeObserver(reportHeight).observe(document.body);
+    }
+    window.addEventListener('resize', reportHeight);
+    setTimeout(reportHeight, 50);
+    setTimeout(reportHeight, 500);
+
+    const themeObserver = new MutationObserver(render);
+    themeObserver.observe(document.documentElement, {
+        attributes: true,
+        attributeFilter: ["data-theme"],
+    });
+
+    render();
+})();
+</script>
+
+</body>
+</html>

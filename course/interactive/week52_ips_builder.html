@@ -1,0 +1,967 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>IPS Builder - Interactive (Week 52)</title>
+<script src="https://cdn.plot.ly/plotly-2.35.2.min.js" charset="utf-8"></script>
+<style>
+html, body { margin: 0; padding: 0; background: var(--ip-bg); }
+:root {
+    --ip-bg: #fdfbf5;
+    --ip-text: #1a2332;
+    --ip-muted: #6b7280;
+    --ip-border: #d6d3c4;
+    --ip-card: #fdfbf5;
+    --ip-accent: #b8860b;
+    --ip-blue: #0d47a1;
+    --ip-red: #b71c1c;
+    --ip-green: #2e7d32;
+    --ip-purple: #6a1b9a;
+    --ip-teal: #00695c;
+    --ip-orange: #e65100;
+    --ip-grey: #5a5a5a;
+}
+html[data-theme="dark"] .ip-root,
+.ip-root[data-theme="dark"] {
+    --ip-bg: #0f1724;
+    --ip-text: #e6e6e6;
+    --ip-muted: #9aa3b2;
+    --ip-border: #2a3441;
+    --ip-card: #0f1724;
+    --ip-accent: #d4a02b;
+    --ip-blue: #5a8dee;
+    --ip-red: #ef5350;
+    --ip-green: #66bb6a;
+    --ip-purple: #a774d6;
+    --ip-teal: #4db6ac;
+    --ip-orange: #ff9248;
+    --ip-grey: #9aa3b2;
+}
+.ip-root {
+    font-family: 'Segoe UI', Helvetica, Arial, sans-serif;
+    background: var(--ip-bg);
+    color: var(--ip-text);
+    padding: 12px;
+    margin: 0;
+}
+.ip-controls {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 12px;
+    margin-bottom: 14px;
+    padding: 12px;
+    background: var(--ip-card);
+    border: 1px solid var(--ip-border);
+    border-radius: 8px;
+}
+.ip-slider-wrap {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    font-size: 0.82rem;
+    color: var(--ip-muted);
+}
+.ip-slider-wrap .ip-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.ip-slider-wrap input[type="range"] { flex: 1; accent-color: var(--ip-accent); }
+.ip-slider-wrap .ip-val {
+    white-space: nowrap;
+    color: var(--ip-text);
+    font-weight: 700;
+    font-variant-numeric: tabular-nums;
+    min-width: 78px;
+    text-align: right;
+}
+.ip-slider-wrap .ip-name { font-weight: 600; color: var(--ip-text); }
+.ip-stats {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 10px;
+    margin-bottom: 14px;
+}
+.ip-stat {
+    background: var(--ip-card);
+    border: 1px solid var(--ip-border);
+    border-left: 4px solid var(--ip-accent);
+    border-radius: 8px;
+    padding: 10px 12px;
+}
+.ip-stat .ip-stat-name {
+    font-size: 0.74rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--ip-muted);
+}
+.ip-stat .ip-stat-val {
+    font-size: 1.45rem;
+    font-weight: 700;
+    margin-top: 4px;
+    font-variant-numeric: tabular-nums;
+}
+.ip-stat .ip-stat-detail {
+    font-size: 0.78rem;
+    color: var(--ip-muted);
+    margin-top: 2px;
+    font-variant-numeric: tabular-nums;
+}
+.ip-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+}
+.ip-pane {
+    background: var(--ip-card);
+    border: 1px solid var(--ip-border);
+    border-radius: 8px;
+    padding: 12px;
+}
+.ip-section-title {
+    margin: 0 0 8px 0;
+    font-size: 0.82rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--ip-muted);
+}
+.ip-chart {
+    width: 100%;
+    height: 320px;
+}
+.ip-ips-doc {
+    font-size: 0.86rem;
+    line-height: 1.55;
+    color: var(--ip-text);
+    white-space: pre-wrap;
+    word-break: break-word;
+    font-family: 'Segoe UI', Helvetica, Arial, sans-serif;
+    border-left: 3px solid var(--ip-accent);
+    padding: 4px 0 4px 12px;
+    margin: 0;
+    background: transparent;
+}
+.ip-ips-doc strong { color: var(--ip-accent); font-weight: 700; }
+.ip-alloc-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.82rem;
+    margin-bottom: 8px;
+}
+.ip-alloc-table th, .ip-alloc-table td {
+    padding: 5px 8px;
+    border-bottom: 1px solid var(--ip-border);
+    text-align: left;
+}
+.ip-alloc-table th {
+    color: var(--ip-muted);
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 0.72rem;
+    letter-spacing: 0.4px;
+}
+.ip-alloc-table td.ip-num {
+    text-align: right;
+    font-variant-numeric: tabular-nums;
+    font-weight: 700;
+}
+.ip-swatch {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-radius: 2px;
+    margin-right: 6px;
+    vertical-align: middle;
+}
+.ip-caption {
+    margin-top: 10px;
+    font-size: 0.78rem;
+    color: var(--ip-muted);
+    line-height: 1.45;
+}
+@media (max-width: 760px) {
+    .ip-controls, .ip-stats { grid-template-columns: repeat(2, 1fr); }
+    .ip-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<div class="ip-root" id="ip-root">
+
+    <div class="ip-controls">
+        <div class="ip-slider-wrap">
+            <div class="ip-name" id="ip-name-age">Current age</div>
+            <div class="ip-row">
+                <input type="range" id="ip-w-age" min="22" max="75" step="1" value="35">
+                <span class="ip-val" id="ip-val-age">35</span>
+            </div>
+        </div>
+        <div class="ip-slider-wrap">
+            <div class="ip-name" id="ip-name-ret">Retirement age</div>
+            <div class="ip-row">
+                <input type="range" id="ip-w-ret" min="40" max="80" step="1" value="65">
+                <span class="ip-val" id="ip-val-ret">65</span>
+            </div>
+        </div>
+        <div class="ip-slider-wrap">
+            <div class="ip-name" id="ip-name-port">Current portfolio (USD)</div>
+            <div class="ip-row">
+                <input type="range" id="ip-w-port" min="10000" max="3000000" step="5000" value="200000">
+                <span class="ip-val" id="ip-val-port">$200k</span>
+            </div>
+        </div>
+        <div class="ip-slider-wrap">
+            <div class="ip-name" id="ip-name-inc">Target retirement income (USD/yr)</div>
+            <div class="ip-row">
+                <input type="range" id="ip-w-inc" min="20000" max="300000" step="1000" value="80000">
+                <span class="ip-val" id="ip-val-inc">$80k</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="ip-stats">
+        <div class="ip-stat" style="border-left-color: var(--ip-blue);">
+            <div class="ip-stat-name" id="ip-name-horizon">Accumulation horizon</div>
+            <div class="ip-stat-val" id="ip-val-horizon">--</div>
+            <div class="ip-stat-detail" id="ip-det-horizon">--</div>
+        </div>
+        <div class="ip-stat" style="border-left-color: var(--ip-green);">
+            <div class="ip-stat-name" id="ip-name-needed">Portfolio needed at retirement</div>
+            <div class="ip-stat-val" id="ip-val-needed">--</div>
+            <div class="ip-stat-detail" id="ip-det-needed">--</div>
+        </div>
+        <div class="ip-stat" style="border-left-color: var(--ip-accent);">
+            <div class="ip-stat-name" id="ip-name-projmed">Projected at retirement (median)</div>
+            <div class="ip-stat-val" id="ip-val-projmed">--</div>
+            <div class="ip-stat-detail" id="ip-det-projmed">--</div>
+        </div>
+        <div class="ip-stat" style="border-left-color: var(--ip-red);">
+            <div class="ip-stat-name" id="ip-name-swr">Sustainable SWR</div>
+            <div class="ip-stat-val" id="ip-val-swr">--</div>
+            <div class="ip-stat-detail" id="ip-det-swr">--</div>
+        </div>
+    </div>
+
+    <div class="ip-grid">
+        <div class="ip-pane">
+            <div class="ip-section-title" id="ip-title-alloc">Recommended allocation (seven sleeves)</div>
+            <table class="ip-alloc-table" id="ip-alloc-table"></table>
+            <div class="ip-section-title" id="ip-title-rules" style="margin-top:14px;">Rebalancing &amp; monitoring rules</div>
+            <pre class="ip-ips-doc" id="ip-ips-rules"></pre>
+        </div>
+        <div class="ip-pane">
+            <div class="ip-section-title" id="ip-title-chart">Projected wealth path: median, 5%/95% bands</div>
+            <div id="ip-chart" class="ip-chart"></div>
+            <div class="ip-caption" id="ip-caption">--</div>
+        </div>
+    </div>
+
+    <div class="ip-pane" style="margin-top:14px;">
+        <div class="ip-section-title" id="ip-title-ips">Your draft Investment Policy Statement</div>
+        <pre class="ip-ips-doc" id="ip-ips-doc"></pre>
+    </div>
+
+</div>
+
+<script>
+(function () {
+    const I18N = {
+        en: {
+            name_age: "Current age",
+            name_ret: "Retirement age",
+            name_port: "Current portfolio (USD)",
+            name_inc: "Target retirement income (USD/yr)",
+            name_horizon: "Accumulation horizon",
+            name_needed: "Portfolio needed at retirement",
+            name_projmed: "Projected at retirement (median)",
+            name_swr: "Sustainable SWR",
+            det_horizon: "{n} years to first withdrawal",
+            det_needed: "to fund {inc} at {swr}",
+            det_projmed: "5%/95% band: {lo} to {hi}",
+            det_swr: "{kind} on {needed} target",
+            swr_rigid: "3.7% rigid",
+            swr_flex:  "4.5% flexible",
+            title_alloc: "Recommended allocation (seven sleeves)",
+            title_rules: "Rebalancing & monitoring rules",
+            title_chart: "Projected wealth path: median, 5%/95% bands",
+            title_ips: "Your draft Investment Policy Statement",
+            col_sleeve: "Sleeve",
+            col_pct:    "Weight",
+            col_amt:    "Today (USD)",
+            sleeve_eq:  "Global equity (VTI/AVUV/MTUM)",
+            sleeve_inc: "Income (BND/SCHD/JEPI)",
+            sleeve_gld: "Gold (GLDM)",
+            sleeve_btc: "BTC (IBIT)",
+            sleeve_cta: "CTA (DBMF)",
+            sleeve_tail:"Tail hedge (SPY puts)",
+            sleeve_cash:"Cash / T-bills (SGOV)",
+            chart_x: "Year",
+            chart_y: "Portfolio value (USD)",
+            tr_med:  "Median path",
+            tr_band: "5% to 95% range",
+            tr_target: "Target at retirement",
+            tr_now: "Today",
+            caption: "Monte Carlo, 1000 paths. Each year draws an L4-portfolio return from N(mu, sigma) with mu and sigma scaled by your horizon-adjusted equity tilt. Median = 50th percentile of terminal-value distribution; band = 5th to 95th percentiles. The width of the band is the realistic uncertainty range; do not interpret the median as a forecast.",
+            rules_text: "Rebalancing rule: hybrid. Annual review on the first business day of January, plus any sleeve drifting more than 5 percentage points from target triggers an immediate trim or add of just that sleeve.\n\nNew contributions: route to whichever sleeve is most under-target before any sales in a taxable account.\n\nMonitoring KPIs: rolling 12-month Sharpe, realised volatility, trailing peak drawdown, sleeve drift vs. target. Quarterly. Spreadsheet. No daily checks.\n\nStop-rule for active sleeves: if MTUM, AVUV, or DBMF underperforms its benchmark by more than 5% per year cumulative over a rolling 5-year window, the sleeve is reduced to half-weight and reviewed at the next annual rewrite.\n\nFull IPS rewrite: every 3 years, or on any major life event (marriage, divorce, kids, retirement date moving, change of state).",
+            ips_template: [
+                "INVESTMENT POLICY STATEMENT",
+                "Date: {today}",
+                "",
+                "GOAL",
+                "  Fund retirement at age {ret} with annual income of {inc} (April-2026 dollars).",
+                "  Single-goal IPS; separate goals get their own document.",
+                "",
+                "TIME HORIZON",
+                "  Accumulation: {horizon} years until first withdrawal.",
+                "  Decumulation: 30 years assumed; revisit at retirement.",
+                "",
+                "RISK TOLERANCE",
+                "  Maximum calendar-year drawdown I will not sell into: {dd}.",
+                "  Trigger for IPS review: any drawdown reaching 80% of this number.",
+                "",
+                "TARGET ALLOCATION",
+                "  Growth tranche:        {eq}% global equity (VTI / AVUV / MTUM blend).",
+                "  Income tranche:        {inc_pct}% bonds, dividend equity, premium-write (BND / SCHD / JEPI).",
+                "  Store-of-value:        {gld}% gold (GLDM)  +  {btc}% BTC (IBIT).",
+                "  Opportunistic:         {cta}% CTA (DBMF)   +  {tail}% tail hedge (SPY puts ladder).",
+                "  Cash:                  {cash}% T-bills (SGOV).",
+                "  Rebalancing band: +/- 5 percentage points from target on any sleeve.",
+                "",
+                "TAX-LOCATION APPENDIX (SOUL #15)",
+                "  Bonds, REITs, JEPI, premium-write -> IRA / 401(k).",
+                "  Qualified-dividend equity (SCHD), broad equity (VTI), factor tilts -> Taxable.",
+                "  Gold (GLDM), BTC (IBIT) -> Roth IRA where available.",
+                "  Tail hedge -> Taxable (SPX-listed for Section 1256 if accessible).",
+                "",
+                "REVIEW CADENCE",
+                "  Quarterly KPI check: Sharpe, vol, drawdown, sleeve drift.",
+                "  Annual IPS review: edit numbers, confirm bands, restate goal.",
+                "  Triennial IPS rewrite + on any major life event."
+            ],
+        },
+        hk: {
+            name_age: "目前年齡",
+            name_ret: "退休年齡",
+            name_port: "現有組合(美元)",
+            name_inc: "退休目標年收入(美元)",
+            name_horizon: "積累期",
+            name_needed: "退休所需組合規模",
+            name_projmed: "退休時預估(中位數)",
+            name_swr: "可持續提取率",
+            det_horizon: "距首次提款 {n} 年",
+            det_needed: "以 {swr} 支付 {inc}",
+            det_projmed: "5%/95% 區間:{lo} 至 {hi}",
+            det_swr: "{kind};目標 {needed}",
+            swr_rigid: "3.7% 固定",
+            swr_flex:  "4.5% 彈性",
+            title_alloc: "建議配置(七板塊)",
+            title_rules: "再平衡與監控規則",
+            title_chart: "預估財富路徑:中位數、5%/95% 區間",
+            title_ips: "你的 IPS 草擬",
+            col_sleeve: "板塊",
+            col_pct:    "權重",
+            col_amt:    "現值(美元)",
+            sleeve_eq:  "全球股票(VTI/AVUV/MTUM)",
+            sleeve_inc: "收益(BND/SCHD/JEPI)",
+            sleeve_gld: "黃金(GLDM)",
+            sleeve_btc: "比特幣(IBIT)",
+            sleeve_cta: "CTA(DBMF)",
+            sleeve_tail:"尾部對沖(SPY 認沽)",
+            sleeve_cash:"現金 / 短債(SGOV)",
+            chart_x: "年份",
+            chart_y: "組合價值(美元)",
+            tr_med:  "中位數路徑",
+            tr_band: "5% 至 95% 區間",
+            tr_target: "退休目標",
+            tr_now: "今日",
+            caption: "蒙地卡羅 1000 條路徑。每年由 N(mu, sigma) 抽取 L4 組合回報,mu 與 sigma 隨年齡調整(年輕股票權重高)。中位數為終值分佈第 50 百分位;區間為第 5 至第 95 百分位。區間寬度即合理不確定範圍;不可把中位數當作預測。",
+            rules_text: "再平衡規則:混合制。每年 1 月首個工作日全面檢視;同時任何板塊偏離目標逾 5 個百分點即觸發即時微調(只調該板塊)。\n\n新增供款:於應稅戶口中,先買入最低於目標的板塊,避免賣出。\n\n監控指標:12 個月滾動 Sharpe、實際波動、滾動最大回撤、板塊偏離。每季檢查一次。試算表。不要每日查看。\n\n主動板塊停損規則:MTUM、AVUV 或 DBMF 在 5 年滾動窗口跑輸基準逾 5%/年,則減至半倉,於下次年度重寫時檢討。\n\n全面 IPS 重寫:每 3 年一次,或遇重大人生事件(結婚、離婚、子女、退休日期變動、搬州)。",
+            ips_template: [
+                "投資政策聲明",
+                "日期:{today}",
+                "",
+                "目標",
+                "  為 {ret} 歲退休提供 {inc} 年收入(2026 年 4 月美元)。",
+                "  單目標 IPS;其他目標另立文件。",
+                "",
+                "時間框架",
+                "  積累期:距首次提款 {horizon} 年。",
+                "  消費期:預設 30 年;退休時重檢。",
+                "",
+                "風險承受",
+                "  我不會在 {dd} 之內的最大年度回撤恐慌賣出。",
+                "  IPS 檢討觸發點:回撤達到此數的 80%。",
+                "",
+                "目標配置",
+                "  增長層:        {eq}% 全球股票(VTI / AVUV / MTUM)。",
+                "  收益層:        {inc_pct}% 債券、股息、權利金書寫(BND / SCHD / JEPI)。",
+                "  價值儲存層:    {gld}% 黃金(GLDM)+ {btc}% 比特幣(IBIT)。",
+                "  機會層:        {cta}% CTA(DBMF)+ {tail}% 尾部對沖(SPY 認沽階梯)。",
+                "  現金:          {cash}% 短債(SGOV)。",
+                "  再平衡帶:任一板塊偏離目標 +/-5 個百分點。",
+                "",
+                "稅務位置附錄(SOUL #15)",
+                "  債券、REIT、JEPI、權利金書寫 -> IRA / 401(k)。",
+                "  合格股息(SCHD)、廣義股票(VTI)、因子產品 -> 應稅戶口。",
+                "  黃金(GLDM)、比特幣(IBIT)-> 如可選用 Roth IRA。",
+                "  尾部對沖 -> 應稅(可選用 SPX 上市以套用 1256)。",
+                "",
+                "檢討節奏",
+                "  季度 KPI 檢查:Sharpe、波動、回撤、板塊偏離。",
+                "  年度 IPS 檢討:更新數字、確認區間、重申目標。",
+                "  每三年重寫 + 遇重大人生事件即時重寫。"
+            ],
+        },
+        tw: {
+            name_age: "目前年齡",
+            name_ret: "退休年齡",
+            name_port: "現有組合(美元)",
+            name_inc: "退休目標年收入(美元)",
+            name_horizon: "累積期",
+            name_needed: "退休所需組合規模",
+            name_projmed: "退休時預估(中位數)",
+            name_swr: "可持續提取率",
+            det_horizon: "距首次提領 {n} 年",
+            det_needed: "以 {swr} 支付 {inc}",
+            det_projmed: "5%/95% 區間:{lo} 至 {hi}",
+            det_swr: "{kind};目標 {needed}",
+            swr_rigid: "3.7% 固定",
+            swr_flex:  "4.5% 彈性",
+            title_alloc: "建議配置(七板塊)",
+            title_rules: "再平衡與監控規則",
+            title_chart: "預估財富路徑:中位數、5%/95% 區間",
+            title_ips: "你的 IPS 草擬",
+            col_sleeve: "部位",
+            col_pct:    "權重",
+            col_amt:    "現值(美元)",
+            sleeve_eq:  "全球股票(VTI/AVUV/MTUM)",
+            sleeve_inc: "收益(BND/SCHD/JEPI)",
+            sleeve_gld: "黃金(GLDM)",
+            sleeve_btc: "比特幣(IBIT)",
+            sleeve_cta: "CTA(DBMF)",
+            sleeve_tail:"尾部避險(SPY 賣權)",
+            sleeve_cash:"現金 / 短債(SGOV)",
+            chart_x: "年份",
+            chart_y: "組合價值(美元)",
+            tr_med:  "中位數路徑",
+            tr_band: "5% 至 95% 區間",
+            tr_target: "退休目標",
+            tr_now: "今日",
+            caption: "蒙地卡羅 1000 條路徑。每年由 N(mu, sigma) 抽取 L4 組合報酬,mu 與 sigma 隨年齡調整(年輕股票權重高)。中位數為終值分佈第 50 百分位;區間為第 5 至第 95 百分位。區間寬度即合理不確定範圍;不要把中位數當作預測。",
+            rules_text: "再平衡規則:混合制。每年 1 月首個工作日全面檢視;同時任何部位偏離目標逾 5 個百分點即觸發即時微調(僅調該部位)。\n\n新增提撥:在應稅帳戶中先買入最低於目標的部位,避免賣出。\n\n監控指標:12 個月滾動 Sharpe、實現波動、滾動最大回檔、部位偏離。每季檢查一次。試算表。不要每日查看。\n\n主動部位停損規則:MTUM、AVUV 或 DBMF 在 5 年滾動窗口跑輸基準逾 5%/年,則減至半倉,於下次年度重寫時檢討。\n\n全面 IPS 重寫:每 3 年一次,或遇重大人生事件(結婚、離婚、子女、退休日期變動、搬州)。",
+            ips_template: [
+                "投資政策聲明",
+                "日期:{today}",
+                "",
+                "目標",
+                "  為 {ret} 歲退休提供 {inc} 年收入(2026 年 4 月美元)。",
+                "  單目標 IPS;其他目標另立文件。",
+                "",
+                "時間框架",
+                "  累積期:距首次提領 {horizon} 年。",
+                "  消費期:預設 30 年;退休時重檢。",
+                "",
+                "風險承受",
+                "  我不會在 {dd} 之內的最大年度回檔恐慌賣出。",
+                "  IPS 檢討觸發點:回檔達到此數的 80%。",
+                "",
+                "目標配置",
+                "  增長層:        {eq}% 全球股票(VTI / AVUV / MTUM)。",
+                "  收益層:        {inc_pct}% 債券、股息、權利金書寫(BND / SCHD / JEPI)。",
+                "  價值儲存層:    {gld}% 黃金(GLDM)+ {btc}% 比特幣(IBIT)。",
+                "  機會層:        {cta}% CTA(DBMF)+ {tail}% 尾部避險(SPY 賣權階梯)。",
+                "  現金:          {cash}% 短債(SGOV)。",
+                "  再平衡帶:任一部位偏離目標 +/-5 個百分點。",
+                "",
+                "稅務位置附錄(SOUL #15)",
+                "  債券、REIT、JEPI、權利金書寫 -> IRA / 401(k)。",
+                "  合格股息(SCHD)、廣義股票(VTI)、因子產品 -> 應稅帳戶。",
+                "  黃金(GLDM)、比特幣(IBIT)-> 如可使用 Roth IRA。",
+                "  尾部避險 -> 應稅(可選用 SPX 上市以套用 1256)。",
+                "",
+                "檢討節奏",
+                "  季度 KPI 檢查:Sharpe、波動、回檔、部位偏離。",
+                "  年度 IPS 檢討:更新數字、確認區間、重申目標。",
+                "  每三年重寫 + 遇重大人生事件即時重寫。"
+            ],
+        },
+        cn: {
+            name_age: "当前年龄",
+            name_ret: "退休年龄",
+            name_port: "现有组合(美元)",
+            name_inc: "退休目标年收入(美元)",
+            name_horizon: "积累期",
+            name_needed: "退休所需组合规模",
+            name_projmed: "退休时预估(中位数)",
+            name_swr: "可持续提取率",
+            det_horizon: "距首次提取 {n} 年",
+            det_needed: "以 {swr} 支付 {inc}",
+            det_projmed: "5%/95% 区间:{lo} 至 {hi}",
+            det_swr: "{kind};目标 {needed}",
+            swr_rigid: "3.7% 固定",
+            swr_flex:  "4.5% 弹性",
+            title_alloc: "推荐配置(七板块)",
+            title_rules: "再平衡与监控规则",
+            title_chart: "预估财富路径:中位数、5%/95% 区间",
+            title_ips: "你的 IPS 草拟",
+            col_sleeve: "板块",
+            col_pct:    "权重",
+            col_amt:    "现值(美元)",
+            sleeve_eq:  "全球股票(VTI/AVUV/MTUM)",
+            sleeve_inc: "收益(BND/SCHD/JEPI)",
+            sleeve_gld: "黄金(GLDM)",
+            sleeve_btc: "比特币(IBIT)",
+            sleeve_cta: "CTA(DBMF)",
+            sleeve_tail:"尾部对冲(SPY 看跌)",
+            sleeve_cash:"现金 / 短债(SGOV)",
+            chart_x: "年份",
+            chart_y: "组合价值(美元)",
+            tr_med:  "中位数路径",
+            tr_band: "5% 至 95% 区间",
+            tr_target: "退休目标",
+            tr_now: "今日",
+            caption: "蒙特卡洛 1000 条路径。每年由 N(mu, sigma) 抽取 L4 组合回报,mu 与 sigma 随年龄调整(年轻股票权重高)。中位数为终值分布第 50 百分位;区间为第 5 至第 95 百分位。区间宽度即合理不确定范围;不要把中位数当作预测。",
+            rules_text: "再平衡规则:混合制。每年 1 月首个工作日全面检视;同时任何板块偏离目标逾 5 个百分点即触发即时微调(只调该板块)。\n\n新增供款:在应税账户中先买入最低于目标的板块,避免卖出。\n\n监控指标:12 个月滚动 Sharpe、实际波动、滚动最大回撤、板块偏离。每季检查一次。试算表。不要每日查看。\n\n主动板块止损规则:MTUM、AVUV 或 DBMF 在 5 年滚动窗口跑输基准逾 5%/年,则减至半仓,于下次年度重写时检讨。\n\n全面 IPS 重写:每 3 年一次,或遇重大人生事件(结婚、离婚、子女、退休日期变动、搬州)。",
+            ips_template: [
+                "投资政策声明",
+                "日期:{today}",
+                "",
+                "目标",
+                "  为 {ret} 岁退休提供 {inc} 年收入(2026 年 4 月美元)。",
+                "  单目标 IPS;其他目标另立文件。",
+                "",
+                "时间框架",
+                "  积累期:距首次提取 {horizon} 年。",
+                "  消费期:预设 30 年;退休时重检。",
+                "",
+                "风险承受",
+                "  我不会在 {dd} 之内的最大年度回撤恐慌卖出。",
+                "  IPS 检讨触发点:回撤达到此数的 80%。",
+                "",
+                "目标配置",
+                "  增长层:        {eq}% 全球股票(VTI / AVUV / MTUM)。",
+                "  收益层:        {inc_pct}% 债券、股息、权利金书写(BND / SCHD / JEPI)。",
+                "  价值储存层:    {gld}% 黄金(GLDM)+ {btc}% 比特币(IBIT)。",
+                "  机会层:        {cta}% CTA(DBMF)+ {tail}% 尾部对冲(SPY 看跌阶梯)。",
+                "  现金:          {cash}% 短债(SGOV)。",
+                "  再平衡带:任一板块偏离目标 +/-5 个百分点。",
+                "",
+                "税务位置附录(SOUL #15)",
+                "  债券、REIT、JEPI、权利金书写 -> IRA / 401(k)。",
+                "  合格股息(SCHD)、广义股票(VTI)、因子产品 -> 应税账户。",
+                "  黄金(GLDM)、比特币(IBIT)-> 如可选用 Roth IRA。",
+                "  尾部对冲 -> 应税(可选用 SPX 上市以套用 1256)。",
+                "",
+                "检讨节奏",
+                "  季度 KPI 检查:Sharpe、波动、回撤、板块偏离。",
+                "  年度 IPS 检讨:更新数字、确认区间、重申目标。",
+                "  每三年重写 + 遇重大人生事件即时重写。"
+            ],
+        },
+    };
+
+    function currentLang() {
+        const p = new URLSearchParams(window.location.search);
+        const l = (p.get("lang") || "en").toLowerCase();
+        return I18N.hasOwnProperty(l) ? l : "en";
+    }
+    const T = I18N[currentLang()];
+
+    const ROOT = document.getElementById("ip-root");
+    const CHART = document.getElementById("ip-chart");
+
+    // --- Allocation logic ----------------------------------------------------
+    // Base L4 model: 35/25/15/5/10/5/5.
+    // We tilt with horizon: longer horizon => more equity, less income/cash.
+    // Risk tolerance scales with years to retirement.
+    function allocFor(horizon) {
+        const h = Math.max(0, Math.min(40, horizon));
+        // baseline at horizon=20.
+        const tilt = (h - 20) / 20;   // -1 at h=0, +1 at h=40
+        // Equity grows with horizon, income shrinks with horizon. Other sleeves modest tilts.
+        const eq   = clamp(35 + 12 * tilt, 20, 55);
+        const inc  = clamp(25 - 10 * tilt, 10, 40);
+        const gld  = clamp(15 -  2 * tilt, 10, 18);
+        const btc  = clamp( 5 +  1 * tilt,  2,  7);
+        const cta  = clamp(10 +  1 * tilt,  7, 12);
+        const tail = clamp( 5 -  1 * tilt,  3,  8);
+        let cash   = 100 - eq - inc - gld - btc - cta - tail;
+        cash = clamp(cash, 1, 15);
+        // Normalise to sum to 100.
+        const total = eq + inc + gld + btc + cta + tail + cash;
+        const k = 100 / total;
+        return {
+            eq:   round1(eq * k),
+            inc:  round1(inc * k),
+            gld:  round1(gld * k),
+            btc:  round1(btc * k),
+            cta:  round1(cta * k),
+            tail: round1(tail * k),
+            cash: round1(cash * k),
+        };
+    }
+    function round1(v) { return Math.round(v * 10) / 10; }
+    function clamp(v, lo, hi) { return Math.max(lo, Math.min(hi, v)); }
+
+    // Approximate L4 expected mu/sigma as a function of allocation.
+    // Sleeve mu/sigma assumptions (annual, decimals):
+    const SLEEVE_MU = {
+        eq: 0.085, inc: 0.045, gld: 0.055, btc: 0.18,
+        cta: 0.06, tail: -0.05, cash: 0.04,
+    };
+    const SLEEVE_SIG = {
+        eq: 0.16, inc: 0.07, gld: 0.16, btc: 0.65,
+        cta: 0.13, tail: 0.40, cash: 0.01,
+    };
+
+    function portfolioStats(a) {
+        let mu = 0;
+        let var_ = 0;
+        const keys = ["eq","inc","gld","btc","cta","tail","cash"];
+        for (const k of keys) {
+            const w = a[k] / 100;
+            mu  += w * SLEEVE_MU[k];
+            // simple sum of weighted variances (assume modest correlations baked into sigmas)
+            var_ += (w * SLEEVE_SIG[k]) * (w * SLEEVE_SIG[k]);
+        }
+        // diversification cross-term (loose model; brings vol down ~15%)
+        const sig = Math.sqrt(var_) * 0.95;
+        return { mu, sig };
+    }
+
+    // --- Monte Carlo ---------------------------------------------------------
+    function lcg(seed) {
+        let s = seed >>> 0;
+        return function () {
+            s = (s * 1103515245 + 12345) >>> 0;
+            return ((s >>> 0) % 0x100000000) / 0x100000000;
+        };
+    }
+    function boxMuller(rng) {
+        let u = 0, v = 0;
+        while (u === 0) u = rng();
+        while (v === 0) v = rng();
+        return Math.sqrt(-2 * Math.log(u)) * Math.cos(2 * Math.PI * v);
+    }
+    function monteCarlo(p0, mu, sig, years, paths) {
+        const rng = lcg(20260429);
+        const lo = new Float64Array(years + 1);
+        const md = new Float64Array(years + 1);
+        const hi = new Float64Array(years + 1);
+        const samples = new Float64Array(paths);
+        // store percentiles by accumulating sorted values per year
+        // For efficiency: simulate once into 2D Float64Array.
+        const W = new Float64Array((years + 1) * paths);
+        for (let i = 0; i < paths; i++) W[i] = p0;
+        for (let y = 1; y <= years; y++) {
+            for (let i = 0; i < paths; i++) {
+                const z = boxMuller(rng);
+                const r = mu + sig * z;
+                W[y * paths + i] = W[(y - 1) * paths + i] * Math.max(0.05, 1 + r);
+            }
+        }
+        const yearArr = new Float64Array(paths);
+        for (let y = 0; y <= years; y++) {
+            for (let i = 0; i < paths; i++) yearArr[i] = W[y * paths + i];
+            const sorted = Array.from(yearArr).sort((a,b) => a - b);
+            lo[y] = sorted[Math.floor(0.05 * paths)];
+            md[y] = sorted[Math.floor(0.50 * paths)];
+            hi[y] = sorted[Math.floor(0.95 * paths)];
+        }
+        return { lo, md, hi };
+    }
+
+    // --- Helpers -------------------------------------------------------------
+    function fmtMoney(v) {
+        if (!isFinite(v) || v < 0) return "--";
+        if (v >= 1e9) return "$" + (v / 1e9).toFixed(2) + "B";
+        if (v >= 1e6) return "$" + (v / 1e6).toFixed(2) + "M";
+        if (v >= 1e3) return "$" + Math.round(v / 1e3) + "k";
+        return "$" + Math.round(v);
+    }
+    function fmtMoneyFull(v) {
+        if (!isFinite(v)) return "--";
+        return "$" + Math.round(v).toLocaleString("en-US");
+    }
+    function todayStr() {
+        const d = new Date();
+        const m = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+        return `${m[d.getMonth()]} ${d.getDate()}, ${d.getFullYear()}`;
+    }
+    function getCss(name) { return getComputedStyle(ROOT).getPropertyValue(name).trim(); }
+
+    function darkMode() {
+        return document.documentElement.getAttribute("data-theme") === "dark";
+    }
+
+    // --- DOM elements --------------------------------------------------------
+    const SLIDERS = {
+        age:  document.getElementById("ip-w-age"),
+        ret:  document.getElementById("ip-w-ret"),
+        port: document.getElementById("ip-w-port"),
+        inc:  document.getElementById("ip-w-inc"),
+    };
+    const VALS = {
+        age:  document.getElementById("ip-val-age"),
+        ret:  document.getElementById("ip-val-ret"),
+        port: document.getElementById("ip-val-port"),
+        inc:  document.getElementById("ip-val-inc"),
+    };
+    function setLabels() {
+        document.getElementById("ip-name-age").textContent  = T.name_age;
+        document.getElementById("ip-name-ret").textContent  = T.name_ret;
+        document.getElementById("ip-name-port").textContent = T.name_port;
+        document.getElementById("ip-name-inc").textContent  = T.name_inc;
+        document.getElementById("ip-name-horizon").textContent = T.name_horizon;
+        document.getElementById("ip-name-needed").textContent  = T.name_needed;
+        document.getElementById("ip-name-projmed").textContent = T.name_projmed;
+        document.getElementById("ip-name-swr").textContent     = T.name_swr;
+        document.getElementById("ip-title-alloc").textContent  = T.title_alloc;
+        document.getElementById("ip-title-rules").textContent  = T.title_rules;
+        document.getElementById("ip-title-chart").textContent  = T.title_chart;
+        document.getElementById("ip-title-ips").textContent    = T.title_ips;
+        document.getElementById("ip-caption").textContent      = T.caption;
+        document.getElementById("ip-ips-rules").textContent    = T.rules_text;
+    }
+
+    // --- Render --------------------------------------------------------------
+    const SLEEVE_KEYS  = ["eq","inc","gld","btc","cta","tail","cash"];
+    const SLEEVE_COLOR = {
+        eq:   "var(--ip-blue)",
+        inc:  "var(--ip-red)",
+        gld:  "var(--ip-accent)",
+        btc:  "var(--ip-purple)",
+        cta:  "var(--ip-teal)",
+        tail: "var(--ip-orange)",
+        cash: "var(--ip-grey)",
+    };
+    const SLEEVE_NAME_KEYS = {
+        eq: "sleeve_eq", inc: "sleeve_inc", gld: "sleeve_gld",
+        btc: "sleeve_btc", cta: "sleeve_cta", tail: "sleeve_tail",
+        cash: "sleeve_cash",
+    };
+
+    function buildAllocTable(a, port) {
+        const rows = [
+            "<thead><tr><th>" + T.col_sleeve + "</th><th class='ip-num'>" + T.col_pct + "</th><th class='ip-num'>" + T.col_amt + "</th></tr></thead>",
+            "<tbody>"
+        ];
+        for (const k of SLEEVE_KEYS) {
+            const colorVar = SLEEVE_COLOR[k];
+            rows.push(
+                "<tr><td><span class='ip-swatch' style='background:"+colorVar+"'></span>" +
+                T[SLEEVE_NAME_KEYS[k]] + "</td>" +
+                "<td class='ip-num'>" + a[k].toFixed(1) + "%</td>" +
+                "<td class='ip-num'>" + fmtMoneyFull(a[k] / 100 * port) + "</td></tr>"
+            );
+        }
+        rows.push("</tbody>");
+        return rows.join("");
+    }
+
+    function fillIPS(age, ret, port, inc, a, dd) {
+        const horizon = Math.max(0, ret - age);
+        const tpl = T.ips_template;
+        const subs = {
+            today: todayStr(),
+            ret: ret,
+            inc: fmtMoneyFull(inc),
+            horizon: horizon,
+            dd: dd,
+            eq: a.eq.toFixed(0),
+            inc_pct: a.inc.toFixed(0),
+            gld: a.gld.toFixed(0),
+            btc: a.btc.toFixed(0),
+            cta: a.cta.toFixed(0),
+            tail: a.tail.toFixed(0),
+            cash: a.cash.toFixed(0),
+        };
+        return tpl.map(line => line.replace(/\{(\w+)\}/g, (_, k) => subs[k] != null ? subs[k] : "")).join("\n");
+    }
+
+    function render() {
+        const age  = parseInt(SLIDERS.age.value, 10);
+        const ret  = Math.max(age + 1, parseInt(SLIDERS.ret.value, 10));
+        const port = parseInt(SLIDERS.port.value, 10);
+        const inc  = parseInt(SLIDERS.inc.value, 10);
+
+        VALS.age.textContent  = age;
+        VALS.ret.textContent  = ret;
+        VALS.port.textContent = fmtMoney(port);
+        VALS.inc.textContent  = fmtMoney(inc);
+
+        const horizon = ret - age;
+        const a = allocFor(horizon);
+        const { mu, sig } = portfolioStats(a);
+
+        // Risk tolerance heuristic: longer horizon => higher tolerated drawdown.
+        const dd = Math.round(20 + Math.min(horizon, 30) * 0.7) + "%";
+
+        document.getElementById("ip-alloc-table").innerHTML = buildAllocTable(a, port);
+
+        // Stats: needed at retirement using rigid 3.7% SWR.
+        const swrRigid = 0.037;
+        const swrFlex  = 0.045;
+        const needed = inc / swrRigid;
+
+        document.getElementById("ip-val-horizon").textContent =
+            horizon + " yrs";
+        document.getElementById("ip-det-horizon").textContent =
+            T.det_horizon.replace("{n}", horizon);
+
+        document.getElementById("ip-val-needed").textContent = fmtMoney(needed);
+        document.getElementById("ip-det-needed").textContent =
+            T.det_needed
+                .replace("{inc}", fmtMoney(inc))
+                .replace("{swr}", (swrRigid * 100).toFixed(1) + "%");
+
+        // Monte Carlo projection.
+        const paths = 600;
+        const years = horizon;
+        let mc = null;
+        if (years > 0) {
+            mc = monteCarlo(port, mu, sig, years, paths);
+            const projMed = mc.md[years];
+            document.getElementById("ip-val-projmed").textContent = fmtMoney(projMed);
+            document.getElementById("ip-det-projmed").textContent =
+                T.det_projmed
+                    .replace("{lo}", fmtMoney(mc.lo[years]))
+                    .replace("{hi}", fmtMoney(mc.hi[years]));
+
+            // SWR feasibility.
+            const sustainableIncome = projMed * swrRigid;
+            const ratio = sustainableIncome / inc;
+            const kind = ratio >= 1.0 ? T.swr_rigid : T.swr_flex;
+            const safeIncomeAtFlex = projMed * swrFlex;
+            const swrShown = (sustainableIncome / projMed * 100).toFixed(1) + "%";
+            document.getElementById("ip-val-swr").textContent = swrShown;
+            document.getElementById("ip-det-swr").textContent =
+                T.det_swr
+                    .replace("{kind}", ratio >= 1.0 ? T.swr_rigid : T.swr_flex)
+                    .replace("{needed}", fmtMoney(needed));
+        } else {
+            document.getElementById("ip-val-projmed").textContent = fmtMoney(port);
+            document.getElementById("ip-det-projmed").textContent = T.det_projmed
+                .replace("{lo}", fmtMoney(port)).replace("{hi}", fmtMoney(port));
+            document.getElementById("ip-val-swr").textContent = "--";
+            document.getElementById("ip-det-swr").textContent = "--";
+        }
+
+        // Plot
+        plot(age, ret, port, mc, needed);
+
+        // IPS document.
+        document.getElementById("ip-ips-doc").textContent = fillIPS(age, ret, port, inc, a, dd);
+    }
+
+    function plot(age, ret, port, mc, needed) {
+        const fg     = getCss("--ip-text") || "#1a2332";
+        const muted  = getCss("--ip-muted") || "#6b7280";
+        const grid   = getCss("--ip-border") || "#d6d3c4";
+        const accent = getCss("--ip-accent") || "#b8860b";
+        const blue   = getCss("--ip-blue") || "#0d47a1";
+        const red    = getCss("--ip-red") || "#b71c1c";
+        const bgPlot = darkMode() ? "rgba(0,0,0,0)" : "rgba(0,0,0,0)";
+
+        const traces = [];
+        if (mc) {
+            const years = mc.md.length - 1;
+            const xs = [];
+            for (let i = 0; i <= years; i++) xs.push(age + i);
+
+            traces.push({
+                x: xs.concat(xs.slice().reverse()),
+                y: Array.from(mc.hi).concat(Array.from(mc.lo).reverse()),
+                fill: "toself",
+                fillcolor: hexAlpha(accent, 0.18),
+                line: { color: "rgba(0,0,0,0)" },
+                hoverinfo: "skip",
+                name: T.tr_band,
+                showlegend: true,
+            });
+            traces.push({
+                x: xs,
+                y: Array.from(mc.md),
+                mode: "lines",
+                line: { color: accent, width: 3 },
+                name: T.tr_med,
+            });
+            traces.push({
+                x: [ret, ret],
+                y: [needed, needed],
+                mode: "markers",
+                marker: { color: red, size: 11, symbol: "diamond" },
+                name: T.tr_target,
+            });
+            traces.push({
+                x: [age],
+                y: [port],
+                mode: "markers",
+                marker: { color: blue, size: 10, symbol: "circle" },
+                name: T.tr_now,
+            });
+        }
+
+        const layout = {
+            paper_bgcolor: bgPlot,
+            plot_bgcolor: bgPlot,
+            margin: { l: 60, r: 14, t: 8, b: 38 },
+            font: { color: fg, family: "Segoe UI, Helvetica, Arial, sans-serif", size: 11 },
+            xaxis: {
+                title: { text: T.chart_x, font: { color: muted } },
+                gridcolor: grid, zerolinecolor: grid,
+                color: fg, automargin: true,
+            },
+            yaxis: {
+                title: { text: T.chart_y, font: { color: muted } },
+                gridcolor: grid, zerolinecolor: grid,
+                color: fg, type: "log", automargin: true,
+                tickformat: "$,.0s",
+            },
+            legend: { orientation: "h", x: 0, y: 1.06, font: { color: fg } },
+            hovermode: "x unified",
+        };
+        const config = { displayModeBar: false, responsive: true };
+        Plotly.react(CHART, traces, layout, config);
+    }
+
+    function hexAlpha(hex, a) {
+        // Accepts CSS-resolved colour string. Fallback: gold accent.
+        const m = (hex || "").trim().match(/^#?([0-9a-f]{6})$/i);
+        if (!m) return "rgba(184,134,11," + a + ")";
+        const v = m[1];
+        const r = parseInt(v.substr(0,2),16);
+        const g = parseInt(v.substr(2,2),16);
+        const b = parseInt(v.substr(4,2),16);
+        return "rgba("+r+","+g+","+b+","+a+")";
+    }
+
+    // --- Wiring --------------------------------------------------------------
+    Object.values(SLIDERS).forEach(el => el.addEventListener("input", render));
+
+    setLabels();
+    render();
+
+    // Theme observer.
+    const mo = new MutationObserver(() => render());
+    mo.observe(document.documentElement, { attributes: true, attributeFilter: ["data-theme"] });
+
+    // Resize postMessage.
+    function postSize() {
+        const h = document.documentElement.scrollHeight;
+        try { window.parent.postMessage({ type: "lesson-interactive-resize", height: h }, "*"); }
+        catch (e) {}
+    }
+    window.addEventListener("load", postSize);
+    window.addEventListener("resize", postSize);
+    new ResizeObserver(postSize).observe(document.body);
+
+})();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,487 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Index Builder — Interactive (Week 9)</title>
+<script src="https://cdn.plot.ly/plotly-2.35.2.min.js" charset="utf-8"></script>
+<style>
+html, body { margin: 0; padding: 0; background: var(--ib-bg); }
+:root {
+    --ib-bg: #fdfbf5;
+    --ib-text: #1a2332;
+    --ib-muted: #6b7280;
+    --ib-border: #d6d3c4;
+    --ib-card: #fdfbf5;
+    --ib-pos: #2e7d32;
+    --ib-neg: #b71c1c;
+    --ib-mid: #0d47a1;
+    --ib-accent: #b8860b;
+}
+html[data-theme="dark"] .ib-root,
+.ib-root[data-theme="dark"] {
+    --ib-bg: #0f1724;
+    --ib-text: #e6e6e6;
+    --ib-muted: #9aa3b2;
+    --ib-border: #2a3441;
+    --ib-card: #0f1724;
+    --ib-pos: #66bb6a;
+    --ib-neg: #ef5350;
+    --ib-mid: #5a8dee;
+}
+.ib-root {
+    font-family: 'Segoe UI', Helvetica, Arial, sans-serif;
+    background: var(--ib-bg);
+    color: var(--ib-text);
+    padding: 12px;
+    margin: 0;
+}
+.ib-controls {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 14px;
+    padding: 10px 12px;
+    background: var(--ib-card);
+    border: 1px solid var(--ib-border);
+    border-radius: 8px;
+}
+.ib-label {
+    font-size: 0.85rem;
+    color: var(--ib-muted);
+    font-weight: 600;
+}
+.ib-pills {
+    display: inline-flex;
+    border: 1px solid var(--ib-border);
+    border-radius: 999px;
+    overflow: hidden;
+    background: var(--ib-card);
+}
+.ib-pills button {
+    border: none;
+    background: transparent;
+    color: var(--ib-muted);
+    padding: 6px 14px;
+    font: inherit;
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.15s, color 0.15s;
+}
+.ib-pills button:hover { color: var(--ib-text); }
+.ib-pills button.active {
+    background: var(--ib-accent);
+    color: #fff;
+}
+.ib-grid {
+    display: grid;
+    grid-template-columns: 3fr 2fr;
+    gap: 14px;
+}
+.ib-chart {
+    width: 100%;
+    height: 440px;
+    background: var(--ib-card);
+    border-radius: 8px;
+    border: 1px solid var(--ib-border);
+}
+.ib-stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-top: 14px;
+}
+.ib-stat {
+    background: var(--ib-card);
+    border: 1px solid var(--ib-border);
+    border-left: 4px solid var(--ib-muted);
+    border-radius: 8px;
+    padding: 10px 12px;
+}
+.ib-stat.ib-stat-acc { border-left-color: var(--ib-accent); }
+.ib-stat.ib-stat-mid { border-left-color: var(--ib-mid); }
+.ib-stat .ib-stat-name {
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--ib-muted);
+}
+.ib-stat .ib-stat-val {
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin-top: 4px;
+    font-variant-numeric: tabular-nums;
+}
+.ib-stat .ib-stat-detail {
+    font-size: 0.78rem;
+    color: var(--ib-muted);
+    margin-top: 2px;
+}
+.ib-caption {
+    margin-top: 10px;
+    font-size: 0.78rem;
+    color: var(--ib-muted);
+    line-height: 1.45;
+}
+@media (max-width: 760px) {
+    .ib-grid { grid-template-columns: 1fr; }
+    .ib-chart { height: 360px; }
+    .ib-stats { grid-template-columns: 1fr 1fr; }
+}
+</style>
+</head>
+<body>
+
+<div class="ib-root" id="ib-root">
+    <div class="ib-controls">
+        <span class="ib-label" id="ib-scheme-label">Weighting scheme</span>
+        <div class="ib-pills" id="ib-pills" role="tablist" aria-label="Weighting scheme">
+            <button type="button" data-scheme="cap" class="active" id="ib-pill-cap">Cap-weighted</button>
+            <button type="button" data-scheme="equal" id="ib-pill-equal">Equal-weighted</button>
+            <button type="button" data-scheme="price" id="ib-pill-price">Price-weighted</button>
+        </div>
+    </div>
+    <div class="ib-grid">
+        <div id="ib-pie" class="ib-chart"></div>
+        <div id="ib-bar" class="ib-chart"></div>
+    </div>
+    <div class="ib-stats">
+        <div class="ib-stat ib-stat-mid">
+            <div class="ib-stat-name" id="ib-name-ret">Index 12-month return</div>
+            <div class="ib-stat-val" id="ib-val-ret">—</div>
+            <div class="ib-stat-detail" id="ib-det-ret">—</div>
+        </div>
+        <div class="ib-stat ib-stat-acc">
+            <div class="ib-stat-name" id="ib-name-top5">Top-5 concentration</div>
+            <div class="ib-stat-val" id="ib-val-top5">—</div>
+            <div class="ib-stat-detail" id="ib-det-top5">—</div>
+        </div>
+    </div>
+    <p class="ib-caption" id="ib-caption">
+        Same 30 stocks, three recipes. Watch the composition pie and the
+        12-month index return change as you toggle the scheme.
+    </p>
+</div>
+
+<script>
+(function () {
+    const I18N = {
+        en: {
+            scheme_label:   "Weighting scheme",
+            cap:            "Cap-weighted",
+            equal:          "Equal-weighted",
+            price:          "Price-weighted",
+            name_ret:       "Index 12-month return",
+            name_top5:      "Top-5 concentration",
+            pie_title:      "Index composition (% weight)",
+            bar_title:      "Stock contribution to 12-month index return",
+            ret_basis_cap:  "Sum of weight × 12M return, weights from float-cap",
+            ret_basis_eq:   "Sum of weight × 12M return, weights all 1/30",
+            ret_basis_pr:   "Sum of weight × 12M return, weights from share price",
+            top5_basis:     "Sum of the five largest weights",
+            other_label:    "Bottom 25 (combined)",
+            x_title:        "Contribution to index return (%)",
+            y_title:        "Weight (%)",
+            caption:        "Thirty representative S&P 500 components with realistic April 2026 prices, share counts, and trailing 12-month returns. Cap-weighted and equal-weighted use the float-adjusted cap and 1/30 respectively; price-weighted uses share price / sum-of-prices, the Dow recipe. Same 30 names, three different index returns. The pie shows where the weight sits; the bar chart shows which stocks actually drove the index return — note how price-weighting can let a high-priced stock dominate the index move regardless of company size.",
+        },
+        hk: {
+            scheme_label:   "加權方式",
+            cap:            "市值加權",
+            equal:          "等權重",
+            price:          "股價加權",
+            name_ret:       "指數 12 個月回報",
+            name_top5:      "前 5 大集中度",
+            pie_title:      "指數成分比重(%)",
+            bar_title:      "個股對 12 個月指數回報的貢獻",
+            ret_basis_cap:  "Σ(權重 × 12M 回報),權重 = 自由流通市值",
+            ret_basis_eq:   "Σ(權重 × 12M 回報),每隻 1/30",
+            ret_basis_pr:   "Σ(權重 × 12M 回報),權重 = 股價 / 總和",
+            top5_basis:     "前 5 大權重合計",
+            other_label:    "最小 25 隻合計",
+            x_title:        "對指數回報的貢獻(%)",
+            y_title:        "權重(%)",
+            caption:        "30 隻代表性標普 500 成分股,2026 年 4 月實際價格、股數與過去 12 個月回報。市值加權與等權重分別採自由流通市值與 1/30;股價加權即道指配方,以股價 / 股價總和。同樣 30 隻股票,三種不同的指數回報。圓餅圖顯示權重分佈;柱狀圖顯示哪些股票實際推動了指數——注意股價加權如何讓高股價股主導指數,無論公司規模大小。",
+        },
+        tw: {
+            scheme_label:   "加權方式",
+            cap:            "市值加權",
+            equal:          "等權重",
+            price:          "股價加權",
+            name_ret:       "指數 12 個月報酬",
+            name_top5:      "前 5 大集中度",
+            pie_title:      "指數成分比重(%)",
+            bar_title:      "個股對 12 個月指數報酬的貢獻",
+            ret_basis_cap:  "Σ(權重 × 12M 報酬),權重 = 自由流通市值",
+            ret_basis_eq:   "Σ(權重 × 12M 報酬),每檔 1/30",
+            ret_basis_pr:   "Σ(權重 × 12M 報酬),權重 = 股價 / 總和",
+            top5_basis:     "前 5 大權重合計",
+            other_label:    "最小 25 檔合計",
+            x_title:        "對指數報酬的貢獻(%)",
+            y_title:        "權重(%)",
+            caption:        "30 檔代表性標普 500 成分股,2026 年 4 月實際價格、股數與過去 12 個月報酬。市值加權與等權重分別採自由流通市值與 1/30;股價加權即道指配方,以股價 / 股價總和。同樣 30 檔股票,三種不同的指數報酬。圓餅圖顯示權重分佈;柱狀圖顯示哪些股票實際推動了指數——注意股價加權如何讓高股價股主導指數,無論公司規模大小。",
+        },
+        cn: {
+            scheme_label:   "加权方式",
+            cap:            "市值加权",
+            equal:          "等权重",
+            price:          "股价加权",
+            name_ret:       "指数 12 个月回报",
+            name_top5:      "前 5 大集中度",
+            pie_title:      "指数成份比重(%)",
+            bar_title:      "个股对 12 个月指数回报的贡献",
+            ret_basis_cap:  "Σ(权重 × 12M 回报),权重 = 自由流通市值",
+            ret_basis_eq:   "Σ(权重 × 12M 回报),每只 1/30",
+            ret_basis_pr:   "Σ(权重 × 12M 回报),权重 = 股价 / 总和",
+            top5_basis:     "前 5 大权重合计",
+            other_label:    "最小 25 只合计",
+            x_title:        "对指数回报的贡献(%)",
+            y_title:        "权重(%)",
+            caption:        "30 只代表性标普 500 成份股,2026 年 4 月真实价格、股数与过去 12 个月回报。市值加权与等权重分别采自由流通市值与 1/30;股价加权即道指配方,以股价 / 股价总和。同样 30 只股票,三种不同的指数回报。饼图显示权重分布;柱图显示哪些股票实际推动了指数——注意股价加权如何让高股价股主导指数,无论公司规模大小。",
+        },
+    };
+    function currentLang() {
+        const p = new URLSearchParams(window.location.search);
+        const l = (p.get("lang") || "en").toLowerCase();
+        return I18N.hasOwnProperty(l) ? l : "en";
+    }
+    const T = I18N[currentLang()];
+
+    // 30 representative S&P 500 components.
+    // price = nominal share price ($), float = float-adjusted shares (billions),
+    // r12 = trailing 12-month total return as decimal.  All values are
+    // realistic April 2026 estimates intended for pedagogy, not trading.
+    const STOCKS = [
+        { t: "AAPL",  price: 215, float: 14.95, r12:  0.18 },
+        { t: "MSFT",  price: 470, float:  7.43, r12:  0.21 },
+        { t: "NVDA",  price: 138, float: 24.20, r12:  0.42 },
+        { t: "AMZN",  price: 215, float:  9.75, r12:  0.15 },
+        { t: "META",  price: 580, float:  2.20, r12:  0.32 },
+        { t: "GOOGL", price: 175, float:  6.05, r12:  0.12 },
+        { t: "BRK.B", price: 470, float:  1.30, r12:  0.10 },
+        { t: "TSLA",  price: 245, float:  2.85, r12: -0.04 },
+        { t: "AVGO",  price: 220, float:  4.65, r12:  0.28 },
+        { t: "JPM",   price: 245, float:  2.84, r12:  0.18 },
+        { t: "V",     price: 290, float:  1.55, r12:  0.09 },
+        { t: "WMT",   price:  85, float:  5.40, r12:  0.20 },
+        { t: "LLY",   price: 765, float:  0.90, r12:  0.05 },
+        { t: "XOM",   price: 115, float:  4.40, r12: -0.02 },
+        { t: "MA",    price: 540, float:  0.92, r12:  0.11 },
+        { t: "UNH",   price: 480, float:  0.92, r12: -0.08 },
+        { t: "JNJ",   price: 162, float:  2.40, r12:  0.04 },
+        { t: "PG",    price: 165, float:  2.35, r12:  0.07 },
+        { t: "HD",    price: 360, float:  0.99, r12:  0.13 },
+        { t: "COST",  price: 920, float:  0.44, r12:  0.22 },
+        { t: "ORCL",  price: 165, float:  1.86, r12:  0.30 },
+        { t: "ABBV",  price: 195, float:  1.77, r12:  0.16 },
+        { t: "BAC",   price:  44, float:  7.78, r12:  0.14 },
+        { t: "KO",    price:  72, float:  4.32, r12:  0.06 },
+        { t: "MRK",   price:  95, float:  2.53, r12: -0.10 },
+        { t: "CVX",   price: 152, float:  1.74, r12:  0.03 },
+        { t: "PEP",   price: 158, float:  1.37, r12:  0.02 },
+        { t: "ADBE",  price: 405, float:  0.44, r12: -0.06 },
+        { t: "NFLX",  price: 990, float:  0.43, r12:  0.36 },
+        { t: "CRM",   price: 285, float:  0.96, r12:  0.19 },
+    ];
+    const N = STOCKS.length;
+
+    const ROOT = document.getElementById("ib-root");
+    const PIE = document.getElementById("ib-pie");
+    const BAR = document.getElementById("ib-bar");
+    const PILLS = document.getElementById("ib-pills");
+
+    let scheme = "cap";
+
+    function getCssVar(name) {
+        return getComputedStyle(ROOT).getPropertyValue(name).trim();
+    }
+    function darkMode() {
+        return document.documentElement.getAttribute("data-theme") === "dark";
+    }
+
+    function pct(v, digits) {
+        digits = digits == null ? 1 : digits;
+        if (!isFinite(v)) return "—";
+        const sign = v >= 0 ? "+" : "";
+        return sign + (v * 100).toFixed(digits) + "%";
+    }
+    function plain(v) {
+        if (!isFinite(v)) return "—";
+        return (v * 100).toFixed(1) + "%";
+    }
+
+    function computeWeights(scheme) {
+        if (scheme === "equal") {
+            return STOCKS.map(() => 1 / N);
+        }
+        let denom;
+        if (scheme === "cap") {
+            denom = STOCKS.reduce((a, s) => a + s.price * s.float, 0);
+            return STOCKS.map(s => (s.price * s.float) / denom);
+        }
+        // price-weighted
+        denom = STOCKS.reduce((a, s) => a + s.price, 0);
+        return STOCKS.map(s => s.price / denom);
+    }
+
+    function render() {
+        const w = computeWeights(scheme);
+        // Index return = sum(w_i * r_i)
+        const indexRet = w.reduce((a, wi, i) => a + wi * STOCKS[i].r12, 0);
+
+        // Sort by weight desc for both charts.
+        const idx = w.map((wi, i) => i).sort((a, b) => w[b] - w[a]);
+        const sortedTickers = idx.map(i => STOCKS[i].t);
+        const sortedW = idx.map(i => w[i]);
+        const sortedR = idx.map(i => STOCKS[i].r12);
+        const sortedContrib = idx.map(i => w[i] * STOCKS[i].r12);
+
+        const top5 = sortedW.slice(0, 5).reduce((a, b) => a + b, 0);
+
+        const colorPos = getCssVar("--ib-pos");
+        const colorNeg = getCssVar("--ib-neg");
+        const colorMid = getCssVar("--ib-mid");
+        const colorAcc = getCssVar("--ib-accent");
+        const colorText = getCssVar("--ib-text");
+        const colorMuted = getCssVar("--ib-muted");
+        const colorGrid = darkMode() ? "rgba(255,255,255,0.08)" : "rgba(0,0,0,0.07)";
+        const colorBg = getCssVar("--ib-card");
+
+        // Pie: top 15 by weight + "other"
+        const TOP_N_PIE = 15;
+        const pieLabels = sortedTickers.slice(0, TOP_N_PIE).concat([T.other_label]);
+        const pieValues = sortedW.slice(0, TOP_N_PIE).map(v => v * 100);
+        const otherSum = sortedW.slice(TOP_N_PIE).reduce((a, b) => a + b, 0) * 100;
+        pieValues.push(otherSum);
+
+        // Discrete palette derived from accent + mid + pos + neg.
+        const palette = [
+            "#0d47a1","#b8860b","#2e7d32","#b71c1c","#6a1b9a",
+            "#00695c","#e65100","#5a8dee","#9c27b0","#1565c0",
+            "#ad8b1f","#43a047","#c62828","#7b1fa2","#00838f",
+            "#888888"
+        ];
+
+        const pieTraces = [{
+            type: "pie",
+            labels: pieLabels,
+            values: pieValues,
+            hole: 0.35,
+            sort: false,
+            direction: "clockwise",
+            textinfo: "label+percent",
+            textposition: "auto",
+            insidetextfont: { color: "#fff", size: 11 },
+            outsidetextfont: { color: colorText, size: 11 },
+            marker: { colors: palette, line: { color: colorBg, width: 1 } },
+            hovertemplate: "%{label}<br>" + T.y_title + ": %{value:.2f}%<extra></extra>",
+        }];
+        const pieLayout = {
+            margin: { l: 16, r: 16, t: 36, b: 16 },
+            paper_bgcolor: colorBg,
+            plot_bgcolor: colorBg,
+            font: { family: "Segoe UI, Helvetica, Arial, sans-serif", color: colorText, size: 12 },
+            title: { text: T.pie_title, font: { color: colorText, size: 12 }, x: 0.02, xanchor: "left" },
+            showlegend: false,
+        };
+        Plotly.react(PIE, pieTraces, pieLayout, { displayModeBar: false, responsive: true });
+
+        // Bar: contribution = w_i * r12_i, sorted by weight desc, top 20 + other
+        const TOP_N_BAR = 20;
+        const barTickers = sortedTickers.slice(0, TOP_N_BAR).concat([T.other_label]);
+        const barContrib = sortedContrib.slice(0, TOP_N_BAR).map(v => v * 100);
+        const otherContrib = sortedContrib.slice(TOP_N_BAR).reduce((a, b) => a + b, 0) * 100;
+        barContrib.push(otherContrib);
+        const barColors = barContrib.map(v => v >= 0 ? colorPos : colorNeg);
+
+        const barTraces = [{
+            type: "bar",
+            orientation: "h",
+            x: barContrib.slice().reverse(),
+            y: barTickers.slice().reverse(),
+            marker: { color: barColors.slice().reverse(), line: { width: 0 } },
+            hovertemplate: "%{y}<br>" + T.x_title + ": %{x:+.2f}%<extra></extra>",
+        }];
+        const barLayout = {
+            margin: { l: 70, r: 24, t: 36, b: 44 },
+            paper_bgcolor: colorBg,
+            plot_bgcolor: colorBg,
+            font: { family: "Segoe UI, Helvetica, Arial, sans-serif", color: colorText, size: 11 },
+            title: { text: T.bar_title, font: { color: colorText, size: 12 }, x: 0.02, xanchor: "left" },
+            xaxis: {
+                title: { text: T.x_title, font: { color: colorMuted, size: 11 } },
+                gridcolor: colorGrid,
+                zerolinecolor: colorMuted,
+                color: colorText,
+                ticksuffix: "%",
+            },
+            yaxis: {
+                gridcolor: colorGrid,
+                zerolinecolor: colorGrid,
+                color: colorText,
+                automargin: true,
+            },
+            showlegend: false,
+            hovermode: "y unified",
+        };
+        Plotly.react(BAR, barTraces, barLayout, { displayModeBar: false, responsive: true });
+
+        // Stats
+        document.getElementById("ib-val-ret").textContent = pct(indexRet, 2);
+        let basis;
+        if (scheme === "cap") basis = T.ret_basis_cap;
+        else if (scheme === "equal") basis = T.ret_basis_eq;
+        else basis = T.ret_basis_pr;
+        document.getElementById("ib-det-ret").textContent = basis;
+        document.getElementById("ib-val-top5").textContent = plain(top5);
+        document.getElementById("ib-det-top5").textContent =
+            T.top5_basis + " — " + sortedTickers.slice(0, 5).join(", ");
+    }
+
+    PILLS.querySelectorAll("button").forEach(btn => {
+        btn.addEventListener("click", () => {
+            PILLS.querySelectorAll("button").forEach(b => b.classList.remove("active"));
+            btn.classList.add("active");
+            scheme = btn.dataset.scheme;
+            render();
+        });
+    });
+
+    function applyI18n() {
+        document.getElementById("ib-scheme-label").textContent = T.scheme_label;
+        document.getElementById("ib-pill-cap").textContent = T.cap;
+        document.getElementById("ib-pill-equal").textContent = T.equal;
+        document.getElementById("ib-pill-price").textContent = T.price;
+        document.getElementById("ib-name-ret").textContent = T.name_ret;
+        document.getElementById("ib-name-top5").textContent = T.name_top5;
+        document.getElementById("ib-caption").textContent = T.caption;
+    }
+    applyI18n();
+
+    function reportHeight() {
+        try {
+            var h = Math.ceil(document.documentElement.scrollHeight);
+            parent.postMessage({ type: 'lesson-interactive-resize', height: h }, '*');
+        } catch (e) { /* ignore */ }
+    }
+    if (typeof ResizeObserver !== 'undefined') {
+        new ResizeObserver(reportHeight).observe(document.body);
+    }
+    window.addEventListener('resize', reportHeight);
+    setTimeout(reportHeight, 50);
+    setTimeout(reportHeight, 500);
+
+    const themeObserver = new MutationObserver(render);
+    themeObserver.observe(document.documentElement, {
+        attributes: true,
+        attributeFilter: ["data-theme"],
+    });
+
+    render();
+})();
+</script>
+
+</body>
+</html>

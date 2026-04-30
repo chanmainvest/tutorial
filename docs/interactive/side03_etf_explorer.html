@@ -1,0 +1,472 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ETF Explorer -- Interactive (Side 03)</title>
+<script src="https://cdn.plot.ly/plotly-2.35.2.min.js" charset="utf-8"></script>
+<style>
+html, body { margin: 0; padding: 0; background: var(--ee-bg); }
+:root {
+    --ee-bg: #fdfbf5;
+    --ee-text: #1a2332;
+    --ee-muted: #6b7280;
+    --ee-border: #d6d3c4;
+    --ee-card: #fdfbf5;
+    --ee-pos: #2e7d32;
+    --ee-neg: #b71c1c;
+    --ee-mid: #0d47a1;
+    --ee-accent: #b8860b;
+    --ee-grey: #5a5a5a;
+}
+html[data-theme="dark"] .ee-root,
+.ee-root[data-theme="dark"] {
+    --ee-bg: #0f1724;
+    --ee-text: #e6e6e6;
+    --ee-muted: #9aa3b2;
+    --ee-border: #2a3441;
+    --ee-card: #0f1724;
+    --ee-pos: #66bb6a;
+    --ee-neg: #ef5350;
+    --ee-mid: #5a8dee;
+    --ee-grey: #a0a0a0;
+}
+.ee-root {
+    font-family: 'Segoe UI', Helvetica, Arial, sans-serif;
+    background: var(--ee-bg);
+    color: var(--ee-text);
+    padding: 12px;
+    margin: 0;
+}
+.ee-pillrow {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 12px;
+    padding: 10px 12px;
+    background: var(--ee-card);
+    border: 1px solid var(--ee-border);
+    border-radius: 8px;
+    align-items: center;
+}
+.ee-pillrow-label {
+    font-size: 0.78rem;
+    color: var(--ee-muted);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-right: 4px;
+}
+.ee-pill {
+    border: 1px solid var(--ee-border);
+    background: var(--ee-card);
+    color: var(--ee-text);
+    padding: 6px 12px;
+    font-family: inherit;
+    font-size: 0.85rem;
+    font-weight: 700;
+    border-radius: 999px;
+    cursor: pointer;
+    transition: background 0.15s, color 0.15s, border-color 0.15s;
+}
+.ee-pill:hover { border-color: var(--ee-accent); }
+.ee-pill.active {
+    background: var(--ee-accent);
+    color: #fff;
+    border-color: var(--ee-accent);
+}
+.ee-kpis {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 10px;
+    margin-bottom: 12px;
+}
+.ee-kpi {
+    background: var(--ee-card);
+    border: 1px solid var(--ee-border);
+    border-left: 4px solid var(--ee-mid);
+    border-radius: 8px;
+    padding: 10px 12px;
+}
+.ee-kpi.k-aum  { border-left-color: var(--ee-mid); }
+.ee-kpi.k-er   { border-left-color: var(--ee-accent); }
+.ee-kpi.k-yld  { border-left-color: var(--ee-pos); }
+.ee-kpi.k-tax  { border-left-color: var(--ee-neg); }
+.ee-kpi-name {
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--ee-muted);
+}
+.ee-kpi-val {
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin-top: 4px;
+    font-variant-numeric: tabular-nums;
+}
+.ee-kpi-sub {
+    font-size: 0.74rem;
+    color: var(--ee-muted);
+    margin-top: 2px;
+}
+.ee-charts {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+}
+.ee-chart {
+    background: var(--ee-card);
+    border: 1px solid var(--ee-border);
+    border-radius: 8px;
+    height: 360px;
+}
+.ee-caption {
+    margin-top: 10px;
+    font-size: 0.78rem;
+    color: var(--ee-muted);
+    line-height: 1.5;
+}
+@media (max-width: 760px) {
+    .ee-kpis { grid-template-columns: repeat(2, 1fr); }
+    .ee-charts { grid-template-columns: 1fr; }
+    .ee-chart { height: 320px; }
+}
+</style>
+</head>
+<body>
+
+<div class="ee-root" id="ee-root">
+    <div class="ee-pillrow" id="ee-pillrow">
+        <span class="ee-pillrow-label" id="ee-pillrow-label">ETF</span>
+    </div>
+
+    <div class="ee-kpis">
+        <div class="ee-kpi k-aum">
+            <div class="ee-kpi-name" id="ee-name-aum">AUM</div>
+            <div class="ee-kpi-val"  id="ee-val-aum">--</div>
+            <div class="ee-kpi-sub"  id="ee-sub-aum">--</div>
+        </div>
+        <div class="ee-kpi k-er">
+            <div class="ee-kpi-name" id="ee-name-er">Expense ratio</div>
+            <div class="ee-kpi-val"  id="ee-val-er">--</div>
+            <div class="ee-kpi-sub"  id="ee-sub-er">--</div>
+        </div>
+        <div class="ee-kpi k-yld">
+            <div class="ee-kpi-name" id="ee-name-yld">12-mo yield</div>
+            <div class="ee-kpi-val"  id="ee-val-yld">--</div>
+            <div class="ee-kpi-sub"  id="ee-sub-yld">--</div>
+        </div>
+        <div class="ee-kpi k-tax">
+            <div class="ee-kpi-name" id="ee-name-tax">Tax-cost ratio (5y)</div>
+            <div class="ee-kpi-val"  id="ee-val-tax">--</div>
+            <div class="ee-kpi-sub"  id="ee-sub-tax">--</div>
+        </div>
+    </div>
+
+    <div class="ee-charts">
+        <div id="ee-chart-pd"  class="ee-chart"></div>
+        <div id="ee-chart-tax" class="ee-chart"></div>
+    </div>
+
+    <p class="ee-caption" id="ee-caption">
+        Pick an ETF. AUM, expense, and yield are reported as of April 2026 (issuer fund pages, approximate). The premium/discount panel is a synthetic 24-month history calibrated to each fund's underlying liquidity (US-equity ETFs hug NAV; bond and income ETFs run wider). The tax-cost panel compares 5-year tax drag of the ETF versus a comparable mutual fund holding the same exposure -- the gap is the structural in-kind redemption advantage.
+    </p>
+</div>
+
+<script>
+(function () {
+    const I18N = {
+        en: {
+            row_label: "ETF",
+            kpi_aum:  "AUM",
+            kpi_er:   "Expense ratio",
+            kpi_yld:  "12-mo yield",
+            kpi_tax:  "Tax-cost ratio (5y)",
+            sub_aum:  "Apr 2026 (USD)",
+            sub_er:   "Annual fee",
+            sub_yld:  "Trailing distributions",
+            sub_tax:  "Lower = more efficient",
+            pd_title: "{tk} -- premium / discount to NAV (24 mo, bp)",
+            pd_x:     "Months ago",
+            pd_y:     "Premium/discount (bp)",
+            tax_title:"5-year cumulative tax drag on $10,000",
+            tax_x:    "Wrapper",
+            tax_y:    "Tax drag (USD, less is better)",
+            tax_etf:  "{tk} (ETF)",
+            tax_mf:   "Comparable mutual fund",
+            cap:      "Pick an ETF. AUM, expense, and yield are reported as of April 2026 (issuer fund pages, approximate). The premium/discount panel is a synthetic 24-month history calibrated to each fund's underlying liquidity (US-equity ETFs hug NAV; bond and income ETFs run wider). The tax-cost panel compares 5-year tax drag of the ETF versus a comparable mutual fund holding the same exposure.",
+        },
+        hk: {
+            row_label: "ETF",
+            kpi_aum:  "資產規模",
+            kpi_er:   "管理費",
+            kpi_yld:  "12 個月分派率",
+            kpi_tax:  "稅務成本(5 年)",
+            sub_aum:  "2026 年 4 月(美元)",
+            sub_er:   "年費",
+            sub_yld:  "追蹤分派",
+            sub_tax:  "越低越有效率",
+            pd_title: "{tk} -- 對 NAV 的溢價/折讓(24 個月,基點)",
+            pd_x:     "幾個月前",
+            pd_y:     "溢價/折讓(基點)",
+            tax_title:"5 年累計稅務拖累(US$10,000)",
+            tax_x:    "包裝結構",
+            tax_y:    "稅務拖累(美元,越少越好)",
+            tax_etf:  "{tk}(ETF)",
+            tax_mf:   "同類共同基金",
+            cap:      "選擇一隻 ETF。資產規模、管理費及分派率截至 2026 年 4 月(發行商頁面,近似值)。溢價/折讓面板為按各基金底層流動性校準的合成 24 個月序列(美股 ETF 緊貼 NAV;債券及收益 ETF 偏差較大)。稅務面板比較同一持倉於 ETF 與共同基金結構下的 5 年稅務拖累 -- 差距即實物贖回的結構性優勢。",
+        },
+        tw: {
+            row_label: "ETF",
+            kpi_aum:  "資產規模",
+            kpi_er:   "管理費",
+            kpi_yld:  "12 個月配息率",
+            kpi_tax:  "稅務成本(5 年)",
+            sub_aum:  "2026 年 4 月(美元)",
+            sub_er:   "年費",
+            sub_yld:  "追蹤配息",
+            sub_tax:  "越低越有效率",
+            pd_title: "{tk} -- 對 NAV 的溢價/折價(24 個月,基點)",
+            pd_x:     "幾個月前",
+            pd_y:     "溢價/折價(基點)",
+            tax_title:"5 年累計稅務拖累(US$10,000)",
+            tax_x:    "包裝結構",
+            tax_y:    "稅務拖累(美元,越少越好)",
+            tax_etf:  "{tk}(ETF)",
+            tax_mf:   "同類共同基金",
+            cap:      "選擇一檔 ETF。資產規模、管理費及配息率截至 2026 年 4 月(發行商頁面,近似值)。溢價/折價面板為按各基金底層流動性校準的合成 24 個月序列(美股 ETF 緊貼 NAV;債券及收益 ETF 偏差較大)。稅務面板比較同一持倉於 ETF 與共同基金結構下的 5 年稅務拖累 -- 差距即實物贖回的結構性優勢。",
+        },
+        cn: {
+            row_label: "ETF",
+            kpi_aum:  "资产规模",
+            kpi_er:   "管理费",
+            kpi_yld:  "12 个月分配率",
+            kpi_tax:  "税务成本(5 年)",
+            sub_aum:  "2026 年 4 月(美元)",
+            sub_er:   "年费",
+            sub_yld:  "追踪分配",
+            sub_tax:  "越低越有效率",
+            pd_title: "{tk} -- 对 NAV 的溢价/折价(24 个月,基点)",
+            pd_x:     "几个月前",
+            pd_y:     "溢价/折价(基点)",
+            tax_title:"5 年累计税务拖累(US$10,000)",
+            tax_x:    "包装结构",
+            tax_y:    "税务拖累(美元,越少越好)",
+            tax_etf:  "{tk}(ETF)",
+            tax_mf:   "同类共同基金",
+            cap:      "选择一只 ETF。资产规模、管理费及分配率截至 2026 年 4 月(发行商页面,近似值)。溢价/折价面板为按各基金底层流动性校准的合成 24 个月序列(美股 ETF 紧贴 NAV;债券及收益 ETF 偏差较大)。税务面板比较同一持仓于 ETF 与共同基金结构下的 5 年税务拖累 -- 差距即实物赎回的结构性优势。",
+        },
+    };
+
+    function currentLang() {
+        const p = new URLSearchParams(window.location.search);
+        const l = (p.get("lang") || "en").toLowerCase();
+        return I18N.hasOwnProperty(l) ? l : "en";
+    }
+    const T = I18N[currentLang()];
+
+    // ETF reference data (April 2026, approximate, USD).
+    // pd_sigma_bp: typical absolute premium/discount (bps) -- US equity ~2-3,
+    //   income/REIT ~5-10, JEPI active ~8-12.
+    // tax_etf_bp / tax_mf_bp: 5-year *annualised* tax-cost ratio in bps for
+    //   the ETF vs a comparable index/active mutual fund.
+    const ETFS = {
+        VTI:  { name: "Vanguard Total Stock Market", aum: 1850, er: 0.03, yld: 1.45,
+                pd_sigma_bp: 2.5,  tax_etf_bp:  35, tax_mf_bp:  55, mf: "VTSAX" },
+        SPY:  { name: "SPDR S&P 500",                aum: 575,  er: 0.0945, yld: 1.30,
+                pd_sigma_bp: 2.0,  tax_etf_bp:  32, tax_mf_bp:  60, mf: "VFIAX" },
+        QQQ:  { name: "Invesco Nasdaq-100",          aum: 320,  er: 0.20, yld: 0.55,
+                pd_sigma_bp: 3.0,  tax_etf_bp:  18, tax_mf_bp:  90, mf: "FNCMX" },
+        JEPI: { name: "JPMorgan Equity Premium Income", aum: 38, er: 0.35, yld: 7.40,
+                pd_sigma_bp: 8.0,  tax_etf_bp: 180, tax_mf_bp: 240, mf: "active income MF" },
+        SCHD: { name: "Schwab US Dividend Equity",   aum: 65,   er: 0.06, yld: 3.55,
+                pd_sigma_bp: 4.5,  tax_etf_bp:  85, tax_mf_bp: 130, mf: "active div MF" },
+        VNQ:  { name: "Vanguard Real Estate",        aum: 35,   er: 0.13, yld: 3.85,
+                pd_sigma_bp: 6.0,  tax_etf_bp: 110, tax_mf_bp: 160, mf: "VGSLX" },
+    };
+    const TICKS = ["VTI", "SPY", "QQQ", "JEPI", "SCHD", "VNQ"];
+    let active = "VTI";
+
+    const ROOT = document.getElementById("ee-root");
+    const PILLROW = document.getElementById("ee-pillrow");
+    document.getElementById("ee-pillrow-label").textContent = T.row_label;
+
+    function buildPills() {
+        TICKS.forEach(tk => {
+            const b = document.createElement("button");
+            b.className = "ee-pill";
+            b.type = "button";
+            b.textContent = tk;
+            b.dataset.ticker = tk;
+            if (tk === active) b.classList.add("active");
+            b.addEventListener("click", () => {
+                active = tk;
+                document.querySelectorAll(".ee-pill").forEach(p => p.classList.remove("active"));
+                b.classList.add("active");
+                render();
+            });
+            PILLROW.appendChild(b);
+        });
+    }
+    buildPills();
+
+    // Deterministic LCG -> synthetic premium/discount path.
+    function lcg(seed) {
+        let s = seed | 0;
+        return function() {
+            s = (s * 1103515245 + 12345) & 0x7fffffff;
+            return s / 0x7fffffff;
+        };
+    }
+    function gauss(rnd) {
+        // Box-Muller
+        let u = 0, v = 0;
+        while (u === 0) u = rnd();
+        while (v === 0) v = rnd();
+        return Math.sqrt(-2 * Math.log(u)) * Math.cos(2 * Math.PI * v);
+    }
+    function syntheticPD(tk) {
+        const e = ETFS[tk];
+        // 24 monthly observations
+        const seed = tk.split("").reduce((a, c) => a + c.charCodeAt(0), 0) * 31 + 7;
+        const rnd = lcg(seed);
+        const out = [];
+        let drift = 0;
+        for (let i = 0; i < 24; i++) {
+            // mild AR(1) around 0, scaled by sigma
+            drift = 0.3 * drift + gauss(rnd) * e.pd_sigma_bp;
+            // March 2020-style stress hit at month 18 for bond/income wrappers
+            if (i === 18 && (tk === "JEPI" || tk === "VNQ" || tk === "SCHD")) {
+                drift -= e.pd_sigma_bp * 4;
+            }
+            out.push(drift);
+        }
+        return out;
+    }
+
+    const CHART_PD  = document.getElementById("ee-chart-pd");
+    const CHART_TAX = document.getElementById("ee-chart-tax");
+
+    function getCssVar(name) {
+        return getComputedStyle(ROOT).getPropertyValue(name).trim();
+    }
+    function darkMode() {
+        return document.documentElement.getAttribute("data-theme") === "dark";
+    }
+    function fmtAUM(b) {
+        if (b >= 1000) return "$" + (b / 1000).toFixed(2) + "T";
+        return "$" + b.toFixed(0) + "B";
+    }
+    function fmtPct(p, d) {
+        return p.toFixed(d == null ? 2 : d) + "%";
+    }
+
+    function render() {
+        const e = ETFS[active];
+        // --- KPIs ---
+        document.getElementById("ee-name-aum").textContent = T.kpi_aum;
+        document.getElementById("ee-name-er").textContent  = T.kpi_er;
+        document.getElementById("ee-name-yld").textContent = T.kpi_yld;
+        document.getElementById("ee-name-tax").textContent = T.kpi_tax;
+        document.getElementById("ee-val-aum").textContent  = fmtAUM(e.aum);
+        document.getElementById("ee-val-er").textContent   = fmtPct(e.er, 2);
+        document.getElementById("ee-val-yld").textContent  = fmtPct(e.yld, 2);
+        document.getElementById("ee-val-tax").textContent  = (e.tax_etf_bp / 100).toFixed(2) + "%";
+        document.getElementById("ee-sub-aum").textContent  = T.sub_aum + " -- " + e.name;
+        document.getElementById("ee-sub-er").textContent   = T.sub_er;
+        document.getElementById("ee-sub-yld").textContent  = T.sub_yld;
+        document.getElementById("ee-sub-tax").textContent  = T.sub_tax;
+
+        const colorMid   = getCssVar("--ee-mid");
+        const colorPos   = getCssVar("--ee-pos");
+        const colorNeg   = getCssVar("--ee-neg");
+        const colorAcc   = getCssVar("--ee-accent");
+        const colorText  = getCssVar("--ee-text");
+        const colorMuted = getCssVar("--ee-muted");
+        const colorBg    = getCssVar("--ee-card");
+        const colorGrid  = darkMode() ? "rgba(255,255,255,0.08)" : "rgba(0,0,0,0.07)";
+
+        // --- Premium/discount chart ---
+        const pd = syntheticPD(active);
+        const x = [];
+        for (let i = 0; i < pd.length; i++) x.push(-(pd.length - 1 - i));
+        const colors = pd.map(v => v >= 0 ? colorPos : colorNeg);
+        const tracesPD = [{
+            x: x, y: pd, type: "bar",
+            marker: { color: colors, line: { width: 0 } },
+            hovertemplate: "%{x} mo: %{y:+.1f} bp<extra></extra>",
+        }];
+        const layoutPD = {
+            margin: { l: 56, r: 18, t: 38, b: 44 },
+            paper_bgcolor: colorBg, plot_bgcolor: colorBg,
+            font: { family: "Segoe UI, Helvetica, Arial, sans-serif", color: colorText, size: 12 },
+            title: { text: T.pd_title.replace("{tk}", active),
+                     font: { color: colorText, size: 13 }, x: 0, xanchor: "left" },
+            xaxis: {
+                title: { text: T.pd_x, font: { color: colorMuted, size: 11 } },
+                gridcolor: colorGrid, zeroline: true, zerolinecolor: colorMuted, color: colorText,
+            },
+            yaxis: {
+                title: { text: T.pd_y, font: { color: colorMuted, size: 11 } },
+                gridcolor: colorGrid, zeroline: true, zerolinecolor: colorMuted, color: colorText,
+            },
+            showlegend: false,
+        };
+        Plotly.react(CHART_PD, tracesPD, layoutPD, { displayModeBar: false, responsive: true });
+
+        // --- Tax-cost compare chart ---
+        // 5-year cumulative drag on $10,000 = 10000 * (1 - (1 - bp/10000)^5)
+        const cum = bp => 10000 * (1 - Math.pow(1 - bp / 10000, 5));
+        const etfDrag = cum(e.tax_etf_bp);
+        const mfDrag  = cum(e.tax_mf_bp);
+        const tracesTax = [{
+            type: "bar",
+            x: [T.tax_etf.replace("{tk}", active), T.tax_mf],
+            y: [etfDrag, mfDrag],
+            marker: { color: [colorMid, colorNeg] },
+            text: ["$" + etfDrag.toFixed(0), "$" + mfDrag.toFixed(0)],
+            textposition: "outside",
+            textfont: { color: colorText, size: 13, family: "Segoe UI" },
+            hovertemplate: "%{x}: $%{y:.0f}<extra></extra>",
+        }];
+        const layoutTax = {
+            margin: { l: 64, r: 18, t: 38, b: 60 },
+            paper_bgcolor: colorBg, plot_bgcolor: colorBg,
+            font: { family: "Segoe UI, Helvetica, Arial, sans-serif", color: colorText, size: 12 },
+            title: { text: T.tax_title, font: { color: colorText, size: 13 }, x: 0, xanchor: "left" },
+            xaxis: { color: colorText, gridcolor: colorGrid },
+            yaxis: {
+                title: { text: T.tax_y, font: { color: colorMuted, size: 11 } },
+                gridcolor: colorGrid, color: colorText,
+                rangemode: "tozero",
+            },
+            showlegend: false,
+        };
+        Plotly.react(CHART_TAX, tracesTax, layoutTax, { displayModeBar: false, responsive: true });
+    }
+
+    document.getElementById("ee-caption").textContent = T.cap;
+
+    function reportHeight() {
+        try {
+            const h = Math.ceil(document.documentElement.scrollHeight);
+            parent.postMessage({ type: 'lesson-interactive-resize', height: h }, '*');
+        } catch (e) { /* ignore */ }
+    }
+    if (typeof ResizeObserver !== 'undefined') {
+        new ResizeObserver(reportHeight).observe(document.body);
+    }
+    window.addEventListener('resize', reportHeight);
+    setTimeout(reportHeight, 50);
+    setTimeout(reportHeight, 500);
+
+    const themeObserver = new MutationObserver(render);
+    themeObserver.observe(document.documentElement, { attributes: true, attributeFilter: ["data-theme"] });
+
+    render();
+})();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,505 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Gold and inflation regimes — Interactive (Week 6)</title>
+<script src="https://cdn.plot.ly/plotly-2.35.2.min.js" charset="utf-8"></script>
+<style>
+html, body { margin: 0; padding: 0; background: var(--gi-bg); }
+:root {
+    --gi-bg: #fdfbf5;
+    --gi-text: #1a2332;
+    --gi-muted: #6b7280;
+    --gi-border: #d6d3c4;
+    --gi-card: #fdfbf5;
+    --gi-pos: #2e7d32;
+    --gi-neg: #b71c1c;
+    --gi-mid: #0d47a1;
+    --gi-accent: #b8860b;
+    --gi-band: rgba(184, 134, 11, 0.18);
+}
+html[data-theme="dark"] .gi-root,
+.gi-root[data-theme="dark"] {
+    --gi-bg: #0f1724;
+    --gi-text: #e6e6e6;
+    --gi-muted: #9aa3b2;
+    --gi-border: #2a3441;
+    --gi-card: #0f1724;
+    --gi-pos: #66bb6a;
+    --gi-neg: #ef5350;
+    --gi-mid: #5a8dee;
+    --gi-band: rgba(184, 134, 11, 0.30);
+}
+.gi-root {
+    font-family: 'Segoe UI', Helvetica, Arial, sans-serif;
+    background: var(--gi-bg);
+    color: var(--gi-text);
+    padding: 12px;
+    margin: 0;
+}
+.gi-controls {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 14px;
+    padding: 10px 12px;
+    background: var(--gi-card);
+    border: 1px solid var(--gi-border);
+    border-radius: 8px;
+}
+.gi-toggle {
+    display: inline-flex;
+    border: 1px solid var(--gi-border);
+    border-radius: 999px;
+    overflow: hidden;
+    background: var(--gi-card);
+}
+.gi-toggle button {
+    border: none;
+    background: transparent;
+    color: var(--gi-muted);
+    padding: 6px 14px;
+    font: inherit;
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.15s, color 0.15s;
+}
+.gi-toggle button:hover { color: var(--gi-text); }
+.gi-toggle button.active {
+    background: var(--gi-accent);
+    color: #fff;
+}
+.gi-slider-wrap {
+    flex: 1;
+    min-width: 240px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.85rem;
+    color: var(--gi-muted);
+}
+.gi-slider-wrap input[type="range"] {
+    flex: 1;
+    accent-color: var(--gi-accent);
+}
+.gi-slider-wrap .gi-thresh-label {
+    white-space: nowrap;
+    color: var(--gi-text);
+    font-weight: 600;
+    font-variant-numeric: tabular-nums;
+    min-width: 100px;
+    text-align: right;
+}
+.gi-chart {
+    width: 100%;
+    height: 420px;
+    background: var(--gi-card);
+    border-radius: 8px;
+    border: 1px solid var(--gi-border);
+}
+.gi-stats {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 10px;
+    margin-top: 14px;
+}
+.gi-stat {
+    background: var(--gi-card);
+    border: 1px solid var(--gi-border);
+    border-left: 4px solid var(--gi-muted);
+    border-radius: 8px;
+    padding: 10px 12px;
+}
+.gi-stat.gi-stat-pos { border-left-color: var(--gi-pos); }
+.gi-stat.gi-stat-neg { border-left-color: var(--gi-neg); }
+.gi-stat.gi-stat-mid { border-left-color: var(--gi-mid); }
+.gi-stat.gi-stat-acc { border-left-color: var(--gi-accent); }
+.gi-stat .gi-stat-name {
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--gi-muted);
+}
+.gi-stat .gi-stat-val {
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin-top: 4px;
+    font-variant-numeric: tabular-nums;
+}
+.gi-stat .gi-stat-detail {
+    font-size: 0.78rem;
+    color: var(--gi-muted);
+    margin-top: 2px;
+    font-variant-numeric: tabular-nums;
+}
+.gi-caption {
+    margin-top: 10px;
+    font-size: 0.78rem;
+    color: var(--gi-muted);
+    line-height: 1.45;
+}
+@media (max-width: 640px) {
+    .gi-stats { grid-template-columns: repeat(2, 1fr); }
+    .gi-chart { height: 360px; }
+    .gi-toggle button { padding: 5px 10px; font-size: 0.8rem; }
+}
+</style>
+</head>
+<body>
+
+<div class="gi-root" id="gi-root">
+    <div class="gi-controls">
+        <div class="gi-toggle" id="gi-toggle" role="tablist" aria-label="Price basis">
+            <button type="button" data-real="true" class="active" id="gi-toggle-real">Real</button>
+            <button type="button" data-real="false" id="gi-toggle-nominal">Nominal</button>
+        </div>
+        <div class="gi-slider-wrap">
+            <span id="gi-slider-label">Inflation threshold</span>
+            <input type="range" id="gi-slider" min="0" max="15" step="0.5" value="4">
+            <span class="gi-thresh-label" id="gi-thresh-value">CPI ≥ 4.0%</span>
+        </div>
+    </div>
+    <div id="gi-chart" class="gi-chart"></div>
+    <div class="gi-stats">
+        <div class="gi-stat gi-stat-acc">
+            <div class="gi-stat-name" id="gi-name-hi">Gold in high-inflation years</div>
+            <div class="gi-stat-val" id="gi-val-hi">—</div>
+            <div class="gi-stat-detail" id="gi-det-hi">—</div>
+        </div>
+        <div class="gi-stat gi-stat-mid">
+            <div class="gi-stat-name" id="gi-name-lo">Gold in low-inflation years</div>
+            <div class="gi-stat-val" id="gi-val-lo">—</div>
+            <div class="gi-stat-detail" id="gi-det-lo">—</div>
+        </div>
+        <div class="gi-stat gi-stat-pos">
+            <div class="gi-stat-name" id="gi-name-spread">Hi minus lo spread</div>
+            <div class="gi-stat-val" id="gi-val-spread">—</div>
+            <div class="gi-stat-detail" id="gi-det-spread">—</div>
+        </div>
+        <div class="gi-stat gi-stat-neg">
+            <div class="gi-stat-name" id="gi-name-uncon">Unconditional avg</div>
+            <div class="gi-stat-val" id="gi-val-uncon">—</div>
+            <div class="gi-stat-detail" id="gi-det-uncon">—</div>
+        </div>
+    </div>
+    <p class="gi-caption" id="gi-caption">
+        Annual gold returns vs CPI 1971-2024.
+    </p>
+</div>
+
+<script>
+(function () {
+    const I18N = {
+        en: {
+            real:           "Real",
+            nominal:        "Nominal",
+            slider_label:   "Inflation threshold",
+            thresh_fmt:     "CPI ≥ {v}%",
+            name_hi:        "Gold in high-inflation years",
+            name_lo:        "Gold in low-inflation years",
+            name_spread:    "Hi minus lo spread",
+            name_uncon:     "Unconditional avg",
+            x_title:        "Year",
+            y_title_real:   "Real gold return (%)",
+            y_title_nom:    "Nominal gold return (%)",
+            y2_title:       "CPI inflation (%)",
+            n_years:        "{n} years",
+            avg_per_yr:     "avg per yr",
+            tag_hi:         "above threshold",
+            tag_lo:         "below threshold",
+            caption:        "Annual gold returns (LBMA London PM fix avg) vs annual US CPI, 1971 to 2024. The shaded bars are years where CPI is at or above your threshold. Move the slider to see how much of gold's long-run return concentrates in inflationary years. The hedge is real, but it pays mostly in a small minority of years.",
+        },
+        hk: {
+            real:           "實質",
+            nominal:        "名義",
+            slider_label:   "通脹閾值",
+            thresh_fmt:     "CPI ≥ {v}%",
+            name_hi:        "高通脹年的黃金",
+            name_lo:        "低通脹年的黃金",
+            name_spread:    "高減低差距",
+            name_uncon:     "無條件平均",
+            x_title:        "年份",
+            y_title_real:   "黃金實質回報(%)",
+            y_title_nom:    "黃金名義回報(%)",
+            y2_title:       "CPI 通脹(%)",
+            n_years:        "{n} 年",
+            avg_per_yr:     "年均",
+            tag_hi:         "達閾值",
+            tag_lo:         "低於閾值",
+            caption:        "1971 至 2024 年:每年黃金回報(LBMA 倫敦下午定盤年均)與美國 CPI。陰影柱代表 CPI 達到或超過你設定閾值的年份。拖動滑桿,看看黃金長期回報集中在多少高通脹年內。對沖是真實的,但回報主要集中在少數年份。",
+        },
+        tw: {
+            real:           "實質",
+            nominal:        "名義",
+            slider_label:   "通膨閾值",
+            thresh_fmt:     "CPI ≥ {v}%",
+            name_hi:        "高通膨年的黃金",
+            name_lo:        "低通膨年的黃金",
+            name_spread:    "高減低差距",
+            name_uncon:     "無條件平均",
+            x_title:        "年份",
+            y_title_real:   "黃金實質報酬(%)",
+            y_title_nom:    "黃金名義報酬(%)",
+            y2_title:       "CPI 通膨(%)",
+            n_years:        "{n} 年",
+            avg_per_yr:     "年均",
+            tag_hi:         "達閾值",
+            tag_lo:         "低於閾值",
+            caption:        "1971 至 2024 年:每年黃金報酬(LBMA 倫敦午盤年均)與美國 CPI。陰影柱代表 CPI 達到或超過閾值的年份。拖動滑桿,看看黃金長期報酬集中在多少高通膨年內。對沖是真實的,但報酬主要集中在少數年份。",
+        },
+        cn: {
+            real:           "实质",
+            nominal:        "名义",
+            slider_label:   "通胀阈值",
+            thresh_fmt:     "CPI ≥ {v}%",
+            name_hi:        "高通胀年的黄金",
+            name_lo:        "低通胀年的黄金",
+            name_spread:    "高减低差距",
+            name_uncon:     "无条件平均",
+            x_title:        "年份",
+            y_title_real:   "黄金实质回报(%)",
+            y_title_nom:    "黄金名义回报(%)",
+            y2_title:       "CPI 通胀(%)",
+            n_years:        "{n} 年",
+            avg_per_yr:     "年均",
+            tag_hi:         "达阈值",
+            tag_lo:         "低于阈值",
+            caption:        "1971 至 2024 年:每年黄金回报(LBMA 伦敦下午定盘年均)与美国 CPI。阴影柱代表 CPI 达到或超过阈值的年份。拖动滑杆,看看黄金长期回报集中在多少高通胀年内。对冲是真实的,但回报主要集中在少数年份。",
+        },
+    };
+    function currentLang() {
+        const p = new URLSearchParams(window.location.search);
+        const l = (p.get("lang") || "en").toLowerCase();
+        return I18N.hasOwnProperty(l) ? l : "en";
+    }
+    const T = I18N[currentLang()];
+
+    // Annual data 1971..2024.
+    // GOLD_AVG: LBMA London PM fix annual averages (USD/oz).
+    // CPI:     US CPI-U YoY annual rate (decimal, from Damodaran).
+    const YEARS = [];
+    for (let y = 1971; y <= 2024; y++) YEARS.push(y);
+    const GOLD_AVG = [
+        41,58,97,159,161,125,148,193,307,613,
+        460,376,423,360,317,368,446,437,381,384,
+        362,344,360,384,384,388,331,294,279,279,
+        271,310,363,410,445,604,695,872,972,1225,
+        1572,1669,1411,1266,1160,1251,1257,1269,1393,1770,
+        1799,1801,1942,2390
+    ];
+    const CPI = [
+        0.0336,0.0341,0.0880,0.1220,0.0701,0.0481,0.0677,0.0903,0.1331,0.1240,
+        0.0894,0.0387,0.0380,0.0395,0.0377,0.0113,0.0441,0.0442,0.0465,0.0611,
+        0.0306,0.0290,0.0275,0.0267,0.0254,0.0332,0.0170,0.0161,0.0268,0.0339,
+        0.0155,0.0238,0.0188,0.0326,0.0342,0.0254,0.0408,0.0009,0.0272,0.0150,
+        0.0296,0.0174,0.0150,0.0076,0.0073,0.0207,0.0211,0.0191,0.0229,0.0136,
+        0.0703,0.0645,0.0341,0.0289
+    ];
+
+    const GOLD_PRIOR_1970 = 37.38; // public LBMA 1970 annual avg
+    const GOLD_RET_NOM = GOLD_AVG.map((g, i) => {
+        const prev = i === 0 ? GOLD_PRIOR_1970 : GOLD_AVG[i - 1];
+        return g / prev - 1;
+    });
+    const GOLD_RET_REAL = GOLD_RET_NOM.map((r, i) => (1 + r) / (1 + CPI[i]) - 1);
+
+    const ROOT = document.getElementById("gi-root");
+    const CHART = document.getElementById("gi-chart");
+    const TOGGLE = document.getElementById("gi-toggle");
+    const SLIDER = document.getElementById("gi-slider");
+    const THRESH_LABEL = document.getElementById("gi-thresh-value");
+
+    let useReal = true;
+    let threshold = 0.04;
+
+    function pct(v, digits) {
+        if (!isFinite(v)) return "—";
+        const sign = v >= 0 ? "+" : "";
+        return sign + (v * 100).toFixed(digits != null ? digits : 1) + "%";
+    }
+    function getCssVar(name) {
+        return getComputedStyle(ROOT).getPropertyValue(name).trim();
+    }
+    function darkMode() {
+        return document.documentElement.getAttribute("data-theme") === "dark";
+    }
+    function avg(arr) {
+        if (!arr.length) return NaN;
+        return arr.reduce((a, b) => a + b, 0) / arr.length;
+    }
+
+    function render() {
+        const ret = useReal ? GOLD_RET_REAL : GOLD_RET_NOM;
+        const isHi = CPI.map(c => c >= threshold);
+        const hiVals = ret.filter((_, i) => isHi[i]);
+        const loVals = ret.filter((_, i) => !isHi[i]);
+        const avgHi = avg(hiVals);
+        const avgLo = avg(loVals);
+        const avgAll = avg(ret);
+
+        const colorPos = getCssVar("--gi-pos");
+        const colorNeg = getCssVar("--gi-neg");
+        const colorMid = getCssVar("--gi-mid");
+        const colorAcc = getCssVar("--gi-accent");
+        const colorText = getCssVar("--gi-text");
+        const colorMuted = getCssVar("--gi-muted");
+        const colorGrid = darkMode() ? "rgba(255,255,255,0.08)" : "rgba(0,0,0,0.07)";
+        const colorBg = getCssVar("--gi-card");
+
+        const barColors = ret.map((r, i) => {
+            if (isHi[i]) return colorAcc;
+            return r >= 0 ? colorPos : colorNeg;
+        });
+        const barOpacity = ret.map((_, i) => isHi[i] ? 1.0 : 0.55);
+
+        const barTrace = {
+            x: YEARS,
+            y: ret.map(r => r * 100),
+            type: "bar",
+            name: useReal ? T.y_title_real : T.y_title_nom,
+            marker: { color: barColors, opacity: barOpacity, line: { width: 0 } },
+            hovertemplate: "%{x}<br>" + (useReal ? T.y_title_real : T.y_title_nom)
+                + ": %{y:.1f}%<extra></extra>",
+            yaxis: "y",
+        };
+        const cpiTrace = {
+            x: YEARS,
+            y: CPI.map(c => c * 100),
+            type: "scatter",
+            mode: "lines",
+            name: T.y2_title,
+            line: { color: colorMid, width: 2 },
+            hovertemplate: "%{x}<br>CPI: %{y:.1f}%<extra></extra>",
+            yaxis: "y2",
+        };
+
+        const layout = {
+            margin: { l: 56, r: 56, t: 36, b: 56 },
+            paper_bgcolor: colorBg,
+            plot_bgcolor: colorBg,
+            font: { family: "Segoe UI, Helvetica, Arial, sans-serif", color: colorText, size: 12 },
+            bargap: 0.05,
+            barmode: "overlay",
+            xaxis: {
+                title: { text: T.x_title, font: { color: colorMuted, size: 11 } },
+                gridcolor: colorGrid,
+                zerolinecolor: colorMuted,
+                color: colorText,
+            },
+            yaxis: {
+                title: { text: useReal ? T.y_title_real : T.y_title_nom,
+                         font: { color: colorMuted, size: 11 } },
+                gridcolor: colorGrid,
+                zerolinecolor: colorMuted,
+                color: colorText,
+                ticksuffix: "%",
+            },
+            yaxis2: {
+                title: { text: T.y2_title, font: { color: colorMid, size: 11 } },
+                overlaying: "y",
+                side: "right",
+                color: colorMid,
+                showgrid: false,
+                ticksuffix: "%",
+            },
+            shapes: [
+                {
+                    type: "line", xref: "paper", yref: "y2",
+                    x0: 0, x1: 1, y0: threshold * 100, y1: threshold * 100,
+                    line: { color: colorAcc, width: 1.5, dash: "dot" },
+                },
+            ],
+            annotations: [
+                {
+                    x: 0.99, y: 0.98, xref: "paper", yref: "paper",
+                    text: T.thresh_fmt.replace("{v}", (threshold * 100).toFixed(1))
+                        + "<br>" + (useReal ? T.y_title_real : T.y_title_nom),
+                    showarrow: false, xanchor: "right", yanchor: "top",
+                    font: { color: colorMuted, size: 10 },
+                    bgcolor: "rgba(0,0,0,0)",
+                },
+            ],
+            legend: { orientation: "h", y: -0.22, x: 0, font: { color: colorMuted, size: 10 } },
+            hovermode: "x unified",
+        };
+
+        Plotly.react(CHART, [barTrace, cpiTrace], layout, {
+            displayModeBar: false,
+            responsive: true,
+        });
+
+        document.getElementById("gi-val-hi").textContent = pct(avgHi);
+        document.getElementById("gi-det-hi").textContent =
+            T.n_years.replace("{n}", hiVals.length) + " · " + T.tag_hi;
+        document.getElementById("gi-val-lo").textContent = pct(avgLo);
+        document.getElementById("gi-det-lo").textContent =
+            T.n_years.replace("{n}", loVals.length) + " · " + T.tag_lo;
+        const spread = (isFinite(avgHi) && isFinite(avgLo)) ? (avgHi - avgLo) : NaN;
+        document.getElementById("gi-val-spread").textContent = pct(spread);
+        document.getElementById("gi-det-spread").textContent = T.avg_per_yr;
+        document.getElementById("gi-val-uncon").textContent = pct(avgAll);
+        document.getElementById("gi-det-uncon").textContent =
+            T.n_years.replace("{n}", ret.length);
+    }
+
+    function updateThreshLabel() {
+        THRESH_LABEL.textContent = T.thresh_fmt.replace(
+            "{v}", (threshold * 100).toFixed(1));
+    }
+
+    SLIDER.addEventListener("input", () => {
+        threshold = parseFloat(SLIDER.value) / 100;
+        updateThreshLabel();
+        render();
+    });
+    TOGGLE.querySelectorAll("button").forEach(btn => {
+        btn.addEventListener("click", () => {
+            TOGGLE.querySelectorAll("button").forEach(b => b.classList.remove("active"));
+            btn.classList.add("active");
+            useReal = btn.dataset.real === "true";
+            render();
+        });
+    });
+
+    function applyI18n() {
+        document.getElementById("gi-toggle-real").textContent = T.real;
+        document.getElementById("gi-toggle-nominal").textContent = T.nominal;
+        document.getElementById("gi-slider-label").textContent = T.slider_label;
+        document.getElementById("gi-name-hi").textContent = T.name_hi;
+        document.getElementById("gi-name-lo").textContent = T.name_lo;
+        document.getElementById("gi-name-spread").textContent = T.name_spread;
+        document.getElementById("gi-name-uncon").textContent = T.name_uncon;
+        document.getElementById("gi-caption").textContent = T.caption;
+    }
+    applyI18n();
+    updateThreshLabel();
+
+    function reportHeight() {
+        try {
+            var h = Math.ceil(document.documentElement.scrollHeight);
+            parent.postMessage({ type: 'lesson-interactive-resize', height: h }, '*');
+        } catch (e) { /* ignore */ }
+    }
+    if (typeof ResizeObserver !== 'undefined') {
+        new ResizeObserver(reportHeight).observe(document.body);
+    }
+    window.addEventListener('resize', reportHeight);
+    setTimeout(reportHeight, 50);
+    setTimeout(reportHeight, 500);
+
+    const themeObserver = new MutationObserver(render);
+    themeObserver.observe(document.documentElement, {
+        attributes: true,
+        attributeFilter: ["data-theme"],
+    });
+
+    render();
+})();
+</script>
+
+</body>
+</html>

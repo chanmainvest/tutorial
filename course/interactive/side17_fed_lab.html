@@ -1,0 +1,692 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Fed Lab — Interactive (Side 17)</title>
+<script src="https://cdn.plot.ly/plotly-2.35.2.min.js" charset="utf-8"></script>
+<style>
+html, body { margin: 0; padding: 0; background: var(--fd-bg); }
+:root {
+    --fd-bg: #fdfbf5;
+    --fd-text: #1a2332;
+    --fd-muted: #6b7280;
+    --fd-border: #d6d3c4;
+    --fd-card: #fdfbf5;
+    --fd-pos: #2e7d32;
+    --fd-neg: #b71c1c;
+    --fd-mid: #0d47a1;
+    --fd-orange: #e65100;
+    --fd-accent: #b8860b;
+    --fd-purple: #6a1b9a;
+}
+html[data-theme="dark"] .fd-root,
+.fd-root[data-theme="dark"] {
+    --fd-bg: #0f1724;
+    --fd-text: #e6e6e6;
+    --fd-muted: #9aa3b2;
+    --fd-border: #2a3441;
+    --fd-card: #0f1724;
+    --fd-pos: #66bb6a;
+    --fd-neg: #ef5350;
+    --fd-mid: #5a8dee;
+    --fd-orange: #ffa726;
+    --fd-accent: #ffca28;
+    --fd-purple: #ba68c8;
+}
+.fd-root {
+    font-family: 'Segoe UI', Helvetica, Arial, sans-serif;
+    background: var(--fd-bg);
+    color: var(--fd-text);
+    padding: 12px;
+    margin: 0;
+}
+.fd-controls {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 12px;
+    padding: 12px;
+    background: var(--fd-card);
+    border: 1px solid var(--fd-border);
+    border-radius: 8px;
+    margin-bottom: 14px;
+}
+.fd-slider-wrap {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    font-size: 0.82rem;
+    color: var(--fd-muted);
+}
+.fd-slider-wrap .fd-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+}
+.fd-slider-wrap .fd-name {
+    font-weight: 600;
+    color: var(--fd-text);
+}
+.fd-slider-wrap .fd-value {
+    color: var(--fd-text);
+    font-weight: 700;
+    font-variant-numeric: tabular-nums;
+}
+.fd-slider-wrap input[type="range"] {
+    width: 100%;
+    accent-color: var(--fd-accent);
+}
+.fd-presets {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-bottom: 10px;
+}
+.fd-pill {
+    background: var(--fd-card);
+    border: 1px solid var(--fd-border);
+    color: var(--fd-text);
+    border-radius: 999px;
+    padding: 5px 11px;
+    font-size: 0.78rem;
+    cursor: pointer;
+    transition: background 0.15s;
+}
+.fd-pill:hover { background: var(--fd-border); }
+.fd-pill.fd-active {
+    background: var(--fd-accent);
+    color: var(--fd-bg);
+    border-color: var(--fd-accent);
+    font-weight: 700;
+}
+.fd-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 10px;
+    margin-bottom: 14px;
+}
+.fd-stat {
+    background: var(--fd-card);
+    border: 1px solid var(--fd-border);
+    border-left: 4px solid var(--fd-muted);
+    border-radius: 8px;
+    padding: 10px 12px;
+}
+.fd-stat-2y  { border-left-color: var(--fd-mid); }
+.fd-stat-10y { border-left-color: var(--fd-purple); }
+.fd-stat-mtg { border-left-color: var(--fd-orange); }
+.fd-stat-pe  { border-left-color: var(--fd-pos); }
+.fd-stat-real{ border-left-color: var(--fd-accent); }
+.fd-stat .fd-stat-name {
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--fd-muted);
+}
+.fd-stat .fd-stat-val {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-top: 4px;
+    font-variant-numeric: tabular-nums;
+}
+.fd-stat .fd-stat-detail {
+    font-size: 0.72rem;
+    color: var(--fd-muted);
+    margin-top: 2px;
+}
+.fd-grid {
+    display: grid;
+    grid-template-columns: 1.3fr 1fr;
+    gap: 14px;
+}
+@media (max-width: 760px) {
+    .fd-grid { grid-template-columns: 1fr; }
+}
+.fd-chart, .fd-chart-side {
+    width: 100%;
+    height: 360px;
+    background: var(--fd-card);
+    border-radius: 8px;
+    border: 1px solid var(--fd-border);
+}
+.fd-side-title {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--fd-text);
+    margin: 0 0 6px 2px;
+}
+.fd-caption {
+    margin-top: 10px;
+    font-size: 0.78rem;
+    color: var(--fd-muted);
+    line-height: 1.45;
+}
+.fd-verdict {
+    margin-top: 12px;
+    padding: 10px 12px;
+    border-radius: 8px;
+    border: 1px solid var(--fd-border);
+    border-left: 4px solid var(--fd-muted);
+    background: var(--fd-card);
+    font-size: 0.85rem;
+    color: var(--fd-text);
+}
+.fd-verdict.fd-v-easy   { border-left-color: var(--fd-pos); }
+.fd-verdict.fd-v-tight  { border-left-color: var(--fd-neg); }
+.fd-verdict.fd-v-neutral{ border-left-color: var(--fd-accent); }
+@media (max-width: 640px) {
+    .fd-chart, .fd-chart-side { height: 320px; }
+}
+</style>
+</head>
+<body>
+
+<div class="fd-root" id="fd-root">
+
+    <div class="fd-presets" id="fd-presets-row"></div>
+
+    <div class="fd-controls">
+        <div class="fd-slider-wrap">
+            <div class="fd-row">
+                <span class="fd-name" id="fd-l-r26">FFR end-2026</span>
+                <span class="fd-value" id="fd-v-r26">3.625%</span>
+            </div>
+            <input type="range" id="fd-s-r26" min="0" max="6" step="0.125" value="3.625">
+        </div>
+        <div class="fd-slider-wrap">
+            <div class="fd-row">
+                <span class="fd-name" id="fd-l-r27">FFR end-2027</span>
+                <span class="fd-value" id="fd-v-r27">3.000%</span>
+            </div>
+            <input type="range" id="fd-s-r27" min="0" max="6" step="0.125" value="3.000">
+        </div>
+        <div class="fd-slider-wrap">
+            <div class="fd-row">
+                <span class="fd-name" id="fd-l-qt">QT runoff pace</span>
+                <span class="fd-value" id="fd-v-qt">$45 B/mo</span>
+            </div>
+            <input type="range" id="fd-s-qt" min="0" max="120" step="5" value="45">
+        </div>
+        <div class="fd-slider-wrap">
+            <div class="fd-row">
+                <span class="fd-name" id="fd-l-pi">2027 PCE inflation</span>
+                <span class="fd-value" id="fd-v-pi">2.2%</span>
+            </div>
+            <input type="range" id="fd-s-pi" min="0" max="6" step="0.1" value="2.2">
+        </div>
+    </div>
+
+    <div class="fd-stats">
+        <div class="fd-stat fd-stat-2y">
+            <div class="fd-stat-name" id="fd-n-2y">Implied 2y Treasury</div>
+            <div class="fd-stat-val" id="fd-v-2y">—</div>
+            <div class="fd-stat-detail" id="fd-d-2y">avg(FFR26, FFR27) + term prem</div>
+        </div>
+        <div class="fd-stat fd-stat-10y">
+            <div class="fd-stat-name" id="fd-n-10y">Implied 10y Treasury</div>
+            <div class="fd-stat-val" id="fd-v-10y">—</div>
+            <div class="fd-stat-detail" id="fd-d-10y">2y + slope + QT premium</div>
+        </div>
+        <div class="fd-stat fd-stat-mtg">
+            <div class="fd-stat-name" id="fd-n-mtg">30y Mortgage</div>
+            <div class="fd-stat-val" id="fd-v-mtg">—</div>
+            <div class="fd-stat-detail" id="fd-d-mtg">10y + 175 bp p-s spread</div>
+        </div>
+        <div class="fd-stat fd-stat-pe">
+            <div class="fd-stat-name" id="fd-n-pe">Implied SP500 P/E</div>
+            <div class="fd-stat-val" id="fd-v-pe">—</div>
+            <div class="fd-stat-detail" id="fd-d-pe">1 / (real 10y + ERP - g)</div>
+        </div>
+        <div class="fd-stat fd-stat-real">
+            <div class="fd-stat-name" id="fd-n-real">Real funds rate</div>
+            <div class="fd-stat-val" id="fd-v-real">—</div>
+            <div class="fd-stat-detail" id="fd-d-real">FFR27 - PCE27</div>
+        </div>
+    </div>
+
+    <div class="fd-grid">
+        <div>
+            <div class="fd-side-title" id="fd-t-main">Implied yield curve and shock comparison vs Apr 2026 baseline</div>
+            <div id="fd-chart" class="fd-chart"></div>
+        </div>
+        <div>
+            <div class="fd-side-title" id="fd-t-side">Asset price impact (% change) vs baseline</div>
+            <div id="fd-chart-side" class="fd-chart-side"></div>
+        </div>
+    </div>
+
+    <div class="fd-verdict fd-v-neutral" id="fd-verdict">—</div>
+
+    <p class="fd-caption" id="fd-caption">
+        Pass-through coefficients (empirical, post-2000): SOFR ≈ FFR -0.05%; 2y ≈ avg(FFR over next 2y) + 0.30% term premium; 10y ≈ 2y + 0.80% slope + 0.10%/$1T QT premium; 30y mortgage ≈ 10y + 1.75% primary-secondary spread; SP500 fair P/E = 1 / (real 10y + 0.05 ERP - 0.02 g). Apr 2026 baseline: FFR 3.625%, 2y 3.60%, 10y 4.20%, 30y mtg 5.95%, P/E 22.0.
+    </p>
+</div>
+
+<script>
+(function () {
+    const I18N = {
+        en: {
+            l_r26: "FFR end-2026", l_r27: "FFR end-2027",
+            l_qt: "QT runoff pace", l_pi: "2027 PCE inflation",
+            n_2y: "Implied 2y Treasury", n_10y: "Implied 10y Treasury",
+            n_mtg: "30y Mortgage", n_pe: "Implied SP500 P/E",
+            n_real: "Real funds rate",
+            d_2y: "avg(FFR26, FFR27) + term premium",
+            d_10y: "2y + slope + QT premium",
+            d_mtg: "10y + 175 bp primary-secondary spread",
+            d_pe:  "1 / (real 10y + ERP - g)",
+            d_real:"FFR27 - PCE27",
+            qt_unit: "B/mo",
+            t_main: "Implied yield curve vs Apr 2026 baseline",
+            t_side: "Asset price impact (% change) vs baseline",
+            curve_today: "Apr 2026 baseline",
+            curve_yours: "Your scenario",
+            xl_curve: "Maturity (years, log)",
+            yl_curve: "Yield (% annual)",
+            xl_bar: "% change vs baseline",
+            asset_2y: "2y Treasury",
+            asset_10y: "10y Treasury",
+            asset_30y: "30y Treasury",
+            asset_mtg: "30y Mortgage",
+            asset_spx: "SP500 (P/E reprice)",
+            asset_growth: "Long-duration growth equity",
+            v_easy: "EASING vs baseline. Long-duration assets bid; mortgage-rate relief; SP500 P/E expanding. SOUL #14 — let the duration sleeve work.",
+            v_tight: "TIGHTER vs baseline. Long-duration sells off; growth equity compresses; mortgage stress. SOUL #2 + #6 — barbell up, sell short-vol.",
+            v_neutral: "Roughly NEUTRAL vs baseline. Curve unchanged inside ±15 bp at the long end. Carry trade dominates; sell short-dated FOMC vol.",
+            cap: "Pass-through coefficients (empirical, post-2000): SOFR = FFR - 0.05%; 2y = avg(FFR over next 2y) + 0.30% term premium; 10y = 2y + 0.80% slope + 0.10%/$1T QT premium; 30y mortgage = 10y + 1.75% primary-secondary spread; SP500 fair P/E = 1 / (real 10y + 0.05 ERP - 0.02 g). Apr 2026 baseline: FFR 3.625%, 2y 3.60%, 10y 4.20%, 30y mtg 5.95%, P/E 22.0.",
+            preset_today: "Today (Apr 2026)",
+            preset_dovish: "Dovish glide (2.5%/2.0%)",
+            preset_dotmedian: "Dot-plot median",
+            preset_higher: "Higher for longer",
+            preset_qereturn: "QE returns",
+            preset_2008: "2008 zero-bound",
+        },
+        hk: {
+            l_r26: "2026 年底 FFR", l_r27: "2027 年底 FFR",
+            l_qt: "QT 縮表步速", l_pi: "2027 年 PCE 通脹",
+            n_2y: "隱含 2 年國債", n_10y: "隱含 10 年國債",
+            n_mtg: "30 年按揭", n_pe: "標普 500 隱含 P/E",
+            n_real: "實質聯邦基金利率",
+            d_2y: "(FFR26 + FFR27) / 2 + 期限溢價",
+            d_10y: "2 年 + 斜率 + QT 溢價",
+            d_mtg: "10 年 + 175 bp 一二級價差",
+            d_pe:  "1 /(實質 10 年 + ERP - g)",
+            d_real:"FFR27 - PCE27",
+            qt_unit: "億美元/月",
+            t_main: "隱含孳息曲線 vs 2026 年 4 月基準",
+            t_side: "資產價格衝擊(% vs 基準)",
+            curve_today: "2026 年 4 月基準",
+            curve_yours: "你的情境",
+            xl_curve: "年期(年,對數軸)",
+            yl_curve: "孳息率(年化 %)",
+            xl_bar: "與基準相比變動 (%)",
+            asset_2y: "2 年期國債",
+            asset_10y: "10 年期國債",
+            asset_30y: "30 年期國債",
+            asset_mtg: "30 年按揭",
+            asset_spx: "標普 500(P/E 重估)",
+            asset_growth: "長存續期增長股",
+            v_easy: "比基準寬鬆。長存續期資產獲青睞;按揭利率紓緩;標普估值擴張。SOUL #14 — 讓久期持倉發揮作用。",
+            v_tight: "比基準收緊。長存續期下跌;增長股估值壓縮;按揭壓力上升。SOUL #2 + #6 — 槓鈴上;賣短期波動率。",
+            v_neutral: "相對基準大致中性。長端孳息變動在 ±15 bp 內。Carry 主導;賣 FOMC 短期波動率。",
+            cap: "傳導係數(2000 年後實證):SOFR = FFR - 0.05%;2 年 =(未來 2 年 FFR 平均)+ 0.30% 期限溢價;10 年 = 2 年 + 0.80% 斜率 + 每 1 萬億 QT 溢價 0.10%;30 年按揭 = 10 年 + 1.75% 一二級價差;標普 500 公允 P/E = 1 /(實質 10 年 + 0.05 ERP - 0.02 g)。2026-04 基準:FFR 3.625%、2 年 3.60%、10 年 4.20%、30 年按揭 5.95%、P/E 22.0。",
+            preset_today: "當前(2026-04)",
+            preset_dovish: "鴿派下行(2.5%/2.0%)",
+            preset_dotmedian: "點陣圖中位數",
+            preset_higher: "高利率較久",
+            preset_qereturn: "QE 重啟",
+            preset_2008: "2008 零利率",
+        },
+        tw: {
+            l_r26: "2026 年底 FFR", l_r27: "2027 年底 FFR",
+            l_qt: "QT 縮表步速", l_pi: "2027 年 PCE 通膨",
+            n_2y: "隱含 2 年公債", n_10y: "隱含 10 年公債",
+            n_mtg: "30 年房貸", n_pe: "標普 500 隱含本益比",
+            n_real: "實質聯邦資金利率",
+            d_2y: "(FFR26 + FFR27) / 2 + 期限溢酬",
+            d_10y: "2 年 + 斜率 + QT 溢酬",
+            d_mtg: "10 年 + 175 bp 一二級利差",
+            d_pe:  "1 /(實質 10 年 + ERP - g)",
+            d_real:"FFR27 - PCE27",
+            qt_unit: "億美元/月",
+            t_main: "隱含殖利率曲線 vs 2026 年 4 月基準",
+            t_side: "資產價格衝擊(% vs 基準)",
+            curve_today: "2026 年 4 月基準",
+            curve_yours: "你的情境",
+            xl_curve: "年期(年,對數軸)",
+            yl_curve: "殖利率(年化 %)",
+            xl_bar: "相對基準變動 (%)",
+            asset_2y: "2 年期公債",
+            asset_10y: "10 年期公債",
+            asset_30y: "30 年期公債",
+            asset_mtg: "30 年房貸",
+            asset_spx: "標普 500(本益比重估)",
+            asset_growth: "長存續期成長股",
+            v_easy: "相對基準寬鬆。長存續期資產獲青睞;房貸利率舒緩;標普本益比擴張。SOUL #14 — 讓存續期部位發揮。",
+            v_tight: "相對基準緊縮。長存續期下跌;成長股本益比壓縮;房貸壓力上升。SOUL #2 + #6 — 加碼槓鈴;賣短天期波動率。",
+            v_neutral: "相對基準大致中性。長端殖利率變動在 ±15 bp 之內。Carry 主導;賣 FOMC 短天期波動率。",
+            cap: "傳導係數(2000 年後實證):SOFR = FFR - 0.05%;2 年 =(未來 2 年 FFR 平均)+ 0.30% 期限溢酬;10 年 = 2 年 + 0.80% 斜率 + 每 1 兆 QT 溢酬 0.10%;30 年房貸 = 10 年 + 1.75% 一二級利差;標普 500 合理本益比 = 1 /(實質 10 年 + 0.05 ERP - 0.02 g)。2026-04 基準:FFR 3.625%、2 年 3.60%、10 年 4.20%、30 年房貸 5.95%、本益比 22.0。",
+            preset_today: "當前(2026-04)",
+            preset_dovish: "鴿派下行(2.5%/2.0%)",
+            preset_dotmedian: "點陣圖中位數",
+            preset_higher: "高利率較久",
+            preset_qereturn: "QE 重啟",
+            preset_2008: "2008 零利率",
+        },
+        cn: {
+            l_r26: "2026 年底 FFR", l_r27: "2027 年底 FFR",
+            l_qt: "QT 缩表步速", l_pi: "2027 年 PCE 通胀",
+            n_2y: "隐含 2 年国债", n_10y: "隐含 10 年国债",
+            n_mtg: "30 年按揭", n_pe: "标普 500 隐含市盈率",
+            n_real: "实际联邦基金利率",
+            d_2y: "(FFR26 + FFR27) / 2 + 期限溢价",
+            d_10y: "2 年 + 斜率 + QT 溢价",
+            d_mtg: "10 年 + 175 bp 一二级利差",
+            d_pe:  "1 /(实际 10 年 + ERP - g)",
+            d_real:"FFR27 - PCE27",
+            qt_unit: "亿美元/月",
+            t_main: "隐含收益率曲线 vs 2026 年 4 月基准",
+            t_side: "资产价格冲击(% vs 基准)",
+            curve_today: "2026 年 4 月基准",
+            curve_yours: "你的情景",
+            xl_curve: "期限(年,对数轴)",
+            yl_curve: "收益率(年化 %)",
+            xl_bar: "相对基准变动 (%)",
+            asset_2y: "2 年期国债",
+            asset_10y: "10 年期国债",
+            asset_30y: "30 年期国债",
+            asset_mtg: "30 年按揭",
+            asset_spx: "标普 500(市盈率重估)",
+            asset_growth: "长久期增长股",
+            v_easy: "比基准宽松。长久期资产获青睐;按揭利率缓解;标普市盈率扩张。SOUL #14 — 让久期仓位起作用。",
+            v_tight: "比基准紧缩。长久期下跌;增长股估值压缩;按揭压力上升。SOUL #2 + #6 — 加码杠铃;卖短期波动率。",
+            v_neutral: "相对基准大致中性。长端收益率变动在 ±15 bp 之内。Carry 主导;卖 FOMC 短期波动率。",
+            cap: "传导系数(2000 年后实证):SOFR = FFR - 0.05%;2 年 =(未来 2 年 FFR 平均)+ 0.30% 期限溢价;10 年 = 2 年 + 0.80% 斜率 + 每 1 万亿 QT 溢价 0.10%;30 年按揭 = 10 年 + 1.75% 一二级利差;标普 500 合理市盈率 = 1 /(实际 10 年 + 0.05 ERP - 0.02 g)。2026-04 基准:FFR 3.625%、2 年 3.60%、10 年 4.20%、30 年按揭 5.95%、市盈率 22.0。",
+            preset_today: "当前(2026-04)",
+            preset_dovish: "鸽派下行(2.5%/2.0%)",
+            preset_dotmedian: "点阵图中位数",
+            preset_higher: "高利率更久",
+            preset_qereturn: "QE 重启",
+            preset_2008: "2008 零利率",
+        },
+    };
+
+    function currentLang() {
+        const p = new URLSearchParams(window.location.search);
+        const l = (p.get("lang") || "en").toLowerCase();
+        return I18N.hasOwnProperty(l) ? l : "en";
+    }
+    const T = I18N[currentLang()];
+
+    // Apply i18n to static labels
+    function setText(id, text) {
+        const el = document.getElementById(id);
+        if (el) el.textContent = text;
+    }
+    setText("fd-l-r26", T.l_r26);
+    setText("fd-l-r27", T.l_r27);
+    setText("fd-l-qt", T.l_qt);
+    setText("fd-l-pi", T.l_pi);
+    setText("fd-n-2y", T.n_2y);
+    setText("fd-n-10y", T.n_10y);
+    setText("fd-n-mtg", T.n_mtg);
+    setText("fd-n-pe", T.n_pe);
+    setText("fd-n-real", T.n_real);
+    setText("fd-d-2y", T.d_2y);
+    setText("fd-d-10y", T.d_10y);
+    setText("fd-d-mtg", T.d_mtg);
+    setText("fd-d-pe", T.d_pe);
+    setText("fd-d-real", T.d_real);
+    setText("fd-t-main", T.t_main);
+    setText("fd-t-side", T.t_side);
+    setText("fd-caption", T.cap);
+
+    // Presets
+    const PRESETS = [
+        { id: "today",     k: "preset_today",     r26: 3.625, r27: 3.000, qt: 45,  pi: 2.2 },
+        { id: "dotmedian", k: "preset_dotmedian", r26: 3.625, r27: 3.125, qt: 45,  pi: 2.1 },
+        { id: "dovish",    k: "preset_dovish",    r26: 2.500, r27: 2.000, qt: 0,   pi: 2.5 },
+        { id: "higher",    k: "preset_higher",    r26: 4.250, r27: 4.000, qt: 60,  pi: 2.6 },
+        { id: "qereturn",  k: "preset_qereturn",  r26: 1.500, r27: 1.000, qt: -50, pi: 1.5 },
+        { id: "z2008",     k: "preset_2008",      r26: 0.125, r27: 0.125, qt: -100,pi: 1.0 },
+    ];
+    const presetRow = document.getElementById("fd-presets-row");
+    PRESETS.forEach(pr => {
+        const b = document.createElement("button");
+        b.className = "fd-pill";
+        b.dataset.id = pr.id;
+        b.textContent = T[pr.k];
+        b.addEventListener("click", () => applyPreset(pr.id));
+        presetRow.appendChild(b);
+    });
+    function setActivePreset(id) {
+        presetRow.querySelectorAll(".fd-pill").forEach(p => {
+            p.classList.toggle("fd-active", p.dataset.id === id);
+        });
+    }
+
+    const ROOT = document.getElementById("fd-root");
+    const CHART = document.getElementById("fd-chart");
+    const CHART_SIDE = document.getElementById("fd-chart-side");
+    const sR26 = document.getElementById("fd-s-r26");
+    const sR27 = document.getElementById("fd-s-r27");
+    const sQt  = document.getElementById("fd-s-qt");
+    const sPi  = document.getElementById("fd-s-pi");
+    const vR26 = document.getElementById("fd-v-r26");
+    const vR27 = document.getElementById("fd-v-r27");
+    const vQt  = document.getElementById("fd-v-qt");
+    const vPi  = document.getElementById("fd-v-pi");
+
+    let state = { r26: 3.625, r27: 3.000, qt: 45, pi: 2.2 };
+
+    function getCssVar(name) {
+        return getComputedStyle(ROOT).getPropertyValue(name).trim();
+    }
+    function darkMode() {
+        return document.documentElement.getAttribute("data-theme") === "dark";
+    }
+    function fmtPct(v, d=2) {
+        if (!isFinite(v)) return "—";
+        return v.toFixed(d) + "%";
+    }
+    function fmtNum(v, d=1) {
+        if (!isFinite(v)) return "—";
+        return v.toFixed(d);
+    }
+
+    // ----- Pass-through model -----
+    // Baseline (Apr 2026): FFR 3.625, 2y 3.60, 10y 4.20, mtg 5.95, P/E 22.0.
+    // 2y = (r26 + r27) / 2 + 0.30 (term premium)
+    // 10y = 2y + 0.80 (slope) + 0.10 * (qt_billions / 1000) -- QT ADD on 10y
+    // 30y mtg = 10y + 1.75 (primary-secondary spread)
+    // SP500 P/E = 1 / (real_10y_decimal + 0.05 ERP - 0.02 g)
+    //   real_10y = 10y - pi (assumed long-run inflation = pi for steady state)
+    // Bond price impact from yield change: dP/P = -duration * dy
+    //   2y duration ~ 1.92, 10y ~ 8.6, 30y ~ 19.0, mortgage ~ 6.5 (with prepay).
+    //   Growth equity duration ~ 25 (very long).
+    function compute(s) {
+        const ffrAvg = (s.r26 + s.r27) / 2.0;
+        const y2 = ffrAvg + 0.30;
+        const qtAdd = 0.10 * (s.qt / 100); // qt in $B/mo: 100 ~ $1.2T/yr ~ 0.10% addl on 10y per $1T cumulative -- approximate
+        // simpler: 0.10 percent for every 100 B/mo (i.e. 1 trillion/yr) of QT
+        const y10 = y2 + 0.80 + qtAdd;
+        const yMtg = y10 + 1.75;
+        const real10 = y10 - s.pi;
+        const ke = real10 / 100 + 0.05 - 0.02; // discount minus growth
+        const pe = ke > 0 ? 1.0 / ke : Infinity;
+        const realFFR = s.r27 - s.pi;
+        return { ffrAvg, y2, y10, yMtg, real10, pe, realFFR, qtAdd };
+    }
+
+    // Baseline
+    const BASE = compute({ r26: 3.625, r27: 3.000, qt: 45, pi: 2.2 });
+    // BASE.y2 ~ 3.61, BASE.y10 ~ 4.21, BASE.yMtg ~ 5.96, BASE.pe ~ 22.0
+
+    function bondPctChange(duration, dyPct) {
+        // dy in percentage points; convert to decimal
+        const dy = dyPct / 100.0;
+        return -duration * dy * 100.0; // return as percent
+    }
+    function equityPePctChange(peNew, peBase) {
+        if (!isFinite(peNew) || !isFinite(peBase) || peBase === 0) return 0;
+        return (peNew / peBase - 1) * 100.0;
+    }
+
+    function render() {
+        const c = compute(state);
+        // Update KPI cards
+        document.getElementById("fd-v-2y").textContent  = fmtPct(c.y2);
+        document.getElementById("fd-v-10y").textContent = fmtPct(c.y10);
+        document.getElementById("fd-v-mtg").textContent = fmtPct(c.yMtg);
+        document.getElementById("fd-v-pe").textContent  = fmtNum(c.pe, 1);
+        document.getElementById("fd-v-real").textContent = fmtPct(c.realFFR);
+
+        // Update verdict
+        const tightenBp = (c.y10 - BASE.y10) * 100;
+        const verdict = document.getElementById("fd-verdict");
+        verdict.classList.remove("fd-v-easy", "fd-v-tight", "fd-v-neutral");
+        if (tightenBp <= -15) {
+            verdict.classList.add("fd-v-easy");
+            verdict.textContent = T.v_easy;
+        } else if (tightenBp >= 15) {
+            verdict.classList.add("fd-v-tight");
+            verdict.textContent = T.v_tight;
+        } else {
+            verdict.classList.add("fd-v-neutral");
+            verdict.textContent = T.v_neutral;
+        }
+
+        // ---- Chart 1: yield curve (log-x) ----
+        const cMid = getCssVar("--fd-mid");
+        const cAcc = getCssVar("--fd-accent");
+        const cMut = getCssVar("--fd-muted");
+        const cTxt = getCssVar("--fd-text");
+        const cBg  = getCssVar("--fd-card");
+        const cGrid = darkMode() ? "rgba(255,255,255,0.08)" : "rgba(0,0,0,0.07)";
+
+        const tenors = [0.25, 2.0, 5.0, 10.0, 30.0];
+        // approximate today curve
+        const today = [3.50, 3.60, 3.95, 4.20, 4.45];
+        // build scenario curve consistent with model:
+        // 3M ~ FFR_avg - 0.05; 5y interp halfway between 2y and 10y; 30y = 10y + 0.25
+        const sc3m = c.ffrAvg - 0.05;
+        const sc2  = c.y2;
+        const sc10 = c.y10;
+        const sc5  = (sc2 + sc10) / 2;
+        const sc30 = sc10 + 0.25;
+        const yours = [sc3m, sc2, sc5, sc10, sc30];
+
+        const trace1 = {
+            x: tenors, y: today, name: T.curve_today, mode: "lines+markers",
+            line: { color: cMut, width: 2, dash: "dot" }, marker: { size: 7, color: cMut },
+        };
+        const trace2 = {
+            x: tenors, y: yours, name: T.curve_yours, mode: "lines+markers",
+            line: { color: cMid, width: 3 }, marker: { size: 9, color: cMid },
+        };
+        const layout = {
+            paper_bgcolor: cBg, plot_bgcolor: cBg,
+            font: { color: cTxt, size: 11 },
+            margin: { l: 50, r: 16, t: 12, b: 44 },
+            xaxis: { type: "log", title: T.xl_curve, tickvals: [0.25, 1, 2, 5, 10, 30],
+                     ticktext: ["3M","1Y","2Y","5Y","10Y","30Y"],
+                     gridcolor: cGrid, linecolor: cMut, tickcolor: cMut, color: cTxt },
+            yaxis: { title: T.yl_curve, gridcolor: cGrid, zerolinecolor: cMut,
+                     linecolor: cMut, tickcolor: cMut, color: cTxt,
+                     ticksuffix: "%" },
+            legend: { orientation: "h", x: 0, y: 1.10, font: { color: cTxt } },
+            hovermode: "x unified",
+        };
+        Plotly.react(CHART, [trace1, trace2], layout, { displayModeBar: false, responsive: true });
+
+        // ---- Chart 2: asset price impact ----
+        const dy2  = c.y2 - BASE.y2;
+        const dy10 = c.y10 - BASE.y10;
+        const dy30 = (c.y10 + 0.25) - (BASE.y10 + 0.25); // same as dy10
+        const dyMtg= c.yMtg - BASE.yMtg;
+        const impact_2y  = bondPctChange(1.92, dy2);
+        const impact_10y = bondPctChange(8.6, dy10);
+        const impact_30y = bondPctChange(19.0, dy30);
+        const impact_mtg = bondPctChange(6.5, dyMtg); // mortgage holder note value
+        const impact_spx = equityPePctChange(c.pe, BASE.pe);
+        const impact_growth = bondPctChange(25.0, dy10); // long-duration eq proxy
+
+        const labels  = [T.asset_2y, T.asset_10y, T.asset_30y, T.asset_mtg, T.asset_spx, T.asset_growth];
+        const vals    = [impact_2y, impact_10y, impact_30y, impact_mtg, impact_spx, impact_growth];
+        const colors  = vals.map(v => v >= 0 ? getCssVar("--fd-pos") : getCssVar("--fd-neg"));
+
+        const traceB = {
+            x: vals, y: labels,
+            type: "bar", orientation: "h",
+            marker: { color: colors },
+            text: vals.map(v => (v >= 0 ? "+" : "") + v.toFixed(1) + "%"),
+            textposition: "auto",
+            hovertemplate: "%{y}: %{x:.1f}%<extra></extra>",
+        };
+        const layoutB = {
+            paper_bgcolor: cBg, plot_bgcolor: cBg,
+            font: { color: cTxt, size: 11 },
+            margin: { l: 150, r: 24, t: 12, b: 44 },
+            xaxis: { title: T.xl_bar, gridcolor: cGrid, zeroline: true,
+                     zerolinecolor: cMut, linecolor: cMut, tickcolor: cMut,
+                     color: cTxt, ticksuffix: "%" },
+            yaxis: { autorange: "reversed", color: cTxt,
+                     gridcolor: cGrid, linecolor: cMut, tickcolor: cMut },
+        };
+        Plotly.react(CHART_SIDE, [traceB], layoutB, { displayModeBar: false, responsive: true });
+
+        notifyResize();
+    }
+
+    function notifyResize() {
+        const h = document.documentElement.scrollHeight;
+        try { parent.postMessage({ type: "lesson-interactive-resize", height: h }, "*"); } catch (e) {}
+    }
+
+    function updateLabels() {
+        vR26.textContent = state.r26.toFixed(3) + "%";
+        vR27.textContent = state.r27.toFixed(3) + "%";
+        const sign = state.qt >= 0 ? "$" : "-$";
+        vQt.textContent  = (state.qt >= 0 ? "$" : "-$") + Math.abs(state.qt) + " " + T.qt_unit;
+        vPi.textContent  = state.pi.toFixed(1) + "%";
+    }
+
+    function applyPreset(id) {
+        const pr = PRESETS.find(p => p.id === id);
+        if (!pr) return;
+        state.r26 = pr.r26; state.r27 = pr.r27; state.qt = pr.qt; state.pi = pr.pi;
+        sR26.value = state.r26; sR27.value = state.r27;
+        sQt.value = state.qt; sPi.value = state.pi;
+        setActivePreset(id);
+        updateLabels();
+        render();
+    }
+
+    function onSlide() {
+        state.r26 = parseFloat(sR26.value);
+        state.r27 = parseFloat(sR27.value);
+        state.qt  = parseFloat(sQt.value);
+        state.pi  = parseFloat(sPi.value);
+        setActivePreset(null);
+        updateLabels();
+        render();
+    }
+    sR26.addEventListener("input", onSlide);
+    sR27.addEventListener("input", onSlide);
+    sQt.addEventListener("input", onSlide);
+    sPi.addEventListener("input", onSlide);
+
+    // theme observer
+    const obs = new MutationObserver(() => render());
+    obs.observe(document.documentElement, { attributes: true, attributeFilter: ["data-theme"] });
+    window.addEventListener("resize", () => { render(); });
+
+    // init
+    applyPreset("today");
+    notifyResize();
+    setTimeout(notifyResize, 250);
+})();
+</script>
+</body>
+</html>

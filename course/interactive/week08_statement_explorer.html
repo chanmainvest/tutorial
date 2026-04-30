@@ -1,0 +1,530 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Statement Explorer — Interactive (Week 8)</title>
+<script src="https://cdn.plot.ly/plotly-2.35.2.min.js" charset="utf-8"></script>
+<style>
+html, body { margin: 0; padding: 0; background: var(--se-bg); }
+:root {
+    --se-bg: #fdfbf5;
+    --se-text: #1a2332;
+    --se-muted: #6b7280;
+    --se-border: #d6d3c4;
+    --se-card: #fdfbf5;
+    --se-pos: #2e7d32;
+    --se-neg: #b71c1c;
+    --se-mid: #0d47a1;
+    --se-accent: #b8860b;
+}
+html[data-theme="dark"] .se-root,
+.se-root[data-theme="dark"] {
+    --se-bg: #0f1724;
+    --se-text: #e6e6e6;
+    --se-muted: #9aa3b2;
+    --se-border: #2a3441;
+    --se-card: #0f1724;
+    --se-pos: #66bb6a;
+    --se-neg: #ef5350;
+    --se-mid: #5a8dee;
+}
+.se-root {
+    font-family: 'Segoe UI', Helvetica, Arial, sans-serif;
+    background: var(--se-bg);
+    color: var(--se-text);
+    padding: 12px;
+    margin: 0;
+}
+.se-controls {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 14px;
+    padding: 10px 12px;
+    background: var(--se-card);
+    border: 1px solid var(--se-border);
+    border-radius: 8px;
+}
+.se-pillbar {
+    display: inline-flex;
+    border: 1px solid var(--se-border);
+    border-radius: 999px;
+    overflow: hidden;
+    background: var(--se-card);
+}
+.se-pillbar button {
+    border: none;
+    background: transparent;
+    color: var(--se-muted);
+    padding: 6px 14px;
+    font: inherit;
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.15s, color 0.15s;
+}
+.se-pillbar button:hover { color: var(--se-text); }
+.se-pillbar.se-co button.active {
+    background: var(--se-accent);
+    color: #fff;
+}
+.se-pillbar.se-metric button.active {
+    background: var(--se-mid);
+    color: #fff;
+}
+.se-label {
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--se-muted);
+}
+.se-chart {
+    width: 100%;
+    height: 380px;
+    background: var(--se-card);
+    border-radius: 8px;
+    border: 1px solid var(--se-border);
+}
+.se-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    margin-top: 14px;
+}
+.se-card {
+    background: var(--se-card);
+    border: 1px solid var(--se-border);
+    border-radius: 8px;
+    padding: 12px 14px;
+}
+.se-card h3 {
+    margin: 0 0 8px 0;
+    font-size: 0.92rem;
+    color: var(--se-text);
+    font-weight: 700;
+}
+.se-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.84rem;
+    font-variant-numeric: tabular-nums;
+}
+.se-table th, .se-table td {
+    padding: 5px 8px;
+    border-bottom: 1px solid var(--se-border);
+    text-align: right;
+    color: var(--se-text);
+}
+.se-table th:first-child, .se-table td:first-child {
+    text-align: left;
+    color: var(--se-muted);
+    font-weight: 600;
+}
+.se-table thead th { color: var(--se-muted); font-weight: 700; font-size: 0.76rem; text-transform: uppercase; letter-spacing: 0.4px; }
+.se-summary {
+    font-size: 0.84rem;
+    color: var(--se-muted);
+    line-height: 1.55;
+}
+.se-summary b { color: var(--se-text); }
+.se-caption {
+    margin-top: 10px;
+    font-size: 0.78rem;
+    color: var(--se-muted);
+    line-height: 1.45;
+}
+@media (max-width: 720px) {
+    .se-grid { grid-template-columns: 1fr; }
+    .se-chart { height: 320px; }
+    .se-pillbar button { padding: 5px 10px; font-size: 0.8rem; }
+}
+</style>
+</head>
+<body>
+
+<div class="se-root" id="se-root">
+    <div class="se-controls">
+        <span class="se-label" id="se-co-label">Company</span>
+        <div class="se-pillbar se-co" id="se-co-pills" role="tablist">
+            <button type="button" data-co="AAPL" class="active">AAPL</button>
+            <button type="button" data-co="KO">KO</button>
+            <button type="button" data-co="JPM">JPM</button>
+        </div>
+        <span class="se-label" id="se-metric-label">Metric</span>
+        <div class="se-pillbar se-metric" id="se-metric-pills" role="tablist">
+            <button type="button" data-m="rev" class="active">Revenue</button>
+            <button type="button" data-m="ni">Net Income</button>
+            <button type="button" data-m="ocf">OCF</button>
+            <button type="button" data-m="fcf">FCF</button>
+        </div>
+    </div>
+    <div id="se-chart" class="se-chart"></div>
+    <div class="se-grid">
+        <div class="se-card">
+            <h3 id="se-cs-title">FY2024 common-size income statement</h3>
+            <table class="se-table">
+                <thead><tr>
+                    <th id="se-cs-line">Line</th>
+                    <th id="se-cs-pct">% of revenue</th>
+                    <th id="se-cs-abs">$ billions</th>
+                </tr></thead>
+                <tbody id="se-cs-body"></tbody>
+            </table>
+        </div>
+        <div class="se-card">
+            <h3 id="se-sum-title">Profile</h3>
+            <p class="se-summary" id="se-sum-body"></p>
+        </div>
+    </div>
+    <p class="se-caption" id="se-caption"></p>
+</div>
+
+<script>
+(function () {
+
+    // ---------------------------------------------------------------
+    // Data: 10-year history per company. All figures in $ billions.
+    // Banks (JPM): "Revenue" = total net revenue (NII + non-interest);
+    // gross profit and FCF are not meaningful for banks (n/a).
+    // ---------------------------------------------------------------
+    const YEARS = [2015,2016,2017,2018,2019,2020,2021,2022,2023,2024];
+
+    const DATA = {
+        AAPL: {
+            rev:  [233.7, 215.6, 229.2, 265.6, 260.2, 274.5, 365.8, 394.3, 383.3, 391.0],
+            ni:   [ 53.4,  45.7,  48.4,  59.5,  55.3,  57.4,  94.7,  99.8,  97.0,  93.7],
+            ocf:  [ 81.3,  65.8,  64.2,  77.4,  69.4,  80.7, 104.0, 122.2, 110.5, 118.3],
+            fcf:  [ 70.0,  53.1,  51.8,  64.1,  58.9,  73.4,  92.9, 111.4, 100.0, 108.8],
+            cs:   { gross: 46, op: 32, ni: 24, fcf: 28 },
+            cs_dollars: { rev: 391.0, gross: 180.7, op: 123.2, ni: 93.7, fcf: 108.8 },
+        },
+        KO: {
+            rev:  [ 44.3,  41.9,  35.4,  31.9,  37.3,  33.0,  38.7,  43.0,  45.8,  46.0],
+            ni:   [  7.4,   6.5,   1.2,   6.4,   8.9,   7.7,   9.8,   9.5,  10.7,  10.6],
+            ocf:  [ 10.5,   8.8,   7.1,   7.6,  10.5,   9.8,  12.6,  11.0,  11.6,  10.8],
+            fcf:  [  8.3,   6.6,   5.4,   6.1,   8.4,   8.7,  11.3,   9.5,   9.7,   9.6],
+            cs:   { gross: 60, op: 30, ni: 23, fcf: 21 },
+            cs_dollars: { rev: 46.0, gross: 27.6, op: 13.8, ni: 10.6, fcf: 9.6 },
+        },
+        JPM: {
+            // Net revenue (NII + non-interest income).
+            rev:  [ 96.6,  99.1, 100.7, 109.0, 115.6, 119.5, 121.6, 128.7, 158.1, 178.0],
+            ni:   [ 24.4,  24.7,  24.4,  32.5,  36.4,  29.1,  48.3,  37.7,  49.6,  58.5],
+            ocf:  [ 75.0,  20.0,  -3.0,  21.0,  18.0, 78.0,  78.0, 107.1,  17.0,  -7.0],
+            fcf:  [   0,    0,    0,    0,    0,    0,    0,    0,    0,    0],  // n/a
+            cs:   { gross: null, op: 41, ni: 32, fcf: null },
+            cs_dollars: { rev: 178.0, gross: null, op: 73.0, ni: 58.5, fcf: null },
+        },
+    };
+
+    const I18N = {
+        en: {
+            co_label:     "Company",
+            metric_label: "Metric",
+            metric_rev:   "Revenue",
+            metric_ni:    "Net Income",
+            metric_ocf:   "OCF",
+            metric_fcf:   "FCF",
+            chart_y:      "$ billions",
+            chart_x:      "Fiscal year",
+            cs_title:     "FY2024 common-size income statement",
+            cs_line:      "Line",
+            cs_pct:       "% of revenue",
+            cs_abs:       "$ billions",
+            sum_title:    "Profile",
+            row_rev:      "Revenue",
+            row_gross:    "Gross profit",
+            row_op:       "Operating income",
+            row_ni:       "Net income",
+            row_fcf:      "Free cash flow",
+            na:           "n/a",
+            caption:      "Ten-year history of revenue, net income, operating cash flow, and free cash flow for AAPL, KO, JPM. Banks (JPM) report total net revenue (net interest income plus non-interest income); gross profit and FCF are not meaningful for banks. Common-size ratios computed from FY2024 figures.",
+            sum: {
+                AAPL: "Apple is the canonical capital-light, high-margin business: 46% gross margin, 32% operating margin, and FCF that consistently exceeds reported net income. Working-capital efficiency and modest capex (under 3% of revenue) are the cash-flow tailwinds.",
+                KO:   "Coca-Cola is a brand-rent business: 60% gross margin, 30% operating margin. FCF tracks net income closely because the syndicated bottling network keeps capex low. The signature is stability, not growth.",
+                JPM:  "JPMorgan is a bank: 'revenue' is net interest income plus fees, not 'revenue minus COGS'. The right one-number summary is ROTCE (around 22% in FY2024). Operating cash flow is volatile and not a useful screening metric for banks.",
+            },
+        },
+        hk: {
+            co_label:     "公司",
+            metric_label: "指標",
+            metric_rev:   "營收",
+            metric_ni:    "淨利",
+            metric_ocf:   "經營現金流",
+            metric_fcf:   "自由現金流",
+            chart_y:      "十億美元",
+            chart_x:      "財政年度",
+            cs_title:     "FY2024 共同比損益表",
+            cs_line:      "項目",
+            cs_pct:       "佔營收 %",
+            cs_abs:       "十億美元",
+            sum_title:    "概況",
+            row_rev:      "營收",
+            row_gross:    "毛利",
+            row_op:       "營業利益",
+            row_ni:       "淨利",
+            row_fcf:      "自由現金流",
+            na:           "不適用",
+            caption:      "AAPL、KO、JPM 過去十年的營收、淨利、經營現金流與自由現金流。銀行(JPM)的「營收」為淨利息收入加非利息收入,毛利與 FCF 對銀行沒有意義。共同比例以 FY2024 數字計算。",
+            sum: {
+                AAPL: "蘋果是典型的輕資產高毛利企業:毛利率 46%、營業利益率 32%,自由現金流穩定高於帳上淨利。營運資金效率與較低的資本開支(不到營收 3%)是現金流順風。",
+                KO:   "可口可樂是品牌租值型企業:毛利率 60%、營業利益率 30%。自由現金流與淨利貼近,因外包裝瓶網絡令資本開支偏低。重點是穩定,而非增長。",
+                JPM:  "摩根大通是銀行:「營收」是淨利息收入加手續費,不是「營收減成本」。最重要的一個總結指標是 ROTCE(FY2024 約 22%)。銀行的經營現金流波動大,不是有用的篩選指標。",
+            },
+        },
+        tw: {
+            co_label:     "公司",
+            metric_label: "指標",
+            metric_rev:   "營收",
+            metric_ni:    "淨利",
+            metric_ocf:   "營運現金流",
+            metric_fcf:   "自由現金流",
+            chart_y:      "十億美元",
+            chart_x:      "會計年度",
+            cs_title:     "FY2024 共同比損益表",
+            cs_line:      "項目",
+            cs_pct:       "佔營收 %",
+            cs_abs:       "十億美元",
+            sum_title:    "概況",
+            row_rev:      "營收",
+            row_gross:    "毛利",
+            row_op:       "營業利益",
+            row_ni:       "淨利",
+            row_fcf:      "自由現金流",
+            na:           "不適用",
+            caption:      "AAPL、KO、JPM 過去十年的營收、淨利、營運現金流與自由現金流。銀行(JPM)的「營收」為淨利息收入加非利息收入,毛利與 FCF 對銀行沒有意義。共同比例以 FY2024 數字計算。",
+            sum: {
+                AAPL: "蘋果是典型的輕資產高毛利企業:毛利率 46%、營業利益率 32%,自由現金流穩定高於帳上淨利。營運資金效率與較低的資本支出(不到營收 3%)是現金流順風。",
+                KO:   "可口可樂是品牌租值型企業:毛利率 60%、營業利益率 30%。自由現金流與淨利貼近,因外包裝瓶網絡令資本支出偏低。重點是穩定,而非成長。",
+                JPM:  "摩根大通是銀行:「營收」是淨利息收入加手續費,不是「營收減成本」。最重要的一個總結指標是 ROTCE(FY2024 約 22%)。銀行的營運現金流波動大,不是有用的篩選指標。",
+            },
+        },
+        cn: {
+            co_label:     "公司",
+            metric_label: "指标",
+            metric_rev:   "营收",
+            metric_ni:    "净利",
+            metric_ocf:   "经营现金流",
+            metric_fcf:   "自由现金流",
+            chart_y:      "十亿美元",
+            chart_x:      "财政年度",
+            cs_title:     "FY2024 共同比损益表",
+            cs_line:      "项目",
+            cs_pct:       "占营收 %",
+            cs_abs:       "十亿美元",
+            sum_title:    "概况",
+            row_rev:      "营收",
+            row_gross:    "毛利",
+            row_op:       "营业利益",
+            row_ni:       "净利",
+            row_fcf:      "自由现金流",
+            na:           "不适用",
+            caption:      "AAPL、KO、JPM 过去十年的营收、净利、经营现金流与自由现金流。银行(JPM)的「营收」为净利息收入加非利息收入,毛利与 FCF 对银行无意义。共同比例以 FY2024 数字计算。",
+            sum: {
+                AAPL: "苹果是典型的轻资产高毛利企业:毛利率 46%、营业利益率 32%,自由现金流稳定高于账上净利。营运资金效率与较低的资本开支(不到营收 3%)是现金流顺风。",
+                KO:   "可口可乐是品牌租值型企业:毛利率 60%、营业利益率 30%。自由现金流与净利贴近,因外包装瓶网络使资本开支偏低。重点是稳定,而非增长。",
+                JPM:  "摩根大通是银行:「营收」是净利息收入加手续费,不是「营收减成本」。最重要的一个总结指标是 ROTCE(FY2024 约 22%)。银行的经营现金流波动大,不是有用的筛选指标。",
+            },
+        },
+    };
+
+    function currentLang() {
+        const p = new URLSearchParams(window.location.search);
+        const l = (p.get("lang") || "en").toLowerCase();
+        return I18N.hasOwnProperty(l) ? l : "en";
+    }
+    const T = I18N[currentLang()];
+
+    const ROOT = document.getElementById("se-root");
+    const CHART = document.getElementById("se-chart");
+    const CO_PILLS = document.getElementById("se-co-pills");
+    const METRIC_PILLS = document.getElementById("se-metric-pills");
+    const CS_BODY = document.getElementById("se-cs-body");
+    const SUM_BODY = document.getElementById("se-sum-body");
+
+    let company = "AAPL";
+    let metric = "rev";
+
+    function getCssVar(name) {
+        return getComputedStyle(ROOT).getPropertyValue(name).trim();
+    }
+    function darkMode() {
+        return document.documentElement.getAttribute("data-theme") === "dark";
+    }
+
+    function metricLabel(m) {
+        return ({ rev: T.metric_rev, ni: T.metric_ni, ocf: T.metric_ocf, fcf: T.metric_fcf })[m];
+    }
+
+    function fmtB(v) {
+        if (v === null || v === undefined) return T.na;
+        const sign = v < 0 ? "-" : "";
+        return sign + "$" + Math.abs(v).toFixed(1) + "B";
+    }
+    function fmtPct(v) {
+        if (v === null || v === undefined) return T.na;
+        return v.toFixed(0) + "%";
+    }
+
+    function render() {
+        const series = DATA[company][metric];
+        const isFcfBank = (company === "JPM" && metric === "fcf");
+
+        const colorAccent = getCssVar("--se-accent");
+        const colorMid = getCssVar("--se-mid");
+        const colorPos = getCssVar("--se-pos");
+        const colorNeg = getCssVar("--se-neg");
+        const colorText = getCssVar("--se-text");
+        const colorMuted = getCssVar("--se-muted");
+        const colorGrid = darkMode() ? "rgba(255,255,255,0.08)" : "rgba(0,0,0,0.07)";
+        const colorBg = getCssVar("--se-card");
+
+        let traces;
+        if (isFcfBank) {
+            // FCF not meaningful for banks; show empty plot with annotation.
+            traces = [];
+        } else {
+            const colors = series.map(v => v < 0 ? colorNeg : (metric === "rev" ? colorAccent : colorMid));
+            traces = [{
+                x: YEARS,
+                y: series,
+                type: "bar",
+                marker: { color: colors, line: { width: 0 } },
+                hovertemplate: "%{x}: $%{y:.1f}B<extra></extra>",
+            }];
+        }
+
+        const layout = {
+            margin: { l: 56, r: 24, t: 36, b: 44 },
+            paper_bgcolor: colorBg,
+            plot_bgcolor: colorBg,
+            font: { family: "Segoe UI, Helvetica, Arial, sans-serif", color: colorText, size: 12 },
+            bargap: 0.18,
+            xaxis: {
+                title: { text: T.chart_x, font: { color: colorMuted, size: 11 } },
+                gridcolor: colorGrid,
+                zerolinecolor: colorMuted,
+                color: colorText,
+                tickmode: "array",
+                tickvals: YEARS,
+            },
+            yaxis: {
+                title: { text: T.chart_y, font: { color: colorMuted, size: 11 } },
+                gridcolor: colorGrid,
+                zerolinecolor: colorMuted,
+                color: colorText,
+            },
+            annotations: [
+                {
+                    x: 0.99, y: 0.98, xref: "paper", yref: "paper",
+                    text: company + "  ·  " + metricLabel(metric),
+                    showarrow: false, xanchor: "right", yanchor: "top",
+                    font: { color: colorMuted, size: 11, weight: "bold" },
+                    bgcolor: "rgba(0,0,0,0)",
+                },
+            ],
+            hovermode: "x unified",
+            showlegend: false,
+        };
+
+        if (isFcfBank) {
+            layout.annotations.push({
+                x: 0.5, y: 0.5, xref: "paper", yref: "paper",
+                text: T.na + "  —  banks",
+                showarrow: false,
+                font: { color: colorMuted, size: 14 },
+            });
+            layout.xaxis.visible = false;
+            layout.yaxis.visible = false;
+        }
+
+        Plotly.react(CHART, traces, layout, {
+            displayModeBar: false,
+            responsive: true,
+        });
+
+        renderCommonSize();
+        SUM_BODY.innerHTML = T.sum[company];
+    }
+
+    function renderCommonSize() {
+        const d = DATA[company].cs;
+        const dol = DATA[company].cs_dollars;
+        const rows = [
+            { name: T.row_rev,   pct: 100,      abs: dol.rev },
+            { name: T.row_gross, pct: d.gross,  abs: dol.gross },
+            { name: T.row_op,    pct: d.op,     abs: dol.op },
+            { name: T.row_ni,    pct: d.ni,     abs: dol.ni },
+            { name: T.row_fcf,   pct: d.fcf,    abs: dol.fcf },
+        ];
+        let html = "";
+        for (const r of rows) {
+            html += "<tr><td>" + r.name + "</td>"
+                  + "<td>" + fmtPct(r.pct) + "</td>"
+                  + "<td>" + fmtB(r.abs) + "</td></tr>";
+        }
+        CS_BODY.innerHTML = html;
+    }
+
+    CO_PILLS.querySelectorAll("button").forEach(btn => {
+        btn.addEventListener("click", () => {
+            CO_PILLS.querySelectorAll("button").forEach(b => b.classList.remove("active"));
+            btn.classList.add("active");
+            company = btn.dataset.co;
+            render();
+        });
+    });
+    METRIC_PILLS.querySelectorAll("button").forEach(btn => {
+        btn.addEventListener("click", () => {
+            METRIC_PILLS.querySelectorAll("button").forEach(b => b.classList.remove("active"));
+            btn.classList.add("active");
+            metric = btn.dataset.m;
+            render();
+        });
+    });
+
+    function applyI18n() {
+        document.getElementById("se-co-label").textContent = T.co_label;
+        document.getElementById("se-metric-label").textContent = T.metric_label;
+        const metBtns = METRIC_PILLS.querySelectorAll("button");
+        metBtns[0].textContent = T.metric_rev;
+        metBtns[1].textContent = T.metric_ni;
+        metBtns[2].textContent = T.metric_ocf;
+        metBtns[3].textContent = T.metric_fcf;
+        document.getElementById("se-cs-title").textContent = T.cs_title;
+        document.getElementById("se-cs-line").textContent = T.cs_line;
+        document.getElementById("se-cs-pct").textContent = T.cs_pct;
+        document.getElementById("se-cs-abs").textContent = T.cs_abs;
+        document.getElementById("se-sum-title").textContent = T.sum_title;
+        document.getElementById("se-caption").textContent = T.caption;
+    }
+    applyI18n();
+
+    function reportHeight() {
+        try {
+            var h = Math.ceil(document.documentElement.scrollHeight);
+            parent.postMessage({ type: 'lesson-interactive-resize', height: h }, '*');
+        } catch (e) { /* ignore */ }
+    }
+    if (typeof ResizeObserver !== 'undefined') {
+        new ResizeObserver(reportHeight).observe(document.body);
+    }
+    window.addEventListener('resize', reportHeight);
+    setTimeout(reportHeight, 50);
+    setTimeout(reportHeight, 500);
+
+    const themeObserver = new MutationObserver(render);
+    themeObserver.observe(document.documentElement, {
+        attributes: true,
+        attributeFilter: ["data-theme"],
+    });
+
+    render();
+})();
+</script>
+
+</body>
+</html>

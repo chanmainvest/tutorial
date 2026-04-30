@@ -1,0 +1,589 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Rebalance Lab — Interactive (Week 7)</title>
+<script src="https://cdn.plot.ly/plotly-2.35.2.min.js" charset="utf-8"></script>
+<style>
+html, body { margin: 0; padding: 0; background: var(--rl-bg); }
+:root {
+    --rl-bg: #fdfbf5;
+    --rl-text: #1a2332;
+    --rl-muted: #6b7280;
+    --rl-border: #d6d3c4;
+    --rl-card: #fdfbf5;
+    --rl-pos: #2e7d32;
+    --rl-neg: #b71c1c;
+    --rl-mid: #0d47a1;
+    --rl-accent: #b8860b;
+}
+html[data-theme="dark"] .rl-root,
+.rl-root[data-theme="dark"] {
+    --rl-bg: #0f1724;
+    --rl-text: #e6e6e6;
+    --rl-muted: #9aa3b2;
+    --rl-border: #2a3441;
+    --rl-card: #0f1724;
+    --rl-pos: #66bb6a;
+    --rl-neg: #ef5350;
+    --rl-mid: #5a8dee;
+}
+.rl-root {
+    font-family: 'Segoe UI', Helvetica, Arial, sans-serif;
+    background: var(--rl-bg);
+    color: var(--rl-text);
+    padding: 12px;
+    margin: 0;
+}
+.rl-controls {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 12px;
+    margin-bottom: 12px;
+    padding: 12px;
+    background: var(--rl-card);
+    border: 1px solid var(--rl-border);
+    border-radius: 8px;
+}
+.rl-slider-block {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    font-size: 0.85rem;
+    color: var(--rl-muted);
+}
+.rl-slider-block .rl-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+}
+.rl-slider-block .rl-val {
+    color: var(--rl-text);
+    font-weight: 700;
+    font-variant-numeric: tabular-nums;
+}
+.rl-slider-block input[type="range"] {
+    width: 100%;
+    accent-color: var(--rl-accent);
+}
+.rl-slider-block.disabled input[type="range"] { opacity: 0.35; pointer-events: none; }
+.rl-slider-block.disabled .rl-val { opacity: 0.5; }
+.rl-toggle {
+    display: inline-flex;
+    border: 1px solid var(--rl-border);
+    border-radius: 999px;
+    overflow: hidden;
+    background: var(--rl-card);
+    margin-top: 4px;
+    align-self: flex-start;
+}
+.rl-toggle button {
+    border: none;
+    background: transparent;
+    color: var(--rl-muted);
+    padding: 4px 12px;
+    font: inherit;
+    font-size: 0.78rem;
+    font-weight: 600;
+    cursor: pointer;
+}
+.rl-toggle button.active {
+    background: var(--rl-mid);
+    color: #fff;
+}
+.rl-charts {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+}
+.rl-chart {
+    width: 100%;
+    height: 260px;
+    background: var(--rl-card);
+    border-radius: 8px;
+    border: 1px solid var(--rl-border);
+}
+.rl-stats {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 10px;
+    margin-top: 12px;
+}
+.rl-stat {
+    background: var(--rl-card);
+    border: 1px solid var(--rl-border);
+    border-left: 4px solid var(--rl-muted);
+    border-radius: 8px;
+    padding: 10px 12px;
+}
+.rl-stat.rl-stat-pos { border-left-color: var(--rl-pos); }
+.rl-stat.rl-stat-neg { border-left-color: var(--rl-neg); }
+.rl-stat.rl-stat-mid { border-left-color: var(--rl-mid); }
+.rl-stat.rl-stat-acc { border-left-color: var(--rl-accent); }
+.rl-stat .rl-stat-name {
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--rl-muted);
+}
+.rl-stat .rl-stat-val {
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-top: 4px;
+    font-variant-numeric: tabular-nums;
+}
+.rl-stat .rl-stat-detail {
+    font-size: 0.78rem;
+    color: var(--rl-muted);
+    margin-top: 2px;
+    font-variant-numeric: tabular-nums;
+}
+.rl-caption {
+    margin-top: 10px;
+    font-size: 0.78rem;
+    color: var(--rl-muted);
+    line-height: 1.45;
+}
+@media (max-width: 720px) {
+    .rl-controls { grid-template-columns: 1fr; }
+    .rl-stats { grid-template-columns: repeat(2, 1fr); }
+    .rl-chart { height: 220px; }
+}
+</style>
+</head>
+<body>
+
+<div class="rl-root" id="rl-root">
+    <div class="rl-controls">
+        <div class="rl-slider-block" id="rl-block-w">
+            <div class="rl-row"><span id="rl-lab-w">Stock weight target</span>
+                <span class="rl-val" id="rl-val-w">60%</span></div>
+            <input type="range" id="rl-slider-w" min="0" max="100" step="5" value="60">
+        </div>
+        <div class="rl-slider-block" id="rl-block-b">
+            <div class="rl-row"><span id="rl-lab-b">Threshold band</span>
+                <span class="rl-val" id="rl-val-b">5%</span></div>
+            <input type="range" id="rl-slider-b" min="1" max="20" step="1" value="5">
+            <div class="rl-toggle" id="rl-toggle-mode" role="tablist">
+                <button type="button" data-mode="band" class="active" id="rl-mode-band">Band</button>
+                <button type="button" data-mode="cal" id="rl-mode-cal">Calendar only</button>
+            </div>
+        </div>
+        <div class="rl-slider-block" id="rl-block-y">
+            <div class="rl-row"><span id="rl-lab-y">Start year</span>
+                <span class="rl-val" id="rl-val-y">1990</span></div>
+            <input type="range" id="rl-slider-y" min="1928" max="2010" step="1" value="1990">
+        </div>
+    </div>
+    <div class="rl-charts">
+        <div id="rl-chart-w" class="rl-chart"></div>
+        <div id="rl-chart-v" class="rl-chart"></div>
+    </div>
+    <div class="rl-stats">
+        <div class="rl-stat rl-stat-mid">
+            <div class="rl-stat-name" id="rl-name-events">Rebalance events</div>
+            <div class="rl-stat-val" id="rl-val-events">—</div>
+            <div class="rl-stat-detail" id="rl-det-events">—</div>
+        </div>
+        <div class="rl-stat rl-stat-acc">
+            <div class="rl-stat-name" id="rl-name-turn">Total turnover</div>
+            <div class="rl-stat-val" id="rl-val-turn">—</div>
+            <div class="rl-stat-detail" id="rl-det-turn">—</div>
+        </div>
+        <div class="rl-stat rl-stat-pos">
+            <div class="rl-stat-name" id="rl-name-cagr">Geo. ann. return</div>
+            <div class="rl-stat-val" id="rl-val-cagr">—</div>
+            <div class="rl-stat-detail" id="rl-det-cagr">—</div>
+        </div>
+        <div class="rl-stat rl-stat-neg">
+            <div class="rl-stat-name" id="rl-name-dd">Max drawdown</div>
+            <div class="rl-stat-val" id="rl-val-dd">—</div>
+            <div class="rl-stat-detail" id="rl-det-dd">—</div>
+        </div>
+    </div>
+    <p class="rl-caption" id="rl-caption">
+        Slide the target stock weight, the rebalance band, and the start year. Top chart shows the stock-weight drift; bottom shows the wealth path of $1.
+    </p>
+</div>
+
+<script>
+(function () {
+    const I18N = {
+        en: {
+            lab_w:        "Stock weight target",
+            lab_b:        "Threshold band",
+            lab_y:        "Start year",
+            mode_band:    "Band",
+            mode_cal:     "Calendar only",
+            name_events:  "Rebalance events",
+            name_turn:    "Total turnover",
+            name_cagr:    "Geo. ann. return",
+            name_dd:      "Max drawdown",
+            chart_w_y:    "Stock weight (%)",
+            chart_v_y:    "Wealth ($, log)",
+            chart_w_t:    "Stock weight over time",
+            chart_v_t:    "Wealth path of $1",
+            target_lbl:   "Target",
+            bond_lbl:     "Bonds",
+            stock_lbl:    "Stocks",
+            cal_lbl:      "calendar",
+            band_lbl:     "band",
+            yrs:          "years",
+            of_pf:        "of starting portfolio",
+            caption:      "Damodaran 1928-2024 annual data: SP500 total return and 10-year Treasury total return. Calendar-only mode rebalances every January regardless of drift; Band mode rebalances only when the stock weight has drifted at least the chosen number of percentage points from target.",
+        },
+        hk: {
+            lab_w:        "目標股票比重",
+            lab_b:        "再平衡帶寬",
+            lab_y:        "起始年份",
+            mode_band:    "帶寬",
+            mode_cal:     "僅按時",
+            name_events:  "再平衡次數",
+            name_turn:    "總換手",
+            name_cagr:    "幾何年化回報",
+            name_dd:      "最大回撤",
+            chart_w_y:    "股票比重(%)",
+            chart_v_y:    "資產淨值($,對數)",
+            chart_w_t:    "股票比重隨時間變化",
+            chart_v_t:    "$1 的財富路徑",
+            target_lbl:   "目標",
+            bond_lbl:     "債券",
+            stock_lbl:    "股票",
+            cal_lbl:      "按時",
+            band_lbl:     "帶寬",
+            yrs:          "年",
+            of_pf:        "佔起始資產",
+            caption:      "Damodaran 1928-2024 年度資料:標普 500 總回報與十年期國債總回報。「僅按時」模式無論漂移多少都在每年一月再平衡;「帶寬」模式只在股票比重漂移至少所選百分點時才再平衡。",
+        },
+        tw: {
+            lab_w:        "目標股票比重",
+            lab_b:        "再平衡帶寬",
+            lab_y:        "起始年份",
+            mode_band:    "帶寬",
+            mode_cal:     "僅按時",
+            name_events:  "再平衡次數",
+            name_turn:    "總週轉",
+            name_cagr:    "幾何年化報酬",
+            name_dd:      "最大回檔",
+            chart_w_y:    "股票比重(%)",
+            chart_v_y:    "資產淨值($,對數)",
+            chart_w_t:    "股票比重隨時間變化",
+            chart_v_t:    "$1 的財富路徑",
+            target_lbl:   "目標",
+            bond_lbl:     "債券",
+            stock_lbl:    "股票",
+            cal_lbl:      "按時",
+            band_lbl:     "帶寬",
+            yrs:          "年",
+            of_pf:        "佔起始資產",
+            caption:      "Damodaran 1928-2024 年度資料:標普 500 總報酬與十年期公債總報酬。「僅按時」模式無論漂移多少都在每年一月再平衡;「帶寬」模式只在股票比重漂移至少所選百分點時才再平衡。",
+        },
+        cn: {
+            lab_w:        "目标股票比重",
+            lab_b:        "再平衡带宽",
+            lab_y:        "起始年份",
+            mode_band:    "带宽",
+            mode_cal:     "仅按时",
+            name_events:  "再平衡次数",
+            name_turn:    "总换手",
+            name_cagr:    "几何年化回报",
+            name_dd:      "最大回撤",
+            chart_w_y:    "股票比重(%)",
+            chart_v_y:    "资产净值($,对数)",
+            chart_w_t:    "股票比重随时间变化",
+            chart_v_t:    "$1 的财富路径",
+            target_lbl:   "目标",
+            bond_lbl:     "债券",
+            stock_lbl:    "股票",
+            cal_lbl:      "按时",
+            band_lbl:     "带宽",
+            yrs:          "年",
+            of_pf:        "占起始资产",
+            caption:      "Damodaran 1928-2024 年度数据:标普 500 总回报与十年期国债总回报。「仅按时」模式无论漂移多少都在每年一月再平衡;「带宽」模式只在股票比重漂移至少所选百分点时才再平衡。",
+        },
+    };
+    function currentLang() {
+        const p = new URLSearchParams(window.location.search);
+        const l = (p.get("lang") || "en").toLowerCase();
+        return I18N.hasOwnProperty(l) ? l : "en";
+    }
+    const T = I18N[currentLang()];
+
+    // Damodaran annual returns 1928..2024 (decimals).
+    const YEARS = [];
+    for (let y = 1928; y <= 2024; y++) YEARS.push(y);
+    const SP500 = [
+        0.4381,-0.0830,-0.2512,-0.4384,-0.0864,0.4998,-0.0119,0.4674,0.3194,-0.3534,
+        0.2928,-0.0110,-0.1067,-0.1277,0.1917,0.2506,0.1903,0.3582,-0.0843,0.0520,
+        0.0570,0.1830,0.3081,0.2368,0.1815,-0.0121,0.5256,0.3260,0.0744,-0.1046,
+        0.4372,0.1206,0.0034,0.2664,-0.0881,0.2280,0.1648,0.1245,-0.1006,0.2398,
+        0.1106,-0.0850,0.0386,0.1430,0.1899,-0.1469,-0.2647,0.3723,0.2393,-0.0716,
+        0.0657,0.1861,0.3250,-0.0492,0.2155,0.2256,0.0627,0.3173,0.1867,0.0525,
+        0.1661,0.3169,-0.0310,0.3047,0.0762,0.1008,0.0132,0.3758,0.2296,0.3336,
+        0.2858,0.2104,-0.0910,-0.1189,-0.2210,0.2868,0.1088,0.0491,0.1579,0.0549,
+       -0.3700,0.2646,0.1506,0.0211,0.1600,0.3239,0.1369,0.0138,0.1196,0.2183,
+       -0.0438,0.3149,0.1840,0.2871,-0.1811,0.2629,0.2502
+    ];
+    const TBOND = [
+        0.0084,0.0420,0.0454,-0.0256,0.0879,0.0186,0.0796,0.0447,0.0502,0.0138,
+        0.0421,0.0441,0.0540,-0.0202,0.0229,0.0249,0.0258,0.0380,0.0313,0.0092,
+        0.0195,0.0466,0.0043,-0.0030,0.0227,0.0414,0.0329,-0.0134,-0.0226,0.0680,
+       -0.0210,-0.0265,0.1164,0.0206,0.0564,0.0181,0.0383,0.0069,0.0299,-0.0172,
+        0.0298,-0.0509,0.1875,0.1387,0.0369,0.0179,0.0369,0.0218,0.1364,0.0069,
+       -0.0118,-0.0123,-0.0304,0.0823,0.3281,0.0320,0.1373,0.2571,0.2428,-0.0496,
+        0.0822,0.1769,0.0624,0.1500,0.0936,0.1421,-0.0804,0.2348,0.0143,0.0994,
+        0.1492,-0.0825,0.1666,0.0557,0.1512,0.0038,0.0449,0.0287,0.0196,0.1021,
+        0.2010,-0.1112,0.0846,0.1604,0.0297,-0.0910,0.1075,0.0128,0.0069,0.0280,
+       -0.0002,0.0964,0.1133,-0.0442,-0.1777,0.0303,-0.0170
+    ];
+
+    const ROOT = document.getElementById("rl-root");
+    const CHART_W = document.getElementById("rl-chart-w");
+    const CHART_V = document.getElementById("rl-chart-v");
+    const SLIDER_W = document.getElementById("rl-slider-w");
+    const SLIDER_B = document.getElementById("rl-slider-b");
+    const SLIDER_Y = document.getElementById("rl-slider-y");
+    const VAL_W = document.getElementById("rl-val-w");
+    const VAL_B = document.getElementById("rl-val-b");
+    const VAL_Y = document.getElementById("rl-val-y");
+    const BLOCK_B = document.getElementById("rl-block-b");
+    const TOGGLE_MODE = document.getElementById("rl-toggle-mode");
+
+    let target = 0.60;
+    let band = 0.05;
+    let mode = "band"; // or "cal"
+    let startYear = 1990;
+
+    function getCssVar(name) {
+        return getComputedStyle(ROOT).getPropertyValue(name).trim();
+    }
+    function darkMode() {
+        return document.documentElement.getAttribute("data-theme") === "dark";
+    }
+
+    function simulate() {
+        const i0 = startYear - 1928;
+        const sp = SP500.slice(i0);
+        const bd = TBOND.slice(i0);
+        const yrs = YEARS.slice(i0);
+        const n = sp.length;
+
+        // dollar-tracking simulation. Start with $1.
+        let s_v = target;
+        let b_v = 1 - target;
+        const wealth = [1.0];
+        const weights = [target];
+        const xs = [yrs[0] - 1];
+        let events = 0;
+        let turnover = 0; // sum of |delta|/total at each rebalance, one-way
+
+        for (let i = 0; i < n; i++) {
+            // grow
+            s_v *= (1 + sp[i]);
+            b_v *= (1 + bd[i]);
+            let tot = s_v + b_v;
+            let w = s_v / tot;
+
+            // rebalance trigger:
+            let doIt = false;
+            if (mode === "cal") {
+                doIt = true;
+            } else {
+                if (Math.abs(w - target) >= band - 1e-9) doIt = true;
+            }
+            if (doIt && tot > 0) {
+                const delta = Math.abs(s_v - tot * target);
+                turnover += delta / tot;
+                s_v = tot * target;
+                b_v = tot * (1 - target);
+                w = target;
+                events += 1;
+            }
+            wealth.push(tot);
+            weights.push(w);
+            xs.push(yrs[i]);
+        }
+        return { xs, wealth, weights, events, turnover, n };
+    }
+
+    function pct(v, dec) {
+        if (!isFinite(v)) return "—";
+        const d = (dec === undefined) ? 1 : dec;
+        const sign = v >= 0 ? "+" : "";
+        return sign + (v * 100).toFixed(d) + "%";
+    }
+    function pctNoSign(v, dec) {
+        if (!isFinite(v)) return "—";
+        const d = (dec === undefined) ? 1 : dec;
+        return (v * 100).toFixed(d) + "%";
+    }
+
+    function maxDD(wealth) {
+        let peak = wealth[0];
+        let dd = 0;
+        for (let i = 0; i < wealth.length; i++) {
+            if (wealth[i] > peak) peak = wealth[i];
+            const d = wealth[i] / peak - 1;
+            if (d < dd) dd = d;
+        }
+        return dd;
+    }
+
+    function render() {
+        const sim = simulate();
+        const { xs, wealth, weights, events, turnover, n } = sim;
+        const cagr = Math.pow(wealth[wealth.length - 1], 1 / n) - 1;
+        const dd = maxDD(wealth);
+
+        const colorPos = getCssVar("--rl-pos");
+        const colorNeg = getCssVar("--rl-neg");
+        const colorMid = getCssVar("--rl-mid");
+        const colorAcc = getCssVar("--rl-accent");
+        const colorText = getCssVar("--rl-text");
+        const colorMuted = getCssVar("--rl-muted");
+        const colorGrid = darkMode() ? "rgba(255,255,255,0.08)" : "rgba(0,0,0,0.07)";
+        const colorBg = getCssVar("--rl-card");
+
+        // Top: weights
+        const wTrace = {
+            x: xs, y: weights.map(v => v * 100),
+            mode: "lines",
+            line: { color: colorAcc, width: 2 },
+            name: T.stock_lbl,
+            hovertemplate: "%{x}: %{y:.1f}%<extra></extra>",
+        };
+        const layoutW = {
+            margin: { l: 56, r: 24, t: 36, b: 36 },
+            paper_bgcolor: colorBg,
+            plot_bgcolor: colorBg,
+            font: { family: "Segoe UI, Helvetica, Arial, sans-serif", color: colorText, size: 11 },
+            title: { text: T.chart_w_t, font: { color: colorText, size: 12 }, x: 0.01, xanchor: "left" },
+            xaxis: { gridcolor: colorGrid, color: colorText, zerolinecolor: colorGrid },
+            yaxis: {
+                title: { text: T.chart_w_y, font: { color: colorMuted, size: 10 } },
+                gridcolor: colorGrid, color: colorText, zerolinecolor: colorGrid,
+                range: [0, 100],
+            },
+            shapes: [
+                { type: "line", xref: "paper", yref: "y", x0: 0, x1: 1,
+                  y0: target * 100, y1: target * 100,
+                  line: { color: colorMid, width: 1.5, dash: "dash" } },
+            ],
+            annotations: [
+                { x: 1, y: target * 100, xref: "paper", yref: "y",
+                  text: T.target_lbl + " " + (target * 100).toFixed(0) + "%",
+                  showarrow: false, xanchor: "right", yanchor: "bottom",
+                  font: { color: colorMid, size: 10 } },
+            ],
+            showlegend: false,
+            hovermode: "x unified",
+        };
+
+        // Bottom: wealth
+        const vTrace = {
+            x: xs, y: wealth,
+            mode: "lines",
+            line: { color: colorPos, width: 2 },
+            hovertemplate: "%{x}: $%{y:.2f}<extra></extra>",
+        };
+        const layoutV = {
+            margin: { l: 56, r: 24, t: 36, b: 40 },
+            paper_bgcolor: colorBg,
+            plot_bgcolor: colorBg,
+            font: { family: "Segoe UI, Helvetica, Arial, sans-serif", color: colorText, size: 11 },
+            title: { text: T.chart_v_t, font: { color: colorText, size: 12 }, x: 0.01, xanchor: "left" },
+            xaxis: { gridcolor: colorGrid, color: colorText, zerolinecolor: colorGrid },
+            yaxis: {
+                title: { text: T.chart_v_y, font: { color: colorMuted, size: 10 } },
+                gridcolor: colorGrid, color: colorText, zerolinecolor: colorGrid,
+                type: "log",
+            },
+            showlegend: false,
+            hovermode: "x unified",
+        };
+
+        Plotly.react(CHART_W, [wTrace], layoutW, { displayModeBar: false, responsive: true });
+        Plotly.react(CHART_V, [vTrace], layoutV, { displayModeBar: false, responsive: true });
+
+        // stats
+        document.getElementById("rl-val-events").textContent = String(events);
+        document.getElementById("rl-det-events").textContent = (mode === "cal" ? T.cal_lbl : T.band_lbl) + ", " + n + " " + T.yrs;
+        document.getElementById("rl-val-turn").textContent = pctNoSign(turnover, 0);
+        document.getElementById("rl-det-turn").textContent = T.of_pf;
+        document.getElementById("rl-val-cagr").textContent = pct(cagr, 2);
+        document.getElementById("rl-det-cagr").textContent = startYear + "-" + (startYear + n - 1);
+        document.getElementById("rl-val-dd").textContent = pct(dd, 1);
+        document.getElementById("rl-det-dd").textContent = "$1 \u2192 $" + wealth[wealth.length - 1].toFixed(2);
+    }
+
+    function updateLabels() {
+        VAL_W.textContent = (target * 100).toFixed(0) + "%";
+        VAL_B.textContent = (band * 100).toFixed(0) + "%";
+        VAL_Y.textContent = String(startYear);
+        if (mode === "cal") BLOCK_B.classList.add("disabled");
+        else BLOCK_B.classList.remove("disabled");
+    }
+
+    SLIDER_W.addEventListener("input", () => {
+        target = parseInt(SLIDER_W.value, 10) / 100;
+        updateLabels(); render();
+    });
+    SLIDER_B.addEventListener("input", () => {
+        band = parseInt(SLIDER_B.value, 10) / 100;
+        updateLabels(); render();
+    });
+    SLIDER_Y.addEventListener("input", () => {
+        startYear = parseInt(SLIDER_Y.value, 10);
+        updateLabels(); render();
+    });
+    TOGGLE_MODE.querySelectorAll("button").forEach(btn => {
+        btn.addEventListener("click", () => {
+            TOGGLE_MODE.querySelectorAll("button").forEach(b => b.classList.remove("active"));
+            btn.classList.add("active");
+            mode = btn.dataset.mode;
+            updateLabels(); render();
+        });
+    });
+
+    function applyI18n() {
+        document.getElementById("rl-lab-w").textContent = T.lab_w;
+        document.getElementById("rl-lab-b").textContent = T.lab_b;
+        document.getElementById("rl-lab-y").textContent = T.lab_y;
+        document.getElementById("rl-mode-band").textContent = T.mode_band;
+        document.getElementById("rl-mode-cal").textContent = T.mode_cal;
+        document.getElementById("rl-name-events").textContent = T.name_events;
+        document.getElementById("rl-name-turn").textContent = T.name_turn;
+        document.getElementById("rl-name-cagr").textContent = T.name_cagr;
+        document.getElementById("rl-name-dd").textContent = T.name_dd;
+        document.getElementById("rl-caption").textContent = T.caption;
+    }
+    applyI18n();
+    updateLabels();
+
+    function reportHeight() {
+        try {
+            var h = Math.ceil(document.documentElement.scrollHeight);
+            parent.postMessage({ type: 'lesson-interactive-resize', height: h }, '*');
+        } catch (e) { /* ignore */ }
+    }
+    if (typeof ResizeObserver !== 'undefined') {
+        new ResizeObserver(reportHeight).observe(document.body);
+    }
+    window.addEventListener('resize', reportHeight);
+    setTimeout(reportHeight, 50);
+    setTimeout(reportHeight, 500);
+
+    const themeObserver = new MutationObserver(render);
+    themeObserver.observe(document.documentElement, {
+        attributes: true,
+        attributeFilter: ["data-theme"],
+    });
+
+    render();
+})();
+</script>
+
+</body>
+</html>

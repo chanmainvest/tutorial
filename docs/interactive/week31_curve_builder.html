@@ -1,0 +1,618 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Curve Builder — Interactive (Week 31)</title>
+<script src="https://cdn.plot.ly/plotly-2.35.2.min.js" charset="utf-8"></script>
+<style>
+html, body { margin: 0; padding: 0; background: var(--cb-bg); }
+:root {
+    --cb-bg: #fdfbf5;
+    --cb-text: #1a2332;
+    --cb-muted: #6b7280;
+    --cb-border: #d6d3c4;
+    --cb-card: #fdfbf5;
+    --cb-accent: #b8860b;
+    --cb-blue: #0d47a1;
+    --cb-red: #b71c1c;
+    --cb-green: #2e7d32;
+    --cb-grey: #5a5a5a;
+}
+html[data-theme="dark"] .cb-root,
+.cb-root[data-theme="dark"] {
+    --cb-bg: #0f1724;
+    --cb-text: #e6e6e6;
+    --cb-muted: #9aa3b2;
+    --cb-border: #2a3441;
+    --cb-card: #0f1724;
+    --cb-accent: #d4a017;
+    --cb-blue: #5a8dee;
+    --cb-red: #ef5350;
+    --cb-green: #66bb6a;
+    --cb-grey: #8a8a8a;
+}
+.cb-root {
+    font-family: 'Segoe UI', Helvetica, Arial, sans-serif;
+    background: var(--cb-bg);
+    color: var(--cb-text);
+    padding: 12px;
+    margin: 0;
+}
+.cb-presets {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-bottom: 12px;
+    padding: 10px 12px;
+    background: var(--cb-card);
+    border: 1px solid var(--cb-border);
+    border-radius: 8px;
+    align-items: center;
+}
+.cb-presets-label {
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: var(--cb-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+    margin-right: 4px;
+}
+.cb-presets button {
+    border: 1px solid var(--cb-border);
+    background: transparent;
+    color: var(--cb-muted);
+    padding: 6px 12px;
+    font: inherit;
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    border-radius: 999px;
+    transition: background 0.15s, color 0.15s;
+}
+.cb-presets button:hover {
+    color: var(--cb-text);
+    border-color: var(--cb-accent);
+}
+.cb-presets button.active {
+    background: var(--cb-accent);
+    color: #fff;
+    border-color: var(--cb-accent);
+}
+.cb-sliders {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 10px;
+    margin-bottom: 12px;
+    padding: 12px;
+    background: var(--cb-card);
+    border: 1px solid var(--cb-border);
+    border-radius: 8px;
+}
+.cb-slider-cell {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+.cb-slider-cell .cb-tenor {
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: var(--cb-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+}
+.cb-slider-cell .cb-yval {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--cb-text);
+    font-variant-numeric: tabular-nums;
+}
+.cb-slider-cell input[type="range"] {
+    width: 100%;
+    accent-color: var(--cb-accent);
+}
+.cb-stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+    margin-bottom: 12px;
+}
+.cb-stat {
+    background: var(--cb-card);
+    border: 1px solid var(--cb-border);
+    border-left: 4px solid var(--cb-muted);
+    border-radius: 8px;
+    padding: 10px 12px;
+}
+.cb-stat.cb-stat-slope    { border-left-color: var(--cb-blue); }
+.cb-stat.cb-stat-curv     { border-left-color: var(--cb-accent); }
+.cb-stat.cb-stat-fwd      { border-left-color: var(--cb-green); }
+.cb-stat.cb-stat-shape    { border-left-color: var(--cb-red); }
+.cb-stat .cb-stat-name {
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+    color: var(--cb-muted);
+}
+.cb-stat .cb-stat-val {
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin-top: 2px;
+    font-variant-numeric: tabular-nums;
+    color: var(--cb-text);
+}
+.cb-stat .cb-stat-sub {
+    font-size: 0.72rem;
+    color: var(--cb-muted);
+    margin-top: 2px;
+}
+.cb-chart {
+    width: 100%;
+    height: 380px;
+    background: var(--cb-card);
+    border-radius: 8px;
+    border: 1px solid var(--cb-border);
+}
+.cb-caption {
+    margin-top: 10px;
+    font-size: 0.78rem;
+    color: var(--cb-muted);
+    line-height: 1.45;
+}
+@media (max-width: 760px) {
+    .cb-sliders { grid-template-columns: repeat(5, 1fr); gap: 6px; padding: 8px; }
+    .cb-slider-cell .cb-yval { font-size: 1rem; }
+    .cb-stats { grid-template-columns: repeat(2, 1fr); }
+    .cb-chart { height: 320px; }
+}
+</style>
+</head>
+<body>
+
+<div class="cb-root" id="cb-root">
+
+    <div class="cb-presets" id="cb-presets" role="tablist" aria-label="Preset curves">
+        <span class="cb-presets-label" id="cb-presets-label">Presets</span>
+        <button type="button" data-k="today" class="active">today</button>
+        <button type="button" data-k="y2020">2020</button>
+        <button type="button" data-k="y2007">2007</button>
+        <button type="button" data-k="y1981">1981</button>
+        <button type="button" data-k="invert">inverted</button>
+    </div>
+
+    <div class="cb-sliders" id="cb-sliders">
+        <div class="cb-slider-cell">
+            <span class="cb-tenor">3M</span>
+            <span class="cb-yval" id="cb-v-3m">3.50%</span>
+            <input type="range" id="cb-s-3m" min="0" max="20" step="0.05" value="3.50">
+        </div>
+        <div class="cb-slider-cell">
+            <span class="cb-tenor">2Y</span>
+            <span class="cb-yval" id="cb-v-2y">3.60%</span>
+            <input type="range" id="cb-s-2y" min="0" max="20" step="0.05" value="3.60">
+        </div>
+        <div class="cb-slider-cell">
+            <span class="cb-tenor">5Y</span>
+            <span class="cb-yval" id="cb-v-5y">3.80%</span>
+            <input type="range" id="cb-s-5y" min="0" max="20" step="0.05" value="3.80">
+        </div>
+        <div class="cb-slider-cell">
+            <span class="cb-tenor">10Y</span>
+            <span class="cb-yval" id="cb-v-10y">4.00%</span>
+            <input type="range" id="cb-s-10y" min="0" max="20" step="0.05" value="4.00">
+        </div>
+        <div class="cb-slider-cell">
+            <span class="cb-tenor">30Y</span>
+            <span class="cb-yval" id="cb-v-30y">4.30%</span>
+            <input type="range" id="cb-s-30y" min="0" max="20" step="0.05" value="4.30">
+        </div>
+    </div>
+
+    <div class="cb-stats">
+        <div class="cb-stat cb-stat-shape">
+            <div class="cb-stat-name" id="cb-name-shape">Shape</div>
+            <div class="cb-stat-val" id="cb-val-shape">Normal</div>
+            <div class="cb-stat-sub" id="cb-sub-shape">Upward sloping</div>
+        </div>
+        <div class="cb-stat cb-stat-slope">
+            <div class="cb-stat-name" id="cb-name-slope">Slope (10y - 2y)</div>
+            <div class="cb-stat-val" id="cb-val-slope">+40 bp</div>
+            <div class="cb-stat-sub" id="cb-sub-slope">Long-run median ~ +95 bp</div>
+        </div>
+        <div class="cb-stat cb-stat-curv">
+            <div class="cb-stat-name" id="cb-name-curv">Curvature</div>
+            <div class="cb-stat-val" id="cb-val-curv">0 bp</div>
+            <div class="cb-stat-sub" id="cb-sub-curv">2*5y - 2y - 30y</div>
+        </div>
+        <div class="cb-stat cb-stat-fwd">
+            <div class="cb-stat-name" id="cb-name-fwd">1y forward, 1y out</div>
+            <div class="cb-stat-val" id="cb-val-fwd">3.70%</div>
+            <div class="cb-stat-sub" id="cb-sub-fwd">No-arbitrage from 1y &amp; 2y</div>
+        </div>
+    </div>
+
+    <div id="cb-chart" class="cb-chart"></div>
+
+    <p class="cb-caption" id="cb-caption">
+        Drag the five sliders to draw any curve. Pick a preset to see history. The slope, curvature, and 1y1y forward update live.
+    </p>
+</div>
+
+<script>
+(function () {
+    const I18N = {
+        en: {
+            presets_label: "Presets",
+            preset_today:  "today",
+            preset_2020:   "2020",
+            preset_2007:   "2007",
+            preset_1981:   "1981",
+            preset_invert: "inverted",
+            tenor_3m:  "3M",
+            tenor_2y:  "2Y",
+            tenor_5y:  "5Y",
+            tenor_10y: "10Y",
+            tenor_30y: "30Y",
+            name_shape: "Shape",
+            name_slope: "Slope (10y - 2y)",
+            name_curv:  "Curvature",
+            name_fwd:   "1y forward, 1y out",
+            sub_slope:  "Long-run median ~ +95 bp",
+            sub_curv:   "2*5y - 2y - 30y",
+            sub_fwd:    "No-arbitrage from 2y & 1y",
+            shape_normal:    "Normal",
+            shape_normal_sub:    "Upward sloping",
+            shape_flat:      "Flat",
+            shape_flat_sub:      "Mid-cycle warning",
+            shape_inverted:  "Inverted",
+            shape_inverted_sub:  "Recession signal",
+            shape_humped:    "Humped",
+            shape_humped_sub:    "Belly above wings",
+            chart_xtitle:   "Maturity (years, log)",
+            chart_ytitle:   "Yield (% annual)",
+            line_curve:     "Your curve",
+            line_today:     "April 2026 reference",
+            caption: "Slope = 10y - 2y. Curvature = 2*5y - 2y - 30y (positive => belly cheap, humped). The 1y1y forward is the no-arbitrage rate implied by your 1y (interpolated from 3m and 2y) and 2y points. Try the 1981 preset to see Volcker.",
+        },
+        hk: {
+            presets_label: "預設曲線",
+            preset_today:  "當下",
+            preset_2020:   "2020",
+            preset_2007:   "2007",
+            preset_1981:   "1981",
+            preset_invert: "倒掛",
+            tenor_3m:  "3 月",
+            tenor_2y:  "2 年",
+            tenor_5y:  "5 年",
+            tenor_10y: "10 年",
+            tenor_30y: "30 年",
+            name_shape: "形狀",
+            name_slope: "斜率(10 年-2 年)",
+            name_curv:  "曲率",
+            name_fwd:   "1 年遠期(1 年後)",
+            sub_slope:  "長期中位數約 +95 bp",
+            sub_curv:   "2*5y - 2y - 30y",
+            sub_fwd:    "由 2 年與 1 年的無套利條件推導",
+            shape_normal:    "正常",
+            shape_normal_sub:    "向上傾斜",
+            shape_flat:      "扁平",
+            shape_flat_sub:      "周期中段警號",
+            shape_inverted:  "倒掛",
+            shape_inverted_sub:  "衰退訊號",
+            shape_humped:    "駝峰",
+            shape_humped_sub:    "中段高於兩端",
+            chart_xtitle:   "年期(年,對數)",
+            chart_ytitle:   "孳息率(年化 %)",
+            line_curve:     "你的曲線",
+            line_today:     "2026 年 4 月參考",
+            caption: "斜率 = 10 年 - 2 年。曲率 = 2*5y - 2y - 30y(為正=中段便宜,駝峰)。1 年遠期由 1 年(由 3 月與 2 年內插)與 2 年的無套利條件推得。試試 1981 預設看沃爾克時期。",
+        },
+        tw: {
+            presets_label: "預設曲線",
+            preset_today:  "當前",
+            preset_2020:   "2020",
+            preset_2007:   "2007",
+            preset_1981:   "1981",
+            preset_invert: "倒掛",
+            tenor_3m:  "3 月",
+            tenor_2y:  "2 年",
+            tenor_5y:  "5 年",
+            tenor_10y: "10 年",
+            tenor_30y: "30 年",
+            name_shape: "形狀",
+            name_slope: "斜率(10 年-2 年)",
+            name_curv:  "曲率",
+            name_fwd:   "1 年遠期(1 年後)",
+            sub_slope:  "長期中位數約 +95 bp",
+            sub_curv:   "2*5y - 2y - 30y",
+            sub_fwd:    "由 2 年與 1 年無套利推導",
+            shape_normal:    "正常",
+            shape_normal_sub:    "向上傾斜",
+            shape_flat:      "平坦",
+            shape_flat_sub:      "循環中段警號",
+            shape_inverted:  "倒掛",
+            shape_inverted_sub:  "衰退訊號",
+            shape_humped:    "駝峰",
+            shape_humped_sub:    "中段高於兩端",
+            chart_xtitle:   "年期(年,對數)",
+            chart_ytitle:   "殖利率(年化 %)",
+            line_curve:     "你的曲線",
+            line_today:     "2026 年 4 月參考",
+            caption: "斜率 = 10 年 - 2 年。曲率 = 2*5y - 2y - 30y(為正=中段便宜、駝峰)。1 年遠期由 1 年(由 3 月與 2 年內插)與 2 年的無套利條件推得。試試 1981 預設看伏克爾時期。",
+        },
+        cn: {
+            presets_label: "预设曲线",
+            preset_today:  "当下",
+            preset_2020:   "2020",
+            preset_2007:   "2007",
+            preset_1981:   "1981",
+            preset_invert: "倒挂",
+            tenor_3m:  "3 月",
+            tenor_2y:  "2 年",
+            tenor_5y:  "5 年",
+            tenor_10y: "10 年",
+            tenor_30y: "30 年",
+            name_shape: "形状",
+            name_slope: "斜率(10 年-2 年)",
+            name_curv:  "曲率",
+            name_fwd:   "1 年远期(1 年后)",
+            sub_slope:  "长期中位数约 +95 bp",
+            sub_curv:   "2*5y - 2y - 30y",
+            sub_fwd:    "由 2 年与 1 年无套利推导",
+            shape_normal:    "正常",
+            shape_normal_sub:    "向上倾斜",
+            shape_flat:      "平坦",
+            shape_flat_sub:      "周期中段警号",
+            shape_inverted:  "倒挂",
+            shape_inverted_sub:  "衰退信号",
+            shape_humped:    "驼峰",
+            shape_humped_sub:    "中段高于两端",
+            chart_xtitle:   "期限(年,对数)",
+            chart_ytitle:   "收益率(年化 %)",
+            line_curve:     "你的曲线",
+            line_today:     "2026 年 4 月参考",
+            caption: "斜率 = 10 年 - 2 年。曲率 = 2*5y - 2y - 30y(为正=中段便宜、驼峰)。1 年远期由 1 年(由 3 月与 2 年插值)与 2 年的无套利条件得到。试试 1981 预设看沃尔克时期。",
+        },
+    };
+
+    function currentLang() {
+        const p = new URLSearchParams(window.location.search);
+        const l = (p.get("lang") || "en").toLowerCase();
+        return I18N.hasOwnProperty(l) ? l : "en";
+    }
+    let T = I18N[currentLang()];
+
+    const TENORS    = ["3m", "2y", "5y", "10y", "30y"];
+    const TENOR_X   = [0.25, 2.0, 5.0, 10.0, 30.0];
+
+    const PRESETS = {
+        today:  { "3m": 3.50, "2y": 3.60, "5y": 3.80, "10y": 4.00, "30y": 4.30 },
+        y2020:  { "3m": 0.13, "2y": 0.20, "5y": 0.36, "10y": 0.64, "30y": 1.27 },
+        y2007:  { "3m": 4.82, "2y": 4.87, "5y": 4.93, "10y": 5.03, "30y": 5.12 },
+        y1981:  { "3m": 14.7, "2y": 15.5, "5y": 14.9, "10y": 14.0, "30y": 13.4 },
+        invert: { "3m": 5.45, "2y": 4.88, "5y": 4.18, "10y": 3.97, "30y": 4.03 },
+    };
+
+    const ROOT     = document.getElementById("cb-root");
+    const PRESETS_EL = document.getElementById("cb-presets");
+    const CHART    = document.getElementById("cb-chart");
+
+    let yields = Object.assign({}, PRESETS.today);
+
+    function fmtPct(v) { return (v >= 0 ? "" : "-") + Math.abs(v).toFixed(2) + "%"; }
+    function fmtBp(v)  {
+        const sign = v >= 0 ? "+" : "-";
+        return sign + Math.round(Math.abs(v) * 100) + " bp";
+    }
+
+    function getCssVar(name) {
+        return getComputedStyle(ROOT).getPropertyValue(name).trim();
+    }
+    function darkMode() {
+        return document.documentElement.getAttribute("data-theme") === "dark";
+    }
+
+    function syncSliders() {
+        for (const t of TENORS) {
+            document.getElementById("cb-s-" + t).value = String(yields[t]);
+            document.getElementById("cb-v-" + t).textContent = fmtPct(yields[t]);
+        }
+    }
+
+    function shape() {
+        const s = yields["10y"] - yields["2y"];
+        const c = 2 * yields["5y"] - yields["2y"] - yields["30y"];
+        if (s < -0.10) return { key: "inverted", colour: getCssVar("--cb-red") };
+        if (s < 0.20  && Math.abs(c) < 0.20) return { key: "flat", colour: getCssVar("--cb-accent") };
+        if (c > 0.30) return { key: "humped", colour: getCssVar("--cb-accent") };
+        return { key: "normal", colour: getCssVar("--cb-blue") };
+    }
+
+    function fwd1y1y() {
+        // 1-year spot interpolated from 3m and 2y on log-tenor.
+        const r3 = yields["3m"] / 100;
+        const r2 = yields["2y"] / 100;
+        // Log-linear interpolation between 0.25y and 2y at 1y.
+        const t = (Math.log(1.0) - Math.log(0.25)) / (Math.log(2.0) - Math.log(0.25));
+        const r1 = r3 + t * (r2 - r3);
+        // No-arbitrage: (1+r2)^2 = (1+r1) * (1+f)
+        const f = Math.pow(1 + r2, 2) / (1 + r1) - 1;
+        return f * 100;
+    }
+
+    function refreshStats() {
+        const sBp = (yields["10y"] - yields["2y"]) * 100;
+        const cBp = (2 * yields["5y"] - yields["2y"] - yields["30y"]) * 100;
+        const f   = fwd1y1y();
+        const sh  = shape();
+
+        document.getElementById("cb-val-slope").textContent = fmtBp(sBp / 100);
+        document.getElementById("cb-val-curv").textContent  = fmtBp(cBp / 100);
+        document.getElementById("cb-val-fwd").textContent   = fmtPct(f);
+
+        const shapeEl = document.getElementById("cb-val-shape");
+        const subEl   = document.getElementById("cb-sub-shape");
+        if (sh.key === "inverted") {
+            shapeEl.textContent = T.shape_inverted;
+            subEl.textContent = T.shape_inverted_sub;
+        } else if (sh.key === "flat") {
+            shapeEl.textContent = T.shape_flat;
+            subEl.textContent = T.shape_flat_sub;
+        } else if (sh.key === "humped") {
+            shapeEl.textContent = T.shape_humped;
+            subEl.textContent = T.shape_humped_sub;
+        } else {
+            shapeEl.textContent = T.shape_normal;
+            subEl.textContent = T.shape_normal_sub;
+        }
+        shapeEl.style.color = sh.colour;
+    }
+
+    function renderChart() {
+        const colorText = getCssVar("--cb-text");
+        const colorMuted = getCssVar("--cb-muted");
+        const colorBg = getCssVar("--cb-card");
+        const colorGrid = darkMode() ? "rgba(255,255,255,0.08)" : "rgba(0,0,0,0.07)";
+        const colorBlue = getCssVar("--cb-blue");
+        const colorGrey = getCssVar("--cb-grey");
+
+        const xs = TENOR_X;
+        const ys = TENORS.map(t => yields[t]);
+        const refY = TENORS.map(t => PRESETS.today[t]);
+
+        const traces = [
+            {
+                x: xs, y: refY,
+                type: "scatter", mode: "lines+markers",
+                name: T.line_today,
+                line: { color: colorGrey, width: 1.6, dash: "dot" },
+                marker: { size: 6, color: colorGrey },
+                hovertemplate: "%{x:.2f}y - %{y:.2f}%<extra>" + T.line_today + "</extra>",
+            },
+            {
+                x: xs, y: ys,
+                type: "scatter", mode: "lines+markers+text",
+                name: T.line_curve,
+                line: { color: colorBlue, width: 3 },
+                marker: { size: 9, color: colorBlue },
+                text: ys.map(v => v.toFixed(2) + "%"),
+                textposition: "top center",
+                textfont: { color: colorBlue, size: 11, family: "Segoe UI, Helvetica, Arial, sans-serif" },
+                hovertemplate: "%{x:.2f}y - %{y:.2f}%<extra>" + T.line_curve + "</extra>",
+            },
+        ];
+
+        const layout = {
+            margin: { l: 56, r: 18, t: 24, b: 56 },
+            paper_bgcolor: colorBg,
+            plot_bgcolor: colorBg,
+            font: { family: "Segoe UI, Helvetica, Arial, sans-serif",
+                    color: colorText, size: 12 },
+            xaxis: {
+                type: "log",
+                tickvals: TENOR_X,
+                ticktext: [T.tenor_3m, T.tenor_2y, T.tenor_5y, T.tenor_10y, T.tenor_30y],
+                title: { text: T.chart_xtitle, font: { color: colorMuted, size: 11 } },
+                color: colorText,
+                gridcolor: colorGrid,
+                range: [Math.log10(0.18), Math.log10(40)],
+            },
+            yaxis: {
+                title: { text: T.chart_ytitle, font: { color: colorMuted, size: 11 } },
+                color: colorText,
+                gridcolor: colorGrid,
+                zerolinecolor: colorMuted,
+                rangemode: "tozero",
+            },
+            legend: {
+                orientation: "h", x: 0, y: 1.08,
+                font: { color: colorText, size: 11 },
+                bgcolor: "rgba(0,0,0,0)",
+            },
+            hovermode: "x unified",
+        };
+
+        Plotly.react(CHART, traces, layout, {
+            displayModeBar: false, responsive: true,
+        });
+    }
+
+    function refreshAll() {
+        syncSliders();
+        refreshStats();
+        renderChart();
+    }
+
+    function setPreset(key) {
+        if (!PRESETS[key]) return;
+        yields = Object.assign({}, PRESETS[key]);
+        PRESETS_EL.querySelectorAll("button").forEach(b => {
+            b.classList.toggle("active", b.dataset.k === key);
+        });
+        refreshAll();
+    }
+
+    PRESETS_EL.querySelectorAll("button").forEach(btn => {
+        btn.addEventListener("click", () => setPreset(btn.dataset.k));
+    });
+
+    TENORS.forEach(t => {
+        const el = document.getElementById("cb-s-" + t);
+        el.addEventListener("input", () => {
+            yields[t] = parseFloat(el.value);
+            // user-edited; clear preset highlight
+            PRESETS_EL.querySelectorAll("button").forEach(b => b.classList.remove("active"));
+            refreshAll();
+        });
+    });
+
+    function applyI18n() {
+        document.getElementById("cb-presets-label").textContent = T.presets_label;
+        const presetKeys = ["today", "y2020", "y2007", "y1981", "invert"];
+        const presetLabels = [T.preset_today, T.preset_2020, T.preset_2007, T.preset_1981, T.preset_invert];
+        const btns = PRESETS_EL.querySelectorAll("button");
+        btns.forEach((b, i) => { b.textContent = presetLabels[i]; });
+
+        document.querySelectorAll(".cb-tenor")[0].textContent = T.tenor_3m;
+        document.querySelectorAll(".cb-tenor")[1].textContent = T.tenor_2y;
+        document.querySelectorAll(".cb-tenor")[2].textContent = T.tenor_5y;
+        document.querySelectorAll(".cb-tenor")[3].textContent = T.tenor_10y;
+        document.querySelectorAll(".cb-tenor")[4].textContent = T.tenor_30y;
+
+        document.getElementById("cb-name-shape").textContent = T.name_shape;
+        document.getElementById("cb-name-slope").textContent = T.name_slope;
+        document.getElementById("cb-name-curv").textContent  = T.name_curv;
+        document.getElementById("cb-name-fwd").textContent   = T.name_fwd;
+        document.getElementById("cb-sub-slope").textContent  = T.sub_slope;
+        document.getElementById("cb-sub-curv").textContent   = T.sub_curv;
+        document.getElementById("cb-sub-fwd").textContent    = T.sub_fwd;
+        document.getElementById("cb-caption").textContent    = T.caption;
+    }
+
+    applyI18n();
+    refreshAll();
+
+    function reportHeight() {
+        try {
+            const h = Math.ceil(document.documentElement.scrollHeight);
+            parent.postMessage({ type: 'lesson-interactive-resize', height: h }, '*');
+        } catch (e) { /* ignore */ }
+    }
+    if (typeof ResizeObserver !== 'undefined') {
+        new ResizeObserver(reportHeight).observe(document.body);
+    }
+    window.addEventListener('resize', reportHeight);
+    setTimeout(reportHeight, 50);
+    setTimeout(reportHeight, 500);
+
+    const themeObserver = new MutationObserver(refreshAll);
+    themeObserver.observe(document.documentElement, {
+        attributes: true,
+        attributeFilter: ["data-theme"],
+    });
+})();
+</script>
+
+</body>
+</html>

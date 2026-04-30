@@ -1,4 +1,4 @@
-# Side Lesson 27: Watchlist Building and Stock Screening
+# Side Lesson 27: Building a Watchlist — Screens that Find Quality at Value
 
 ---
 
@@ -6,231 +6,364 @@
 
 ---
 
-### Introduction
+### 1. Why This Is Important
 
-With thousands of publicly traded stocks across global markets, finding investment opportunities without a systematic process is like searching for a needle in a haystack. Stock screeners and watchlist management transform investing from a haphazard activity into a disciplined research workflow. Whether you are a value investor looking for undervalued companies, a growth investor seeking high-revenue businesses, or a dividend investor building an income stream, a well-designed screening and watchlist process is your most valuable tool for generating ideas and staying organized.
+There are roughly **4,000** stocks listed on the major US exchanges
+(NYSE + Nasdaq, excluding ADRs, micro-caps under $50M, and the OTC
+ghost-mall). No retail investor — and very few institutional ones —
+can read a 10-K and an earnings call transcript on every one of them
+each year. The number you can actually own with conviction is not 4,000.
+It is somewhere between 5 and 20.
+
+The job of a screener is to walk the funnel for you. You start with
+4,000 names, eliminate 95% with three or four numerical filters, hand
+the survivors to your eyes and your spreadsheet, and end up with a
+**watchlist of 10-15 names you actually understand** plus a tighter
+**buy-list of 3-7 you currently own**. Doing this without a screener
+is like trying to find a wedding dress by walking through every store
+on Fifth Avenue. Doing it with one is like asking the saleswoman to
+pull only the white silk size-6 gowns.
+
+Four reasons to take screening seriously:
+
+1. **Filter discipline beats stock-picking discipline.** Per SOUL #1,
+   alpha is rare. The single highest-leverage decision you will make is
+   *which 30 names enter your due-diligence queue*, not which one of
+   those 30 you eventually buy. A bad shortlist makes good selection
+   impossible; a good shortlist makes mediocre selection profitable.
+
+2. **It mechanises Buffett's "circle of competence."** Every screen
+   has a thesis embedded in it. A GARP screen embeds *I believe ROIC
+   above the cost of capital, bought below 1.2x PEG, compounds*. A
+   deep-value screen embeds *I believe statistical cheapness in
+   solvent businesses mean-reverts*. Writing the screen forces you to
+   write the thesis.
+
+3. **Market caps do the heavy lifting.** US-listed equities (per SOUL
+   #16) come with audited GAAP filings, deep secondary liquidity, and
+   the SEC EDGAR plumbing that makes all of this work. Run the same
+   process on a Shenzhen B-share index and the data layer breaks.
+
+4. **It defends against narrative.** The best filter against
+   "Cathie said it on CNBC" is not willpower; it is a numerical
+   tripwire that says *PEG > 1.5 -> no further work*. Pre-committed
+   filters convert the impulse buy into a process buy. (SOUL #12: the
+   market can stay irrational longer than you can stay solvent — and
+   longer than your conviction, too.)
+
+![A funnel diagram showing 4,000 US-listed stocks narrowing in four steps: 250 pass the screen, 50 advance to deep-dive, 10 sit on the active watchlist, and 3 are currently owned. Each stage is labelled with the typical activity (filter, due diligence, valuation, position).](image/side27_screener_funnel.png)
+
+The funnel above is the canonical pipeline: **filter -> due-diligence
+-> watchlist -> position**. The numbers will not match yours exactly,
+but the *shape* should — most names die in the first two stages.
 
 ---
 
-### A) Why Important
+### 2. What You Need to Know
 
-**Information overload management.** There are approximately 4,000 stocks listed on major US exchanges, over 6,000 if you include OTC markets, and tens of thousands globally. No one can analyze every company. Screening narrows the universe to a manageable number of candidates that meet your specific criteria, saving enormous amounts of time.
+#### 2.1 The Tool Stack — Free, Brokerage, and Paid
 
-**Discipline enforcement.** A systematic screening process prevents you from chasing headlines, hot tips, or social media hype. By defining your criteria in advance, you make decisions based on data rather than emotion. This is one of the most reliable ways to improve long-term investment results.
+Three tiers of screener exist. The differences are not "feature
+count" but **data depth, history length, and cross-sectional rigour.**
 
-**Consistency.** Using the same screening criteria over time allows you to compare opportunities on an equal basis. Without a consistent process, you might apply different standards to different stocks based on how excited or nervous you feel about them, introducing bias that hurts returns.
+**Free tier (good enough for 90% of retail investors).**
 
-**Opportunity identification.** Some of the best investment opportunities are in companies you have never heard of. Screeners surface these hidden gems by focusing on financial characteristics rather than brand recognition or media coverage. Many successful value investors credit their screening process for finding their best ideas.
+- **Finviz** (`finviz.com`) — fastest screener on the open web. Eighty-plus
+  fundamental + technical filters, real-time delayed quotes, sector
+  heat-map. Free version capped at 20 screens; **Finviz Elite** at
+  $39.50/month adds intraday data, backtesting, and email alerts.
+- **Yahoo Finance Screener** — fewer filters, but free, ad-supported,
+  and integrated with the Yahoo data layer. Useful for quick
+  one-shot checks.
+- **TradingView** — strongest if you also chart. Built-in screener
+  with TradingView's technical indicators and 90+ fundamental fields.
+  Free tier limited to one screen at a time.
+- **Schwab StreetSmart Edge / Fidelity Active Trader Pro** — your
+  brokerage already includes a screener for free. Schwab's covers
+  about 60 fundamentals; Fidelity's adds proprietary "equity
+  summary score" composites.
 
-**Research efficiency.** A well-organized watchlist with sector groupings and priority tiers ensures you spend your limited research time on the most promising candidates. Instead of randomly reading about whatever catches your eye, you work through a prioritized pipeline of ideas that have already passed your initial filters.
+**Paid tier (worth it if you run weekly screens or hold >20 names).**
 
-**Pattern recognition.** Over time, running screens regularly helps you develop intuition about what constitutes an attractive investment. You begin to recognize patterns in valuations, growth rates, and financial health that textbooks alone cannot teach.
+- **Stock Rover** ($28-$40/month, $79/yr Essentials) — 600+ metrics
+  including 10 years of fundamentals, sector benchmarks, custom
+  formulas, and GICS-aware ranking. The retail-investor gold
+  standard for fundamental work.
+- **TIKR.com** ($24-$30/month) — institutional-style data feed
+  (S&P Capital IQ behind it), 25-year financial history, transcripts,
+  global coverage. Best if you also read 10-Ks.
+- **Roic.ai** ($14/month) — clean ROIC-centric layout, useful for
+  quality screens; weaker on backtesting.
+- **YCharts / Koyfin** (free + $39/month tier) — chart-first; Koyfin
+  is the closest free-with-a-paywall analogue to a Bloomberg
+  Terminal that exists.
 
-**Avoiding bias.** Without a systematic screening process, investors naturally gravitate toward stocks they already know: popular brands, companies in their own industry, stocks discussed in the media, or recommendations from friends. This familiarity bias severely limits your opportunity set. A screener objectively surfaces stocks based on financial characteristics, exposing you to companies you might never discover through casual browsing or word of mouth.
+You do not need all of these. **Pick one free + one paid** and stop.
+The marginal hour spent learning a third platform is better spent
+reading a 10-K.
+
+#### 2.2 Screen 1 — GARP (Growth at a Reasonable Price)
+
+GARP is Peter Lynch's screen, formalised. The thesis: *pay no more
+than 1x PEG for a high-ROIC business growing free cash flow*. It is
+the workhorse screen for tranche-1 (long-term compounders, per SOUL
+#13).
+
+| Filter | Threshold | Why |
+|---|---|---|
+| Market cap | > \$2 B | liquidity + audited Big-4 books |
+| PEG (forward) | < 1.2 | growth not already priced in |
+| FCF growth (5y) | > 10% | thesis-confirming cash dynamics |
+| ROIC (TTM) | > 15% | spread above ~10% cost of capital |
+| Debt / equity | < 1.0 | survives a credit cycle |
+| Gross margin | > 40% | pricing power floor |
+
+A GARP screen run on the S&P 1500 in April 2026 returns roughly
+**80-120 names**. Typical hits today (representative, not a buy
+list): MSFT, GOOGL, V, MA, ADBE, NOW, INTU, TXN, MCO, MSCI, AVGO,
+LIN, ANET, CDNS. Not all are cheap right now — the screen is the
+*entry filter*, not the buy decision. PEG below 1.0 is rare in 2026
+because the index is trading at a 22x forward P/E vs a long-run mean
+of 16x. Loosen to 1.5 and you get 200+ names; tighten to 0.8 and you
+get 15 — which is the right number for a deep-dive queue.
+
+#### 2.3 Screen 2 — Deep Value (Statistical Cheapness, Solvent)
+
+Deep value is the Graham screen, the academic HML factor, the Bogle
+"reversion to the mean" version. The thesis: *the market over-discounts
+boring, slow, or temporarily impaired businesses, and a basket of them
+mean-reverts.*
+
+| Filter | Threshold | Why |
+|---|---|---|
+| Market cap | > \$500 M | tradeable, audited |
+| P/E (TTM) | < 12 | bottom quintile |
+| P/B | < 1.5 | balance-sheet protection |
+| Current ratio | > 2.0 | survives 12 months without a roll |
+| FCF (TTM) | > \$0 | not a value trap |
+| Debt / EBITDA | < 3 | rate-cycle resilient |
+
+Deep value is the screen you run *into* market panics, not out of
+them. April 2026 is mid-cycle, the screen is sparse — energy mid-caps
+(DVN, MRO, OVV), some regional banks (FNB, RF, CFR), and a handful of
+consumer staples (KMB, K, GIS). In March 2020, the same screen
+returned 600+ names. The screen does not change; the market does.
+
+#### 2.4 Screen 3 — Quality Compounder (10-Year Track Record)
+
+The Munger screen. The thesis: *a great business at a fair price beats
+a fair business at a great price*. This is the screen you keep open
+in the background and run quarterly.
+
+| Filter | Threshold | Why |
+|---|---|---|
+| ROE | > 20% in **each** of last 5 years | stable, not levered up |
+| Gross margin | > 40% | moat indicator |
+| Operating margin | > 15% | converts revenue to cash |
+| FCF positive | 8 / 10 years | proven through a cycle |
+| Debt / equity | < 0.8 | optionality, not leverage |
+| Buybacks > issuance | net negative shares | management aligned |
+
+This is the most punishing screen of the four — it returns about
+**40 names** in any reasonable market. April 2026 hits include AAPL,
+MSFT, V, MA, COST, ULTA, MCO, MSCI, ROL, PAYX, AZO, TROW, FAST.
+**There is no PEG/PE filter here on purpose.** This screen finds the
+universe; valuation enters at the watchlist stage. You wait for one of
+the 40 to fall 25-35% below its 5-year median EV/EBITDA, then you act.
+
+#### 2.5 Screen 4 — Recovery (52-Week-Low Quality)
+
+The contrarian screen. The thesis: *good businesses occasionally trade
+near their 52-week low for reasons that have nothing to do with
+long-term economics. Catch them before the market re-rates.*
+
+| Filter | Threshold | Why |
+|---|---|---|
+| Price | within 10% of 52-week low | psychologically hated |
+| Gross margin | > 25% | rules out commodity wreckage |
+| Working capital | > 0 | survives the next 12 months |
+| Net debt / EBITDA | < 4 | solvable balance sheet |
+| Insider buying (90d) | > 0 net | management agrees |
+| Short interest | < 8% of float | not a known short-seller target |
+
+Recovery screens are the easiest to mis-execute (the "falling knife"
+problem) and the most rewarding when right. Insider buying + short
+interest filters are the quality gates. April 2026 candidates: a
+small handful of regional banks post-2024 deposit-flight, a couple
+of consumer-discretionary mid-caps that missed Q1, and one or two
+healthcare names hit by tariff noise. Limit position size to 0.5-1% of
+the portfolio — these are tranche-4 (opportunistic), not tranche-1.
+
+![A scatter plot of trailing P/E (x-axis) versus return on equity (y-axis) for 30 well-known US-listed stocks. Quadrants are labelled cheap/expensive on the price axis and low-quality/high-quality on the ROE axis. The lower-right "GARP zone" — low P/E, high ROE — is shaded green and contains the screen's most attractive candidates.](image/side27_garp_quadrant.png)
+
+The scatter above is the visual frame. Anything in the lower-right
+quadrant is a candidate; anything in the upper-left is the
+"glamour-stock trap" (high P/E, mediocre ROE). Most US large-caps
+in April 2026 sit in the upper-right — quality at a premium. The
+GARP screen is, geometrically, *find the names heading into the
+lower-right.*
+
+#### 2.6 The Watchlist Pipeline — From Screen to Position
+
+The screen is step 1 of a five-step funnel:
+
+1. **Screen** (4,000 -> 250). Run the four screens monthly. Union the
+   hits.
+2. **Triage** (250 -> 50). Eyeball each name for two minutes. Reject
+   anything with restated financials, going-concern language, SEC
+   investigation, or sub-$200M average daily dollar volume.
+3. **Deep dive** (50 -> 10). Read the latest 10-K (or three of them
+   for compounders), the most recent earnings transcript, and one
+   short-seller report if one exists. Build a one-page thesis with
+   five lines: *what they do, how they make money, what could kill
+   it, what is it worth, what is it trading at.* (See `side02_reading_10k.md`.)
+4. **Watchlist** (10 -> 3-7). Add to your tracked watchlist with
+   *price triggers* — the price at which you would buy, not the
+   price you wish you had bought at. A watchlist without triggers is
+   a daydream.
+5. **Position** (buy when triggered). Use a 1/3-1/3-1/3 entry: buy
+   1/3 at trigger, 1/3 if it falls another 10%, 1/3 if it falls
+   another 10% on no thesis-breaking news. Per SOUL #14, the barbell
+   says you are wrong sometimes; the staggered entry pays you to be
+   wrong about timing.
+
+The buy-trigger is the single most underrated discipline. Decide the
+price at the desk, in good light, with the 10-K open and CNBC off. By
+the time the price arrives, the market will be telling you not to buy.
+
+#### 2.7 Avoiding the Common Pitfalls of Screening
+
+Three traps eat 80% of screening returns:
+
+**Trap 1 — Optimising on the back-test.** The temptation to keep
+adding filters until the screen returns "all winners" historically
+is irresistible and fatal. Per SOUL #1, every additional filter
+narrows your universe and adds in-sample bias. Stop at 6 filters.
+Ever. (See week46_backtest_validator.html.)
+
+**Trap 2 — Confusing screen output with research output.** The
+screen tells you which 50 names are *worth investigating*. It tells
+you nothing about whether you should *own* them. The 50->10 stage is
+where your edge actually lives.
+
+**Trap 3 — Not running the screen on yourself.** Once a year, run
+the four screens with your own current holdings as the input
+universe. If a position you currently own does not appear in *any*
+of the four screens, you are holding it on inertia, not thesis.
+Either re-justify it from scratch or sell.
 
 ---
 
-### B) What You Need to Know
-
-#### Stock Screeners: Tools and Platforms
-
-Several free and paid platforms provide stock screening capabilities. Each has strengths and limitations.
-
-**Free screeners.** Finviz is the most popular free screener, offering dozens of fundamental, technical, and descriptive filters. Yahoo Finance provides basic screening with a clean interface. Google Finance is simpler but useful for quick lookups. TradingView combines screening with charting capabilities.
-
-**Brokerage screeners.** Most brokerages, including Fidelity, Schwab, and Interactive Brokers, offer built-in screeners. These often integrate directly with your portfolio, making it easy to move from screening to research to execution. Fidelity's screener is particularly well-regarded for its breadth of criteria and ease of use.
-
-**Premium screeners.** Portfolio123, Stock Rover, and GuruFocus offer more advanced screening with backtesting capabilities, custom formulas, and proprietary metrics. These are worth considering once your screening process matures and you need capabilities beyond what free tools provide.
-
-**Data considerations.** All screeners are only as good as their data. Free screeners may have delayed data, limited historical coverage, or missing metrics for smaller companies. Always verify key data points from the company's actual financial statements before making investment decisions based on screened data.
-
-#### Fundamental Screening Criteria
-
-The criteria you use should align with your investment philosophy. Here are the most important categories and specific metrics within each.
-
-**Valuation Metrics**
-
-Price-to-earnings ratio (P/E) is the most common valuation metric. A low P/E relative to sector peers or historical averages may indicate undervaluation. However, low P/E stocks are sometimes cheap for good reasons, such as declining earnings or structural challenges.
-
-Forward P/E uses analyst estimates for next year's earnings, providing a more forward-looking valuation. The PEG ratio divides P/E by expected earnings growth rate; a PEG below 1.0 suggests the stock may be undervalued relative to its growth.
-
-Price-to-book ratio (P/B) compares market capitalization to book value. Particularly useful for financial companies and asset-heavy industries. A P/B below 1.0 means the market values the company at less than its accounting net worth.
-
-Price-to-sales ratio (P/S) is useful for companies without positive earnings. Revenue is harder to manipulate than earnings and provides a cleaner comparison. Enterprise value to EBITDA (EV/EBITDA) is often preferred by professionals because it accounts for differences in capital structure and tax rates.
-
-Free cash flow yield (FCF yield) divides free cash flow per share by the stock price. This measures the cash return a business generates relative to its market price. Many experienced investors consider this the most important valuation metric because cash flow is harder to manipulate than earnings.
-
-**Quality and Profitability Metrics**
-
-Return on equity (ROE) measures how efficiently a company uses shareholder capital. Consistently high ROE above 15% suggests a competitive advantage. But watch for artificially high ROE caused by excessive debt.
-
-Return on invested capital (ROIC) is a more comprehensive measure that includes debt capital. ROIC consistently above the company's cost of capital indicates genuine value creation.
-
-Gross margin, operating margin, and net margin reveal the company's pricing power and cost structure. Expanding margins suggest improving competitive position; contracting margins may signal trouble.
-
-Debt-to-equity ratio and interest coverage ratio measure financial health. Companies with too much debt are vulnerable during economic downturns. Interest coverage below 3x is a warning sign.
-
-Current ratio and quick ratio measure short-term liquidity. Can the company pay its bills? A current ratio below 1.0 suggests potential liquidity problems.
-
-**Growth Metrics**
-
-Revenue growth rate, both historical and projected, indicates the company's top-line trajectory. Sustainable revenue growth is the foundation of long-term stock price appreciation.
-
-Earnings growth rate shows whether increasing revenue translates to increasing profits. Revenue growth without earnings growth may indicate market share bought through price cutting.
-
-Free cash flow growth is the ultimate growth metric. A company that grows revenue and earnings but not free cash flow may be consuming excessive capital to fund its growth, which is ultimately unsustainable.
-
-Earnings surprise history can also be a useful growth screen. Companies that consistently beat analyst estimates by 5% or more often have conservative management teams and genuine operational momentum. A pattern of beats suggests the business is performing better than the market expects.
-
-**Dividend Metrics**
-
-Dividend yield, the annual dividend divided by the stock price, indicates current income. High yields above 5-6% may signal a dividend cut risk.
-
-Payout ratio, dividends divided by earnings, measures sustainability. Below 60% is generally sustainable for most industries. REITs and utilities can sustain higher payout ratios.
-
-Dividend growth rate, measured over 5 and 10 years, shows management's commitment to returning capital. Consistent dividend increases often signal management confidence in future earnings.
-
-Consecutive years of dividend increases help identify Dividend Aristocrats (25+ years) and Dividend Kings (50+ years), companies with exceptional track records.
-
-#### Building an Effective Screening Process
-
-**Step 1: Define your investment philosophy.** Before touching a screener, articulate what kind of investor you are. Value? Growth? Dividend income? GARP (growth at a reasonable price)? Your philosophy determines which criteria matter most.
-
-**Step 2: Set primary filters to narrow the universe.** Start with broad filters that eliminate clearly unsuitable candidates. Minimum market capitalization of $500 million eliminates most micro-caps. Minimum daily volume of 100,000 shares ensures tradability. Country or exchange filters focus on your geographic preference.
-
-**Step 3: Apply your core criteria.** Layer on the fundamental metrics that align with your philosophy. For a value screen, this might be P/E below 15, P/B below 2, and positive free cash flow. For a growth screen, revenue growth above 15%, earnings growth above 20%, and ROE above 15%. For dividend income, yield above 3%, payout ratio below 70%, and 10+ years of consecutive increases.
-
-**Step 4: Apply quality filters.** Regardless of your primary philosophy, quality filters help avoid value traps and growth disappointments. Positive operating income, manageable debt levels, and adequate liquidity ratios are universal quality checks.
-
-**Step 5: Review and refine.** If your screen returns too many results (more than 50), tighten the criteria. If too few (less than 10), loosen them. A good screen should return 15-40 candidates for further research.
-
-**Step 6: Sort and prioritize.** Sort results by the metric you consider most important. Many investors sort by valuation (cheapest first) or quality (highest ROIC first) to prioritize their research time.
-
-#### Sector Grouping and Organization
-
-Organizing your watchlist by sector provides several advantages.
-
-**Comparability.** Companies within the same sector face similar economic conditions, competitive dynamics, and regulatory environments. Comparing a bank's P/E to a tech company's P/E is not meaningful, but comparing it to another bank's P/E is very informative.
-
-**The eleven GICS sectors** provide a standard classification: Communication Services, Consumer Discretionary, Consumer Staples, Energy, Financials, Health Care, Industrials, Information Technology, Materials, Real Estate, and Utilities. Most screeners allow filtering by sector.
-
-**Sub-industry analysis** goes deeper. Within Financials, for example, you might separate large banks, regional banks, insurance companies, and asset managers. Each sub-industry has distinct valuation norms, growth profiles, and risk characteristics.
-
-**Sector rotation awareness.** Different sectors perform best at different stages of the economic cycle. Consumer Discretionary and Technology tend to lead in early recovery. Energy and Materials lead in mid-cycle expansion. Utilities and Consumer Staples lead in late cycle and recession. Organizing by sector helps you identify opportunities across the cycle.
-
-**Concentration monitoring.** A watchlist grouped by sector reveals if you are too concentrated. If 80% of your candidates are technology stocks, you might be overlooking opportunities in other sectors or building excessive sector risk.
-
-#### The Complete Research Workflow
-
-Screening is just the first step. Here is a complete workflow from idea generation through investment decision.
-
-**Stage 1: Screening (30 minutes weekly).** Run your core screens. Review new additions. Remove stocks that no longer pass. This is a quick, systematic process, not deep research.
-
-**Stage 2: Watchlist triage (1 hour weekly).** Briefly review each new candidate from your screens. Read a one-paragraph company description, check recent news, and look at a 5-year chart. Categorize into three tiers: Tier 1 (research immediately), Tier 2 (research when time allows), Tier 3 (monitor but no urgency).
-
-**Stage 3: Deep research (2-4 hours per company).** For Tier 1 candidates, conduct thorough analysis. Read the latest 10-K annual report, listen to the most recent earnings call, analyze 5 years of financial statements, assess the competitive landscape, and build a simple valuation model. This is where most of your investment time should be spent.
-
-**Stage 4: Valuation and decision (1 hour per company).** Based on your research, estimate intrinsic value. Compare to the current market price. If the stock trades at a sufficient discount to your estimate (margin of safety), it becomes a buy candidate. If not, it returns to the watchlist for monitoring.
-
-**Stage 5: Position sizing and execution.** Determine how much to invest based on your conviction level, portfolio diversification needs, and risk tolerance. Use limit orders, especially for less liquid stocks. Consider scaling into positions over time rather than buying all at once.
-
-**Stage 6: Ongoing monitoring.** Even after purchase, continue monitoring the company through earnings reports, industry developments, and management changes. Update your watchlist regularly. Remove positions that no longer meet your criteria. Add new opportunities as they surface.
-
-**Time management tip.** The entire weekly workflow, screening plus triage, should take no more than two hours. Deep research on a single stock takes two to four hours and can be spread across a week. This means an individual investor spending five to six hours per week can maintain a robust screening and research pipeline. Quality of research time matters far more than quantity. Focused analysis of a few high-potential candidates outperforms superficial review of dozens.
-
-#### Common Screening Strategies
-
-**Classic Value Screen (Benjamin Graham inspired).**
-P/E below 15. P/B below 1.5. Current ratio above 2.0. Positive earnings for the past 5 years. Dividend paying. This screen identifies cheap, financially strong, profitable companies. It tends to work best in market environments where valuation is rewarded.
-
-**Quality Growth Screen (GARP approach).**
-Revenue growth above 10%. Earnings growth above 12%. PEG ratio below 1.5. ROE above 15%. Debt-to-equity below 0.5. This screen finds growing companies at reasonable prices with strong returns on capital.
-
-**Dividend Growth Screen.**
-Dividend yield between 2% and 5%. Consecutive annual increases above 10 years. Payout ratio below 65%. Free cash flow positive. Revenue growth positive over 5 years. This screen identifies sustainable and growing dividend payers.
-
-**Turnaround Screen.**
-P/B below 1.0. Negative earnings last year but positive most recent quarter. Insider buying in the past 6 months. Debt-to-equity below 1.0. This screen is higher risk but can identify companies where the worst is behind them and a recovery is underway.
-
-**Small-Cap Quality Screen.**
-Market cap between $500 million and $2 billion. ROE above 12%. Revenue growth above 8% over the past 3 years. Debt-to-equity below 0.5. Insider ownership above 5%. This screen targets small companies with strong fundamentals that larger institutions may overlook, providing potential for price discovery as they grow.
-
-**International Value Screen.**
-ADR-listed or international exchange. P/E below 12. Dividend yield above 3%. Positive free cash flow. Country GDP growth above 2%. This screen identifies undervalued international companies in growing economies, diversifying your watchlist beyond domestic markets.
-
-#### Avoiding Data Pitfalls
-
-Screening data is not perfect, and understanding common pitfalls prevents costly mistakes.
-
-**Stale data.** Free screeners may update financial data with a lag of days or weeks after earnings releases. A stock that looks cheap on the screener may have already rallied after a strong earnings report that updated the underlying data.
-
-**One-time items.** Earnings per share can be distorted by one-time gains (asset sales, legal settlements) or one-time charges (restructuring, write-downs). A low P/E driven by a one-time gain is misleading. Always check whether earnings are from continuing operations.
-
-**Sector-specific metrics.** Standard screening criteria do not apply equally across all industries. Banks should be evaluated on price-to-tangible-book and return on assets, not standard P/E. REITs use funds from operations (FFO) instead of earnings. Utilities are evaluated on regulated rate base growth. Using the wrong metrics for a sector produces misleading results.
-
-**Share count changes.** Companies that issue large amounts of stock (dilution) can appear to grow revenue while actually destroying per-share value. Always check shares outstanding trends alongside revenue and earnings growth.
+### 3. Common Misconceptions
+
+1. **"More filters -> better screen."** Past 6 filters, you are
+   curve-fitting noise. The marginal filter typically removes more
+   future winners than future losers.
+
+2. **"The same screen should always return names."** Deep-value
+   screens are *supposed* to return 0-10 names in a frothy market.
+   An empty screen is a regime signal, not a tool failure.
+
+3. **"Free screeners are not good enough for serious work."** Finviz +
+   your brokerage's screener will get you 90% of the way to Stock
+   Rover for a passive long-only book. Pay up only when your hours
+   start to outweigh your money.
+
+4. **"PEG < 1 means cheap."** PEG uses analyst consensus growth,
+   which is wrong on average and very wrong at turning points. Treat
+   PEG as a triage filter, not a valuation conclusion.
+
+5. **"ROE > 20% means quality."** Not if it is leverage-driven. A
+   bank with 15x equity multiplier and 1.5% ROA has 22% ROE and is
+   not a quality compounder. Always check ROIC alongside ROE.
+
+6. **"A screen finding 200 names is too noisy to use."** That is
+   exactly the right number to *triage* down. The problem with
+   screens is too few hits, not too many.
+
+7. **"Insider selling is a sell signal."** Insiders sell for a hundred
+   reasons (taxes, divorce, diversification, 10b5-1 plans). Insider
+   *buying*, especially open-market and outside an earnings window,
+   is the asymmetric signal.
+
+8. **"Screening should be automated."** The screen should be saved
+   and rerun-able. The *interpretation* must stay manual. The day
+   you automate "buy anything that screens green" is the day you buy
+   the next Enron at 8x earnings.
+
+9. **"My watchlist is full -> I am done."** A watchlist is a queue,
+   not a museum. Every name on it should have a price trigger and a
+   review date. Names with neither are dead weight.
+
+10. **"Backtested screens that worked for 10 years will keep working."**
+    Per SOUL #2, the macro regime changes every 30-40 years. A screen
+    that worked 1995-2020 (cheap quality) might fail 2025-2040 (rates
+    higher, cheap-quality re-rates faster). Re-validate annually.
 
 ---
 
-### C) Common Misconceptions
+### 4. Q&A Section
 
-**Misconception 1: "A stock that passes my screen is automatically a good investment."**
-Screening is a first filter, not a final verdict. A stock can look great on quantitative metrics and still be a terrible investment due to qualitative factors: bad management, regulatory threats, technological disruption, or accounting manipulation. Screening narrows the universe; deep research makes the investment decision.
+**Q: How often should I run the screens?**
+A: Monthly is the institutional default. Quarterly is fine for
+retail. Daily is overkill — the names that pass a 5-filter screen
+do not move daily.
 
-**Misconception 2: "The more criteria I use, the better my screen."**
-Over-filtering can eliminate good opportunities. A screen with 15 simultaneous criteria may return zero results or only extreme outliers that satisfy every condition by coincidence. Start with 4-6 core criteria and add filters only if the results are too broad. Simplicity often outperforms complexity in screening.
+**Q: I have 60 names from the GARP screen. How do I get to 10?**
+A: First, eliminate sectors you do not understand. Second, kill any
+name you cannot describe in one sentence. Third, sort the rest by
+ROIC descending and take the top decile. You will be at 6-8 names.
 
-**Misconception 3: "I should buy every stock that passes my screen."**
-A screen might return 30 stocks, but after deep research, only 5-10 may deserve investment. The screen identifies candidates, not conclusions. Some screened stocks will have hidden problems, upcoming headwinds, or valuations that are cheap for legitimate reasons.
+**Q: Can I just buy an ETF that does the screen for me?**
+A: Yes. AVUV (small-cap value), QUAL (quality), MTUM (momentum),
+COWZ (cash-flow yield) are factor ETFs that mechanise screens 1-3.
+They are a perfectly reasonable substitute for individual stock
+screening if you are time-constrained. (See `week50_factor_tilts.md`.)
 
-**Misconception 4: "I only need to screen once."**
-Markets change constantly. A stock that does not pass your screen today might pass next month after a price decline or earnings improvement. Run your screens regularly, at least monthly and preferably weekly, to catch emerging opportunities and remove deteriorating positions.
+**Q: How is screening different from factor investing?**
+A: Factor ETFs hold all 100-500 names that pass a single factor
+filter. Stock screens are an idea-generation step that is followed
+by *concentrated* manual research. Factors win on diversification;
+screens win on conviction-per-name.
 
-**Misconception 5: "Screeners capture all relevant information."**
-Screeners rely on quantitative data, but some of the most important investment factors are qualitative: management quality, competitive moats, brand strength, corporate culture, and industry dynamics. These cannot be captured in a numerical filter. Screening must be supplemented with qualitative research.
+**Q: My deep-value screen hits the same energy mid-caps every month.
+Should I just buy them?**
+A: No. The fact that a name has been cheap for 36 months running is
+information about *why* it is cheap (structural decline, governance,
+commodity cycle). Run the *recovery* screen on that universe instead;
+the names that pass both deep-value AND recovery have the asymmetry.
 
-**Misconception 6: "Low P/E always means a stock is cheap."**
-A stock can have a low P/E because earnings are temporarily inflated (cyclical peak earnings), because the company is in terminal decline, or because of one-time accounting gains. Always examine why a stock appears cheap. If the low valuation reflects a genuine problem, it is a value trap, not a bargain.
+**Q: How do I screen for moats?**
+A: You cannot, directly. Proxies: 5-year gross margin > 40% AND
+stable; ROIC > 15% across a full cycle; market share gains over 10
+years. Screen for the financial fingerprint, then verify the moat
+qualitatively.
 
-**Misconception 7: "Professional investors use secret, sophisticated screens."**
-Most professional stock pickers use surprisingly simple initial screens, similar to what any individual investor can set up on Finviz. The edge does not come from exotic screening criteria but from the depth and quality of the research conducted after screening. A professional might analyze 50 stocks from a simple screen and invest in 5 after months of deep due diligence. The screening process is accessible; the analytical depth afterward is where professionals differentiate themselves.
+**Q: What about screens for short ideas?**
+A: Same engine, inverted thresholds: PE > 80, P/B > 8, FCF < 0 for
+3 years, debt/EBITDA > 6, accruals > 10% of assets. Per SOUL #5,
+short alpha is real but the borrow + dividend-pass-through + carry
+is brutal — most retail investors should let factor short ETFs do
+the work.
 
-**Misconception 8: "I should screen based on what worked in the past."**
-Backtesting screening criteria and investing solely based on historical factor performance is dangerous. Factors go through long periods of underperformance. Value stocks underperformed growth stocks for over a decade from 2010 to 2020. Small caps can lag large caps for years. If you only screen for what worked recently, you may be buying factors at their peak popularity and valuation. Use screens based on sound fundamental logic, not just recent performance.
+**Q: How long does this whole process take per week?**
+A: Steady-state, 2-3 hours: 30 min to run screens, 90 min to
+deep-dive 1-2 names, 30 min to update existing thesis pages. The
+first month is heavier (5-8 hours/week) while you build the
+infrastructure.
 
----
+**Q: What if I run the same screens as everyone else?**
+A: You will. The edge is not the filter — it is the 50->10 stage,
+which depends on your *judgement*. PEG < 1.2 + ROIC > 15% returns
+the same 100 names for everyone. Picking the right 5 from those 100
+is where the alpha lives. (SOUL #5: alpha sources are stable, but
+each requires manual judgement at the buy decision.)
 
-### D) Q&A Section
-
-**Q1: How many stocks should be on my watchlist?**
-A1: This depends on how much time you have for research. A manageable watchlist for a part-time individual investor is 30-50 stocks across sectors. Active investors might maintain 100+. The key is organization: use tiers to prioritize where you spend your research time. A bloated, unorganized watchlist of 500 stocks is worse than useless because it overwhelms your ability to focus.
-
-**Q2: Should I screen for domestic stocks only or include international?**
-A2: Including international stocks widens your opportunity set significantly. Many of the world's best companies are listed outside the US. However, international screening introduces complications: different accounting standards (IFRS vs. GAAP), currency effects, political risk, and data availability. Start with US markets, and once your process is refined, expand to developed international markets (Europe, Japan, Australia) before venturing into emerging markets.
-
-**Q3: How often should I update my screens?**
-A3: Run your primary screens weekly or bi-weekly. Monthly is the minimum to catch emerging opportunities. After each earnings season, many stocks will shift in and out of your criteria as financial data updates. Some investors also run screens after significant market drawdowns (5%+ declines), as falling prices push more stocks through value-oriented filters.
-
-**Q4: What is the best screener for beginners?**
-A4: Finviz (finviz.com) is the best starting point. It is free, comprehensive, and visually intuitive. The screener page lets you apply filters across descriptive (sector, market cap, country), fundamental (P/E, EPS growth, ROE), and technical (moving averages, RSI, volume) categories. Results are displayed in a table with sortable columns and one-click chart access. Start with Finviz, and graduate to paid tools only when you outgrow its capabilities.
-
-**Q5: Should I use technical criteria in my screens?**
-A5: This depends on your investment approach. If you are a fundamental investor, technical criteria can serve as timing tools. For example, screening for fundamentally strong stocks that are also near their 52-week lows can identify good companies going through temporary price weakness, potentially offering better entry points. But be careful not to let technical criteria override fundamental analysis. A stock at its 52-week low might be there for very good fundamental reasons.
-
-**Q6: How do I avoid value traps in my screening?**
-A6: Combine valuation criteria with quality and momentum criteria. A stock that is cheap AND profitable, with improving margins and insider buying, is much less likely to be a value trap than one that is simply cheap. Watch out for: declining revenue, negative free cash flow, rising debt, dividend cuts, and insider selling. These red flags suggest the cheap valuation reflects genuine deterioration rather than temporary mispricing.
-
-**Q7: What is the difference between a static watchlist and a dynamic one?**
-A7: A static watchlist is a fixed list of companies you follow regardless of their current metrics. You might always watch Apple, JPMorgan, and Johnson & Johnson because they are industry bellwethers. A dynamic watchlist changes based on screening results. Stocks are added when they pass your filters and removed when they no longer qualify. The best approach combines both: a core static list of high-quality companies you always follow, plus a dynamic component fed by your screening process.
-
-**Q8: How do I organize research notes for my watchlist stocks?**
-A8: Create a simple template for each stock that includes: company description, investment thesis in 2-3 sentences, key metrics (current and target), catalysts that could drive the stock higher, risks that could drive it lower, and your estimated fair value. Update this after each earnings report. Many investors use a spreadsheet with one row per stock and columns for key data points. Others use note-taking apps like Notion or OneNote. The format matters less than consistency. Every stock on your watchlist should have a written thesis explaining why it is there.
-
-**Q9: How do I know when to remove a stock from my watchlist?**
-A9: Remove a stock when the original thesis is broken, not just when the price moves against you. Specific removal triggers include: three consecutive quarters of declining revenue with no recovery in sight, management fraud or serious governance issues, a structural change in the industry that permanently impairs the business model, or the stock becoming significantly overvalued relative to your fair value estimate. Also remove stocks that you have been monitoring for over six months without ever finding a compelling entry point, as they are consuming research bandwidth without producing actionable ideas.
-
-**Q10: Can I automate my screening process?**
-A10: Yes, to a degree. Most screeners allow you to save screen configurations and run them with one click. Some platforms like Portfolio123 and Stock Rover allow you to set up email alerts when new stocks enter your screen criteria. You can also set price alerts on watchlist stocks through your brokerage platform, notifying you when a stock reaches your target entry price. However, the qualitative research step, reading financial statements, listening to earnings calls, and evaluating competitive position, cannot be automated and should not be skipped.
+**Q: Can I use these screens in tax-advantaged accounts only?**
+A: Recovery and deep-value screens generate higher turnover — better
+in IRAs. GARP and quality compounders work in either; quality compounders
+especially in taxable accounts because hold periods stretch into LTCG
+territory by year 2. (See SOUL #15 + `side04` for tax-location maths.)
 
 ---
 
@@ -238,164 +371,190 @@ A10: Yes, to a degree. Most screeners allow you to save screen configurations an
 
 ---
 
-**TITLE: How to Build a Watchlist: Stock Screening Like a Pro**
+**VIDEO TITLE:** From 4,000 to 5: Building the Watchlist that Funds the Next Decade
 
-**LENGTH: Approximately 17 minutes**
+**RUNTIME TARGET:** ~12 minutes
+
+**HOSTS:** Horace, Stella
 
 ---
 
-**[VISUAL: Massive wall of stock tickers scrolling rapidly, overwhelming and chaotic]**
-
-**Horace:** Stella, there are thousands of stocks out there. How do professional investors find the ones worth researching? I feel like I am drowning in options.
-
-**Stella:** That is exactly why stock screeners exist. They are like search engines for stocks. You tell the screener what you want, and it filters out everything else.
-
-**[ANIMATION: The wall of tickers gets filtered through a funnel labeled "SCREENER" with criteria labels on the sides. Only a small group of tickers comes out the bottom]**
-
-**Horace:** So where do I even start?
-
-**Stella:** First, you need to know what kind of investor you are. That determines which filters you use. Are you looking for cheap stocks, fast-growing companies, or reliable dividend payers?
-
-**[VISUAL: Three investor profiles shown as cards: "Value Investor" with magnifying glass icon, "Growth Investor" with rocket icon, "Dividend Investor" with cash flow icon]**
-
-**Horace:** Let us say I want to find good value stocks. What would that screen look like?
-
-**Stella:** Let me walk you through building one step by step. I will use Finviz, which is free and one of the best screeners available.
-
-**[VISUAL: Screen recording style showing Finviz screener interface with filters being applied one at a time]**
-
-**Stella:** Step one, set basic filters to narrow the universe. Market cap above five hundred million eliminates speculative micro-caps. Average volume above one hundred thousand shares ensures we can actually trade these stocks.
-
-**[ANIMATION: Universe shrinking from 6,000+ stocks to approximately 3,000 as basic filters are applied, shown as a funnel graphic]**
-
-**Horace:** That already cut the universe in half.
-
-**Stella:** Now step two, apply our core value criteria. P/E ratio below fifteen. Price-to-book below two. Positive free cash flow.
-
-**[ANIMATION: Funnel continues to narrow. Stock count drops from 3,000 to approximately 200]**
-
-**Stella:** Step three, add quality filters. Return on equity above ten percent. Debt-to-equity below one. Current ratio above one point five. These ensure we are finding cheap AND healthy companies, not cheap and dying ones.
-
-**[ANIMATION: Funnel narrows further. Count drops to approximately 40 stocks]**
-
-**Horace:** Forty stocks. That is actually manageable.
-
-**Stella:** Exactly. From six thousand to forty in about five minutes. Now the real work begins.
-
-**Horace:** What comes next?
-
-**Stella:** This is where your watchlist comes in. I organize every screened stock into sectors first.
-
-**[ANIMATION: The 40 stock tickers sort themselves into sector buckets: Financials (8 stocks), Industrials (7), Consumer Staples (6), Energy (5), Healthcare (5), Others (9)]**
-
-**Stella:** Sector grouping is critical because you can only compare apples to apples. A bank with a P/E of ten is not the same as a tech company with a P/E of ten. Within each sector, I can rank and compare meaningfully.
-
-**Horace:** That makes sense. What do you compare within each sector?
-
-**Stella:** I look at relative valuation. Which stock is cheapest compared to its sector peers? I check relative quality. Which has the highest return on capital? And I look at the trend. Is the company improving or deteriorating?
-
-**[VISUAL: Table showing 4 financial stocks side by side with columns for P/E, P/B, ROE, Debt/Equity, Revenue Growth, with the most attractive values highlighted in green]**
-
-**Horace:** So you are ranking within sectors. What is next?
-
-**Stella:** Triage into three tiers.
-
-**[ANIMATION: Three tiers appearing as labeled folders. Tier 1: "Research Now" (red/urgent). Tier 2: "Research Soon" (yellow). Tier 3: "Monitor" (green/patient)]**
-
-**Stella:** Tier one gets immediate deep research. These are stocks that are cheap, high quality, AND have a catalyst, maybe an earnings report coming up, a new product launch, or insider buying.
-
-**Horace:** How many stocks go into tier one?
-
-**Stella:** Five to ten at most. These are your best ideas that get your full attention this week. Tier two has fifteen to twenty stocks to research when time allows. Tier three is everything else you want to monitor but do not need to rush into.
-
-**Horace:** What does "deep research" actually look like?
-
-**Stella:** Let me show you my workflow.
-
-**[ANIMATION: Research workflow as a horizontal pipeline. Step 1: Company Overview (10 min). Step 2: Financial Statements (30 min). Step 3: Earnings Call (30 min). Step 4: Competitive Analysis (30 min). Step 5: Valuation (30 min). Step 6: Decision (15 min)]**
-
-**Stella:** Start with a quick company overview. What does the business do? How does it make money? Who are its competitors? This takes ten minutes and gives you the context for everything that follows.
-
-**Horace:** Then financial statements?
-
-**Stella:** Right. Pull up five years of income statements, balance sheets, and cash flow statements. Look for trends. Is revenue growing? Are margins expanding or contracting? Is debt increasing or decreasing? Is free cash flow positive and growing?
-
-**[VISUAL: Simplified 5-year financial trend showing Revenue, Operating Margin, and Free Cash Flow with arrows indicating trends]**
-
-**Stella:** Then listen to or read the transcript of the most recent earnings call. Management commentary tells you things the numbers cannot, like their strategy, their concerns, and their outlook.
-
-**Horace:** That sounds like a lot of work per stock.
-
-**Stella:** Two to four hours per stock for thorough research. That is why screening and triage matter so much. You cannot spend four hours on every stock in the market, but you can spend four hours on your top five candidates each week.
-
-**Horace:** Let me ask about some common screening strategies. What if I am more of a growth investor?
-
-**Stella:** Then your screen looks completely different.
-
-**[VISUAL: Side-by-side comparison of Value Screen criteria vs Growth Screen criteria]**
-
-**Stella:** For growth, I would screen for revenue growth above fifteen percent, earnings growth above twenty percent, return on equity above fifteen percent, and PEG ratio below one point five. The PEG ratio is key because it relates the P/E to the growth rate. A PEG below one means you are paying less than one times the growth rate.
-
-**Horace:** And for dividend investors?
-
-**Stella:** Dividend yield between two and five percent, because anything above five percent might signal a cut risk. Payout ratio below sixty-five percent for sustainability. Ten or more consecutive years of dividend increases. And positive free cash flow growth.
-
-**[ANIMATION: Three screening funnels side by side, each labeled Value/Growth/Dividend, showing different criteria and different stocks emerging from each]**
-
-**Horace:** Can I combine these approaches?
-
-**Stella:** Absolutely. Many successful investors use a GARP approach, growth at a reasonable price. You screen for growth metrics AND valuation metrics simultaneously. This avoids both value traps and overpriced growth stocks.
-
-**Horace:** What are the biggest mistakes people make with screeners?
-
-**Stella:** Number one: treating the screen results as buy recommendations. A screen is a starting point, not an answer.
-
-**[VISUAL: Red X over a screener result list with text "NOT a buy list"]**
-
-**Stella:** Number two: over-filtering. If you use fifteen criteria simultaneously, you might get zero results or only weird statistical anomalies. Start with four to six core criteria.
-
-**Horace:** What is number three?
-
-**Stella:** Running a screen once and never updating it. Markets change weekly. Run your screens regularly. A stock that was too expensive last month might be a bargain after a pullback.
-
-**[ANIMATION: Calendar showing weekly screening schedule with check marks]**
-
-**Horace:** And number four?
-
-**Stella:** Ignoring qualitative factors. Screeners only capture numbers. They cannot tell you about management quality, competitive moats, regulatory risk, or technological disruption. The numbers get you the candidates. Your brain makes the final call.
-
-**[VISUAL: Split screen showing "Quantitative" (screener data, charts, ratios) on one side and "Qualitative" (management, moat, industry trends, risks) on the other, both pointing to "Investment Decision" at bottom]**
-
-**Horace:** One last thing. How do I keep my watchlist organized over time?
-
-**Stella:** I recommend a simple spreadsheet or your brokerage platform's watchlist feature. Create columns for: ticker, sector, current price, your target price, the key thesis in one sentence, and last review date.
-
-**[VISUAL: Clean spreadsheet template with columns: Ticker, Sector, Tier, Price, Target, P/E, Thesis, Last Reviewed, with a few sample entries filled in]**
-
-**Stella:** Review the entire watchlist monthly. Remove stocks that no longer meet your criteria. Add new ones from your screens. Update prices and notes. Keep it alive and current, not a dusty list you set and forget.
-
-**Horace:** This is really actionable. So to summarize: screen to narrow the universe, organize by sector, triage into tiers, and do deep research on the top candidates.
-
-**Stella:** Exactly. It is a repeatable, systematic process. The best investors are not the ones with the flashiest ideas. They are the ones with the most disciplined process.
-
-**[VISUAL: Summary card with the complete workflow: Screen (weekly) -> Sector Group -> Triage (Tiers 1-2-3) -> Deep Research -> Valuation -> Decision -> Monitor]**
-
-**Horace:** Thanks Stella. I am going to set up my first screen tonight.
-
-**Stella:** Start simple. Four criteria. See what comes out. Then refine from there. Your process will improve with every iteration.
-
-**Horace:** Any last quick tips for someone just getting started?
-
-**Stella:** Three things. First, write down why you added each stock to your watchlist. A one-sentence thesis forces clarity. Second, set a calendar reminder to review your watchlist every month. Stale watchlists become useless. Third, track your screening performance over time. Did the stocks you screened and researched actually outperform? If not, refine your criteria.
-
-**[VISUAL: Calendar with monthly review reminder, notebook with written thesis examples, and performance tracker spreadsheet shown side by side]**
-
-**Horace:** Write it down, review regularly, and track results. Simple but powerful habits.
-
-**Stella:** Exactly. The best investors are not the smartest. They are the most disciplined. Your screening process is the foundation of that discipline.
-
-**[VISUAL: End screen with channel subscribe button and links to related lessons on fundamental analysis and valuation]**
+**[INTRO — 0:00 to 1:00]**
+
+**HORACE:** There are about 4,000 stocks listed on the New York Stock
+Exchange and the Nasdaq. Forget global. Forget OTC. Just the US
+universe — the only one we own per SOUL principle 16. Four thousand.
+And the question that determines everything about whether you make
+money in stock-picking is not *which one do you buy*. It is *which 30
+do you bother to read about*.
+
+**STELLA:** Today we are going to walk through the funnel. Four
+screens, each with six filters. 4,000 -> 250 -> 50 -> 10 -> 3. The same
+funnel that institutional analysts run, simplified to what a retail
+investor can do on a weekend with Finviz.
+
+**HORACE:** And we are going to be honest about something the
+investing media never tells you: in April 2026, three of the four
+screens we will show you return *almost no names*. That is a feature.
 
 ---
 
-*End of Side Lesson 27*
+**[ACT I — THE TOOL STACK — 1:00 to 2:30]**
+
+**STELLA:** Three tiers of screener. Free — Finviz, Yahoo, TradingView,
+your brokerage. Paid — Stock Rover at $28 a month, TIKR at $24, and a
+handful of others.
+
+**HORACE:** Pick one free, pick one paid, stop. There is a tendency
+to collect platforms. Don't. The marginal hour is better spent
+reading a 10-K than learning a third UI.
+
+**STELLA:** For 90% of retail investors, Finviz plus their
+brokerage's screener is sufficient.
+
+[VISUAL: image/side27_screener_funnel.png]
+
+**HORACE:** That is the funnel. 4,000 listed. 250 pass the screen.
+50 we triage. 10 sit on the active watchlist. 3 we currently own. The
+shape of that funnel — that is the entire game.
+
+---
+
+**[ACT II — THE FOUR SCREENS — 2:30 to 7:30]**
+
+**HORACE:** Four screens. Each with one thesis.
+
+**STELLA:** **Screen 1, GARP — growth at a reasonable price.** Six
+filters: market cap above $2 billion, PEG below 1.2, free cash flow
+growth above 10%, ROIC above 15%, debt-to-equity below 1, gross
+margin above 40%.
+
+**HORACE:** Peter Lynch's screen. The thesis is: *I will pay up for
+quality, but not more than the growth justifies.* In April 2026, this
+returns about 80 names. Tighten PEG to 0.8 and you are at 15 — which
+is the right size for a deep-dive queue.
+
+**STELLA:** **Screen 2, deep value.** P/E below 12, P/B below 1.5,
+current ratio above 2, positive free cash flow, debt-to-EBITDA below
+3.
+
+**HORACE:** Graham's screen. Bogle's screen. The HML factor. Right
+now, in mid-cycle, this returns about 30 names — mostly energy
+mid-caps and regional banks. In March 2020, it returned 600. Run it
+*into* panics, not out of them.
+
+**STELLA:** **Screen 3, quality compounder.** ROE above 20% every
+year for 5 years, gross margin above 40%, operating margin above 15%,
+free cash flow positive in 8 of the last 10 years, debt-to-equity
+below 0.8, net buybacks positive.
+
+**HORACE:** This is the Munger screen. There is no valuation filter
+on purpose. The screen finds the universe of forty or so businesses
+that *can* compound. You then wait for one of them to drop 25-35%
+below its five-year median EV/EBITDA, and you act.
+
+**STELLA:** **Screen 4, recovery.** Within 10% of the 52-week low,
+gross margin above 25%, working capital positive, net debt/EBITDA
+below 4, insider buying positive in the last 90 days, short interest
+below 8%.
+
+**HORACE:** The contrarian screen. The asymmetric one. And the
+hardest to execute — the falling knife problem. The insider-buying
+filter and the short-interest filter are what keep you out of the
+truly broken businesses.
+
+[VISUAL: image/side27_garp_quadrant.png]
+
+**STELLA:** This scatter is the visual frame. P/E on the x-axis. ROE
+on the y-axis. Thirty well-known US-listed names plotted as of April
+2026.
+
+**HORACE:** Lower-right is the GARP zone — low P/E, high ROE. That
+is the green-shaded region. Upper-right is *quality at a premium* —
+which is where most of the S&P 500 currently sits. Upper-left is
+the glamour-stock trap. Lower-left is value-trap territory.
+
+**STELLA:** The screens are, geometrically, asking the same question:
+*find the names migrating toward the lower-right.*
+
+[VISUAL: interactive/side27_screener.html]
+
+**HORACE:** And we built you a live one. Drag the four sliders — max
+P/E, min ROE, min revenue growth, max debt-to-equity — and the panel
+on the right shows you which of the 30 stocks survive your filters.
+
+**STELLA:** This is not a buy list. It is a triage list. The screen's
+job is to give you a 50-name queue. Your job is the next stage.
+
+---
+
+**[ACT III — THE PIPELINE — 7:30 to 10:30]**
+
+**HORACE:** Five stages from screen to position.
+
+**STELLA:** **Stage 1 — Screen.** 4,000 to 250. Done.
+
+**STELLA:** **Stage 2 — Triage.** 250 to 50. Two minutes per name.
+Reject restated financials, going-concern language, SEC investigations,
+sub-$200 million daily dollar volume.
+
+**STELLA:** **Stage 3 — Deep dive.** 50 to 10. Read the 10-K. Read
+the latest transcript. Build a one-page thesis. Five lines: what they
+do, how they make money, what could kill it, what it is worth, what
+it is trading at.
+
+**HORACE:** Side lesson 02 walks you through reading a 10-K. Watch
+that one back if you have not.
+
+**STELLA:** **Stage 4 — Watchlist.** 10 to 3-7. Add to a tracked list
+with *price triggers*. The price at which you would buy. Not "I'll
+keep an eye on it." A specific number.
+
+**HORACE:** A watchlist without triggers is a daydream. The trigger
+is the only thing that converts a list into a decision.
+
+**STELLA:** **Stage 5 — Position.** Buy when triggered. One-third at
+trigger, one-third on a 10% drop, one-third on another 10% drop with
+no thesis-breaking news.
+
+**HORACE:** Per SOUL principle 14 — the barbell. You are wrong about
+timing more often than you think. The 1/3-1/3-1/3 entry pays you to
+be wrong.
+
+---
+
+**[ACT IV — THE PITFALLS — 10:30 to 11:30]**
+
+**HORACE:** Three traps.
+
+**STELLA:** **Trap 1 — Filter creep.** Stop at six filters. Ever. Past
+that, you are curve-fitting in-sample noise.
+
+**STELLA:** **Trap 2 — Confusing screen output with research output.**
+The screen does not tell you what to own. It tells you what to study.
+
+**STELLA:** **Trap 3 — Not running the screen on yourself.** Once a
+year, screen your own holdings. If a position does not pass any of
+the four, you are holding it on inertia. Re-justify or sell.
+
+**HORACE:** That last one is the hardest and the most useful. Most
+investors never apply their own discipline to their own portfolio.
+
+---
+
+**[OUTRO — 11:30 to 12:00]**
+
+**STELLA:** A screen is the most leveraged tool a retail investor has.
+Five filters and a $40-a-month subscription replaces what used to take
+an analyst team.
+
+**HORACE:** And per SOUL principle 1, alpha is rare. You will not
+out-research the buy-side. But you can out-*select* the average
+self-directed investor by an enormous margin, simply by replacing
+"my friend mentioned it" with "it passed five numerical filters and
+I read the 10-K."
+
+**STELLA:** Build the funnel. Run it monthly. Use the interactive on
+the website. See you next time.
+
+---

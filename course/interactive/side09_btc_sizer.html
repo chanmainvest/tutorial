@@ -1,0 +1,715 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>BTC Sizer -- Interactive (Side 09)</title>
+<script src="https://cdn.plot.ly/plotly-2.35.2.min.js" charset="utf-8"></script>
+<style>
+html, body { margin: 0; padding: 0; background: var(--bs-bg); }
+:root {
+    --bs-bg:     #fdfbf5;
+    --bs-text:   #1a2332;
+    --bs-muted:  #6b7280;
+    --bs-border: #d6d3c4;
+    --bs-card:   #fdfbf5;
+    --bs-pos:    #2e7d32;
+    --bs-neg:    #b71c1c;
+    --bs-mid:    #0d47a1;
+    --bs-accent: #b8860b;
+    --bs-grey:   #5a5a5a;
+}
+html[data-theme="dark"] .bs-root,
+.bs-root[data-theme="dark"] {
+    --bs-bg:     #0f1724;
+    --bs-text:   #e6e6e6;
+    --bs-muted:  #9aa3b2;
+    --bs-border: #2a3441;
+    --bs-card:   #0f1724;
+    --bs-pos:    #66bb6a;
+    --bs-neg:    #ef5350;
+    --bs-mid:    #5a8dee;
+    --bs-grey:   #a0a0a0;
+}
+.bs-root {
+    font-family: 'Segoe UI', Helvetica, Arial, sans-serif;
+    background: var(--bs-bg);
+    color: var(--bs-text);
+    padding: 12px;
+    margin: 0;
+}
+.bs-controls {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 10px;
+    margin-bottom: 12px;
+    padding: 12px;
+    background: var(--bs-card);
+    border: 1px solid var(--bs-border);
+    border-radius: 8px;
+}
+.bs-ctl-label {
+    font-size: 0.74rem;
+    color: var(--bs-muted);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 4px;
+}
+.bs-ctl-val {
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 4px;
+    font-variant-numeric: tabular-nums;
+}
+.bs-ctl input[type="range"] {
+    width: 100%;
+    accent-color: var(--bs-accent);
+}
+.bs-presets {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 12px;
+    padding: 10px 12px;
+    background: var(--bs-card);
+    border: 1px solid var(--bs-border);
+    border-radius: 8px;
+    align-items: center;
+}
+.bs-presets-label {
+    font-size: 0.78rem;
+    color: var(--bs-muted);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-right: 4px;
+}
+.bs-pill {
+    border: 1px solid var(--bs-border);
+    background: var(--bs-card);
+    color: var(--bs-text);
+    padding: 6px 12px;
+    font-family: inherit;
+    font-size: 0.85rem;
+    font-weight: 700;
+    border-radius: 999px;
+    cursor: pointer;
+    transition: background 0.15s, color 0.15s, border-color 0.15s;
+}
+.bs-pill:hover { border-color: var(--bs-accent); }
+.bs-pill.active {
+    background: var(--bs-accent);
+    color: #fff;
+    border-color: var(--bs-accent);
+}
+.bs-kpis {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 10px;
+    margin-bottom: 12px;
+}
+.bs-kpi {
+    background: var(--bs-card);
+    border: 1px solid var(--bs-border);
+    border-left: 4px solid var(--bs-mid);
+    border-radius: 8px;
+    padding: 10px 12px;
+}
+.bs-kpi.k-cagr { border-left-color: var(--bs-pos); }
+.bs-kpi.k-vol  { border-left-color: var(--bs-neg); }
+.bs-kpi.k-shar { border-left-color: var(--bs-accent); }
+.bs-kpi.k-mdd  { border-left-color: var(--bs-mid); }
+.bs-kpi-name {
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--bs-muted);
+}
+.bs-kpi-val {
+    font-size: 1.45rem;
+    font-weight: 700;
+    margin-top: 4px;
+    font-variant-numeric: tabular-nums;
+}
+.bs-kpi-sub {
+    font-size: 0.74rem;
+    color: var(--bs-muted);
+    margin-top: 2px;
+}
+.bs-chart {
+    background: var(--bs-card);
+    border: 1px solid var(--bs-border);
+    border-radius: 8px;
+    height: 360px;
+}
+.bs-verdict {
+    margin-top: 12px;
+    padding: 10px 14px;
+    background: var(--bs-card);
+    border: 1px solid var(--bs-border);
+    border-left: 4px solid var(--bs-accent);
+    border-radius: 8px;
+    font-size: 0.92rem;
+    line-height: 1.5;
+}
+.bs-verdict strong { color: var(--bs-text); }
+.bs-caption {
+    margin-top: 8px;
+    font-size: 0.78rem;
+    color: var(--bs-muted);
+    line-height: 1.5;
+}
+@media (max-width: 900px) {
+    .bs-controls { grid-template-columns: repeat(2, 1fr); }
+    .bs-kpis     { grid-template-columns: repeat(2, 1fr); }
+    .bs-chart    { height: 320px; }
+}
+</style>
+</head>
+<body>
+
+<div class="bs-root" id="bs-root">
+
+    <div class="bs-presets" id="bs-presets">
+        <span class="bs-presets-label" id="bs-presets-label">PRESET</span>
+    </div>
+
+    <div class="bs-controls">
+        <div class="bs-ctl">
+            <div class="bs-ctl-label" id="bs-lbl-w">BTC weight</div>
+            <div class="bs-ctl-val"   id="bs-val-w">3.0%</div>
+            <input type="range" id="bs-sl-w" min="0" max="10" step="0.1" value="3">
+        </div>
+        <div class="bs-ctl">
+            <div class="bs-ctl-label" id="bs-lbl-mu">BTC expected return</div>
+            <div class="bs-ctl-val"   id="bs-val-mu">20%</div>
+            <input type="range" id="bs-sl-mu" min="-10" max="50" step="1" value="20">
+        </div>
+        <div class="bs-ctl">
+            <div class="bs-ctl-label" id="bs-lbl-sig">BTC volatility</div>
+            <div class="bs-ctl-val"   id="bs-val-sig">70%</div>
+            <input type="range" id="bs-sl-sig" min="30" max="120" step="1" value="70">
+        </div>
+        <div class="bs-ctl">
+            <div class="bs-ctl-label" id="bs-lbl-rho">BTC-stock correlation</div>
+            <div class="bs-ctl-val"   id="bs-val-rho">0.30</div>
+            <input type="range" id="bs-sl-rho" min="-0.3" max="0.9" step="0.05" value="0.3">
+        </div>
+    </div>
+
+    <div class="bs-kpis">
+        <div class="bs-kpi k-cagr">
+            <div class="bs-kpi-name" id="bs-name-cagr">Portfolio CAGR</div>
+            <div class="bs-kpi-val"  id="bs-val-cagr">--</div>
+            <div class="bs-kpi-sub"  id="bs-sub-cagr">12y annualised</div>
+        </div>
+        <div class="bs-kpi k-vol">
+            <div class="bs-kpi-name" id="bs-name-vol">Portfolio vol</div>
+            <div class="bs-kpi-val"  id="bs-val-vol">--</div>
+            <div class="bs-kpi-sub"  id="bs-sub-vol">stdev annualised</div>
+        </div>
+        <div class="bs-kpi k-shar">
+            <div class="bs-kpi-name" id="bs-name-shar">Sharpe (rf 4%)</div>
+            <div class="bs-kpi-val"  id="bs-val-shar">--</div>
+            <div class="bs-kpi-sub"  id="bs-sub-shar">excess / vol</div>
+        </div>
+        <div class="bs-kpi k-mdd">
+            <div class="bs-kpi-name" id="bs-name-mdd">Max drawdown</div>
+            <div class="bs-kpi-val"  id="bs-val-mdd">--</div>
+            <div class="bs-kpi-sub"  id="bs-sub-mdd">peak-to-trough</div>
+        </div>
+    </div>
+
+    <div id="bs-chart" class="bs-chart"></div>
+
+    <div class="bs-verdict" id="bs-verdict">
+        <strong id="bs-vh">Verdict</strong><br>
+        <span id="bs-vb">Move the BTC weight slider.</span>
+    </div>
+
+    <p class="bs-caption" id="bs-caption">
+        Three-asset model: 60% stocks (mu 8%, sig 16%), 40% bonds (mu 4%, sig 6%), corr 0.10. BTC sleeve carved out of 60/40 pro rata.
+        12-year monthly synthesis with deterministic seed 20260429. Risk-free 4%. SOUL #14 (barbell) + SOUL #6 (vol-tail-wags-dog).
+    </p>
+</div>
+
+<script>
+(function () {
+    const I18N = {
+        en: {
+            preset_label: "PRESET",
+            presets: {
+                zero:     "0% BTC",
+                cautious: "1% cautious",
+                balanced: "3% balanced",
+                aggro:    "5% aggressive",
+                bull:     "5% / 30% return",
+                bear:     "3% / 0% return",
+                custom:   "Custom",
+            },
+            lbl_w:    "BTC weight",
+            lbl_mu:   "BTC expected return",
+            lbl_sig:  "BTC volatility",
+            lbl_rho:  "BTC-stock correlation",
+            kpi_cagr: "Portfolio CAGR",
+            kpi_vol:  "Portfolio vol",
+            kpi_shar: "Sharpe (rf 4%)",
+            kpi_mdd:  "Max drawdown",
+            sub_cagr: "12y annualised",
+            sub_vol:  "stdev annualised",
+            sub_shar: "excess / vol",
+            sub_mdd:  "peak-to-trough",
+            chart_t:  "Cumulative wealth: $10,000 over 12 years",
+            chart_x:  "Year",
+            chart_y:  "Wealth (USD)",
+            t_yours:  "with BTC sleeve",
+            t_base:   "60/40 baseline (no BTC)",
+            t_pure:   "100% BTC (right axis)",
+            cap:      "Three-asset model: 60% stocks (mu 8%, sig 16%), 40% bonds (mu 4%, sig 6%), corr 0.10. BTC sleeve carved out of 60/40 pro rata. 12-year monthly synthesis with deterministic seed 20260429. Risk-free 4%. SOUL #14 (barbell) + SOUL #6 (vol-tail-wags-dog).",
+            verdict_h:    "Verdict",
+            v_zero:       "<strong>Zero BTC.</strong> Baseline 60/40. CAGR ~ {cagr}, vol ~ {vol}. Move the slider to 1-5% to see the sleeve effect.",
+            v_sweet:      "<strong>In the sweet spot.</strong> A {w}% BTC sleeve adds about {dret} pp/yr of CAGR for {dvol} pp of extra portfolio vol. Sharpe goes from {sb} to {sa}. SOUL #14 barbell shape.",
+            v_too_big:    "<strong>Sleeve is too large.</strong> At {w}% BTC the sleeve is contributing {btc_vol} pp to total portfolio vol. Sharpe is {sa}; the marginal vol is no longer paying for itself. Trim back to 3-5%.",
+            v_low_ret:    "<strong>BTC return assumption is too low.</strong> At {mu}% expected return, any BTC weight reduces risk-adjusted return. Either raise the assumption or hold zero.",
+            v_neg:        "<strong>Negative-Sharpe sleeve.</strong> The portfolio's risk-adjusted return is below the no-BTC baseline. Drop the weight to zero or raise the expected return.",
+        },
+        hk: {
+            preset_label: "預設",
+            presets: {
+                zero:     "0% BTC",
+                cautious: "1% 保守",
+                balanced: "3% 平衡",
+                aggro:    "5% 進取",
+                bull:     "5% / 30% 回報",
+                bear:     "3% / 0% 回報",
+                custom:   "自訂",
+            },
+            lbl_w:    "BTC 權重",
+            lbl_mu:   "BTC 預期回報",
+            lbl_sig:  "BTC 波幅",
+            lbl_rho:  "BTC 與股票相關",
+            kpi_cagr: "組合 CAGR",
+            kpi_vol:  "組合波幅",
+            kpi_shar: "夏普(無風險 4%)",
+            kpi_mdd:  "最大回撤",
+            sub_cagr: "12 年年化",
+            sub_vol:  "年化標準差",
+            sub_shar: "超額/波幅",
+            sub_mdd:  "峰至谷",
+            chart_t:  "累計財富:1 萬美元 12 年",
+            chart_x:  "年份",
+            chart_y:  "財富(美元)",
+            t_yours:  "含 BTC 倉位",
+            t_base:   "60/40 基準(無 BTC)",
+            t_pure:   "100% BTC(右軸)",
+            cap:      "三資產模型:60% 股票(mu 8%、sig 16%)、40% 債券(mu 4%、sig 6%)、corr 0.10。BTC 倉位按比例從 60/40 抽出。12 年月度合成,確定種子 20260429。無風險 4%。SOUL #14(槓鈴)+ SOUL #6(波幅尾擺狗)。",
+            verdict_h:    "判斷",
+            v_zero:       "<strong>零 BTC。</strong>基準 60/40。CAGR 約 {cagr}、波幅 {vol}。將滑桿移到 1-5% 觀察倉位效果。",
+            v_sweet:      "<strong>在甜蜜點。</strong>{w}% BTC 倉位每年加約 {dret} 個百分點 CAGR,代價 {dvol} 個百分點額外組合波幅。夏普由 {sb} 升至 {sa}。SOUL #14 槓鈴形狀。",
+            v_too_big:    "<strong>倉位過大。</strong>{w}% BTC 倉位向總組合波幅貢獻 {btc_vol} 個百分點。夏普 {sa};邊際波幅已不值得。減回 3-5%。",
+            v_low_ret:    "<strong>BTC 回報假設過低。</strong>於 {mu}% 預期回報下,任何 BTC 權重均降低風險調整後回報。提高假設或持零。",
+            v_neg:        "<strong>負夏普倉位。</strong>組合風險調整後回報低於無 BTC 基準。權重歸零或提高預期回報。",
+        },
+        tw: {
+            preset_label: "預設",
+            presets: {
+                zero:     "0% BTC",
+                cautious: "1% 保守",
+                balanced: "3% 平衡",
+                aggro:    "5% 積極",
+                bull:     "5% / 30% 報酬",
+                bear:     "3% / 0% 報酬",
+                custom:   "自訂",
+            },
+            lbl_w:    "BTC 權重",
+            lbl_mu:   "BTC 預期報酬",
+            lbl_sig:  "BTC 波動度",
+            lbl_rho:  "BTC 與股票相關",
+            kpi_cagr: "組合 CAGR",
+            kpi_vol:  "組合波動度",
+            kpi_shar: "夏普(無風險 4%)",
+            kpi_mdd:  "最大回撤",
+            sub_cagr: "12 年年化",
+            sub_vol:  "年化標準差",
+            sub_shar: "超額/波動度",
+            sub_mdd:  "峰至谷",
+            chart_t:  "累計財富:1 萬美元 12 年",
+            chart_x:  "年份",
+            chart_y:  "財富(美元)",
+            t_yours:  "含 BTC 部位",
+            t_base:   "60/40 基準(無 BTC)",
+            t_pure:   "100% BTC(右軸)",
+            cap:      "三資產模型:60% 股票(mu 8%、sig 16%)、40% 債券(mu 4%、sig 6%)、corr 0.10。BTC 部位按比例自 60/40 抽出。12 年月度合成,確定種子 20260429。無風險 4%。SOUL #14(槓鈴)+ SOUL #6(波動尾擺狗)。",
+            verdict_h:    "判斷",
+            v_zero:       "<strong>零 BTC。</strong>基準 60/40。CAGR 約 {cagr}、波動度 {vol}。將滑桿移到 1-5% 觀察部位效果。",
+            v_sweet:      "<strong>在甜蜜點。</strong>{w}% BTC 部位每年加約 {dret} 個百分點 CAGR,代價 {dvol} 個百分點額外組合波動。夏普由 {sb} 升至 {sa}。SOUL #14 槓鈴形狀。",
+            v_too_big:    "<strong>部位過大。</strong>{w}% BTC 部位向總組合波動貢獻 {btc_vol} 個百分點。夏普 {sa};邊際波動已不值得。減回 3-5%。",
+            v_low_ret:    "<strong>BTC 報酬假設過低。</strong>於 {mu}% 預期報酬下,任何 BTC 權重均降低風險調整後報酬。提高假設或持零。",
+            v_neg:        "<strong>負夏普部位。</strong>組合風險調整後報酬低於無 BTC 基準。權重歸零或提高預期報酬。",
+        },
+        cn: {
+            preset_label: "预设",
+            presets: {
+                zero:     "0% BTC",
+                cautious: "1% 保守",
+                balanced: "3% 平衡",
+                aggro:    "5% 激进",
+                bull:     "5% / 30% 回报",
+                bear:     "3% / 0% 回报",
+                custom:   "自定义",
+            },
+            lbl_w:    "BTC 权重",
+            lbl_mu:   "BTC 预期回报",
+            lbl_sig:  "BTC 波动率",
+            lbl_rho:  "BTC 与股票相关",
+            kpi_cagr: "组合 CAGR",
+            kpi_vol:  "组合波动率",
+            kpi_shar: "夏普(无风险 4%)",
+            kpi_mdd:  "最大回撤",
+            sub_cagr: "12 年年化",
+            sub_vol:  "年化标准差",
+            sub_shar: "超额/波动",
+            sub_mdd:  "峰至谷",
+            chart_t:  "累计财富:1 万美元 12 年",
+            chart_x:  "年份",
+            chart_y:  "财富(美元)",
+            t_yours:  "含 BTC 仓位",
+            t_base:   "60/40 基准(无 BTC)",
+            t_pure:   "100% BTC(右轴)",
+            cap:      "三资产模型:60% 股票(mu 8%、sig 16%)、40% 债券(mu 4%、sig 6%)、corr 0.10。BTC 仓位按比例从 60/40 抽出。12 年月度合成,确定种子 20260429。无风险 4%。SOUL #14(杠铃)+ SOUL #6(波动尾摆狗)。",
+            verdict_h:    "判断",
+            v_zero:       "<strong>零 BTC。</strong>基准 60/40。CAGR 约 {cagr}、波动 {vol}。将滑杆移到 1-5% 观察仓位效果。",
+            v_sweet:      "<strong>在甜蜜点。</strong>{w}% BTC 仓位每年加约 {dret} 个百分点 CAGR,代价 {dvol} 个百分点额外组合波动。夏普由 {sb} 升至 {sa}。SOUL #14 杠铃形状。",
+            v_too_big:    "<strong>仓位过大。</strong>{w}% BTC 仓位向总组合波动贡献 {btc_vol} 个百分点。夏普 {sa};边际波动已不值得。减回 3-5%。",
+            v_low_ret:    "<strong>BTC 回报假设过低。</strong>于 {mu}% 预期回报下,任何 BTC 权重均降低风险调整后回报。提高假设或持零。",
+            v_neg:        "<strong>负夏普仓位。</strong>组合风险调整后回报低于无 BTC 基准。权重归零或提高预期回报。",
+        },
+    };
+
+    function currentLang() {
+        const p = new URLSearchParams(window.location.search);
+        const l = (p.get("lang") || "en").toLowerCase();
+        return I18N.hasOwnProperty(l) ? l : "en";
+    }
+    const T = I18N[currentLang()];
+
+    const PRESETS = {
+        zero:     { w: 0,   mu: 20, sig: 70, rho: 0.30 },
+        cautious: { w: 1,   mu: 15, sig: 70, rho: 0.30 },
+        balanced: { w: 3,   mu: 20, sig: 70, rho: 0.30 },
+        aggro:    { w: 5,   mu: 25, sig: 70, rho: 0.30 },
+        bull:     { w: 5,   mu: 30, sig: 65, rho: 0.20 },
+        bear:     { w: 3,   mu:  0, sig: 75, rho: 0.50 },
+    };
+    const PRESET_ORDER = ["zero", "cautious", "balanced", "aggro", "bull", "bear", "custom"];
+    let activePreset = "balanced";
+
+    const ROOT = document.getElementById("bs-root");
+    const PRESET_ROW = document.getElementById("bs-presets");
+    document.getElementById("bs-presets-label").textContent = T.preset_label;
+
+    document.getElementById("bs-lbl-w").textContent   = T.lbl_w;
+    document.getElementById("bs-lbl-mu").textContent  = T.lbl_mu;
+    document.getElementById("bs-lbl-sig").textContent = T.lbl_sig;
+    document.getElementById("bs-lbl-rho").textContent = T.lbl_rho;
+    document.getElementById("bs-name-cagr").textContent = T.kpi_cagr;
+    document.getElementById("bs-name-vol").textContent  = T.kpi_vol;
+    document.getElementById("bs-name-shar").textContent = T.kpi_shar;
+    document.getElementById("bs-name-mdd").textContent  = T.kpi_mdd;
+    document.getElementById("bs-sub-cagr").textContent  = T.sub_cagr;
+    document.getElementById("bs-sub-vol").textContent   = T.sub_vol;
+    document.getElementById("bs-sub-shar").textContent  = T.sub_shar;
+    document.getElementById("bs-sub-mdd").textContent   = T.sub_mdd;
+    document.getElementById("bs-caption").innerHTML     = T.cap;
+    document.getElementById("bs-vh").textContent        = T.verdict_h;
+
+    PRESET_ORDER.forEach(key => {
+        const b = document.createElement("button");
+        b.className = "bs-pill";
+        b.type = "button";
+        b.textContent = T.presets[key];
+        b.dataset.preset = key;
+        if (key === activePreset) b.classList.add("active");
+        b.addEventListener("click", () => {
+            activePreset = key;
+            document.querySelectorAll(".bs-pill").forEach(p => p.classList.remove("active"));
+            b.classList.add("active");
+            if (key !== "custom" && PRESETS[key]) {
+                const v = PRESETS[key];
+                document.getElementById("bs-sl-w").value   = v.w;
+                document.getElementById("bs-sl-mu").value  = v.mu;
+                document.getElementById("bs-sl-sig").value = v.sig;
+                document.getElementById("bs-sl-rho").value = v.rho;
+            }
+            render();
+        });
+        PRESET_ROW.appendChild(b);
+    });
+
+    ["w","mu","sig","rho"].forEach(name => {
+        document.getElementById("bs-sl-"+name).addEventListener("input", () => {
+            activePreset = "custom";
+            document.querySelectorAll(".bs-pill").forEach(p => {
+                p.classList.toggle("active", p.dataset.preset === "custom");
+            });
+            render();
+        });
+    });
+
+    // Constants
+    const MU_S = 0.08, SIG_S = 0.16;
+    const MU_B = 0.04, SIG_B = 0.06;
+    const RHO_SB = 0.10;
+    const RHO_BTC_BOND = 0.05;   // assumed small
+    const RF = 0.04;
+    const MONTHS = 144;          // 12 years
+
+    // ---- Deterministic LCG + Box-Muller for reproducible paths ----
+    function makeRng(seed) {
+        let state = seed >>> 0;
+        return function () {
+            state = (state * 1664525 + 1013904223) >>> 0;
+            return state / 4294967296;
+        };
+    }
+    function gauss(rng) {
+        let u = 0, v = 0;
+        while (u === 0) u = rng();
+        while (v === 0) v = rng();
+        return Math.sqrt(-2 * Math.log(u)) * Math.cos(2 * Math.PI * v);
+    }
+
+    // Build correlated monthly return paths for stock, bond, BTC.
+    // Returns { stock: [144], bond: [144], btc: [144] } in monthly arithmetic.
+    function buildMonthlyPaths(muBtcAnn, sigBtcAnn, rhoBtcStock) {
+        const rngS = makeRng(20260429);
+        const rngB = makeRng(20260430);
+        const rngX = makeRng(20260431);    // BTC idio
+        const muSm  = MU_S / 12,  sigSm  = SIG_S / Math.sqrt(12);
+        const muBm  = MU_B / 12,  sigBm  = SIG_B / Math.sqrt(12);
+        const muXm  = muBtcAnn  / 12, sigXm  = sigBtcAnn  / Math.sqrt(12);
+        const stock = new Array(MONTHS), bond = new Array(MONTHS), btc = new Array(MONTHS);
+        for (let i = 0; i < MONTHS; i++) {
+            const zS = gauss(rngS);
+            const zB = RHO_SB * zS + Math.sqrt(1 - RHO_SB*RHO_SB) * gauss(rngB);
+            const zX_indep = gauss(rngX);
+            // BTC z built from stock + idio
+            const r = rhoBtcStock;
+            const zX = r * zS + Math.sqrt(Math.max(1 - r*r, 0)) * zX_indep;
+            stock[i] = muSm + sigSm * zS;
+            bond[i]  = muBm + sigBm * zB;
+            btc[i]   = muXm + sigXm * zX;
+        }
+        return { stock, bond, btc };
+    }
+
+    // Compute portfolio path + stats
+    function portfolioPath(paths, w_btc) {
+        const w_s = (1 - w_btc) * 0.6;
+        const w_b = (1 - w_btc) * 0.4;
+        const path = [10000];
+        const monthly = new Array(MONTHS);
+        let val = 10000;
+        for (let i = 0; i < MONTHS; i++) {
+            const r = w_s * paths.stock[i] + w_b * paths.bond[i] + w_btc * paths.btc[i];
+            monthly[i] = r;
+            val = val * (1 + r);
+            path.push(val);
+        }
+        return { path, monthly };
+    }
+    function annualisedStats(path, monthly) {
+        const start = path[0], end = path[path.length - 1];
+        const years = MONTHS / 12;
+        const cagr = Math.pow(end / start, 1 / years) - 1;
+        // Annualised stdev of monthly returns
+        let mean = 0;
+        for (const r of monthly) mean += r;
+        mean /= monthly.length;
+        let s2 = 0;
+        for (const r of monthly) s2 += (r - mean) * (r - mean);
+        s2 /= (monthly.length - 1);
+        const vol = Math.sqrt(s2) * Math.sqrt(12);
+        const sharpe = vol > 1e-9 ? (cagr - RF) / vol : 0;
+        // MDD
+        let peak = path[0], mdd = 0;
+        for (const v of path) {
+            if (v > peak) peak = v;
+            const dd = (v - peak) / peak;
+            if (dd < mdd) mdd = dd;
+        }
+        return { cagr, vol, sharpe, mdd };
+    }
+
+    function readInputs() {
+        return {
+            w:   +document.getElementById("bs-sl-w").value / 100,
+            mu:  +document.getElementById("bs-sl-mu").value / 100,
+            sig: +document.getElementById("bs-sl-sig").value / 100,
+            rho: +document.getElementById("bs-sl-rho").value,
+        };
+    }
+
+    function fmtPct(x, dp) { return (x * 100).toFixed(dp == null ? 1 : dp) + "%"; }
+    function fmtUSD(v) {
+        if (Math.abs(v) >= 1e6) return "$" + (v / 1e6).toFixed(2) + "M";
+        if (Math.abs(v) >= 1e3) return "$" + (v / 1e3).toFixed(0) + "k";
+        return "$" + v.toFixed(0);
+    }
+
+    function getCssVar(name) {
+        return getComputedStyle(ROOT).getPropertyValue(name).trim();
+    }
+    function darkMode() {
+        return document.documentElement.getAttribute("data-theme") === "dark";
+    }
+
+    function buildVerdict(inp, statsYou, statsBase, contribBtcVol) {
+        const w_pct = (inp.w * 100).toFixed(1);
+        if (inp.w < 0.001) {
+            return T.v_zero
+                .replace("{cagr}", fmtPct(statsBase.cagr, 1))
+                .replace("{vol}",  fmtPct(statsBase.vol, 1));
+        }
+        if (statsYou.sharpe < statsBase.sharpe - 0.001) {
+            if (inp.mu <= 0.05) {
+                return T.v_low_ret.replace("{mu}", (inp.mu*100).toFixed(0));
+            }
+            return T.v_neg;
+        }
+        if (inp.w > 0.07 || contribBtcVol > 0.025) {
+            return T.v_too_big
+                .replace("{w}",       w_pct)
+                .replace("{btc_vol}", (contribBtcVol*100).toFixed(2))
+                .replace("{sa}",      statsYou.sharpe.toFixed(2));
+        }
+        return T.v_sweet
+            .replace("{w}",    w_pct)
+            .replace("{dret}", ((statsYou.cagr - statsBase.cagr) * 100).toFixed(2))
+            .replace("{dvol}", ((statsYou.vol  - statsBase.vol ) * 100).toFixed(2))
+            .replace("{sb}",   statsBase.sharpe.toFixed(2))
+            .replace("{sa}",   statsYou.sharpe.toFixed(2));
+    }
+
+    function render() {
+        const inp = readInputs();
+        document.getElementById("bs-val-w").textContent   = (inp.w*100).toFixed(1) + "%";
+        document.getElementById("bs-val-mu").textContent  = (inp.mu*100).toFixed(0) + "%";
+        document.getElementById("bs-val-sig").textContent = (inp.sig*100).toFixed(0) + "%";
+        document.getElementById("bs-val-rho").textContent = inp.rho.toFixed(2);
+
+        const paths = buildMonthlyPaths(inp.mu, inp.sig, inp.rho);
+        const yours = portfolioPath(paths, inp.w);
+        const base  = portfolioPath(paths, 0);
+        const pure  = portfolioPath(paths, 1);
+
+        const statsY = annualisedStats(yours.path, yours.monthly);
+        const statsB = annualisedStats(base.path,  base.monthly);
+
+        // BTC contribution to total portfolio vol (rough): sqrt(vol_y^2 - vol_b^2 effective)
+        // Use marginal contribution: w_btc * sig_btc * (rho_btc_port)
+        // Approximate as: sig_btc * w_btc weighted by correlation with stocks
+        const contribBtc = inp.w * inp.sig * Math.max(inp.rho, 0.0) + inp.w * inp.sig * Math.sqrt(1 - inp.rho*inp.rho) * inp.w;
+        // Simpler delta vol approach is more honest:
+        const deltaVol = statsY.vol - statsB.vol;
+
+        document.getElementById("bs-val-cagr").textContent = fmtPct(statsY.cagr, 1);
+        document.getElementById("bs-val-vol").textContent  = fmtPct(statsY.vol, 1);
+        document.getElementById("bs-val-shar").textContent = statsY.sharpe.toFixed(2);
+        document.getElementById("bs-val-mdd").textContent  = fmtPct(statsY.mdd, 1);
+
+        document.getElementById("bs-sub-cagr").textContent =
+            (statsY.cagr - statsB.cagr >= 0 ? "+" : "") + fmtPct(statsY.cagr - statsB.cagr, 2) + " vs no-BTC";
+        document.getElementById("bs-sub-vol").textContent =
+            (deltaVol >= 0 ? "+" : "") + fmtPct(deltaVol, 2) + " vs no-BTC";
+        document.getElementById("bs-sub-shar").textContent =
+            "vs " + statsB.sharpe.toFixed(2) + " baseline";
+        document.getElementById("bs-sub-mdd").textContent =
+            "vs " + fmtPct(statsB.mdd, 1) + " baseline";
+
+        const verdict = buildVerdict(inp, statsY, statsB, deltaVol);
+        document.getElementById("bs-vb").innerHTML = verdict;
+
+        // Chart
+        const x = [];
+        for (let i = 0; i <= MONTHS; i++) x.push(i / 12);
+        const colorMid = getCssVar("--bs-mid");
+        const colorPos = getCssVar("--bs-pos");
+        const colorNeg = getCssVar("--bs-neg");
+        const colorAcc = getCssVar("--bs-accent");
+        const colorMu  = getCssVar("--bs-muted");
+        const colorTx  = getCssVar("--bs-text");
+        const colorBg  = getCssVar("--bs-card");
+        const colorGr  = darkMode() ? "rgba(255,255,255,0.08)" : "rgba(0,0,0,0.07)";
+
+        const tracesArr = [
+            {
+                x: x, y: base.path, type: "scatter", mode: "lines",
+                name: T.t_base,
+                line: { color: colorMu, width: 1.6, dash: "dot" },
+                hovertemplate: "%{x:.1f}y: %{y:$,.0f}<extra>" + T.t_base + "</extra>",
+            },
+            {
+                x: x, y: yours.path, type: "scatter", mode: "lines",
+                name: T.t_yours,
+                line: { color: inp.w >= 0.07 ? colorNeg : (inp.w >= 0.001 ? colorPos : colorMid), width: 2.6 },
+                hovertemplate: "%{x:.1f}y: %{y:$,.0f}<extra>" + T.t_yours + "</extra>",
+            },
+            {
+                x: x, y: pure.path, type: "scatter", mode: "lines", yaxis: "y2",
+                name: T.t_pure,
+                line: { color: colorAcc, width: 1.2, dash: "dash" },
+                opacity: 0.55,
+                hovertemplate: "%{x:.1f}y: %{y:$,.0f}<extra>" + T.t_pure + "</extra>",
+            },
+        ];
+        const layout = {
+            margin: { l: 64, r: 64, t: 38, b: 50 },
+            paper_bgcolor: colorBg, plot_bgcolor: colorBg,
+            font: { family: "Segoe UI, Helvetica, Arial, sans-serif", color: colorTx, size: 12 },
+            title: { text: T.chart_t, font: { color: colorTx, size: 13 }, x: 0, xanchor: "left" },
+            hovermode: "x unified",
+            xaxis: {
+                title: { text: T.chart_x, font: { color: colorMu, size: 11 } },
+                gridcolor: colorGr, zeroline: false, color: colorTx,
+            },
+            yaxis: {
+                title: { text: T.chart_y, font: { color: colorMu, size: 11 } },
+                gridcolor: colorGr, zeroline: true, zerolinecolor: colorMu, color: colorTx,
+                tickformat: "$,.0f",
+            },
+            yaxis2: {
+                overlaying: "y", side: "right",
+                showgrid: false, color: colorAcc,
+                tickformat: "$,.0f",
+            },
+            legend: { orientation: "h", y: -0.18, x: 0, font: { size: 10.5, color: colorTx } },
+        };
+        Plotly.react(document.getElementById("bs-chart"), tracesArr, layout,
+            { displayModeBar: false, responsive: true });
+    }
+
+    function reportHeight() {
+        try {
+            const h = Math.ceil(document.documentElement.scrollHeight);
+            parent.postMessage({ type: 'lesson-interactive-resize', height: h }, '*');
+        } catch (e) { /* ignore */ }
+    }
+    if (typeof ResizeObserver !== 'undefined') {
+        new ResizeObserver(reportHeight).observe(document.body);
+    }
+    window.addEventListener('resize', reportHeight);
+    setTimeout(reportHeight, 50);
+    setTimeout(reportHeight, 500);
+
+    const themeObserver = new MutationObserver(render);
+    themeObserver.observe(document.documentElement, { attributes: true, attributeFilter: ["data-theme"] });
+
+    render();
+})();
+</script>
+
+</body>
+</html>

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Week 28: Cash-Secured Puts for Entry - Chanma Investment Tutorial</title>
+    <title>Week 28: Cash-Secured Puts — Getting Paid to Bid Lower - Chanma Investment Tutorial</title>
     <script>(function(){try{var t=localStorage.getItem('preferred-theme');if(!t){t=window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();</script>
     <style>
 :root, html[data-theme="light"] {
@@ -1247,940 +1247,281 @@ html[data-theme="dark"] .nav-btn:hover .btn-label { color: rgba(15,23,36,0.7); }
     <main class="main-wrap">
         <div class="content-area">
             <div id="content-en" class="lang-content active">
-                <h1>Week 28: Cash-Secured Puts for Entry</h1>
-<h2>Reading Section</h2>
-<h3>a) Why This Is Important</h3>
+                <h1>Week 28: Cash-Secured Puts — Getting Paid to Bid Lower</h1>
+<hr>
+<h3>1. Why This Is Important</h3>
 <p>
-Every investor faces the same dilemma when they find a stock they want to buy: should I buy now, or should I wait for a better price? Buying now means you might pay too much if the stock drops next week. Waiting means the stock might continue rising and you miss the opportunity entirely. This is the age-old tug-of-war between urgency and patience, and it paralyzes millions of investors.
+A cash-secured put (CSP) is the most honest trade in retail options. You set aside cash equal to the full purchase price of 100 shares, you tell the market "I will buy this stock at $X if it ever trades there in the next 30 days," and the market pays you a few hundred dollars for leaving that bid sitting on the screen. If the stock falls to your level, you buy it — at exactly the price you wanted, minus the premium. If it does not, you keep the cash and write another one. There is no leverage, no naked exposure, no fancy theory. It is a limit-buy order with rent attached.
 </p>
 <p>
-The <strong>cash-secured put</strong> strategy elegantly resolves this dilemma. Instead of agonizing over timing, you pick the price you want to pay, sell a put at that strike price, and get paid to wait. If the stock drops to your price, you buy it at a discount. If it does not drop, you keep the premium and try again. There is no scenario where you lose compared to simply waiting with cash in your account.
+Most retail traders meet CSPs through bad influencers who pitch them as a yield-farming machine — "earn 30% annualized on your idle cash!" That framing is broken. The right framing, the one Horace uses in this lesson, is <strong>CSPs are how you bid on stocks you already want to own.</strong> The premium is not your edge. The discount-to-where-you-actually-wanted-to-buy is your edge. If you find yourself selling puts on stocks you would refuse to take delivery of, you are no longer running CSPs — you are running a casino with extra steps, and the dealer eventually catches up.
 </p>
 <p>
-<strong>Why this strategy is critical for building wealth:</strong>
+Four reasons this lesson matters:
 </p>
 <p>
-<strong>1. It converts idle cash into an income-producing asset.</strong> The average investor keeps 10-30% of their portfolio in cash, waiting for opportunities. On a $500,000 portfolio, that is $50,000-$150,000 earning savings-account rates. Cash-secured puts can generate 8-20% annualized return on that idle cash, turning dead money into active income.
+<strong>1. CSPs are the cleanest way to express patience.</strong> Markets reward investors who can wait. Most retail investors cannot — they buy when CNBC is loud and freeze when the screen is red. A CSP locks in your discipline. The strike is your patience price. The 30-day expiry is your timeout. The premium is your reward for not chasing.
 </p>
 <p>
-<strong>2. It removes emotion from buying decisions.</strong> Instead of watching a stock daily and trying to pick the perfect entry point, you define your ideal price in advance and let the market come to you. The premium you receive is compensation for your patience and discipline. This systematic approach eliminates the panic buying that often occurs during market rallies and the paralysis that prevents buying during dips.
+<strong>2. They convert idle cash into yield without taking equity risk you didn't already plan to take.</strong> If you were going to keep $20,000 ready to buy SPY at a 5% pullback anyway, you can do exactly that <em>and</em> collect $200-$400/month while the cash waits. The cash itself stays in T-bills earning around 4% (April 2026). The put premium is an additive layer, not a replacement.
 </p>
 <p>
-<strong>3. It guarantees a better entry price than a market order.</strong> When you sell a put for $3.00 at a $140 strike, your effective purchase price is $137.00. Even if you are assigned, you entered the stock at a lower cost than anyone who bought at $140 with a regular order. The premium always works in your favor.
+<strong>3. Most CSPs you'd actually want to be assigned.</strong> This is the single insight that separates serious CSP sellers from yield-chasers. A CSP is structurally a "limit buy at strike, with a rebate." If assignment scares you, you sold the wrong put on the wrong stock. SOUL #14 (barbell) puts CSPs squarely on the safe end — they are how you accumulate the boring index/quality positions that anchor a portfolio. You are not trying to <em>avoid</em> assignment; you are trying to <em>price</em> it.
 </p>
 <p>
-<strong>4. It creates a structured buying framework.</strong> Instead of making ad hoc buying decisions, you build a list of target stocks with target prices and sell puts systematically. This transforms investing from a series of emotional decisions into a methodical process. Professional fund managers have used this approach for decades.
+<strong>4. They live cleanly inside the options-tax doctrine (SOUL #15).</strong> Like covered calls, CSP premium income is short-term capital gain regardless of how long you held the contract. That makes CSPs a tax-disaster in a taxable brokerage account if you run them at scale, and a beautiful tool inside a Roth or traditional IRA where the short-term character vanishes. Same rule we hit in Week 27: option income lives in tax-sheltered accounts. Stocks-you-want-to-own live anywhere.
 </p>
 <p>
-<strong>5. It naturally builds positions during market weakness.</strong> Because puts are assigned when stocks drop, the strategy automatically buys stocks during pullbacks and corrections, which is exactly when long-term investors should be buying. The cash-secured put is a built-in "buy the dip" mechanism with income attached.
-</p>
-<p>
-Cash-secured puts are the ideal complement to covered calls (Week 27). Together, they form the complete <strong>wheel strategy</strong>: sell puts to enter positions while collecting income, then sell covered calls on those positions for ongoing income, and if assigned on the calls, start selling puts again. This continuous cycle can generate 12-20% annual income on a well-managed portfolio.
+This is a doer's lesson. By the end of it you should be able to look at SPY at $560, decide you'd happily own it at $530, find the 30-delta put that strikes near $530, and know within ten seconds whether the premium is worth the capital lockup.
 </p>
 <hr>
-<h3>b) What You Need to Know</h3>
-<h4>What Is a Cash-Secured Put?</h4>
+<h3>2. What You Need to Know</h3>
+<h4>2.1 The Mental Model: A Limit Buy With a Rebate</h4>
 <p>
-A <strong>cash-secured put</strong> is a position where you:
-</p>
-<li><strong>Sell (write) a put option</strong> at a strike price you are willing to buy the stock at.</li>
-<li><strong>Hold enough cash</strong> in your account to buy 100 shares at that strike price.</li>
-<p>
-The "cash-secured" part is critical. Unlike a naked put (which uses margin), a cash-secured put has the full purchase amount set aside. Your broker holds this cash as collateral. If you are assigned, the cash is used to purchase the shares. There is no margin risk.
-</p>
-<pre><code class="language-">CASH-SECURED PUT STRUCTURE:
-<p>
-+---------------------------------------------------+
-|  POSITION:                                        |
-|                                                   |
-|  SHORT: 1 AAPL $140 Put, 30 days to expiration   |
-|  Premium received: $2.50/share ($250 total)       |
-|                                                   |
-|  CASH RESERVED: $14,000 ($140 x 100 shares)      |
-|                                                   |
-|  COMMITMENT:                                      |
-|  "I agree to buy 100 shares of AAPL at $140      |
-|   if the stock drops to or below $140 before      |
-|   expiration. In return, I receive $250 now."     |
-|                                                   |
-|  EFFECTIVE PURCHASE PRICE IF ASSIGNED:            |
-|  $140.00 - $2.50 = $137.50 per share             |
-+---------------------------------------------------+
-</code></pre>
-</p>
-<h4>Capital Requirement</h4>
-<p>
-The capital required for a cash-secured put equals the strike price multiplied by 100 (shares per contract). This cash must be available in your account and will be held as collateral until the option expires or is closed.
-</p>
-<pre><code class="language-">CAPITAL REQUIREMENT EXAMPLES:
-<p>
-Stock     Strike    Cash Required    Typical Premium   Yield/Month
-=====     ======    =============    ===============   ===========
-AAPL      $140      $14,000          $1.50-$3.50       1.1-2.5%
-MSFT      $380      $38,000          $4.00-$8.00       1.1-2.1%
-GOOGL     $160      $16,000          $2.00-$4.50       1.3-2.8%
-JPM       $180      $18,000          $2.00-$4.00       1.1-2.2%
-SPY       $520      $52,000          $5.00-$10.00      1.0-1.9%
-KO        $55       $5,500           $0.60-$1.20       1.1-2.2%
+Stop thinking "sell a put." Start thinking <strong>"resting limit-buy order, paid to stay on the book."</strong>
 </p>
 <p>
-NOTE: Lower-priced stocks require less capital per contract,
-making them more accessible for smaller accounts.
+A regular limit-buy order at $530 on SPY does nothing for you. It sits there. If SPY trades to $530 your order fills; if not, it cancels at the end of the day and you do it again tomorrow. You pay nothing, you earn nothing.
 </p>
 <p>
-For a $50,000 account:
-Can sell 3 KO $55 Puts ($16,500 reserved)
-Can sell 1 AAPL $140 Put ($14,000 reserved)
-Can sell 1 JPM $180 Put ($18,000 reserved)
-Remaining cash: $1,500 buffer
-</code></pre>
+A 30-day cash-secured put at the $530 strike is the same buy intention with three modifications:
 </p>
-<h4>Selecting the Strike Price</h4>
+<li>The order stays alive for 30 days, not one day.</li>
+<li>You commit the cash up front — it cannot be used for anything else until the put expires or you close it.</li>
+<li>Someone pays you a premium for taking on that 30-day commitment.</li>
 <p>
-The strike price is your target buy price. It should be a price at which you would be genuinely happy to own the stock. Here are the key considerations:
-</p>
-<pre><code class="language-">STRIKE PRICE SELECTION FRAMEWORK:
-<p>
-Current Stock Price: $155 (AAPL example)
+That is it. The premium compensates you for two things the regular limit order does not give the market: a <strong>time commitment</strong> (you can't cancel without buying back the contract) and a <strong>firm floor under price</strong> (you must take delivery at the strike if it trades through, even if the stock is much lower).
 </p>
 <p>
-APPROACH 1: Fundamental Valuation
+The first commitment is real but small in dollar terms. The second is the one that matters: you are short volatility. If SPY goes to $400 in a crash, you still buy at $530 — and the market knows this, which is why VIX-rich environments pay much more premium than calm ones. SOUL #6 (option tail wags the dog) shows up here directly: the price you get for a CSP is not really about your stock thesis, it is about how scared <em>other</em> people are about the next 30 days.
 </p>
-<ul><li>Calculate fair value using PE ratio, DCF, or other methods</li>
-<li>Set strike at or below fair value</li>
-<li>Example: Fair value estimate = $145, sell $145 put</li>
-<li>You buy at a discount to your estimate of intrinsic value</li>
+<p>
+[VISUAL: image/week28_csp_yield_curve.png]
+</p>
+<p>
+The image above shows the annualized premium yield on a 30-day SPY-like put as a function of strike-delta, computed from Black-Scholes with sigma = 22% and r = 4%. The bars climb steeply as you move closer to the money: the 50-delta (at-the-money) put pays roughly 6x the annualized yield of a 10-delta put. But that 50-delta put has a ~50% chance of finishing in-the-money. The yield is not free; it is the probability of assignment, dressed up.
+</p>
+<h4>2.2 Strike Selection by Delta</h4>
+<p>
+Delta in this context approximates the option's probability of finishing in-the-money. A 30-delta put has roughly a 30% chance of being assigned at expiry, and (loosely) sits around 5% out-of-the-money for a 30-day contract on a normal-volatility stock.
+</p>
+<p>
+Three working presets, each tied to a temperament:
+</p>
+<pre><code class="language-">30-delta CSP (standard):
+<ul><li>About 5-7% out-of-the-money for 30-day, sigma=22%</li>
+<li>~30% assignment probability</li>
+<li>Highest premium of the three presets</li>
+<li>For: investors who actually want to accumulate the stock</li>
 <p>
 </ul>
-APPROACH 2: Technical Support Levels
+16-delta CSP (one standard deviation):
 </p>
-<ul><li>Identify price levels where stock has historically found support</li>
-<li>Set strike at or just below support</li>
-<li>Example: AAPL has support at $148-$150, sell $148 put</li>
-<li>You buy at a level where the stock has historically bounced</li>
+<ul><li>About 9-11% OTM, ~16% assignment probability</li>
+<li>Roughly half the premium of the 30-delta</li>
+<li>Sweet spot for most beginners — your bid is far enough below</li>
 <p>
-</ul>
-APPROACH 3: Percentage Below Market
-</p>
-<ul><li>Set strike at a fixed percentage below current price</li>
-<li>Conservative: 10-15% below (strike $132-$140)</li>
-<li>Moderate: 5-10% below (strike $140-$147)</li>
-<li>Aggressive: 0-5% below (strike $147-$155)</li>
-<p>
-</ul>
-APPROACH 4: Using Delta
-</p>
-<ul><li>Delta 0.20 = ~20% probability of assignment = ~8-12% OTM</li>
-<li>Delta 0.30 = ~30% probability of assignment = ~5-8% OTM</li>
-<li>Delta 0.40 = ~40% probability of assignment = ~3-5% OTM</li>
-<li>Lower delta = further OTM = lower premium but lower assignment risk</li>
-<p>
-</ul></code></pre>
-</p>
-<pre><code class="language-">STRIKE PRICE vs. PREMIUM TRADEOFF (AAPL at $155, 30 days):
-<p>
-Strike   Distance   Delta   Premium   Monthly   Ann. Yield   Assign Prob
-======   ========   =====   =======   =======   ==========   ==========
-$155     ATM        0.50    $4.50     3.0%      36.0%        ~50%
-$150     3.2% OTM   0.35    $2.80     1.9%      22.4%        ~35%
-$145     6.5% OTM   0.25    $1.70     1.2%      14.1%        ~25%
-$140     9.7% OTM   0.18    $0.95     0.7%      8.1%         ~18%
-$135     12.9% OTM  0.12    $0.50     0.4%      4.4%         ~12%
-$130     16.1% OTM  0.07    $0.25     0.2%      2.3%         ~7%
+</ul>    the market that assignment feels like a real bargain
 </p>
 <p>
-SWEET SPOT: $140-$150 range (5-10% OTM)
-Balances meaningful premium with a purchase price you want.
+10-delta CSP (conservative):
+</p>
+<ul><li>About 13-15% OTM, ~10% assignment probability</li>
+<li>About one-third the premium of the 30-delta</li>
+<li>For: investors who view the put as pure rent on cash and would</li>
+<p>
+</ul>    only welcome assignment in a meaningful drawdown
 </code></pre>
 </p>
-<h4>Selecting the Expiration</h4>
 <p>
-The same principles from covered calls apply to cash-secured puts. The 30-45 day window is optimal for the balance between premium income and theta decay.
+Beginners almost always start with the 30-delta because the premium is largest and the temptation is to maximize income. This is the single most common mistake in retail CSP-land. The 30-delta put on a stock you do not really want to own is not income — it is a loaded coin flip where heads pays $200 and tails costs you $5,000. Start at 16-delta and only move closer when you have a stock and price you are <em>eager</em> to be filled at.
 </p>
-<pre><code class="language-">EXPIRATION COMPARISON (AAPL $145 Put):
+<h4>2.3 Tenor: Why 30-45 Days</h4>
 <p>
-Expiration    Days   Premium   Ann. Yield   Theta/Day   Management
-==========   ====   =======   ==========   =========   ==========
-1 Week        7     $0.45     33.4%*       $0.064      Weekly
-2 Weeks       14    $0.80     23.7%*       $0.057      Biweekly
-1 Month       30    $1.70     14.1%        $0.057      Monthly     &lt;--
-45 Days       45    $2.40     13.1%        $0.053      ~Monthly    &lt;--
-2 Months      60    $3.00     12.3%        $0.050      Bimonthly
-3 Months      90    $4.00     10.9%        $0.044      Quarterly
+Theta (time decay) is non-linear. In the last 30 days of an option's life, decay accelerates sharply. From 60 days out to 30 days out, a put loses roughly 30% of its time value; from 30 days to expiry, it loses the remaining 70%. As a seller, you want to be camped in the steep part of the curve.
 </p>
-<ul><li>Weekly/biweekly yields look very high annualized but are harder</li>
+<pre><code class="language-">Tenor          Premium    Daily Theta    Annualized Yield-on-Cash
 <p>
-</ul>    to sustain due to higher transaction frequency and occasional
-gaps between cycles.
-</p>
-<p>
-RECOMMENDED: 30-45 days (marked with arrows)
-</p>
-<ul><li>Best theta decay rate relative to premium</li>
-<li>Manageable frequency (monthly attention)</li>
-<li>Sufficient premium to justify the trade</li>
-<p>
-</ul></code></pre>
-</p>
-<h4>Effective Purchase Price</h4>
-<p>
-One of the most important calculations in put selling is your <strong>effective purchase price</strong>. This is the actual cost per share if you are assigned, after accounting for the premium received.
-</p>
-<pre><code class="language-">EFFECTIVE PURCHASE PRICE FORMULA:
-<p>
-Effective Price = Strike Price - Premium Received
-</p>
-<p>
-Example:
-Sell AAPL $145 Put for $2.80
-Effective price = $145.00 - $2.80 = $142.20
-</p>
-<p>
-What this means:
-If you are assigned, you buy 100 shares at $145.
-But you already received $280 in premium.
-Your NET cost per share is $142.20.
-</p>
-<p>
-This is equivalent to buying the stock at $142.20 on the open market.
-</p>
-<p>
-WITH REPEATED SELLING (before eventual assignment):
-</p>
-<p>
-Month 1: Sell $145 Put for $2.80 -&gt; Not assigned -&gt; Keep $280
-Month 2: Sell $145 Put for $2.30 -&gt; Not assigned -&gt; Keep $230
-Month 3: Sell $145 Put for $3.10 -&gt; Not assigned -&gt; Keep $310
-Month 4: Sell $145 Put for $3.50 -&gt; ASSIGNED
-</p>
-<p>
-Total premiums: $280 + $230 + $310 + $350 = $1,170
-Per share: $11.70
-</p>
-<p>
-Assignment price: $145.00
-Effective purchase price: $145.00 - $11.70 = $133.30
-</p>
-<p>
-Stock was at $155 when you started.
-You effectively bought at $133.30, a 14% discount from the
-original price and an 8% discount from your $145 strike.
+=========      =======    ===========    ========================
+7 days         lowest     highest        very high (but unstable)
+14 days        low        high           high
+30 days        medium     medium-high    sweet spot
+45 days        higher     medium         sweet spot
+60 days        higher     lower          mediocre
+90 days        highest    lowest         poor
 </code></pre>
 </p>
-<h4>The Four Scenarios at Expiration</h4>
 <p>
-Every cash-secured put will end in one of these four scenarios:
+The 7-day weeklies look attractive in spreadsheets — you're rolling four times per month, theta is screaming — but the realized P/L is brutal because gap-risk is concentrated. One earnings miss or one Fed surprise inside that week, and you eat a full month of premium in a single move. The 30-45 day window is where the decay/gap-risk tradeoff is best for retail, and it happens to match the natural monthly options expiration cycle.
 </p>
-<pre><code class="language-">SCENARIO 1: Stock stays well above strike (MOST COMMON)
+<h4>2.4 Capital Cost — The Hidden Half of the Yield</h4>
 <p>
-====================================================
-Setup: AAPL at $155, Sold $145 Put for $2.80
-At expiration: AAPL at $158
+Every CSP locks up cash equal to (strike x 100). That cash is <em>not</em> dead. Inside any modern broker (IBKR, Fidelity, Schwab as of April 2026), the cash collateral on a short put earns one of:
 </p>
-<p>
-Result: Put expires worthless.
-Premium: Keep $280 (1.9% return in 30 days)
-Shares: None purchased
-Cash: $14,500 returned (no longer reserved)
-Action: Sell another put for next month
-</p>
-<p>
-+--------------------------------------------------+
-|  AAPL Price Path:                                |
-|  $160|           ___/                            |
-|  $155|____/\___/                                 |
-|  $150|                                           |
-|  $145|- - - - - - - - - - - STRIKE - - - - - -  |
-|  $140|                                           |
-|      |____|____|____|____|____|                   |
-|      Day1  Day7  Day14 Day21 Day30               |
-|                                                  |
-|  Stock never threatened the strike.              |
-|  Put decayed to zero. Keep premium.              |
-+--------------------------------------------------+
-</p>
-<p>
-SCENARIO 2: Stock drops to strike, hovers near it
-====================================================
-Setup: AAPL at $155, Sold $145 Put for $2.80
-At expiration: AAPL at $144
-</p>
-<p>
-Result: Put is $1 in the money. You are assigned.
-Purchase: Buy 100 shares at $145
-Premium: Keep $280
-Effective cost: $142.20 per share
-Stock value: $144 (small unrealized gain from effective cost!)
-Action: Start selling covered calls on your new shares
-</p>
-<p>
-+--------------------------------------------------+
-|  AAPL Price Path:                                |
-|  $155|____                                       |
-|  $150|    \____                                  |
-|  $145|- - - - -\__ _STRIKE_ ___/\____           |
-|  $140|          \_/                   \          |
-|  $135|                                           |
-|      |____|____|____|____|____|                   |
-|      Day1  Day7  Day14 Day21 Day30               |
-|                                                  |
-|  Stock crossed below strike.                     |
-|  Assigned at $145, effective cost $142.20.       |
-+--------------------------------------------------+
-</p>
-<p>
-SCENARIO 3: Stock drops significantly below strike
-====================================================
-Setup: AAPL at $155, Sold $145 Put for $2.80
-At expiration: AAPL at $125
-</p>
-<p>
-Result: Put is $20 in the money. You are assigned.
-Purchase: Buy 100 shares at $145
-Premium: Keep $280
-Effective cost: $142.20 per share
-Stock value: $125 (unrealized loss of $17.20/share)
-Loss: $1,720 (but $280 less than buying at $145 outright)
-</p>
-<p>
-+--------------------------------------------------+
-|  AAPL Price Path:                                |
-|  $155|__                                         |
-|  $150|  \__                                      |
-|  $145|- - \_STRIKE_ - - - - - - - - - - - - -   |
-|  $140|     \                                     |
-|  $135|      \___                                 |
-|  $130|          \____                            |
-|  $125|               \______                     |
-|      |____|____|____|____|____|                   |
-|      Day1  Day7  Day14 Day21 Day30               |
-|                                                  |
-|  Stock dropped hard. Assigned at $145.           |
-|  Paper loss, but you wanted to own the stock.    |
-|  Effective cost of $142.20 is still better       |
-|  than buying at $145 with a limit order.         |
-+--------------------------------------------------+
-</p>
-<p>
-SCENARIO 4: Stock rallies strongly above starting price
-====================================================
-Setup: AAPL at $155, Sold $145 Put for $2.80
-At expiration: AAPL at $175
-</p>
-<p>
-Result: Put expires worthless.
-Premium: Keep $280 (1.9% return in 30 days)
-Shares: None purchased
-Opportunity cost: You "missed" the rally from $155 to $175
-</p>
-<p>
-BUT: You also missed nothing with a limit order at $145,
-which also would not have been filled!
-</p>
-<p>
-+--------------------------------------------------+
-|  AAPL Price Path:                                |
-|  $175|                              _____/       |
-|  $170|                         ___/              |
-|  $165|                    ___/                   |
-|  $160|               ___/                        |
-|  $155|____      ___/                             |
-|  $150|    \___/                                  |
-|  $145|- - - - - - - - -STRIKE- - - - - - - - -  |
-|      |____|____|____|____|____|                   |
-|      Day1  Day7  Day14 Day21 Day30               |
-|                                                  |
-|  Stock rallied. You did not buy.                 |
-|  Same result as a limit order, but you earned    |
-|  $280 in premium while the limit order earned $0.|
-+--------------------------------------------------+
-</code></pre>
-</p>
-<h4>Comparison to Buying Stock Outright</h4>
-<p>
-Let us directly compare three approaches to acquiring the same stock:
-</p>
-<pre><code class="language-">THREE APPROACHES TO BUYING AAPL (currently at $155):
-<p>
-APPROACH 1: Buy at Market
-Action: Buy 100 shares at $155
-Cost: $15,500
-If stock goes to $170: Profit = $1,500 (9.7%)
-If stock goes to $140: Loss = -$1,500 (-9.7%)
-If stock stays at $155: Gain = $0 (0%)
-</p>
-<p>
-APPROACH 2: Limit Order at $145
-Action: Place limit buy at $145, wait
-Cost if filled: $14,500
-If stock never reaches $145: No shares, $0 income
-If stock drops to $145 and assigned: Cost = $145/share
-Opportunity cost: Cash earns savings rate (~4-5% annually)
-</p>
-<p>
-APPROACH 3: Cash-Secured Put at $145
-Action: Sell $145 Put for $2.80, reserve $14,500
-If stock stays above $145: Keep $280, repeat next month
-If stock drops to $145: Effective cost = $142.20/share
-Annual income if never assigned: ~14-17% on reserved capital
-</p>
-<p>
-SIDE-BY-SIDE COMPARISON TABLE:
-</p>
-<p>
-Outcome              Market Buy   Limit Order   CSP ($145)
-==================   ==========   ===========   ============
-Stock to $170        +$1,500      Not filled    Not filled
-$0 income     +$280 income
-</p>
-<p>
-Stock stays $155     $0           Not filled    Not filled
-$0 income     +$280 income
-</p>
-<p>
-Stock to $145        -$1,000      Buys at $145  Buys at $142.20
-$0 income     $280 premium
-</p>
-<p>
-Stock to $130        -$2,500      Buys at $145  Buys at $142.20
-Loss: $1,500  Loss: $1,220
-</p>
-<p>
-Income while         $0           ~$0           $280/month
-waiting                           (savings rate) (14%+ ann.)
-</p>
-<p>
-CONCLUSION: Cash-secured puts win in every scenario except
-the one where you want to buy at market price RIGHT NOW.
-</code></pre>
-</p>
-<h4>Managing Assignments</h4>
-<p>
-When you are assigned on a cash-secured put, your broker automatically purchases 100 shares at the strike price using the reserved cash. Here is what to do next:
-</p>
-<pre><code class="language-">ASSIGNMENT MANAGEMENT CHECKLIST:
-<p>
-[ ] 1. Confirm the assignment in your account
-</p>
-<ul><li>Check: 100 shares added, cash deducted</li>
-<li>Note your cost basis (strike price, adjusted for premium)</li>
+<ul><li>T-bill yield in a money-market sweep (~4.0%, April 2026 SOFR)</li>
+<li>Margin-account credit interest (varies)</li>
+<li>A government MMF position the broker permits as collateral</li>
 <p>
 </ul>
-[ ] 2. Reassess the stock
+So the <strong>total</strong> yield-on-cash for a CSP is:
 </p>
-<ul><li>Has the fundamental thesis changed?</li>
-<li>Is the stock dropping for temporary or permanent reasons?</li>
-<li>Would you still buy at this price if starting fresh?</li>
+<pre><code class="language-">Total yield = T-bill yield (cash collateral) + put premium yield (option)
 <p>
-</ul>
-[ ] 3. If fundamentals are intact:
-</p>
-<ul><li>START SELLING COVERED CALLS on your new shares</li>
-<li>Select strike above your effective cost basis</li>
-<li>This begins the "wheel strategy" cycle</li>
-<p>
-</ul>
-Example:
-Assigned at $145 (effective $142.20)
-Stock now at $143
-Sell $155 covered call for $2.00
-If called away: Profit = $155 - $142.20 + $2.00 = $14.80/share
-</p>
-<p>
-[ ] 4. If fundamentals have deteriorated:
-</p>
-<ul><li>Consider selling shares immediately</li>
-<li>Take the loss (premium cushion reduces it)</li>
-<li>Reallocate capital to better opportunities</li>
-<li>Do NOT sell more puts hoping to "average down" unless thesis holds</li>
-<p>
-</ul>
-[ ] 5. Update your portfolio tracking
-</p>
-<ul><li>Record the assignment</li>
-<li>Calculate your effective cost basis</li>
-<li>Plan your covered call strategy</li>
-<p>
-</ul></code></pre>
-</p>
-<h4>The Wheel Strategy Preview</h4>
-<p>
-The <strong>wheel strategy</strong> is a continuous cycle of cash-secured puts and covered calls. It is the most complete income-generating strategy for stock investors. Here is how it works:
-</p>
-<pre><code class="language-">THE WHEEL STRATEGY CYCLE:
-<p>
-+------------------------------------------+
-|                                          |
-|   PHASE 1: SELL CASH-SECURED PUTS       |
-|   "Getting paid to wait for your price"  |
-|                                          |
-|   -&gt; Stock stays above strike?           |
-|      Keep premium, sell new put          |
-|      (REPEAT PHASE 1)                   |
-|                                          |
-|   -&gt; Stock drops below strike?           |
-|      Assigned: Buy shares               |
-|      (MOVE TO PHASE 2)                  |
-|                                          |
-+------------------------------------------+
-|
-| (Assigned)
-v
-+------------------------------------------+
-|                                          |
-|   PHASE 2: SELL COVERED CALLS           |
-|   "Getting paid to hold and wait"        |
-|                                          |
-|   -&gt; Stock stays below strike?           |
-|      Keep premium, sell new call         |
-|      (REPEAT PHASE 2)                   |
-|                                          |
-|   -&gt; Stock rises above strike?           |
-|      Assigned: Sell shares               |
-|      (RETURN TO PHASE 1)               |
-|                                          |
-+------------------------------------------+
-|
-| (Called away)
-v
-Return to Phase 1
-(Sell puts again)
-</p>
-<p>
-INCOME AT EVERY STAGE:
-Phase 1: Put premiums (while waiting to buy)
-Phase 2: Call premiums + dividends (while holding)
-</p>
-<p>
-There is NEVER a phase where you are not earning income.
+~= 4.0%/yr + (premium / strike) * (365 / DTE)
 </code></pre>
 </p>
-<pre><code class="language-">WHEEL STRATEGY COMPLETE EXAMPLE:
 <p>
-Stock: JPM (JPMorgan Chase)
-Starting: Cash of $18,000, JPM at $195
+A 30-day, 16-delta SPY put yielding 0.4% in premium therefore returns roughly 4.0% + 0.4% x 12 = <strong>8.8% annualized</strong> on a no-assignment cycle. This is the number you compare against. It is not 4.8% (premium only, ignoring cash interest), and it is not 30%-something (annualizing the premium without subtracting taxes and assignment cost). Always quote yields <em>including</em> the T-bill leg.
 </p>
 <p>
-PHASE 1 - PUT SELLING:
-Month 1: Sell $180 Put for $2.50 -&gt; JPM at $192 -&gt; Keep $250
-Month 2: Sell $180 Put for $2.20 -&gt; JPM at $198 -&gt; Keep $220
-Month 3: Sell $180 Put for $3.00 -&gt; JPM drops to $175 -&gt; ASSIGNED
+This matters for SOUL #2: in the 1990s when T-bills paid 0%, CSP yields looked huge by comparison. In 2026 with T-bills at 4%, the <em>incremental</em> yield from selling puts is the only thing worth measuring, and it is much smaller than uninformed YouTubers claim.
 </p>
+<h4>2.5 Rolling and Defending — Rules, Not Vibes</h4>
 <p>
-Put premiums collected: $250 + $220 + $300 = $770
-Shares acquired: 100 at $180
-Effective cost basis: $180 - $7.70 = $172.30
+A put is "threatened" when the underlying drops to (or below) your strike with significant time left. You have four moves at any moment:
 </p>
+<li><strong>Do nothing — accept assignment.</strong> This is correct if you genuinely want the stock at the effective price (strike - premium). It is the <em>default</em> answer for index CSPs.</li>
+<li><strong>Buy to close at a profit.</strong> Once the put has lost 50-70% of its premium with significant time left (typically before the last 7 days), close it. You have captured most of the theta; the remaining premium is not worth the gamma risk.</li>
+<li><strong>Roll down and out.</strong> If assignment looks likely but you still don't want the stock at this strike, buy back the threatened put and sell a new put at a <em>lower</em> strike, <em>further</em> dated, for a small net credit. You have moved your bid lower and bought time. Do this at most once or twice — endless rolling turns CSPs into a pyramid scheme of deferred losses.</li>
+<li><strong>Take the L and close at a loss.</strong> If your thesis on the stock has changed and you no longer want to be assigned, close the put at whatever loss the market gives you. Cash-secured puts have <em>bounded</em> losses (strike x 100 is the worst case), but bounded does not mean small.</li>
+<pre><code class="language-">Defensive playbook (mechanical version):
 <p>
-PHASE 2 - COVERED CALL SELLING:
-Month 4: Sell $195 Call for $2.80 -&gt; JPM at $182 -&gt; Keep $280
-Month 5: Sell $195 Call for $2.50 -&gt; JPM at $188 -&gt; Keep $250
-Also receive JPM dividend: $1.15/share = $115
-Month 6: Sell $195 Call for $3.20 -&gt; JPM at $190 -&gt; Keep $320
-Month 7: Sell $195 Call for $3.50 -&gt; JPM rises to $198 -&gt; CALLED AWAY
-</p>
-<p>
-Call premiums collected: $280 + $250 + $320 + $350 = $1,200
-Dividend received: $115
-Sale price: $195
-</p>
-<p>
-TOTAL CYCLE RESULTS (7 months):
-Put premiums:   $770
-Call premiums:   $1,200
-Dividend:        $115
-Capital gain:    ($195 - $180) x 100 = $1,500
-================================================
-TOTAL PROFIT:    $3,585
-</p>
-<p>
-Return on $18,000 capital: 19.9% in 7 months = 34.2% annualized
-</p>
-<p>
-RETURN TO PHASE 1:
-Month 8: Cash of $19,500+, sell $180 puts again...
-The wheel keeps turning.
+Trigger                              Action
+=================================    ===============================
+Put at 50% of max profit, &gt;7 DTE     Buy to close, redeploy
+Put at 80% of max profit             Always close
+Stock at strike, 14+ DTE             Hold; let it work
+Stock 5% below strike, 7 DTE         Decide: take assignment or roll
+Stock 10% below strike, any DTE      Take the assignment unless thesis dead
+Earnings inside the contract life    Avoid in the first place
 </code></pre>
 </p>
-<h4>Position Management: When and How to Close Early</h4>
 <p>
-Not every put needs to be held to expiration. Here are guidelines for early management:
+Notice: there is no rule that says "double down" or "average into a losing put." Selling another put at the same strike when the first one is underwater is doubling exposure to a stock that the market disagrees with you about. SOUL #12 (irrational > solvent) applies in reverse: the market can stay below your strike longer than you can stay willing to wear the loss, especially if you keep adding.
 </p>
-<pre><code class="language-">EARLY CLOSE GUIDELINES:
+<h4>2.6 Assignment Psychology — You're Buying, Not Losing</h4>
 <p>
-TAKE PROFIT (Buy back the put):
-</p>
-<ul><li>Put has lost 50% of its value -&gt; Close for 50% profit</li>
-<p>
-</ul>    Example: Sold for $2.80, now worth $1.40 -&gt; Buy back at $1.40
-Profit: $140 in ~15 days (vs $280 in 30 days)
-Why: Capture most of the profit, free up capital, reduce risk
-</p>
-<ul><li>Put has lost 75% of its value -&gt; Strongly consider closing</li>
-<p>
-</ul>    Example: Sold for $2.80, now worth $0.70 -&gt; Buy back at $0.70
-Profit: $210 in ~20 days
-Why: Remaining $70 is not worth the risk of holding
+For most retail CSP traders the panic moment is the morning after assignment, when 100 shares of stock appear in the account at a price that is now above the market. The mental frame matters here.
 </p>
 <p>
-CUT LOSS (Buy back the put at a loss):
-</p>
-<ul><li>Put has DOUBLED in value -&gt; Consider closing</li>
-<p>
-</ul>    Example: Sold for $2.80, now worth $5.60 -&gt; Buy back at $5.60
-Loss: -$280
-Why: Prevent further loss. The stock has moved against you.
-Reassess whether you still want to own the stock.
-</p>
-<ul><li>Stock has dropped through strike with bad news -&gt; Close</li>
-<p>
-</ul>    If the reason for the drop changes your thesis about the company,
-take the loss and move on.
+Assignment is <strong>not</strong> a loss event. It is the buy order you placed 30 days ago, executing exactly as designed.
 </p>
 <p>
-ROLL (Close current put, open new one):
-</p>
-<ul><li>Stock is near strike with a few days left</li>
-<li>You still want to own it, but want more premium</li>
-<li>Close the current put, sell next month's put</li>
-<li>Example: Buy back $145 March Put at $3.50, sell $145 April Put</li>
-<p>
-</ul>    for $5.00 -&gt; Net credit of $1.50
+If your 16-delta SPY $530 put was assigned because SPY closed at $528, you bought 100 shares of SPY at $530, pocketed $300 in premium for the trouble, and your effective cost is $527 — <em>better</em> than the market price the day you wrote the put, <em>better</em> than the market price the day you were assigned. You executed your patience plan exactly. The only loss scenario is if you panic-sell those shares the next day at $520. The shares are not the loss; the panic is.
 </p>
 <p>
-MANAGEMENT SCHEDULE:
-Day 1-7:    Set it and forget it (unless major news)
-Day 8-20:   Check weekly. Close if 50%+ profit achieved.
-Day 21-25:  Evaluate closely. Roll or close if needed.
-Day 26-30:  Expiration week. Final decision: expire or close.
-</code></pre>
+The right next move after assignment is almost always to <strong>start writing covered calls on the assigned shares</strong> — Week 27's playbook. The wheel (CSP -> assignment -> covered call -> call-away -> CSP) is the natural cycle. You bought the dip and now collect rent on the way back up.
 </p>
-<h4>Building a Cash-Secured Put Portfolio</h4>
 <p>
-For investors with sufficient capital, running a diversified portfolio of cash-secured puts can generate substantial, consistent income.
+The only stocks where assignment is genuinely bad are the ones you should not have written CSPs on in the first place: meme stocks, single biotechs, leveraged ETFs, anything you would not buy outright at the strike.
 </p>
-<pre><code class="language-">CASH-SECURED PUT PORTFOLIO EXAMPLE: $100,000 Capital
+<h4>2.7 PUTW: The CSP Strategy as an ETF</h4>
 <p>
-Allocation Strategy:
+WisdomTree PUTW (CBOE S&P 500 PutWrite Index Fund) is the institutional version of this lesson. It mechanically sells 1-month, ~2% out-of-the-money SPX puts, fully cash-secured, every month. It exists to settle the question "does systematically writing puts beat just owning the index?"
 </p>
-<ul><li>5 positions across different sectors</li>
-<li>15-20% of capital per position</li>
-<li>10-15% kept as cash buffer for opportunities or margin of safety</li>
+<p>
+[VISUAL: image/week28_putw_vs_spy.png]
+</p>
+<p>
+The chart shows cumulative growth of $1 invested in PUTW vs SPY from January 2016 to December 2024. The numbers (April 2026 vintage):
+</p>
+<ul><li>PUTW: ~7% per year, max drawdown about -22% in March 2020</li>
+<li>SPY: ~12% per year, max drawdown about -34% in March 2020</li>
 <p>
 </ul>
-+--------------------------------------------------------------+
-| STOCK | SECTOR      | STRIKE | CAPITAL  | PREMIUM | ANN YLD |
-+--------------------------------------------------------------+
-| AAPL  | Technology  | $140   | $14,000  | $1.80   | 15.4%   |
-| JPM   | Financials  | $180   | $18,000  | $2.50   | 16.7%   |
-| JNJ   | Healthcare  | $150   | $15,000  | $1.60   | 12.8%   |
-| KO    | Cons.Staple | $55    | $16,500* | $0.70   | 15.3%   |
-|       |             |        | (3 cnts) |         |         |
-| AMZN  | Consumer    | $180   | $18,000  | $3.20   | 21.3%   |
-+--------------------------------------------------------------+
-| TOTAL               |        | $81,500  | $1,250  | 15.7%   |
-| Cash buffer          |        | $18,500  |         |         |
-+--------------------------------------------------------------+
-</p>
-<ul><li>3 contracts of KO at $55 = $16,500</li>
-<p>
-</ul>
-Monthly Income: $1,250 (premiums across 5 positions)
-Annual Income: $15,000 (15.0% on invested capital)
-Annual Income on Total: $15,000 / $100,000 = 15.0%
+PUTW captured the put premium consistently and weathered 2018, 2020, and 2022 with smaller drawdowns than SPY. But in the 2017, 2019, 2021, and 2023 melt-ups, the cap on upside is structural: the put premium is a few percent per month, but SPY can rip 5%+ in a month and PUTW only collects the put premium, not the underlying gain. Over a full cycle PUTW lags SPY in total return, lags more in bull years, and outperforms only in flat or modestly down years.
 </p>
 <p>
-Diversification:
-Technology: 14%
-Financials: 18%
-Healthcare: 15%
-Consumer Staples: 16.5%
-Consumer Discretionary: 18%
-Cash: 18.5%
+The takeaway: systematic CSP-writing is real, defensible, and inferior to plain index ownership in a normal expansion. The reason a thoughtful investor still does CSPs is <strong>not</strong> to beat SPY on total return. It is to (a) build cash positions into specific names you want to own, (b) generate income inside an IRA where the tax drag of the equivalent stock-trade strategy would be worse, and (c) lower portfolio volatility while accepting a modest return drag.
+</p>
+<p>
+If you are tempted to think "PUTW lags SPY -> CSPs are bad," you have misunderstood the trade. PUTW is mechanical, indiscriminate, and pays a fixed expense ratio. Targeted CSPs on stocks you want to own at prices you want to own them at are a different animal.
+</p>
+<h4>2.8 Tax Treatment — Same Rule as Week 27</h4>
+<p>
+Premium from short puts is short-term capital gain when the option expires worthless or is bought to close, regardless of how long the put was open. There is no long-term holding-period exception.
+</p>
+<pre><code class="language-">Outcome                         Tax treatment
+<p>
+============================    ==============================
+Put expires worthless           STCG on full premium received
+Put bought to close at profit   STCG on (received - paid)
+Put bought to close at loss     STCL (offsets STCG/long-term gains)
+Put assigned -&gt; stock taken     Premium reduces cost basis of the
+shares; holding period for the
+shares starts on assignment day
 </code></pre>
 </p>
-<h4>Comparing Cash-Secured Puts Across Different Market Environments</h4>
 <p>
-Understanding how the strategy performs in different conditions helps you set realistic expectations:
-</p>
-<pre><code class="language-">PERFORMANCE IN DIFFERENT MARKETS:
-<p>
-BULL MARKET (stock rising 15-25% per year):
-</p>
-<ul><li>Puts expire worthless month after month</li>
-<li>You collect premium but never buy the stock</li>
-<li>Annual return on cash: 10-18% (premiums only)</li>
-<li>Emotional challenge: Watching the stock rise without owning it</li>
-<li>Reality check: You are earning more than a savings account</li>
-<li>Adjustment: Consider selling closer to ATM for higher premiums</li>
-<p>
-</ul>                 or just buy the stock at market
+In a taxable account at a 35-37% top bracket, a CSP yielding 5% per year in premium is netting ~3.2% after tax. Inside a Roth IRA, it's netting 5%. SOUL #15 again: the entire short-vol toolkit only makes sense in a tax-sheltered wrapper for high earners. In a regular brokerage, you are running options strategies for the IRS's benefit.
 </p>
 <p>
-FLAT MARKET (stock moves sideways, +/- 5%):
-</p>
-<ul><li>Most puts expire worthless</li>
-<li>Occasional assignment followed by recovery</li>
-<li>Annual return on cash: 12-18% (premiums)</li>
-<li>This is the IDEAL environment for put selling</li>
-<li>You earn consistent income while the stock goes nowhere</li>
-<p>
-</ul>
-MILD BEAR MARKET (stock declining 5-15%):
-</p>
-<ul><li>You get assigned on some puts</li>
-<li>Effective cost is below strike price (premium cushion)</li>
-<li>You own stocks at discounted prices</li>
-<li>Transition to covered calls on assigned shares</li>
-<li>Net result: Buying stocks at good prices with income along the way</li>
-<p>
-</ul>
-SEVERE BEAR MARKET (stock declining 25%+):
-</p>
-<ul><li>Multiple assignments</li>
-<li>Unrealized losses on assigned shares</li>
-<li>Premium cushion helps but does not eliminate losses</li>
-<li>This is the time to hold assigned shares and sell covered calls</li>
-<li>Long-term: These become your best entry prices</li>
-<p>
-</ul>
-HISTORICAL EXAMPLE: Selling AAPL puts in 2022
-AAPL dropped from $182 to $129 (29% decline)
-Put seller assigned at ~$150, effective cost ~$145
-By mid-2023, AAPL recovered to $190
-Result: 31% gain from effective cost in ~12 months
-Plus: Covered call premiums during the hold = additional 8-12%
-</code></pre>
-</p>
-<h4>Practical Checklist: Before You Sell a Put</h4>
-<p>
-Use this checklist every time you are about to sell a cash-secured put:
-</p>
-<pre><code class="language-">PRE-TRADE CHECKLIST:
-<p>
-STOCK QUALITY:
-[ ] Company has been profitable for at least 3 years
-[ ] Debt-to-equity ratio is reasonable for its industry
-[ ] No pending litigation or regulatory risks that concern me
-[ ] I understand what the company does and how it makes money
-[ ] I would hold this stock for at least 2-3 years if assigned
+The interactive below walks the math for any combination of underlying, delta, and DTE in real time.
 </p>
 <p>
-STRIKE SELECTION:
-[ ] Strike is at or below my fair value estimate
-[ ] Strike is at least 5% below current price (for OTM approach)
-[ ] If assigned, my total position in this stock stays under 20%
-[ ] I have confirmed the support level on the price chart
-</p>
-<p>
-EXPIRATION SELECTION:
-[ ] 30-45 days to expiration
-[ ] No earnings announcement between now and expiration
-[ ] No major economic events (Fed meeting, etc.) that concern me
-</p>
-<p>
-PREMIUM CHECK:
-[ ] Annualized yield is at least 8% (my minimum threshold)
-[ ] Bid-ask spread is tight (under $0.30 for a ~$3 option)
-[ ] Volume and open interest are sufficient (at least 100 OI)
-</p>
-<p>
-CAPITAL CHECK:
-[ ] I have cash to cover the full assignment (strike x 100)
-[ ] This position does not use more than 20% of my total capital
-[ ] I have at least 15% of my total capital in cash reserve
-[ ] I am NOT using margin for this position
-</p>
-<p>
-MANAGEMENT PLAN:
-[ ] I know at what profit level I will close early (50-75%)
-[ ] I know at what loss level I will cut the position (2x premium)
-[ ] If assigned, I have a plan (sell covered calls or hold)
-</code></pre>
-</p>
-<h4>Risk Management for Cash-Secured Puts</h4>
-<p>
-Understanding and managing risk is essential for long-term success:
-</p>
-<pre><code class="language-">RISK MANAGEMENT FRAMEWORK:
-<p>
-1. STOCK SELECTION RISK
-Mitigation: Only sell puts on stocks you want to own
-</p>
-<ul><li>Strong balance sheet (low debt)</li>
-<li>Consistent earnings growth</li>
-<li>Competitive moat</li>
-<li>Reasonable valuation at your strike price</li>
-<p>
-</ul>     Rule: If you would not buy 100 shares at the strike with a
-market order, do NOT sell a put at that strike.
-</p>
-<p>
-2. CONCENTRATION RISK
-Mitigation: Diversify across sectors and stocks
-</p>
-<ul><li>Maximum 20% of capital in any single stock</li>
-<li>Minimum 4-5 different stocks</li>
-<li>Spread across at least 3 sectors</li>
-<p>
-</ul>     Rule: No single assignment should be devastating to your portfolio.
-</p>
-<p>
-3. MARKET CRASH RISK
-Mitigation: Keep 15-20% cash buffer
-</p>
-<ul><li>If ALL positions are assigned, you still have cash reserves</li>
-<li>A crash that assigns all puts at once is rare but possible</li>
-<li>In a broad crash, your effective costs are still below market</li>
-<p>
-</ul>     Rule: Size positions so that being assigned on ALL of them
-simultaneously does not exceed your total capital.
-</p>
-<p>
-4. EARNINGS/EVENT RISK
-Mitigation: Avoid selling puts expiring during earnings week
-</p>
-<ul><li>Earnings can cause 10-20% gaps overnight</li>
-<li>If you sell a put through earnings, accept the gap risk</li>
-<li>Better: sell puts AFTER earnings, when IV has settled</li>
-<p>
-</ul>     Rule: Know the earnings calendar for every stock you sell puts on.
-</p>
-<p>
-5. OPPORTUNITY COST RISK
-Mitigation: Use short-duration puts (30-45 days)
-</p>
-<ul><li>Cash is tied up for the option's duration</li>
-<li>If a better opportunity arises, you may not have free cash</li>
-<li>Shorter durations free cash more frequently</li>
-<p>
-</ul>     Rule: Keep enough liquid cash to act on unexpected opportunities.
-</p>
-<p>
-MAXIMUM LOSS CALCULATION:
-</p>
-<p>
-Absolute worst case (stock goes to $0):
-Max Loss = (Strike Price - Premium) x 100 x Number of Contracts
-</p>
-<p>
-AAPL $140 Put at $2.80:
-Max Loss = ($140 - $2.80) x 100 = $13,720 per contract
-</p>
-<p>
-This would require AAPL to go to $0, which is essentially
-impossible for a company of Apple's size and financial strength.
-</p>
-<p>
-Realistic worst case (stock drops 30%):
-AAPL drops from $155 to $108.50
-You buy at $140, effective cost $137.20
-Unrealized loss: ($137.20 - $108.50) x 100 = $2,870
-</p>
-<p>
-This is painful but manageable, especially if you believe
-AAPL will recover and you start selling covered calls.
-</code></pre>
+[INTERACTIVE: interactive/week28_put_writer.html]
 </p>
 <hr>
-<h3>c) Common Misconceptions</h3>
-<p>
-<strong>Misconception 1: "Selling puts is the same as buying stock, so why bother?"</strong>
-</p>
-<p>
-While the risk profiles are similar (both have downside exposure), the economics are different. The put seller has a lower effective cost basis (by the amount of the premium), and earns income while waiting for the entry price. A stock buyer at $155 starts at $155. A put seller at $145 strike with $2.80 premium starts at $142.20 if assigned, and earns $280 if not. Over time, the put seller's entry is significantly better.
-</p>
-<p>
-<strong>Misconception 2: "Cash-secured puts tie up too much capital."</strong>
-</p>
-<p>
-This is true if you compare it to margin-based strategies, but the comparison should be to what you would do with the cash otherwise. If the cash is sitting in a savings account at 4-5%, selling cash-secured puts at 12-18% annualized yield is a dramatic improvement. The capital is "tied up" in the same way it would be tied up waiting for a limit order to fill: you have decided to buy the stock at a certain price, so the capital is already mentally allocated.
-</p>
-<p>
-<strong>Misconception 3: "You should sell puts on high-volatility stocks for bigger premiums."</strong>
-</p>
-<p>
-Higher volatility does mean higher premiums, but it also means higher probability of large drops, which increases assignment risk and potential losses. A biotech stock might offer $8 in premium on a $50 put, but the stock could easily drop 40% on a failed drug trial. You should sell puts on stocks with moderate volatility that you genuinely want to own, not on the most volatile names for premium size alone.
-</p>
-<p>
-<strong>Misconception 4: "Getting assigned on a put is a bad outcome."</strong>
-</p>
-<p>
-Assignment means you bought a stock you wanted at a price you chose, at an effective cost lower than that price. This is a successful execution of your plan. The only time assignment is truly bad is when the stock drops catastrophically due to fundamental problems (fraud, bankruptcy, structural decline). This risk exists equally with any form of stock purchase. Assignment itself is neutral to positive.
-</p>
-<p>
-<strong>Misconception 5: "I should always roll to avoid assignment."</strong>
-</p>
-<p>
-Rolling has a cost. If the stock is below your strike and you roll, you are buying back an in-the-money put (expensive) and selling a new one (hopefully for more). The net credit may be small or you may even pay a debit. If you want the stock at the strike price, just accept assignment. Rolling makes sense only when: (a) your view on the stock has changed and you no longer want to buy, or (b) you want more time to collect premium before buying.
-</p>
-<p>
-<strong>Misconception 6: "Cash-secured puts only work in bull markets."</strong>
-</p>
-<p>
-Cash-secured puts actually work in ALL market environments, but the outcomes differ. In bull markets: puts expire worthless, you keep premium. In flat markets: same result, premium income is your return. In mild bear markets: you get assigned and buy stocks at a discount, which is ideal for long-term investors. In severe bear markets: you buy stocks at a discount but face unrealized losses, though your effective cost is still better than buying without the put strategy. The strategy fails only if you are selling puts on fundamentally flawed companies.
-</p>
+<h3>3. Common Misconceptions</h3>
+<li><strong>"CSPs are free money / yield-farming."</strong> They are not. The premium is the market's price for taking on a defined drawdown risk. Annualizing 30-day premium and quoting "30% yield!" hides the fact that the realized yield includes the assignment outcomes, which are negative when they happen.</li>
+<li><strong>"You should never let a put get assigned."</strong> Backwards. On a stock you want to own, assignment is the <em>intended</em> outcome. Aggressively rolling away from assignment on every dip turns a buy-the-pullback strategy into a perpetual-rent strategy that eventually catches a 20% drop you can't roll out of.</li>
+<li><strong>"30-delta is the standard, so I should sell 30-deltas."</strong> 30-delta is the standard for a reason — the premium is meaningful — but only on names you genuinely want to own. On an index where you would happily accumulate at any pullback, sure. On a single stock you are lukewarm about, 16-delta is more honest.</li>
+<li><strong>"Selling weeklies is more profitable because you do it 4x as often."</strong> Daily theta is highest in the last 7 days, but so is gamma. Weekly puts get destroyed by single-day gaps far more than monthlies, which is why systematic put-writers (including PUTW) almost always sell ~30-day, not 7-day.</li>
+<li><strong>"PUTW lags SPY, so CSPs are useless."</strong> PUTW is a mechanical indiscriminate seller of OTM SPX puts. A thoughtful CSP program is targeted, opportunistic, and used to acquire shares — not to maximize total return. They are different products solving different problems.</li>
+<li><strong>"The put premium is my profit."</strong> The premium is your gross income. Your <em>profit</em> is premium net of (a) the cost of capital tied up in collateral, (b) the realized losses from assignments at strikes above market, and (c) taxes. Most retail CSP traders track only the premium and are confused by their account balance two years in.</li>
+<li><strong>"Cash-secured means there's no risk."</strong> Cash-secured means you cannot lose more than (strike x 100) per contract. That is <em>bounded</em> risk, not zero risk. A $530 SPY put has $53,000 of capital at risk if SPY goes to zero. Bounded does not equal small.</li>
+<li><strong>"I can just roll forever if it goes against me."</strong> Rolls work for one or two cycles and only against shallow moves. In a real correction (2008, 2020, 2022) put strikes get blown through so fast that the rolls keep moving lower without ever recovering, and you end up with the original loss plus several months of additional theta you paid to defer it.</li>
+<li><strong>"Selling puts is the same as buying stock at the strike."</strong> Almost, but not quite. The put seller does not benefit from upside above the strike. The stock buyer does. This is why CSPs in a melt-up market lag long stock by exactly the missed upside.</li>
+<li><strong>"IV crush is good for me."</strong> Yes, if you are already short the put. But the implication that you should write puts whenever VIX is high is dangerous — VIX is high because realized vol is <em>also</em> high, and your put is more likely to be assigned. The right framing is "premium is fairly priced; sell what you actually want to own."</li>
 <hr>
-<h3>d) Common Questions and Answers</h3>
+<h3>4. Q&A</h3>
 <p>
-<strong>Q1: How is a cash-secured put different from a naked put?</strong>
+<strong>Q1. How much capital do I need to start running CSPs?</strong>
+At least enough to cover 100 shares of one underlying you want to own. For SPY at $560 that's $56,000 per contract. For KO at $70 that's $7,000. Beginners should start with one underlying, one contract, and an account size where one assignment doesn't dominate the portfolio — a rough rule is no contract should require more than 10-15% of total portfolio cash.
 </p>
 <p>
-A: The strategy is the same; the collateral is different. A cash-secured put requires you to have the full cash amount to buy the shares ($14,000 for a $140 put). A naked put uses margin, meaning you only need to post a fraction of the value (perhaps $3,000-$5,000 depending on your broker). Naked puts have the same profit potential but carry additional risk because if you are assigned and the stock drops further, you may face a margin call. In this course, we exclusively teach cash-secured puts because they eliminate margin risk and align with a conservative investing philosophy.
+<strong>Q2. How is a CSP different from a naked put?</strong>
+Mechanically the option position is identical. The difference is the collateral. A cash-secured put has 100% of the strike-exposure in cash. A naked put uses margin — you might post only 20-25% of the notional, leveraging 4-5x. Naked puts magnify both income and assignment risk; they are not a beginner trade and not what this lesson covers.
 </p>
 <p>
-<strong>Q2: Can I sell puts on index ETFs like SPY?</strong>
+<strong>Q3. What underlyings work best?</strong>
+Liquid index ETFs (SPY, QQQ, IWM), large-cap quality names you would actually own (AAPL, MSFT, KO, JPM, BRK.B), and ideally with weekly+monthly options chains. Avoid: single-name biotech, recent IPOs, stocks under $20, leveraged/inverse ETFs, anything with binary catalysts inside the contract life.
 </p>
 <p>
-A: Yes, and SPY puts are among the most liquid options in the world. The capital requirement is higher ($52,000 for a $520 put), but you get broad market diversification in a single contract. SPY puts are an excellent choice for investors who want to build a position in the overall market at a lower price. The premiums on SPY are somewhat lower on a percentage basis (due to lower volatility), but the consistency and liquidity are exceptional.
+<strong>Q4. Should I avoid earnings?</strong>
+Generally yes for single names. Earnings inflate IV and pay you more premium, but they also inflate the gap risk. Selling a put through earnings is a directional bet on the earnings reaction — fine if you actually wanted that bet, dangerous if you thought you were collecting "rent." Index CSPs don't have this problem (no single earnings).
 </p>
 <p>
-<strong>Q3: What happens if I do not have enough cash when I am assigned?</strong>
+<strong>Q5. What if the stock gaps below my strike overnight?</strong>
+You take the assignment at the strike. Your effective cost is still (strike - premium), and you bought 100 shares at exactly the price you committed to 30 days ago. Yes, the market is now below that, which is uncomfortable, but it is not different from your original plan. Either you wanted the stock at that price or you didn't.
 </p>
 <p>
-A: If your put is cash-secured, this should not happen because your broker has already reserved the full amount. If you are using margin and get assigned without sufficient funds, your broker will issue a margin call. You will need to either deposit more cash or sell securities to cover the purchase. This is one of the key reasons we recommend cash-secured puts over naked puts: the cash is always there when needed.
+<strong>Q6. Can I sell CSPs in a margin account?</strong>
+Yes, and most modern brokers will route the cash collateral to a money-market sweep so it earns T-bill yield while it's tied up. You can also sell <em>naked</em> puts in a margin account, which is different — see Q2.
 </p>
 <p>
-<strong>Q4: Should I sell puts weekly or monthly?</strong>
+<strong>Q7. How do CSPs interact with the wash-sale rule?</strong>
+If you take a loss on shares and within 30 days sell a put on the same security with a strike close to the original purchase price, the IRS may treat it as a wash sale and disallow the loss. The exact line depends on facts and circumstances. Consult a tax pro if you are running CSPs alongside loss-harvesting on the same names.
 </p>
 <p>
-A: Monthly (30-45 days) is recommended for most investors. Weekly puts require more frequent management and have smaller individual premiums. While the annualized yield of weekly puts can be higher, the additional effort and transaction frequency often do not justify the marginal increase. Monthly puts provide a good premium with minimal management. If you are more experienced and have time, selling weekly puts can work, but start with monthly.
+<strong>Q8. Is there any scenario where a CSP outperforms just buying the stock?</strong>
+Yes — flat or modestly down markets. If SPY ends the month exactly where it started, the long-stock holder made $0 and the CSP-seller made the full premium. If SPY drops 1%, long stock is down 1% and the CSP-seller is up roughly (premium - 1%). In strongly up markets (above strike + premium) long stock wins; in strongly down markets both lose, with CSP losing slightly less by the premium.
 </p>
 <p>
-<strong>Q5: What is the difference between selling a put and buying a deep-in-the-money call?</strong>
+<strong>Q9. Why is the 30-day implied volatility relevant when I only care about the premium?</strong>
+The premium <em>is</em> the IV — Black-Scholes with everything else fixed maps premium to vol one-to-one. When you compare CSPs across names, you are implicitly choosing which IV you are short. Higher IV = higher premium = higher realized vol = higher chance of assignment. There is no free yield-arbitrage here.
 </p>
 <p>
-A: Economically, they are similar but not identical. Both give you bullish exposure with a lower initial outlay than buying stock. However, selling a put generates income (you receive premium), while buying a call costs money (you pay premium). Selling a put also requires full cash collateral and has limited profit (the premium). Buying a deep ITM call costs less upfront but loses value to time decay and has unlimited profit potential. For income-oriented investors, selling puts is generally preferred.
+<strong>Q10. What's a sensible starting cadence?</strong>
+One contract per month per underlying you want to accumulate, on a 30-45 DTE 16-delta strike. Re-evaluate after 6-12 months. The point is <em>not</em> to maximize the number of trades; it is to systematically accumulate target positions at target prices while collecting incremental yield.
 </p>
 <p>
-<strong>Q6: How do I account for dividends when selling puts?</strong>
+<strong>Q11. Do I need to actively manage these or can I let them expire?</strong>
+You can let them expire if your thesis hasn't changed and the put is far out of the money near expiry. The half-decent rule is: if at 7 DTE the put has lost 80%+ of its initial premium, just close it for the small remaining cost — you free up capital and remove gamma risk for the last week.
 </p>
 <p>
-A: If you sell a put on a dividend-paying stock and get assigned, you will receive future dividends on the shares you now own. However, you do not receive dividends while you hold the short put position (you do not own the shares yet). This is a minor disadvantage compared to owning the stock outright, but the put premium typically exceeds the dividend you would have received during the same period.
-</p>
-<p>
-<strong>Q7: What happens to my put if the stock splits?</strong>
-</p>
-<p>
-A: Options are adjusted for stock splits. If AAPL does a 4-for-1 split and you have a $140 put, your position would be adjusted to 4 contracts of $35 puts (same economic exposure). The OCC handles all adjustments automatically. You do not need to take any action.
-</p>
-<p>
-<strong>Q8: Can I sell puts in a margin account even if I want them cash-secured?</strong>
-</p>
-<p>
-A: Yes. You can choose to keep enough cash in your margin account to fully cover the put, effectively making it cash-secured even though the account type allows margin. Many investors use margin accounts for the flexibility but maintain cash reserves equivalent to full coverage. The key discipline is not using the margin to sell more puts than you could cover with cash.
-</p>
-<p>
-<strong>Q9: What if I want to be more conservative? Can I sell puts on stocks I already own?</strong>
-</p>
-<p>
-A: Yes, this is called selling an "additional put." If you already own 100 shares of AAPL and sell a $140 put, getting assigned would give you 200 shares. This is a way to double down on stocks you love at lower prices. Just ensure your total position size remains within your risk tolerance and portfolio allocation limits.
-</p>
-<p>
-<strong>Q10: How does the wheel strategy compare to traditional buy-and-hold?</strong>
-</p>
-<p>
-A: Over long periods, the wheel strategy typically generates higher income but may slightly underperform during strong bull markets (due to the covered call capping upside). In flat and mildly bearish markets, the wheel significantly outperforms because of the premium income. Research on the CBOE PutWrite Index (PUT) shows that a systematic put-writing strategy has delivered returns comparable to the S&P 500 with about 25-30% less volatility. The wheel adds covered calls on top, further enhancing income. For income-focused investors, the wheel is often superior to pure buy-and-hold.
+<strong>Q12. How does this fit into the barbell (SOUL #14)?</strong>
+CSPs on index ETFs and quality compounders are unambiguously <strong>safe-end</strong> activity. They build positions you wanted anyway, pay you to wait, and have bounded downside. CSPs on volatile single names with binary outcomes are <strong>speculation-end</strong> activity. The mistake is mixing the two — using safe-end framing to justify selling 30-delta puts on a meme stock. Separate them in your head and in your account.
 </p>
             </div>
             <div id="content-hk" class="lang-content">
