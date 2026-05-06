@@ -29,7 +29,7 @@ You need to understand behavioural biases for four reasons.
    The strategy was fine. The hand on the keyboard was not.
 
 2. **Markets stay irrational longer than retail can stay liquid.**
-   The classic Keynes warning, and SOUL principle 12: even when you
+   The classic Keynes warning: even when you
    are *correctly* identifying a mispricing, the price can move
    *further* against you for *longer* than you can finance the
    position. Behavioural biases are the mechanism that *creates*
@@ -40,7 +40,7 @@ You need to understand behavioural biases for four reasons.
    on Day 1 still blew you up by Day 500.
 
 3. **Fat tails punish leverage, and leverage is what overconfidence
-   builds.** SOUL principle 6: the volatility tail wags the
+   builds.** The volatility tail wags the
    portfolio dog. Overconfident investors take more leverage than
    their conviction warrants, because the bell-curve model in their
    head puts the next −30% year at "once in a century." It isn't.
@@ -169,7 +169,7 @@ distort your hold/sell decision.
 
 #### 2.5 Herding and FOMO — The Beauty Contest
 
-Keynes' beauty-contest analogy (SOUL principle 12) is the cleanest
+Keynes' beauty-contest analogy is the cleanest
 description of herding ever written: the investing game is not
 picking the prettiest face, it is picking the face *the average
 voter* will pick — and the average voter is in turn picking what
@@ -381,7 +381,7 @@ alpha simultaneously.
 
 **Q5: If I know a bubble is forming, should I short?**
 
-A: No. SOUL principle 12 — markets stay irrational longer than
+A: No. Markets stay irrational longer than
 you can stay solvent. Even if you correctly identify a bubble in
 year 1, the bubble can run another 2–3 years. A short position
 financed with margin will be stopped out long before the
@@ -409,7 +409,7 @@ that leaves the money in cash.
 
 **Q8: How does fat-tail awareness intersect with overconfidence?**
 
-A: Directly. SOUL principle 6 — vol tail wags dog. Overconfident
+A: Directly. Vol tail wags dog. Overconfident
 sizing assumes the realized volatility distribution looks like the
 recent quiet sample. Fat tails mean the *next* extreme event is
 larger than your sized-for sample suggested. Overconfidence-built
@@ -419,7 +419,7 @@ you have already lived through.
 
 **Q9: How does this lesson connect to the barbell?**
 
-A: The barbell (SOUL principle 14, covered Week 14) is in part a
+A: The barbell (covered Week 14) is in part a
 *behavioural* design: by holding extreme safety on one end (cash,
 T-bills) and small concentrated speculation on the other (long
 calls, asymmetric bets), the middle — where loss aversion is
@@ -592,7 +592,7 @@ high-conviction bets that are mostly noise.
 
 **Stella:** And the leverage piece?
 
-**Horace:** Connects to SOUL principle six. Vol tail wags dog.
+**Horace:** Connects to the volatility-tail point. Vol tail wags dog.
 Overconfident investors take more leverage than their conviction
 warrants, because the bell-curve model in their head puts the
 next 30% drawdown at "once a century." It isn't. Once-a-decade

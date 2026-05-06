@@ -12,7 +12,7 @@ Liquidity is the single most under-appreciated risk in retail portfolios.
 Returns get all the headlines; liquidity gets all the obituaries. Every
 major blow-up in the last forty years — 1987, 1998, 2008, 2010, 2020,
 2022 — had a liquidity component bolted onto whatever fundamental
-trigger started it. SOUL #6 (vol-tail-wags-dog) is really a liquidity
+trigger started it. Vol-tail-wags-dog is really a liquidity
 statement: when volatility doubles, the cost of getting out of a
 position quintuples, and it is that *second* leg that does the damage.
 
@@ -35,7 +35,7 @@ liquidity.
    you.** A 401(k) that you cannot draw for thirty years can hold
    illiquid private credit or non-traded REITs (side14). A taxable
    account that funds tuition in two years cannot. The four-tranche
-   framework (SOUL #13) is, at heart, a liquidity tiering exercise.
+   framework is, at heart, a liquidity tiering exercise.
 4. **The Fed's playbook is a liquidity script.** PDCF, MMLF, BCFP,
    BTFP — every emergency facility named in the last two cycles is a
    targeted plug into a specific drained pool. Knowing which facility
@@ -157,7 +157,7 @@ not need to sell it that day.*
 
 Three case studies, each illustrating how liquidity disappears in
 exactly the regime when an investor most wants to use it. They are the
-empirical foundation for SOUL #6.
+empirical foundation for the vol-tail-wags-dog observation.
 
 **March 2020: Treasury market dysfunction.** The on-the-run 30-year US
 Treasury — the deepest, most liquid asset on the planet — saw bid-ask
@@ -218,7 +218,7 @@ restore liquidity to systemic markets, but the announcement effect
 matters more than the dollar size. Investors who waited for the
 *announcement* (March 23 in 2020) caught most of the recovery;
 investors who tried to time the *bottom* before the policy response
-mostly missed it. SOUL #12: irrational > solvent — but the Fed
+mostly missed it. The market can stay irrational longer than you can stay solvent — but the Fed
 *can* keep you solvent if you survive long enough for the facility to
 arrive.
 
@@ -468,8 +468,8 @@ hedge funds unwinding basis trades, primary dealer balance sheets
 full. The Fed had to put unlimited QE on the table on March 23.
 
 **HORACE:** Three different triggers. Same mechanism. Liquidity
-withdraws in a regime that already has too many sellers. SOUL
-principle six: *vol-tail-wags-dog.* That's a liquidity statement.
+withdraws in a regime that already has too many sellers.
+*Vol-tail-wags-dog* is a liquidity statement.
 When vol doubles, exit cost quintuples, and it's that second leg
 that does the damage.
 
@@ -520,7 +520,7 @@ mega-caps are 100x cheaper to trade than micro-caps and that
 matters for any rebalancing strategy. Three — it disappears in
 crises, including in markets you would bet your life are immune.
 
-**HORACE:** The four-tranche framework — SOUL #13 — exists for
+**HORACE:** The four-tranche framework exists for
 exactly this reason. You match liability liquidity to asset
 liquidity. The cash you need next month sits in T-bills. The
 cash you need in twenty years can sit in private credit. Get

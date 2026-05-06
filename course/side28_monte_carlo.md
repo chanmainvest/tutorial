@@ -39,7 +39,7 @@ Four reasons to learn Monte Carlo simulation properly:
    median.** Planning to the median is planning for 50/50 success.
    Monte Carlo gives you the *distribution* — the shape and tail —
    not just a point estimate.
-4. **SOUL #6**: vol-tail-wags-dog. The tail is not a curiosity; it
+4. **Vol-tail-wags-dog.** The tail is not a curiosity; it
    is the entire game in withdrawal phase. A 30% drawdown in
    accumulation phase is a buying opportunity. The same drawdown in
    year three of retirement is a permanent reduction in lifetime
@@ -314,7 +314,7 @@ work in real life:
    Kitces and Pfau (2014) showed it improves success probability by
    2-4 percentage points on the same withdrawal rate.
 
-SOUL #14, barbell, applied to retirement: keep two years of cash
+The barbell, applied to retirement: keep two years of cash
 ironclad, let the equity sleeve be aggressive. The bond/cash side
 is for *survival*; the equity side is for *return*. Mixing them at
 60/40 throughout retirement is the worst of both worlds — too much
@@ -716,7 +716,7 @@ Equity glidepath — start retirement at 40% equities, ramp *up* to
 sequence risk is fatal — that is when you want *less* equity
 exposure. The second and third decades are when sequence risk has
 attenuated — that is when you want *more* equity exposure for the
-return. SOUL fourteen, barbell, applied to retirement: cash
+the return. The barbell applied to retirement: cash
 ironclad on one side, equity aggressive on the other, and reduce
 the middle.
 

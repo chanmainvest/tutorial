@@ -8,12 +8,12 @@
 
 ### 1. Why This Is Important
 
-Most retail investors hear "options are leverage" and picture lottery tickets — out-of-the-money calls bought into earnings, +500% one week, -100% the next. That is one corner of the option universe, and it is the corner where almost everyone loses. The institutional corner is different: a single deep-in-the-money LEAPS call can deliver roughly 90% of a stock's economic exposure for 25-35% of the capital, while leaving the remaining 65-75% of the cash to earn risk-free Treasury yield. That is not gambling. It is **stock replacement**, and it is one of the cleanest ways the toolkit Horace described in SOUL #14 (the barbell) and SOUL #15 (tax-efficient leverage via options) shows up in a real account.
+Most retail investors hear "options are leverage" and picture lottery tickets — out-of-the-money calls bought into earnings, +500% one week, -100% the next. That is one corner of the option universe, and it is the corner where almost everyone loses. The institutional corner is different: a single deep-in-the-money LEAPS call can deliver roughly 90% of a stock's economic exposure for 25-35% of the capital, while leaving the remaining 65-75% of the cash to earn risk-free Treasury yield. That is not gambling. It is **stock replacement**, and it is one of the cleanest ways the barbell construction — boring core plus concentrated alpha sleeves, financed by tax-efficient option leverage — shows up in a real account.
 
 There are four reasons this lesson sits at the centre of the L3 curriculum.
 
 1. **Capital efficiency without margin.** A deep-ITM call has no maintenance call, no overnight financing line, and no force-liquidation risk. The most you can lose is the premium. Margin can take more than your account; a long option cannot.
-2. **Tax geometry.** Holding a LEAPS call for more than one year qualifies the gain as long-term capital gain at 15-20%, identical to holding the stock. There is no dividend, but there is also no annual financing-cost drag the way there is on margin or on a 2x ETF wrapper. SOUL #15 names options the most tax-efficient leverage available to a US retail investor; this is the lesson that proves it.
+2. **Tax geometry.** Holding a LEAPS call for more than one year qualifies the gain as long-term capital gain at 15-20%, identical to holding the stock. There is no dividend, but there is also no annual financing-cost drag the way there is on margin or on a 2x ETF wrapper. Options are the most tax-efficient leverage available to a US retail investor; this is the lesson that proves it.
 3. **A clean alternative to leveraged ETFs.** Products like SSO (2x S&P 500) and QLD (2x Nasdaq) reset daily and suffer **volatility decay** in any path that is not monotonically up. Over 2010-2024 SSO compounded at roughly 22%/yr while a frictionless mathematical 2x of the S&P would have compounded at roughly 28%/yr — a 6-percent-per-year drag on terminal wealth. A deep-ITM LEAPS does not reset daily and does not decay that way.
 4. **Risk literacy.** The same mechanics that make a 90Δ call efficient also create new failure modes most investors have never priced: assignment risk on the short leg of a spread, dividend-skip cost, the small-but-nonzero theta on a long-dated call, and the IV-crush risk if you buy after a vol spike. Knowing how to size and roll a stock-replacement call is what separates the lottery-ticket trader from the leveraged investor.
 
@@ -36,7 +36,7 @@ The trade-off as you walk down the delta ladder: less capital, more leverage, bu
 
 For a numerical anchor: SPY at $520, a January 2027 (about 9 months out in April 2026) $416 call (K = 80% of spot) prices around $123 with σ = 19%, r = 4.3%. Delta is 0.92. Per contract you control $52,000 of SPY exposure for $12,300 of premium — about 24 cents on the dollar.
 
-[VISUAL: image/week37_replacement_capital.png]
+![Stacked bar chart comparing the capital required to obtain $10,000 of SPY exposure across four routes — direct shares, a 0.92Δ 12-month deep-ITM LEAPS, a 0.70Δ 6-month moderately-ITM call, and a 0.30Δ short-dated near-the-money call. Shares require the full $10,000; the 0.92Δ LEAPS requires roughly $2,400 in premium, freeing ~$7,600 of cash (shaded orange) that earns risk-free T-bill yield (~4.3% in April 2026); the 0.70Δ call requires about $1,200; the 0.30Δ lottery-ticket call only ~$300 but with sharply lower delta and probability-of-profit. The chart visualises why delta is the leverage dial and why the freed cash is half the story.](image/week37_replacement_capital.png)
 
 #### 2.2 The Capital You Free Up Is Real Money
 
@@ -52,7 +52,7 @@ Over a 9-month holding period the freed-cash carry adds roughly 3.0-3.3% to the 
 4. **Early assignment of a short leg.** Pure long calls cannot be assigned to you (you own them). But if you pair the LEAPS with a sold short call to cheapen it (a "diagonal"), the short leg can be assigned the day before ex-dividend on a high-dividend underlying.
 5. **Liquidity.** LEAPS on SPY, QQQ, AAPL, MSFT, NVDA, AMZN are liquid. LEAPS on small-caps and most international ADRs are not. Stock-replacement on illiquid underliers loses to the bid-ask spread.
 
-#### 2.4 The Tax Picture (SOUL #15)
+#### 2.4 The Tax Picture
 
 For a US taxable investor, the tax case for LEAPS-as-leverage is the cleanest in the option universe.
 
@@ -71,9 +71,9 @@ A 2x daily-reset ETF earns approximately:
 $$ r_{\text{2x},\text{annual}} \approx 2 r - \sigma^2 $$
 where $r$ is the underlying's annual return and $\sigma^2$ is its realised variance. For the S&P 500 with $\sigma \approx 18\%$, the $\sigma^2$ term is about 3.2% per year of straight drag. Empirically, over 2010-2024, SSO compounded at roughly 22% per year while a frictionless 2x of SPY would have compounded at roughly 28%. SSO did not blow up — it just lagged the math by enough to make any thesis longer than 12 months expensive.
 
-[VISUAL: image/week37_lev_etf_decay.png]
+![Cumulative-growth chart of $1 invested at the start of 2010 in three vehicles through 2024: SPY total-return (blue, ending near $7, ~13.9% CAGR), a frictionless mathematical 2x of SPY compounded annually (gold, ending near $32, ~26-28% CAGR), and the actual 2x daily-reset ETF SSO (red, ending near $21, ~22% CAGR). The gap between the gold and red lines is the volatility decay — roughly 6 percentage points per year of compounded drag from the daily reset's σ² penalty plus expense ratio and embedded financing. Over 15 years that gap compounds into roughly one-third less terminal wealth than the frictionless 2x.](image/week37_lev_etf_decay.png)
 
-A 0.92Δ LEAPS does not have this problem. It compounds at approximately 0.92 times the underlying's price return, plus or minus the small extrinsic decay, with no daily reset and therefore no $\sigma^2$ drag. This is the single biggest reason the institutional desks Horace describes in SOUL #14 use long-dated single-name options instead of leveraged ETFs.
+A 0.92Δ LEAPS does not have this problem. It compounds at approximately 0.92 times the underlying's price return, plus or minus the small extrinsic decay, with no daily reset and therefore no $\sigma^2$ drag. This is the single biggest reason institutional desks running a barbell use long-dated single-name options instead of leveraged ETFs.
 
 The 2x ETF does have one advantage: it pays its (tiny) dividend, it can sit in any account, and you do not have to roll. For a passive investor who wants modest leverage and will not pay attention, SSO is fine. For anyone running the L2/L3 sleeve actively, LEAPS dominates on capital efficiency, tax, and path-independence.
 
@@ -118,8 +118,8 @@ Single-name LEAPS works on the top 50 US large-caps where liquidity is good. Ind
 **Q4. What's the right expiration?**
 12-18 months at purchase, rolled forward when 90 days remain. Anything shorter than 9 months has too much theta; anything longer than 24 months has too little liquidity at typical strikes.
 
-**Q5. How does this interact with the four-tranche framework (SOUL #13)?**
-Stock replacement converts the L1 beta sleeve from 100% capital to roughly 25% capital, freeing 75% to fund the L2 and L3 strategy sleeves without reducing equity exposure. This is the operational mechanism behind the barbell SOUL #14 describes.
+**Q5. How does this interact with the four-tranche framework?**
+Stock replacement converts the L1 beta sleeve from 100% capital to roughly 25% capital, freeing 75% to fund the L2 and L3 strategy sleeves without reducing equity exposure. This is the operational mechanism behind the barbell.
 
 **Q6. What's the all-in cost of running this strategy on SPY?**
 Approximately: SPY dividend skipped (1.3%/yr) + LEAPS extrinsic decay (2-3%/yr) - freed-cash T-bill yield earned (~3.0%/yr on the 75% freed) = net cost ~0-0.5%/yr. Plus commissions and one bid-ask round trip per 12 months (~0.3%).
@@ -157,7 +157,7 @@ Three regimes: (1) sustained multi-year drawdown — your LEAPS can go to zero b
 
 **[INTRO — 0:00-1:30]**
 
-**Stella:** Welcome back to the Chan Investing tutorial. I'm Stella, and today we're on Week 37 — using options as leverage. Specifically, the trade where you replace 100 shares of stock with one deep-in-the-money call. Horace, this is one of the topics in SOUL.md you've described as "the cleanest piece of leverage a retail investor can run." Why is that?
+**Stella:** Welcome back to the Chan Investing tutorial. I'm Stella, and today we're on Week 37 — using options as leverage. Specifically, the trade where you replace 100 shares of stock with one deep-in-the-money call. Horace, you've described this as the cleanest piece of leverage a retail investor can run. Why is that?
 
 **Horace:** Because it's the rare leverage trade that does not require margin, does not blow up on a gap-down, and is taxed almost identically to owning the stock. Most retail investors have heard "options are leverage" and they think they know what that means — buy a weekly call, hope for a moonshot. That's gambling. The institutional version is different. It's called stock replacement, and the math is just very compelling once you sit with it.
 
@@ -215,7 +215,7 @@ Three regimes: (1) sustained multi-year drawdown — your LEAPS can go to zero b
 
 **Stella:** What's the takeaway?
 
-**Horace:** SSO is fine for short-term tactical leverage. For 12-month-plus exposure, deep-ITM LEAPS dominates on path-independence and on tax. SOUL #15 — leverage via options is the most tax-efficient form of leverage available to a US retail investor — that's what this chart is showing you in dollars.
+**Horace:** SSO is fine for short-term tactical leverage. For 12-month-plus exposure, deep-ITM LEAPS dominates on path-independence and on tax. Leverage via options is the most tax-efficient form of leverage available to a US retail investor — that's what this chart is showing you in dollars.
 
 **[SECTION 3 — INTERACTIVE WALKTHROUGH, 9:30-13:30]**
 
@@ -245,13 +245,13 @@ Three regimes: (1) sustained multi-year drawdown — your LEAPS can go to zero b
 
 **Horace:** Five things to track. Theta — small for deep-ITM LEAPS, but it's the carrying cost; check it monthly. IV crush — don't buy LEAPS when VIX is above 25; you'll watch the position lose 5-10% on vol mean-reversion alone. Dividend skip — material for high-yield names; not material for SPY. Assignment of any short leg — only relevant if you've added a short call; covered in week 30. Liquidity — stick to top-50 underliers and indexes.
 
-**Stella:** And the tax case from SOUL #15.
+**Stella:** And the tax case.
 
 **Horace:** A LEAPS held more than a year qualifies for long-term capital gains, same rate as the stock. A 2x ETF passes through ordinary-income distributions every year, and your basis adjusts every distribution. The LEAPS gives you the leverage with the better tax envelope. In a Roth IRA, the freed cash earns the risk-free rate tax-free — that's the cleanest version of the trade.
 
 **Stella:** And how does this fit the four-tranche framework?
 
-**Horace:** L1 is your beta sleeve — VTI, SPY, whatever you use as the index core. Stock replacement converts that sleeve from 100% capital to roughly 25% capital. The freed 75% funds L2 strategy sleeves — covered calls, cash-secured puts, factor tilts — without reducing your beta exposure. That's the operational mechanism behind the barbell from SOUL #14. The barbell only works if you can hold full beta with less than full capital.
+**Horace:** L1 is your beta sleeve — VTI, SPY, whatever you use as the index core. Stock replacement converts that sleeve from 100% capital to roughly 25% capital. The freed 75% funds L2 strategy sleeves — covered calls, cash-secured puts, factor tilts — without reducing your beta exposure. That's the operational mechanism behind the barbell. The barbell only works if you can hold full beta with less than full capital.
 
 **[OUTRO — 16:30-18:00]**
 

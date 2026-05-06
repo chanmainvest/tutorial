@@ -14,7 +14,7 @@ trillion dollars of global assets carry an ESG, sustainable, or
 responsible label by April 2026. Every prospectus you read now includes
 a sustainability paragraph. Every robo-adviser offers a "values"
 portfolio toggle. The question every honest investor has to answer is
-the same one SOUL #1 forces on any active product: *is this a real
+the same one any active product has to face: *is this a real
 source of alpha, or am I paying twenty basis points for someone else's
 preferences dressed up as performance?*
 
@@ -36,7 +36,7 @@ Four reasons this lesson deserves a side slot rather than a paragraph:
    `ESGV` charges 9 bps. `SUSL` charges 10 bps. `DSI` charges 25 bps.
    Active ESG mutual funds routinely charge 60-100 bps. The premium is
    small in absolute terms but it is *certain*, and it accrues every
-   year. SOUL #1: the cost is the only part you can predict.
+   year. The cost is the only part you can predict; the alpha is not.
 4. **Your values still matter, and they are allowed to cost something.**
    Nothing in this lesson argues against ESG investing. The argument
    is *don't buy it as alpha*. Buy it because the externalities matter
@@ -216,7 +216,7 @@ have a coherent theory of impact.
 
 #### 2.7 Where ESG Sits in the Four-Tranche Frame
 
-If ESG matters to you, where does it fit in the SOUL #13 four-tranche
+If ESG matters to you, where does it fit in the four-tranche
 portfolio?
 
 - **Growth tranche** — substitute `ESGV` for `VTI`, accept ~40 bp
@@ -228,7 +228,7 @@ portfolio?
 - **Stores of value** — gold and Treasuries are not ESG-screenable.
   Gold mining companies *are* (`SBSW`, `NEM`) but mining is rarely a
   long-only ESG fit. Skip the screen here.
-- **Opportunistic** — most of the alpha sources in SOUL #5 (vol
+- **Opportunistic** — most of the alpha sources (vol
   harvesting, factor tilts, options yield) are not naturally ESG
   products. If you run an active sleeve, treat it as orthogonal to
   the ESG question.
@@ -358,7 +358,7 @@ A: If values matter to you, use a low-fee broad ESG ETF (`ESGV` or
 `SUSL`) for your core US equity exposure. Accept the ~15-25 bps fee
 premium and ~50 bps tracking error as the cost of expression. Do not
 expect alpha. Do not pay active fees for ESG. Read your holdings list
-twice a year. SOUL #1 still applies.
+twice a year. Alpha is still rare; the screen does not change that.
 
 **Q: What does Horace personally do?**
 A: He doesn't ESG his core. He runs `VTI` plus the four-tranche
@@ -394,7 +394,7 @@ a real portfolio?
 **Stella:** Spoiler: the answers are *no*, *it costs you a little*,
 and *in your growth tranche if you want it.*
 
-**Horace:** And SOUL #1 is going to do most of the heavy lifting
+**Horace:** And one idea is going to do most of the heavy lifting
 today. Alpha is rare. The default product is broad-market passive.
 Anything else has to clear a bar.
 
@@ -446,7 +446,7 @@ careful.
 **Stella:** The fee premium over plain `VTI` is 6 to 22 basis points
 for the passive ESG ETFs. Real but small.
 
-**Horace:** Real and certain. That's the SOUL #1 framing. You can
+**Horace:** Real and certain. That's the framing. You can
 predict the cost; you cannot predict the alpha.
 
 **Stella:** The other thing to notice is what these funds actually
@@ -525,7 +525,7 @@ without obviously improving outcomes.
 **[SECTION 5 — 10:30 to 11:30 — Where ESG fits in the four-tranche
 frame]**
 
-**Stella:** Last piece. SOUL #13, the four-tranche portfolio. Where
+**Stella:** Last piece. The four-tranche portfolio. Where
 does ESG fit?
 
 **Horace:** Growth tranche, sure. Substitute `ESGV` for `VTI`,
@@ -540,7 +540,7 @@ smaller and the fee premium is still real.
 **Horace:** Stores of value? Gold isn't ESG-screenable. Treasuries
 aren't ESG-screenable. Skip the screen here.
 
-**Stella:** Opportunistic? Most of the alpha sources from SOUL #5 —
+**Stella:** Opportunistic? Most of the alpha sources —
 vol harvesting, factor tilts, options yield — aren't naturally ESG
 products. Treat them as orthogonal to the ESG question. You're
 paying for skill, not for exclusion.
@@ -558,7 +558,7 @@ than credit ratings. Performance is noise around fees. The fees are
 small but real. The values are real and they are allowed to cost
 something.
 
-**Horace:** SOUL #1 closing thought. Alpha is rare. ESG isn't alpha.
+**Horace:** Closing thought. Alpha is rare. ESG isn't alpha.
 It's a values expression with a price tag of about fifteen to
 twenty-five basis points a year in fees and another fifty in
 tracking error. That's the deal. If the values matter to you, take

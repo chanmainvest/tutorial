@@ -8,15 +8,15 @@
 
 ### 1. Why This Is Important
 
-Volatility arbitrage sits at the intersection of two SOUL principles that most investors never reconcile. SOUL #5 says alpha is rare and lives in five identifiable places — the variance risk premium (VRP) is one of the cleanest of those five. SOUL #6 says volatility is the tail that wags the dog — it moves first, it moves most, and the only reliable way to monetise that is to be the *seller* of vol most of the time and the *survivor* on the days when everyone else is selling at any price. Vol arbitrage is the trade where these two ideas live or die together.
+Volatility arbitrage sits at the intersection of two ideas that most investors never reconcile. Alpha is rare and lives in a small number of identifiable places — the variance risk premium (VRP) is one of the cleanest of those. Volatility is also the tail that wags the dog — it moves first, it moves most, and the only reliable way to monetise that is to be the *seller* of vol most of the time and the *survivor* on the days when everyone else is selling at any price. Vol arbitrage is the trade where these two ideas live or die together.
 
 There are four reasons a Level-4/5 investor must understand this lesson cold:
 
-1. **VRP is one of five real, replicable alpha sources.** Implied vol on SPX has averaged roughly 19 over the last forty years. Realised vol on SPX has averaged roughly 15. The 3-4 vol-point gap is not a mistake, it is not arbitraged away, and it has produced a positive expected return for option sellers in every decade since listed options began trading in 1973. SOUL #5: the right-hand columns of the alpha taxonomy include "insurance underwriting," and that is exactly what selling SPX variance is.
+1. **VRP is one of a handful of real, replicable alpha sources.** Implied vol on SPX has averaged roughly 19 over the last forty years. Realised vol on SPX has averaged roughly 15. The 3-4 vol-point gap is not a mistake, it is not arbitraged away, and it has produced a positive expected return for option sellers in every decade since listed options began trading in 1973. The right-hand columns of the alpha taxonomy include "insurance underwriting," and that is exactly what selling SPX variance is.
 
-2. **VRP is the most heavy-tailed alpha you will ever harvest.** The same skew that creates the premium creates the cliffs. Feb 2018 (Volmageddon) wiped out the entire XIV ETN in a single afternoon. Mar 2020 inverted the IV-RV spread by 25+ vol points. Oct 2022 ground out a 6-week bleed. SOUL #6 with teeth: when vol moves, it moves before the underlying does, and short-vol positions take the first bullet.
+2. **VRP is the most heavy-tailed alpha you will ever harvest.** The same skew that creates the premium creates the cliffs. Feb 2018 (Volmageddon) wiped out the entire XIV ETN in a single afternoon. Mar 2020 inverted the IV-RV spread by 25+ vol points. Oct 2022 ground out a 6-week bleed. The vol-tail-wags-dog property with teeth: when vol moves, it moves before the underlying does, and short-vol positions take the first bullet.
 
-3. **Gamma scalping is the long-vol mirror image — equally real, equally rare.** The same VRP that makes selling vol profitable on average makes *buying* vol unprofitable on average — but the realised-vol surprises that sink short-vol books *make* the long-vol books. Gamma scalping is the trade where you own the convexity, delta-hedge daily, and harvest realised volatility against the implied volatility you paid. It is the institutional answer to "how do you get paid in the crisis?" and a real component of how SOUL #14's barbell stays solvent.
+3. **Gamma scalping is the long-vol mirror image — equally real, equally rare.** The same VRP that makes selling vol profitable on average makes *buying* vol unprofitable on average — but the realised-vol surprises that sink short-vol books *make* the long-vol books. Gamma scalping is the trade where you own the convexity, delta-hedge daily, and harvest realised volatility against the implied volatility you paid. It is the institutional answer to "how do you get paid in the crisis?" and a real component of how a barbell stays solvent.
 
 4. **Most retail "vol arbitrage" is structurally guaranteed to lose.** Buying VXX as a "hedge," shorting it as "income," or trading VIX-futures calendar spreads without understanding contango will burn capital reliably. The tools that work — short variance, short straddle delta-hedged, long gamma — require either an SPX-options account, a margin tolerance most retail accounts don't have, or a willingness to size correctly through one Volmageddon-class drawdown. The lesson is mostly about *what not to touch* and what the institutional version of the trade really looks like.
 
@@ -44,14 +44,14 @@ $$
 
 Across the 1990-2026 sample VIX has been higher than 21-day-trailing RV roughly 85% of trading days. The unconditional mean spread is **+3 to +4 vol points**. That is the price option sellers charge over and above what realised vol turns out to be — compensation for the unhedgeable jump risk in selling insurance.
 
-[VISUAL: image/week49_iv_rv_history.png]
+![Two-panel time-series chart from roughly 2010 to 2026. Top panel: VIX (red, 30-day implied vol) and 21-day-trailing realised vol of SPX (blue), both annualised. The red line sits above the blue line the great majority of the time. Bottom panel: the IV-minus-RV spread, the variance risk premium, oscillating around a positive mean of +3 to +4 vol points but visiting deep negative territory at the named cliff events — Feb 2018 Volmageddon (~-33), Mar 2020 COVID (~-25), Oct 2022 UK gilt / Fed shock (~-8), Aug 2024 yen carry unwind (~-10). The chart is the entire vol-arbitrage trade in one picture: positive expected value, fat-left-tailed cliffs.](image/week49_iv_rv_history.png)
 
 The chart shows the catch. The same line that averages +4 visits -10, -20, even -25 in the named events: Feb 2018 (Volmageddon, -33), Mar 2020 (COVID, -25), Oct 2022 (UK gilt / Fed shock, -8), Aug 2024 (yen carry unwind, -10). Those negative weeks are where short-vol books die. Eight to ten such weeks are scattered across any twenty-year window.
 
 The economic logic for why VRP exists and persists, despite being well-known:
 
 - **Insurance demand is structural.** Pension funds, endowments, and risk-parity funds buy SPX puts and put-spread collars on a calendar. Their bid is price-insensitive and continuous.
-- **Risk aversion is asymmetric.** Loss aversion says investors weight losses 2-2.5× more than equivalent gains (SOUL #12). Insurance is overpaid by exactly that ratio.
+- **Risk aversion is asymmetric.** Loss aversion says investors weight losses 2-2.5× more than equivalent gains. Insurance is overpaid by exactly that ratio.
 - **Variance is non-self-financing.** A short variance swap requires posting collateral that grows with realised volatility — exactly when the seller is least solvent. The premium compensates the *survivors* for capacity withdrawals during stress.
 - **Skew adds a second premium.** OTM puts have a higher implied vol than the ATM (the volatility smile). Selling that skew adds another 1-2 vol points on top of the ATM VRP.
 
@@ -69,11 +69,11 @@ Three distinct trades all earn the VRP, with different greeks and different clif
    \text{PnL} \;\approx\; \text{vega} \times (\text{IV} - \text{RV})
    $$
 
-   with vega measured in dollars per vol point. This is gamma scalping in reverse: you collect the IV-RV gap, you pay the daily realised-vol cost. It is the closest retail-accessible approximation of the variance swap. SPX (cash-settled, 1256-treated, $0 assignment risk) is the only sane underlying. Tax footprint: SOUL #15, 60/40 long/short blend regardless of holding period.
+   with vega measured in dollars per vol point. This is gamma scalping in reverse: you collect the IV-RV gap, you pay the daily realised-vol cost. It is the closest retail-accessible approximation of the variance swap. SPX (cash-settled, 1256-treated, $0 assignment risk) is the only sane underlying. Tax footprint: a 60/40 long/short blend regardless of holding period.
 
 3. **Short strangle / iron condor (retail comfort zone).** A wider-strike, defined-risk version of the short straddle. You give up perhaps 40-50% of the average premium in exchange for capping the catastrophic tail and avoiding most delta-hedging. The structural alpha is the same VRP, scaled down. This is the trade Week 30 covered: 1-sigma short strikes on SPX, +/- 60-90 DTE, sized to 5-10% of capital.
 
-[VISUAL: image/week49_short_straddle_pnl.png]
+![Cumulative-PnL equity curve of a continuously short ATM SPX 30-day straddle, delta-hedged daily, from 2010 to 2024, compounded from $1. The line drifts upward during calm periods at roughly +5% to +7%/yr, ending near $1.80 — but is interrupted by three giant cliffs: a ~30% one-week drop in Feb 2018 (Volmageddon), a ~25% drawdown across three weeks in March 2020 (COVID), and a slower ~15% bleed across September-October 2022 (Fed shock + UK gilt). Sharpe across the full sample is around 0.5; the return profile is structurally short-skewed. The chart is the trade-off — VRP harvest plus three Volmageddon-class cliffs — written as an equity curve.](image/week49_short_straddle_pnl.png)
 
 The cumulative-PnL chart is the trade-off written in equity-curve form. A continuously short ATM SPX 30-day straddle, delta-hedged daily, approximately compounds at +5% to +7% per year over a calm period, with two giant cliffs (Feb 2018 and Mar 2020) and a smaller one in late 2022. The Sharpe across the full sample is around 0.5 — better than the SPX in some windows, worse in others, but with a return profile that is structurally short-skewed.
 
@@ -95,7 +95,7 @@ $$
 
 where $\Gamma S^2$ is the dollar-gamma per 1% move and $\Theta$ is the daily premium decay. Aggregate this across 30 days and the position pays off if and only if average realised volatility exceeds the implied volatility you paid. **You are long the realised-vol-minus-implied-vol delta**.
 
-Gamma scalping is the institutional answer to crisis alpha: you carry a 0.5-2% NAV gamma book at all times, you bleed 25-50% of that book per year in calm markets, and you make multiples of it in 2018/2020/2022. It is the explicit long-vol leg of SOUL #14's barbell.
+Gamma scalping is the institutional answer to crisis alpha: you carry a 0.5-2% NAV gamma book at all times, you bleed 25-50% of that book per year in calm markets, and you make multiples of it in 2018/2020/2022. It is the explicit long-vol leg of the barbell.
 
 For retail, the cleanest version is to buy SPY 30-DTE ATM straddles in lots that are small enough to sustain six months of bleed without breaching position-size limits. The hedging can be done with /MES futures for tax-efficient (Section 1256) deltas. This is a Level-4/5 trade and not the place to start.
 
@@ -109,17 +109,17 @@ The named cliffs in the IV-vs-RV spread chart correspond to three different fail
 
 **Oct 2022 — Fed shock + UK gilt.** A slow grind. VIX in the high 20s for six weeks while RV repeatedly printed in the low 30s. The IV-RV spread averaged -3 to -5 across September and early October 2022. No single cliff, but a series of weekly losses that compounded to a 15-20% drawdown for short-vol books that did not cut size. The lesson: the worst drawdowns are not always the dramatic ones; sometimes the bleed regime is what kills a book.
 
-Each of these events did roughly 4× the previously-observed maximum drawdown of an "unstressed" short-vol book. SOUL #6 in numbers: the tail moves first, the tail moves four times as far as the body, and the tail does not announce itself in the IV signal until after it has already arrived.
+Each of these events did roughly 4× the previously-observed maximum drawdown of an "unstressed" short-vol book. The vol-tail-wags-dog effect in numbers: the tail moves first, the tail moves four times as far as the body, and the tail does not announce itself in the IV signal until after it has already arrived.
 
-#### 2.5 Sizing, Survival, and the SOUL #14 Place in the Stack
+#### 2.5 Sizing, Survival, and Where This Sits in the Stack
 
 Three sizing rules that translate the above lessons into actionable position-size rules:
 
-1. **One-third of the median-optimum.** Whatever Kelly/Sharpe-optimisation tells you the position size should be, divide by three. The reason is simply that any cliff-tail process underestimates the drawdown by a factor of 3-5 in finite samples. SOUL #14's barbell L4 sleeve allocates roughly 5-10% of NAV to short-vol structures — that is an explicit one-third of the 15-30% that mean-variance optimisation would suggest.
+1. **One-third of the median-optimum.** Whatever Kelly/Sharpe-optimisation tells you the position size should be, divide by three. The reason is simply that any cliff-tail process underestimates the drawdown by a factor of 3-5 in finite samples. The barbell-style L4 sleeve allocates roughly 5-10% of NAV to short-vol structures — that is an explicit one-third of the 15-30% that mean-variance optimisation would suggest.
 
 2. **Max one Volmageddon.** Position-size such that the *worst* observed historical event (Feb 2018, -33% in a week on a 100-vega book) hits no more than 3-5% of total NAV. That gives you four to six Volmageddons of staying power before the trade is broken. Without that staying power, the strategy converts from positive expected value to negative.
 
-3. **Always paired with a long-gamma sleeve.** A pure short-vol book is a 4% bond with random 30% drawdowns. A short-vol-plus-long-gamma book is a 4% bond with random 5% drawdowns. The cost of the long-gamma sleeve is roughly 1-2% per year — far less than the 30% cliffs it removes. SOUL #14 in the volatility space: the barbell is short-vol on one end *and* long-gamma on the other, *not* short-vol alone.
+3. **Always paired with a long-gamma sleeve.** A pure short-vol book is a 4% bond with random 30% drawdowns. A short-vol-plus-long-gamma book is a 4% bond with random 5% drawdowns. The cost of the long-gamma sleeve is roughly 1-2% per year — far less than the 30% cliffs it removes. The barbell in the volatility space: short-vol on one end *and* long-gamma on the other, *not* short-vol alone.
 
 The Level-4/5 position in vol arbitrage: 5-10% of NAV in short-vol structures (defined-risk for non-portfolio-margin accounts, short straddles delta-hedged for portfolio-margin), paired with 0.5-2% in long-gamma scalping or 25-35% OTM tail puts. Net VRP exposure 3-5% of NAV, with explicit cliff insurance funded by the carry of the larger position.
 
@@ -183,16 +183,16 @@ A: Yes, in three ways: (1) selling cash-secured puts on SPY/QQQ (week 28); (2) s
 A: At minimum, plan for one Volmageddon. Roughly: a 25-30% one-week loss on the short-vol notional, returning to flat over the following month. Size such that this loss is no more than 5% of total NAV. That implies the short-vol notional is at most 17-20% of NAV, and after the 1/3 Kelly haircut, 5-10% of NAV.
 
 **Q: What's the difference between selling variance and gamma scalping?**
-A: They are mirror images. Selling variance (or short straddles delta-hedged) pays you the implied-minus-realised vol. Gamma scalping (long straddles delta-hedged) pays you the realised-minus-implied vol. Selling variance is the +5%/yr, -30% cliff trade; gamma scalping is the -1%/yr, +50% in 2008/2020 trade. SOUL #14: run both.
+A: They are mirror images. Selling variance (or short straddles delta-hedged) pays you the implied-minus-realised vol. Gamma scalping (long straddles delta-hedged) pays you the realised-minus-implied vol. Selling variance is the +5%/yr, -30% cliff trade; gamma scalping is the -1%/yr, +50% in 2008/2020 trade. Run both.
 
 **Q: How does Section 1256 tax treatment apply?**
-A: SPX, /MES, and most CBOE-listed options on broad-based indexes are "section 1256 contracts." All gains are taxed 60% long-term / 40% short-term regardless of holding period. At a 32% federal bracket the blended rate is ~21.8%. SPY options are taxed at full ordinary rates if held under a year. SOUL #15: short-vol trades belong on SPX, not SPY, for tax efficiency.
+A: SPX, /MES, and most CBOE-listed options on broad-based indexes are "section 1256 contracts." All gains are taxed 60% long-term / 40% short-term regardless of holding period. At a 32% federal bracket the blended rate is ~21.8%. SPY options are taxed at full ordinary rates if held under a year. Short-vol trades belong on SPX, not SPY, for tax efficiency.
 
 **Q: What's the realistic Sharpe ratio of a disciplined short-vol book?**
 A: Roughly 0.5 over a full cycle including one Volmageddon-class event. Higher (1.0+) in any sub-window that excludes the cliffs; lower or negative in any sub-window that includes one. Backtests that report 1.5+ Sharpes are almost always overlaying defined-risk structures and excluding 2018/2020/2022.
 
 **Q: What's the Kelly fraction for a short-vol trade?**
-A: Mean-variance-optimisation typically suggests 25-35% of NAV. Empirical practice is one-third of that, so 8-12%. Including the heavy-tail haircut, 5-10%. SOUL #14 directs another 0.5-2% to long gamma. Net exposure 3-8%.
+A: Mean-variance-optimisation typically suggests 25-35% of NAV. Empirical practice is one-third of that, so 8-12%. Including the heavy-tail haircut, 5-10%. The barbell directs another 0.5-2% to long gamma. Net exposure 3-8%.
 
 **Q: How do I know when the IV-RV spread is "rich enough" to sell?**
 A: A useful rule: sell when VIX is in its top quartile of trailing-1-year (above ~22-25), trim or stop when in its bottom quartile (below ~13). Conditional VRP is roughly +6 vol points in the top quartile vs +1 in the bottom. The ratio of expected return to risk roughly doubles when VIX is rich.
@@ -207,7 +207,7 @@ A: A portfolio-margin (PM) account computes margin based on a stress test of the
 A: It enters the toolkit at Level-4. Defined-risk versions (iron condors, short strangles with stops) at L4. Short straddles delta-hedged, plus a paired long-gamma sleeve, at L5. The position sizing rules (5-10% short-vol, 0.5-2% long-gamma, hard cap on Volmageddon-equivalent loss) are the same at both levels.
 
 **Q: What's the single most important lesson from 2018 / 2020 / 2022?**
-A: The IV-RV spread inversion compounds across multiple weeks. Volmageddon was 1 week, COVID was 3 weeks, 2022 was 6 weeks. A book sized to survive 1 week dies in 3 or 6. The right way to size is "the worst observed event × 1.5" — i.e., assume the next cliff is 50% larger than the worst already seen. SOUL #6 in compound form: the tail moves more than you expect, and the tail moves for longer than you expect.
+A: The IV-RV spread inversion compounds across multiple weeks. Volmageddon was 1 week, COVID was 3 weeks, 2022 was 6 weeks. A book sized to survive 1 week dies in 3 or 6. The right way to size is "the worst observed event × 1.5" — i.e., assume the next cliff is 50% larger than the worst already seen. The vol tail in compound form: the tail moves more than you expect, and for longer than you expect.
 
 ---
 
@@ -227,7 +227,7 @@ A: The IV-RV spread inversion compounds across multiple weeks. Volmageddon was 1
 
 Stella: Welcome back to the Investing Tutorial. This is Week 49, and today we're at the deep end of the vol pool — variance risk premium, short straddles, and gamma scalping. Horace, why is this a Level-4/5 lesson and not a Level-2 one?
 
-Horace: Because it sits at the intersection of two things most investors never reconcile. SOUL #5 says alpha is rare, and the variance risk premium is one of the five clean places where alpha actually lives. SOUL #6 says vol is the tail that wags the dog. Vol arbitrage is the trade where you collect the alpha *and* take the tail risk — at the same time. Get the size wrong and you blow up; get the size right and you collect 4-5% a year on a sleeve of your portfolio for a decade.
+Horace: Because it sits at the intersection of two things most investors never reconcile. Alpha is rare, and the variance risk premium is one of the cleanest places where alpha actually lives. Vol is the tail that wags the dog. Vol arbitrage is the trade where you collect the alpha *and* take the tail risk — at the same time. Get the size wrong and you blow up; get the size right and you collect 4-5% a year on a sleeve of your portfolio for a decade.
 
 Stella: So we're talking about insurance underwriting, basically.
 
@@ -257,7 +257,7 @@ Horace: That's the trade. Positive expected value, negative skew. The math says 
 
 Stella: Why hasn't this been arbitraged away?
 
-Horace: Four structural reasons. One: insurance demand is calendar-driven. Pension funds, endowments, risk-parity books — they buy SPX puts on a schedule, not on a model. They don't care if the price is rich. Two: investors are loss-averse. They overpay for downside protection by roughly the SOUL #12 ratio, two-to-two-and-a-half times. Three: variance is non-self-financing — when you're losing on a short variance trade, you have to *post more collateral* exactly when you're least solvent. The premium compensates the survivors.
+Horace: Four structural reasons. One: insurance demand is calendar-driven. Pension funds, endowments, risk-parity books — they buy SPX puts on a schedule, not on a model. They don't care if the price is rich. Two: investors are loss-averse. They overpay for downside protection by roughly the loss-aversion ratio, two-to-two-and-a-half times. Three: variance is non-self-financing — when you're losing on a short variance trade, you have to *post more collateral* exactly when you're least solvent. The premium compensates the survivors.
 
 Stella: And four?
 
@@ -309,7 +309,7 @@ Horace: Right. You're paying implied vol up front via the premium. You're collec
 
 Stella: Then why do it?
 
-Horace: Because the times it pays — 2008, 2018, 2020, 2022 — it pays *enormously*. A 1% NAV gamma scalp sleeve carrying minus 25% per year in calm markets can turn into plus 200% during a Volmageddon-class event. That offsets the cliff in the short-vol book. SOUL #14: the barbell is short-vol *and* long-gamma. Not short-vol alone.
+Horace: Because the times it pays — 2008, 2018, 2020, 2022 — it pays *enormously*. A 1% NAV gamma scalp sleeve carrying minus 25% per year in calm markets can turn into plus 200% during a Volmageddon-class event. That offsets the cliff in the short-vol book. The barbell is short-vol *and* long-gamma. Not short-vol alone.
 
 Stella: How big is the long-gamma sleeve relative to the short-vol sleeve?
 
@@ -329,9 +329,9 @@ Stella: 2022.
 
 Horace: Different mode. Slow grind. VIX in the high 20s for six weeks, RV repeatedly printing in the low 30s. No single cliff, but cumulative bleed of 15-20% on short-vol books across September and October. The lesson: the worst regimes aren't always the dramatic ones; sometimes the slow grind is what kills the book.
 
-Stella: And the SOUL takeaway?
+Stella: And the takeaway?
 
-Horace: Two things. SOUL #6, vol moves first, vol moves more than the body, vol announces nothing in the implied signal. SOUL #14, the barbell is short-vol *and* long-gamma. Not short-vol alone.
+Horace: Two things. Vol moves first, vol moves more than the body, vol announces nothing in the implied signal. And the barbell is short-vol *and* long-gamma. Not short-vol alone.
 
 **[SECTION 6: The interactive — 17:00 to 17:30]**
 

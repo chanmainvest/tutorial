@@ -13,9 +13,9 @@ Futures are the oldest derivatives in the world. Cotton merchants in 1860s New O
 There are four reasons a Level-3 student needs to learn this lesson now.
 
 1. **Futures are the cleanest leverage in the toolkit.** A long /MES is roughly 12-13x leverage on the cash you post as margin, with no margin interest, no overnight financing line, no maintenance call against the rest of your portfolio (other than the position itself), and no ETF expense ratio. Compare to SSO at 2x with 0.9% drag plus volatility decay (week 37), or to a LEAPS at 4x with extrinsic decay. Futures are the highest-leverage, lowest-cost way to express a directional view on the major indices.
-2. **Section 1256 tax treatment.** This is one of the two SOUL #15 anchors in the entire course (the other is the long-LEAPS). Broad-based index futures and a small set of index options are taxed under §1256 of the IRC: **60% long-term capital gain, 40% short-term, regardless of holding period.** A day-trade in /MES is taxed *better* than a day-trade in SPY, period. For high-bracket investors that is a 7-12 percentage point structural edge per dollar of gain.
+2. **Section 1256 tax treatment.** This is one of the two great tax-efficient leverage anchors in the entire course (the other is the long-LEAPS). Broad-based index futures and a small set of index options are taxed under §1256 of the IRC: **60% long-term capital gain, 40% short-term, regardless of holding period.** A day-trade in /MES is taxed *better* than a day-trade in SPY, period. For high-bracket investors that is a 7-12 percentage point structural edge per dollar of gain.
 3. **Contango and backwardation explain the USO story you met in week 6.** Crude oil ETFs, natural-gas ETFs, and VIX ETFs all roll a futures position monthly. When the curve is in contango — back month higher than front — the roll is a permanent drag on return. USO lost roughly 80% of its value in real terms 2009-2020 while spot WTI was essentially flat, almost entirely because of contango roll yield. You cannot understand commodity ETFs without understanding the futures curve, and the only way to fix the problem (when you actually want commodity exposure) is to take it through the futures themselves rather than through the wrapper.
-4. **The barbell needs a portable-exposure lever (SOUL #14).** When the L1 sleeve is held in deep-ITM LEAPS and the L3 sleeve is generating cash from credit spreads (week 30), you sometimes want to flex aggregate beta up or down by 10-20 percentage points overnight. /MES is the right tool: post $2k of margin, control $25k of S&P exposure, taxed at 60/40, expires in three months. The position is sized in single-digit contracts, lasts a quarter, and rolls cleanly. SPY round-trips cost taxes; /MES round-trips do not, structurally.
+4. **The barbell needs a portable-exposure lever.** When the L1 sleeve is held in deep-ITM LEAPS and the L3 sleeve is generating cash from credit spreads (week 30), you sometimes want to flex aggregate beta up or down by 10-20 percentage points overnight. /MES is the right tool: post $2k of margin, control $25k of S&P exposure, taxed at 60/40, expires in three months. The position is sized in single-digit contracts, lasts a quarter, and rolls cleanly. SPY round-trips cost taxes; /MES round-trips do not, structurally.
 
 This lesson is the operational manual for that fourth use case — and the cautionary tale for the first three regimes (over-leverage, contango drag, and the small-but-real path-dependence risk of daily mark-to-market).
 
@@ -41,7 +41,7 @@ Equity-index futures are **cash-settled** at expiration — there is no physical
 
 In stocks, when you "buy on margin," your broker lends you cash; the security itself is collateral, and you pay interest on the loan. **Futures margin is not a loan.** It is a *performance bond* — a refundable deposit the exchange holds to ensure you can settle the day's loss. The CME sets *initial margin* (what you must post to open) and *maintenance margin* (what you must keep above to avoid a call). Brokers can charge slightly more.
 
-[VISUAL: image/week39_micro_compare.png]
+![Bar chart comparing the capital required to obtain $50,000 of S&P 500 economic exposure across four vehicles — direct SPY shares, two /MES Micro E-mini contracts, one full /ES E-mini contract (oversized at $260k notional), and a 0.92Δ 12-month SPY LEAPS. SPY shares require the full $50,000 (1.0x leverage). Two /MES require ~$4,000 of posted margin for ~$52,000 of exposure (~12.5x leverage). One /ES is oversized for the target. The LEAPS uses ~$10,000 of premium for ~$52,000 of exposure (~5x). The orange overlay on each non-share bar shows the freed cash that earns risk-free T-bill yield. The chart is the visual proof that futures are the highest-leverage, lowest-capital path to S&P exposure.](image/week39_micro_compare.png)
 
 The chart above asks one question: *what is the cheapest way to control $50,000 of S&P 500 economic exposure?*
 
@@ -58,7 +58,7 @@ The cost: **mark-to-market**. Every trading day at 4 p.m. CT, the exchange compu
 
 The price of the December crude contract is rarely the same as the price of the October contract, even when both reference the same barrel of West Texas Intermediate. The shape of that **term structure** is the most important thing a commodity-futures investor watches.
 
-[VISUAL: image/week39_contango_uso.png]
+![Two-line chart of WTI crude prices ~2010 through 2024: a blue line for the front-month CL contract (essentially spot oil) and an orange line for the 12-months-out deferred contract, with the area between them shaded as the contango/backwardation spread. When orange sits above blue (most of the period) the curve is in contango — the shaded area is positive and is the per-month roll cost USO eats. The April 2020 super-contango spike — when storage at Cushing ran out and front-month CL settled at -$37 while December-2020 traded near $30 — appears as a vertical blowout of the spread. The 2022 Russia–Ukraine episode shows orange briefly diving below blue (deep backwardation, +$30+ spot premium). The chart is the mechanical explanation for why USO compounded at -8%/yr through 2009-2020 while spot WTI was roughly flat.](image/week39_contango_uso.png)
 
 - **Contango:** back-month price > front-month price > spot. The market is paying you to delay delivery. This is the "normal" shape for storable commodities — the back-month price has to compensate the seller for storage cost, financing cost, and the lost opportunity of selling spot today. Crude oil is in contango about 60-70% of the time historically. The chart above shows the canonical 2015-2016 oil-glut episode and the 2020 super-contango — back-month minus front-month spread blew out to $30/bbl in April 2020 when storage at Cushing OK ran out and the front-month CL contract famously settled at *negative* $37 at expiration.
 - **Backwardation:** spot > front-month > back-month. The market is paying you to take delivery *now*. This happens when there is an immediate physical shortage — the **convenience yield** of holding the actual barrel in your tank exceeds the cost of carry. Crude was deeply backwardated in 2022 when Russia invaded Ukraine and prompt-month physical traded $20+ above the 12-month contract.
@@ -69,7 +69,7 @@ The fix, if you actually want crude exposure: hold the **December-2027 contract*
 
 #### 2.4 Section 1256: The 60/40 Rule
 
-This is the SOUL #15 capstone. Almost all retail-tradeable index futures (/ES, /MES, /NQ, /MNQ, /YM, /RTY, /CL, /MCL, /GC, /MGC) and a narrow set of broad-based index options (SPX, RUT, NDX) are classified under Section 1256 of the Internal Revenue Code. The treatment is unique and entirely favourable:
+This is the tax-efficient-leverage capstone. Almost all retail-tradeable index futures (/ES, /MES, /NQ, /MNQ, /YM, /RTY, /CL, /MCL, /GC, /MGC) and a narrow set of broad-based index options (SPX, RUT, NDX) are classified under Section 1256 of the Internal Revenue Code. The treatment is unique and entirely favourable:
 
 1. **All gains are taxed 60% long-term, 40% short-term, regardless of holding period.** A two-day swing trade in /MES is taxed at the same blended rate as a multi-year position. For a 32% ordinary / 15% LTCG investor, the blended rate is 0.60 × 15% + 0.40 × 32% = **21.8%**. Compare to a short-term equity gain at 32%, or a single-stock option gain held under a year at 32%. The structural edge is roughly 10 percentage points per dollar.
 2. **Mark-to-market at year-end.** All open §1256 positions are marked to market on December 31 and the unrealised P&L is reported on Form 6781 as if the positions were closed and reopened. This is the same treatment as the broker reports daily; you do not pick up a phantom gain you did not see.
@@ -144,13 +144,13 @@ Storage cost dominates. Crude (storable, but expensive to store offshore) is mod
 **Q8. Can I express a "long volatility" view through /MES?**
 No — /MES is delta-1 on the index. For long-vol exposure you need /VX (VIX futures) or VIX options. /VX has its own contango problem (futures price > spot VIX about 80% of the time), which is why VXX bleeds 30-60%/year in normal markets.
 
-**Q9. How does this fit with the four-tranche framework (SOUL #13)?**
+**Q9. How does this fit with the four-tranche framework?**
 /MES is a portable-beta lever for the L1 sleeve: when the 60/40 portfolio is at 55% equity and you want 65% for a quarter, post $4-6k of margin and add 2 /MES contracts. Cheaper than rebalancing into SPY (taxes), faster than waiting for the next contribution.
 
 **Q10. What's a reasonable position size in /MES?**
 A useful rule: size such that a 5% adverse move in the underlying index does not exceed 10% of your liquid net worth. For a $100k account that means roughly 4 /MES contracts max ($104k notional), and most active retail traders I respect run 1-2.
 
-**Q11. Why does Horace mention SOUL #15 specifically here?**
+**Q11. Why does Horace mention tax treatment specifically here?**
 Because §1256 60/40 is the cleanest tax treatment any retail US investor can get on directional speculation. You do not have to hold for a year. You do not have to harvest losses. You do not have to navigate wash-sale rules. The 21.8% blended rate at the 32% bracket is a structural gift from the 1981 tax code, and it has not been touched since — it is the single most under-appreciated thing in the US retail tax code.
 
 **Q12. When does this strategy fail?**
@@ -221,7 +221,7 @@ Three regimes. (1) **Over-leverage:** sizing /MES based on margin posted instead
 
 **Stella:** And §1256 makes that third path tax-efficient even if you are rotating quarterly.
 
-**Horace:** Exactly. Sixty percent long-term, forty percent short-term, regardless of holding period. That is the SOUL number 15 capstone — the most tax-efficient leverage available to a US retail investor is either deep-ITM LEAPS or §1256-eligible futures. Those are the two instruments. Everything else has worse tax geometry.
+**Horace:** Exactly. Sixty percent long-term, forty percent short-term, regardless of holding period. That is the tax-efficient-leverage capstone — the most tax-efficient leverage available to a US retail investor is either deep-ITM LEAPS or §1256-eligible futures. Those are the two instruments. Everything else has worse tax geometry.
 
 **[SECTION 3 — INTERACTIVE WALKTHROUGH, 10:30-15:30]**
 

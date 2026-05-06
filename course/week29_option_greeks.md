@@ -50,9 +50,9 @@ Four reasons to put the work in:
    sound like an income strategy and feel like an income strategy
    right up until volatility expands. The position is short vega and
    short gamma; both work against you when realised volatility ticks
-   higher. SOUL #6 - vol-tail-wags-dog - is fundamentally a statement
-   about gamma and vega risk that the Greek decomposition makes
-   literal.
+   higher. The vol tail wags the equity dog, and that statement is
+   fundamentally about gamma and vega risk - the Greek decomposition
+   makes the mechanism literal.
 4. **Greeks are the language of every advanced lesson that follows.**
    Spreads (Week 30), LEAPS (Week 38), the VIX (Week 40), volatility
    surfaces, and the entire side25 lesson on second-order Greeks all
@@ -177,8 +177,7 @@ make about 4 cents (rho). Multiply every dollar by 100 because one
 contract controls 100 shares: this $2.45 option is a $245 ticket
 with a $53 / $1-stock-move directional exposure.
 
-[image: image/week29_greeks_vs_spot.png — The four primary Greeks
-plotted across spot for this same option.]
+![Four-panel chart of the four primary Greeks for the worked-example call (S=K=$100, 30 DTE, sigma=20%, r=4%) plotted across spot from $60 to $140. Top-left: delta as a smooth S-curve from 0 to 1, crossing 0.5 at the strike. Top-right: gamma as a bell curve centred at the strike. Bottom-left: theta-per-day as a negative bell, most negative at-the-money. Bottom-right: vega per 1 vol-point, also a bell peaking at-the-money. Read across the four panels to see how each Greek is "shaped" relative to spot — gamma and vega share the ATM bell; theta is its negative twin; delta is the integral of gamma.](image/week29_greeks_vs_spot.png)
 
 #### 2.4 Delta - Direction and "Probability ITM"
 
@@ -236,8 +235,8 @@ Short gamma (you sold the option) is the mirror image. Stock rallies
 against your short call → your delta gets *more* short, so each
 additional dollar of upside hurts more. Stock drops against your
 short put → your delta gets *more* long, so each additional dollar
-of downside hurts more. SOUL #6 says volatility-tails wag the dog;
-*the mechanism is short gamma*. The position looks like steady
+of downside hurts more. Volatility tails wag the dog, and the
+mechanism is short gamma. The position looks like steady
 income at low realised vol and bleeds at compounding speed when
 vol arrives.
 
@@ -263,9 +262,7 @@ Three things to know about theta:
    gamma is theta. *That trade-off is what option-selling income
    strategies are.*
 
-[image: image/week29_theta_decay.png — Theta acceleration and
-the corresponding premium decay curve from 90 DTE down to 1 DTE
-on the same ATM call.]
+![Two-panel chart of theta acceleration on the same $100 ATM call (sigma=20%, r=4%) as expiration approaches. Left panel: |theta| per calendar day on the y-axis vs days-to-expiration on the x-axis (90 down to 1), rising from about $0.013/day at 90 DTE to ~$0.05 at 30 DTE, ~$0.10 at 7 DTE, and ~$0.20 at 1 DTE. Right panel: the option premium itself decaying from ~$4.05 at 90 DTE down toward zero, with the last-30-day "cliff" highlighted as the band where ~63% of the 90-day premium burns. Sellers love this curve; buyers hate it.](image/week29_theta_decay.png)
 
 The 30-45 DTE window is the conventional sweet spot for theta-
 collectors. Earlier than that, daily decay is small relative to
@@ -349,8 +346,8 @@ already paid for the put before the move).
 $\Delta \approx 100 - 50 = +50$ per share-pair, $\Gamma < 0$ (small),
 $\Theta > 0$ (you collect daily), $\nu < 0$ (small). You have
 muted upside, retained most of the downside, and traded both for
-a steady theta drip. SOUL #15 - the income SHOULD count as a tax-
-shifting tool, not as alpha.
+a steady theta drip. The income SHOULD count as a tax-shifting
+tool, not as alpha.
 
 **Cash-secured puts (Week 28):** short put + cash. Net Greek:
 $\Delta \approx +50$ per contract (similar directional exposure
@@ -504,8 +501,8 @@ A: Stock + short call. Per-100-shares-plus-one-short-call:
 delta $\approx +50$ (you have ceded half your upside delta to the
 short call), gamma slightly negative, theta positive (you are
 collecting), vega slightly negative. The position has muted
-upside, almost full downside, and a positive theta drip. SOUL #15
-- the daily theta is income, not alpha.
+upside, almost full downside, and a positive theta drip. The
+daily theta is income, not alpha.
 
 **Q: What changes if I sell a cash-secured put instead?**
 A: The Greek skeleton is identical to a covered call by put-call
@@ -658,8 +655,8 @@ Long gamma decelerates losses, accelerates gains.
 
 **Horace:** Short gamma is the opposite. Stock rallies against
 your short call, your delta gets *more* short, each additional
-dollar hurts more. SOUL number 6 - vol-tail-wags-dog - is
-fundamentally a statement about short gamma. The position
+dollar hurts more. Vol-tail-wags-dog is fundamentally a
+statement about short gamma. The position
 prints steady income at low realised vol and bleeds at
 compounding speed when vol arrives.
 

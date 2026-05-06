@@ -43,7 +43,7 @@ You need to take cycles seriously for four reasons.
    complacent one.** Week 4 showed that the long-run statistics on
    60/40 are excellent. This week shows the statistics underneath
    the statistics: 60/40 *is* a regime bet, and the regime can
-   change. SOUL anchor #2 — passive index investing has worked for
+   change. The regime-shift point — passive index investing has worked for
    forty years, and that does not make it permanent — lives or
    dies on the cycle.
 
@@ -132,8 +132,8 @@ that there are several, layered on top of each other.
 - **Kondratieff (~40–60 years).** Long wave. Driven by
   technological revolutions, demographic regimes, monetary regimes.
   Steam, rail, electrification, the auto, semiconductors, the
-  internet — each anchored a long wave. **This is the wave SOUL
-  anchor #2 is talking about.** The 1981–2021 disinflationary
+  internet — each anchored a long wave. **This is the wave the
+  regime-shift point is talking about.** The 1981–2021 disinflationary
   bull market in stocks and bonds was one Kondratieff up-leg. The
   next one will not look identical.
 
@@ -292,7 +292,7 @@ Read the chart with three mental rules:
   *late-cycle* tag (which catches 2008 and 2022), not in recession
   itself.
 - **No single asset wins every regime.** That is why the four
-  tranches in the SOUL framework (anchor #13) include a barbell
+  tranches in the framework include a barbell
   of equities and long Treasuries plus a real-asset sleeve. The
   leg the cycle is hostile to *now* is exactly the leg that wins
   when the cycle changes.
@@ -332,7 +332,7 @@ back of the 2020–21 stimulus and supply shocks. The Fed hikes
 18%. **60/40 has its second-worst calendar year in history.**
 The cycle was not a normal late-cycle / recession arc; it was a
 late-cycle inflation shock without a recession, and the
-disinflation playbook stopped working. SOUL anchor #2 — *forty
+disinflation playbook stopped working. The regime-shift point — *forty
 years does not make passive permanent* — earned its keep that
 year.
 
@@ -349,7 +349,7 @@ bet but which signals to watch:** payroll diffusion, the credit
 spread index, and the ratio of cyclicals to defensives in the
 S&P 500. Those will turn before the price index does.
 
-#### 2.7 The Forty-Year Frame — Where SOUL #2 Lives
+#### 2.7 The Forty-Year Frame — Where the Regime Question Lives
 
 Each Juglar cycle is about a decade. Each Kondratieff is about
 forty years. The forty-year disinflationary bull market that ran
@@ -494,8 +494,8 @@ A. Loosely. US monetary policy is the gravitational center —
 when the Fed tightens, dollar liquidity tightens for the world —
 but emerging market cycles can lead or lag the US by quarters
 because of commodity exposure, debt structure, and capital
-flows. We do not invest in non-US equity directly per SOUL
-anchor #16; if you want exposure to the EM cycle, do it through
+flows. We do not invest in non-US equity directly under this
+course's investable-universe rule; if you want exposure to the EM cycle, do it through
 US-listed multinationals or US-listed EM ETFs.
 
 **Q6. What is "stagflation" and where does it fit in the
@@ -640,7 +640,7 @@ you about the next year of earnings. The Juglar tells you when
 to expect the next recession. The Kondratieff tells you whether
 the *playbook* of the past forty years still applies.
 
-**STELLA:** SOUL anchor number two.
+**STELLA:** The regime-shift point.
 
 **HORACE:** Exactly. Passive index investing has worked for
 forty years. That does not make it permanent. When the
@@ -826,7 +826,7 @@ Important because it left the monetary overhang that became
 **HORACE:** Inflation surges, Fed hikes 425 basis points, long
 bonds and stocks fall together, 60/40 has its second-worst year
 in ninety-five. The disinflation playbook stopped working
-because the regime was different. SOUL anchor two earned its
+because the regime was different. The regime-shift point earned its
 keep that year.
 
 **STELLA:** 2026.
@@ -855,7 +855,7 @@ forty.
 
 **HORACE:** NBER dates recessions after the fact. Three layered
 cycles — Kitchin, Juglar, Kondratieff — and the long one is
-where SOUL number two lives. Three indicator families: leading,
+where the regime question lives. Three indicator families: leading,
 coincident, lagging — trust the leaders, never lead with the
 laggers. The yield curve has called every recession since 1955
 with one ambiguous exception, with a six-to-twenty-four month

@@ -13,12 +13,12 @@ gone from a fraction of a cent to north of one hundred thousand
 dollars, with two complete crashes of about minus-eighty-five per cent
 along the way. That is not a normal asset class life cycle. It is the
 life cycle of a brand-new monetary experiment running in real time, on
-a public ledger, in the open. Whether or not it is "real" is a SOUL #3
-question (every store of value rests on belief), but the size of the
-market, the liquidity, and the fact that you can now buy it inside a
-brokerage account through an SEC-registered spot ETF means that
-*ignoring* it is no longer a neutral position — it is an active
-allocation decision.
+a public ledger, in the open. Whether or not it is "real" is a
+store-of-value question (every store of value rests on belief), but
+the size of the market, the liquidity, and the fact that you can now
+buy it inside a brokerage account through an SEC-registered spot ETF
+means that *ignoring* it is no longer a neutral position — it is an
+active allocation decision.
 
 Four reasons this lesson exists:
 
@@ -27,8 +27,8 @@ Four reasons this lesson exists:
    January 2024 spot Bitcoin ETF approvals (IBIT, FBTC, ARKB and
    eight others) and the July 2024 spot Ethereum ETF approvals (ETHA,
    FETH) are the single most important regulatory event in crypto's
-   short history. SOUL #16 says US-listed names are the default for
-   serious investors; spot ETFs collapse the crypto-as-asset-class
+   short history. The default for serious investors is US-listed
+   names; spot ETFs collapse the crypto-as-asset-class
    question into the same wrapper as everything else in this
    tutorial. Before 2024, crypto required a separate exchange, a
    wallet, and a custody decision. After 2024, it is a ticker.
@@ -37,8 +37,8 @@ Four reasons this lesson exists:
    sizing the position a *math* problem, not an opinion problem. You
    do not "buy crypto" the way you buy an index fund; you buy a tiny
    sliver of it, sized so that a minus-eighty-per-cent drawdown is a
-   tolerable hit to the *whole* portfolio. SOUL #6 (vol-tail-wags-dog)
-   is the cleanest frame: a five-per-cent BTC sleeve at seventy-per-
+   tolerable hit to the *whole* portfolio. The vol-tail-wags-the-dog
+   frame is the cleanest one: a five-per-cent BTC sleeve at seventy-per-
    cent vol contributes about three-and-a-half percentage points to
    total portfolio vol, which is most of what a 60/40 portfolio's
    stocks contribute.
@@ -59,7 +59,7 @@ Four reasons this lesson exists:
    blended rate, *no wash-sale rule (yet)*, and no automatic 1099-B
    cost-basis tracking on direct-held coins. The spot ETFs partially
    fix this — they trade like ETFs and cost-basis is tracked — but
-   the underlying remains property. SOUL #15 (tax via the wrapper)
+   the underlying remains property. Tax via the wrapper
    is more of an edge here than in equities precisely because the
    tax code is still half-finished. Get the wrapper right and the
    net-of-tax outcome is a different asset class than getting it
@@ -68,7 +68,7 @@ Four reasons this lesson exists:
 The goal of this side lesson is to give you the half-dozen numbers
 and the one sizing rule that turn "should I own Bitcoin" from a
 philosophical argument into a sleeve-sized position in the four-
-tranche portfolio (SOUL #13) — small, deliberate, and in the right
+tranche portfolio — small, deliberate, and in the right
 sub-account.
 
 ![Bitcoin USD price, log scale, July 2010 through April 2026, with the 2013, 2017, 2021 and 2025 cycle peaks annotated and the four halving events marked. Three completed minus-80-per-cent drawdowns are shown as red shading.](image/side09_btc_history.png)
@@ -101,7 +101,7 @@ That is the entire "digital gold" thesis: a fixed-cap commodity-like
 asset whose new-supply rate is mechanically engineered to fall below
 gold's, with a globally-distributed validation network and no central
 issuer. Every other crypto debate is downstream of whether you accept
-that thesis or not. SOUL #3 is the honest framing: this is a *belief*
+that thesis or not. The honest framing is that this is a *belief*
 asset, the same as gold. The only question is the durability of the
 belief, and the only available evidence is fifteen years of price
 discovery, three completed boom-bust cycles, and a $2-trillion-ish
@@ -189,14 +189,14 @@ baseline. The same arithmetic at a 10% BTC sleeve crosses 13% vol —
 you have meaningfully changed the risk profile of the whole portfolio
 to make room for the sleeve. *Above ten per cent, the BTC position is
 no longer a satellite — it is a co-driver of the portfolio's risk*,
-which violates the four-tranche logic (SOUL #13) for almost every
+which violates the four-tranche logic for almost every
 investor's risk budget.
 
 This is the entire reason the canonical retail allocation is
 **1-5% of investable assets, with 3% the centre of gravity**. It is
 not a guess; it is the size at which BTC adds expected return without
-swamping the rest of the portfolio's variance contribution. SOUL #14
-(barbell): the BTC sleeve sits on the right edge of the barbell, with
+swamping the rest of the portfolio's variance contribution. In barbell
+terms: the BTC sleeve sits on the right edge of the barbell, with
 T-bills on the left, and the index-fund middle absorbs neither's
 volatility.
 
@@ -275,8 +275,8 @@ million) where the 0.25% fee is meaningful, ideological alignment
 with the original Bitcoin thesis ("not your keys, not your coins"),
 or use cases that require on-chain transactions (DeFi, payments).
 For the 1-5% sleeve in a tax-advantaged retirement account, the
-spot ETF is the unambiguously correct wrapper. SOUL #16: the
-US-listed wrapper is the default.
+spot ETF is the unambiguously correct wrapper. The US-listed wrapper
+is the default.
 
 #### 2.6 Tax Treatment — Property, Not Security
 
@@ -304,8 +304,8 @@ unchanged through 2026). The consequences:
   inside the ETF wrapper.
 - **No automatic IRA eligibility for direct coins.** Most IRA
   custodians do not allow direct cryptocurrency holdings. *Spot
-  ETFs are eligible* in any standard brokerage IRA. SOUL #15
-  (location matters): hold the BTC sleeve inside a Roth IRA where
+  ETFs are eligible* in any standard brokerage IRA. Location matters:
+  hold the BTC sleeve inside a Roth IRA where
   any future gains are tax-free, given the volatility profile makes
   the asset a particularly clean Roth candidate.
 
@@ -322,9 +322,9 @@ The honest catalogue of what crypto *cannot* do for a portfolio:
 
 - **There is no intrinsic floor.** Stocks have earnings, real
   estate has rents, bonds have coupons and a maturity payment. Bitcoin
-  has none of these. The price is supported entirely by belief — SOUL
-  #3 — and a sufficiently coordinated belief shift could in principle
-  send it to zero. The fifteen-year out-of-sample test is encouraging
+  has none of these. The price is supported entirely by belief, and
+  a sufficiently coordinated belief shift could in principle send it
+  to zero. The fifteen-year out-of-sample test is encouraging
   but not exhaustive.
 - **There is no qualified dividend or coupon income.** A retiree who
   needs cash flow gets none from BTC directly. The income solution is
@@ -334,7 +334,7 @@ The honest catalogue of what crypto *cannot* do for a portfolio:
   uncorrelated. In the 2022 risk-off, BTC fell -65% as the S&P fell
   -25% and TLT fell -31%; the correlation was high and positive.
   Recent samples (2023-2025) have shown lower correlation (around
-  0.3-0.4), but BTC has not earned the SOUL #17 long-volatility role
+  0.3-0.4), but BTC has not earned a long-volatility role
   the way trend-following or long-vol options have. Treat it as a
   high-vol return enhancer, not a diversifier.
 - **There is no consumer-protection backstop.** Direct-held crypto
@@ -345,8 +345,8 @@ The honest catalogue of what crypto *cannot* do for a portfolio:
 
 The right mental model is: BTC is a high-volatility, high-expected-
 return *return* asset. It belongs in the Stores-of-Value tranche
-(SOUL #13) at 1-5% portfolio weight, in a tax-advantaged wrapper
-(SOUL #15) when possible, sized for a tolerable drawdown contribution,
+at 1-5% portfolio weight, in a tax-advantaged wrapper
+when possible, sized for a tolerable drawdown contribution,
 and rebalanced on a fixed schedule. It is not a hedge. It is not a
 cash-flow source. It is not a savings account. It is, on the
 fifteen-year evidence, an investable asset class — and the position
@@ -360,7 +360,7 @@ size that respects that evidence is small.
    market cap, fifteen years of continuous price discovery, and is
    held by US-listed ETFs custodied at SEC-registered firms. The
    "scam" framing was tenable in 2014, less so in 2018, and not at
-   all in 2026. It is a belief asset (SOUL #3) — like gold and
+   all in 2026. It is a belief asset — like gold and
    fiat — and the only honest question is the durability of the
    belief.
 
@@ -372,7 +372,7 @@ size that respects that evidence is small.
 
 3. **"You should put 20-50% of your portfolio in crypto."** No.
    At 70% vol, a 20% sleeve makes BTC the dominant contributor to
-   portfolio variance. The 1-5% range is what the math (and SOUL #14
+   portfolio variance. The 1-5% range is what the math (and the
    barbell logic) supports. Larger positions are concentrated bets,
    not diversified holdings.
 
@@ -437,7 +437,7 @@ you feel through one cycle, scale to 3-5% if you can sit through a
 minus-eighty-per-cent drawdown without selling.
 
 **Q: Why a Roth IRA specifically, and not a taxable brokerage?**
-A: SOUL #15 (location matters). BTC is the highest-expected-return,
+A: Location matters. BTC is the highest-expected-return,
 highest-volatility asset most retail investors have access to. In a
 Roth, the upside is tax-free; in a taxable account, you owe long-
 term capital gains on the eventual exit, and the no-wash-sale-rule
@@ -476,8 +476,8 @@ I do that?**
 A: Survivorship bias. Your friend who is up 5x is the one talking;
 the friends who sized similarly in 2017 or 2021 and got cut to a
 fifth are not posting. The 1-5% rule is sized for the *full
-distribution* of outcomes, not for the lucky tail. SOUL #1: alpha is
-rare, and concentrated alpha in a single high-vol asset is also a
+distribution* of outcomes, not for the lucky tail. Alpha is rare,
+and concentrated alpha in a single high-vol asset is also a
 concentrated way to lose.
 
 **Q: What signals would tell me the cycle has topped?**
@@ -592,8 +592,8 @@ already lower than gold's mine-supply growth.
 
 **Horace:** That's the whole pitch. A fixed-cap, commodity-like asset
 with a globally-distributed validation network and no central issuer.
-Whether you accept that thesis is the entire decision. SOUL number
-three is the cleanest way to think about it: every store of value
+Whether you accept that thesis is the entire decision. The cleanest
+way to think about it is the belief-asset frame: every store of value
 rests on belief. Gold's belief has survived five thousand years. Pure
 fiat — post-Bretton-Woods, since 1971 — has survived fifty-five.
 Bitcoin's belief has survived sixteen. The only honest yardstick is
@@ -671,8 +671,7 @@ Now do the same arithmetic at a *ten* per cent BTC sleeve. The
 portfolio vol crosses thirteen per cent. You've added two full vol
 points to the whole portfolio for a single sleeve. Above ten per
 cent, BTC stops being a satellite and becomes a *co-driver* of the
-portfolio's risk. That violates SOUL number thirteen, the four-tranche
-logic, for almost every retail investor.
+portfolio's risk. That violates the four-tranche logic for almost every retail investor.
 
 **Stella:** So that's where one-to-five per cent comes from?
 
@@ -684,8 +683,8 @@ runs full-Kelly on a single asset; the standard discount is one-quarter
 to one-eighth. That gets you to five-to-ten per cent. Apply a second
 discount for parameter uncertainty — your expected-return number is a
 guess, not a fact — and you land at one-to-five. Same answer arrived
-at three different ways. Math, institutional consensus, and SOUL
-number fourteen barbell logic all converge.
+at three different ways. Math, institutional consensus, and barbell
+logic all converge.
 
 ---
 
@@ -820,7 +819,8 @@ not replace cash. It sits next to them.
 
 **Horace:** Stocks have earnings. Real estate has rents. Bonds have
 coupons and a maturity payment. Bitcoin has none of those. The price
-is supported entirely by belief. SOUL three. The fifteen-year
+is supported entirely by belief. Every store of value rests on
+belief, and that is the framing here. The fifteen-year
 out-of-sample test is encouraging but it is not exhaustive. A
 sufficiently coordinated belief shift could in principle send the
 price to zero. That tail is why the position is sized at one-to-five
@@ -872,7 +872,7 @@ Roth IRA, rebalanced annually.
 
 **Stella:** And the philosophical answer?
 
-**Horace:** SOUL three. Every store of value rests on belief. Gold
+**Horace:** Belief. Every store of value rests on belief. Gold
 for five thousand years. Fiat for fifty-five. Bitcoin for sixteen.
 You don't own it because you believe one of them is real and the
 others are fake. You own it because you believe the consensus that

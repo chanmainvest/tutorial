@@ -3,7 +3,13 @@
 Automated Translation for Chanma Investment Tutorial
 
 Translates English course markdown files to three Chinese variants
-using a configurable LLM provider (Anthropic Claude, OpenAI, or Google Gemini).
+using a configurable LLM provider:
+  - anthropic   Anthropic Claude direct API
+  - openai      OpenAI direct API
+  - gemini      Google Gemini direct API
+  - copilot     GitHub Copilot via the GitHub Models inference API
+                (OpenAI-compatible; uses your GitHub Copilot subscription
+                tokens, not paid API credits).
 
 Defaults are read from scripts/configs.json. CLI flags override individual
 config values.
@@ -13,21 +19,26 @@ Usage:
     uv run python scripts/translate-batch.py --locale hk        # only HK
     uv run python scripts/translate-batch.py --locale all       # HK+TW+CN
     uv run python scripts/translate-batch.py --file week01      # only files matching
+    uv run python scripts/translate-batch.py --provider copilot # use GitHub Copilot
     uv run python scripts/translate-batch.py --provider gemini  # override provider
     uv run python scripts/translate-batch.py --force            # overwrite existing
     uv run python scripts/translate-batch.py --dry-run          # preview only
 
 Per-provider API keys are read from environment variables (configurable in
 configs.json -> providers.<name>.api_key_env):
-    ANTHROPIC_API_KEY, OPENAI_API_KEY, GEMINI_API_KEY
+    ANTHROPIC_API_KEY, OPENAI_API_KEY, GEMINI_API_KEY,
+    GITHUB_TOKEN     (for the copilot provider; obtain via `gh auth token`,
+                      requires the models:read scope on Copilot accounts)
 
 Install (only the providers you actually use):
     uv pip install anthropic openai google-generativeai
+    (the copilot provider reuses the openai package; no extra install)
 """
 
 import argparse
 import json
 import os
+import re
 import sys
 import time
 
@@ -175,10 +186,168 @@ def call_gemini(provider_cfg, system, user):
     return text, in_tok, out_tok
 
 
+def _chunk_markdown(text, max_chars):
+    """Split markdown into chunks ≤ max_chars, respecting section boundaries.
+
+    Tries H2 (`## `) breaks first, then H3 (`### `), then blank-line paragraph
+    breaks. Final fallback is a hard slice. Each returned chunk is independent
+    text that can be translated on its own without losing context.
+    """
+    if len(text) <= max_chars:
+        return [text]
+
+    def _split_keep(pattern, s):
+        # Split at boundaries that *start* with the pattern; keep the boundary
+        # attached to the following chunk.
+        parts = re.split(pattern, s, flags=re.MULTILINE)
+        return [p for p in parts if p]
+
+    def _greedy_pack(pieces):
+        chunks = []
+        current = ""
+        for p in pieces:
+            if len(p) > max_chars:
+                if current:
+                    chunks.append(current)
+                    current = ""
+                # Recursively split this oversized piece.
+                if re.search(r"^### ", p, flags=re.MULTILINE):
+                    sub = _split_keep(r"(?=^### )", p)
+                elif "\n\n" in p:
+                    sub = [s + "\n\n" for s in p.split("\n\n") if s]
+                else:
+                    # Hard slice as last resort.
+                    sub = [p[i:i + max_chars] for i in range(0, len(p), max_chars)]
+                if len(sub) == 1 and len(sub[0]) > max_chars:
+                    chunks.append(sub[0])  # give up; send oversized piece anyway
+                else:
+                    chunks.extend(_greedy_pack(sub))
+                continue
+            if len(current) + len(p) <= max_chars:
+                current += p
+            else:
+                if current:
+                    chunks.append(current)
+                current = p
+        if current:
+            chunks.append(current)
+        return chunks
+
+    pieces = _split_keep(r"(?=^## )", text)
+    return _greedy_pack(pieces)
+
+
+def _call_copilot_once(client, provider_cfg, system, user, max_retries, base_delay):
+    last_err = None
+    for attempt in range(max_retries):
+        try:
+            response = client.chat.completions.create(
+                model=provider_cfg["model"],
+                messages=[
+                    {"role": "system", "content": system},
+                    {"role": "user", "content": user},
+                ],
+                max_tokens=provider_cfg.get("max_tokens", 16384),
+                temperature=provider_cfg.get("temperature", 0.3),
+            )
+            text = response.choices[0].message.content or ""
+            usage = getattr(response, "usage", None)
+            in_tok = getattr(usage, "prompt_tokens", 0) if usage else 0
+            out_tok = getattr(usage, "completion_tokens", 0) if usage else 0
+            return text, in_tok, out_tok
+        except Exception as e:  # noqa: BLE001
+            last_err = e
+            msg = str(e).lower()
+            transient = (
+                "429" in msg
+                or "too many requests" in msg
+                or "rate limit" in msg
+                or "503" in msg
+                or "502" in msg
+                or "timeout" in msg
+                or "connection" in msg
+            )
+            if not transient or attempt == max_retries - 1:
+                raise
+            delay = min(base_delay * (2 ** attempt), 600)
+            time.sleep(delay)
+    raise last_err  # type: ignore[misc]
+
+
+def call_copilot(provider_cfg, system, user):
+    """Translate via GitHub Copilot using the GitHub Models inference API.
+
+    The endpoint is OpenAI-compatible, so we reuse the openai SDK and just
+    point base_url at https://models.github.ai/inference. The bearer token
+    is the user's GitHub PAT (or `gh auth token` output) — Copilot
+    subscribers get included usage at no extra cost.
+
+    Behavior:
+      - Auto-chunks the input markdown when it exceeds `chunk_chars`
+        (default 9000) so it fits the GitHub Models free-tier 8K-token
+        request-body cap on `openai/gpt-4.1`.
+      - Retries with exponential backoff on 429 / transient errors.
+    """
+    from openai import OpenAI
+    import httpx
+
+    api_key_env = provider_cfg.get("api_key_env", "GITHUB_TOKEN")
+    api_key = os.environ.get(api_key_env)
+    if not api_key:
+        raise RuntimeError(
+            f"Environment variable {api_key_env} is not set. Run "
+            f"`gh auth token` and export it, or set GITHUB_TOKEN to a PAT "
+            f"with the models:read scope."
+        )
+
+    base_url = provider_cfg.get("base_url", "https://models.github.ai/inference")
+    client = OpenAI(
+        base_url=base_url,
+        api_key=api_key,
+        timeout=httpx.Timeout(7200.0, connect=30.0),
+    )
+
+    max_retries = provider_cfg.get("max_retries", 20)
+    base_delay = provider_cfg.get("retry_base_delay_s", 20)
+    chunk_chars = provider_cfg.get("chunk_chars", 9000)
+    inter_chunk_delay = provider_cfg.get("inter_chunk_delay_s", 2)
+
+    chunks = _chunk_markdown(user, chunk_chars)
+    if len(chunks) == 1:
+        return _call_copilot_once(client, provider_cfg, system, user, max_retries, base_delay)
+
+    # Multi-chunk path. Translate each piece with the same system prompt and
+    # concatenate. We add a small note so the model knows it's a fragment.
+    pieces = []
+    total_in = 0
+    total_out = 0
+    chunk_system = (
+        system
+        + "\n\nIMPORTANT: You are translating a FRAGMENT of a larger markdown "
+        "document. Do not add any introductory phrase, summary, or closing "
+        "remark — output only the direct translation of the fragment so it "
+        "can be concatenated with the surrounding fragments."
+    )
+    for i, ch in enumerate(chunks):
+        text, in_tok, out_tok = _call_copilot_once(
+            client, provider_cfg, chunk_system, ch, max_retries, base_delay
+        )
+        pieces.append(text)
+        total_in += in_tok
+        total_out += out_tok
+        if i < len(chunks) - 1 and inter_chunk_delay:
+            time.sleep(inter_chunk_delay)
+
+    # Reassemble. Chunks were split at section boundaries, so simple concat
+    # preserves structure.
+    return "".join(pieces), total_in, total_out
+
+
 PROVIDER_DISPATCH = {
     "anthropic": call_anthropic,
     "openai": call_openai,
     "gemini": call_gemini,
+    "copilot": call_copilot,
 }
 
 
@@ -258,6 +427,9 @@ def main():
     parser.add_argument("--output-dir", help="Override output base directory; subdirectories course_<locale> still apply")
     parser.add_argument("--force", action="store_true", help="Overwrite existing translations")
     parser.add_argument("--dry-run", action="store_true", help="Preview without writing")
+    parser.add_argument("--chunk-chars", type=int, help="Override chunk size (chars) for the copilot provider")
+    parser.add_argument("--max-tokens", type=int, help="Override max output tokens for the copilot provider")
+    parser.add_argument("--max-retries", type=int, help="Override retry count for the copilot provider")
     args = parser.parse_args()
 
     provider_name = args.provider or configs["provider"]
@@ -267,6 +439,12 @@ def main():
     provider_cfg = dict(configs["providers"][provider_name])
     if args.model:
         provider_cfg["model"] = args.model
+    if args.chunk_chars:
+        provider_cfg["chunk_chars"] = args.chunk_chars
+    if args.max_tokens:
+        provider_cfg["max_tokens"] = args.max_tokens
+    if args.max_retries:
+        provider_cfg["max_retries"] = args.max_retries
 
     check_provider_key(provider_name, provider_cfg)
 
@@ -290,6 +468,9 @@ def main():
     dry_run = args.dry_run or configs.get("dry_run", False)
 
     files = sorted(f for f in os.listdir(source_dir) if f.endswith(".md"))
+    # Never translate the author-only guide files into student-facing locales.
+    SKIP_FILES = {"SOUL.md", "REWRITE_GUIDE.md"}
+    files = [f for f in files if f not in SKIP_FILES]
     if file_pattern:
         files = [f for f in files if file_pattern in f]
     if not files:

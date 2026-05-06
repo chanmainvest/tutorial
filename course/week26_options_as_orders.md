@@ -38,7 +38,7 @@ at a price you chose in calm-mind, and pays you to hold yourself to it.
 The premium is the institutional equivalent of paying yourself an
 adviser fee for *not* moving the goalposts.
 
-**(3) This is the L2 income tactic in the SOUL #14 barbell.**
+**(3) This is the L2 income tactic in the barbell.**
 Horace's barbell holds high-conviction safety on one end and asymmetric
 speculation on the other; the question is what the names *between*
 those two ends do all day. They sit in the L2 ("high-quality long-only,
@@ -47,7 +47,7 @@ calls and cash-secured puts at the edges of where the holder would
 already act. The L2 sleeve is the income engine of the barbell, and
 the income is engineered, not hoped-for.
 
-**(4) Options are a tax tool first, a leverage tool second (SOUL #15).**
+**(4) Options are a tax tool first, a leverage tool second.**
 Selling a covered call lets you reduce delta on a winner *without*
 selling the share — exposure shifts, the tax lot doesn't. Selling a
 cash-secured put lets you build a position at a chosen entry *over
@@ -118,6 +118,8 @@ Three outcomes, and only three:
    cushion. Worst case (XYZ -> $0): -$8,800 vs. the limit-order's
    -$9,000 — strictly better.
 
+![Payoff diagram for a single short $90 cash-secured put on XYZ for $2.00 premium with 30 days to expiry, plotted from $60 to $140 of XYZ price at expiry. The curve is flat at +$200 (max profit, premium kept) above the $90 strike, slopes diagonally down through the $88 breakeven, and reaches -$8,800 at XYZ = $0. The green-shaded region above zero marks "premium kept"; the red region below marks "below breakeven." Footer notes $9,000 cash collateral and ~27% annualised yield-on-cash if the put expires worthless.](image/week26_csp_payoff.png)
+
 The image script `week26_csp_payoff.py` shades this exact P&L profile
 from $60 to $140 with breakeven, max profit and tail loss labelled.
 
@@ -150,6 +152,8 @@ The three outcomes:
    trade-off you accept for getting paid. The image
    `week26_cc_payoff.py` shows the payoff capping at +$1,150 for any
    stock price >= $110.
+
+![Payoff diagram for the covered-call package — long 100 shares of XYZ at $100 entry plus one short $110 call sold for $1.50 — plotted across XYZ expiry prices from $60 to $140. The blue solid line is the package P&L; a dashed grey line shows the long-stock-only reference for comparison. The package caps at +$1,150 for any price at or above the $110 strike, crosses zero at the $98.50 breakeven, and slopes down to -$9,850 at XYZ = $0. The two lines run almost parallel on the downside — the $150 premium is cushion, not hedge.](image/week26_cc_payoff.png)
 
 The downside is unchanged from owning the stock outright, *minus* the
 $1.50 cushion: at XYZ -> $0, the position is worth -$10,000 + $150 =
@@ -229,7 +233,7 @@ return when nothing happens. The covered call does not add anything in
 the assignment scenario beyond the premium itself; the CSP turns
 straight into the underlying share return.
 
-#### 2.6 Where this fits in the SOUL #14 barbell
+#### 2.6 Where this fits in the barbell
 
 Horace's portfolio is a barbell: safety on one end (cash, T-bills,
 gold, deep-ITM long-dated calls), structural-alpha speculation on the
@@ -250,7 +254,7 @@ This is why we treat this lesson as foundational rather than advanced.
 The barbell shape requires this engine to make economic sense; without
 it, the safety end's drag would dominate the asymmetric end's payoff.
 
-#### 2.7 Where this fits in the SOUL #15 tax stack
+#### 2.7 Where this fits in the tax stack
 
 The covered call has a second job that is at least as valuable as the
 income, and is rarely advertised: it lets you **reduce effective
@@ -423,8 +427,8 @@ only the put, not both at once.
 **Q8: What about taxes — short-term capital gains every month?**
 
 A: Yes, every premium banked in a taxable account is short-term
-capital gain at ordinary income rates, every month. This is why
-SOUL #15 puts the strategy mostly in tax-advantaged accounts (IRA,
+capital gain at ordinary income rates, every month. This is why the
+strategy belongs mostly in tax-advantaged accounts (IRA,
 Roth IRA), where the premium income compounds untaxed. In a taxable
 account the after-tax yield is 30-40% lower than the headline.
 
@@ -697,9 +701,9 @@ your own hands.
 
 [BARBELL & TAX FRAME — 15:30]
 
-**Stella:** Where does this fit in the SOUL philosophy?
+**Stella:** Where does this fit in the broader philosophy?
 
-**Horace:** Two places. First, the barbell — Soul #14. The barbell
+**Horace:** Two places. First, the barbell. The barbell
 holds high-conviction safety on one end and asymmetric speculation on
 the other; the L2 sleeve in between is the high-quality long-only
 names you're willing to own and to sell at known prices. That sleeve
@@ -708,7 +712,7 @@ CSP/CC pair is the income engine of the L2 tranche.
 
 **Stella:** And the second place?
 
-**Horace:** Tax — Soul #15. The largest unspoken fee in long-only
+**Horace:** Tax. The largest unspoken fee in long-only
 investing is capital gains. Covered calls let you reduce *exposure*
 on a winner without selling the *share*; the tax lot keeps aging,
 the delta drops. Cash-secured puts let you build a position over

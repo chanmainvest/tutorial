@@ -26,8 +26,8 @@ pull only the white silk size-6 gowns.
 
 Four reasons to take screening seriously:
 
-1. **Filter discipline beats stock-picking discipline.** Per SOUL #1,
-   alpha is rare. The single highest-leverage decision you will make is
+1. **Filter discipline beats stock-picking discipline.** Alpha is rare.
+   The single highest-leverage decision you will make is
    *which 30 names enter your due-diligence queue*, not which one of
    those 30 you eventually buy. A bad shortlist makes good selection
    impossible; a good shortlist makes mediocre selection profitable.
@@ -39,15 +39,20 @@ Four reasons to take screening seriously:
    solvent businesses mean-reverts*. Writing the screen forces you to
    write the thesis.
 
-3. **Market caps do the heavy lifting.** US-listed equities (per SOUL
-   #16) come with audited GAAP filings, deep secondary liquidity, and
+3. **Market caps do the heavy lifting.** US-listed equities come with audited GAAP filings, deep secondary liquidity, and
    the SEC EDGAR plumbing that makes all of this work. Run the same
-   process on a Shenzhen B-share index and the data layer breaks.
+   process on a Shenzhen B-share index and the data layer breaks. The
+   $2B floor used in the GARP screen below is not a statistical
+   convenience — it is Horace's no-penny-stock rule with a number on
+   it: sub-billion names live in the casino tier (Side 14 makes the
+   case in detail — wide spreads, manipulable float, thin disclosures,
+   participants who are not investors), and the watchlist process
+   exists *above* that line by design, not by accident.
 
 4. **It defends against narrative.** The best filter against
    "Cathie said it on CNBC" is not willpower; it is a numerical
    tripwire that says *PEG > 1.5 -> no further work*. Pre-committed
-   filters convert the impulse buy into a process buy. (SOUL #12: the
+   filters convert the impulse buy into a process buy. (The
    market can stay irrational longer than you can stay solvent — and
    longer than your conviction, too.)
 
@@ -106,8 +111,7 @@ reading a 10-K.
 
 GARP is Peter Lynch's screen, formalised. The thesis: *pay no more
 than 1x PEG for a high-ROIC business growing free cash flow*. It is
-the workhorse screen for tranche-1 (long-term compounders, per SOUL
-#13).
+the workhorse screen for tranche-1 (long-term compounders).
 
 | Filter | Threshold | Why |
 |---|---|---|
@@ -223,7 +227,7 @@ The screen is step 1 of a five-step funnel:
    a daydream.
 5. **Position** (buy when triggered). Use a 1/3-1/3-1/3 entry: buy
    1/3 at trigger, 1/3 if it falls another 10%, 1/3 if it falls
-   another 10% on no thesis-breaking news. Per SOUL #14, the barbell
+   another 10% on no thesis-breaking news. The barbell
    says you are wrong sometimes; the staggered entry pays you to be
    wrong about timing.
 
@@ -237,7 +241,7 @@ Three traps eat 80% of screening returns:
 
 **Trap 1 — Optimising on the back-test.** The temptation to keep
 adding filters until the screen returns "all winners" historically
-is irresistible and fatal. Per SOUL #1, every additional filter
+is irresistible and fatal. Every additional filter
 narrows your universe and adds in-sample bias. Stop at 6 filters.
 Ever. (See week46_backtest_validator.html.)
 
@@ -296,7 +300,7 @@ Either re-justify it from scratch or sell.
    review date. Names with neither are dead weight.
 
 10. **"Backtested screens that worked for 10 years will keep working."**
-    Per SOUL #2, the macro regime changes every 30-40 years. A screen
+    The macro regime changes every 30-40 years. A screen
     that worked 1995-2020 (cheap quality) might fail 2025-2040 (rates
     higher, cheap-quality re-rates faster). Re-validate annually.
 
@@ -341,8 +345,7 @@ qualitatively.
 
 **Q: What about screens for short ideas?**
 A: Same engine, inverted thresholds: PE > 80, P/B > 8, FCF < 0 for
-3 years, debt/EBITDA > 6, accruals > 10% of assets. Per SOUL #5,
-short alpha is real but the borrow + dividend-pass-through + carry
+3 years, debt/EBITDA > 6, accruals > 10% of assets. Short alpha is real but the borrow + dividend-pass-through + carry
 is brutal — most retail investors should let factor short ETFs do
 the work.
 
@@ -356,14 +359,14 @@ infrastructure.
 A: You will. The edge is not the filter — it is the 50->10 stage,
 which depends on your *judgement*. PEG < 1.2 + ROIC > 15% returns
 the same 100 names for everyone. Picking the right 5 from those 100
-is where the alpha lives. (SOUL #5: alpha sources are stable, but
+is where the alpha lives. (Alpha sources are stable, but
 each requires manual judgement at the buy decision.)
 
 **Q: Can I use these screens in tax-advantaged accounts only?**
 A: Recovery and deep-value screens generate higher turnover — better
 in IRAs. GARP and quality compounders work in either; quality compounders
 especially in taxable accounts because hold periods stretch into LTCG
-territory by year 2. (See SOUL #15 + `side04` for tax-location maths.)
+territory by year 2. (See `side04` for tax-location maths.)
 
 ---
 
@@ -383,7 +386,7 @@ territory by year 2. (See SOUL #15 + `side04` for tax-location maths.)
 
 **HORACE:** There are about 4,000 stocks listed on the New York Stock
 Exchange and the Nasdaq. Forget global. Forget OTC. Just the US
-universe — the only one we own per SOUL principle 16. Four thousand.
+universe — the only one we own. Four thousand.
 And the question that determines everything about whether you make
 money in stock-picking is not *which one do you buy*. It is *which 30
 do you bother to read about*.
@@ -430,9 +433,14 @@ growth above 10%, ROIC above 15%, debt-to-equity below 1, gross
 margin above 40%.
 
 **HORACE:** Peter Lynch's screen. The thesis is: *I will pay up for
-quality, but not more than the growth justifies.* In April 2026, this
-returns about 80 names. Tighten PEG to 0.8 and you are at 15 — which
-is the right size for a deep-dive queue.
+quality, but not more than the growth justifies.* And the two-billion
+cap floor is not arbitrary — that is my no-penny-stock rule with a
+number on it. Sub-billion names are the casino tier; we covered the
+why in Side 14. The watchlist process lives above that line on
+purpose. If a name does not clear the cap, the screen does not
+look at it. In April 2026, this returns about 80 names. Tighten
+PEG to 0.8 and you are at 15 — which is the right size for a
+deep-dive queue.
 
 **STELLA:** **Screen 2, deep value.** P/E below 12, P/B below 1.5,
 current ratio above 2, positive free cash flow, debt-to-EBITDA below
@@ -517,7 +525,7 @@ is the only thing that converts a list into a decision.
 trigger, one-third on a 10% drop, one-third on another 10% drop with
 no thesis-breaking news.
 
-**HORACE:** Per SOUL principle 14 — the barbell. You are wrong about
+**HORACE:** The barbell. You are wrong about
 timing more often than you think. The 1/3-1/3-1/3 entry pays you to
 be wrong.
 
@@ -548,7 +556,7 @@ investors never apply their own discipline to their own portfolio.
 Five filters and a $40-a-month subscription replaces what used to take
 an analyst team.
 
-**HORACE:** And per SOUL principle 1, alpha is rare. You will not
+**HORACE:** Alpha is rare. You will not
 out-research the buy-side. But you can out-*select* the average
 self-directed investor by an enormous margin, simply by replacing
 "my friend mentioned it" with "it passed five numerical filters and

@@ -36,9 +36,10 @@ Four reasons this lesson earns a slot:
 3. **The 33% of the time DCA wins includes the periods that scar
    investors for life** — 2000-2002 and 2008. That bias toward
    nightmare scenarios is exactly why the behavioural story matters.
-4. **SOUL #12** — the rational investor who panics out at the bottom
-   has already lost. DCA is the rational behavioural hedge that
-   keeps the irrational version of you solvent.
+4. **Stay solvent before being right** — the rational investor who
+   panics out at the bottom has already lost. DCA is the rational
+   behavioural hedge that keeps the irrational version of you
+   solvent.
 
 ---
 
@@ -61,7 +62,11 @@ sum to deploy; you have a steady drip of new income. The
 lump-vs-DCA question genuinely does not apply. Calling
 paycheck-investing "dollar-cost averaging" is a marketing trope from
 the mutual-fund industry — useful as a sales line, useless as a
-decision framework.
+decision framework. And while we are here: the 401(k) drip is the
+cleanest proof that there is no truly passive income — the
+*input*, the bit you scraped out of the paycheck before you ever
+got to the timing question, is doing all the work. The schedule is
+automatic; the saving was not.
 
 The problem this lesson addresses is narrow:
 
@@ -174,8 +179,8 @@ adds two terms the textbook leaves out:
 DCA is a rational hedge against the *irrational version of yourself.*
 The expected-value cost of 0.5-0.7% terminal wealth is the premium
 you pay so that the version of you in March 2009 is still in the
-market at all. Read SOUL #12 again: irrational and solvent beats
-rational and bankrupt.
+market at all. Say it again: irrational and solvent beats rational
+and bankrupt.
 
 If you can *honestly* say you are the kind of investor who would not
 panic out of a 30% lump-sum drawdown — and Week 11 has the data on
@@ -197,6 +202,18 @@ underperforms a 60/40 portfolio over rolling 12-month windows
 with a much wider spread. Holding cash for a year while waiting for
 the dip costs about 4% of terminal wealth in expectation, and that
 cost compounds while you procrastinate.
+
+A note on *what* you are lumping into. For the reader this lesson is
+written for — first portfolio, apprenticeship phase — the target
+allocation on the receiving end of the lump is SPY (or the
+equivalent broad-US-equity index ETF), not a barbell of cash, gold,
+and option structures. The barbell is the shape I run today, but
+it earns its keep only after you have internalised the regime
+thesis and built the toolkit the speculative end demands. Skip the
+apprenticeship and you have dropped the index core for nothing on
+one side and a sleeve you cannot operate on the other. Lump into
+the index, do the apprenticeship, *then* migrate the shape — in
+that order.
 
 The decision framework is:
 
@@ -352,8 +369,8 @@ Lump-sum starts the holding-period clock for long-term capital gains
 treatment 12 months earlier on the entire position. For taxable
 accounts that matters: if you sell after 13 months, lump's gains are
 all LTCG; DCA has roughly half the position still at short-term
-rates. SOUL #15: long-term-gains treatment is the cheapest free
-money in US tax law, and lump grabs it earlier.
+rates. Long-term-gains treatment is the cheapest free money in US
+tax law, and lump grabs it earlier.
 
 **Q9: Is "DCA out of cash that I had been waiting with" a thing?**
 
@@ -513,7 +530,7 @@ up with the recovery.
 
 **Stella:** So DCA is insurance against me?
 
-**Horace:** Exactly. SOUL number twelve says irrational and solvent
+**Horace:** Exactly. The rule is simple: irrational and solvent
 beats rational and bankrupt. DCA is the rational hedge against the
 irrational version of you that exists in March 2009. You pay
 0.6% of terminal wealth in expectation; in exchange the version of
@@ -593,7 +610,23 @@ bonus, house sale, retirement-account rollover.
 **Stella:** Got it. So this lesson is for the windfall day.
 
 **Horace:** Right. For the day someone hands you a check large
-enough that the question stops being theoretical.
+enough that the question stops being theoretical. And one footnote
+on the paycheck case before we move on — that monthly drip is also
+the cleanest reminder that there is no truly passive income. The
+schedule is automatic; the savings rate that *fed* the schedule was
+not. The input precedes the timing question every single time.
+
+**Stella:** And the lump itself — what am I lumping into?
+
+**Horace:** For someone reading this lesson, building a first
+portfolio, the answer is SPY. The broad index. Cheap, tax-efficient,
+works as long as the forty-year passive consensus keeps working. I
+run a barbell shape these days — cash and gold on one end, asymmetric
+option positions on the other — but that shape only works after you
+have internalised why the consensus might break and built the toolkit
+the speculative end actually requires. Don't skip the apprenticeship
+to copy the shape. Lump into the index, learn for a few cycles, and
+then think about migrating.
 
 ---
 

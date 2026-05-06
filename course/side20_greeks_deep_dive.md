@@ -93,7 +93,7 @@ even before you account for the spot move, because vanna for a put
 of that strike is positive (-d2 is positive when the put is OTM, and
 the negative sign in the formula flips). The hedge works *better
 than the static delta would suggest* — that is the vol-tail-wags-dog
-mechanic from SOUL #6, expressed in a Greek.
+mechanic, expressed in a Greek.
 
 Same mechanic, opposite direction: a covered-call seller above the
 money sees their short-call delta **rise** when IV pops, meaning
@@ -407,12 +407,13 @@ For retail, the pure-second-order trade is a dead-end. Use second-
 order Greeks as **explanation tools** for what your existing
 positions are doing, not as a strategy menu.
 
-**Q11: What's the SOUL anchor here?**
+**Q11: What's the underlying lesson here?**
 
-Number 6 — vol-tail-wags-dog. Vanna and charm are the mechanism by
+Vol-tail-wags-dog. Vanna and charm are the mechanism by
 which vol expansions and time decay rearrange equity exposure
-without anyone trading the underlying. The barbell (#14) and
-options-tax (#15) anchors apply too, but the central one is #6.
+without anyone trading the underlying. Barbell sizing and
+options-tax discipline matter too, but the central idea is the vol
+tail.
 
 **Q12: If I only remember one thing from this lesson?**
 

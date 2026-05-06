@@ -44,14 +44,15 @@ those four — a vertical spread is two of them, an iron condor is four,
 a covered call is one of them plus 100 shares of stock. Internalise
 the four payoff shapes once and the rest of options is bookkeeping.
 
-**(4) This is foundation for SOUL #14, #15, and #6.** The barbell
-(#14) holds long-dated calls on the safety end and uses short
-near-dated puts/calls on the income middle — both are option
-positions. The tax stack (#15) reaches for options because they let
-you reshape exposure without realising a sale. The vol-tail-wags-dog
-mechanic (#6) only makes sense once you understand that dealers
+**(4) This is foundation for the barbell, the tax stack, and the
+vol-tail-wags-dog mechanic.** The barbell holds long-dated calls on
+the safety end and uses short near-dated puts/calls on the income
+middle — both are option positions. The tax stack reaches for options
+because they let you reshape exposure without realising a sale. The
+vol-tail mechanic only makes sense once you understand that dealers
 *hedge* the options they sell, and that hedging flow moves the spot.
-Without this week, three of Horace's sixteen items remain abstract.
+Without this week, three pieces of the broader investing playbook
+remain abstract.
 
 ---
 
@@ -320,10 +321,10 @@ six. Memorise the four payoff shapes; the rest is bookkeeping.
 
 #### 2.7 Where this lesson fits — barbell, tax, and the vol tail
 
-Three of Horace's SOUL items lean directly on the foundation laid
-this week.
+Three pieces of Horace's broader investing playbook lean directly
+on the foundation laid this week.
 
-**SOUL #14, the barbell.** The safe end of Horace's barbell uses
+**The barbell.** The safe end of Horace's barbell uses
 *long-dated, deep-ITM calls* (LEAPS) as a capital-efficient share
 substitute — you control the upside of 100 shares with 20% of the
 capital, the loss is capped at the premium, and you free up cash
@@ -332,7 +333,7 @@ for the speculative end. The income middle (the L2 sleeve) writes
 value. Both ends of the barbell are options; the lesson this week
 is the dictionary that lets you read either end.
 
-**SOUL #15, options as a tax tool.** The covered call lets you
+**Options as a tax tool.** The covered call lets you
 reduce delta on a winner *without* selling the share — the lot
 keeps aging toward long-term-capital-gains treatment, no taxable
 event, exposure shifts. The cash-secured put lets you build a
@@ -341,7 +342,7 @@ unfilled expiration banking premium that lowers the eventual cost
 basis. Both depend on the time-value/intrinsic-value split from
 §2.4 — the part being harvested is the time value.
 
-**SOUL #6, the option tail wags the equity dog.** Dealers who sell
+**The option tail wags the equity dog.** Dealers who sell
 options to retail and institutions hedge their books in the
 underlying stock. Their hedge depends on the option's *delta*,
 which itself depends on spot, strike, IV, and time. When spot moves,
@@ -848,18 +849,18 @@ primitives. The rest is bookkeeping.
 
 ---
 
-**[SECTION 8 — WHERE THIS LIVES IN THE SOUL — 15:30]**
+**[SECTION 8 — WHERE THIS FITS — 15:30]**
 
-**STELLA:** Three of the SOUL items lean directly on this
-week. Quick tour.
+**STELLA:** Three big pieces of Horace's playbook lean directly on
+this week. Quick tour.
 
-**HORACE:** SOUL number fourteen — the barbell. The safe end
+**HORACE:** First — the barbell. The safe end
 uses long-dated, deep-ITM LEAPS calls as a capital-efficient
 share substitute. The income middle writes short calls and
 short puts against quality names to harvest time value. Both
 ends are options. This week is the dictionary.
 
-**STELLA:** SOUL number fifteen — options as a tax tool. The
+**STELLA:** Second — options as a tax tool. The
 covered call lets you reduce delta on a winner without
 selling. The cash-secured put lets you build a position at a
 chosen entry over multiple expiries, with each unfilled
@@ -867,7 +868,7 @@ expiration banking premium. Both depend on knowing the
 intrinsic-versus-time-value split — the part being harvested
 is the time value.
 
-**HORACE:** SOUL number six — vol tail wags the equity dog.
+**HORACE:** Third — the vol tail wags the equity dog.
 Dealers hedge the options they sell. Spot moves, deltas move,
 hedges move, hedges *move the spot further*. GameStop 2021 ran
 that mechanic in reverse — retail bought calls, dealers were
@@ -875,9 +876,9 @@ forced to buy spot, the spot ran, the rally was self-reinforcing.
 You can't read modern US equity microstructure without knowing
 the option chain isn't a sideshow anymore.
 
-**STELLA:** Three of sixteen items in Horace's SOUL document
-*require* this week to make sense. That's why we built a whole
-lesson on the contract before we built any strategies.
+**STELLA:** Three big pieces of the playbook *require* this week
+to make sense. That's why we built a whole lesson on the contract
+before we built any strategies.
 
 ---
 

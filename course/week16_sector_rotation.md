@@ -17,7 +17,7 @@ returned -38% — a 100-point spread inside a single index. The
 
 If you understand which slice of the market wins in each phase of the
 business cycle, you have the rough outline of one of the durable
-alpha sources Horace lists in SOUL #5: **sector rotation**. Capital
+alpha sources: **sector rotation**. Capital
 cycles between sectors on predictable macro and rate shifts. Ride the
 rotation and the cycle pays you. Fight it and you spend a decade
 underperforming a passive S&P investor who never opened the app.
@@ -40,12 +40,12 @@ Four reasons this matters even if you decide not to rotate.
    is broken." It is that the discount rate for long-duration cash
    flows just doubled. Knowing the cycle prevents you from selling
    the wrong sector at the wrong time.
-4. **Most retail rotation loses.** This is the SOUL #1 anchor —
-   alpha is the rare gap, not the default. The data on retail
-   sector rotators is consistently worse than buy-and-hold the
-   index. Knowing the framework is necessary to even attempt it,
-   and even then most attempts fail. Decide honestly whether you
-   are running rotation as a hobby or as a real edge.
+4. **Most retail rotation loses.** Alpha is the rare gap, not the
+   default — and the data on retail sector rotators is consistently
+   worse than buy-and-hold the index. Knowing the framework is
+   necessary to even attempt it, and even then most attempts fail.
+   Decide honestly whether you are running rotation as a hobby or
+   as a real edge.
 
 This lesson covers the eleven GICS sectors and their SPDR ETFs, the
 canonical cycle map, why the map breaks (2020 flipped the script in
@@ -168,8 +168,9 @@ catalysts override the cycle whenever they show up.
 
 #### 2.4 Momentum vs Mean Reversion at the Sector Level
 
-This is the SOUL #8 question, scaled down from the whole market to
-the eleven slices. Two playbooks both have empirical support:
+This is the momentum-vs-mean-reversion question, scaled down from the
+whole market to the eleven slices. Two playbooks both have empirical
+support:
 
 - **Momentum.** Buy the sector that has been working. Hold for 3-12
   months. Sell when it stops working. The trend-following literature
@@ -251,7 +252,7 @@ Three ways retail investors actually use sector ETFs:
    reduce equity beta. Hold the defensive tilt until the curve
    un-inverts and the Fed cuts. This is Horace's preferred shape:
    asymmetric risk-on / risk-off rather than continuous rotation.
-3. **Alpha tranches in conviction sectors.** SOUL #13 — within a
+3. **Alpha tranches in conviction sectors.** Within a
    sector you understand, you can own the seniors (the cap-weighted
    ETF), the juniors (mid-cap names), and the explorers (small-cap
    options or single names). When the sector cycles into favour,
@@ -285,8 +286,8 @@ beating SPY by tilt is harder than the cycle map makes it look.
 4. **"Energy is dead."** Energy was the worst sector for most of
    2014-2020 and the *best* sector in 2021 and 2022. ESG mandates
    that dumped it on the way down had to buy it back at higher
-   prices on the way up. SOUL #5 — buying what passive flows have
-   abandoned was the trade.
+   prices on the way up. Buying what passive flows have abandoned
+   was the trade.
 5. **"I'll rotate based on the headlines."** Headlines lag price by
    3-6 months. By the time CNBC is running "the recession is here"
    on the chyron, defensives have already led for two quarters.
@@ -296,7 +297,8 @@ beating SPY by tilt is harder than the cycle map makes it look.
    to 2020 — it kept being the worst sector for six straight years.
    Mean reversion is a long-horizon tendency that can take a
    decade to play out, and "right but early" is operationally
-   indistinguishable from "wrong" (SOUL #12).
+   indistinguishable from "wrong" — the market can stay irrational
+   longer than you can stay solvent.
 7. **"Sector ETFs are diversified."** XLK is 45% Microsoft + Apple +
    NVIDIA. XLC is 40% Meta + Alphabet. XLY is 25% Amazon + Tesla.
    The "sector" is often a leveraged bet on three names. The S&P
@@ -343,14 +345,13 @@ is roughly flat. They are intraday speculation tools, not investments.
 **Q: Is energy a buy in 2026?**
 A: This course doesn't pick names. The framework: energy has
 underperformed since the 2022 peak, oil is range-bound, ESG
-selling has eased, and the S&P 500 weight is below 4%. By SOUL #5
-("buy what passive flows have abandoned"), the structural setup
-is more attractive than the ten years from 2010 to 2020. Whether
-that translates to next year's return depends on demand, geopolitics,
-and the dollar.
+selling has eased, and the S&P 500 weight is below 4%. By the
+principle of buying what passive flows have abandoned, the
+structural setup is more attractive than the ten years from
+2010 to 2020. Whether that translates to next year's return
+depends on demand, geopolitics, and the dollar.
 
-**Q: How does sector rotation interact with the four-tranche framework
-(SOUL #13)?**
+**Q: How does sector rotation interact with the four-tranche framework?**
 A: Once you have a sector conviction, the tranches tell you *how* to
 express it. ETF for the senior exposure. Mid-cap names you've
 researched for the junior leg. Long-dated calls on small-cap names
@@ -381,8 +382,8 @@ give one. Future shocks may also not give one.
 A: GICS is global. The same eleven sectors exist in Europe and
 Asia. Sector weights differ — the US is roughly 30% tech,
 Europe is 5%; Europe is heavier in financials and industrials.
-But the framework transports. US-only is the SOUL #16 constraint
-for this course; ex-US sector tilts are out of scope here.
+But the framework transports. We restrict to US-only across this
+course; ex-US sector tilts are out of scope here.
 
 **Q: Should I use sector ETFs in a tax-advantaged account or
 taxable?**
@@ -393,9 +394,9 @@ capital-gains events; in a 401(k) or IRA, it doesn't. If you
 plan to actually rotate, do it in the tax-deferred account.
 
 **Q: What's the single highest-conviction sector tilt for someone
-who reads SOUL?**
-A: Horace's bias is toward what passive flows have abandoned
-(SOUL #5). In April 2026 that is a coin-flip among energy (post-2022
+who follows the structural-flow argument?**
+A: Horace's bias is toward what passive flows have abandoned.
+In April 2026 that is a coin-flip among energy (post-2022
 peak, ESG-divested), small-cap value (a decade out of favour), and
 the financial sector (post-2023 regional bank scare). None of these
 are textbook recommendations; they are positions taken on top of a
@@ -556,7 +557,7 @@ the catalyst wins.
 
 ### PART 4 — Momentum vs Mean Reversion (10:30 – 13:00)
 
-**Stella:** SOUL #8 — every market has two readings, momentum or
+**Stella:** Every market has two readings, momentum or
 mean reversion. Same applies to sectors?
 
 **Horace:** Yes. And the empirical answer is: at three to twelve
@@ -667,8 +668,8 @@ the core boring and broad.
 ### OUTRO (17:30 – 18:00)
 
 **Stella:** Next week — we look at the small-cap premium. Or what
-*used* to be a premium, and isn't really anymore. Spoiler: SOUL #7
-is in the title.
+*used* to be a premium, and isn't really anymore. Spoiler: the
+small-cap premium has eroded, and we'll explain why.
 
 **Horace:** Until then — read the cycle map, but don't worship it.
 

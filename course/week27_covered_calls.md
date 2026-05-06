@@ -47,15 +47,15 @@ here: *the tail wags the dog*, and IV is the price of the tail.
 program in a taxable account converts what could have been long-term
 capital gains (taxed at ~15-20%) into a stream of premium recognised
 as short-term capital gains (taxed up to ~37%). For most readers this
-strategy belongs in an IRA or other tax-advantaged sleeve. SOUL #15
-is the explicit anchor: the largest unspoken fee in long-only investing
-is tax, and a high-turnover income overlay is the most tax-inefficient
-thing you can do in the wrong account.
+strategy belongs in an IRA or other tax-advantaged sleeve. The
+largest unspoken fee in long-only investing is tax, and a
+high-turnover income overlay is the most tax-inefficient thing you
+can do in the wrong account.
 
 This lesson teaches the disciplined version of the strategy: how to
 pick the strike with delta, how to pick the tenor with theta, how to
 read IV-rank, how to roll, and where covered calls quietly fit inside
-the barbell from SOUL #14.
+the barbell.
 
 ---
 
@@ -157,8 +157,8 @@ completely different trades. Investors who blindly write every month
 ignoring IV-rank are mechanically harvesting a *worse* edge than the
 one they think they have.
 
-This is SOUL #6 expressed as a practical rule: the tail (IV) is the
-dog. Watch the IV-rank, not the stock price. The covered-call writer
+This is the practical version of "the tail wags the dog": the tail
+(IV) is the dog. Watch the IV-rank, not the stock price. The covered-call writer
 who ignores IV-rank is the equivalent of the value investor who
 ignores price — they are placing the same trade regardless of what
 the market is offering them.
@@ -170,8 +170,8 @@ assignment, buy the call back, or roll. Rolling is buying the current
 call back and simultaneously writing a new one further out in time
 and possibly further out in strike. Done well, rolling lets you
 maintain the position without realising the gain on the underlying
-shares (relevant for SOUL #15 — preserving the long-term-capital-gains
-treatment on the equity leg).
+shares (relevant for tax planning — you want to preserve the
+long-term-capital-gains treatment on the equity leg).
 
 **Rule 1: When the call is ITM and you do not want to be assigned,
 roll up and out.** Buy back the current ITM strike, sell a higher
@@ -219,7 +219,7 @@ the IRS "qualified-covered-call" rules if the strike is too far ITM.
 The mechanical fix is to write only OTM calls on shares you have not
 yet held for a year.
 
-The clean solution is the SOUL #15 anchor: **run the covered-call
+The clean solution is the tax-account anchor: **run the covered-call
 program in an IRA or 401(k), not in a taxable account.** All premium
 is tax-deferred (or tax-free in a Roth), assignments do not generate
 taxable events, and the entire strategic flexibility — rolling,
@@ -413,7 +413,7 @@ worth the effort. A $20 stock writing a 30-delta monthly call might
 yield $0.20-0.30. After commissions and bid-ask, the realised yield
 is barely there. Stick to underlyings above $80-100 per share.
 
-**Q: How does this fit the SOUL #14 barbell?**
+**Q: How does this fit the barbell?**
 A: Covered calls live on the *passive-equity* end of the barbell,
 not the speculative end. They convert long equity exposure into
 slightly-less-equity-with-income — they do not replace the
@@ -548,8 +548,8 @@ compensation is too small to be worth the cap on upside.
 **Stella:** This is the same logic as everything else you teach —
 don't trade when the price is bad.
 
-**Horace:** That is exactly right. SOUL principle 6 — the tail
-wags the dog. The tail is implied vol. If you ignore IV-rank you
+**Horace:** That is exactly right. The tail wags the dog — the tail
+is implied vol. If you ignore IV-rank you
 are mechanically getting a worse deal than the market is offering
 you in any given month. The covered-call writer who skips the
 bottom-quintile IV-rank months has historically improved their
@@ -585,9 +585,9 @@ lower as the stock drifts.
 
 **Horace:** Premium is short-term capital gain in a U.S. taxable
 account. Top-bracket rate is 37% federal plus state. So if your
-headline yield is 12%, your after-tax yield is roughly 6-7%. SOUL
-principle 15 — the largest unspoken fee in long-only investing is
-tax. A high-turnover income overlay in a taxable account is the
+headline yield is 12%, your after-tax yield is roughly 6-7%. The
+largest unspoken fee in long-only investing is tax. A
+high-turnover income overlay in a taxable account is the
 most tax-inefficient thing you can do.
 
 **Stella:** The fix?

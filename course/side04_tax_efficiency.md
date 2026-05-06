@@ -43,12 +43,13 @@ order:
    in, while invested, and on the way out. Filling them in the wrong
    order can cost six figures by retirement.
 
-This lesson is the operating manual for those four moves. SOUL #15 —
-"the largest unspoken fee is tax; use options and margin to manage
-it" — sits at the very end of the stack. Once the easy structural
-wins are captured, the marginal dollar of tax efficiency comes from
-*how* you hold the position (LTCG holding period, Section 1256 60/40
-split, options as deferred income), not from which fund you bought.
+This lesson is the operating manual for those four moves. The deeper
+rule — "the largest unspoken fee is tax; use options and margin to
+manage it" — sits at the very end of the stack. Once the easy
+structural wins are captured, the marginal dollar of tax efficiency
+comes from *how* you hold the position (LTCG holding period, Section
+1256 60/40 split, options as deferred income), not from which fund
+you bought.
 
 ![Three-by-eight grid showing the optimal account location for eight common asset classes across Taxable, Traditional IRA, and Roth IRA columns. Cells are colour-coded green (best location), amber (acceptable), red (worst location). Headlines: bonds and REITs go to Traditional IRA, qualified-dividend stocks stay in Taxable, high-growth assets and crypto go to Roth, MLPs stay in Taxable to avoid UBTI.](image/side04_asset_location_grid.png)
 
@@ -290,11 +291,11 @@ income low and use those years to **convert Traditional → Roth** (per
 This is the single most-effective lifetime tax-management move
 available to early retirees.
 
-#### 2.8 SOUL #15 — Tax via Options and Margin
+#### 2.8 Tax via Options and Margin
 
 Once steps 2.2-2.7 are mechanical, the marginal dollar of
-tax-efficiency comes from *how* you hold the position. SOUL #15
-catalogues four exposure-level moves:
+tax-efficiency comes from *how* you hold the position. There are
+four exposure-level moves:
 
 - **Use Section 1256 contracts (SPX / NDX index options, /ES
   futures, /MES, /MNQ).** These are taxed at 60% LTCG / 40% STCG
@@ -319,8 +320,7 @@ catalogues four exposure-level moves:
 These are the moves that separate "good" from "exceptional" after-tax
 returns over a 30-year horizon. They are not necessary to capture
 80% of the available efficiency — the §2.2-2.7 stack handles that —
-but they are how SOUL #15 talks about closing the last 20% of the
-gap.
+but they are how you close the last 20% of the gap.
 
 ---
 
@@ -477,7 +477,7 @@ upside (Week 27). **Collar** — buy a 25-delta put + sell a
 without realising gain (Week 30). **Synthetic-short overlay** —
 short an equivalent index future against the position to hedge
 market beta only; idiosyncratic AAPL exposure remains. Each
-removes exposure without crystallising tax. SOUL #15.
+removes exposure without crystallising tax. Tax via options.
 
 **Q10: Should I prioritise Roth or HSA contributions?**
 
@@ -610,9 +610,9 @@ gains, it becomes about $940k. The Roth bought you $560,000.
 
 **Stella:** Just from picking the account.
 
-**Horace:** Just from picking the account. SOUL #15 calls tax the
-largest unspoken fee. Asset location is the cheapest way to start
-paying less of it.
+**Horace:** Just from picking the account. Tax is the largest
+unspoken fee in your investing life. Asset location is the cheapest
+way to start paying less of it.
 
 ---
 
@@ -757,7 +757,7 @@ amount.
 yours. But it sets the floor — once you see the optimiser's
 suggested location grid, you know the cheapest 80% of the
 efficiency is captured by following it. The 20% above that is the
-SOUL #15 territory of options and margin and harvesting against
+advanced territory of options and margin and harvesting against
 single-stock concentrations. We covered that vocabulary in Weeks
 26 through 31, and we will keep coming back to it for the rest of
 the course.
@@ -773,9 +773,9 @@ investing. It is also the most ignored — partly because the rules
 are dry, partly because every brokerage statement quotes pre-tax,
 and partly because the largest tax in your life is the only one you
 never see itemised. The four moves — schedule, location,
-harvesting, stack — capture 80% of the available efficiency. SOUL
-#15 captures the remaining 20% via options and margin. Both halves
-matter, and both halves are mechanical once you see the rules.
+harvesting, stack — capture 80% of the available efficiency. Options
+and margin capture the remaining 20%. Both halves matter, and both
+halves are mechanical once you see the rules.
 
 **Stella:** And no one is going to do it for me.
 

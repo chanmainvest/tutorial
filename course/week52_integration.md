@@ -28,8 +28,8 @@ You need this synthesis lesson for four reasons.
    this is the maximum drawdown my plan tolerates, here is the
    monitoring KPI I check, and here is the date I review next." A
    plan stored only in your head is the plan most likely to be
-   abandoned the day it matters most. SOUL #12 is the same point
-   in different words: the market can stay irrational longer than
+   abandoned the day it matters most. The same point in different
+   words: the market can stay irrational longer than
    you can stay solvent — and *staying* requires the discipline
    that only a written policy can enforce.
 
@@ -46,7 +46,7 @@ You need this synthesis lesson for four reasons.
    2% a year because nobody wrote down when to take it off. The IPS
    is what forces you to size each piece honestly.
 
-3. **The four-tranche framework (SOUL #13) hits its final form
+3. **The four-tranche framework hits its final form
    here.** Growth / Income / Store-of-value / Opportunistic was
    first introduced in week 15 as an asset-class lens, then
    reapplied as a strategy lens in week 24. In this lesson it becomes
@@ -60,9 +60,9 @@ You need this synthesis lesson for four reasons.
    bluntly: most retail strategies are statistical noise. The
    evidence-supported sources of long-run outperformance for a
    retail investor are *not* novel security picks; they are
-   structural — tax location (SOUL #15), behavioural discipline
-   (SOUL #12), the volatility-tail-wagging-the-dog asymmetry
-   (SOUL #6), barbell sizing (SOUL #14), and the single-decision
+   structural — tax location, behavioural discipline, the
+   volatility-tail-wagging-the-dog asymmetry, barbell sizing, and
+   the single-decision
    commitment to a written rebalancing rule. None of those require
    forecasting skill. All of them require an IPS.
 
@@ -96,7 +96,7 @@ sections, in this order:
 Two clauses I recommend adding to a personal IPS that almost nobody
 writes down:
 
-- **Tax-location appendix.** Per SOUL #15: every sleeve has a
+- **Tax-location appendix.** Every sleeve has a
   preferred account type. Bonds and REITs in IRA. Qualified-dividend
   equity in taxable for the LTCG schedule. Options strategies in
   IRA where Section 1256 doesn't apply, taxable where it does. Write
@@ -104,8 +104,8 @@ writes down:
 - **An explicit "stop-rule" for active sleeves.** If your factor
   tilt or your CTA sleeve underperforms its benchmark by X over Y
   years, you de-allocate it. The number must be written *before* the
-  underperformance starts. Per week 43: persistence is weak; SOUL
-  #1 says alpha is rare. The default outcome of any active sleeve is
+  underperformance starts. Per week 43: persistence is weak; alpha
+  is rare. The default outcome of any active sleeve is
   that it gets shut down — your IPS should say what shuts it.
 
 The IPS is short. One page is plenty. The point is not the prose
@@ -122,12 +122,12 @@ enough to express seven sleeves cleanly (somewhere upward of
 $200,000 — below that the small sleeves cost more in friction than
 they earn).
 
-| Tranche (SOUL #13) | Sleeve | Weight | Vehicle examples | Why this slice |
+| Tranche | Sleeve | Weight | Vehicle examples | Why this slice |
 |---|---|---:|---|---|
 | Growth | Global equity (broad + factor tilts) | **35%** | VTI 20% + AVUV 8% + MTUM 7% | The week-23 factor evidence: small-value + momentum has earned ~1.5% / yr over plain beta on long horizons, with diversifying factor exposure. |
 | Income | Bond + dividend + premium-write | **25%** | BND 10% + SCHD 10% + JEPI 5% | The week-36 income hierarchy. Bonds for duration ballast, SCHD for qualified dividends, JEPI as the 1-2% premium-write overlay. |
-| Store-of-value | Gold | **15%** | GLDM | SOUL #3 store-of-value sleeve. Per week 6, gold pays no coupon — it's the belief asset that hedges fiat-debasement and real-rate regimes. |
-| Store-of-value | Crypto | **5%** | BTC (held via spot ETF, e.g. IBIT) | Pure SOUL #14 right-tail barbell sliver. 5% is enough to matter on a 10x; small enough that a 90% drawdown costs 4.5% of the book. |
+| Store-of-value | Gold | **15%** | GLDM | The classic store-of-value sleeve. Per week 6, gold pays no coupon — it's the belief asset that hedges fiat-debasement and real-rate regimes. |
+| Store-of-value | Crypto | **5%** | BTC (held via spot ETF, e.g. IBIT) | Pure right-tail barbell sliver. 5% is enough to matter on a 10x; small enough that a 90% drawdown costs 4.5% of the book. |
 | Opportunistic | Managed futures (CTA) | **10%** | DBMF (or KMLM) | Week 51's diversifier. Not a return engine — a 2008 / 2022 *crisis-alpha* sleeve, low correlation to equity beta. |
 | Opportunistic | Tail hedge (long-dated SPY puts) | **5%** | 25-30% OTM SPY puts, 60-90 DTE, ladder | Week 47's Universa-style sleeve. Bleeds ~1-2% / yr in calm regimes. Pays back the entire book — and then some — in a -30% or worse equity drawdown. |
 | Cash | T-bills / cash | **5%** | SGOV / BIL or money-market | Reserve for rebalancing trigger and opportunistic adds. Per week 8 working capital — the dry powder. |
@@ -190,7 +190,7 @@ design). They did their entire job in 2020 and 2022. Every year
 except those two, the L4 book lagged a vanilla 60/40. The two
 crisis years are where the L4 *vol* number comes from — 6.7%
 versus 60/40's 9.1% — and where the Sharpe gap opens. That is the
-entire SOUL #6 thesis in one backtest: vol-tail-wags-dog. Higher
+entire vol-tail-wags-dog thesis in one backtest. Higher
 risk-adjusted return, smaller crisis losses, slightly less terminal
 wealth in a relentlessly equity-favourable window.
 
@@ -217,7 +217,7 @@ either 30% or 40%. On a 5% sleeve, ±5% means action at 0% or 10% —
 a loose band on small sleeves is a feature, not a bug. Tiny sleeves
 should be checked but not over-traded.
 
-Three implementation notes per SOUL #15:
+Three implementation notes on tax location:
 
 - Rebalance with new contributions first (buy what's underweight)
   before selling anything in a taxable account.
@@ -228,7 +228,7 @@ Three implementation notes per SOUL #15:
 
 #### 2.5 Tax Location — The Map, Not Just the Allocation
 
-SOUL #15 capstone restated: every sleeve has a preferred home, and
+Tax-location capstone restated: every sleeve has a preferred home, and
 the cost of putting a sleeve in the wrong account compounds.
 
 | Sleeve | Preferred account | Why |
@@ -287,7 +287,7 @@ decumulation phase changes three things and three things only:
 |---|---|
 | Income engine | Re-tilt toward week 36's income hierarchy: shorter-duration bonds, dividend ladder, modest premium-write. The growth sleeve shrinks, but does not vanish — equities still need to fund the longest-tail decade of the retirement. |
 | Withdrawal rule | Pick one: 4% rule (rigid; week 36's classic Bengen 4%, now closer to 3.7% on April-2026 yields), or 4.5%-flexible (cut withdrawals 10% in a year that ended down >15%). |
-| Sequence-risk hedge | The cash + tail-hedge sleeves *grow* in retirement, not shrink. The first five years of retirement is when sequence-of-returns risk dominates; a year-or-two cash buffer plus an active tail hedge means you can avoid selling the equity sleeve into a drawdown. SOUL #14 directly applied. |
+| Sequence-risk hedge | The cash + tail-hedge sleeves *grow* in retirement, not shrink. The first five years of retirement is when sequence-of-returns risk dominates; a year-or-two cash buffer plus an active tail hedge means you can avoid selling the equity sleeve into a drawdown. The barbell, directly applied. |
 
 Everything else from the accumulation IPS — tax location,
 rebalancing rule, monitoring cadence — carries over unchanged. The
@@ -360,7 +360,7 @@ above to the IPS and indexes the whole thing.
    asymmetry is the entire point.
 7. **"Crypto is just a Ponzi / crypto is the future."** Both
    positions overstate the case. The L4 model treats it as a 5%
-   right-tail barbell sliver (SOUL #14), small enough to be
+   right-tail barbell sliver, small enough to be
    forgettable in a -90% drawdown and large enough to matter in a
    10x. That sizing requires no theory of digital money — only an
    asymmetric-bet sizing rule.
@@ -431,13 +431,13 @@ withdrawal — and a Y/N on whether the band rule held up.
 help, or does it just add noise?**
 At 5%, Bitcoin's contribution to portfolio variance is small even
 at 70-80% annualised vol because the weight is squared. The case
-for it is asymmetric upside (SOUL #14 right-tail barbell), not
+for it is asymmetric upside (the right-tail barbell), not
 diversification math. If a 90% drawdown in the BTC sleeve would
 make you abandon the policy, your sleeve is too large. Halve it,
 or zero it.
 
 **Q8: Should I include international equity (VXUS, EFA)?**
-This course's house view per SOUL #16 is US-only investable. But
+This course's house view is US-only investable. But
 the literature on international diversification is mixed; reasonable
 people add 15-25% VXUS to the global-equity sleeve. The IPS is
 where you commit either way. A defensible alternative is 25% VTI /
@@ -467,7 +467,7 @@ cash sleeve?**
 They are paired. The cash sleeve is the dry powder used to *fund*
 the tail-hedge premium roll (~1-2% of portfolio per year), and
 also the rebalance-buy bucket when the equity sleeve drops below
-its band. Together they are the SOUL #14 left-tail leg of the
+its band. Together they are the left-tail leg of the
 barbell — explicit insurance + ammunition.
 
 **Q12: When does this whole framework break?**
@@ -476,7 +476,8 @@ get crushed simultaneously; only gold and possibly equity (in
 nominal terms) save you. The L4 model has 15% gold for exactly
 this case but is still vulnerable. **Capital-controls / political
 regime change** — the assumption that US-listed assets remain
-freely tradable can be wrong. Per SOUL #16 we conclude US-only
+freely tradable can be wrong. The course's working assumption is
+US-only
 *for now*; the IPS should still mention what the trigger for
 revisiting that conclusion would look like (capital controls,
 broad sanctions, currency reset). These are tail-of-tail
@@ -534,8 +535,9 @@ Target allocation. Rebalancing rule. Monitoring KPIs. That's the
 whole document.
 
 **Horace:** Plus two appendices nobody else writes down — tax
-location and the active-sleeve stop rule. Per SOUL #15, where each
-sleeve sits matters as much as the allocation. Per SOUL #1, the
+location and the active-sleeve stop rule. Where each
+sleeve sits matters as much as the allocation. And because alpha is
+rare, the
 default outcome of any active sleeve is that it gets shut down,
 so you write the shutdown rule before you start.
 
@@ -566,7 +568,7 @@ is at its most valuable.
 
 **Stella:** Map that to the four tranches.
 
-**Horace:** SOUL #13. **Growth tranche** is the 35% global equity —
+**Horace:** Map to four tranches. **Growth tranche** is the 35% global equity —
 broad VTI plus factor tilts AVUV and MTUM. **Income tranche** is
 the 25% — bond ladder, dividend equity, premium-write overlay
 from week 36. **Store-of-value tranche** is gold + Bitcoin, 20%
@@ -582,7 +584,7 @@ too high. The "crypto is the future" half thinks 5% is too low.
 The 5% number sits between them on purpose. At 5%, a 90% drawdown
 in the Bitcoin sleeve costs the portfolio 4.5%. That is survivable.
 At 5%, a 10x in the Bitcoin sleeve adds 45% to the portfolio. That
-is meaningful. SOUL #14 right-tail barbell — small enough to lose,
+is meaningful. Right-tail barbell — small enough to lose,
 large enough to matter.
 
 **Stella:** And the tail hedge — 5% on long-dated SPY puts.
@@ -625,7 +627,7 @@ tail-hedge sleeves were bleeding. Then 2020 happened, then 2022
 happened, and the bleeding sleeves printed enough crisis-alpha to
 close the vol and Sharpe gap and crush the worst-year number.
 
-**Stella:** SOUL #6. Vol-tail-wags-dog.
+**Stella:** Vol-tail-wags-dog, exactly.
 
 **Horace:** The two crisis years are wagging the dog. That is the
 case for the diversifier sleeves in one chart. Without the
@@ -664,7 +666,7 @@ the IRA you rebalance freely — no friction.
 
 **Stella:** Tax location.
 
-**Horace:** SOUL #15 capstone. Bonds in IRA — coupon income is
+**Horace:** Tax-location capstone. Bonds in IRA — coupon income is
 ordinary, sheltering it dominates. Qualified-dividend equity in
 taxable — the LTCG schedule is too good to waste. Gold and
 Bitcoin in Roth IRA if available — gold dodges the 28% collectibles
@@ -734,7 +736,7 @@ looks like.
 over a rolling five-year window cuts the sleeve to half weight.
 The number is illustrative. The commitment to write a number — any
 number — *before* the underperformance starts is the discipline.
-SOUL #1 says alpha is rare. The default outcome is that any active
+Alpha is rare. The default outcome is that any active
 sleeve gets shut down. The IPS specifies how.
 
 ---

@@ -14,11 +14,11 @@ Four reasons this matters for a Level 4 portfolio.
 
 **One — the post-publication decay is real.** McLean and Pontiff (2016, *Journal of Finance*) studied 97 published anomalies and found that out-of-sample post-publication returns drop by **roughly 50%** versus the in-sample backtest. That is not a rounding error. A 4% paper premium becomes a 2% live premium, and 2% is a number that costs and taxes can erase entirely. Any factor tilt you build in 2026 must be sized assuming the academic alpha is roughly half what the paper claimed.
 
-**Two — long-only retail ETFs are not the academic factor.** HML is long the cheapest 30% and short the most expensive 30%. VTV is long the cheaper 50% of large-caps with no short side. The two correlate around 0.55-0.70. You cannot buy HML at Vanguard. You can buy *exposure* to value, diluted by the long-only constraint, the cap-weight choice, and the index methodology. SOUL #16 — US-only investable — applies internally too: investable factor exposures are a subset of academic factor exposures.
+**Two — long-only retail ETFs are not the academic factor.** HML is long the cheapest 30% and short the most expensive 30%. VTV is long the cheaper 50% of large-caps with no short side. The two correlate around 0.55-0.70. You cannot buy HML at Vanguard. You can buy *exposure* to value, diluted by the long-only constraint, the cap-weight choice, and the index methodology. The US-only investable rule applies internally too: investable factor exposures are a subset of academic factor exposures.
 
 **Three — implementation costs eat the smaller premia first.** A 24 bp expense ratio plus 30 bp annual turnover cost on top of a 7% gross premium is a 25% haircut. On a 2% post-decay premium, the same 54 bp cost is a 27% haircut. The smaller the underlying premium, the bigger the proportional bite of fixed implementation cost.
 
-**Four — concentration is the silent cost of single-factor purity.** A pure value tilt at the wrong moment of the cycle (2017-2020) underperformed VTI by 30+ percentage points cumulatively. A multi-factor blend smooths that out at the cost of diluting any individual signal. The right answer for most retail accounts is a **core + tilt** portfolio — a passive VTI core that captures the market premium reliably, with small factor tilts sized to the magnitude of the post-decay premium, not the in-sample backtest. SOUL #5 — alpha is rare, and most "factor alpha" sold at retail is repackaged beta.
+**Four — concentration is the silent cost of single-factor purity.** A pure value tilt at the wrong moment of the cycle (2017-2020) underperformed VTI by 30+ percentage points cumulatively. A multi-factor blend smooths that out at the cost of diluting any individual signal. The right answer for most retail accounts is a **core + tilt** portfolio — a passive VTI core that captures the market premium reliably, with small factor tilts sized to the magnitude of the post-decay premium, not the in-sample backtest. Alpha is rare, and most "factor alpha" sold at retail is repackaged beta.
 
 ---
 
@@ -102,14 +102,14 @@ Three rules.
 
 **(b) Rebalance annually, not quarterly, and not "when it feels right."** Factor tilts are mean-reverting on multi-year horizons and trending on multi-month horizons. Annual rebalance is the empirical sweet spot — it captures multi-year mean reversion without paying transaction cost on the trending sub-cycles. Tax-aware rebalancing in a taxable account: rebalance with new contributions and dividend reinvestments first, only sell to rebalance once a year, and prefer to sell tax-lots with the smallest gain (HIFO).
 
-**(c) Set a 5-year stop on any tilt.** Factor decay is real. If a factor tilt has a rolling 5-year information ratio below zero against VTI, and you cannot articulate a structural reason for the underperformance other than "the premium worked before and will work again," cut the tilt by half. Value investors who refused to do this from 2010-2020 lost a decade. SOUL #12 — markets stay irrational longer than you stay solvent.
+**(c) Set a 5-year stop on any tilt.** Factor decay is real. If a factor tilt has a rolling 5-year information ratio below zero against VTI, and you cannot articulate a structural reason for the underperformance other than "the premium worked before and will work again," cut the tilt by half. Value investors who refused to do this from 2010-2020 lost a decade. Markets stay irrational longer than you stay solvent.
 
 #### 2.6 The barbell read
 
-A pure factor portfolio is the opposite of a barbell — it pays for active risk in the middle. Horace's barbell (SOUL #14) deletes the middle: T-bills + asymmetric upside, no quasi-active intermediate sleeves. Where do factor tilts fit in the barbell view? Two answers.
+A pure factor portfolio is the opposite of a barbell — it pays for active risk in the middle. Horace's barbell deletes the middle: T-bills + asymmetric upside, no quasi-active intermediate sleeves. Where do factor tilts fit in the barbell view? Two answers.
 
 - **For a Level 1-3 portfolio** (Weeks 8-36), factor tilts are the wrong tool. The marginal expected uplift (30-50 bps/yr) does not justify the operational complexity, the tracking error psychology, or the rebalance discipline required. Use 100% VTI/VOO core, save the cognitive bandwidth.
-- **For a Level 4 portfolio** (Weeks 37+), a 10-30% factor sleeve is one of the few "active" trades that survives the SOUL #1 default-passive filter, *because* the post-decay premium is positive in expectation, supported by economic theory, and implementable in long-only ETFs at low cost. Even here, the right sizing is small — factor tilts complement the alpha sleeve (long-vol, options-overlays, trend-following) rather than replace it.
+- **For a Level 4 portfolio** (Weeks 37+), a 10-30% factor sleeve is one of the few "active" trades that survives the default-passive filter, *because* the post-decay premium is positive in expectation, supported by economic theory, and implementable in long-only ETFs at low cost. Even here, the right sizing is small — factor tilts complement the alpha sleeve (long-vol, options-overlays, trend-following) rather than replace it.
 
 The honest summary of factor investing in 2026 is: real, but small. Big enough to justify a 20-30% sleeve in a Level 4 retail portfolio. Small enough that the discipline of rebalance and the willingness to hold through 5-year droughts are more important than the choice of factor mix. The interactive below lets you mix the seven ETFs and see the historical 2014-2024 backtest with monthly granularity — try the all-VTI line as your baseline and notice how hard it is to beat by more than a Sharpe of 0.10.
 
@@ -125,7 +125,7 @@ The honest summary of factor investing in 2026 is: real, but small. Big enough t
 6. **"Low-vol ETFs protect against drawdowns."** They protect against persistent equity volatility (e.g. 2018 Q4, 2022). They do not protect against vol-of-vol shocks (March 2020 — USMV peak-to-trough was actually worse than VTI's). Different risks, different tools.
 7. **"I'll time factor rotation."** Nobody has done this reliably for 30 years. Arnott, AQR, Research Affiliates have all published on this; live results are mediocre at best. Factor timing is harder than market timing.
 8. **"Factor tilts replace active management."** They are halfway between passive and active. They preserve the low-cost / low-turnover discipline of indexing while adding a small, persistent expected premium. They do not substitute for the alpha sleeve in a Level 4 portfolio.
-9. **"The factor zoo means there are many alpha sources."** The factor zoo means there were many *published* anomalies; only 5-7 survive rigorous out-of-sample testing, and even those have decayed by ~50% post-publication. SOUL #5 — alpha sources are rare and hard-won.
+9. **"The factor zoo means there are many alpha sources."** The factor zoo means there were many *published* anomalies; only 5-7 survive rigorous out-of-sample testing, and even those have decayed by ~50% post-publication. Alpha sources are rare and hard-won.
 10. **"I should rebalance when a factor underperforms."** That is exactly when *not* to rebalance — selling a factor at a 5-year low locks in the loss precisely as mean reversion is loading up. The correct rebalance is calendar-based (annual) and disciplined regardless of which side is winning.
 
 ---
@@ -145,7 +145,7 @@ A: Momentum ETFs hold concentrated baskets of trailing-12-month winners. When th
 A: Maybe. The small-cap *standalone* premium (SMB) has been roughly zero post-2003. The small-*value* premium — the interaction term, captured by AVUV — has been more durable, particularly with profitability screens that filter out junk small-caps. Asness et al. (2018) is the canonical reference. If you tilt small-value, do it through AVUV or a comparable profitability-screened fund, not pure VBR.
 
 **Q5: What's the tax cost of factor tilts in a taxable account?**
-A: Factor ETFs have higher turnover than VTI (5-30% vs. 3-5%), which increases distributed capital gains. Plus dividend yields differ (VTV ~2.5% vs. VTI 1.4%), affecting tax drag. Estimate 20-40 bps additional tax drag per year for a 30% factor sleeve in a 32%-bracket taxable account. Best practice: factor sleeves go in IRA (SOUL #15 — location-not-allocation).
+A: Factor ETFs have higher turnover than VTI (5-30% vs. 3-5%), which increases distributed capital gains. Plus dividend yields differ (VTV ~2.5% vs. VTI 1.4%), affecting tax drag. Estimate 20-40 bps additional tax drag per year for a 30% factor sleeve in a 32%-bracket taxable account. Best practice: factor sleeves go in IRA — location-not-allocation.
 
 **Q6: How long do I have to wait for a factor tilt to "work"?**
 A: Median periods of underperformance for individual factors are 3-7 years. Worst-case droughts have run 10-12 years (value, 2007-2019). If you cannot psychologically commit to a 10-year holding period through a deep drawdown vs. VTI, do not tilt at all. The tracking error is precisely the friction the premium pays you for accepting.
@@ -154,7 +154,7 @@ A: Median periods of underperformance for individual factors are 3-7 years. Wors
 A: They diversify factor risk, which lowers volatility, but they also dilute each factor exposure. The realised information ratio is similar to (or marginally better than) a DIY blend, and the ER is usually higher (0.20% vs. weighted ~0.10%). Multi-factor ETFs are reasonable for accounts that need one-ticker simplicity; DIY blending in an IRA is cheaper and more transparent.
 
 **Q8: Does factor investing work outside the US?**
-A: Yes, with caveats. Asness et al. (2013) and Fama-French (2017) showed value, momentum, and quality work in international developed and emerging markets. The premia are similar in magnitude. But per SOUL #16, US-listed retail vehicles for international factors (DLS, IEFA factor sleeves, AVDV for international small-value) have shorter track records and worse liquidity. Most US retail accounts get adequate factor exposure with US-only funds.
+A: Yes, with caveats. Asness et al. (2013) and Fama-French (2017) showed value, momentum, and quality work in international developed and emerging markets. The premia are similar in magnitude. But sticking to the US-listed investable universe, US retail vehicles for international factors (DLS, IEFA factor sleeves, AVDV for international small-value) have shorter track records and worse liquidity. Most US retail accounts get adequate factor exposure with US-only funds.
 
 **Q9: What's the right rebalance threshold?**
 A: Annual, calendar-based, with rebalancing tolerance bands of plus-or-minus 5 percentage points around target weights. Sub-annual rebalance increases tax drag without improving expected return. Rebalancing only when bands are breached is also fine but produces uneven calendar exposure. Just pick one rule and follow it for 10+ years.
@@ -314,7 +314,7 @@ A: The opportunity cost of complexity. Every minute spent tracking factor perfor
 
 **Stella:** What about asset location?
 
-**Horace:** Factor sleeves go in IRA where possible. They have higher turnover than VTI — 5 to 30% versus 3 to 5%. That distributed capital gain in a taxable account is a 20 to 40 basis point per year tax drag for a 30% sleeve at a 32% bracket. Move it to IRA, the drag goes to zero. SOUL #15 — location-not-allocation.
+**Horace:** Factor sleeves go in IRA where possible. They have higher turnover than VTI — 5 to 30% versus 3 to 5%. That distributed capital gain in a taxable account is a 20 to 40 basis point per year tax drag for a 30% sleeve at a 32% bracket. Move it to IRA, the drag goes to zero. Location-not-allocation.
 
 **Stella:** And the interactive — let me plug it.
 
@@ -330,7 +330,7 @@ A: The opportunity cost of complexity. Every minute spent tracking factor perfor
 
 **Stella:** And for Level 4?
 
-**Horace:** A 20 to 30% factor sleeve is one of the few "active" trades that survives the SOUL #1 default-passive filter. *Because* the post-decay premium is positive, supported by economic theory, and implementable in long-only ETFs at low cost. Even here, the right sizing is small. Factor tilts complement the alpha sleeve — long-vol, options overlays, trend following — they do not replace it.
+**Horace:** A 20 to 30% factor sleeve is one of the few "active" trades that survives the default-passive filter. *Because* the post-decay premium is positive, supported by economic theory, and implementable in long-only ETFs at low cost. Even here, the right sizing is small. Factor tilts complement the alpha sleeve — long-vol, options overlays, trend following — they do not replace it.
 
 **Stella:** The honest summary.
 
@@ -346,7 +346,7 @@ A: The opportunity cost of complexity. Every minute spent tracking factor perfor
 
 **Stella:** And the meta-lesson.
 
-**Horace:** SOUL #5 — alpha is rare and hard-won. Most "factor alpha" sold at retail is repackaged beta. The genuine post-decay premium is real, small, and earned by the discipline of holding through the bad years. Same lesson as the rest of this course.
+**Horace:** Alpha is rare and hard-won. Most "factor alpha" sold at retail is repackaged beta. The genuine post-decay premium is real, small, and earned by the discipline of holding through the bad years. Same lesson as the rest of this course.
 
 **Stella:** Next week — Week 51 was managed futures, this is the wrap of the factor arc. See you in Week 51's review section. Bye!
 

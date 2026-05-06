@@ -31,9 +31,9 @@ This matters for four reasons.
    from one who simply tilted small-value-momentum and rode the
    well-known premia. Two-thirds of the post-1990 mutual-fund alpha
    anomaly literature evaporated the moment the right benchmarks
-   went into the regression. SOUL #5 says information edge is the
-   hardest of the five alpha lanes; the regression is the test that
-   tells you whether anyone has it.
+   went into the regression. Of the structural sources of alpha, an
+   information edge is the hardest to come by; the regression is the
+   test that tells you whether anyone has it.
 
 2. **It is the dividing line between data and superstition.**
    Investors are pattern-recognition machines, and markets generate
@@ -125,8 +125,8 @@ That is *not* statistically significant — there is no way to
 distinguish that intercept from zero with sixty data points and that
 much noise. You need either a longer window, a higher alpha, or a
 lower residual vol — typically all three — for the t-stat to clear
-the conventional 2.0 threshold. SOUL #1 says alpha is rare; the
-t-stat is the arithmetic of how rare. A 2% alpha at 5% residual vol
+the conventional 2.0 threshold. Alpha is rare, and the t-stat is the
+arithmetic of how rare. A 2% alpha at 5% residual vol
 needs roughly 25 years of monthly data before its t-stat trips 2.0.
 Twenty-five years. That is how long it takes to *prove* skill at
 that magnitude — not detect it, prove it. Most managers have not
@@ -170,7 +170,8 @@ why monthly stock returns are essentially impossible to forecast
 from their own history. For *daily* equity returns $\phi$ is mildly
 *negative* (microstructure mean-reversion); for cross-sectional
 relative returns at the *6 to 12-month* horizon $\phi$ is mildly
-*positive* (Jegadeesh-Titman momentum, SOUL #8). Where $\phi$ is
+*positive* (Jegadeesh-Titman momentum, the cross-sectional momentum
+effect). Where $\phi$ is
 zero, no model that takes only past prices as input can win.
 
 MA(q) and ARMA(p,q) models layer in moving-average residual terms
@@ -181,7 +182,8 @@ RMSE — economically irrelevant after costs. For *volatility*
 series, on the other hand, AR-style models are wildly successful:
 volatility is highly persistent ($\phi \approx 0.95$ on daily VIX),
 which is why GARCH and HAR-RV models genuinely forecast tomorrow's
-volatility from today's. SOUL #6 — the volatility tail wags the
+volatility from today's. The volatility tail wags the return dog,
+and a lot of that asymmetry shows up here. You
 return dog — gets a lot of its leverage from this asymmetry. You
 cannot forecast next month's return; you absolutely can forecast
 next month's variance.
@@ -284,7 +286,7 @@ serious money in quant alpha is almost never made by training
 yet another XGBoost on yet another OHLCV dataset. It is made by
 sourcing or constructing features no one else has — alternative
 data, satellite imagery, credit-card panels, supply-chain text
-embeddings. SOUL #5's "information edge" lane is real but
+embeddings. The information lane of alpha is real but expensive.
 expensive. The "structural" lanes (liquidity, factor compression,
 vol-tail mispricing) remain the cheaper and more durable game for
 a single account.
@@ -449,8 +451,8 @@ Always reserve a holdout. Always. Whatever fraction of your data
 you can spare — 20%, 30%, the last three years — reserve it before
 you do anything else, and do not look at it. When the strategy is
 final, *exactly once*, score it on the holdout. The number you get
-is the only honest number you will have. SOUL #1's "alpha is rare"
-becomes intuitive the first time you watch a strategy's
+is the only honest number you will have. "Alpha is rare" stops being
+a slogan and becomes intuitive the first time you watch a strategy's
 in-sample Sharpe of 2.5 walk forward to 0.4.
 
 ---
@@ -492,10 +494,10 @@ the right factors. Second, time series — what AR/MA/ARMA can and
 can't do. Third, the ML pitch — train/validation/test, walk-forward,
 and why most ML alpha is actually feature engineering.
 
-**Stella:** And SOUL?
+**Stella:** And the principles?
 
-**Horace:** Number five — information edge is the hardest of the
-five alpha lanes — sits right on top of all of this. Number one —
+**Horace:** Information edge is the hardest of the structural alpha
+lanes — it sits right on top of all of this. The companion idea —
 alpha is rare — is what the math will keep proving.
 
 ---
@@ -532,8 +534,8 @@ need closer to twenty-five years.
 
 **Stella:** Twenty-five years.
 
-**Horace:** Twenty-five years. SOUL number one — alpha is rare —
-is the math, not a slogan.
+**Horace:** Twenty-five years. Alpha is rare — that's the math, not a
+slogan.
 
 **Stella:** Now multi-factor.
 
@@ -567,7 +569,7 @@ If phi is positive, returns trend. If negative, they mean-revert.
 For US monthly equity returns, phi is about +0.10 — not zero, but
 not big. For *daily* returns it's slightly negative. For *6-12
 month relative cross-sectional* returns, phi is positive — that's
-the Jegadeesh-Titman momentum effect, SOUL number eight.
+the Jegadeesh-Titman momentum effect.
 
 **Stella:** And volatility?
 
@@ -578,7 +580,7 @@ tomorrow's. That's why GARCH models genuinely forecast variance.
 **Stella:** You said something important last week — the vol tail
 wags the return dog.
 
-**Horace:** SOUL number six. Returns are basically unforecastable
+**Horace:** Vol-tail-wags-dog. Returns are basically unforecastable
 month-to-month. Variance is highly forecastable. So a lot of what
 looks like "alpha" in option-selling, vol-targeting, or risk-parity
 strategies is actually exploiting *that* asymmetry.
@@ -641,8 +643,8 @@ the information sits.
 **Horace:** For us, the consequence is humbling. The serious money
 in quant alpha is rarely made by yet another XGBoost on yet
 another OHLCV dataset. It's made by sourcing features no one else
-has — alternative data, satellites, credit-card panels. SOUL
-number five's information lane is real but expensive. The
+has — alternative data, satellites, credit-card panels. The
+information lane of alpha is real but expensive. The
 structural lanes — factor compression, liquidity, vol-tail
 mispricing — remain the cheaper and more durable retail game.
 

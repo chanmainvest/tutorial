@@ -49,15 +49,15 @@ You need to understand tail-risk hedging for four reasons:
    in everything else.
 
 3. **Long-vol carry is small but bounded; tail-vol payoff is huge
-   but rare.** This is SOUL #14 (the barbell) at the portfolio
+   but rare.** This is the barbell at the portfolio
    level. Spend a known small drag — 50 to 150 basis points per
    year — for a very large unknown payoff in a crash. The mirror
    of selling premium (Weeks 26–30): there, you collect a known
    small premium for a known small risk and one big tail. Tail
-   hedging is the buyer side of that same trade. SOUL #6 (vol-
-   tail-wags-dog) is the underlying claim — that the few crash
-   days dominate the return distribution, so paying to be on the
-   right side of those days is rational even if the carry hurts.
+   hedging is the buyer side of that same trade. The underlying
+   claim — the volatility tail wags the dog — is that the few
+   crash days dominate the return distribution, so paying to be on
+   the right side of those days is rational even if the carry hurts.
 
 4. **CTAs and managed futures are the systematic, naturally-long-
    vol alternative.** Trend-followers do not buy puts. They go
@@ -97,7 +97,7 @@ distributions for risk — VaR, Sharpe ratios, CAPM-based pricing —
 systematically underprices crash risk. Second, the actual
 *expected* dollar contribution of those tail days to the long-run
 portfolio is *not* small. A handful of −10% days dominate decades
-of average returns. SOUL #6: the tail wags the dog.
+of average returns. The tail wags the dog.
 
 #### 2.2 The Cost-of-Insurance Tradeoff
 
@@ -210,7 +210,8 @@ exposures, but the failure modes are different.
 
 #### 2.5 The Barbell at the Portfolio Level
 
-This is the SOUL #14 anchor. Most of the portfolio sits in the
+This is the barbell at the portfolio level. Most of the portfolio
+sits in the
 slow-compounding base — index equities, T-bills, gold, the boring
 part. A small sleeve, 1% to 5%, is the convex tail hedge: deep-
 OTM puts, VIX calls, or a CTA programme. The expected return on
@@ -253,9 +254,9 @@ For most retail investors the practical implementation is: hold
 SPY (or VTI), set aside a 1% sleeve, buy 90-day SPY puts at the
 strike where premium / notional ≈ 0.4%, and roll on the same
 calendar each quarter. Total carry: ~1.6%/yr at IV ≈ 18%, less
-when IV is low. SOUL #15 (tax via options) applies — index puts
-are 1256 contracts and get 60/40 long/short tax treatment, an
-edge worth ~200bps after-tax for most investors.
+when IV is low. Index puts taxed under the 60/40 long/short rule
+(Section 1256 contracts) get an edge worth ~200bps after-tax for
+most investors.
 
 #### 2.7 What This Is *Not*
 
@@ -438,7 +439,8 @@ favourable buying environment for deep-OTM SPY put protection.
 **Q11. Does this work outside US equities?**
 A. The cleanest deep-OTM option market is SPX/SPY. EFA/IWM/IEFA
 have viable but thinner chains. EM puts are too illiquid for a
-systematic programme. Per SOUL #16 (US-only investable), the
+systematic programme. Sticking to a US-listed investable universe,
+the
 practical retail implementation is a US-equity-base portfolio with
 a US-equity-index put hedge.
 
@@ -574,15 +576,14 @@ expensive — theta eats the sleeve alive. Annual is too far out —
 the gamma profile flattens. The 60–90-day window is the sweet spot
 Universa uses publicly.
 
-**STELLA:** And what about the framing as a barbell — that's SOUL
-#14, right?
+**STELLA:** And what about the framing as a barbell?
 
 **HORACE:** Exactly. Most of the portfolio sits in slow-compounding
 boring base — index, T-bills, gold. A small sleeve is the convex
 tail hedge. Bounded downside on the hedge — most you can lose is
 the premium. Unbounded upside — 30 to 100x payoffs in crashes.
 
-**STELLA:** And the relationship to SOUL #6?
+**STELLA:** And the volatility-tail point?
 
 **HORACE:** Vol-tail-wags-dog. The few crash days dominate the
 return distribution. Sidestep them and you compound at a higher
@@ -634,7 +635,7 @@ profiles.
 
 **HORACE:** KMLM, DBMF, CTA — these are liquid US-listed managed-
 futures ETFs with expense ratios in the 90 to 100 basis point
-range. Not hedge-fund 2-and-20. Per SOUL #16, US-listed only —
+range. Not hedge-fund 2-and-20. US-listed only —
 which these are.
 
 ---
@@ -715,7 +716,7 @@ capital is doing two jobs at once.
 events arrive on a schedule the textbook can't model, the Universa
 architecture for paying a little to be on the right side of those
 events, CTAs as the systematic long-realised-vol diversifier, and
-the barbell logic of SOUL #14 applied to the *insurance* leg of
+the barbell logic applied to the *insurance* leg of
 the portfolio.
 
 **STELLA:** Open `interactive/week47_tail_lab.html`. Set a budget,

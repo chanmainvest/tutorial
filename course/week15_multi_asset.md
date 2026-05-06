@@ -12,8 +12,8 @@ Week 4 gave you 60/40. Week 6 gave you gold. Week 13 gave you the
 short side. This week the course finally puts those pieces inside one
 coherent allocation framework — the same framework Bridgewater has run
 since 1996, the same framework Cliff Asness debuted at AQR in 2004,
-and the same shape Horace's SOUL #13 four-tranche book is designed to
-imitate at retail scale.
+and the same shape the four-tranche book is designed to imitate at
+retail scale.
 
 You need this lesson for four reasons.
 
@@ -40,7 +40,7 @@ You need this lesson for four reasons.
    quadrant is this trade a bet on?* Most retail blow-ups come from
    running an unhedged single-quadrant book and not knowing it.
 4. **It is the bridge into the back half of the course.** The
-   four-tranche SOUL #13 frame (growth / income / store-of-value /
+   four-tranche frame (growth / income / store-of-value /
    opportunistic) is what we will populate in Weeks 16-30 with
    sectors, factors, options strategies, and barbell tilts. Without
    the multi-asset chassis from this week, those later trades have no
@@ -75,7 +75,7 @@ as inflation is the dominant macro risk, stock-bond correlation will
 *stay* positive — the same shock that scares stocks now hurts bonds
 too.
 
-This is the regime change SOUL #2 warns about. Forty years of falling
+This is the regime change to watch for. Forty years of falling
 rates and falling inflation handed passive allocators a tailwind.
 That tailwind is gone. The portfolios designed for it inherited a
 hidden vulnerability: they were one-quadrant trades.
@@ -173,17 +173,17 @@ The lesson is *not* that risk parity is broken. The lesson is that
 contributions assumes the cross-correlations stay where the
 back-test put them**. When stock-bond correlation flips from -0.3 to
 +0.5, the diversification math breaks and the leverage that was
-supposed to help you starts hurting you. This is the same risk SOUL
-#6 calls vol-tail-wags-dog: the correlation tail wagged the
-allocation dog.
+supposed to help you starts hurting you. This is the same risk that
+shows up as the volatility tail wagging the dog: the correlation tail
+wagged the allocation dog.
 
 The institutional response since 2023 has been to add a *fifth*
 sleeve — explicit inflation hedges (TIPS, commodities, gold) — at
 larger weight than the original Bridgewater template, and to hold
 *less* leverage in the bond sleeve. The shape is converging on what
-SOUL #13 calls the four-tranche book.
+we call the four-tranche book.
 
-#### 2.5 The Four Tranches — SOUL #13 at Retail Scale
+#### 2.5 The Four Tranches at Retail Scale
 
 Strip out the institutional leverage and what remains is a clean
 four-bucket structure that any retail account can hold using ETFs.
@@ -204,14 +204,14 @@ The four tranches:
    institutional consensus is to *under-weight* duration relative to
    the historical risk-parity prescription — 30%, not 60%.
 3. **Store-of-value (20%).** Gold (GLD or IAU) and TIPS (SCHP). The
-   sleeve that wins in the bottom-left (stagflation) cell. SOUL #3
-   reminds you these instruments are *belief* trades — gold has no
+   sleeve that wins in the bottom-left (stagflation) cell. Remember
+   these instruments are *belief* trades — gold has no
    coupon, TIPS pay only the inflation print — but the belief has a
    1000-year track record and a reliable bid in regime breaks.
 4. **Opportunistic (10%).** Cash (BIL/SGOV), short-duration T-bills,
-   and the options premium / barbell trades from SOUL #14 and Weeks
+   and the options-premium / barbell trades from Weeks
    25-30. This is the sleeve that lets you add when something gets
-   cheap. SOUL #14 is explicit: dry powder is not a cost, it is the
+   cheap. Dry powder is not a cost — it is the
    asymmetric option that funds the other three sleeves' rebalances.
 
 | Tranche | Weight | Vehicles | Quadrant served |
@@ -226,8 +226,8 @@ the equal-risk-contribution math would prescribe for equity. It is
 deliberately closer to a 60/40 starting point, *adjusted for the
 post-2022 regime*. The store-of-value sleeve is materially larger
 than what Bridgewater's original 1996 template ran (5-15%), and the
-income sleeve is materially smaller. The shape is the SOUL #14
-barbell — actual safety on one end, asymmetric upside on the other —
+income sleeve is materially smaller. The shape is the barbell —
+actual safety on one end, asymmetric upside on the other —
 applied at the asset-allocation layer.
 
 #### 2.6 Backtest — All-Weather vs 60/40 vs 100% Equity, 1928-2024
@@ -252,13 +252,13 @@ in exchange for two things: *every decade is positive in real terms*,
 and the worst real drawdown is 15 percentage points smaller. That
 trade is worth it for an investor who lives off the portfolio. It is
 *not* worth it for a 35-year-old with a 30-year horizon and a
-paycheque, who should be closer to the SOUL #14 barbell — heavier
+paycheque, who should be closer to a barbell shape — heavier
 equity, smaller but real safety sleeve, larger opportunistic tail.
 
 The interactive below lets you slide the four weights and watch the
 historical wealth path, max drawdown, Sharpe, and drawdown duration
 update in real time. Try the institutional 35/40/15/10 template, the
-40/30/20/10 retail template, and the SOUL #14 barbell at 60/10/20/10
+40/30/20/10 retail template, and a barbell at 60/10/20/10
 and compare them on the same chart.
 
 #### 2.7 What This Lesson Is Not
@@ -274,7 +274,7 @@ A few things this lesson is *not* telling you to do.
   the right *chassis* for someone whose horizon is ten years or less,
   or whose risk budget cannot survive a 50%+ equity drawdown.
 - **Not telling you to equal-weight quadrants forever.** The shape
-  should tilt with the regime. SOUL #2 anticipates the 40-year
+  should tilt with the regime. We anticipate the 40-year
   passive regime breaking; the four-tranche book is a vehicle that
   *can* tilt without abandoning the chassis. Weeks 16-22 will
   populate the tilts.
@@ -307,10 +307,10 @@ A few things this lesson is *not* telling you to do.
 6. **"Risk parity protects you from any drawdown."** It protects you
    from quadrant-specific shocks. It does *not* protect you from a
    correlation regime change. 2022 was the latter.
-7. **"Cash is a drag."** Cash funds the next rebalance. SOUL #14 is
-   explicit: a 10% cash sleeve that lets you add 5% to equity at a
-   30% drawdown is not drag — it is the option that pays for itself
-   in the next bear market.
+7. **"Cash is a drag."** Cash funds the next rebalance. A 10% cash
+   sleeve that lets you add 5% to equity at a 30% drawdown is not
+   drag — it is the option that pays for itself in the next bear
+   market.
 8. **"You need leverage to run all-weather."** You need leverage to
    run *Bridgewater's* version of all-weather at 10% target vol.
    You do not need it to run the unlevered four-tranche shape, which
@@ -319,11 +319,11 @@ A few things this lesson is *not* telling you to do.
 9. **"Sharpe is the same so it does not matter."** The Sharpe is
    similar; the *shape* is not. Two portfolios with the same Sharpe
    but different max drawdowns are not equivalent for a retiree, an
-   endowment, or anyone using SOUL #15-style options on the equity
-   sleeve.
+   endowment, or anyone using options on the equity sleeve for tax
+   efficiency.
 10. **"TIPS solved inflation."** TIPS solve *measured* inflation
     (the BLS CPI). They do not solve regime-shift inflation (the
-    1970s) and they do not solve sovereign debasement (SOUL #3).
+    1970s) and they do not solve sovereign debasement.
     Gold is the second leg of the store-of-value tranche for a
     reason.
 
@@ -356,11 +356,11 @@ four-tranche shape unlevered, target 9-10% vol naturally.
 A: Because we are no longer in the 1996-2020 disinflationary regime.
 Bridgewater's original 5-7% gold sleeve was sized for a world where
 inflation was a tail risk, not a base case. April 2026 is not that
-world. SOUL #2 anchors the regime change; the bigger gold weight is
-the chassis adjustment.
+world. The regime change anchors the chassis adjustment; the bigger
+gold weight follows from it.
 
 **Q: What about international equity? You only mention US.**
-A: SOUL #16 is explicit — for a US-domiciled investor, after fees,
+A: For a US-domiciled investor, after fees,
 withholding taxes, currency hedging costs, and capital controls,
 US-listed equities are the only equities reliably investable. Owning
 EFA or VWO is an option but a small one, and most of the
@@ -372,8 +372,7 @@ sleeve?**
 A: Not at retail. Liquidity, fees, and the 10-year lockup destroy the
 "opportunistic" property. The retail opportunistic sleeve should
 stay liquid — cash, T-bills, and the options structures from Weeks
-25-30. SOUL #14 is explicit on this: a barbell only works if both
-ends are *liquid*.
+25-30. A barbell only works if both ends are *liquid*.
 
 **Q: What if I disagree with the quadrant model?**
 A: Run the unlevered version and see how it performs in a decade you
@@ -393,10 +392,10 @@ the expense of plain S&P inside the 40% equity sleeve.
 A: Less than 100% equity. Treasury and TIPS coupons are taxable as
 ordinary income at the federal level (state-tax-exempt for
 Treasuries). Gold ETFs (GLD, IAU) are taxed as collectibles at 28%
-long-term. SOUL #15 is explicit: hold the income and store-of-value
-tranches in tax-advantaged accounts (IRA, 401k, HSA) and reserve the
-taxable account for the equity sleeve, where long-term cap gains
-and qualified dividends apply.
+long-term. Hold the income and store-of-value tranches in tax-
+advantaged accounts (IRA, 401k, HSA) and reserve the taxable account
+for the equity sleeve, where long-term cap gains and qualified
+dividends apply.
 
 **Q: What is the single biggest mistake retail investors make with
 this framework?**
@@ -431,8 +430,8 @@ chassis, not the chassis itself.
 week's pieces inside one allocation framework. By the end of this
 video you will know what risk parity actually is, why the
 Bridgewater four-quadrant model is the cleanest macro picture you
-will ever own, and how SOUL #13 — the four-tranche book — is the
-retail version of the same idea.
+will ever own, and how the four-tranche book is the retail version
+of the same idea.
 
 **Horace:** And we are going to be honest about 2022. The strategy I
 am about to recommend lost 25% that year at Bridgewater. Risk parity
@@ -523,7 +522,7 @@ the back-test put them. They did not.
 **Horace:** No. It is *more vulnerable* to correlation regime changes
 than the marketing said. The institutional response since 2023 is to
 hold less duration leverage and more inflation hedges. The shape is
-converging on what SOUL #13 calls the four-tranche book.
+converging on what we call the four-tranche book.
 
 ---
 
@@ -547,7 +546,7 @@ since 1996 justify that adjustment. The biggest is 2022.
 
 **Stella:** And the opportunistic ten percent?
 
-**Horace:** Cash, T-bills, and the SOUL #14 barbell — a small budget
+**Horace:** Cash, T-bills, and a small barbell sleeve — a budget
 for long-vol options or for adding to equity at a 30% drawdown. The
 sleeve is small but its job is asymmetric. Ten percent that earns
 4% sitting in T-bills is not drag; it is the option premium that
@@ -572,7 +571,7 @@ single decade since 1928 — finishes positive in real terms. And the
 worst real drawdown is fifteen percentage points smaller. For
 someone living off the portfolio, that trade is worth it. For a
 30-year-old saving in an IRA, it is probably not — they should tilt
-toward the SOUL #14 barbell shape. More equity, smaller but
+toward a barbell shape. More equity, smaller but
 genuinely safe sleeve, larger opportunistic tail.
 
 ---

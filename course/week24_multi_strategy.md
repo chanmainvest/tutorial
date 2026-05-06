@@ -35,7 +35,7 @@ You need this synthesis lesson for four reasons.
    to a six-figure retail book and which pieces should stay on the
    institutional cutting-room floor.
 
-3. **SOUL #1 says alpha is rare and most retail should not pursue
+3. **Alpha is rare and most retail should not pursue
    it.** This lesson is honest about that. The default
    recommendation will be that 80% or more of you should run pure
    beta — week 4's 60/40 or week 12's lifecycle archetypes — full
@@ -43,7 +43,7 @@ You need this synthesis lesson for four reasons.
    temperament, the time, and the size to run an alpha sleeve *and*
    the discipline to stop running it when it doesn't work.
 
-4. **The four-tranche framework (SOUL #13) reapplies one level up.**
+4. **The four-tranche framework reapplies one level up.**
    In week 16 the four tranches were sector-cycle exposures. Here
    they are *strategy* exposures: beta (the physical / index core),
    smart beta (the seniors — established factor premia), alpha (the
@@ -75,8 +75,8 @@ which keeps you honest about what each piece is being paid to do.
 
 Two structural things to internalise.
 
-**Beta is the cheapest return on the table.** SOUL #2 has been right
-for forty years: index investing has paid most of the bill. Every
+**Beta is the cheapest return on the table.** Forty years of
+index investing have paid most of the bill. Every
 dollar you move out of beta into a more expensive sleeve has to
 *earn its fee* — net of every cost — before it has earned a right
 to be in your book.
@@ -130,7 +130,7 @@ equivalent is not "find a hedge fund." It is one of three things:
 2. **A concentrated long-only sleeve** (5-15 names you actively
    research, sized 1-3% each). Strictly speaking this is a
    high-active-share equity sleeve, not market-neutral alpha. It
-   works only if you actually have the edge — SOUL #1.
+   works only if you actually have the edge — alpha is rare.
 3. **A defined long/short pair book** (pair trades from week 14,
    plus an overlay or two). Real alpha, but takes time to manage
    and a margin account.
@@ -146,9 +146,9 @@ The default retail multi-strategy template:
 
 If you cannot articulate a thesis for the factor tilt and the alpha
 sleeve, both go to zero and you run a 75/25 split between VTI and
-BND. That is not a failure. That is the honest answer. SOUL #1 is
-explicit: most people don't have alpha; nothing in this lesson is
-arguing they should pretend they do.
+BND. That is not a failure. That is the honest answer. Most people
+don't have alpha; nothing in this lesson is arguing they should
+pretend they do.
 
 The image below shows this template alongside four other archetypes
 (conservative, moderate, aggressive, institutional, FIRE-style
@@ -214,7 +214,7 @@ to do it is the *vol* improvement, not the *return* improvement.
 
 #### 2.5 Why Most Retail Investors Should Not Do This
 
-SOUL #1 is the rule. Most retail investors who set up a
+Alpha is rare. Most retail investors who set up a
 multi-strategy book make at least one of the following mistakes.
 
 1. **They run an alpha sleeve they don't have alpha in.** If your
@@ -244,11 +244,11 @@ The honest decision tree:
 
 If all three answers are yes, the template in §2.3 is reasonable.
 If any answer is no, week 24 was the lesson where you should have
-put the multi-strategy book down. That is not a failure. The SOUL
-#1 humility is what keeps L1 graduates wealthy and what sends most
+put the multi-strategy book down. That is not a failure. The same
+humility that keeps L1 graduates wealthy is what sends most
 L2 dabblers home with less than they started with.
 
-#### 2.6 The Four-Tranche Framework Reapplied (SOUL #13)
+#### 2.6 The Four-Tranche Framework Reapplied
 
 In week 16 the four tranches were *sector-cycle* exposures —
 physical, senior, junior, exploration — staged through a commodity
@@ -270,11 +270,11 @@ where the fun is and where most of the blow-ups happen, and you
 size it as a fraction of your book that you can lose entirely
 without changing your life. The pyramid shape — wide base, narrow
 top — is the robust shape. The inverted pyramid — most of the book
-in the exploration tier — is how SOUL #12 ("market can stay
-irrational longer than you can stay solvent") becomes a personal
+in the exploration tier — is how the market staying irrational
+longer than you can stay solvent becomes a personal
 autobiography.
 
-The barbell (SOUL #14) is a special case of this pyramid where the
+The barbell is a special case of this pyramid where the
 "mid" tiers (factor and alpha) collapse to near-zero and the book
 splits between the safest (cash + bonds) and the most aggressive
 (concentrated long or alpha) sleeves. A FIRE-curious investor with
@@ -340,8 +340,9 @@ honest one for the situation.
     period — 2008, March 2020 — correlations go to one and the
     multi-strategy book draws down nearly as hard as the beta book.
     The diversification works in normal times and fails exactly
-    when you need it most. SOUL #6 (vol-tail-wags-dog) and SOUL
-    #12 (irrational-longer-than-solvent) live in those windows.
+    when you need it most. The vol tail wags the dog and the market
+    stays irrational longer than you stay solvent — both live in
+    those windows.
 
 ---
 
@@ -369,9 +370,10 @@ across factors at the cost of factor purity.
 
 **Q: Can I use leverage to amplify the alpha sleeve?**
 A: Technically yes. Operationally no, unless you have run an
-unlevered version through a stress period and survived. SOUL #12
-is the warning. Leverage on a strategy you don't yet trust is the
-classic blow-up.
+unlevered version through a stress period and survived. Markets
+can stay irrational longer than your levered book can stay
+solvent — that's the warning. Leverage on a strategy you don't
+yet trust is the classic blow-up.
 
 **Q: What's the simplest way to run the alpha sleeve at retail?**
 A: A single market-neutral fund (BTAL, MERFX, FTLS, JNK-style
@@ -400,7 +402,7 @@ an alpha sleeve after a great year (because you've mean-reverted
 closer to the cap on what you can deploy profitably), not increase
 it.
 
-**Q: How does this interact with SOUL #16 — US-only investable?**
+**Q: How does this interact with US-only investability?**
 A: Cleanly. The beta sleeve is VTI + BND, both US. The factor
 sleeve is US-listed factor ETFs (VLUE, MTUM, QUAL). The alpha
 sleeve uses US-listed market-neutral funds or US single-name
@@ -410,14 +412,14 @@ exposure, which keeps custody, tax, and disclosure clean.
 **Q: How much time per week should I spend running this?**
 A: Realistically, 2-4 hours per week if you are running an active
 alpha sleeve, 30 minutes per month if the alpha sleeve is a single
-market-neutral fund, and zero if you have decided (per SOUL #1) to
+market-neutral fund, and zero if you have decided to
 run pure beta. Be honest about which bucket you are in.
 
 **Q: What's the L3 version of this?**
 A: L3 layers in derivatives — option overlays for tail hedging
 (week 47), volatility arbitrage (week 49), and tax-aware
-expression of the same exposures via options and margin (SOUL #15).
-The L3 book has the same four-sleeve shape; it just expresses each
+expression of the same exposures via options and margin. The L3
+book has the same four-sleeve shape; it just expresses each
 sleeve more capital-efficiently. L2 first.
 
 ---
@@ -444,7 +446,7 @@ sleeve more capital-efficiently. L2 first.
 
 **Stella:** And the headline warning — let's get it out of the way first.
 
-**Horace:** SOUL number one. Alpha is rare. The honest answer for most of you watching is that you should stop at the beta sleeve. Run VTI plus BND, rebalance once a year, go live your life. Everything else this episode covers is for the ten or twenty percent of L2 graduates who have the size, the time, and — most importantly — the discipline to run the more complicated book without lying to themselves about whether it's working.
+**Horace:** Alpha is rare. The honest answer for most of you watching is that you should stop at the beta sleeve. Run VTI plus BND, rebalance once a year, go live your life. Everything else this episode covers is for the ten or twenty percent of L2 graduates who have the size, the time, and — most importantly — the discipline to run the more complicated book without lying to themselves about whether it's working.
 
 **Stella:** Got it. With that on the table, let's start with the institutional template that everybody's trying to copy.
 
@@ -482,7 +484,7 @@ sleeve more capital-efficiently. L2 first.
 
 **Stella:** What about the concentrated long-only sleeve?
 
-**Horace:** That works if you actually have an edge — SOUL number one again. If you can articulate a thesis on five to fifteen names, size them one to three percent each, and you have time to keep up with them, that's a legitimate alpha sleeve. Most people who try this don't actually have the edge they think they have. Three years of P&L will tell you. If your concentrated sleeve isn't beating SPX after fees and taxes over a three-year window, the sleeve doesn't have alpha — it's a hobby.
+**Horace:** That works if you actually have an edge — alpha is rare. If you can articulate a thesis on five to fifteen names, size them one to three percent each, and you have time to keep up with them, that's a legitimate alpha sleeve. Most people who try this don't actually have the edge they think they have. Three years of P&L will tell you. If your concentrated sleeve isn't beating SPX after fees and taxes over a three-year window, the sleeve doesn't have alpha — it's a hobby.
 
 ---
 
@@ -510,7 +512,7 @@ sleeve more capital-efficiently. L2 first.
 
 **SECTION 4 — WHY MOST RETAIL SHOULD NOT (11:00-14:00)**
 
-**Stella:** Let's get to the SOUL number one part. Why most retail investors should not do this.
+**Stella:** Let's get to the discipline part. Why most retail investors should not do this.
 
 **Horace:** Four reasons, and they're not theoretical — they're what I see actually happen.
 
@@ -528,13 +530,13 @@ sleeve more capital-efficiently. L2 first.
 
 **Stella:** Number four.
 
-**Horace:** They underestimate the tax cost. Alpha sleeves turn over. Concentrated picks turn over. At a thirty-percent marginal bracket, the tax drag on a five-percent alpha sleeve eats one and a half percent of the gross. Compared to the buy-and-hold beta sleeve which defers everything indefinitely, alpha is fighting both fees *and* taxes. SOUL fifteen — express what you can through long-dated options and margin so the tax timing works for you — applies here as much as it does in the derivatives lessons.
+**Horace:** They underestimate the tax cost. Alpha sleeves turn over. Concentrated picks turn over. At a thirty-percent marginal bracket, the tax drag on a five-percent alpha sleeve eats one and a half percent of the gross. Compared to the buy-and-hold beta sleeve which defers everything indefinitely, alpha is fighting both fees *and* taxes. The fix is the same one that runs through the rest of the book — express what you can through long-dated options and margin so the tax timing works for you. It applies here as much as it does in the derivatives lessons.
 
 ---
 
 **SECTION 5 — THE FOUR-TRANCHE FRAMEWORK REAPPLIED (14:00-15:30)**
 
-**Horace:** SOUL number thirteen. The four tranches. We taught it as a sector-cycle framework in week sixteen — physical, senior, junior, exploration. The same shape reappears here, one level up, applied to strategies themselves.
+**Horace:** The four tranches. We taught it as a sector-cycle framework in week sixteen — physical, senior, junior, exploration. The same shape reappears here, one level up, applied to strategies themselves.
 
 **Stella:** Map them.
 
@@ -542,7 +544,7 @@ sleeve more capital-efficiently. L2 first.
 
 **Stella:** And the lesson?
 
-**Horace:** The pyramid shape. Wide base, narrow top. Most of the money in the most fundamental, lowest-vol, lowest-fee sleeve. Each higher tier smaller, more skill-dependent, more vol. The exploration tier is where the fun is and where the blow-ups are, and you size it so you can lose the entire sleeve without changing your life. Inverted pyramid — most of the book in tactical — is how SOUL twelve, market-can-stay-irrational-longer-than-you-can-stay-solvent, becomes your personal autobiography.
+**Horace:** The pyramid shape. Wide base, narrow top. Most of the money in the most fundamental, lowest-vol, lowest-fee sleeve. Each higher tier smaller, more skill-dependent, more vol. The exploration tier is where the fun is and where the blow-ups are, and you size it so you can lose the entire sleeve without changing your life. Inverted pyramid — most of the book in tactical — is how the market-can-stay-irrational-longer-than-you-can-stay-solvent line becomes your personal autobiography.
 
 ---
 
@@ -564,7 +566,7 @@ sleeve more capital-efficiently. L2 first.
 
 **Stella:** Capstone wrap.
 
-**Horace:** Three takeaways. One — the institutional template is real, well-defined, and translatable. Seventy to eighty percent beta, ten to fifteen smart beta, ten to fifteen alpha. Two — the math says most of the return comes from beta, and the alpha sleeve buys you vol reduction, not return. Three — most retail investors who try this lose the trade to fees, taxes, and the discipline gap. SOUL one is the rule. Don't run an alpha sleeve unless you have the size, the time, and the pre-committed shutdown criterion.
+**Horace:** Three takeaways. One — the institutional template is real, well-defined, and translatable. Seventy to eighty percent beta, ten to fifteen smart beta, ten to fifteen alpha. Two — the math says most of the return comes from beta, and the alpha sleeve buys you vol reduction, not return. Three — most retail investors who try this lose the trade to fees, taxes, and the discipline gap. Alpha is rare; that's the rule. Don't run an alpha sleeve unless you have the size, the time, and the pre-committed shutdown criterion.
 
 **Stella:** And next week?
 
@@ -572,6 +574,6 @@ sleeve more capital-efficiently. L2 first.
 
 **Stella:** End-of-L2 milestone.
 
-**Horace:** End of L2. If you've made it here, you have the toolkit to run a full multi-strategy book. Now spend a year *not* running one — run pure beta, watch your discipline, and come back to L3 only after you can prove you didn't blow up the simple version. SOUL twelve. The market can stay irrational longer than you can stay solvent. End the L2 with that one in your pocket.
+**Horace:** End of L2. If you've made it here, you have the toolkit to run a full multi-strategy book. Now spend a year *not* running one — run pure beta, watch your discipline, and come back to L3 only after you can prove you didn't blow up the simple version. The market can stay irrational longer than you can stay solvent. End the L2 with that one in your pocket.
 
 [VISUAL: end card "Week 25 — L3 starts: Options I"]

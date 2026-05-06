@@ -46,8 +46,8 @@ You need to internalise four things from this lesson.
    30-year KRD — and hedge each bucket separately because the curve
    does not move in parallel. Twists, flatteners, and steepeners are
    the daily reality.
-4. **2022 was duration risk made visible (SOUL anchor #6,
-   vol-tail-wags-dog).** TLT, the 20-year-plus Treasury ETF with a
+4. **2022 was duration risk made visible — the vol tail wagging
+   the dog.** TLT, the 20-year-plus Treasury ETF with a
    modified duration around 17, fell about 33% in 2022 — a worse
    calendar year than the S&P 500 in 2008. The bonds did exactly
    what their duration said they would do. The *investors* — many of
@@ -226,11 +226,29 @@ Two things to take from this. First, the math worked — there was no
 market dysfunction, no failure of the model. Second, the *people*
 holding TLT did not do this calculation in advance. Many bought
 "Treasuries" expecting safety in a Fed hiking cycle, never having
-asked the question "what is my duration." The vol tail (SOUL #6)
-wagged the dog: a regime that had run for 40 years made everyone
+asked the question "what is my duration." The vol tail wagged the
+dog: a regime that had run for 40 years made everyone
 forget that long Treasuries can lose a third of their value in a
 year. Duration is the antidote — but only if you actually compute
 it before you buy.
+
+**Horace's view — the 2022 failure was a portfolio-shape problem,
+not a bond-math problem.** My own read on why long bonds did so much
+damage that year is that they were sitting inside what most people
+called the "diversified core" — the bond half of a 60/40, the
+long-duration sleeve of a target-date fund, the "safe" allocation in
+a balanced portfolio. The whole point of holding them there was that
+they were supposed to *hedge* the equity drawdown. Instead they
+correlated to it and *added* to it, because they were never genuine
+safety to begin with — they were a leveraged duration bet that
+worked for 40 years and then didn't. In the barbell shape I run now,
+the safety end is short-duration cash and bills plus gold, *not*
+long Treasuries. Long Treasuries, if I want them at all, sit on the
+asymmetric end as a specific rates trade with a thesis behind it,
+not as the portfolio's pillow. The diversified core had quietly
+become its own concentration risk — a concentrated bet on the
+40-year disinflationary regime — and 2022 was the year that
+concentration printed.
 
 #### 2.7 Putting Duration to Work — Three Practical Rules
 
@@ -340,7 +358,7 @@ shorts, or paying-fixed in the swaps market. Several macro hedge
 funds (Brevan Howard, Element Capital) had banner years. The
 informational content was free (the Fed had told the market it
 would hike); the willingness to position against a 40-year trend
-was rare (SOUL anchor #6).
+was rare.
 
 **Q6: How does convexity get priced into long bond yields?**
 The "convexity discount" — long bonds yield slightly less than
@@ -425,7 +443,7 @@ predictable from numbers published in the prospectus, and why
 "Treasuries are safe" is one of the most expensive sentences in
 modern finance.
 
-**Stella:** SOUL anchor #6 — vol-tail-wags-dog — wrote this episode.
+**Stella:** The vol tail wags the dog, and it wrote this episode.
 A 40-year trend in falling yields convinced an entire generation
 that long Treasuries were a free safety. The math says otherwise.
 
@@ -560,8 +578,19 @@ bonds did *exactly* what their published duration said they would
 do. The investors who got blindsided didn't read the duration. They
 read "Treasuries are safe."
 
-**Horace:** SOUL anchor #6. A 40-year trend wags the dog. The
+**Horace:** A 40-year trend wags the dog. The
 duration was right there in the prospectus.
+
+**Stella:** And the deeper reason it hurt so much?
+
+**Horace:** They were sitting inside the "diversified core" — the
+bond half of 60/40, the long sleeve of a target-date fund — *as the
+hedge against equities*. When they correlated and fell together in
+2022, the diversified core was revealed as its own concentrated bet
+on a 40-year disinflationary regime. In my own shape now, the safety
+end of the barbell is short-duration cash and bills plus gold. Long
+Treasuries, if I hold them at all, sit on the asymmetric end as a
+specific rates trade — never as the portfolio's pillow.
 
 ---
 

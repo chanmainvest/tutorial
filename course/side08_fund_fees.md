@@ -12,10 +12,10 @@ Every other variable in investing -- returns, inflation, recessions,
 elections, geopolitics -- is somebody else's problem. You do not get
 to set the equity premium. You do not get to choose the inflation
 print. The fee on the fund you hold is the one number on the page
-that you set, every year, by what you choose to buy. Horace's SOUL #1
-says alpha is rare and the default is passive. The corollary nobody
-draws often enough is: *if alpha is rare, then the fee you pay had
-better be tiny, because there is essentially nothing on the other
+that you set, every year, by what you choose to buy. Horace's first
+rule says alpha is rare and the default is passive. The corollary
+nobody draws often enough is: *if alpha is rare, then the fee you pay
+had better be tiny, because there is essentially nothing on the other
 side of the ledger paying for it.*
 
 Four reasons this side lesson is worth ten minutes of your life:
@@ -243,9 +243,9 @@ Academic studies (Ang, Rhodes-Kropf, Frazzini-Lamont; CEM
 Benchmarking) have measured the fee capture: across 1995-2020
 hedge-fund universes, **fees absorbed roughly 50-65% of gross
 alpha**. The investor kept 35-50% of what the manager generated.
-This is the kind of math SOUL #1 was written about: alpha is rare,
-and even when it exists, the fee structure leaves so little for
-the LP that the LP's after-fee, after-tax outcome is
+This is the kind of math the alpha-is-rare rule was written about:
+alpha is rare, and even when it exists, the fee structure leaves so
+little for the LP that the LP's after-fee, after-tax outcome is
 indistinguishable from a 60/40 indexed portfolio.
 
 ---
@@ -415,7 +415,7 @@ that is what your 401(k) defaults you into. The actual baseline
 is **5 basis points** -- the price of a flagship US-equity index
 ETF. Every 10 bp above that has to be earning its keep, either
 through specialty exposure, factor tilt, or a defensible alpha
-thesis. SOUL #1: alpha is rare. The corollary: fee above 10 bp
+thesis. Alpha is rare. The corollary: fee above 10 bp
 needs a reason, and "my broker recommended it" is not a reason.
 
 ---
@@ -606,7 +606,7 @@ is the difference between $1.95 and $2.62 on each dollar.
 **Stella:** So hedge funds capture half the alpha?
 
 **Horace:** Studies say 50-65% of gross alpha goes to fees.
-SOUL #1 again -- alpha is rare. And when you find it, the 2/20
+Alpha is rare to begin with -- and when you find it, the 2/20
 structure leaves the LP with crumbs. Renaissance and Citadel
 manage their *own money* through the flagship funds. They closed
 to outside capital decades ago. The hedge fund the bank's wealth
@@ -650,7 +650,7 @@ about 23% of your terminal wealth. A 2% fee costs you 43%. The
 math is brutal and it does not change.
 
 **Three.** Anchor on 5 basis points, not on the high-fee
-historical norm. SOUL #1 says alpha is rare; if alpha is rare,
+historical norm. Alpha is rare; if alpha is rare,
 the fee paid had better be tiny, because there is essentially
 nothing on the other side paying for it.
 

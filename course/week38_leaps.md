@@ -16,8 +16,8 @@ Four reasons this lesson sits where it does in the curriculum.
 
 1. **They make week 37's stock replacement durable.** A 90-day deep-ITM call works for a tactical view; a 24-month deep-ITM LEAPS works for a thesis. Holding period matters because every roll costs bid-ask, slippage, and a tax event. Longer-dated contracts mean fewer rolls.
 2. **They unlock the poor man's covered call (PMCC).** The PMCC swaps a 100-share long for a deep-ITM LEAPS, then sells short-dated calls against it the same way week 27 sells calls against shares. The capital required drops by 70-80% and the income mechanics survive intact.
-3. **They are tax-clean.** Held more than 365 days, a LEAPS sold at a gain is taxed at the long-term capital-gains rate — 15-20% federal — identical to the underlying stock. SOUL #15 names options the most tax-efficient leverage available to the US retail investor; LEAPS are the part of the option universe where that statement is most clearly true.
-4. **They are the operational instrument of the SOUL #14 barbell.** The barbell — boring core plus concentrated alpha sleeves — only works if the boring core can be funded with a small slice of capital. LEAPS are how that gets done: 25% of the capital controls the equity exposure; the other 75% can fund the alpha sleeves or sit in T-bills.
+3. **They are tax-clean.** Held more than 365 days, a LEAPS sold at a gain is taxed at the long-term capital-gains rate — 15-20% federal — identical to the underlying stock. Options are the most tax-efficient leverage available to the US retail investor; LEAPS are the part of the option universe where that statement is most clearly true.
+4. **They are the operational instrument of the barbell.** The barbell — boring core plus concentrated alpha sleeves — only works if the boring core can be funded with a small slice of capital. LEAPS are how that gets done: 25% of the capital controls the equity exposure; the other 75% can fund the alpha sleeves or sit in T-bills.
 
 This lesson covers the math behind why the per-day decay is small, the three canonical LEAPS strategies, and the risks that the 30-DTE option trader has not seen before.
 
@@ -48,7 +48,7 @@ The first term dominates for low rates. The $1/\sqrt{T}$ on $S\sigma$ means dail
 
 Across a 30-day holding period the long-dated option loses 30 × $0.013 = $0.39, while the short-dated option loses its full $1.97 of extrinsic. The long-dated buyer pays one-fifth the daily carrying cost for the same dollar of upside per dollar move.
 
-[VISUAL: image/week38_leaps_theta.png]
+![Line chart of absolute daily theta in dollars per share against days-to-expiration (DTE) on a $100 stock with σ=22%, r=4%, with five curves — one for each delta band (10Δ, 30Δ, 50Δ, 70Δ, 90Δ). Every curve has the same 1/√T shape: at 30 DTE the ATM 50Δ line is around $0.066/day; at 365 DTE it falls to ~$0.02/day; at 730 DTE ~$0.013/day, roughly five times less than the 30-DTE point. The 90Δ deep-ITM line is the lowest curve throughout, dropping near half a cent per day at 730 DTE — the math behind why a deep-ITM LEAPS is the cleanest leverage instrument in the public markets.](image/week38_leaps_theta.png)
 
 The same fact extends across deltas. A 0.90Δ deep-ITM LEAPS has daily theta closer to -$0.005/day at 730 DTE — almost negligible. That is the math behind week 37's claim that you can hold a deep-ITM 12-month call for nine months at a cost of 1.5-2.5% of the underlying notional. The fact also explains why LEAPS are wrong for short-term thesis trades: the same $1/\sqrt{T}$ scaling means buying a LEAPS for a 30-day move is overpaying for time you do not need.
 
@@ -58,13 +58,13 @@ The same fact extends across deltas. A 0.90Δ deep-ITM LEAPS has daily theta clo
 
 **Strategy 2: Poor man's covered call (PMCC).** Buy a deep-ITM LEAPS. Sell a short-dated (30-45 DTE) out-of-the-money call against it. The sold call captures premium the same way a covered call does against shares (week 27), but the long leg is a $25 LEAPS instead of $100 of stock. Capital outlay falls from $10,000 (for 100 shares) to roughly $2,500 — a 75% reduction. Annualized credit yield is similar to a covered-call program, often 10-18% on the LEAPS premium, which on a per-capital basis is 3-5x what the covered call produces.
 
-[VISUAL: image/week38_pmcc_payoff.png]
+![Payoff diagram for a poor man's covered call (PMCC) at the short call's expiration: long one January 2028 $80 LEAPS (≈0.90Δ, paid ~$25/share) plus short one 30-day $110 call (sold for ~$1.50). The x-axis is the underlying stock price 30 days from now; the y-axis is the package P&L. The curve climbs from a -$2,350 floor below the $80 LEAPS strike, peaks at +$950 at the $110 short-call strike (where the short expires worthless and the LEAPS keeps its time value), and is capped flat above $110 (every dollar of further upside is offset by the short going intrinsic). Net debit is ~$23.50/share; max loss is bounded at the debit; max profit hits at exactly the short-call strike. The chart visualises why PMCC is the capital-efficient cousin of week 27's covered call.](image/week38_pmcc_payoff.png)
 
 The PMCC's max profit is reached when the underlying closes exactly at the short call's strike at the short call's expiration; both legs have positive value, the short expires worthless, and the LEAPS retains most of its time value. Max loss is the net debit paid, achieved if the underlying collapses below the LEAPS strike before its expiration. Roll the short call out (further DTE) and up (higher strike) the same way week 27 rolls a covered call.
 
 **Strategy 3: Married LEAPS plus put (synthetic stock with floor).** Buy a deep-ITM LEAPS for upside; buy a slightly-out-of-the-money put for downside protection. The pair behaves like a long stock position with a defined floor. The premium for the protective put eats into the freed-cash advantage, but for a position the investor is determined to hold through a recession or a known event, the structure caps losses cleanly. Less common than the other two; useful around earnings, FOMC, or geopolitical events.
 
-#### 2.4 Tax Treatment (SOUL #15)
+#### 2.4 Tax Treatment
 
 For a US taxable account holding equity or ETF LEAPS:
 
@@ -74,7 +74,7 @@ For a US taxable account holding equity or ETF LEAPS:
 - **PMCC has tax wrinkles.** Rolling the short call leg can technically reset the holding period of the LEAPS in some configurations (constructive sale rules under §1259, qualified covered call under §1092). For typical PMCC mechanics — short call strike well above the LEAPS strike, no constructive sale — the LEAPS holding period is preserved. Document carefully if the IRS asks.
 - **No mark-to-market.** Equity options are not Section 1256 contracts; gains crystallise only at sale. SPX index options are 1256 (60/40 LTCG/STCG blend, marked to market at year-end), but LEAPS as commonly used here are equity/ETF options.
 
-The cleanest tax case: buy a 24-month LEAPS, hold it to month 13, sell. That is unambiguously long-term capital gain at 15-20%. SOUL #15 calls this "tax via options"; this is the precise mechanism.
+The cleanest tax case: buy a 24-month LEAPS, hold it to month 13, sell. That is unambiguously long-term capital gain at 15-20%. This is the precise mechanism behind "tax via options."
 
 #### 2.5 The Risks the 30-DTE Trader Has Not Seen
 
@@ -134,8 +134,8 @@ Yes, at most major brokers (Schwab, Fidelity, IBKR). The short call is "covered"
 **Q6. How does the freed-cash carry interact with the LEAPS theta?**
 On a 0.92Δ LEAPS, theta is roughly 1.5-2.5% of underlying notional per year. Freed cash earning 4.3% T-bills on 75% of notional yields 3.2% of underlying notional per year. Net carry: +0.7% to +1.7% per year before dividends skipped. The LEAPS is roughly self-financing on indexes.
 
-**Q7. How does this interact with the four-tranche framework (SOUL #13)?**
-LEAPS-replaced equity sleeve consumes 25-30% of the dollar capital that the underlying sleeve target requires. The freed 70-75% can fund the L2 strategies sleeve, the L3 alpha sleeve, or sit in T-bills. This is the operational version of the SOUL #14 barbell.
+**Q7. How does this interact with the four-tranche framework?**
+LEAPS-replaced equity sleeve consumes 25-30% of the dollar capital that the underlying sleeve target requires. The freed 70-75% can fund the L2 strategies sleeve, the L3 alpha sleeve, or sit in T-bills. This is the operational version of the barbell.
 
 **Q8. Should I worry about implied vol when buying LEAPS?**
 Yes — more than for short-dated options. Vega on a 24-month call is ~10x a 30-day call's vega. Don't buy LEAPS when VIX is in its top decile (currently above ~28). At VIX 15-20 in April 2026, LEAPS pricing is reasonable.
@@ -233,7 +233,7 @@ Three regimes: (1) sustained multi-year drawdown — the LEAPS can go to zero be
 
 **Stella:** Tax-wise?
 
-**Horace:** Standard equity-option rules. The long LEAPS, held over 365 days, becomes long-term capital gain when sold. The short calls are realized short-term every cycle but they're typically small premiums; the tax noise is small. SOUL #15 says options are the most tax-efficient leverage available; LEAPS-PMCC is the cleanest example of that statement.
+**Horace:** Standard equity-option rules. The long LEAPS, held over 365 days, becomes long-term capital gain when sold. The short calls are realized short-term every cycle but they're typically small premiums; the tax noise is small. Options are the most tax-efficient leverage available; LEAPS-PMCC is the cleanest example of that statement.
 
 **[SECTION 3 — THE INTERACTIVE, 12:00-15:00]**
 
@@ -261,9 +261,9 @@ Three regimes: (1) sustained multi-year drawdown — the LEAPS can go to zero be
 
 **[OUTRO — 15:00-18:00]**
 
-**Stella:** Tying this back to SOUL — barbell, tax, and four-tranche.
+**Stella:** Tying this back together — barbell, tax, and four-tranche.
 
-**Horace:** Three callbacks. SOUL #14, the barbell — LEAPS are the instrument that makes the barbell capital-efficient. You can hold equity beta in 25% of the dollar capital and use the freed 75% for whatever the four-tranche framework asks for. SOUL #15, tax via options — LEAPS held over 365 days are the cleanest long-term-capital-gain instrument outside of holding stock outright. And SOUL #13, the four tranches — the LEAPS strategy you choose maps to the tranche. Stock replacement is the L1 boring core, PMCC is the L2 income strategy, married LEAPS is the L3 defined-risk play.
+**Horace:** Three callbacks. The barbell — LEAPS are the instrument that makes the barbell capital-efficient. You can hold equity beta in 25% of the dollar capital and use the freed 75% for whatever the four-tranche framework asks for. Tax via options — LEAPS held over 365 days are the cleanest long-term-capital-gain instrument outside of holding stock outright. And the four tranches — the LEAPS strategy you choose maps to the tranche. Stock replacement is the L1 boring core, PMCC is the L2 income strategy, married LEAPS is the L3 defined-risk play.
 
 **Stella:** Three rules of operating a LEAPS position?
 

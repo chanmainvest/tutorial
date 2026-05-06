@@ -38,13 +38,14 @@ paragraph stapled into the bond chapter:
    margins compress. Gold is *unreliable* — sometimes magnificent
    (1971–1980), sometimes useless (2022). Commodities and real estate
    are decent. TIPS are the one mechanically-reliable hedge. Cash is the
-   guaranteed loser. SOUL #3 calls these "stores of value" but reminds
-   us that a store of value is whatever the next generation *believes*
-   is one — which is why the answer rotates.
+   guaranteed loser. These act as "stores of value" — but a store of
+   value is whatever the next generation *believes* is one, which is
+   why the answer rotates.
 
 The goal of this side lesson is to give you the half-dozen numbers and
-the one regime-change frame (SOUL #2) that turn inflation from a vague
-fear into a sized, hedgeable risk in the four-tranche portfolio.
+the one regime-change frame — inflation regimes can flip on a forty-
+year timescale — that turn inflation from a vague fear into a sized,
+hedgeable risk in the four-tranche portfolio.
 
 ![CPI year-over-year, 1914 to April 2026, with the WW1, WW2, 1970s, March 1980 peak (14.8%), 2008 spike, and June 2022 peak (9.1%) annotated. The 2% Fed target line and the 5% high-inflation threshold are shown as dashed references.](image/side06_cpi_history.png)
 
@@ -110,7 +111,7 @@ $850 — about an eighteen-per-cent annual *real* return over the twelve
 years. Commodities broadly returned 12–13% per year real. Both were
 emerging from a regime where they had been suppressed (gold by Bretton
 Woods, commodities by post-war price controls), which is exactly the
-SOUL #2 forty-year-regime-change set-up: when a regime breaks, the
+classic forty-year-regime-change set-up: when a regime breaks, the
 asset that gets re-rated is the one that was forced to be cheap *under*
 the old regime.
 
@@ -118,9 +119,9 @@ That last point is the trap. The 1970s gold story is not "gold protects
 against inflation". The 1970s gold story is "gold *got out of jail* the
 year inflation started". When inflation came back in 2022 with no
 similar regime breakage in the gold market, gold *did nothing in the
-first year*. SOUL #3 is the cleaner frame: a store of value is whatever
-the next generation believes is one. In 1972 that was gold. In 2022 it
-was, briefly, Bitcoin (then it wasn't). The mechanism is *belief
+first year*. The cleaner frame: a store of value is whatever the next
+generation believes is one. In 1972 that was gold. In 2022 it was,
+briefly, Bitcoin (then it wasn't). The mechanism is *belief
 re-rating*, not metal.
 
 #### 2.3 The 2021–2022 Spike — What the Modern Playbook Got Wrong
@@ -140,7 +141,7 @@ hedge" assumption that had defined the 2009–2021 regime**. The
 stock-bond correlation flipped from negative (the post-2000 default) to
 positive (the pre-2000 default, which is also the inflation-regime
 default). The diversification benefit of 60/40 disappears precisely
-when you need it. SOUL #6: the vol tail wags the dog.
+when you need it. The vol tail wags the dog.
 
 Third, **gold did not work** — at least not in 2022. With the 10-year
 real yield rising from minus-1% to plus-2%, the opportunity cost of
@@ -188,9 +189,9 @@ real annualised return *during* high-inflation regimes:
 
 The line that captures it: **inflation is the one regime where the
 "safe" leg of every textbook portfolio is the leg that gets you killed,
-and the "risky" leg (real assets) is what saves you**. SOUL #14 (the
-barbell) and SOUL #13 (four tranches with an explicit Stores-of-Value
-sleeve) are designed for exactly this.
+and the "risky" leg (real assets) is what saves you**. The barbell
+stance and the four-tranche stack with an explicit Stores-of-Value
+sleeve are designed for exactly this.
 
 ![Real annualised returns by asset class during 1970-1982, the canonical US high-inflation regime. CPI averaged 7.8 per cent per year over the window. Stocks roughly broke even, T-bills barely kept up, long Treasuries lost three per cent per year, while gold (+18) and commodities (+12) carried the period.](image/side06_real_returns_inflation.png)
 
@@ -251,7 +252,7 @@ commodities, real estate, TIPS, and cash. Before you decide that 2% CPI
    the Bretton Woods peg until 1971 and was getting re-rated. That
    re-rating happened to coincide with inflation. In 2022, gold did
    nothing for twelve months while CPI ran at 9%. Treat gold as a
-   *belief* asset (SOUL #3), not as a mechanical hedge.
+   *belief* asset, not as a mechanical hedge.
 
 4. **"TIPS just give you the inflation rate."** TIPS give you the
    real yield you bought them at, *plus* CPI adjustments. If you buy
@@ -306,7 +307,8 @@ inflation hedge.
 **Q: Why TIPS instead of gold?**
 A: TIPS pay you *the actual CPI print*, by contract, on top of a known
 real yield. Gold pays you whatever the next generation decides to pay
-for it, which is structurally a SOUL #3 belief bet. For the part of
+for it, which is structurally a belief bet on what the next generation
+treats as a store of value. For the part of
 your portfolio that is supposed to *guarantee* inflation protection
 (typically the bond sleeve), TIPS are the right answer. Gold belongs
 in the Stores-of-Value tranche, sized at five to ten per cent.
@@ -317,7 +319,7 @@ That correlation has historically been *positive* during inflation
 regimes (1970s) and *negative* during deflation/disinflation regimes
 (2000s and 2010s). In 2022, inflation broke the post-2000 negative
 correlation, both legs fell together, and 60/40 had its worst real
-year on record. SOUL #6: the regime change is the risk.
+year on record. The regime change *is* the risk.
 
 **Q: Should I have predicted 2022 from the 2021 money supply data?**
 A: M2 grew about 26% from February 2020 to February 2021 — the largest
@@ -345,7 +347,7 @@ recessions until inflation expectations broke. The investing signal
 that the regime had flipped was the bond market: long bonds rallied
 violently in late 1981 as the market priced in lower future inflation,
 and that rally turned into a *forty-year bull market* in fixed income
-that ended only in 2021. SOUL #2 is the framing: you are not betting
+that ended only in 2021. The framing: you are not betting
 *on* inflation; you are recognising that you live inside a regime, and
 you should know what would mark the next regime flip.
 
@@ -355,8 +357,8 @@ ordinary income *in the year it accrues*, even though you do not
 receive the cash until the bond matures. This is called "phantom
 income." The honest answer for most households is: hold TIPS in an
 IRA or 401(k) (where the phantom income does not matter), and use
-I-bonds for the taxable account. SOUL #15 (location-not-allocation)
-applies cleanly here.
+I-bonds for the taxable account. Location-not-allocation applies
+cleanly here.
 
 **Q: What about real estate as an inflation hedge?**
 A: Direct real estate (your house, a rental property) is a decent
@@ -458,9 +460,9 @@ and then a giant lump.
 **Horace:** Exactly the right read. Inflation is *regime-ish*. It
 spends most of its time between zero and three per cent, and then a
 regime change — a war, a currency reset, a supply shock — and it
-spends ten or fifteen years above five. That's SOUL number two: the
-forty-year regime. You don't *predict* the regime change; you
-recognise the regime you're in.
+spends ten or fifteen years above five. That's the forty-year regime
+frame: you don't *predict* the regime change; you recognise the regime
+you're in.
 
 **Stella:** Where is the Fed target on this chart?
 
@@ -502,8 +504,8 @@ why gold is *not* the answer.
 **Horace:** The pattern in this chart is the most important pattern
 in this entire tutorial. The "safe" leg of the textbook portfolio —
 bonds — is the leg that gets you killed under inflation. The "risky"
-leg of real assets is the leg that saves you. SOUL number fourteen,
-the barbell, is built specifically for this.
+leg of real assets is the leg that saves you. The barbell stance
+is built specifically for this.
 
 ---
 
@@ -523,8 +525,8 @@ suppressed price.
 
 **Stella:** That's not really inflation hedging.
 
-**Horace:** Right. It's regime change — SOUL number two — combined
-with belief — SOUL number three. A store of value is whatever the
+**Horace:** Right. It's regime change — the forty-year kind —
+combined with belief. A store of value is whatever the
 next generation believes is one. In 1971, that was gold getting out
 of jail. The proof that the 1970s gold story is *not* generic
 inflation hedging is what happened in 2022.
@@ -625,14 +627,14 @@ The mix matters more than the absolute number on any given day.
 **Horace:** Three rules. One: in any bond sleeve, replace some
 fraction with TIPS. Five to ten per cent of total portfolio. Mechanical
 hedge, contractually guaranteed. Locate them in tax-advantaged accounts
-because the phantom income gets taxed annually — SOUL fifteen,
-location-not-allocation.
+because the phantom income gets taxed annually — location-not-
+allocation in action.
 
 **Stella:** Two?
 
 **Horace:** Stores-of-Value sleeve at five to ten per cent. Gold,
 commodities, maybe a little Bitcoin if you must. Treat as belief
-assets — SOUL three — not mechanical hedges. They might be
+assets — belief assets — not mechanical hedges. They might be
 magnificent. They might do nothing. Size accordingly.
 
 **Stella:** Three?

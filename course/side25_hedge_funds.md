@@ -12,8 +12,8 @@ Hedge funds are the most over-mythologised vehicle in finance.
 The trillion-dollar AUM, the billionaire founders, the locked-up
 capital, the manager letters that get screenshotted on Twitter --
 all of it conspires to make the asset class look like a separate
-species, accessible only through a velvet rope. Horace's SOUL #1
-says alpha is rare. SOUL #5 lists the five places it actually
+species, accessible only through a velvet rope. Alpha is rare,
+and there are five places it actually
 hides: structurally constrained capacity, information edge,
 behavioural anomalies, regulatory arbitrage, and skill in price
 discovery. The honest answer about hedge funds is that *all five
@@ -52,8 +52,8 @@ Four reasons this side lesson is worth twelve minutes:
    fund-of-funds wrapper and you keep ~2.0%. Compound that gap
    over decades against a 5 bp index ETF and the picture is the
    one Side 08 already showed: hedge fund ownership transfers
-   most of the equity premium to the manager, not the LP. SOUL
-   #1 is not "active management is bad." It is "active
+   most of the equity premium to the manager, not the LP. The
+   point is not "active management is bad." It is "active
    management is rare *and expensive*; the math has to work."
 4. **The retail proxy menu is a real thing now and you should
    know it.** Liquid alternatives -- BTAL (anti-beta), MERFX
@@ -198,6 +198,8 @@ Buffett donated his winnings ($2.2M, including the bet's
 appreciation in zero-coupon bonds and later Berkshire B shares)
 to Girls Inc. of Omaha.
 
+![Cumulative-wealth chart of $1 invested January 2008 through December 2017 in Vanguard's S&P 500 Admiral (VFIAX) versus a basket of five funds-of-hedge-funds picked by Protégé Partners. Year 1 (2008): both lines fall — S&P to $0.62, FoF basket to $0.76 (hedge funds did less badly but did not protect). From 2009 onward the S&P line accelerates relentlessly while the FoF basket grinds at single digits. End of 2017: S&P at $2.26 (+125.8% cumulative, 8.5%/yr CAGR); FoF basket at $1.36 (+36.3% cumulative, 3.2%/yr CAGR). The S&P returned more than three times the fund-of-funds. The chart is the single cleanest empirical refutation of the retail hedge-fund pitch.](image/side25_buffett_bet.png)
+
 #### 2.4 The HFRI Composite vs 60/40, 2000-Apr 2026
 
 Look at the wealth path. From January 2000 through April 2026:
@@ -224,6 +226,8 @@ for the average fund.
 Top-quartile managers continue to deliver. The category average
 does not. **Retail allocators almost certainly receive the
 category average.**
+
+![Cumulative-wealth chart of $1 invested January 2000 through April 2026 across three sleeves: HFRI Fund-Weighted Composite (the AUM-weighted hedge-fund industry average, blue), a 60/40 SPY/AGG portfolio rebalanced annually (green), and the S&P 500 alone (orange). HFRI ends at $4.85 (6.2%/yr, vol 7%, Sharpe 0.60); 60/40 ends at $5.30 (6.5%/yr, vol 9.5%, Sharpe 0.47); SPY ends at $7.60 (7.9%/yr, vol 15%, Sharpe 0.39). The HFRI line outpaces both 60/40 and SPY through the 2000-2008 stretch (the genuine hedge-fund mythology era), then stalls from 2009 onward — matching 60/40 in dollars and trailing SPY by a wide margin. The chart shows the regime divide that retail allocators almost never see in marketing material.](image/side25_hfri_vs_60_40.png)
 
 #### 2.5 Liquid Alternatives -- The Retail Substitute Menu
 
@@ -256,7 +260,7 @@ is the actual job description of an alternative sleeve.
 
 Sizing follows the same rule as Side 14 (private markets): a
 total alternative sleeve of 5-15% of portfolio, split across two
-or three uncorrelated strategies. Per SOUL #14, this is the
+or three uncorrelated strategies. This is the
 "non-correlated barbell tail" of the portfolio -- it earns less
 than equities in good markets and is the only thing that pays
 in 2008/2022-style scenarios.
@@ -289,7 +293,7 @@ weighted ER, daily liquid, no lockup, no K-1 (DBMF/RPAR are 1099
 ETFs; MERFX is mutual fund 1099-DIV; BTAL is 1099). Pair with
 core 60/40 or barbell. Done.
 
-This is the SOUL #1 + SOUL #16 conclusion: alpha is rare *and*
+The conclusion: alpha is rare *and*
 the access table is constrained. The retail investor's job is
 not to chase the alpha that hedge funds generate; it is to buy
 the *exposures* the alpha sleeves provide and skip the wrapper
@@ -739,7 +743,7 @@ quarterly and the historical drawdowns are honestly disclosed.
 
 If you find a fund with all four, and you can write the $5M+
 check, and you have 5 years of lockup tolerance -- go. That is
-where SOUL #1's "alpha is rare" actually pays.
+where "alpha is rare" actually pays.
 
 For the rest of us: liquid alts. Daily liquid. Transparent.
 1099. Boring. Effective.
@@ -764,7 +768,7 @@ of hedge fund strategies at 50-100 bp. DBMF, MERFX, BTAL, RPAR,
 QAI. Sized at 6-10% of portfolio, they do the job a 2/20
 hedge fund was supposed to do, at a tenth of the cost.
 
-SOUL #1: alpha is rare. The corollary nobody draws often enough:
+Alpha is rare. The corollary nobody draws often enough:
 when alpha is rare, the *fee load* matters more than the *fund
 selection*. A 50 bp ETF that earns 5% beats a 2/20 hedge fund
 that earns 9% gross. The math is not subtle.

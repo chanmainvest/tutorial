@@ -85,7 +85,7 @@ capital. The same leverage in a year where operating income drops to
 $20 million produces a loss for the leveraged owner and a small
 profit for the unlevered owner. Leverage does not change the
 business; it changes the variance of the equity return. As Horace
-puts it in SOUL #12, "the market can stay irrational longer than you
+puts it, "the market can stay irrational longer than you
 can stay solvent" — and a leveraged equity holder runs out of
 solvency far faster than an unlevered one.
 
@@ -184,7 +184,7 @@ exactly $1. Conservation of value says the two are equivalent.
 Three real-world frictions break the equivalence and matter for
 investors:
 
-- **Tax (SOUL #15).** In the US, qualified dividends are taxed each
+- **Tax.** In the US, qualified dividends are taxed each
   year as they are received. Buybacks defer the gain into the
   capital-gains box and let the holder choose when to realise it
   (or not — step-up at death erases it). For a high-income US
@@ -480,7 +480,7 @@ business.
 **Horace:** Because the leveraged owner also goes to zero in the
 bad year while the unlevered owner just has a bad year. Leverage
 doesn't change the business; it changes the variance of the equity.
-The SOUL principle applies — the market can stay irrational longer
+The same principle applies — the market can stay irrational longer
 than you can stay solvent — and a leveraged equity gets there
 faster.
 
@@ -607,7 +607,7 @@ Real world adds three frictions. One: tax. In the US, qualified
 dividends are taxed each year as you receive them. Buybacks defer
 the gain into the capital-gains box, controlled by you. For a
 high-bracket taxable holder, that deferral compounds into real
-money over decades. SOUL principle fifteen — tax efficiency is part
+money over decades. Tax efficiency is part
 of the toolkit, not a footnote.
 
 **Stella:** Two and three?

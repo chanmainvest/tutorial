@@ -24,14 +24,14 @@ You need this for four reasons.
    Short a stock, your *gain* is capped at 100% and your *loss* is
    unlimited. Most retail blow-ups in shorting come from people who
    do not internalise that asymmetry and size their shorts the same
-   way they size their longs. SOUL #6 — the option tail wags the
-   equity dog — is mostly a story about asymmetric short squeezes.
-   GameStop in January 2021 took a textbook-cheap short from
+   way they size their longs. The option tail wags the equity dog,
+   and the asymmetric short squeeze is mostly a story about that
+   dynamic. GameStop in January 2021 took a textbook-cheap short from
    $20 to $480 in three weeks and ended several professional
    short-only funds.
 
-2. **Alpha mostly lives on the short side or in the spread.** SOUL #5
-   names the durable alpha sources: liquidity, sector rotation,
+2. **Alpha mostly lives on the short side or in the spread.** The
+   durable alpha sources are liquidity, sector rotation,
    long-term trends, and buying what passive has abandoned. None of
    those are pure long-only trades. Three of the four are spread
    trades — long the cheap leg, short the expensive leg, hold the
@@ -132,10 +132,10 @@ shut down a year later.
 The lesson is not "never short." The lesson is **size shorts at a
 fraction of how you size longs, set hard stops, and never short an
 illiquid name with elevated short interest unless you have a
-specific structural thesis for the cover**. SOUL #6 is a useful
-anchor here — in the post-COVID options market, the option tail
-wags the equity dog, and a coordinated retail call buy-program is
-exactly the mechanism that lights the squeeze fuse.
+specific structural thesis for the cover**. The mechanism is
+worth remembering — in the post-COVID options market, the option
+tail wags the equity dog, and a coordinated retail call buy-program
+is exactly the mechanism that lights the squeeze fuse.
 
 The image below shows the four payoff diagrams side by side.
 
@@ -227,12 +227,12 @@ collar. The reasons:
   market-maker who sold you the put has hedged it through the
   futures and options markets, and the cost of borrow is folded
   into the option's price (you pay it, just less obviously).
-- **It is the barbell-shape, exactly.** SOUL #14 — the barbell —
-  is the right way to think about expressing short views. Hold most
-  of your wealth in safe, boring long-only positions; carve a small
-  fraction (2-5%) into asymmetric option structures that pay off
-  big in tail events but cap your loss at the premium.
-- **Tax efficiency, sometimes.** SOUL #15 reminds us that in a US
+- **It is the barbell-shape, exactly.** The barbell — most of
+  your wealth in safe, boring long-only positions, with a small
+  fraction (2-5%) carved into asymmetric option structures that
+  pay off big in tail events but cap your loss at the premium —
+  is the right way to think about expressing short views.
+- **Tax efficiency, sometimes.** In a US
   taxable account, options can defer or restructure realisation in
   ways a naked short cannot. A long-dated put leaves you with a
   single capital event at expiry rather than a continuous mark-to-
@@ -246,8 +246,8 @@ risk-budgeting purposes. For everyone else: prefer the option.
 
 #### 2.6 Where Alpha Actually Lives — and Why Long/Short Reaches More of It
 
-SOUL #5 enumerates the durable alpha sources. A useful taxonomy
-from the academic literature, mapped onto Horace's:
+The durable alpha sources are short in number. A useful taxonomy
+from the academic literature, mapped onto Horace's framing:
 
 | Edge | What it is | Long-only access? | L/S access? |
 |---|---|:---:|:---:|
@@ -459,7 +459,7 @@ price up. A gamma squeeze is forced *hedging* by option dealers
 who are short calls and must buy spot to stay delta-hedged as the
 stock rises. The two often happen together (GameStop, AMC), and
 that combined dynamic is what makes meme-stock squeezes so violent.
-SOUL #6's "option tail wags the equity dog" is precisely this
+The "option tail wags the equity dog" pattern is precisely this
 mechanism.
 
 **Q9: Why don't I just short the worst stocks I can find and go
@@ -483,7 +483,7 @@ Once you can run a pair without operational mistakes for three
 months, scale up the gross. Don't ever do this in size before you
 have done it small.
 
-**Q11: How does L/S fit with the four-tranche structure (SOUL #13)?**
+**Q11: How does L/S fit with the four-tranche structure?**
 
 A: L/S sits in the *opportunistic* tranche. The bedrock (passive
 index, long-bond, cash) and the *core* (factor tilts, core L/S
@@ -581,11 +581,11 @@ put — the constructive short. Capped loss at the premium, capped
 upside at the strike, but you got short exposure without ever
 having to borrow the stock.
 
-**Stella:** That's the SOUL #14 barbell shape.
+**Stella:** That's the barbell shape.
 
 **Horace:** Exactly. For most retail investors who want bearish
 exposure, do not actually short the stock. Buy a put. The loss is
-capped. The borrow is built in. Operationally it's clean. SOUL #14
+capped. The borrow is built in. Operationally it's clean. The barbell
 in one sentence: small premium, big asymmetric payoff. That's the
 constructive-short. Naked shorts are a tool for institutions
 running market-neutral books at scale.
@@ -602,7 +602,7 @@ hit the shorts. Shorts forced to cover into a vanishing supply.
 Price ran 20x in three weeks. Melvin Capital, 12 billion AUM
 hedge fund, lost half its assets that month.
 
-**Stella:** That's SOUL #6. The option tail wags the equity dog.
+**Stella:** That's the option tail wagging the equity dog.
 
 **Horace:** Exactly that. The post-COVID options market is large
 enough that retail call-buying campaigns can move the underlying
@@ -672,10 +672,10 @@ compounding.
 
 ---
 
-**[SEGMENT 6: WHERE ALPHA LIVES — SOUL #5]**
+**[SEGMENT 6: WHERE ALPHA LIVES]**
 
-**Horace:** Here's the philosophical payoff for the lesson. SOUL
-#5 — the durable alpha sources are liquidity, sector rotation,
+**Horace:** Here's the philosophical payoff for the lesson. The
+durable alpha sources are liquidity, sector rotation,
 long-term trends, and buying what passive flows have abandoned.
 Map those onto the academic taxonomy: information edge,
 interpretation edge, time-horizon edge, behavioural edge,

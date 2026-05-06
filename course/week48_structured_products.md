@@ -34,10 +34,9 @@ You need to understand these products for four reasons:
    25–30.** Every buffer ETF is a long zero-coupon bond plus a
    bull-call-spread plus a short put — three pieces, all of which we
    priced together in Week 29 with Black–Scholes. Once you see the
-   decomposition, the "magic" of the buffer disappears. SOUL #1
-   applies: alpha is rare, and a 79bps fee for arithmetic you can
-   reproduce in your own brokerage account is not alpha — it is a
-   convenience tax.
+   decomposition, the "magic" of the buffer disappears. Alpha is
+   rare, and a 79bps fee for arithmetic you can reproduce in your
+   own brokerage account is not alpha — it is a convenience tax.
 
 3. **The fees are far higher than the prospectus number.** A buffer
    ETF's headline expense ratio is around 0.79%. The hidden costs —
@@ -50,11 +49,11 @@ You need to understand these products for four reasons:
    1-year SPX options, costs around 5 basis points of slippage per
    leg, or ~20bps total. That is a 7-to-30× cost ratio.
 
-4. **The barbell and the tax wrapper still apply.** SOUL #14 says
-   the barbell sits on the *base* of the portfolio (boring
+4. **The barbell and the tax wrapper still apply.** A barbell sits
+   on the *base* of the portfolio (boring
    compounder) plus a small convex sleeve. A buffer ETF tries to
    sell you the *whole portfolio*: capped upside, cushioned
-   downside, no convex sleeve. SOUL #15 then notes that SPX options
+   downside, no convex sleeve. On the tax side, SPX options
    inside a DIY buffer are 1256 contracts — 60/40 long/short tax —
    while a buffer ETF is ordinary CG and the structured note is paid
    out as ordinary income at maturity. The post-tax difference
@@ -165,7 +164,7 @@ What is buried in the prospectus:
   investors holding Lehman-issued PPNs received pennies on the
   dollar in bankruptcy — even on notes that explicitly said
   "principal protected." The protection is unsecured senior debt of
-  the bank. SOUL #16 applies: only own US-listed claims you can
+  the bank. Stick to US-listed claims you can
   verify. ETFs are bankruptcy-remote; bank notes are not.
 - **Embedded fees of 200–400 bps.** The bank prices the note such
   that the all-in expected cost to the investor is 2–4% of notional,
@@ -186,6 +185,28 @@ the upside. Both pieces are bankruptcy-remote (Treasury is the
 sovereign, options are CCP-cleared). All-in cost: a tighter cap, no
 issuer credit risk, no illiquidity, and 1256-contract tax
 treatment.
+
+**Horace's view — I do not buy structured notes.** Bank credit risk
+is the unhedgeable risk in a US-equity-centric global portfolio
+where the tail-hedge sleeve is supposed to *reduce* exotic
+counterparty exposure, not add a new one — and the tax envelope on
+a CPDI-classified note is meaningfully worse than the DIY 1256
+alternative. The packaged product solves a problem retail investors
+do not have. If you cannot place the four legs yourself, hold the
+index; if you can, build the structure on Treasuries plus listed
+options and keep the bank's profit margin in your own pocket.
+
+The barbell-compatible DIY alternative is concrete and small. For a
+5-year horizon: buy a 5-year zero-coupon Treasury sized to your
+principal-protection target — that is the safety end of the barbell
+expressing itself, with the issuer being the US Treasury rather
+than a single bank balance sheet — then buy a 5-year SPX call (or a
+small ladder of LEAPs rolled forward) sized to the participation
+you wanted. Both legs are bankruptcy-remote, both are publicly
+priced, and the call leg gets 1256 60/40 treatment instead of CPDI
+ordinary income. The shape is exactly what the structured note was
+trying to sell you, with the wrapper cost and the credit risk both
+removed.
 
 #### 2.5 The Three Conditions Under Which the Packaged Product Wins
 
@@ -209,12 +230,13 @@ There are situations where buying the wrapper is rational:
    structure indirectly.
 
 Outside these three conditions, the DIY version is strictly better
-on cost and tax. SOUL #1: alpha is rare, and 80bps for an
+on cost and tax. Alpha is rare, and 80bps for an
 arithmetic identity is not alpha.
 
 #### 2.6 The Barbell Read on Buffered Products
 
-SOUL #14 frames the portfolio as a base (boring, compounding) plus
+The barbell view frames the portfolio as a base (boring,
+compounding) plus
 a small convex sleeve. Buffered ETFs collapse both legs into a
 single flat-payoff structure: capped upside, buffered downside,
 convex sleeve sold to *finance* the structure (the short put leg).
@@ -225,7 +247,7 @@ of the cap). What remains is the middle of the distribution.
 
 For most retail compounders this is the wrong trade. The middle of
 the distribution is what you already get from index funds; the
-tails are where the volatility-tail-wags-the-dog (SOUL #6)
+tails are where the volatility-tail-wags-the-dog effect
 compounding shows up. Paying 80bps to *delete* both tails is not
 insurance — it is a tactical bet that the index will spend the year
 between -15% and +18%. The 1928–2024 base rate for that range is
@@ -414,8 +436,8 @@ that fee is worth it, you should know what is inside the wrapper.
 
 **Horace:** I have an opinion. The opinion is that for anybody
 who finished Weeks 25 through 30 of this course, the wrapper is
-roughly ten times more expensive than the DIY version. SOUL #1
-says alpha is rare, and an arithmetic identity priced at 80 basis
+roughly ten times more expensive than the DIY version. Alpha is
+rare, and an arithmetic identity priced at 80 basis
 points a year is not alpha — it is a convenience tax on retail.
 
 **Stella:** Let's tear it apart.
@@ -526,7 +548,7 @@ went bankrupt in 2008, investors holding Lehman PPNs got about
 nine cents on the dollar. The "protection" is unsecured senior
 debt — it is only as good as the bank's ability to pay.
 
-**Stella:** SOUL #16 — own US-listed claims you can verify.
+**Stella:** Own US-listed claims you can verify.
 
 **Horace:** Right. ETFs are trust structures. Notes are bank debt.
 Different beasts.
@@ -601,7 +623,7 @@ better on cost and tax. 25bps DIY versus 91bps ETF, with 1256
 
 **[SECTION 5 — The barbell read — 13:00 to 15:30]**
 
-**Stella:** SOUL #14 says the barbell sits on a boring base plus
+**Stella:** A barbell sits on a boring base plus
 a small convex sleeve. Where does the buffer ETF fit?
 
 **Horace:** It does not fit. It is anti-barbell. The buffer cuts
@@ -618,7 +640,7 @@ basis points. Paying 80bps to delete both tails is not insurance
 about 55%. You are paying a fee to be right 55% of the time on a
 binary question.
 
-**Stella:** And SOUL #6 — the tail wags the dog.
+**Stella:** And the volatility tail wagging the dog.
 
 **Horace:** That is the deeper objection. If a small handful of
 extreme moves dominate the long-run return distribution, then
@@ -680,7 +702,7 @@ close call.
 with options at one-tenth the cost. The fee on the wrapper is a
 convenience tax — sometimes worth paying, usually not. The
 deeper issue is that the *shape* of the buffered payoff is the
-wrong shape for long-horizon compounders. SOUL #14 wants tails;
+wrong shape for long-horizon compounders. The barbell wants tails;
 buffered products delete tails.
 
 **Stella:** So when your advisor pitches you a buffer ETF...

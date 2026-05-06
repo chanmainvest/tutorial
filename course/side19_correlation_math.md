@@ -203,8 +203,8 @@ more names past about 25 is decoration.
 
 If the menu is genuinely orthogonal — equities, long Treasuries,
 short Treasuries, gold, managed futures, options-based defensive
-strategies — you are using SOUL #14 (the barbell) and SOUL #13 (four
-tranches) to get correlations across the *categories* down toward
+strategies — you are using the barbell and the four-tranche
+framework to get correlations across the *categories* down toward
 zero, even if within each tranche the correlations are high.
 
 #### 2.6 Two Practical Implications
@@ -227,7 +227,7 @@ implied correlations of -0.4 when the true crisis correlation was
 +0.3.
 
 This is the formal version of Horace's recurring point that the
-*tail of the distribution wags the dog* (SOUL #6). Diversification
+*tail of the distribution wags the dog*. Diversification
 that fails in the tail is not diversification — it is a fee paid in
 calm markets for nothing in return.
 
@@ -378,7 +378,7 @@ Five is enough: US equities, international equities, US Treasuries
 (short and long together count as one), gold or commodities, and one
 defensive overlay (managed futures, tail hedging, cash). Each
 additional class adds vanishing benefit, each requires monitoring and
-rebalancing, and the SOUL framework (#13 four tranches + cash) is
+rebalancing, and the four-tranche-plus-cash framework is
 basically this list.
 
 **Q10: How do I actually compute portfolio variance from real data?**
@@ -472,7 +472,7 @@ names. Stacking names 31 through 500 buys you nothing.
 **Stella:** The covariance matrix says: spend your diversification
 budget on different asset classes, not on different names.
 
-**Horace:** Exactly. That's why SOUL principle 13 — four tranches —
+**Horace:** Exactly. That's why the four-tranche framework
 matters more than picking thirty stocks. Each tranche is a different
 asset-class beta, and the cross-tranche correlations are where the
 real risk reduction lives.
@@ -517,9 +517,9 @@ flips sign. This isn't unprecedented — equity-bond correlation was
 positive on average from 1965 through 1998. It's a regime feature,
 not an anomaly.
 
-**Stella:** And the SOUL principle hiding underneath this is number
-two — that the post-1980 regime of disinflation and falling rates,
-which made passive 60/40 work, is the regime that flipped.
+**Stella:** And the underlying point is that the post-1980 regime of
+disinflation and falling rates, which made passive 60/40 work, is
+the regime that flipped.
 
 **Horace:** Right. And the rolling correlation chart is the early-
 warning indicator. By Q1 2022 the correlation had already crossed
@@ -557,7 +557,7 @@ diversified portfolio. If it only works at calm-regime correlations,
 you have a leveraged bet on the calm regime continuing. Most
 "diversified" retail portfolios I see fall into the second category.
 
-**Stella:** This is also why the barbell — SOUL principle 14 —
+**Stella:** This is also why the barbell
 matters. The fortress side has to be in instruments that do not
 participate in deleveraging. Cash. Short Treasuries. Tail hedges that
 pay out *because* of the deleveraging.

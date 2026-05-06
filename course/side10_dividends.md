@@ -42,8 +42,8 @@ Modigliani-Miller:
    is, for many retail investors, the difference between staying
    invested through a 30% drawdown and capitulating at the bottom.
    That preference is not irrational; it is just not in the textbook.
-   Horace's `course/SOUL.md` #12 — *the market can stay irrational
-   longer than you can stay solvent* — applies to the investor too.
+   The old line — *the market can stay irrational longer than you can
+   stay solvent* — applies to the investor too.
 4. **Dividend funds are a real allocation, not a meme.** SCHD alone
    crossed $70B in AUM by 2025, with VYM, DGRO, and NOBL adding
    another ~$120B between them. This is one of the largest single
@@ -56,7 +56,7 @@ Modigliani-Miller:
 ![Three-bar grouped chart for SCHD, VYM, DGRO, NOBL, and SPYI showing five-year annualised total return, trailing five-year dividend growth rate, and current trailing twelve-month yield. SCHD and DGRO lead on growth; SPYI leads on yield with near-zero dividend growth; NOBL pays the lowest yield but has the longest growth track record.](image/side10_div_etf_compare.png)
 
 This lesson is the operating manual for the income tranche — the
-*Income* slot in the four-tranche stack of `SOUL.md` #13. You will
+*Income* slot in the four-tranche stack. You will
 not learn whether dividends are "good" or "bad"; that is the wrong
 question. You will learn which payments qualify for the lower
 schedule, what dividend growth actually buys you, how to tell the
@@ -229,7 +229,7 @@ In the *real* world the assumption breaks in three places:
    investor who sells $4 of stock chooses *when* to realise the
    gain; the investor who receives a $4 dividend has no such choice.
    At a 32% ordinary rate (non-qualified) that is a 1.28% friction
-   per year *imposed* on you. SOUL #15.
+   per year *imposed* on you. Tax via the wrapper matters.
 2. **Transaction costs.** Selling $4 of a $100 stock costs nothing
    on a commission-free broker, but it costs *attention* — a real
    resource for many investors. The dividend is automatic. The "rip
@@ -388,8 +388,8 @@ because it makes the long-term compounding tangible — even if it has
 no implication for forward expected return.
 
 **Q10. Do dividend ETFs work outside the US?**
-Yes, but US investors should stick to US-listed wrappers. Per
-`course/SOUL.md` #16, the US is the only equity market with the
+Yes, but US investors should stick to US-listed wrappers. The US
+is the only equity market with the
 liquidity, governance, and ETF infrastructure where retail can
 operate confidently. SCHD, VYM, DGRO, NOBL, and SPYI are all
 US-listed and US-domiciled. Do not buy the Irish-domiciled
@@ -399,8 +399,8 @@ PFIC-status nightmares.
 **Q11. What is the right size for the income sleeve in a four-tranche
 portfolio?**
 For a 50-year-old with a 15-year accumulation runway, ~25% of total
-financial assets in the income tranche is a defensible default
-(`course/SOUL.md` #13). For a 65-year-old in early retirement, 35-45%
+financial assets in the income tranche is a defensible default. For
+a 65-year-old in early retirement, 35-45%
 is more typical. The split *within* the sleeve between dividend
 ETFs, bonds, and premium-write is what `course/week36_income_portfolio.md`
 walks through.
@@ -579,7 +579,7 @@ the same discipline they cash a dividend cheque. Third, signalling —
 a board that raises the dividend is signalling expected future cash
 flow; the market reads it.
 
-STELLA: SOUL #12.
+STELLA: Stay solvent before you try to be right.
 
 HORACE: Yes — the market can stay irrational longer than you can stay
 solvent, and that applies to the investor too. A 70-year-old whose

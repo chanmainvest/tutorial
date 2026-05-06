@@ -18,7 +18,7 @@ There are four reasons this lesson exists in spite of the conclusion it lands on
 
 3. **There is a hedged version, and it is not free.** ETFs like HEFA (iShares MSCI EAFE Hedged) and DBEF (Xtrackers MSCI EAFE Hedged) systematically remove the currency overlay using rolling forward contracts. The cost of the hedge is approximately the **interest-rate differential** between the US and the foreign country, plus a small operational drag. With Fed funds at 4.5% and ECB at 2.5% in April 2026, hedging EUR exposure costs you roughly 2% per year before you have earned a single basis point on the equity. Over decades, those hedge costs compound into a real handicap.
 
-4. **The conclusion is contrarian to the textbook and matches SOUL #16.** The world's best-in-class businesses — chip design, hyperscale cloud, payments, biotech, defence majors — are disproportionately US-listed. The S&P 500 already has roughly 40% of its revenue coming from outside the US, so you are buying global earnings via American legal protection and dollar settlement. Adding broad EXUS (ex-US) exposure layers a currency overlay and a governance discount on top of earnings you largely already own. For most US-based retail readers, the right size for international exposure is **5-15% of equity**, **hedged**, used as a small diversifier rather than a strategic pillar. This week will walk you through *why* that is the conclusion, not just hand it to you.
+4. **The conclusion is contrarian to the textbook.** The world's best-in-class businesses — chip design, hyperscale cloud, payments, biotech, defence majors — are disproportionately US-listed. The S&P 500 already has roughly 40% of its revenue coming from outside the US, so you are buying global earnings via American legal protection and dollar settlement. Adding broad EXUS (ex-US) exposure layers a currency overlay and a governance discount on top of earnings you largely already own. For most US-based retail readers, the right size for international exposure is **5-15% of equity**, **hedged**, used as a small diversifier rather than a strategic pillar. This week will walk you through *why* that is the conclusion, not just hand it to you.
 
 The travel brochure argues for a 30-40% international weight. The plumbing argues for closer to zero. This lesson lands in between, with the bias toward zero.
 
@@ -83,7 +83,7 @@ The Nikkei 225 peaked at 38,915 on December 29, 1989. It did not regain that lev
 
 A US-based investor who bought Japanese equities at the 1989 peak in *yen* terms is still close to break-even over 35 years. The same investor who bought via an unhedged dollar-denominated vehicle had a meaningfully worse experience because the yen weakened roughly 30% against the dollar over the same period. The investor who hedged the yen exposure had a slightly better experience but still spent 25 years underwater. Diversifying *out of* Japan into US equities in 1989 would have produced one of the best 30-year stretches in market history — but only if you had identified Japan as the bubble *at the time*, which the consensus emphatically did not.
 
-The mirror image applies looking forward from April 2026. The S&P 500 has compounded at roughly 13% annualised for the past 15 years, driven by a small handful of US tech megacaps. CAPE sits in the most expensive decile of US-stock-market history (Week 21). It is entirely possible — not predicted, but possible — that the next 15 years for US equities look more like 1990s Japan than the 2010s. The honest defence against that scenario is a small allocation to non-US developed (hedged), a small allocation to emerging (unhedged, sized for ruin), and the four-tranche framework from SOUL #13. **Diversification is insurance, not arbitrage.** It costs a little in expected return for a little less variance in possible outcomes. Buying EXUS because "Japan once happened" is a reasonable insurance trade. Buying it because "international should outperform" is a story you cannot defend with the data.
+The mirror image applies looking forward from April 2026. The S&P 500 has compounded at roughly 13% annualised for the past 15 years, driven by a small handful of US tech megacaps. CAPE sits in the most expensive decile of US-stock-market history (Week 21). It is entirely possible — not predicted, but possible — that the next 15 years for US equities look more like 1990s Japan than the 2010s. The honest defence against that scenario is a small allocation to non-US developed (hedged), a small allocation to emerging (unhedged, sized for ruin), and the four-tranche framework. **Diversification is insurance, not arbitrage.** It costs a little in expected return for a little less variance in possible outcomes. Buying EXUS because "Japan once happened" is a reasonable insurance trade. Buying it because "international should outperform" is a story you cannot defend with the data.
 
 #### 2.5 The Post-2010 Structural Dollar Bid
 
@@ -96,7 +96,7 @@ Something changed around 2011-2014. The DXY broke out of a 30-year range, and de
 
 The 2025 administration's tariff and dollar-policy shift was the first serious challenge to the structural bid in over a decade. The DXY fell ~12% from its early-2025 peak through April 2026. Whether that is the start of a multi-year reset or a tactical retracement inside the longer-term bid is not knowable from the chart alone. What it does mean: **the dollar's direction over the next decade is more uncertain than at any point since the Plaza Accord**. That uncertainty is itself an argument for hedging — both directions of FX surprise hurt, and removing the variable lets you hold international equities for the equity reasons.
 
-#### 2.6 The Honest Conclusion — Per SOUL #16
+#### 2.6 The Honest Conclusion
 
 The four constraints stack on top of each other:
 
@@ -105,7 +105,7 @@ The four constraints stack on top of each other:
 3. **Your liabilities are USD-denominated.** Rent, groceries, healthcare, retirement spending — all settle in dollars. Holding unhedged international equity is a structural short on your own home currency, which is the wrong direction of FX bet for someone whose bills are in dollars.
 4. **The S&P 500 is already global.** Roughly 40% of S&P revenue comes from outside the US. You are not missing global earnings by holding US-listed stocks; you are accessing them through American legal protection.
 
-Per SOUL principle #16, the developed-market equity book a serious retail investor should hold is **US-listed companies as the default**, with a small (5-15%) international sleeve held in **hedged form** as a diversifier. Emerging markets, if held at all, sit in a "tranche 4" exploration sleeve (SOUL #13) sized for total loss. The travel-brochure 40% international weight does not survive the four constraints above. The plumbing wins.
+The developed-market equity book a serious retail investor should hold is **US-listed companies as the default**, with a small (5-15%) international sleeve held in **hedged form** as a diversifier. Emerging markets, if held at all, sit in a tranche-4 exploration sleeve sized for total loss. The travel-brochure 40% international weight does not survive the four constraints above. The plumbing wins.
 
 The interactive lab `interactive/week22_fx_lab.html` lets you crank the two underlying levers — annual USD strengthening and foreign equity local return — and watch the unhedged versus hedged USD totals diverge in real time, with one-click presets for the 1985 Plaza, 2002 EUR creation, 2014 USD bid, and 2025 reset regimes. Spend ten minutes there before deciding what your international weight should be.
 
@@ -121,7 +121,7 @@ The interactive lab `interactive/week22_fx_lab.html` lets you crank the two unde
 6. **"The S&P 500 is purely a US bet."** It is 40-45% global by revenue. A weak dollar already helps S&P earnings translation; a strong dollar hurts. You already have currency exposure through US large-caps; adding more via EXUS doubles up.
 7. **"I should match my portfolio to global market-cap weights."** This is the classic "global passive" argument. It ignores the four constraints above (governance, hedge cost, USD liabilities, embedded global exposure). The cap-weighted global portfolio is a textbook construct, not an investable plan for a US retail investor.
 8. **"Hedging defeats the purpose of international investing."** It defeats one purpose (currency diversification) and preserves another (equity diversification across countries, sectors, central banks). Most of the diversification benefit literature was written before low-cost hedged ETFs existed; updated studies favour hedged.
-9. **"PPP says the dollar is overvalued, so EXUS will outperform."** PPP is a 5-15-year anchor at best, and currencies routinely run 30%+ from PPP for a decade. As Keynes put it (SOUL #12), the market can stay irrational longer than you can stay solvent — and that is doubly true in FX.
+9. **"PPP says the dollar is overvalued, so EXUS will outperform."** PPP is a 5-15-year anchor at best, and currencies routinely run 30%+ from PPP for a decade. As Keynes put it, the market can stay irrational longer than you can stay solvent — and that is doubly true in FX.
 10. **"ADRs are the same as buying the foreign stock."** ADRs trade in USD on US exchanges, but they still carry the underlying currency exposure (the ADR price moves with both the home-market price and the FX rate). They are convenient access; they are not a hedge.
 
 ---
@@ -147,10 +147,10 @@ A: Roughly half the gap was the equity itself (US tech compounded faster than Eu
 A: Mechanically the same currency exposure, but with extra friction. Buying Toyota directly on the Tokyo exchange requires a JPY brokerage account, JPY funding, withholding tax forms, and worse spreads than the TM ADR. For a retail investor, ADR (TM, NSRGY, SHEL, etc.) or hedged ETF (HEFA) is essentially always the right choice — direct foreign-exchange ownership pays no extra premium for the extra paperwork.
 
 **Q: The DXY chart shows a 12% drop from early 2025 — does that mean unhedged international is now the trade?**
-A: It means unhedged international has *already* outperformed hedged international over the last twelve months. Whether that continues depends on whether the 2025 reset is the start of a multi-year dollar bear or a tactical retracement inside the longer-term bid. Trying to time which it is, is exactly the sort of macro call SOUL #12 warns against. The honest answer: hold the hedged base position, and add a small unhedged sleeve only if you have a specific FX thesis you can defend.
+A: It means unhedged international has *already* outperformed hedged international over the last twelve months. Whether that continues depends on whether the 2025 reset is the start of a multi-year dollar bear or a tactical retracement inside the longer-term bid. Trying to time which it is, is exactly the sort of macro call you cannot reliably win — the market can stay irrational longer than you can stay solvent. The honest answer: hold the hedged base position, and add a small unhedged sleeve only if you have a specific FX thesis you can defend.
 
 **Q: What about the European Stoxx 600 vs MSCI EAFE? Are they interchangeable?**
-A: Stoxx 600 is Europe-only; EAFE includes Japan, Australia, and Hong Kong (with all the SOUL #16 caveats on HK). For a US investor wanting one developed-international exposure, EAFE-based ETFs (EFA / HEFA / IEFA) are the more diversified default. Pure-Europe ETFs (FEZ, IEUR) make sense only if you have a specific Europe-only thesis.
+A: Stoxx 600 is Europe-only; EAFE includes Japan, Australia, and Hong Kong (with all the usual caveats on HK governance and capital controls). For a US investor wanting one developed-international exposure, EAFE-based ETFs (EFA / HEFA / IEFA) are the more diversified default. Pure-Europe ETFs (FEZ, IEUR) make sense only if you have a specific Europe-only thesis.
 
 **Q: Does the post-2008 quantitative-easing regime change the international diversification math?**
 A: Yes, materially. Coordinated central-bank action (Fed, ECB, BoJ all easing or tightening together) has driven equity correlations across developed markets above 0.8 — much higher than the pre-2008 ~0.6 the textbook studies were built on. You get less diversification benefit from EXUS in the QE-era than the academic literature suggests, which is another reason to size the international sleeve small.
@@ -159,7 +159,7 @@ A: Yes, materially. Coordinated central-bank action (Fed, ECB, BoJ all easing or
 A: ACWI (iShares MSCI ACWI, ~0.32% expense ratio) holds ~3,000 global names cap-weighted. It is roughly 60% US, 30% developed-international (unhedged), and 10% emerging. For a reader who wants a *single* equity ETF and refuses to think about geographic weights, ACWI is defensible. For anyone willing to think about it for ten minutes, the right shape is "VOO + small HEFA + tiny VWO" with explicit weights — same exposure with hedged developed and lower expense ratios.
 
 **Q: What FX-related signals actually matter for portfolio decisions?**
-A: Three: (1) the **interest-rate differential** between the US and the foreign country (predicts hedge cost over the next year), (2) the **PPP gap** (5-15-year mean-reversion anchor), and (3) the **direction of the broad trade-weighted dollar** (DTWEXBGS, not DXY) over the past 12 months (momentum signal — see SOUL #8 on regime-aware playbooks). DXY itself is a news-watch instrument, not a decision input.
+A: Three: (1) the **interest-rate differential** between the US and the foreign country (predicts hedge cost over the next year), (2) the **PPP gap** (5-15-year mean-reversion anchor), and (3) the **direction of the broad trade-weighted dollar** (DTWEXBGS, not DXY) over the past 12 months (momentum signal — every market has a momentum reading and a mean-reversion reading, and you choose your playbook by regime). DXY itself is a news-watch instrument, not a decision input.
 
 ---
 
@@ -299,7 +299,7 @@ A: Three: (1) the **interest-rate differential** between the US and the foreign 
 
 **STELLA:** And you're telling me the same thing applies to US tech today.
 
-**HORACE:** I am not predicting the next thirty years for US large-cap looks like Japan. I am telling you the *possibility* that it does is non-trivial, and the honest defence against that scenario is a small allocation to something else. Hedged developed-international is the cleanest "something else" available to a US retail investor. SOUL principle thirteen — four tranches — has the small international sleeve sitting in tranche two or three, sized for diversification, not sized to win.
+**HORACE:** I am not predicting the next thirty years for US large-cap looks like Japan. I am telling you the *possibility* that it does is non-trivial, and the honest defence against that scenario is a small allocation to something else. Hedged developed-international is the cleanest "something else" available to a US retail investor. The four-tranche framework has the small international sleeve sitting in tranche two or three, sized for diversification, not sized to win.
 
 ---
 
@@ -327,7 +327,7 @@ A: Three: (1) the **interest-rate differential** between the US and the foreign 
 
 **HORACE:** The constraints stack up, and they are all pointing the same direction.
 
-One. Capital controls and governance — China is uninvestable per SOUL sixteen, India is operationally hostile for most US retail accounts, Russia is closed. Most of EM is gated.
+One. Capital controls and governance — China is uninvestable for our purposes, India is operationally hostile for most US retail accounts, Russia is closed. Most of EM is gated.
 
 Two. Hedge cost — small but real on developed, prohibitive on emerging.
 
@@ -337,7 +337,7 @@ Four. The S&P 500 is already forty percent global by revenue. You are not missin
 
 **STELLA:** So the number is —
 
-**HORACE:** Five to fifteen percent of equity in hedged developed-international, zero to five in emerging if at all, and the rest in US-listed names. Per SOUL sixteen — the US market *is* the global market for a serious retail investor in 2026. EXUS is a small diversifier, not a strategic pillar.
+**HORACE:** Five to fifteen percent of equity in hedged developed-international, zero to five in emerging if at all, and the rest in US-listed names. The US market *is* the global market for a serious retail investor in 2026. EXUS is a small diversifier, not a strategic pillar.
 
 **STELLA:** That is the opposite of what the textbook says.
 

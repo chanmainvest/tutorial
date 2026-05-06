@@ -22,7 +22,7 @@ in the bond chapter:
 1. **One forty-year regime ended on your watch.** From the August 1981
    Volcker peak (Fed funds 19%) until the March 2022 lift-off, every
    tightening cycle ended at a *lower* terminal rate than the previous
-   one. SOUL #2 calls this the bond bull. It is now over. The 2022-23
+   one. That four-decade bond bull is now over. The 2022-23
    cycle delivered 525 basis points in eighteen months — the fastest
    pace since Volcker — and the post-2024 normalisation is settling at a
    "neutral" closer to 3% than to the 0% the post-2008 generation
@@ -48,8 +48,8 @@ in the bond chapter:
    policy rate. Conversely, when it buys (QE), it eases without cutting.
    The 2008-2014 expansion ($870B → $4.5T), the 2020 surge ($4.2T →
    $9.0T), and the 2022-2026 unwind ($9.0T → $6.5T) all changed asset
-   prices independently of the FOMC press release. SOUL #6 — vol tail
-   wags the dog — applies to the balance sheet too: the marginal buyer
+   prices independently of the FOMC press release. The vol tail
+   wags the dog on the balance sheet too: the marginal buyer
    of duration matters.
 
 This is a working tool, not civics. By the end of the lesson you will
@@ -115,7 +115,7 @@ dot is the implicit estimate of "neutral"**. In April 2026 the
 longer-run cluster sits at 2.75-3.00%, up from the 2.5% standing
 estimate that prevailed for most of the 2010s. That single 25-bp shift
 is the most important number in the whole document — it is the regime
-change SOUL #2 has been tracking.
+change this lesson has been tracking.
 
 #### 2.3 The Tools — FFR Target, IOER, ON-RRP, and the Balance Sheet
 
@@ -216,7 +216,7 @@ September 2024. By April 2026 the FFR sits at 3.50-3.75%, with the dot
 plot pointing to ~3.0% by end-2027 and a longer-run "neutral" near
 2.75-3.00%. The cycle is over; the new equilibrium is settling.
 
-The investing read-through (SOUL #2 + #14): **stop assuming the Fed
+The investing read-through: **stop assuming the Fed
 will always rescue duration**. The 2008-2021 muscle memory was that
 every 10% drawdown brought a cut. The 2022-23 cycle proved that a Fed
 fighting inflation will tolerate a 25% equity drawdown and a 30% bond
@@ -252,7 +252,7 @@ the Fed put strikes 20% lower than it used to, not 5%.
 5. **"QE creates inflation."** Reserves are not money. The 2010-2019
    period had $4T of QE and 1.5% average CPI. The 2020-22 inflation came
    from the *fiscal* transfer plus supply-chain breaks; QE was a
-   contributor, not the cause. SOUL #6: do not confuse correlation with
+   contributor, not the cause. Do not confuse correlation with
    causation in regime data.
 6. **"The Fed targets the 10-year."** The Bank of Japan targets a long
    yield (yield-curve control). The Fed has explicitly refused to,
@@ -272,8 +272,9 @@ the Fed put strikes 20% lower than it used to, not 5%.
    the 2y by 30-40 bp on words alone — without a single open-market
    trade. Words *are* policy when they shift expectations.
 10. **"I can't trade the FOMC."** You cannot reliably predict the
-    decision, but you can reliably *position* for the regime. SOUL #14:
-    barbell. SOUL #6: vol tail wags dog around the announcement — sell
+    decision, but you can reliably *position* for the regime. Hold a
+    barbell of cheap-and-safe plus bounded lottery tickets. The
+    vol tail wags the dog around the announcement — sell
     short-dated vol *into* the meeting, not after.
 
 ---
@@ -321,7 +322,7 @@ by reading both.
 
 **Q: How do I trade a Fed week without getting whipsawed?**
 A: Don't increase position size in the seventy-two hours around an
-FOMC meeting. SOUL #6: vol tail wags dog. Implied vol on the day is
+FOMC meeting. The vol tail wags the dog. Implied vol on the day is
 typically 30-40% above realised; selling that vol in size is one of
 the cleaner short-dated trades. If you need direction, wait for the
 press conference to end and the curve to settle.
@@ -364,7 +365,7 @@ A: Empirically, the 10-year *bottoms* about three months *before* the
 first cut and is choppy through the cutting cycle. The actual textbook
 "buy bonds before the Fed cuts" trade has worked in 4 of the last 6
 cycles (1989, 2001, 2008, 2019) and lost in 2 (1995, 2024 partial).
-SOUL #14 four-tranche says hold a permanent strategic duration sleeve;
+The four-tranche framework says hold a permanent strategic duration sleeve;
 do not try to time the cycle.
 
 **Q: What does the Fed know that I don't?**
@@ -380,7 +381,7 @@ runoff, and watch the implied 2y / 10y / 30y mortgage / S&P 500 P/E
 fall out of the same pass-through coefficients the desks use. Match
 your assumptions against the median dot. If your numbers diverge from
 the committee's by more than 50 bp, you are taking a forecasting bet —
-size it like SOUL #1 says: rare, sized, and bounded.
+size it the way any forecasting bet should be sized: rare, sized, and bounded.
 
 ---
 
@@ -458,7 +459,7 @@ Two reading rules. The median moves markets, the tails don't. And the
 longer-run dot is the implicit estimate of "neutral." In April 2026
 that longer-run dot sits at 2.75-3.00%. That is up from 2.5% for most
 of the 2010s. That single 25-bp shift is the single most important
-number in this entire video. It is the regime change SOUL #2 has been
+number in this entire video. It is the regime change this lesson has been
 tracking.
 
 ---
@@ -554,8 +555,8 @@ longer-run neutral near 2.75-3.00%.
 
 STELLA: What's the lesson?
 
-HORACE: SOUL #2 — the forty-year regime ended on your watch. SOUL #14 —
-build the barbell on the assumption that the Fed put strikes 20% lower
+HORACE: The forty-year bond bull ended on your watch. Build your
+barbell on the assumption that the Fed put strikes 20% lower
 than it used to, not 5%. The 2008-2021 muscle memory of "Fed always
 rescues duration on a 10% drawdown" is wrong for the next decade.
 
@@ -572,7 +573,7 @@ Two: the dual mandate is your regime indicator. Fighting inflation
 means duration sells off. Fighting unemployment means duration rallies.
 
 Three: do not size up around FOMC week. Sell the implied vol if you can
-take the risk; sit out if you can't. SOUL #6 — vol tail wags dog.
+take the risk; sit out if you can't. The vol tail wags the dog.
 
 Next side lesson: ETFs versus mutual funds, the structural advantage
 that won the last twenty years. See you there.

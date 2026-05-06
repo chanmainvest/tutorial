@@ -28,8 +28,8 @@ You need this material for four reasons.
    pitch, every YouTube quant influencer leads with a backtest.
    If you cannot reflexively spot survivorship bias, look-ahead
    bias, and the multiple-testing trap, you will mis-allocate
-   capital. SOUL #1 says alpha is rare; almost every backtest
-   is selling you alpha. Reconcile.
+   capital. Alpha is rare; almost every backtest is selling you
+   alpha. Reconcile.
 2. **The deflated Sharpe ratio is now the institutional standard.**
    Bailey and Lopez de Prado's 2014 paper formalised what
    sceptical practitioners always knew: try a thousand strategies,
@@ -44,13 +44,13 @@ You need this material for four reasons.
    Most "discoveries" by retail systems live or die on cost
    modelling — which is why the slick PowerPoints all quietly
    omit it.
-4. **Backtesting connects to SOUL #1, #6, #12, and #16.** Alpha
-   is rare (#1). Vol-tail wags the dog so a five-year backtest
-   without a crisis is meaningless (#6). Markets stay irrational
-   long enough to stop you out before reverting (#12). And the
+4. **Backtesting connects to four enduring ideas.** Alpha is
+   rare. The vol tail wags the dog — a five-year backtest
+   without a crisis is meaningless. Markets stay irrational
+   long enough to stop you out before reverting. And the
    liquid US equity universe is the one place a sceptical
    backtester can actually validate point-in-time data without
-   drowning in survivor noise (#16).
+   drowning in survivor noise.
 
 This lesson walks through the seven canonical backtest pathologies,
 the math of the deflated Sharpe, and a working calculator that
@@ -260,8 +260,8 @@ buckets (Week 10's framework) and report Sharpe, drawdown, and
 hit-rate **within each regime**. A strategy that works in three
 of four regimes and fails in one is potentially deployable with
 a regime overlay. A strategy that only works in one regime is a
-beta exposure dressed up as alpha. SOUL #2: the 1980-2020 regime
-was anomalous; do not let your sample window inherit its
+beta exposure dressed up as alpha. The 1980-2020 regime was
+anomalous; do not let your sample window inherit its
 flattering arithmetic.
 
 The interactive at the end of this lesson lets you drag five
@@ -279,8 +279,8 @@ collapse instantly under realistic settings.
 1. **"My backtest looks great, so the strategy works."** Your
    backtest is a *best-case* simulation under your particular
    choices of data, costs, and timing. The realised performance
-   is almost always worse — and SOUL #1 says alpha is rare, so
-   the prior on any backtest is that it is overstated.
+   is almost always worse — and alpha is rare, so the prior on
+   any backtest is that it is overstated.
 2. **"Survivorship bias is a problem only for small-caps."** It
    is a problem everywhere. Lehman, Bear, WorldCom, Enron, GE
    removed from the Dow — all large-cap. The bias is universal;
@@ -303,7 +303,8 @@ collapse instantly under realistic settings.
    (Bonferroni, FDR, or DSR) is mandatory.
 7. **"Deflated Sharpe is too conservative — it kills good
    strategies."** It kills *most* strategies, and that is
-   correct. SOUL #1 again: alpha is rare.
+   correct. Alpha is rare — the deflation is just that fact in
+   formula form.
 8. **"Higher in-sample Sharpe is better."** Higher in-sample
    Sharpe with fixed sample size and fixed turnover is better,
    yes. Higher in-sample Sharpe coming from a larger search
@@ -355,7 +356,8 @@ That is a coin flip, not a strategy.
 **Q5. Why is daily-frequency a graveyard for retail quants?**
 A5. Daily turnover at 252 round-trips per year times even 10 bps
 cost is 25.2% annualised drag. You need a 25%+ gross edge before
-you net anything. SOUL #1 plus arithmetic: those edges effectively
+you net anything. Arithmetic plus the rarity of alpha: those edges
+effectively
 do not exist for retail.
 
 **Q6. How do I get point-in-time fundamental data without paying
@@ -406,7 +408,7 @@ backtest. Default assumption: survivorship adds 100-300 bps/year.
 
 **Q12. How does Horace size a strategy after passing all of these
 tests?**
-A12. SOUL #14 barbell at the L4 sleeve level. A strategy that
+A12. Barbell sizing at the L4 sleeve level. A strategy that
 deflates to a Sharpe of ~1 OOS, with realistic costs and a
 multi-regime sample, gets a small slice of the *opportunity
 sleeve* — usually 1-3% of total wealth. If it works, fine. If it
@@ -446,7 +448,7 @@ you should actually expect out of sample. Spoiler: most great
 backtests collapse to nothing once you correct for the realistic
 trial count and transaction costs.
 
-STELLA: SOUL principle one again — alpha is rare.
+STELLA: Alpha is rare — again.
 
 HORACE: Alpha is rare. Backtests routinely manufacture the
 appearance of alpha. We are going to spend this episode
@@ -618,7 +620,7 @@ ninety percent. That is a deployable signal.
 STELLA: The difference is mostly the trial count and the data
 length.
 
-HORACE: Almost entirely. SOUL principle one — alpha is rare —
+HORACE: Almost entirely. Alpha is rare — that is what
 shows up in the math. The longer the data, the smaller the trial
 count, the more your in-sample number means.
 
@@ -645,7 +647,7 @@ buckets — bull-quiet, bull-volatile, bear, recovery — and
 report Sharpe and drawdown *within each*. A strategy that
 works in three of four regimes is potentially deployable with
 an overlay. A strategy that works only in one regime is a beta
-exposure dressed as alpha. SOUL principle two: do not let your
+exposure dressed as alpha. Do not let your
 sample window inherit the flattering arithmetic of one regime.
 
 ---
@@ -671,7 +673,7 @@ do not deploy. Period.
 STELLA: How much do you bet on a strategy that passes all of
 these?
 
-HORACE: SOUL principle fourteen — barbell. The strategy goes
+HORACE: A barbell. The strategy goes
 into the L4 opportunity sleeve. One to three percent of total
 wealth, max. If it works, great. If it doesn't, the 90 percent
 core is unaffected. Backtests are not permission to bet large.

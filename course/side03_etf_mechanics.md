@@ -10,10 +10,10 @@
 
 If you are following Horace's program at all faithfully, the single
 biggest position in your portfolio is an ETF — probably VTI, SPY,
-or QQQ. SOUL #1 is blunt about this: alpha is rare, the default is
-passive, and the cleanest way to own the US market (SOUL #16) is
-one of three ETFs that can be bought commission-free anywhere. So
-it is worth ten minutes of your life to understand the plumbing.
+or QQQ. The reasoning is blunt: alpha is rare, the default is
+passive, and the cleanest way to own the US market is one of three
+ETFs that can be bought commission-free anywhere. So it is worth
+ten minutes of your life to understand the plumbing.
 
 There are four reasons the plumbing matters:
 
@@ -243,7 +243,7 @@ European synthetic ETFs use total-return swaps with a
 counterparty bank rather than holding the underlying physically.
 They have counterparty risk that physical ETFs do not. US-listed
 ETFs are physically backed by law (1940 Act). Stay in US-listed
-wrappers per SOUL #16.
+wrappers.
 
 **Misconception 5: "Leveraged and inverse ETFs are just like
 regular ETFs but levered."** Leveraged ETFs use daily-rebalanced
@@ -316,7 +316,7 @@ to the penny with no fractional-share friction — useful in a
 the cleanest accounting. VTSAX also accepts dollar amounts
 ("invest 500"), VTI accepts share amounts ("buy 4 shares"); for
 automated regular contributions the dollar-amount interface of
-the mutual fund is simpler. SOUL #15 still says: in a *taxable*
+the mutual fund is simpler. The tax rule still says: in a *taxable*
 brokerage account, default to the ETF.
 
 **Q5: What are creation units and why are they so large?**
@@ -343,7 +343,7 @@ fix is to fix the underlying market, not to ban the ETF.
 A: A synthetic ETF (mostly European) holds a swap contract with
 a bank counterparty that promises to pay the index return,
 rather than holding the underlying stocks. It introduces
-counterparty risk. SOUL #16 says US-listed ETFs only — that
+counterparty risk. The default is US-listed ETFs only — that
 constraint automatically rules out synthetic ETFs.
 
 **Q8: Why do some ETFs charge 0.03% and others 0.95%?**
@@ -353,8 +353,8 @@ license fees of essentially zero and operate at scale, so 0.03%
 is achievable. Active ETFs, thematic ETFs, single-country
 emerging-market ETFs, leveraged ETFs, and currency-hedged ETFs
 all carry higher fees because of licensing, hedging, or active
-management costs. SOUL #1 still holds: the cheap ones almost
-always win after 10 years.
+management costs. The rule still holds: alpha is rare, and the cheap
+ones almost always win after 10 years.
 
 **Q9: What is the "ETF tax-loss harvesting partner" trick?**
 
@@ -578,9 +578,9 @@ range.
 
 **Horace:** Neither inherently. It just means: never buy a CEF
 at NAV -- wait for the discount. And recognise that the CEF
-discount can stay where it is for years. SOUL #5 -- alpha
-sources include "structural mispricings institutions cannot
-touch." Buying CEFs at -10% to -15% discounts during stress is a
+discount can stay where it is for years. One legitimate alpha
+source is "structural mispricings institutions cannot touch."
+Buying CEFs at -10% to -15% discounts during stress is a
 small but legitimate one. But it is not the same game as buying
 VTI.
 

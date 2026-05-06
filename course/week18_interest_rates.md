@@ -50,8 +50,8 @@ You need to internalise four things from this lesson.
    *real* yields went from -1% to +2%. The +3% real-rate move is what
    crushed long-duration tech, not the nominal headline.
 
-4. **We have lived through exactly two regime breaks in 45 years**
-   (SOUL anchor #2). The first was Volcker in 1981, ending double-digit
+4. **We have lived through exactly two regime breaks in 45 years.**
+   The first was Volcker in 1981, ending double-digit
    inflation by ratcheting the funds rate to 20% and triggering the
    four-decade bond bull market. The second is 2022 onward, the end of
    the zero-bound era. The investors holding 60/40 portfolios in 2026
@@ -181,15 +181,15 @@ crypto, residential real estate — everything sensitive to the discount
 rate behaved like the discount rate had been *set to zero*, because in
 real terms it had.
 
-These two events bracket what SOUL anchor #2 calls the *passive
+These two events bracket the *passive
 40-year regime*. The "passive index investing always wins" claim that
 animates Bogle, Buffett, and the entire ETF industry is built on top
 of the 1981-2020 bond bull market and the disinflation it carried with
 it. The strategy works. But the strategy *also* sat on top of a
-once-in-history regime backdrop, and SOUL's whole point is that
+once-in-history regime backdrop, and the central lesson is that
 regime backdrops change.
 
-Anchor #6 (vol-tail-wags-dog) connects directly: Volcker had to break
+The vol-tail-wags-dog point connects directly: Volcker had to break
 the bond market to break inflation. In 2022, the Fed had to risk
 breaking equities to break post-COVID inflation. When the Fed pulls
 the rate lever hard, the *vol* tail wags the policy dog. SVB in March
@@ -255,7 +255,7 @@ representative cash-flow streams: a 10-year bond, a 30-year bond, a
 high-growth equity (4% growth, 10-year duration), and a value equity
 (1% growth, 5-year duration).
 
-The barbell intuition (SOUL anchor #14) survives this rotation: a long
+The barbell intuition survives this rotation: a long
 position in short-duration value plus a small allocation to convex
 long-duration growth gives you both regime payoffs without betting on
 which regime wins. Pure long-duration tech would have been a
@@ -292,7 +292,7 @@ unknowable and rate moves are large.
 6. **"Cash is safe."** Cash is safe nominally and dangerous in real
    terms during inflation. From 2020 to 2024 a dollar in a 0%-yielding
    bank account lost ~17% of purchasing power. Cash is a *position*,
-   not a default. SOUL anchor #13 (four tranches) explicitly carves out
+   not a default. The four-tranche framework explicitly carves out
    liquidity *and* T-bills, separately.
 7. **"Quantitative easing causes inflation."** Eight years of QE from
    2009-2017 produced no consumer inflation. The 2020-21 round produced
@@ -312,8 +312,8 @@ unknowable and rate moves are large.
    2024 policy shift was a meaningful S&P 500 input.
 10. **"Real rates above 2% are 'normal'."** Real rates *averaged* 2-3%
     from 1900 to 1980. They averaged around 0% from 2008 to 2022. There
-    is no single "normal" — the regime defines the level. SOUL anchor
-    #2 again.
+    is no single "normal" — the regime defines the level. The
+    regime-change point applies again here.
 
 ---
 
@@ -395,7 +395,7 @@ isn't worth your time. For most US investors with full-equity-risk
 exposure, this is the 10-year Treasury yield plus an equity risk
 premium of 4-5%. So in April 2026, with the 10-year at ~4%, your
 hurdle is ~8-9%. Anything you allocate to should clear that, or you
-should not be doing it. SOUL anchor #1 (alpha is rare): if you can't
+should not be doing it. Alpha is rare: if you can't
 articulate a reason your idea clears the hurdle, it doesn't.
 
 **Q: Is the 1981-2020 bond bull market really over?**
@@ -603,18 +603,17 @@ deeply negative. Asset prices went vertical. Long-duration tech, SPACs,
 crypto, real estate — anything sensitive to *r* behaved like *r* had
 been set to zero, because in real terms it had.
 
-**Horace**: These two events bracket what SOUL anchor number 2 calls
-the *passive 40-year regime*. The "passive index investing always
-wins" claim — the entire ethos of modern retail investing — is built
-on top of the 1981-2020 bond bull and the disinflation that came
-with it.
+**Horace**: These two events bracket the *passive 40-year regime*.
+The "passive index investing always wins" claim — the entire ethos
+of modern retail investing — is built on top of the 1981-2020 bond
+bull and the disinflation that came with it.
 
 **Stella**: The strategy works. We are not arguing against passive
 investing. But we are saying: the strategy worked on top of a
-once-in-history regime backdrop. SOUL's whole point is that regime
-backdrops change. And in 2022 the regime started changing.
+once-in-history regime backdrop. The whole point of regime analysis
+is that backdrops change. And in 2022 the regime started changing.
 
-**Horace**: Vol-tail-wags-dog. SOUL anchor 6. When the Fed pulls the
+**Horace**: Vol-tail-wags-dog. When the Fed pulls the
 rate lever hard, things break. Volcker broke 1981 to break inflation.
 The 2022 cycle broke Silicon Valley Bank, Signature, and First
 Republic in a single week of March 2023, and the Fed had to invent
@@ -643,7 +642,7 @@ Nasdaq-100 fell 33%, the S&P 500 fell 18%, and Russell 2000 Value
 fell only 14%. Same earnings season. Different sensitivity to *r*.
 
 **Horace**: Growth stocks are long duration, value stocks are short
-duration. SOUL anchor 14 — the barbell — survives this rotation.
+duration. The barbell survives this rotation.
 A long position in short-duration value plus a small allocation to
 convex long-duration growth gives you both regime payoffs without
 having to call the regime. Pure long-duration tech was a career-ender
@@ -688,7 +687,7 @@ reading. It transfers through dragging.
 denominator. Move it, every asset reprices. Two: the Fed sets one
 rate; the market sets the rest. Three: we have lived through one
 regime — disinflation, falling rates — for 40 years, and that regime
-shifted in 2022. SOUL anchor 2.
+shifted in 2022.
 
 **Stella**: Next week, Week 19, we go inside inflation itself — what
 causes it, what predicts it, and what kinds of inflation are good and

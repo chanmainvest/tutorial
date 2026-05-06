@@ -111,8 +111,8 @@ decades. The right hierarchy:
    or lower than today's.
 5. **Taxable brokerage.** The flexible bucket. Holds anything, any
    amount, any time, but every dividend and every realised gain is
-   taxed in the year it occurs. This is where SOUL #15 lives — the
-   largest unspoken fee on a successful retail book is capital gains
+   taxed in the year it occurs. This is where the tax-efficiency
+   principle lives — the largest unspoken fee on a successful retail book is capital gains
    tax, and the taxable account is where you have to manage it
    actively (tax-loss harvesting, lot selection, options-and-margin
    exposure shifting). Most readers building their first portfolio
@@ -159,18 +159,18 @@ A few notes on the choices.
   hedge inflation in a way nominal bonds cannot — Week 4 covered
   why this matters, and 2022 was the most recent demonstration.
 - The **gold sleeve** is small but persistent across every
-  archetype. SOUL #3: stores of value rest on belief, and gold's
+  archetype. Stores of value rest on belief, and gold's
   belief has the longest track record. It is not free — no yield,
   high real-rate sensitivity — but it is the cleanest stocks-and-
   bonds-both-fall hedge you can buy in a single ticker.
-- The **FIRE / barbell row** is the closest to the SOUL #14 shape:
+- The **FIRE / barbell row** is the closest to the full barbell shape:
   more cash, more gold, less middle-of-the-road bonds. It is
   *defensible* once you have internalised the regime-change thesis.
   It is not the right default for week one of week one.
 
 #### 2.4 Specific ETFs — The Cheapest Concrete Implementation
 
-The recommended-instrument list, US-listed (SOUL #16), all
+The recommended-instrument list, US-listed only, all
 expense-ratios checked April 2026:
 
 | Sleeve | Primary ETF | Alt | Expense ratio |
@@ -283,12 +283,12 @@ L2 (weeks 26 onward) extends the L1 base in three directions:
   tilts. Adds complexity; the long-run return premium is real but
   small and intermittent.
 - **Tax management** (Weeks 31, 35): tax-loss harvesting,
-  asset-location optimisation, donor-advised funds. SOUL #15. The
+  asset-location optimisation, donor-advised funds. The
   largest single source of after-tax return on a mature taxable
   book.
 - **Risk overlays** (Weeks 47, 50): a small long-volatility or
   trend-following sleeve for the inflation-shock vulnerability that
-  60/40 cannot hedge. SOUL #17. The Dragon-inspired shape,
+  60/40 cannot hedge. The Dragon-inspired shape,
   weighted by regime.
 
 None of these are required to make the L1 portfolio work. They are
@@ -312,7 +312,7 @@ The 2010–2024 US-outperformance gap is the largest in 50 years and
 is itself the strongest reason to keep some VXUS. The previous
 15-year cycle (1985–2000) had Japan and Europe outperforming the US
 by similar margins. Mean reversion is not a guarantee, but a
-single-country book is a single bet, and SOUL #16 says the *best
+single-country book is a single bet, and the course's investable-universe rule says the *best
 companies* are US-listed — not that the *index* is the only one
 worth owning. Keep 10–25% in ex-US.
 
@@ -337,8 +337,8 @@ check, *then* you can layer individual conviction names on top.
 
 Gold has compounded at roughly the rate of inflation across centuries
 and has real positive returns in inflation shocks where stocks and
-bonds both fall. It pays no yield and that is its honest cost. SOUL
-#3 — every store of value rests on belief, and gold's belief has
+bonds both fall. It pays no yield and that is its honest cost. Every
+store of value rests on belief, and gold's belief has
 been the most durable across the longest history. A 5–10% sleeve is
 defensible insurance, not a gamble.
 
@@ -416,20 +416,20 @@ archetype's 5% bond + 5% TIPS is small enough that it doesn't slow
 the compound and large enough that the rebalancing trade has
 something to bite on.
 
-**Q6: How does this lesson interact with the SOUL.md "barbell"?**
+**Q6: How does this lesson interact with the "barbell" shape?**
 
 A: The five archetypes in §2.3 are the L1 cap-weighted starting
-positions. The barbell shape (SOUL #14) is the *advanced* shape that
+positions. The barbell shape is the *advanced* shape that
 you migrate toward once you have internalised the regime-change
-thesis (SOUL #2) and built the options-and-margin toolkit (SOUL #15).
+thesis and built the options-and-margin toolkit.
 The FIRE / barbell-curious row in §2.3 is the bridge: more cash,
 more gold, less middle-of-the-road bonds, but still a cap-weighted
 equity sleeve. Do not skip the apprenticeship to copy the shape.
 
 **Q7: What about crypto?**
 
-A: Out of scope for the L1 first portfolio. SOUL #3 puts bitcoin in
-the same store-of-value family as gold; the difference is bitcoin's
+A: Out of scope for the L1 first portfolio. The store-of-value frame puts bitcoin in
+the same family as gold; the difference is bitcoin's
 belief is 15 years old, not 5,000. If you want a crypto sleeve, treat
 it as a slice of the gold weight, not a sleeve of its own, and cap
 total digital + gold at 15% combined. Most readers should run zero
@@ -459,7 +459,7 @@ running, (4) the next quarterly check is on the calendar, and (5)
 you have deleted the brokerage app from your phone or moved it to a
 folder you don't open daily. The last one matters more than people
 expect — it is what protects the portfolio from the daily-news cycle
-SOUL #12 warns about.
+the irrationality principle warns about.
 
 **Q11: What's a realistic expected return for a balanced first portfolio?**
 
@@ -472,9 +472,9 @@ drawdown; the return takes care of itself if you hold.
 
 A: This is the L1 capstone. Weeks 13–25 (L2) layer factor tilts, tax
 management, and asset-location optimisation onto this base. Weeks
-26–39 introduce the options toolkit (SOUL #15) for exposure
+26–39 introduce the options toolkit for exposure
 management without realising gains. Weeks 40–52 cover the
-volatility-as-asset-class and trend-following overlays (SOUL #17)
+volatility-as-asset-class and trend-following overlays
 that complete the Dragon-inspired shape. Every later allocation
 discussion compares back to the archetypes in this lesson.
 
@@ -561,7 +561,7 @@ compounding vehicle in the US tax code.
 
 **Horace:** Last. The flexible bucket. Any amount, any time, but
 every dividend and every realised gain is taxed in the year it
-happens. SOUL #15 — the largest unspoken fee on a successful retail
+happens. The largest unspoken fee on a successful retail
 book is *capital gains tax*.
 
 ---
@@ -608,7 +608,7 @@ Protect the floor, accept smaller upside.
 plus TIPS, 20% gold, 15% cash. Cash-heavy, gold-heavy, equity-
 moderate. The structurally-mediocre middle is partly removed.
 
-**Stella:** That's almost the SOUL #14 barbell.
+**Stella:** That's almost the full barbell shape.
 
 **Horace:** It's the *bridge* to the barbell. The full barbell
 shape is L2 material. This row is the closest L1 lets you get

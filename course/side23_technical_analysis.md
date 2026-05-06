@@ -38,8 +38,8 @@ Side 23 is the honest survey of which is which.
    isn't.** A trader who says "I sell when the 50-day breaks the
    200-day" has, at minimum, a *rule* — a pre-committed binary
    trigger that overrides loss aversion (Side 15). The trigger may
-   have weak predictive power, but the *discipline* is real. SOUL
-   #12: the market can stay irrational longer than you can stay
+   have weak predictive power, but the *discipline* is real. The
+   market can stay irrational longer than you can stay
    solvent. A bad rule consistently followed beats a good thesis
    abandoned in a panic.
 4. **You will see this stuff every day on financial media.** CNBC
@@ -53,10 +53,9 @@ Side 23 is the honest survey of which is which.
 This lesson covers chart-pattern claims (the failures), the two TA
 strategies that replicate out-of-sample (the survivors), and the
 behavioural-discipline argument for using TA-style rules even when
-their predictive value is weak. SOUL #1 (alpha is rare; the default
-should be passive) and SOUL #8 (momentum + mean-reversion + vol-on /
-vol-off as the only short-list of robust market regularities) are
-the two anchors.
+their predictive value is weak. The two anchors: alpha is rare, so
+the default should be passive; and momentum + mean-reversion + vol-on /
+vol-off are the only short-list of robust market regularities.
 
 ![Wealth-path chart: SPY $1 starting Jan 1990 through Apr 2026 under (a) buy-and-hold and (b) Faber GTAA rule — invested in SPY when SPY price is above its 200-day moving average, parked in 3-month T-bills otherwise. End wealth and max drawdown stamped on each line.](image/side23_200dma_strategy.png)
 
@@ -169,7 +168,7 @@ on a daily chart." It works on long horizons (3-12 months), across a
 diversified basket (not single stocks), with explicit rules
 (rank-by-12-month-return-and-rebalance-monthly), and almost certainly
 captures a behavioural under-reaction to information that takes time
-to be priced in. SOUL #8: momentum is one of the two robust market
+to be priced in. Momentum is one of the two robust market
 regularities. This is where it shows up.
 
 #### 2.4 The Survivor #2: The 200-Day Moving Average (Faber GTAA)
@@ -214,7 +213,7 @@ From 2010-2019, buy-and-hold beat the 200-DMA rule by ~1.5 pp/yr
 because the rule sat in T-bills during the August 2011, August 2015,
 February 2016 and December 2018 false breaks. The rule pays for
 itself in the once-or-twice-per-decade event where it cuts a -55%
-into a -20%. SOUL #6 — vol-tail-wags-dog — is the framing. You're
+into a -20%. Vol-tail-wags-dog is the framing. You're
 not paying for upside; you're paying to truncate the left tail.
 
 #### 2.5 Why It Works: The Behavioural Story
@@ -234,7 +233,7 @@ is still being downgraded, dropped, sold. Time-series momentum and
 the 200-DMA both ride that trend.
 
 When the information is fully digested, prices stop trending — and
-mean-reversion takes over (SOUL #8 again — the *other* robust market
+mean-reversion takes over (the *other* robust market
 regularity). This is why the trend rules whipsaw in flat / choppy
 markets and shine in directional ones.
 
@@ -269,7 +268,7 @@ back when the 50-day crosses back above" — does the following:
 The technical rule may be only weakly predictive, but it is *binary
 and pre-committed* — the two things that defeat behavioural bias
 (Side 15 §2.5). A bad rule consistently followed beats a good
-discretionary thesis abandoned at the bottom. SOUL #12: the market
+discretionary thesis abandoned at the bottom. The market
 can stay irrational longer than you can stay solvent — the rule is
 your insurance against your own brain when both you and the market
 are tilted.
@@ -298,6 +297,47 @@ If you are going to use technical analysis, use it for what works:
 trend-following on diversified baskets, 200-DMA on broad indexes,
 and *as a rule-set* to defeat your own behavioural biases. Skip the
 patterns and the indicator soup. They are decoration.
+
+#### 2.8 The Post-COVID Regime: Why the Vol Surface Beats the Chart at Size
+
+One thing the rest of this lesson does not say loudly enough.
+Classical technical analysis — every chart pattern, every indicator
+in the textbook, the entire candlestick canon — was built in a
+market where the options book was a small derivative *of* the cash
+equity. That market is gone. Since roughly 2020, zero-days-to-expiry
+options have come to dominate intraday flow on the major US
+indices, and a meaningful share of what looks like "price action"
+on a chart is really dealer hedging of options exposure pushing
+the underlying around. The option tail wags the equity dog. Reading
+the chart in the post-COVID regime without the corresponding option
+flow is reading the surface effect without the cause, and the older
+the pattern in your toolkit, the weaker its signal in the new
+regime.
+
+The implication is uncomfortable for chartists, and I say this as
+someone who used to draw the lines: implied volatility, skew, term
+structure, and the dealer gamma profile are now more informative
+than the delta of the price itself. The vol surface tells you who
+*has to do what* at which level, regardless of whether the
+positioning is smart or dumb. The chart shows you the dog wagging.
+The vol surface shows you why. Side 20 is the deep dive on Greeks
+and the surface; this paragraph is the pointer that tells you when
+to go read it.
+
+The cost-benefit is size-dependent, and that matters because most
+readers of this course are not yet at the size where the new
+toolkit pays for itself. For a beginner with their first portfolio,
+the cognitive overhead of vol-surface analysis is real and not
+yet earning its keep — start with the chart, run the 200-DMA rule,
+let the discipline do the work. For the serious retail investor
+with a multi-six-figure or seven-figure book, where individual
+position outcomes meaningfully change the year and not just the
+month, ignoring the vol surface stops being a small handicap and
+becomes a structural blind spot. Below that threshold, the chart
+still earns its keep — mostly as a behavioural anchor, the
+binary-and-pre-committed thing that defeats your own brain in
+March 2020. Above it, the chart is the appetiser and the surface
+is the main course.
 
 ---
 
@@ -382,7 +422,7 @@ You're not buying CAGR. You're buying a left-tail insurance. The
 rule cuts max drawdown roughly in half (~-19% vs ~-55% in 2008-09).
 For an investor close to retirement or one whose behaviour falls
 apart at -40%, that left-tail truncation is worth the 1-1.5 pp/yr
-of foregone upside. SOUL #6 — vol-tail-wags-dog — is the framing.
+of foregone upside. Vol-tail-wags-dog is the framing.
 
 **Q3. Is cross-sectional momentum (long winners / short losers among
 individual stocks) the same as time-series momentum?**
@@ -450,7 +490,7 @@ generates alpha per se — they help you not lose money in obvious
 ways. The pattern-as-prediction claim is the part that doesn't
 replicate.
 
-**Q10. How does TA fit into the four-tranche framework (SOUL #13)?**
+**Q10. How does TA fit into the four-tranche framework?**
 Tranches 1-3 (growth, income, stores of value) are passively
 allocated and benefit from no TA whatsoever — buy-and-hold the
 index funds and rebalance annually. Tranche 4 (opportunistic / 5%
@@ -462,7 +502,7 @@ portfolio with a bad chart read.
 
 **Q11. What's the single rule a retail investor should adopt from
 this lesson?**
-Either none (just hold the index — SOUL #1, default passive), or
+Either none (just hold the index — default passive, alpha is rare), or
 one: the 200-day moving average filter on your equity sleeve,
 applied at month-end on the SP500 index price, with no
 discretionary overrides. That single rule cuts max-drawdown in half
@@ -581,7 +621,7 @@ some flavour of time-series trend on a diversified futures basket.
 2008 plus 13 percent for the SocGen CTA index when the S&P was
 down 37. 2022 plus 20.5 percent when the 60-40 was down 17.
 
-**STELLA:** SOUL number eight — momentum and mean-reversion are the
+**STELLA:** Momentum and mean-reversion are the
 two robust market regularities. Momentum is where it shows up.
 
 **HORACE:** Right. Time-series momentum is *the* TA strategy that
@@ -613,8 +653,7 @@ drawdown gap is the same.
 
 **STELLA:** Slightly lower CAGR, much lower drawdown.
 
-**HORACE:** Slightly lower CAGR, *much* lower drawdown. SOUL number
-six — vol-tail-wags-dog. You're not buying upside; you're buying
+**HORACE:** Slightly lower CAGR, *much* lower drawdown. Vol-tail-wags-dog. You're not buying upside; you're buying
 the truncation of the left tail. For an investor close to retirement
 or one whose behaviour falls apart at minus forty, that left-tail
 insurance is worth the one-and-a-half points of foregone CAGR.
@@ -639,7 +678,7 @@ news.
 
 **STELLA:** And once it's fully priced?
 
-**HORACE:** Mean-reversion takes over. SOUL number eight again — the
+**HORACE:** Mean-reversion takes over. The
 *other* robust market regularity. Which is why trend rules whipsaw
 in flat markets and shine in directional ones.
 
@@ -664,11 +703,45 @@ recovery, and crucially has *zero discretion* in the moment.
 
 **STELLA:** The moment when discretion is worst.
 
-**HORACE:** The moment when discretion is worst. SOUL number twelve
-— the market can stay irrational longer than you can stay solvent.
+**HORACE:** The moment when discretion is worst. The market can stay irrational longer than you can stay solvent.
 A weak rule *is* the insurance against your own brain. The rule may
 have only modest predictive power, but it is binary and pre-
 committed, which is what defeats loss-aversion and FOMO.
+
+**[11:00 — THE POST-COVID REGIME]**
+
+**STELLA:** One thing we have not said loudly enough. Classical TA
+was built before zero-days-to-expiry options dominated the tape.
+
+**HORACE:** Right. Every chart pattern in the textbook, every
+indicator, the entire candlestick canon — all of it was built when
+the options book was a small derivative of the cash equity. Since
+roughly 2020, that has flipped. A meaningful share of intraday
+"price action" on the major indices is dealer hedging of options
+exposure pushing the underlying around. The option tail wags the
+equity dog. Reading the chart in this regime without the option
+flow is reading the surface effect without the cause.
+
+**STELLA:** And the implication?
+
+**HORACE:** Implied volatility, skew, term structure, dealer gamma
+— the vol surface — is now more informative than the delta of the
+price itself. The chart shows you the dog wagging. The surface
+shows you *why* it is wagging. Side 20 is the deep dive.
+
+**STELLA:** Is that for everybody?
+
+**HORACE:** No, and this is the honest part. The cost-benefit is
+size-dependent. For a beginner with their first portfolio, the
+cognitive overhead of vol-surface analysis is real and not yet
+earning its keep. Start with the chart, run the 200-DMA, let the
+discipline do the work. For the retail investor with a
+multi-six-figure or seven-figure book, where one position can move
+the year and not just the month, ignoring the surface stops being
+a small handicap and becomes a structural blind spot. Below the
+threshold the chart earns its keep, mostly as a behavioural
+anchor. Above it the chart is the appetiser and the surface is the
+main course.
 
 **[VISUAL: course/interactive/side23_ma_lab.html]**
 
@@ -689,7 +762,7 @@ why the literature converged on roughly the 200.
 Horace?
 
 **HORACE:** One of two things. Option one — do nothing. Just hold
-the index. SOUL number one, the default is passive, alpha is rare.
+the index. The default is passive, alpha is rare.
 Option two — adopt one rule, the 200-day MA filter on your equity
 sleeve, applied at month-end with no discretionary overrides.
 Cuts max-drawdown roughly in half historically, costs about one

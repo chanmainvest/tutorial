@@ -29,9 +29,9 @@ You need this lesson for four reasons.
    all.
 
 2. **It is the entry point to a real, durable alpha source — not
-   the made-up kind.** SOUL #5 names the structural alphas that
-   actually compound after costs: liquidity, sector rotation, long-
-   term trends, and buying what the passive machinery has abandoned.
+   the made-up kind.** The structural alphas that actually compound
+   after costs are liquidity, sector rotation, long-term trends, and
+   buying what the passive machinery has abandoned.
    Pair trading sits inside the structural-alpha class because the
    pair trader is *supplying liquidity to the temporarily dislocated
    leg*. When PEP gaps down on a weak quarter and KO sits still, the
@@ -41,8 +41,8 @@ You need this lesson for four reasons.
    relationship is the structural payment for that liquidity.
 
 3. **It teaches you why "real-looking" pairs decay — the regime
-   change problem.** SOUL #2 is the recurring bell of this course:
-   regimes change, often without warning, and a strategy that
+   change problem.** Regime change is the recurring bell of this
+   course: regimes change, often without warning, and a strategy that
    worked for a decade can stop working in a quarter. Pair trading
    is the cleanest case study of that principle in retail-accessible
    form. Two stocks that have moved together for fifteen years can
@@ -67,8 +67,8 @@ You need this lesson for four reasons.
    management lessons in modern finance, and pair trading is where
    it was first learned.
 
-This lesson sits in the *opportunistic* slot of SOUL #13's four-
-tranche structure and on the alpha end of SOUL #14's barbell. Most
+This lesson sits in the *opportunistic* slot of the four-tranche
+structure and on the alpha end of the barbell. Most
 of your wealth is in the safety end (cash, Treasuries, gold,
 deep-ITM long-dated calls on names you'd own anyway). A small
 sleeve at the alpha end is where the pair-trading book lives — the
@@ -110,9 +110,9 @@ that look similar**. That difference is what they get paid for —
 or punished for, when the difference turns out to be permanent
 rather than mean-reverting.
 
-This is why pair trading is the right teaching example for SOUL #5
-and #14: it strips off market beta entirely and lets you see, in
-isolation, whether the relative-value bet has any signal at all.
+This is why pair trading is a clean teaching example: it strips off
+market beta entirely and lets you see, in isolation, whether the
+relative-value bet has any signal at all.
 
 #### 2.2 Spread Construction and the Z-Score
 
@@ -255,7 +255,7 @@ crowded trade — and crowded trades, when they unwind, do so
 together.**
 
 The lesson is foundational and is the cleanest illustration in
-finance of SOUL #2's regime-change principle. **An alpha source
+finance of the regime-change principle. **An alpha source
 remains alpha only as long as the population running it is small
 enough that no forced exit can simultaneously move all the trades
 against you.** The day too many people run the same strategy, the
@@ -269,7 +269,7 @@ trade is implicitly correlated with yours.
 
 #### 2.7 Where Pair Trading Sits in the Barbell
 
-The barbell (SOUL #14) is most of your wealth in safety, a small
+The barbell is most of your wealth in safety, a small
 sleeve in genuine asymmetric edge. **Pair trading lives at the
 edge end.** Sized correctly, a pair-trading sleeve runs at single-
 digit percentage of total portfolio, in dollar-neutral pairs
@@ -305,7 +305,7 @@ KO/PEP's relationship has shifted twice in the last twenty years
 on PEP's snack-foods build. Cointegration is conditional on the
 underlying business mix staying stable. When the mix changes, the
 spread re-prices to a *new* equilibrium, and the trader fading
-the old equilibrium loses for years. SOUL #2.
+the old equilibrium loses for years. The regime has shifted.
 
 **Misconception 3: "Z-score of +/-2 is a hard rule."**
 
@@ -337,8 +337,9 @@ This is the martingale fallacy applied to pairs. As the spread
 widens, your mark-to-market loss grows, the broker raises your
 margin requirement, and the very mechanism that should make the
 trade more profitable in theory becomes the mechanism that forces
-you out before the reversion arrives. SOUL #12 — irrational
-longer than solvent — is the discipline-anchor here.
+you out before the reversion arrives. Stay solvent first —
+the market can stay irrational longer than you can — and that
+discipline is the anchor here.
 
 **Misconception 7: "Borrow cost is small enough to ignore."**
 
@@ -426,7 +427,7 @@ A spread that goes to -3.5 *with no fundamental story* is more
 likely to revert than one that goes to -2.5 *with* a clear
 story. Trade the fundamental, not just the Z-score.
 
-**Q5: How does pair trading interact with taxes (SOUL #15)?**
+**Q5: How does pair trading interact with taxes?**
 
 A: Poorly, in a US taxable account. Pair trades have short
 holding periods on average (weeks to a few months), so realised
@@ -474,11 +475,10 @@ locate, and dividend obligations. You pick up theta decay and a
 volatility-dependent premium, and the linear-spread P&L is
 distorted into something more option-like. For a small retail
 sleeve where operational simplicity dominates, options-based
-pairs are a reasonable choice. SOUL #14's barbell logic
+pairs are a reasonable choice. The barbell logic
 naturally points here.
 
-**Q10: How does pair trading fit with the four tranches
-(SOUL #13)?**
+**Q10: How does pair trading fit with the four tranches?**
 
 A: Pair trading is *opportunistic* — it sits in the third tranche
 alongside specific structural-alpha trades. It is not bedrock
@@ -724,7 +724,7 @@ further. More forced sales. It cascades for four days.
 
 **Stella:** What's the lesson?
 
-**Horace:** SOUL principle two. Crowding is a regime. **Your alpha
+**Horace:** Crowding itself becomes a regime. **Your alpha
 is alpha only as long as the population running it is small enough
 that no forced exit can simultaneously move all your trades.** The
 day too many people run the same model, the model itself becomes
@@ -740,7 +740,7 @@ canonical pair.
 
 **Horace:** Where does this fit in the portfolio?
 
-SOUL principle fourteen. The barbell. Most of your wealth at the
+The barbell. Most of your wealth at the
 safety end — cash, Treasuries, gold, deep-ITM long-dated calls on
 names you'd own anyway. A small sleeve at the alpha end. Pair
 trading lives at the alpha end.

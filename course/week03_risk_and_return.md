@@ -554,7 +554,7 @@ cap rather than ~25% the model predicted) is what kept investors in
 the game. The shorthand: *plan for half-off, every decade, no
 warning.*
 
-**Q9: How does the SOUL.md "barbell" shape relate to standard
+**Q9: How does a "barbell" shape relate to standard
 deviation?**
 
 A: The barbell *exploits* the fat-tailed distribution. By holding

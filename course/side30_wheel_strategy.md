@@ -10,7 +10,7 @@
 
 The wheel is the only options strategy in this course where every leg is something you have already learned. Sell a cash-secured put on a stock you would like to own (Week 28). If assigned, sell a covered call against the shares you now hold (Week 27). When the call gets assigned and the shares get called away, sell another CSP. Loop. The mechanics are mechanical. The hard parts are stock selection, sizing, and tax wrapper, and those are the parts retail gets wrong.
 
-Because this is the final side lesson — the closing bracket on the entire 52-week + 30-side sequence — we are going to be very honest about what the wheel actually delivers. The short version: 1.0-1.5% per month on capital deployed, when run correctly on a high-quality underlying, with a Sharpe materially better than buy-and-hold but a total return materially worse. It is not a way to beat the index. It is a way to extract the variance risk premium (Week 49) on a sleeve of capital you were going to keep in stocks anyway, while simultaneously *imposing* a buy-low / sell-high rhythm on yourself. Horace's whole pitch in SOUL #15 is that options + IRAs is one of the cleanest legal alpha sources retail has access to. The wheel is the practical expression of that pitch.
+Because this is the final side lesson — the closing bracket on the entire 52-week + 30-side sequence — we are going to be very honest about what the wheel actually delivers. The short version: 1.0-1.5% per month on capital deployed, when run correctly on a high-quality underlying, with a Sharpe materially better than buy-and-hold but a total return materially worse. It is not a way to beat the index. It is a way to extract the variance risk premium (Week 49) on a sleeve of capital you were going to keep in stocks anyway, while simultaneously *imposing* a buy-low / sell-high rhythm on yourself. Horace's whole pitch is that options inside an IRA is one of the cleanest legal alpha sources retail has access to. The wheel is the practical expression of that pitch.
 
 Four reasons this lesson closes the loop:
 
@@ -20,7 +20,7 @@ Four reasons this lesson closes the loop:
 
 **3. The capital-efficient variant — the PMCC wheel — is hidden inside Week 38.** Replacing the 100 shares with a deep-ITM LEAPS gives you the same exposure for ~1/3 the capital. The freed cash earns T-bills (~4%/yr in 2026). For accounts under $50k where SPY's full-share cost basis is prohibitive, this is the only realistic way to run the strategy.
 
-**4. The IRA framing closes SOUL #15 for retail.** Premium income is short-term capital gain — taxed as ordinary income — every single time. In a 32%+ federal bracket this destroys ~30-35% of the realized yield. In a Roth IRA the entire premium stream compounds tax-free. The wheel is one of the few strategies where the *wrapper* matters more than the *trade*. Run it in IRA, not taxable.
+**4. The IRA framing is decisive for retail.** Premium income is short-term capital gain — taxed as ordinary income — every single time. In a 32%+ federal bracket this destroys ~30-35% of the realized yield. In a Roth IRA the entire premium stream compounds tax-free. The wheel is one of the few strategies where the *wrapper* matters more than the *trade*. Run it in IRA, not taxable.
 
 By the end of this lesson you should be able to: pick a wheel candidate from a five-name list, choose a 30-delta strike at 30 DTE, compute the expected monthly premium and worst-case drawdown to within ±20%, and explain why the same setup in a taxable account is materially worse than the same setup in a Roth. If you can do those four things, you are done with this course.
 
@@ -41,7 +41,7 @@ The transitions are:
 - **A → B: Put assignment.** Stock closed below strike at expiry. You bought 100 shares at the strike. Effective cost basis = strike − put premium received.
 - **B → A: Call assignment.** Stock closed above strike at expiry. You sold 100 shares at the call strike. Total realized P/L for the cycle = (call strike − cost basis) × 100 + call premium.
 
-[VISUAL: image/side30_wheel_flow.png]
+![Three-state flow diagram of one revolution on a 30-delta, 30-DTE AAPL wheel at spot ≈ $215. Three boxes — State A (cash + short put, the default state), State B (long 100 shares + short call, the post-assignment state), and State C (cash, momentarily, after call assignment) — connected by two labelled arrows: "A → B: put assignment, stock closed below strike" and "B → A: call assignment, shares called away above cost basis." Each transition is annotated with a typical premium magnitude. The diagram visualises that State A is *the* trade (where most of the time is spent collecting put rent on a normal-vol underlying) and State B is the punishment for being assigned at a strike the stock then blew through.](image/side30_wheel_flow.png)
 
 The image above lays out one full revolution on a hypothetical AAPL wheel with spot ≈ $215, 30-delta puts and calls, and 30-DTE expiries. Each transition is annotated with a typical premium magnitude. Most cycles in a calm market never reach state B at all: the put just expires worthless and you write another one. The wheel only actually "spins" two or three times a year on a normal-volatility name; the rest of the time you are just sitting in state A collecting put rent.
 
@@ -73,7 +73,7 @@ Compare to buy-and-hold AAPL over the same window: ~16-18%/yr return, ~24%/yr vo
 
 Said another way: the wheel does roughly **half the total return of the underlying with about 60% of the vol**. The Sharpe is better. The dollar wealth is worse. Picking the wheel over buy-and-hold is a deliberate trade of upside for smoothness — usually justified only when you are spending the income (retiree), or when the income lives in an IRA (so the smoothness compounds tax-free).
 
-[VISUAL: image/side30_wheel_pnl.png]
+![Cumulative-wealth chart of $100,000 deployed in two strategies on AAPL from January 2020 through April 2026: a 30-delta, 30-DTE monthly wheel (gold) and simple buy-and-hold AAPL (blue). Both lines start at $100k. The wheel actually leads buy-and-hold for sustained stretches of 2022 because put-premium income offsets the bear-market drawdown month by month. By the 2023-2024 recovery the structural cap-out hurts: AAPL pulls away on the upside while the wheel's covered calls keep getting assigned at the strike. By April 2026 buy-and-hold ends meaningfully ahead in dollar terms; the wheel ends with much lower realised volatility throughout. The picture is the trade — wheel for path-smoothness, buy-and-hold for terminal wealth.](image/side30_wheel_pnl.png)
 
 The chart shows wealth growth of $100k deployed in two strategies on AAPL from January 2020 through April 2026: the 30-delta monthly wheel versus simple buy-and-hold. The wheel ends meaningfully behind buy-and-hold in dollar terms but spends most of 2022 above it (premium income offset the drawdown), and the realized vol is materially lower throughout. This is the pattern. The wheel is for investors who care about the *path*, not the endpoint.
 
@@ -85,7 +85,7 @@ The forum framing is "the only risk is the stock goes to zero." That is technica
 
 **Risk 2: Cap-out on the recovery.** You got assigned at $210, stock dropped to $195, you sell $210 covered calls at $1.20 each month to defend the cost basis. Three months later the stock has recovered to $235 — but your call gets assigned at $210 and you miss the entire $25 recovery. Net P/L: premium collected (~$3.60 / contract) minus the $25 missed upside = ~-$2,140 / contract. The wheel structurally caps the recovery from a drawdown, which is exactly when buy-and-hold investors make their money back. Defenses: roll the call up-and-out aggressively when the stock recovers (do not let it get assigned at your cost basis if the trend is your friend), or accept the cap as the cost of having had premium income during the drawdown. There is no clean answer.
 
-**Risk 3: Tax inefficiency in taxable accounts.** Every put that expires worthless: short-term capital gain. Every call that expires worthless: short-term capital gain. Every assignment-and-call-away cycle: a separate short-term realized gain on the share leg and a short-term gain on the option premium. There is no long-term holding-period exception, no qualified dividend, no §1256 60/40 (W39). If you run a 15%/yr wheel in a 35% bracket, you net 9.75%/yr after tax. The same wheel in a Roth IRA nets the full 15%. **Run the wheel in IRA. Always.** SOUL #15 is not a suggestion here; it is the difference between the strategy working and the strategy not working.
+**Risk 3: Tax inefficiency in taxable accounts.** Every put that expires worthless: short-term capital gain. Every call that expires worthless: short-term capital gain. Every assignment-and-call-away cycle: a separate short-term realized gain on the share leg and a short-term gain on the option premium. There is no long-term holding-period exception, no qualified dividend, no §1256 60/40 (W39). If you run a 15%/yr wheel in a 35% bracket, you net 9.75%/yr after tax. The same wheel in a Roth IRA nets the full 15%. **Run the wheel in IRA. Always.** This is not a suggestion; it is the difference between the strategy working and the strategy not working.
 
 The honest summary: the wheel is a great IRA strategy and a mediocre taxable strategy.
 
@@ -140,7 +140,7 @@ For accounts under $50k, the PMCC wheel is the only realistic way to run this st
 
 #### 2.6 Sizing and the Barbell
 
-SOUL #14 places the wheel firmly on the **safe / known-bad** end of the barbell. The structure has bounded downside (strike × 100), monotone P/L within that bound, and a defined cycle length. None of those properties hold for the speculation end.
+The wheel sits firmly on the **safe / known-bad** end of the barbell. The structure has bounded downside (strike × 100), monotone P/L within that bound, and a defined cycle length. None of those properties hold for the speculation end.
 
 Three sizing rules for retail:
 
@@ -166,7 +166,7 @@ The interactive lets you set capital, underlying, DTE, and delta target; it will
 
 4. **"Sell weekly options because the annualized yield is huge."** Theta is concentrated in the last 7 days but so is gamma. A single bad earnings week eats months of premium. Monthly 30-45 DTE is the institutional default for a reason. PUTW (mechanical SPX put-write ETF) sells monthlies, not weeklies.
 
-5. **"Run the wheel in any account — the math works either way."** Premium income is short-term capital gain, taxed at ordinary rates. In a 32% bracket the wheel loses ~30% of its return to taxes. In a Roth IRA it loses zero. SOUL #15 is the dominant variable, not the strike selection.
+5. **"Run the wheel in any account — the math works either way."** Premium income is short-term capital gain, taxed at ordinary rates. In a 32% bracket the wheel loses ~30% of its return to taxes. In a Roth IRA it loses zero. The tax wrapper is the dominant variable, not the strike selection.
 
 6. **"You should sell calls below your cost basis to keep collecting premium during a drawdown."** This locks in a permanent loss. If the stock recovers to a price between your call strike and your cost basis, your shares get called away below cost basis and the loss is realized. Always sell calls at-or-above cost basis. If no strike works, accept the no-call-this-month outcome and wait.
 
@@ -202,7 +202,7 @@ The interactive lets you set capital, underlying, DTE, and delta target; it will
 
 **Q10. Is the wheel a "passive" income strategy?** No. Plan on 30-60 minutes per week monitoring 5-10 wheel positions: deciding when to close winning puts early (at 50-70% of max profit), rolling threatened puts, deciding whether to skip a covered call after assignment, etc. Less active than day trading; more active than buy-and-hold. Investors who treat it as set-and-forget under-perform mechanical PUTW.
 
-**Q11. Where does the wheel fit in the four-tranche framework (SOUL #13)?** Tranche 2 (income / cash-flow) primarily, because the cash flows are predictable and short-dated. Some practitioners place the share-side exposure in Tranche 1 (growth) — fine if the underlyings are SPY/QQQ. The PMCC wheel sits in Tranche 4 (opportunistic) because the leverage and time-decay risk are higher than Tranche-1 standards.
+**Q11. Where does the wheel fit in the four-tranche framework?** Tranche 2 (income / cash-flow) primarily, because the cash flows are predictable and short-dated. Some practitioners place the share-side exposure in Tranche 1 (growth) — fine if the underlyings are SPY/QQQ. The PMCC wheel sits in Tranche 4 (opportunistic) because the leverage and time-decay risk are higher than Tranche-1 standards.
 
 **Q12. After 30 weeks plus 30 sides — what should I actually do tomorrow?** Open an IRA if you don't have one. Move 20-30% of investable assets into it. Park 60% of the IRA in VTI/VXUS, 30% in BND/TIPS, 10% in cash. With the cash, sell one 30-delta, 30-DTE cash-secured put on SPY (or PMCC variant if capital is tight). When it expires or assigns, do it again. That is the entire course in three sentences.
 
@@ -292,7 +292,7 @@ The interactive lets you set capital, underlying, DTE, and delta target; it will
 
 **Stella:** And in an IRA?
 
-**Horace:** You net the dollar. The full dollar. This is SOUL principle 15: options strategies belong in tax-advantaged wrappers. The wheel is the cleanest illustration of this principle in the entire course. Run it in IRA, full stop.
+**Horace:** You net the dollar. The full dollar. Options strategies belong in tax-advantaged wrappers. The wheel is the cleanest illustration of this in the entire course. Run it in IRA, full stop.
 
 ---
 
@@ -334,11 +334,11 @@ The interactive lets you set capital, underlying, DTE, and delta target; it will
 
 **[SECTION 6 — SIZING + THE BARBELL — 12:30]**
 
-**Stella:** Where does this fit in the SOUL framework?
+**Stella:** How does this fit with the rest of the course?
 
-**Horace:** Two principles, both clean. Principle 14, the barbell: the wheel is squarely on the safe / known-bad end. Bounded downside, defined cycle, mechanical rules. The whole *point* of having a barbell is that the safe end has these properties — the bounded-loss, scheduled-payoff structure is what lets you take real risk on the speculation end. So a wheel sleeve frees up your tail-hedge sleeve, your crypto sleeve, your factor-tilt sleeve, by giving you a stable, known-vol cash-flow generator.
+**Horace:** Two clean ideas. The barbell: the wheel is squarely on the safe / known-bad end. Bounded downside, defined cycle, mechanical rules. The whole *point* of having a barbell is that the safe end has these properties — the bounded-loss, scheduled-payoff structure is what lets you take real risk on the speculation end. So a wheel sleeve frees up your tail-hedge sleeve, your crypto sleeve, your factor-tilt sleeve, by giving you a stable, known-vol cash-flow generator.
 
-**Stella:** Principle 15, the tax angle, we already covered.
+**Stella:** And the tax angle, we already covered.
 
 **Horace:** Right. And the IRA framing makes the whole thing work. Without it, the wheel is fine. With it, the wheel is one of the cleanest legal alpha sources retail has.
 

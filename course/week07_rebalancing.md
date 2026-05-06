@@ -30,8 +30,8 @@ You need to understand rebalancing for four reasons.
    *because* it has outperformed and buy the one that is now
    underweight *because* it has underperformed. The act of
    rebalancing **is** contrarianism, packaged as an annual chore.
-3. **Humans cannot do this on their own.** SOUL principle 12: the
-   market can stay irrational longer than you can stay solvent, and
+3. **Humans cannot do this on their own.** The market
+   can stay irrational longer than you can stay solvent, and
    the corollary nobody wants to hear is that *you* will turn
    irrational long before the market does. Selling NVDA after a
    triple, in your taxable account, in the year your neighbour just
@@ -200,7 +200,7 @@ when bands have stretched too far for contributions alone to fix.
 
 #### 2.5 The Mechanics of Why It Works When the Investor Does Not
 
-SOUL principle 12: **the market can stay irrational longer than you
+Keynes' warning: **the market can stay irrational longer than you
 can stay solvent.** The polite version of that statement; the
 impolite version is that *you* will turn irrational first, and the
 market will then continue running until you have liquidated at the
@@ -247,7 +247,7 @@ The deeper lesson from 2022 is the one Week 4 already foreshadowed:
 when stocks and bonds are positively correlated, neither sleeve
 is hedging the other, and the rebalancing premium falls toward
 zero. The practical response is not to abandon the rule but to
-broaden the asset menu — the barbell shape (SOUL #14) of more
+broaden the asset menu — the barbell shape of more
 cash, some gold, an equity tilt, and an asymmetric speculative
 sleeve has a higher cross-asset variance to harvest from in the
 inflation regime than the classic two-asset 60/40 does.
@@ -297,7 +297,7 @@ exactly the moments they disagree.
 giving up alpha."**
 
 A position that grew because of an idiosyncratic alpha source
-(SOUL #5) is a position you should consider sizing through a
+is a position you should consider sizing through a
 *conviction* lens, not a strict 60/40 lens. But the moment you
 treat a holding as part of the 60/40 sleeve, the rebalance applies.
 Mixing the two — calling the rebalance off because "I still believe
@@ -601,7 +601,7 @@ different fuel.
 
 **[SEGMENT 5: WHY HUMANS CAN'T DO THIS]**
 
-**Horace:** SOUL principle 12. The market can stay irrational
+**Horace:** The Keynes line. The market can stay irrational
 longer than you can stay solvent. And the corollary nobody wants to
 hear is — *you* will turn irrational first.
 

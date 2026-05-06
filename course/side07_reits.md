@@ -34,7 +34,7 @@ Three reasons this side slot is worth its own lesson:
    not the qualified-dividend rate. Section 199A (the 2017 TCJA
    provision, made permanent in 2025) lets investors deduct 20 per
    cent of REIT distributions, which lifts after-tax yield meaningfully
-   but only inside a taxable account. SOUL #15 (location-not-allocation)
+   but only inside a taxable account. The location-not-allocation rule
    reads the same way it does for everything else: REITs belong in the
    IRA whenever you have the room.
 3. **Sector composition has changed completely in fifteen years.** The
@@ -82,9 +82,9 @@ The mechanical implication for an investor: REITs deliver a higher
 that suppresses ordinary equity dividend yields has been removed. They
 deliver a *lower* after-tax yield in a taxable account than the headline
 suggests, because the investor pays the corporate-equivalent rate
-personally. SOUL #15 says: hold REITs in an IRA where the ordinary-
-income drag disappears, or in the taxable account only when you have
-explicitly priced the after-tax yield against alternatives.
+personally. The location rule says: hold REITs in an IRA where the
+ordinary-income drag disappears, or in the taxable account only when
+you have explicitly priced the after-tax yield against alternatives.
 
 The 90-per-cent distribution mandate is also why REITs cannot retain
 earnings to fund growth. They must issue equity and debt every year to
@@ -166,8 +166,8 @@ yield rose from 1.5 per cent to 4.0 per cent. Private commercial real
 estate transacted, in cap-rate terms, roughly flat — the buildings did
 not lose 25 per cent of their value in twelve months. But VNQ did. The
 public wrapper transmits rate sensitivity in real time; the private
-asset transmits it only at the next sale. SOUL #6 (the vol tail wags
-the dog) is the framing: when there is a public quote on a long-
+asset transmits it only at the next sale. The vol-tail-wags-the-dog
+framing applies: when there is a public quote on a long-
 duration cash-flow stream, the public quote will move on rates whether
 or not the underlying does.
 
@@ -195,7 +195,7 @@ risk asset is moving.
 
 Pull the threads together and the placement decision is mechanical.
 
-**Tranche (SOUL #13).** REITs are an *income* asset, not a
+**Tranche.** REITs are an *income* asset, not a
 stores-of-value asset. The distribution is the reason you own them;
 the underlying real estate is bond-collateral that supports the
 distribution. They go in the same sleeve as the dividend-equity menu
@@ -204,7 +204,7 @@ sleeve covered in Week 06. Sized at 5-10 per cent of the income sleeve
 for a default investor. Larger sizing only for investors who
 explicitly want to take a sector view (data centres, towers).
 
-**Account (SOUL #15).** IRA before taxable, full stop. REIT
+**Account.** IRA before taxable, full stop. REIT
 distributions are ordinary income, the 199A 20-per-cent deduction is
 nice but does not close the gap, and the asset throws off enough yield
 that the location decision compounds materially. The order is: max
@@ -212,7 +212,7 @@ out the IRA REIT slot first; fill the taxable slot only after the IRA
 is full or if you specifically want the depreciation-shielded portion
 of the distribution as taxable cash flow.
 
-**Sizing (SOUL #14, the barbell).** A 5-10 per cent VNQ position is a
+**Sizing (the barbell view).** A 5-10 per cent VNQ position is a
 core-sleeve holding, not a barbell tail. It is not the asset that
 saves you in a regime change. The 2022 episode showed that REITs in
 public-wrapper form will not protect you against a rate shock and will
@@ -303,7 +303,7 @@ March that mostly recovered by year-end. 2022 was a slow 25-per-cent
 grind driven by rates. Different mechanisms; similar magnitudes.
 
 **Q: What about international REITs?**
-A: VNQI is the international counterpart. SOUL #16 says we default to
+A: VNQI is the international counterpart. The default is to stay
 US-listed and US-only investable; international REITs add currency
 risk, governance variance, and a Japanese-property weight that has
 been a forty-year drag. For most investors the answer is to
@@ -313,8 +313,8 @@ concentrate the REIT slot in VNQ and skip VNQI.
 A: They do not replace TIPS or commodities as the inflation hedge.
 They participate in the long-horizon real-asset thesis but transmit
 rate-shock pain in the short run. The clean answer: TIPS for
-mechanical inflation protection, gold or commodities for the SOUL #3
-belief slot, and REITs as part of the income sleeve — three different
+mechanical inflation protection, gold or commodities for the belief-
+asset slot, and REITs as part of the income sleeve — three different
 jobs, three different sleeves.
 
 **Q: Is the 199A 20-per-cent deduction permanent now?**
@@ -409,8 +409,8 @@ cent. Lower than full ordinary at thirty-seven.
 
 **Stella:** So tax-wise they're worse than SCHD.
 
-**Horace:** Yes. Which is why SOUL fifteen — location-not-allocation —
-matters here. REITs go in the IRA first. Taxable account only when
+**Horace:** Yes. Which is why location-not-allocation matters here.
+REITs go in the IRA first. Taxable account only when
 you've explicitly priced the after-tax yield against alternatives.
 
 ---
@@ -481,9 +481,9 @@ predicted a twenty-five-per-cent drop. That's exactly what happened.
 **Horace:** Roughly flat that year. Cap rates moved in the
 transactions market but not nearly enough to justify minus twenty-
 five per cent. The buildings did not lose a quarter of their value.
-The wrapper did. SOUL six is the framing — when you put a public
-quote on a long-duration cash flow, the public quote will move on
-rates whether or not the underlying does.
+The wrapper did. The framing is vol-tail-wags-the-dog — when you put
+a public quote on a long-duration cash flow, the public quote will
+move on rates whether or not the underlying does.
 
 ---
 

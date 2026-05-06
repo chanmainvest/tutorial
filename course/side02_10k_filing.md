@@ -40,10 +40,10 @@ Four reasons every retail investor should know how to read one:
    `Ctrl-F` for the four phrases that signal trouble, and you skip the
    85% that is boilerplate. This lesson is that 45-minute discipline.
 
-The deeper point ties back to SOUL #1 (alpha is rare): the alpha that
-*does* exist for a retail investor mostly lives in *reading the
-filings nobody else reads*. Not in clever models. Not in faster data.
-In the unglamorous discipline of opening EDGAR and using `Ctrl-F`.
+The deeper point is that alpha is rare: what little *does* exist for
+a retail investor mostly lives in *reading the filings nobody else
+reads*. Not in clever models. Not in faster data. In the unglamorous
+discipline of opening EDGAR and using `Ctrl-F`.
 
 ---
 
@@ -239,8 +239,8 @@ five minutes, and you have the thesis.
    search at efts.sec.gov works perfectly and is free.
 8. **"International filings are equivalent."** They are not. A
    foreign private issuer files a 20-F, which is annual but less
-   detailed and less timely than a 10-K. SOUL #16 — US-listed
-   primary is part of why the disclosure regime is what it is.
+   detailed and less timely than a 10-K. Defaulting to US-listed
+   names is part of why the disclosure regime is what it is.
 
 ---
 
@@ -546,9 +546,8 @@ Restatement. Investigation. Ctrl-F before you read. If any of them
 hit, slow down. If none of them hit, you've ruled out the worst
 trouble cases in less than a minute.
 
-**STELLA:** And SOUL #1 — alpha is rare. The unglamorous version
-of alpha is sitting on a Sunday morning reading a filing that nobody
-else read.
+**STELLA:** And alpha is rare. The unglamorous version of alpha is
+sitting on a Sunday morning reading a filing that nobody else read.
 
 **HORACE:** That's the lesson. Filings are free. Reading is a skill.
 See you next side lesson.

@@ -35,7 +35,7 @@ You need to understand them for four reasons.
    specify a model — and your model is a guess. The methods disagree
    most where it matters most: at the 99% and 99.9% percentile, and
    in the worst week of every decade.
-3. **The fat-tail problem (SOUL #6, vol-tail-wags-dog).** The kurtosis
+3. **The fat-tail problem.** The kurtosis
    of daily US-equity returns runs 7-15 over 5-year windows since
    1990, never close to the Normal value of 3. Parametric VaR at 95%
    underestimates real losses by ~10-30%. At 99% it underestimates by
@@ -253,7 +253,7 @@ assigned that move a probability of ~$10^{-25}$.
 
 The right lesson is not "use a more complicated VaR." The right
 lesson is *risk numbers are estimates, all of them, and the tail is
-where estimates lie hardest*. SOUL #6: the tail wags the dog. Your
+where estimates lie hardest*. The tail wags the dog. Your
 risk system must include explicit stress tests at multiples of the
 quantitative VaR, regardless of what the model says is "impossible."
 
@@ -272,7 +272,7 @@ How a serious investor uses these tools:
    in a day), 2008 (-9% in a day, -38% in a year), 2020 March (-12%
    in a day, -34% in a month), 2022 (paired bond+stock drawdown).
    These are not VaR events; these are *plan-for-them* events.
-4. **Size positions for the tail, not the average.** SOUL #14:
+4. **Size positions for the tail, not the average.** Run a
    barbell. Most of the book in defensive holdings sized for normal
    vol; a small high-conviction tail in instruments that cap your
    loss (long options, deep cash buffers, defined-risk spreads).
@@ -281,6 +281,34 @@ How a serious investor uses these tools:
    too conservative is a few basis points of opportunity. The cost
    of being too aggressive is the obituary section of the *Wall
    Street Journal*.
+
+**Horace's view — VaR is institutional theatre, and the retail
+fix is structural, not statistical.** My own read of these models,
+after watching them fail in 1998, 2008, and March 2020, is that VaR
+exists primarily because regulators and risk committees need a
+single number to put on a slide. It is theatre. It systematically
+under-reports exactly the regimes where you actually need a risk
+number — the vol-on tail expansions, the regime turns from
+compression to expansion, the days when the option tail wagging the
+equity dog produces moves the model says are impossible. Kurtosis
+of 7 to 15 versus the assumed 3 is not a small calibration issue;
+it is the model being the wrong shape. The big banks discovered
+this in tears, every cycle, and the response is always to add
+another bell and whistle to the model rather than admit the model
+class is wrong.
+
+The retail answer is not a better VaR. It is a better *portfolio
+shape*. I run a barbell with a small persistent long-volatility and
+tail-hedge sleeve sized so the worst-case loss on the hedged book
+is the *known* premium I pay for the hedge — not a model output
+that lies in the tail. The asymmetry sleeve is bounded by structure
+(long options, defined-risk spreads, deep cash buffers) so the CVaR
+on the worst week is a number I chose at position-sizing time, not
+a number a Student-t tells me after the fact. That is the inversion:
+instead of computing risk on a portfolio shape that has none,
+choose a portfolio shape whose worst case is bounded *by
+construction*, and let the VaR number be a sanity check rather
+than the load-bearing input.
 
 ---
 
@@ -451,7 +479,7 @@ people do instead.
 **Stella:** That sounds like a setup for the marshmallow conclusion
 already.
 
-**Horace:** It is. SOUL number six. Vol-tail-wags-dog. Parametric VaR
+**Horace:** It is. The volatility tail wags the dog. Parametric VaR
 at 95% is a useful number. At 99% it is a guess. At 99.9% it is
 fiction. The difference between those three statements ate
 Long-Term Capital, the structured-credit desks in 2008, and the
@@ -648,7 +676,7 @@ Two: quote CVaR at 97.5%, not VaR at 99%. Same regulatory
 conservatism, more honest math. Three: always run an explicit
 stress test. 1987, 2008, March 2020, 2022. These are not VaR
 events; they are *plan-for-them* events. Four: size positions for
-the tail, not the average. SOUL fourteen — barbell. Most of the
+the tail, not the average. Barbell — most of the
 book in instruments sized for normal vol, a small high-conviction
 sleeve in defined-risk structures. Five: discount the headline
 number. Whatever 99% VaR your platform reports, *double it for
@@ -698,6 +726,20 @@ explicit stress test, and treats the spread as the irreducible
 uncertainty in the number. Vol-tail-wags-dog. The model is not the
 world. The world will, eventually, surprise the model. Plan for it
 before it does.
+
+**Stella:** And the deeper objection?
+
+**Horace:** In my own book, VaR is institutional theatre. It exists
+because risk committees need a single number for the slide, and it
+under-reports exactly the regimes where you need a risk number —
+the vol-on expansions, the days when the option tail wagging the
+equity dog produces "impossible" moves. The retail fix isn't a
+better model; it's a better portfolio shape. Run a barbell with a
+small persistent tail-hedge sleeve sized so the worst case on the
+hedged book is the *known* premium you paid for the hedge — not a
+number a Student-t tells you after the fact. Choose a shape whose
+worst case is bounded by construction, and let VaR be a sanity
+check rather than the load-bearing input.
 
 **Stella:** Next week — Week 43, hedging strategies. How to actually
 buy insurance against the tail without paying full retail.

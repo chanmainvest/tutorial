@@ -45,18 +45,18 @@ name they cover, to answer four very practical questions:
    roughly 80–90% accuracy on the original test set. Its threshold zones
    — distress below 1.81, gray 1.81–2.99, safe above 2.99 — are crude,
    and that is the point. Crude rules survive regimes; finely tuned
-   ones do not. SOUL #1 again: alpha is rare, but *avoiding negative
-   alpha* is cheap, and a $0 ten-line spreadsheet is one of the cheapest
-   sources.
+   ones do not. Alpha is rare, but *avoiding negative alpha* is cheap,
+   and a $0 ten-line spreadsheet is one of the cheapest sources.
 
-The chart below ([image/week35_dupont_compare.png](image/week35_dupont_compare.png))
-shows what DuPont looks like when you put five very different
+The chart below shows what DuPont looks like when you put five very different
 businesses next to each other. Apple is a margin machine with serious
 leverage from buybacks. JPMorgan is a leverage machine with thin
 margins and almost no asset turnover. Ford is a turnover machine with
 both thin margins and meaningful leverage. The same 13–17% ROE is being
 manufactured three different ways, and the path to a 0% ROE is
 different for each.
+
+![Side-by-side DuPont decomposition for five very different US large-caps — Apple, Microsoft, Coca-Cola, JPMorgan, and Ford. Each firm is shown as a stacked or grouped set of bars for the three DuPont legs: net profit margin, asset turnover, and equity multiplier. Apple shows ~24% margin × 1.07 turnover × 6.4 multiplier (a margin machine with buyback-amplified leverage); Microsoft is the cleanest software profile (high margin, low turnover, low multiplier); Coca-Cola is a brand business (high margin, low turnover, moderate leverage); JPMorgan is a leverage machine (huge multiplier ~12, thin turnover); Ford is a turnover machine (3% margin × 0.65 turnover × 6.6 leverage). Same headline ROE band, three structurally different paths to it.](image/week35_dupont_compare.png)
 
 ---
 
@@ -168,7 +168,7 @@ false-positive rate. It famously fired on Enron in 1997 and 1998, on
 WorldCom in 1999, on Valeant in 2014. It missed Wirecard, because
 Wirecard simply made up the cash balance — there was no earnings
 manipulation footprint, just an outright lie. The lesson: M-score is a
-*screening filter* (SOUL #5, "look at the right numbers"), not a
+*screening filter* — a tool for looking at the right numbers, not a
 verdict. When it lights up, you read the 10-K. When it doesn't, you
 still read the 10-K, just with less urgency.
 
@@ -203,12 +203,13 @@ in 2012 down to 1.2 by 2018, three years before the dividend cut and
 the breakup. The trend line was the signal; the absolute level was just
 the noise.
 
-The chart [image/week35_zscore_distress.png](image/week35_zscore_distress.png)
-shows three trajectories. GE 2010-2024 (the deteriorate-and-recover
+The chart below shows three trajectories. GE 2010-2024 (the deteriorate-and-recover
 curve), Ford 2018-2024 (perpetually parked in the gray zone, which is
 about right for a cyclical), and Apple 2020-2024 (deeply safe, the
 shape of a brand business with a clean balance sheet). Same model,
 same cutoffs, completely different stories.
+
+![Time-series chart of the Altman Z-score for three US large-caps — GE, Ford, and Apple — across roughly 2010–2024. The y-axis shows Z; horizontal bands at Z=1.81 and Z=2.99 mark the distress / gray / safe zones. GE traces a deteriorate-and-recover curve: starts in the gray zone around 2.5 in 2010, drifts up briefly, then slides through gray into distress (below 1.3) by 2018 — the dividend-cut and writedown year — before partially recovering. Ford is parked in the gray zone (Z ~1.5–1.7) the entire stretch, the home address for a deep-cyclical manufacturer. Apple sits well above 5 throughout, deeply safe — fortress balance sheet, brand business. Same model, same cutoffs, three completely different stories.](image/week35_zscore_distress.png)
 
 #### 2.5 Putting It Together — The Two-Page Health Check
 
@@ -228,7 +229,7 @@ new name:
    years is a position-size question. Trending down through the gray
    zone is a research question.
 
-None of this is alpha generation in the SOUL #5 sense. It is the
+None of this is alpha generation in the new-edge sense. It is the
 opposite: it is the *negative-alpha filter*. Most amateur portfolios
 underperform not because they failed to find the next Apple but because
 they held a Bear Stearns or a Valeant or a GE in the 2017 stretch when
@@ -236,6 +237,34 @@ a five-minute screen would have asked them to think twice. The
 [interactive lab](interactive/week35_fsa_lab.html) at the end of this
 lesson lets you pick a preset firm or punch in your own numbers and
 watch the Z-score band classification flip in real time.
+
+**Horace's view — this work is defensive, not offensive, and the
+textbook quietly misframes it.** The orthodox CFA framing puts DCF,
+quality screens, and the Z-score on the *alpha-generation* side of
+the ledger — as if a careful analyst, armed with these tools and a
+clean spreadsheet, can systematically pick winners that the rest of
+the market has missed. My own experience says that is the wrong way
+to read this material. The market is right far more often than I am.
+Genuine, articulable mispricings — the rare moments where I can
+point to *exactly* where the crowd has it wrong and why — are not
+what DCF produces; DCF produces a fair-value range that mostly
+agrees, within a wide band, with where the stock already trades.
+The honest read is that this entire toolkit is *negative-alpha
+filtering*: it stops you being on the wrong side of an asymmetric
+mispricing that the rest of the market has already priced in.
+
+That reframing changes how you spend your time. If you treat
+financial-statement work as alpha generation, you grind harder on
+the marginal name, looking for an edge that probably isn't there
+and overtrading when you talk yourself into one. If you treat it as
+the negative-alpha filter — as the screen that decides which names
+*never enter* the portfolio in the first place — you spend the same
+hours much more productively. The real edges in this course are
+elsewhere: macro, sector rotation, structural flow mispricings, the
+occasional tax or instrument-structure advantage. The bottom-up
+toolkit is what keeps you from owning the next Valeant, *not* what
+finds you the next Apple. Worth doing carefully. Not worth
+mistaking for the source of returns.
 
 ---
 
@@ -340,7 +369,7 @@ which is itself a form of efficacy.
 A: Mostly Tranche 2 (factor / quality sleeve) and Tranche 3 (active /
 single-name alpha). Tranche 1 (passive index) does not need any of
 this; you bought the basket. Tranche 4 (cash and dry powder) does not
-need any of this either. The middle two tranches are where SOUL #5's
+need any of this either. The middle two tranches are where the
 "look at cash, look at quality" alpha sources live, and these are the
 ratios that operationalise that look.
 
@@ -537,9 +566,9 @@ signature.
 
 **Stella:** So it is a screen, not a verdict.
 
-**Horace:** Exactly. SOUL number five — alpha sources include "look at
-the right numbers". M-score tells you *which 10-Ks to actually open
-and read first*. When a name lights up, you read it carefully. When it
+**Horace:** Exactly. Alpha sources include looking at the right
+numbers. M-score tells you *which 10-Ks to actually open and read
+first*. When a name lights up, you read it carefully. When it
 doesn't, you still read it, just with less urgency. That filtering
 function is worth a lot, even if the model itself doesn't catch every
 fraud.
@@ -641,11 +670,24 @@ the bankruptcy probability. Together they are the negative-alpha
 filter — they will not find you the next Apple, but they will keep
 you out of the next Valeant.
 
-**Horace:** SOUL number one — alpha is rare. The corollary is that
+**Horace:** Alpha is rare. The corollary is that
 *avoiding negative alpha is cheap*. A two-page diligence sheet costs
 you thirty minutes per name. The names you decide *not* to size up
 because of what those sheets show you — that is the yield on this
 half-hour.
+
+**Stella:** The orthodox framing treats DCF and quality screens as
+the place where alpha *comes from* though.
+
+**Horace:** And in my own book that's the wrong framing. The market
+is right more often than I am. DCF mostly produces a fair-value
+range that overlaps with the current price. This whole toolkit is
+defensive — it stops you being on the wrong side of an asymmetric
+mispricing the rest of the market has already priced. The real
+edges live elsewhere: macro, sector rotation, structural flow,
+the occasional tax or instrument-structure advantage. Bottom-up
+work keeps you out of the next Valeant. It does not find you the
+next Apple. Don't confuse the two.
 
 **Stella:** Next week we move from financial statements into industry
 analysis — Porter's five forces, competitive moats, and the kind of

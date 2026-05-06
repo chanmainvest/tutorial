@@ -36,8 +36,7 @@ footnote:
    formation, and corporate governance. The textbook models that
    recommend `40% international` were calibrated on a regime that no
    longer exists.
-4. **The course's investable universe rule (SOUL principle #16)
-   originates here.** Every other lesson — from week 3's risk-return
+4. **The course's investable universe rule originates here.** Every other lesson — from week 3's risk-return
    premia to week 24's institutional sleeve template — implicitly
    restricts itself to U.S.-listed securities. This side lesson
    explains *why*, so the rule does not feel arbitrary when it shows
@@ -114,7 +113,7 @@ April 2026** decomposes into roughly three regimes.
 
 The honest reading of this chart: **leadership has rotated, and
 nobody knows where it goes next.** That is also Horace's first
-principle from SOUL — *alpha is rare; the toolkit is portfolio
+principle: *alpha is rare; the toolkit is portfolio
 construction.* If you cannot predict which region wins the next
 decade, the standard textbook response is *own all of them in
 proportion to size.* This course's response is different and is
@@ -146,7 +145,7 @@ unhedged for the equity sleeve."
 This course leaves the question moot, because the U.S.-only rule
 side-steps it entirely.
 
-#### 2.4 The Political-Risk Premium and SOUL Principle #16
+#### 2.4 The Political-Risk Premium and the Investable-Universe Rule
 
 The argument the textbook does not make is the one that determines
 this course's allocation rule. International equities — especially
@@ -185,7 +184,7 @@ risk model, and could not be unwound at any price.* This is the
 political-risk premium, and the standard equity-premium math does
 not capture it.
 
-This course's response — codified as SOUL principle #16, the
+This course's response — the
 "investable universe" rule — is to **restrict the entire
 recommended portfolio to U.S.-listed equities.** The rule has four
 pillars:
@@ -318,7 +317,7 @@ in the early 2000s. You are taking the textbook trade.
 
 **Q: What's the right hedge for U.S.-only concentration risk if I
 believe the U.S. could underperform for a decade like 2000-2009?**
-A: Three answers. First, the four-tranche framework (SOUL #13)
+A: Three answers. First, the four-tranche framework
 already includes a stores-of-value sleeve — gold, real assets — that
 is currency-agnostic. Second, U.S. multinationals (AAPL, MSFT,
 PG, KO) earn 50%+ of revenue overseas, so SPY itself is already
@@ -333,7 +332,7 @@ A: Yes. The custodian bank withholds at the foreign-source rate
 you can claim a foreign tax credit on Form 1116. In an IRA the
 withholding is permanent and not recoverable — which is one reason
 the course recommends holding international-exposed names in
-taxable, not tax-deferred accounts. SOUL #15 covers this in detail.
+taxable, not tax-deferred accounts. The tax-location lesson covers this in detail.
 
 **Q: Is VWO different from EEM? Both are emerging markets ETFs.**
 A: Same asset class, different index providers. VWO follows FTSE
@@ -350,7 +349,7 @@ benchmark-coverage decision by MSCI, not an accessibility upgrade.
 Capital controls limit your ability to sell in a crisis. Hard pass.
 
 **Q: How does the lesson square with Horace's barbell principle?**
-A: The barbell (SOUL #14) says *combine cheap-and-safe + lottery-
+A: The barbell says *combine cheap-and-safe + lottery-
 ticket + nothing in between.* The U.S.-only rule applies to the
 cheap-and-safe leg: VTI / SCHD / TLT — all U.S.-listed. The
 lottery-ticket leg is allowed to include non-U.S. names (small TSM
@@ -378,7 +377,7 @@ than the alternatives."
 
 **Q: I already own VXUS in my 401(k) and can't easily get rid of
 it. What now?**
-A: Don't fight your plan. The 401(k) match (SOUL #15: tax wrapper
+A: Don't fight your plan. The 401(k) match (the tax wrapper
 beats security selection) is worth 50%+ on the dollar; do not
 sacrifice that to enforce a 5-percentage-point allocation rule.
 If your plan menu offers VXUS but not a clean U.S.-only balanced
@@ -426,7 +425,7 @@ markets. Today they're not — and the gap has been widening for
 fifteen years. That's the conversation today.
 
 **Stella:** And there's a hard rule we're going to give the audience
-at the end. SOUL principle 16 — the investable-universe rule.
+at the end. The investable-universe rule.
 
 **Horace:** Right. By the end of this you'll know why we wrote it,
 what it excludes, and what the small list of exceptions looks like.
@@ -533,7 +532,7 @@ twenty-five percent of the total.
 
 **[ACT IV — THE FOUR FILTERS — 8:00-9:30]**
 
-**Stella:** So the rule. SOUL principle sixteen.
+**Stella:** So the rule. The investable-universe rule.
 
 **Horace:** Restrict the recommended portfolio to U.S.-listed
 equities. The rule has four pillars.

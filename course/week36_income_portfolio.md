@@ -35,14 +35,14 @@ Four reasons this matters as the capstone for the L3 income block.
    portfolio that ignores the difference can lose 30% of its
    *spendable* yield to the IRS for no good reason.
 3. **The hierarchy of after-tax yield is the single biggest lever you
-   control.** SOUL #15 is the explicit anchor. In the 32% federal
+   control.** Tax efficiency is the explicit anchor. In the 32% federal
    bracket, a qualified dividend keeps about 80 cents of every dollar.
    A bond coupon keeps about 63 cents. A short-term option premium
    keeps the same 63 cents — sometimes less, depending on state. The
    *order* in which you fill your taxable, IRA, and Roth accounts with
    these income streams is worth more than picking better individual
    tickers ever will be.
-4. **The four-tranche framework (SOUL #13) and the barbell (SOUL #14)
+4. **The four-tranche framework and the barbell
    need a distribution-side translation.** During accumulation, the
    four tranches govern *how you allocate*. During distribution they
    govern *which sleeve you draw from this quarter*. The income
@@ -141,7 +141,7 @@ The operational rule that falls out:
   199A deduction does not fully offset your state rate.
 
 This is location, not allocation. It is one of the few free lunches
-SOUL #15 gives you.
+the US tax code gives you.
 
 #### 2.3 The Canonical Product Menu
 
@@ -242,7 +242,7 @@ portfolio in §2.6 is engineered around that 4-5% target.
 
 #### 2.5 The Distribution-Side Four-Tranche Framework
 
-SOUL #13's four tranches in accumulation translate cleanly to
+The four tranches in accumulation translate cleanly to
 distribution. The same buckets exist; the *direction of cash flow*
 reverses.
 
@@ -253,7 +253,7 @@ reverses.
 | 3. Diversified equity | Compounding engine | The wealth machine; refills sleeve 2 |
 | 4. Concentrated bets | Asymmetric upside | Optional yield overlays (JEPI, premium-write) |
 
-The barbell from SOUL #14 is the cross-section: short-duration safe
+The barbell is the cross-section: short-duration safe
 income on one end (T-bills, 2-year Treasuries, VTEB if taxable), and
 long-duration real assets on the other (VNQ, equity dividend growers,
 optional premium overlay). The middle — long-duration intermediate
@@ -443,7 +443,7 @@ is the four-tranche framework working in reverse.
 
 **Q9: What about international dividend ETFs (VYMI, IDV)?**
 
-Per SOUL #16, our default is US-only investable. International
+Our default is US-only investable. International
 dividend ETFs add concentration in financials and energy and
 introduce withholding-tax leakage that takes a bite out of the
 qualified-dividend rate. If you want non-US exposure, take it on the
@@ -465,8 +465,7 @@ For a retiree, 1-2 years of spending. For a working accumulator,
 3-6 months. The reason for the asymmetry is the tail. A retiree who
 is *forced* to sell equities at a 30% drawdown to fund this month's
 groceries is destroying compounding more than any 1% cash drag could
-cost. The cash sleeve is insurance against the bad-sequence tail
-(SOUL #6).
+cost. The cash sleeve is insurance against the bad-sequence tail.
 
 **Q12: What about annuities?**
 
@@ -579,7 +578,7 @@ advantage in a taxable account is actually negative.
 
 **Stella:** What's the operational rule that drops out?
 
-**Horace:** Account location. SOUL principle 15. Qualified-dividend
+**Horace:** Account location. Qualified-dividend
 equity goes in the taxable account because the LTCG rate is the
 whole point. Option-premium and high-yield-corporate sleeves go in
 the IRA, where the IRS bite gets deferred or eliminated. Treasuries
@@ -701,14 +700,14 @@ zero-percent-taxed federally in the 12% bracket! At 12% federal plus
 5% state, qualified-dividend equity is a 5% effective rate. That is
 the cheapest income you can buy.
 
-**Stella:** Anchor it back to SOUL.
+**Stella:** Anchor it back to the framework.
 
-**Horace:** The four-tranche framework — principle 13 — translates
+**Horace:** The four-tranche framework translates
 directly. Cash sleeve is one to two years of spending, your no-sell
 zone. Bonds are five to seven years of spending, refilled from
 equity in good years. Equity is the wealth machine. The optional
 fourth sleeve is your premium-write or concentrated income overlay.
-And the barbell — principle 14 — is the cross-section. Short-duration
+And the barbell is the cross-section. Short-duration
 safe income on one end, long-duration real assets on the other. The
 middle is the *least* useful sleeve in distribution, exactly opposite
 to what most target-date funds offer.
@@ -722,9 +721,9 @@ to what most target-date funds offer.
 **Horace:** One. Pre-tax yield is marketing. After-tax yield is what
 gets spent. Convert before you decide. Two. Account location — which
 sleeve goes in which account — is worth more than picking better
-tickers. SOUL principle 15 again. Three. The 4% rule works again as
-of 2026, but only with variable spending; if you need rigid
-inflation-adjusted spending, plan for 3.5-3.8%, not 4%.
+tickers. The tax code rewards location, not allocation. Three. The 4%
+rule works again as of 2026, but only with variable spending; if you
+need rigid inflation-adjusted spending, plan for 3.5-3.8%, not 4%.
 
 **Stella:** Next week — Week 37 — we'll cover the dynamic-withdrawal
 mechanics in detail: Guyton-Klinger guard rails, the 4-percent-of-

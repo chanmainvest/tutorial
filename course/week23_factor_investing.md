@@ -41,11 +41,11 @@ This matters for four reasons.
    moment a putative "skill" fits inside an academic factor it stops
    being skill.
 
-3. **It is one of the five durable alpha lanes.** SOUL #5 names five
-   structural mispricings — liquidity, sector rotation, long-term
-   trends, buying what passive flows have abandoned, and (the one
-   we're discussing this week) the academic factor premia. Of the
-   five, factors are the most *systematic* and the most *crowded* —
+3. **It is one of the durable structural alpha lanes.** Among the
+   handful of structural mispricings worth chasing — liquidity,
+   sector rotation, long-term trends, buying what passive flows have
+   abandoned, and the academic factor premia we're discussing this
+   week — factors are the most *systematic* and the most *crowded* —
    which means they have the lowest barrier to entry and the most
    compressed forward expected return. They still pay; they just pay
    less than they did before everyone owned VLUE and MTUM.
@@ -192,10 +192,10 @@ was for the leveraged hedge funds twenty years ago, because the fee
 compression has roughly matched the premium compression. Cheap beta
 ate expensive alpha.
 
-#### 2.6 Where this fits in the SOUL framework
+#### 2.6 Where this fits in the bigger picture
 
-Factor investing is the most *structural* of the five alpha lanes in
-SOUL #5 — and the *least* idiosyncratic. It scales infinitely (any
+Factor investing is the most *structural* of the available alpha
+lanes — and the *least* idiosyncratic. It scales infinitely (any
 size of capital can run it), it requires no special information, and
 the academic literature documenting it is freely available on SSRN.
 That's also exactly why the premium has compressed: anything anyone
@@ -207,8 +207,9 @@ you click VLUE and forget about it. The market is efficient at
 arbitraging away premium that requires no discomfort to capture.
 
 The implication for your own book: factors belong in the *passive
-core* (SOUL #13's tranche-one money), not in the *active sleeve*. A
-modest tilt — 10-20% of your equity allocation in QUAL or AVUV
+core* (the foundational, lowest-active tranche), not in the *active
+sleeve*. A modest tilt — 10-20% of your equity allocation in QUAL or
+AVUV
 versus a market-cap-weighted core — gets you most of the diversification
 benefit without taking concentrated factor-blow-up risk. Putting 100%
 of your equity in MTUM is taking the 2009-style tail risk; putting
@@ -337,8 +338,8 @@ year.
 
 **Q6: Does international factor investing work?**
 The academic premia replicate internationally (developed and EM)
-with similar magnitudes and similar 2003-2020 compression. SOUL #16
-keeps us US-only for *investability* reasons (FX, custody, tax,
+with similar magnitudes and similar 2003-2020 compression. We stay
+US-only for *investability* reasons (FX, custody, tax,
 information disadvantage), but the academic story is broadly
 international, not US-specific.
 
@@ -380,8 +381,7 @@ near the expensive end. But this is a slow-moving overlay, not a
 trading rule — you adjust 10-20% of your tilt every few years, not
 every quarter.
 
-**Q11: How does factor investing fit with the four-tranche framework
-in SOUL #13?**
+**Q11: How does factor investing fit with the four-tranche framework?**
 Factors live in tranche one (the passive core) and tranche two (the
 slightly-active tilt). They do *not* belong in tranche three (the
 active concentrated book) or tranche four (the convex tail). A
@@ -584,9 +584,9 @@ small-value-quality at 25 bps. IWM or IJR for size at 19 or 6 bps.
 **Stella:** A retail investor can replicate the entire FF5+momentum
 framework for under 20 basis points all-in?
 
-**Horace:** Easily. And here's the SOUL framework angle. Factors are
-alpha lane number five — the *structural* mispricings, of which the
-academic factor premium is the most arbitrageable subset. They
+**Horace:** Easily. And here's the bigger-picture angle. Factors are
+the structural mispricing alpha lane — the academic factor premium
+is the most arbitrageable subset. They
 belong in tranche one or tranche two of your portfolio. The passive
 core, with maybe a 10-30% tilt to factors. They do *not* belong in
 your active concentrated book. The reason they pay less than they
@@ -673,8 +673,9 @@ se. Retail factor ETFs in 2026 deliver the academic premium at under
 25 bps. Use them as a 10-30% tilt on a cap-weighted core, not as a
 replacement for it.
 
-**Horace:** And the SOUL #5 framing. Factors are the structural alpha
-lane — the most systematic, the most scalable, and the most arbed.
+**Horace:** And the structural-alpha framing. Factors are the
+structural alpha lane — the most systematic, the most scalable, and
+the most arbed.
 They belong in your passive core. The lane that pays *more* — the
 lane the academic literature can't write a clean paper about — is the
 contrarian one. Buying what passive flows have abandoned. We did that

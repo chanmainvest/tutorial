@@ -1,5 +1,5 @@
 {
-  "_comment": "LLM + translation configuration for scripts/translate-batch.py. Set 'provider' to anthropic | openai | gemini and the script reads the matching block under 'providers'. CLI flags (--provider, --model, --locale, --file, --force, --dry-run) override these defaults.",
+  "_comment": "LLM + translation configuration for scripts/translate-batch.py. Set 'provider' to anthropic | openai | gemini | copilot and the script reads the matching block under 'providers'. The 'copilot' provider routes through the GitHub Models inference API and uses your GitHub Copilot subscription tokens (auth via GITHUB_TOKEN env var, e.g. from `gh auth token`). CLI flags (--provider, --model, --locale, --file, --force, --dry-run) override these defaults.",
 
   "provider": "anthropic",
   "locales": ["hk", "tw", "cn"],
@@ -36,6 +36,16 @@
       "api_key_env": "GEMINI_API_KEY",
       "input_cost_per_mtok": 0.15,
       "output_cost_per_mtok": 0.6
+    },
+    "copilot": {
+      "_comment": "GitHub Models inference API. Auth via GITHUB_TOKEN env var (use `gh auth token` from a Copilot-enabled account). Model names use the github-models slug (provider/model). Counts against Copilot rate limits, not paid API credits.",
+      "model": "openai/gpt-4.1-mini",
+      "base_url": "https://models.github.ai/inference",
+      "max_tokens": 16384,
+      "temperature": 0.3,
+      "api_key_env": "GITHUB_TOKEN",
+      "input_cost_per_mtok": 0.0,
+      "output_cost_per_mtok": 0.0
     }
   }
 }

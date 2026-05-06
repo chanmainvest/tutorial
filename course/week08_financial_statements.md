@@ -40,7 +40,7 @@ financial statement analysis. We will spend one week on it, plus a
 side lesson on the 10-K filing wrapper ([side02_10k_filing.md](side02_10k_filing.md)).
 The two together are enough to read most filings competently. They
 are not enough to audit one. That is fine. As Horace puts it: alpha
-sources include "look at cash, not earnings" (SOUL #5). You do not
+sources include "look at cash, not earnings". You do not
 need to outwork the auditors to outperform the index. You need to
 know which line of which statement to land on first.
 
@@ -226,7 +226,7 @@ generating free cash flow are doing so by issuing debt or equity —
 borrowing from one set of investors to pay another, which is fine
 for a year and ruinous over a decade.
 
-The discipline Horace pushes (SOUL #5): when the gap between net
+The discipline Horace pushes: when the gap between net
 income and free cash flow grows, distrust the income statement.
 Earnings can be manipulated; cash is harder. The chart below shows
 this exact gap for Apple over the last decade.
@@ -441,7 +441,7 @@ A: Mostly. Outside the US, companies file under IFRS (International
 Financial Reporting Standards) rather than US GAAP. The structure
 of the three statements is the same; the line-item conventions
 differ in places (LIFO inventory not allowed, capitalised R&D
-allowed, lease accounting differs). Per SOUL #16, this course
+allowed, lease accounting differs). This course
 restricts the *investable* universe to US-listed equities — but
 many of those (ADRs, foreign-domiciled US-listed companies) file
 under IFRS via 20-F. The three-statement framework still applies.

@@ -33,8 +33,8 @@ Four reasons to do this work, even knowing the output is fuzzy:
    growth for a decade. The market does not announce that forecast
    on a banner. A reverse DCF makes the implicit forecast explicit,
    and you can ask: *do I believe that?*
-3. **It separates "valuation alpha" from regime alpha.** This is
-   SOUL #1. Most apparent "value" outperformance over the long run
+3. **It separates "valuation alpha" from regime alpha.** Alpha
+   is rare. Most apparent "value" outperformance over the long run
    is multiple compression risk in disguise — buying things that
    are statistically cheap and waiting for the multiple to mean-
    revert. That works in some regimes, fails in others (1998, 2017,
@@ -88,7 +88,7 @@ betting on is the discipline.
 
 A useful warning before we start: as Horace puts it, most "valuation
 alpha" is actually multiple-compression risk dressed up as insight
-(SOUL #1). Buying something at 12× earnings instead of 22× *can* be
+— alpha is rare. Buying something at 12× earnings instead of 22× *can* be
 a free lunch — or it can mean you are buying a structurally
 deteriorating business at the moment its multiple stops being able
 to defend itself. The valuation toolkit doesn't tell you which one.
@@ -400,7 +400,7 @@ No — but it is informative. April 2026 reading is near zero (E/P
 preceded sub-par 5–10 year equity returns. It does not mean sell;
 it means lower your forward expectations and consider tilting a
 modest weight toward bonds (consistent with the four-tranche
-framework from Week 14, SOUL #13).
+framework from Week 14).
 
 **Q7. Why is reverse DCF more useful than regular DCF for big
 benchmark stocks?**
@@ -452,7 +452,7 @@ precision.
 
 **Q12. Is there a case to ignore valuation entirely and just
 index?**
-Yes — most of the time, for most people. Per SOUL #16, US-listed
+Yes — most of the time, for most people. US-listed
 equities are the investable universe; per Week 2, the index is the
 default. Valuation discipline matters when you are choosing
 individual names or deciding whether to tilt the index allocation
@@ -704,7 +704,7 @@ playing.
 
 **[OUTRO — 17:30]**
 
-**Horace:** SOUL #1 — alpha is rare. Most "valuation alpha" is
+**Horace:** Alpha is rare. Most "valuation alpha" is
 multiple-compression risk dressed as insight. The 2000-2010 decade
 rewarded value because tech multiples collapsed; 2010-2020 rewarded
 growth because rates compressed and tech earnings exploded. Both

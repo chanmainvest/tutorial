@@ -33,7 +33,7 @@ You need to understand managed futures for four reasons:
    S&P long-run correlation is roughly zero, with the *conditional*
    correlation turning sharply negative in extended drawdowns. This
    is the property the 60/40 lost in 2022 and that bonds lost in
-   2008-by-default. SOUL #14 — the barbell — only works if the two
+   2008-by-default. A barbell only works if the two
    ends are actually different. CTAs are the cleanest "different"
    you can buy in liquid public markets.
 
@@ -44,15 +44,16 @@ You need to understand managed futures for four reasons:
    The fee compression is the single biggest change in liquid
    alternatives over the last five years.
 
-4. **It is the textbook L5 alpha sleeve.** SOUL #5 lists the five
-   places alpha can come from. Trend-following is the most empirically
-   validated of the five at the *systematic* end (alongside size and
+4. **It is the textbook L5 alpha sleeve.** Of the small handful of
+   places alpha can come from, trend-following is the most empirically
+   validated at the *systematic* end (alongside size and
    value), with out-of-sample evidence going back to 1880 across
    futures markets that did not yet exist when the studies were
    funded. The strategy is not a secret — and it still works, because
-   the source of the return (SOUL #6 — vol-tail-wags-dog plus SOUL #8
-   — momentum) is hard for marginal capital to arbitrage away without
-   accepting the same drawdowns CTAs accept in chop markets.
+   the source of the return (the volatility tail wagging the dog plus
+   cross-asset momentum) is hard for marginal capital to arbitrage
+   away without accepting the same drawdowns CTAs accept in chop
+   markets.
 
 This week's job is to wire that into a portfolio, not just to admire
 it from a distance.
@@ -78,7 +79,7 @@ or weekly.
 That is the entire algorithm. There is no forecast of fundamentals,
 no view on Fed policy, no DCF. The strategy says: *if this thing has
 been going up, ride it; if it has been going down, ride that too*.
-It is SOUL #8 — momentum — applied across asset classes, with the
+It is momentum applied across asset classes, with the
 key innovation being that the universe is not just stocks. When
 stocks fall and bonds rally and the dollar squeezes and crude tanks,
 all four trades line up in the same direction, and the convex payoff
@@ -103,12 +104,12 @@ The flip side is sideways or chop markets, which are bad for trend.
 2015 was flat, 2016-2019 mixed. Then 2022 paid back the entire
 2011-2019 gap in a single year for the index.
 
-[VISUAL: image/week51_cta_history.png]
+![Time-series chart of the SocGen CTA Index from 2000 through 2024 with the S&P 500 total return overlaid. Strong CTA years are highlighted: 2002 +18%/SPX -22%, 2008 +13%/SPX -37%, 2014 +16%/SPX +14%, 2022 +21%/SPX -18%. Chop/loss years for CTA also marked: 2011 -4%, 2015 ~0%, 2018 -3%, 2020 +2%/SPX +18%. The two lines weave around each other with low unconditional correlation but sharply negative conditional correlation in extended bear markets — the structural signature of crisis alpha. Five years of chop are paid back by one big trending crisis year.](image/week51_cta_history.png)
 
 That is the deal: in calm markets you pay a small or zero opportunity
 cost; in extended trending crises you get paid a multiple of your
-allocation. SOUL #6 — the few months that matter dominate the long-run
-return distribution. Trend-following is structurally *long* those
+allocation. The few months that matter dominate the long-run
+return distribution, and trend-following is structurally *long* those
 months.
 
 #### 2.3 The SocGen CTA Index and What "Average CTA" Means
@@ -154,7 +155,7 @@ inflection. The fund replicates the SocGen CTA Index using a
 mirror portfolio of liquid futures that targets the same factor
 loadings. The result is roughly 0.85% all-in (no performance fee, no
 lockups), daily liquidity, 1099 reporting (no K-1), Section 1256
-60/40 capital gains tax treatment on the futures sleeve (SOUL #15).
+60/40 capital gains tax treatment on the futures sleeve.
 
 The current retail CTA menu, April 2026:
 
@@ -200,7 +201,7 @@ through (2018), it can lose despite VIX being elevated.
 
 #### 2.6 Where Trend Sits in the Four-Tranche Framework
 
-Slot the strategy into SOUL #13's four-tranche structure:
+Slot the strategy into the four-tranche structure:
 
 | Tranche | Target | Role of CTA sleeve |
 |---|---:|---|
@@ -220,7 +221,7 @@ A more aggressive split is 70/10/15/5 with the 15 being entirely CTA.
 That is approximately the AQR house-portfolio recommendation for
 endowment-style mandates.
 
-[VISUAL: image/week51_60_40_with_cta.png]
+![Cumulative-wealth chart of three portfolios from 1990 through April 2026, all starting at $1: 100% S&P 500 (highest terminal wealth, but worst drawdowns at -51% in 2009 and -24% in 2022), classic 60/40 stocks/bonds (middle terminal, drawdowns -30% / -20%), and a 50/30/20 split with 20% in a synthetic CTA proxy (slightly below 60/40 on terminal wealth but the *best* drawdown profile of the three at -22% / -10%). The CTA-blend portfolio's wealth path is the smoothest of the three. The chart is the empirical case for a 10-15% CTA sleeve — same long-run shape as 60/40 but with roughly half the worst-year pain.](image/week51_60_40_with_cta.png)
 
 The wealth-path chart shows the empirical reason. From 1990 to April
 2026 a 100% S&P portfolio compounds to the highest terminal value
@@ -254,7 +255,7 @@ Three rules of thumb I have used myself:
 
 The behavioural trap is identical to the one with tail hedges (Week
 47): the strategy looks broken right when it is closest to paying
-off. SOUL #12 — markets stay irrational longer than you stay solvent —
+off. Markets stay irrational longer than you stay solvent — that
 applies to the *holder* of the hedge as much as it does to the trader
 on the other side of one.
 
@@ -438,7 +439,7 @@ algorithm.
 
 **Stella:** No fundamentals. No Fed-watching. No DCFs.
 
-**Horace:** Pure price action. SOUL #8 — momentum — applied across
+**Horace:** Pure price action. Momentum applied across
 asset classes instead of just stocks. The reason the universe
 matters is what makes the strategy diversifying. When stocks go
 down, bonds rally, dollar squeezes, oil tanks, all four trends line
@@ -461,8 +462,8 @@ CTA up 20, S&P down 18.
 whipsaws.
 
 **Horace:** That is the deal. Five years of chop for one year of
-crisis-alpha that pays back the entire gap. SOUL #6 — the few
-months that matter dominate the long-run distribution. Trend-
+crisis-alpha that pays back the entire gap. The few
+months that matter dominate the long-run distribution, and trend-
 following is structurally on the right side of those months when
 they unfold over quarters.
 
@@ -510,7 +511,7 @@ manager.
 
 **Horace:** Today: DBMF, 0.85% expense ratio. KMLM, 0.92. AHLT,
 0.95. FMF, 0.95. All ETFs, daily liquidity, 1099 reporting, Section
-1256 tax treatment. That is SOUL #15 — the futures sleeve gets 60/40
+1256 tax treatment. The futures sleeve gets 60/40
 capital gains tax regardless of holding period.
 
 **Stella:** Picking among them?
@@ -536,8 +537,8 @@ blender. Three sliders — S&P, bonds, CTA. Sum to 100.
 **Stella:** Lower return.
 
 **Horace:** Slightly. But the *risk-adjusted* return is higher and
-the drawdown is half. That is the trade. SOUL #14 — barbell — the
-right end of the barbell is convex small allocations that pay
+the drawdown is half. That is the trade. The right end of a
+barbell is convex small allocations that pay
 asymmetrically in stress. CTA is one of the cleanest versions of
 that available in liquid markets.
 
@@ -553,7 +554,7 @@ permanent cost, like an insurance premium. If you would not pay 1%
 a year for a tail-risk hedge, you will not be happy holding CTA in
 a chop year.
 
-**Stella:** SOUL #12.
+**Stella:** Same idea — markets outlast solvency.
 
 **Horace:** Markets stay irrational longer than you stay solvent —
 applies to the holder of the hedge as much as the speculator on the
@@ -577,9 +578,9 @@ shocks — 2008, 2020. CTA works in trending stagflationary shocks —
 
 **OUTRO**
 
-**Horace:** Final line. SOUL #5 lists five sources of alpha.
-Trend-following is the most empirically validated of the five at
-the systematic end, with out-of-sample evidence going back to 1880
+**Horace:** Final line. Of the small handful of sources of alpha,
+trend-following is the most empirically validated at the systematic
+end, with out-of-sample evidence going back to 1880
 across futures markets that did not yet exist when the studies
 were funded. The strategy is not a secret. It still works. The
 reason it still works is because the source of return — long-

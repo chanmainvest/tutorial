@@ -18,9 +18,9 @@ Four reasons this lesson matters:
 
 **2. They convert idle cash into yield without taking equity risk you didn't already plan to take.** If you were going to keep $20,000 ready to buy SPY at a 5% pullback anyway, you can do exactly that *and* collect $200-$400/month while the cash waits. The cash itself stays in T-bills earning around 4% (April 2026). The put premium is an additive layer, not a replacement.
 
-**3. Most CSPs you'd actually want to be assigned.** This is the single insight that separates serious CSP sellers from yield-chasers. A CSP is structurally a "limit buy at strike, with a rebate." If assignment scares you, you sold the wrong put on the wrong stock. SOUL #14 (barbell) puts CSPs squarely on the safe end — they are how you accumulate the boring index/quality positions that anchor a portfolio. You are not trying to *avoid* assignment; you are trying to *price* it.
+**3. Most CSPs you'd actually want to be assigned.** This is the single insight that separates serious CSP sellers from yield-chasers. A CSP is structurally a "limit buy at strike, with a rebate." If assignment scares you, you sold the wrong put on the wrong stock. The barbell puts CSPs squarely on the safe end — they are how you accumulate the boring index/quality positions that anchor a portfolio. You are not trying to *avoid* assignment; you are trying to *price* it.
 
-**4. They live cleanly inside the options-tax doctrine (SOUL #15).** Like covered calls, CSP premium income is short-term capital gain regardless of how long you held the contract. That makes CSPs a tax-disaster in a taxable brokerage account if you run them at scale, and a beautiful tool inside a Roth or traditional IRA where the short-term character vanishes. Same rule we hit in Week 27: option income lives in tax-sheltered accounts. Stocks-you-want-to-own live anywhere.
+**4. They live cleanly inside the options-tax doctrine.** Like covered calls, CSP premium income is short-term capital gain regardless of how long you held the contract. That makes CSPs a tax-disaster in a taxable brokerage account if you run them at scale, and a beautiful tool inside a Roth or traditional IRA where the short-term character vanishes. Same rule we hit in Week 27: option income lives in tax-sheltered accounts. Stocks-you-want-to-own live anywhere.
 
 This is a doer's lesson. By the end of it you should be able to look at SPY at $560, decide you'd happily own it at $530, find the 30-delta put that strikes near $530, and know within ten seconds whether the premium is worth the capital lockup.
 
@@ -42,9 +42,9 @@ A 30-day cash-secured put at the $530 strike is the same buy intention with thre
 
 That is it. The premium compensates you for two things the regular limit order does not give the market: a **time commitment** (you can't cancel without buying back the contract) and a **firm floor under price** (you must take delivery at the strike if it trades through, even if the stock is much lower).
 
-The first commitment is real but small in dollar terms. The second is the one that matters: you are short volatility. If SPY goes to $400 in a crash, you still buy at $530 — and the market knows this, which is why VIX-rich environments pay much more premium than calm ones. SOUL #6 (option tail wags the dog) shows up here directly: the price you get for a CSP is not really about your stock thesis, it is about how scared *other* people are about the next 30 days.
+The first commitment is real but small in dollar terms. The second is the one that matters: you are short volatility. If SPY goes to $400 in a crash, you still buy at $530 — and the market knows this, which is why VIX-rich environments pay much more premium than calm ones. The vol tail wags the equity dog directly here: the price you get for a CSP is not really about your stock thesis, it is about how scared *other* people are about the next 30 days.
 
-[VISUAL: image/week28_csp_yield_curve.png]
+![Bar chart of annualized premium yield (in %) on a 30-day cash-secured put as a function of target put-delta — 10Δ, 16Δ, 25Δ, 30Δ, 40Δ, 50Δ — computed from Black-Scholes on a $100 stock with sigma = 22% and r = 4%. Each bar is colored cool-to-hot from blue (10Δ, deepest OTM, lowest yield) through to red and purple (40Δ, 50Δ, near-the-money, highest yield), and is annotated with both the yield and the implied strike with OTM%. The 50-delta bar is roughly 6× the height of the 10-delta bar; the footer makes explicit that higher yield is the price of higher assignment risk, not edge.](image/week28_csp_yield_curve.png)
 
 The image above shows the annualized premium yield on a 30-day SPY-like put as a function of strike-delta, computed from Black-Scholes with sigma = 22% and r = 4%. The bars climb steeply as you move closer to the money: the 50-delta (at-the-money) put pays roughly 6x the annualized yield of a 10-delta put. But that 50-delta put has a ~50% chance of finishing in-the-money. The yield is not free; it is the probability of assignment, dressed up.
 
@@ -110,7 +110,7 @@ Total yield = T-bill yield (cash collateral) + put premium yield (option)
 
 A 30-day, 16-delta SPY put yielding 0.4% in premium therefore returns roughly 4.0% + 0.4% x 12 = **8.8% annualized** on a no-assignment cycle. This is the number you compare against. It is not 4.8% (premium only, ignoring cash interest), and it is not 30%-something (annualizing the premium without subtracting taxes and assignment cost). Always quote yields *including* the T-bill leg.
 
-This matters for SOUL #2: in the 1990s when T-bills paid 0%, CSP yields looked huge by comparison. In 2026 with T-bills at 4%, the *incremental* yield from selling puts is the only thing worth measuring, and it is much smaller than uninformed YouTubers claim.
+This matters for the regime you live in: in the 1990s when T-bills paid 0%, CSP yields looked huge by comparison. In 2026 with T-bills at 4%, the *incremental* yield from selling puts is the only thing worth measuring, and it is much smaller than uninformed YouTubers claim.
 
 #### 2.5 Rolling and Defending — Rules, Not Vibes
 
@@ -137,7 +137,7 @@ Defensive playbook (mechanical version):
   Earnings inside the contract life    Avoid in the first place
 ```
 
-Notice: there is no rule that says "double down" or "average into a losing put." Selling another put at the same strike when the first one is underwater is doubling exposure to a stock that the market disagrees with you about. SOUL #12 (irrational > solvent) applies in reverse: the market can stay below your strike longer than you can stay willing to wear the loss, especially if you keep adding.
+Notice: there is no rule that says "double down" or "average into a losing put." Selling another put at the same strike when the first one is underwater is doubling exposure to a stock that the market disagrees with you about. The market can stay below your strike longer than you can stay willing to wear the loss, especially if you keep adding — irrationality outlasts solvency more often than the spreadsheet admits.
 
 #### 2.6 Assignment Psychology — You're Buying, Not Losing
 
@@ -155,7 +155,7 @@ The only stocks where assignment is genuinely bad are the ones you should not ha
 
 WisdomTree PUTW (CBOE S&P 500 PutWrite Index Fund) is the institutional version of this lesson. It mechanically sells 1-month, ~2% out-of-the-money SPX puts, fully cash-secured, every month. It exists to settle the question "does systematically writing puts beat just owning the index?"
 
-[VISUAL: image/week28_putw_vs_spy.png]
+![Line chart comparing cumulative growth of $1 invested at year-end 2015 in WisdomTree PUTW (gold line, systematic 1-month ~2% OTM SPX put-write) vs SPY (blue line, S&P 500 total-return ETF), 2016 through 2024. Markers at each year-end; major drawdown years (2018, 2020, 2022) shaded in light red. SPY ends near $3.10 (CAGR ~12%/yr); PUTW ends near $1.85 (CAGR ~7%/yr). Final wealth and CAGR are labelled at the right end of each line. PUTW lags in melt-up years and loses less in drawdowns, but trails SPY by roughly 5%/yr over the full cycle.](image/week28_putw_vs_spy.png)
 
 The chart shows cumulative growth of $1 invested in PUTW vs SPY from January 2016 to December 2024. The numbers (April 2026 vintage):
 
@@ -183,7 +183,7 @@ Put assigned -> stock taken     Premium reduces cost basis of the
                                   shares starts on assignment day
 ```
 
-In a taxable account at a 35-37% top bracket, a CSP yielding 5% per year in premium is netting ~3.2% after tax. Inside a Roth IRA, it's netting 5%. SOUL #15 again: the entire short-vol toolkit only makes sense in a tax-sheltered wrapper for high earners. In a regular brokerage, you are running options strategies for the IRS's benefit.
+In a taxable account at a 35-37% top bracket, a CSP yielding 5% per year in premium is netting ~3.2% after tax. Inside a Roth IRA, it's netting 5%. The entire short-vol toolkit only makes sense in a tax-sheltered wrapper for high earners. In a regular brokerage, you are running options strategies for the IRS's benefit.
 
 The interactive below walks the math for any combination of underlying, delta, and DTE in real time.
 
@@ -250,7 +250,7 @@ One contract per month per underlying you want to accumulate, on a 30-45 DTE 16-
 **Q11. Do I need to actively manage these or can I let them expire?**
 You can let them expire if your thesis hasn't changed and the put is far out of the money near expiry. The half-decent rule is: if at 7 DTE the put has lost 80%+ of its initial premium, just close it for the small remaining cost — you free up capital and remove gamma risk for the last week.
 
-**Q12. How does this fit into the barbell (SOUL #14)?**
+**Q12. How does this fit into the barbell?**
 CSPs on index ETFs and quality compounders are unambiguously **safe-end** activity. They build positions you wanted anyway, pay you to wait, and have bounded downside. CSPs on volatile single names with binary outcomes are **speculation-end** activity. The mistake is mixing the two — using safe-end framing to justify selling 30-delta puts on a meme stock. Separate them in your head and in your account.
 
 ---
@@ -341,7 +341,7 @@ CSPs on index ETFs and quality compounders are unambiguously **safe-end** activi
 
 **Stella:** And the thing not on the list?
 
-**Horace:** Doubling down. Selling another contract at the same strike when the first is underwater. That's how a small CSP loss becomes a 30%-of-portfolio loss. The market can stay below your strike longer than you can stay willing to add. That's SOUL #12 in reverse — irrationality outlives solvency.
+**Horace:** Doubling down. Selling another contract at the same strike when the first is underwater. That's how a small CSP loss becomes a 30%-of-portfolio loss. The market can stay below your strike longer than you can stay willing to add. Irrationality outlasts solvency — that's the trap, in reverse.
 
 **Stella:** And how often do you actually roll?
 
@@ -381,7 +381,7 @@ CSPs on index ETFs and quality compounders are unambiguously **safe-end** activi
 
 **Stella:** So why would anyone do CSPs?
 
-**Horace:** Three reasons. One, you don't want maximum return; you want to build a specific position at a specific price. PUTW is mechanical and indiscriminate. Targeted CSPs aren't. Two, you're inside an IRA where the option income is tax-free, and the equivalent stock-trading strategy would be tax-disastrous. SOUL #15. Three, you want lower portfolio volatility and you'll accept a small return drag for it. But anyone who thinks "sell puts, beat SPY" is starting from a wrong premise. PUTW is a public counter-example.
+**Horace:** Three reasons. One, you don't want maximum return; you want to build a specific position at a specific price. PUTW is mechanical and indiscriminate. Targeted CSPs aren't. Two, you're inside an IRA where the option income is tax-free, and the equivalent stock-trading strategy would be tax-disastrous — the option wrapper is a tax tool first. Three, you want lower portfolio volatility and you'll accept a small return drag for it. But anyone who thinks "sell puts, beat SPY" is starting from a wrong premise. PUTW is a public counter-example.
 
 ---
 
@@ -415,9 +415,9 @@ CSPs on index ETFs and quality compounders are unambiguously **safe-end** activi
 
 **Horace:** A cash-secured put is a 30-day limit-buy order with rent attached. Sell them on stocks you want to own at prices you want to own them at. Don't use the rent to talk yourself into bids you don't believe in.
 
-**Stella:** And the SOUL anchors?
+**Stella:** And the takeaways for the wheel?
 
-**Horace:** Three. SOUL #14 — barbell — CSPs on index ETFs and quality compounders are safe-end activity, never speculation-end. SOUL #15 — tax — run them inside a Roth or traditional IRA, not a taxable account. SOUL #6 — option tail wags the dog — the premium you collect is a function of how nervous *other* people are, not how clever you are.
+**Horace:** Three. CSPs on index ETFs and quality compounders are safe-end activity, never speculation-end — that is the barbell. Run them inside a Roth or traditional IRA, not a taxable account — the option wrapper is a tax tool first. And the premium you collect is a function of how nervous *other* people are, not how clever you are — the option tail wags the equity dog.
 
 **Stella:** Next week we step into spreads — bull-put credit spreads as the leveraged sibling of the CSP, where you don't post the full collateral. See you then.
 

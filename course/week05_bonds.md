@@ -41,7 +41,7 @@ You need to understand bonds for four reasons.
    market is the cheapest macro intelligence service on earth.
 4. **The 1981-2020 bond bull market is the regime backdrop for
    almost every "passive works" claim of the last two generations.**
-   Horace's SOUL principle #2 — that we are 40+ years into a
+   Horace's regime-shift framing — that we are 40+ years into a
    passive-investing-friendly regime that *has triggers we should
    watch* — sits squarely on top of the bond chart. A generation
    of investors has never seen a real bond bear market. 2022 was
@@ -247,7 +247,7 @@ Three regimes you need to recognise.
   is near 4.2% and the market is debating whether we're in a 1980s-
   style normalisation or the start of a long secular grind higher.
 
-The Horace frame, lifted from SOUL #2: passive index investing
+The Horace frame: passive index investing
 *works* in regimes where bonds rally and stocks rally together
 because rates are falling. A generation of investors built the
 "just buy and hold" intuition on the 1981-2020 backdrop. The
@@ -413,7 +413,7 @@ diversification job.
 
 **Q9: How much of my portfolio should be bonds?**
 
-A: Outside of the 60/40 baseline (Week 4), the SOUL barbell shape
+A: Outside of the 60/40 baseline (Week 4), the barbell shape
 holds *less* bonds than 60/40, *more* in cash + short Treasuries
 on the safe side, and *more* in equity tail bets on the
 asymmetric side. A 30-year-old building wealth probably runs
@@ -659,7 +659,7 @@ or the start of something more durable.
 
 **Stella:** What's the lesson?
 
-**Horace:** This is SOUL principle number two. We have been forty
+**Horace:** This is the regime point. We have been forty
 years inside a regime that made passive index investing look like a
 free lunch. The regime had a specific macro signature: falling
 yields meant rising bond prices, rising equity multiples, and a

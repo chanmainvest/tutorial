@@ -32,7 +32,7 @@ leverage" is a lot harder than the brochures suggest.
    underwater for ~12 months and back to all-time highs by Mar 2013.
    A 2x levered S&P 500 investor with the same conviction got
    margin-called below SPX 800 and never participated in the
-   recovery. The story repeats every cycle. SOUL #12: the market can
+   recovery. The story repeats every cycle. The market can
    stay irrational longer than you can stay solvent.
 3. **Borrow rates are not what you think.** Interactive Brokers,
    widely advertised as the cheapest, charges roughly 6.6% on the
@@ -48,7 +48,7 @@ leverage" is a lot harder than the brochures suggest.
    3-5x more buying power on the same capital. Both tools require
    reading the manual; both reward investors who do.
 
-The honest framing is from SOUL #6: vol-tail-wags-dog. Leverage does
+The honest framing is simple: vol-tail-wags-dog. Leverage does
 not change your average return very much; it changes the shape of
 the distribution — fattening the left tail until a 3-sigma event
 becomes terminal. Use it consciously or do not use it at all.
@@ -77,7 +77,7 @@ agreement, three powers most retail clients never read carefully:
 1. **Securities lending.** Your fully-paid shares can be loaned to
    short sellers. You do not get the lending revenue (the broker
    keeps it). Dividends arrive as "payments in lieu" — taxed as
-   ordinary income, not as qualified dividends. SOUL #15.
+   ordinary income, not as qualified dividends. That tax mismatch matters.
 2. **Forced liquidation.** If you fail to meet a margin call, the
    broker may sell any position in any size at any price without
    your consent and without notice. Most agreements explicitly
@@ -165,7 +165,7 @@ maintenance call triggered automated liquidations into a thinning
 order book, which fell further, which triggered the next call.
 ETH margin debt at the institutional level went from ~$28 billion
 to under $4 billion in eight weeks. None of it would have failed
-if the participants had been unlevered. SOUL #6: vol-tail-wags-dog.
+if the participants had been unlevered. Vol-tail-wags-dog.
 
 ![Margin-call path: 2x SPY through the 2008 drawdown. The unlevered investor recovered; the 2x leveraged path crossed the maintenance threshold, was forced to deleverage at -34%, and never re-entered.](image/side21_margin_call_path.png)
 
@@ -249,7 +249,7 @@ are real:
   / Schwab. SOFR + 30-50bp typical, 4.7-4.9% in April 2026. The
   trade locks in a synthetic loan via four SPX options legs. Tax
   treatment: Section 1256 (60% LTCG / 40% short-term), not
-  ordinary income. SOUL #15. Capital efficient: $100k box spread
+  ordinary income. The tax wrapper matters here. Capital efficient: $100k box spread
   takes ~$1k of buying power under PM.
 - **Treasury repo / box of T-bills** for institutional accounts.
   4.30% in April 2026, virtually risk-free. Retail does not have
@@ -294,7 +294,7 @@ $L = 1$.
 The conclusion is not "never lever." The conclusion is: **leverage
 is an alpha source for institutions with cheap financing and a real
 edge; it is a beta amplifier for retail with broker-rate financing
-and no edge.** SOUL #1: alpha is rare; cheap leverage on no edge
+and no edge.** Alpha is rare; cheap leverage on no edge
 just rents you variance.
 
 #### 2.7 Sizing Rules When You Decide to Use Margin
@@ -451,7 +451,7 @@ only). Most retail investors take the standard deduction and get
 no tax benefit from margin interest. Box spreads, by contrast,
 are Section 1256 and the financing cost is embedded in 60/40
 LTCG treatment — a structurally better tax outcome on the same
-trade. SOUL #15.
+trade. The tax-wrapper edge here is real.
 
 **Q6: What is portfolio margin, in one sentence, for someone who
 has never traded options?**
@@ -494,8 +494,8 @@ For most: 1.0x. For an investor with a documented edge, IB Pro
 financing, the discipline to remark weekly, and the cash reserves
 to cover a 30% drawdown: 1.25x to 1.5x as a structural position.
 Above 1.5x is institutional territory and almost always destroys
-retail accounts on a 10-year horizon. SOUL #12 + #6 — irrational
-+ vol — combine to make leverage the dominant cause of permanent
+retail accounts on a 10-year horizon. Irrational markets plus fat-tailed vol
+combine to make leverage the dominant cause of permanent
 capital loss in retail.
 
 **Q11: What is the safest way to use leverage if I am set on
@@ -516,7 +516,7 @@ direction, the right size relative to vol, and the right
 financing. The vast majority of long-equity leveraged accounts
 did not survive in their original form. The lesson is not "no
 leverage"; the lesson is "the kind of leverage that survives the
-tail is not the kind being sold to you." SOUL #14: barbell.
+tail is not the kind being sold to you." Barbell sizing matters.
 
 ---
 
@@ -587,8 +587,8 @@ you eat the loss but not the rebound.
 
 **Stella:** Why didn't they just hold through it?
 
-**Horace:** They didn't get to choose. The broker chose. SOUL #12
-— the market can stay irrational longer than you can stay
+**Horace:** They didn't get to choose. The broker chose. The market
+can stay irrational longer than you can stay
 solvent. Leverage cuts your "longer than" in half.
 
 ---
@@ -601,7 +601,7 @@ collateralised by ETH and BTC. ETH went from $4,800 in November
 2021 to $880 in June 2022. Each margin call on the way down
 forced selling into a thinning order book. The selling pushed the
 price lower. The lower price triggered the next call. Eight weeks.
-$24 billion of margin debt unwound. SOUL #6 — vol-tail-wags-dog.
+$24 billion of margin debt unwound. Vol-tail-wags-dog.
 None of those firms would have failed unlevered.
 
 **Stella:** And this could happen with stocks?
@@ -655,8 +655,8 @@ Plug into the geometric return formula.
 flat across reasonable leverage. What changes monotonically with
 leverage is volatility — three to four times the unlevered
 amount. You are taking quadruple the variance for the same
-expected wealth. That is not a trade. That is a tax. SOUL #1 —
-alpha is rare. Cheap leverage on no edge just rents you variance.
+expected wealth. That is not a trade. That is a tax. Alpha is rare.
+Cheap leverage on no edge just rents you variance.
 
 ---
 
@@ -695,11 +695,11 @@ makes sense at retail:
 One: defined-risk options spreads under portfolio margin. An
 iron condor on SPX (week 30) has a known maximum loss; PM
 margins it correctly; you get five times the buying power
-without the path risk. SOUL #14 barbell.
+without the path risk. The barbell.
 
 Two: index futures (week 39). /MES at $5 a point, $26k notional,
 $2k margin, financing implicit in the basis at SOFR plus 30.
-Section 1256 60/40 tax. Best leverage tool retail has. SOUL #15.
+Section 1256 60/40 tax. Best leverage tool retail has. The tax wrapper matters.
 
 **Horace:** Both have a defined dollar risk per position. Both
 finance near risk-free. Neither requires the broker to call you

@@ -29,16 +29,16 @@ Four reasons this lesson earns its place.
    `BAMLH0A0HYM2` on FRED — is arguably a better leading indicator. It blew
    through 2,000 bps in November 2008, well before equities bottomed in
    March 2009. It hit 1,100 bps in March 2020, days before the equity low.
-   SOUL principle #6 says vol-tail-wags-dog: when the credit tail is
-   screaming, the equity dog is about to follow.
+   The volatility tail wags the dog: when the credit tail is screaming,
+   the equity dog is about to follow.
 2. **The investment-grade / high-yield boundary is not a gradient — it is a
    cliff.** A bond rated BBB- is held by every pension fund, mutual fund,
    and insurance company on earth, often by mandate. Cut it one notch to
    BB+ and a wave of forced sellers hits. The rating-agency boundary
    (Baa3/BBB-) is the most important price discontinuity in fixed income.
-3. **High yield is an alpha source, not just a coupon stream.** SOUL
-   principle #5 lists alpha sources: information, structure, time horizon,
-   illiquidity, and behavioural. HY bonds compensate you for *all five* —
+3. **High yield is an alpha source, not just a coupon stream.** The real
+   alpha sources — information, structure, time horizon, illiquidity, and
+   behavioural — all show up here. HY bonds compensate you for *all five* —
    under-researched, structurally avoided by IG-only mandates, illiquid
    through stress, and behaviourally dumped at the worst time. Buying HY at
    1,000 bps is one of the few asymmetric trades a retail investor can find
@@ -90,8 +90,7 @@ one in five hundred. Cross the cliff into BB and the rate jumps to about
 non-linear** — each notch down doesn't just add risk, it multiplies it.
 
 Three caveats. First, these are *long-run averages*. In a recession year,
-BB defaults can hit 4-6% and CCC can hit 35-45%. SOUL principle #6 again:
-tails dominate. Second, the averages assume cycles repeat — they include
+BB defaults can hit 4-6% and CCC can hit 35-45%. Tails dominate. Second, the averages assume cycles repeat — they include
 1932 and 2008. Use them as a base rate, not a forecast. Third, default ≠
 total loss. Recovery is the second leg.
 
@@ -176,18 +175,18 @@ Three practical takeaways.
 
 1. **Don't buy HY at sub-400 bps spreads.** That's the "complacency" zone —
    you're being paid less than the historical expected loss for B-rated
-   paper. SOUL principle #14 (barbell): when HY is rich, the right move is
+   paper. The barbell answer: when HY is rich, the right move is
    Treasuries on one side and equity beta on the other, not stretching for
    50 bps in junk.
 2. **Do buy HY at 800+ bps spreads, with size.** Every 800-bps wide print
-   since 1997 has been a 2-year buying opportunity. SOUL principle #5 says
-   behavioural alpha is real; HY-at-panic is the cleanest expression of it
-   that doesn't require options or shorting.
+   since 1997 has been a 2-year buying opportunity. Behavioural alpha is
+   real; HY-at-panic is the cleanest expression of it that doesn't require
+   options or shorting.
 3. **Use ETFs, not single names.** Default risk on a single B-rated bond is
    binary; on an index of 1,500 of them it's a smooth statistical process.
    HYG and JNK are the canonical high-yield ETFs; LQD is the canonical IG
-   ETF. SOUL principle #16 (US-only investable) — these are the instruments
-   a retail investor can actually use.
+   ETF. Stick to US-listed instruments — those are the ones a retail
+   investor can actually use.
 
 The interactive lets you turn each of the levers — maturity, coupon,
 Treasury yield, spread, default probability, recovery rate — and watch
@@ -227,9 +226,9 @@ That's what panic looks like in the math.
    is not credit risk. 2022 Treasuries lost 17% in price terms. The risks
    are different but neither is zero.
 8. **"HY ETFs always recover."** The ETF wrapper does, the underlying bonds
-   usually do — but holders who sell at the panic print do not. SOUL
-   principle #12: the market can stay irrational longer than you can stay
-   solvent. Size your HY position for the path, not the endpoint.
+   usually do — but holders who sell at the panic print do not. The market
+   can stay irrational longer than you can stay solvent — size your HY
+   position for the path, not the endpoint.
 
 ---
 
@@ -252,8 +251,7 @@ floor across cycles since 1980.
 A. For Treasuries it doesn't matter much (no credit risk, deep liquidity).
 For corporates, retail investors should use an ETF. Single bonds have wide
 bid-ask, lumpy default risk, and a knowledge edge that favours the dealer.
-SOUL principle #1: alpha is rare — single-name credit alpha is one of the
-rarest forms.
+Alpha is rare — single-name credit alpha is one of the rarest forms.
 
 **Q4. What's the biggest risk holding HYG through a recession?**
 A. Forced selling at the spread peak. The fund itself is fine (it can hold
@@ -271,8 +269,7 @@ corporates, the rating is a useful starting point.
 A. A bond that was IG at issue and got downgraded to HY. The interesting
 thing is the technical cliff: the IG-only fund universe must sell it, the
 HY universe is just absorbing it. Spreads usually overshoot on the way
-down — there's an alpha source here for patient buyers (SOUL principle #5,
-structural).
+down — there's a structural alpha source here for patient buyers.
 
 **Q7. How do I decompose a 320-bps spread?**
 A. Look up the rating bucket's annualised default rate (e.g., BB ~1.2%),
@@ -288,7 +285,7 @@ value out so you can compare bonds on a like-for-like basis. Both
 `BAMLH0A0HYM2` and modern IG indices are quoted OAS.
 
 **Q9. What's the right HY weight in a portfolio?**
-A. SOUL principle #13 says four tranches. HY belongs in the "yield" tranche
+A. Think of the portfolio as four tranches. HY belongs in the "yield" tranche
 alongside BBB IG, REITs, and option-income strategies — not in the Treasury
 sleeve. A 5-15% HY weight is reasonable for a moderate portfolio; size up
 only when spreads are above 800 bps.
@@ -361,9 +358,9 @@ crosses the line down, half its holder base has to sell.
 **HORACE:** That's right. It's not credit fundamentals creating the cliff,
 it's holder mandates. But the price effect is real — a downgrade across
 that line can blow a bond's spread out by a hundred to three hundred basis
-points in a session. Fallen angels are an alpha source for exactly that
-reason — SOUL principle five, structural alpha. The IG universe is forced
-to sell, the HY universe is calmly absorbing.
+points in a session. Fallen angels are a structural alpha source for that
+exact reason — the IG universe is forced to sell, the HY universe is
+calmly absorbing.
 
 [VISUAL: image/week33_default_rates.png — full screen]
 
@@ -452,9 +449,9 @@ fastest Fed hiking cycle in forty years, six hundred wide.
 
 **STELLA:** Each one of those was a buying opportunity.
 
-**HORACE:** Every single one. SOUL principle five — behavioural alpha.
-SOUL principle six — vol-tail-wags-dog. When credit is screaming, equities
-are about to follow. The 2008 spread peak was November 2008. Equities
+**HORACE:** Every single one. Behavioural alpha at work. And the
+volatility tail wags the dog — when credit is screaming, equities are
+about to follow. The 2008 spread peak was November 2008. Equities
 bottomed March 2009. Credit led by four months.
 
 **STELLA:** And April 2026?
@@ -490,8 +487,8 @@ back to two percent. Recovery up to forty-five.
 
 **HORACE:** Implied price about ninety-seven. Credit-adjusted YTM six
 point six percent. Expected return after losses about five point four.
-Boring. April 2026. SOUL principle fourteen — barbell. Don't stretch for
-fifty basis points in junk when the curve isn't paying you.
+Boring. April 2026. Run the barbell — don't stretch for fifty basis points
+in junk when the curve isn't paying you.
 
 **STELLA:** And the breakeven default rate?
 
@@ -515,9 +512,9 @@ behavioural-alpha tape in the bond market.
 **HORACE:** Three takeaways. One, never buy HY under four hundred bps.
 That's complacency. Two, always buy HY over eight hundred bps with size —
 every panic since 1997 has been a two-year trade. Three, use ETFs, not
-single names. SOUL principle one — alpha is rare. Single-name credit
-alpha is the rarest form, dealers eat retail in that game. Use HYG, JNK,
-LQD. The ETF wrapper is your edge.
+single names. Alpha is rare; single-name credit alpha is the rarest form,
+dealers eat retail in that game. Use HYG, JNK, LQD. The ETF wrapper is
+your edge.
 
 **STELLA:** Next week we move from credit risk to liquidity risk. Same
 family of questions, different lens.

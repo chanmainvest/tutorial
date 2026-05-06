@@ -59,8 +59,8 @@ discretion. That asymmetry is why this week matters:
    capitalised. Buybacks juice EPS even as FCF flatlines. The
    dispersion is itself a regime signal.
 
-This is one of the structural alpha sources from Horace's
-[SOUL.md](../SOUL.md) #5: cash-versus-accruals interpretation. It is
+This is one of the structural alpha sources in this course:
+cash-versus-accruals interpretation. It is
 not a secret. It is not crowded out either, because most of the
 market still trades on the headline number.
 
@@ -151,7 +151,7 @@ across all of the persistent earnings anomalies:
   is trading on a one-day phenomenon: the print versus the
   consensus. The slow signals are not crowded by the fast traders.
 
-This connects to Horace's [SOUL.md](../SOUL.md) #8 on momentum and
+This connects to the two sides of price discovery: momentum and
 mean-reversion. PEAD is fundamentally a momentum effect — the stock
 that surprised up keeps drifting up — because the *information* is
 travelling through the market slower than the price. The accruals
@@ -264,8 +264,8 @@ The contrarian read: the firms whose FCF is keeping pace with EPS
 in this environment are getting a quality premium that the headline
 EPS multiple does not yet reflect. The firms whose EPS-FCF gap has
 widened for three years running are tomorrow's accrual reversion
-candidates. This is why Horace lists "look at cash, not earnings"
-as [SOUL.md](../SOUL.md) #5: it is structural, not tactical. It
+candidates. This is why "look at cash, not earnings" is a
+structural alpha source, not a tactical one. It
 works in every regime. It works hardest when the rest of the
 market has stopped checking.
 
@@ -360,10 +360,10 @@ A: Probably not as a retail investor. Short borrow on small- and
 mid-cap names is expensive, mark-to-market drawdowns can be sharp,
 and short squeezes happen even on terminal cases. The cleaner
 implementation is to screen those names *out* of your long book
-and concentrate on the low-accrual side. That captures most of the
-asymmetry without the operational complexity (per
-[SOUL.md](../SOUL.md) #13, "the four tranches" — long-cash quality
-goes in the core; the short side is a specialty tranche).
+and concentrate on the long-cash quality side. That captures most of
+the asymmetry without the operational complexity — long-cash quality
+goes in the core tranche; the short side, if you run it at all, sits
+in a specialty tranche.
 
 **Q3: Why does PEAD drift continue for 60 days and not longer?**
 A: Around the 60-day mark the next quarter's pre-announcement
@@ -383,9 +383,8 @@ factor and historically had a bigger Sharpe.
 A: The accruals anomaly has been replicated in most developed
 markets — UK, Japan, Australia, Western Europe — at varying
 strengths. In emerging markets the data quality is weaker and the
-shorting frictions worse. Per [SOUL.md](../SOUL.md) #16, our
-investable universe is US-listed equities anyway, so this is not a
-real constraint for us.
+shorting frictions worse. Our investable universe in this course is
+US-listed equities anyway, so this is not a real constraint for us.
 
 **Q6: How do I use FCF yield in valuation?**
 A: For mature non-bank firms, an FCF yield (5-year average FCF
@@ -484,8 +483,8 @@ Two: stocks that beat earnings drift up for the next sixty trading
 days, and stocks that miss drift down, also documented since 1989.
 Both effects have weakened over time. Neither has inverted.
 
-**Horace:** From [SOUL.md](../SOUL.md) #5, this is one of our
-structural alpha sources. "Look at cash, not earnings." It sounds
+**Horace:** This is one of our structural alpha sources.
+"Look at cash, not earnings." It sounds
 trite. It is also genuinely persistent, because most of the market
 is trading on the headline.
 
@@ -551,8 +550,8 @@ short-borrow markets.
 **Horace:** Practical version for a retail book: do not short. Use
 the screen to *exclude* high-accrual names from your long
 portfolio. You will get most of the asymmetry without the
-operational complexity. That is also a [SOUL.md](../SOUL.md) #13
-thing — long quality goes in the core tranche; the short side, if
+operational complexity. That is also a tranche-discipline
+point — long quality goes in the core tranche; the short side, if
 you do it at all, goes in the specialty tranche, with size limits.
 
 ---
@@ -587,9 +586,9 @@ the trading volume in this market is operating on a one-day
 horizon — the print versus the consensus. The slow signals do not
 compete with the fast traders.
 
-**Stella:** This is also where it touches Horace's
-[SOUL.md](../SOUL.md) #8 — momentum and mean-reversion as twin
-phenomena. PEAD is fundamentally a momentum effect — the stock
+**Stella:** This is also where it touches the momentum-vs-
+mean-reversion duality — the twin phenomena of price discovery.
+PEAD is fundamentally a momentum effect — the stock
 that surprised up keeps drifting up, because the information is
 travelling through the market slower than the price. The accruals
 anomaly is a mean-reversion effect — earnings inflated by accruals
@@ -716,7 +715,7 @@ firms whose EPS-FCF gap has widened for three years running are
 tomorrow's accrual reversion candidates. That is the screen we run
 for the quality tranche.
 
-**Horace:** And per [SOUL.md](../SOUL.md) #5, this is structural,
+**Horace:** And this is structural,
 not tactical. Cash-versus-accruals interpretation works in every
 regime. It works hardest when the rest of the market has stopped
 checking. Which, late in the cycle, they tend to do.

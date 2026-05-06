@@ -12,11 +12,11 @@ Every asset on Earth is priced by discounting its future cash flows back to toda
 
 1. **Diversification is conditional, not unconditional.** The 60/40 portfolio rests on a single assumption: that stocks and bonds zig and zag against each other. In 2022 they did not. The S&P 500 fell 18%, the 10-year Treasury fell 18%, REITs fell 24%, gold barely budged, and the dollar rallied 8%. A "balanced" portfolio dropped 16-17%. The reason was simple: the same +400bps shock hit both legs at once, and rate sensitivity dominated correlation.
 
-2. **The 40-year tailwind reversed (SOUL #2).** From 1981 to 2020 the 10-year Treasury yield fell from 15% to 0.5%. Falling rates lift every duration-sensitive asset: bonds, growth equity, REITs, private credit, venture capital, leveraged buyouts. That tailwind made an entire generation of "long anything" portfolios look skilled. When the tailwind reversed in 2022, the same portfolios looked panicked. The investor who does not know which assets are duration-sensitive is the investor who got blindsided.
+2. **The 40-year tailwind reversed.** From 1981 to 2020 the 10-year Treasury yield fell from 15% to 0.5%. Falling rates lift every duration-sensitive asset: bonds, growth equity, REITs, private credit, venture capital, leveraged buyouts. That tailwind made an entire generation of "long anything" portfolios look skilled. When the tailwind reversed in 2022, the same portfolios looked panicked. The investor who does not know which assets are duration-sensitive is the investor who got blindsided.
 
 3. **Rate shocks are not rare events.** Since 1980 the US has lived through Volcker (rates +1,000bps), 2008 (rates -400bps), 2020 (rates -150bps), and 2022 (rates +525bps). That is roughly one regime-changing rate move per decade. Designing a portfolio that ignores rate shocks is designing a portfolio for a world that does not exist.
 
-4. **Position sizing depends on this.** Once you know that a 30-year bond falls roughly 16% on +100bps and a long-duration growth ETF like ARKK falls 12-15% on the same shock, you can stop treating them as two different assets. They are the same trade in different costumes. Rate sensitivity is a unifying lens (SOUL #6: vol-tail-wags-dog -- the tail risks share a common root).
+4. **Position sizing depends on this.** Once you know that a 30-year bond falls roughly 16% on +100bps and a long-duration growth ETF like ARKK falls 12-15% on the same shock, you can stop treating them as two different assets. They are the same trade in different costumes. Rate sensitivity is a unifying lens -- the tail risks share a common root, and the volatility tail is what wags the dog.
 
 This lesson gives you the cross-asset playbook for the next +100bps and the next -100bps. Week 47 will use it to size a tail-risk hedge.
 
@@ -56,11 +56,13 @@ Estimated price impact of a parallel +100bps shock at the long end of the curve 
 | Long-duration crypto / unprofitable tech | 30+ | -20% or worse |
 | US dollar (DXY) | -- | +1% to +3% |
 
-Two assets break the duration formula. Gold has no cash flow, so you cannot compute duration directly -- its rate sensitivity comes through inflation expectations. The dollar is a relative price, not a discounted cash flow, so it moves with the *spread* between US rates and foreign rates. We handle both separately in §2.5 and §2.6. See `image/week34_rate_shock_grid.png` for the visual.
+Two assets break the duration formula. Gold has no cash flow, so you cannot compute duration directly -- its rate sensitivity comes through inflation expectations. The dollar is a relative price, not a discounted cash flow, so it moves with the *spread* between US rates and foreign rates. We handle both separately in §2.5 and §2.6.
+
+![Horizontal bar chart showing the estimated price impact of a parallel +100bps shock at the long end of the curve across the major asset classes — 5y Treasury, 10y Treasury, 30y Treasury, IG corporates (LQD), HY corporates (HYG), S&P 500, value equity (VTV), growth equity (VUG/QQQ), REITs (VNQ), gold (GLD), long-duration crypto / unprofitable tech, and the US dollar (DXY). Bars fan out from -20% (long-duration crypto) and -16% (30y Treasury) on the left through to small positives for gold and DXY on the right. The chart is the visual companion to the cheat-sheet table above and is the unifying picture: same shock, different durations, dramatically different price reactions.](image/week34_rate_shock_grid.png)
 
 #### 2.3 Bonds: Linear in Duration
 
-Bonds are the textbook case. A 30-year Treasury is roughly twice as rate-sensitive as a 10-year, which is roughly twice as sensitive as a 5-year. A barbell of T-Bills + 30-year zeros has the same average duration as a bullet of 10-years but very different convexity. For most portfolios the right anchor is the 5- to 10-year intermediate Treasury (IEF, IEI). The 30-year (TLT, EDV) is a *speculative* rate trade -- it loses 16% on +100bps and gains 16% on -100bps. That belongs in the alpha sleeve, not the bond sleeve (SOUL #13: four tranches).
+Bonds are the textbook case. A 30-year Treasury is roughly twice as rate-sensitive as a 10-year, which is roughly twice as sensitive as a 5-year. A barbell of T-Bills + 30-year zeros has the same average duration as a bullet of 10-years but very different convexity. For most portfolios the right anchor is the 5- to 10-year intermediate Treasury (IEF, IEI). The 30-year (TLT, EDV) is a *speculative* rate trade -- it loses 16% on +100bps and gains 16% on -100bps. That belongs in the alpha sleeve, not the bond sleeve.
 
 #### 2.4 Equities: Duration in Disguise
 
@@ -84,13 +86,13 @@ Mortgage rates are the second-order channel: 30-year fixed rates went from 3% to
 
 Gold has no cash flow, no yield, and no earnings. Its price is the inverse of confidence in fiat. The driving variable is *real* rates -- the 10-year nominal yield minus expected inflation (the TIPS breakeven). When real rates rise, gold falls (the opportunity cost of holding zero-yield gold goes up). When real rates fall, gold rises.
 
-That is why 2022 was so unusual: nominal rates rose violently, but inflation also rose violently, so *real* rates only rose modestly. Gold ended the year at +0.4%. In 1980 the same arithmetic ran the other way: Volcker hiked nominal rates above inflation, real rates went strongly positive, and gold collapsed from $850 to $300. SOUL #3: gold is a store of value because enough people *believe* it is. Real rates are the mechanism of that belief.
+That is why 2022 was so unusual: nominal rates rose violently, but inflation also rose violently, so *real* rates only rose modestly. Gold ended the year at +0.4%. In 1980 the same arithmetic ran the other way: Volcker hiked nominal rates above inflation, real rates went strongly positive, and gold collapsed from $850 to $300. Gold is a store of value because enough people *believe* it is, and real rates are the mechanism of that belief.
 
 #### 2.7 The Dollar: A Spread, Not a Level
 
 DXY measures the dollar against a basket of trading-partner currencies. It moves with the *spread* between US rates and foreign rates, plus a risk-on/risk-off premium. When the Fed hikes faster than the ECB and BoJ (2022), the dollar rallies. When it hikes slower (2002-2004, 2017-2018), the dollar falls. A +100bps shock to US rates that is matched by foreign hikes does roughly nothing to DXY. A +100bps shock that is purely US -- the 2022 case -- pushes DXY up 5-10%.
 
-The second-order effects of a strong dollar matter: emerging markets weaken, US multinational earnings translation hurts (~50% of S&P 500 revenue is overseas), and gold faces a headwind. SOUL #16 says we stay US-only on the long side; the dollar is the reason that works.
+The second-order effects of a strong dollar matter: emerging markets weaken, US multinational earnings translation hurts (~50% of S&P 500 revenue is overseas), and gold faces a headwind. We stay US-only on the long side; the dollar is the reason that works.
 
 #### 2.8 The 2022 Case Study: Why Diversification Failed
 
@@ -105,9 +107,11 @@ Calendar-year 2022 returns by asset class (Damodaran + standard data):
 - DXY: +8%.
 - Bitcoin: -65%.
 
-A textbook 60/40 lost 16-17%. Risk-parity portfolios (which lever bonds) lost even more. The reason was singular: a +425bps Fed shock simultaneously hit every long-duration asset. Correlation was not "broken" -- correlation was always conditional, and the condition was a benign rate environment. When the rate environment became hostile, correlation showed its true face. See `image/week34_2022_case.png`.
+A textbook 60/40 lost 16-17%. Risk-parity portfolios (which lever bonds) lost even more. The reason was singular: a +425bps Fed shock simultaneously hit every long-duration asset. Correlation was not "broken" -- correlation was always conditional, and the condition was a benign rate environment. When the rate environment became hostile, correlation showed its true face.
 
-The investor's takeaway is not "diversification is dead." It is "diversification is over the *driving variable*." If your six assets all share rate sensitivity, you do not own six assets -- you own one trade in six wrappers. To diversify in a rate-driven world you need exposures that respond to *different* drivers: cash, gold (real-rate hedge), short volatility (vol-tail-wags-dog, SOUL #6), or genuine alpha (SOUL #5).
+![Bar chart of calendar-year 2022 total returns across the major asset classes: S&P 500 -18%, 10y Treasury -18%, 30y Treasury (TLT) -31%, high-yield corporates (HYG) -11%, REITs (VNQ) -24%, gold (GLD) +0.4%, US dollar (DXY) +8%, Bitcoin -65%. The negative bars dominate the picture; only gold and the dollar finished positive. The chart is the empirical proof that diversification is conditional on the driving variable not being shared — a +425bps Fed shock simultaneously hit every long-duration asset, regardless of label.](image/week34_2022_case.png)
+
+The investor's takeaway is not "diversification is dead." It is "diversification is over the *driving variable*." If your six assets all share rate sensitivity, you do not own six assets -- you own one trade in six wrappers. To diversify in a rate-driven world you need exposures that respond to *different* drivers: cash, gold (real-rate hedge), short volatility (the vol tail is what wags the dog), or genuine alpha.
 
 ---
 
@@ -150,21 +154,21 @@ A: Treasury Inflation-Protected Securities have *lower* duration than nominal Tr
 A: Both legs shared the same driver (long-duration discounting). When the discount rate jumped 250bps, both legs marked down at once. The same fund made money in 2008 because that was a *growth* shock, not a *rate* shock -- bonds rallied while stocks fell. Different driver, different outcome.
 
 **Q5: How do I hedge rate risk without selling everything?**
-A: Three options: (1) shorten bond duration by replacing TLT with IEI or even SHV; (2) buy puts on TLT or QQQ (cheap when realized vol is low -- SOUL #15 tax-via-options); (3) hold cash equivalents (BIL, SGOV) which have zero duration and earn the front-end rate. We will cover put-spread tail hedges in Week 47.
+A: Three options: (1) shorten bond duration by replacing TLT with IEI or even SHV; (2) buy puts on TLT or QQQ (cheap when realized vol is low, and the option wrapper is the most tax-efficient way to take leverage in a US taxable account); (3) hold cash equivalents (BIL, SGOV) which have zero duration and earn the front-end rate. We will cover put-spread tail hedges in Week 47.
 
 **Q6: Does this apply internationally?**
-A: Yes, but with the dollar overlay. A foreign bond hit by +100bps in the local rate falls by its local duration in local currency. If the dollar simultaneously rallies, the dollar-translated loss is amplified. SOUL #16: this is one reason we keep the long sleeve US-only.
+A: Yes, but with the dollar overlay. A foreign bond hit by +100bps in the local rate falls by its local duration in local currency. If the dollar simultaneously rallies, the dollar-translated loss is amplified. This is one reason we keep the long sleeve US-only.
 
 **Q7: Why are utilities and consumer staples called "bond proxies"?**
 A: Their dividends are stable and slow-growing, so most of their value is far-future cash flow. They have duration similar to a 15-year bond. In 2022 utilities fell 1% (resilient); in 2008 they fell 30% (credit shock dominated). They behave like bonds *as long as the rate channel is the only channel firing*.
 
 **Q8: What is the "rate sensitivity" of my emergency fund?**
-A: Zero, by construction. T-Bills (BIL, SGOV), money-market funds, and savings accounts have $D < 0.25$. That is the point: the cash sleeve is the only sleeve that does not move with rates, which makes it the only true diversifier in a rate-driven world. SOUL #14 (barbell) has cash on one end for exactly this reason.
+A: Zero, by construction. T-Bills (BIL, SGOV), money-market funds, and savings accounts have $D < 0.25$. That is the point: the cash sleeve is the only sleeve that does not move with rates, which makes it the only true diversifier in a rate-driven world. The barbell construction has cash on one end for exactly this reason.
 
 **Q9: How much can the +100bps move actually be?**
 A: Historically, the Fed has moved +400 to +525bps in a single tightening cycle (1981, 1994, 2004-2006, 2022-2023). Pricing your portfolio for "+100bps" is the *modest* scenario. The interactive lab lets you push the shock to ±300bps to see what the tail looks like.
 
-**Q10: Where does this fit in the four-tranche framework (SOUL #13)?**
+**Q10: Where does this fit in the four-tranche framework?**
 A: Cash tranche: zero rate sensitivity. Beta tranche: holds the unavoidable rate exposure of the equity index ($D \approx 18$). Factor tranche: tilted toward shorter-duration value (lower $D$) for partial hedging. Alpha tranche: deliberately uses TLT, options on TLT, and gold to take rate views actively. Knowing the duration of each tranche is the first step in deciding how much rate risk you actually carry.
 
 ---
@@ -289,7 +293,7 @@ A: Cash tranche: zero rate sensitivity. Beta tranche: holds the unavoidable rate
 
 **HORACE:** Because nominal rates rose violently *and* inflation rose violently. Real rates only edged up. So gold ended the year at +0.4%. It is the case study that proves the real-rate framework. Compare that to 1980 when Volcker pushed nominal rates above inflation -- real rates went sharply positive and gold collapsed from $850 to $300.
 
-**STELLA:** And SOUL #3 says gold is a store of value because enough people believe it is.
+**STELLA:** And gold is a store of value only because enough people believe it is.
 
 **HORACE:** Real rates are the mechanism of that belief. When real rates are positive and stable, the gold story weakens. When real rates are negative, the story gets stronger.
 
@@ -301,7 +305,7 @@ A: Cash tranche: zero rate sensitivity. Beta tranche: holds the unavoidable rate
 
 **STELLA:** So a +100bps shock to the world doesn't move DXY.
 
-**HORACE:** Right. A +100bps shock to *just* the US, with the ECB and BoJ on hold, pushes DXY up 5-10%. That is what 2022 was. SOUL #16 says we stay US-only on the long side, and the dollar is exactly the reason that works -- when the dollar rallies, we are paid in the strong currency while foreign markets get hit by both their own rate move and the FX translation.
+**HORACE:** Right. A +100bps shock to *just* the US, with the ECB and BoJ on hold, pushes DXY up 5-10%. That is what 2022 was. We stay US-only on the long side, and the dollar is exactly the reason that works -- when the dollar rallies, we are paid in the strong currency while foreign markets get hit by both their own rate move and the FX translation.
 
 ---
 
@@ -333,7 +337,7 @@ A: Cash tranche: zero rate sensitivity. Beta tranche: holds the unavoidable rate
 
 **STELLA:** The Volcker preset is shocking.
 
-**HORACE:** That is the regime the parents of most of our viewers lived through. It is the regime SOUL #2 says we have to take seriously again.
+**HORACE:** That is the regime the parents of most of our viewers lived through. After a forty-year falling-rate tailwind, it is the regime we have to take seriously again.
 
 ---
 

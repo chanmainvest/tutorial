@@ -22,8 +22,8 @@ volatility, real diversification, access to the alpha that built the
 endowments.*
 
 The reality is messier. Private markets violate two of Horace's
-hardest constraints — SOUL #1 (alpha is rare) and SOUL #16
-(US-listed-investable-equities-only). The alpha that exists in
+hardest constraints — alpha is rare, and the investable universe
+should be US-listed equities. The alpha that exists in
 private markets is captured almost entirely by the General Partners
 through fees and carry, leaving Limited Partners with returns that —
 once you correct for leverage, smoothing, and survivorship — are
@@ -127,8 +127,8 @@ The retail-accessible map: BX (Blackstone), KKR, APO (Apollo), CG
 companies. PSP (Invesco Global Listed Private Equity ETF) is the
 diversified ETF. ARCC, MAIN, OBDC are the listed BDCs. BREIT, BCRED,
 SREIT, KREST, and the PIMCO-Apollo non-traded products are the
-interval-fund vehicles. SOUL #16 lets you touch the listed; the
-non-traded vehicles violate the rule and can be skipped.
+interval-fund vehicles. The US-listed-only rule lets you touch the listed; the
+non-traded vehicles violate it and can be skipped.
 
 #### 2.2 The Fund Lifecycle and the J-Curve
 
@@ -340,8 +340,7 @@ private-equity-fee-stream exposure, BX is the answer; not BREIT.
 
 #### 2.7 Sizing and the Four-Tranche Map
 
-Where do private markets fit in Horace's four-tranche framework
-(SOUL #13)?
+Where do private markets fit in Horace's four-tranche framework?
 
 **Tranche 1 (Growth).** The listed alternative managers — BX, KKR,
 APO, CG — go here as a small overweight (1-3% combined position).
@@ -364,7 +363,7 @@ to top-quartile managers and *if* you have the wealth to commit
 across multiple vintages. For retail, the answer is essentially
 "no". The wrappers available to you (interval funds, non-traded
 products) are not the institutional product; they are diluted,
-fee-loaded, gated versions. SOUL #1 — alpha is rare — applies with
+fee-loaded, gated versions. Alpha is rare — and that applies with
 particular force here. Skip the retail wrappers.
 
 The clean retail private-markets allocation is therefore: **2-5% in
@@ -797,8 +796,8 @@ liquidity and opaque NAVs.
 
 **Stella:** What works for retail: listed alternative managers as
 a small Tranche 1 growth allocation, listed BDCs as a small Tranche
-2 income allocation, zero in non-traded products. SOUL number one —
-alpha is rare. SOUL number sixteen — US-listed-investable. Both
+2 income allocation, zero in non-traded products. Alpha is rare.
+The investable universe is US-listed. Both
 apply with extra force here.
 
 **Horace:** Try the interactive lab below. Set a gross IRR, a fee

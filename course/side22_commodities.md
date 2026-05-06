@@ -27,7 +27,7 @@ under the inflation chapter (Side 06):
    essentially flat. The instrument is not the commodity.
 2. **Gold is structurally different from every other commodity** because
    GLDM/IAU/GLD hold *physical bullion in a vault* — no roll, no decay,
-   pure spot exposure. Per SOUL #3, gold is a store of value because
+   pure spot exposure. Gold is a store of value because
    collective belief makes it one; oil is industrial input that decays
    in your portfolio whether or not you believe in it.
 3. **Long-term real returns to a passive commodity basket are flat to
@@ -38,7 +38,7 @@ under the inflation chapter (Side 06):
 4. **Inflation-hedge value is concentrated in supply-shock windows.**
    Oil 1973, agriculture 2007, energy 2022. Outside those windows
    commodities are dead weight. If your sizing rule does not account for
-   the regime-conditional payoff (SOUL #6), you will hold them for the
+   the regime-conditional payoff, you will hold them for the
    wrong reasons and trim them at the wrong time.
 
 The goal of this lesson is to make the spot-vs-futures distinction
@@ -77,7 +77,12 @@ driven by feed costs and disease cycles.
 The diversification within commodities is real: in 2022, energy
 returned +35%, industrial metals -10%, precious metals near flat,
 agriculture +12%, livestock +9%. A broad basket smooths these out;
-single-sector ETFs do not.
+single-sector ETFs do not. That same dispersion is, separately, one
+of the cleanest sector-rotation signatures the market gives away
+for free — when energy and industrial metals are pulling apart by
+forty points in a single year, the macro thesis underneath is loud
+enough to trade off, and rotation is one of the few alpha sources
+I trust over decades.
 
 #### 2.2 Spot vs Futures: The Mechanism Most Investors Get Wrong
 
@@ -148,7 +153,7 @@ roll drag, the menu is:
 - **GSG** (iShares S&P GSCI, 0.75% ER, K-1) — energy-heavy GSCI tracker.
 - **COMT, CMDY** — niche alternatives.
 
-Per SOUL #16, all four are US-listed and acceptable. The K-1 issuers
+All four are US-listed and acceptable. The K-1 issuers
 generate paperwork (Schedule K-1 by mid-March; partnership UBTI in IRAs).
 The 1099 issuers (PDBC, BCI) are simpler. For sleeves above 5% of
 portfolio, BCI is the default.
@@ -179,6 +184,14 @@ This is why size matters. A 5-10% commodity sleeve in a 60/30/10
 portfolio adds Sharpe-ratio and inflation-shock resilience without
 materially changing expected return. A 30% commodity sleeve drags
 expected return down by about 1.5% per year for marginal diversification.
+Gold is the special case inside this discipline — it earns its slot
+not as a return source but as the store-of-value tier, sized as part
+of the four-tranche stack rather than as part of the broad commodity
+basket. Two to five percent, no more, held alongside cash, short
+Treasuries, and (if you allow yourself) a smaller BTC sliver. The
+sizing is small on purpose: a store of value is not an alpha bet,
+it is the leg you do not want to look at when everything else is
+on fire.
 
 #### 2.6 The Supply-Shock Pattern
 
@@ -197,14 +210,14 @@ The lesson is asymmetry: commodities are insurance, not income. They
 pay when nothing else does, and they cost a small premium during the
 long stretches between shocks.
 
-In Horace's frame this is SOUL #6 — the vol-tail-wags-dog principle
+In Horace's frame this is the vol-tail-wags-dog observation
 applied to a different time series. The mean experience of holding
 commodities is mild drag. The integral over the rare regime when they
 spike is what justifies the slot. Sizing rules:
 
 - Broad basket (BCI or PDBC): 5-10% of portfolio.
 - Gold (GLDM/IAU): 2-5% additionally as a separate store-of-value
-  sleeve, not as an "inflation hedge." Per SOUL #3 it sits in
+  sleeve, not as an "inflation hedge." It sits in
   Tranche 3.
 - Single-commodity ETFs (USO, UNG, COPX): tactical only, position
   size <1%, treated as event trades not strategic holdings.
@@ -265,7 +278,7 @@ ratio vs DBC's 0.85%. Over 10 years that 0.6% ER difference compounds to
 A: 1099 issuers (PDBC, BCI) are neutral. K-1 issuers should live in
 taxable to keep UBTI out of the IRA. Gold ETFs are taxed as collectibles
 at 28% federal LTCG when held in taxable — a meaningful penalty over
-the 15-20% rate on stocks. SOUL #15 says: prefer the IRA for gold ETFs.
+the 15-20% rate on stocks. Prefer the IRA for gold ETFs.
 
 **Q: Does the 1973-style oil shock still work as a hedge in 2026?**
 A: The mechanism is unchanged: a sudden physical-supply disruption
@@ -375,7 +388,12 @@ STELLA: So in 2022, energy was up 35%, ag up 12%, but industrial metals
 down 10% and precious metals flat.
 
 HORACE: Exactly. The basket smooths these out. Single-sector ETFs
-don't.
+don't. And put a pin in that forty-point dispersion — when energy
+and industrial metals pull apart that hard in one year, that is one
+of the cleanest sector-rotation signatures you ever see for free.
+Rotation is one of the few alpha sources I have found that holds up
+over decades, and the commodity sub-sectors are where the macro
+thesis prints in bright colours.
 
 ---
 
@@ -440,7 +458,7 @@ HORACE: With two enormous detours — up during the 1970s, up during the
 STELLA: Then why hold them at all?
 
 HORACE: For the supply-shock hedge. 1973, 2007, 2022. They pay when
-nothing else pays. SOUL #6 — vol-tail-wags-dog — applied to commodities.
+nothing else pays. Vol-tail-wags-dog, applied to commodities.
 The mean experience is mild drag. The rare-regime payoff is what
 justifies the slot.
 
@@ -458,8 +476,12 @@ acceptable.
 
 STELLA: Gold separately?
 
-HORACE: Two to five per cent additionally. SOUL #3 store-of-value
-slot, lives in Tranche 3, GLDM is the default at ten basis points.
+HORACE: Two to five per cent additionally. Store-of-value
+slot, lives in the third tranche of the four-tranche stack, GLDM
+is the default at ten basis points. The size is small on purpose.
+Gold is not in the portfolio to win — it is in the portfolio for
+the day nothing else does. Treat it that way and the sizing
+discipline writes itself.
 
 STELLA: Single-commodity ETFs — USO, UNG, COPX?
 

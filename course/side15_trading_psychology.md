@@ -41,7 +41,7 @@ Four reasons to take it seriously:
    hold losers because realising them hurts. You end up with a
    portfolio of losers — the disposition effect, the most documented
    bias in retail brokerage data.
-4. **The market is a beauty contest.** SOUL #12 — the market can
+4. **The market is a beauty contest.** The market can
    stay irrational longer than you can stay solvent. Every bias that
    blows up an individual blows up *more spectacularly* when you have
    leverage, a margin call, or a deadline. Behavioural discipline is
@@ -152,8 +152,8 @@ Three closely-related biases that warp the *exit* decision:
   three months without you, you chase, the rally tops, you take the
   drawdown. *Revenge trading* is the doubly-broken cousin — taking
   a bigger position right after a loss to "get it back," which
-  converts a manageable drawdown into a catastrophic one. SOUL #12,
-  rephrased: you do not get to negotiate with the market.
+  converts a manageable drawdown into a catastrophic one. Said
+  another way: you do not get to negotiate with the market.
 
 #### 2.5 Anchoring's Cousin: The Gambler's Fallacy
 
@@ -179,7 +179,7 @@ The literature is clear: in-the-moment willpower does not work, but
    the thesis, the entry price, the stop level, the size, and the
    review date. Sign and date it. The behavioural literature
    (Ariely, Thaler, Sunstein) is unanimous: commitments made when
-   you are calm bind you when you are emotional. SOUL-aligned
+    you are calm bind you when you are emotional. The useful
    format: one paragraph for the thesis, one number for the size,
    one number for the stop.
 2. **Automation.** Auto-deduct contributions to your IRA and 401(k)
@@ -206,7 +206,7 @@ The literature is clear: in-the-moment willpower does not work, but
    doesn't, you saved yourself a bad print.
 6. **Position-sizing rules.** No single position above 5% at cost,
    no sector above 25%, no leverage above 2.0x portfolio-wide. These
-   are SOUL #14 (barbell) anchors that keep one bad print from
+   are barbell anchors that keep one bad print from
    ending the run. From the Kelly literature: even if your edge is
    real, half-Kelly is empirically optimal because the brain's
    probability estimates are biased upward.
@@ -355,14 +355,14 @@ Yes — but easier with brokerages that let you pre-set them
 on Monday morning"), but they are still better than nothing.
 Pre-committed in writing, reviewed weekly.
 
-**Q9. How does SOUL #12 relate to all this?**
-SOUL #12 — *the market can stay irrational longer than you can stay
+**Q9. How does the irrational-longer-than-solvent rule relate to all this?**
+That rule — *the market can stay irrational longer than you can stay
 solvent* — is the meta-rule. Every behavioural bias gets amplified
 by leverage and by deadlines. If your time horizon is 30 years and
 you have no leverage, you can survive your own brain. If you have
 3:1 leverage and a margin clock, your brain's biases will compound
-into a forced liquidation before the thesis is right. Position sizing
-(SOUL #14) is the cheapest behavioural insurance you can buy.
+into a forced liquidation before the thesis is right. Strict position sizing
+is the cheapest behavioural insurance you can buy.
 
 **Q10. What role does meditation / breathwork play?**
 Marginal but non-zero. The mechanism, where it works, is reducing
@@ -564,7 +564,7 @@ most FOMO impulses to dissipate.
 **STELLA:** Six — position sizing.
 
 **HORACE:** No single position above 5% at cost. No sector above
-25%. No leverage above 2.0x portfolio-wide. SOUL number 14, the
+25%. No leverage above 2.0x portfolio-wide. The
 barbell. The cheapest behavioural insurance you can buy is keeping
 each position small enough that one bad print does not end the run.
 
@@ -599,9 +599,9 @@ outcome.
 **HORACE:** Walk through them once. Then walk through them again
 when you are about to make the decision in real life.
 
-**[12:00 — OUTRO + SOUL #12]**
+**[12:00 — OUTRO]**
 
-**HORACE:** SOUL number 12. The market can stay irrational longer
+**HORACE:** Final note. The market can stay irrational longer
 than you can stay solvent. Every bias on this list gets amplified
 by leverage and by deadlines. The biases are hard-wired; they will
 not go away. The fix is structural — pre-commitment, automation,

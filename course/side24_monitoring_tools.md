@@ -26,7 +26,7 @@ tools do.
    double-counting is the most common silent failure of retail portfolios, and
    it is invisible without a holdings-level pass-through.
 
-3. **Fees are flat-rate compounding tax (SOUL #1).** A 0.50% expense ratio on a
+3. **Fees are a flat-rate compounding tax.** A 0.50% expense ratio on a
    $500k portfolio is $2,500 a year, every year, automatically — silently
    debited and never invoiced. The tools that aggregate every account and
    compute *expense-weighted average ER* are the ones that turn the abstract
@@ -36,7 +36,7 @@ tools do.
    *better* monitoring lets you check *less*. When alerts fire only on band
    breaches and the dashboard lives on a fixed monthly cadence, the urge to log
    into your brokerage every morning fades. The tool watches; you live your
-   life. That is exactly the discipline SOUL #12 demands — staying solvent
+   life. That is exactly the discipline of staying solvent
    long enough for the strategy to compound.
 
 ---
@@ -96,6 +96,8 @@ with a 99.5% overlap. The image script `side24_overlap_detection.py` walks
 through a 5-fund example where the pairwise overlap heatmap shows ~60% top-ten
 overlap on the diagonal cluster.
 
+![Pairwise top-10 holdings overlap heatmap for a five-ETF portfolio (VTI, VOO, SPY, QQQ, SCHD). Each cell colour-codes the percentage of weighted top-10 holdings shared between the row fund and column fund — diagonal is 100% (a fund with itself), VTI/VOO/SPY cluster near 99% (essentially the same S&P 500 exposure), VTI vs QQQ ~50% (Apple/Microsoft/Nvidia/Amazon/Meta/Alphabet appear in both), VOO vs SCHD ~30% (even a "value income" ETF shares a third of the top names with the S&P 500). Average pairwise overlap on this 5-fund book is roughly 60% — a portfolio that looks diversified by ticker count but is in fact one concentrated mega-cap bet paying four expense ratios.](image/side24_overlap_detection.png)
+
 #### 2.3 Empower (formerly Personal Capital) — the aggregator
 
 Empower's free tools include an account aggregator that pulls from most US
@@ -147,6 +149,8 @@ script `side24_dashboard_template.py` shows what this looks like rendered as
 four panels: wealth path, drawdown, asset-class breakdown, and rolling fee
 spend.
 
+![Four-panel monthly dashboard template for a retail portfolio. Top-left: cumulative wealth path of the portfolio plotted alongside a 60/40 reference line ("is the strategy working?"). Top-right: drawdown chart, with a horizontal line showing the IPS-stated maximum-drawdown threshold ("are you inside your stated risk?"). Bottom-left: stacked-bar of current asset-class breakdown vs target ("where has it drifted?"). Bottom-right: cumulative fees paid year-to-date as a running line ("what is the silent expense compounding to?"). Every panel is reproducible in Google Sheets via GOOGLEFINANCE calls — no SaaS subscription required.](image/side24_dashboard_template.png)
+
 `GOOGLEFINANCE("VTI", "price")` and friends pull live prices into Google
 Sheets at 20-minute delay, free, forever. There is nothing the paid tools do
 in their dashboard panes that a column of `=GOOGLEFINANCE()` calls cannot
@@ -172,6 +176,23 @@ The tool is useless without the cadence. Once a month, on a fixed day:
    that slip in via 401(k) target-date defaults.
 6. **Rebalancing band breaches.** Anything over the 5pp band gets actioned
    *that day*. Anything under stays untouched until next month.
+
+The reason monthly cadence is right and daily is wrong is not laziness;
+it is structural. A modern portfolio — and the four-tranche stack from
+Week 52 is exactly this — is a barbell in shape: high-conviction safety
+on one end (cash, short Treasuries, gold, deep-ITM long-dated calls
+on names you actually want to own), asymmetric speculation on the
+other (the opportunistic sleeve, the tail-hedge sleeve, the option
+positions). The barbell only works if you let the safety end *be*
+safe. Daily checking re-introduces the disposition effect from Side
+15 — the urge to trim the green and add to the red — into a sleeve
+that exists to *not* be touched. Worse, it turns the tail-hedge
+sleeve into a pricing-anxiety machine: a small option position whose
+purpose is to expire worthless 95% of the time becomes a
+quarter-by-quarter heartbreak the moment you put a daily P&L line
+under it. Monthly cadence is the policy that keeps the shape of the
+portfolio doing its job. The dashboard exists to *enforce* the gap
+between review days, not to fill them.
 
 The interactive `side24_dashboard.html` lets you build a 5-ETF portfolio from
 a 12-fund dropdown and see asset-class breakdown, expense-weighted average,
@@ -209,8 +230,8 @@ toolkit described above.
    reading and tax-return inspection surfaces the rest.
 
 6. **"Monte Carlo says 87% success — I'm safe."** Monte Carlo assumes the
-   future return distribution looks like the historical one. SOUL #2 says it
-   *won't*. Treat the simulation as a sensitivity tool, not a probability
+   future return distribution looks like the historical one. The macro regime
+   changes every 30-40 years, so it *won't*. Treat the simulation as a sensitivity tool, not a probability
    forecast.
 
 7. **"Free tools are limited; the paid versions show the truth."** The paid
@@ -275,7 +296,7 @@ A. Yes. Most brokerages let you set price alerts; combine with a Google
 Sheet that flags drift > 5pp in conditional formatting and emails you on
 trigger via a 10-line Apps Script. That's the entire automation budget. Going
 beyond it (real-time triggers, mobile push) is exactly the dopamine pump that
-SOUL #12 warns against.
+undermines the discipline of staying solvent.
 
 **Q9. What about crypto holdings — none of these tools handle BTC?**
 A. Empower aggregates Coinbase. Most others ignore crypto. The simplest fix:
@@ -428,6 +449,19 @@ expense-weighted ER comes in around fifteen basis points.
 diversified and one that is.
 
 ---
+
+**STELLA:** Why monthly though, and not daily? The data is there.
+
+**HORACE:** Because the shape of a modern portfolio is a barbell —
+safety on one end, asymmetric speculation on the other, the
+four-tranche stack from Week 52 sits exactly in this shape. The
+barbell only works if you let the safety end *be* safe. Daily
+checking re-introduces the disposition effect from Side 15 into a
+sleeve that is supposed to be untouched. And it turns the tail-hedge
+sleeve — the small option positions that exist to expire worthless
+ninety-five per cent of the time — into a pricing-anxiety machine.
+Monthly cadence is the policy that protects the *shape* of the
+portfolio from the human running it.
 
 **HORACE:** Closing thought. The point of the dashboard is not to give you
 something to look at. It's to give you permission to *not* look — between

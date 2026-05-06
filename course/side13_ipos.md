@@ -19,8 +19,8 @@ something else entirely: **the average IPO buyer who shows up on day
 one underperforms the broad market by about 10 percentage points
 over the following year**, and the dispersion is brutal.
 
-This is one of the cleanest examples in the curriculum of SOUL
-principle #1 — *alpha is rare* — colliding with SOUL #12 — *the
+This is one of the cleanest examples in the curriculum of two
+hard truths colliding — *alpha is rare* and *the
 irrational version of you can liquidate the rational one*. The IPO
 window is engineered to extract excitement from retail investors at
 the most dangerous price the security will ever trade at. Knowing
@@ -172,13 +172,38 @@ The reasons IPOs underperform are not mysterious:
    their initial coverage is overwhelmingly Buy-rated. The first
    downgrade from a major bank is often the moment the stock breaks.
 
-Horace's framing: the IPO market is a beauty contest (SOUL #12) where
+Horace's framing: the IPO market is a beauty contest where
 the contestants — companies — get to choose the day they walk on
 stage and their hairstylists get to set the lighting. The judges —
 retail investors who buy in the open market — show up after the
 performance has been engineered. There is alpha here for the
 underwriter, the allocated institutions, and the company itself.
 There is on average *negative* alpha for the post-pop buyer.
+
+There is a deeper version of the same point that connects this
+lesson to the rest of the course. The contrarian trade — the one
+that pays — is not buying brand-new listings on day one. It is
+buying *abandoned* names: the index deletion, the sector the model
+portfolios just dumped, the unloved compounder that nobody wants
+this quarter. Those are the cleanest mispricings the passive
+machinery itself creates, and they show up at the *opposite* end of
+the lifecycle from an IPO. Day-one IPO buying is the trade that
+*looks* contrarian — small, new, undiscovered — and is in fact the
+maximally crowded one, with the entire roadshow pointed at extracting
+your enthusiasm at the highest price the security will ever trade
+at. Same instinct, exact wrong end of the curve.
+
+And then the size cut. Most IPOs in any given year price below a
+$1B market cap, and many of the rest are unseasoned even when the
+nominal cap is larger — wide bid-ask, manipulable float, thin
+disclosures, dominant participants who are not investors. That is
+my no-penny-stock rule with a different label on it. The sub-billion
+universe is the casino tier whether it arrives via an OTC listing,
+a hot IPO, or a deSPAC merger; the rule does not care which door it
+walks through. If you would not buy a $400M micro-cap on the open
+exchange, you should not buy a $400M company because someone put a
+roadshow deck in front of you the week before. The price tag is the
+same; only the marketing changed.
 
 #### 2.4 SPACs: The 2020-2021 Bubble
 
@@ -227,7 +252,7 @@ The takeaway is structural, not cyclical: even in the absence of a
 mania, SPACs transfer roughly 20-30% of public-shareholder value
 into sponsor and PIPE pockets before the underlying business has a
 chance to perform. The mania of 2021 simply made the transfer
-gigantic. SOUL #12 again — the *rational* trade is the SPAC
+gigantic. The *rational* trade is the SPAC
 arbitrage that hedge funds run; the *retail* trade is buying the
 post-merger common, which is the structurally losing side.
 
@@ -294,7 +319,7 @@ the price still embeds the IPO-day excitement multiple, pass.
 **Rule 3: If you must play the IPO window, size it like the
 lottery ticket it is.** No more than 1-2% of the portfolio in any
 single newly-public name. Treat it as a Tranche 4 / opportunistic
-allocation (SOUL #13). Never use leverage. Never use a margin
+allocation. Never use leverage. Never use a margin
 account for IPO buying. Never replace your indexed core with a
 basket of recent IPOs.
 
@@ -440,7 +465,7 @@ that hits the post-merger common.
 US-listed IPOs of foreign issuers (especially from China — Alibaba,
 DiDi, Luckin) have broadly the same first-day pop pattern but
 *worse* one-year underperformance and substantially worse fraud
-risk. Per SOUL #16, the US-investable universe should be your
+risk. The US-investable universe should be your
 benchmark; if you must touch foreign IPOs, treat them as Tranche 4
 opportunistic positions with even tighter sizing.
 
@@ -459,7 +484,7 @@ S-1s; the structure is similar.
 
 A single IPO position is exactly the kind of high-variance
 opportunistic bet that *should* go in a Roth IRA if you are going
-to take it (per SOUL #15 — tax location). The expected return is
+to take it (tax location matters). The expected return is
 mediocre but the variance is enormous; a 10x bagger in a Roth is
 forever tax-free. A 10x bagger in a taxable account costs 23.8%
 LTCG when you sell. That said: this is sizing advice for a position
@@ -628,6 +653,27 @@ retail IPO portfolios are statistically worse, because selection
 bias pushes the picks toward the most-exciting-and-therefore-most-
 overpriced names.
 
+**Stella:** And the trade that *feels* contrarian — buying the
+shiny new name on day one — is actually the most crowded trade
+in the market that morning.
+
+**Horace:** Right. The real contrarian trade is the opposite end of
+the lifecycle: the index deletion, the sector the model portfolios
+just dumped, the unloved compounder. That is where the passive
+machinery overshoots and leaves a mispricing on the floor. Day-one
+IPO buying is the maximally engineered trade dressed in contrarian
+clothing.
+
+**Stella:** And on size?
+
+**Horace:** Most IPOs price below a billion dollars in market cap.
+Many of the rest are unseasoned even when the headline cap is
+bigger. I do not buy sub-billion companies on the open exchange —
+wide spreads, manipulable float, thin disclosures, the dominant
+participants are not investors. That is the casino tier. The rule
+does not care whether the casino tier arrives as an OTC ticker or
+as a hot IPO with a Goldman roadshow. Same number, same rule.
+
 ---
 
 **[SEGMENT 4: SPACS]**
@@ -730,7 +776,7 @@ at $10,620. Retail day-one investor finishes at $9,000. That gap
 between buying at one and buying at one point one eight, and
 holding through the same drag.
 
-**Stella:** And SOUL number twelve?
+**Stella:** And the rational-versus-irrational point?
 
 **Horace:** Right. The rational version of you reads the S-1 and
 waits six months. The irrational version of you sees the X post,

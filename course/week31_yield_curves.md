@@ -192,9 +192,33 @@ The forward curve embedded in these spots is gently rising — the
 market is pricing the short rate to drift roughly back to today's
 10-year over the next decade, suggesting the market believes neutral
 real rates have repriced higher than the 2010-2020 norm. This matters
-for every long-duration asset, including equities. SOUL #2 — the
-40-year bond bull regime ended in 2022 — gets a quiet confirmation
-on this chart.
+for every long-duration asset, including equities. The 40-year bond
+bull regime ended in 2022 — this chart gives that story a quiet
+confirmation.
+
+**Horace's view — the curve is a regime dial, and the regime sets the
+allocation.** Most textbooks treat the un-inversion as a recession-
+timing signal and stop there. In my own book I read it as something
+broader: a regime print that re-prices every other sleeve in the
+portfolio. The shape I run is a barbell with a small persistent
+long-volatility and tail-hedge sleeve sitting alongside the equity
+end — inspired by Chris Cole's Dragon work but tilted by current
+regime rather than held statically. The curve is one of the inputs
+that decides how that tilt sits.
+
+When the curve is deeply inverted with the Fed visibly fighting
+inflation, the long-equity sleeve is the trade that has been paying,
+and the tail-hedge sleeve runs at a low single-digit weight — cheap
+insurance, structured to expire worthless in the regime that's
+actually in force. The day the curve un-inverts and starts to bull-
+steepen — short rates falling faster than long, the Fed cutting into
+a slowdown — the historical base rate says the recession lands in
+that window, not before. That is the moment the tail-hedge weight
+goes up and the equity sleeve gets re-examined leg by leg, *not*
+because the model says "sell," but because the conditional payoff on
+the tail hedge has just improved materially. The palette stays the
+same; the weights move. Reading the curve is one of the few inputs
+that changes the weights honestly rather than emotionally.
 
 #### 2.6 Butterfly Trades — Trading Curvature
 
@@ -217,8 +241,8 @@ which equals zero when the curve is perfectly straight, positive
 when the belly is cheap (high yield), and negative when the belly is
 rich.
 
-This is one of the five alpha sources from SOUL #5 — relative-value
-fixed income. It is not retail-friendly because the gross notional
+This is a relative-value fixed-income trade — one of the structural
+alpha sources institutions actually run. It is not retail-friendly because the gross notional
 involved is large and the carry is small. But it lives on the same
 chart you have been staring at all week, and the interactive panel
 below lets you compute the butterfly statistic from any curve you
@@ -268,7 +292,7 @@ inverted curve look like. Hit "2020" and see the zero-bound. Hit
    Long bonds have *more* interest-rate risk because their duration
    is higher. A 30-year zero loses ~30% on a one-percentage-point
    yield rise; a 2-year loses ~2%. Long bonds are more *volatile*,
-   not safer. SOUL #6: vol tail wags the dog.
+   not safer. The vol tail wags the dog.
 
 **4. "Forwards are forecasts."**
    Forwards are no-arbitrage identities derived from spots. They
@@ -310,7 +334,7 @@ inverted curve look like. Hit "2020" and see the zero-bound. Hit
    breakeven inflation. The 10-year real yield (TIPS, FRED `DFII10`)
    moved from -1.0% in 2021 to +2.0% in 2024. Two thirds of the
    2022-23 long-rate rise was a real-rate move, not an inflation-
-   expectation move. SOUL #2 again.
+   expectation move. The bond regime really did change.
 
 **10. "Once I read the curve, I can time the market."**
    You can read the curve. You can position duration. You can
@@ -580,9 +604,24 @@ flat path.
 
 **Horace:** New York Fed's ACM model has the 10-year term premium
 near 80 basis points as of late 2025, up from roughly zero in 2020.
-That repricing is real and is part of the story. SOUL number two —
-the 40-year bond bull market ended in 2022 — gets a quiet
-confirmation here. Real yields at +2% are the new normal.
+That repricing is real and is part of the story. The 40-year bond
+bull market ended in 2022 — this is the quiet confirmation. Real
+yields at +2% are the new normal.
+
+**Stella:** And what does this regime change do to the *rest* of
+your portfolio?
+
+**Horace:** That's the part most people miss. The curve isn't just a
+recession-timer — it's a regime dial. My own shape is a barbell with
+a small long-vol and tail-hedge sleeve sitting alongside the equity
+end, weighted by current regime rather than held statically. When
+the curve was deeply inverted and the Fed was visibly fighting
+inflation, the tail sleeve sat small — cheap insurance designed to
+expire worthless. The day the curve un-inverts and starts to
+bull-steepen, the historical base rate says the recession lands in
+*that* window. That is the moment the tail-hedge weight goes up and
+the equity sleeve gets re-examined, because the conditional payoff
+on the hedge just improved. Same palette, different weights.
 
 ---
 
@@ -599,7 +638,8 @@ relatively cheap as a result.
 
 **Horace:** Not really. Gross notional is large, carry is small,
 DV01-matching is fiddly. This is an institutional alpha source —
-SOUL number five, alpha source three, relative-value fixed income.
+relative-value fixed income, the kind of structural edge most retail
+investors will never run themselves.
 Retail can express the *direction* of the curvature view by tilting
 their bond ladder toward or away from the 5-year sleeve.
 

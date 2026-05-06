@@ -18,7 +18,7 @@ There are four reasons every adult investor should be index-literate.
 
 3. **Index plumbing creates real flows.** When a stock is added to the S&P 500 or the Russell 1000, every passive fund tracking the index has to buy on a specific day. When it is removed, they have to sell. Those forced flows reliably move prices a few percent around the rebalance — and the Russell's late-June reconstitution is one of the largest scheduled trading events on earth. If you trade around index changes, this matters; if you do not, it is still useful to know that the spike on rebalance day is mechanical, not informational.
 
-4. **The honest version of investing accepts the index.** SOUL principle #1 in this course is that genuine alpha is rare and hard to keep. The S&P 500 net of fees has beaten 80–90% of large-cap active managers over fifteen-year windows. That is not because the index is brilliant. It is because the active managers' fees and turnover compound into a headwind they cannot beat. The default move for most readers of this course is to own the index, hold the four tranches (lesson 13), and spend the saved decision-budget on tax structure (lesson 15) rather than stock picking. To do that with eyes open, you need to know what is actually in the box.
+4. **The honest version of investing accepts the index.** The starting principle of this course is that genuine alpha is rare and hard to keep. The S&P 500 net of fees has beaten 80–90% of large-cap active managers over fifteen-year windows. That is not because the index is brilliant. It is because the active managers' fees and turnover compound into a headwind they cannot beat. The default move for most readers of this course is to own the index, hold the four tranches (lesson 13), and spend the saved decision-budget on tax structure (lesson 15) rather than stock picking. To do that with eyes open, you need to know what is actually in the box.
 
 This week is the box.
 
@@ -62,7 +62,7 @@ This is not automatically a problem. It is the index doing exactly what cap-weig
 
 1. **Your equity sleeve is a Mag-7 bet.** If you hold VOO or SPY and nothing else, roughly a third of your equity dollar is in seven tech-adjacent megacaps. The diversification narrative ("500 companies!") understates the actual factor risk.
 2. **Reversals concentrate.** The 2022 drawdown was driven mainly by the same top names that drove the 2020–2021 rally; equal-weight fell less. The 2000–2002 dot-com unwind is the textbook precedent.
-3. **Equal-weight is now the obvious diversifier.** Holding RSP alongside VOO does not change your sector exposure dramatically, but it does cut your top-10 concentration from ~33% to ~17%. This matters more for retirees in the spending phase (SOUL principle #13's "tranche 1") than for younger accumulators.
+3. **Equal-weight is now the obvious diversifier.** Holding RSP alongside VOO does not change your sector exposure dramatically, but it does cut your top-10 concentration from ~33% to ~17%. This matters more for retirees in the spending phase than for younger accumulators.
 
 #### 2.3 Free-Float Adjustment — Why "Market Cap" Isn't Quite Market Cap
 
@@ -83,7 +83,7 @@ The Russell index family (Russell 3000 / 1000 / 2000) reconstitutes once a year,
 1. Hedge funds estimate which names will be added to the Russell 2000 and which will be promoted to the Russell 1000, and they bid those names up.
 2. On the rebalance day itself, every passive Russell fund — and every "closet Russell" active fund worried about benchmark deviation — must execute the change. Single-day turnover in some affected names exceeds 30% of average daily volume.
 
-This is the largest scheduled trading event in U.S. equities. It is also one of the cleanest examples of "irrational > solvent" (SOUL #12): the price moves are mechanical, but they can persist for weeks because shorting them costs borrow fees and mark-to-market pain. The S&P 500's quarterly rebalances and the Nasdaq 100's annual rebalance are smaller but rhyme.
+This is the largest scheduled trading event in U.S. equities. It is also one of the cleanest examples of "irrational > solvent": the price moves are mechanical, but they can persist for weeks because shorting them costs borrow fees and mark-to-market pain. The S&P 500's quarterly rebalances and the Nasdaq 100's annual rebalance are smaller but rhyme.
 
 #### 2.5 Survivorship Bias — What the Index Throws Away
 
@@ -95,7 +95,7 @@ For long-run return claims this matters more than people realise:
 - Empirical studies put the survivorship overstatement at roughly 1–2% per year for the longest-running indexes. The Damodaran dataset used in Week 3 already corrects for this on the broad-market level, which is why its returns are a little lower than the S&P-500-since-inception headline.
 - For individual stock-picking decisions, the bias is much worse. A "buy what worked in 2000–2010" strategy back-tested on today's index members will look heroic, because the actual losers from that decade aren't in the test universe at all.
 
-The practical takeaway: **always ask what got dropped**, especially when someone shows you a back-test. SOUL principle #1 again — a clean back-test is much rarer than a clean look.
+The practical takeaway: **always ask what got dropped**, especially when someone shows you a back-test. The principle again — a clean back-test is much rarer than a clean look.
 
 #### 2.6 The Big Indexes — A Field Guide
 
@@ -109,7 +109,7 @@ The practical takeaway: **always ask what got dropped**, especially when someone
 
 - **Dow Jones Industrial Average.** 30 stocks, price-weighted, committee-selected. Cultural artifact more than a serious benchmark. DIA (State Street, 0.16%). Not recommended as a portfolio building block.
 
-- **MSCI ACWI.** ~3,000 large- and mid-cap stocks across 47 developed and emerging markets, float-adjusted cap-weighted. ACWI (BlackRock, 0.32%) is the main ETF. **Caveat per SOUL principle #16:** for a Hong Kong / Mainland China reader of this course, the only investable slice of ACWI is the ~60% U.S. weight plus the developed-non-U.S. component you can hold via the ETF. Direct exposure to A-shares, mainland developers, and most EM-listed names is either capital-controlled or operationally hostile. The course's default is to overweight U.S.-listed exposure, hold ACWI as a small diversifier if at all, and not try to engineer a "global cap-weighted" portfolio that the plumbing won't actually deliver.
+- **MSCI ACWI.** ~3,000 large- and mid-cap stocks across 47 developed and emerging markets, float-adjusted cap-weighted. ACWI (BlackRock, 0.32%) is the main ETF. **Caveat:** for a Hong Kong / Mainland China reader of this course, the only investable slice of ACWI is the ~60% U.S. weight plus the developed-non-U.S. component you can hold via the ETF. Direct exposure to A-shares, mainland developers, and most EM-listed names is either capital-controlled or operationally hostile. The course's default is to overweight U.S.-listed exposure, hold ACWI as a small diversifier if at all, and not try to engineer a "global cap-weighted" portfolio that the plumbing won't actually deliver.
 
 #### 2.7 Index Futures — The Liquid Truth
 
@@ -119,7 +119,7 @@ For a long-term reader, the reason to know this is not to trade futures (you alm
 
 - Pre-market price moves quoted on financial TV are usually the front-month future, not the index.
 - During a crisis (March 2020, August 2024), the futures often print prices that the cash ETFs only catch up to at the next open. The futures are not lying — they are just open while the underlying is closed.
-- For very large allocations (institutional scale), futures plus T-bills are often a cheaper way to hold S&P 500 exposure than holding SPY, because the financing rate embedded in the future is sometimes below the all-in cost of the ETF. SOUL principle #15 (tax via options/margin) sits on the same hook.
+- For very large allocations (institutional scale), futures plus T-bills are often a cheaper way to hold S&P 500 exposure than holding SPY, because the financing rate embedded in the future is sometimes below the all-in cost of the ETF. The tax-via-options/margin angle sits on the same hook.
 
 #### 2.8 Build Your Own Index — Try the Interactive
 
@@ -148,11 +148,11 @@ The point is to see, with your hands on the dials, that the same 30 underlying s
 
 7. **"Survivorship bias only applies to active funds."** It applies to the indexes themselves. The 1928 S&P series silently substitutes new names for old ones; the dead names' post-failure trajectory does not appear.
 
-8. **"MSCI ACWI gives me real global exposure."** It gives you global exposure in a backtest. Operationally, for a non-U.S.-resident investor working through a Hong Kong or Singapore broker, large parts of the EM weight are not easily, cheaply, or tax-efficiently held. SOUL #16 — only what is actually investable counts.
+8. **"MSCI ACWI gives me real global exposure."** It gives you global exposure in a backtest. Operationally, for a non-U.S.-resident investor working through a Hong Kong or Singapore broker, large parts of the EM weight are not easily, cheaply, or tax-efficiently held. Only what is actually investable counts.
 
 9. **"Float adjustment is a minor technicality."** For names with concentrated insider holdings (META, BRK, founder-led companies) it is the difference between a 4% index weight and a 1.5% index weight. It is not minor.
 
-10. **"My active manager beats the index."** They might, in any given year. Over fifteen years, after fees, roughly one in seven large-cap active U.S. equity funds beat the S&P 500. The base rate on alpha is bad — that is SOUL principle #1, top of the list.
+10. **"My active manager beats the index."** They might, in any given year. Over fifteen years, after fees, roughly one in seven large-cap active U.S. equity funds beat the S&P 500. The base rate on alpha is bad — that is the alpha-is-rare principle, top of the list.
 
 ---
 
@@ -174,7 +174,7 @@ A. No. The index is a calculation. You can buy ETFs (VOO, SPY, IVV) that hold th
 A. Eligibility rules — U.S. domicile, market cap above the floor (~$18 billion in April 2026), at least four consecutive quarters of GAAP profit, public float ≥ 50% — get you onto the candidate list. From there the committee picks based on sector balance and replacement need (a deletion creates the slot). The committee's discretion is the reason Tesla took years longer than expected to be added, and is the reason the Nasdaq Composite (rules-based on listing exchange) and Russell 1000 (pure market-cap ranking) move differently from the S&P at the margin.
 
 **Q6. Why isn't the Hang Seng Index in this lesson?**
-A. SOUL principle #16. For a Hong Kong / mainland reader of this course, Hang Seng exposure via 2800.HK is technically holdable, but the underlying is dominated by mainland-listed banks and developers whose accounting and political risk are categorically different from anything U.S. investors price. The course's stance is: if you live in HK, buy a small Hang Seng tracker for currency-of-spending hedging, but do not pretend it is a substitute for the U.S. index. The S&P 500 is the engine; HK exposure is hedging the gas tank.
+A. The investable-universe constraint. For a Hong Kong / mainland reader of this course, Hang Seng exposure via 2800.HK is technically holdable, but the underlying is dominated by mainland-listed banks and developers whose accounting and political risk are categorically different from anything U.S. investors price. The course's stance is: if you live in HK, buy a small Hang Seng tracker for currency-of-spending hedging, but do not pretend it is a substitute for the U.S. index. The S&P 500 is the engine; HK exposure is hedging the gas tank.
 
 **Q7. What is the Mag-7 weight likely to be in five years?**
 A. Nobody knows, and that is the honest answer. Two historical analogies: the Nifty Fifty top weight peaked in 1972 at a similar concentration and was cut roughly in half by 1974–75; the dot-com mega-caps peaked in early 2000 and the index spent a decade rotating into other names. Both unwinds were painful. A third possibility — the one cap-weighting *bets on* — is that AI productivity gains keep these companies' earnings growth ahead of the rest of the index, in which case the concentration grows. Hold both VOO and RSP if you don't want to bet on which.
@@ -186,7 +186,7 @@ A. The cleanest benchmark is 60% VTI (or VOO) and 40% AGG (or BND), rebalanced q
 A. They do, and the trade is well-known enough that the easy money has been arbitraged out. The remaining risk premium is for taking bidirectional inventory (you don't know exactly which names will be added until two weeks before, and you carry borrow costs to short the deletions). Hedge funds with the right infrastructure still earn a few hundred basis points a year on this — but they pay for it with risk and complexity that retail traders cannot replicate.
 
 **Q10. What is the single most important index for me to understand?**
-A. The S&P 500. It is the benchmark for ~$11 trillion of U.S. equity capital, the default in every 401(k), the comparison every active fund is judged against, and the cleanest expression of SOUL principle #1: own the index, accept the market return, and spend your scarce decision budget elsewhere — on the four tranches, on tax structure, on not panicking. Everything else in this lesson is texture around that core fact.
+A. The S&P 500. It is the benchmark for ~$11 trillion of U.S. equity capital, the default in every 401(k), the comparison every active fund is judged against, and the cleanest expression of the alpha-is-rare principle: own the index, accept the market return, and spend your scarce decision budget elsewhere — on the four tranches, on tax structure, on not panicking. Everything else in this lesson is texture around that core fact.
 
 ---
 
@@ -254,7 +254,7 @@ HORACE: The Mag-7 weight has been rising for a decade. In 2014 they were maybe t
 
 STELLA: For viewers who don't know, the Nifty Fifty was the early-1970s set of "one-decision" growth stocks — IBM, Polaroid, Xerox, Coca-Cola, McDonalds. They were ferociously dominant in the cap-weighted indexes.
 
-HORACE: And then the 1973–74 bear market cut them roughly in half over two years. Coca-Cola and McDonalds came back. Polaroid and Xerox effectively never did. The point isn't to predict the same outcome for the Mag-7 — the underlying earnings story is genuinely better, AI is real, these companies have real profitability that the Nifty Fifty leaders sometimes did not. The point is that high concentration is a recurring pattern, and high concentration unwinds are also a recurring pattern. SOUL principle one — alpha is rare. Don't bet on permanent dominance. Don't bet against it either.
+HORACE: And then the 1973–74 bear market cut them roughly in half over two years. Coca-Cola and McDonalds came back. Polaroid and Xerox effectively never did. The point isn't to predict the same outcome for the Mag-7 — the underlying earnings story is genuinely better, AI is real, these companies have real profitability that the Nifty Fifty leaders sometimes did not. The point is that high concentration is a recurring pattern, and high concentration unwinds are also a recurring pattern. Alpha is rare. Don't bet on permanent dominance. Don't bet against it either.
 
 STELLA: So what's the practical move for a viewer holding VOO?
 
@@ -336,9 +336,9 @@ STELLA: This is the lesson. Same kitchen, three recipes, three different dishes.
 
 **[OUTRO — 17:30]**
 
-HORACE: The bottom line for this week. Indexes are recipes, not markets. The S&P 500 is the recipe most readers of this course should default to — it is the cleanest expression of SOUL principle one. Own the index, accept the market return, spend your decision budget on tranching and tax structure rather than stock picking.
+HORACE: The bottom line for this week. Indexes are recipes, not markets. The S&P 500 is the recipe most readers of this course should default to — it is the cleanest expression of the course's first principle. Own the index, accept the market return, spend your decision budget on tranching and tax structure rather than stock picking.
 
-STELLA: Layer in some equal-weight if the concentration regime worries you. Use the Russell 2000 cautiously — the small-cap quality is not what it was twenty years ago. Treat the Dow as television flavor text. Avoid the temptation to engineer a "global cap-weighted" portfolio that the plumbing won't actually deliver if you live in Hong Kong or the mainland — SOUL principle sixteen, only what's investable counts.
+STELLA: Layer in some equal-weight if the concentration regime worries you. Use the Russell 2000 cautiously — the small-cap quality is not what it was twenty years ago. Treat the Dow as television flavor text. Avoid the temptation to engineer a "global cap-weighted" portfolio that the plumbing won't actually deliver if you live in Hong Kong or the mainland — only what's investable counts.
 
 HORACE: Next week, week ten — bonds. What you're actually buying when you buy a Treasury, when you buy investment-grade corporate, when you buy high-yield. Why the duration is more dangerous than the credit, most of the time. See you then.
 

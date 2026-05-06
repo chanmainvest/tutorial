@@ -10,7 +10,7 @@
 
 Side lesson 18 told you the punchline first: this course's recommended
 portfolio is U.S.-listed equities only. So why is there a whole side
-lesson on currency hedging? Because **the SOUL #16 rule is about
+lesson on currency hedging? Because **the U.S.-only rule is about
 equities, not bonds, and it has exceptions.** The moment you reach
 outside the United States for *anything* — an EAFE sleeve, an
 international bond fund, a foreign-currency cash deposit, a Swiss
@@ -198,7 +198,7 @@ pure "always" or "never."
 
 ![Trade-Weighted U.S. Dollar Index (FRED DTWEXBGS, broad goods+services, monthly average) from 1990 through April 2026 with shaded regimes. Five labelled episodes: 1995-2002 strong-dollar, 2002-2008 weak-dollar, 2014-2016 strong-dollar 2.0, 2022 strong-dollar 3.0, 2024-2026 retracement.](image/side29_dxy_history.png)
 
-#### 2.5 The SOUL #16 Carve-Out: International Bonds
+#### 2.5 The U.S.-Only Carve-Out: International Bonds
 
 The U.S.-only equity rule from side lesson 18 has one quietly important
 exception: **if you hold non-U.S. fixed income at all, you should
@@ -253,7 +253,7 @@ The pragmatic decision rule the course uses:
 
 | Sleeve | Recommended hedge ratio | Vehicle |
 | --- | --- | --- |
-| U.S.-listed equity (per SOUL #16) | n/a | VTI/SPY |
+| U.S.-listed equity | n/a | VTI/SPY |
 | U.S.-listed ADRs | 0% | TSM, ASML, etc. |
 | Ex-U.S. IG bonds | **100%** | BNDX, IAGG |
 | Ex-U.S. developed-market equity | 50-100% | HEFA + EFA mix |
@@ -354,8 +354,8 @@ inside the dollar's overall trend can show up wrong-footed; (2) the
 ETF's expense ratio is 30-40bp higher than the unhedged version; (3)
 the forward roll incurs small bid-ask costs.
 
-**Q6: SOUL #16 says U.S.-only. Why are you teaching me how to hedge?**
-SOUL #16 is about equity recommendations. The carve-outs are (a)
+**Q6: The course says U.S.-only. Why are you teaching me how to hedge?**
+The U.S.-only rule is about equity recommendations. The carve-outs are (a)
 U.S.-listed ADRs (already in U.S. dollars, no FX exposure to hedge);
 (b) international IG bonds *if you choose to own them*, where you
 should always hedge; (c) the rare investor who insists on a 10-20%
@@ -433,7 +433,7 @@ to hedge, how to hedge, and what it actually costs. Horace, you've
 been telling us for 28 weeks that this course is U.S.-listed only.
 So why are we doing a whole lesson on hedging foreign exposure?
 
-Horace: Two reasons. First, the U.S.-only rule from SOUL #16 is
+Horace: Two reasons. First, the U.S.-only rule is
 about *equities*. The carve-out is bonds — if anyone watching has
 international fixed income in their portfolio, they need to hear the
 math we're about to walk through. Second, even within the U.S.-only
@@ -621,8 +621,8 @@ Horace: One — for U.S. equity and U.S.-listed ADRs, hedge ratio is
 zero because there is nothing to hedge. Two — for ex-U.S.
 investment-grade bonds, hedge ratio is 100% always; the FX leg is
 bigger than the asset leg. Three — for ex-U.S. developed-market
-equity, the answer is 50 to 100% if you have to own it, but per SOUL
-#16 you mostly shouldn't.
+equity, the answer is 50 to 100% if you have to own it, but per the U.S.-only
+rule you mostly shouldn't.
 
 Stella: And the cost.
 

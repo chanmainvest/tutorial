@@ -329,7 +329,7 @@ investment-grade sovereign debt is heavily correlated through the
 global rate cycle), and the FX hedge eats some of the yield. Most
 practitioners skip them and just hold US Treasuries.
 
-**Q8: Where does the SOUL.md "barbell" allocation fit relative to
+**Q8: Where does a "barbell" allocation fit relative to
 60/40?**
 
 A: The barbell rejects 60/40 at the philosophical level. The middle

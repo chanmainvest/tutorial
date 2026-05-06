@@ -45,7 +45,7 @@ reasons.
 4. **The implementation choice is huge.** GLD/IAU vs futures-based
    ETFs vs miners vs bullion are four very different exposures
    with four very different tax, fee, and tracking profiles. Per
-   Horace's US-only frame (SOUL #16), GLD or IAU is the
+   Horace's US-only frame, GLD or IAU is the
    investable answer for a US-listed retail book; everything else
    is a niche.
 
@@ -142,7 +142,7 @@ The conclusion is not "gold is bad" or "gold is good." It is that
 holds a meaningful slice of each will look better in *both* regimes
 than either pure portfolio looked across the full half-century. A
 small permanent gold allocation — Horace runs gold as a permanent
-sleeve in his four-tranche barbell (SOUL #13, #14) — was a free
+sleeve in his four-tranche barbell — was a free
 lunch on the realized data, in the sense that the rebalanced
 mixture had a higher Sharpe than either component on its own.
 
@@ -173,7 +173,7 @@ from gold:
 For US retail investors, the implication is that industrial
 commodities are *trades* (positions sized for a specific macro view)
 and not *holdings* (permanent allocations). And as Horace
-emphasizes (SOUL #15), the cleanest way to hold a tactical
+emphasizes, the cleanest way to hold a tactical
 commodity exposure for tax purposes is **via call options on the
 relevant equity ETF** — not by owning the futures-based commodity
 ETF directly. We unpack that mechanic in §2.6.
@@ -203,7 +203,7 @@ and most other commodities are not.
 
 #### 2.6 The US-Listed Toolkit — What Actually Trades
 
-Per the US-only investable mandate (SOUL #16), here is the
+Per the US-only investable mandate, here is the
 shortlist.
 
 | Vehicle | Underlying | Expense | Notes |
@@ -231,7 +231,7 @@ not the standard 15–20% LTCG rate. GDX miners, by contrast, are
 ordinary stock and qualify for the standard rates plus qualified
 dividends. This is the kind of detail that makes a 5–10% gold
 allocation worth holding inside a tax-advantaged account if you
-have one — and again, per SOUL #15, it is part of why expressing
+have one — and again, on the tax-efficiency angle, it is part of why expressing
 the gold thesis through long-dated **call options on GLD** rather
 than spot GLD is often more tax-efficient: option exercises on the
 trust units inherit the underlying tax treatment, but the option
@@ -368,7 +368,7 @@ from dollar reserves and into a non-confiscable, sovereign-neutral
 asset. This is a structural marginal bid that has supported gold
 prices in the 2020s.
 
-**Q: How do I use options on GLD per SOUL #15?**
+**Q: How do I use options on GLD for tax efficiency?**
 A: Three common structures: (1) covered calls on existing GLD to
 generate income with a price ceiling; (2) cash-secured puts to
 accumulate GLD at lower prices; (3) deep-ITM long-dated GLD calls
@@ -398,7 +398,7 @@ contract goes into *backwardation* (front more expensive than
 deferred), the roll yield turns positive and a futures-based ETF
 can briefly outperform spot. Outside that window, no. The cleaner
 expression is options on energy equity ETFs (XLE, XOP), which
-sidesteps the contango problem entirely — exactly the SOUL #15
+sidesteps the contango problem entirely — exactly the tax-efficient
 move.
 
 ---
@@ -461,9 +461,9 @@ is *how old the belief is*. Gold's been money for five thousand
 years. The pure-fiat dollar — post-Bretton-Woods, 1971 onward — is
 younger than the Beatles. Bitcoin is younger than the iPhone.
 
-**Stella:** SOUL principle three.
+**Stella:** Every store of value rests on belief.
 
-**Horace:** SOUL principle three. Every store of value rests on
+**Horace:** Every store of value rests on
 belief. There's no metaphysically "real" money out there. There's
 only consensus, and consensus is mortal.
 
@@ -648,8 +648,8 @@ as a passive long-term holding and most other commodities are not.
 
 **[BLOCK F — The US-listed toolkit — 14:00]**
 
-**Stella:** OK so for a US investor — per SOUL principle sixteen,
-US-listed only — what should they actually buy?
+**Stella:** OK so for a US investor — staying with US-listed
+names only — what should they actually buy?
 
 **Horace:** Three names worth knowing. GLDM at ten basis points is
 the cheapest physical-gold ETF. GLD at forty is the most liquid
@@ -667,8 +667,8 @@ fast, but don't think of it as the same exposure.
 
 **Stella:** Tax angle worth knowing?
 
-**Horace:** Yes — and this is where SOUL principle fifteen comes
-in. GLD, IAU, GLDM are all grantor trusts holding "collectibles"
+**Horace:** Yes — and this is where the tax angle matters.
+GLD, IAU, GLDM are all grantor trusts holding "collectibles"
 under US tax law. The long-term capital gains rate is 28%, not
 the 15-to-20% that applies to ordinary equities. That's a real
 drag if you're realizing big gains in a taxable account.
@@ -678,7 +678,7 @@ drag if you're realizing big gains in a taxable account.
 **Horace:** Two. First, hold gold in an IRA — most retail brokers
 allow GLD and IAU inside a Roth or traditional IRA, and the 28%
 rate doesn't apply inside a tax-deferred wrapper. Second — and
-this is the SOUL principle fifteen play — express the gold thesis
+this is the tax-efficient play — express the gold thesis
 through long-dated *call options* on GLD instead of holding the
 spot units. Equity options are taxed as capital gains, not as
 collectibles. Long-dated deep-ITM calls on GLD give you most of

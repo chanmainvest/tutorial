@@ -8,7 +8,7 @@
 
 ### 1. Why This Is Important
 
-The VIX is the most quoted, least understood number in finance. CNBC says "the fear gauge spiked to 28" and viewers nod, but almost nobody on the receiving end of that headline can tell you what 28 actually means, what it predicts, or — crucially — why every retail product built on top of it tends to bleed money. SOUL #6 (vol-tail-wags-dog) is the entire reason this lesson exists: in a real crisis, volatility is the *first* thing that moves, and everything else rearranges itself around it. If you don't have a working model of how the volatility complex behaves, you will be the last one to know what just happened to your portfolio.
+The VIX is the most quoted, least understood number in finance. CNBC says "the fear gauge spiked to 28" and viewers nod, but almost nobody on the receiving end of that headline can tell you what 28 actually means, what it predicts, or — crucially — why every retail product built on top of it tends to bleed money. Volatility is what wags the dog: in a real crisis it is the *first* thing that moves, and everything else rearranges itself around it. If you don't have a working model of how the volatility complex behaves, you will be the last one to know what just happened to your portfolio.
 
 There are four reasons a serious investor needs to understand VIX cold:
 
@@ -18,7 +18,7 @@ There are four reasons a serious investor needs to understand VIX cold:
 
 3. **Volatility is the cheapest way to be wrong with conviction**: Long-vol bets pay off in catastrophes. But carry is brutal — you pay every day the world doesn't end, and you give back the gains within weeks of the bottom because the term structure resets. Most retail "tail hedges" are bought at peak VIX and sold at the trough, which is the exact opposite of how they're supposed to work.
 
-4. **The short-vol trade has eaten more reputations than the long-vol trade**: Selling volatility looks like free money for years, until it isn't. Volmageddon (Feb 2018) wiped out the XIV ETN in a single afternoon — a -96% close after years of +30%/yr returns. SOUL #6 is named precisely because vol blow-ups rearrange the rest of the portfolio. You cannot understand 2008, 2018, 2020, or 2022 without understanding what was happening in the vol surface those weeks.
+4. **The short-vol trade has eaten more reputations than the long-vol trade**: Selling volatility looks like free money for years, until it isn't. Volmageddon (Feb 2018) wiped out the XIV ETN in a single afternoon — a -96% close after years of +30%/yr returns. Vol blow-ups are the reason the entire portfolio rearranges itself when they hit. You cannot understand 2008, 2018, 2020, or 2022 without understanding what was happening in the vol surface those weeks.
 
 This lesson gives you the formula, the term structure, the products, the wreckage record, and a framework for using vol as a tool rather than as a slot machine.
 
@@ -41,7 +41,7 @@ Two implications most retail traders miss:
 - **VIX is not "expected volatility"; it is the price of a variance swap**. It will systematically be higher than realised vol because option sellers demand a premium for unhedgeable jump risk. The long-run gap is ~3-4 vol points (the variance risk premium). That premium is what every covered-call and put-write strategy harvests.
 - **Daily expected SPX move = VIX / sqrt(252)**. A VIX of 20 implies a 1.26% daily standard deviation. A VIX of 40 implies 2.52%. This is the single most useful conversion to memorise.
 
-[VISUAL: image/week40_vix_history.png]
+![Time-series chart of CBOE VIX from 1990 through April 2026 with major spike events labelled — 1998 LTCM, 2008 GFC peak ~89, 2010 flash crash ~48, 2011 debt-ceiling/Europe ~48, 2018 Volmageddon ~50 intraday, March 2020 COVID lockdown all-time high 82.69, 2022 Fed shock high-30s, August 2024 carry-trade unwind. A horizontal reference line marks the all-period median around 16.5. Calm/normal/elevated/stressed/panic bands are shaded. The chart anchors the calibration anchors used through the rest of the lesson — VIX is more often than not in the 12-22 range with episodic regime spikes that last weeks, not minutes.](image/week40_vix_history.png)
 
 #### 2.2 The Term Structure — Why Contango Eats VXX
 
@@ -51,9 +51,9 @@ Why? Because the option market knows that vol mean-reverts to ~16-18, but also k
 
 Now layer on what VXX, UVXY, and similar products actually do: they hold a constant-maturity 30-day VIX-futures position, *rolling daily* from the front month to the second month. In contango, every roll is a sale at a low price and a purchase at a higher price. The annualised cost of that roll, historically, has been -25% to -40% in calm markets and -10% to -20% on average across a full cycle.
 
-This is not a quirk. It is mathematical. SOUL #6 has a corollary: **the volatility surface is paying you to be short, until the day it isn't**.
+This is not a quirk. It is mathematical. There is a corollary to the rule that volatility leads everything else: **the volatility surface is paying you to be short, until the day it isn't**.
 
-[VISUAL: image/week40_vxx_decay.png]
+![Cumulative-growth chart on a log scale of $1 invested in VXX vs $1 invested in SPY from VXX's January 2009 inception through 2026, both adjusted for splits and reverse splits (VXX has had eight reverse splits to keep its share price above $1). SPY ends near $7 (~12%/yr CAGR, normal for a 17-year stretch from a recession low). VXX ends near $0.0001 — a 99.99% loss — visible only because the chart is log-scaled. The annual contango drag of 25-40% per year compounds into structural ruin. The chart is the visual proof that constant-maturity long-vol products are mathematically guaranteed to decay in a regime that exists ~85% of the time.](image/week40_vxx_decay.png)
 
 #### 2.3 The Product Wreckage Record
 
@@ -101,7 +101,7 @@ Three ways to harvest VRP without blowing up:
 2. **Covered calls on positions you'd hold anyway** — gives up the right tail, keeps the body. Covered in Week 27.
 3. **SPX iron condors with defined max loss** — short both wings, long protective wings further out. Max-loss is known on entry. Covered in Week 30.
 
-What does *not* work for the long-run investor: long VXX, long UVXY, short SVXY, or any structure where the worst-case loss exceeds the position size. SOUL #14 (barbell) is the right framing: you can run a 90% beta portfolio and a 5-10% short-vol sleeve, but you cannot run a 95% short-vol portfolio. The blowup days take 2-3 years of carry to recover, and the carry isn't large enough to justify the leverage.
+What does *not* work for the long-run investor: long VXX, long UVXY, short SVXY, or any structure where the worst-case loss exceeds the position size. The barbell is the right framing: you can run a 90% beta portfolio and a 5-10% short-vol sleeve, but you cannot run a 95% short-vol portfolio. The blowup days take 2-3 years of carry to recover, and the carry isn't large enough to justify the leverage.
 
 #### 2.7 The 2018 Volmageddon Case Study
 
@@ -131,7 +131,7 @@ The lesson is not "don't sell vol." The lesson is: **leverage on vol is fatal be
 ### 4. Q&A Section
 
 **Q1: How do I actually use VIX in day-to-day decisions?**
-A: Three uses. (1) Position sizing — when VIX > 25, cut new long-equity sizing in half versus when VIX < 15. (2) Options pricing — if you're about to sell a put and VIX < 14, you're underpaid; wait. If VIX > 30 and you're already long stock, that's premium income waiting to be collected via covered calls. (3) Regime — VIX > 30 for more than 5 sessions is a confirmed stress regime; rebalance per SOUL #13 (four tranches), don't fight it.
+A: Three uses. (1) Position sizing — when VIX > 25, cut new long-equity sizing in half versus when VIX < 15. (2) Options pricing — if you're about to sell a put and VIX < 14, you're underpaid; wait. If VIX > 30 and you're already long stock, that's premium income waiting to be collected via covered calls. (3) Regime — VIX > 30 for more than 5 sessions is a confirmed stress regime; rebalance across the four tranches, don't fight it.
 
 **Q2: Why don't more investors hold long-vol products as portfolio insurance?**
 A: Because they're the most expensive insurance ever invented. Carry is -25% to -40%/yr. SPX puts cost 2-4%/yr for similar tail coverage. Buying VXX as insurance is like buying a fire-insurance policy that costs 30% of your house's value every year — even if it pays off in a fire, you'd have been better off with a $300/yr policy.
@@ -155,7 +155,7 @@ A: The classic gauge is VX1/VX2 ratio (front-month / second-month VIX futures). 
 A: Tight, but with a lag. VIX is the "fast" risk indicator (intraday, options-driven). HY credit spreads (BAML HOAS) are the "slow" indicator (daily, dealer-driven). A spike in VIX without a corresponding move in HY spreads is usually noise; a coincident move in both is a regime shift. Cross-reference Week 33's HY-spread chart.
 
 **Q9: Should I include any vol exposure in a long-only retirement portfolio?**
-A: Direct vol exposure, no. Indirect, yes — through covered-call ETFs (10-15% sleeve max) or PUTW-style cash-secured-put funds. These harvest VRP without the leverage. Per SOUL #14 (barbell) and #15 (tax via options), the right way to hold vol risk is as defined-risk option premia, not as a long-VXX position.
+A: Direct vol exposure, no. Indirect, yes — through covered-call ETFs (10-15% sleeve max) or PUTW-style cash-secured-put funds. These harvest VRP without the leverage. Run it as a barbell, with the vol risk taken as defined-risk option premia rather than as a long-VXX position.
 
 **Q10: How much of my portfolio should ever be long VXX or UVXY?**
 A: For most investors: 0%. For a sophisticated tactical trader running a defined event thesis (e.g., "FOMC meeting tomorrow, vol is at 12, term structure is flat"), maybe 0.5-1.5% of NAV for a 2-7 day hold. Never as a strategic position. Never sized so a -50% day on the position would matter.
@@ -184,7 +184,7 @@ HORACE: Welcome back. Today we're doing the lesson that should have been require
 
 STELLA: And specifically, we're talking about the gap between what the news calls "the fear gauge" and what VIX actually is, mathematically. Because that gap has cost retail investors more than any single decade of stock-picking errors.
 
-HORACE: SOUL principle six is named "vol-tail-wags-dog" for a reason. In every real crisis I've watched in 30 years — '87, '98, 2008, 2018, 2020 — the volatility surface moved first. Stocks, bonds, credit spreads, FX, all of them rearranged themselves around what was happening in vol. If you don't understand that surface, you don't understand what just happened to your portfolio.
+HORACE: Volatility is the tail that wags the dog. In every real crisis I've watched in 30 years — '87, '98, 2008, 2018, 2020 — the volatility surface moved first. Stocks, bonds, credit spreads, FX, all of them rearranged themselves around what was happening in vol. If you don't understand that surface, you don't understand what just happened to your portfolio.
 
 STELLA: We've got three things to cover. One: what VIX actually measures, which is a variance swap, not a forecast. Two: the term structure — why VIX futures are in contango 85 percent of the time, and why that single fact is the entire reason VXX is a melting ice cube. Three: the wreckage record, the 2018 case study, and a framework for using vol as a tool rather than a slot machine.
 
@@ -250,7 +250,7 @@ HORACE: Credit Suisse pulled the trigger on the acceleration clause that night. 
 
 STELLA: The lesson is not "don't sell vol." The lesson is: leverage on vol is fatal because vol itself is the leverage. A 1x short-vol position is already a leveraged bet on the variance risk premium. Stack 1x fund leverage on top, and you've got 2x effective leverage on a series with kurtosis above 30. The math does not survive a real spike.
 
-HORACE: This is SOUL #6 in its purest form. Vol moved first. Everything else rearranged itself around vol. The S&P 500 didn't blow up — it was down 4 percent, painful but not catastrophic. The volatility complex blew up *first*, and that's what propagated.
+HORACE: This is the volatility-leads-everything pattern in its purest form. Vol moved first. Everything else rearranged itself around vol. The S&P 500 didn't blow up — it was down 4 percent, painful but not catastrophic. The volatility complex blew up *first*, and that's what propagated.
 
 ---
 
@@ -286,9 +286,9 @@ HORACE: One — cash-secured puts on SPX or sector ETFs. Capped downside, capped
 
 STELLA: What does *not* work for the long-run investor: long VXX, long UVXY, short SVXY, or any structure where the worst-case loss exceeds the position size.
 
-HORACE: SOUL #14, the barbell. You can run a 90 percent beta portfolio and a 5 to 10 percent short-vol sleeve. You cannot run a 95 percent short-vol portfolio. Blowup days take 2 to 3 years of carry to recover, and the carry isn't large enough to justify the leverage.
+HORACE: The barbell. You can run a 90 percent beta portfolio and a 5 to 10 percent short-vol sleeve. You cannot run a 95 percent short-vol portfolio. Blowup days take 2 to 3 years of carry to recover, and the carry isn't large enough to justify the leverage.
 
-STELLA: SOUL #15, tax via options. Index options — SPX, NDX, RUT — are 1256 contracts. 60-40 long-term/short-term tax treatment regardless of holding period. That's the correct vehicle for a tax-aware short-vol sleeve in a taxable account.
+STELLA: Tax via options. Index options — SPX, NDX, RUT — are 1256 contracts. 60-40 long-term/short-term tax treatment regardless of holding period. That's the correct vehicle for a tax-aware short-vol sleeve in a taxable account.
 
 HORACE: And cross-reference this with Week 36's income capstone. The covered-call ETFs we talked about — JEPI, JEPQ, QYLD — are diluted, retail-friendly versions of the short-vol trade. They harvest VRP. They lose less than VXX gains in a spike. They are not the trade itself; they are the residue of the trade after a fund manager extracts a fee.
 
@@ -302,7 +302,7 @@ STELLA: One. VIX is a price for variance, not a forecast. It tells you what the 
 
 HORACE: Two. The term structure is in contango 85 percent of the time, which is why every constant-maturity long-vol product is a melting ice cube. Buying VXX as a strategic position is structurally guaranteed to lose. As a tactical 2-to-7-day trade, it can work, but the timing is brutal.
 
-STELLA: Three. The right way to hold vol risk is as defined-risk option premia, sized as a 5-10 percent sleeve. Not as long-VXX. Not as short-SVXY at 1x. SOUL six says vol moves first; SOUL fourteen says barbell; SOUL fifteen says use 1256-treated index options. All three apply here.
+STELLA: Three. The right way to hold vol risk is as defined-risk option premia, sized as a 5-10 percent sleeve. Not as long-VXX. Not as short-SVXY at 1x. Vol moves first; the right structure is the barbell with 1256-treated index options for the short-vol sleeve. All three principles apply here.
 
 HORACE: Next week we move to Week 41 and start tying this together with macro positioning. Until then — read the markdown, play with the lab, and understand the term structure before you ever click "buy" on a VIX product. See you next time.
 

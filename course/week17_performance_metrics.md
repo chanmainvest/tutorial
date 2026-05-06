@@ -35,7 +35,7 @@ You need this material for four reasons.
    actually paid. Treynor looks only at the systematic risk you
    could not diversify away. Each metric answers a different
    question; using the wrong one gives you the wrong answer.
-4. **Connecting to SOUL #6: vol-tail-wags-dog.** Standard deviation
+4. **The vol tail wags the dog.** Standard deviation
    assumes returns are normally distributed. They are not. Tails
    are fat. So Sharpe consistently *under-penalises* strategies
    that quietly accumulate left-tail risk. Sortino and Calmar
@@ -91,9 +91,8 @@ returns are roughly symmetric around the mean. They are not.
 model — meaning it should not have happened in the lifetime of the
 universe. Yet there it was. So Sharpe systematically rewards
 strategies that look smooth most of the time but blow up rarely
-(short volatility, illiquid credit, leveraged carry). Horace's
-SOUL #6 — vol-tail-wags-dog — is the warning label: do not pick
-managers on Sharpe alone.
+(short volatility, illiquid credit, leveraged carry). The volatility
+tail wags the dog — do not pick managers on Sharpe alone.
 
 #### 2.2 Sortino — Downside Deviation Only
 
@@ -208,7 +207,7 @@ and:
 A few honest realities:
 
 1. Most retail strategies have alpha statistically indistinguishable
-   from zero. SOUL #1 — alpha is rare. Treat any alpha estimate
+   from zero. Alpha is rare. Treat any alpha estimate
    from fewer than 60 monthly observations as extremely noisy.
 2. Beta is often more useful than alpha for *risk decomposition*.
    If $\beta = 1.4$, your "stock pick" is really 1.4× S&P leverage
@@ -262,7 +261,7 @@ multiple expansion.
 
 The takeaway: be very careful when someone quotes "the long-run
 Sharpe of the S&P 500 is X." It is X *over the chosen window*.
-SOUL #2 reminds us the 1980-2020 regime was anomalous — and so
+The 1980-2020 regime was anomalous — and so
 was its Sharpe.
 
 ---
@@ -277,7 +276,7 @@ was its Sharpe.
 2. **"Higher Sharpe = lower risk."** Higher Sharpe = better
    excess return per unit of *measured* risk. If the risk
    measure (standard deviation) misses fat tails, the apparent
-   Sharpe lies. SOUL #6.
+   Sharpe lies — the volatility tail wags the dog.
 3. **"Calmar is fairer than Sharpe because it uses real
    drawdowns."** Calmar is sample-dependent. A strategy with no
    crisis in its track record has artificially high Calmar. The
@@ -385,7 +384,7 @@ A11. Because both numerator and denominator move with the regime.
 In low-vol bull markets (1990s, 2010s) the numerator is high and
 denominator low — Sharpe explodes. In stagflation (1970s) or
 crisis decades (2000s) numerator collapses and denominator rises
-— Sharpe craters. SOUL #2: regime drives almost everything in
+— Sharpe craters. Regime drives almost everything in
 quoted single-number stats.
 
 **Q12. What single number would Horace use to grade his own year?**
@@ -460,7 +459,7 @@ blew up.
 
 STELLA: That's terrifying.
 
-HORACE: That's SOUL principle six: the volatility tail wags the
+HORACE: That's the underlying lesson — the volatility tail wags the
 dog. Sharpe assumes returns are normally distributed. They are
 not. So strategies that look smooth most of the time but explode
 rarely score very high on Sharpe — until they don't.
@@ -587,7 +586,7 @@ STELLA: And alpha is the holy grail.
 
 HORACE: Alpha *annualised, statistically significant, persistent
 out of sample, and not explained by a known factor* is the holy
-grail. SOUL principle one: alpha is rare. Most "alpha" you read
+grail. Alpha is rare. Most "alpha" you read
 in retail backtests is one of three things — small sample noise,
 omitted factor exposure, or survivorship bias.
 
@@ -628,7 +627,7 @@ HORACE: You don't pick on a single metric. A serious portfolio
 review reports at least three — Sharpe, Sortino, max drawdown —
 and explains where they agree and where they disagree. Then you
 make a judgement informed by *all* of them, plus the regime
-context: SOUL principle two.
+context.
 
 ---
 

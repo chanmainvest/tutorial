@@ -20,9 +20,9 @@ every fund advertisement systematically lies to you.
 
 You need this material for four reasons.
 
-1. **It anchors SOUL #1.** Horace's first principle — *the market is
-   right most of the time, alpha is the rare gap* — is not a slogan; it
-   is a numerical claim. The SPIVA scorecards make it concrete. Over 15
+1. **The base rate is brutal.** *The market is right most of the time,
+   and alpha is the rare gap* — that is not a slogan, it is a numerical
+   claim. The SPIVA scorecards make it concrete. Over 15
    years, roughly 90% of US large-cap equity managers underperform the
    S&P 500. Default to passive is not a preference, it is what the
    evidence forces you to do unless you can name a specific reason this
@@ -49,9 +49,9 @@ You need this material for four reasons.
    CTAs — that are documentably persistent over decades. They are not
    accessible through a Vanguard ticker, they require capital, lockups,
    or specific expertise, and three of the four are not what most retail
-   investors think of when they hire an "active" manager. SOUL #5 lists
-   the alpha sources Horace himself uses; this lesson maps where the
-   institutional taxonomy puts them.
+   investors think of when they hire an "active" manager. The alpha
+   sources Horace himself uses are exactly these structural pockets;
+   this lesson maps where the institutional taxonomy puts them.
 
 This week is the bridge between *should I be active or passive?* (almost
 always passive) and the lessons that follow on *if I am going to be
@@ -80,7 +80,7 @@ gives the following picture for **US large-cap equity funds**:
 - 10-year window: ~85%.
 - 15-year window: ~90%.
 
-See `image/week43_spiva_chart.png` for the bar chart.
+![Bar chart of the percentage of US large-cap active mutual funds underperforming the S&P 500 across five horizons — 1, 3, 5, 10, and 15 years — drawn from the April 2026 SPIVA scorecard (periods ending December 2024). Bars climb monotonically from ~60% at 1y to ~75% at 3y, ~80% at 5y, ~85% at 10y, and ~90% at 15y. The numbers are net of fees, asset-weighted, and survivorship-adjusted. The chart is the cleanest single picture of why "default to passive" is not a preference but a base-rate-driven conclusion.](image/week43_spiva_chart.png)
 
 The pattern is not subtle. As the window lengthens, the percentage of
 underperforming managers monotonically rises. Why? Because over a
@@ -134,10 +134,11 @@ forward. The reasons are mechanical, not mysterious:
 - **Fees.** Top-quartile funds are routinely the ones that hike fees
   after a good run, eating tomorrow's relative performance.
 
-The transition picture is laid out in
-`image/week43_persistence_table.png`. The diagonal — top-stays-top,
+The transition picture is laid out below. The diagonal — top-stays-top,
 bottom-stays-bottom — is barely above the off-diagonal. Last cycle's
 quartile rank carries almost no information about next cycle's rank.
+
+![Persistence transition matrix: rows are quartile rank in window 1 (top, second, third, bottom on five-year US large-cap performance) and columns are quartile rank in window 2 (the next five years). Cell values are the empirical percentage of funds making each transition, averaged across many SPIVA persistence vintages. Pure chance would put 25% in every cell. The actual top-quartile-stays-top-quartile cell sits near 15% — meaningfully *below* random. The bottom-stays-bottom cell is also depressed because bad funds get killed and drop out (survivorship bias). Off-diagonal cells fan out in the 20-30% range. The picture is the visual proof that last cycle's quartile rank carries almost no information about next cycle's rank — and at the top, is mildly anti-predictive.](image/week43_persistence_table.png)
 
 #### 2.3 Survivorship Bias — Why the Average Looks Better Than It Is
 
@@ -194,8 +195,8 @@ inherently limited (you can only fit so many activists in one
 company), holding periods are 3-7 years, and the persistence is
 documentable. Buffett's pre-1969 partnership compounded ~30%/yr
 gross. Singer's Elliott has compounded ~13%/yr net since 1977
-through every regime. This is SOUL #5's *buying what passive flows
-have abandoned* with engagement attached.
+through every regime. This is *buying what passive flows have
+abandoned* with engagement attached — a structural alpha source.
 
 **2. Quantitative systematic.** Statistical, model-driven trading at
 scale. Renaissance Technologies' Medallion (closed to outsiders,
@@ -205,10 +206,10 @@ Millennium, Point72). These shops mine thousands of weak signals and
 combine them. Edge sources: speed, data, infrastructure, headcount,
 and ruthless risk management. *Not* available via a 1% mutual fund.
 The retail-accessible cousins (AQR factor funds, BTAL, MTUM) deliver
-a fraction of the gross edge after fees and constraints. SOUL #1's
-*you still need the toolkit* warning lives here — these strategies
-require capital, infrastructure, and discipline most investors don't
-have.
+a fraction of the gross edge after fees and constraints. Even where
+structural alpha exists, *you still need the toolkit* — these
+strategies require capital, infrastructure, and discipline most
+investors don't have.
 
 **3. Event-driven.** Merger arbitrage, distressed credit and
 post-reorg equity, special situations, capital-structure
@@ -244,8 +245,8 @@ sentence with a structural reason, you are paying a fee for noise.
 
 Translate the data into action.
 
-- **Default to passive.** Your beta sleeve (SOUL #13, Tranche 1
-  growth) should be index funds. Three or four ETFs cover 90% of
+- **Default to passive.** Your beta sleeve — the growth tranche of
+  the four-tranche framework — should be index funds. Three or four ETFs cover 90% of
   what most investors need. Anything else has to clear a higher
   bar.
 - **If you hire active, demand a structural story.** Either it is
@@ -259,8 +260,8 @@ Translate the data into action.
   shrink dramatically when you compare *gross-of-fee* active
   returns. The fee is most of the gap.
 - **Be honest about your own active sleeve.** If you trade a small
-  options or single-stock book (SOUL #13's Tranche 4 opportunistic
-  10%), benchmark it. After three years, if your IR is below 0.3,
+  options or single-stock book — the opportunistic ~10% slot in the
+  four-tranche framework — benchmark it. After three years, if your IR is below 0.3,
   redirect that capital to the index. The same SPIVA logic applies
   to *you*.
 - **Don't chase last cycle's winner.** The fund that crushed it
@@ -301,7 +302,7 @@ the household level.
    share of US equities has gone from 20% in 2010 to over 50% in
    2025 and indexes have not stopped working. The reflexive
    "passive is a bubble" thesis has been wrong for fifteen
-   years. SOUL #2's regime call is what would turn it.
+   years. Only a genuine multi-decade regime change would turn it.
 7. **"Closet indexers are the safe choice."** They charge active
    fees for index-like portfolios. Active share studies (Cremers
    and Petajisto) find low-active-share funds underperform almost
@@ -386,7 +387,7 @@ passive.
 **Q: How should I think about my own DIY trading book then?**
 A: Treat it as an active sleeve with a clear benchmark (SPY for
 single-stock US, AGG for bond trades) and a clear capital cap
-(SOUL #14's barbell — typically 5-15% of net worth). Run it for
+(the barbell rule — typically 5-15% of net worth). Run it for
 three years, compute IR honestly, and if it doesn't clear 0.3,
 return the capital to the index sleeve.
 
@@ -407,9 +408,9 @@ random baseline.
 
 **Q: Should I just give up on active completely?**
 A: For the bulk of your wealth, yes — that is what *default to
-passive* means. But understanding the four tranches and how the
-four-tranche barbell (SOUL #13, #14) places a small explicit
-*opportunistic* sleeve on top of a large *passive* core lets you
+passive* means. But understanding the four tranches and how a
+barbell-style allocation places a small explicit *opportunistic*
+sleeve on top of a large *passive* core lets you
 participate where edge actually exists, without risking the
 core.
 
@@ -610,9 +611,9 @@ the data.
 
 **Stella:** What does this mean for the average investor?
 
-**Horace:** Default to passive for your beta sleeve. SOUL one.
-That is your growth tranche, your income tranche, your store of
-value tranche. If you hire active anywhere, demand a structural
+**Horace:** Default to passive for your beta sleeve. That is the
+first rule. That is your growth tranche, your income tranche, your
+store of value tranche. If you hire active anywhere, demand a structural
 story — one of the four categories above and access you actually
 have. Watch fees. Don't chase last cycle's winner. And benchmark
 your own DIY trading book against the index just like you would a

@@ -47,8 +47,8 @@ selection:
    the website ranks the stack and tells you the marginal dollar's
    home.
 
-Horace's view from `course/SOUL.md` #15 ("tax via options and margin")
-sits beneath this entire lesson: every dollar that lands inside the
+Horace's deeper view — "tax via options and margin" — sits beneath
+this entire lesson: every dollar that lands inside the
 right wrapper is a dollar the IRS *cannot* tax, ever, at the right
 endpoint. The stack is the cheapest alpha you will ever find — written
 into the code, public, mechanical.
@@ -188,7 +188,7 @@ lane**. That is $35,000 a year flowing into a Roth wrapper that the
 IRA's $7,000 limit would otherwise cap.
 
 **Tier 6 — Taxable brokerage.** The wrappers are full. Now
-asset-location and SOUL #15 (tax via options) become the levers.
+asset-location and tax via options become the levers.
 Side Lesson 4 covers this layer.
 
 The stack is **strict priority**: empty Tier 1 before opening Tier 2,
@@ -603,7 +603,7 @@ typically another $30,000 to $45,000 a year flowing into the Roth
 wrapper.
 
 **Horace:** Tier 6 — taxable brokerage. The wrappers are full. Now
-asset location and SOUL fifteen become the levers. Side Lesson 4
+asset location and tax via options become the levers. Side Lesson 4
 covers that layer.
 
 ---
@@ -698,7 +698,7 @@ Traditional is one comparison: current bracket versus expected
 retirement bracket. Three — fund the wrappers in the order on the
 chart, strictly.
 
-**Stella:** And the bonus, SOUL fifteen — every dollar inside a Roth
+**Stella:** And the bonus — every dollar inside a Roth
 wrapper is a dollar the IRS will *never* tax again at the right
 endpoint. The stack is the cheapest alpha on this channel. Run the
 optimiser, plug in your numbers, and you'll have a one-page action

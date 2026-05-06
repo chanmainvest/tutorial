@@ -28,7 +28,7 @@ account on a single tail.
 
 This matters for four concrete reasons:
 
-**(1) Defined-risk options ARE the SOUL #14 barbell.** The barbell
+**(1) Defined-risk options ARE the barbell.** The barbell
 holds high-conviction safety on one end and asymmetric, capped-loss
 speculation on the other. A long-dated SPY call spread, an iron
 condor on QQQ, a butterfly on AAPL into earnings — every one of these
@@ -48,7 +48,7 @@ the survivability goes way up. Most professional premium sellers run
 spreads, not naked options, for exactly this trade-off.
 
 **(3) Iron condors monetise the fact that markets are mean-reverting
-inside their realised range about 70% of the time (SOUL #8).** An
+inside their realised range about 70% of the time.** An
 iron condor profits when SPY closes between the two short strikes at
 expiry. With short strikes at ±1 standard deviation and 30 days to
 expiry, the lognormal probability of profit is ~68%; with shorts at
@@ -66,7 +66,7 @@ options-expiry pin can express that view for one or two hundred
 dollars of risk and a 4-to-1 payoff, where a long-stock or naked-
 options version would cost five figures and offer no such asymmetry.
 
-Spreads are also where a SOUL #6 vol-trader starts paying attention:
+Spreads are also where a vol-aware trader starts paying attention:
 debit spreads are short-vega (you bought volatility), credit spreads
 are long-theta and short-vega (you sold volatility), butterflies are
 short-vega *and* short-gamma. Picking the right structure is no
@@ -109,6 +109,8 @@ all in one frame — are drawn at expiry in
 The maximum profit, maximum loss, and breakeven for each are marked on
 the chart so you can verify the formulas on the diagram instead of
 on the page.
+
+![Four-panel payoff diagram at expiry for the canonical defined-risk option structures, all on a $100-area underlying. Top-left: bull call spread (buy $150 / sell $155 call) — the line slopes up between the strikes and caps at +$250 above $155, floor at -$250 below $150, breakeven $152.50. Top-right: bear put spread — mirror image. Bottom-left: iron condor with shorts at $470/$530 on SPY $500 — flat profit zone of +$180 between the two short strikes, sloping down to -$320 outside the wings at $465 and $535. Bottom-right: long butterfly centred at $150 — the classic tent shape, peaking at +$780 at the middle strike and decaying to a -$220 floor beyond either wing. Each panel labels max profit, max loss, and breakevens so the formulas can be read off the chart.](image/week30_spread_payoffs.png)
 
 #### 2.2 Worked example — bull call spread on AAPL at $150
 
@@ -172,13 +174,15 @@ has positive expectancy as long as realised volatility comes in at or
 below the 20% the chain priced. That last clause is everything: the
 iron condor is a *short-vol* trade in disguise. When realised vol
 exceeds implied, the structure loses its edge no matter how the price
-walk looks. SOUL #6: vol moves first.
+walk looks. Vol moves first.
 
 The probability-of-profit curve for the SPY $500 iron condor across
 three short-strike distances is drawn in
 [course/image/week30_condor_pop.py](course/image/week30_condor_pop.py).
 Tighter shorts give wider profit zones in *theta* terms but a far
 lower POP; the chart shows the trade-off at 1σ, 0.75σ, and 0.5σ.
+
+![Bar chart of the lognormal probability-of-profit (POP) for an iron condor on SPY at $500, 30 DTE, IV 20%, plotted against three short-strike distances: 1σ (~±$30 from spot), 0.75σ (~±$22), and 0.5σ (~±$15). The 1σ bar reads ~68% POP, 0.75σ reads ~55%, and 0.5σ reads ~38%. Each bar is annotated with the corresponding net credit and the loss/profit ratio so the trade-off — credit buys POP, POP buys credit — is visible at a glance. The 1σ shorts are the conventional retail default; tighter shorts pay more premium but the win-rate falls off sharply.](image/week30_condor_pop.png)
 
 #### 2.4 Butterfly — pinning the level
 
@@ -281,7 +285,7 @@ short stock with the long call still alive, which is fine but
 requires same-day action. Iron condors and butterflies share the
 same property at the wing level.
 
-For tax (SOUL #15): defined-risk option spreads on broad-based
+For tax purposes: defined-risk option spreads on broad-based
 indices (SPX, NDX, RUT, *not* SPY/QQQ/IWM ETFs) are 1256-contracted
 and taxed 60% long-term / 40% short-term regardless of holding
 period. That is a structural advantage worth ~10 percentage points
@@ -699,7 +703,7 @@ sleep at night.
 
 **[BLOCK 6 — Tax and account-type, 15:30]**
 
-**Stella:** SOUL #15 says options are a tax tool first. Where does
+**Stella:** Options are a tax tool first. Where does
 that show up here?
 
 **Horace:** Two places. One — an iron condor on SPX, NDX, or RUT is
@@ -725,7 +729,7 @@ structures. That alone is worth learning them for.
 loss for fifty to a hundred bucks of capital. Iron condors monetise
 mean-reversion at sixty-plus percent win rates. Butterflies pin
 levels for three-and-a-half-to-one payoff. They are the L3 sleeve of
-the SOUL barbell — capped, asymmetric, professional.
+the barbell — capped, asymmetric, professional.
 
 **Stella:** Next week — implied volatility rank, vol regimes, and
 how to size all of this against realised vol so the structures
