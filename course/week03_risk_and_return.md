@@ -85,14 +85,14 @@ widely an asset's actual returns have varied around its mean.
 For an asset with average annual return $\mu$ and standard deviation
 $\sigma$, *if* returns were normally distributed (a big if; see §2.6):
 
-- About **68%** of years would fall in $[\mu - \sigma,\ \mu + \sigma]$.
-- About **95%** of years would fall in $[\mu - 2\sigma,\ \mu + 2\sigma]$.
-- About **99.7%** of years would fall in $[\mu - 3\sigma,\ \mu + 3\sigma]$.
+- About **68%** of years would fall in $\mu \pm \sigma$.
+- About **95%** of years would fall in $\mu \pm 2\sigma$.
+- About **99.7%** of years would fall in $\mu \pm 3\sigma$.
 
 Run that on the actual S&P 500 dataset since 1928 and what you get is
 this:
 
-![Histogram of S&P 500 annual total returns, 1928 through 2024 (Damodaran annual dataset). The empirical mean is roughly 11.5% and the standard deviation is roughly 19.5%. A normal distribution with the same mean and standard deviation is overlaid as a smooth curve. The histogram has visibly fatter tails than the normal curve — both the worst years (1931, 1937, 2008) and the best (1933, 1954, 1958) are far further from the centre than a normal distribution predicts.](image/week03_return_distribution.png)
+![Histogram of S&P 500 annual total returns, 1928 through 2024 (Damodaran annual dataset). The empirical mean is roughly 11.5% and the standard deviation is roughly 19.5%. A normal distribution with the same mean and standard deviation is overlaid as a smooth curve. The histogram has visibly fatter tails than the normal curve in *both* directions — the worst years (1931, 1937, 2008) shown in red on the left tail, and the best years (1933, 1954, 1958) shown in green on the right tail, are far further from the centre than a normal distribution predicts.](image/week03_return_distribution.png)
 
 Three things to read off this chart:
 
@@ -133,12 +133,49 @@ rate for accepting uncertainty. The most-cited number in all of
 finance is the **equity risk premium (ERP)**: how much more, on
 average, US stocks return above US Treasury bills.
 
-Long-run, post-1928, that number has been roughly **5–7% per year**.
-At a long-run T-bill mean of ~3.4% and a long-run S&P 500 mean of
-~11%, the gap is around 7–8 points of nominal return — a gap that
+The inverse framing matters as much as the headline. The textbook
+calls the T-bill yield the *risk-free rate of return*. A more honest
+label — once you measure in purchasing power instead of nominal
+dollars — is the **"return-free risk-free rate"**: a T-bill
+guarantees the *nominal* dollars come back, but it also nearly
+guarantees you lose ground to inflation, especially in a financial-
+repression regime where short rates are deliberately held below
+inflation. Bonds aren't "winning a small amount"; they are
+*certainly* losing purchasing power. The ERP is just as well
+understood as **the discount the volatile asset must offer to clear
+against an instrument whose downside is the certainty of slow
+decay.**
+
+The headline numbers also need a regime split, because "long run
+post-1928" averages four very different monetary regimes into one
+reassuring number:
+
+| Regime | Window | S&P 500 nominal CAGR | T-bill nominal CAGR |
+|---|---|---:|---:|
+| Gold-anchored Bretton Woods | 1928–1971 | ~9.5% | ~2.0% |
+| Fiat / disinflation | 1971–2008 | ~11.0% | ~5.7% |
+| ZIRP + QE / financial repression | 2009–2024 | **~14.5%** | ~0.9% |
+| Full sample | 1928–2024 | ~10.5% | ~3.4% |
+
+Read that table carefully. The post-2008 regime — Fed funds pinned
+at zero from 2009 to 2015 and again 2020–2022, four rounds of
+quantitative easing, the Fed's balance sheet from $0.9T in 2008 to a
+peak of $9T in 2022 — produced an S&P CAGR roughly 35% higher than
+the long-run average, with T-bills returning essentially nothing.
+Most living retail investors and most index-fund managers built their
+entire mental model in this single regime. "Stocks return 7% real"
+is a statement *averaged* across regimes that have very little to do
+with each other; the *recent* regime massively over-paid equity
+holders while financially repressing the bond holder, and there is
+no guarantee the next regime resembles either the average or the
+recent past.
+
+The full-sample arithmetic still impresses: the ~7-point nominal gap
 compounded over a century turns $1 of T-bills into ~$23 and $1 of
-stocks into ~$11,000 (in nominal dollars; the real numbers are
-smaller but the *ratio* is essentially preserved).
+stocks into ~$11,000 (real numbers are smaller; the *ratio* is
+essentially preserved). Just remember the ratio is built mostly out
+of three good regimes for stocks; the average should not be confused
+with the expected value going forward.
 
 Why must the ERP exist? Two equilibrium arguments:
 
@@ -154,12 +191,53 @@ Why must the ERP exist? Two equilibrium arguments:
    Risk premium is not a moral payment for "being brave"; it is the
    mechanical equilibrium price of clearing the volatile asset.
 
+A caveat the textbook usually skips: stocks and T-bills are not the
+*same kind of thing*, and the model that prices them on a single
+risk axis hides as much as it reveals. A stock is a perpetual,
+residual claim on the productive assets and cash flows of a
+business — its value can grow indefinitely as the business grows.
+A T-bill is a contractual promise that returns a fixed number of
+dollars on a fixed date, with no claim on growth and no upside
+beyond the coupon. "Equally attractive expected returns" comparing
+these two is comparing apples to a coupon clipped from an apple
+crate. And the bond side is far less benign than the textbook
+presents:
+
+- **Bond *prices* are not stable.** The 30-year Treasury lost roughly
+  −30% in 2022 alone — a deeper drawdown than the median equity bear
+  market — and TLT (the long-Treasury ETF) is still below its 2020
+  peak. Calling bonds "safe" without specifying *which bonds, what
+  duration, and what regime* is a category error.
+- **Blue-chip equity is, on a 5-to-10-year window, often less
+  capital-volatile than long-duration bonds.** Coca-Cola, P&G, and
+  J&J have produced steadier mark-to-market wealth over the last 20
+  years than 30-year Treasuries — and paid growing dividends on top.
+- **A bond locked to maturity carries opportunity cost.** Money sat
+  in a 4% 10-year Treasury through the 2009–2021 equity melt-up
+  missed roughly 14×. The risk-free rate is risk-free in *one*
+  dimension and aggressively risk-bearing in another — the dimension
+  where you measure regret.
+
+So treat the "equilibrium price of risk" framing as a useful first
+lens, not a complete one. The ERP is what the *market* prices the
+gap at; whether bonds are actually "safer than blue-chip stocks"
+for your purposes depends on which kind of risk you are trying to
+avoid (mark-to-market wiggle, default, purchasing-power loss,
+sequence-of-returns, opportunity cost) — and these don't all point
+the same way.
+
 Two cautions, both important:
 
-- **The premium is an *average over very long horizons*.** In any
-  single year, stocks routinely *under*-perform T-bills. The ERP is
-  the compensation for sticking with stocks *through* the years where
-  T-bills win.
+- **The premium is an *average over very long horizons*.** Stocks
+  beat T-bills in roughly **65–70% of calendar years** since 1928 —
+  it is more accurate to say *T-bills win in the minority of years,
+  almost all of them recessions or crashes* (1929–32, 1937, 1973–74,
+  2000–02, 2008, 2022). The ERP is therefore not "compensation for
+  sticking with stocks through the years T-bills win" so much as
+  *compensation for absorbing those concentrated, painful years
+  when the average loses meaning.* A −37% in 2008 is a different
+  experience from being told you under-performed by 7% over a
+  decade.
 - **The premium can compress.** When stocks have already run up a long
   way, *forward* expected returns are lower; the premium implied by
   current prices may be much smaller than the historical average. Bob
@@ -183,24 +261,78 @@ which risks you are bearing for free.
   your portfolio by a fraction of a percent rather than 20%.
 - **Systematic (market) risk.** Affects the whole economy or whole
   market: recession, rate moves, inflation, war, pandemic. **You
-  cannot diversify this away.** Even a perfectly diversified equity
-  portfolio loses 35–55% in a 1929, a 1973–74, a 2008, or a 2020.
-  Systematic risk is what the market *pays* you to bear via the equity
-  risk premium.
+  cannot diversify this away *within equities*.** Even a perfectly
+  diversified equity portfolio loses 35–55% in a 1929, a 1973–74, a
+  2008, or a 2020. Systematic equity risk is what the market *pays*
+  you to bear via the equity risk premium.
+
+  But the "cannot diversify" line is the canonical CFA answer, and
+  it understates what's actually available. **You can diversify
+  systematic equity risk by holding things that aren't equities.**
+  Long-duration Treasuries rallied as stocks crashed in 2000–02 and
+  2008. Gold rallied through the 2008 GFC and the 2020 COVID crash.
+  Long-volatility option structures explicitly pay off when equities
+  fall fast. The right way to read "undiversifiable" is therefore
+  *undiversifiable inside the equity sleeve* — at the multi-asset
+  level, the systematic shock is itself an exposure you can hedge
+  or shape. Week 4 (60/40), Week 6 (gold and commodities), Week 15
+  (multi-asset construction), Weeks 25–30 (options as exposure
+  tools), and Week 47 (explicit tail-risk hedging) are each a
+  different way of attacking the equity-systematic shock that this
+  paragraph says you "cannot diversify away." The sentence is true
+  only if you've already decided your portfolio is allowed to hold
+  nothing but stocks.
 
 The "free lunch" insight that won Markowitz the Nobel Prize: **since
 unsystematic risk can be eliminated for free through diversification,
-the market does not pay you to bear it.** Holding a concentrated
-five-stock portfolio gives you much higher total risk than holding the
-S&P 500, but the *expected return* is essentially the same as the index
-(~10% nominal in long-run averages, by definition). The extra
-volatility is uncompensated. You are taking risk *for free*.
+the market does not pay you to bear it.** A concentrated five-stock
+portfolio has much higher total volatility than the index, with the
+*same expected return* on the cross-section of all possible five-stock
+portfolios — but bear in mind unsystematic risk cuts both ways. *Some*
+five-stock portfolios in any given decade dramatically beat the index
+(if four of your five names happened to be Apple, Microsoft, Amazon,
+Nvidia in 2014); *most* under-perform substantially; and the average
+is the index. You aren't "guaranteed to lag" — you are taking on a
+lottery-ticket distribution around the same mean, where the market
+doesn't pay you for the spread.
 
-This is the entire argument for index funds rendered as a single
-sentence: an index fund holds enough names that idiosyncratic risk is
-essentially zero, leaving you with only the systematic risk that the
-market actually pays you for. Concentrated stock-picking, *unless you
-have a real edge*, is voluntarily eating risk you don't get paid for.
+Markowitz's framework is the foundation of **Modern Portfolio Theory
+(MPT)** and the **efficient frontier** — the locus of portfolios that
+maximise expected return for a given variance. Sitting on that
+frontier, the only risk being borne is systematic; everything below
+it is leaving free diversification on the table. The full MPT
+machinery — covariance matrices, mean-variance optimisation,
+efficient frontier, Capital Market Line — is the toolkit covered
+in Week 15 (multi-asset construction) and Week 23 (factor
+investing), with the well-known practical critiques (estimation
+error in the inputs, fragility to fat tails, breakdown of the
+covariance matrix in crises). Treat this paragraph as the seed; the
+formal treatment comes later.
+
+How many names is "diversified"? The Evans & Archer (1968) and
+Statman (1987) studies — still the standard textbook citations —
+show the bulk of unsystematic risk reduction comes from the *first*
+15–20 names; the curve of portfolio variance vs number of holdings
+is steep up to about 20 stocks and almost flat after about 30.
+Under modern conditions (with mega-cap concentration in the index
+crowding the names that matter into the top decile), reasonable
+researchers put the number a bit higher — call it 25–40 names,
+*spread across uncorrelated industries* — but the qualitative
+finding is unchanged: you do not need 500 names to capture
+~95% of the diversification benefit, you need *enough names spread
+across enough industries that no single one moves the portfolio
+materially*. The S&P 500 buys you the last few percent of marginal
+diversification; everything north of ~30 well-chosen names is
+refinement, not breakthrough.
+
+This is the argument for index funds rendered tightly: an index
+fund holds enough names — and enough sectors — that idiosyncratic
+risk is essentially zero, leaving you with only the systematic risk
+that the market actually pays you for. Concentrated stock-picking,
+*unless you have a real edge*, is voluntarily accepting a wider
+spread of outcomes around the same mean. Some pickers will win
+big. The expected value of being one of them is the same as just
+buying the index.
 
 #### 2.5 Drawdowns — The Risk That Actually Tests You
 
@@ -314,6 +446,43 @@ investment horizon can run a much higher equity weight than a
 groceries. The 25-year-old has time to wait out a 50% drawdown; the
 65-year-old does not.
 
+A cautionary tale before you over-trust the rolling-return chart.
+The US dataset is a *survivor*. Two contemporary stock markets that
+did not behave like the S&P 500 are sitting in plain sight:
+
+- **Japan, 1989–2024.** The Nikkei 225 peaked at 38,915 in December
+  1989 and did not surpass that level until **February 2024** — a
+  *35-year* round-trip in nominal terms. A Japanese investor who
+  bought the index at the 1989 top and held with reinvested
+  dividends saw zero capital appreciation for an entire working
+  career. Adjusted for inflation, the round trip is still incomplete
+  in 2026. The Japanese textbook on "stocks for the long run" looks
+  very different from the American one.
+- **China A-shares, 2007–present.** The Shanghai Composite peaked
+  at 6,124 in October 2007 and traded around **3,300 in May 2026**
+  — *still 46% below the peak after almost two decades*, with two
+  abortive recovery attempts (2015 mini-bubble, 2021 post-COVID
+  rally) that round-tripped within a year. "The economy grew
+  enormously over the same period" is true *and* irrelevant to the
+  shareholder, because much of the growth accrued to private and
+  state owners, not minority equity holders. (This is exactly why
+  geographic concentration matters — a market must respect minority
+  shareholders for long-term compounding to work.)
+
+The deeper lesson: **a stock market has to bear some honest
+relationship to the underlying real economy over the long run, and
+to the legal and political conditions under which minority
+shareholders actually get paid.** Studying historical price data in
+isolation — without asking *why* a market compounded for a century
+and whether those conditions still hold — is the central methodological
+error behind "buy and hold for 30 years" applied to any equity
+market on the planet. The US market's 100-year compounding rests on
+specific conditions (rule of law, dollar reserve status, productivity
+growth, demographic expansion, monetary regime). Some of those
+conditions are visibly weakening in 2026; the conditions that
+produced Japan's lost decades and China's locked range are not
+imaginary, just not American — yet.
+
 That is the sequence-of-returns risk that the next paragraph
 captures. A retiree who experiences a 1973–74 in the *first* two
 years of retirement is permanently impaired — every dollar withdrawn
@@ -376,8 +545,137 @@ forced seller?"** If the honest answer is yes, the position is too
 large. Cut it until the answer is no, regardless of what your
 "tolerance" tells you.
 
+A fair pushback on the question, because the framing is too passive:
+if you actually *knew* a position was going to drop 50% next month,
+the correct response is not "size smaller and absorb it" — it is
+*hedge the downside, sell the position, or take the other side
+of the trade*. The question is a sizing tool, not a prediction tool.
+And the textbook reflex *"you can't time the market"* needs the
+adult version: **day-to-day, the market is approximately a random
+walk; decade-scale macro regime breaks are a slow-moving train
+wreck that you can see coming if you are paying attention.** A few
+recent examples retail investors had a real chance to read:
+
+- **2008 Global Financial Crisis.** Bear Stearns blew up in March
+  2008. Lehman Brothers failed in September 2008. The S&P 500's
+  worst leg of the bear market ran from September 2008 through
+  March 2009 — a full *six months* after the canary in the coal mine
+  was already dead in front of everyone.
+- **2020 COVID crash.** The first COVID-19 cases in Wuhan were
+  reported in December 2019 / January 2020. Italy's lockdown began
+  on March 9. The S&P 500 peaked on February 19, 2020 — almost two
+  months after a novel respiratory virus had begun killing people in
+  numbers across multiple continents. The 34% crash that followed
+  was preceded by *weeks* of public news that the world economy was
+  about to be shut down.
+- **2024 Trump–Iran war scare.** US carrier strike groups began
+  visibly redeploying to the Middle East *several weeks* before the
+  market actually flinched on the prospect of regional war.
+
+None of these were unknowable in advance. None of them required
+insider information; the relevant data was on the front page of the
+Wall Street Journal. "You can't time the market" is correct for the
+day-to-day noise that dominates 95% of trading sessions; it is
+lazy when applied to *visible, slow-moving regime events*. The
+Week 47 (tail risk) and Level 5 framework rebuild this idea
+properly: pay attention to macro-level signal, hedge before the
+event rather than after, and accept that occasionally being early
+is the cost of doing this at all.
+
 > *"The market can stay irrational longer than you can stay solvent."*
 > — John Maynard Keynes (attributed)
+
+#### 2.9 Howard Marks — Risk as the Probability of Permanent Loss, Not as Volatility
+
+Everything above is the standard quantitative apparatus the
+profession uses: standard deviation, beta, drawdown distributions,
+the bell curve, the equity risk premium. **Howard Marks** — co-
+founder of Oaktree Capital, author of *The Most Important Thing*
+and *Mastering the Market Cycle* — has spent four decades arguing,
+correctly, that this entire toolbox confuses *one observable proxy*
+for the actual thing.
+
+His core claim, in one sentence: **risk is the probability that
+something bad happens to your capital, not the wiggle of the price
+chart on the way there.** A position that swings ±30% intra-year
+but ends every decade higher is *less risky* than one that grinds
+quietly upward for nine years and goes to zero in the tenth — even
+though the standard-deviation calculation will rank them in the
+opposite order.
+
+Three Marks ideas worth tattooing on the inside of your eyelids:
+
+1. **Risk is invisible most of the time.** It is *latent*, not
+   *observed*. The reason 2007 felt safe — *to almost everyone* —
+   was that risk had been compounding inside the system for years
+   without showing up in volatility. Mortgage spreads were tight,
+   VIX was low, every model said the world was calm. The risk was
+   maximal precisely *because* it was invisible. By the time it
+   shows up in the volatility number, the trade is already lost.
+   Conversely, the moments of maximum *fear* are usually moments of
+   minimum *risk*: forced selling has crushed prices below
+   intrinsic value, the marginal seller has already sold, and the
+   forward expected return is at its highest. Marks formalised
+   this with his **risk-distribution diagram**:
+
+   - The textbook capital-market line plots a *single* expected
+     return at each level of risk: take more risk, get more return.
+     Smooth, monotonic, comforting.
+   - Marks's diagram replaces each point on that line with a
+     *probability distribution* — wider as you move right. At low
+     risk (T-bills), the distribution is a narrow spike around the
+     mean. At equity-class risk, it is a wide range with a real
+     left tail. At venture and speculative risk, the distribution
+     is *enormous* and the left tail goes to zero.
+   - The honest reading: **moving right on the risk axis does not
+     guarantee a higher return. It guarantees a wider distribution
+     of returns** — including outcomes far worse than what you
+     would have earned by sitting safer. The expected return goes
+     up; the *realised* return for any individual investor can go
+     anywhere, and increasingly so.
+
+   ![Howard Marks's risk-distribution diagram. The horizontal axis is risk; the vertical axis is return. The textbook capital-market line is shown as a thin upward-sloping line. Overlaid at each level of risk is a vertical probability distribution — narrow and centred on the line at low risk, progressively wider and more left-skewed as risk rises. At T-bill risk the distribution is a tight spike. At broad-equity risk it is a wide bell with a visible left tail. At venture/speculative risk it is a very wide distribution where the left tail extends to total loss. The diagram makes the point that "higher risk" does not mean "guaranteed higher return" but "wider range of possible returns, including much worse ones."](image/week03_marks_risk_distribution.png)
+
+2. **The first job of the investor is not to make money. It is to
+   not be wiped out.** Marks calls this *survival first*. A 50%
+   loss requires a 100% gain to recover. A 90% loss requires a
+   900% gain. A 100% loss requires a miracle. The asymmetry of
+   loss recovery means that any strategy that can blow up — even
+   with a 1% annual probability — will, on a long enough timeline,
+   blow up. *"In order to win the game, you have to be there at
+   the end."* Position sizing, leverage discipline, and tail-risk
+   awareness are not topics added on top of a return-maximising
+   strategy. They are the *prerequisites* without which return
+   maximisation is gambling.
+
+3. **You cannot evaluate a decision by its outcome.** A good
+   decision can have a bad outcome (rolled snake-eyes), and a bad
+   decision can have a good outcome (the drunk who got home
+   safely). Most retail investors evaluate themselves by P&L,
+   which means they reward the bad decisions that happened to
+   work and punish the good decisions that happened to lose. The
+   professional question is *given the information at the time, was
+   the position appropriately sized for its risk-adjusted expected
+   return?* That question is answerable independent of the
+   outcome. P&L is the noisy proxy; process is the signal.
+
+The connection to everything above: **standard deviation, beta,
+and the bell curve are useful summaries of *visible* risk in
+*ordinary* market regimes.** They are systematically blind to the
+risk Marks is describing — latent, regime-conditional, asymmetric,
+and most dangerous when it is most invisible. The honest framework
+holds *both* views at once: use the quantitative tools to measure
+what you can, and use Marks's framing to remember that the number
+on the screen is not the thing itself, and that *the goal of the
+exercise is to still be in the game ten years from now.*
+
+> *"Risk means more things can happen than will happen."*
+> — Elroy Dimson, quoted by Howard Marks
+>
+> *"The riskiest things are the ones everyone thinks are safe."*
+> — Howard Marks
+>
+> *"You can't predict. You can prepare."* — Howard Marks
 
 ---
 
@@ -393,6 +691,23 @@ diversified bearers of *systematic* risk; concentrated positions in
 single names accept enormous *idiosyncratic* risk that the market
 does not pay you to bear. Risk and expected return scale together
 *at the asset-class level*, not at the single-position level.
+
+More importantly, the goal of an active retail investor is *not*
+to take more risk for more return — it is to find **asymmetric
+trades**: payoffs where the upside is meaningfully larger than the
+downside, where you are positioned for a fat tail without having to
+fund it with a fat-tailed downside of your own. The barbell shape
+(Week 47, Level 5) is the cleanest expression: one end is
+high-conviction safety with little or no downside; the other end is
+asymmetric speculation with capped downside (long calls, long
+volatility, structured option positions) and uncapped upside.
+"Higher risk = higher return" is the *passive* paraphrase. The
+active paraphrase is *find the rare structures where the cap on
+downside lets the upside compound, and skip the symmetric trades
+that the textbook is describing.* This course teaches the textbook
+first because you cannot critique what you do not know — but the
+long-term goal of the course is the asymmetric trade, not the
+symmetric one.
 
 **Misconception 2: "If I just hold long enough, stocks always go up."**
 
@@ -472,11 +787,20 @@ risk-factors is the real one.
 diversifying within equities?**
 
 A: To eliminate the *unsystematic* risk you are not paid to bear.
-Holding 500 names instead of 5 reduces idiosyncratic risk to nearly
-zero, leaving the systematic risk that the equity premium is
-compensation *for*. The five-stock portfolio has more *total* risk
-but the same expected return as the index — the extra risk is the
-free lunch you are eating in reverse.
+The textbook example — "a five-stock portfolio has the same expected
+return as the index but more total risk" — comes out of the Evans &
+Archer (1968) and Statman (1987) studies, where they computed the
+*average* portfolio variance across thousands of randomly drawn
+five-, ten-, twenty-stock portfolios. *Average* is the operative
+word. In reality, no individual five-stock portfolio has the same
+return as the index — most under-perform, a small minority massively
+over-perform, and only the *cross-sectional mean* equals the index.
+The statistical argument is correct on the *expectation*; the
+realised path of any single five-stock portfolio is a draw from a
+much wider distribution. The market doesn't pay you for sitting in
+that wide distribution. Hold ~25–40 well-spread names (or just buy
+the index) and you collect ~95% of the diversification benefit
+without the lottery-ticket variance.
 
 **Q2: Bitcoin's volatility is 70%+. Does the same risk-premium logic
 apply?**
@@ -486,10 +810,20 @@ to clear at its volatility. In practice, bitcoin's expected return
 is *not knowable* from price history alone because the asset is too
 young and its monetary regime is still being negotiated. Standard
 risk-premium math uses 100 years of data to triangulate the equity
-premium; for bitcoin you have 15 years, of which the first 8 were
-near-zero adoption and the last 7 are the entire price history. Apply
-the framework, but don't pretend the standard error on the estimate
-is small.
+premium — and that itself is a weaker exercise than it sounds. The
+equity from 100 years ago, 50 years ago, and today is materially
+not the same security: post-1971 the dollar left the gold standard
+and the entire monetary regime changed; post-2008 zero-rate policy
+and QE produced a structural bid for risk assets that did not exist
+in earlier decades; tax law, market microstructure (electronic
+trading, ETFs, 0DTE options), and the dominant marginal participant
+(passive flow vs active stock-picking) have all flipped within the
+sample. Aggregating across regime changes that fundamental gives
+you an *average over different securities*, not a stable estimate
+of the same one. For bitcoin you have 15 years, of which the first
+8 were near-zero adoption and the last 7 are the entire price
+history. Apply the framework, but don't pretend the standard error
+on *either* estimate is small.
 
 **Q3: How do I estimate my own risk tolerance honestly?**
 
@@ -543,6 +877,19 @@ the cost of doing business — not "bad" in expectation, but the
 emotional load you carry. For a *seller* in decumulation,
 volatility is genuinely costly because of sequence-of-returns risk.
 The same number means different things at different life stages.
+
+And once options enter the toolkit, **volatility itself is an
+asset class** — not just a risk to be borne. Implied volatility on
+listed options trades and re-prices independently of the underlying;
+a long-volatility position can compound through equity drawdowns
+that decimate buy-and-hold portfolios. Weeks 25–30 introduce the
+option mechanics, Week 29 covers the Greeks (vega is the direct
+exposure to volatility), and Week 47 builds a long-volatility
+tail-hedge sleeve as a permanent allocation rather than a tactical
+trade — Week 47 introduces a Dragon-portfolio-inspired shape that
+makes long-volatility a permanent sleeve. "Vol is good or bad?" is the wrong question once
+you can buy and sell it directly; the right question is *what
+regime is vol in, and what side am I on*.
 
 **Q8: What does "fat tails" actually mean for sizing my positions?**
 
@@ -670,24 +1017,77 @@ should make you laugh, not nod.
 
 ---
 
-**[SEGMENT 3: THE EQUITY RISK PREMIUM]**
+**[SEGMENT 3: THE EQUITY RISK PREMIUM — AND THE "RETURN-FREE RISK-FREE RATE"]**
 
 **Horace:** Now the second force. Why do stocks return more than
 T-bills? Because investors are loss-averse. If stocks paid the same
 expected return as bonds, no rational investor would hold the
 volatile asset. So the price of stocks falls until the *forward*
 expected return is high enough to compensate for the volatility. That
-gap is the equity risk premium. Historically about five to seven
-points per year.
+gap is the equity risk premium. Headline number: about five to
+seven points per year on the long-run average.
 
-**Stella:** "Historically" doing a lot of work in that sentence.
+**Stella:** And the inverse?
 
-**Horace:** It is. The forward premium implied by *current* prices is
-much smaller than the long-run average right now. Shiller's CAPE
-ratio is in the high 30s. At those valuations the forward expected
-return is around 3–4 percent real, not 7. Doesn't mean the next
-decade will be bad — but it means the historical average is a
-different statistic from the current expected value.
+**Horace:** Same fact, said honestly. The textbook calls the T-bill
+yield the *risk-free rate of return*. The accurate label is the
+*return-free risk-free rate*. You get the dollars back. You
+*reliably lose purchasing power*. In financial repression — short
+rates pinned below inflation — the bond holder is *certainly* losing
+ground. The risk premium isn't just compensation for bearing
+volatility; it's the discount the volatile asset must offer to clear
+against an instrument that guarantees slow decay.
+
+**Stella:** And the long-run average is doing a lot of work.
+
+**Horace:** Look at the regime split. 1928 to 1971 — gold-anchored
+Bretton Woods — the S&P returns about nine and a half percent
+nominal. 1971 to 2008 — fiat era, disinflation — about eleven.
+*2009 to 2024* — zero rates and four rounds of QE — about
+**fourteen and a half percent** nominal, with T-bills returning
+essentially zero. The Fed printed money for fifteen years and the
+asset that benefited most was equity. Most retail investors and most
+index-fund managers built their entire mental model in that single
+regime.
+
+**Stella:** And Shiller's CAPE today?
+
+**Horace:** High thirties. Forward expected return on US equity at
+that valuation is around three to four percent real, not seven.
+Doesn't mean the next decade is bad. It means the historical average
+is a different statistic from the *current* expected value, and the
+recent regime massively over-paid — don't extrapolate it forward.
+
+---
+
+**[SEGMENT 3B: BONDS AREN'T A SAFE OPPOSITE]**
+
+**Stella:** And bonds, the other side of the trade?
+
+**Horace:** Two warnings the textbook glosses. One: bonds and
+stocks are not the *same kind of thing*. A stock is a perpetual
+claim on a growing business. A T-bill is a contractual promise of a
+fixed dollar amount. "Equally attractive expected returns" comparing
+them is comparing apples to a coupon clipped from an apple crate.
+Two: bond *prices* are not stable. The 30-year Treasury lost about
+*30 percent* in 2022 alone — deeper than most equity bear markets.
+TLT, the long-Treasury ETF, is still below its 2020 peak in 2026.
+And Coca-Cola or P&G has produced steadier mark-to-market wealth
+over 20 years than the long bond — *and* paid a growing dividend on
+top. The line "bonds are safe" needs the asterisk: safe against
+*which* risk? Default? Mark-to-market? Purchasing power? Opportunity
+cost? They don't all point the same way.
+
+**Stella:** And how often do stocks actually beat T-bills, year by
+year?
+
+**Horace:** About 65 to 70 percent of calendar years since 1928.
+T-bills only win in the bad years — 1929 to '32, '37, '73 to '74,
+dot-com, GFC, 2022. The risk premium isn't "compensation for
+sticking through the years T-bills win." It's compensation for
+*absorbing those concentrated, painful years* when the average loses
+all meaning. A minus 37 in 2008 is a different experience from being
+told you under-performed by 7% over a decade.
 
 ---
 
@@ -704,17 +1104,36 @@ war.
 
 **Stella:** And one of them I can diversify away.
 
-**Horace:** Unsystematic, yes. Hold 500 names instead of 5 and a CEO
-scandal at any one of them moves the portfolio by half a percent.
-Systematic — the 35% drawdown in 2008, the COVID bear, the dot-com
-crash — you cannot diversify your way out of it. *And the market
-only pays you for the systematic kind.*
+**Horace:** Unsystematic, yes. And the textbook number you'll see is
+"hold 500 names" — but actually the Evans and Archer 1968 study, and
+the Statman 1987 follow-up, show that the bulk of the diversification
+benefit is captured by the *first 15 to 20 names*. About 25 to 40
+well-spread names today and you've collected ~95% of it. The S&P 500
+buys you the last few percent.
+
+**Stella:** And the systematic kind — you said earlier the textbook
+calls it undiversifiable.
+
+**Horace:** Inside the equity sleeve, true. *At the multi-asset
+level*, that sentence is wrong. Long Treasuries rallied in the dot-com
+crash and in 2008. Gold rallied in 2008 and in COVID. Long-volatility
+option structures are *built* to pay off when equities fall fast.
+The canonical CFA line "you can't diversify systematic risk" is only
+true if you've already decided your portfolio holds nothing but stocks.
+Week 4 — the 60/40. Week 6 — gold. Week 15 — multi-asset construction.
+Weeks 25 through 30 — options as exposure tools. Week 47 — explicit
+tail-risk hedging. Each of those is an attack on the equity
+systematic shock that today's lesson supposedly says you can't
+touch.
 
 **Stella:** So if I hold a five-stock portfolio…
 
-**Horace:** You're taking unsystematic risk on top of systematic risk
-and the market only pays you for the second. That is the entire
-argument for index funds, in one sentence.
+**Horace:** Most five-stock portfolios under-perform; a small minority
+massively outperform; the *cross-sectional average* equals the index.
+You're not guaranteed to lag — you're taking a lottery-ticket
+distribution around the same mean, where the market doesn't pay you
+for the spread. That — the Markowitz framework, the efficient frontier,
+MPT — we'll do properly in Week 15 and Week 23.
 
 ---
 
@@ -745,7 +1164,7 @@ long run" sounds different at 25 than it does at 65.
 
 ---
 
-**[SEGMENT 6: HORIZON COLLAPSES THE RANGE]**
+**[SEGMENT 6: HORIZON COLLAPSES THE RANGE — ON THE US SAMPLE]**
 
 [VISUAL: cut to image/week03_holding_periods.png]
 
@@ -759,9 +1178,30 @@ about plus 10.
 **Horace:** Of the *annualised rate*. The cumulative dollar
 consequence of a bad sequence still compounds — a thirty-year
 sequence at plus 3 real is dramatically poorer than one at plus 9
-real. But "stocks always make money over thirty years" is, on the US
-sample, defensible. The footnote is *on the US sample*. Survivors
-bias is real.
+real. And then the asterisk: this is the *US* sample. Two markets
+living in plain sight that did not behave this way — Japan, peaked
+in December 1989 at 38,915 on the Nikkei, did not break that level
+until February 2024. *Thirty-five years.* An entire working career
+with zero capital appreciation. China A-shares peaked in October
+2007 at 6,124 on the Shanghai Composite — still 46% below that peak
+in 2026, almost two decades later, with two abortive recoveries
+that round-tripped within a year.
+
+**Stella:** And the Chinese economy grew enormously over that
+period.
+
+**Horace:** Right. *And it didn't accrue to the minority equity
+holder.* The growth went to private and state owners, not to public
+shareholders. The deeper lesson: a stock market has to bear an
+honest relationship to the underlying real economy *and* to the
+legal and political conditions under which minority shareholders
+actually get paid. Studying historical price data without asking
+*why* a market compounded for a century — and whether the
+conditions still hold — is the central methodological error behind
+"buy and hold for 30 years" applied to *any* market on the planet.
+The US compounding rests on rule of law, dollar reserve status,
+productivity growth, demographic expansion, monetary regime. Some
+of those are weakening in 2026.
 
 ---
 
@@ -794,6 +1234,77 @@ position dropped 50% next month, would I be a forced seller?* If yes,
 the position is too large. Cut until the answer is no. Regardless of
 how brave you feel.
 
+**Stella:** A pushback though — if I actually *knew* a position was
+going to drop 50% next month, I wouldn't size smaller. I'd hedge or
+short it.
+
+**Horace:** Correct. The question is a *sizing* tool, not a
+*prediction* tool. And the textbook reflex "you can't time the
+market" needs the adult version: day-to-day, the market is roughly
+a random walk. *Decade-scale macro regime breaks* are a slow-moving
+train wreck you can see coming if you're paying attention. Bear
+Stearns blew up in March 2008. Lehman in September. The S&P's worst
+leg ran from September '08 through March '09 — *six months* after
+the canary was visibly dead. COVID? First Wuhan cases in December
+2019, Italy lockdown March 9, 2020 — the S&P peaked February 19th,
+almost two months *after* a novel respiratory virus was killing
+people across continents. The Trump–Iran scare in 2024 had carrier
+strike groups visibly redeploying weeks before the market flinched.
+
+**Stella:** None of those required insider information.
+
+**Horace:** Front page of the WSJ. "You can't time" is correct for
+the day-to-day noise that fills 95% of trading days. It is *lazy*
+when applied to visible, slow-moving regime events. We rebuild
+that properly in Week 47 and Level 5 — hedge before the event,
+accept that being early is the cost of doing this at all.
+
+---
+
+**[SEGMENT 8: HOWARD MARKS — THE THING STANDARD DEVIATION CAN'T SEE]**
+
+[VISUAL: cut to image/week03_marks_risk_distribution.png]
+
+**Horace:** One more lens before we close. Howard Marks, Oaktree,
+four decades — has been arguing the entire toolkit we just
+introduced confuses an *observable proxy* for the actual thing.
+
+**Stella:** Standard deviation isn't risk?
+
+**Horace:** Standard deviation is the *visible* part of risk in
+ordinary regimes. Risk itself is the probability that something
+bad happens to your capital — and that probability is mostly
+*invisible* until it materialises. 2007 felt safe. Mortgage spreads
+were tight, VIX was low, every model said calm. Risk was *maximal
+precisely because it was invisible*. By the time it shows up in
+the vol number, the trade is already lost.
+
+**Stella:** So the textbook capital-market line — more risk, more
+return —
+
+**Horace:** Marks replaces each point on that line with a
+*distribution*. At T-bill risk, narrow spike around the mean. At
+equity risk, wide bell with a real left tail. At venture risk,
+enormous distribution where the left tail goes to zero. **Higher
+risk doesn't promise higher return. It promises a wider range,
+including outcomes far worse than just sitting safer.**
+
+**Stella:** And his rule on survival?
+
+**Horace:** First job of the investor is *not to be wiped out*. A
+50% loss takes 100% to recover. A 90% loss takes 900%. A 100% loss
+takes a miracle. Any strategy that *can* blow up will, on a long
+enough timeline. *In order to win the game, you have to be there
+at the end.*
+
+**Stella:** And on judging yourself?
+
+**Horace:** A good decision can have a bad outcome. A bad decision
+can have a good outcome. The question isn't "did I make money?"
+It's *given the information at the time, was the position
+appropriately sized for its risk-adjusted expected return?* P&L is
+noise; process is signal.
+
 ---
 
 **[OUTRO]**
@@ -801,7 +1312,24 @@ how brave you feel.
 **Horace:** Next week we build the first multi-asset portfolio — the
 classic 60/40. We'll see why it worked for forty years, why it broke
 in 2022, and what people are doing to replace it. The risk and
-return concepts from today are the lens we use to compare.
+return concepts from today — plus Marks's reframing — are the lens
+we use to compare. And one more pointer: as you go through Weeks
+25 to 30 on options, remember that *volatility itself is an asset
+class*, not just a number on the side of the page. You can buy it,
+sell it, hold it as a permanent allocation — Week 47 builds
+a Dragon-portfolio-inspired shape around that idea. "Vol is good
+or bad?" is the wrong question once you can trade it directly.
+The right question is *what regime is vol in, and what side am I
+on.*
+
+**Stella:** And the goal of the active trader — not just take more
+risk for more return?
+
+**Horace:** *Asymmetric trades.* Big upside, small downside. The
+barbell shape — high-conviction safety on one end, capped-downside
+speculation on the other. We teach the textbook "higher risk equals
+higher return" because you have to know it. The course's destination
+is the asymmetric trade.
 
 **Stella:** And the interactive on the website?
 

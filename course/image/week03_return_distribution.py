@@ -106,10 +106,13 @@ def build_fig(s):
         sp.values, bins=bins, color=p["blue"], alpha=0.65,
         edgecolor=p["bg"], linewidth=0.8, label=s["hist_lbl"],
     )
-    # Color tail bins red
+    # Color tails: left (loss) tail red, right (gain) tail green
     for patch, left in zip(patches, bins[:-1]):
-        if left <= -0.30 or left >= 0.40:
+        if left <= -0.30:
             patch.set_facecolor(p["red"])
+            patch.set_alpha(0.7)
+        elif left >= 0.40:
+            patch.set_facecolor(p["green"])
             patch.set_alpha(0.7)
 
     # Normal curve overlay (scaled to histogram area)

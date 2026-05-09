@@ -114,6 +114,27 @@ must be written and reviewed.
 content** (core week, side lesson, level overview, course overview,
 glossary entry, FAQ, disclaimer — in any language).
 
+**SOUL.md is internal — never expose it to the reader.** It is the
+guiding philosophy *behind* the course, not a document the audience
+should know exists. When writing or editing any reader-facing content
+(lessons, scripts, glossary, FAQ, disclaimer, website pages, YouTube
+scripts, translations):
+
+- **Do not name `SOUL.md`, "SOUL", or "the soul document"** anywhere in
+  reader-facing text.
+- **Do not refer to "the 17 principles", "Horace's philosophy
+  document", or any phrasing that implies an underlying manifesto** the
+  reader could go look up.
+- **Do not link to `SOUL.md`** from any course markdown, website page,
+  or generated artifact. The file is repo-internal only.
+- **Express SOUL ideas as the lesson's own teaching** — in Horace's
+  voice, with concrete reasoning, examples, and market history. The
+  reader should absorb the philosophy through the material itself, not
+  be told "this comes from a separate philosophy doc."
+- When reviewing existing content, **flag and remove** any direct
+  mention of SOUL.md or its principle numbers (e.g. "per SOUL principle
+  #7"). Rephrase as standalone teaching.
+
 **Application workflow & conflict-detection rules** (how to weave SOUL.md
 into a lesson, how to flag contradictions during review, when *not* to
 edit SOUL.md yourself): see `.claude/docs/soul-application.md`. Read it
