@@ -1,105 +1,163 @@
 # Code Review
 
-_Generated: 2026-05-09 07:31 UTC — 15 comment(s)_
+_Generated: 2026-05-10 06:49 UTC — 24 comment(s)_
 
 ---
 
-## course/week03_risk_and_return.md
+## course/week05_bonds.md
 
-### `@course/week03_risk_and_return.md:L1`
+### `@course/week05_bonds.md:L11-14`
 > **Highlighted text:**
-> Week 3: Risk and Return — The Two Forces, Honestly Measured
+> or a known coupon,
 >
-> please add howard marks's idea on risk.  i like how he explain risk and add his risk distribution diagram and the idea of no blowing up too.
+> should we use the word coupon so early without explaining it first?  should it be interest payment a more layman term
 
-### `@course/week03_risk_and_return.md:L88-90`
+### `@course/week05_bonds.md:L16-21`
 > **Highlighted text:**
-> About 68% of years would fall in $[\mu - \sigma,\ \mu + \sigma]$.
-> About 95% of years would fall in $[\mu - 2\sigma,\ \mu + 2\sigma]$.
-> About 99.7% of years would fall in $[\mu - 3\sigma,\ \mu + 3\sigma]$.
+> And yet — bonds, the simplest instrument, generated the largest single multi-decade trend in modern financial history (a forty-year bull market from 1981 to 2020 in falling yields), and then in 2022 delivered the worst calendar year for US Treasuries on record. Both moves were already inside the four-number contract, waiting for the investor to do the price-yield arithmetic.
 >
-> check the math equation in markdown, make sure it use github inline equation format
+> the price yield arithmetic is also the core equation of how to calculate the value of stock price in fundamental analysis.  it is the most important equation in the whole course.   if the next section explain it, then we can keep it short here.
 
-### `@course/week03_risk_and_return.md:L92-97`
+### `@course/week05_bonds.md:L25-48`
 > **Highlighted text:**
-> Run that on the actual S&P 500 dataset since 1928 and what you get is this:
+> They tell you what the market expects. The yield curve, the spread between BAA corporates and 10-year Treasuries, and the TIPS breakeven rate are three separate, daily-quoted, public forecasts of growth, default risk, and inflation. The bond market is the cheapest macro intelligence service on earth.
 >
->
->
-> Three things to read off this chart:
->
-> change the right tail bar to green
+> also emphasis the bond market is much bigger than the stock market.  the bond market is where the institute plays.  all the stock holding and leverage are underpin by the bond market.  you have to add more "meat" to this.  I am not sure I understand it correct.  the collateral trade.
 
-### `@course/week03_risk_and_return.md:L129`
+### `@course/week05_bonds.md:L25-48`
 > **Highlighted text:**
->  Equity Risk Premium — The Compensation for Bearing Risk
+> They are the discount rate of everything. Every cash flow on earth — your house, a stock's earnings stream, a private-equity exit, a pension liability — is priced by discounting against the risk-free Treasury curve. When the 10-year yield moves from 1.5% to 4.5%, every long-duration asset on the planet reprices. You cannot understand any other asset class without understanding what its discount rate is doing.
 >
-> is there also a term talking about the flip side of it, using equity as baseline, say bond is lagging due to it is risk free - a certainty to lose purchasing power
+> start with bond, because it is easy to understand.  then you can learn stock using the lens of bonds.  moreover, in history bonds market was main stream, stock market doesn't have a good reputation in the early days of financial history.   you have to elaborate on this one and double check my historical knowledge
 
-### `@course/week03_risk_and_return.md:L136-141`
+### `@course/week05_bonds.md:L25-48`
 > **Highlighted text:**
-> Long-run, post-1928, that number has been roughly 5–7% per year. At a long-run T-bill mean of ~3.4% and a long-run S&P 500 mean of ~11%, the gap is around 7–8 points of nominal return — a gap that compounded over a century turns $1 of T-bills into ~$23 and $1 of stocks into ~$11,000 (in nominal dollars; the real numbers are smaller but the ratio is essentially preserved).
+> The 1981-2020 bond bull market is the regime backdrop for almost every "passive works" claim of the last two generations. Horace's regime-shift framing — that we are 40+ years into a passive-investing-friendly regime that has triggers we should watch — sits squarely on top of the bond chart. A generation of investors has never seen a real bond bear market. 2022 was the first warning shot.
 >
-> talk about long run stock return % is not useful.  after 1971 the fiat currency and after 2008 the zero interest rate and QE era.   the performance of stock in the money printing era is higher, cite some real numbers.
+> not really my original framing.  I am pretty sure I learn it from somewhere online.  please do some research and see where I learn it from.  credit is due at where credit is due.  more over have some academic or financial industry big guy underwrite the idea is more convincing.
 
-### `@course/week03_risk_and_return.md:L145-155`
+### `@course/week05_bonds.md:L25-48`
 > **Highlighted text:**
-> Without it, the asset can't clear. If stocks and T-bills offered the same expected return, no rational investor would hold stocks; everyone would sell into bonds, prices on stocks would fall, and forward returns would rise — until the gap re-opens. Risk premium is not a moral payment for "being brave"; it is the mechanical equilibrium price of clearing the volatile asset.
+>  your house, 
 >
-> it is just illogical for stock and t-bills to have the same expected return.  fundamentally they are different thing.  need to mention bond price can be very volatile too.  bond is not any safer than blue chip stock in term of total capital gain.  money lock up in bond wait to maturity is lost opportunity cost too. 
+> mortgage is also a special type of bond
 
-### `@course/week03_risk_and_return.md:L159-170`
+### `@course/week05_bonds.md:L178-180`
 > **Highlighted text:**
-> The premium is an average over very long horizons. In any single year, stocks routinely under-perform T-bills. The ERP is the compensation for sticking with stocks through the years where T-bills win.
+> Always compare bonds on YTM, not coupon. The coupon is a contract detail; the YTM is the return you actually earn if you hold to maturity and reinvest at the same rate.
 >
-> is it true?  stock wins t-bills most of the years, except when in the year that the market crash
+> all interactive panel in the html should have static charts (or multiple charts) for the markdown.
 
-### `@course/week03_risk_and_return.md:L178-189`
+### `@course/week05_bonds.md:L191-197`
 > **Highlighted text:**
-> Systematic (market) risk. Affects the whole economy or whole market: recession, rate moves, inflation, war, pandemic. You cannot diversify this away. Even a perfectly diversified equity portfolio loses 35–55% in a 1929, a 1973–74, a 2008, or a 2020. Systematic risk is what the market pays you to bear via the equity risk premium.
+> The chart below plots the BAA-corporate-minus-10-year-Treasury annual return spread from 1928 through 2024 (Damodaran annual series, BAA being the lowest investment-grade rating). It is the single best long-run historical proxy we have for the realised behaviour of corporate default risk vs Treasuries.
 >
-> you can diversity away, you just need to hold other asset other than equity.  then you can also hedge the down site, put a lead to later lessons (fill in the exact week)
+>
+> you talk about BAA without first explaining what is credit rating.  add a segement on credit rating, the rating agency, make fun of the stupid rating letter grade and highligh the conflict of interest problem of the rating agency make their money from the bond issuers.  also cite some real historical events that the rating letter grade totally failed
 
-### `@course/week03_risk_and_return.md:L191-197`
+### `@course/week05_bonds.md:L214-220`
 > **Highlighted text:**
-> The "free lunch" insight that won Markowitz the Nobel Prize: since unsystematic risk can be eliminated for free through diversification, the market does not pay you to bear it. Holding a concentrated five-stock portfolio gives you much higher total risk than holding the S&P 500, but the expected return is essentially the same as the index (~10% nominal in long-run averages, by definition). The extra volatility is uncompensated. You are taking risk for free.
+> For most retail investors the practical answer is: the credit premium is real but small, and the tail risk is asymmetric. Holding investment-grade corporate debt instead of Treasuries earns you maybe 1% extra in normal years and costs you 10%+ in the years that matter most. For diversification against equities, hold Treasuries. For yield-pickup income in retirement, a small allocation to investment-grade corporates is reasonable.
 >
-> unsystematic risk is also both side, profit and lose.  holding 5 random stock is not better than holding 500, but I remember I read a research somewhere saying holding 20 is as good as holding 50 (you find the reference)    add MPT and efficient frontier (do we teach it in later weeks?)
+> what about credit swap and default insurance?  do we need to talk about it in the bond lesson?  it is part of the big bonds complex.  if we talk about it in later lesson, then we can keep it short here but we need to preview it and let the reader know which week we talk about it
 
-### `@course/week03_risk_and_return.md:L310-315`
+### `@course/week05_bonds.md:L214-220`
 > **Highlighted text:**
-> The practical implication: horizon expands what risk you can afford to bear. A 25-year-old with a stable income and a 40-year investment horizon can run a much higher equity weight than a 65-year-old with a portfolio that has to fund the next 25 years of groceries. The 25-year-old has time to wait out a 50% drawdown; the 65-year-old does not.
+> For most retail investors the practical answer is: the credit premium is real but small, and the tail risk is asymmetric. Holding investment-grade corporate debt instead of Treasuries earns you maybe 1% extra in normal years and costs you 10%+ in the years that matter most. For diversification against equities, hold Treasuries. For yield-pickup income in retirement, a small allocation to investment-grade corporates is reasonable.
 >
-> add a cautionary tale of Japan stock market, the lost 30 years.  or China stock market, still haven't recovery.  Not every stock market always go up.  Add a reminder the stock market has to have some relationship with the real economy long term.  look at historical data only totally missed the point
+> do we teach the sr, jr, different trenches notes in later lessons?  what about collatorals?   it seems we missed one very important definition of bonds, how is it different than bank loan or private equity?
+>
+> do we need to add a section on how bonds is traded?  more retail investor don't buy bond directly, please explain why?   retail only buy bonds ETF.  is bonds ETF of corperate bonds a good idea?  it lump different things into one bucket, some are risker than others.  also talk about marketcap weight in bond ETF doesn't work like marketcap weight in stock ETF.   explain why.
 
-### `@course/week03_risk_and_return.md:L373-377`
+### `@course/week05_bonds.md:L224-226`
 > **Highlighted text:**
-> The single most useful question to ask yourself before sizing a position: "If this position dropped 50% next month, would I be a forced seller?" If the honest answer is yes, the position is too large. Cut it until the answer is no, regardless of what your "tolerance" tells you.
+> The chart below plots the 10-year US Treasury yield from 1962 through 2026, the longest clean monthly run we have on FRED's DGS10 series.
 >
-> what a dumb question.  if I know this position is going to drop 50% next month, I will short it and double my profit.  many textbook say you can't time the market, but the market is actually like a slow train wreck.  the 08 GFC, you can escape if you cash when Bear Stein blow up. the covid crash has almost 2 months the new virus is killing people left and right before the world is shut down.  the recent Trump iran war crash has a few weeks of aircraft carrier moving to middle east.   day to day, the market is random walk.  but decades long macro trend is something you can't miss if you pay attention.
+> do we need to add a section to talk about the debt wall and the refinancing cycle?  those two concept are very important to understand bond
 
-### `@course/week03_risk_and_return.md:L388-395`
+### `@course/week05_bonds.md:L232-248`
 > **Highlighted text:**
-> Higher risk means higher expected return for the asset class as a whole, on long horizons. It does not mean higher return for any individual position. A single biotech stock is extremely risky and may return nothing if its trial fails. The risk premium applies to diversified bearers of systematic risk; concentrated positions in single names accept enormous idiosyncratic risk that the market does not pay you to bear. Risk and expected return scale together at the asset-class level, not at the single-position level.
+> from 0.5% to 5% in 30 months. As of April 2026, the curve is near 4.2% and the market is debating whether we're in a 1980s- style normalisation or the start of a long secular grind higher.
 >
-> you actually want to look for low risk high return, asymmetic trade. 
+> but can the bond goes any higher with the huge government debt?  add some more insight on that one.
 
-### `@course/week03_risk_and_return.md:L474-479`
+### `@course/week05_bonds.md:L250-257`
 > **Highlighted text:**
-> A: To eliminate the unsystematic risk you are not paid to bear. Holding 500 names instead of 5 reduces idiosyncratic risk to nearly zero, leaving the systematic risk that the equity premium is compensation for. The five-stock portfolio has more total risk but the same expected return as the index — the extra risk is the free lunch you are eating in reverse.
+> The Horace frame: passive index investing works in regimes where bonds rally and stocks rally together because rates are falling. A generation of investors built the "just buy and hold" intuition on the 1981-2020 backdrop. The trigger that breaks the regime is a sustained rise in long yields. We are watching that trigger fire right now in real time. It is too early to declare the regime over; it is too late to pretend nothing has changed.
 >
-> 5 stock portfolio never has the same return as the index in reality.  where this example comes from?
+> not just my frame, research on line and cite some big brainy guy or buy stock get rich guy to back me up.
 
-### `@course/week03_risk_and_return.md:L484-492`
+### `@course/week05_bonds.md:L265-269`
 > **Highlighted text:**
-> A: In principle yes — bitcoin's expected return must be high enough to clear at its volatility. In practice, bitcoin's expected return is not knowable from price history alone because the asset is too young and its monetary regime is still being negotiated. Standard risk-premium math uses 100 years of data to triangulate the equity premium; for bitcoin you have 15 years, of which the first 8 were near-zero adoption and the last 7 are the entire price history. Apply the framework, but don't pretend the standard error on the estimate is small.
+> Treasuries are credit-riskless (the US government can print the dollars it owes). They are not price-riskless or purchasing-power-riskless. In 2022 the 10-year lost 18% of its price. In 1973-1981 it lost roughly 40% of its real value. "No default risk" is not the same as "no risk."
 >
-> but equity from 100 years ago or even 50 years ago is very different from equity today.  the market dynamic, monterary policy, tax laws are totally different.  why people keep using 100 years old data?
+> you forgot the us treasury downgrade risk.  also government debt in its own currency can also default. it happened before, cite historical reference.  why did it happen btw.
 
-### `@course/week03_risk_and_return.md:L539-545`
+### `@course/week05_bonds.md:L273-278`
 > **Highlighted text:**
-> A: For a buyer who is dollar-cost averaging in over years, mild volatility is mildly good (you buy at a discount during dips). For a holder who is sitting on accumulated wealth, volatility is mostly the cost of doing business — not "bad" in expectation, but the emotional load you carry. For a seller in decumulation, volatility is genuinely costly because of sequence-of-returns risk. The same number means different things at different life stages.
+> In nominal terms, yes — you get face plus coupons back. But the real value of those payments depends on inflation between purchase and maturity. A 30-year bond bought at 2% in 2020 is contractually locked in to deliver a real loss if inflation averages 3% over the holding period. Holding to maturity protects you from price volatility, not from inflation.
 >
-> with option, volatility is an asset class itself.  cite later week lessons (you figure out the exact week)
+> did we talk about duration in later lessons?  we only talk about credit spread in this lesson.  where the duration risk come from?   I think we have a yield curve in later lesson.  put the preview to that lesson.. check the yield curve lesson make sure it covers everything.
+>
+> i guess it is too early to talk about yield curve in level 1.  but yield curve is very important concept in bond trading
+
+### `@course/week05_bonds.md:L293-296`
+> **Highlighted text:**
+> The coupon is the contract; the yield is the market price. A 10% coupon bond can have a 3% yield (it's trading at a huge premium) and a 1% coupon bond can have a 6% yield (it's at a deep discount). Always compare on YTM, not coupon.
+>
+> what is YTM.  I can understand this line because I know the equation.  make sure the reader can also understand the difference between yield and coupon intiutively.  ask them to read the equations and play with the interactive demo to really understand this concept. it is very important.
+
+### `@course/week05_bonds.md:L301-305`
+> **Highlighted text:**
+> The historical credit premium is 1%-2% in the average year and -10%-or-worse in the years that matter (1932, 1974, 2008, 2020). Credit spread is insurance you sell to companies in exchange for steady income, with rare large losses. Selling insurance isn't free income; it's a structurally negatively-skewed payoff.
+>
+> huh?  credit spread is insurance you sell to companies?  I thought it is compensation of the higher risk of default?   and what is structurally negatively skewed payoff means?  please explain it in layman term too.
+
+### `@course/week05_bonds.md:L310-315`
+> **Highlighted text:**
+> Longer maturity earns the term premium — but with much higher duration risk. The Sharpe ratio of long Treasuries is comparable to or worse than that of intermediate Treasuries over most historical windows. Reach for the term premium only if you have a specific liability that matches that maturity, or you are explicitly making a duration bet.
+>
+> what is duration bet?  for liability matches that maturity only insurance care about it.  why can't you just roll short bond into long bond?  it only make sense if long bond has high yield.  what about yield curve inversion, it happens quite often.   probably too early to talk about yield curve this early, make a note to the yield curve lesson.
+
+### `@course/week05_bonds.md:L320-323`
+> **Highlighted text:**
+> TIPS are better when inflation surprises upward relative to the breakeven rate priced into them. They are worse when inflation surprises downward, or when the breakeven is expensive. TIPS are a relative trade against nominal Treasuries, not a free upgrade.
+>
+> the main body of this week's lesson didn't talk about TIPS and float rate bonds at all.  add them to the main content.  talk about what are they, when they are useful, when is not.  when you are buying those, exactly what you are betting on compare to a vanilla bond, what is the trade off.  also mention Canada no longer has tips bonds now, and cite the reason.
+
+### `@course/week05_bonds.md:L328-333`
+> **Highlighted text:**
+> European and Japanese institutional investors held trillions of dollars in negative-yielding bonds during 2014-2021 because: liability-matching, regulatory capital requirements, currency hedging carry, and price upside if rates went more negative. "It makes no sense for me as a retail investor" is correct. "It makes no sense for anyone" is wrong.
+>
+> state it explicitly government force people to buy negative yielding bonds by law.  cite proper regulation.  otherwise, unless you are doing FX trade or betting on the rate will go further down, there is no reason to buy negative-yielding bond.  for liability matching, negative yieldling bond still doesn't make sense, you can just hold cash or paper money unless you are not allowed
+>
+> what about perpetual bonds?  this lesson doesn't even mention it.  and those 99 years bond.  please add section in the main body to talk about common years of bonds.  add a chart distribution of bond maturity by percentage in total value.
+>
+> also this lesson does talk about callable bonds.  what about convertable bonds?  do we talk about it in later lessons?
+>
+
+### `@course/week05_bonds.md:L360-365`
+> **Highlighted text:**
+> duration bet
+>
+> what is a duration bet?
+
+### `@course/week05_bonds.md:L369-375`
+> **Highlighted text:**
+> A: A TIPS' principal adjusts upward with CPI. The coupon rate is fixed but applies to the inflation-adjusted principal, so dollar coupons grow with inflation too. The "real yield" you see quoted on TIPS is the yield above CPI. Buy TIPS when you think realised inflation will exceed the breakeven (the difference between nominal and TIPS yields). In April 2026 the 10-year breakeven is about 2.4%; TIPS win if average CPI over the next decade exceeds that.
+>
+> remember week 1, we talked about CPI is rigged?  remind the reader TIPS won't protect you from inflation.  also if CPI goes up but rate hike follows, the benefit of TIPS bond higher interest but lower price cancel out each other.   what is 10-year breakeven.  how to calculate it.  you probably want to add a section on TIPS in the main content.  how well did the breakeven rate predict CPI in the future?   
+
+### `@course/week05_bonds.md:L388-395`
+> **Highlighted text:**
+> A: The yield curve is yields plotted against maturity (3-month, 1-year, 5-year, 10-year, 30-year). Normally upward-sloping (longer = higher yield). When the 2-year exceeds the 10-year — the inverted curve — it has historically been the single best recession leading indicator, with a 12-24 month lead. April 2026 state: curve has just un-inverted after a record-long inversion. Whether the post-inversion recession is now off the table or merely delayed is the live debate.
+>
+> refer the yield curve lesson in later week N.  what is N?
+
+### `@course/week05_bonds.md:L436-442`
+> **Highlighted text:**
+> A: Week 4 used Treasuries as a black box; this week opens the box. Week 13-14 (the barbell) chooses short Treasuries over long for the safe sleeve based on §2.4. Week 31-34 covers the 2022 inflation break in macro detail (the regime story behind the yield-history chart). Week 32 specifically does the rigorous duration and convexity math. Week 47 and 50 cover long-volatility / managed- futures overlays that hedge the inflation tail that bonds can't.
+>
+> missing the yield curve week 
 
 ---

@@ -1,7 +1,11 @@
-"""Week 5, §2.6 — BAA corporate vs 10-year Treasury return spread, 1928-2024.
+"""Week 5, §2.6 — BAA corporate vs 10-year Treasury *realised excess return*, 1928-2024.
 
-Annual return spread = BAACorp - TBond10Y from the Damodaran annual
-dataset. Highlights crisis-year spikes (1932, 1974, 2008, 2020).
+Annual excess return = BAACorp total return - TBond10Y total return,
+from the Damodaran annual dataset. This is *not* a yield credit
+spread (a yield difference quoted in bps that widens upward in
+crises). It is the year-by-year realised return differential, which
+goes sharply *negative* in credit blow-up years (1932, 1974, 2008,
+2020) as defaults reprice and Treasuries rally on flight-to-safety.
 
 Run:
     uv run python course/image/week05_credit_spreads.py
@@ -28,10 +32,10 @@ BASE = "week05_credit_spreads"
 
 LANG_STRINGS = {
     "en": {
-        "title":    "BAA corporate minus 10-year Treasury annual return, 1928-2024",
-        "subtitle": "Spread is positive in normal years (the credit premium) and sharply negative in crisis years as defaults reprice.",
+        "title":    "Corporate bond excess return over Treasuries, 1928-2024",
+        "subtitle": "BAA corporate total return minus 10Y Treasury total return, by year. Positive in normal years (the realised credit premium); sharply negative in credit blow-ups as defaults reprice and Treasuries rally.",
         "xlabel":   "Year",
-        "ylabel":   "BAA - 10Y Treasury (annual return, %)",
+        "ylabel":   "BAA - 10Y Treasury annual total return (%)",
         "mean":     "Long-run mean: {m:+.2f}% per year",
         "ann_1932": "1932\nDepression",
         "ann_1974": "1974\nstagflation",
@@ -39,10 +43,10 @@ LANG_STRINGS = {
         "ann_2020": "2020\nCOVID",
     },
     "hk": {
-        "title":    "BAA 公司債減十年期國債年度回報差,1928-2024",
-        "subtitle": "正常年份為正(信貸溢價),危機年份違約風險重新定價時急轉為負。",
+        "title":    "公司債對國債超額回報,1928-2024",
+        "subtitle": "BAA 公司債總回報減十年期國債總回報(逐年)。正常年份為正(實現信貸溢價);危機年份違約重新定價、國債上漲,超額回報急轉為負。",
         "xlabel":   "年份",
-        "ylabel":   "BAA - 十年期國債(年度回報,%)",
+        "ylabel":   "BAA - 十年期國債(年度總回報,%)",
         "mean":     "長期平均:每年 {m:+.2f}%",
         "ann_1932": "1932\n大蕭條",
         "ann_1974": "1974\n滯脹",
@@ -50,10 +54,10 @@ LANG_STRINGS = {
         "ann_2020": "2020\nCOVID",
     },
     "tw": {
-        "title":    "BAA 公司債減十年期公債年度報酬差,1928-2024",
-        "subtitle": "正常年份為正(信用溢酬),危機年份違約風險重新定價時急轉為負。",
+        "title":    "公司債對公債超額報酬,1928-2024",
+        "subtitle": "BAA 公司債總報酬減十年期公債總報酬(逐年)。正常年份為正(實現信用溢酬);危機年份違約重新定價、公債上漲,超額報酬急轉為負。",
         "xlabel":   "年份",
-        "ylabel":   "BAA - 十年期公債(年度報酬,%)",
+        "ylabel":   "BAA - 十年期公債(年度總報酬,%)",
         "mean":     "長期平均:每年 {m:+.2f}%",
         "ann_1932": "1932\n大蕭條",
         "ann_1974": "1974\n停滯性通膨",
@@ -61,10 +65,10 @@ LANG_STRINGS = {
         "ann_2020": "2020\nCOVID",
     },
     "cn": {
-        "title":    "BAA 公司债减十年期国债年度回报差,1928-2024",
-        "subtitle": "正常年份为正(信用溢价),危机年份违约风险重新定价时急转为负。",
+        "title":    "公司债对国债超额回报,1928-2024",
+        "subtitle": "BAA 公司债总回报减十年期国债总回报(逐年)。正常年份为正(实现信用溢价);危机年份违约重新定价、国债上涨,超额回报急转为负。",
         "xlabel":   "年份",
-        "ylabel":   "BAA - 十年期国债(年度回报,%)",
+        "ylabel":   "BAA - 十年期国债(年度总回报,%)",
         "mean":     "长期平均:每年 {m:+.2f}%",
         "ann_1932": "1932\n大萧条",
         "ann_1974": "1974\n滞胀",
