@@ -19,9 +19,9 @@ You need to understand 60/40 for four reasons, even if you end up
 not running it.
 
 1. **It is the baseline.** Every more complex strategy — risk parity,
-   trend, factor tilts, the barbell shape we get to in Week 14 — is
-   measured against 60/40. You cannot evaluate any of those if you
-   don't know what they are improving on.
+   trend, factor tilts, the barbell shape we build in Level 5
+   (Weeks 47–52) — is measured against 60/40. You cannot evaluate
+   any of those if you don't know what they are improving on.
 2. **It demonstrates what diversification actually buys you.** When
    stocks and bonds are negatively correlated, the 60/40 mix
    delivers roughly 80% of the equity return with about 60% of the
@@ -61,6 +61,21 @@ When $\rho < 1$, that square root is *less* than the weighted-average
 volatility. The closer to $\rho = -1$, the more risk reduction.
 **Diversification is correlation arithmetic.**
 
+A worked example before the table makes the point concrete. Take US
+stocks at $\sigma = 16\%$ and US Treasuries at $\sigma = 6\%$, and a
+60/40 mix. The naive guess — that 60/40 risk equals 60% of stock
+risk plus 40% of bond risk — gives $0.6 \times 16\% + 0.4 \times 6\% =
+12.0\%$. That is what you would get if the two assets moved in
+lockstep. With a more realistic correlation of $\rho = -0.3$, the
+formula gives:
+
+$$ \sigma_p = \sqrt{0.6^2 \cdot 16^2 + 0.4^2 \cdot 6^2 + 2 \cdot 0.6 \cdot 0.4 \cdot 16 \cdot 6 \cdot (-0.3)} \approx \sqrt{88.1} \approx 9.4\% $$
+
+That gap from 12.0% down to 9.4% — about a 22% reduction in
+portfolio volatility for *no give-up in expected return* — is the
+entire point of mixing the two assets. It is not a budget calculation;
+it is the correlation discount Markowitz won the Nobel for.
+
 For US stocks ($\sigma \approx 16\%$) and US Treasuries
 ($\sigma \approx 6\%$), with the long-run correlation between them:
 
@@ -87,39 +102,119 @@ annually.
 Read the chart from far right to far left. By 2024, $1 invested in
 1928 in real terms became roughly:
 
-- $763 at 100% stocks
-- $304 at 60/40
-- $9 at 100% bonds
+- $565 at 100% stocks
+- $128 at 60/40
+- $4 at 100% bonds
 
 The bonds-only line barely keeps up with inflation across the full
-century — the long-run real return on Treasuries is close to 1.5%
-per year. Stocks compound at roughly 7% real. 60/40 lands at
-roughly 5.7% real, two-thirds of the way to the equity line in
+century — the long-run real return on Treasuries is about 1.4%
+per year. Stocks compound at roughly 6.8% real. 60/40 lands at
+roughly 5.1% real, three-quarters of the way to the equity line in
 *compound-rate* terms but with materially smaller drawdowns
 along the way.
 
-By decade, the picture is more nuanced:
+By decade, the picture is more nuanced. The drawdown columns are
+each asset's *within-decade* worst peak-to-trough loss in real terms
+(annual data, so an event that bottoms in the next decade is
+attributed there).
 
-| Decade | 60/40 (real ann.) | Stocks (real ann.) | Bonds (real ann.) | 60/40 max drawdown |
-|---|---:|---:|---:|---:|
-| 1930s | 1.0% | -0.1% | 4.7% | -28% |
-| 1940s | 1.6% | 3.6% | -3.5% | -13% |
-| 1950s | 12.5% | 16.7% | -2.6% | -8% |
-| 1960s | 3.5% | 5.0% | -0.7% | -14% |
-| 1970s | -0.7% | -1.4% | -1.0% | -18% |
-| 1980s | 9.7% | 12.0% | 7.2% | -8% |
-| 1990s | 8.7% | 14.8% | 4.6% | -6% |
-| 2000s | 1.8% | -3.4% | 4.4% | -33% |
-| 2010s | 6.8% | 11.4% | 1.6% | -10% |
-| 2020-24 | 1.6% | 6.7% | -3.5% | -22% |
+| Decade | 60/40 (real ann.) | Stocks (real ann.) | Bonds (real ann.) | 60/40 max DD | Stocks max DD | Bonds max DD |
+|---|---:|---:|---:|---:|---:|---:|
+| 1930s | 1.0% | -0.1% | 4.7% | -23% | -38% | -1% |
+| 1940s | 1.6% | 3.6% | -3.5% | -23% | -25% | -32% |
+| 1950s | 12.5% | 16.7% | -2.6% | -6% | -13% | -11% |
+| 1960s | 3.5% | 5.0% | -0.7% | -12% | -14% | -17% |
+| 1970s | -0.7% | -1.4% | -1.0% | -36% | -49% | -33% |
+| 1980s | 9.7% | 12.0% | 7.2% | -8% | -13% | -9% |
+| 1990s | 8.7% | 14.8% | 4.6% | -5% | -1% | -11% |
+| 2000s | 1.8% | -3.4% | 4.4% | -15% | -37% | -13% |
+| 2010s | 6.8% | 11.4% | 1.6% | -4% | -6% | -10% |
+| 2020-24 | 1.6% | 6.7% | -3.5% | -23% | -23% | -34% |
 
-The 1980s and 1990s are the two decades that built 60/40's reputation.
-Real bond returns above 7% per year. Real stock returns above 12%.
-Stock-bond correlation around −0.3 to −0.4. Whatever-asset-was-falling-
-the-other-was-rising, and the rebalance trade *paid* you to
-mechanically buy the underperformer.
+The 1980s, 1990s, *and* 2000s are the three decades that built
+60/40's reputation. The 1980s–90s contributed the return story:
+real bond returns above 7% per year in the '80s, real stock returns
+above 12% in the '90s. The 2000s contributed the *protection*
+story: stocks lost 3.4% per year in real terms across the
+dot-com bust and GFC, and the bond sleeve carried the 60/40 portfolio
+to a positive real return anyway. That decade is where retail
+advisors learned to *trust* the bond hedge, not just price it.
+Across all three decades the stock-bond correlation ran around
+−0.3 to −0.4. Whatever-asset-was-falling-the-other-was-rising, and
+the rebalance trade *paid* you to mechanically buy the underperformer.
+The 2020–24 row is what concerns the modern industry — and it is
+the row the rest of this lesson exists to explain.
 
-The 2020–24 row is what concerns the modern industry.
+##### Why is rebalancing actually good — and why isn't 60/40 always worse than 100% stocks?
+
+Look at the table honestly. Across the full 97-year window, 100%
+stocks compounds at 6.8% real and 60/40 at 5.1% — roughly $565 vs
+$128. **Over a long horizon, with no behaviour problem, 100% stocks
+wins on terminal wealth.** The course is not going to pretend
+otherwise. The case for 60/40 is not "higher return"; it is three
+related effects:
+
+1. **Drawdown compression.** In every crisis decade — 1930s, 1970s,
+   2000s — 60/40 took materially less of the equity loss. -38%,
+   -49%, -37% on stocks compressed to -23%, -36%, -15% on 60/40.
+   That smaller hole is the *behavioural* alpha: an investor who
+   does not panic-sell at -25% is a different person from one who
+   panic-sells at -49%.
+2. **The rebalancing premium.** Annual rebalancing forces a
+   mechanical "sell what just outperformed, buy what just
+   underperformed." Over decades that adds roughly 0.2–0.4% per
+   year on a 60/40 mix (Bouchey, Nemtchinov, Paulsen and others
+   estimate it in this range). It is not a free lunch — it
+   requires *both* assets to be roughly mean-reverting and
+   negatively correlated, which is exactly what failed in 2022 —
+   but in normal regimes it is real and persistent.
+3. **Volatility drag is non-linear.** A portfolio that goes -50%
+   then +50% lands at -25% of starting value. A portfolio that goes
+   -25% then +25% lands at -6%. Cutting the drawdown in half does
+   *more* than halve the recovery cost. Lower-vol portfolios
+   compound geometric returns closer to their arithmetic returns.
+
+Honest framing for the lesson: **the correct comparison for a
+buy-and-hold investor with a 30-year horizon is 100% stocks vs
+60/40 vs the barbell — not 60/40 vs nothing.** 100% stocks wins on
+terminal wealth across long enough windows; 60/40 wins on the worst
+two-year stretch you have to live through; the barbell tries to keep
+most of the equity upside while replacing the middle-of-the-curve
+bonds with structurally better diversifiers (cash + gold + tail
+hedges). We come back to that comparison at the end of this lesson.
+
+##### Can rule-based / "timed" rebalancing improve on the calendar?
+
+This is a real research literature, not folklore. The headline
+finding: **rule-based variants modestly improve on calendar
+rebalancing in *backtest*, but the improvement is small relative to
+the variance across implementations and is fragile out of sample.**
+
+- *Threshold (band) rebalancing* — rebalance only when the
+  allocation drifts more than 5% in absolute terms (e.g., from 60%
+  stocks to 65%) — captures most of the rebalance premium with
+  fewer trades and less tax friction. Vanguard's working papers find
+  it is marginally better than annual calendar rebalancing on a
+  long-run US 60/40 backtest, ~0.05–0.15% per year.
+- *Trend-overlay rebalancing* — only rebalance into an asset when
+  it is above its 200- or 10-month moving average — improves
+  drawdowns in some windows (notably 2008) and worsens them in
+  others (notably 2020 V-shaped recovery, where you sold equities
+  in March and bought back at a higher price in August). Net effect
+  is close to a wash on long horizons.
+- *Valuation-tilt rebalancing* — over-weight equities when CAPE is
+  cheap, under-weight when expensive. Long-horizon backtests show
+  ~0.3–0.6% per year of improvement on US data, but with very long
+  drag spells (the strategy was wrong about US equities for most of
+  2010–2020) and with severe data-mining concerns: there is one
+  US history, the rules are tuned on it, and the next 30 years are
+  not the previous 30 years.
+
+Bottom line: a calendar or band-rebalanced 60/40 captures roughly
+all of the *robust* premium. Anything more clever crosses the line
+into *active* allocation — which can work, but at that point you
+are no longer running a passive 60/40. We come back to discretionary
+rebalancing under "Misconceptions" below and again in §2.7.
 
 #### 2.3 The Correlation Story — The Hidden Variable
 
@@ -153,14 +248,78 @@ correlated when the dominant driver is inflation.** Decide which
 regime you think the next decade will be, and you have decided
 whether 60/40 is still your friend.
 
-#### 2.4 The 2022 Debacle — What Actually Happened
+#### 2.4 Bond Yields Are a Policy Variable, Not a Market Price
+
+Before we get to 2022, one thing every investor running 60/40 needs
+to understand and almost no certification curriculum says out loud:
+**the bond half of your portfolio is not priced in a free market.**
+The level and shape of the yield curve is set, in large part, by the
+central bank. Short rates are *literally* set by the Federal Reserve
+at the FOMC meeting. Long rates are nominally a market price but are
+heavily steered by quantitative easing and tightening, by forward
+guidance about future policy rates, and — in some jurisdictions —
+by explicit *yield-curve control* (YCC), where the central bank
+commits to buying or selling unlimited size to peg the yield at a
+chosen level.
+
+The cleanest worked example is the Bank of Japan. From 2016 to 2024
+the BOJ ran explicit YCC, capping the 10-year Japanese government
+bond yield first at 0% then at 0.25%, then 0.5%, then 1.0% — every
+"adjustment" was a mini policy regime change that moved the entire
+JGB curve overnight. JGB holders for those eight years were not
+holding a free-market asset; they were holding a *policy promise*
+whose payoff depended on the BOJ's willingness to keep printing.
+When the BOJ exited YCC in 2024, the long end repriced sharply.
+
+The Fed has done softer versions of the same thing. The 2008–2014
+QE program suppressed long-Treasury yields by an estimated 100–150
+basis points below where a free market would have cleared. The
+2020–2021 emergency easing kept the 10-year below 1% for over a year.
+The 2022 tightening was the *unwind* of those policy positions, not
+a market-driven move.
+
+What this means for your 60/40 portfolio is uncomfortable:
+
+- The bond sleeve's expected return is the *current yield*, and the
+  current yield is partially a *policy variable*. When you buy a
+  10-year Treasury at 1% yield, you are accepting a return path
+  that the Fed has explicitly chosen. When the Fed changes its
+  mind — because of an inflation shock, a fiscal-dominance pivot,
+  or a new chair with a different reaction function — the bond
+  sleeve's price moves, sometimes brutally.
+- "Tail risks" for the bond sleeve are policy events: yield-curve
+  control, financial repression, an explicit higher inflation
+  target, a debt-monetisation regime, restrictions on foreign
+  Treasury holdings. None of these are tradable risks in the
+  Markowitz sense; they are political events.
+- The classic 60/40 *requires the Fed put* to work. The unstated
+  assumption of the last forty years is: when stocks crash, the Fed
+  cuts rates aggressively, bonds rally, and the bond sleeve carries
+  the portfolio. Take away the Fed's willingness or ability to cut
+  — because inflation is too high (1970s, 2022) or because rates
+  are already at zero (2020 was the last time this constraint
+  bit) — and the bond sleeve has nothing to give.
+
+This is part of why bond yield *level* matters so much for whether
+60/40 is sensible at any given moment (we revisit this directly in
+Q1). At a 1% 10-year yield, the bond sleeve has almost no income
+buffer and enormous duration risk on a rate-up move. At a 4–5% yield
+the math is genuinely different: even a 100 bp rate shock leaves
+the bond sleeve roughly flat over a year. The 60/40 portfolio is
+a different instrument depending on where the central bank has set
+the yield curve when you start.
+
+#### 2.5 The 2022 Debacle — What Actually Happened
 
 In one calendar year:
-- S&P 500 total return: −18.1%.
-- 10-year Treasury total return: −17.8%.
-- 60/40: roughly −18.0%.
-- CPI: +6.5%.
-- 60/40 in real terms: roughly −24%.
+
+| Asset | 2022 total return |
+|---|---:|
+| S&P 500 (incl. dividends) | -18.1% |
+| 10-year Treasury (incl. coupons) | -17.8% |
+| 60/40 portfolio | ~-18.0% |
+| CPI (inflation) | +6.5% |
+| **60/40 in real terms (after CPI)** | **~-24%** |
 
 That last number is the worst real-return year for the 60/40 portfolio
 since 1937. The mechanism was simple and terrifying. The Fed funds
@@ -170,13 +329,52 @@ on future cash flows is the long bond yield, and that doubled. Both
 fell. Together. With no place to hide for the unhedged investor.
 
 The 2022 drawdown also showed something else: **a 60/40 portfolio
-provides no protection against an inflation shock.** Cash earned
-under inflation, gold roughly held value, commodities rose. The
-classic two-asset diversifier was the *worst* allocation in the
-year of high inflation that everyone had been talking about for a
-decade.
+provides no protection against an inflation shock.** Cash *lost less*
+than long bonds because cash has near-zero duration and short T-bill
+rates kept reinvesting at the rapidly rising Fed funds rate; gold
+roughly held value; commodities rose. The classic two-asset
+diversifier was the *worst* allocation in the year of high inflation
+that everyone had been talking about for a decade.
 
-#### 2.5 Modern Adaptations — Where 60/40 Goes Now
+##### What broke — a checklist
+
+Five things had to be true for 60/40 to keep working. In 2022, all
+five flipped at once. Use this as your forward-looking dashboard:
+
+| Pillar | 1990s–2010s setting | 2022 setting |
+|---|---|---|
+| Inflation regime | Falling / anchored ≤2% | Spike to 9%, sticky |
+| Policy rates | Low and falling, Fed put active | Rapid hiking, Fed put withdrawn |
+| Stock-bond correlation | ~−0.3 (negative) | Sharply positive |
+| Long-bond duration risk | Hidden by 40-year bull market | Realised — 30%+ losses on TLT |
+| Real-return capture | Stocks + bonds beating CPI | Both lost real value together |
+
+Read the right column as the warning sign. If those settings persist
+or recur — if inflation stays sticky and the Fed cannot credibly cut
+into a recession because CPI is still 4%, if the correlation stays
+positive — the 1990s–2010s shape of 60/40 will not return. If they
+reverse — disinflation back to 2%, growth scares pulling rates lower,
+correlation flips back negative — 60/40's "golden age" framing is
+appropriate again.
+
+#### 2.6 Modern Adaptations — Where 60/40 Goes Now
+
+A short history note before the adaptations. **60/40 is not a Ray
+Dalio invention.** The 60/40 mix is the conventional advisor and
+balanced-fund default that predates risk parity by decades — the
+"60% stocks, 40% bonds" rule of thumb appears in pension and trust
+literature back to the 1950s. *Dalio's* contribution is the **All
+Weather portfolio** (and its institutional sibling, *risk parity*):
+roughly 30% stocks, 55% long bonds, 15% commodities and gold by
+*capital* weight, but balanced so each asset class contributes
+equal *risk*. The unifying idea — diversify across macro regimes
+rather than across asset labels — is genuinely different from
+60/40. All Weather was designed precisely so that no single regime
+(growth shock, inflation shock, deflation shock, recession) could
+sink the portfolio. We come back to risk parity and All Weather
+explicitly in Week 15 ("Multi-Asset and Risk Parity") and again in
+Level 5; for the rest of this lesson we keep the focus on the
+plain-vanilla 60/40 baseline.
 
 Three modifications, in increasing order of complexity.
 
@@ -197,6 +395,18 @@ Three modifications, in increasing order of complexity.
    pays for itself in tail events. This is the institutional
    adaptation; we cover it in detail in Week 47 and Week 50.
 
+Comparing the major archetypes side-by-side:
+
+| Allocation | Stocks | Bonds (long) | Cash / short Tsy | Gold | Other | Best regime | Worst regime |
+|---|---:|---:|---:|---:|---:|---|---|
+| 100% stocks | 100 | — | — | — | — | Long expansions, low CPI | Deep bear / GFC-style crash |
+| Classic 60/40 | 60 | 40 | — | — | — | Disinflation + Fed put (1990s–2010s) | Inflation shock (1970s, 2022) |
+| 60/30/10 | 60 | 30 | 10 | — | — | Same as 60/40 but cheaper drawdown in rate shocks | Same as 60/40, milder |
+| 55/30/10/5 | 55 | 30 | 10 | 5 | — | Adds inflation buffer; closer to all-weather | Sustained negative real rates with no inflation |
+| Permanent Portfolio | 25 | 25 | 25 | 25 | — | Any single-regime shock | Long bull market in stocks (gives up upside) |
+| Dalio All Weather (~) | 30 | 40 | — | 7.5 | 22.5 commodities/TIPS | Diversified across all four macro regimes | Persistent stagflation with rising real rates |
+| Barbell (Level 5 preview) | 50–70 (concentrated + asymmetric) | 0 | 20–35 | 5–10 | 5–10 tail hedges | Volatile regimes with both up- and down-tails | Long quiet grind upward (overpays for hedges) |
+
 The honest framing is the one Horace pushes throughout the course:
 **60/40 worked because of a specific macro regime that is unlikely
 to repeat with the same intensity over the next decade**. It is not
@@ -204,6 +414,48 @@ broken. It is no longer optimal. The barbell shape — concentrated
 safety on one end, asymmetric speculation on the other, very little
 in the structurally-mediocre middle — is the more honest answer for
 investors who can stomach a different shape of returns.
+
+> **Important caveat.** The barbell is an *advanced migration path*,
+> not a Week 4 implementation instruction. It requires the option,
+> hedging, sizing, and tax tools we develop across Levels 2–4
+> (especially Weeks 25–30, 41–42, 47, and 50). Do not try to build
+> a barbell after this lesson. Build the 60/40 (or 60/30/10)
+> baseline first, run it through one full crisis cycle, and only
+> then consider the barbell migration described in Week 52. The
+> right Week 4 takeaway is "I now understand the baseline that
+> every later allocation will compare to."
+
+#### 2.7 Rebalancing Strategies for 60/40
+
+Three families of rebalancing rule, ordered by how much work they
+take and roughly how much they capture of the rebalancing premium.
+
+| Rule | What it does | Trades / year | Premium captured | Tax cost (taxable account) |
+|---|---|---:|---|---|
+| **Buy & hold (no rebalance)** | Let weights drift forever | 0 | None — equity allocation grows toward 100% | Zero |
+| **Calendar — annual** | Reset to 60/40 every January | 1 | Most of it (~0.2–0.4% / yr) | Moderate |
+| **Calendar — quarterly / monthly** | Reset on schedule | 4–12 | Marginal additional gain; transaction & tax costs eat it | High |
+| **Threshold / band — 5% absolute** | Rebalance only when stock weight drifts ≥5% from target | ~0.3 in calm markets, several in crises | Comparable to annual, with fewer trades | Lower than annual |
+| **Threshold / band — relative (e.g., ±25% of target)** | Wider bands; even fewer trades | ~0.1–0.5 | Slight underperformance vs annual | Lowest |
+| **Trend / momentum overlay** | Only rebalance into an asset when it is above its trend (e.g., 200-day or 10-month MA) | Variable | Helps in trending bears (2008); hurts in V-recoveries (2020) | Variable |
+| **Valuation tilt** | Over-weight the cheaper asset (CAPE, real-yield rules) | 1–4 | ~0.3–0.6% / yr in long backtests; severe data-mining risk | Moderate–high |
+
+Two practical recommendations:
+
+1. **For most retail 60/40 investors, threshold rebalancing on a 5%
+   absolute band, checked quarterly, is the right answer.** It
+   captures essentially all of the calendar-rebalance premium with
+   fewer trades, lower taxes, and one psychological benefit: you
+   only act when something has actually moved enough to matter.
+2. **Direct new contributions toward the under-weight sleeve before
+   ever selling.** Selling-to-rebalance is the last resort —
+   contribution-rebalancing has zero tax cost and zero spread cost.
+   Many investors going through their accumulation years never
+   need to sell-rebalance at all if they are still adding new money.
+
+The deeper trade-off — when "rule-based" rebalancing crosses the
+line into discretionary active management — is covered under
+Misconception 5 below.
 
 ---
 
@@ -248,21 +500,52 @@ the portfolio's response to inflation shocks.
 
 **Misconception 5: "60/40 is actively managed if you rebalance."**
 
-Rebalancing back to a fixed allocation is *not* active management.
-It is a mechanical rule. Active management would be changing the
-target allocation based on a view (e.g., reducing the bond weight
-when yields are low). The strict 60/40 with annual rebalancing is
-fully passive at the strategy level.
+Calendar or band rebalancing back to a *fixed* allocation is *not*
+active management — it is a mechanical rule with no view on the
+future. Strict 60/40 with annual or 5%-band rebalancing is fully
+passive at the strategy level. The key word is **fixed**.
+
+Where the line moves is when the *target itself* changes based on a
+view: reducing the bond weight when yields are low, raising stocks
+when CAPE is cheap, switching to cash when the 200-day moving average
+breaks. **Those are active decisions.** They may *each* be coded as
+a mechanical rule, but the *choice of rule* is a discretionary view
+on the future of returns and correlations. Once you do that, you
+are no longer running passive 60/40 — you are running a tactical
+allocation overlay, and you should evaluate it as one (alpha, edge,
+out-of-sample robustness, drawdown vs benchmark). The honest test
+is: would a different family of rules — selected today, with the
+same logic — give a different allocation? If yes, it is active.
 
 **Misconception 6: "I should rebalance frequently to capture the
 rebalance bonus."**
 
 The rebalancing premium is real but small (~0.2–0.4% per year on
 typical 60/40 backtests). Quarterly or annual rebalancing captures
-most of it; weekly or daily rebalancing trades against the same
-return mean-reverts in the wrong direction and incurs transaction
-costs. Annual is the conventional answer; semi-annual is fine.
-More than that is over-engineering.
+most of it; weekly or daily rebalancing has three problems that
+together usually destroy the premium:
+
+1. **Selling against momentum.** Most market moves run in trends
+   over horizons of weeks-to-months before mean-reverting.
+   Rebalancing weekly forces you to sell whatever just rallied
+   *while it is still rallying* — selling a winner that is about
+   to keep winning is the worst version of "buy low, sell high."
+2. **Transaction costs and bid-ask.** Each unnecessary trade pays
+   the spread plus, in some accounts, commissions. On a 60/40
+   portfolio with weekly rebalancing the round-trip cost can match
+   the entire rebalance premium.
+3. **Tax friction in taxable accounts.** Every sell-side rebalance
+   is a realisation event. Short-term gains are taxed as ordinary
+   income (often >35% federal + state). A weekly rebalancer in a
+   taxable account can give *all* of the rebalance premium back to
+   the IRS — and then some. This is exactly why §2.7 recommends
+   contribution-rebalancing first and threshold-band rebalancing
+   second; both minimise realisations.
+
+Annual is the conventional answer; semi-annual or 5%-band quarterly
+is fine. More frequent than that is over-engineering that pays
+momentum, spread, *and* the tax man for the privilege of looking
+busy.
 
 ---
 
@@ -270,12 +553,35 @@ More than that is over-engineering.
 
 **Q1: Should I run 60/40 in 2026?**
 
-A: For a long-horizon investor with no edge and no time to manage
-a portfolio actively, 60/40 is still a defensible answer — but the
+A: Honestly, "it depends on the bond yield." 60/40 is most defensible
+at *higher* nominal bond yields and least defensible at low ones,
+because the entire bond sleeve is asymmetric to the starting yield.
+At a 1% 10-year yield (the 2020–2021 setup), the bond half delivers
+1% of carry and takes a -10% hit on every 100 bp of rate-up move —
+that is a structurally bad trade. At a 4–5% 10-year yield (closer to
+where the curve has reset post-2022), the bond half delivers a
+meaningful coupon, the duration risk is partially compensated, and
+the math of 60/40 is genuinely much better. As of writing, US 10-year
+yields in the 4-handle make 60/40 *more* defensible than it was in
+2020 — but still inferior to the cash-tilted variants.
+
+The deeper issue is the *Fed-put assumption*. The classic 60/40
+implicitly assumes that when stocks crash, the Fed will cut rates
+aggressively, bonds will rally, and the bond sleeve will carry the
+portfolio. That assumption holds whenever inflation is anchored
+near 2% (1990s–2010s). It breaks whenever inflation is sticky and
+the Fed cannot credibly cut without re-igniting CPI (1970s, 2022).
+Before committing to 60/40, ask yourself: *do I believe the next
+crisis will be deflationary (Fed cuts, bonds save me) or
+inflationary (Fed cannot cut, bonds fall with stocks)?*
+
+For a long-horizon investor with no edge and no time to manage a
+portfolio actively, 60/40 is still a defensible answer — but the
 better defensible answer in the current regime is *60/30/10*
 (stocks / short-duration Treasuries / cash) or 55/30/10/5
 (adding gold). Pure long-bond 40% is the part most exposed to a
-reversal of the 2022-style positive correlation regime.
+reversal of the 2022-style positive correlation regime, and it is
+also the part most exposed to a Fed that is no longer free to cut.
 
 **Q2: Why not 70/30 or 50/50? What's special about 60/40?**
 
@@ -305,12 +611,24 @@ control the tax timing on rebalances.
 
 **Q5: Why did 2008 not break 60/40 the way 2022 did?**
 
-A: In 2008, stocks fell ~37% but Treasuries *rallied* roughly +20%
-on the flight to safety. The 60/40 drawdown was about −22% — bad,
-but materially less than the equity drawdown. In 2022, both fell
-together. The mechanism: 2008 was a deflationary credit shock; 2022
-was an inflationary monetary shock. The 60/40 portfolio is hedged
-against the former and exposed to the latter.
+A: In 2008, stocks fell ~37% and long Treasuries *rallied* roughly
++20%. The 60/40 drawdown was about −22% — bad, but materially less
+than the equity drawdown. The bond rally had two compounding
+causes: (1) **the Fed cut the funds rate from 5.25% in mid-2007 to
+essentially 0% by December 2008** — a roughly 500 bp easing cycle
+that mechanically lifted long-bond prices through duration; and
+(2) a flight-to-safety bid, where investors fleeing equities and
+credit parked cash in Treasuries, *adding* to the price move on top
+of the policy-rate cut. The Fed-cut leg is by far the bigger driver
+of the 20% bond rally — pure flight-to-safety in a quiet rate
+environment usually delivers a few percent at most. In 2022 the
+Fed was *raising* rates instead of cutting, so neither force was
+available: there was no monetary tailwind for bonds and no
+durable safe-haven bid (bonds were the asset people were fleeing
+*from*). Mechanism difference: 2008 was a deflationary credit
+shock with the Fed put fully active; 2022 was an inflationary
+monetary shock with the Fed put withdrawn. The 60/40 portfolio is
+hedged against the former and exposed to the latter.
 
 **Q6: Should I rebalance with new contributions or by selling?**
 
@@ -338,7 +656,9 @@ defensive allocations) is exactly the part the barbell strips out
 because it is the part that gets crushed in inflation shocks. The
 barbell holds *more* concentrated safety than 60/40 (cash, short
 T-bills, gold) and *more* asymmetric speculation than 60/40 (long
-calls, momentum equity, crypto), with very little in between.
+calls, momentum equity, Bitcoin or specific asymmetric trades sized
+as speculation — *not* a generic "crypto" allocation), with very
+little in between.
 
 **Q9: Is the rebalancing premium taxable?**
 
@@ -352,19 +672,35 @@ ETF choice.
 
 **Q10: How does this connect to the rest of the course?**
 
-A: 60/40 is the baseline. Week 5 covers diversification more deeply.
-Week 13–14 introduce the barbell. Week 23 covers factor investing,
-which slices the equity sleeve into return premia. Week 47 covers
-the long-volatility hedge that you can graft onto 60/40 to address
-the inflation-shock vulnerability. Every subsequent allocation
-discussion will compare to this baseline.
+A: 60/40 is the baseline. **Week 5** goes deep on the bond half
+(coupons, prices, yields, duration) — the mechanics behind why the
+bond sleeve behaved the way it did in 2008 and 2022. **Week 6**
+covers gold and commodities, which are the natural inflation-shock
+complements to 60/40. **Week 7** covers rebalancing in detail.
+**Week 15** introduces multi-asset and risk parity — the Dalio
+"All Weather" alternative to 60/40. **Week 23** covers factor
+investing, which slices the equity sleeve into return premia.
+**Week 47** covers the long-volatility / tail-hedge sleeve that you
+can graft onto 60/40 to address the inflation-shock vulnerability.
+**Level 5 (Weeks 47–52)** is where the *barbell* portfolio shape
+is actually built. Every subsequent allocation discussion will
+compare to the 60/40 baseline you have just learned.
 
-The interactive panel below lets you slide the stock weight from
-0% to 100% and the rebalance frequency from monthly to never. It
-plots the resulting cumulative real wealth on the Damodaran 1928–2024
-dataset along with the maximum drawdown and the geometric annualised
-return. Slide it. Watch where the Sharpe-ratio peak sits, and watch
-how the 1973–74 drawdown changes shape as you move the bond weight.
+##### Interactive panel
+
+The interactive panel below is a generalisation of the cumulative
+wealth chart in §2.2: it starts from the same Damodaran 1928–2024
+dataset and the same 60/40 line, but lets you sweep the stock
+weight in 10% steps from 0% to 100% (so the static 60/40 line in
+the §2.2 chart is what you see when the slider sits at 60%), toggle
+between annual rebalancing and pure buy-and-hold, and switch
+between real (CPI-adjusted) and nominal terms. Underneath the
+wealth curve it draws the rolling drawdown from each running peak,
+and reports the geometric annual return, annualised volatility,
+worst drawdown, and Sharpe ratio (using the 3-month T-bill as the
+risk-free rate). Slide it. Watch where the Sharpe-ratio peak sits,
+and watch how the 1973–74 and 2008 drawdowns change shape as you
+move the stock weight.
 
 ---
 
@@ -418,15 +754,29 @@ correlation is *the entire reason* 60/40 worked so well for so long.
 **Horace:** Here's the long-run growth chart. 100% stocks, 100%
 bonds, 60/40 — all rebalanced annually, in real terms after
 inflation, since 1928. By 2024, your dollar in real terms became
-seven hundred and sixty in 100% stocks, three hundred in 60/40,
-and nine in 100% bonds.
+about five hundred sixty-five in 100% stocks, one hundred twenty-eight
+in 60/40, and four in 100% bonds.
 
 **Stella:** Bonds barely beat inflation across a century.
 
 **Horace:** That's the whole century in one statistic. The long-run
-real return on Treasuries is about 1.5% per year. Stocks, about
-7%. 60/40 lands around 5.7%. Two-thirds of the equity rate, with
-materially shallower drawdowns at every crisis.
+real return on Treasuries is about 1.4% per year. Stocks, about
+6.8%. 60/40 lands around 5.1%. Three-quarters of the equity rate,
+with materially shallower drawdowns at every crisis.
+
+**Stella:** Wait — if 100% stocks compounds at 6.8% and 60/40 only
+at 5.1%, isn't 100% stocks just *strictly* better over a long
+horizon?
+
+**Horace:** On terminal wealth, yes — and this course is not going
+to pretend otherwise. The case for 60/40 is not higher return.
+It's three things together: drawdown compression, the rebalancing
+premium of about a quarter percent a year, and the non-linear math
+of volatility drag. The investor who can sit through a -49% real
+drawdown in 100% stocks lands at $565. The one who panics at -49%
+and sells lands at zero. 60/40 trades expected return for
+behavioural survivability — and for some people that trade is the
+difference between staying invested and not.
 
 ---
 
@@ -450,7 +800,7 @@ Both fell together. The 60/40 portfolio had no shelter.
 
 ---
 
-**[SEGMENT 4: 2022 THE ANATOMY]**
+**[SEGMENT 4: 2022 THE ANATOMY — AND WHY THE BOND HALF IS A POLICY BET]**
 
 **Horace:** Year of 2022. S&P 500 down 18. Ten-year Treasury down
 17.8. CPI up 6.5. So 60/40 in nominal terms down 18, in real terms
@@ -466,14 +816,48 @@ of the portfolio.
 
 **Stella:** And the lesson?
 
-**Horace:** 60/40 hedges *recessionary* shocks. It has no answer for
-*inflationary* shocks. If the next decade looks more like the
-1970s than like the 2010s, 60/40 will continue to underperform a
-diversified inflation-hedged version.
+**Horace:** Two lessons, and the second one is the one professional
+curricula skip. First: 60/40 hedges *recessionary* shocks. It has
+no answer for *inflationary* shocks. Second — and bigger — the
+bond half of your portfolio is *not* priced in a free market. The
+central bank sets short rates directly at the FOMC meeting and
+steers long rates through quantitative easing, forward guidance, and
+in some places explicit yield-curve control. Look at the Bank of
+Japan: from 2016 to 2024 they pegged the 10-year JGB yield first at
+zero, then 0.25, then 0.5, then 1.0 percent — every adjustment was
+a mini policy regime change. That is not a free market. The classic
+60/40 implicitly *requires the Fed put* to work — the unstated
+assumption that whenever stocks crash, the Fed cuts rates, bonds
+rally, and the bond sleeve carries the portfolio. Take that
+assumption away — because inflation is too high and the Fed cannot
+credibly cut — and the bond sleeve has nothing to give. That is
+2022 in one sentence.
+
+**Stella:** And the bond yield level itself matters?
+
+**Horace:** Hugely. At a 1% 10-year yield, 60/40 is structurally
+broken — you have one percent of carry and almost infinite duration
+risk on a rate-up move. At a 4 or 5% 10-year yield, 60/40 starts
+making sense again. The same allocation is a different instrument
+depending on where the central bank has set the curve when you
+start. If the next decade looks more like the 1970s than the 2010s,
+60/40 will continue to underperform a diversified inflation-hedged
+version.
 
 ---
 
 **[SEGMENT 5: WHAT TO DO INSTEAD]**
+
+**Horace:** Quick history note before the modifications. 60/40 is
+*not* a Ray Dalio invention — it is the conventional advisor and
+balanced-fund default that goes back to the 1950s. Dalio's
+contribution is the All Weather portfolio, which is genuinely
+different: roughly 30 / 55 / 15 by capital but balanced so each
+asset class contributes equal *risk*. The unifying idea is
+diversifying across macro regimes, not across asset labels. We
+come back to All Weather and risk parity in Week 15.
+
+**Stella:** And for plain 60/40?
 
 **Horace:** Three modifications, in order of how much work they take.
 
@@ -488,6 +872,49 @@ yield-give-up but earns it back in tail events.
 Three. Add a long-volatility sleeve. Trend-following or
 managed-futures strategies pay for themselves in years like 2022 and
 2008. We cover this in Week 47 — it's the institutional answer.
+
+**Stella:** And the barbell people keep hearing about?
+
+**Horace:** That's the Level 5 endpoint, not a Week 4 to-do.
+The barbell strips out the structurally-mediocre middle and
+replaces it with concentrated safety on one end and asymmetric
+speculation on the other. It is the most honest answer for a
+post-2022 world, but it requires the option, hedging, sizing, and
+tax tools we build over Levels 2 through 4. Build the 60/40 or
+60/30/10 baseline first, run it through one full crisis cycle, and
+*then* think about the barbell migration. Don't skip the baseline.
+
+---
+
+**[SEGMENT 6: REBALANCING — HOW OFTEN, WITH WHAT RULE]**
+
+**Stella:** And rebalancing? Annual, monthly, only-when-it-drifts?
+
+**Horace:** Three families of rule. Calendar — once a year, every
+January. Threshold — only rebalance when the stock weight drifts
+five percent absolute from target. And rule-based overlays like
+trend or valuation tilts. For most people, threshold on a 5%
+absolute band, checked quarterly, is the right answer — it captures
+essentially all of the rebalance premium with fewer trades and less
+tax friction. And before any selling, direct your new contributions
+to the underweight sleeve — that rebalances with zero tax cost.
+
+**Stella:** And weekly?
+
+**Horace:** Three problems. You sell winners that are still trending,
+you pay the spread on every trade, and in a taxable account every
+sell is a realisation event. Weekly rebalancing in a taxable account
+gives all of the rebalance premium back to the IRS. Annual or 5%
+band is the answer.
+
+**Stella:** And once you start picking *which* rule based on a
+view — like "reduce bonds when yields are low" — you've crossed
+into active?
+
+**Horace:** Exactly. The line is whether the *target itself* changes
+on a view. Mechanical rebalance to a fixed 60/40 is passive.
+Discretionary tactical overlay, even if each rule is mechanical, is
+active. Evaluate it as such.
 
 ---
 
@@ -506,4 +933,4 @@ it. Find your own sweet spot.
 
 ---
 
-**END SCREEN:** "Next: Week 5 — Diversification Done Right"
+**END SCREEN:** "Next: Week 5 — Bonds: Coupons, Prices, and Yields"
