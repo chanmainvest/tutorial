@@ -1432,10 +1432,11 @@ contract feels obvious.
 
 **Stella:** Next week?
 
-**Horace:** Gold and commodities. Stores of value versus cashflow
-assets — why they sit in a portfolio at all when they don't pay
-you a coupon or earn an ROE.
+**Horace:** Gold — the five-thousand-year store of value. Why it
+sits in a portfolio at all when it doesn't pay you a coupon or
+earn an ROE, and what's actually different about a gold ETF, a
+gold futures contract, and a coin in your safe.
 
 ---
 
-**END SCREEN:** "Next: Week 6 — Gold and Commodities as Diversifiers"
+**END SCREEN:** "Next: Week 6 — Gold: The 5,000-Year Store of Value"

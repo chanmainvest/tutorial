@@ -1,10 +1,14 @@
-"""Week 6, §2.2 — Real (CPI-adjusted) gold price 1971-2026.
+"""Week 6, §2.3 — Real (CPI-adjusted) gold price 1971-2026, with macro panel.
 
-London PM gold fix (FRED GOLDAMGBD228NLBM) deflated by CPI
-(FRED CPIAUCSL) into 2026 dollars. If the FRED fetch fails, falls
-back to an embedded annual-average series from public references.
+Top panel: London PM gold fix (FRED GOLDAMGBD228NLBM) deflated by CPI
+(FRED CPIAUCSL) into 2026 dollars, with peak/trough annotations.
 
-Annotations: 1980 peak, 1999 trough, 2011 peak, 2024-26 plateau.
+Bottom panel: headline CPI YoY (red line), real US 10-year yield (blue
+line), and annual gold YoY % change (gold/grey bars on a secondary axis).
+This makes the real-rate-as-primary-driver story visible alongside the
+2022-26 break in that model.
+
+If the FRED fetch fails, falls back to embedded annual-average series.
 
 Run:
     uv run python course/image/week06_gold_real.py
@@ -33,62 +37,81 @@ BASE = "week06_gold_real"
 
 LANG_STRINGS = {
     "en": {
-        "title":    "Real (CPI-adjusted) gold price, 1971-2026",
-        "subtitle": "London PM fix in 2026 dollars. Three real-terms peaks at roughly the same level: 1980, 2011, 2024-26.",
+        "title":    "Real gold price (top) and macro drivers (bottom), 1971-2026",
+        "subtitle": "Top: real (CPI-adjusted) London PM gold in 2026 dollars. Bottom: CPI YoY, real 10y yield, gold YoY % change.",
         "xlabel":   "Year",
-        "ylabel":   "Real USD per troy ounce (2026 dollars)",
+        "ylabel_top": "Real USD per troy ounce (2026 dollars)",
+        "ylabel_left": "CPI YoY / Real 10y yield (%)",
+        "ylabel_right": "Gold YoY (%)",
         "p1980":    "1980 peak\n~\\${v:,.0f}",
         "t1999":    "1999 trough\n~\\${v:,.0f}",
         "p2011":    "2011 peak\n~\\${v:,.0f}",
         "now":      "Apr 2026\n~\\${v:,.0f}",
         "lost1":    "Lost decades\n1980-1999",
         "lost2":    "Lost half-decade\n2012-2018",
-        "footer":   "Sources: FRED GOLDAMGBD228NLBM (London PM fix) deflated by CPIAUCSL.",
+        "cpi":      "CPI YoY",
+        "rr":       "Real 10y yield",
+        "gold":     "Gold YoY",
+        "footer":   "Sources: FRED GOLDAMGBD228NLBM, CPIAUCSL, DFII10/GS10. Real 10y yield = nominal 10y - trailing CPI YoY pre-1997, FRED DFII10 thereafter.",
     },
     "hk": {
-        "title":    "黃金實質價格(CPI 調整),1971-2026",
-        "subtitle": "倫敦下午定盤,以 2026 年美元計。三個實質高峰大致同一水平:1980、2011、2024-26。",
+        "title":    "黃金實質價格(上)與宏觀驅動(下),1971-2026",
+        "subtitle": "上:倫敦下午定盤、以 2026 美元計。下:CPI 按年、實質 10 年息、黃金按年變動。",
         "xlabel":   "年份",
-        "ylabel":   "每盎司實質美元(2026 年幣值)",
+        "ylabel_top": "每盎司實質美元(2026 年幣值)",
+        "ylabel_left": "CPI 按年 / 實質 10 年息(%)",
+        "ylabel_right": "黃金按年(%)",
         "p1980":    "1980 高峰\n約 \\${v:,.0f}",
         "t1999":    "1999 低谷\n約 \\${v:,.0f}",
         "p2011":    "2011 高峰\n約 \\${v:,.0f}",
         "now":      "2026 年 4 月\n約 \\${v:,.0f}",
         "lost1":    "失落二十年\n1980-1999",
         "lost2":    "失落五年\n2012-2018",
-        "footer":   "資料來源:FRED GOLDAMGBD228NLBM(倫敦下午定盤)以 CPIAUCSL 通脹調整。",
+        "cpi":      "CPI 按年",
+        "rr":       "實質 10 年息",
+        "gold":     "黃金按年",
+        "footer":   "資料來源:FRED GOLDAMGBD228NLBM、CPIAUCSL、DFII10/GS10。1997 年前實質息率以名義 10 年減 CPI 滾動年計算。",
     },
     "tw": {
-        "title":    "黃金實質價格(CPI 調整),1971-2026",
-        "subtitle": "倫敦午盤定價,以 2026 年美元計。三個實質高峰大致同一水位:1980、2011、2024-26。",
+        "title":    "黃金實質價格(上)與總經驅動(下),1971-2026",
+        "subtitle": "上:倫敦午盤、以 2026 美元計。下:CPI 年增、實質 10 年殖利率、黃金年增率。",
         "xlabel":   "年份",
-        "ylabel":   "每盎司實質美元(2026 年幣值)",
+        "ylabel_top": "每盎司實質美元(2026 年幣值)",
+        "ylabel_left": "CPI 年增 / 實質 10 年殖利率(%)",
+        "ylabel_right": "黃金年增(%)",
         "p1980":    "1980 高峰\n約 \\${v:,.0f}",
         "t1999":    "1999 低谷\n約 \\${v:,.0f}",
         "p2011":    "2011 高峰\n約 \\${v:,.0f}",
         "now":      "2026 年 4 月\n約 \\${v:,.0f}",
         "lost1":    "失落二十年\n1980-1999",
         "lost2":    "失落五年\n2012-2018",
-        "footer":   "資料來源:FRED GOLDAMGBD228NLBM(倫敦午盤定盤)經 CPIAUCSL 通膨調整。",
+        "cpi":      "CPI 年增",
+        "rr":       "實質 10 年殖利率",
+        "gold":     "黃金年增",
+        "footer":   "資料來源:FRED GOLDAMGBD228NLBM、CPIAUCSL、DFII10/GS10。1997 年前實質殖利率以名義 10 年減 CPI 滾動年估算。",
     },
     "cn": {
-        "title":    "黄金实质价格(CPI 调整),1971-2026",
-        "subtitle": "伦敦下午定盘,按 2026 年美元计价。三个实质高峰水平接近:1980、2011、2024-26。",
+        "title":    "黄金实质价格(上)与宏观驱动(下),1971-2026",
+        "subtitle": "上:伦敦下午定盘、按 2026 美元计价。下:CPI 同比、实质 10 年息、黄金同比变动。",
         "xlabel":   "年份",
-        "ylabel":   "每盎司实质美元(2026 年币值)",
+        "ylabel_top": "每盎司实质美元(2026 年币值)",
+        "ylabel_left": "CPI 同比 / 实质 10 年息(%)",
+        "ylabel_right": "黄金同比(%)",
         "p1980":    "1980 高峰\n约 \\${v:,.0f}",
         "t1999":    "1999 低谷\n约 \\${v:,.0f}",
         "p2011":    "2011 高峰\n约 \\${v:,.0f}",
         "now":      "2026 年 4 月\n约 \\${v:,.0f}",
         "lost1":    "失落二十年\n1980-1999",
         "lost2":    "失落五年\n2012-2018",
-        "footer":   "数据来源:FRED GOLDAMGBD228NLBM(伦敦下午定盘)经 CPIAUCSL 通胀调整。",
+        "cpi":      "CPI 同比",
+        "rr":       "实质 10 年息",
+        "gold":     "黄金同比",
+        "footer":   "数据来源:FRED GOLDAMGBD228NLBM、CPIAUCSL、DFII10/GS10。1997 年前实质收益率以名义 10 年减 CPI 滚动年估算。",
     },
 }
 
 
 # Fallback annual-average gold price (London PM fix, USD/oz).
-# Sources: World Gold Council, LBMA, USGS — public annual averages.
 GOLD_FALLBACK = {
     1971:  41, 1972:  58, 1973:  97, 1974: 159, 1975: 161,
     1976: 125, 1977: 148, 1978: 193, 1979: 307, 1980: 613,
@@ -118,6 +141,22 @@ CPI_FALLBACK = {
     2016: 240.0, 2017: 245.1, 2018: 251.1, 2019: 255.7, 2020: 258.8,
     2021: 271.0, 2022: 292.7, 2023: 304.7, 2024: 313.7, 2025: 322.7,
     2026: 332.0,
+}
+
+# Approximate annual-average nominal 10-year Treasury yield (%) — fallback.
+NOM10Y_FALLBACK = {
+    1971: 6.16, 1972: 6.21, 1973: 6.84, 1974: 7.56, 1975: 7.99,
+    1976: 7.61, 1977: 7.42, 1978: 8.41, 1979: 9.43, 1980: 11.43,
+    1981: 13.92, 1982: 13.01, 1983: 11.10, 1984: 12.46, 1985: 10.62,
+    1986: 7.67, 1987: 8.39, 1988: 8.85, 1989: 8.49, 1990: 8.55,
+    1991: 7.86, 1992: 7.01, 1993: 5.87, 1994: 7.09, 1995: 6.57,
+    1996: 6.44, 1997: 6.35, 1998: 5.26, 1999: 5.65, 2000: 6.03,
+    2001: 5.02, 2002: 4.61, 2003: 4.01, 2004: 4.27, 2005: 4.29,
+    2006: 4.80, 2007: 4.63, 2008: 3.66, 2009: 3.26, 2010: 3.22,
+    2011: 2.78, 2012: 1.80, 2013: 2.35, 2014: 2.54, 2015: 2.14,
+    2016: 1.84, 2017: 2.33, 2018: 2.91, 2019: 2.14, 2020: 0.89,
+    2021: 1.45, 2022: 2.95, 2023: 3.96, 2024: 4.20, 2025: 4.35,
+    2026: 4.40,
 }
 
 
@@ -151,14 +190,36 @@ def _load_real_gold() -> pd.Series:
         return gold * (cpi_now / cpi)
 
 
+def _load_macro() -> pd.DataFrame:
+    """Return DataFrame with columns [cpi_yoy, real10y, gold_yoy] indexed by year."""
+    years = sorted(set(GOLD_FALLBACK) & set(CPI_FALLBACK) & set(NOM10Y_FALLBACK))
+    cpi = pd.Series([CPI_FALLBACK[y] for y in years], index=years, dtype=float)
+    nom = pd.Series([NOM10Y_FALLBACK[y] for y in years], index=years, dtype=float)
+    gold = pd.Series([GOLD_FALLBACK[y] for y in years], index=years, dtype=float)
+    cpi_yoy = cpi.pct_change() * 100.0
+    real10y = nom - cpi_yoy
+    gold_yoy = gold.pct_change() * 100.0
+    return pd.DataFrame({
+        "cpi_yoy": cpi_yoy,
+        "real10y": real10y,
+        "gold_yoy": gold_yoy,
+    }).dropna()
+
+
 def build_fig(s):
     s = {k: (v.replace("$", r"\$") if isinstance(v, str) else v) for k, v in s.items()}
     real = _load_real_gold()
+    macro = _load_macro()
     p = PALETTE_LIGHT
 
-    fig, ax = plt.subplots(figsize=(10.4, 5.8))
+    fig, (ax, ax2) = plt.subplots(
+        2, 1, figsize=(10.6, 8.4),
+        gridspec_kw={"height_ratios": [3, 2], "hspace": 0.35},
+    )
     style_axes(ax, p)
+    style_axes(ax2, p)
 
+    # ---- Top panel: real gold price ----
     ax.axvspan(1980, 1999, color=p["grid"], alpha=0.45, zorder=0)
     ax.axvspan(2012, 2018, color=p["grid"], alpha=0.35, zorder=0)
     ax.text(1989.5, real.max() * 0.93, s["lost1"], ha="center",
@@ -195,15 +256,46 @@ def build_fig(s):
                 ha="right", fontsize=9, color=p["blue"], fontweight="bold",
                 arrowprops=dict(arrowstyle="->", color=p["blue"], lw=1.1))
 
-    ax.set_xlabel(s["xlabel"])
-    ax.set_ylabel(s["ylabel"])
+    ax.set_ylabel(s["ylabel_top"])
     ax.set_xlim(real.index.min() - 1, real.index.max() + 1)
     ax.set_ylim(0, max(real.max(), p1980_v) * 1.18)
     ax.set_title(s["title"], fontsize=13, fontweight="bold", loc="left", pad=24)
     ax.text(0, 1.02, s["subtitle"], transform=ax.transAxes,
             fontsize=10, color=p["muted"])
-    ax.text(0, -0.16, s["footer"], transform=ax.transAxes,
-            fontsize=8.5, color=p["muted"])
+
+    # ---- Bottom panel: macro drivers ----
+    yrs = macro.index.values
+    # Bars: gold YoY on a secondary axis
+    ax2r = ax2.twinx()
+    bar_colors = [p["accent"] if v >= 0 else p["grey"] for v in macro["gold_yoy"]]
+    ax2r.bar(yrs, macro["gold_yoy"], color=bar_colors, alpha=0.45, width=0.8,
+             label=s["gold"], zorder=1)
+    ax2r.axhline(0, color=p["muted"], linewidth=0.5)
+    ax2r.set_ylabel(s["ylabel_right"], color=p["muted"])
+    ax2r.tick_params(axis="y", colors=p["muted"], labelsize=9)
+    ax2r.set_ylim(-50, 130)
+    ax2r.spines["top"].set_visible(False)
+    ax2r.spines["right"].set_color(p["muted"])
+
+    # Lines: CPI YoY and real 10y yield on the primary axis
+    ax2.plot(yrs, macro["cpi_yoy"], color=p["red"], linewidth=1.8,
+             label=s["cpi"], zorder=3)
+    ax2.plot(yrs, macro["real10y"], color=p["blue"], linewidth=1.8,
+             label=s["rr"], zorder=3)
+    ax2.axhline(0, color=p["muted"], linewidth=0.5, linestyle="--")
+    ax2.set_xlabel(s["xlabel"])
+    ax2.set_ylabel(s["ylabel_left"])
+    ax2.set_xlim(real.index.min() - 1, real.index.max() + 1)
+    ax2.set_ylim(-6, 16)
+
+    # Combined legend
+    lines1, labels1 = ax2.get_legend_handles_labels()
+    lines2, labels2 = ax2r.get_legend_handles_labels()
+    ax2.legend(lines1 + lines2, labels1 + labels2,
+               loc="upper right", frameon=False, fontsize=9, ncol=3)
+
+    ax2.text(0, -0.28, s["footer"], transform=ax2.transAxes,
+             fontsize=8.2, color=p["muted"])
 
     fig.tight_layout()
     return fig

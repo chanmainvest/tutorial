@@ -94,6 +94,56 @@ When writing English YouTube scripts, always use the English names (Horace / Ste
 - Animations and interactive demos should make abstract financial concepts tangible — animations carry the explanation in the YouTube script; interactive demos let website readers manipulate the same concept directly.
 - Website is audience-facing (no technical/GitHub details) and hosts the **full** course material — every weekly lesson, side lesson, level overview, course overview, FAQ, disclaimer, and the terminology glossary — across all four languages
 
+## Citing Named Sources — Don't Quote "Horace"
+
+**Never put an attributed quote into Horace's mouth as the
+*authority* for a claim.** Horace is a fictional teaching
+character; readers will eventually realise he is not a real
+investor with a public track record, and a course that backs its
+strongest claims with "as Horace puts it" reads as a single
+unverified voice on the internet. Use Horace as the *narrator and
+synthesiser*, but cite **named, reputable, real-world figures**
+for the substantive points.
+
+**Rules:**
+
+- When making a claim with a famous-quote feel ("X is Y", "every
+  Z rests on W"), find the **named investor / economist /
+  practitioner / regulator** who actually said something close
+  to it and quote them with attribution. Examples:
+  J.P. Morgan ("Gold is money. Everything else is credit.",
+  Pujo Committee 1912), Voltaire on paper money, Keynes on the
+  "barbarous relic," Buffett on gold's lack of cashflow,
+  Ray Dalio on All Weather and gold, Harry Browne on the
+  Permanent Portfolio, Rick Rule on gold sizing, Howard Marks
+  on risk, Jeremy Grantham on commodity supercycles,
+  Christopher Cole / Artemis Capital on the Dragon Portfolio,
+  William Sharpe on the Sharpe ratio, etc.
+- Avoid phrases of the form *"As Horace puts it, [strong
+  claim]"*, *"Horace emphasises that [strong claim]"*, *"Horace's
+  view is [strong claim]"* when the claim is empirical or
+  attributable. Replace with a named source plus a brief Horace
+  framing: *"Ray Dalio's 2024 LinkedIn essay argues … and that
+  framing is the lens this lesson uses."*
+- Horace **can** still own *interpretations*, *frameworks*, and
+  *teaching choices* — e.g. "Horace splits portfolios into a
+  permanent core plus tactical sleeves" — when the framing is
+  pedagogical, not an empirical claim about markets.
+- Where SOUL.md is the source of a strong opinion, **express it
+  through the named investor or research that originally
+  established the idea** (Dalio, Browne, Cole, Mandelbrot,
+  Taleb, etc.), not as Horace's personal pronouncement. SOUL.md
+  is the lens, not the citation.
+- For statistical / regulatory / historical facts (CPI series,
+  Basel III rules, central-bank purchases, tax-code sections),
+  cite the **primary source** (FRED series IDs, BIS / Basel
+  Committee documents, World Gold Council *Gold Demand Trends*,
+  IRS section numbers, etc.).
+
+This rule applies to all reader-facing content (lessons, scripts,
+glossary, FAQ, disclaimer, website pages, translations) in all
+languages.
+
 ## Investment Philosophy (`SOUL.md`) — REQUIRED READING
 
 `SOUL.md` in the repo root contains Horace's personal investment

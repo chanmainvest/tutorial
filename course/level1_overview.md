@@ -22,7 +22,7 @@ This level covers the essential building blocks:
 
 **Weeks 5-8: Asset Classes and Analysis**
 - How bonds work and why they stabilize your portfolio
-- Gold and commodities as diversifiers
+- Gold as the 5,000-year store of value and a portfolio diversifier
 - The discipline of portfolio rebalancing
 - Reading financial statements -- the three essential reports
 
@@ -56,7 +56,7 @@ Level 1 is designed for complete beginners. If you have never invested before, o
 | 3 | Understanding Risk and Return |
 | 4 | The 60/40 Portfolio |
 | 5 | Bonds - Your Portfolio's Shock Absorber |
-| 6 | Gold and Commodities as Diversifiers |
+| 6 | Gold - The 5,000-Year Store of Value |
 | 7 | Portfolio Rebalancing |
 | 8 | Reading Financial Statements - Basics |
 | 9 | Understanding Market Indexes |
@@ -96,7 +96,7 @@ Level 1 is designed for complete beginners. If you have never invested before, o
 
 **Stella:** And then it gets more interesting?
 
-**Horace:** Weeks 5 through 8 expand your toolkit. You will learn how bonds act as a shock absorber in your portfolio, why gold and commodities can reduce volatility, the discipline of rebalancing, and how to read the three core financial statements -- income statement, balance sheet, and cash flow statement.
+**Horace:** Weeks 5 through 8 expand your toolkit. You will learn how bonds act as a shock absorber in your portfolio, why a small permanent gold sleeve has reduced portfolio volatility across multiple historical regimes, the discipline of rebalancing, and how to read the three core financial statements -- income statement, balance sheet, and cash flow statement.
 
 **Stella:** That last one sounds intimidating.
 
