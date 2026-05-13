@@ -1,163 +1,187 @@
 # Code Review
 
-_Generated: 2026-05-10 06:49 UTC — 24 comment(s)_
+_Generated: 2026-05-12 14:12 UTC — 29 comment(s)_
 
 ---
 
-## course/week05_bonds.md
+## course/week07_stocks_equity.md
 
-### `@course/week05_bonds.md:L11-14`
+### `@course/week07_stocks_equity.md:L18-25`
 > **Highlighted text:**
-> or a known coupon,
+> A stock is a fractional ownership share in a real business. Equity is the residual claim on what is left after the business has paid everyone else.
 >
-> should we use the word coupon so early without explaining it first?  should it be interest payment a more layman term
+> you miss the most important thing about ownership, you get to control the company, you can redeploy its capital, you can command its employees.  bring in the two view what is a company here, a) a company exists only to make profit.  b) a company has to make profit to keep it is own existence, to do something that the owner wants to do.   this two different view from business school sharps how the company is run, how as an investor you view the company.  I believe in b)  the ultimate fundamental analysis of a business is whether it can survive and do the thing it says it wants to do openly or accomplish its hidden agenda.   add this view of what is company somewhere in this lesson.  
 
-### `@course/week05_bonds.md:L16-21`
+### `@course/week07_stocks_equity.md:L81-91`
 > **Highlighted text:**
-> And yet — bonds, the simplest instrument, generated the largest single multi-decade trend in modern financial history (a forty-year bull market from 1981 to 2020 in falling yields), and then in 2022 delivered the worst calendar year for US Treasuries on record. Both moves were already inside the four-number contract, waiting for the investor to do the price-yield arithmetic.
+> A pro-rata claim on the company's net assets if it were liquidated tomorrow. (After bondholders, after the tax authority, after employee severance — you are at the back of the line, but you are in the line.)
 >
-> the price yield arithmetic is also the core equation of how to calculate the value of stock price in fundamental analysis.  it is the most important equation in the whole course.   if the next section explain it, then we can keep it short here.
+> you don't really care this as a retail investor buying stock
 
-### `@course/week05_bonds.md:L25-48`
+### `@course/week07_stocks_equity.md:L81-91`
 > **Highlighted text:**
-> They tell you what the market expects. The yield curve, the spread between BAA corporates and 10-year Treasuries, and the TIPS breakeven rate are three separate, daily-quoted, public forecasts of growth, default risk, and inflation. The bond market is the cheapest macro intelligence service on earth.
+> A pro-rata claim on the cash the business generates that management decides to return to shareholders, whether as a dividend or a buyback.
 >
-> also emphasis the bond market is much bigger than the stock market.  the bond market is where the institute plays.  all the stock holding and leverage are underpin by the bond market.  you have to add more "meat" to this.  I am not sure I understand it correct.  the collateral trade.
+> or as retained profit the stock price just keep going up.  the company reinvest the money to grow bigger
 
-### `@course/week05_bonds.md:L25-48`
+### `@course/week07_stocks_equity.md:L81-91`
 > **Highlighted text:**
-> They are the discount rate of everything. Every cash flow on earth — your house, a stock's earnings stream, a private-equity exit, a pension liability — is priced by discounting against the risk-free Treasury curve. When the 10-year yield moves from 1.5% to 4.5%, every long-duration asset on the planet reprices. You cannot understand any other asset class without understanding what its discount rate is doing.
+> A pro-rata vote on shareholder matters — the board of directors, major mergers, the auditor. Realistically, retail votes do not move outcomes; institutional and insider blocks do. But the right exists.
 >
-> start with bond, because it is easy to understand.  then you can learn stock using the lens of bonds.  moreover, in history bonds market was main stream, stock market doesn't have a good reputation in the early days of financial history.   you have to elaborate on this one and double check my historical knowledge
+> what about M&A?
 
-### `@course/week05_bonds.md:L25-48`
+### `@course/week07_stocks_equity.md:L93-102`
 > **Highlighted text:**
-> The 1981-2020 bond bull market is the regime backdrop for almost every "passive works" claim of the last two generations. Horace's regime-shift framing — that we are 40+ years into a passive-investing-friendly regime that has triggers we should watch — sits squarely on top of the bond chart. A generation of investors has never seen a real bond bear market. 2022 was the first warning shot.
+> The mental model that matters is partnership. If you and four friends bought a coffee shop together, each putting up 20% of the capital, every one of you would understand that you own 20% of the shop's profits, 20% of its risk, and 20% of its eventual sale price. A public stock is the same arrangement, scaled to two billion partners and with the operational decisions delegated to a hired CEO. The economic logic is identical. The only thing that changes with scale is your ability to influence the business — which, for a retail investor in a mega-cap, is essentially zero. What does not change is the claim.
 >
-> not really my original framing.  I am pretty sure I learn it from somewhere online.  please do some research and see where I learn it from.  credit is due at where credit is due.  more over have some academic or financial industry big guy underwrite the idea is more convincing.
+> really? partnership?  minor shareholder just want to get a free ride.   you probably need to talk about the capital in capitalism.  you can't talk about stock and equity without talk about its underpinning economical system
 
-### `@course/week05_bonds.md:L25-48`
+### `@course/week07_stocks_equity.md:L104-109`
 > **Highlighted text:**
->  your house, 
+> This framing has an immediate practical consequence. If you would not be willing to own the entire coffee shop at this price, you should not be willing to own one two-billionth of it at the proportional price either. The size of your slice does not change the question of whether the underlying business is worth what you are paying. We will return to this in §2.7.
 >
-> mortgage is also a special type of bond
+> that is no true, as long as there is a bigger sucker to buy it from me, I don't mind own it and flip it.  not everyone is warren buffet.  
 
-### `@course/week05_bonds.md:L178-180`
+### `@course/week07_stocks_equity.md:L140-148`
 > **Highlighted text:**
-> Always compare bonds on YTM, not coupon. The coupon is a contract detail; the YTM is the return you actually earn if you hold to maturity and reinvest at the same rate.
+> Consequence two: when the business does poorly, equity absorbs the downside first. A bad year means the senior claimants still get paid (the lender's coupon is contractual; they sue if you miss it). Profit shrinks. The equity holder eats the entire shortfall. In the limit — bankruptcy — bondholders take haircuts in the 60-80% range; common equity is wiped to zero. The 2008 holders of Lehman Brothers' 5.625% 2013 bonds eventually got about 21 cents on the dollar in liquidation. The holders of Lehman common stock got zero.
 >
-> all interactive panel in the html should have static charts (or multiple charts) for the markdown.
+> for a company that is going to bankrupt, you can use to get your coupon, but you are just wasting your money on the lawyers.   
 
-### `@course/week05_bonds.md:L191-197`
+### `@course/week07_stocks_equity.md:L171-178`
 > **Highlighted text:**
-> The chart below plots the BAA-corporate-minus-10-year-Treasury annual return spread from 1928 through 2024 (Damodaran annual series, BAA being the lowest investment-grade rating). It is the single best long-run historical proxy we have for the realised behaviour of corporate default risk vs Treasuries.
+> A business that earns 10% on its invested capital and reinvests half of those earnings back into the business grows its earning power by roughly 5% per year. The other half is returned to shareholders as dividends or buybacks, which adds roughly 2-3% a year to the shareholder's total return. Add in modest top-line growth from population, productivity, and inflation, and you arrive at the long-run 7-10% number from first principles. No market timing required.
 >
->
-> you talk about BAA without first explaining what is credit rating.  add a segement on credit rating, the rating agency, make fun of the stupid rating letter grade and highligh the conflict of interest problem of the rating agency make their money from the bond issuers.  also cite some real historical events that the rating letter grade totally failed
+> and money losing companies goes out of business.  it is s&p 500 index goes up 10% on average anually long term.  because it only keep the best 500 companies.  if you look at individual companies, most companies goes to zero and bankrupt.  in a long term, all company dies or become irrelevant.   
 
-### `@course/week05_bonds.md:L214-220`
+### `@course/week07_stocks_equity.md:L180-190`
 > **Highlighted text:**
-> For most retail investors the practical answer is: the credit premium is real but small, and the tail risk is asymmetric. Holding investment-grade corporate debt instead of Treasuries earns you maybe 1% extra in normal years and costs you 10%+ in the years that matter most. For diversification against equities, hold Treasuries. For yield-pickup income in retirement, a small allocation to investment-grade corporates is reasonable.
+> The key insight is that equity is the only asset class that compounds the underlying business. When a bond pays you a coupon, you receive cash; the bond itself does not grow. When gold sits in a vault, it sits in the vault; an ounce remains an ounce. When a business retains earnings and reinvests them at a positive return on capital, the business itself becomes larger and more profitable. Your one two-billionth slice is now a slice of a larger pie. That is what compound growth, in the equity context, actually means: not a number on a calculator, but a real-world process by which businesses plough yesterday's profit into tomorrow's productive capacity.
 >
-> what about credit swap and default insurance?  do we need to talk about it in the bond lesson?  it is part of the big bonds complex.  if we talk about it in later lesson, then we can keep it short here but we need to preview it and let the reader know which week we talk about it
+> not true.  most companies doesn't grow and just go bankrupt.  it is a survival bias that companies grow very big.
 
-### `@course/week05_bonds.md:L214-220`
+### `@course/week07_stocks_equity.md:L200-206`
 > **Highlighted text:**
-> For most retail investors the practical answer is: the credit premium is real but small, and the tail risk is asymmetric. Holding investment-grade corporate debt instead of Treasuries earns you maybe 1% extra in normal years and costs you 10%+ in the years that matter most. For diversification against equities, hold Treasuries. For yield-pickup income in retirement, a small allocation to investment-grade corporates is reasonable.
+> The 7% real number is also why we do not chase short-term gambles. The business owner who stays seated for thirty years collects the full compounding curve. The trader who jumps in and out of positions captures only the short-term price oscillation and pays tax and frictions on each round trip — the long-run compounding mechanism is interrupted every time the position is closed.
 >
-> do we teach the sr, jr, different trenches notes in later lessons?  what about collatorals?   it seems we missed one very important definition of bonds, how is it different than bank loan or private equity?
->
-> do we need to add a section on how bonds is traded?  more retail investor don't buy bond directly, please explain why?   retail only buy bonds ETF.  is bonds ETF of corperate bonds a good idea?  it lump different things into one bucket, some are risker than others.  also talk about marketcap weight in bond ETF doesn't work like marketcap weight in stock ETF.   explain why.
+> this 7% is another myth.  use real market data to debunk this myth.  it is more like if your buckets of companies happens to have the 10x or 100x return super stars, it makes up for the other losing or not growing companies in the bucket.   you still have to pick the right companies or cast the net wide enough that it will mathematically include the right companies
 
-### `@course/week05_bonds.md:L224-226`
+### `@course/week07_stocks_equity.md:L214-244`
 > **Highlighted text:**
-> The chart below plots the 10-year US Treasury yield from 1962 through 2026, the longest clean monthly run we have on FRED's DGS10 series.
+> Pay dividends. Send the cash directly to shareholders. For the holder, this is a real cash distribution that hits the brokerage account. Dividends are typically taxed as ordinary income (or qualified dividends at the lower rate, in the US, if the holding period is met). Mature businesses with limited reinvestment opportunities — utilities, consumer staples, integrated oil — return most of their earnings as dividends.
 >
-> do we need to add a section to talk about the debt wall and the refinancing cycle?  those two concept are very important to understand bond
+> add a section to compare bonds and dividend stock.  many retire folks like high dividend stock.  do some historical research on whether dividend is higher or lower than bond yield.  those two in theory should reach an equalibrium, do some research to back me up or tell me I am wrong.
 
-### `@course/week05_bonds.md:L232-248`
+### `@course/week07_stocks_equity.md:L214-244`
 > **Highlighted text:**
-> from 0.5% to 5% in 30 months. As of April 2026, the curve is near 4.2% and the market is debating whether we're in a 1980s- style normalisation or the start of a long secular grind higher.
+> Buy back shares. Use the cash to repurchase the company's own stock in the open market and retire it. The number of shares outstanding falls; your one two-billionth becomes one 1.95-billionth, and so does your claim on every future dollar of profit. Mathematically, a $1 buyback at fair value is identical to a $1 dividend — but with the tax characterisation deferred until you eventually sell, which is why US large-caps have strongly favoured buybacks over dividends since the 1990s.
 >
-> but can the bond goes any higher with the huge government debt?  add some more insight on that one.
+> add the executives pay structure benefit more buy back than paying out divident
 
-### `@course/week05_bonds.md:L250-257`
+### `@course/week07_stocks_equity.md:L246-253`
 > **Highlighted text:**
-> The Horace frame: passive index investing works in regimes where bonds rally and stocks rally together because rates are falling. A generation of investors built the "just buy and hold" intuition on the 1981-2020 backdrop. The trigger that breaks the regime is a sustained rise in long yields. We are watching that trigger fire right now in real time. It is too early to declare the regime over; it is too late to pretend nothing has changed.
+> For the long-term shareholder, the total return of a stock is the sum of (a) the change in earnings per share, (b) the dividends received, and (c) the change in valuation multiple (price/earnings). Over decades, (a) and (b) dominate; over months, (c) dominates. This is the structural reason why the same stock can look like a great investment to a 30-year holder and a terrible one to someone who bought 18 months ago: the time horizon determines which component is doing the work.
 >
-> not just my frame, research on line and cite some big brainy guy or buy stock get rich guy to back me up.
+> or d) got bought.   If buying other company destroy value, being bought must gain value.
 
-### `@course/week05_bonds.md:L265-269`
+### `@course/week07_stocks_equity.md:L246-253`
 > **Highlighted text:**
-> Treasuries are credit-riskless (the US government can print the dollars it owes). They are not price-riskless or purchasing-power-riskless. In 2022 the 10-year lost 18% of its price. In 1973-1981 it lost roughly 40% of its real value. "No default risk" is not the same as "no risk."
+> structural reason why the same stock can look like a great investment to a 30-year holder and a terrible one to someone who bought 18 months ago: the time horizon determines which component is doing the work.
 >
-> you forgot the us treasury downgrade risk.  also government debt in its own currency can also default. it happened before, cite historical reference.  why did it happen btw.
+> nope.  you shouldn't look at your cost base.  whether you should keep holding the stock should have the same reason as whether you should buy the stock
 
-### `@course/week05_bonds.md:L273-278`
+### `@course/week07_stocks_equity.md:L266-272`
 > **Highlighted text:**
-> In nominal terms, yes — you get face plus coupons back. But the real value of those payments depends on inflation between purchase and maturity. A 30-year bond bought at 2% in 2020 is contractually locked in to deliver a real loss if inflation averages 3% over the holding period. Holding to maturity protects you from price volatility, not from inflation.
+> That is not a typo. It does not mean the stock market is a bad investment. It means the stock market's return is concentrated in a small minority of names — historically, the Apples, Microsofts, Amazons, the McDonald's of the 1970s, the Coca-Colas of the 1930s — and the only reliable way to be in those names without also being a brilliant stock-picker is to own all of them. Which is what an index fund does.
 >
-> did we talk about duration in later lessons?  we only talk about credit spread in this lesson.  where the duration risk come from?   I think we have a yield curve in later lesson.  put the preview to that lesson.. check the yield curve lesson make sure it covers everything.
->
-> i guess it is too early to talk about yield curve in level 1.  but yield curve is very important concept in bond trading
+> buying s&p 500 is not owning all of them, just own the best 500 companies
 
-### `@course/week05_bonds.md:L293-296`
+### `@course/week07_stocks_equity.md:L278-284`
 > **Highlighted text:**
-> The coupon is the contract; the yield is the market price. A 10% coupon bond can have a 3% yield (it's trading at a huge premium) and a 1% coupon bond can have a 6% yield (it's at a deep discount). Always compare on YTM, not coupon.
+> First, a single-stock position carries idiosyncratic risk that is not compensated by an extra return. The expected return of any single stock is, in equilibrium, the same as the expected return of the market — but with vastly more variance, including a meaningful probability of going to zero. The market does not pay you to take diversifiable risk. It only pays you to take the systematic risk you cannot diversify away.
 >
-> what is YTM.  I can understand this line because I know the equation.  make sure the reader can also understand the difference between yield and coupon intiutively.  ask them to read the equations and play with the interactive demo to really understand this concept. it is very important.
+> this is emprically false.  you can only calculate the expect return with hindsight.  and there is expect return on a single stock, only the actual return.  
 
-### `@course/week05_bonds.md:L301-305`
+### `@course/week07_stocks_equity.md:L286-294`
 > **Highlighted text:**
-> The historical credit premium is 1%-2% in the average year and -10%-or-worse in the years that matter (1932, 1974, 2008, 2020). Credit spread is insurance you sell to companies in exchange for steady income, with rare large losses. Selling insurance isn't free income; it's a structurally negatively-skewed payoff.
+> Second, the math of why a basket works is not "law of large numbers smooths things out" in some vague sense. It is that the right tail of the distribution — the few mega-winners — is nearly certain to be in any sufficiently broad basket, while the left tail — the bankruptcies, the slow declines, the merger- to-zero — gets diluted to a manageable fraction. You are paid the average. The average is fine. The mode is awful. Owning the index gets you the average; trying to pick the winners exposes you to the mode unless you really are a brilliant stock-picker.
 >
-> huh?  credit spread is insurance you sell to companies?  I thought it is compensation of the higher risk of default?   and what is structurally negatively skewed payoff means?  please explain it in layman term too.
+> owning index sounds simple, but which index?  saying owning index is oversimplified.  and you don't need to be brilliant stock picker, there are many slow moving train wreck or some trade that is common sense that the price is good deal on risk-return basis.   you need to be a brilliant stock picker to invest is a lie from the financial advisors to scare people from direct investing.  you don't have to pick a single company, you can pick the whole sector or pick the whole index minus some bad companies
 
-### `@course/week05_bonds.md:L310-315`
+### `@course/week07_stocks_equity.md:L313-323`
 > **Highlighted text:**
-> Longer maturity earns the term premium — but with much higher duration risk. The Sharpe ratio of long Treasuries is comparable to or worse than that of intermediate Treasuries over most historical windows. Reach for the term premium only if you have a specific liability that matches that maturity, or you are explicitly making a duration bet.
+> Some days he is depressed and quotes a low price. The business is unchanged from one day to the next.
 >
-> what is duration bet?  for liability matches that maturity only insurance care about it.  why can't you just roll short bond into long bond?  it only make sense if long bond has high yield.  what about yield curve inversion, it happens quite often.   probably too early to talk about yield curve this early, make a note to the yield curve lesson.
+> not true.  news got leaked, legal insider front run the market.  this paragraph paints the wrong picture.  keep this wrong picture, but you have to tell the real picture of the financial market.  perfect information theory is NOT true.   it is inform clearing house, and not all buyer or seller has the same information 
 
-### `@course/week05_bonds.md:L320-323`
+### `@course/week07_stocks_equity.md:L325-330`
 > **Highlighted text:**
-> TIPS are better when inflation surprises upward relative to the breakeven rate priced into them. They are worse when inflation surprises downward, or when the breakeven is expensive. TIPS are a relative trade against nominal Treasuries, not a free upgrade.
+> That is the right relationship to have with a stock price. The stock price is not a measurement of the business; it is an offer from the most emotional voter in the market. Most days, the offer is roughly right. Some days, the offer is wildly off. You only need to act when it is wildly off, and only in the direction the offer is wrong.
 >
-> the main body of this week's lesson didn't talk about TIPS and float rate bonds at all.  add them to the main content.  talk about what are they, when they are useful, when is not.  when you are buying those, exactly what you are betting on compare to a vanilla bond, what is the trade off.  also mention Canada no longer has tips bonds now, and cite the reason.
+> not true.  you are trading against the algo and bot and hedge fun and the market dealer mostly.  there is no emotional voter.   stock is a measurement of the bussiness, it is a leading indicator, pretty accurate too if you factor in the speed of information and the microscopic level random walk  in the market.  for long term, the market is a truth machine.
 
-### `@course/week05_bonds.md:L328-333`
+### `@course/week07_stocks_equity.md:L334-341`
 > **Highlighted text:**
-> European and Japanese institutional investors held trillions of dollars in negative-yielding bonds during 2014-2021 because: liability-matching, regulatory capital requirements, currency hedging carry, and price upside if rates went more negative. "It makes no sense for me as a retail investor" is correct. "It makes no sense for anyone" is wrong.
+> Volatility is not risk. A stock that drops 30% in a month has not become a worse business — the underlying earnings, the balance sheet, the competitive position are nearly unchanged in 30 days. What has changed is the price Mr. Market is offering. If the business is unchanged and the price is lower, the stock is, by construction, cheaper — not riskier. The behavioural mistake of treating a price drop as new information about business quality is what generates the Dalbar gap we will study in Week 11.
 >
-> state it explicitly government force people to buy negative yielding bonds by law.  cite proper regulation.  otherwise, unless you are doing FX trade or betting on the rate will go further down, there is no reason to buy negative-yielding bond.  for liability matching, negative yieldling bond still doesn't make sense, you can just hold cash or paper money unless you are not allowed
->
-> what about perpetual bonds?  this lesson doesn't even mention it.  and those 99 years bond.  please add section in the main body to talk about common years of bonds.  add a chart distribution of bond maturity by percentage in total value.
->
-> also this lesson does talk about callable bonds.  what about convertable bonds?  do we talk about it in later lessons?
->
+> not true.  it is the same company 30 days ago, just 30 days ago, people don't know it is rotten yet.
 
-### `@course/week05_bonds.md:L360-365`
+### `@course/week07_stocks_equity.md:L343-350`
 > **Highlighted text:**
-> duration bet
+> Price is what you pay; value is what you get. Buffett's formulation. The price you see on the screen is a single data point — the last trade between two anonymous voters. The value of the business is the present value of every future cash flow the business will distribute to its owners over its remaining life. The two numbers are related, but they are not the same number, and treating them as the same is the most expensive unforced error a long-term investor can make.
 >
-> what is a duration bet?
+> you can't make money on value, you can make money on price.  price can catch up to value, or value can catch up to price, it goes both way.  the problem is how do you know the real value of a business, not even the business owner himself knows the true value of a business.  those 2 number need to converge at some point down the road or it is a market failure.  the textbook level what is stock is technically correct, but conceptually wrong.
 
-### `@course/week05_bonds.md:L369-375`
+### `@course/week07_stocks_equity.md:L343-350`
 > **Highlighted text:**
-> A: A TIPS' principal adjusts upward with CPI. The coupon rate is fixed but applies to the inflation-adjusted principal, so dollar coupons grow with inflation too. The "real yield" you see quoted on TIPS is the yield above CPI. Buy TIPS when you think realised inflation will exceed the breakeven (the difference between nominal and TIPS yields). In April 2026 the 10-year breakeven is about 2.4%; TIPS win if average CPI over the next decade exceeds that.
+> The price you see on the screen is a single data point
 >
-> remember week 1, we talked about CPI is rigged?  remind the reader TIPS won't protect you from inflation.  also if CPI goes up but rate hike follows, the benefit of TIPS bond higher interest but lower price cancel out each other.   what is 10-year breakeven.  how to calculate it.  you probably want to add a section on TIPS in the main content.  how well did the breakeven rate predict CPI in the future?   
+> not true, you see at least two data point, bid-ask.  and there are a lot more data on the screen, like option premium, trade volumne, level 1 and level 2 books, open position, short ratio, float, earning calendar, etc. 
 
-### `@course/week05_bonds.md:L388-395`
+### `@course/week07_stocks_equity.md:L434-440`
 > **Highlighted text:**
-> A: The yield curve is yields plotted against maturity (3-month, 1-year, 5-year, 10-year, 30-year). Normally upward-sloping (longer = higher yield). When the 2-year exceeds the 10-year — the inverted curve — it has historically been the single best recession leading indicator, with a 12-24 month lead. April 2026 state: curve has just un-inverted after a record-long inversion. Whether the post-inversion recession is now off the table or merely delayed is the live debate.
+>  Done at a price above intrinsic value, a buyback destroys shareholder value. 
 >
-> refer the yield curve lesson in later week N.  what is N?
+> but it elevate the shareholder price.  price is ultimately what matters.  and as retail investor, if you don't like a business, you can always sell it.  no one force you to hold.  
 
-### `@course/week05_bonds.md:L436-442`
+### `@course/week07_stocks_equity.md:L442-454`
 > **Highlighted text:**
-> A: Week 4 used Treasuries as a black box; this week opens the box. Week 13-14 (the barbell) chooses short Treasuries over long for the safe sleeve based on §2.4. Week 31-34 covers the 2022 inflation break in macro detail (the regime story behind the yield-history chart). Week 32 specifically does the rigorous duration and convexity math. Week 47 and 50 cover long-volatility / managed- futures overlays that hedge the inflation tail that bonds can't.
+> Misconception 5: "If I just pick five great companies, I'll beat the index."
 >
-> missing the yield curve week 
+> The Bessembinder data argues otherwise. Roughly half of all stocks underperform T-bills on a buy-and-hold basis. A five-stock portfolio has a meaningful probability of containing zero of the right-tail mega-winners. The expected return of the five-stock portfolio equals the market return, but the variance is enormous — including a non-trivial chance of catastrophic underperformance. You only beat the index if you are systematically better than the market at identifying winners, and the long-run evidence is that even most professional managers are not.
+>
+> but no one pick 5 random companies.  if 5 cannot, what about 100?  nasdaq 100 beats s&p 500 and beats russell 3000.  do more research and find me some paper to correct those out of date ideas.
+
+### `@course/week07_stocks_equity.md:L470-477`
+> **Highlighted text:**
+> Only if the business value has not also fallen by 50% (or more). Some 50% drops are panicked Mr. Market mood swings — the business is intact, the price is wrong, and the drop is a buying opportunity. Some 50% drops are accurate repricings of a business whose competitive position has eroded, whose end market has evaporated, or whose balance sheet has cracked. The price drop alone does not tell you which case you are in. Reading the business does.
+>
+> don't you realize the previous paragraph in the main content saying it is the same company 30 days ago directly contradict to this one
+
+### `@course/week07_stocks_equity.md:L481-487`
+> **Highlighted text:**
+> In this context they are interchangeable. Stock is the financial instrument; equity is the underlying ownership claim it represents. When the financial press says "the equity rallied," they mean the stock price rose. When an accountant says "shareholders' equity is $40 billion," they mean the residual book value of the business after subtracting all liabilities from all assets. Same concept, different angle.
+>
+> I am surprise you didn't talk about market cap in the whole lesson at all.  market cap is one of the most important factor when look at the companies. because it is how index fund pick what companies to include
+
+### `@course/week07_stocks_equity.md:L492-498`
+> **Highlighted text:**
+> The right-tail-winner phenomenon is a permanent feature of the equity market, not a one-time event. Today's mega-caps were small in 1990. Today's small caps include the next mega-caps — and a far larger number of companies that will fail. You cannot identify the winners ex ante with high reliability. The lesson is to own the basket so that the winners — whoever they turn out to be — are guaranteed to be in your portfolio.
+>
+> between big and small, there are mid size companies.  those who survived the first hurdle and clear the 1B bar and on a rising path is more like to hit 10B, 100B, etc.  S&P500 do identify winners ex ante.  do you see your contradiction?
+
+### `@course/week07_stocks_equity.md:L572-583`
+> **Highlighted text:**
+> A: It means that if the company sold every asset at the value recorded on the books, paid off every liability, and handed the remainder to common shareholders, the remainder would be $50 billion. That number is an accounting construct (book value) and it is usually quite different from the market value of the equity (share price × shares outstanding) and from the intrinsic value (present value of future cash flows). The three numbers should bear some relationship to each other for a healthy business. When they diverge wildly, it usually means the accounting is failing to capture the real economics — intangible assets, off-balance-sheet liabilities, or growth optionality that the books don't show.
+>
+> is it only useful for asset heavy companies.  what about can this number be negative?  what does it mean if it is negative?
+
+### `@course/week07_stocks_equity.md:L628-641`
+> **Highlighted text:**
+> Q10: How does Horace personally approach individual stocks versus the index?
+>
+> A: The framework Horace uses for the bulk of household equity exposure is the broad index — it captures the right-tail winners without requiring stock-picking skill, and it minimises the idiosyncratic-risk channel that has destroyed so much retail wealth. Individual-name positions live outside the indexed sleeve, are sized small (rarely more than 2-3% of the equity allocation per name), and are reserved for situations where the research has identified a specific business-versus-price gap worth expressing. The base case for almost every retail investor should be: index for size, single names for conviction, never the other way around.
+>
+> remove this question.  
 
 ---

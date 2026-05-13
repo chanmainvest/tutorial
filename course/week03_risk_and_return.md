@@ -917,7 +917,8 @@ topic but the framing matters for how you read this lesson.
 **Q10: How does this lesson connect to the rest of the course?**
 
 A: Risk and return are the foundation under everything that follows.
-Week 4 (60/40) and Week 7 (rebalancing) are exercises in shaping the
+Week 4 (60/40) and Week 11 (rebalancing as behavioural discipline)
+are exercises in shaping the
 risk profile of a multi-asset portfolio. Week 13 onwards (long/short,
 pair trading) are about removing systematic risk and isolating
 specific bets. Weeks 25–30 (options) are the toolkit for *expressing*

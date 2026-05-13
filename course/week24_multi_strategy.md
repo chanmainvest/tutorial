@@ -392,7 +392,7 @@ arithmetic; revisit it whenever the front end re-prices.
 **Q: How do I rebalance a multi-strategy book?**
 A: Calendar rebalance once a year, plus a tolerance band (e.g.
 re-balance if any sleeve drifts more than 5 percentage points
-from target). Do not rebalance on intuition. Week 7 covers the
+from target). Do not rebalance on intuition. Week 11 covers the
 mechanics.
 
 **Q: What if my alpha sleeve has a great year — should I increase it?**

@@ -23,13 +23,13 @@ This level covers the essential building blocks:
 **Weeks 5-8: Asset Classes and Analysis**
 - How bonds work and why they stabilize your portfolio
 - Gold as the 5,000-year store of value and a portfolio diversifier
-- The discipline of portfolio rebalancing
+- Stocks and equity -- what you actually own when you buy a share
 - Reading financial statements -- the three essential reports
 
 **Weeks 9-12: Market Context and Your First Portfolio**
 - How market indexes are built and what they measure
 - Economic cycles and how they affect different asset classes
-- Behavioral biases -- the psychological traps that hurt investors
+- Behavioral biases and rebalancing -- the rules that protect you from yourself
 - Putting it all together to build your first real portfolio
 
 ### What You Will Be Able to Do After Level 1
@@ -57,11 +57,11 @@ Level 1 is designed for complete beginners. If you have never invested before, o
 | 4 | The 60/40 Portfolio |
 | 5 | Bonds - Your Portfolio's Shock Absorber |
 | 6 | Gold - The 5,000-Year Store of Value |
-| 7 | Portfolio Rebalancing |
+| 7 | Stocks and Equity - Owning a Piece of a Business |
 | 8 | Reading Financial Statements - Basics |
 | 9 | Understanding Market Indexes |
 | 10 | Economic Cycles and Your Portfolio |
-| 11 | Behavioral Biases - Your Brain vs Your Money |
+| 11 | Behavioral Biases and Rebalancing |
 | 12 | Building Your First Portfolio |
 
 ---
@@ -96,11 +96,11 @@ Level 1 is designed for complete beginners. If you have never invested before, o
 
 **Stella:** And then it gets more interesting?
 
-**Horace:** Weeks 5 through 8 expand your toolkit. You will learn how bonds act as a shock absorber in your portfolio, why a small permanent gold sleeve has reduced portfolio volatility across multiple historical regimes, the discipline of rebalancing, and how to read the three core financial statements -- income statement, balance sheet, and cash flow statement.
+**Horace:** Weeks 5 through 8 expand your toolkit. You will learn how bonds act as a shock absorber in your portfolio, why a small permanent gold sleeve has reduced portfolio volatility across multiple historical regimes, what stock and equity actually mean as a fractional ownership claim on a real business, and how to read the three core financial statements -- income statement, balance sheet, and cash flow statement.
 
 **Stella:** That last one sounds intimidating.
 
-**Horace:** It is not as hard as it looks once you know what to focus on. Then in Weeks 9 through 12, we put it all together. You will understand how market indexes work, how economic cycles affect your investments, the behavioral biases that cause most investors to buy high and sell low, and finally, you will build your first real portfolio.
+**Horace:** It is not as hard as it looks once you know what to focus on. Then in Weeks 9 through 12, we put it all together. You will understand how market indexes work, how economic cycles affect your investments, the behavioral biases that cause most investors to buy high and sell low — and the rebalancing rules that mechanically force you to do the right trade when your brain wants to do the wrong one — and finally, you will build your first real portfolio.
 
 **Stella:** So by Week 12, I will actually have a portfolio?
 

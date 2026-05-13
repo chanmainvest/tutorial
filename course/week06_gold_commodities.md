@@ -1044,9 +1044,10 @@ A: Week 4 introduced the 60/40 framework, and Week 5 covered the
 bond leg in depth. This lesson adds gold as a *third* asset that
 diversifies both stocks and bonds in regimes where
 bond/equity correlation breaks down (2022 being the textbook
-example). Week 7 covers rebalancing, which is the mechanic that
-turns the gold/stock/bond mix into the realized diversification
-benefit shown in §2.4. Week 15 puts the multi-asset book
+example). Week 11 covers rebalancing as part of the behavioural
+discipline lesson — it is the mechanic that turns the
+gold/stock/bond mix into the realized diversification benefit
+shown in §2.4. Week 15 puts the multi-asset book
 together, and Week 27 (Covered Calls), Week 28 (Cash-Secured
 Puts), and Week 38 (LEAPS Replacement) cover the option overlays
 that the §2.11 tax discussion alludes to. Week 39 covers
@@ -1758,10 +1759,10 @@ post-1971 pure-fiat dollar has fifty-five. That asymmetry is
 why a small permanent gold sleeve sits in most thoughtful
 portfolios.
 
-**Stella:** Next week we cover rebalancing — when, why, and
-the math of disciplined trim-and-add. That's the mechanic
-that turns the multi-asset mix from this lesson into the
-realized diversification benefit you saw in the regime chart.
+**Stella:** Next week we open the box on what a stock and equity
+actually *are* — a fractional ownership claim on a real business,
+the residual position in the capital stack, and why one stock is
+a lottery while the index is an asset class.
 
 **Horace:** See you then.
 

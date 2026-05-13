@@ -342,7 +342,7 @@ personal.
 
 **Q: How do I rebalance a four-tranche book?**
 A: Once a year, in January, mechanically. If any sleeve is more than
-5 percentage points off target, trade it back. Week 7's interactive
+5 percentage points off target, trade it back. Week 11's interactive
 shows that band rebalancing beats calendar rebalancing slightly on
 turnover but the gap is small — what matters is doing it at all.
 

@@ -1,4 +1,4 @@
-# Week 11: Behavioral Biases — Why Your Brain Can't Run the Strategy Your Spreadsheet Recommends
+# Week 11: Behavioral Biases and Rebalancing — Rules That Protect You From Yourself
 
 ---
 
@@ -61,8 +61,15 @@ You need to understand behavioural biases for four reasons.
 This lesson covers loss aversion, recency bias, anchoring, herding
 and FOMO, the disposition effect, narrative fallacy, and
 overconfidence — the seven behaviours that, between them, account
-for nearly all of the Dalbar gap. Then it shows you the systems
-that work *because* they take the decision out of your hands.
+for nearly all of the Dalbar gap. Then it covers the single most
+powerful counter-system to those biases: **rebalancing**. Rebalancing
+is usually taught as portfolio mechanics. It is more honestly
+understood as a *behavioural rule* — a pre-committed instruction
+that forces you to do the right trade at the moment your wired-in
+biases would have you do the opposite. We close on the broader set
+of system designs (automated contributions, written policy
+statements, position-size limits) that work *because* they take the
+decision out of your hands.
 
 ---
 
@@ -271,6 +278,206 @@ underperforms, by roughly the Dalbar-gap-size or worse, in nearly
 every parameter combination. Behaviour is the most expensive line
 item in the portfolio.
 
+#### 2.8 Rebalancing as the Anti-Bias Rule — Drift, and Why a Portfolio Will Not Stay Where You Put It
+
+Rebalancing is usually taught as portfolio mechanics — set a target
+allocation, trim what has drifted up, top up what has drifted down.
+It is genuinely all of those things. But the *reason* it survives
+as a discipline, after seventy years of academic and practitioner
+debate, is behavioural. Rebalancing is the cleanest implementation
+of "buy low, sell high" that exists, and it is the only one that
+works *without* requiring the human holding the keyboard to
+override loss aversion, recency bias, and FOMO at the exact moments
+those biases are loudest.
+
+Start with the mechanical case. Two assets with different returns
+and different volatilities cannot hold their relative weights for
+long. Higher-return assets compound their share of the pie;
+lower-return assets shrink in proportion. Even in a single calm
+decade the drift is large.
+
+The image below runs the 2010–2019 decade — stocks compounding at
+roughly 13.6% per year and 10-year Treasuries at roughly 3.7% — on
+a $100,000 starting 60/40 portfolio under two policies. The top
+panel holds no rebalances at all over the ten years. The bottom
+panel rebalances back to 60/40 every January.
+
+![Top panel, no rebalancing over 2010-2019: starting 60/40 stock-bond mix on a $100,000 portfolio, the stock weight climbs steadily as US stocks compound at ~13.6% annually while Treasuries earn ~3.7%, ending the decade near 78/22. The bond sleeve shrinks visibly as a fraction of the total. Bottom panel, annual rebalance: the stock weight oscillates within a couple of percentage points of 60% all decade, returning each January to the target while leaving the absolute-dollar wealth path almost identical.](image/week11_drift.png)
+
+The end-state of the no-rebalance portfolio is not 60/40 and never
+was after the first year. By 2019 it sat at about 78/22 — closer
+to the textbook "aggressive" allocation than to the "balanced" one
+the investor originally chose. When the COVID crash arrived in
+March 2020 that drifted portfolio dropped roughly two percentage
+points more than the rebalanced version, on a much larger asset
+base. The investor who never rebalanced did not consciously become
+more aggressive in 2019. They drifted there.
+
+That drift is the behavioural problem before any human ever pushes
+a button. Even if the investor *did nothing* — which would seem to
+be the most behaviourally inert outcome possible — the portfolio
+itself silently re-priced its risk by roughly fifty percent. The
+"do nothing" investor ends up holding a portfolio they never
+agreed to hold, sized for a risk tolerance they never committed
+to. The next bear market then arrives in a stranger's portfolio.
+
+#### 2.9 Calendar vs Threshold, and Why the Choice Barely Matters
+
+There are two principled ways to decide *when* to rebalance.
+
+**Calendar rebalancing** picks a fixed date — typically annual,
+occasionally semi-annual or quarterly — and trims back to target
+on that date regardless of how far the portfolio has drifted. The
+merit is operational: one calendar entry per year, automatable by
+most brokerages, no surprises in tax planning.
+
+**Threshold (or band) rebalancing** ignores the calendar and only
+triggers a rebalance when one asset class has drifted beyond a
+fixed percentage band — say, ±5 absolute percentage points around
+the target, so a 60% stock target rebalances at 55% or 65%. The
+merit is efficiency: in a calm year you do nothing; in a violent
+year (1987, 2008, 2020) you rebalance multiple times, capturing
+the mean reversion that calendar rules miss.
+
+The image below compares four policies on the full 1928–2024
+Damodaran dataset of US stocks and 10-year Treasuries: never
+rebalance, rebalance annually, rebalance semi-annually, and a 5%
+band. The bars show geometric annualised return, realised
+volatility, and worst-year drawdown for each policy.
+
+![Bar chart comparison of four rebalancing policies on the Damodaran 1928-2024 60/40 stock/bond data: 'never rebalance' delivers the highest end-state arithmetic exposure but also the largest realised volatility and deepest drawdown because it ends the period at near-90/10. The annual, semi-annual, and 5%-band policies cluster tightly together in geometric return (within ~0.1% of each other), with materially lower volatility (~10% vs ~13%) and shallower drawdowns. The 5%-band policy shows the lowest turnover-adjusted return.](image/week11_method_comparison.png)
+
+Three readings come out of this chart.
+
+First, **rebalancing reduces volatility and drawdowns more than it
+changes the return.** All three rebalanced policies finish within
+about ten basis points of each other in geometric return. The
+story is in the risk columns, not the return column.
+
+Second, **the difference between annual, semi-annual, and 5% band
+is genuinely small.** Pick one, run it for thirty years, and you
+will get within a few basis points of any other reasonable rule.
+This is a place where over-engineering pays nothing.
+
+Third, **never-rebalance is the worst of the four on a
+risk-adjusted basis.** Higher absolute return, but realised
+volatility runs about 16% versus roughly 12% for the rebalanced
+policies — a 30% jump in risk for a return that is itself an
+artefact of the portfolio having drifted to near-90/10 by the end.
+The investor who refuses to rebalance is not running a 60/40
+portfolio; they are running a slowly-creeping all-equity portfolio.
+
+There is a small additional reward for rebalancing called the
+**rebalancing premium** (or *volatility harvesting*, after Claude
+Shannon's coin-flip thought experiment). Periodic rebalancing of
+two volatile, imperfectly-correlated assets extracts a small extra
+return on top of the weighted-average return of the components,
+purely from the path of prices. For a 60/40 of US stocks
+($\sigma=16\%$) and Treasuries ($\sigma=6\%$) at correlation
+$\rho=-0.3$, the premium works out to about 0.3% per year. Real,
+but small — and it disappears when correlations turn positive, as
+they did in 2022. Frame it correctly: the premium is not the reason
+to rebalance. The reason to rebalance is risk control and
+behavioural discipline. The premium is a lagniappe.
+
+#### 2.10 Why Rebalancing Is the Anti-Recency, Anti-FOMO, Anti-Capitulation Trade
+
+Now connect the mechanics back to the seven biases above.
+
+Look at what the rebalance trade *does*, mechanically, at the
+moments it fires:
+
+- **In March 2009**, with the S&P down 56% from its 2007 high,
+  the textbook 60/40 rebalancer was a mechanical buyer of stocks
+  at the cycle low. They did not have a view. They did not call
+  a bottom. They were *forced* by the rule to top up the
+  bond-heavy portfolio with cheap equity. Five years later that
+  purchase had doubled. **That is the exact opposite of the
+  capitulation trade** that retail investors made in record
+  numbers that month — the trade that produced the largest
+  individual contribution to the Dalbar gap of the entire
+  twenty-year window.
+- **In December 2021**, with the S&P up 28% on the year and
+  bonds soft, the same rebalancer was a mechanical seller of
+  stocks at what turned out to be a cycle peak. Again no view,
+  no call. **That is the exact opposite of the FOMO trade** —
+  adding equity exposure after a great year — that recency bias
+  was screaming at every retail investor to make.
+- **In any year a single name drifts to 30% of the portfolio**,
+  the rebalance rule says trim it back to its target weight.
+  That is the exact opposite of the **disposition effect** —
+  riding winners and refusing to ever ring the cash register —
+  and it is the exact opposite of the **anchoring** mistake of
+  refusing to sell because "the cost basis is so low."
+
+Notice the pattern. *Every* bias we covered above pushes the
+investor toward a specific trade. Every rebalance fires the
+*opposite* trade. That is not a coincidence. That is what makes
+rebalancing the single most effective behavioural-defence rule
+in the toolkit: it is the systematic engine that places the
+correct contrarian trade at the moment the human is least
+capable of placing it on their own.
+
+This is why "I'll rebalance when I feel like it" or "I'll skip
+this year's rebalance because the news is bad" defeats the entire
+point. The rule's value is *exactly* in the moments the human
+wants to override it. Discretionary rebalancing is no rebalancing
+at all. It is a re-entry of the bias under a different name.
+
+#### 2.11 Tax-Aware Implementation — How to Rebalance Without Bleeding
+
+The behavioural case for rebalancing is overwhelming. The
+*operational* case has one wrinkle: every rebalance trade in a
+taxable account is a potential realisation of capital gains. A
+0.3% rebalancing premium is wiped out by a single realisation
+event with a meaningful unrealised gain. So while you must
+rebalance, you should rebalance *cleverly*.
+
+The hierarchy of tax-aware rebalancing, in increasing order of
+desirability:
+
+1. **Sell-to-rebalance in a taxable account.** Worst case.
+   Realises gains, locks in tax. Use only when no other lever
+   works.
+2. **Sell-to-rebalance with tax-loss harvesting.** Pair the sale
+   of appreciated overweight assets with the sale of any genuinely
+   underwater positions to offset the gains.
+3. **Direct new contributions.** Funnel monthly cash inflows into
+   whichever sleeve is below target. No realisation, no tax. This
+   is the right answer for any investor still in the accumulation
+   phase, and it is enough to keep most portfolios within a few
+   percent of target indefinitely.
+4. **Rebalance in tax-advantaged accounts only.** If your full
+   portfolio is split across IRA, 401(k), and taxable brokerage,
+   the rebalance trades happen *inside* the IRA where all gains
+   are tax-deferred, while the taxable account holds whichever
+   slice of the allocation needs the least turnover (typically the
+   long-term equity sleeve).
+5. **Use dividends and interest.** In retirement, the cash thrown
+   off by the bond sleeve and dividend stocks naturally lands in
+   cash. Direct that cash to whichever sleeve is below target
+   before reinvesting on autopilot.
+
+For most readers of this course, the working answer is a
+combination of (3) during the working years and (4) once
+contributions slow. (1) is reserved for the quinquennial cleanup
+when bands have stretched too far for contributions alone to fix.
+
+A note on the 2022 case. In 2022 the S&P 500 returned −18.1%, the
+10-year Treasury returned −17.8%, and the 60/40 portfolio finished
+near −18.0%. The naive rebalancer asks: do I sell stocks to buy
+bonds, or sell bonds to buy stocks? Both are down nearly equally.
+There is no winner to trim and no loser to top up. The mechanical
+answer is unsatisfying but correct: **rebalance back to target
+weights anyway.** If at year-end you sit at 59/41, trim 1% off
+bonds and buy 1% of stocks. The trade is small, the rebalancing
+premium that year is essentially zero, but you are placing the
+correct trade for the *next* year. A regime change in correlation
+does not change the rule; it just changes the size of the premium
+the rule earns. Skipping the rebalance because "it doesn't matter
+this year" is a discretionary act — exactly the kind of discretion
+the rule exists to prevent.
+
 ---
 
 ### 3. Common Misconceptions
@@ -337,6 +544,42 @@ volatility (~16-20% σ), which means a 30% drawdown is roughly
 once-per-decade. Diversification limits idiosyncratic risk; it
 does not remove the behavioural temptation to sell during a
 systematic drawdown.
+
+**Misconception 9: "Rebalancing is a market-timing trade in
+disguise."**
+
+It is the opposite of market timing. Market timing forms a *view*
+on near-term direction. Rebalancing has no view; it mechanically
+restores a fixed target. The two strategies do *opposite* trades
+at exactly the moments they disagree — the market timer chases
+the recent winner; the rebalancer trims it.
+
+**Misconception 10: "Rebalancing always increases return."**
+
+It does not. The rebalancing premium is small (typically
+0.1%–0.4% per year for a 60/40) and disappears entirely when the
+correlation between sleeves runs positive. The *reason* to
+rebalance is risk control and behavioural discipline, not return
+enhancement.
+
+**Misconception 11: "I shouldn't rebalance during a bear market."**
+
+This is the most expensive rebalancing mistake on the list. The
+bear market is exactly when the rebalance trade is most valuable,
+because that is when you are buying the lower-priced asset.
+Investors who suspended rebalancing in 2008–09 and resumed in
+2010 locked in a permanent underperformance against
+rule-followers. Skipping the rebalance is, behaviourally, a
+capitulation trade dressed up in cautious language.
+
+**Misconception 12: "More frequent rebalancing is better."**
+
+There is essentially no difference in long-run outcomes between
+quarterly, semi-annual, and annual rebalancing on a stock-bond
+portfolio. Daily or weekly rebalancing is actively *worse* —
+trading costs and bid-ask spreads dominate the negligible
+incremental premium. Annual is the institutional default for a
+reason.
 
 ---
 
@@ -438,6 +681,61 @@ a tax-law change). Automation is "trust the spreadsheet most of
 the time"; understanding is "know which 1% of the time the
 spreadsheet is wrong."
 
+**Q11: What is the optimal rebalancing frequency?**
+
+A: For tax-deferred accounts, annual is the conventional answer
+and dominates by simplicity. For taxable accounts, *event-driven*
+rebalancing — only when a 5%–10% band has been breached —
+minimises realisations. Either is fine. The least good answer is
+"monthly," which adds friction without adding return, and
+"whenever I feel like it," which silently re-introduces the
+biases the rule exists to suppress.
+
+**Q12: What is the right band width for threshold rebalancing?**
+
+A: 5 absolute percentage points around the target is a standard
+default for a 60/40. 10pp is reasonable for an investor who
+values inactivity. 1pp is too tight — the band fires constantly
+and the turnover eats the premium. The choice depends on tax cost
+and brokerage friction more than on theory.
+
+**Q13: Should I rebalance my 401(k), IRA, and brokerage account
+separately or jointly?**
+
+A: Jointly. Treat the *household* portfolio as one allocation.
+Place the high-turnover trades inside the IRA or 401(k), where
+they are tax-free, and keep the taxable account as the long-term
+buy-and-hold sleeve. This single decision saves more in lifetime
+taxes than nearly any other portfolio choice.
+
+**Q14: Can I just rebalance with new monthly contributions and
+never sell anything?**
+
+A: Yes, as long as the contributions are large relative to the
+drift. A working professional contributing 15% of salary into a
+balanced portfolio rarely needs to do a sell-rebalance trade in
+the accumulation phase. Once contributions slow (retirement, sale
+of a business), supplementary calendar or band rebalancing kicks
+in.
+
+**Q15: What about rebalancing in a year like 2022 when both
+assets fell?**
+
+A: Trade the rule. The premium that year is near zero, but the
+trade still positions you correctly for the *next* year.
+Skipping the rebalance is a discretionary act and exactly the
+kind of discretion the rule exists to prevent.
+
+**Q16: What does Horace personally do?**
+
+A: A January calendar rebalance for the IRA sleeve (auto-rebalanced
+by the broker, cost: zero, time: zero), contributions-based
+rebalancing for the taxable equity sleeve, and a 10pp band check
+for everything in between, fired only if the January look-through
+shows the portfolio out of the band. The total annual time
+commitment is under an hour. Anything more complex is a hobby,
+not a portfolio.
+
 The interactive panel below lets you toggle on and off four
 classic bias-driven actions and watch the resulting wealth path
 versus simple buy-and-hold of the S&P 500 from 1928 to 2024. The
@@ -451,9 +749,9 @@ of you that overrides it.
 
 ---
 
-**VIDEO TITLE:** Behavioral Biases — Why Your Brain Can't Run the Strategy Your Spreadsheet Recommends | Week 11
+**VIDEO TITLE:** Behavioral Biases and Rebalancing — Rules That Protect You From Yourself | Week 11
 
-**RUNTIME TARGET:** ~18 minutes
+**RUNTIME TARGET:** ~22 minutes
 
 **HOSTS:** Horace, Stella
 
@@ -465,7 +763,10 @@ of you that overrides it.
 The previous ten weeks we've taught you portfolios, allocations,
 risk metrics, the math of diversification. Today we tell you that
 none of it survives contact with your own brain unless you build
-systems around the brain.
+systems around the brain. And the single most important system —
+the one that mechanically does the right trade at the moment your
+brain wants to do the wrong one — is rebalancing. So we'll close
+on that.
 
 **Stella:** That sounds dramatic.
 
@@ -601,7 +902,96 @@ the once-a-decade move.
 
 ---
 
-**[SEGMENT 6: THE INTERACTIVE]**
+**[SEGMENT 6: REBALANCING AS THE ANTI-BIAS RULE]**
+
+[VISUAL: image/week11_drift.png]
+
+**Horace:** Now the punchline. The single most powerful counter
+to every bias we just covered is *rebalancing*. Usually taught as
+portfolio mechanics. Better understood as a behavioural rule.
+
+**Stella:** Show me the drift first.
+
+**Horace:** Look at the top panel. 100,000 dollars, 60/40, January
+2010. We do nothing for ten years. Stocks compound at 13.6 a year,
+bonds at 3.7. By December 2019 the portfolio sits at 78/22.
+
+**Stella:** Eighteen-point drift.
+
+**Horace:** Right. The investor who started balanced in 2010 ended
+the decade running an aggressive portfolio. They never decided to
+add stock risk. The market did it for them. And then COVID hit and
+that drifted portfolio dropped more than the rebalanced one would
+have, on a bigger asset base.
+
+**Stella:** And the bottom panel?
+
+**Horace:** Same returns, but every January the investor trims
+back to 60/40. Stock weight oscillates within two or three points
+of target all decade. Wealth path almost identical — in a calm
+decade rebalancing barely changes return — but the *risk* profile
+is the one the investor chose.
+
+[VISUAL: image/week11_method_comparison.png]
+
+**Horace:** This bar chart compares four policies on the full
+1928 to 2024 dataset. Never rebalance. Annual. Semi-annual. Five
+percent band. Three readings. One — the three rebalanced policies
+finish within a tenth of a percent of each other. Choice between
+annual, semi-annual, and band is operational, not financial. Two
+— never-rebalance has higher absolute return *and* the worst
+risk-adjusted return, because it ends at near-90/10. That's not
+60/40 anymore. Three — the gap between rebalancing and not is in
+the risk columns, not the return column.
+
+**Stella:** And the behavioural piece?
+
+**Horace:** Look at what the rebalance trade *does* mechanically.
+March 2009 — S&P down 56 percent from its 2007 high. Every fibre
+of the human investor is screaming sell. The 60/40 rule says
+portfolio is at 50/50, you need to *buy* ten percent more stocks.
+The rule does the trade. The investor doesn't have to find courage
+they don't possess. Five years later that purchase has doubled.
+
+**Stella:** And the FOMO version?
+
+**Horace:** December 2021. S&P up 28 percent on the year, bonds
+soft. The same rebalancer is a mechanical *seller* of stocks at a
+cycle peak. Exact opposite of the FOMO trade. Exact opposite of
+the capitulation trade. Exact opposite of the disposition effect.
+Every single bias we covered — rebalancing fires the *opposite*
+trade.
+
+**Stella:** That's not a coincidence.
+
+**Horace:** That's the point. Rebalancing is the systematic engine
+that places the contrarian trade at the moment the human is least
+capable of placing it. *That* is why it survives as a discipline
+after seventy years of debate. Not the rebalancing premium —
+that's a tenth of a percent, it's icing. The discipline is the
+cake.
+
+**Stella:** What about 2022 when both fell?
+
+**Horace:** Trade the rule anyway. If you're at 59/41, do the
+small trim back to 60/40. The premium that year is essentially
+zero, but the trade positions you correctly for the next year.
+Skipping it is a discretionary act — exactly what the rule exists
+to prevent.
+
+**Stella:** And the tax cost in a taxable account?
+
+**Horace:** Hierarchy. First — direct new contributions to
+whichever sleeve is below target. No sale, no tax. Second —
+rebalance inside the IRA where trades are tax-free, hold the
+taxable account as buy-and-hold. Third — pair appreciated sales
+with underwater positions to harvest losses. Fourth, last resort,
+clean-up sale once a year. Most people in the accumulation phase
+never need the fourth lever.
+
+---
+
+**[SEGMENT 7: THE INTERACTIVE]**
 
 **Horace:** The interactive at the bottom of the page lets you
 toggle four classic bias rules on and off. *Sell after a 20%
@@ -617,7 +1007,7 @@ almost any version of you that overrides it.
 
 ---
 
-**[SEGMENT 7: WHAT TO ACTUALLY DO]**
+**[SEGMENT 8: WHAT TO ACTUALLY DO]**
 
 **Horace:** Five concrete system designs.
 
@@ -661,4 +1051,4 @@ not.
 
 ---
 
-**END SCREEN:** "Next: Week 12 — Inflation and the Real Return"
+**END SCREEN:** "Next: Week 12 — Building Your First Portfolio"

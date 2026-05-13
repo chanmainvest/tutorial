@@ -8,7 +8,7 @@
 
 ### Why This Reflection Matters
 
-You have just spent twelve weeks building the foundation of investing. You learned about compound interest, ETFs, risk and return, the 60/40 portfolio, bonds, gold, rebalancing, financial statements, market indexes, economic cycles, behavioral biases, and how to assemble your first portfolio.
+You have just spent twelve weeks building the foundation of investing. You learned about compound interest, ETFs, risk and return, the 60/40 portfolio, bonds, gold, what stocks and equity actually are, financial statements, market indexes, economic cycles, behavioral biases and rebalancing, and how to assemble your first portfolio.
 
 But knowledge that stays in your head changes nothing. The whole point of Level 1 is that you walk away with a real, working portfolio and a different relationship with your money. This reflection is where you decide what you are going to do about it.
 

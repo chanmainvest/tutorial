@@ -125,7 +125,7 @@ All course materials are available in four languages:
 
 **Stella:** Walk me through the levels.
 
-**Horace:** Level 1 is Foundation -- twelve weeks covering why investing matters, index funds, risk and return, bonds, gold, rebalancing, financial statements, and building your first portfolio. By Week 12, you will have a real, diversified portfolio up and running.
+**Horace:** Level 1 is Foundation -- twelve weeks covering why investing matters, index funds, risk and return, bonds, gold, what stocks and equity actually are, financial statements, behavioural biases and rebalancing, and building your first portfolio. By Week 12, you will have a real, diversified portfolio up and running.
 
 **Stella:** And that is just the beginning?
 

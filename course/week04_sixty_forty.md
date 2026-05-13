@@ -676,7 +676,8 @@ A: 60/40 is the baseline. **Week 5** goes deep on the bond half
 (coupons, prices, yields, duration) — the mechanics behind why the
 bond sleeve behaved the way it did in 2008 and 2022. **Week 6**
 covers gold and commodities, which are the natural inflation-shock
-complements to 60/40. **Week 7** covers rebalancing in detail.
+complements to 60/40. **Week 11** merges rebalancing into the
+behavioural-discipline lesson and covers the mechanics in detail.
 **Week 15** introduces multi-asset and risk parity — the Dalio
 "All Weather" alternative to 60/40. **Week 23** covers factor
 investing, which slices the equity sleeve into return premia.
