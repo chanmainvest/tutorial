@@ -96,7 +96,7 @@ expected inflation already. What moves portfolios is the residual.
 Each quadrant has a winning asset class — the one whose payoff is
 *structurally* exposed to that macro residual.
 
-![Two-by-two grid of the four growth-inflation quadrants. Top-left (rising growth, rising inflation): commodities, EM equities, real assets. Top-right (rising growth, falling inflation): developed-market equities, growth stocks - the "Goldilocks" cell. Bottom-left (falling growth, rising inflation): gold, TIPS, short-duration cash - the stagflation cell. Bottom-right (falling growth, falling inflation): long-duration nominal bonds, defensive equity - the "deflation" cell. Each cell labelled with the historical decade where it dominated.](image/week15_quadrants.png)
+![Two-by-two grid of the four growth-inflation quadrants. Top-left (rising growth, rising inflation): commodities, EM equities, real assets. Top-right (rising growth, falling inflation): developed-market equities, growth stocks - the "Goldilocks" cell. Bottom-left (falling growth, rising inflation): gold, TIPS, short-duration cash - the stagflation cell. Bottom-right (falling growth, falling inflation): long-duration nominal bonds, defensive equity - the "deflation" cell. Each cell labelled with the historical decade where it dominated.](../image/week15_quadrants.png)
 
 The historical anchors:
 
@@ -188,7 +188,7 @@ we call the four-tranche book.
 Strip out the institutional leverage and what remains is a clean
 four-bucket structure that any retail account can hold using ETFs.
 
-![Donut chart showing four tranches of an all-weather portfolio: Growth (40%) backed by US equities (SPY/QQQ/VTI), Income (30%) backed by Treasuries and investment-grade credit (IEF/LQD), Store-of-Value (20%) backed by gold and TIPS (GLD/SCHP), Opportunistic (10%) backed by cash, options premium, and barbell tilts (BIL plus selected calls/puts). Each segment colour-coded with weight and dollar example for a $100,000 book.](image/week15_four_tranches.png)
+![Donut chart showing four tranches of an all-weather portfolio: Growth (40%) backed by US equities (SPY/QQQ/VTI), Income (30%) backed by Treasuries and investment-grade credit (IEF/LQD), Store-of-Value (20%) backed by gold and TIPS (GLD/SCHP), Opportunistic (10%) backed by cash, options premium, and barbell tilts (BIL plus selected calls/puts). Each segment colour-coded with weight and dollar example for a $100,000 book.](../image/week15_four_tranches.png)
 
 The four tranches:
 

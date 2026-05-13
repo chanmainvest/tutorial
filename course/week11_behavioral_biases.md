@@ -85,7 +85,7 @@ the *dollar-weighted return* of the average investor in those funds
 contributions and redemptions). The gap between them is pure
 behaviour.
 
-![Bar chart comparing the average S&P 500 / equity-fund return to the average equity-fund-investor return over three time horizons ending December 2024 (10-year, 20-year, 30-year). The fund bar is taller than the investor bar in every window, with the gap shaded; the gap averages around 3 to 4 percentage points per year. Source: DALBAR QAIB long-run figures; representative values used for teaching.](image/week11_dalbar_gap.png)
+![Bar chart comparing the average S&P 500 / equity-fund return to the average equity-fund-investor return over three time horizons ending December 2024 (10-year, 20-year, 30-year). The fund bar is taller than the investor bar in every window, with the gap shaded; the gap averages around 3 to 4 percentage points per year. Source: DALBAR QAIB long-run figures; representative values used for teaching.](../image/week11_dalbar_gap.png)
 
 The gap is not random fees or fund-selection. Two-thirds of it is
 *sequence-of-flows*: investors put more money in *after* the market
@@ -104,7 +104,7 @@ their 1979 prospect-theory paper. The pain of losing $100 is roughly
 **2 to 2.5x as intense** as the pleasure of gaining $100. Their value
 function looks like this:
 
-![Schematic Kahneman-Tversky value function. Horizontal axis: dollar gain or loss from a reference point, ranging from -100 to +100. Vertical axis: perceived utility (psychological value). The gain side is concave (diminishing pleasure as gains grow). The loss side is convex AND steeper, with a slope coefficient of about 2.5: a $50 loss feels worse than a $100 gain feels good. The kink at zero is sharp, not smooth.](image/week11_loss_aversion.png)
+![Schematic Kahneman-Tversky value function. Horizontal axis: dollar gain or loss from a reference point, ranging from -100 to +100. Vertical axis: perceived utility (psychological value). The gain side is concave (diminishing pleasure as gains grow). The loss side is convex AND steeper, with a slope coefficient of about 2.5: a $50 loss feels worse than a $100 gain feels good. The kink at zero is sharp, not smooth.](../image/week11_loss_aversion.png)
 
 Three consequences for portfolio behaviour:
 
@@ -302,7 +302,7 @@ a $100,000 starting 60/40 portfolio under two policies. The top
 panel holds no rebalances at all over the ten years. The bottom
 panel rebalances back to 60/40 every January.
 
-![Top panel, no rebalancing over 2010-2019: starting 60/40 stock-bond mix on a $100,000 portfolio, the stock weight climbs steadily as US stocks compound at ~13.6% annually while Treasuries earn ~3.7%, ending the decade near 78/22. The bond sleeve shrinks visibly as a fraction of the total. Bottom panel, annual rebalance: the stock weight oscillates within a couple of percentage points of 60% all decade, returning each January to the target while leaving the absolute-dollar wealth path almost identical.](image/week11_drift.png)
+![Top panel, no rebalancing over 2010-2019: starting 60/40 stock-bond mix on a $100,000 portfolio, the stock weight climbs steadily as US stocks compound at ~13.6% annually while Treasuries earn ~3.7%, ending the decade near 78/22. The bond sleeve shrinks visibly as a fraction of the total. Bottom panel, annual rebalance: the stock weight oscillates within a couple of percentage points of 60% all decade, returning each January to the target while leaving the absolute-dollar wealth path almost identical.](../image/week11_drift.png)
 
 The end-state of the no-rebalance portfolio is not 60/40 and never
 was after the first year. By 2019 it sat at about 78/22 — closer
@@ -345,7 +345,7 @@ rebalance, rebalance annually, rebalance semi-annually, and a 5%
 band. The bars show geometric annualised return, realised
 volatility, and worst-year drawdown for each policy.
 
-![Bar chart comparison of four rebalancing policies on the Damodaran 1928-2024 60/40 stock/bond data: 'never rebalance' delivers the highest end-state arithmetic exposure but also the largest realised volatility and deepest drawdown because it ends the period at near-90/10. The annual, semi-annual, and 5%-band policies cluster tightly together in geometric return (within ~0.1% of each other), with materially lower volatility (~10% vs ~13%) and shallower drawdowns. The 5%-band policy shows the lowest turnover-adjusted return.](image/week11_method_comparison.png)
+![Bar chart comparison of four rebalancing policies on the Damodaran 1928-2024 60/40 stock/bond data: 'never rebalance' delivers the highest end-state arithmetic exposure but also the largest realised volatility and deepest drawdown because it ends the period at near-90/10. The annual, semi-annual, and 5%-band policies cluster tightly together in geometric return (within ~0.1% of each other), with materially lower volatility (~10% vs ~13%) and shallower drawdowns. The 5%-band policy shows the lowest turnover-adjusted return.](../image/week11_method_comparison.png)
 
 Three readings come out of this chart.
 

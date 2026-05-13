@@ -1,0 +1,576 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Equity Explorer — Interactive (Week 7)</title>
+<script src="https://cdn.plot.ly/plotly-2.35.2.min.js" charset="utf-8"></script>
+<style>
+html, body { margin: 0; padding: 0; background: var(--ee-bg); }
+:root {
+    --ee-bg: #fdfbf5;
+    --ee-text: #1a2332;
+    --ee-muted: #6b7280;
+    --ee-border: #d6d3c4;
+    --ee-card: #fdfbf5;
+    --ee-accent: #b8860b;
+    --ee-pos: #2e7d32;
+    --ee-neg: #b71c1c;
+    --ee-blue: #0d47a1;
+    --ee-purple: #6a1b9a;
+    --ee-orange: #e65100;
+    --ee-teal: #00695c;
+}
+html[data-theme="dark"] .ee-root,
+.ee-root[data-theme="dark"] {
+    --ee-bg: #0f1724;
+    --ee-text: #e6e6e6;
+    --ee-muted: #9aa3b2;
+    --ee-border: #2a3441;
+    --ee-card: #0f1724;
+    --ee-pos: #66bb6a;
+    --ee-neg: #ef5350;
+    --ee-blue: #5a8dee;
+    --ee-purple: #b39ddb;
+    --ee-orange: #ff8a65;
+    --ee-teal: #4db6ac;
+}
+.ee-root {
+    font-family: 'Segoe UI', Helvetica, Arial, sans-serif;
+    background: var(--ee-bg);
+    color: var(--ee-text);
+    padding: 12px;
+    margin: 0;
+}
+.ee-tabs {
+    display: flex;
+    gap: 0;
+    margin-bottom: 14px;
+    border-bottom: 2px solid var(--ee-border);
+}
+.ee-tab {
+    border: none;
+    background: transparent;
+    color: var(--ee-muted);
+    padding: 10px 20px;
+    font: inherit;
+    font-size: 0.92rem;
+    font-weight: 600;
+    cursor: pointer;
+    border-bottom: 3px solid transparent;
+    margin-bottom: -2px;
+    transition: color 0.15s, border-color 0.15s;
+}
+.ee-tab:hover { color: var(--ee-text); }
+.ee-tab.active {
+    color: var(--ee-accent);
+    border-bottom-color: var(--ee-accent);
+}
+.ee-panel { display: none; }
+.ee-panel.active { display: block; }
+.ee-controls {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 14px;
+    padding: 10px 12px;
+    background: var(--ee-card);
+    border: 1px solid var(--ee-border);
+    border-radius: 8px;
+}
+.ee-slider-wrap {
+    flex: 1;
+    min-width: 200px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.85rem;
+    color: var(--ee-muted);
+}
+.ee-slider-wrap input[type="range"] {
+    flex: 1;
+    accent-color: var(--ee-accent);
+}
+.ee-slider-wrap .ee-val {
+    white-space: nowrap;
+    color: var(--ee-text);
+    font-weight: 600;
+    font-variant-numeric: tabular-nums;
+    min-width: 80px;
+    text-align: right;
+}
+.ee-chart {
+    width: 100%;
+    height: 400px;
+    background: var(--ee-card);
+    border-radius: 8px;
+    border: 1px solid var(--ee-border);
+}
+.ee-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 10px;
+    margin-top: 14px;
+}
+.ee-stat {
+    background: var(--ee-card);
+    border: 1px solid var(--ee-border);
+    border-left: 4px solid var(--ee-muted);
+    border-radius: 8px;
+    padding: 10px 12px;
+}
+.ee-stat .ee-stat-name {
+    font-size: 0.78rem;
+    color: var(--ee-muted);
+    margin-bottom: 4px;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+}
+.ee-stat .ee-stat-val {
+    font-size: 1.3rem;
+    font-weight: 700;
+    font-variant-numeric: tabular-nums;
+}
+.ee-footer {
+    margin-top: 14px;
+    font-size: 0.78rem;
+    color: var(--ee-muted);
+    line-height: 1.5;
+}
+</style>
+</head>
+<body>
+<div class="ee-root" id="eeRoot">
+
+<div class="ee-tabs">
+    <button class="ee-tab active" data-tab="stack" id="tabStack"></button>
+    <button class="ee-tab" data-tab="diversify" id="tabDiversify"></button>
+</div>
+
+<!-- Panel 1: Capital Stack -->
+<div class="ee-panel active" id="panelStack">
+    <div class="ee-controls">
+        <div class="ee-slider-wrap">
+            <span id="revLabel"></span>
+            <input type="range" id="revSlider" min="0" max="2000" value="1000" step="50">
+            <span class="ee-val" id="revVal">$1,000</span>
+        </div>
+    </div>
+    <div class="ee-chart" id="stackChart"></div>
+    <div class="ee-stats" id="stackStats"></div>
+</div>
+
+<!-- Panel 2: Diversification -->
+<div class="ee-panel" id="panelDiversify">
+    <div class="ee-controls">
+        <div class="ee-slider-wrap">
+            <span id="nLabel"></span>
+            <input type="range" id="nSlider" min="1" max="500" value="1" step="1">
+            <span class="ee-val" id="nVal">1 stock</span>
+        </div>
+    </div>
+    <div class="ee-chart" id="divChart"></div>
+    <div class="ee-stats" id="divStats"></div>
+</div>
+
+<div class="ee-footer" id="eeFooter"></div>
+</div>
+
+<script>
+(function () {
+    var ROOT = document.getElementById('eeRoot');
+
+    /* ---- i18n ---- */
+    var STRINGS = {
+        en: {
+            tabStack: 'Capital Stack',
+            tabDiversify: 'Diversification',
+            revLabel: 'Revenue:',
+            nLabel: 'Stocks in basket:',
+            nUnit: function(n){ return n === 1 ? '1 stock' : n + ' stocks'; },
+            tiers: ['Suppliers', 'Employees', 'Lenders', 'Tax', 'Preferred', 'Common equity'],
+            tierPct: ['Cost of goods: 40%', 'Wages: 25%', 'Interest: 5%', 'Tax: ~7.5%', 'Pref div: 2%', 'Residual'],
+            stackTitle: 'Capital Stack — Revenue Distribution',
+            stackY: 'Amount ($)',
+            equityLabel: 'Equity residual',
+            negEquity: 'Equity wiped out',
+            divTitle: 'Diversification: Single Stock vs Basket',
+            divY: 'Cumulative wealth (log scale, $1 start)',
+            divX: 'Years',
+            medianSingle: 'Median single stock',
+            medianBasket: 'Median basket',
+            singleCone: '5th-95th percentile (single)',
+            basketCone: '5th-95th percentile (basket)',
+            statEquity: 'Equity residual',
+            statMargin: 'Equity margin',
+            statROE: 'Scenario',
+            statMedian: 'Median 30y return',
+            statP5: '5th percentile',
+            statP95: '95th percentile',
+            statVol: 'Annualised vol',
+            footer: 'Interactive illustration. Capital stack uses simplified fixed percentages. Diversification uses Monte Carlo simulation with stylised parameters (single stock: 7% drift, 40% vol; basket: market-like vol scaled by 1/sqrt(N)).',
+            profitable: 'Profitable',
+            breakeven: 'Break-even',
+            loss: 'Loss-making',
+        },
+        hk: {
+            tabStack: '資本結構',
+            tabDiversify: '分散投資',
+            revLabel: '收入:',
+            nLabel: '組合持股數:',
+            nUnit: function(n){ return n + ' 隻'; },
+            tiers: ['供應商', '僱員', '貸款人', '稅務', '優先股', '普通股權益'],
+            tierPct: ['銷售成本: 40%', '薪酬: 25%', '利息: 5%', '稅: ~7.5%', '優先股息: 2%', '剩餘'],
+            stackTitle: '資本結構 — 收入分配',
+            stackY: '金額($)',
+            equityLabel: '股權剩餘',
+            negEquity: '股權歸零',
+            divTitle: '分散投資:個股 vs 組合',
+            divY: '累計財富(對數,以 $1 起)',
+            divX: '年數',
+            medianSingle: '個股中位數',
+            medianBasket: '組合中位數',
+            singleCone: '5-95 百分位(個股)',
+            basketCone: '5-95 百分位(組合)',
+            statEquity: '股權剩餘',
+            statMargin: '股權利潤率',
+            statROE: '情景',
+            statMedian: '30 年中位回報',
+            statP5: '第 5 百分位',
+            statP95: '第 95 百分位',
+            statVol: '年化波幅',
+            footer: '互動示意。資本結構採用簡化固定比例。分散投資使用蒙地卡羅模擬(個股:7% 漂移、40% 波幅;組合:按 1/sqrt(N) 縮減波幅)。',
+            profitable: '盈利',
+            breakeven: '盈虧平衡',
+            loss: '虧損',
+        },
+        tw: {
+            tabStack: '資本結構',
+            tabDiversify: '分散投資',
+            revLabel: '營收:',
+            nLabel: '投資組合檔數:',
+            nUnit: function(n){ return n + ' 檔'; },
+            tiers: ['供應商', '員工', '貸款人', '稅務', '特別股', '普通股權益'],
+            tierPct: ['銷貨成本: 40%', '薪資: 25%', '利息: 5%', '稅: ~7.5%', '特別股息: 2%', '剩餘'],
+            stackTitle: '資本結構 — 營收分配',
+            stackY: '金額($)',
+            equityLabel: '股東權益剩餘',
+            negEquity: '股東權益歸零',
+            divTitle: '分散投資:個股 vs 組合',
+            divY: '累計財富(對數,$1 起)',
+            divX: '年數',
+            medianSingle: '個股中位數',
+            medianBasket: '組合中位數',
+            singleCone: '5-95 百分位(個股)',
+            basketCone: '5-95 百分位(組合)',
+            statEquity: '股東權益剩餘',
+            statMargin: '股東權益利潤率',
+            statROE: '情境',
+            statMedian: '30 年中位報酬',
+            statP5: '第 5 百分位',
+            statP95: '第 95 百分位',
+            statVol: '年化波動度',
+            footer: '互動示意。資本結構採用簡化固定比例。分散投資使用蒙地卡羅模擬(個股:7% 飄移、40% 波動;組合:按 1/sqrt(N) 縮減波動)。',
+            profitable: '獲利',
+            breakeven: '損益兩平',
+            loss: '虧損',
+        },
+        cn: {
+            tabStack: '资本结构',
+            tabDiversify: '分散投资',
+            revLabel: '营收:',
+            nLabel: '组合持股数:',
+            nUnit: function(n){ return n + ' 只'; },
+            tiers: ['供应商', '员工', '贷款人', '税务', '优先股', '普通股权益'],
+            tierPct: ['销售成本: 40%', '薪酬: 25%', '利息: 5%', '税: ~7.5%', '优先股息: 2%', '剩余'],
+            stackTitle: '资本结构 — 营收分配',
+            stackY: '金额($)',
+            equityLabel: '股权剩余',
+            negEquity: '股权归零',
+            divTitle: '分散投资:个股 vs 组合',
+            divY: '累计财富(对数,$1 起)',
+            divX: '年数',
+            medianSingle: '个股中位数',
+            medianBasket: '组合中位数',
+            singleCone: '5-95 百分位(个股)',
+            basketCone: '5-95 百分位(组合)',
+            statEquity: '股权剩余',
+            statMargin: '股权利润率',
+            statROE: '情景',
+            statMedian: '30 年中位回报',
+            statP5: '第 5 百分位',
+            statP95: '第 95 百分位',
+            statVol: '年化波动率',
+            footer: '交互示意。资本结构采用简化固定比例。分散投资使用蒙特卡洛模拟(个股:7% 漂移、40% 波动;组合:按 1/sqrt(N) 缩减波动)。',
+            profitable: '盈利',
+            breakeven: '盈亏平衡',
+            loss: '亏损',
+        }
+    };
+
+    function getLang() {
+        var p = new URLSearchParams(window.location.search);
+        var l = (p.get('lang') || 'en').toLowerCase();
+        return STRINGS[l] ? l : 'en';
+    }
+    var L = STRINGS[getLang()];
+
+    /* ---- Theme helpers ---- */
+    function getCssVar(name) {
+        return getComputedStyle(ROOT).getPropertyValue(name).trim();
+    }
+    function darkMode() {
+        return document.documentElement.getAttribute('data-theme') === 'dark';
+    }
+
+    /* ---- Tab switching ---- */
+    document.querySelectorAll('.ee-tab').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+            document.querySelectorAll('.ee-tab').forEach(function(b){ b.classList.remove('active'); });
+            document.querySelectorAll('.ee-panel').forEach(function(p){ p.classList.remove('active'); });
+            btn.classList.add('active');
+            document.getElementById('panel' + btn.dataset.tab.charAt(0).toUpperCase() + btn.dataset.tab.slice(1)).classList.add('active');
+        });
+    });
+
+    /* ---- Apply i18n labels ---- */
+    document.getElementById('tabStack').textContent = L.tabStack;
+    document.getElementById('tabDiversify').textContent = L.tabDiversify;
+    document.getElementById('revLabel').textContent = L.revLabel;
+    document.getElementById('nLabel').textContent = L.nLabel;
+    document.getElementById('eeFooter').textContent = L.footer;
+
+    /* ---- Panel 1: Capital Stack ---- */
+    var revSlider = document.getElementById('revSlider');
+    var revVal = document.getElementById('revVal');
+
+    function computeStack(revenue) {
+        var suppliers = revenue * 0.40;
+        var employees = revenue * 0.25;
+        var lenders = 50;  // fixed interest payment
+        var preTaxIncome = revenue - suppliers - employees - lenders;
+        var tax = Math.max(0, preTaxIncome * 0.25);
+        var preferred = 20; // fixed preferred dividend
+        var equity = preTaxIncome - tax - preferred;
+        return {
+            values: [suppliers, employees, lenders, tax, preferred, Math.max(0, equity)],
+            equity: equity,
+            margin: revenue > 0 ? (equity / revenue * 100) : 0
+        };
+    }
+
+    function renderStack() {
+        var rev = +revSlider.value;
+        revVal.textContent = '$' + rev.toLocaleString();
+        var result = computeStack(rev);
+        var bg = getCssVar('--ee-bg');
+        var text = getCssVar('--ee-text');
+        var muted = getCssVar('--ee-muted');
+        var border = getCssVar('--ee-border');
+        var colors = [
+            getCssVar('--ee-blue'),
+            getCssVar('--ee-purple'),
+            getCssVar('--ee-teal'),
+            getCssVar('--ee-muted'),
+            getCssVar('--ee-orange'),
+            getCssVar('--ee-accent')
+        ];
+        var names = L.tiers.map(function(t, i){ return t + '<br><span style="font-size:0.8em;color:' + muted + '">' + L.tierPct[i] + '</span>'; });
+
+        var data = [{
+            type: 'waterfall',
+            orientation: 'v',
+            x: L.tiers,
+            y: result.values,
+            text: result.values.map(function(v){ return '$' + Math.round(v).toLocaleString(); }),
+            textposition: 'outside',
+            connector: { line: { color: border, width: 1 } },
+            decreasing: { marker: { color: colors[0] } },
+            increasing: { marker: { color: getCssVar('--ee-pos') } },
+            totals: { marker: { color: getCssVar('--ee-accent') } },
+            marker: {
+                color: colors
+            }
+        }];
+
+        var layout = {
+            title: { text: L.stackTitle, font: { size: 14, color: text } },
+            paper_bgcolor: bg,
+            plot_bgcolor: bg,
+            font: { color: text, size: 11 },
+            xaxis: { color: text, tickfont: { size: 10 } },
+            yaxis: { title: L.stackY, color: text, gridcolor: border, zeroline: true, zerolinecolor: muted },
+            margin: { l: 60, r: 20, t: 50, b: 50 },
+            showlegend: false
+        };
+
+        Plotly.react('stackChart', data, layout, { responsive: true, displayModeBar: false });
+
+        // Stats
+        var eq = result.equity;
+        var scenario = eq > 10 ? L.profitable : (eq >= -10 ? L.breakeven : L.loss);
+        var statsHtml = '';
+        statsHtml += '<div class="ee-stat" style="border-left-color:' + getCssVar('--ee-accent') + '"><div class="ee-stat-name">' + L.statEquity + '</div><div class="ee-stat-val" style="color:' + (eq >= 0 ? getCssVar('--ee-pos') : getCssVar('--ee-neg')) + '">$' + Math.round(eq).toLocaleString() + '</div></div>';
+        statsHtml += '<div class="ee-stat" style="border-left-color:' + getCssVar('--ee-blue') + '"><div class="ee-stat-name">' + L.statMargin + '</div><div class="ee-stat-val">' + result.margin.toFixed(1) + '%</div></div>';
+        statsHtml += '<div class="ee-stat" style="border-left-color:' + (eq > 10 ? getCssVar('--ee-pos') : (eq >= -10 ? getCssVar('--ee-orange') : getCssVar('--ee-neg'))) + '"><div class="ee-stat-name">' + L.statROE + '</div><div class="ee-stat-val">' + scenario + '</div></div>';
+        document.getElementById('stackStats').innerHTML = statsHtml;
+    }
+
+    revSlider.addEventListener('input', renderStack);
+
+    /* ---- Panel 2: Diversification Monte Carlo ---- */
+    var nSlider = document.getElementById('nSlider');
+    var nVal = document.getElementById('nVal');
+
+    // Seeded PRNG for reproducibility
+    function mulberry32(a) {
+        return function() {
+            a |= 0; a = a + 0x6D2B79F5 | 0;
+            var t = Math.imul(a ^ a >>> 15, 1 | a);
+            t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t;
+            return ((t ^ t >>> 14) >>> 0) / 4294967296;
+        };
+    }
+
+    function boxMuller(rng) {
+        var u1 = rng(), u2 = rng();
+        return Math.sqrt(-2 * Math.log(u1 || 1e-10)) * Math.cos(2 * Math.PI * u2);
+    }
+
+    function runMC(nStocks, nPaths, years) {
+        var mu = 0.07, volSingle = 0.40;
+        var volBasket = volSingle / Math.sqrt(nStocks);
+        var rng = mulberry32(12345);
+        var paths = [];
+        for (var p = 0; p < nPaths; p++) {
+            var path = [1.0];
+            for (var t = 1; t <= years; t++) {
+                var z = boxMuller(rng);
+                path.push(path[t-1] * Math.exp((mu - 0.5 * volBasket * volBasket) + volBasket * z));
+            }
+            paths.push(path);
+        }
+        return paths;
+    }
+
+    function percentile(arr, pct) {
+        var sorted = arr.slice().sort(function(a,b){ return a-b; });
+        var idx = (pct / 100) * (sorted.length - 1);
+        var lo = Math.floor(idx), hi = Math.ceil(idx);
+        if (lo === hi) return sorted[lo];
+        return sorted[lo] + (sorted[hi] - sorted[lo]) * (idx - lo);
+    }
+
+    function renderDiv() {
+        var n = +nSlider.value;
+        nVal.textContent = L.nUnit(n);
+
+        var years = 30;
+        var nPaths = 300;
+        var paths = runMC(n, nPaths, years);
+
+        var bg = getCssVar('--ee-bg');
+        var text = getCssVar('--ee-text');
+        var border = getCssVar('--ee-border');
+        var colorMain = n === 1 ? getCssVar('--ee-neg') : getCssVar('--ee-blue');
+        var colorFill = n === 1 ? getCssVar('--ee-neg') : getCssVar('--ee-blue');
+
+        var xArr = [];
+        for (var t = 0; t <= years; t++) xArr.push(t);
+
+        // Compute percentiles at each time step
+        var p5 = [], p25 = [], p50 = [], p75 = [], p95 = [];
+        for (var t = 0; t <= years; t++) {
+            var vals = paths.map(function(p){ return p[t]; });
+            p5.push(percentile(vals, 5));
+            p25.push(percentile(vals, 25));
+            p50.push(percentile(vals, 50));
+            p75.push(percentile(vals, 75));
+            p95.push(percentile(vals, 95));
+        }
+
+        var traces = [
+            // 5-95 fill
+            { x: xArr.concat(xArr.slice().reverse()), y: p95.concat(p5.slice().reverse()), fill: 'toself', fillcolor: colorFill.replace(')', ',0.12)').replace('rgb', 'rgba').replace('#', '#') , line: { width: 0 }, showlegend: true, name: n === 1 ? L.singleCone : L.basketCone, type: 'scatter', mode: 'lines' },
+            // 25-75 fill
+            { x: xArr.concat(xArr.slice().reverse()), y: p75.concat(p25.slice().reverse()), fill: 'toself', fillcolor: colorFill.replace(')', ',0.2)').replace('rgb', 'rgba'), line: { width: 0 }, showlegend: false, type: 'scatter', mode: 'lines' },
+            // Median
+            { x: xArr, y: p50, mode: 'lines', line: { color: colorMain, width: 2.5 }, name: n === 1 ? L.medianSingle : L.medianBasket, type: 'scatter' },
+            // $1 reference
+            { x: [0, years], y: [1, 1], mode: 'lines', line: { color: getCssVar('--ee-muted'), width: 1, dash: 'dot' }, showlegend: false, type: 'scatter' },
+        ];
+
+        // Fix fill color for hex colors
+        traces[0].fillcolor = hexToRgba(colorFill, 0.12);
+        traces[1].fillcolor = hexToRgba(colorFill, 0.22);
+
+        var layout = {
+            title: { text: L.divTitle, font: { size: 14, color: text } },
+            paper_bgcolor: bg,
+            plot_bgcolor: bg,
+            font: { color: text, size: 11 },
+            xaxis: { title: L.divX, color: text, gridcolor: border },
+            yaxis: { title: L.divY, type: 'log', color: text, gridcolor: border },
+            legend: { x: 0.02, y: 0.98, bgcolor: 'rgba(0,0,0,0)', font: { size: 10 } },
+            margin: { l: 60, r: 20, t: 50, b: 50 },
+        };
+
+        Plotly.react('divChart', traces, layout, { responsive: true, displayModeBar: false });
+
+        // Stats
+        var finalVals = paths.map(function(p){ return p[years]; });
+        var medReturn = (Math.pow(percentile(finalVals, 50), 1/years) - 1) * 100;
+        var p5Return = (Math.pow(percentile(finalVals, 5), 1/years) - 1) * 100;
+        var p95Return = (Math.pow(percentile(finalVals, 95), 1/years) - 1) * 100;
+        var volEst = 40 / Math.sqrt(n);
+        var posC = getCssVar('--ee-pos');
+        var negC = getCssVar('--ee-neg');
+
+        var statsHtml = '';
+        statsHtml += '<div class="ee-stat" style="border-left-color:' + colorMain + '"><div class="ee-stat-name">' + L.statMedian + '</div><div class="ee-stat-val">' + medReturn.toFixed(1) + '%</div></div>';
+        statsHtml += '<div class="ee-stat" style="border-left-color:' + negC + '"><div class="ee-stat-name">' + L.statP5 + '</div><div class="ee-stat-val" style="color:' + negC + '">' + p5Return.toFixed(1) + '%</div></div>';
+        statsHtml += '<div class="ee-stat" style="border-left-color:' + posC + '"><div class="ee-stat-name">' + L.statP95 + '</div><div class="ee-stat-val" style="color:' + posC + '">' + p95Return.toFixed(1) + '%</div></div>';
+        statsHtml += '<div class="ee-stat" style="border-left-color:' + getCssVar('--ee-orange') + '"><div class="ee-stat-name">' + L.statVol + '</div><div class="ee-stat-val">' + volEst.toFixed(1) + '%</div></div>';
+        document.getElementById('divStats').innerHTML = statsHtml;
+    }
+
+    nSlider.addEventListener('input', renderDiv);
+
+    function hexToRgba(hex, alpha) {
+        if (hex.charAt(0) === '#') {
+            var r = parseInt(hex.slice(1,3), 16);
+            var g = parseInt(hex.slice(3,5), 16);
+            var b = parseInt(hex.slice(5,7), 16);
+            return 'rgba(' + r + ',' + g + ',' + b + ',' + alpha + ')';
+        }
+        // Already rgb/rgba
+        if (hex.indexOf('rgb') === 0) {
+            return hex.replace('rgb', 'rgba').replace(')', ',' + alpha + ')');
+        }
+        return hex;
+    }
+
+    /* ---- Theme observer ---- */
+    function fullRender() {
+        ROOT.style.background = getCssVar('--ee-bg');
+        renderStack();
+        renderDiv();
+    }
+    var obs = new MutationObserver(fullRender);
+    obs.observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
+
+    /* ---- postMessage height sync ---- */
+    function postHeight() {
+        var h = ROOT.scrollHeight + 24;
+        try { window.parent.postMessage({ type: 'iframeHeight', height: h }, '*'); } catch(e){}
+    }
+    window.addEventListener('resize', postHeight);
+    setTimeout(postHeight, 500);
+
+    /* ---- Initial render ---- */
+    fullRender();
+})();
+</script>
+</body>
+</html>

@@ -56,7 +56,7 @@ both thin margins and meaningful leverage. The same 13–17% ROE is being
 manufactured three different ways, and the path to a 0% ROE is
 different for each.
 
-![Side-by-side DuPont decomposition for five very different US large-caps — Apple, Microsoft, Coca-Cola, JPMorgan, and Ford. Each firm is shown as a stacked or grouped set of bars for the three DuPont legs: net profit margin, asset turnover, and equity multiplier. Apple shows ~24% margin × 1.07 turnover × 6.4 multiplier (a margin machine with buyback-amplified leverage); Microsoft is the cleanest software profile (high margin, low turnover, low multiplier); Coca-Cola is a brand business (high margin, low turnover, moderate leverage); JPMorgan is a leverage machine (huge multiplier ~12, thin turnover); Ford is a turnover machine (3% margin × 0.65 turnover × 6.6 leverage). Same headline ROE band, three structurally different paths to it.](image/week35_dupont_compare.png)
+![Side-by-side DuPont decomposition for five very different US large-caps — Apple, Microsoft, Coca-Cola, JPMorgan, and Ford. Each firm is shown as a stacked or grouped set of bars for the three DuPont legs: net profit margin, asset turnover, and equity multiplier. Apple shows ~24% margin × 1.07 turnover × 6.4 multiplier (a margin machine with buyback-amplified leverage); Microsoft is the cleanest software profile (high margin, low turnover, low multiplier); Coca-Cola is a brand business (high margin, low turnover, moderate leverage); JPMorgan is a leverage machine (huge multiplier ~12, thin turnover); Ford is a turnover machine (3% margin × 0.65 turnover × 6.6 leverage). Same headline ROE band, three structurally different paths to it.](../image/week35_dupont_compare.png)
 
 ---
 
@@ -132,7 +132,7 @@ $$ \text{Accruals ratio} \;=\; \frac{\Delta\text{Working Capital} - \Delta\text{
                                        {\text{Average Total Assets}} $$
 
 This is the Sloan (1996) accruals anomaly in summary form (see Week 20,
-[image/week20_accruals_anomaly.png](image/week20_accruals_anomaly.png)).
+[image/week20_accruals_anomaly.png](../image/week20_accruals_anomaly.png)).
 High positive values mean the income statement is leading the cash flow
 statement — the firm is booking revenue and profit faster than the cash
 arrives. Sloan's quintile spread averaged ~9% per year, and it has not
@@ -209,7 +209,7 @@ about right for a cyclical), and Apple 2020-2024 (deeply safe, the
 shape of a brand business with a clean balance sheet). Same model,
 same cutoffs, completely different stories.
 
-![Time-series chart of the Altman Z-score for three US large-caps — GE, Ford, and Apple — across roughly 2010–2024. The y-axis shows Z; horizontal bands at Z=1.81 and Z=2.99 mark the distress / gray / safe zones. GE traces a deteriorate-and-recover curve: starts in the gray zone around 2.5 in 2010, drifts up briefly, then slides through gray into distress (below 1.3) by 2018 — the dividend-cut and writedown year — before partially recovering. Ford is parked in the gray zone (Z ~1.5–1.7) the entire stretch, the home address for a deep-cyclical manufacturer. Apple sits well above 5 throughout, deeply safe — fortress balance sheet, brand business. Same model, same cutoffs, three completely different stories.](image/week35_zscore_distress.png)
+![Time-series chart of the Altman Z-score for three US large-caps — GE, Ford, and Apple — across roughly 2010–2024. The y-axis shows Z; horizontal bands at Z=1.81 and Z=2.99 mark the distress / gray / safe zones. GE traces a deteriorate-and-recover curve: starts in the gray zone around 2.5 in 2010, drifts up briefly, then slides through gray into distress (below 1.3) by 2018 — the dividend-cut and writedown year — before partially recovering. Ford is parked in the gray zone (Z ~1.5–1.7) the entire stretch, the home address for a deep-cyclical manufacturer. Apple sits well above 5 throughout, deeply safe — fortress balance sheet, brand business. Same model, same cutoffs, three completely different stories.](../image/week35_zscore_distress.png)
 
 #### 2.5 Putting It Together — The Two-Page Health Check
 

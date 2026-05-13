@@ -51,7 +51,7 @@ $$ \text{vanna} = \frac{\partial \Delta}{\partial \sigma} = \frac{\partial \nu}{
 
 **Vanna 集中之處：** 價外期權，包括認購及認沽。等價時，$d_2$ 接近零，因此 vanna 亦接近零。正負號的經驗法則（價外認購期權的 vanna > 0，價內認購期權 < 0；認沽期權相反）直接源自 $d_2$ 的正負號。
 
-![side20_second_order](image/side20_second_order.png)
+![side20_second_order](../image/side20_second_order.png)
 
 上圖右上方面板顯示 vanna 的 S 形曲線：在等價兩側出現符號相反的峰值，等價時為零。這正是為何執著於書面 vanna 敞口的莊家，將注意力集中於 25-delta 及 10-delta 的翼部，而非 50-delta 行使價。
 
@@ -103,7 +103,7 @@ $$ \text{volga} = \frac{\partial \nu}{\partial \sigma} = \nu \cdot \frac{d_1 d_2
 
 **2022 年後：** 0DTE 爆炸。SPX/SPY 每日到期從利基產品，於 2024 年中期增長至 SPX 期權總成交量的約 45%。做市商淨 gamma 每天可多次由正翻負。釘住形態如今既更頻繁（因每天都有到期），且更劇烈（因同日期權的 charm 及 color 極度強烈）。
 
-![side20_dealer_pinning](image/side20_dealer_pinning.png)
+![side20_dealer_pinning](../image/side20_dealer_pinning.png)
 
 上圖為近期某季度 OpEx 週五 SPX 現貨盤中走勢的示意重構：指數在上午漂移，午間突然向 5000 靠攏，並在收市前兩小時於該水平的 0.15% 區間內來回震盪。水平虛線標示收市前未平倉合約最高的三個行使價。這並非機械式的必然 — 但如今已足夠普遍，以致每家主要券商的研究部門均對此進行追蹤。
 
@@ -300,7 +300,7 @@ $$ \text{volga} = \frac{\partial \nu}{\partial \sigma} = \nu \cdot \frac{d_1 d_2
 
 **陳馬：** 頁面上的互動工具讓你可以掃描任何合約的五個一階希臘值，加上四個二階希臘值。
 
-**[VISUAL: course/interactive/side20_greeks_explorer.html]**
+**[VISUAL: interactive/side20_greeks_explorer.html]**
 
 **陳馬：** 設定現貨 100，行使價 100，30 天，波動性 20%。看頂行的九個數字。下方是敏感度熱圖 — 你可以選擇九個希臘值中的任何一個，查看它隨現貨及距到期日數變動的情況。選 **vanna**。留意那個對角條紋形態 — vanna 在翼部及中等距到期日時最大。現在選 **color**。整個曲面在最後 7 天內集中於等價附近。這就是我們剛才討論的 gamma 收窄，以可視化方式呈現。
 

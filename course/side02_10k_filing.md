@@ -204,9 +204,9 @@ sentence comes from Item 1; the segment table comes from Note 12
 (Segment Information). Two pages of the 10-K, total reading time
 five minutes, and you have the thesis.
 
-![Visual diagram of the standard 10-K table of contents — Parts I through IV with their item numbers. The eight items most worth reading for an investor are highlighted in gold.](image/side02_10k_anatomy.png)
+![Visual diagram of the standard 10-K table of contents — Parts I through IV with their item numbers. The eight items most worth reading for an investor are highlighted in gold.](../image/side02_10k_anatomy.png)
 
-![Apple FY2024 revenue by segment with year-over-year growth labelled. iPhone $201B and Services $96B dominate; the Services growth rate is the number that drives the multiple.](image/side02_aapl_segments.png)
+![Apple FY2024 revenue by segment with year-over-year growth labelled. iPhone $201B and Services $96B dominate; the Services growth rate is the number that drives the multiple.](../image/side02_aapl_segments.png)
 
 ---
 

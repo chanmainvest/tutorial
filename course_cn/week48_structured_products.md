@@ -41,7 +41,7 @@
 - **指数下跌0%至15%**：你获得0%（缓冲保护）。
 - **指数下跌超过15%**：你获得（指数收益 + 15%）——缓冲吸收前15%，其余部分由你承担。
 
-![Buffer payoff at 1y: 15% downside buffer + 18% upside cap on SPY at $500. P&L curve traces -30% to +30% spot move. Flat line through buffer zone, then negative slope below buffer floor. Positive slope through participation zone, then flat at cap. Annotations mark buffer floor (-15%), cap (+18%), breakeven, and the four shaded regions: full loss, buffer, participation, capped.](image/week48_buffer_payoff.png)
+![Buffer payoff at 1y: 15% downside buffer + 18% upside cap on SPY at $500. P&L curve traces -30% to +30% spot move. Flat line through buffer zone, then negative slope below buffer floor. Positive slope through participation zone, then flat at cap. Annotations mark buffer floor (-15%), cap (+18%), breakeven, and the four shaded regions: full loss, buffer, participation, capped.](../image/week48_buffer_payoff.png)
 
 这一形态，与你徒手用四条SPX期权腿构建的结构完全相同。*这*正是核心观察。
 
@@ -70,7 +70,7 @@
 
 Innovator BUFR系列和First Trust Cboe Vest系列的缓冲交易所交易基金，费用率区间为0.79%至0.85%。加上典型的二级市场买卖价差约12个基点，显性年化成本约为91个基点。在以10万美元为起始本金、持有五年的情境下，与DIY等效方案的财富差距*并不小*。
 
-![Wealth difference over 5y: BUFR ETF (91 bps/yr) vs DIY (25 bps slippage on a 1y reset, amortized as ~5 bps/yr). Bar chart on $100k starting capital with same gross 6% buffered return: BUFR ends ~$130,300 vs DIY ~$135,200. The $4,900 gap is the convenience tax, compounding.](image/week48_diy_vs_etf.png)
+![Wealth difference over 5y: BUFR ETF (91 bps/yr) vs DIY (25 bps slippage on a 1y reset, amortized as ~5 bps/yr). Bar chart on $100k starting capital with same gross 6% buffered return: BUFR ends ~$130,300 vs DIY ~$135,200. The $4,900 gap is the convenience tax, compounding.](../image/week48_diy_vs_etf.png)
 
 差距约为$4,900（基于10万美元本金），纯粹源于费用差异，约占起始本金的3.7%。扩大至50万美元，便意味着向基金公司支付了约$24,500，而这些期权交易你本可以自己下单。
 

@@ -83,7 +83,7 @@ $$ \sigma_p = \sigma \cdot \sqrt{\frac{1}{N} + \left(1 - \frac{1}{N}\right) \rho
 
 That single equation is what the diversification-curve chart plots.
 
-![Portfolio volatility as a function of N at four pairwise correlation regimes (0, 0.3, 0.5, 0.7). At rho=0.5 the curve asymptotes near 11% no matter how many assets you stack.](image/side19_diversification_curve.png)
+![Portfolio volatility as a function of N at four pairwise correlation regimes (0, 0.3, 0.5, 0.7). At rho=0.5 the curve asymptotes near 11% no matter how many assets you stack.](../image/side19_diversification_curve.png)
 
 #### 2.2 The Diversification Floor — Why More Names Stop Helping
 
@@ -170,7 +170,7 @@ oscillated in the range -0.10 to +0.30 ever since. The Apr 2026
 print is roughly +0.10 — meaningfully different from the 2010s baseline
 of -0.40.
 
-![SPY-TLT 90-day rolling correlation 2002-2026, with the 2022 regime flip from -0.4 to positive territory clearly visible.](image/side19_rolling_corr.png)
+![SPY-TLT 90-day rolling correlation 2002-2026, with the 2022 regime flip from -0.4 to positive territory clearly visible.](../image/side19_rolling_corr.png)
 
 The practical use of this chart: if you are running a 60/40
 portfolio, the rolling correlation tells you how much

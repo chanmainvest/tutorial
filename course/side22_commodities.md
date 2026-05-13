@@ -46,7 +46,7 @@ mechanical, calibrate the long-run real-return number, and produce a
 sizing rule that lets a four-tranche portfolio carry commodities without
 expecting them to be a quiet contributor.
 
-![Real (CPI-deflated) Bloomberg Commodity Index 1970 to April 2026, plotted as a wealth path of $1 invested in 1970. Real wealth peaks during the 1970s oil shocks and the 2008 supercycle, but the long-run trend is flat, with terminal real wealth near $1 — confirming Erb-Harvey's finding that broad commodity baskets pay no real-return premium over inflation.](image/side22_real_commodities.png)
+![Real (CPI-deflated) Bloomberg Commodity Index 1970 to April 2026, plotted as a wealth path of $1 invested in 1970. Real wealth peaks during the 1970s oil shocks and the 2008 supercycle, but the long-run trend is flat, with terminal real wealth near $1 — confirming Erb-Harvey's finding that broad commodity baskets pay no real-return premium over inflation.](../image/side22_real_commodities.png)
 
 ---
 
@@ -131,7 +131,7 @@ move erased by the roll. The same physical commodity expressed two
 different ways produces a 30x divergence in terminal wealth. The chart
 makes this concrete.
 
-![Wealth path of $1 invested January 2000 in physical gold (GLDM-equivalent, vault-held bullion) versus USO (front-month WTI futures rolled monthly), through April 2026. Gold compounds to roughly $12 while USO drifts to under $0.50, with the gap visualised as the cumulative cost of the futures roll versus a spot-tracking instrument.](image/side22_gold_vs_oil.png)
+![Wealth path of $1 invested January 2000 in physical gold (GLDM-equivalent, vault-held bullion) versus USO (front-month WTI futures rolled monthly), through April 2026. Gold compounds to roughly $12 while USO drifts to under $0.50, with the gap visualised as the cumulative cost of the futures roll versus a spot-tracking instrument.](../image/side22_gold_vs_oil.png)
 
 This is the single most important picture in the lesson. Two
 "commodities," same starting capital, opposite outcomes — entirely

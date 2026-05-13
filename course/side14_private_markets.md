@@ -164,7 +164,7 @@ of return is computed across the *entire* dated cash-flow series;
 a healthy 12% IRR fund still spends 4-5 years underwater on a
 cumulative-cash basis.
 
-![Stylised cash flow profile of a 10-year private equity fund. Capital calls (red bars) front-load through years 1-5, distributions (green bars) back-load through years 4-10. The black line tracks cumulative net cash flow, which troughs at roughly minus 65 percent of committed capital in year 4, breaks even around year 6, and finishes at plus 70 percent for a net IRR of roughly 12 percent. The shaded region marks the four-to-five-year window during which an LP is underwater on a cumulative-cash basis -- this is the J-curve.](image/side14_pe_jcurve.png)
+![Stylised cash flow profile of a 10-year private equity fund. Capital calls (red bars) front-load through years 1-5, distributions (green bars) back-load through years 4-10. The black line tracks cumulative net cash flow, which troughs at roughly minus 65 percent of committed capital in year 4, breaks even around year 6, and finishes at plus 70 percent for a net IRR of roughly 12 percent. The shaded region marks the four-to-five-year window during which an LP is underwater on a cumulative-cash basis -- this is the J-curve.](../image/side14_pe_jcurve.png)
 
 The J-curve has consequences. (a) You cannot mark a single fund's
 return after one year and call it a number — early IRRs are noise.
@@ -279,7 +279,7 @@ private-equity-investing investment trusts (mostly UK-listed). It is
 the closest thing to a "private equity index fund" available to
 retail. Its track record is sobering.
 
-![PSP vs SPY cumulative total return, 2007-Apr 2026. PSP launches into the GFC, draws down 70 percent into early 2009, recovers slowly, and compounds at roughly 6 percent per year over the full window. SPY compounds at roughly 9 percent per year. The premium that the private-equity-tracking basket was supposed to deliver shows up in the marketing decks of the underlying GPs, not in the LP-equivalent return that retail can actually buy.](image/side14_psp_vs_spy.png)
+![PSP vs SPY cumulative total return, 2007-Apr 2026. PSP launches into the GFC, draws down 70 percent into early 2009, recovers slowly, and compounds at roughly 6 percent per year over the full window. SPY compounds at roughly 9 percent per year. The premium that the private-equity-tracking basket was supposed to deliver shows up in the marketing decks of the underlying GPs, not in the LP-equivalent return that retail can actually buy.](../image/side14_psp_vs_spy.png)
 
 The PSP record — about **+6%/yr since 2007** versus SPY at roughly
 **+9%/yr** over the same window — is a near-perfect crystallisation

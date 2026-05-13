@@ -100,7 +100,7 @@ $$ D_{\text{mod}} = \frac{D_{\text{Mac}}}{1 + y/m} \quad \Rightarrow \quad \frac
 
 下圖繪製了一九二八至二○二四年 BAA 公司債相對十年期國庫券的*年度報酬*利差（Damodaran 年度資料序列，BAA 為最低的投資等級評等）。這是我們所能取得的、最能長期代表公司違約風險相對國庫券實際表現的歷史資料序列。
 
-![Annual BAA corporate bond total return minus 10-year US Treasury total return, 1928 through 2024 (Damodaran data, decimal). Spread spikes downward in 1932, 1974, 2008, and 2020 as defaults reprice and Treasuries rally on flight-to-safety. Long-run average is small and positive; the distribution has a fat left tail.](image/week05_credit_spreads.png)
+![Annual BAA corporate bond total return minus 10-year US Treasury total return, 1928 through 2024 (Damodaran data, decimal). Spread spikes downward in 1932, 1974, 2008, and 2020 as defaults reprice and Treasuries rally on flight-to-safety. Long-run average is small and positive; the distribution has a fat left tail.](../image/week05_credit_spreads.png)
 
 三個解讀：
 
@@ -114,7 +114,7 @@ $$ D_{\text{mod}} = \frac{D_{\text{Mac}}}{1 + y/m} \quad \Rightarrow \quad \frac
 
 下圖繪製了一九六二至二○二六年美國十年期國庫券殖利率走勢，這是我們從聯準會經濟數據（FRED）DGS10 系列所能取得最長的完整月度資料。
 
-![10-year US Treasury constant-maturity yield, 1962 through April 2026 (FRED DGS10, monthly). The dominant feature is the 1981 peak near 15.8% under Volcker's anti-inflation campaign, followed by a four-decade decline to the 2020 trough near 0.5%, then a sharp climb back above 4% by 2024 with current readings near 4.2% in April 2026. Annotated peaks and troughs.](image/week05_yield_history.png)
+![10-year US Treasury constant-maturity yield, 1962 through April 2026 (FRED DGS10, monthly). The dominant feature is the 1981 peak near 15.8% under Volcker's anti-inflation campaign, followed by a four-decade decline to the 2020 trough near 0.5%, then a sharp climb back above 4% by 2024 with current readings near 4.2% in April 2026. Annotated peaks and troughs.](../image/week05_yield_history.png)
 
 你需要認識的三個政策環境階段。
 

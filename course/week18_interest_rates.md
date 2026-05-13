@@ -67,7 +67,7 @@ You need to internalise four things from this lesson.
 The interest-rate universe is not one number. It is a layered
 hierarchy that the cascade chart makes visible.
 
-![The four-layer interest-rate cascade from 1990 through April 2026: Federal funds rate, 10-year US Treasury yield, 30-year mortgage rate, and BAA corporate bond yield. The Fed sets the bottom layer; the market sets the rest. Spreads widen materially in 2008-09, 2020 COVID, and the 2022-2024 hiking cycle.](image/week18_rate_cascade.png)
+![The four-layer interest-rate cascade from 1990 through April 2026: Federal funds rate, 10-year US Treasury yield, 30-year mortgage rate, and BAA corporate bond yield. The Fed sets the bottom layer; the market sets the rest. Spreads widen materially in 2008-09, 2020 COVID, and the 2022-2024 hiking cycle.](../image/week18_rate_cascade.png)
 
 Read the chart from the bottom up.
 
@@ -139,7 +139,7 @@ instruments: nominal Treasuries (DGS10) and inflation-protected
 Treasuries (TIPS). The yield difference between them is the
 **10-year breakeven inflation rate**, FRED series `T10YIE`.
 
-![10-year breakeven inflation rate from 2003 through April 2026, FRED T10YIE = nominal 10-year Treasury yield minus 10-year TIPS yield. The market's daily mark-to-market estimate of average CPI for the next decade. Annotated at the late-2008 deflation scare (briefly negative), the 2022 inflation peak (~2.9%), and the April 2026 reading.](image/week18_breakeven_inflation.png)
+![10-year breakeven inflation rate from 2003 through April 2026, FRED T10YIE = nominal 10-year Treasury yield minus 10-year TIPS yield. The market's daily mark-to-market estimate of average CPI for the next decade. Annotated at the late-2008 deflation scare (briefly negative), the 2022 inflation peak (~2.9%), and the April 2026 reading.](../image/week18_breakeven_inflation.png)
 
 Three points jump out.
 

@@ -138,7 +138,7 @@ There are five reasons active managers, in aggregate, can't beat the index:
 4. **Mostly-efficient market.** Tens of thousands of pros are reading the same 10-Ks, the same conference calls, the same satellite data. Real edge is rare.
 5. **Survivorship bias.** Funds that perform badly get quietly killed or merged into other funds. The remaining "active fund" universe looks better than it actually is, because the worst losers have been buried.
 
-![SPIVA active fund underperformance](image/week02_spiva.png)
+![SPIVA active fund underperformance](../image/week02_spiva.png)
 
 ---
 
@@ -158,7 +158,7 @@ $100,000 invested for 30 years at a 10% gross return:
 | Expensive Active | 1.50% | 8.50% | $1,152,309 | **−$569,377** |
 | Insurance-product wrapper | 2.00% | 8.00% | $1,006,266 | **−$715,420** |
 
-![Expense ratio drag over 30 years](image/week02_expense_drag.png)
+![Expense ratio drag over 30 years](../image/week02_expense_drag.png)
 
 Read the bottom row again. **A 2% wrapper costs you over $700,000 on a $100,000 investment.** That is not a fee. That is a house. Possibly two houses, depending on the city. It goes from your retirement to the fund company's payroll, marketing budget, office lease, and CEO compensation.
 
@@ -222,7 +222,7 @@ The rule of thumb that protects you for life:
 
 If you have dependents who would be financially harmed by your death, **buy term life insurance** — pure, cheap, fixed-period coverage with no investment component. A healthy 30-year-old can buy a 20-year, $1 million term policy for roughly $25–35 per month. Then take the difference between the term policy and what an agent would have charged you for whole life, and **put that difference into an index ETF.** This is the textbook strategy: **"buy term and invest the difference."** Over any 20-year window, this beats a whole-life policy on after-cost net worth by orders of magnitude — and you keep full control of and full liquidity in the investment side.
 
-![Buy term and invest the difference vs whole life](image/week02_buy_term_invest_difference.png)
+![Buy term and invest the difference vs whole life](../image/week02_buy_term_invest_difference.png)
 
 The agent will tell you whole life "forces you to save." So does an automatic monthly transfer to your brokerage account, and that one doesn't pay them an 80% commission.
 

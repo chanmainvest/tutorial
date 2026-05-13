@@ -45,7 +45,7 @@ Four reasons this lesson deserves a side slot rather than a paragraph:
    coherent, adult position. Pretending it pays for itself in returns
    is not.
 
-![Scatter of MSCI ESG score vs Sustainalytics ESG score for 30 large US companies. Correlation is roughly 0.45 — the two providers agree directionally but disagree sharply on individual names. AAPL, MSFT, JPM, XOM and TSLA are labelled to show the spread.](image/side12_rating_disagreement.png)
+![Scatter of MSCI ESG score vs Sustainalytics ESG score for 30 large US companies. Correlation is roughly 0.45 — the two providers agree directionally but disagree sharply on individual names. AAPL, MSFT, JPM, XOM and TSLA are labelled to show the spread.](../image/side12_rating_disagreement.png)
 
 ---
 
@@ -165,7 +165,7 @@ What we cannot say:
 - Whether ESG will outperform over the next decade. The drivers are
   sector composition and momentum-of-tech, not the ESG signal itself.
 
-![Wealth path of $1 invested in ESGV vs VTI from September 2018 to April 2026, both reinvesting dividends. The two lines run roughly parallel with mild divergence in 2020 (ESG up), 2022 (ESG down) and 2023 (ESG up). Terminal wealth ~$2.55 vs ~$2.62 — within fee + tracking-error noise.](image/side12_esgv_vs_vti.png)
+![Wealth path of $1 invested in ESGV vs VTI from September 2018 to April 2026, both reinvesting dividends. The two lines run roughly parallel with mild divergence in 2020 (ESG up), 2022 (ESG down) and 2023 (ESG up). Terminal wealth ~$2.55 vs ~$2.62 — within fee + tracking-error noise.](../image/side12_esgv_vs_vti.png)
 
 #### 2.5 Greenwashing and the Marketing Problem
 

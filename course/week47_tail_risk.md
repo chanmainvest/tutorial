@@ -155,7 +155,7 @@ sleeve, sized at 5–10% OTM strikes rolling at quarterly horizons,
 returns roughly 25× to 50× — turning a −$30k drawdown into a
 small positive or near-zero combined P&L.
 
-![Tail-hedge payoff: $100k SPY plus $1k OTM puts in a -30% crash. Unhedged P&L is a straight diagonal line from $0 at flat to -$30,000 at -30%. Hedged P&L (heavy navy) is the diagonal line plus the put-payout convex curve, kinking sharply upward from -$10,000 at -10% to a flat or slightly positive line at -30%. Vertical reference lines mark the -10%, -20%, -30%, -50% scenarios.](image/week47_tail_hedge_payoff.png)
+![Tail-hedge payoff: $100k SPY plus $1k OTM puts in a -30% crash. Unhedged P&L is a straight diagonal line from $0 at flat to -$30,000 at -30%. Hedged P&L (heavy navy) is the diagonal line plus the put-payout convex curve, kinking sharply upward from -$10,000 at -10% to a flat or slightly positive line at -30%. Vertical reference lines mark the -10%, -20%, -30%, -50% scenarios.](../image/week47_tail_hedge_payoff.png)
 
 The tradeoff to internalise: every quarter the market does *not*
 crash, that $1,000 evaporates. Annualised, you are giving up 4%
@@ -188,7 +188,7 @@ moves. That is exactly the regime a crash creates. In 2008:
 | **SocGen CTA Index (managed futures)** | **+14.1%** |
 | Universa-style tail hedge (modelled) | +50% to +100%+ |
 
-![2008 calendar returns by strategy, bar chart. SP500 -38%, 60/40 -22%, Agg Bond +5%, SocGen CTA Index +14%. CTAs are the sole strategy in the table that meaningfully gained in a year stocks lost a third of their value, with no option premium drag and no carry cost — they were paid by the trend.](image/week47_cta_2008.png)
+![2008 calendar returns by strategy, bar chart. SP500 -38%, 60/40 -22%, Agg Bond +5%, SocGen CTA Index +14%. CTAs are the sole strategy in the table that meaningfully gained in a year stocks lost a third of their value, with no option premium drag and no carry cost — they were paid by the trend.](../image/week47_cta_2008.png)
 
 The mechanism for CTAs is *not* that they own crash insurance. It
 is that the trend up to the crash had already moved them short

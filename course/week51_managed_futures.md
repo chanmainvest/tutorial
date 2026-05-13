@@ -104,7 +104,7 @@ The flip side is sideways or chop markets, which are bad for trend.
 2015 was flat, 2016-2019 mixed. Then 2022 paid back the entire
 2011-2019 gap in a single year for the index.
 
-![Time-series chart of the SocGen CTA Index from 2000 through 2024 with the S&P 500 total return overlaid. Strong CTA years are highlighted: 2002 +18%/SPX -22%, 2008 +13%/SPX -37%, 2014 +16%/SPX +14%, 2022 +21%/SPX -18%. Chop/loss years for CTA also marked: 2011 -4%, 2015 ~0%, 2018 -3%, 2020 +2%/SPX +18%. The two lines weave around each other with low unconditional correlation but sharply negative conditional correlation in extended bear markets — the structural signature of crisis alpha. Five years of chop are paid back by one big trending crisis year.](image/week51_cta_history.png)
+![Time-series chart of the SocGen CTA Index from 2000 through 2024 with the S&P 500 total return overlaid. Strong CTA years are highlighted: 2002 +18%/SPX -22%, 2008 +13%/SPX -37%, 2014 +16%/SPX +14%, 2022 +21%/SPX -18%. Chop/loss years for CTA also marked: 2011 -4%, 2015 ~0%, 2018 -3%, 2020 +2%/SPX +18%. The two lines weave around each other with low unconditional correlation but sharply negative conditional correlation in extended bear markets — the structural signature of crisis alpha. Five years of chop are paid back by one big trending crisis year.](../image/week51_cta_history.png)
 
 That is the deal: in calm markets you pay a small or zero opportunity
 cost; in extended trending crises you get paid a multiple of your
@@ -221,7 +221,7 @@ A more aggressive split is 70/10/15/5 with the 15 being entirely CTA.
 That is approximately the AQR house-portfolio recommendation for
 endowment-style mandates.
 
-![Cumulative-wealth chart of three portfolios from 1990 through April 2026, all starting at $1: 100% S&P 500 (highest terminal wealth, but worst drawdowns at -51% in 2009 and -24% in 2022), classic 60/40 stocks/bonds (middle terminal, drawdowns -30% / -20%), and a 50/30/20 split with 20% in a synthetic CTA proxy (slightly below 60/40 on terminal wealth but the *best* drawdown profile of the three at -22% / -10%). The CTA-blend portfolio's wealth path is the smoothest of the three. The chart is the empirical case for a 10-15% CTA sleeve — same long-run shape as 60/40 but with roughly half the worst-year pain.](image/week51_60_40_with_cta.png)
+![Cumulative-wealth chart of three portfolios from 1990 through April 2026, all starting at $1: 100% S&P 500 (highest terminal wealth, but worst drawdowns at -51% in 2009 and -24% in 2022), classic 60/40 stocks/bonds (middle terminal, drawdowns -30% / -20%), and a 50/30/20 split with 20% in a synthetic CTA proxy (slightly below 60/40 on terminal wealth but the *best* drawdown profile of the three at -22% / -10%). The CTA-blend portfolio's wealth path is the smoothest of the three. The chart is the empirical case for a 10-15% CTA sleeve — same long-run shape as 60/40 but with roughly half the worst-year pain.](../image/week51_60_40_with_cta.png)
 
 The wealth-path chart shows the empirical reason. From 1990 to April
 2026 a 100% S&P portfolio compounds to the highest terminal value

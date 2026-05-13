@@ -285,7 +285,7 @@ def call_copilot(provider_cfg, system, user):
     Behavior:
       - Auto-chunks the input markdown when it exceeds `chunk_chars`
         (default 9000) so it fits the GitHub Models free-tier 8K-token
-        request-body cap on `openai/gpt-4.1`.
+        request-body cap on `openai/gpt-5-mini`.
       - Retries with exponential backoff on 429 / transient errors.
     """
     from openai import OpenAI

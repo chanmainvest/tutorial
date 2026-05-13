@@ -85,7 +85,7 @@ momentum (UMD — Up Minus Down). The first five are Fama-French 5;
 adding UMD gives you the FF5 + momentum framework that almost every
 sell-side risk model in 2026 starts from.
 
-![Factor premia 1963-2024](image/week23_factor_premia.png)
+![Factor premia 1963-2024](../image/week23_factor_premia.png)
 
 #### 2.2 The historical premia, in one breath
 
@@ -120,7 +120,7 @@ factor drew down roughly 45% in calendar 2009 (and ~83% peak-to-trough)
 as the market V-bottomed and previously losing junk stocks ripped
 higher off the lows.
 
-![Rolling 10-year HML and UMD premium](image/week23_factor_decay.png)
+![Rolling 10-year HML and UMD premium](../image/week23_factor_decay.png)
 
 There are three competing explanations for why the premia have
 compressed, and they're probably all true. First, *publication

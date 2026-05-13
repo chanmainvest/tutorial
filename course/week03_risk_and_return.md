@@ -92,7 +92,7 @@ $\sigma$, *if* returns were normally distributed (a big if; see §2.6):
 Run that on the actual S&P 500 dataset since 1928 and what you get is
 this:
 
-![Histogram of S&P 500 annual total returns, 1928 through 2024 (Damodaran annual dataset). The empirical mean is roughly 11.5% and the standard deviation is roughly 19.5%. A normal distribution with the same mean and standard deviation is overlaid as a smooth curve. The histogram has visibly fatter tails than the normal curve in *both* directions — the worst years (1931, 1937, 2008) shown in red on the left tail, and the best years (1933, 1954, 1958) shown in green on the right tail, are far further from the centre than a normal distribution predicts.](image/week03_return_distribution.png)
+![Histogram of S&P 500 annual total returns, 1928 through 2024 (Damodaran annual dataset). The empirical mean is roughly 11.5% and the standard deviation is roughly 19.5%. A normal distribution with the same mean and standard deviation is overlaid as a smooth curve. The histogram has visibly fatter tails than the normal curve in *both* directions — the worst years (1931, 1937, 2008) shown in red on the left tail, and the best years (1933, 1954, 1958) shown in green on the right tail, are far further from the centre than a normal distribution predicts.](../image/week03_return_distribution.png)
 
 Three things to read off this chart:
 
@@ -345,7 +345,7 @@ shaded peaks are the major bear markets. The number that matters in
 each case is not the size of the drawdown so much as the *time it
 took to recover* and the temperament that survival required.
 
-![S&P 500 total-return drawdown chart, monthly, 1985–2026 (Yahoo Finance ^GSPC). Each shaded region is a peak-to-recovery drawdown. The four largest visible in the modern data are 1987 Black Monday (-34%), 2000–2002 dot-com (-49%), 2007–2009 GFC (-55%), and the 2020 COVID crash (-34%). The 2022 selloff (-25%) and the post-2018 vol shock appear as smaller indentations. The 1973–74 oil-shock bear (-48%) predates this monthly series but lives in the recovery-time table below.](image/week03_drawdowns.png)
+![S&P 500 total-return drawdown chart, monthly, 1985–2026 (Yahoo Finance ^GSPC). Each shaded region is a peak-to-recovery drawdown. The four largest visible in the modern data are 1987 Black Monday (-34%), 2000–2002 dot-com (-49%), 2007–2009 GFC (-55%), and the 2020 COVID crash (-34%). The 2022 selloff (-25%) and the post-2018 vol shock appear as smaller indentations. The 1973–74 oil-shock bear (-48%) predates this monthly series but lives in the recovery-time table below.](../image/week03_drawdowns.png)
 
 Recovery times (peak-to-new-high), by event:
 
@@ -425,7 +425,7 @@ Run the historical S&P 500 dataset and compute the *worst* and *best*
 annualised return over rolling holding periods of 1, 5, 10, 20, and
 30 years. The picture is striking.
 
-![Range of annualised real returns for rolling holding periods on the S&P 500, 1928–2024 (Damodaran annual data, total return less CPI). Each line/band shows the worst (red), best (green), and 10th–90th-percentile range (blue band) for that holding length. The 1-year window runs from -38% to +53% — a 91-point range. The 30-year window runs from +4% to +10%. Time does not eliminate risk, but it dramatically shrinks the *range* of plausible annualised outcomes.](image/week03_holding_periods.png)
+![Range of annualised real returns for rolling holding periods on the S&P 500, 1928–2024 (Damodaran annual data, total return less CPI). Each line/band shows the worst (red), best (green), and 10th–90th-percentile range (blue band) for that holding length. The 1-year window runs from -38% to +53% — a 91-point range. The 30-year window runs from +4% to +10%. Time does not eliminate risk, but it dramatically shrinks the *range* of plausible annualised outcomes.](../image/week03_holding_periods.png)
 
 Two true things that look contradictory:
 
@@ -634,7 +634,7 @@ Three Marks ideas worth tattooing on the inside of your eyelids:
      up; the *realised* return for any individual investor can go
      anywhere, and increasingly so.
 
-   ![Howard Marks's risk-distribution diagram. The horizontal axis is risk; the vertical axis is return. The textbook capital-market line is shown as a thin upward-sloping line. Overlaid at each level of risk is a vertical probability distribution — narrow and centred on the line at low risk, progressively wider and more left-skewed as risk rises. At T-bill risk the distribution is a tight spike. At broad-equity risk it is a wide bell with a visible left tail. At venture/speculative risk it is a very wide distribution where the left tail extends to total loss. The diagram makes the point that "higher risk" does not mean "guaranteed higher return" but "wider range of possible returns, including much worse ones."](image/week03_marks_risk_distribution.png)
+   ![Howard Marks's risk-distribution diagram. The horizontal axis is risk; the vertical axis is return. The textbook capital-market line is shown as a thin upward-sloping line. Overlaid at each level of risk is a vertical probability distribution — narrow and centred on the line at low risk, progressively wider and more left-skewed as risk rises. At T-bill risk the distribution is a tight spike. At broad-equity risk it is a wide bell with a visible left tail. At venture/speculative risk it is a very wide distribution where the left tail extends to total loss. The diagram makes the point that "higher risk" does not mean "guaranteed higher return" but "wider range of possible returns, including much worse ones."](../image/week03_marks_risk_distribution.png)
 
 2. **The first job of the investor is not to make money. It is to
    not be wiped out.** Marks calls this *survival first*. A 50%

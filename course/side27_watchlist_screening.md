@@ -56,7 +56,7 @@ Four reasons to take screening seriously:
    market can stay irrational longer than you can stay solvent — and
    longer than your conviction, too.)
 
-![A funnel diagram showing 4,000 US-listed stocks narrowing in four steps: 250 pass the screen, 50 advance to deep-dive, 10 sit on the active watchlist, and 3 are currently owned. Each stage is labelled with the typical activity (filter, due diligence, valuation, position).](image/side27_screener_funnel.png)
+![A funnel diagram showing 4,000 US-listed stocks narrowing in four steps: 250 pass the screen, 50 advance to deep-dive, 10 sit on the active watchlist, and 3 are currently owned. Each stage is labelled with the typical activity (filter, due diligence, valuation, position).](../image/side27_screener_funnel.png)
 
 The funnel above is the canonical pipeline: **filter -> due-diligence
 -> watchlist -> position**. The numbers will not match yours exactly,
@@ -198,7 +198,7 @@ of consumer-discretionary mid-caps that missed Q1, and one or two
 healthcare names hit by tariff noise. Limit position size to 0.5-1% of
 the portfolio — these are tranche-4 (opportunistic), not tranche-1.
 
-![A scatter plot of trailing P/E (x-axis) versus return on equity (y-axis) for 30 well-known US-listed stocks. Quadrants are labelled cheap/expensive on the price axis and low-quality/high-quality on the ROE axis. The lower-right "GARP zone" — low P/E, high ROE — is shaded green and contains the screen's most attractive candidates.](image/side27_garp_quadrant.png)
+![A scatter plot of trailing P/E (x-axis) versus return on equity (y-axis) for 30 well-known US-listed stocks. Quadrants are labelled cheap/expensive on the price axis and low-quality/high-quality on the ROE axis. The lower-right "GARP zone" — low P/E, high ROE — is shaded green and contains the screen's most attractive candidates.](../image/side27_garp_quadrant.png)
 
 The scatter above is the visual frame. Anything in the lower-right
 quadrant is a candidate; anything in the upper-left is the

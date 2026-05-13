@@ -139,7 +139,7 @@ is exactly the mechanism that lights the squeeze fuse.
 
 The image below shows the four payoff diagrams side by side.
 
-![Four payoff diagrams in a 2x2 grid: long stock (linear, unbounded upside, 100% capped downside), short stock (linear, 100% capped upside, unbounded downside), long call (capped loss at premium paid, unbounded upside), and long put (capped loss at premium paid, capped upside at strike). The diagram shows how options are a barbell-shaped reshaping of the stock payoff: capped downside, asymmetric upside.](image/week13_payoff_diagrams.png)
+![Four payoff diagrams in a 2x2 grid: long stock (linear, unbounded upside, 100% capped downside), short stock (linear, 100% capped upside, unbounded downside), long call (capped loss at premium paid, unbounded upside), and long put (capped loss at premium paid, capped upside at strike). The diagram shows how options are a barbell-shaped reshaping of the stock payoff: capped downside, asymmetric upside.](../image/week13_payoff_diagrams.png)
 
 #### 2.3 Gross vs Net Exposure, Dollar-Neutral, Beta-Neutral
 
@@ -276,7 +276,7 @@ real wealth of a hypothetical L/S equity market-neutral fund
 (deterministic compounding model targeting 4% annualised real and 5%
 volatility) against 60/40 from 1990 through 2024.
 
-![Cumulative real wealth of a hypothetical equity market-neutral fund (4% annualized real, 5% vol, modelled as a deterministic compound path with synthetic mean-zero noise) versus 60/40 (60% S&P 500, 40% 10-year Treasuries, annual rebalance) from 1990 through 2024. The 60/40 line is dramatically steeper but has visible drawdowns at 2000-02, 2008, and 2022. The market-neutral line is flatter but bends through every regime almost unchanged.](image/week13_market_neutral_vs_60_40.png)
+![Cumulative real wealth of a hypothetical equity market-neutral fund (4% annualized real, 5% vol, modelled as a deterministic compound path with synthetic mean-zero noise) versus 60/40 (60% S&P 500, 40% 10-year Treasuries, annual rebalance) from 1990 through 2024. The 60/40 line is dramatically steeper but has visible drawdowns at 2000-02, 2008, and 2022. The market-neutral line is flatter but bends through every regime almost unchanged.](../image/week13_market_neutral_vs_60_40.png)
 
 The shape tells you what L/S buys you and what it costs. It buys
 you regime-independence: the line slopes up through every macro

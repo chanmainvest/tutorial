@@ -126,7 +126,7 @@ funds at 70-110 bp. Hedge funds at 350-450 bp on a 10% gross
 year. Those gaps are not in the prospectus headline. They are
 in the math.
 
-![Decomposition of total cost of ownership for four fund types: index ETF (~5 bp), passive mutual fund (~15 bp), active mutual fund (~75 bp headline plus transaction and bid-ask drag), and hedge fund (200 bp + 20% of profit). Stacked bars show expense ratio, transaction cost, and bid-ask separately so the gap is visible.](image/side08_fund_costs_decomposed.png)
+![Decomposition of total cost of ownership for four fund types: index ETF (~5 bp), passive mutual fund (~15 bp), active mutual fund (~75 bp headline plus transaction and bid-ask drag), and hedge fund (200 bp + 20% of profit). Stacked bars show expense ratio, transaction cost, and bid-ask separately so the gap is visible.](../image/side08_fund_costs_decomposed.png)
 
 #### 2.2 Why a 1% Fee Costs You $400,000
 
@@ -165,7 +165,7 @@ changed: **across a working life, fees are the single largest
 controllable lever on your terminal wealth**. The market does what
 it does. You decide what you pay.
 
-![Cumulative wealth of 100,000 dollars invested for 30 years at an 8% gross return, with five fee levels: 0.05% index ETF, 0.50% passive blend, 1.00% typical active mutual fund, 1.50% advisor-wrapped, 2.00% fund-of-funds or hedge-fund management fee. The terminal-wealth gap between 0.05% and 1.00% is approximately 400,000 dollars in nominal terms; the gap between 0.05% and 2.00% is over 600,000 dollars.](image/side08_fee_drag.png)
+![Cumulative wealth of 100,000 dollars invested for 30 years at an 8% gross return, with five fee levels: 0.05% index ETF, 0.50% passive blend, 1.00% typical active mutual fund, 1.50% advisor-wrapped, 2.00% fund-of-funds or hedge-fund management fee. The terminal-wealth gap between 0.05% and 1.00% is approximately 400,000 dollars in nominal terms; the gap between 0.05% and 2.00% is over 600,000 dollars.](../image/side08_fee_drag.png)
 
 #### 2.3 Hidden Fees and the Wrapper Doubling Trap
 

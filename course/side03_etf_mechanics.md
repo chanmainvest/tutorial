@@ -98,7 +98,7 @@ seconds — a continuously-updated estimate of the basket value,
 against which the current bid/ask is checked. When iNAV and price
 diverge by more than a few basis points, an AP shows up.
 
-![Schematic of the ETF creation and redemption cycle. An Authorized Participant assembles a basket of underlying stocks, delivers it in kind to the ETF sponsor, and receives a creation unit of fresh ETF shares which it then sells on the open exchange. The reverse arrow shows redemption. The iNAV publishes every 15 seconds.](image/side03_creation_redemption.png)
+![Schematic of the ETF creation and redemption cycle. An Authorized Participant assembles a basket of underlying stocks, delivers it in kind to the ETF sponsor, and receives a creation unit of fresh ETF shares which it then sells on the open exchange. The reverse arrow shows redemption. The iNAV publishes every 15 seconds.](../image/side03_creation_redemption.png)
 
 #### 2.2 Why ETFs Are Tax-Efficient (the In-Kind Trick)
 
@@ -136,7 +136,7 @@ mutual fund pushing 5-10% of NAV in distributions during a
 turnover-heavy year, the same calculation produces tens of
 thousands of dollars of drag.
 
-![Approximate cumulative after-tax wealth of a 100,000 dollar position invested in 2005 in VTSAX (mutual fund, occasional capital-gain distributions) versus VTI (ETF, none). Same underlying portfolio, same fee, different wrapper.](image/side03_etf_vs_mf_tax.png)
+![Approximate cumulative after-tax wealth of a 100,000 dollar position invested in 2005 in VTSAX (mutual fund, occasional capital-gain distributions) versus VTI (ETF, none). Same underlying portfolio, same fee, different wrapper.](../image/side03_etf_vs_mf_tax.png)
 
 This is also why Vanguard's **patented dual-share structure** —
 VTI is literally a share class of VTSAX, sharing the same

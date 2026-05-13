@@ -51,7 +51,7 @@ $$ \text{vanna} = \frac{\partial \Delta}{\partial \sigma} = \frac{\partial \nu}{
 
 **Vanna集中在哪裡：** 價外選擇權，包含買權與賣權。在價平時，$d_2$接近零，因此vanna也接近零。符號規則的簡化記憶（價外買權vanna > 0，價內買權vanna < 0；賣權相反）直接來自$d_2$的符號。
 
-![side20_second_order](image/side20_second_order.png)
+![side20_second_order](../image/side20_second_order.png)
 
 上圖右上方的面板顯示vanna的S形曲線：在價平兩側出現符號相反的峰值，在價平時為零。這正是為什麼造市商在意其帳簿vanna曝險時，會把注意力集中在25 delta和10 delta的兩翼選擇權，而非50 delta的履約價。
 
@@ -103,7 +103,7 @@ $$ \text{volga} = \frac{\partial \nu}{\partial \sigma} = \nu \cdot \frac{d_1 d_2
 
 **2022年以後：** 0DTE爆炸。SPX/SPY的每日到期從小眾商品成長為截至2024年中期約佔SPX總選擇權成交量45%的產品。造市商的淨gamma每天可能多次從多頭翻轉為空頭。釘盤模式現在既更頻繁（因為每天都有到期）、也更劇烈（因為charm與color在同日選擇權上達到極端值）。
 
-![side20_dealer_pinning](image/side20_dealer_pinning.png)
+![side20_dealer_pinning](../image/side20_dealer_pinning.png)
 
 上圖是近期某個季度選擇權到期週五SPX現金盤的示意重建——指數在上午漂移，中午前後向5000吸附，在最後兩小時內有效地在該水位0.15%的區間內振盪。虛線水平線標示了三個在到期前未平倉量最高的履約價。這並非機械式的必然——但現在已足夠普遍，每家主要券商的桌面研究都在追蹤。
 
@@ -300,7 +300,7 @@ $$ \text{volga} = \frac{\partial \nu}{\partial \sigma} = \nu \cdot \frac{d_1 d_2
 
 **陳馬：** 頁面上的互動工具讓你可以針對任何合約掃描全部五個一階希臘字母，加上四個二階希臘字母。
 
-**[VISUAL: course/interactive/side20_greeks_explorer.html]**
+**[VISUAL: interactive/side20_greeks_explorer.html]**
 
 **陳馬：** 設定現貨100、履約價100、30天、波動性20%。看頂部那一排的九個數字。下方是敏感度熱力圖——你可以選擇九個希臘字母中的任何一個，看它如何隨著現貨價和到期天數的移動而改變。選**vanna**。注意那個對角條紋圖案——vanna在兩翼和中等到期天數時最大。現在選**color**。整個曲面在最後7天集中於價平附近。這就是我們剛才說的gamma收窄，以視覺方式呈現。
 

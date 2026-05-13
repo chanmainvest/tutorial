@@ -84,7 +84,7 @@ percent of bankroll per trade. That is the universe you are
 operating in. You are not in a 1956 horse-race. You are in a
 near-fair-coin world where Kelly outputs single-digit percentages.
 
-![Line chart of full-Kelly fraction f* on the y-axis (0 to ~30%) against win-rate p on the x-axis (40% to 70%), with five curves for different reward-to-risk ratios (b = 0.5, 1, 1.5, 2, 3). The central b=1 (coin-flip) line crosses zero at p=0.5 and reaches ~4% at the typical equity edge point of p≈0.52. Higher payoff ratios shift the curves up and left; below the no-edge boundary p < q/b each curve goes negative — the math politely telling you not to take the bet. The chart anchors the entire fractional-Kelly discussion: realistic equity edges produce single-digit-percent Kelly outputs, and quarter-Kelly is the responsible default.](image/week41_kelly_curve.png)
+![Line chart of full-Kelly fraction f* on the y-axis (0 to ~30%) against win-rate p on the x-axis (40% to 70%), with five curves for different reward-to-risk ratios (b = 0.5, 1, 1.5, 2, 3). The central b=1 (coin-flip) line crosses zero at p=0.5 and reaches ~4% at the typical equity edge point of p≈0.52. Higher payoff ratios shift the curves up and left; below the no-edge boundary p < q/b each curve goes negative — the math politely telling you not to take the bet. The chart anchors the entire fractional-Kelly discussion: realistic equity edges produce single-digit-percent Kelly outputs, and quarter-Kelly is the responsible default.](../image/week41_kelly_curve.png)
 
 The chart shows full-Kelly $f^*$ as a function of win rate $p$
 across five payoff ratios. Notice three things. First, at the
@@ -239,7 +239,7 @@ borrow cost (currently \~5% annual at retail margin rates) and
 the realised drawdown is even worse, because the drag eats into
 your equity *during* the drawdown, when you can least afford it.
 
-![Curve of expected maximum drawdown over a 30-year horizon (y-axis, deepening downward to ~-90%) plotted against leverage L (x-axis, 1.0 to 3.0) for a strategy with 10% expected return and 16% annualised volatility, with retail margin financing drag included. The shape is dramatic: from L=1.0 to 1.5 the curve climbs roughly linearly to about -35%; from 1.5 to 2.0 it bends upward and reaches roughly -55%; beyond 2.0 it goes vertical, hitting around -85% at 3x leverage. The chart visualises why leverage above 1.5x is "a different sport" — fat-tailed volatility plus financing drag turns survivable bear markets into margin-call events.](image/week41_leverage_drawdown.png)
+![Curve of expected maximum drawdown over a 30-year horizon (y-axis, deepening downward to ~-90%) plotted against leverage L (x-axis, 1.0 to 3.0) for a strategy with 10% expected return and 16% annualised volatility, with retail margin financing drag included. The shape is dramatic: from L=1.0 to 1.5 the curve climbs roughly linearly to about -35%; from 1.5 to 2.0 it bends upward and reaches roughly -55%; beyond 2.0 it goes vertical, hitting around -85% at 3x leverage. The chart visualises why leverage above 1.5x is "a different sport" — fat-tailed volatility plus financing drag turns survivable bear markets into margin-call events.](../image/week41_leverage_drawdown.png)
 
 The chart simulates expected max drawdown over a 30-year horizon
 for a strategy with 10% expected return and 16% annualised

@@ -154,7 +154,7 @@ The image below shows this template alongside four other archetypes
 (conservative, moderate, aggressive, institutional, FIRE-style
 barbell). Each row is one archetype's sleeve breakdown.
 
-![Stacked horizontal bar chart of five archetype multi-strategy portfolios. Conservative (90% beta, 0% factor, 0% alpha, 10% cash). Moderate (80% beta, 10% factor, 5% alpha, 5% cash). Aggressive (65% beta, 15% factor, 15% alpha, 5% cash). Institutional (70% beta, 15% factor, 13% alpha, 2% cash). FIRE / barbell (70% beta, 5% factor, 10% alpha, 15% cash). Bars segmented in site palette colours; legend at the bottom; x-axis 0-100%.](image/week24_sleeve_breakdown.png)
+![Stacked horizontal bar chart of five archetype multi-strategy portfolios. Conservative (90% beta, 0% factor, 0% alpha, 10% cash). Moderate (80% beta, 10% factor, 5% alpha, 5% cash). Aggressive (65% beta, 15% factor, 15% alpha, 5% cash). Institutional (70% beta, 15% factor, 13% alpha, 2% cash). FIRE / barbell (70% beta, 5% factor, 10% alpha, 15% cash). Bars segmented in site palette colours; legend at the bottom; x-axis 0-100%.](../image/week24_sleeve_breakdown.png)
 
 #### 2.4 What Each Sleeve Actually Adds — The Layered-Returns View
 
@@ -203,7 +203,7 @@ return up enough to mostly offset its own fee.
 
 The image below decomposes the layered returns for four archetypes.
 
-![Four-archetype stacked bar chart of expected return decomposition. Each bar shows beta contribution (largest, blue), factor add (gold, smaller), alpha add (green), and fee drag (red, plotted negative). Net return shown as a black tick mark. Conservative bar nets to ~5.5%; moderate to ~6.7%; aggressive to ~6.4%; institutional to ~6.5%. The aggressive and institutional portfolios pay back more in fees but contribute more from the alpha and factor sleeves.](image/week24_layered_returns.png)
+![Four-archetype stacked bar chart of expected return decomposition. Each bar shows beta contribution (largest, blue), factor add (gold, smaller), alpha add (green), and fee drag (red, plotted negative). Net return shown as a black tick mark. Conservative bar nets to ~5.5%; moderate to ~6.7%; aggressive to ~6.4%; institutional to ~6.5%. The aggressive and institutional portfolios pay back more in fees but contribute more from the alpha and factor sleeves.](../image/week24_layered_returns.png)
 
 The point of the image: **most of the return comes from the beta
 sleeve, regardless of how clever the other sleeves are.** Factor

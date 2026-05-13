@@ -1,7 +1,7 @@
 # Interactive Chart Style — Canonical Pattern
 
-The Week 1 charts `course/interactive/week01_money_supply.html` and
-`course/interactive/week01_us_debt_m2.html` are the canonical reference
+The Week 1 charts `interactive/week01_money_supply.html` and
+`interactive/week01_us_debt_m2.html` are the canonical reference
 for all interactive chart components in this course. Read this file
 before creating a new interactive chart, or before editing an existing
 one to match the family. (Week 1's `week01_shadow_cpi.html` predates
@@ -14,9 +14,9 @@ the user can fall back to the static image.
 
 ## File structure
 
-- **Single self-contained HTML file** under `course/interactive/`,
+- **Single self-contained HTML file** under `interactive/`,
   named `weekNN_topic.html` (or `sideNN_topic.html`) to match the
-  static image at `course/image/weekNN_topic.png` so the build can
+  static image at `image/weekNN_topic.png` so the build can
   pair them automatically.
 - **Only external dependency:** Plotly from CDN, pinned to a specific
   version:

@@ -53,7 +53,7 @@ Modigliani-Miller:
    of being literate in the income sleeve of a four-tranche
    portfolio.
 
-![Three-bar grouped chart for SCHD, VYM, DGRO, NOBL, and SPYI showing five-year annualised total return, trailing five-year dividend growth rate, and current trailing twelve-month yield. SCHD and DGRO lead on growth; SPYI leads on yield with near-zero dividend growth; NOBL pays the lowest yield but has the longest growth track record.](image/side10_div_etf_compare.png)
+![Three-bar grouped chart for SCHD, VYM, DGRO, NOBL, and SPYI showing five-year annualised total return, trailing five-year dividend growth rate, and current trailing twelve-month yield. SCHD and DGRO lead on growth; SPYI leads on yield with near-zero dividend growth; NOBL pays the lowest yield but has the longest growth track record.](../image/side10_div_etf_compare.png)
 
 This lesson is the operating manual for the income tranche — the
 *Income* slot in the four-tranche stack. You will
@@ -208,7 +208,7 @@ original investment in cash dividends every year, even though the
 *current* yield of SCHD has not moved. YoC is a vanity metric for
 performance attribution, but a real one for lifestyle planning.
 
-![Line chart of S&P 500 Dividend Aristocrats Index dividend per share from 1990 to 2024. Growth is steady at roughly 7% per year, with a brief flatline through the 2008 GFC and a small dip in 2020 from oil-name cuts, but the slope resumes within a year in both cases.](image/side10_aristocrats_growth.png)
+![Line chart of S&P 500 Dividend Aristocrats Index dividend per share from 1990 to 2024. Growth is steady at roughly 7% per year, with a brief flatline through the 2008 GFC and a small dip in 2020 from oil-name cuts, but the slope resumes within a year in both cases.](../image/side10_aristocrats_growth.png)
 
 #### 2.4 The Modigliani-Miller View — Why Some People Hate Dividends
 

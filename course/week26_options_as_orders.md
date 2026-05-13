@@ -118,7 +118,7 @@ Three outcomes, and only three:
    cushion. Worst case (XYZ -> $0): -$8,800 vs. the limit-order's
    -$9,000 — strictly better.
 
-![Payoff diagram for a single short $90 cash-secured put on XYZ for $2.00 premium with 30 days to expiry, plotted from $60 to $140 of XYZ price at expiry. The curve is flat at +$200 (max profit, premium kept) above the $90 strike, slopes diagonally down through the $88 breakeven, and reaches -$8,800 at XYZ = $0. The green-shaded region above zero marks "premium kept"; the red region below marks "below breakeven." Footer notes $9,000 cash collateral and ~27% annualised yield-on-cash if the put expires worthless.](image/week26_csp_payoff.png)
+![Payoff diagram for a single short $90 cash-secured put on XYZ for $2.00 premium with 30 days to expiry, plotted from $60 to $140 of XYZ price at expiry. The curve is flat at +$200 (max profit, premium kept) above the $90 strike, slopes diagonally down through the $88 breakeven, and reaches -$8,800 at XYZ = $0. The green-shaded region above zero marks "premium kept"; the red region below marks "below breakeven." Footer notes $9,000 cash collateral and ~27% annualised yield-on-cash if the put expires worthless.](../image/week26_csp_payoff.png)
 
 The image script `week26_csp_payoff.py` shades this exact P&L profile
 from $60 to $140 with breakeven, max profit and tail loss labelled.
@@ -153,7 +153,7 @@ The three outcomes:
    `week26_cc_payoff.py` shows the payoff capping at +$1,150 for any
    stock price >= $110.
 
-![Payoff diagram for the covered-call package — long 100 shares of XYZ at $100 entry plus one short $110 call sold for $1.50 — plotted across XYZ expiry prices from $60 to $140. The blue solid line is the package P&L; a dashed grey line shows the long-stock-only reference for comparison. The package caps at +$1,150 for any price at or above the $110 strike, crosses zero at the $98.50 breakeven, and slopes down to -$9,850 at XYZ = $0. The two lines run almost parallel on the downside — the $150 premium is cushion, not hedge.](image/week26_cc_payoff.png)
+![Payoff diagram for the covered-call package — long 100 shares of XYZ at $100 entry plus one short $110 call sold for $1.50 — plotted across XYZ expiry prices from $60 to $140. The blue solid line is the package P&L; a dashed grey line shows the long-stock-only reference for comparison. The package caps at +$1,150 for any price at or above the $110 strike, crosses zero at the $98.50 breakeven, and slopes down to -$9,850 at XYZ = $0. The two lines run almost parallel on the downside — the $150 premium is cushion, not hedge.](../image/week26_cc_payoff.png)
 
 The downside is unchanged from owning the stock outright, *minus* the
 $1.50 cushion: at XYZ -> $0, the position is worth -$10,000 + $150 =

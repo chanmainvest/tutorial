@@ -167,7 +167,7 @@ ETH margin debt at the institutional level went from ~$28 billion
 to under $4 billion in eight weeks. None of it would have failed
 if the participants had been unlevered. Vol-tail-wags-dog.
 
-![Margin-call path: 2x SPY through the 2008 drawdown. The unlevered investor recovered; the 2x leveraged path crossed the maintenance threshold, was forced to deleverage at -34%, and never re-entered.](image/side21_margin_call_path.png)
+![Margin-call path: 2x SPY through the 2008 drawdown. The unlevered investor recovered; the 2x leveraged path crossed the maintenance threshold, was forced to deleverage at -34%, and never re-entered.](../image/side21_margin_call_path.png)
 
 #### 2.4 Portfolio Margin — The Stress-Test Alternative
 
@@ -259,7 +259,7 @@ are real:
   basis. Section 1256 again. Best leverage tool for a retail
   account, period.
 
-![Effective borrow rate by structure. Broker margin on small balances is the most expensive; box spreads and futures-implied financing run 200-300 bp lower, with Treasury rates the natural floor.](image/side21_box_vs_broker.png)
+![Effective borrow rate by structure. Broker margin on small balances is the most expensive; box spreads and futures-implied financing run 200-300 bp lower, with Treasury rates the natural floor.](../image/side21_box_vs_broker.png)
 
 #### 2.6 The Leverage Doesn't Add Long-Term Return Argument
 

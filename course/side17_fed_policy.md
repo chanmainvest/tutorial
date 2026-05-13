@@ -56,7 +56,7 @@ This is a working tool, not civics. By the end of the lesson you will
 know what each Fed lever does, where to read the signal, and how to
 size the resulting move into your own four-tranche portfolio.
 
-![US Fed funds effective rate from 1955 to April 2026, FRED FEDFUNDS, with the Volcker 19.1% peak in July 1981, the 2008 zero-bound, the 2015-19 normalisation, the 2020 emergency cut to 0.05%, the 2022-23 hiking cycle (525 bps in 18 months), and the April 2026 current setting at 3.6% all annotated on the line.](image/side17_ffr_history.png)
+![US Fed funds effective rate from 1955 to April 2026, FRED FEDFUNDS, with the Volcker 19.1% peak in July 1981, the 2008 zero-bound, the 2015-19 normalisation, the 2020 emergency cut to 0.05%, the 2022-23 hiking cycle (525 bps in 18 months), and the April 2026 current setting at 3.6% all annotated on the line.](../image/side17_ffr_history.png)
 
 ---
 
@@ -106,7 +106,7 @@ out of it: the median, the central tendency (drop top three and bottom
 three), and the dispersion (a tight cluster signals consensus, a wide
 spread signals committee disagreement and therefore optionality).
 
-![Schematic recreation of a recent FOMC dot plot for 2026, 2027, 2028, and longer-run. Sixteen dots scatter around the year-end Fed funds projection. The 2026 column clusters near 3.5%; 2027 near 3.0%; 2028 and longer-run near 2.75%. The median for each year is highlighted as a bold horizontal mark.](image/side17_dot_plot.png)
+![Schematic recreation of a recent FOMC dot plot for 2026, 2027, 2028, and longer-run. Sixteen dots scatter around the year-end Fed funds projection. The 2026 column clusters near 3.5%; 2027 near 3.0%; 2028 and longer-run near 2.75%. The median for each year is highlighted as a bold horizontal mark.](../image/side17_dot_plot.png)
 
 Two reading rules. First, **the median moves markets, the tails don't**.
 The single dot at 5.5% in the 2027 column is some hawk who would not

@@ -75,7 +75,7 @@ its weights look approximately like this:
   small and illiquid that even institutional managers rarely treat it
   as a real allocation.
 
-![Pie chart of global investable equity market capitalization as of April 2026: United States ~60%, EAFE ~25%, emerging markets ~12%, frontier ~3%. The dominance of U.S. cap weight is the headline; emerging markets are smaller than most retail investors estimate.](image/side18_global_market_cap.png)
+![Pie chart of global investable equity market capitalization as of April 2026: United States ~60%, EAFE ~25%, emerging markets ~12%, frontier ~3%. The dominance of U.S. cap weight is the headline; emerging markets are smaller than most retail investors estimate.](../image/side18_global_market_cap.png)
 
 The key intuition the chart should leave you with: *global market cap
 is dominated by one country.* This was not always true — in 1989, at
@@ -109,7 +109,7 @@ April 2026** decomposes into roughly three regimes.
   the U.S. tech complex), shale (favours U.S. energy independence),
   and dollar strength (penalises unhedged ex-U.S. holdings).
 
-![Wealth path of $1 invested in SPY, EFA, and EEM from 1990 through April 2026, with shaded regime bands. SPY ends near $35; EFA near $5; EEM near $5. The 2000s gap closes, then the 2010s gap re-opens far wider than before.](image/side18_us_vs_world.png)
+![Wealth path of $1 invested in SPY, EFA, and EEM from 1990 through April 2026, with shaded regime bands. SPY ends near $35; EFA near $5; EEM near $5. The 2000s gap closes, then the 2010s gap re-opens far wider than before.](../image/side18_us_vs_world.png)
 
 The honest reading of this chart: **leadership has rotated, and
 nobody knows where it goes next.** That is also Horace's first

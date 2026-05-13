@@ -27,7 +27,7 @@ Regulation NMS (National Market System), effective 2007, is the rulebook that ho
 
 The unintended consequence of forcing every venue to honour every other venue's quote is that it became economically rational to spin up *more* venues. As of April 2026 the US has 16 registered stock exchanges (NYSE, Nasdaq, BATS/Cboe BZX/EDGX/BYX/EDGA, IEX, MEMX, MIAX, Long-Term Stock Exchange, etc.) plus roughly 30 alternative trading systems (ATSs, i.e. dark pools). Each exchange charges different maker/taker rebates, and brokers' smart-order routers slice your order across them based on rebate economics, latency, and fill probability. You see one fill at one price; the order may have touched five venues in 200 microseconds. Reg NMS guarantees you weren't filled *worse* than NBBO; it guarantees nothing about whether you got the *midpoint*, which is where the spread cost lives.
 
-![Schematic limit order book showing bid and ask ladders, NBBO spread, and the price impact of a market order eating through three ask levels.](image/week44_order_book.png)
+![Schematic limit order book showing bid and ask ladders, NBBO spread, and the price impact of a market order eating through three ask levels.](../image/week44_order_book.png)
 
 #### 2.2 Order types: market, limit, stop, stop-limit, IOC, FOK, and the algos
 
@@ -58,7 +58,7 @@ The economic claim that defenders make is that retail flow is *uninformed* — w
 
 The critique: the routing decision optimises for *broker revenue*, not customer execution quality. SEC Rule 605/606 disclosures show measurable variation in execution quality across wholesalers. The 2021 GameStop episode (Robinhood's PMCC default risk forced trading restrictions) revealed how concentrated this plumbing is — a single wholesaler clearing 40%+ of a broker's volume creates structural fragility.
 
-![Schematic of retail order flow routing: customer to broker to wholesaler (Citadel/Virtu) to exchange or internalisation, with annotated dollar flows.](image/week44_pfof_flows.png)
+![Schematic of retail order flow routing: customer to broker to wholesaler (Citadel/Virtu) to exchange or internalisation, with annotated dollar flows.](../image/week44_pfof_flows.png)
 
 #### 2.5 Latency arbitrage and the microsecond economy
 

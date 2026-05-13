@@ -1,6 +1,6 @@
 """Shared helpers for the tutorial's procedural matplotlib chart scripts.
 
-Every chart-generation script under course/image/ should import the
+Every chart-generation script under image/ should import the
 `apply_cjk_font`, `palette`, and `save_localized_png` helpers from this
 module so the four-locale PNG family (en/hk/tw/cn) is rendered with a
 consistent style.

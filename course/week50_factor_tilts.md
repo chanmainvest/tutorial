@@ -32,7 +32,7 @@ What changed around 2003-2010? Three things at once. First, factor ETFs launched
 
 The result: **roughly half the headline number persists post-2003**, and that fraction is itself volatile. Value premium (HML) was -4.7% per year from 2007-2019 — a 12-year drought that broke careers — before snapping back to +27.7% in 2022 alone. Anyone who sized value tilts to the 1963-2003 magnitude was crucified by 2018; anyone who liquidated by 2020 missed the snap.
 
-![Factor ETF cumulative returns 2014-Apr 2026](image/week50_factor_etfs_perf.png)
+![Factor ETF cumulative returns 2014-Apr 2026](../image/week50_factor_etfs_perf.png)
 
 The chart shows seven retail factor ETFs from January 2014 through April 2026. VTI (core US total market) is the reference line. Notice three things: MTUM and QUAL beat VTI cumulatively, but with deeper drawdowns in 2022. AVUV (Avantis small-value) launched September 2019 and has been the standout post-launch but the time series is short. USMV did its job in 2018 and 2020 (smaller drawdowns) but trailed VTI in the bull run 2021-2024 — that is the trade. VBR and VTV — pure value tilts — trail VTI substantially over the full window despite the 2022 value snap. Single-factor tilts work in some regimes and fail in others; the chart is the visual proof.
 
@@ -90,7 +90,7 @@ A canonical retail core+tilt looks like this:
 
 Why this shape? The 30% factor sleeve, sized at the post-decay expected alpha (~1.0-1.5% per year per factor, applied to ~7% of the portfolio per factor), produces an aggregate expected uplift of roughly 0.3-0.5% per year over 100% VTI. That sounds modest. It is. **The honest framing of factor investing in 2026 is: a well-implemented factor tilt buys you roughly 30-50 bps of expected outperformance per year, with tracking error of 3-4% per year against VTI.** The information ratio is on the order of 0.10-0.15. That is a real, defensible improvement, not the 2-3% per year that factor ETF marketing material would have you believe.
 
-![Core + tilt grid: 6 portfolios, ann. return / Sharpe / max-DD](image/week50_core_tilt_grid.png)
+![Core + tilt grid: 6 portfolios, ann. return / Sharpe / max-DD](../image/week50_core_tilt_grid.png)
 
 The grid above shows six candidate constructions over 2014-Apr 2026: 100% VTI; 80/20 with VTV, MTUM, or AVUV; a 60/40 multi-factor; and an equal-weight all-seven blend. The 80/20-MTUM won on annualised return in this window — momentum had a strong 2017 (+37%) and 2024 (+32%) inside the sample. The 60/40 multi-factor delivered the best Sharpe (0.60 vs. 0.56 for 100% VTI) — the textbook diversification result, hand-wavy version: "diversify your factors and you eat the average premium with less of any single factor's variance." The 100% VTI baseline ran near the bottom on Sharpe and *last* on drawdown depth (-19.5%, against -12% for the equal-weight blend). **If you cannot beat the 100%-VTI Sharpe by at least 10% over a full cycle, the tilt is not worth the complexity.**
 

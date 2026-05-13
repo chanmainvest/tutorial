@@ -103,7 +103,7 @@ shareholder base. The economics for retail buying at the open are:
 pay the post-pop price and discover that the *average* IPO from this
 vintage will trail the market by 10 points over the next year.
 
-![Typical post-IPO price path averaged across the 2010-2024 cohort. The chart starts at the offer price (1.00), jumps to the first-day open (about 1.18), drifts modestly in months 1-3, then drags lower into month 6 as lock-up expirations and the first earnings disappointments arrive, finishing the first year at roughly 0.90 of the offer price -- about 10 points below a market benchmark over the same window.](image/side13_ipo_first_year.png)
+![Typical post-IPO price path averaged across the 2010-2024 cohort. The chart starts at the offer price (1.00), jumps to the first-day open (about 1.18), drifts modestly in months 1-3, then drags lower into month 6 as lock-up expirations and the first earnings disappointments arrive, finishing the first year at roughly 0.90 of the offer price -- about 10 points below a market benchmark over the same window.](../image/side13_ipo_first_year.png)
 
 #### 2.2 The First-Day Pop — Why It Exists and Who Captures It
 
@@ -246,7 +246,7 @@ performed disastrously. The de Bakker / Klausner / Ohlrogge
 median 12-month post-merger return for the 2020-2021 cohort at
 roughly **-50%**, with the bottom quartile worse than **-85%**.
 
-![Distribution of 12-month post-merger returns for the 2021 deSPAC cohort. Median -50 percent, top quartile -25 percent, bottom quartile -85 percent. Only the top 10 percent of the cohort produced a positive 12-month return. The structure of the vehicle -- 20 percent sponsor promote, mass redemptions, fantasy forecasts, PIPE dilution -- arrives at the public shareholder as a near-guaranteed loss.](image/side13_spac_blowups.png)
+![Distribution of 12-month post-merger returns for the 2021 deSPAC cohort. Median -50 percent, top quartile -25 percent, bottom quartile -85 percent. Only the top 10 percent of the cohort produced a positive 12-month return. The structure of the vehicle -- 20 percent sponsor promote, mass redemptions, fantasy forecasts, PIPE dilution -- arrives at the public shareholder as a near-guaranteed loss.](../image/side13_spac_blowups.png)
 
 The takeaway is structural, not cyclical: even in the absence of a
 mania, SPACs transfer roughly 20-30% of public-shareholder value

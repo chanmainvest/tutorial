@@ -110,7 +110,7 @@ The maximum profit, maximum loss, and breakeven for each are marked on
 the chart so you can verify the formulas on the diagram instead of
 on the page.
 
-![Four-panel payoff diagram at expiry for the canonical defined-risk option structures, all on a $100-area underlying. Top-left: bull call spread (buy $150 / sell $155 call) — the line slopes up between the strikes and caps at +$250 above $155, floor at -$250 below $150, breakeven $152.50. Top-right: bear put spread — mirror image. Bottom-left: iron condor with shorts at $470/$530 on SPY $500 — flat profit zone of +$180 between the two short strikes, sloping down to -$320 outside the wings at $465 and $535. Bottom-right: long butterfly centred at $150 — the classic tent shape, peaking at +$780 at the middle strike and decaying to a -$220 floor beyond either wing. Each panel labels max profit, max loss, and breakevens so the formulas can be read off the chart.](image/week30_spread_payoffs.png)
+![Four-panel payoff diagram at expiry for the canonical defined-risk option structures, all on a $100-area underlying. Top-left: bull call spread (buy $150 / sell $155 call) — the line slopes up between the strikes and caps at +$250 above $155, floor at -$250 below $150, breakeven $152.50. Top-right: bear put spread — mirror image. Bottom-left: iron condor with shorts at $470/$530 on SPY $500 — flat profit zone of +$180 between the two short strikes, sloping down to -$320 outside the wings at $465 and $535. Bottom-right: long butterfly centred at $150 — the classic tent shape, peaking at +$780 at the middle strike and decaying to a -$220 floor beyond either wing. Each panel labels max profit, max loss, and breakevens so the formulas can be read off the chart.](../image/week30_spread_payoffs.png)
 
 #### 2.2 Worked example — bull call spread on AAPL at $150
 
@@ -182,7 +182,7 @@ three short-strike distances is drawn in
 Tighter shorts give wider profit zones in *theta* terms but a far
 lower POP; the chart shows the trade-off at 1σ, 0.75σ, and 0.5σ.
 
-![Bar chart of the lognormal probability-of-profit (POP) for an iron condor on SPY at $500, 30 DTE, IV 20%, plotted against three short-strike distances: 1σ (~±$30 from spot), 0.75σ (~±$22), and 0.5σ (~±$15). The 1σ bar reads ~68% POP, 0.75σ reads ~55%, and 0.5σ reads ~38%. Each bar is annotated with the corresponding net credit and the loss/profit ratio so the trade-off — credit buys POP, POP buys credit — is visible at a glance. The 1σ shorts are the conventional retail default; tighter shorts pay more premium but the win-rate falls off sharply.](image/week30_condor_pop.png)
+![Bar chart of the lognormal probability-of-profit (POP) for an iron condor on SPY at $500, 30 DTE, IV 20%, plotted against three short-strike distances: 1σ (~±$30 from spot), 0.75σ (~±$22), and 0.5σ (~±$15). The 1σ bar reads ~68% POP, 0.75σ reads ~55%, and 0.5σ reads ~38%. Each bar is annotated with the corresponding net credit and the loss/profit ratio so the trade-off — credit buys POP, POP buys credit — is visible at a glance. The 1σ shorts are the conventional retail default; tighter shorts pay more premium but the win-rate falls off sharply.](../image/week30_condor_pop.png)
 
 #### 2.4 Butterfly — pinning the level
 

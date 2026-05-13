@@ -69,7 +69,7 @@ and 30-year. Their FRED ticker family is `DGS3MO`, `DGS2`, `DGS5`,
 and 30-year embed everything from inflation expectations to term
 premium to global savings flow.
 
-![Current US Treasury curve as of April 2026 plotted alongside the curves from June 2007 (pre-GFC, near-flat), April 2020 (post-COVID, pinned at zero), and July 2023 (peak inversion in the modern era). The April 2026 curve has uninverted and is gently upward sloping — the textbook normal shape, after three years of unusual inversion.](image/week31_curve_today.png)
+![Current US Treasury curve as of April 2026 plotted alongside the curves from June 2007 (pre-GFC, near-flat), April 2020 (post-COVID, pinned at zero), and July 2023 (peak inversion in the modern era). The April 2026 curve has uninverted and is gently upward sloping — the textbook normal shape, after three years of unusual inversion.](../image/week31_curve_today.png)
 
 Read the chart left to right. The 2007 curve is nearly flat — that
 flatness was the warning bell before the GFC. The 2020 curve is pinned
@@ -163,7 +163,7 @@ moved 2.5 points; the curve inverted by 100 basis points. Then in
 2024-25 the Fed cut, the short end fell faster, and the curve
 *bull-steepened* back to normal.
 
-![10-year minus 2-year US Treasury spread, 1976 through April 2026, FRED series T10Y2Y. Annotated regions mark the major regimes: the 1980s Volcker bear-flattener, the 1989 / 2000 / 2006 / 2019 / 2022 inversions, and the 2008-09 / 2020 / 2024-25 bull-steepening unwinds.](image/week31_slope_history.png)
+![10-year minus 2-year US Treasury spread, 1976 through April 2026, FRED series T10Y2Y. Annotated regions mark the major regimes: the 1980s Volcker bear-flattener, the 1989 / 2000 / 2006 / 2019 / 2022 inversions, and the 2008-09 / 2020 / 2024-25 bull-steepening unwinds.](../image/week31_slope_history.png)
 
 The honest reading of this chart: every single dip below zero has been
 followed, within 6 to 24 months, by a recession dated by the NBER

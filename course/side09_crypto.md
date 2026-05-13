@@ -71,7 +71,7 @@ philosophical argument into a sleeve-sized position in the four-
 tranche portfolio — small, deliberate, and in the right
 sub-account.
 
-![Bitcoin USD price, log scale, July 2010 through April 2026, with the 2013, 2017, 2021 and 2025 cycle peaks annotated and the four halving events marked. Three completed minus-80-per-cent drawdowns are shown as red shading.](image/side09_btc_history.png)
+![Bitcoin USD price, log scale, July 2010 through April 2026, with the 2013, 2017, 2021 and 2025 cycle peaks annotated and the four halving events marked. Three completed minus-80-per-cent drawdowns are shown as red shading.](../image/side09_btc_history.png)
 
 ---
 
@@ -200,7 +200,7 @@ terms: the BTC sleeve sits on the right edge of the barbell, with
 T-bills on the left, and the index-fund middle absorbs neither's
 volatility.
 
-![Cumulative growth of $10,000 invested in 60/40 versus 60/40 plus 1, 3, and 5 per cent Bitcoin, January 2014 through April 2026. The BTC overlay adds roughly 1-3 percentage points per year to CAGR with a tolerable increase in drawdown when sized at 1-5 per cent.](image/side09_btc_in_portfolio.png)
+![Cumulative growth of $10,000 invested in 60/40 versus 60/40 plus 1, 3, and 5 per cent Bitcoin, January 2014 through April 2026. The BTC overlay adds roughly 1-3 percentage points per year to CAGR with a tolerable increase in drawdown when sized at 1-5 per cent.](../image/side09_btc_in_portfolio.png)
 
 #### 2.4 The Kelly Logic Behind 1-5%
 

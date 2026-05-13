@@ -39,7 +39,7 @@ The US Dollar Index (ticker DXY, futures symbol DX) is published by ICE Futures 
 
 The chart in `image/week22_dxy_decade.png` plots DXY from 1985 through April 2026, with five regime markers: the **1985 Plaza Accord** that orchestrated the post-1985 dollar decline; the **2002 dollar peak** at ~120 ahead of the dot-com unwind; the **2008 trough near 71** during the financial crisis as the Fed slashed rates; the **post-2014 structural USD bid** that has dominated the last decade; and the **2025 policy-driven reset** as the new administration's tariff regime forced the dollar lower against the basket.
 
-![DXY from 1985 to April 2026](image/week22_dxy_decade.png)
+![DXY from 1985 to April 2026](../image/week22_dxy_decade.png)
 
 The honest health-warning on the DXY is that **it is not a measure of the dollar**. It is a measure of the dollar against a 1973-frozen basket dominated by Europe. The Fed publishes a properly weighted, trade-broad alternative (the Trade-Weighted US Dollar Index, FRED series `DTWEXBGS`) that includes the Chinese yuan, Mexican peso, Korean won, and other actual trading partners. The broad index moves differently from DXY in any given quarter, and the gap matters when you are sizing FX risk against your actual dollar liabilities. For most retail commentary, however, DXY *is* the dollar — because that is what the screen shows.
 
@@ -58,7 +58,7 @@ where $R_{\text{FX}}$ is the foreign currency's appreciation versus the dollar. 
 
 This is not a side effect; it is the dominant story in many years. From 2014 through 2024, US equities (SPY) compounded at roughly 12.5% annualised. Unhedged developed-international (EFA) compounded at roughly 5%. Hedged developed-international (HEFA, MSCI EAFE Hedged) compounded at roughly 8%. The ~3 percentage points per year between EFA and HEFA over that decade was *almost entirely* the dollar overlay — the equities themselves did similar things in their own currencies. Investors who held EFA spent ten years funding a structural short euro / short yen position they did not realise they had. The chart in `image/week22_us_vs_intl.png` makes the picture concrete.
 
-![Cumulative wealth: SPY vs unhedged EAFE vs hedged EAFE, 2000-2024](image/week22_us_vs_intl.png)
+![Cumulative wealth: SPY vs unhedged EAFE vs hedged EAFE, 2000-2024](../image/week22_us_vs_intl.png)
 
 There is one caveat that matters and will not be obvious from the picture. Over a single decade, the FX overlay can be the entire return story. Over very long horizons (30+ years), purchasing-power parity *roughly* anchors major currencies, and the FX overlay's net contribution shrinks toward zero. The investor still has to *survive* the multi-year deviations, which routinely run to ±30% from PPP and last for a decade. "Wash out over decades" is small consolation if the unhedged drag costs you 30% during the years you actually wanted to retire on.
 

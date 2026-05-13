@@ -184,11 +184,10 @@ def markdown_to_html(md):
     def _img_repl(m):
         alt = m.group(1)
         src = m.group(2)
-        # Translated lessons live in course_hk/, course_tw/, course_cn/ and
-        # use `../course/image/X.png` paths so VS Code's markdown preview
-        # resolves to the actual file. Strip that prefix in the published
-        # HTML so the iframe / src works under docs/image/.
-        src = re.sub(r"^\.\./course/(image/)", r"\1", src)
+        # All lessons (EN and translated) now use `../image/X.png` so VS Code
+        # markdown preview resolves to the root-level image/ directory.
+        # Strip the leading `../` so the published HTML uses docs/image/.
+        src = re.sub(r"^\.\./(?:course/)?(image/)", r"\1", src)
         return f'<img src="{src}" alt="{alt}">'
     html = re.sub(r"!\[([^\]]*)\]\(([^)]+)\)", _img_repl, html)
     html = re.sub(r"\[([^\]]+)\]\(([^)]+)\)", r'<a href="\2">\1</a>', html)
@@ -1420,7 +1419,7 @@ function toggleMermaid(btn) {
 }
 
 // --- Lesson interactive iframe self-sizing ---
-// Each interactive demo (course/interactive/*.html) calls
+// Each interactive demo (interactive/*.html) calls
 // parent.postMessage({type:'lesson-interactive-resize', height: N}) when
 // its content has finished laying out. We resize the iframe to match so
 // there is neither a white bar below it nor an inner scrollbar.
@@ -1769,17 +1768,17 @@ def copy_web_assets(docs_dir):
 
 
 def copy_lesson_assets(docs_dir):
-    """Copy course/image/*.png and course/interactive/*.html to docs/.
+    """Copy image/*.png and interactive/*.html to docs/.
 
-    Static images embedded in lessons live next to their generator scripts
-    under course/image/. Interactive demos live under course/interactive/.
+    Static images embedded in lessons live under the root image/ directory.
+    Interactive demos live under the root interactive/ directory.
     Both ship to the published site so the markdown's relative image
     references resolve and the interactive iframes have their source.
     """
     import shutil
     for sub, exts in (("image", (".png", ".jpg", ".jpeg", ".gif", ".svg", ".webp")),
                        ("interactive", (".html",))):
-        src = os.path.join(PROJECT_ROOT, "course", sub)
+        src = os.path.join(PROJECT_ROOT, sub)
         if not os.path.isdir(src):
             continue
         dst = os.path.join(docs_dir, sub)
@@ -1794,7 +1793,7 @@ def copy_lesson_assets(docs_dir):
 
 def swap_interactive_components(html, lang="en"):
     """Replace `<img src="image/NAME.png" alt="...">` with an iframe+toggle
-    when `course/interactive/NAME.html` exists.
+    when `interactive/NAME.html` exists.
 
     Lang-aware: prefers `image/NAME_<lang>.png` for the static fallback
     when present (else falls back to the locale-agnostic file), and adds
@@ -1805,8 +1804,8 @@ def swap_interactive_components(html, lang="en"):
     (useful on browsers where the iframe's WebGPU/Canvas/etc. is
     unavailable).
     """
-    interactive_dir = os.path.join(PROJECT_ROOT, "course", "interactive")
-    image_dir = os.path.join(PROJECT_ROOT, "course", "image")
+    interactive_dir = os.path.join(PROJECT_ROOT, "interactive")
+    image_dir = os.path.join(PROJECT_ROOT, "image")
     if not os.path.isdir(interactive_dir):
         return html
     available = {
@@ -1843,14 +1842,11 @@ def swap_interactive_components(html, lang="en"):
     def repl(m):
         src = m.group("src")
         alt = m.group("alt")
-        # Accept image references whether the markdown uses the bare path
-        # (`image/X.png` — works for the EN source which sits in course/),
-        # or the relative form Chinese translations use so VS Code preview
-        # resolves correctly (`../course/image/X.png`,
-        # `../course/image/X_hk.png`, etc.). Strip the optional locale
-        # suffix to recover the canonical asset name.
+        # Image src at this point has already been normalised by _img_repl
+        # to `image/X.png` (stripped of the leading `../`). Strip any
+        # optional locale suffix to recover the canonical asset name.
         rel_match = re.match(
-            r"^(?:\.\./course/)?image/([^/]+?)(?:_(?:en|hk|tw|cn))?\.([a-zA-Z0-9]+)$",
+            r"^(?:\.\./(?:course/)?)?image/([^/]+?)(?:_(?:en|hk|tw|cn))?\.([a-zA-Z0-9]+)$",
             src,
         )
         if not rel_match:

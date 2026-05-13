@@ -85,7 +85,7 @@ Three properties follow immediately from this formula.
   the 5%-coupon curve sags below it, and the 10%-coupon curve sags
   further still.
 
-![Macaulay duration as a function of maturity for zero-coupon, 5%-coupon, and 10%-coupon bonds. The zero-coupon line is exactly the 45-degree y=x line; the coupon-bond curves bend below it, plateauing as maturity grows. At 30 years, a 5% coupon bond has duration about 15.4, not 30.](image/week32_duration_curve.png)
+![Macaulay duration as a function of maturity for zero-coupon, 5%-coupon, and 10%-coupon bonds. The zero-coupon line is exactly the 45-degree y=x line; the coupon-bond curves bend below it, plateauing as maturity grows. At 30 years, a 5% coupon bond has duration about 15.4, not 30.](../image/week32_duration_curve.png)
 
 Macaulay's units are years. That's the only number you can describe
 to a non-quant friend without losing them in calculus. But for
@@ -169,7 +169,7 @@ line is fine. For a 300 bps move (the 2022 type of move) the linear
 approximation undershoots the gain on the rally side and overshoots
 the loss on the sell-off side.
 
-![Bond price as a function of yield for a 30-year, 5%-coupon bond. The blue curve is true price; the dashed orange line is the linear duration tangent; the green curve is the duration-plus-convexity quadratic. Convexity narrows the gap to zero for any move within roughly +/-150 bps. The asymmetry — gains exceed losses for symmetric yield shocks — is the convexity benefit a long-bond holder pays for in lower yield.](image/week32_convexity_payoff.png)
+![Bond price as a function of yield for a 30-year, 5%-coupon bond. The blue curve is true price; the dashed orange line is the linear duration tangent; the green curve is the duration-plus-convexity quadratic. Convexity narrows the gap to zero for any move within roughly +/-150 bps. The asymmetry — gains exceed losses for symmetric yield shocks — is the convexity benefit a long-bond holder pays for in lower yield.](../image/week32_convexity_payoff.png)
 
 That asymmetry is the central feature: **for a straight bond,
 convexity is always positive, and it always works in the holder's

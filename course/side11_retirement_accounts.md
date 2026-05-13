@@ -53,7 +53,7 @@ right wrapper is a dollar the IRS *cannot* tax, ever, at the right
 endpoint. The stack is the cheapest alpha you will ever find — written
 into the code, public, mechanical.
 
-![Pyramid diagram of the 2026 contribution priority stack: tier 1 employer match, tier 2 HSA $4,300, tier 3 Roth IRA $7,000, tier 4 401(k) max $23,500, tier 5 mega-backdoor up to $70,000 total, tier 6 taxable brokerage. Each tier sized by typical annual dollar amount with the priority number on the left.](image/side11_account_stack.png)
+![Pyramid diagram of the 2026 contribution priority stack: tier 1 employer match, tier 2 HSA $4,300, tier 3 Roth IRA $7,000, tier 4 401(k) max $23,500, tier 5 mega-backdoor up to $70,000 total, tier 6 taxable brokerage. Each tier sized by typical annual dollar amount with the priority number on the left.](../image/side11_account_stack.png)
 
 ---
 
@@ -114,7 +114,7 @@ t_{\text{ret}}$**. Roth wins when your retirement bracket is higher;
 Traditional wins when your retirement bracket is lower. The image
 below makes the parity visible.
 
-![Bar chart showing terminal after-tax wealth at age 65 from $7,000 per year contributed for 30 years at 7% growth, comparing Roth and Traditional outcomes across four current = retirement bracket scenarios (12, 22, 32, 37 percent). The two columns are equal in every scenario, illustrating the parity condition; an additional panel shows divergence when current and retirement brackets differ by 10 percentage points.](image/side11_roth_vs_trad.png)
+![Bar chart showing terminal after-tax wealth at age 65 from $7,000 per year contributed for 30 years at 7% growth, comparing Roth and Traditional outcomes across four current = retirement bracket scenarios (12, 22, 32, 37 percent). The two columns are equal in every scenario, illustrating the parity condition; an additional panel shows divergence when current and retirement brackets differ by 10 percentage points.](../image/side11_roth_vs_trad.png)
 
 Three working rules.
 

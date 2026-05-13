@@ -140,7 +140,7 @@ The 35bp ER is on top of the underlying basket's natural cost. The
 hedge mechanic itself adds approximately 5-10bp of frictional cost
 (monthly roll, bid-ask on forwards) on top of any carry signal.
 
-![Wealth path of $1 invested 2010 through April 2026 in EFA (unhedged EAFE) versus HEFA (hedged EAFE). HEFA backfilled with EAFE-local returns pre-inception (2014). The two paths diverge in 2014-2015 (hedged wins as USD rallies), reconverge 2017 (unhedged wins as EUR strengthens), separate again 2022 (hedged wins as USD spikes), and finish near each other.](image/side29_hedged_vs_unhedged.png)
+![Wealth path of $1 invested 2010 through April 2026 in EFA (unhedged EAFE) versus HEFA (hedged EAFE). HEFA backfilled with EAFE-local returns pre-inception (2014). The two paths diverge in 2014-2015 (hedged wins as USD rallies), reconverge 2017 (unhedged wins as EUR strengthens), separate again 2022 (hedged wins as USD spikes), and finish near each other.](../image/side29_hedged_vs_unhedged.png)
 
 #### 2.3 The Long-Run Equivalence Theorem
 
@@ -196,7 +196,7 @@ are large (3-4%/yr cumulative), and they do not telegraph in advance.
 That is what makes hedging a real allocation question rather than a
 pure "always" or "never."
 
-![Trade-Weighted U.S. Dollar Index (FRED DTWEXBGS, broad goods+services, monthly average) from 1990 through April 2026 with shaded regimes. Five labelled episodes: 1995-2002 strong-dollar, 2002-2008 weak-dollar, 2014-2016 strong-dollar 2.0, 2022 strong-dollar 3.0, 2024-2026 retracement.](image/side29_dxy_history.png)
+![Trade-Weighted U.S. Dollar Index (FRED DTWEXBGS, broad goods+services, monthly average) from 1990 through April 2026 with shaded regimes. Five labelled episodes: 1995-2002 strong-dollar, 2002-2008 weak-dollar, 2014-2016 strong-dollar 2.0, 2022 strong-dollar 3.0, 2024-2026 retracement.](../image/side29_dxy_history.png)
 
 #### 2.5 The U.S.-Only Carve-Out: International Bonds
 

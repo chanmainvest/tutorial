@@ -97,7 +97,7 @@ The chart below plots the cumulative real wealth (after CPI) of 100%
 stocks, 100% Treasuries, and 60/40 from 1928 forward, all rebalanced
 annually.
 
-![Cumulative real wealth of three portfolios from 1928 through 2024 (Damodaran annual data, $1 starting balance, log scale, real terms after CPI). The three lines: 100% S&P 500 (steepest, most volatile), 100% 10-year US Treasury (smoothest but lowest), 60/40 rebalanced annually (the middle path that captures most of equity's compounding with materially smaller drawdowns). The 60/40 line ends near the 100% stocks line in real wealth but with visibly shallower troughs at 1937, 1973-74, 2000-02, and 2008.](image/week04_sixty_forty_growth.png)
+![Cumulative real wealth of three portfolios from 1928 through 2024 (Damodaran annual data, $1 starting balance, log scale, real terms after CPI). The three lines: 100% S&P 500 (steepest, most volatile), 100% 10-year US Treasury (smoothest but lowest), 60/40 rebalanced annually (the middle path that captures most of equity's compounding with materially smaller drawdowns). The 60/40 line ends near the 100% stocks line in real wealth but with visibly shallower troughs at 1937, 1973-74, 2000-02, and 2008.](../image/week04_sixty_forty_growth.png)
 
 Read the chart from far right to far left. By 2024, $1 invested in
 1928 in real terms became roughly:
@@ -222,7 +222,7 @@ The chart below is the rolling 36-month correlation between US stocks
 and US Treasuries from 1928 forward. The single most important fact
 in the entire lesson lives on this chart.
 
-![Rolling 36-month correlation between annual US stock returns and US Treasury returns, 1928 through 2024 (Damodaran data). The correlation oscillates dramatically: deeply positive (+0.6) through the 1970s, falling through zero around 1997, deeply negative (-0.4 to -0.6) for almost the entire 2000-2020 window, and snapping sharply positive again starting in 2022.](image/week04_stock_bond_corr.png)
+![Rolling 36-month correlation between annual US stock returns and US Treasury returns, 1928 through 2024 (Damodaran data). The correlation oscillates dramatically: deeply positive (+0.6) through the 1970s, falling through zero around 1997, deeply negative (-0.4 to -0.6) for almost the entire 2000-2020 window, and snapping sharply positive again starting in 2022.](../image/week04_stock_bond_corr.png)
 
 Three regimes are visible:
 

@@ -46,7 +46,7 @@ This side lesson installs the vocabulary, the proxies, the historical
 case studies, and a working calculator so that "is this thing liquid?"
 becomes a question you can answer with numbers, not adjectives.
 
-![Typical bid-ask spreads by market-cap bucket on a normal trading day. Mega-caps (AAPL, MSFT) cross the bid-ask in 1 bp; micro-caps cost 200 bps or more.](image/side26_liquidity_by_size.png)
+![Typical bid-ask spreads by market-cap bucket on a normal trading day. Mega-caps (AAPL, MSFT) cross the bid-ask in 1 bp; micro-caps cost 200 bps or more.](../image/side26_liquidity_by_size.png)
 
 ---
 
@@ -151,7 +151,7 @@ retail investor to hold credit. The lesson is that *during a once-a-
 decade liquidity event the wrapper can detach by 5%, and you should
 not need to sell it that day.*
 
-![March 2020 30-year Treasury bid-ask spread. The cleanest market on Earth went from 0.4 bp to 40+ bp in eight sessions, and the Fed had to intervene.](image/side26_2020_treasury.png)
+![March 2020 30-year Treasury bid-ask spread. The cleanest market on Earth went from 0.4 bp to 40+ bp in eight sessions, and the Fed had to intervene.](../image/side26_2020_treasury.png)
 
 #### 2.5 Liquidity Vanishes When Needed — The Three Canonical Crises
 

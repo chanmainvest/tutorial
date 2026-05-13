@@ -51,7 +51,7 @@ $$ \text{vanna} = \frac{\partial \Delta}{\partial \sigma} = \frac{\partial \nu}{
 
 **Vanna集中的位置：** 虚值期权，无论看涨还是看跌。在平值处，$d_2$接近零，因此vanna也接近零。符号规律（虚值看涨期权vanna > 0，实值看涨期权vanna < 0；看跌期权方向相反）直接来源于$d_2$的符号。
 
-![side20_second_order](image/side20_second_order.png)
+![side20_second_order](../image/side20_second_order.png)
 
 上图右上方面板展示了vanna的S形曲线：在平价两侧出现符号相反的峰值，平值处为零。这正是为什么关注持仓vanna敞口的做市商，将注意力集中在25-delta和10-delta的期权翼部，而非50-delta的行权价。
 
@@ -103,7 +103,7 @@ $$ \text{volga} = \frac{\partial \nu}{\partial \sigma} = \nu \cdot \frac{d_1 d_2
 
 **2022年后：** 0DTE爆炸式增长。标普500/SPY的每日到期期权，到2024年中期已占标普500期权总成交量的约45%。做市商净gamma可在一天之内多次从多头翻转为空头。钉针规律如今既更为频繁（因为每天都有到期），也更为剧烈（因为当日期权的charm和color极度放大）。
 
-![side20_dealer_pinning](image/side20_dealer_pinning.png)
+![side20_dealer_pinning](../image/side20_dealer_pinning.png)
 
 上图是某次近期季度OpEx周五标普500现货盘中走势的示意重建图 — 指数早盘漂移，午盘前后向5000点靠拢，随后在最后两小时于该点位0.15%的波动区间内震荡。虚线水平标记着收盘前未平仓合约最大的三个行权价。这并非机械宿命 — 但如今已足够普遍，以至于每家主要券商的自营研究团队都在追踪。
 
@@ -300,7 +300,7 @@ $$ \text{volga} = \frac{\partial \nu}{\partial \sigma} = \nu \cdot \frac{d_1 d_2
 
 **陳馬：** 页面上的互动工具让你可以对任意合约扫描全部五个一阶希腊字母和四个二阶希腊字母。
 
-**[VISUAL: course/interactive/side20_greeks_explorer.html]**
+**[VISUAL: interactive/side20_greeks_explorer.html]**
 
 **陳馬：** 设置现货价100，行权价100，30天，波动率20%。看顶行的九个数字。下方是敏感性热力图 — 你可以选择九个希腊字母中的任意一个，看它随现货价和到期天数变化的情况。选**vanna**。注意那个对角条纹规律 — vanna在翼部和中等到期天数时最大。再选**color**。整个曲面在最后7天集中于平值附近。这就是我们刚才讲的gamma收窄，以可视化的方式呈现。
 

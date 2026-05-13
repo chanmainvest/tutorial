@@ -39,7 +39,7 @@ musical instrument: enough theory to know what you are doing, then a
 lot of repetitions on canonical problems until your hands know the
 keystrokes without your head having to spell them out.
 
-![Procedurally drawn rendering of the TI BA II Plus financial calculator. The five Time Value of Money keys (N, I/Y, PV, PMT, FV) sit on the second row in dark amber. The blue secondary labels above each key (CLR TVM, BGN, P/Y, etc.) are accessed via the 2ND key.](image/side01_calculator.png)
+![Procedurally drawn rendering of the TI BA II Plus financial calculator. The five Time Value of Money keys (N, I/Y, PV, PMT, FV) sit on the second row in dark amber. The blue secondary labels above each key (CLR TVM, BGN, P/Y, etc.) are accessed via the 2ND key.](../image/side01_calculator.png)
 
 The interactive panel on the website is a working emulator of the
 device — you can run every example in this lesson directly in the

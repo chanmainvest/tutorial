@@ -51,7 +51,7 @@ Side 15 lays out the seven biases that do the most damage, gives the
 counter-measures that actually work, and shows the cumulative wealth
 gap from buying-and-selling-emotionally on real S&P data.
 
-![Bar chart: S&P 500 annualised return vs average equity investor return per Dalbar across 10y / 20y / 30y trailing windows ending 2024, with the cumulative wealth gap on a $100k initial.](image/side15_dalbar_gap.png)
+![Bar chart: S&P 500 annualised return vs average equity investor return per Dalbar across 10y / 20y / 30y trailing windows ending 2024, with the cumulative wealth gap on a $100k initial.](../image/side15_dalbar_gap.png)
 
 The interactive lab on the website lets you walk through three
 scenario decisions — *stock down 30% — sell or hold?*, *stock up 50%
@@ -83,7 +83,7 @@ investor behaviour:
   have crashes — no one wants to realise a loss, until everyone
   decides to realise the loss at once.
 
-![Kahneman-Tversky value function with the +$100 / -$100 asymmetry annotated and the 2.25 loss-aversion coefficient marked.](image/side15_loss_aversion.png)
+![Kahneman-Tversky value function with the +$100 / -$100 asymmetry annotated and the 2.25 loss-aversion coefficient marked.](../image/side15_loss_aversion.png)
 
 Loss aversion in practice produces three predictable mistakes:
 holding losers too long (because realising the loss hurts), selling

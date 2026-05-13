@@ -105,7 +105,7 @@ At-the-money, $d_2$ is near zero, so vanna is near zero too. The
 sign rules of thumb (call vanna > 0 for OTM, < 0 for ITM; puts
 mirror) come straight from the sign of $d_2$.
 
-![side20_second_order](image/side20_second_order.png)
+![side20_second_order](../image/side20_second_order.png)
 
 The top-right panel of the image above shows vanna's S-curve:
 peaks of opposite sign on either side of the money, zero at ATM.
@@ -208,7 +208,7 @@ day. The pinning patterns are now both more frequent (because expiry
 is every day) and more violent (because charm and color are
 extreme on a same-day option).
 
-![side20_dealer_pinning](image/side20_dealer_pinning.png)
+![side20_dealer_pinning](../image/side20_dealer_pinning.png)
 
 The image above is an illustrative reconstruction of an SPX cash
 session on a recent quarterly OpEx Friday, with the index drifting

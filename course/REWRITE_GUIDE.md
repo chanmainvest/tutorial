@@ -16,7 +16,7 @@ Workspace root: `c:\Users\hevan\work\chanmainvest\tutorial`
   canonical. Use as length / structure reference.
 - `course/week04_sixty_forty.md` — also rewritten; canonical.
 - `course/side01_calculator.md` — canonical side-lesson structure.
-- `course/image/week03_*.py`, `course/image/week04_*.py` — image script
+- `image/week03_*.py`, `image/week04_*.py` — image script
   templates.
 - `course/interactive/week03_holding_periods.html` — interactive template.
 - `course/interactive/side01_calculator.html` — alt interactive template
@@ -98,7 +98,7 @@ investable). Don't sticker — fold them in as Horace's voice.
 <one-paragraph data + design note>
 
 Run:
-    uv run python course/image/<base>.py
+    uv run python image/<base>.py
 """
 
 from __future__ import annotations
@@ -172,19 +172,19 @@ Reference:
 1. Read this guide.
 2. Read `course/SOUL.md`, `course/week01_*.md`, `course/week03_*.md`.
 3. Read the existing OLD `course/weekNN_<name>.md` to extract the topic.
-4. Read the matching reference scripts (`course/image/week03_*.py`,
+4. Read the matching reference scripts (`image/week03_*.py`,
    `course/interactive/week03_*.html`, `scripts/chart_helpers.py`,
    `scripts/market_data.py`).
 5. Write new markdown (overwrite the old file in place).
-6. Write 2-3 image scripts in `course/image/`.
+6. Write 2-3 image scripts in `image/`.
 7. Write 1 interactive in `course/interactive/`.
-8. Run each image script: `cd tutorial; uv run python course/image/<base>.py`
+8. Run each image script: `cd tutorial; uv run python image/<base>.py`
    to confirm it renders.
 9. Report files created.
 
 ## Naming
 
-- Image: `course/image/weekNN_<topic_short>.py` → `<base>.png` +
+- Image: `image/weekNN_<topic_short>.py` → `<base>.png` +
   `<base>_{en,hk,tw,cn}.png`.
 - Interactive: `course/interactive/weekNN_<topic_short>.html`.
 - Markdown filename **must not change** — overwrite in place.

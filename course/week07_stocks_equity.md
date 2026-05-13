@@ -287,7 +287,7 @@ the legal grind." The lawyer-fee drain is the reason the textbook
 recovery numbers and the recovery numbers actual retail holders
 see can differ by half.
 
-![Diagram of the corporate capital stack as a vertical bar showing six tiers from top (senior) to bottom (residual): suppliers, employees, lenders/bondholders, tax authority, preferred shareholders, and common equity at the bottom. The top tiers are shaded uniformly to indicate fixed contractual claims, while the common-equity tier at the bottom is shaded as a wedge expanding to the right to indicate that the equity claim varies with business outcomes — narrow when profit is small, wide when profit is large, zero when the business fails.](image/week07_capital_stack.png)
+![Diagram of the corporate capital stack as a vertical bar showing six tiers from top (senior) to bottom (residual): suppliers, employees, lenders/bondholders, tax authority, preferred shareholders, and common equity at the bottom. The top tiers are shaded uniformly to indicate fixed contractual claims, while the common-equity tier at the bottom is shaded as a wedge expanding to the right to indicate that the equity claim varies with business outcomes — narrow when profit is small, wide when profit is large, zero when the business fails.](../image/week07_capital_stack.png)
 
 The *asymmetry* of equity — large upside, downside floored at zero
 (you cannot lose more than you invested in a long stock position)
@@ -590,7 +590,7 @@ identify them in advance, or (b) to hold a vehicle whose
 construction rule guarantees they end up in your basket whether
 you predicted them or not.
 
-![Two-panel chart: top panel shows the distribution of lifetime US stock returns from Bessembinder's 1926-2016 dataset, with a long left tail of negative-return stocks, a thick cluster around zero/T-bill returns, and a thin but extreme right tail of mega-winners. The mode of the distribution is at a small negative return; the mean is positive only because of the right-tail outliers. Bottom panel shows the cumulative wealth path of a single random stock vs an equal-weight basket of 500 stocks over a hypothetical 30-year period: the single stock has a wide cone of possible outcomes including total loss, while the basket has a much tighter cone clustered around the long-run market return.](image/week07_concentration_vs_diversification.png)
+![Two-panel chart: top panel shows the distribution of lifetime US stock returns from Bessembinder's 1926-2016 dataset, with a long left tail of negative-return stocks, a thick cluster around zero/T-bill returns, and a thin but extreme right tail of mega-winners. The mode of the distribution is at a small negative return; the mean is positive only because of the right-tail outliers. Bottom panel shows the cumulative wealth path of a single random stock vs an equal-weight basket of 500 stocks over a hypothetical 30-year period: the single stock has a wide cone of possible outcomes including total loss, while the basket has a much tighter cone clustered around the long-run market return.](../image/week07_concentration_vs_diversification.png)
 
 Two consequences for portfolio design.
 

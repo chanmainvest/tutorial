@@ -96,7 +96,7 @@ with a 99.5% overlap. The image script `side24_overlap_detection.py` walks
 through a 5-fund example where the pairwise overlap heatmap shows ~60% top-ten
 overlap on the diagonal cluster.
 
-![Pairwise top-10 holdings overlap heatmap for a five-ETF portfolio (VTI, VOO, SPY, QQQ, SCHD). Each cell colour-codes the percentage of weighted top-10 holdings shared between the row fund and column fund — diagonal is 100% (a fund with itself), VTI/VOO/SPY cluster near 99% (essentially the same S&P 500 exposure), VTI vs QQQ ~50% (Apple/Microsoft/Nvidia/Amazon/Meta/Alphabet appear in both), VOO vs SCHD ~30% (even a "value income" ETF shares a third of the top names with the S&P 500). Average pairwise overlap on this 5-fund book is roughly 60% — a portfolio that looks diversified by ticker count but is in fact one concentrated mega-cap bet paying four expense ratios.](image/side24_overlap_detection.png)
+![Pairwise top-10 holdings overlap heatmap for a five-ETF portfolio (VTI, VOO, SPY, QQQ, SCHD). Each cell colour-codes the percentage of weighted top-10 holdings shared between the row fund and column fund — diagonal is 100% (a fund with itself), VTI/VOO/SPY cluster near 99% (essentially the same S&P 500 exposure), VTI vs QQQ ~50% (Apple/Microsoft/Nvidia/Amazon/Meta/Alphabet appear in both), VOO vs SCHD ~30% (even a "value income" ETF shares a third of the top names with the S&P 500). Average pairwise overlap on this 5-fund book is roughly 60% — a portfolio that looks diversified by ticker count but is in fact one concentrated mega-cap bet paying four expense ratios.](../image/side24_overlap_detection.png)
 
 #### 2.3 Empower (formerly Personal Capital) — the aggregator
 
@@ -149,7 +149,7 @@ script `side24_dashboard_template.py` shows what this looks like rendered as
 four panels: wealth path, drawdown, asset-class breakdown, and rolling fee
 spend.
 
-![Four-panel monthly dashboard template for a retail portfolio. Top-left: cumulative wealth path of the portfolio plotted alongside a 60/40 reference line ("is the strategy working?"). Top-right: drawdown chart, with a horizontal line showing the IPS-stated maximum-drawdown threshold ("are you inside your stated risk?"). Bottom-left: stacked-bar of current asset-class breakdown vs target ("where has it drifted?"). Bottom-right: cumulative fees paid year-to-date as a running line ("what is the silent expense compounding to?"). Every panel is reproducible in Google Sheets via GOOGLEFINANCE calls — no SaaS subscription required.](image/side24_dashboard_template.png)
+![Four-panel monthly dashboard template for a retail portfolio. Top-left: cumulative wealth path of the portfolio plotted alongside a 60/40 reference line ("is the strategy working?"). Top-right: drawdown chart, with a horizontal line showing the IPS-stated maximum-drawdown threshold ("are you inside your stated risk?"). Bottom-left: stacked-bar of current asset-class breakdown vs target ("where has it drifted?"). Bottom-right: cumulative fees paid year-to-date as a running line ("what is the silent expense compounding to?"). Every panel is reproducible in Google Sheets via GOOGLEFINANCE calls — no SaaS subscription required.](../image/side24_dashboard_template.png)
 
 `GOOGLEFINANCE("VTI", "price")` and friends pull live prices into Google
 Sheets at 20-minute delay, free, forever. There is nothing the paid tools do

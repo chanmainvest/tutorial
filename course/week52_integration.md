@@ -139,7 +139,7 @@ account for ~50% of the book. The portfolio is closer to an
 all-weather posture than a 60/40, with explicit barbell wings on
 both sides.
 
-![Pie chart of the model L4 allocation. Seven slices with site-palette colours: 35% global equity (deep navy), 25% income (red), 15% gold (gold), 5% BTC (purple), 10% CTA (teal), 5% tail-hedge (orange), 5% cash (grey). Each slice annotated with its percent and label, with a centre label showing "L4 model" and a footer noting the four-tranche grouping.](image/week52_full_allocation.png)
+![Pie chart of the model L4 allocation. Seven slices with site-palette colours: 35% global equity (deep navy), 25% income (red), 15% gold (gold), 5% BTC (purple), 10% CTA (teal), 5% tail-hedge (orange), 5% cash (grey). Each slice annotated with its percent and label, with a centre label showing "L4 model" and a footer noting the four-tranche grouping.](../image/week52_full_allocation.png)
 
 This is **one** opinion. It is not the only defensible answer. A
 50-year-old five years from retirement should run a much smaller
@@ -194,7 +194,7 @@ entire vol-tail-wags-dog thesis in one backtest. Higher
 risk-adjusted return, smaller crisis losses, slightly less terminal
 wealth in a relentlessly equity-favourable window.
 
-![Wealth-path comparison from Jan 2010 to Apr 2026 of four portfolios on a log y-axis. 100% S&P 500 ends highest at ~8x. 60/40 ends second at ~4.3x. The L4 model ends third at ~3.9x but with the smallest realised vol and worst-year loss of the four. All-weather ends at ~2.6x. The L4 line tracks 60/40 closely through 2019, then opens a clear positive gap during 2020 and 2022 when the diversifiers fire, after which 60/40's larger equity sleeve narrows the wealth gap in 2023-2025. Annotation in upper-left listing CAGR / vol / Sharpe / max-DD for each strategy.](image/week52_backtest_compare.png)
+![Wealth-path comparison from Jan 2010 to Apr 2026 of four portfolios on a log y-axis. 100% S&P 500 ends highest at ~8x. 60/40 ends second at ~4.3x. The L4 model ends third at ~3.9x but with the smallest realised vol and worst-year loss of the four. All-weather ends at ~2.6x. The L4 line tracks 60/40 closely through 2019, then opens a clear positive gap during 2020 and 2022 when the diversifiers fire, after which 60/40's larger equity sleeve narrows the wealth gap in 2023-2025. Annotation in upper-left listing CAGR / vol / Sharpe / max-DD for each strategy.](../image/week52_backtest_compare.png)
 
 Backtests deserve every disclaimer week 46 stacked on them — survivorship,
 look-ahead, regime-dependence, fee approximation. Treat the table

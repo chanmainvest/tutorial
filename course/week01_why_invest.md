@@ -61,7 +61,7 @@ differs is *where* they put it.
 
 Same discipline, same dollars, three completely different outcomes:
 
-![Three portfolios accumulating $10,000 a year from 1971 to 2025: Person A's cash sits at $550K nominal (also the cumulative-deposits baseline), Person B's T-bills compound to $1.73M, Person C's S&P 500 reaches $42M.](image/week01_three_portfolios.png)
+![Three portfolios accumulating $10,000 a year from 1971 to 2025: Person A's cash sits at $550K nominal (also the cumulative-deposits baseline), Person B's T-bills compound to $1.73M, Person C's S&P 500 reaches $42M.](../image/week01_three_portfolios.png)
 
 After 55 years, each person has deposited the same **$550,000** of their
 own money. But the end balances are not in the same league:
@@ -134,7 +134,7 @@ points — the directional message holds: **the number you see on the news
 is meaningfully lower than the inflation a household actually experiences**,
 and the BLS has known this for 30 years.
 
-![Official US CPI vs ShadowStats 1980-based CPI alternate, 1980 to 2025. The two series tracked closely until the early 1990s methodology changes; after that, ShadowStats consistently reads several percentage points higher — a gap that compounds into a very different cumulative inflation story over 30+ years.](image/week01_shadow_cpi.png)
+![Official US CPI vs ShadowStats 1980-based CPI alternate, 1980 to 2025. The two series tracked closely until the early 1990s methodology changes; after that, ShadowStats consistently reads several percentage points higher — a gap that compounds into a very different cumulative inflation story over 30+ years.](../image/week01_shadow_cpi.png)
 
 **Game 2: Core inflation ("ignore food and energy").** The Fed's preferred
 inflation measure is **Core PCE** — Personal Consumption Expenditures,
@@ -193,7 +193,7 @@ phenomenon.
 Look at the broad money supply (M2) of the major currencies over the last
 quarter-century, indexed so they all start at 100 in the year 2000:
 
-![Broad money supply (M2) of major currencies — USD, EUR, JPY, CNY, TWD — indexed to 100 at year 2000, on a log scale. Every major currency has been debased materially over the period; CNY M2 is up roughly 25× over the same window driven by China's credit expansion, USD M2 has roughly quadrupled, and the post-2020 vertical move is visible across all currencies.](image/week01_money_supply.png)
+![Broad money supply (M2) of major currencies — USD, EUR, JPY, CNY, TWD — indexed to 100 at year 2000, on a log scale. Every major currency has been debased materially over the period; CNY M2 is up roughly 25× over the same window driven by China's credit expansion, USD M2 has roughly quadrupled, and the post-2020 vertical move is visible across all currencies.](../image/week01_money_supply.png)
 
 Every major currency has been debased over the period. The **post-2020
 vertical move** is unmistakable on every line — the COVID-era response was
@@ -211,7 +211,7 @@ which is exactly what quantitative easing has been since 2008 — that is
 US national debt and US M2 have grown together, almost in lockstep,
 because they are two sides of the same monetary act:
 
-![US M2 money supply and US Treasury debt outstanding, 1990–2025, both in trillions of dollars on the same axis. The two lines climb together with the same inflection points: the 2008 GFC response, the 2020 COVID response. Debt is now around $36 trillion, M2 around $22 trillion. The parallel growth tells the story — fiscal deficits financed by money creation are not separate phenomena.](image/week01_us_debt_m2.png)
+![US M2 money supply and US Treasury debt outstanding, 1990–2025, both in trillions of dollars on the same axis. The two lines climb together with the same inflection points: the 2008 GFC response, the 2020 COVID response. Debt is now around $36 trillion, M2 around $22 trillion. The parallel growth tells the story — fiscal deficits financed by money creation are not separate phenomena.](../image/week01_us_debt_m2.png)
 
 This is the regime, and it has direct consequences for what you can invest
 in:

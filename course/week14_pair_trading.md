@@ -139,7 +139,7 @@ The image below shows what this looks like for KO and PEP from
 2015 through 2024 — the top panel is normalised prices, the
 bottom panel is the rolling-60-day Z-score with +/-2 sigma bands.
 
-![Two-panel chart of KO and PEP from 2015 through 2024. Top panel: KO and PEP daily AdjClose prices both rebased to 100 at the start of 2015, drifting together for most of the decade with episodic divergences. Bottom panel: rolling 60-trading-day Z-score of log(KO) - log(PEP), with the +/-2 sigma bands highlighted; the series spends the bulk of the time inside the bands and visits the +/-2 lines a handful of times across the ten-year window.](image/week14_kopep_spread.png)
+![Two-panel chart of KO and PEP from 2015 through 2024. Top panel: KO and PEP daily AdjClose prices both rebased to 100 at the start of 2015, drifting together for most of the decade with episodic divergences. Bottom panel: rolling 60-trading-day Z-score of log(KO) - log(PEP), with the +/-2 sigma bands highlighted; the series spends the bulk of the time inside the bands and visits the +/-2 lines a handful of times across the ten-year window.](../image/week14_kopep_spread.png)
 
 A pair trader looks at the bottom panel and asks: *when the line
 hits +2, do I trust that it'll come back to zero, and how long
@@ -218,7 +218,7 @@ spread entries and down-arrows on short-spread entries; the bottom
 panel is the cumulative log-spread P&L net of a 5 bp round-trip
 cost per side change.
 
-![Two-panel pair-trading backtest of KO/PEP from 2015 through 2024. Top panel: 60-day Z-score of log(KO)-log(PEP) with horizontal lines at +/-2 sigma and at zero, with green up-arrows marking entries to long the spread (Z hits -2) and red down-arrows marking entries to short the spread (Z hits +2). Bottom panel: the cumulative P&L line of the +/-2 entry, 0 exit rule with 5 bp per-trade costs, showing many small wins and one or two regime breaks where the spread did not mean-revert and the trade was cut.](image/week14_pair_pnl.png)
+![Two-panel pair-trading backtest of KO/PEP from 2015 through 2024. Top panel: 60-day Z-score of log(KO)-log(PEP) with horizontal lines at +/-2 sigma and at zero, with green up-arrows marking entries to long the spread (Z hits -2) and red down-arrows marking entries to short the spread (Z hits +2). Bottom panel: the cumulative P&L line of the +/-2 entry, 0 exit rule with 5 bp per-trade costs, showing many small wins and one or two regime breaks where the spread did not mean-revert and the trade was cut.](../image/week14_pair_pnl.png)
 
 What the chart teaches: **most pair trades are small wins, with
 occasional regime breaks that cost more than several wins put

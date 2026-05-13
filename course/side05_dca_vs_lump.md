@@ -97,7 +97,7 @@ roughly **0.5-0.7% of terminal wealth in expectation,** or about
 $600-$850 on $120k. Small in absolute dollars, but it compounds
 forever — that gap never closes.
 
-![Lump vs. DCA monthly winner from 1928-2024. Each thin vertical bar is one starting month: blue means $120k lump sum beat $10k x 12 DCA over the next 12 months, red means DCA won. Roughly 67% of starts are blue. The visible red clusters are the famous nightmare entries: 1929-30, 1937, 1973-74, 2000-02, 2008.](image/side05_winrate_history.png)
+![Lump vs. DCA monthly winner from 1928-2024. Each thin vertical bar is one starting month: blue means $120k lump sum beat $10k x 12 DCA over the next 12 months, red means DCA won. Roughly 67% of starts are blue. The visible red clusters are the famous nightmare entries: 1929-30, 1937, 1973-74, 2000-02, 2008.](../image/side05_winrate_history.png)
 
 #### 2.3 The Empirical Record: ~67% Lump-Sum Wins
 
@@ -143,7 +143,7 @@ around the worst entry points in market history:
   (cash earning 0%; closer to -19% if idle cash earns the
   T-bill rate the way Vanguard's original study assumed).
 
-![Two-panel comparison of lump-sum vs. DCA over 2008. Left panel shows the wealth curves diverging through the year: lump-sum tracks the S&P 500 down about 38% by end-December while DCA, holding cash at zero through 2008, ends down about 27% (and would be closer to -19% with cash earning the T-bill rate). Right panel shows the contribution timing — DCA's monthly purchases at progressively lower prices give it a lower average cost basis.](image/side05_worst_case.png)
+![Two-panel comparison of lump-sum vs. DCA over 2008. Left panel shows the wealth curves diverging through the year: lump-sum tracks the S&P 500 down about 38% by end-December while DCA, holding cash at zero through 2008, ends down about 27% (and would be closer to -19% with cash earning the T-bill rate). Right panel shows the contribution timing — DCA's monthly purchases at progressively lower prices give it a lower average cost basis.](../image/side05_worst_case.png)
 
 The math is straightforward: by buying in twelfths, the DCA investor
 purchases the last $10k tranche in December 2008 at prices about 40%

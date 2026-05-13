@@ -92,7 +92,7 @@ The four legs net out to a payoff that, at expiry, looks like:
 - **Index down by more than 15%**: you receive (index_return + 15%) —
   the buffer absorbs the first 15%, you take the rest.
 
-![Buffer payoff at 1y: 15% downside buffer + 18% upside cap on SPY at $500. P&L curve traces -30% to +30% spot move. Flat line through buffer zone, then negative slope below buffer floor. Positive slope through participation zone, then flat at cap. Annotations mark buffer floor (-15%), cap (+18%), breakeven, and the four shaded regions: full loss, buffer, participation, capped.](image/week48_buffer_payoff.png)
+![Buffer payoff at 1y: 15% downside buffer + 18% upside cap on SPY at $500. P&L curve traces -30% to +30% spot move. Flat line through buffer zone, then negative slope below buffer floor. Positive slope through participation zone, then flat at cap. Annotations mark buffer floor (-15%), cap (+18%), breakeven, and the four shaded regions: full loss, buffer, participation, capped.](../image/week48_buffer_payoff.png)
 
 The shape is identical to what you would build by hand from four
 SPX options. *That* is the central observation.
@@ -136,7 +136,7 @@ year of explicit cost. Over a 5-year horizon, on a $100,000
 starting balance, the wealth gap vs. the DIY equivalent is *not*
 small.
 
-![Wealth difference over 5y: BUFR ETF (91 bps/yr) vs DIY (25 bps slippage on a 1y reset, amortized as ~5 bps/yr). Bar chart on $100k starting capital with same gross 6% buffered return: BUFR ends ~$130,300 vs DIY ~$135,200. The $4,900 gap is the convenience tax, compounding.](image/week48_diy_vs_etf.png)
+![Wealth difference over 5y: BUFR ETF (91 bps/yr) vs DIY (25 bps slippage on a 1y reset, amortized as ~5 bps/yr). Bar chart on $100k starting capital with same gross 6% buffered return: BUFR ends ~$130,300 vs DIY ~$135,200. The $4,900 gap is the convenience tax, compounding.](../image/week48_diy_vs_etf.png)
 
 The gap is ~$4,900 on $100k — roughly 3.7% of the starting balance
 — purely from the fee differential. Scale to $500k and that is

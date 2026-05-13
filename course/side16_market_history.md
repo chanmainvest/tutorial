@@ -20,7 +20,7 @@ Four reasons this side lesson exists rather than being a footnote on the regime-
 
 4. **The "always recovers" caveat is not a guarantee — it is a survivorship statement about one particular index, in one particular currency, in one particular country, over one particular hundred-year window.** Japan's Nikkei peaked at 38,915 in 1989 and did not retake that level until February 2024 — a thirty-five-year wait. Russia's market went to roughly zero in 2022 for non-Russians. The course's argument for US-listed equities is a statement about the *one* market where the recovery story has held; it is not a statement about markets in general. Knowing the difference is the lesson.
 
-![S&P 500 drawdown chart, 1928 to April 2026, showing every bear market of -10 per cent or worse, with the 1929 (-86%), 1973-74 (-48%), 1987 (-22% one-day), 2000-02 (-49%), 2007-09 (-57%), 2020 (-34%), and 2022 (-25%) episodes annotated with their depth and duration.](image/side16_century_drawdowns.png)
+![S&P 500 drawdown chart, 1928 to April 2026, showing every bear market of -10 per cent or worse, with the 1929 (-86%), 1973-74 (-48%), 1987 (-22% one-day), 2000-02 (-49%), 2007-09 (-57%), 2020 (-34%), and 2022 (-25%) episodes annotated with their depth and duration.](../image/side16_century_drawdowns.png)
 
 ---
 
@@ -60,7 +60,7 @@ The shape that emerges: pre-1987, recoveries took years; post-1987, recoveries t
 
 The investing implication is uncomfortable: a young investor's equity allocation is implicitly a bet on the continuation of the Fed put. If that put ever fails — say, because inflation prevents the Fed from easing into the next bear — recovery times revert to their pre-1987 distribution and the standard "stocks for the long run" math takes a substantial haircut. The framing is simple: regimes change; the modern playbook is a regime, not an axiom.
 
-![Months to full total-return recovery from the bottom of each major US bear market since 1929. The 1929 bar dwarfs the others; the 2020 bar is so short it barely renders. The post-1987 cluster shows the regime change.](image/side16_recovery_times.png)
+![Months to full total-return recovery from the bottom of each major US bear market since 1929. The 1929 bar dwarfs the others; the 2020 bar is so short it barely renders. The post-1987 cluster shows the regime change.](../image/side16_recovery_times.png)
 
 #### 2.3 What Ended Each Bear (and What Did Not)
 

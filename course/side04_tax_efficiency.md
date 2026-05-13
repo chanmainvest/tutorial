@@ -51,7 +51,7 @@ comes from *how* you hold the position (LTCG holding period, Section
 1256 60/40 split, options as deferred income), not from which fund
 you bought.
 
-![Three-by-eight grid showing the optimal account location for eight common asset classes across Taxable, Traditional IRA, and Roth IRA columns. Cells are colour-coded green (best location), amber (acceptable), red (worst location). Headlines: bonds and REITs go to Traditional IRA, qualified-dividend stocks stay in Taxable, high-growth assets and crypto go to Roth, MLPs stay in Taxable to avoid UBTI.](image/side04_asset_location_grid.png)
+![Three-by-eight grid showing the optimal account location for eight common asset classes across Taxable, Traditional IRA, and Roth IRA columns. Cells are colour-coded green (best location), amber (acceptable), red (worst location). Headlines: bonds and REITs go to Traditional IRA, qualified-dividend stocks stay in Taxable, high-growth assets and crypto go to Roth, MLPs stay in Taxable to avoid UBTI.](../image/side04_asset_location_grid.png)
 
 ---
 
@@ -159,7 +159,7 @@ in a normal-volatility year is roughly $3,000-$5,000 / year, which
 compounds to **roughly $100k of saved taxes over a 30-year horizon**
 on the chart below.
 
-![Cumulative tax-loss-harvesting savings over 30 years on a $1M taxable portfolio with 16% annualised volatility. The annual bar chart shows higher savings in volatile years (2008-style spikes of $12-15k) and modest steady-state harvesting of $2-4k in calm years. The cumulative line crosses $100k around year 25-30. Caption notes the savings assume realised gains are available to offset and the harvest is reinvested into a substantially-not-identical replacement.](image/side04_tlh_savings.png)
+![Cumulative tax-loss-harvesting savings over 30 years on a $1M taxable portfolio with 16% annualised volatility. The annual bar chart shows higher savings in volatile years (2008-style spikes of $12-15k) and modest steady-state harvesting of $2-4k in calm years. The cumulative line crosses $100k around year 25-30. Caption notes the savings assume realised gains are available to offset and the harvest is reinvested into a substantially-not-identical replacement.](../image/side04_tlh_savings.png)
 
 **The wash-sale rule (IRC §1091)** is the only real constraint. If
 you sell a security at a loss, you cannot buy "substantially

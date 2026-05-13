@@ -115,7 +115,7 @@ The image below walks Apple's FY2024 (year ending September 2024)
 income statement and cash flow as a single horizontal waterfall —
 revenue all the way to free cash flow.
 
-![Apple FY2024 income-statement and cash-flow waterfall, $ billions. Bars from left to right: Revenue $391B, then negative bars peeling off Cost of revenue ($210B) leaving Gross profit $181B; subtract Operating expenses ($57B) to get Operating income $123B; subtract Income tax and other items to get Net income $94B; then add back Depreciation/amortisation, stock-based compensation, and working-capital release to land at Operating cash flow $118B; subtract Capex of $9B to land at Free cash flow $109B. The chart shows that Apple converts more cash than it reports as profit because non-cash charges and working capital favour cash.](image/week08_aapl_decomposition.png)
+![Apple FY2024 income-statement and cash-flow waterfall, $ billions. Bars from left to right: Revenue $391B, then negative bars peeling off Cost of revenue ($210B) leaving Gross profit $181B; subtract Operating expenses ($57B) to get Operating income $123B; subtract Income tax and other items to get Net income $94B; then add back Depreciation/amortisation, stock-based compensation, and working-capital release to land at Operating cash flow $118B; subtract Capex of $9B to land at Free cash flow $109B. The chart shows that Apple converts more cash than it reports as profit because non-cash charges and working capital favour cash.](../image/week08_aapl_decomposition.png)
 
 The most important visual takeaway is the gap between the rightmost
 two bars: **net income $94B versus free cash flow $109B**. Apple
@@ -231,7 +231,7 @@ income and free cash flow grows, distrust the income statement.
 Earnings can be manipulated; cash is harder. The chart below shows
 this exact gap for Apple over the last decade.
 
-![Apple FY2014–FY2024 split-adjusted diluted EPS versus free cash flow per share (USD). Both lines rise from roughly $1.6–$1.9 in FY2014 to $6.1–$7.1 in FY2024. EPS and FCF per share track each other closely except in FY2020, where FCF per share ran ahead of EPS — the COVID year, when working capital released cash even as inventory and supply-chain disruption depressed reported earnings. The FY2024 gap also widens because a one-time roughly $10B EU State-aid tax charge depressed reported net income while leaving cash flow untouched.](image/week08_eps_vs_fcf.png)
+![Apple FY2014–FY2024 split-adjusted diluted EPS versus free cash flow per share (USD). Both lines rise from roughly $1.6–$1.9 in FY2014 to $6.1–$7.1 in FY2024. EPS and FCF per share track each other closely except in FY2020, where FCF per share ran ahead of EPS — the COVID year, when working capital released cash even as inventory and supply-chain disruption depressed reported earnings. The FY2024 gap also widens because a one-time roughly $10B EU State-aid tax charge depressed reported net income while leaving cash flow untouched.](../image/week08_eps_vs_fcf.png)
 
 In FY2020, EPS dropped relative to FCF because COVID-era working
 capital released cash (customers paid, inventory drew down) faster

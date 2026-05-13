@@ -156,7 +156,7 @@ more) or **filtered historical simulation** (rescale yesterday's
 returns to today's volatility). Both push the model toward what a
 practitioner already does intuitively when looking at a chart.
 
-![Three-panel chart of daily-return distributions and VaR. Left panel: histogram of S&P 500 daily total returns 1990-April 2026, with a Normal distribution of the same mean and standard deviation overlaid. The empirical histogram has visibly thicker shoulders below -2% and a long left tail that the Normal curve cannot reach. Middle panel: histogram of S&P 500 annual total returns 1928-2024 from the Damodaran dataset, with vertical markers at the 95%, 99% and 99.9% empirical VaR thresholds — and at the parametric Normal-fit VaR, which sits well to the right of the historical thresholds at the 99%+ levels. Right panel: empirical CVaR / VaR ratio computed at three confidence levels on the daily series, showing the ratio rising from ~1.20 at the 95% level to ~1.45 at the 99.5% level, illustrating that the deeper into the tail you go, the worse the breach.](image/week42_var_methods.png)
+![Three-panel chart of daily-return distributions and VaR. Left panel: histogram of S&P 500 daily total returns 1990-April 2026, with a Normal distribution of the same mean and standard deviation overlaid. The empirical histogram has visibly thicker shoulders below -2% and a long left tail that the Normal curve cannot reach. Middle panel: histogram of S&P 500 annual total returns 1928-2024 from the Damodaran dataset, with vertical markers at the 95%, 99% and 99.9% empirical VaR thresholds — and at the parametric Normal-fit VaR, which sits well to the right of the historical thresholds at the 99%+ levels. Right panel: empirical CVaR / VaR ratio computed at three confidence levels on the daily series, showing the ratio rising from ~1.20 at the 95% level to ~1.45 at the 99.5% level, illustrating that the deeper into the tail you go, the worse the breach.](../image/week42_var_methods.png)
 
 #### 2.4 Method 3 — Monte Carlo Simulation
 
@@ -233,7 +233,7 @@ What does the data say? Compute rolling 5-year kurtosis on daily S&P
 between 7 and 15. The 1987-window prints above 30. The 2008-window
 prints around 12. Even quiet windows like 2003-2007 print around 5.
 
-![Line chart of rolling 5-year kurtosis of daily S&P 500 returns from 1990 through April 2026. The line oscillates between roughly 4 and 30, with prominent spikes during the windows containing 1987, 2008-2009, the 2010 Flash Crash, and March 2020. A horizontal dashed line at kurtosis = 3 shows the Normal-distribution baseline. The empirical line is above 3 every single day of the sample, and most often between 7 and 12.](image/week42_kurtosis_history.png)
+![Line chart of rolling 5-year kurtosis of daily S&P 500 returns from 1990 through April 2026. The line oscillates between roughly 4 and 30, with prominent spikes during the windows containing 1987, 2008-2009, the 2010 Flash Crash, and March 2020. A horizontal dashed line at kurtosis = 3 shows the Normal-distribution baseline. The empirical line is above 3 every single day of the sample, and most often between 7 and 12.](../image/week42_kurtosis_history.png)
 
 The implications for VaR:
 

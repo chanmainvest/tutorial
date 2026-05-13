@@ -212,7 +212,7 @@ trailing P/E spike to absurd levels in recessions (when the E
 collapses) and look reasonable at the top of a cycle (when E is at
 peak). The chart below plots CAPE from 1881 through April 2026.
 
-![Shiller CAPE 1881-2026, with the long-run mean near 17 and the major peaks and troughs annotated. Peaks at 1929 (~32, just before the Crash), 1966 (~24), 2000 (~44, the dot-com top), 2021 (~38), and current 2026 reading near 36. Troughs at 1921 (~5), 1932 (~6, Depression bottom), 1949 (~10), 1981 (~8, Volcker stagflation low), 2009 (~13, financial crisis bottom). The current level sits in the most expensive 10% of US stock-market history; only 1929 and 1999-2000 were materially more expensive on this measure.](image/week21_cape_history.png)
+![Shiller CAPE 1881-2026, with the long-run mean near 17 and the major peaks and troughs annotated. Peaks at 1929 (~32, just before the Crash), 1966 (~24), 2000 (~44, the dot-com top), 2021 (~38), and current 2026 reading near 36. Troughs at 1921 (~5), 1932 (~6, Depression bottom), 1949 (~10), 1981 (~8, Volcker stagflation low), 2009 (~13, financial crisis bottom). The current level sits in the most expensive 10% of US stock-market history; only 1929 and 1999-2000 were materially more expensive on this measure.](../image/week21_cape_history.png)
 
 Two patterns matter.
 
@@ -245,7 +245,7 @@ their cash-flow yield exceeds the risk-free alternative. If E/P
 is below the bond yield, the bond market is offering a better
 risk-adjusted deal.
 
-![Fed model spread 1962-2026, defined as S&P 500 cyclically-adjusted earnings yield (1/CAPE) minus 10-year Treasury yield. The line spends most of the 1970s deeply negative (bonds yielded 8-14% while CAPE earnings yield was 4-8%); flips firmly positive after the early 1980s rate peak, peaking around +6 percentage points in 2009 (low rates, depressed earnings yield was still high after the crash). Inverts to roughly -2 percentage points in 2000 (the dot-com top — bonds were a better deal than stocks). April 2026 reads close to zero — earnings yield around 2.8%, 10-year yield around 4.0%, a small negative spread suggesting bonds are the cleaner trade than stocks at the index level.](image/week21_fed_model.png)
+![Fed model spread 1962-2026, defined as S&P 500 cyclically-adjusted earnings yield (1/CAPE) minus 10-year Treasury yield. The line spends most of the 1970s deeply negative (bonds yielded 8-14% while CAPE earnings yield was 4-8%); flips firmly positive after the early 1980s rate peak, peaking around +6 percentage points in 2009 (low rates, depressed earnings yield was still high after the crash). Inverts to roughly -2 percentage points in 2000 (the dot-com top — bonds were a better deal than stocks). April 2026 reads close to zero — earnings yield around 2.8%, 10-year yield around 4.0%, a small negative spread suggesting bonds are the cleaner trade than stocks at the index level.](../image/week21_fed_model.png)
 
 Two warnings about the Fed model.
 

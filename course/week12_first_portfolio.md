@@ -145,7 +145,7 @@ depends on details no one-size-fits-all table can hold.
 The image below shows the same five rows as a stacked bar chart so
 the relative weights are visible at a glance.
 
-![Stacked horizontal bar chart of five archetype portfolios. Each row is the archetype name; the bar is segmented left-to-right by US stocks, ex-US stocks, intermediate bonds, TIPS, gold, and cash, with the percentage weight shown inside each segment large enough to read. Site palette: navy for US stocks, blue for ex-US, teal for bonds, green for TIPS, gold for gold, and grey for cash.](image/week12_archetype_allocations.png)
+![Stacked horizontal bar chart of five archetype portfolios. Each row is the archetype name; the bar is segmented left-to-right by US stocks, ex-US stocks, intermediate bonds, TIPS, gold, and cash, with the percentage weight shown inside each segment large enough to read. Site palette: navy for US stocks, blue for ex-US, teal for bonds, green for TIPS, gold for gold, and grey for cash.](../image/week12_archetype_allocations.png)
 
 A few notes on the choices.
 
@@ -264,7 +264,7 @@ the five archetype portfolios on the same 1928–2024 dataset, so the
 order of the rows and their drawdown shapes are visible without
 moving any sliders.
 
-![Cumulative real wealth of the five archetype portfolios from 1928 through 2024, $1 starting balance, log scale, real terms after CPI. Five lines: early career steepest with deepest drawdowns, retired flattest with mildest drawdowns, FIRE/barbell sitting in the middle with a distinctively flat 1970s segment from the gold sleeve.](image/week12_archetype_outcomes.png)
+![Cumulative real wealth of the five archetype portfolios from 1928 through 2024, $1 starting balance, log scale, real terms after CPI. Five lines: early career steepest with deepest drawdowns, retired flattest with mildest drawdowns, FIRE/barbell sitting in the middle with a distinctively flat 1970s segment from the gold sleeve.](../image/week12_archetype_outcomes.png)
 
 The order of the lines from highest terminal wealth to lowest is
 roughly: early career, mid career, FIRE, late career, retired. The

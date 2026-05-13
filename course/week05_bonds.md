@@ -372,7 +372,7 @@ investment-grade rating). It is the cleanest century-long proxy
 for what a retail buy-and-hold investor would have *experienced*
 holding corporates instead of Treasuries.
 
-![Annual realised excess return of BAA corporate bonds over the 10-year US Treasury, 1928 through 2024 (Damodaran annual data). Bars go sharply negative in 1932, 1974, 2008, and 2020 as defaults reprice and Treasuries rally on flight-to-safety. Long-run average is small and positive; the distribution has a fat left tail.](image/week05_credit_spreads.png)
+![Annual realised excess return of BAA corporate bonds over the 10-year US Treasury, 1928 through 2024 (Damodaran annual data). Bars go sharply negative in 1932, 1974, 2008, and 2020 as defaults reprice and Treasuries rally on flight-to-safety. Long-run average is small and positive; the distribution has a fat left tail.](../image/week05_credit_spreads.png)
 
 Three reads:
 
@@ -449,7 +449,7 @@ The chart below plots the 10-year US Treasury yield from 1962
 through 2026, the longest clean monthly run we have on FRED's DGS10
 series.
 
-![10-year US Treasury constant-maturity yield, 1962 through April 2026 (FRED DGS10, monthly). The dominant feature is the 1981 peak near 15.8% under Volcker's anti-inflation campaign, followed by a four-decade decline to the 2020 trough near 0.5%, then a sharp climb back above 4% by 2024 with current readings near 4.2% in April 2026. Annotated peaks and troughs.](image/week05_yield_history.png)
+![10-year US Treasury constant-maturity yield, 1962 through April 2026 (FRED DGS10, monthly). The dominant feature is the 1981 peak near 15.8% under Volcker's anti-inflation campaign, followed by a four-decade decline to the 2020 trough near 0.5%, then a sharp climb back above 4% by 2024 with current readings near 4.2% in April 2026. Annotated peaks and troughs.](../image/week05_yield_history.png)
 
 Three regimes you need to recognise.
 
@@ -1018,7 +1018,7 @@ same relationship for representative 2-year, 10-year, and 30-year
 bonds at a 4% coupon — longer maturity is a steeper, more bowed
 curve, which is duration and convexity made visible.*
 
-![Price-yield curves for 2-, 10-, and 30-year 4% semi-annual coupon bonds, plotted from 0% to 15% market yield. All three curves cross at price = par when yield = 4%. The 30-year curve is dramatically steeper and more convex than the 2-year curve, which appears almost linear at this scale — a visual demonstration of why long bonds carry more duration and more convexity than short ones.](image/week05_price_yield.png)
+![Price-yield curves for 2-, 10-, and 30-year 4% semi-annual coupon bonds, plotted from 0% to 15% market yield. All three curves cross at price = par when yield = 4%. The 30-year curve is dramatically steeper and more convex than the 2-year curve, which appears almost linear at this scale — a visual demonstration of why long bonds carry more duration and more convexity than short ones.](../image/week05_price_yield.png)
 
 ---
 

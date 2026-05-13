@@ -206,7 +206,7 @@ The shaded *intrinsic* area is the linear `max(S - K, 0)` payoff;
 the shaded *time value* sits on top. Notice how time value is
 *largest at the strike* and tapers to near-zero at both ends.
 
-![Premium decomposition for a 30-day call at strike $100, sigma 20%, r 4%, spot $50-$150. The total premium curve sits above the linear intrinsic-value floor; the gap between the two — time value — peaks at the strike and tapers to nearly zero deep in- or out-of-the-money.](image/week25_premium_decomposition.png)
+![Premium decomposition for a 30-day call at strike $100, sigma 20%, r 4%, spot $50-$150. The total premium curve sits above the linear intrinsic-value floor; the gap between the two — time value — peaks at the strike and tapers to nearly zero deep in- or out-of-the-money.](../image/week25_premium_decomposition.png)
 
 The reason ATM time value peaks is symmetry. At spot = strike, the
 option has equal odds of expiring on either side of the strike, so
@@ -283,7 +283,7 @@ The image below is the 2x2 grid of payoff diagrams *at expiration*
 for those four. Each panel shows P&L per share as a function of spot
 at expiry, with breakeven, max profit, and max loss annotated.
 
-![Four payoff diagrams in a 2x2 grid: long call (capped loss at premium paid, unbounded upside above strike+premium), short call (capped gain at premium received, unbounded loss above strike+premium), long put (capped loss at premium paid, large gain as spot falls toward zero), short put (capped gain at premium received, large loss as spot falls toward zero). Each panel has breakeven, max profit, and max loss labelled.](image/week25_four_positions.png)
+![Four payoff diagrams in a 2x2 grid: long call (capped loss at premium paid, unbounded upside above strike+premium), short call (capped gain at premium received, unbounded loss above strike+premium), long put (capped loss at premium paid, large gain as spot falls toward zero), short put (capped gain at premium received, large loss as spot falls toward zero). Each panel has breakeven, max profit, and max loss labelled.](../image/week25_four_positions.png)
 
 A one-line summary of each:
 

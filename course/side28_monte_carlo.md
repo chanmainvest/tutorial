@@ -87,7 +87,7 @@ the plan works; the second tells you only that *on average* it
 works, while leaving you to discover for yourself that on average
 you only die once.
 
-![Monte Carlo wealth fan: 1,000 simulated 30-year paths from $1M starting balance with 7% expected return and 15% volatility, no withdrawals. The shaded bands show the 5/25/50/75/95 percentile range. The 90% confidence interval at year 30 spans roughly $3M to $20M — a 6x spread on identical inputs. The median is around $7.6M. The bottom band is the planning case; the top band is the inheritance case.](image/side28_mc_fan.png)
+![Monte Carlo wealth fan: 1,000 simulated 30-year paths from $1M starting balance with 7% expected return and 15% volatility, no withdrawals. The shaded bands show the 5/25/50/75/95 percentile range. The 90% confidence interval at year 30 spans roughly $3M to $20M — a 6x spread on identical inputs. The median is around $7.6M. The bottom band is the planning case; the top band is the inheritance case.](../image/side28_mc_fan.png)
 
 #### 2.2 Sequence-of-Returns Risk — The Killer
 
@@ -125,7 +125,7 @@ difference between dying broke and leaving generational wealth is
 the calendar order alone.** This is sequence-of-returns risk, and
 no single-number projection captures it.
 
-![Sequence-of-returns risk: two paths with identical 7% arithmetic-mean annual returns but reversed orderings. Sequence A (red) front-loads the bad decade and runs out of money around year 24; sequence B (green) back-loads it and finishes with multi-million-dollar wealth. Same withdrawals, same returns, calendar matters.](image/side28_sequence_risk.png)
+![Sequence-of-returns risk: two paths with identical 7% arithmetic-mean annual returns but reversed orderings. Sequence A (red) front-loads the bad decade and runs out of money around year 24; sequence B (green) back-loads it and finishes with multi-million-dollar wealth. Same withdrawals, same returns, calendar matters.](../image/side28_sequence_risk.png)
 
 The retirees most exposed to sequence risk are those in the first
 five to ten years of withdrawal, when the balance is largest and

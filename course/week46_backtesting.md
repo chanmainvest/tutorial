@@ -151,7 +151,7 @@ This is why daily and intraday strategies rarely survive in
 illiquid universes: even tiny gross edges are eaten alive by
 turnover × cost. The chart in §2.5 makes this concrete.
 
-![Annualised return after costs as a function of round-trip transaction cost (0/10/30/100 bps) for four turnover regimes (annual / monthly / weekly / daily rebalance), each starting from a 4% gross-alpha baseline. The annual-rebalance line is roughly flat; monthly drops modestly; the weekly line crosses zero between 30 and 100 bps; the daily line crosses zero before 10 bps and is deeply negative at 30 bps. Cost is the silent killer of high-turnover edges.](image/week46_cost_drag.png)
+![Annualised return after costs as a function of round-trip transaction cost (0/10/30/100 bps) for four turnover regimes (annual / monthly / weekly / daily rebalance), each starting from a 4% gross-alpha baseline. The annual-rebalance line is roughly flat; monthly drops modestly; the weekly line crosses zero between 30 and 100 bps; the daily line crosses zero before 10 bps and is deeply negative at 30 bps. Cost is the silent killer of high-turnover edges.](../image/week46_cost_drag.png)
 
 The diagonal lines fan out from the same starting point on the
 left. By the time you reach 30 bps round-trip — typical for
@@ -183,7 +183,7 @@ Every one of these is pure noise. Yet a researcher who ran a
 proudly publish a "Sharpe 3 strategy" with a t-stat of 3, and the
 reviewer who does not adjust for the trial count will believe it.
 
-![Histogram of 1000 simulated random-strategy Sharpe ratios (true Sharpe = 0, 252 daily observations), with the theoretical null distribution overlaid as a smooth curve and the 2.0 and 3.0 thresholds marked with vertical lines. About 25 of the 1000 random strategies clear Sharpe > 2 by chance, and about 3 clear Sharpe > 3 — none of which are real edges. The chart visualises why "I tried 1000 things and the best one had Sharpe 2.5" is not evidence.](image/week46_deflated_sharpe.png)
+![Histogram of 1000 simulated random-strategy Sharpe ratios (true Sharpe = 0, 252 daily observations), with the theoretical null distribution overlaid as a smooth curve and the 2.0 and 3.0 thresholds marked with vertical lines. About 25 of the 1000 random strategies clear Sharpe > 2 by chance, and about 3 clear Sharpe > 3 — none of which are real edges. The chart visualises why "I tried 1000 things and the best one had Sharpe 2.5" is not evidence.](../image/week46_deflated_sharpe.png)
 
 The vertical lines are at Sharpe = 2 and Sharpe = 3. Every bar to
 the right of those lines is a strategy with **literally zero

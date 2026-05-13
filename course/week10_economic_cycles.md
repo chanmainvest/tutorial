@@ -198,7 +198,7 @@ as the 10-year yield minus the 2-year yield (or the 10-year minus
 the 3-month). When that spread goes negative — long rates *below*
 short rates — the curve is **inverted**.
 
-![10-year minus 2-year US Treasury spread from 1976 through April 2026 (FRED T10Y2Y / DGS10 minus DGS2). Grey vertical bands shade NBER recessions (1980, 1981–82, 1990–91, 2001, 2008–09, 2020). Each NBER recession in the period is preceded by a multi-month inversion of the spread; the lead time from first inversion to recession start ranges from about ten to twenty-four months. The 2022–2024 inversion is the deepest of the post-1976 era; the curve re-steepened through 2024–25 ahead of the slowdown markets are pricing into spring 2026.](image/week10_yield_curve_recessions.png)
+![10-year minus 2-year US Treasury spread from 1976 through April 2026 (FRED T10Y2Y / DGS10 minus DGS2). Grey vertical bands shade NBER recessions (1980, 1981–82, 1990–91, 2001, 2008–09, 2020). Each NBER recession in the period is preceded by a multi-month inversion of the spread; the lead time from first inversion to recession start ranges from about ten to twenty-four months. The 2022–2024 inversion is the deepest of the post-1976 era; the curve re-steepened through 2024–25 ahead of the slowdown markets are pricing into spring 2026.](../image/week10_yield_curve_recessions.png)
 
 Why does inversion predict recession?
 
@@ -277,7 +277,7 @@ real GDP growth and proximity to a recession.
 A static bar chart of the four-regime average annual return for
 the four major asset classes across 1929–2024:
 
-![Average annual return by asset class across four regimes (early-cycle, mid-cycle, late-cycle, recession), 1929–2024. Stocks (S&P 500 total return), 10-year Treasuries, 3-month T-bills, gold. Each year tagged with one regime; bars show the simple average of nominal annual returns within each regime. Stocks earn their highest average in mid-cycle (~+16%) and their lowest in recession (~+8%, dragged up by snap-back years like 1933 and 1954); long bonds earn their highest in recession (~+6%) and their lowest in late-cycle (~+2%); T-bills are roughly flat across regimes (2-4%); gold is best in late-cycle (~+15%) and worst in mid-cycle (~+3%).](image/week10_asset_class_by_regime.png)
+![Average annual return by asset class across four regimes (early-cycle, mid-cycle, late-cycle, recession), 1929–2024. Stocks (S&P 500 total return), 10-year Treasuries, 3-month T-bills, gold. Each year tagged with one regime; bars show the simple average of nominal annual returns within each regime. Stocks earn their highest average in mid-cycle (~+16%) and their lowest in recession (~+8%, dragged up by snap-back years like 1933 and 1954); long bonds earn their highest in recession (~+6%) and their lowest in late-cycle (~+2%); T-bills are roughly flat across regimes (2-4%); gold is best in late-cycle (~+15%) and worst in mid-cycle (~+3%).](../image/week10_asset_class_by_regime.png)
 
 Read the chart with three mental rules:
 

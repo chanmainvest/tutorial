@@ -149,7 +149,7 @@ cheaper than pre-tax debt by exactly the tax rate.
 The image below shows the same arithmetic for two very different
 firms — a low-leverage tech business and a high-leverage utility:
 
-![WACC schematic comparing a low-leverage tech firm (90% equity, 10% debt, cost of equity 11%, cost of debt 5%, tax 25%) producing a WACC of about 10.3% with a high-leverage utility (50% equity, 50% debt, cost of equity 8%, cost of debt 5%, tax 25%) producing a WACC of about 5.9%. The chart shows each weighted contribution as a stacked bar then totals them as a final bar.](image/week19_wacc_diagram.png)
+![WACC schematic comparing a low-leverage tech firm (90% equity, 10% debt, cost of equity 11%, cost of debt 5%, tax 25%) producing a WACC of about 10.3% with a high-leverage utility (50% equity, 50% debt, cost of equity 8%, cost of debt 5%, tax 25%) producing a WACC of about 5.9%. The chart shows each weighted contribution as a stacked bar then totals them as a final bar.](../image/week19_wacc_diagram.png)
 
 The interpretation is simple and brutal: every project the firm
 greenlights must earn at least the WACC, on a risk-adjusted basis,
@@ -214,7 +214,7 @@ has reduced its diluted share count from roughly 26.5 billion (post
 the 2020 4-for-1 split adjustment) to about 15.4 billion in FY2024.
 The image below traces the trajectory:
 
-![Apple FY2013 to FY2024 share-count and buyback history. Top panel: diluted weighted-average shares outstanding (split-adjusted) declining from about 26.5 billion in 2013 to about 15.4 billion in 2024. Bottom panel: dollar buybacks per fiscal year, ranging from about 23 billion in FY2013 to peaks above 90 billion in FY2022 and FY2024, cumulating to over 700 billion across the twelve-year window. The chart annotates the 4-for-1 share split in August 2020.](image/week19_aapl_buybacks.png)
+![Apple FY2013 to FY2024 share-count and buyback history. Top panel: diluted weighted-average shares outstanding (split-adjusted) declining from about 26.5 billion in 2013 to about 15.4 billion in 2024. Bottom panel: dollar buybacks per fiscal year, ranging from about 23 billion in FY2013 to peaks above 90 billion in FY2022 and FY2024, cumulating to over 700 billion across the twelve-year window. The chart annotates the 4-for-1 share split in August 2020.](../image/week19_aapl_buybacks.png)
 
 Same business. Same iPhone. Same gross margin. The compounding in
 Apple's per-share earnings over this decade was as much a story of

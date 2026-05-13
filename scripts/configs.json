@@ -39,7 +39,7 @@
     },
     "copilot": {
       "_comment": "GitHub Models inference API. Auth via GITHUB_TOKEN env var (use `gh auth token` from a Copilot-enabled account). Model names use the github-models slug (provider/model). Counts against Copilot rate limits, not paid API credits.",
-      "model": "openai/gpt-4.1-mini",
+      "model": "openai/gpt-5-mini",
       "base_url": "https://models.github.ai/inference",
       "max_tokens": 16384,
       "temperature": 0.3,

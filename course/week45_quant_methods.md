@@ -95,7 +95,7 @@ the 2%-annualised alpha we baked in. The cloud of dots above and
 below the line is $\varepsilon$: the part this single factor cannot
 explain, which is where multi-factor regressions go to work.
 
-![Single-factor regression with alpha and beta](image/week45_regression_alpha.png)
+![Single-factor regression with alpha and beta](../image/week45_regression_alpha.png)
 
 The Fama-French extension simply adds more right-hand-side terms:
 
@@ -239,7 +239,7 @@ The chart in §2.7 shows the canonical hump.
 
 #### 2.7 Overfitting, multiple testing, and the false-alpha mill
 
-![In-sample vs out-of-sample Sharpe across model complexity](image/week45_overfit_curve.png)
+![In-sample vs out-of-sample Sharpe across model complexity](../image/week45_overfit_curve.png)
 
 The classical curve has in-sample Sharpe rising monotonically with
 model complexity (more parameters, deeper trees, more features) —

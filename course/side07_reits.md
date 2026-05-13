@@ -51,7 +51,7 @@ sensitivity, and the sector mix legible enough that you can decide
 whether REITs deserve a slot in your portfolio at all — and if they do,
 in which sleeve and which account.
 
-![VNQ sector composition as of April 2026, with the largest weights in cell towers, data centres, industrial logistics, residential, and healthcare. Office and retail are minority weights. The chart makes the modern composition visible against the legacy mental model of "REITs = malls and offices."](image/side07_reit_sectors.png)
+![VNQ sector composition as of April 2026, with the largest weights in cell towers, data centres, industrial logistics, residential, and healthcare. Office and retail are minority weights. The chart makes the modern composition visible against the legacy mental model of "REITs = malls and offices."](../image/side07_reit_sectors.png)
 
 ---
 
@@ -189,7 +189,7 @@ you need them to. The diversification benefit is real over decades;
 over single-quarter shocks, treat them as correlated with whichever
 risk asset is moving.
 
-![VNQ vs SPY vs IEF wealth path from January 2000 through April 2026, with the 2008 financial crisis, the 2020 COVID drawdown, the 2022 rate shock, and the 2024-25 recovery annotated. The chart makes the equity-like volatility and bond-like rate sensitivity of REITs visible side by side.](image/side07_reit_vs_stocks.png)
+![VNQ vs SPY vs IEF wealth path from January 2000 through April 2026, with the 2008 financial crisis, the 2020 COVID drawdown, the 2022 rate shock, and the 2024-25 recovery annotated. The chart makes the equity-like volatility and bond-like rate sensitivity of REITs visible side by side.](../image/side07_reit_vs_stocks.png)
 
 #### 2.4 Where REITs Belong — Tranche, Account, and Sizing
 

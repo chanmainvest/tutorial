@@ -57,7 +57,7 @@ their predictive value is weak. The two anchors: alpha is rare, so
 the default should be passive; and momentum + mean-reversion + vol-on /
 vol-off are the only short-list of robust market regularities.
 
-![Wealth-path chart: SPY $1 starting Jan 1990 through Apr 2026 under (a) buy-and-hold and (b) Faber GTAA rule — invested in SPY when SPY price is above its 200-day moving average, parked in 3-month T-bills otherwise. End wealth and max drawdown stamped on each line.](image/side23_200dma_strategy.png)
+![Wealth-path chart: SPY $1 starting Jan 1990 through Apr 2026 under (a) buy-and-hold and (b) Faber GTAA rule — invested in SPY when SPY price is above its 200-day moving average, parked in 3-month T-bills otherwise. End wealth and max drawdown stamped on each line.](../image/side23_200dma_strategy.png)
 
 The interactive lab on the website lets you slide the moving-average
 window from 50 to 365 days and pick the risk-off asset (T-bills,
@@ -132,7 +132,7 @@ caps and showed no profits net of costs. The "doji means
 indecision" claim turns out to mean roughly the same thing as
 "a coin flip means indecision." It does, but it doesn't help you.
 
-![SPY 2024 daily candlestick chart with five 'head and shoulders' patterns highlighted. Only one of the five played out as the textbook predicts; the other four broke up through the neckline rather than down. The 1-of-5 hit rate is consistent with the academic finding that classical chart patterns have no out-of-sample predictive edge.](image/side23_pattern_failure.png)
+![SPY 2024 daily candlestick chart with five 'head and shoulders' patterns highlighted. Only one of the five played out as the textbook predicts; the other four broke up through the neckline rather than down. The 1-of-5 hit rate is consistent with the academic finding that classical chart patterns have no out-of-sample predictive edge.](../image/side23_pattern_failure.png)
 
 Elliott Waves and Fibonacci retracements have effectively zero
 academic support. The Elliott Wave principle requires you to

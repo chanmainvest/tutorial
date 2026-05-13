@@ -81,7 +81,7 @@ statistics.
 Moody's publishes an annual study of historical default rates by rating
 bucket, going back to 1920. The long-run averages are striking:
 
-![Annual default rate by rating bucket — Moody's long-run averages](image/week33_default_rates.png)
+![Annual default rate by rating bucket — Moody's long-run averages](../image/week33_default_rates.png)
 
 A AAA-rated bond defaults roughly **never** in any one year. A BBB-rated
 bond — the lowest IG bucket — defaults at about 0.18% per year, less than
@@ -152,7 +152,7 @@ Two FRED series give you a real-time read on the credit cycle:
 
 Below is the high-yield series since 1997. Notice the four spike events:
 
-![High-yield OAS, 1997 to April 2026 — four panic prints](image/week33_hy_spread_history.png)
+![High-yield OAS, 1997 to April 2026 — four panic prints](../image/week33_hy_spread_history.png)
 
 - **2002**, ~1,000 bps. Telecom and accounting-fraud collapse (WorldCom,
   Enron). HY had been issued aggressively to telecom and energy through

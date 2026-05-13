@@ -177,7 +177,7 @@ make about 4 cents (rho). Multiply every dollar by 100 because one
 contract controls 100 shares: this $2.45 option is a $245 ticket
 with a $53 / $1-stock-move directional exposure.
 
-![Four-panel chart of the four primary Greeks for the worked-example call (S=K=$100, 30 DTE, sigma=20%, r=4%) plotted across spot from $60 to $140. Top-left: delta as a smooth S-curve from 0 to 1, crossing 0.5 at the strike. Top-right: gamma as a bell curve centred at the strike. Bottom-left: theta-per-day as a negative bell, most negative at-the-money. Bottom-right: vega per 1 vol-point, also a bell peaking at-the-money. Read across the four panels to see how each Greek is "shaped" relative to spot — gamma and vega share the ATM bell; theta is its negative twin; delta is the integral of gamma.](image/week29_greeks_vs_spot.png)
+![Four-panel chart of the four primary Greeks for the worked-example call (S=K=$100, 30 DTE, sigma=20%, r=4%) plotted across spot from $60 to $140. Top-left: delta as a smooth S-curve from 0 to 1, crossing 0.5 at the strike. Top-right: gamma as a bell curve centred at the strike. Bottom-left: theta-per-day as a negative bell, most negative at-the-money. Bottom-right: vega per 1 vol-point, also a bell peaking at-the-money. Read across the four panels to see how each Greek is "shaped" relative to spot — gamma and vega share the ATM bell; theta is its negative twin; delta is the integral of gamma.](../image/week29_greeks_vs_spot.png)
 
 #### 2.4 Delta - Direction and "Probability ITM"
 
@@ -262,7 +262,7 @@ Three things to know about theta:
    gamma is theta. *That trade-off is what option-selling income
    strategies are.*
 
-![Two-panel chart of theta acceleration on the same $100 ATM call (sigma=20%, r=4%) as expiration approaches. Left panel: |theta| per calendar day on the y-axis vs days-to-expiration on the x-axis (90 down to 1), rising from about $0.013/day at 90 DTE to ~$0.05 at 30 DTE, ~$0.10 at 7 DTE, and ~$0.20 at 1 DTE. Right panel: the option premium itself decaying from ~$4.05 at 90 DTE down toward zero, with the last-30-day "cliff" highlighted as the band where ~63% of the 90-day premium burns. Sellers love this curve; buyers hate it.](image/week29_theta_decay.png)
+![Two-panel chart of theta acceleration on the same $100 ATM call (sigma=20%, r=4%) as expiration approaches. Left panel: |theta| per calendar day on the y-axis vs days-to-expiration on the x-axis (90 down to 1), rising from about $0.013/day at 90 DTE to ~$0.05 at 30 DTE, ~$0.10 at 7 DTE, and ~$0.20 at 1 DTE. Right panel: the option premium itself decaying from ~$4.05 at 90 DTE down toward zero, with the last-30-day "cliff" highlighted as the band where ~63% of the 90-day premium burns. Sellers love this curve; buyers hate it.](../image/week29_theta_decay.png)
 
 The 30-45 DTE window is the conventional sweet spot for theta-
 collectors. Earlier than that, daily decay is small relative to

@@ -103,7 +103,7 @@ dividends.
 The yield-hierarchy chart shows the *headline* (pre-tax) numbers as of
 April 2026. Read it as the menu before tax.
 
-![Bar chart of pre-tax yield by income source as of April 2026: 2-year Treasury 3.9%, 10-year Treasury 4.2%, LQD (IG corporate) 5.0%, HYG (high-yield corporate) 7.5%, S&P 500 dividend yield 1.4%, VYM 2.9%, SCHD 3.6%, VNQ 3.8%, JEPI 7.8%. Bars are coloured by tax category — Treasuries blue, corporates red, qualified-dividend equity green, REITs purple, option-premium gold — to preview the after-tax sort that comes next.](image/week36_yield_hierarchy.png)
+![Bar chart of pre-tax yield by income source as of April 2026: 2-year Treasury 3.9%, 10-year Treasury 4.2%, LQD (IG corporate) 5.0%, HYG (high-yield corporate) 7.5%, S&P 500 dividend yield 1.4%, VYM 2.9%, SCHD 3.6%, VNQ 3.8%, JEPI 7.8%. Bars are coloured by tax category — Treasuries blue, corporates red, qualified-dividend equity green, REITs purple, option-premium gold — to preview the after-tax sort that comes next.](../image/week36_yield_hierarchy.png)
 
 #### 2.2 The After-Tax Hierarchy and Why It Reverses the Menu
 
@@ -127,7 +127,7 @@ their underlying index (Week 27, QYLD vs QQQ; Week 28, PUTW vs SPY),
 the apparent yield premium is mostly a tax leak you are paying *to
 yourself*.
 
-![After-tax yield bars at the 32% federal + 5% state bracket: Treasuries lose 32% of yield (2-year drops to 2.7%, 10-year to 2.9%), corporate coupons lose 37%, qualified-dividend equity keeps 80% (SCHD drops only from 3.6% to 2.9%), REITs lose ~30%, option premium loses 37% (JEPI drops from 7.8% to 4.9%). The chart shows a hierarchy: qualified dividends keep the most of their yield, option premium and corporate coupons keep the least.](image/week36_tax_adjusted.png)
+![After-tax yield bars at the 32% federal + 5% state bracket: Treasuries lose 32% of yield (2-year drops to 2.7%, 10-year to 2.9%), corporate coupons lose 37%, qualified-dividend equity keeps 80% (SCHD drops only from 3.6% to 2.9%), REITs lose ~30%, option premium loses 37% (JEPI drops from 7.8% to 4.9%). The chart shows a hierarchy: qualified dividends keep the most of their yield, option premium and corporate coupons keep the least.](../image/week36_tax_adjusted.png)
 
 The operational rule that falls out:
 

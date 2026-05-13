@@ -80,7 +80,7 @@ gives the following picture for **US large-cap equity funds**:
 - 10-year window: ~85%.
 - 15-year window: ~90%.
 
-![Bar chart of the percentage of US large-cap active mutual funds underperforming the S&P 500 across five horizons — 1, 3, 5, 10, and 15 years — drawn from the April 2026 SPIVA scorecard (periods ending December 2024). Bars climb monotonically from ~60% at 1y to ~75% at 3y, ~80% at 5y, ~85% at 10y, and ~90% at 15y. The numbers are net of fees, asset-weighted, and survivorship-adjusted. The chart is the cleanest single picture of why "default to passive" is not a preference but a base-rate-driven conclusion.](image/week43_spiva_chart.png)
+![Bar chart of the percentage of US large-cap active mutual funds underperforming the S&P 500 across five horizons — 1, 3, 5, 10, and 15 years — drawn from the April 2026 SPIVA scorecard (periods ending December 2024). Bars climb monotonically from ~60% at 1y to ~75% at 3y, ~80% at 5y, ~85% at 10y, and ~90% at 15y. The numbers are net of fees, asset-weighted, and survivorship-adjusted. The chart is the cleanest single picture of why "default to passive" is not a preference but a base-rate-driven conclusion.](../image/week43_spiva_chart.png)
 
 The pattern is not subtle. As the window lengthens, the percentage of
 underperforming managers monotonically rises. Why? Because over a
@@ -138,7 +138,7 @@ The transition picture is laid out below. The diagonal — top-stays-top,
 bottom-stays-bottom — is barely above the off-diagonal. Last cycle's
 quartile rank carries almost no information about next cycle's rank.
 
-![Persistence transition matrix: rows are quartile rank in window 1 (top, second, third, bottom on five-year US large-cap performance) and columns are quartile rank in window 2 (the next five years). Cell values are the empirical percentage of funds making each transition, averaged across many SPIVA persistence vintages. Pure chance would put 25% in every cell. The actual top-quartile-stays-top-quartile cell sits near 15% — meaningfully *below* random. The bottom-stays-bottom cell is also depressed because bad funds get killed and drop out (survivorship bias). Off-diagonal cells fan out in the 20-30% range. The picture is the visual proof that last cycle's quartile rank carries almost no information about next cycle's rank — and at the top, is mildly anti-predictive.](image/week43_persistence_table.png)
+![Persistence transition matrix: rows are quartile rank in window 1 (top, second, third, bottom on five-year US large-cap performance) and columns are quartile rank in window 2 (the next five years). Cell values are the empirical percentage of funds making each transition, averaged across many SPIVA persistence vintages. Pure chance would put 25% in every cell. The actual top-quartile-stays-top-quartile cell sits near 15% — meaningfully *below* random. The bottom-stays-bottom cell is also depressed because bad funds get killed and drop out (survivorship bias). Off-diagonal cells fan out in the 20-30% range. The picture is the visual proof that last cycle's quartile rank carries almost no information about next cycle's rank — and at the top, is mildly anti-predictive.](../image/week43_persistence_table.png)
 
 #### 2.3 Survivorship Bias — Why the Average Looks Better Than It Is
 

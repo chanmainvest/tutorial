@@ -102,7 +102,7 @@ favourable bend of that curve. The 16-delta call is the conservative
 default for a writer who genuinely does not want to part with the
 shares.
 
-![Premium yield by strike](image/week27_strike_yield.png)
+![Premium yield by strike](../image/week27_strike_yield.png)
 
 The image renders the full curve for a $100 stock at σ=22%, 30 DTE.
 Notice how flat the curve becomes past 110% of spot — once you push
@@ -244,7 +244,7 @@ The investor in QYLD received their headline yield, and the fund's
 NAV slowly bled lower over a decade as the math compounded. QYLD's
 NAV in 2014 was about $25; in early 2026 it is about $17.
 
-![QYLD vs QQQ since 2014](image/week27_qyld_vs_spy.png)
+![QYLD vs QQQ since 2014](../image/week27_qyld_vs_spy.png)
 
 JEPI is structurally less aggressive — it writes equity-linked notes
 that approximate selling 5-10% OTM calls on the S&P 500 — so the

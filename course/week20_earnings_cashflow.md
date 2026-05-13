@@ -107,7 +107,7 @@ increasing real cash.
 
 The accruals anomaly is shown below:
 
-![Bar chart: average annual one-year-ahead return for the five quintiles of accruals-to-assets, US-listed firms, 1990-2020. Quintile 1 (lowest accruals) averages 16.8%, Q2 14.2%, Q3 12.4%, Q4 10.1%, Q5 (highest accruals) 7.6%. Cross-sectional average around 12%. Spread Q1 minus Q5 is roughly 9% per year. Quintiles are colour-graded from green (Q1) to red (Q5).](image/week20_accruals_anomaly.png)
+![Bar chart: average annual one-year-ahead return for the five quintiles of accruals-to-assets, US-listed firms, 1990-2020. Quintile 1 (lowest accruals) averages 16.8%, Q2 14.2%, Q3 12.4%, Q4 10.1%, Q5 (highest accruals) 7.6%. Cross-sectional average around 12%. Spread Q1 minus Q5 is roughly 9% per year. Quintiles are colour-graded from green (Q1) to red (Q5).](../image/week20_accruals_anomaly.png)
 
 The Q1-minus-Q5 spread is the academic estimate of the alpha. In a
 real portfolio, half of it gets eaten by transaction costs, capacity
@@ -125,7 +125,7 @@ that surprise. Top quintile vs bottom quintile, post-announcement
 returns over sixty trading days, averaged over thousands of
 announcements: the result is stable enough to be boring.
 
-![Schematic line chart of cumulative abnormal return over 60 trading days after the earnings release. Top quintile (positive surprise) drifts upward in a concave path to roughly +3.6%; bottom quintile drifts to roughly -2.9%; middle quintile sits near zero. The market reaction on Day 0 is incomplete; the drift continues for two to three months before fading.](image/week20_pead_drift.png)
+![Schematic line chart of cumulative abnormal return over 60 trading days after the earnings release. Top quintile (positive surprise) drifts upward in a concave path to roughly +3.6%; bottom quintile drifts to roughly -2.9%; middle quintile sits near zero. The market reaction on Day 0 is incomplete; the drift continues for two to three months before fading.](../image/week20_pead_drift.png)
 
 The drift is incomplete absorption of news. The market reacts on
 Day 0 — the day of the release and the conference call — but the

@@ -47,7 +47,7 @@ the one regime-change frame — inflation regimes can flip on a forty-
 year timescale — that turn inflation from a vague fear into a sized,
 hedgeable risk in the four-tranche portfolio.
 
-![CPI year-over-year, 1914 to April 2026, with the WW1, WW2, 1970s, March 1980 peak (14.8%), 2008 spike, and June 2022 peak (9.1%) annotated. The 2% Fed target line and the 5% high-inflation threshold are shown as dashed references.](image/side06_cpi_history.png)
+![CPI year-over-year, 1914 to April 2026, with the WW1, WW2, 1970s, March 1980 peak (14.8%), 2008 spike, and June 2022 peak (9.1%) annotated. The 2% Fed target line and the 5% high-inflation threshold are shown as dashed references.](../image/side06_cpi_history.png)
 
 ---
 
@@ -193,7 +193,7 @@ and the "risky" leg (real assets) is what saves you**. The barbell
 stance and the four-tranche stack with an explicit Stores-of-Value
 sleeve are designed for exactly this.
 
-![Real annualised returns by asset class during 1970-1982, the canonical US high-inflation regime. CPI averaged 7.8 per cent per year over the window. Stocks roughly broke even, T-bills barely kept up, long Treasuries lost three per cent per year, while gold (+18) and commodities (+12) carried the period.](image/side06_real_returns_inflation.png)
+![Real annualised returns by asset class during 1970-1982, the canonical US high-inflation regime. CPI averaged 7.8 per cent per year over the window. Stocks roughly broke even, T-bills barely kept up, long Treasuries lost three per cent per year, while gold (+18) and commodities (+12) carried the period.](../image/side06_real_returns_inflation.png)
 
 #### 2.5 Wages Lag Prices, Geography Disperses Both
 

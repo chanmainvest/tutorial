@@ -239,7 +239,7 @@ real US 10-year yield, with the annual gold price change shown as
 bars, so you can see the relationship between the two macro
 variables and gold's response.
 
-![Two-panel chart. Top: real CPI-adjusted London PM gold price, 1971-2026, with the three real-terms peaks (1980, 2011, 2024-26) and two lost-decade windows (1980-99, 2012-18) annotated. Bottom: headline CPI YoY (red line) and real 10-year Treasury yield (blue line) with the annual gold price percentage change shown as gold/grey bars on a secondary axis.](image/week06_gold_real.png)
+![Two-panel chart. Top: real CPI-adjusted London PM gold price, 1971-2026, with the three real-terms peaks (1980, 2011, 2024-26) and two lost-decade windows (1980-99, 2012-18) annotated. Bottom: headline CPI YoY (red line) and real 10-year Treasury yield (blue line) with the annual gold price percentage change shown as gold/grey bars on a secondary axis.](../image/week06_gold_real.png)
 
 Three things should jump out from the top panel.
 
@@ -297,7 +297,7 @@ shape of returns inside each window. A fourth line shows a
 15% gold — rebalanced annually, alongside the 60/40 stock/bond
 benchmark.
 
-![Six-panel small-multiples chart. Each panel covers one regime (1971-1980 stagflation, 1981-1999 disinflation, 2000-2011 dot-com bust + GFC, 2012-2019 disinflation 2.0, 2020-2026 COVID + reflation, plus a full-period summary). Each panel shows four lines all starting at $1: 100% S&P 500 (red), 100% gold (gold), 60/40 stock/Treasury (blue), and 60/25/15 stock/Treasury/gold (green). Sharpe ratios for each regime are printed on each panel.](image/week06_gold_vs_stocks.png)
+![Six-panel small-multiples chart. Each panel covers one regime (1971-1980 stagflation, 1981-1999 disinflation, 2000-2011 dot-com bust + GFC, 2012-2019 disinflation 2.0, 2020-2026 COVID + reflation, plus a full-period summary). Each panel shows four lines all starting at $1: 100% S&P 500 (red), 100% gold (gold), 60/40 stock/Treasury (blue), and 60/25/15 stock/Treasury/gold (green). Sharpe ratios for each regime are printed on each panel.](../image/week06_gold_vs_stocks.png)
 
 Read the panels regime by regime.
 
@@ -359,7 +359,7 @@ reserves at $282/oz, is the case study for selling at the lows.
 That regime ended in 2010. Every year since 2010, the official
 sector has been a *net buyer*.
 
-![Annual central bank net gold purchases, 1971-2025, in tonnes. Bars below zero (net selling) dominate from 1990 through 2009. Bars above zero (net buying) dominate from 2010 onward, with record highs of 1,082 t in 2022 and 1,037 t in 2023. The 2022 inflection (freezing of Russian FX reserves) is annotated. A second line shows central bank gold holdings as a percentage of total reserves.](image/week06_central_bank_gold.png)
+![Annual central bank net gold purchases, 1971-2025, in tonnes. Bars below zero (net selling) dominate from 1990 through 2009. Bars above zero (net buying) dominate from 2010 onward, with record highs of 1,082 t in 2022 and 1,037 t in 2023. The 2022 inflection (freezing of Russian FX reserves) is annotated. A second line shows central bank gold holdings as a percentage of total reserves.](../image/week06_central_bank_gold.png)
 
 The numbers from the World Gold Council's 2025 *Gold Demand
 Trends* publication:
@@ -432,7 +432,7 @@ ranged from ~15:1 (the 1980 Hunt brothers' silver squeeze peak)
 to over 120:1 (the COVID March-2020 spike). The chart below
 shows the full 1968–2026 history.
 
-![Gold-silver ratio, 1968-2026. Long-run mean near 65:1. Major lows: ~17:1 in January 1980 (Hunt brothers squeeze), ~32:1 in April 2011 (silver speculative blow-off). Major highs: ~100:1 in 1991, ~125:1 in March 2020 (COVID). Current April 2026 reading near 80:1.](image/week06_gold_silver_ratio.png)
+![Gold-silver ratio, 1968-2026. Long-run mean near 65:1. Major lows: ~17:1 in January 1980 (Hunt brothers squeeze), ~32:1 in April 2011 (silver speculative blow-off). Major highs: ~100:1 in 1991, ~125:1 in March 2020 (COVID). Current April 2026 reading near 80:1.](../image/week06_gold_silver_ratio.png)
 
 Two practical observations:
 
@@ -660,7 +660,7 @@ Three reference points from named investors:
 How big is the global gold market relative to financial assets?
 The chart below puts the current allocation in context.
 
-![Gold as a percentage of global financial assets, 1971-2025. Series shows the value of all above-ground investible gold (~213,000 tonnes, ~25% of which is investment-grade bullion and ETFs) divided by the World Federation of Exchanges' estimate of global financial asset value. Long-run average near 5%. 1980 peak near 13%. 2000 trough near 0.5%. Current April 2026 reading near 1.7%.](image/week06_gold_ownership.png)
+![Gold as a percentage of global financial assets, 1971-2025. Series shows the value of all above-ground investible gold (~213,000 tonnes, ~25% of which is investment-grade bullion and ETFs) divided by the World Federation of Exchanges' estimate of global financial asset value. Long-run average near 5%. 1980 peak near 13%. 2000 trough near 0.5%. Current April 2026 reading near 1.7%.](../image/week06_gold_ownership.png)
 
 Three observations from the chart that frame the sizing question:
 

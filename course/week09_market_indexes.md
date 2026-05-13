@@ -38,7 +38,7 @@ The single most important design choice in any index is how it weights its membe
 
 The cumulative-wealth chart for the cap-weighted vs equal-weighted S&P, 1928 to 2024, is in `image/week09_cap_vs_equal.png`. Both lines climb. Equal-weight ends a little higher. Neither dominates in every decade.
 
-![Cap-weighted vs equal-weighted S&P 500](image/week09_cap_vs_equal.png)
+![Cap-weighted vs equal-weighted S&P 500](../image/week09_cap_vs_equal.png)
 
 #### 2.2 The Mag-7 Concentration Problem
 
@@ -56,7 +56,7 @@ In April 2026 the S&P 500's top ten weights look approximately like this:
 
 That is roughly 33% of the index in ten companies, with the Mag-7 (Apple, Microsoft, NVIDIA, Amazon, Meta, Alphabet, Tesla) at about 30%. It is the highest concentration the S&P 500 has carried since the late 1960s' "Nifty Fifty" peak. The bar chart in `image/week09_top_concentration.png` shows the shape: a steep cliff for the top 10, then 490 stocks splitting the remaining two-thirds.
 
-![Top-10 concentration in the S&P 500](image/week09_top_concentration.png)
+![Top-10 concentration in the S&P 500](../image/week09_top_concentration.png)
 
 This is not automatically a problem. It is the index doing exactly what cap-weighting tells it to do: let winners compound. But it has three practical consequences.
 

@@ -198,7 +198,7 @@ Buffett donated his winnings ($2.2M, including the bet's
 appreciation in zero-coupon bonds and later Berkshire B shares)
 to Girls Inc. of Omaha.
 
-![Cumulative-wealth chart of $1 invested January 2008 through December 2017 in Vanguard's S&P 500 Admiral (VFIAX) versus a basket of five funds-of-hedge-funds picked by Protégé Partners. Year 1 (2008): both lines fall — S&P to $0.62, FoF basket to $0.76 (hedge funds did less badly but did not protect). From 2009 onward the S&P line accelerates relentlessly while the FoF basket grinds at single digits. End of 2017: S&P at $2.26 (+125.8% cumulative, 8.5%/yr CAGR); FoF basket at $1.36 (+36.3% cumulative, 3.2%/yr CAGR). The S&P returned more than three times the fund-of-funds. The chart is the single cleanest empirical refutation of the retail hedge-fund pitch.](image/side25_buffett_bet.png)
+![Cumulative-wealth chart of $1 invested January 2008 through December 2017 in Vanguard's S&P 500 Admiral (VFIAX) versus a basket of five funds-of-hedge-funds picked by Protégé Partners. Year 1 (2008): both lines fall — S&P to $0.62, FoF basket to $0.76 (hedge funds did less badly but did not protect). From 2009 onward the S&P line accelerates relentlessly while the FoF basket grinds at single digits. End of 2017: S&P at $2.26 (+125.8% cumulative, 8.5%/yr CAGR); FoF basket at $1.36 (+36.3% cumulative, 3.2%/yr CAGR). The S&P returned more than three times the fund-of-funds. The chart is the single cleanest empirical refutation of the retail hedge-fund pitch.](../image/side25_buffett_bet.png)
 
 #### 2.4 The HFRI Composite vs 60/40, 2000-Apr 2026
 
@@ -227,7 +227,7 @@ Top-quartile managers continue to deliver. The category average
 does not. **Retail allocators almost certainly receive the
 category average.**
 
-![Cumulative-wealth chart of $1 invested January 2000 through April 2026 across three sleeves: HFRI Fund-Weighted Composite (the AUM-weighted hedge-fund industry average, blue), a 60/40 SPY/AGG portfolio rebalanced annually (green), and the S&P 500 alone (orange). HFRI ends at $4.85 (6.2%/yr, vol 7%, Sharpe 0.60); 60/40 ends at $5.30 (6.5%/yr, vol 9.5%, Sharpe 0.47); SPY ends at $7.60 (7.9%/yr, vol 15%, Sharpe 0.39). The HFRI line outpaces both 60/40 and SPY through the 2000-2008 stretch (the genuine hedge-fund mythology era), then stalls from 2009 onward — matching 60/40 in dollars and trailing SPY by a wide margin. The chart shows the regime divide that retail allocators almost never see in marketing material.](image/side25_hfri_vs_60_40.png)
+![Cumulative-wealth chart of $1 invested January 2000 through April 2026 across three sleeves: HFRI Fund-Weighted Composite (the AUM-weighted hedge-fund industry average, blue), a 60/40 SPY/AGG portfolio rebalanced annually (green), and the S&P 500 alone (orange). HFRI ends at $4.85 (6.2%/yr, vol 7%, Sharpe 0.60); 60/40 ends at $5.30 (6.5%/yr, vol 9.5%, Sharpe 0.47); SPY ends at $7.60 (7.9%/yr, vol 15%, Sharpe 0.39). The HFRI line outpaces both 60/40 and SPY through the 2000-2008 stretch (the genuine hedge-fund mythology era), then stalls from 2009 onward — matching 60/40 in dollars and trailing SPY by a wide margin. The chart shows the regime divide that retail allocators almost never see in marketing material.](../image/side25_hfri_vs_60_40.png)
 
 #### 2.5 Liquid Alternatives -- The Retail Substitute Menu
 

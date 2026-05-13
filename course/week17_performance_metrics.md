@@ -229,7 +229,7 @@ emphasise different parts of the return distribution**. The chart
 below runs Sharpe, Sortino, Calmar, and Treynor on four canonical
 portfolios using Damodaran 1928-2024:
 
-![A 2x2 bar grid showing four risk-adjusted metrics across four model portfolios (100/0 stocks, 60/40, 30/70, 0/100 bonds) computed on Damodaran 1928-2024. Each metric panel ranks the portfolios differently. Sharpe favours the 60/40 mix; Calmar punishes 100% stocks heavily because of the 1929-32 drawdown; Treynor undefined-or-extreme on the bond-heavy book because beta-to-equities is small. The visual point: pick a different metric, get a different winner.](image/week17_metric_comparison.png)
+![A 2x2 bar grid showing four risk-adjusted metrics across four model portfolios (100/0 stocks, 60/40, 30/70, 0/100 bonds) computed on Damodaran 1928-2024. Each metric panel ranks the portfolios differently. Sharpe favours the 60/40 mix; Calmar punishes 100% stocks heavily because of the 1929-32 drawdown; Treynor undefined-or-extreme on the bond-heavy book because beta-to-equities is small. The visual point: pick a different metric, get a different winner.](../image/week17_metric_comparison.png)
 
 Notice: by Sharpe, the 60/40 mix scores highest because the
 correlation discount on volatility (Week 4) lifts the denominator's
@@ -250,7 +250,7 @@ Even for a single asset, the Sharpe ratio is not a constant. Below
 is the rolling 10-year Sharpe of the S&P 500 (excess over 3-month
 T-Bills) since 1937:
 
-![Rolling 10-year Sharpe ratio of the S&P 500 over 3-month T-Bills, 1937-2024, computed on Damodaran annual data. The line oscillates between roughly 0.0 in the 1970s stagflation window and near 1.5 in the post-GFC 2010s, with intermediate troughs around 2002 and 2009. The chart visualises why naïve Sharpe quotes drawn from a single decade are unreliable: regime drives the number.](image/week17_sharpe_window.png)
+![Rolling 10-year Sharpe ratio of the S&P 500 over 3-month T-Bills, 1937-2024, computed on Damodaran annual data. The line oscillates between roughly 0.0 in the 1970s stagflation window and near 1.5 in the post-GFC 2010s, with intermediate troughs around 2002 and 2009. The chart visualises why naïve Sharpe quotes drawn from a single decade are unreliable: regime drives the number.](../image/week17_sharpe_window.png)
 
 The line is wild. In the 1970s, a 10-year window earning roughly
 zero excess over T-Bills produced a Sharpe near 0.0. In the
