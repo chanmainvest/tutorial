@@ -9,9 +9,9 @@ from English to three Chinese variants:
 - CN (Mainland Simplified Chinese)
 
 Usage:
-    python translate.py              # Translate all files
-    python translate.py week01       # Translate specific file
-    python translate.py --check      # Check which files need translation
+    python translation_status.py              # Create placeholders for all files
+    python translation_status.py week01       # Create placeholder for specific file
+    python translation_status.py --check      # Check which files need translation
 
 The translations preserve markdown formatting and adapt financial
 terminology to each locale's conventions.

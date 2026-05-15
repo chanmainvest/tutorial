@@ -470,7 +470,125 @@ asset class can look like a great long-term hold and a brutal
 medium-term mark-to-market simultaneously: different time
 horizons emphasise different components.
 
-#### 2.7 Market Cap, Book Value, and Why the Numbers Differ
+#### 2.7 Why Stocks Are an Imperfect Inflation Hedge
+
+Week 1 framed investing as a fight against inflation: hold cash
+and the purchasing power of your savings erodes year after year.
+This is the natural place to connect that argument back to the
+asset we have just opened up. **Cash is a fixed nominal claim.
+A bond is mostly a fixed nominal promise. A stock is ownership
+of a business whose nominal cash flows may grow with the price
+level.** That single sentence is the mechanism — and the rest of
+this subsection is the fine print on why it works and where it
+breaks.
+
+Start with the residual-claim picture from §2.4. A bondholder is
+promised a fixed number of dollars: a coupon stream and a return
+of par. If the general price level doubles over the life of the
+bond, the dollars still arrive on schedule, but each one buys
+half as much. The contract is *nominal*. Inflation is the
+bondholder's silent counterparty risk.
+
+Equity is structurally different. You do not own a promise to be
+paid a number of dollars. You own a fractional slice of a real
+business that sells goods and services *priced in the current
+dollars of the day*. When the general price level rises:
+
+- A coffee chain's menu prices rise.
+- A consumer-staples company's shelf prices rise.
+- A software vendor renews enterprise contracts at higher
+  numbers.
+- An industrial business raises its quotes to reflect higher
+  input costs.
+- The replacement value of factories, land, brands, and
+  inventory rises with the price level.
+
+If a company has **pricing power** — the ability to push higher
+prices through to customers without losing them to a competitor
+— nominal revenue rises with inflation, nominal earnings tend to
+follow, and the four-plus-one channels from §2.6 (retained
+earnings, dividends, buybacks, acquisitions, being acquired) all
+flow through in nominally larger amounts. The residual claimant
+at the bottom of the capital stack ends up owning a business
+that is *nominally larger*. Over long horizons this is why broad
+equity has historically preserved purchasing power in a way that
+cash and most nominal bonds have not.
+
+This is the lens behind the famous **7% real** number the
+lesson keeps citing — measured by Jeremy Siegel across roughly
+two centuries of US equity data in *Stocks for the Long Run*.
+*Real* means after inflation has been subtracted. The fact that
+there is a positive number left after stripping out CPI is the
+empirical signature of the mechanism described above: aggregate
+business cash flows growing roughly *with* the price level, plus
+a real productivity-and-reinvestment premium on top.
+
+But the inflation-hedging property is **imperfect**, and being
+honest about that imperfection is more useful than the
+textbook's "stocks beat inflation" slogan.
+
+1. **Pricing power is not uniform.** Some businesses can raise
+   prices freely (Coca-Cola, ASML, See's Candies when Charlie
+   Munger first bought it). Others compete on commodity output
+   into a global market and cannot (airlines, most steel
+   producers, generic memory chips). In a sustained inflation,
+   the index is the average of both groups.
+2. **Costs inflate too.** Wages rise. Raw materials rise.
+   Energy rises. Whether a business *captures* the inflation as
+   higher earnings or *gives it back* as squeezed margins
+   depends on which side of the price-cost gap re-prices faster.
+3. **Discount rates rise.** Inflation typically forces central
+   banks to raise short-term interest rates, which lifts the
+   long-term discount rate the market applies to future cash
+   flows. Even if nominal earnings rise on plan, the
+   present-value calculation that drives the share price gets a
+   bigger denominator. The arithmetic is mechanical: higher
+   discount rate → lower price/earnings multiple.
+4. **Multiples compress in high-inflation regimes.** This is
+   the historical pattern, not a theory. From roughly 1966 to
+   1982 — the Arthur Burns and early Paul Volcker era — US CPI
+   ran at high single digits and into double digits. The S&P 500
+   earned its way through the period in *nominal* dollars, but
+   the price/earnings multiple fell from the high teens to
+   single digits. Real returns over the full window were
+   roughly flat. Stocks did not protect investors on a
+   five-year mark-to-market basis even though the underlying
+   businesses were growing nominally with the price level.
+5. **The hedge works on the long horizon, not the short one.**
+   Over rolling decade-plus windows, broad US equity has
+   meaningfully out-earned CPI. Over rolling one- and
+   three-year windows during a CPI surprise, equities can fall
+   *with* bonds — 2022 is the most recent reminder, with the
+   S&P 500 down roughly 18% nominal and a US 60/40 portfolio
+   delivering one of its worst years on record.
+
+The practical conclusion for the residual-claim asset:
+
+- **Long-term inflation hedge: yes.** A diversified basket of
+  high-quality businesses with pricing power, held across
+  decades, has historically grown nominal cash flows roughly in
+  line with — or faster than — the price level, and the
+  shareholder's claim grows with it.
+- **Short-term CPI hedge: no.** When inflation surprises to the
+  upside *now*, equities can lose money *now* alongside bonds,
+  because the discount-rate effect is fast and the
+  earnings-growth effect is slow. This is the gap that Treasury
+  Inflation-Protected Securities (TIPS), gold, and commodities
+  are designed to fill — and it is the reason a serious
+  portfolio is not 100% stocks even for investors who believe
+  in long-run equity returns.
+
+When you put §2.6 and §2.7 together, you have the inflation
+argument the course has been pointing at since Week 1.
+Businesses sell at the prevailing price level. Their earnings,
+dividends, buybacks, and replacement asset values grow with that
+price level over time. The residual claimant — you, the
+shareholder — owns a stake in that nominally growing stream.
+Cash and bonds do not give you that. The mechanism is real. The
+timing is unreliable. Both halves of that sentence have to live
+in the same head for the rest of the course to make sense.
+
+#### 2.8 Market Cap, Book Value, and Why the Numbers Differ
 
 Two numbers every investor sees daily, and which most never
 properly distinguish.
@@ -571,7 +689,7 @@ informative for *asset-light* businesses (software, consumer
 brands, marketplaces) where most of the value lives in
 intangibles the accountant cannot record.
 
-#### 2.8 Why One Stock Is Risky and a *Curated* Basket Is Not
+#### 2.9 Why One Stock Is Risky and a *Curated* Basket Is Not
 
 The single most important fact about individual stocks is that
 *they fail*. Hendrik Bessembinder's 2018 study of every US stock
@@ -657,7 +775,7 @@ cannot be is a random scatter of five favourites picked from
 headlines, because that is the portfolio the Bessembinder
 distribution chews up.
 
-#### 2.9 Stock Price vs Business Value — The Honest Version
+#### 2.10 Stock Price vs Business Value — The Honest Version
 
 A share is a claim on the *business*. The *price* of that share
 on any given second is the result of a continuous double
@@ -767,7 +885,7 @@ two years ago is sunk. Cost basis matters only for tax purposes
 (the wash-sale rule, long-term vs short-term gain treatment, loss
 harvesting). It is not an input to the investment thesis.
 
-#### 2.10 What This Sets Up for the Rest of the Course
+#### 2.11 What This Sets Up for the Rest of the Course
 
 - **Next week (Week 8) — Reading Financial Statements.** Now
   that you see a stock as a slice of a real business, the income
@@ -1400,7 +1518,100 @@ component of long-run return.
 
 ---
 
-**[SEGMENT 7: MARKET CAP AND BOOK VALUE]**
+**[SEGMENT 7: WHY STOCKS ARE AN IMPERFECT INFLATION HEDGE]**
+
+**Horace:** Stella, remember Week 1. The whole point of
+investing was —
+
+**Stella:** — to fight inflation. Cash loses purchasing power
+every year, so you have to put it somewhere that grows at least
+as fast as prices.
+
+**Horace:** Right. Now we can actually connect that to the
+asset we just opened up. One sentence. Cash is a fixed nominal
+claim. A bond is mostly a fixed nominal promise. A stock is
+ownership of a business whose nominal cash flows may grow with
+the price level.
+
+**Stella:** Why "may."
+
+**Horace:** Because it depends on pricing power. Think about
+what happens when the general price level rises. A coffee
+chain's menu prices rise. A consumer-staples company's shelf
+prices rise. A software vendor renews enterprise contracts at
+higher numbers. The replacement cost of factories, land,
+inventory, brands — all of it rises. If the business can push
+those higher prices through to customers without losing them,
+nominal revenue and nominal earnings rise with inflation. Every
+one of the four-plus-one channels we just covered — retained
+earnings, dividends, buybacks, acquisitions, being acquired —
+flows through in nominally bigger numbers. You, the residual
+claimant, own a slice of a nominally larger business.
+
+**Stella:** A bondholder doesn't get that.
+
+**Horace:** A bondholder is owed a fixed number of dollars. If
+the price level doubles, the dollars still show up, but they buy
+half as much. The contract is nominal. Inflation is the
+bondholder's silent counterparty risk. Equity isn't a contract
+for a number of dollars — it's ownership of a real business
+priced in the dollars of the day. That's why Siegel's 7-percent
+real number even exists. *Real* means after inflation has been
+stripped out, and there's still a positive number left.
+
+**Stella:** So stocks beat inflation.
+
+**Horace:** In the long run, yes. But the textbook slogan
+"stocks beat inflation" oversells it. The hedge is *imperfect*
+and you have to know where it breaks.
+
+One — pricing power isn't uniform. Coca-Cola can raise prices.
+An airline competing on a commodity route into a global market
+can't.
+
+Two — costs inflate too. Wages, raw materials, energy. Whether
+the business *captures* inflation as higher earnings or *gives
+it back* as compressed margins depends on which side of the
+price-cost gap re-prices faster.
+
+Three — discount rates rise. Inflation forces central banks to
+raise short rates, the long-term discount rate the market
+applies to future cash flows goes up, the present-value
+arithmetic gets a bigger denominator. Even if nominal earnings
+rise on plan, the multiple compresses.
+
+Four — and this is the historical part, not theory. 1966 to
+1982. Burns and early Volcker. CPI running high single digits
+into double digits. The S&P 500 earned its way through that
+period in nominal dollars, but the P/E ratio fell from the high
+teens to single digits. Real returns over the full window were
+roughly flat. Stocks did not protect investors on a five-year
+mark-to-market basis even though the underlying businesses were
+growing nominally with the price level.
+
+**Stella:** And recently?
+
+**Horace:** 2022. CPI surprised to the upside, the Fed hiked
+fast, the S&P fell about 18 percent nominal, and the US 60/40
+portfolio had one of its worst years on record. Stocks fell
+*with* bonds. That's the short-horizon case.
+
+**Stella:** So how do I square it?
+
+**Horace:** Two sentences. Long-term inflation hedge — yes. A
+diversified basket of high-quality businesses with pricing power,
+held across decades, grows nominal cash flows roughly with the
+price level. Short-term CPI hedge — no. The discount-rate effect
+is fast, the earnings-growth effect is slow, and equities can
+lose money in real time alongside bonds when inflation
+surprises. That short-horizon gap is exactly what TIPS, gold,
+and commodities are for — and it's why a serious portfolio
+isn't a hundred percent stocks, even for investors who fully
+believe in the long-run equity number.
+
+---
+
+**[SEGMENT 8: MARKET CAP AND BOOK VALUE]**
 
 **Horace:** Two numbers every investor sees. Market cap is
 share price times shares outstanding — what the market currently
@@ -1445,7 +1656,7 @@ flow statement. We cover the diagnostic next week.
 
 ---
 
-**[SEGMENT 8: ONE STOCK VS A CURATED BASKET]**
+**[SEGMENT 9: ONE STOCK VS A CURATED BASKET]**
 
 [VISUAL: image/week07_concentration_vs_diversification.png]
 
@@ -1494,7 +1705,7 @@ financial-advisor talking point, not a fact.
 
 ---
 
-**[SEGMENT 9: PRICE VS VALUE — THE HONEST VERSION]**
+**[SEGMENT 10: PRICE VS VALUE — THE HONEST VERSION]**
 
 **Horace:** Last big concept. Price and value converge in the
 long run and diverge in the short run. The textbook does Mr.
@@ -1556,7 +1767,7 @@ of it, not just the printed last-trade number.
 
 ---
 
-**[SEGMENT 10: HOLD-OR-SELL AND COST BASIS]**
+**[SEGMENT 11: HOLD-OR-SELL AND COST BASIS]**
 
 **Horace:** One last thing. Your cost basis is irrelevant to
 the hold-or-sell decision. The decision to hold today is the

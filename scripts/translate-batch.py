@@ -7,9 +7,8 @@ using a configurable LLM provider:
   - anthropic   Anthropic Claude direct API
   - openai      OpenAI direct API
   - gemini      Google Gemini direct API
-  - copilot     GitHub Copilot via the GitHub Models inference API
-                (OpenAI-compatible; uses your GitHub Copilot subscription
-                tokens, not paid API credits).
+  - copilot     GitHub Copilot CLI (-p non-interactive mode; uses your
+                GitHub Copilot subscription, not paid API credits).
 
 Defaults are read from scripts/configs.json. CLI flags override individual
 config values.
@@ -27,12 +26,9 @@ Usage:
 Per-provider API keys are read from environment variables (configurable in
 configs.json -> providers.<name>.api_key_env):
     ANTHROPIC_API_KEY, OPENAI_API_KEY, GEMINI_API_KEY,
-    GITHUB_TOKEN     (for the copilot provider; obtain via `gh auth token`,
-                      requires the models:read scope on Copilot accounts)
-
 Install (only the providers you actually use):
     uv pip install anthropic openai google-generativeai
-    (the copilot provider reuses the openai package; no extra install)
+    (the copilot provider calls the `copilot` CLI directly — no extra package)
 """
 
 import argparse
@@ -186,161 +182,62 @@ def call_gemini(provider_cfg, system, user):
     return text, in_tok, out_tok
 
 
-def _chunk_markdown(text, max_chars):
-    """Split markdown into chunks ≤ max_chars, respecting section boundaries.
-
-    Tries H2 (`## `) breaks first, then H3 (`### `), then blank-line paragraph
-    breaks. Final fallback is a hard slice. Each returned chunk is independent
-    text that can be translated on its own without losing context.
-    """
-    if len(text) <= max_chars:
-        return [text]
-
-    def _split_keep(pattern, s):
-        # Split at boundaries that *start* with the pattern; keep the boundary
-        # attached to the following chunk.
-        parts = re.split(pattern, s, flags=re.MULTILINE)
-        return [p for p in parts if p]
-
-    def _greedy_pack(pieces):
-        chunks = []
-        current = ""
-        for p in pieces:
-            if len(p) > max_chars:
-                if current:
-                    chunks.append(current)
-                    current = ""
-                # Recursively split this oversized piece.
-                if re.search(r"^### ", p, flags=re.MULTILINE):
-                    sub = _split_keep(r"(?=^### )", p)
-                elif "\n\n" in p:
-                    sub = [s + "\n\n" for s in p.split("\n\n") if s]
-                else:
-                    # Hard slice as last resort.
-                    sub = [p[i:i + max_chars] for i in range(0, len(p), max_chars)]
-                if len(sub) == 1 and len(sub[0]) > max_chars:
-                    chunks.append(sub[0])  # give up; send oversized piece anyway
-                else:
-                    chunks.extend(_greedy_pack(sub))
-                continue
-            if len(current) + len(p) <= max_chars:
-                current += p
-            else:
-                if current:
-                    chunks.append(current)
-                current = p
-        if current:
-            chunks.append(current)
-        return chunks
-
-    pieces = _split_keep(r"(?=^## )", text)
-    return _greedy_pack(pieces)
-
-
-def _call_copilot_once(client, provider_cfg, system, user, max_retries, base_delay):
-    last_err = None
-    for attempt in range(max_retries):
-        try:
-            response = client.chat.completions.create(
-                model=provider_cfg["model"],
-                messages=[
-                    {"role": "system", "content": system},
-                    {"role": "user", "content": user},
-                ],
-                max_tokens=provider_cfg.get("max_tokens", 16384),
-                temperature=provider_cfg.get("temperature", 0.3),
-            )
-            text = response.choices[0].message.content or ""
-            usage = getattr(response, "usage", None)
-            in_tok = getattr(usage, "prompt_tokens", 0) if usage else 0
-            out_tok = getattr(usage, "completion_tokens", 0) if usage else 0
-            return text, in_tok, out_tok
-        except Exception as e:  # noqa: BLE001
-            last_err = e
-            msg = str(e).lower()
-            transient = (
-                "429" in msg
-                or "too many requests" in msg
-                or "rate limit" in msg
-                or "503" in msg
-                or "502" in msg
-                or "timeout" in msg
-                or "connection" in msg
-            )
-            if not transient or attempt == max_retries - 1:
-                raise
-            delay = min(base_delay * (2 ** attempt), 600)
-            time.sleep(delay)
-    raise last_err  # type: ignore[misc]
-
-
 def call_copilot(provider_cfg, system, user):
-    """Translate via GitHub Copilot using the GitHub Models inference API.
+    """Translate via the GitHub Copilot CLI in non-interactive (-p) mode.
 
-    The endpoint is OpenAI-compatible, so we reuse the openai SDK and just
-    point base_url at https://models.github.ai/inference. The bearer token
-    is the user's GitHub PAT (or `gh auth token` output) — Copilot
-    subscribers get included usage at no extra cost.
+    Writes the markdown content to a temp file, then invokes:
+        copilot --model <model> --allow-all-tools --no-custom-instructions
+                --silent --prompt <system+path>
+    The CLI reads the temp file via its built-in read_file tool, translates,
+    and returns only the assistant response (-s/--silent strips stats).
 
-    Behavior:
-      - Auto-chunks the input markdown when it exceeds `chunk_chars`
-        (default 9000) so it fits the GitHub Models free-tier 8K-token
-        request-body cap on `openai/gpt-5-mini`.
-      - Retries with exponential backoff on 429 / transient errors.
+    Requires: `copilot` CLI on PATH (GitHub Copilot CLI, e.g. installed via
+              WinGet, brew, or managed by VS Code Copilot Chat extension).
     """
-    from openai import OpenAI
-    import httpx
+    import subprocess
+    import tempfile
 
-    api_key_env = provider_cfg.get("api_key_env", "GITHUB_TOKEN")
-    api_key = os.environ.get(api_key_env)
-    if not api_key:
-        raise RuntimeError(
-            f"Environment variable {api_key_env} is not set. Run "
-            f"`gh auth token` and export it, or set GITHUB_TOKEN to a PAT "
-            f"with the models:read scope."
+    cli_path = provider_cfg.get("cli_path", "copilot")
+    model = provider_cfg.get("model", "claude-sonnet-4.6")
+    timeout = provider_cfg.get("timeout_s", 7200)
+
+    # Write content to a temp file — avoids Windows CreateProcess arg-length
+    # limits (32 KB) when translating large lesson files.
+    with tempfile.NamedTemporaryFile(
+        mode="w", suffix=".md", delete=False, encoding="utf-8"
+    ) as f:
+        f.write(user)
+        tmpfile = f.name
+
+    try:
+        prompt = (
+            f"{system}\n\n"
+            f"Translate the file at this exact path: {tmpfile}\n\n"
+            "Output ONLY the complete translated markdown. "
+            "No commentary, preamble, or explanation."
         )
-
-    base_url = provider_cfg.get("base_url", "https://models.github.ai/inference")
-    client = OpenAI(
-        base_url=base_url,
-        api_key=api_key,
-        timeout=httpx.Timeout(7200.0, connect=30.0),
-    )
-
-    max_retries = provider_cfg.get("max_retries", 20)
-    base_delay = provider_cfg.get("retry_base_delay_s", 20)
-    chunk_chars = provider_cfg.get("chunk_chars", 9000)
-    inter_chunk_delay = provider_cfg.get("inter_chunk_delay_s", 2)
-
-    chunks = _chunk_markdown(user, chunk_chars)
-    if len(chunks) == 1:
-        return _call_copilot_once(client, provider_cfg, system, user, max_retries, base_delay)
-
-    # Multi-chunk path. Translate each piece with the same system prompt and
-    # concatenate. We add a small note so the model knows it's a fragment.
-    pieces = []
-    total_in = 0
-    total_out = 0
-    chunk_system = (
-        system
-        + "\n\nIMPORTANT: You are translating a FRAGMENT of a larger markdown "
-        "document. Do not add any introductory phrase, summary, or closing "
-        "remark — output only the direct translation of the fragment so it "
-        "can be concatenated with the surrounding fragments."
-    )
-    for i, ch in enumerate(chunks):
-        text, in_tok, out_tok = _call_copilot_once(
-            client, provider_cfg, chunk_system, ch, max_retries, base_delay
+        result = subprocess.run(
+            [
+                cli_path,
+                "--model", model,
+                "--allow-all-tools",
+                "--no-custom-instructions",
+                "--silent",
+                "--prompt", prompt,
+            ],
+            capture_output=True,
+            text=True,
+            timeout=timeout,
+            encoding="utf-8",
         )
-        pieces.append(text)
-        total_in += in_tok
-        total_out += out_tok
-        if i < len(chunks) - 1 and inter_chunk_delay:
-            time.sleep(inter_chunk_delay)
-
-    # Reassemble. Chunks were split at section boundaries, so simple concat
-    # preserves structure.
-    return "".join(pieces), total_in, total_out
+        if result.returncode != 0:
+            raise RuntimeError(
+                f"copilot CLI exited {result.returncode}: "
+                f"{(result.stderr or result.stdout).strip()}"
+            )
+        return result.stdout.strip(), 0, 0
+    finally:
+        os.unlink(tmpfile)
 
 
 PROVIDER_DISPATCH = {

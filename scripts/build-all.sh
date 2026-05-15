@@ -8,7 +8,7 @@ echo "Project root: $(pwd)"
 echo ""
 
 echo "=== Step 1: Translation Status ==="
-py -3 scripts/translate.py --check
+py -3 scripts/translation_status.py --check
 echo ""
 
 echo "=== Step 2: Auto-Translate ==="
