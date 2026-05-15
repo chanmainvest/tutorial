@@ -220,7 +220,12 @@ def call_copilot(provider_cfg, system, user):
             [
                 cli_path,
                 "--model", model,
-                "--allow-all-tools",
+                # Limit to read-only file access — prevents agentic write/shell
+                # loops that inflate latency when only a file read + translate
+                # response is needed.
+                "--available-tools", "read",
+                "--allow-all-paths",   # temp file lives outside CWD
+                "--no-ask-user",       # never block on stdin in batch mode
                 "--no-custom-instructions",
                 "--silent",
                 "--prompt", prompt,

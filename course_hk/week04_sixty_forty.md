@@ -1,416 +1,671 @@
-# 第四週：60/40 投資組合 — 為何有效及為何2022年失效
+<function_calls>
+<invoke name="view">
+<parameter name="path">C:\Users\hevan\AppData\Local\Temp\tmplt3mew49.md</parameter>
+</invoke>
+</function_calls>
+<function_response>
+# Week 7: Equity Valuation – What Is a Stock Really Worth?
 
----## 第一部分：閱讀章節
+**Course:** From Zero to Investor
+**Channel:** ChanMainvest
+**Hosts:** Horace and Stella
+**Format:** Two-host YouTube tutorial with visuals and animations
 
 ---
 
-### 1. 為何這很重要
+## Part 1: Cold Open
 
-六成股票，四成債券。這是投資史上最著名的資產配置，是每位財務顧問的預設方案，是每個平衡型基金的基準，直到2022年，這也是教科書中最接近「設定後即可忘記」的投資組合。
+[CUT TO studio — upbeat intro music]
 
-你需要了解60/40有四個原因，即使你最終不採用這個配置。
+**Horace:** Hey everyone, welcome back to ChanMainvest! I'm Horace.
 
-1. **它是基準。** 每一個更複雜的策略——風險平價、趨勢、因子傾斜、我們在第五階段（第47至52週）建立的槓鈴形狀——都是以60/40作為比較標準。如果你不知道60/40在改進什麼，就無法評估這些策略。
-2. **它展示了分散投資的實際價值。** 當股票和債券呈負相關時，60/40組合能提供大約80%的股票回報，卻只有約60%的股票風險。這不是簡單的算術，而是投資組合波動性的*相關性折扣*，這是馬科維茲獲得諾貝爾獎的核心洞見。
-3. **它展示了分散投資的限制。** 2022年，股票和債券同時下跌約18%，是1937年以來60/40組合最糟糕的一年。理解*為什麼*比損失本身更重要：讓60/40在四十年內奏效的宏觀經濟環境有其特定特徵，而這個特徵已經逆轉。
-4. **它教你相關性是投資組合建構中最重要的變數。** 回報改變你的財富水平，相關性改變分布的*形狀*。股票與債券的相關性在2022年轉向，整個行業仍在消化這個變化的意義。
+**Stella:** And I'm Stella. Today we're tackling one of the biggest questions in investing—
 
-本課程涵蓋60/40的起源與運作機制、按年代的歷史表現、相關性歷史、2022年的突破，以及現代的調整。
+**Horace:** How do you know if a stock is actually worth buying?
 
----### 2. 你需要知道的事
+**Stella:** Not just "does it look cheap" or "did your friend tell you about it"—
 
-#### 2.1 運作原理 — 為何要混合股票和債券？
+**Horace:** But actually — *what is this company worth?*
 
-關鍵洞見：**投資組合的波動性並非其組成部分波動性的加權平均。**
+**Stella:** That's equity valuation. And once you understand it, you'll never look at a stock the same way again.
 
-對於兩種資產，權重為 $w_1, w_2$，標準差為 $\sigma_1, \sigma_2$，相關性為 $\rho$：
-
-$$ \sigma_p = \sqrt{w_1^2 \sigma_1^2 + w_2^2 \sigma_2^2 + 2 w_1 w_2 \sigma_1 \sigma_2 \rho} $$
-
-當 $\rho < 1$ 時，該平方根值會*低於*加權平均波動性。越接近 $\rho = -1$，風險降低越多。
-**分散投資就是相關性計算。**
-
-在表格前的實例使概念更具體。假設美國股票波動率 $\sigma = 16\%$，美國國債波動率 $\sigma = 6\%$，組合為60/40。天真的估計是60/40風險等於60%股票風險加40%債券風險，即 $0.6 \times 16\% + 0.4 \times 6\% = 12.0\%$。這是兩資產完全同步移動時的結果。若以更現實的相關性 $\rho = -0.3$，公式計算為：
-
-$$ \sigma_p = \sqrt{0.6^2 \cdot 16^2 + 0.4^2 \cdot 6^2 + 2 \cdot 0.6 \cdot 0.4 \cdot 16 \cdot 6 \cdot (-0.3)} \approx \sqrt{88.1} \approx 9.4\% $$
-
-由12.0%降至9.4%——約22%的投資組合波動性減少，且*不犧牲預期回報*——正是混合兩種資產的全部意義。這不是預算計算，而是馬科維茲因相關性折扣而獲得諾貝爾獎的核心。
-
-對於美國股票（$\sigma \approx 16\%$）和美國國債（$\sigma \approx 6\%$），以及它們的長期相關性：
-
-| 股票-債券 ρ | 60/40 σ | 分散投資效益 |
-|---|---:|---|
-| +1.0（完全正相關） | 12.0% | 無 — 純加權平均 |
-| 0.0（無相關） | 10.1% | 約16%波動性降低 |
-| −0.3（1990s–2010s典型） | 9.4% | 約22%降低 |
-| −1.0（理論值） | 7.2% | 最大降低 |
-
-1990s–2010s期間，股票與債券的平均相關性約為−0.3。這正是60/40長期表現良好的全部原因。關鍵不是任一資產的預期回報，而是它們之間的交叉相關性。
-
-#### 2.2 歷史表現 — 四十年的順風
-
-下圖繪製了1928年起，100%股票、100%國債及60/40組合的累積實際財富（扣除CPI後），均每年再平衡。
-
-![Cumulative real wealth of three portfolios from 1928 through 2024 (Damodaran annual data, $1 starting balance, log scale, real terms after CPI). The three lines: 100% S&P 500 (steepest, most volatile), 100% 10-year US Treasury (smoothest but lowest), 60/40 rebalanced annually (the middle path that captures most of equity's compounding with materially smaller drawdowns). The 60/40 line ends near the 100% stocks line in real wealth but with visibly shallower troughs at 1937, 1973-74, 2000-02, and 2008.](../image/week04_sixty_forty_growth.png)
-
-從右至左讀圖。至2024年，1928年投資1美元的實際價值約為：
-
-- 100%股票：565美元
-- 60/40組合：128美元
-- 100%債券：4美元
-
-債券線幾乎整個世紀僅能追上通脹——國債長期實際回報約1.4%年化。股票約6.8%實際複利。60/40約5.1%實際回報，複利率約為股票的四分之三，但波動明顯較小。
-
-按年代看，情況更為細緻。回撤欄顯示各資產在該年代內的*最大實際峰谷跌幅*（年度資料，若底部出現在下一年代則歸入下一年代）。
-
-| 十年期 | 60/40（實際年化） | 股票（實際年化） | 債券（實際年化） | 60/40最大回撤 | 股票最大回撤 | 債券最大回撤 |
-|---|---:|---:|---:|---:|---:|---:|
-| 1930年代 | 1.0% | -0.1% | 4.7% | -23% | -38% | -1% |
-| 1940年代 | 1.6% | 3.6% | -3.5% | -23% | -25% | -32% |
-| 1950年代 | 12.5% | 16.7% | -2.6% | -6% | -13% | -11% |
-| 1960年代 | 3.5% | 5.0% | -0.7% | -12% | -14% | -17% |
-| 1970年代 | -0.7% | -1.4% | -1.0% | -36% | -49% | -33% |
-| 1980年代 | 9.7% | 12.0% | 7.2% | -8% | -13% | -9% |
-| 1990年代 | 8.7% | 14.8% | 4.6% | -5% | -1% | -11% |
-| 2000年代 | 1.8% | -3.4% | 4.4% | -15% | -37% | -13% |
-| 2010年代 | 6.8% | 11.4% | 1.6% | -4% | -6% | -10% |
-| 2020-24 | 1.6% | 6.7% | -3.5% | -23% | -23% | -34% |
-
-1980s、1990s及2000s是建立60/40聲譽的三個年代。1980s–90s帶來回報故事：80年代債券實際回報超過7%，90年代股票超過12%。2000年代帶來*保護*故事：股市在網絡泡沫及金融危機期間實際年化下跌3.4%，債券部分仍令60/40組合實現正實際回報。這十年令零售顧問學會*信任*債券對沖，而非僅是定價。三個年代中，股票與債券相關性約−0.3至−0.4。跌的資產另一方往往上升，再平衡交易*付酬*你機械性地買入表現較差的資產。2020–24年則是現代業界關注的焦點，也是本課程餘下部分解釋的主題。
-
-##### 為何再平衡實際上有利？為何60/40不總是比100%股票差？
-
-誠實看表。97年期間，100%股票實際年化複利6.8%，60/40為5.1%——約565美元對128美元。**長期來看，且無行為問題，100%股票在終值上勝出。** 本課程不會假裝相反。60/40的理由不是「更高回報」，而是三個相關效應：
-
-1. **回撤壓縮。** 在每個危機年代——1930s、1970s、2000s——60/40的股權損失明顯較少。股票-38%、-49%、-37%被壓縮至60/40的-23%、-36%、-15%。這種較小的坑洞是*行為性阿爾法*：不在-25%時恐慌賣出的投資者與在-49%時恐慌賣出的投資者是不同的人。
-2. **再平衡溢價。** 年度再平衡強制機械性「賣出剛剛跑贏的，買入剛剛跑輸的」。數十年累計約為60/40組合帶來0.2–0.4%年化增益（Bouchey、Nemtchinov、Paulsen等估計）。這不是免費午餐——需要兩資產均呈均值回歸且負相關，2022年即是失敗例子——但在正常體制下真實且持續。
-3. **波動拖累非線性。** 投資組合先跌50%再漲50%，最終值為起始值的-25%。先跌25%再漲25%，最終值為-6%。將回撤減半，復原成本不止減半。低波動組合的幾何回報更接近算術回報。
-
-誠實說法：**對於持有30年期的買入持有投資者，正確比較是100%股票 vs 60/40 vs 杠鈴策略，而非僅60/40 vs 無。** 長期窗口中100%股票終值勝出；60/40在最差兩年期間勝出；杠鈴策略嘗試保留大部分股票上行，同時用結構更佳的分散資產（現金+黃金+尾部對沖）取代中間偏中等的債券。我們在本課結尾會回到此比較。
-
-##### 規則型／「定時」再平衡能否勝過日曆再平衡？
-
-這是真實的研究領域，不是傳說。主要結論：**規則型變體在*回測*中略優於日曆再平衡，但改進幅度小於不同實施間的變異，且樣本外表現脆弱。**
-
-- *閾值（區間）再平衡* — 僅當配置偏離目標超過5%（例如從60%股票到65%）時再平衡 — 捕捉大部分再平衡溢價，交易和稅務成本較低。Vanguard研究報告顯示長期美國60/40回測中略優於年度日曆再平衡，約0.05–0.15%年化。
-- *趨勢疊加再平衡* — 僅當資產價格高於其200日或10月移動平均線時才再平衡 — 在部分時期（如2008年）改善回撤，另一些時期（如2020年V型反彈）則惡化。長期淨效應接近無差異。
-- *估值傾斜再平衡* — 當CAPE便宜時超配股票，昂貴時減配。長期回測顯示美國數據約0.3–0.6%年化提升，但伴隨長期拖累期（2010–2020年策略錯誤）及嚴重數據挖掘風險：只有一段美國歷史，規則基於此調整，未來30年不會是過去30年。
-
-結論：日曆或區間再平衡的60/40捕捉了幾乎所有*穩健*溢價。更複雜的策略則跨入*主動*配置範疇——可能奏效，但此時已非被動60/40。我們在「誤解」部分及§2.7中會再次談及主觀再平衡。
-
-#### 2.3 相關性故事 — 隱藏變數
-
-下圖為1928年起美國股票與美國國債36個月滾動相關性。整堂課最重要的事實就在此圖。
-
-![Rolling 36-month correlation between annual US stock returns and US Treasury returns, 1928 through 2024 (Damodaran data). The correlation oscillates dramatically: deeply positive (+0.6) through the 1970s, falling through zero around 1997, deeply negative (-0.4 to -0.6) for almost the entire 2000-2020 window, and snapping sharply positive again starting in 2022.](../image/week04_stock_bond_corr.png)
-
-可見三個階段：
-
-- **1928–1997：股票與債券通常同向移動。** 通脹為主導因素。通脹升高，債券價格下跌（利率上升）*且*股票價格下跌（實際盈利受壓）。通脹降低，兩者上升。相關性正，分散效益一般。
-- **1998–2021：偉大的反向期。** 通脹不再主導，成長與衰退成主導。衰退時，美聯儲降息→債券反彈；衰退時，盈利暴跌→股票下跌。相關性深度負。60/40創造有史以來最佳40年。
-- **2022起：反向期破裂。** 當美聯儲為對抗9% CPI而激進加息，債券下跌*且*盈利倍數壓縮*且*股票下跌。相關性再度轉正。60/40遭遇自大蕭條以來最差年份。
-
-簡單框架：**當主導宏觀因素為成長/衰退時，股票與債券負相關；當主導因素為通脹時，兩者正相關。** 決定你認為未來十年屬於哪種體制，就決定60/40是否仍是你的朋友。
-
-#### 2.4 債券收益率是政策變數，不是市場價格
-
-談2022年前，所有執行60/40的投資者必須了解且幾乎無認證課程明說的事：**你投資組合中的債券部分並非自由市場定價。** 收益率曲線的水平和形狀主要由中央銀行設定。短期利率*字面上*由美聯儲在FOMC會議決定。長期利率名義上是市場價格，但受量化寬鬆與緊縮、未來政策利率前瞻指引，及部分司法管轄區的*收益率曲線控制*（YCC）強烈影響，後者是中央銀行承諾無限買賣以將收益率固定於某水平。
-
-最清晰例子是日本銀行。2016至2024年間，BOJ實施明確YCC，先將10年期日本國債收益率封頂於0%，後調至0.25%、0.5%、1.0%——每次「調整」都是小型政策體制變更，令整條JGB曲線一夜改變。持有JGB的投資者並非持有自由市場資產，而是持有一項*政策承諾*，其回報取決於BOJ持續印鈔的意願。2024年BOJ退出YCC，長端收益率急劇重估。
-
-美聯儲也做過較溫和版本。2008–2014年QE計劃估計壓低長期國債收益率100–150基點。2020–2021年緊急寬鬆使10年期收益率一年多維持在1%以下。2022年緊縮是這些政策頭寸的*解除*，非市場驅動。
-
-對60/40組合而言，這意味著：
-
-- 債券部分的預期回報是*當前收益率*，而當前收益率部分是*政策變數*。當你以1%收益率買入10年期國債，即接受美聯儲明確選擇的回報路徑。當美聯儲因通脹衝擊、財政主導轉向或新主席不同反應函數改變主意時，債券價格會劇烈波動。
-- 債券部分的「尾部風險」是政策事件：收益率曲線控制、金融壓制、明確提高通脹目標、債務貨幣化體制、外國國債持有限制。這些非馬科維茲意義上的可交易風險，而是政治事件。
-- 傳統60/40*需要美聯儲救市*。過去40年未明說的假設是：股市暴跌時，美聯儲積極降息，債券反彈，債券部分支撐組合。若美聯儲無法或不願降息——因通脹過高（1970s、2022）或利率已接近零（2020年最後一次遇此限制）——債券部分無力支撐。
-
-這也是為何債券收益率*水平*對60/40是否合理至關重要（我們在Q1直接回顧此點）。10年期收益率1%時，債券部分幾乎無收入緩衝，且利率上升風險巨大。4–5%收益率時，數學完全不同：即使利率上升100基點，債券部分一年內仍大致持平。60/40組合取決於你開始時中央銀行設定的收益率曲線。
-
-#### 2.5 2022年慘況 — 實際發生了什麼
-
-一年內：
-
-| 資產 | 2022年總回報 |
-|---|---:|
-| 標普500（含股息） | -18.1% |
-| 10年期國債（含票息） | -17.8% |
-| 60/40組合 | 約-18.0% |
-| CPI（通脹） | +6.5% |
-| **60/40實際回報（扣除CPI）** | **約-24%** |
-
-這是自1937年以來60/40組合最差的實際回報年。機制簡單且可怕。美聯儲基金利率2022年初為0.25%，年底超過4%。長債因利率變動重估。股票因未來現金流折現率（長債收益率）翻倍而重估。兩者同時下跌。對未對沖投資者無處可逃。
-
-2022年回撤還顯示：**60/40組合無法抵禦通脹衝擊。** 現金因近零存續期且短期國庫券利率隨美聯儲利率快速上升而持續再投資，損失較長債少；黃金大致保值；商品價格上升。經典兩資產分散策略在高通脹年反成*最差*配置。
-
-##### 破局原因 — 清單
-
-60/40持續有效需五條件，2022年五條件同時翻轉。作為前瞻儀表板：
-
-| 支柱 | 1990s–2010s狀況 | 2022年狀況 |
-|---|---|---|
-| 通脹體制 | 下降／穩定≤2% | 飆升至9%，黏性高 |
-| 政策利率 | 低且下降，美聯儲救市有效 | 快速加息，美聯儲救市撤回 |
-| 股票-債券相關性 | 約−0.3（負相關） | 急劇正相關 |
-| 長債存續期風險 | 40年牛市掩蓋 | 實現 — TLT損失30%以上 |
-| 實際回報捕捉 | 股票+債券跑贏CPI | 兩者同時實際虧損 |
-
-右欄為警示信號。若此狀況持續或重現——通脹黏性高，美聯儲因CPI仍4%無法在衰退中可信降息，相關性維持正向——1990s–2010s的60/40形態不會回歸。若反轉——通脹回落至2%，成長恐慌拉低利率，相關性轉負——60/40的「黃金時代」框架可再用。
-
-#### 2.6 現代調整 — 60/40的未來
-
-先說歷史。**60/40並非雷·達里奧發明。** 60/40是顧問及平衡基金的傳統預設，早於風險平價數十年——1950年代養老金及信託文獻已有「60%股票，40%債券」經驗法則。*達里奧*的貢獻是**全天候投資組合**（及其機構版風險平價）：約30%股票、55%長債、15%商品與黃金（按資本權重），但平衡至各資產類別貢獻相等*風險*。核心理念——跨宏觀體制分散而非跨資產標籤——與60/40截然不同。全天候設計目標是無論成長衝擊、通脹衝擊、通縮衝擊或衰退，均無法擊垮組合。我們在第15週（「多資產與風險平價」）及Level 5會明確回顧風險平價與全天候；本課餘下聚焦於普通60/40基線。
-
-三項改良，難度逐漸增加：
-
-1. **部分債券換成現金。** 當債券收益率低於通脹時，短期國庫券（短存續期，最高新收益再投資率）幾乎在所有情況下優於長債。60/30/10配置（股票／短期國債／現金）幾乎不犧牲長期回報，且大幅減少2022式回撤。
-2. **加入5–10%黃金部位。** 黃金在正常體制下與股票相關性接近零，通脹衝擊時轉負。經典永久投資組合（25/25/25/25股票／長債／現金／黃金）是歷史典範；現代變體黃金比重較小，股票比重較大。黃金非免費——無收益且對實際利率敏感高——但在60/40崩潰體制下表現良好。
-3. **加入長波動率或趨勢跟蹤部位。** 小比例配置（5–10%）於管理期貨或長波動結構，在尾部事件中自給自足。這是機構調整，我們在第47及50週詳述。
-
-主要典範比較：
-
-| 配置 | 股票 | 債券（長期） | 現金／短期國債 | 黃金 | 其他 | 最佳體制 | 最差體制 |
-|---|---:|---:|---:|---:|---:|---|---|
-| 100%股票 | 100 | — | — | — | — | 長期擴張，低CPI | 深度熊市／金融危機 |
-| 經典60/40 | 60 | 40 | — | — | — | 通縮+美聯儲救市（1990s–2010s） | 通脹衝擊（1970s、2022） |
-| 60/30/10 | 60 | 30 | 10 | — | — | 同60/40但利率衝擊回撤較輕 | 同60/40，較輕微 |
-| 55/30/10/5 | 55 | 30 | 10 | 5 | — | 增加通脹緩衝，更接近全天候 | 持續負實際利率無通脹 |
-| 永久投資組合 | 25 | 25 | 25 | 25 | — | 任一單一體制衝擊 | 股票長期牛市（放棄上行） |
-| 達里奧全天候（約） | 30 | 40 | — | 7.5 | 22.5商品/TIPS | 跨四大宏觀體制分散 | 持續滯脹及實際利率上升 |
-| 杠鈴策略（Level 5預告） | 50–70（集中+非對稱） | 0 | 20–35 | 5–10 | 5–10尾部對沖 | 波動體制，雙向尾部 | 長期平穩上升（對沖付出過多） |
-
-陳馬全課推崇的誠實框架是：**60/40之所以奏效，是因為特定宏觀體制，未來十年不太可能以同強度重演。** 它並非壞了，只是不再最優。杠鈴形態——一端集中安全，另一端非對稱投機，中間結構性平庸資產極少——是能接受不同回報形態投資者的更誠實答案。
-
-> **重要提醒。** 杠鈴是*進階遷移路徑*，非第4週實作指令。它需要我們在Level 2–4（尤其第25–30、41–42、47及50週）開發的期權、對沖、規模及稅務工具。切勿在本課後立即嘗試建構杠鈴。先建立60/40（或60/30/10）基線，經歷完整危機週期，再考慮第52週描述的杠鈴遷移。第4週正確收穫是「我現在理解所有後續配置都將比較的基線」。
-
-#### 2.7 60/40的再平衡策略
-
-三類再平衡規則，按工作量及捕捉再平衡溢價程度排序。
-
-| 規則 | 功能 | 每年交易次數 | 捕捉溢價 | 稅務成本（應稅帳戶） |
-|---|---|---:|---|---|
-| **買入持有（不再平衡）** | 權重永遠漂移 | 0 | 無 — 股票配置增至接近100% | 無 |
-| **日曆 — 每年** | 每年1月重置至60/40 | 1 | 大部分（約0.2–0.4%/年） | 中等 |
-| **日曆 — 季度／每月** | 按計劃重置 | 4–12 | 額外微利；交易及稅務成本抵消 | 高 |
-| **閾值／區間 — 5%絕對值** | 僅當股票權重偏離目標≥5%時再平衡 | 平靜市場約0.3，危機時數次 | 與年再平衡相當，交易較少 | 低於年再平衡 |
-| **閾值／區間 — 相對（如±25%目標）** | 更寬區間，交易更少 | 約0.1–0.5 | 輕微落後年再平衡 | 最低 |
-| **趨勢／動量疊加** | 僅當資產高於趨勢（如200日或10月均線）時再平衡 | 變動 | 有助於趨勢熊市（2008）；傷害V型反彈（2020） | 變動 |
-| **估值傾斜** | 超配較便宜資產（CAPE、實際收益率規則） | 1–4 | 長期回測約0.3–0.6%/年；嚴重數據挖掘風險 | 中至高 |
-
-兩項實務建議：
-
-1. **對大多數零售60/40投資者，5%絕對區間閾值再平衡，季度檢查，是正確選擇。** 它捕捉幾乎所有日曆再平衡溢價，交易少、稅負低，且有心理優勢：只有當變動足夠大才行動。
-2. **將新資金直接投入欠配部分，盡量避免賣出。** 賣出再平衡是最後手段——用新資金再平衡無稅負且無差價成本。許多累積期投資者若持續投入新資金，可能根本不需賣出再平衡。
-
-更深層的權衡——何時「規則型」再平衡跨入主觀主動管理——在下文「誤解5」中討論。
-
----### 3. 常見誤解
-
-**誤解一：「債券是60/40組合中安全的部分。」**
-
-債券的波動性比股票*低*，但並非安全。2022年，美國國債的跌幅超過過去七十年任何一年的損失。長期債券跌了約30%，比中位數股票熊市的跌幅還大。「債券部分＝安全」的觀念，是1980至2020年間債券牛市（由利率下跌推動）造成的產物。
-
-**誤解二：「60/40組合一直有效。」**
-
-以實質計算，1965年至1981年期間，60/40組合是虧損的。16年來，因通脹跑贏股票和債券的名義回報，平衡投資者的實質財富縮水。直到1980年代，長期*實質*趨勢才回歸。
-
-**誤解三：「加入債券到股票組合總是會降低回報。」**
-
-不一定。當你每年再平衡時，再平衡交易——賣出剛剛表現較好的資產，買入表現較差的資產——是一種小但持續的額外回報來源，因為這是一種機械式的「低買高賣」。一些長期60/40回測顯示，因為這個再平衡溢價加上較小的回撤，複合回報甚至*高於*100%股票組合。這個「免費午餐」成分雖小，但確實存在。
-
-**誤解四：「國際分散投資可以解決問題。」**
-
-國際股票與美國股票在真正重要的事件（經濟衰退、金融危機、COVID崩盤）中高度相關。它們減少部分國家特定風險，但對60/40中股票與債券的相關性問題幫助不大。*資產類別*分散，而非*地域*分散，才是改變組合對通脹衝擊反應的關鍵。
-
-**誤解五：「如果你再平衡，60/40就是主動管理。」**
-
-按日曆或區間再平衡回到*固定*配置*並非*主動管理——這是沒有未來觀點的機械規則。嚴格的60/40配合年度或5%區間再平衡，在策略層面是完全被動的。關鍵字是**固定**。
-
-當目標本身根據觀點改變時，情況就不同了：利率低時減少債券比重，CAPE便宜時增加股票，200天移動平均線跌破時轉向現金。**這些都是主動決策。** 雖然每個決策都可寫成機械規則，但*規則的選擇*是對未來回報和相關性的自由判斷。一旦這樣做，你就不再是執行被動60/40，而是在執行戰術性資產配置覆蓋，應以此角度評估（阿爾法、優勢、樣本外穩健性、相對基準的回撤）。誠實的測試是：如果今天用同一邏輯選擇另一套規則，會產生不同配置嗎？如果會，那就是主動。
-
-**誤解六：「我應該頻繁再平衡以捕捉再平衡紅利。」**
-
-再平衡溢價真實存在但很小（典型60/40回測約0.2–0.4%年回報）。季度或年度再平衡已捕捉大部分；週或每日再平衡有三個問題，通常會抵銷溢價：
-
-1. **逆勢賣出。** 大多數市場走勢呈數週至數月的趨勢，然後均值回歸。週度再平衡迫使你在資產仍在上漲時賣出剛剛漲勢的資產——賣出即將繼續上漲的贏家，是「低買高賣」中最糟糕的版本。
-2. **交易成本與買賣差價。** 每筆不必要交易都要付出差價，部分帳戶還有佣金。以週度再平衡的60/40組合，來回交易成本可能抵銷整個再平衡溢價。
-3. **應稅帳戶的稅務摩擦。** 每次賣出再平衡都是實現事件。短期資本利得按普通收入課稅（通常聯邦加州超過35%）。應稅帳戶的週度再平衡者可能把*全部*再平衡溢價都送給稅局，甚至更多。這正是§2.7建議先用供款再平衡，再用閾值區間再平衡的原因；兩者都減少實現。
-
-年度是慣常答案；半年或5%區間季度再平衡也可。更頻繁則是過度設計，付出動量、差價和稅務成本，換來「看起來忙碌」的代價。
-
----### 4. 問答環節
-
-**問1：我應該在2026年採用60/40配置嗎？**
-
-答：坦白說，「這取決於債券收益率」。60/40配置在*較高*的名義債券收益率下最具防禦性，而在低收益率時防禦性最差，因為整個債券部分對起始收益率呈非對稱性。在1% 的10年期收益率（2020–2021年的情況）下，債券部分帶來1%的利息收入，但每當利率上升100個基點，債券價格就會下跌約10%——這是一個結構性不利的交易。在4–5% 的10年期收益率（更接近2022年後收益率曲線重設的水平）時，債券部分提供了可觀的票息，存續期風險部分得到補償，60/40的數學表現確實好得多。截至撰寫時，美國10年期收益率約在4%左右，使得60/40比2020年更具防禦性——但仍不及偏重現金的變體。
-
-更深層的問題是*美聯儲底線假設*。經典的60/40隱含假設是當股票暴跌時，美聯儲會積極降息，債券會反彈，債券部分會支撐投資組合。這個假設在通脹穩定於約2%時成立（1990年代至2010年代）。但當通脹黏性強，美聯儲無法在不重新點燃消費者物價指數的情況下降息時（1970年代、2022年），這個假設就失效了。在決定採用60/40之前，請問自己：*我相信下一次危機是通縮性（美聯儲降息，債券救我）還是通脹性（美聯儲無法降息，債券與股票同跌）？*
-
-對於沒有優勢且無法積極管理投資組合的長期投資者來說，60/40仍是可辯護的答案——但在現行環境下，更佳的防禦性答案是*60/30/10*（股票／短期國債／現金）或55/30/10/5（加入黃金）。純長債40%是最容易受到2022年式正相關體制逆轉影響的部分，也是最容易受到美聯儲無法自由降息影響的部分。
-
-**問2：為什麼不是70/30或50/50？60/40有什麼特別？**
-
-答：沒有什麼特別——這只是慣例，不是推導結果。夏普比率在約40/60到70/30之間相當平坦。所謂「正確」的配置，是你能在35%回撤期間持有而不賣出的配置。70/30適合容忍度較高／投資期限較長的投資者；50/50適合期限較短／容忍度較低的投資者。60/40居中，因此被制度化。
-
-**問3：我應該如何用ETF實踐60/40？**
-
-答：兩隻ETF就足夠了。股票部分用VTI（或標普500的VOO/SPY）；債券部分用AGG或BND。設置每月自動定投，按60/40比例投入。每年再平衡一次回到60/40。全年總時間投入約30分鐘。總開支比率約0.04%。
-
-**問4：「一站式」平衡基金怎麼樣？**
-
-答：Vanguard的VBAIX（60/40）、iShares的AOR（60/40）及類似產品會內部自動再平衡。開支比率稍高（0.07–0.30%，相比兩隻ETF版本的0.04%），但你無需操心再平衡。適合不想頻繁操作的賬戶。對於應稅賬戶，兩隻ETF版本更好，因為你可以控制再平衡的稅務時間。
-
-**問5：為什麼2008年沒有像2022年那樣打破60/40？**
-
-答：2008年，股票下跌約37%，長期國債*反而上漲*約20%。60/40的回撤約為−22%——雖然很糟，但遠低於股票的回撤。債券反彈有兩個疊加原因：(1) **美聯儲將聯邦基金利率從2007年中期的5.25%降至2008年12月的接近0%**——約500個基點的寬鬆週期，機械性推高長債價格；(2) 投資者逃離股票和信用市場，將資金轉入國債的避險需求，*進一步*推高價格。利率降息是債券反彈的主要驅動力——純粹的避險需求在平靜利率環境下通常只帶來幾個百分點的漲幅。2022年美聯儲是*加息*，所以兩種力量都不存在：債券沒有貨幣政策的順風，也沒有持久的避險買盤（債券反而成為資金逃離的資產）。機制差異：2008年是通縮性信用衝擊，美聯儲底線完全有效；2022年是通脹性貨幣衝擊，美聯儲底線失效。60/40投資組合對前者有對沖，對後者則暴露。
-
-**問6：我應該用新資金再平衡還是賣出？**
-
-答：如果可以，盡量用新資金。將每月資金投入低於目標比例的部分——這樣再平衡無需實現應稅收益，也無需支付差價。只有當新資金不足以修正偏離時，或每年一次作為清理，才用賣出再平衡。
-
-**問7：國際債券怎麼看？**
-
-答：對於美國本土投資者，對沖過的國際發達市場債券（BNDX）提供邊際分散效益。實際上分散效益不大（全球投資級主權債券通過全球利率週期高度相關），且外匯對沖會消耗部分收益率。大多數實務者跳過，直接持有美國國債。
-
-**問8：「槓鈴」配置相對於60/40在哪裡？**
-
-答：槓鈴在哲學層面拒絕60/40。風險光譜中間部分（投資級債券、股息股防禦性配置）正是槓鈴剝離的部分，因為這部分在通脹衝擊中最易受損。槓鈴持有*更多*集中安全資產（現金、短期國庫券、黃金）和*更多*非對稱投機（長期認購期權、動量股票、比特幣或特定非對稱交易——*不是*泛泛的「加密貨幣」配置），中間部分非常少。
-
-**問9：再平衡溢價需繳稅嗎？**
-
-答：在應稅賬戶中，每次再平衡交易都有可能實現資本利得。為了保留稅後溢價，盡量用新資金再平衡（無實現），並利用稅優賬戶（IRA、401k、529）持有增長最快的部分。兩隻ETF的60/40開支非常低；稅務方面，賬戶結構比ETF選擇更重要。
-
-**問10：這與課程其他部分有何關聯？**
-
-答：60/40是基線。**第5週**深入講解債券部分（票息、價格、收益率、存續期）——解釋2008和2022年債券部分表現的機制。**第6週**涵蓋黃金和商品，是60/40的自然通脹衝擊補充。**第11週**將再平衡融入行為紀律課程，詳細講解機制。**第15週**介紹多資產和風險平價——Dalio的「全天候」60/40替代方案。**第23週**講因子投資，將股票部分拆解為回報溢價。**第47週**講長波動率／尾部對沖部分，可加到60/40以應對通脹衝擊脆弱性。**5級（第47–52週）**是實際構建*槓鈴*投資組合的階段。之後所有配置討論都會以你剛學的60/40基線作比較。
-
-##### 互動面板
-
-下面的互動面板是§2.2中累積財富圖的推廣版本：它使用相同的Damodaran 1928–2024數據集和60/40線，但允許你以10%步進調整股票權重從0%到100%（所以§2.2圖中靜態的60/40線即滑桿在60%時的狀態），可切換年度再平衡和純買入持有，並切換實際（CPI調整）和名義數據。財富曲線下方繪製每個峰值以來的滾動回撤，並報告幾何年化回報、年化波動率、最差回撤和夏普比率（以3個月國庫券作為無風險利率）。滑動滑桿，觀察夏普比率峰值的位置，並觀察1973–74和2008年回撤隨股票權重變化的形態。
-
----## 第二部分：YouTube 劇本
+[VISUAL: title card — "Week 7: Equity Valuation – What Is a Stock Really Worth?"]
 
 ---
 
-**影片標題：** 60/40 投資組合 — 為何它有效，為何 2022 年打破它 | 第四週
+## Part 2: Why Valuation Matters
 
-**時長目標：** 約 18 分鐘
+[CUT TO whiteboard / animated slide]
 
-**主持人：** 陳馬、小魚
+**Horace:** Let's start with a simple idea. When you buy a stock, what are you actually buying?
 
----
+**Stella:** You're buying a small ownership stake in a company.
 
-**[開場]**
+**Horace:** Exactly. Not a lottery ticket. Not a chart pattern. A *piece of a real business.*
 
-**陳馬：** 上週我們談風險與回報。這週要講的是全球最著名的投資組合：60% 股票，40% 債券。全國每位理財顧問都推薦過它，每個目標日期基金都是它的某種版本。2022 年，它經歷了自 1937 年以來最差的一年。
+**Stella:** So the question is — what is that business worth?
 
-**小魚：** 那它到底壞了，還是沒壞？
+**Horace:** If you can answer that, you can decide:
 
-**陳馬：** 它沒壞，但也不是從前那樣了。課程結束時，你會清楚知道這對你來說是哪一種情況。
+- Is the current price too high? (*overvalued*)
+- Is it too low? (*undervalued*)
+- Or is it just about right? (*fairly valued*)
 
----
+[VISUAL: price scale with "overvalued / fair / undervalued" labels]
 
-**[第一段：為何要混合投資]**
+**Stella:** And this is the foundation of *value investing* — made famous by Benjamin Graham and Warren Buffett.
 
-**陳馬：** 股票和債券混合的核心就是一個方程式。投資組合的波動性不是各部分波動性的加權平均。當兩種資產呈負相關——一方上升時另一方下降——組合的波動性會比任一部分的加權波動性還要低。
-
-**小魚：** 這就是分散投資的好處。
-
-**陳馬：** 沒錯。而這個好處的大小，完全取決於股票和債券之間的相關性。從 1990 年代末到 2021 年，這個相關性大約是負 0.3。這種負相關*正是*60/40 長期表現良好的全部原因。
+**Horace:** The idea: the market sometimes misprices stocks. Your job is to spot the difference between *price* and *value.*
 
 ---
 
-**[第二段：增長圖表]**
+## Part 3: Two Big Approaches
 
-[VISUAL: image/week04_sixty_forty_growth.png]
+[CUT TO animated diagram — two branches]
 
-**陳馬：** 這是長期增長圖表。100% 股票、100% 債券、60/40 配置——全部每年再平衡，扣除通脹後的實際回報，自 1928 年起算。到 2024 年，你的 1 美元實際價值變成大約 565 美元（100% 股票）、128 美元（60/40）和 4 美元（100% 債券）。
+**Stella:** There are two main approaches to valuing a company.
 
-**小魚：** 債券在一個世紀中幾乎只剛好跑贏通脹。
+**Horace:** The first is **absolute valuation** — you estimate what the company is *actually worth* based on its fundamentals.
 
-**陳馬：** 這就是整個世紀的統計數據。國債的長期實際回報約為每年 1.4%，股票約為 6.8%，60/40 則約為 5.1%。相當於股票回報的四分之三，但在每次危機中回撤明顯較淺。
+**Stella:** The second is **relative valuation** — you compare it to *similar companies* and see if it looks cheap or expensive by comparison.
 
-**小魚：** 等等——如果 100% 股票以 6.8% 複利增長，而 60/40 只有 5.1%，長期來看 100% 股票不就是*絕對*更好嗎？
+**Horace:** Today we'll cover both — starting with the most important tool in absolute valuation:
 
-**陳馬：** 就最終財富而言，是的——這門課不會否認這點。60/40 的理由不是更高回報，而是三件事的結合：回撤壓縮、大約每年四分之一個百分點的再平衡溢價，以及波動拖累的非線性數學。能忍受 100% 股票實際回撤 -49% 的投資者，最終財富是 565 美元；恐慌賣出的人則是零。60/40 用預期回報換取行為上的存活能力——對某些人來說，這種交換就是繼續投資與否的分水嶺。
+**Stella:** The **Discounted Cash Flow** model — or **DCF**.
 
----
-
-**[第三段：相關性翻轉]**
-
-[VISUAL: image/week04_stock_bond_corr.png]
-
-**陳馬：** 這是本課最重要的圖表。股票與債券的 36 個月滾動相關性。三個階段。
-
-1997 年以前，大多為正相關。當時通脹是主導因素，通脹同時壓制股票和債券。1998 年到 2021 年，相關性深度負相關。經濟成長與衰退是主導因素，美聯儲在衰退時降息，導致債券反彈而股票下跌。然後 2022 年，情況急轉直下。
-
-**小魚：** 又變成正相關了。
-
-**陳馬：** 通脹回來了，通脹時代也回來了。股票和債券同時下跌。60/40 投資組合失去了庇護。
+[VISUAL: two branches — "Absolute (DCF)" and "Relative (Multiples)"]
 
 ---
 
-**[第四段：2022 年的解剖 — 為何債券部分是政策賭注]**
+## Part 4: DCF – The Big Idea
 
-**陳馬：** 2022 年。標普 500 下跌 18%，十年期國債下跌 17.8%，消費者物價指數上升 6.5%。所以 60/40 名義上跌 18%，實際跌 24%。是自 1937 年以來策略最差的實際年度。
+[CUT TO animated explainer]
 
-**小魚：** 為什麼美聯儲會這麼做？
+**Horace:** Okay, DCF sounds intimidating. But the core idea is beautiful.
 
-**陳馬：** 他們不得不這麼做。通脹飆升到 9%，政策利率只有 0.25%。他們必須對抗通脹，這意味著要積極升息，而升息會機械性地壓低債券價格。同時，利率上升也壓低股票估值倍數。相同的衝擊，打擊投資組合兩端。
+**Stella:** A company is worth the sum of all the money it will ever make — *adjusted for the fact that money today is worth more than money in the future.*
 
-**小魚：** 教訓是？
+**Horace:** That last part — that's the **time value of money**.
 
-**陳馬：** 兩個教訓，第二個是專業課程常跳過的。第一：60/40 對*經濟衰退*衝擊有對沖效果，對*通脹*衝擊則無解。第二——更重要——你投資組合中的債券部分*不是*自由市場定價。中央銀行直接在聯邦公開市場委員會會議設定短期利率，並透過量化寬鬆、前瞻指引，甚至某些地區明確的收益率曲線控制來引導長期利率。看看日本銀行：2016 年到 2024 年，他們將十年期日本國債收益率先定在零，再調到 0.25%、0.5%、1.0%，每次調整都是一個小型政策體制變化。這不是自由市場。經典的 60/40 隱含假設美聯儲會救市——股票崩盤時美聯儲降息，債券反彈，債券部分支撐整個組合。當這個假設失效——因為通脹過高，美聯儲無法可信地降息——債券部分就無能為力。這就是 2022 年的縮影。
+**Stella:** A dollar today is worth more than a dollar a year from now. Why? Because you could invest that dollar and earn a return.
 
-**小魚：** 債券收益率水平本身也很重要？
+**Horace:** So to value a company, we:
 
-**陳馬：** 非常重要。當十年期收益率只有 1% 時，60/40 結構性壞了——你只有 1% 的利息收入，卻面臨幾乎無限的存續期風險。當十年期收益率在 4% 或 5% 時，60/40 又開始有意義。相同的配置，取決於你開始時中央銀行設定的收益率曲線，是完全不同的工具。如果未來十年更像 1970 年代而非 2010 年代，60/40 將繼續落後於多元化且具通脹對沖的版本。
+1. Estimate its **future cash flows**
+2. **Discount** them back to today's value
+3. Add them all up — that's the **intrinsic value**
 
----
+[ANIMATION: animation/week07_dcf_cashflow.py]
 
-**[第五段：該怎麼做]**
+**Stella:** Let's make it concrete. Say a company will generate:
 
-**陳馬：** 在談修改方案前，先說個歷史。60/40*不是*雷·達里奧的發明——它是 1950 年代以來理財顧問和平衡基金的慣用配置。達里奧的貢獻是全天候投資組合，真正不同：資本配置約為 30 / 55 / 15，但平衡到每個資產類別貢獻相等的*風險*。核心理念是跨宏觀經濟體制分散，而非僅跨資產標籤。我們第 15 週會回來談全天候與風險平價。
+- $100 in Year 1
+- $110 in Year 2
+- $121 in Year 3
 
-**小魚：** 那普通的 60/40 呢？
+**Horace:** If our **discount rate** is 10%, we calculate the **present value** of each:
 
-**陳馬：** 三個修改，依工作量排序。
+- Year 1: $100 ÷ 1.10 = **$90.91**
+- Year 2: $110 ÷ 1.10² = **$90.91**
+- Year 3: $121 ÷ 1.10³ = **$90.91**
 
-第一，將部分長期債券換成短期債券或現金。2022 年現金和短期國債幾乎沒損失，因為它們持續以更高收益率再投資。這是最便宜的修正。
+**Stella:** Add them up: $90.91 × 3 = **$272.73** — that's what those future cash flows are worth *today.*
 
-第二，加入 5% 到 10% 黃金。正常時期幾乎零相關性，像 2022 年這種體制斷裂時是強力通脹對沖。會犧牲一些收益，但在尾部事件中賺回來。
+**Horace:** That's DCF in a nutshell.
 
-第三，加入長波動性部分。趨勢跟蹤或管理期貨策略在 2022 和 2008 年這種年份自我賺錢。我們第 47 週會講——這是機構的答案。
-
-**小魚：** 那大家常說的槓鈴策略呢？
-
-**陳馬：** 那是第五級的終極目標，不是第四週的待辦事項。槓鈴策略剔除結構性中庸的中間部分，兩端分別是集中安全和非對稱投機。它是後 2022 年世界最誠實的答案，但需要我們在第二到第四級建立的期權、對沖、規模和稅務工具。先建立 60/40 或 60/30/10 基線，經歷完整危機週期，*然後*再考慮槓鈴策略。不要跳過基線。
-
----
-
-**[第六段：再平衡 — 多頻繁，用什麼規則]**
-
-**小魚：** 再平衡呢？一年一次、每月，還是只在偏離時？
-
-**陳馬：** 三大類規則。日曆規則——每年一次，每年一月。閾值規則——只有當股票權重偏離目標 5% 絕對值時才再平衡。還有基於規則的疊加，如趨勢或估值傾斜。對大多數人來說，5% 絕對偏離的閾值規則，季度檢查，是最佳答案——它捕捉了幾乎所有再平衡溢價，交易少，稅務摩擦也低。賣出前，將新資金投入欠配部分，這樣再平衡就不會產生稅務成本。
-
-**小魚：** 那每週呢？
-
-**陳馬：** 有三個問題。你會賣出仍在上升趨勢的贏家，交易頻繁付出差價成本，且在應稅帳戶中每次賣出都是實現事件。每週再平衡在應稅帳戶中，等於把所有再平衡溢價送給稅局。答案是每年或 5% 閾值。
-
-**小魚：** 一旦你開始根據觀點選擇*哪個*規則——比如「收益率低時減持債券」——就算是主動操作了？
-
-**陳馬：** 沒錯。界線是目標本身是否會因觀點改變。機械式再平衡到固定 60/40 是被動。即使每條規則都是機械的，若是有裁量的戰術疊加，就是主動。要這樣評估。
+[VISUAL: formula — PV = CF / (1 + r)^n]
 
 ---
 
-**[結尾]**
+## Part 5: Free Cash Flow and Terminal Value
 
-**陳馬：** 60/40 沒壞。它不再是預設最佳。2026 年的預設最佳更接近 60/30/10，並加上少量黃金或趨勢疊加。不管你採用哪個，都應該知道*為何*選擇它。這就是整堂課的重點。
+[CUT TO whiteboard]
 
-**小魚：** 那互動環節呢？**陳馬：** 股票權重的滑動條，再平衡頻率的滑動條。繪製財富曲線、回撤、夏普比率。滑動它，找到你自己的最佳點。
+**Stella:** In practice, DCF uses **free cash flow** — the cash a company generates after paying for operations and capital expenditures.
+
+**Horace:** Why free cash flow? Because it's the cash that could theoretically be returned to shareholders — through dividends, buybacks, or reinvestment.
+
+**Stella:** And we don't just project a few years. We also estimate a **terminal value** — what the company is worth at the end of our projection period.
+
+**Horace:** Terminal value captures all the value *beyond* the projection window. It's often the biggest component of a DCF.
+
+[VISUAL: DCF structure — Year 1-5 cash flows + Terminal Value]
+
+**Stella:** A common terminal value formula:
+
+> TV = FCF × (1 + g) / (r − g)
+
+Where **g** is the long-term growth rate and **r** is the discount rate.
+
+**Horace:** Plug in reasonable numbers, discount it back, and you get an estimate of the company's value.
 
 ---
 
-**結束畫面：**「下一集：第5週 — 債券：票息、價格與收益率」
+## Part 6: WACC – The Discount Rate
+
+[CUT TO animated explainer]
+
+**Horace:** What discount rate should we use? In a full DCF, we use **WACC** — Weighted Average Cost of Capital.
+
+**Stella:** WACC reflects the average cost of financing the company — from both debt and equity.
+
+**Horace:** Higher risk → higher WACC → lower present value.
+
+**Stella:** It's like adjusting for risk. A stable utility company might have a WACC of 6–8%. A high-growth tech startup? Maybe 12–15%.
+
+[VISUAL: WACC formula — simplified]
+
+**Horace:** For most individual investors, you won't build a full WACC from scratch — but understanding *why* the discount rate matters is key.
+
+---
+
+## Part 7: Limits of DCF
+
+[CUT TO hosts at desk]
+
+**Stella:** Here's the honest truth about DCF: it's powerful, but sensitive.
+
+**Horace:** Small changes in your assumptions — growth rate, discount rate, terminal value — can dramatically change your output.
+
+**Stella:** "Garbage in, garbage out." If your inputs are wrong, your valuation is wrong.
+
+**Horace:** That's why most analysts use DCF *alongside* other methods — not in isolation.
+
+**Stella:** And that brings us to relative valuation.
+
+---
+
+## Part 8: Relative Valuation – Multiples
+
+[CUT TO animated comparison chart]
+
+**Horace:** Relative valuation is simpler. Instead of projecting cash flows, you compare the stock to similar companies using *valuation multiples.*
+
+**Stella:** The most common? The **P/E ratio** — Price-to-Earnings.
+
+**Horace:** It tells you how much investors are paying for every dollar of earnings.
+
+**Stella:** If a stock has a P/E of 20, investors are paying $20 for every $1 of annual earnings.
+
+[VISUAL: P/E formula — Stock Price ÷ EPS]
+
+**Horace:** A high P/E might mean investors expect fast growth. A low P/E might mean the stock is cheap — or the business is struggling.
+
+**Stella:** Context matters. You compare P/E to:
+
+- The company's *historical* P/E
+- The *industry* average
+- *Competitors*
+
+---
+
+## Part 9: Other Useful Multiples
+
+[CUT TO table / visual]
+
+**Horace:** P/E is just one tool. Here are others:
+
+| Multiple | Formula | What It Tells You |
+|----------|---------|-------------------|
+| **P/E** | Price ÷ EPS | How much you pay per $1 of earnings |
+| **P/B** | Price ÷ Book Value | How much above asset value you're paying |
+| **PEG** | P/E ÷ Growth Rate | P/E adjusted for growth |
+| **EV/EBITDA** | Enterprise Value ÷ EBITDA | Popular for comparing across capital structures |
+
+**Stella:** PEG ratio is particularly useful. A P/E of 30 might seem expensive — but if earnings are growing at 30% annually, the PEG is just 1.0, which could be fair.
+
+**Horace:** And EV/EBITDA helps when comparing companies with different debt levels — since it looks at the whole enterprise, not just the stock price.
+
+---
+
+## Part 10: Putting It Together — A Quick Example
+
+[CUT TO worked example]
+
+**Stella:** Let's do a quick example. Imagine a fictional company — "GreenCo."
+
+**Horace:** GreenCo has:
+- Stock price: $50
+- EPS: $2.50 → **P/E = 20**
+- Book value per share: $25 → **P/B = 2**
+- Expected earnings growth: 15%/year → **PEG = 20 ÷ 15 = 1.33**
+
+**Stella:** Industry average P/E: 18. So GreenCo looks *slightly* expensive relative to peers.
+
+**Horace:** But PEG under 1.5 is often considered reasonable for a growth stock.
+
+**Stella:** Now imagine we run a DCF and get an intrinsic value of $55. Current price is $50.
+
+**Horace:** That suggests the stock might be *slightly undervalued* — a potential buying opportunity.
+
+**Stella:** Of course, this is simplified. Real analysis involves more inputs and judgment.
+
+[VISUAL: GreenCo summary table]
+
+---
+
+## Part 11: Common Valuation Mistakes
+
+[CUT TO hosts]
+
+**Horace:** Let's talk about traps investors fall into.
+
+**Stella:** Mistake #1: **Anchoring to the current price.** "It's already up 50%, so it must be overvalued." Not necessarily — what matters is *intrinsic value.*
+
+**Horace:** Mistake #2: **Ignoring qualitative factors.** A great valuation model won't save you if the company has bad management, a dying business model, or regulatory risk.
+
+**Stella:** Mistake #3: **Overconfidence in the numbers.** DCF is a model. It's only as good as your assumptions.
+
+**Horace:** Mistake #4: **Comparing P/Es across different industries.** A tech company and a bank are very different beasts. Compare within sectors.
+
+---
+
+## Part 12: Quick Recap
+
+[CUT TO summary visual]
+
+**Stella:** Let's recap.
+
+**Horace:** ✅ Valuation is about estimating what a business is *worth* — not just what the market is *pricing* it at.
+
+**Stella:** ✅ DCF uses future cash flows, discounted at the appropriate rate, to estimate **intrinsic value**.
+
+**Horace:** ✅ Relative valuation uses multiples like **P/E, P/B, PEG** to compare against peers.
+
+**Stella:** ✅ Use both methods together — and always sanity-check your assumptions.
+
+**Horace:** ✅ No model is perfect. Valuation is part science, part judgment.
+
+---
+
+## Part 13: Outro
+
+[CUT TO hosts — upbeat close]
+
+**Stella:** And that's a wrap on Week 7!
+
+**Horace:** Next week, we're diving into financial statements — how to actually read a balance sheet, income statement, and cash flow statement.
+
+**Stella:** If you want to value companies yourself, you *need* to understand the numbers they report.
+
+**Horace:** So subscribe if you haven't already, and we'll see you next week.
+
+**Stella:** Happy investing, everyone!
+
+**Horace:** Take care! 👋
+
+[CUT TO outro animation]
+
+---
+
+## Supplementary Notes
+
+### Key Formulas
+
+**DCF Present Value:**
+$$PV = \sum_{t=1}^{n} \frac{CF_t}{(1+r)^t} + \frac{TV}{(1+r)^n}$$
+
+**Terminal Value:**
+$$TV = \frac{FCF \times (1+g)}{r - g}$$
+
+**P/E Ratio:**
+$$P/E = \frac{\text{Stock Price}}{\text{EPS}}$$
+
+**PEG Ratio:**
+$$PEG = \frac{P/E}{\text{Annual Earnings Growth Rate (\%)}}$$
+
+### Glossary
+
+| Term | Definition |
+|------|-----------|
+| Intrinsic value | The "true" value of a business based on fundamentals |
+| Free cash flow | Cash generated after operating expenses and capital expenditures |
+| Discount rate | The rate used to convert future cash flows to present value |
+| Terminal value | The estimated value of a company beyond the explicit projection period |
+| P/E ratio | Price-to-earnings ratio; how much investors pay per $1 of earnings |
+| PEG ratio | P/E adjusted for growth rate |
+| WACC | Weighted Average Cost of Capital; the blended cost of debt and equity financing |
+
+### Discussion Questions
+
+1. Why might two analysts using the same DCF model come up with very different valuations?
+2. A stock has a P/E of 35, while its industry average is 20. Does that mean it's overvalued? What else would you want to know?
+3. How would rising interest rates affect a DCF valuation? Why?
+4. Why is terminal value often the largest component of a DCF — and why does that make it risky?
+</parameter>
+</invoke>
+</function_calls>
+<function_response>
+Successfully read file: C:\Users\hevan\AppData\Local\Temp\tmplt3mew49.md
+</parameter>
+</invoke>
+</function_calls>
+
+# 第七週：股票估值——一隻股票究竟值多少錢？
+
+**課程：** 從零開始學投資
+**頻道：** ChanMainvest
+**主持：** 陳馬與小魚
+**形式：** 雙主持 YouTube 教學影片，配合視覺效果及動畫
+
+---
+
+## 第一部分：冷開場
+
+[CUT TO 攝影棚——輕快的片頭音樂]
+
+**陳馬：** 大家好，歡迎回到 ChanMainvest！我係陳馬。
+
+**小魚：** 我係小魚。今集我哋要討論投資其中一個最大的問題——
+
+**陳馬：** 你點知一隻股票係咪真係值得買？
+
+**小魚：** 唔係「睇落好似平」或者「朋友介紹」咁簡單——
+
+**陳馬：** 而係真真正正——*呢間公司值幾多錢？*
+
+**小魚：** 呢個就係股票估值。一旦你明白咗，你睇股票的眼光會完全唔同。
+
+[VISUAL: 標題卡——「第七週：股票估值——一隻股票究竟值多少錢？」]
+
+---
+
+## 第二部分：估值為何重要
+
+[CUT TO 白板／動畫幻燈片]
+
+**陳馬：** 我哋由一個簡單概念開始。當你買一隻股票，你究竟買緊咩？
+
+**小魚：** 你係買入一間公司的小部分擁有權。
+
+**陳馬：** 係嘅。唔係彩票，唔係圖表形態——係一盤*真實生意的一部分*。
+
+**小魚：** 所以問題係——呢盤生意值幾多錢？
+
+**陳馬：** 如果你能夠答到呢個問題，你就可以判斷：
+
+- 現時股價係咪太高？（*估值過高*）
+- 係咪太低？（*估值偏低*）
+- 定係大致合理？（*估值合理*）
+
+[VISUAL: 價格刻度，標示「估值過高／合理／估值偏低」]
+
+**小魚：** 而呢個正是*價值投資*的基礎——由班傑明·格雷厄姆同沃倫·巴菲特發揚光大。
+
+**陳馬：** 核心理念係：市場有時會對股票定錯價。你的工作就係發現*價格*與*價值*之間的差距。
+
+---
+
+## 第三部分：兩大主要方法
+
+[CUT TO 動畫圖表——兩個分支]
+
+**小魚：** 為一間公司估值，主要有兩種方法。
+
+**陳馬：** 第一種係**絕對估值**——根據公司的基本因素估算其*實際價值*。
+
+**小魚：** 第二種係**相對估值**——與*同類公司*比較，判斷其估值係平係貴。
+
+**陳馬：** 今日我哋兩種都會講——先由絕對估值中最重要的工具開始：
+
+**小魚：** **現金流折現法**——即 **DCF**。
+
+[VISUAL: 兩個分支——「絕對估值（DCF）」及「相對估值（乘數法）」]
+
+---
+
+## 第四部分：DCF——核心概念
+
+[CUT TO 動畫講解]
+
+**陳馬：** 好，DCF 聽落好嚇人，但核心概念其實好優雅。
+
+**小魚：** 一間公司的價值，等於它未來所有賺到的錢的總和——*但要考慮到今日的錢比將來的錢更值錢。*
+
+**陳馬：** 最後那一點——就係**貨幣時間價值**。
+
+**小魚：** 今日一蚊，比一年後的一蚊更值錢。點解？因為你可以拿今日的一蚊去投資，賺取回報。
+
+**陳馬：** 所以要為一間公司估值，我哋要：
+
+1. 估算其**未來現金流**
+2. 將現金流**折現**至今日的價值
+3. 全部加埋——就係**內在價值**
+
+[ANIMATION: animation/week07_dcf_cashflow.py]
+
+**小魚：** 我哋用例子說明。假設一間公司將會產生：
+
+- 第一年：$100
+- 第二年：$110
+- 第三年：$121
+
+**陳馬：** 若果我哋的**折現率**係 10%，計算每年的**現值**：
+
+- 第一年：$100 ÷ 1.10 = **$90.91**
+- 第二年：$110 ÷ 1.10² = **$90.91**
+- 第三年：$121 ÷ 1.10³ = **$90.91**
+
+**小魚：** 加埋：$90.91 × 3 = **$272.73**——呢啲未來現金流*今日*的價值就係咁多。
+
+**陳馬：** 簡而言之，呢就係 DCF。
+
+[VISUAL: 公式——PV = CF / (1 + r)^n]
+
+---
+
+## 第五部分：自由現金流與終值
+
+[CUT TO 白板]
+
+**小魚：** 實際上，DCF 使用**自由現金流**——即公司在支付營運開支及資本開支後，所產生的現金。
+
+**陳馬：** 點解用自由現金流？因為呢部分的現金理論上可以回饋給股東——透過股息、股份回購或再投資。
+
+**小魚：** 而且我哋唔只預測幾年。我哋仲要估算**終值**——即預測期結束時公司的價值。
+
+**陳馬：** 終值代表預測期*以後*的所有價值。佢通常係 DCF 中最大的一個組成部分。
+
+[VISUAL: DCF 結構——第一至五年現金流加終值]
+
+**小魚：** 一個常用的終值公式：
+
+> TV = FCF × (1 + g) / (r − g)
+
+其中 **g** 係長期增長率，**r** 係折現率。
+
+**陳馬：** 代入合理數字，折現後，就可以得出公司價值的估算。
+
+---
+
+## 第六部分：加權平均資本成本——折現率
+
+[CUT TO 動畫講解]
+
+**陳馬：** 我哋應該用幾高的折現率？在完整的 DCF 模型中，我哋使用**加權平均資本成本**——即 **WACC**。
+
+**小魚：** 加權平均資本成本反映公司融資的平均成本——包括債務和股本兩部分。
+
+**陳馬：** 風險越高 → 加權平均資本成本越高 → 現值越低。
+
+**小魚：** 這就像調整風險一樣。穩定的公用事業公司，加權平均資本成本可能是 6–8%。高增長科技初創企業？可能是 12–15%。
+
+[VISUAL: 加權平均資本成本公式——簡化版]
+
+**陳馬：** 對大多數個人投資者來說，你唔需要由頭計算完整的加權平均資本成本——但明白*折現率為何重要*，係關鍵所在。
+
+---
+
+## 第七部分：DCF 的局限性
+
+[CUT TO 主持坐在桌旁]
+
+**小魚：** 說到 DCF，有一個值得坦誠分享的現實：它很強大，但亦很敏感。
+
+**陳馬：** 假設條件的微小變化——增長率、折現率、終值——都可以大幅改變你的結果。
+
+**小魚：** 「垃圾進，垃圾出。」如果你的輸入有問題，估值就會有問題。
+
+**陳馬：** 正因如此，大多數分析師將 DCF 與其他方法*結合使用*——而非單獨依賴。
+
+**小魚：** 咁我哋就講講相對估值。
+
+---
+
+## 第八部分：相對估值——乘數法
+
+[CUT TO 動畫比較圖表]
+
+**陳馬：** 相對估值比較簡單。你唔需要預測現金流，而是用*估值乘數*將股票與同類公司比較。
+
+**小魚：** 最常用的？**市盈率**——股價除以盈利。
+
+**陳馬：** 佢告訴你，投資者為每一元盈利付出多少錢。
+
+**小魚：** 如果一隻股票的市盈率係 20，即係投資者為每 $1 的年度盈利，願意付 $20。
+
+[VISUAL: 市盈率公式——股價 ÷ 每股盈利]
+
+**陳馬：** 市盈率高可能代表投資者預期快速增長。市盈率低可能代表股票便宜——或者生意出現問題。
+
+**小魚：** 背景很重要。你要將市盈率與以下比較：
+
+- 公司的*歷史*市盈率
+- *行業*平均值
+- *競爭對手*
+
+---
+
+## 第九部分：其他常用乘數
+
+[CUT TO 表格／視覺效果]
+
+**陳馬：** 市盈率只係其中一個工具。仲有其他：
+
+| 乘數 | 公式 | 反映什麼 |
+|------|------|---------|
+| **市盈率** | 股價 ÷ 每股盈利 | 每 $1 盈利你付多少錢 |
+| **市賬率** | 股價 ÷ 每股賬面值 | 你比資產值溢價多少 |
+| **市盈率相對盈利增長比率** | 市盈率 ÷ 增長率 | 按增長率調整後的市盈率 |
+| **企業價值／息稅折舊攤銷前盈利** | 企業價值 ÷ 息稅折舊攤銷前盈利 | 跨資本結構比較的常用指標 |
+
+**小魚：** 市盈率相對盈利增長比率特別有用。市盈率 30 看似昂貴——但如果盈利每年增長 30%，比率就只是 1.0，可能屬於合理水平。
+
+**陳馬：** 而企業價值除以息稅折舊攤銷前盈利，有助於比較不同負債水平的公司——因為它着眼於整個企業，而非只是股價。
+
+---
+
+## 第十部分：綜合應用——快速例子
+
+[CUT TO 實例講解]
+
+**小魚：** 我哋做一個快速例子。設想一間虛構公司——「綠能公司」。
+
+**陳馬：** 綠能公司的情況：
+- 股價：$50
+- 每股盈利：$2.50 → **市盈率 = 20**
+- 每股賬面值：$25 → **市賬率 = 2**
+- 預期每年盈利增長：15% → **市盈率相對盈利增長比率 = 20 ÷ 15 = 1.33**
+
+**小魚：** 行業平均市盈率：18。所以綠能公司相對同業看起來*略為偏貴*。
+
+**陳馬：** 但市盈率相對盈利增長比率低於 1.5，對於增長股而言通常屬合理。
+
+**小魚：** 現在假設我哋做了現金流折現分析，得出內在價值為 $55，而現時股價係 $50。
+
+**陳馬：** 這暗示該股票可能*略為偏低*——或許是一個買入機會。
+
+**小魚：** 當然，這是簡化版。實際分析需要更多輸入數據和判斷。
+
+[VISUAL: 綠能公司摘要表]
+
+---
+
+## 第十一部分：常見估值錯誤
+
+[CUT TO 主持]
+
+**陳馬：** 我哋講講投資者常墮入的陷阱。
+
+**小魚：** 錯誤一：**以現時股價為錨。** 「已經升咗 50%，所以一定係估值過高。」唔一定——重要的係*內在價值*。
+
+**陳馬：** 錯誤二：**忽視質化因素。** 就算估值模型再精確，如果公司管理層差、商業模式走下坡，或面對監管風險，都救唔到你。
+
+**小魚：** 錯誤三：**過分相信數字。** 現金流折現法只係模型，佢的質素取決於你的假設。
+
+**陳馬：** 錯誤四：**跨行業比較市盈率。** 科技公司同銀行係完全唔同的物種，要在同一板塊內比較。
+
+---
+
+## 第十二部分：快速回顧
+
+[CUT TO 摘要視覺效果]
+
+**小魚：** 我哋回顧一下。
+
+**陳馬：** ✅ 估值係估算一盤生意的*實際價值*——而非市場的*定價*。
+
+**小魚：** ✅ 現金流折現法利用未來現金流，以適當折現率折現，從而估算**內在價值**。
+
+**陳馬：** ✅ 相對估值利用**市盈率、市賬率、市盈率相對盈利增長比率**等乘數與同業比較。
+
+**小魚：** ✅ 兩種方法結合使用——並時刻審視你的假設是否合理。
+
+**陳馬：** ✅ 沒有完美的模型。估值既是科學，也是判斷。
+
+---
+
+## 第十三部分：結尾
+
+[CUT TO 主持——輕快結語]
+
+**小魚：** 第七週到此為止！
+
+**陳馬：** 下週我哋將深入講解財務報表——如何實際閱讀資產負債表、損益表和現金流量表。
+
+**小魚：** 如果你想親自為公司估值，你*必須*看懂佢哋公佈的數字。
+
+**陳馬：** 仲未訂閱的話記得訂閱，我哋下週見。
+
+**小魚：** 祝大家投資愉快！
+
+**陳馬：** 保重！👋
+
+[CUT TO 片尾動畫]
+
+---
+
+## 補充筆記
+
+### 重要公式
+
+**現金流折現法現值：**
+$$PV = \sum_{t=1}^{n} \frac{CF_t}{(1+r)^t} + \frac{TV}{(1+r)^n}$$
+
+**終值：**
+$$TV = \frac{FCF \times (1+g)}{r - g}$$
+
+**市盈率：**
+$$市盈率 = \frac{\text{股價}}{\text{每股盈利}}$$
+
+**市盈率相對盈利增長比率：**
+$$市盈率相對盈利增長比率 = \frac{市盈率}{\text{年度盈利增長率（\%）}}$$
+
+### 詞彙表
+
+| 術語 | 定義 |
+|------|------|
+| 內在價值 | 根據基本因素計算的公司「真實」價值 |
+| 自由現金流 | 扣除營運開支及資本開支後，公司所產生的現金 |
+| 折現率 | 用於將未來現金流換算為現值的利率 |
+| 終值 | 超出明確預測期後，公司的估算價值 |
+| 市盈率 | 股價與盈利的比率；投資者為每 $1 盈利所付的金額 |
+| 市盈率相對盈利增長比率 | 按增長率調整後的市盈率 |
+| 加權平均資本成本 | 債務與股本融資的綜合成本 |
+
+### 討論問題
+
+1. 為何兩位分析師使用相同的現金流折現模型，卻可能得出截然不同的估值？
+2. 一隻股票的市盈率為 35，而行業平均值為 20。這是否代表估值過高？你還想了解哪些其他資訊？
+3. 利率上升如何影響現金流折現估值？原因為何？
+4. 為何終值通常是現金流折現法中最大的組成部分——而這又為何使其存在風險？

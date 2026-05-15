@@ -1,379 +1,639 @@
-# 第五週：債券——票面利率、價格與殖利率
+<function_calls>
+<invoke name="view">
+<parameter name="path">C:\Users\hevan\AppData\Local\Temp\tmpo4fcpdex.md</parameter>
+</invoke>
+</function_calls>
+<function_response>
+# Week 7: Equity Deep-Dive — Common Stock, Preferred Stock, and Dividends
+
+## Overview
+
+**Course:** Foundations of Investing
+**Week:** 7 of 20
+**Topic:** Equity Deep-Dive — Common Stock, Preferred Stock, and Dividends
+**Duration:** ~55 minutes
+**Format:** Two-host dialogue (Horace + Stella)
 
 ---
 
-## 第一部分：閱讀章節
+## Learning Objectives
+
+By the end of this lesson, viewers will be able to:
+
+1. Distinguish between common stock and preferred stock
+2. Explain dividend mechanics and the dividend calendar
+3. Understand how dividends affect stock prices
+4. Compare dividend-focused investing strategies
+5. Evaluate the advantages and disadvantages of each equity type
 
 ---
 
-### 1. 為什麼這很重要
+## Script
 
-債券是世界上最簡單的金融工具。你借出一筆已知金額，按已知時程，以已知票面利率出借，對方在已知日期還錢給你。四個數字加一份行事曆，就是全部。股票完全沒有這麼清晰。
+### [Segment 1] Introduction and Recap (5 minutes)
 
-然而——債券，這個最簡單的工具，卻催生了現代金融史上規模最大的數十年單一趨勢（從一九八一年到二○二○年長達四十年的殖利率下行多頭市場），並在二○二二年創下美國國庫券有史以來單一曆年最慘重的虧損紀錄。這兩次波動，早已內嵌在那份四個數字的合約裡，等著投資人去做價格與殖利率的數學運算。
+**Horace:** Welcome back to Foundations of Investing! Last week we did a broad overview of equities and why companies go public. This week, we're going deeper — really getting into the different types of equity and how dividends work. Stella, you want to kick us off with a quick recap?
 
-你需要理解債券，有四個原因。
+**Stella:** Sure! So last week we talked about what equity is — owning a piece of a company. When a company does its IPO, it issues shares to the public for the first time. Those shares represent partial ownership in the company.
 
-1. **它們是一切事物的折現率。** 世界上每一筆現金流——你的房子、一檔股票的盈餘流、私募股權的退出、退休金負債——都是以無風險的國庫券殖利率曲線來折現定價。當十年期殖利率從百分之一點五升至百分之四點五，全球每一個長存續期間的資產都將重新定價。如果你不理解折現率在做什麼，就無法理解任何其他資產類別。
-2. **它們本身就是一個資產類別。** 上週的六四分投資組合仰賴國庫券提供分散投資效益。這週我們打開債券這個黑盒子，問：我們手上究竟持有什麼、它如何付息、它的價格如何形成？學完本課，六四分裡的「四」將不再是黑盒子。
-3. **它們告訴你市場的預期。** 殖利率曲線、投資等級公司債（BAA）相對十年期國庫券的信用利差，以及抗通膨國庫券（TIPS）損益平衡利率，是三個分開報價、每日更新、公開可查的預測，分別代表市場對經濟成長、違約風險與通膨的看法。債券市場是地球上最便宜的總體經濟情報服務。
-4. **一九八一至二○二○年的債券多頭市場，是過去兩代人幾乎所有「被動投資有效」論述的政策環境背景。** 陳馬對政策環境轉變的詮釋框架——我們身處一個有利被動投資超過四十年的政策環境，而這個環境*有我們應該盯緊的觸發條件*——正好奠基在那張債券走勢圖上。整整一個世代的投資人從未見過真正的債券空頭市場。二○二二年是第一聲警報。
+**Horace:** Right, and we also touched on market cap — the total market value of all outstanding shares. Now this week we're going to distinguish between the two main types of equity: common stock and preferred stock.
 
----
+**Stella:** And then dive into dividends, which I know a lot of our viewers have been asking about!
 
-### 2. 你需要知道的事
+**Horace:** Exactly. Dividends are one of those things that sound simple but have a lot of nuance once you start looking at the calendar mechanics, how they affect stock prices, and whether they're actually a good thing for investors.
 
-#### 2.1 債券的現金流——四個數字加一份行事曆
+**Stella:** So let's get into it!
 
-一檔債券由以下要素完整定義：
-
-- **面值** $F$——到期時償還的金額。在美國市場幾乎一律是一千美元，慣例報價為一百。
-- **票面利率** $c$——發行時鎖定的年利率。面值一千美元、票面利率百分之四的債券，每年支付四十美元。
-- **到期年數** $N$——何時償還面值。
-- **付息頻率** $m$——每年付息幾次。美國國庫券與公司債：$m = 2$（半年付一次）。許多國際債券：$m = 1$（每年一次）。部分市政債券：$m = 4$。
-
-每次息票為 $C = F \cdot c / m$。因此，面值一千美元、票面利率百分之四、半年付息的債券，每六個月支付二十美元，共 $N$ 年，最後再還一千美元。
-
-就這樣。這就是合約的全部。其他所有東西——價格、殖利率、存續期間、凸性——都是*以那四個數字加上折現率進行的數學運算*。
-
-#### 2.2 價格不過是現金流量折現
-
-如果你對這檔債券的風險特性要求年報酬 $y$（即**市場殖利率**，或**到期殖利率**），那麼你今天願意支付的價格就是每一筆現金流的現值總和：
-
-$$ P = \sum_{t=1}^{m \cdot N} \frac{C}{(1 + y/m)^{t}} + \frac{F}{(1 + y/m)^{m \cdot N}} $$
-
-這個加總有封閉解：
-
-$$ P = C \cdot \frac{1 - (1 + y/m)^{-mN}}{y/m} + \frac{F}{(1 + y/m)^{mN}} $$
-
-但公式本身不如*形狀*重要：一檔債券是一個幾何數列的息票加上最後一次面值的整付。拿掉其中任一個部分，你就得到不同的工具（只有幾何數列是年金；只有整付是零息債券）。
-
-三個立即可得的推論：
-
-- 若 $y = c$，則 $P = F$。債券以**面值**交易（平價）。
-- 若 $y > c$，現金流不夠豐厚，無法在面值下給買方所需的報酬。價格必須下跌。債券以**折價**交易。
-- 若 $y < c$，買方樂於多付，因為息票優渥。債券以**溢價**交易。
-
-本課後面的互動面板讓你即時滑動 $c$、$y$、$N$ 和 $m$，觀察 $P$ 即時重新計算。花兩分鐘玩一玩。將價格—殖利率曲線的形狀內化，比背任何公式都更有價值。
-
-#### 2.3 為什麼價格與殖利率反向移動
-
-這是債券最常被問到的特性，務必說清楚。現金流在*發行時就固定了*。息票永遠是 $C$，面值永遠是 $F$。每天在次級市場變動的，只有市場套用在那些固定現金流上的*折現率*。折現率升高 -> 現值下降 -> 價格下跌。折現率降低 -> 現值上升 -> 價格上漲。
-
-這個關係是**單調且凸的**。單調：殖利率每移動一元，價格必然朝反方向移動。凸性：價格—殖利率曲線向原點彎曲，這意味著**殖利率下降百分之一所帶來的價格漲幅，*大於*殖利率上升百分之一所造成的價格跌幅**。這個不對稱性就是凸性，對長天期債券而言幅度相當可觀。在互動面板上觀察：固定 $c$ 和 $N$，將 $y$ 從零滑到百分之十五，看曲線如何彎曲。
-
-#### 2.4 存續期間——那個衡量「敏感程度」的數字
-
-三十年期債券與兩年期債券對殖利率移動百分之一的反應不一樣。存續期間是殖利率變動百分之一時，價格移動幅度的線性近似值。
-
-**Macaulay 存續期間**是現金流的加權平均到期年限，每筆現金流的權重等於其現值除以整體價格：
-
-$$ D_{\text{Mac}} = \frac{1}{P} \left[ \sum_{t=1}^{m N} \frac{(t/m) \cdot C}{(1 + y/m)^{t}} + \frac{N \cdot F}{(1 + y/m)^{m N}} \right] $$
-
-**修正存續期間**是價格對殖利率的彈性：
-
-$$ D_{\text{mod}} = \frac{D_{\text{Mac}}}{1 + y/m} \quad \Rightarrow \quad \frac{\Delta P}{P} \approx -D_{\text{mod}} \cdot \Delta y $$
-
-值得記住的經驗法則：
-
-- 兩年期國庫券：$D_{\text{mod}} \approx 1.9$。利率上升百分之一 -> 價格下跌約百分之一點九。
-- 十年期國庫券：$D_{\text{mod}} \approx 8.5$。利率上升百分之一 -> 價格下跌約百分之八點五。
-- 三十年期國庫券：$D_{\text{mod}} \approx 19$。利率上升百分之一 -> 價格下跌約百分之十九。
-
-二○二二年，十年期殖利率從約百分之一點五升至約百分之三點九，上升約二點四個百分點。乘以存續期間八點五，得出約負百分之十八的總報酬——幾乎就是上週六四分投資組合走勢圖上歸因於「債券」的實際虧損。存續期間近似值不是一個有趣的小知識，它是整個事件的解釋。更深入的數學（凸性調整、關鍵利率存續期間、選擇權調整利差）留到第三十二週。
-
-#### 2.5 到期殖利率、當期收益率與票面利率
-
-三個人人都會搞混的數字。
-
-- **票面利率**：*合約約定*的利率。發行時固定。永不改變。用來計算美元息票金額。
-- **當期收益率**：$C \cdot m / P$。單靠息票流提供的報酬，忽略本金拉回面值所產生的損益。對重視收入的買方有用，但作為報酬衡量指標是**不完整的**。
-- **到期殖利率（YTM）**：使*所有*現金流（息票加面值）的現值等於今日價格的單一折現率，也就是債券的內部報酬率。這是你到處看到的頭條殖利率。
-
-當債券平價交易時，三者相等。當債券折價交易時，到期殖利率 > 當期收益率 > 票面利率（你不只拿到息票，到期還有資本利得）。當債券溢價交易時，到期殖利率 < 當期收益率 < 票面利率。
-
-比較債券時，永遠用到期殖利率，不要用票面利率。票面利率是合約細節；到期殖利率才是你持有至到期並以相同利率再投資時實際賺到的報酬。
-
-#### 2.6 信用利差——違約風險的溢酬
-
-美國國庫券是教科書上的零違約風險資產（美國政府可以印出它所欠的美元，這背後還有另一個哲學問題——見第三十一週）。其他任何東西都更有風險。市場對這個額外風險定價的方式，是要求公司債的殖利率高於相同到期年限的國庫券。這個差距就是**信用利差**。
-
-下圖繪製了一九二八至二○二四年 BAA 公司債相對十年期國庫券的*年度報酬*利差（Damodaran 年度資料序列，BAA 為最低的投資等級評等）。這是我們所能取得的、最能長期代表公司違約風險相對國庫券實際表現的歷史資料序列。
-
-![Annual BAA corporate bond total return minus 10-year US Treasury total return, 1928 through 2024 (Damodaran data, decimal). Spread spikes downward in 1932, 1974, 2008, and 2020 as defaults reprice and Treasuries rally on flight-to-safety. Long-run average is small and positive; the distribution has a fat left tail.](../image/week05_credit_spreads.png)
-
-三個解讀：
-
-1. **長期平均利差小且為正**——投資等級公司債平均每年較國庫券多賺約百分之一至百分之二，這就是無條件的信用溢酬。
-2. **分配有厚重的左尾。** 在信用崩潰年份（一九三二、一九七四、二○○八、二○二○），隨著違約風險重新定價、國庫券因避險需求而上漲，公司債單年可落後國庫券百分之十至百分之二十五。
-3. **利差飆升是領先指標。** 信用利差通常在股市空頭市場觸底*之前*就開始擴大。當你在圖表上看到那個尖峰時，經濟衰退的交易已在市場其他角落同步發生。
-
-對大多數散戶投資人而言，實際結論是：**信用溢酬是真實的，但幅度不大，且尾部風險是不對稱的**。持有投資等級公司債而非國庫券，在正常年份大概多賺百分之一，卻在最關鍵的年份損失百分之十以上。若是為了對沖股票風險，請持有國庫券。若是退休後為了*收益*，小部分配置投資等級公司債是合理的。
-
-#### 2.7 四十年多頭市場與二○二二年的轉折
-
-下圖繪製了一九六二至二○二六年美國十年期國庫券殖利率走勢，這是我們從聯準會經濟數據（FRED）DGS10 系列所能取得最長的完整月度資料。
-
-![10-year US Treasury constant-maturity yield, 1962 through April 2026 (FRED DGS10, monthly). The dominant feature is the 1981 peak near 15.8% under Volcker's anti-inflation campaign, followed by a four-decade decline to the 2020 trough near 0.5%, then a sharp climb back above 4% by 2024 with current readings near 4.2% in April 2026. Annotated peaks and troughs.](../image/week05_yield_history.png)
-
-你需要認識的三個政策環境階段。
-
-- **一九六二至一九八一年：殖利率上升。** 通膨在越戰、布列頓森林體系瓦解與兩次石油衝擊期間持續加速。這段期間的債券報酬在名目上表現欠佳，實質上更是慘不忍睹——二十世紀最糟糕的持續性債券空頭市場。持有「安全」長天期國庫券的人，財富實質縮水長達二十年。
-- **一九八一至二○二○年：殖利率下滑，幾乎連續不間斷長達四十年。** 伏克爾的一九八一年升息高峰打斷了通膨預期，此後每一次衝擊——一九八七、一九九○、二○○○、二○○八、二○二○——的最終利率都低於前一次。債券在這段期間的名目年化報酬約百分之七，是其歷史上最佳的四十年紀錄。
-- **二○二○至二○二?年：殖利率再度上升。** 新冠疫情帶來的流動性洪水，接著是二○二二年的通膨衝擊，終結了這段四十年的趨勢。十年期殖利率在三十個月內從百分之零點五竄升至百分之五。截至二○二六年四月，殖利率曲線約在百分之四點二，市場正在辯論這究竟是一九八○年代式的利率正常化，還是一段長期世俗性攀升的開端。
-
-陳馬的詮釋框架：被動式指數投資之所以*有效*，是在債券與股票因利率下行而同步上漲、兩者相關結構良性的政策環境下。整整一個世代的投資人，在一九八一至二○二○年的背景下養成了「只要買進持有」的直覺。打破這個政策環境的觸發條件，是**長天期殖利率的持續上升**。這個觸發條件正在我們眼前即時引爆。現在宣告政策環境已經終結還為時過早；但假裝什麼都沒改變也已為時已晚。
+[VISUAL: Animated title card — "Week 7: Equity Deep-Dive"]
 
 ---
 
-### 3. 常見迷思
+### [Segment 2] Common Stock vs Preferred Stock (15 minutes)
 
-**迷思一：「國庫券沒有風險。」**
+**Horace:** Alright, let's start with common stock. When most people say "stock," they mean common stock. It's what you buy when you open a brokerage account and purchase shares of Apple or Tesla or whatever.
 
-國庫券是*信用*無風險的（美國政府可以印出它所欠的美元）。但它不是*價格*無風險，也不是*購買力*無風險的。二○二二年，十年期國庫券的價格下跌了百分之十八。一九七三至一九八一年間，其實質價值約損失了百分之四十。「沒有違約風險」不等於「沒有風險」。
+**Stella:** Common stock gives you ownership in the company, voting rights on major decisions — like electing the board of directors — and the ability to participate in the company's growth.
 
-**迷思二：「只要持有到期，我就不會虧損。」**
+**Horace:** And the upside of common stock is theoretically unlimited. If the company 10x's, your shares 10x. There's no ceiling.
 
-在*名目上*，確實——你拿回面值加息票。但那些款項的實質價值，取決於購買至到期之間的通膨。二○二○年以百分之二殖利率買入的三十年期債券，若未來三十年通膨年均百分之三，合約上就鎖定了一個實質虧損。持有到期保護你免於價格波動，但不保護你免於通膨。
+**Stella:** But there's also more risk. If the company goes bankrupt, common stockholders are last in line. They only get paid after the company's debts are settled, after bondholders are paid, after preferred stockholders are paid.
 
-**迷思三：「債券基金就是持有債券，應該和直接持有債券的表現一樣。」**
+**Horace:** That's the key pecking order to understand. Let's compare that with preferred stock.
 
-債券基金透過出售舊債、買入新債，維持大致固定的存續期間。個別債券的存續期間則會隨著接近到期日而*機械性下降*。因此，一檔鎖定二十年存續期間的基金，在利率上升的環境中，是結構上最糟糕的持有物——這正是二○二二年 TLT 的投資人所學到的教訓。如果你有特定的負債日期，就持有到期日相對應的個別債券；基金並不等同於直接持有。
+[VISUAL: Liquidation priority pyramid — show tiers: Senior Debt → Junior Debt → Preferred Stock → Common Stock]
 
-**迷思四：「票面利率越高，殖利率越高。」**
+**Stella:** So preferred stock is a different type of equity. It sits above common stock in that liquidation pecking order, but below debt.
 
-票面利率是合約；殖利率是市場定價。一檔票面利率百分之十的債券，可以有百分之三的到期殖利率（它以很高的溢價交易）；一檔票面利率百分之一的債券，可以有百分之六的到期殖利率（它以很深的折價交易）。永遠用到期殖利率比較，不要用票面利率。
+**Horace:** And preferred stock usually pays a fixed dividend. That's actually one of the main reasons people hold it — that reliable, predictable income stream.
 
-**迷思五：「信用利差只是額外的殖利率——免費的收入。」**
+**Stella:** Right, it's kind of in between a bond and a stock. It behaves more like a bond in some ways — fixed income, lower volatility — but it's still equity, not debt.
 
-歷史上的信用溢酬在平均年份是百分之一至百分之二，但在最關鍵的年份（一九三二、一九七四、二○○八、二○二○）是負百分之十或更慘。信用利差是*你賣給企業的保險，換取穩定收入，並承擔偶發的重大損失*。賣保險不是免費的收入；它是一個結構上負偏態的損益分配。
+**Horace:** Let's go through the key differences side by side.
 
-**迷思六：「長天期債券殖利率較高，所以更好。」**
+[VISUAL: Side-by-side comparison table]
 
-較長的到期年限賺取的是*期限溢酬*——但要承受高得多的存續期間風險。長天期國庫券在大多數歷史視窗下的夏普比率，與中期國庫券相當甚或*更差*。只有在你有特定的負債日期與該到期年限相符，或你明確在做存續期間押注時，才應該爭取期限溢酬。
+| Feature | Common Stock | Preferred Stock |
+|---------|-------------|-----------------|
+| Voting Rights | Yes (usually) | No (usually) |
+| Dividend | Variable or none | Fixed (usually) |
+| Liquidation Priority | Lowest | Above common, below debt |
+| Upside Potential | Unlimited | Limited |
+| Volatility | Higher | Lower |
+| Who Holds It | Most retail investors | Institutional investors, income-focused |
 
-**迷思七：「抗通膨債券（TIPS）永遠比名目債券更好。」**
+**Stella:** One thing worth noting — preferred stock dividends have to be paid before common stock dividends. So if the company is struggling and needs to cut dividends, common stockholders get cut first.
 
-TIPS 在實際通膨*高於*其定價中所內含的損益平衡利率時，表現較佳。當實際通膨低於預期，或損益平衡利率已偏貴時，TIPS 表現較差。TIPS 是相對於名目國庫券的*相對*交易，不是免費升級。
+**Horace:** Exactly. And there's a type called cumulative preferred stock, where if the company skips a preferred dividend, it accumulates and has to be paid in full before common shareholders see any dividends. That's even more protective.
 
-**迷思八：「負殖利率債券毫無道理，沒有人應該買它。」**
+**Stella:** There are also convertible preferred shares — which can be converted into common stock under certain conditions. You see these a lot in venture capital and startup financing.
 
-二○一四至二○二一年間，歐洲和日本的機構投資人持有數兆美元的負殖利率債券，原因是：負債配對、法規資本要求、匯率避險套利，以及若殖利率*進一步*走負的價格上漲空間。「對我這個散戶投資人毫無道理」是對的。「對任何人都毫無道理」是錯的。
+**Horace:** Super important concept in the startup world. As a VC, you often get preferred stock, not common stock, because it gives you that downside protection.
 
----
+**Stella:** Okay, so to summarize: common stock is higher risk, higher potential reward, with voting rights. Preferred stock is lower risk, more income-focused, with liquidation priority but limited upside.
 
-### 4. 問答區
-
-**Q1：我想要每月從債券獲取收入。最乾淨的方式是什麼？**
-
-A：建立一個*債券梯*——分別購買未來五至十年間逐年到期的個別國庫券或 TIPS，等權重配置。每年一個梯級到期，你以當時的市場殖利率再投資。現金流大致等於平均殖利率乘以投資組合價值。這樣可避免基金的存續期間漂移，並提供可預測的時程安排。富達、嘉信理財和先鋒的券商工具都能讓你在十五分鐘內建好一個債券梯。
-
-**Q2：我應該買個別債券還是債券指數股票型基金？**
-
-A：對於一百萬美元以下的金額，指數股票型基金（BND、AGG、IEF、TLT、SHY）成本較低且流動性較佳。對於超過這個金額，或有特定負債日期的退休人士，個別國庫券可能更好——你可以避免存續期間不匹配的問題，且能持有至到期。公司債個別買進幾乎從不值得散戶這麼做（流動性差、價差寬）；使用基金（LQD）即可。
-
-**Q3：適合我的債券存續期間是多少？**
-
-A：大致上配合你的投資期限。五年內需要動用的資金，選一至三年期國庫券（SHY）。六四分風格投資組合中的分散投資部位，選中期（IEF，約七年）。長天期債券（TLT，約二十年）只適合作為刻意的存續期間押注——不應作為預設選擇。二○二二年的教訓：存續期間是一個*裝好子彈的*維度；不要在不知情的情況下承擔超出預期的存續期間風險。
-
-**Q4：TIPS 和一般國庫券有什麼不同？**
-
-A：TIPS 的本金會隨消費者物價指數向上調整。票面利率固定，但套用在經過通膨調整的本金上，因此美元息票也會隨通膨成長。你看到 TIPS 報價的「實質殖利率」是*高於*消費者物價指數的殖利率。當你認為實際通膨將超過其損益平衡利率（名目殖利率與 TIPS 殖利率之差）時，買進 TIPS。二○二六年四月，十年期損益平衡利率約百分之二點四；若未來十年平均消費者物價指數超過這個水準，TIPS 就是贏家。
-
-**Q5：為什麼長天期債券在二○二二年下跌了百分之三十，但「債券是安全的」？**
-
-A：長天期債券的存續期間約為十九。殖利率從約百分之一點五升至約百分之四。相乘：十九乘以二點五個百分點，預期價格跌幅約百分之四十七，被息票收入部分抵銷後，實際約為負百分之三十的範圍。「債券是安全的」是「信用風險低」的簡稱，不是「價格波動低」。當利率大幅移動時，長天期債券的價格波動可媲美股票。
-
-**Q6：殖利率曲線是什麼，為什麼大家那麼在意它？**
-
-A：殖利率曲線是以到期年限為橫軸（三個月、一年、五年、十年、三十年）、殖利率為縱軸所繪製的圖形。正常情況下向上傾斜（越長天期，殖利率越高）。當兩年期殖利率超過十年期殖利率——即*倒掛*的殖利率曲線——歷史上一直是最佳的經濟衰退領先指標，領先時間為十二至二十四個月。二○二六年四月的現況：殖利率曲線在創紀錄的長期倒掛後剛剛*解除倒掛*。後倒掛的經濟衰退究竟已解除或只是延後，是當下的熱門辯題。
-
-**Q7：用一句話說明「凸性」是什麼？**
-
-A：價格—殖利率曲線的彎曲度——這個高階項使殖利率下降帶來的價格漲幅，大於相同幅度殖利率上升所造成的價格跌幅。長天期債券和零息債券的凸性最大。這是一個需要付費的免費選擇權，代價是殖利率略低。第三十二週會正式解析。
-
-**Q8：公司債可以取代六四分投資組合中的國庫券嗎？**
-
-A：不行。公司債在危機中與股票有顯著的相關性（第 2.6 節的 BAA 信用利差圖表說明了這一點），因此無法提供國庫券在避險需求事件中所具備的負相關性。如果你要爭取殖利率，從*股票*那一側取；債券部位請持有國庫券，讓它履行分散投資的職責。
-
-**Q9：我的投資組合中應該持有多少比例的債券？**
-
-A：在上週六四分基準線之外，槓鈴型配置在安全那一側*少於*六四分比例的債券，*多持有*現金加短天期國庫券，在不對稱那一側則*多持有*股票尾部對賭部位。三十歲、正在累積財富的人，大概持有百分之二十至三十的短天期國庫券；六十五歲、正在提領財富的人，大概持有百分之四十至五十。確切數字沒有理解債券*扮演什麼角色*（價格穩定加上經濟衰退避險）並據此調整規模重要。
-
-**Q10：高收益（垃圾債券）呢？**
-
-A：高收益是一個*第三類*資產類別。它與股票的相關性（對標普五百約零點七），遠高於與國庫券的相關性。在完整週期下的夏普比率表現平庸。違約率在經濟衰退時飆升。對以收入為重的退休人士，小部分配置或許站得住腳，但它絕不應取代你的國庫券部位——它無法完成國庫券所做的分散投資工作。
-
-**Q11：這堂課與課程其他內容有什麼關聯？**
-
-A：第四週將國庫券當作黑盒子使用；這週我們打開了它。第十三至十四週（槓鈴策略）根據第 2.4 節，在安全部位選擇*短天期*國庫券而非長天期。第三十一至三十四週以總體經濟細節深入探討二○二二年的通膨斷裂（殖利率歷史圖表背後的政策環境故事）。第三十二週專門進行嚴謹的存續期間與凸性數學推導。第四十七與五十週涵蓋長波動性與管理期貨覆蓋策略，以對沖債券無法涵蓋的通膨尾部風險。
-
-以下的互動面板讓你滑動四個數字的債券合約（面值、票面利率、到期年限、付息頻率）和市場殖利率，即時觀察價格重新計算。圖表顯示殖利率從零至百分之十五的價格—殖利率曲線，並標示你目前的所在點。在增加到期年限時觀察曲率的變化——三十年期的曲線凸性明顯大於兩年期。Macaulay 存續期間與修正存續期間的數值顯示於圖表下方。
+**Horace:** Now, most individual investors are primarily holding common stock. So when we talk about dividends in the rest of this segment, we'll be mostly talking about common stock dividends — but keep in mind that preferred dividends work similarly, just with that fixed component.
 
 ---
 
-## 第二部分：YouTube 腳本
+### [Segment 3] Dividend Mechanics (15 minutes)
+
+**Horace:** Okay, let's talk dividends. What is a dividend, Stella?
+
+**Stella:** A dividend is a payment that a company makes to its shareholders. It's a way of distributing profits back to the owners of the company. So if you own shares in a company, and that company pays a dividend, you get cash deposited into your brokerage account.
+
+**Horace:** Simple enough on the surface. But there's a whole calendar of dates you need to understand.
+
+[VISUAL: Timeline showing dividend calendar dates]
+
+**Stella:** Right. So there are four key dates in the dividend calendar:
+
+1. **Declaration Date** — when the company's board announces the dividend. They announce the amount, the record date, and the payment date.
+2. **Ex-Dividend Date** — this is the cutoff. You need to own the stock *before* this date to receive the dividend. If you buy on or after the ex-dividend date, you won't get this dividend.
+3. **Record Date** — the date the company checks its books to see who the shareholders of record are. The ex-dividend date is usually one business day before the record date.
+4. **Payment Date** — when the dividend actually gets paid out to shareholders.
+
+**Horace:** The ex-dividend date is the most important one for investors to know. Let's really hammer that home.
+
+[VISUAL: Example timeline — XYZ Corp announces $0.50 dividend]
+
+**Stella:** So let's say XYZ Corp declares a dividend of 50 cents per share. The ex-dividend date is set for June 15. If you own the stock on June 14, you get the dividend. If you buy on June 15 or later, you don't.
+
+**Horace:** And here's something that trips a lot of people up — on the ex-dividend date, the stock price typically drops by approximately the dividend amount. Why? Because the company is about to pay out that cash.
+
+**Stella:** Right, the stock price reflects the value of the company. Once that dividend is paid out, the company has less cash, so the stock is worth slightly less.
+
+**Horace:** So if you think you're being clever by buying the stock right before the ex-dividend date just to capture the dividend — you're not really getting a free lunch. The price drops to compensate.
+
+**Stella:** Exactly. There's no arbitrage there in an efficient market. Now, in practice, the price doesn't always drop by exactly the dividend amount due to other market movements, but that's the general principle.
+
+**Horace:** There's actually a whole strategy called dividend capture — trying to buy just before ex-dividend date and sell right after. It can be profitable, but it's tricky and has transaction costs and tax implications.
+
+**Stella:** Let's talk about dividend yield, because that's another key metric.
+
+[VISUAL: Dividend yield formula]
+
+**Horace:** Dividend yield = Annual dividends per share ÷ Stock price. So if a stock pays $2 per year in dividends and the stock price is $50, the dividend yield is 4%.
+
+**Stella:** This is how investors compare dividend-paying stocks. A 4% yield means you're earning 4% of your investment per year just from dividends, before any price appreciation.
+
+**Horace:** But higher yield isn't always better. A very high yield can sometimes be a warning sign — it might mean the stock price has fallen a lot, which could indicate problems with the company.
+
+**Stella:** That's called a dividend trap. The yield looks attractive, but then the company cuts the dividend, and you're stuck with a stock that's fallen in price.
+
+**Horace:** The dividend payout ratio is also important — that's dividends paid divided by earnings. A payout ratio of 50% means the company is paying out half its earnings as dividends. Too high a payout ratio might not be sustainable.
 
 ---
 
-**影片標題：** 債券——票面利率、價格與殖利率｜第五週
+### [Segment 4] Dividend Investing Strategies (12 minutes)
 
-**目標時長：** 約十八分鐘
+**Horace:** So let's talk strategy. There are a few main approaches to dividend investing.
 
-**主持人：** 陳馬、小魚
+**Stella:** The first is the **dividend growth investing** approach. Rather than just chasing the highest yield today, you look for companies that have a history of consistently growing their dividends over time.
 
----
+**Horace:** The famous example is Dividend Aristocrats — these are S&P 500 companies that have increased their dividends every single year for at least 25 consecutive years. Companies like Coca-Cola, Johnson & Johnson, Procter & Gamble.
 
-**[片頭]**
+**Stella:** The logic is: if a company has grown its dividend for 25+ years, that's evidence of a really strong, stable business model. They're not just paying dividends when times are good — they're committed to growing them even through recessions.
 
-**陳馬：** 上週是六四分投資組合。我們把那個「四」當成一個叫做「國庫券」的黑盒子。這週我們把盒子打開。
+**Horace:** And the power of dividend growth compounds over time. If you bought Coca-Cola 20 years ago and the dividend keeps growing, your yield on cost — meaning your dividend income relative to what you originally paid — can get really high.
 
-**小魚：** 盒子裡面是……
+**Stella:** The second approach is **high dividend yield** investing — just targeting stocks with the highest current yields.
 
-**陳馬：** 四個數字加一份行事曆。就這樣。債券是世界上最簡單的金融工具。面值、票面利率、到期年限、付息頻率。搞定。股票根本沒有這麼清晰。
+**Horace:** This is more common in income-focused portfolios — retirees who need cash flow, for example. The tradeoff is you might be in slower-growth companies.
 
-**小魚：** 那為什麼最簡單的工具在二○二二年爆炸得最慘？
+**Stella:** Utilities and REITs are classic examples here. These sectors tend to pay high dividends but don't grow as fast as tech companies.
 
-**陳馬：** 因為債券的*價格*不是那四個數字中的任何一個。價格是你用今日市場殖利率對那四個數字進行折現後算出來的結果。而二○二二年，折現率在十二個月內的移動幅度，超過了此前任何一個十二個月的紀錄。
+**Horace:** REIT stands for Real Estate Investment Trust, by the way. REITs are required by law to pay out at least 90% of their taxable income as dividends. So they structurally have high yields.
 
----
+**Stella:** The third approach is **dividend reinvestment** — using dividends to buy more shares rather than taking the cash.
 
-**[第一段：四個數字]**
+**Horace:** This is basically dollar cost averaging via dividends. Every quarter, your dividend payment buys more shares, which then generate more dividends, which buy more shares. It's compound growth.
 
-**陳馬：** 讓我們具體說明。一檔十年期美國國庫券，百分之四票面利率，面值一千美元，半年付息一次。合約寫道：未來十年，每六個月你拿到二十美元。最後，你拿回一千美元。二十筆二十美元的付款，加上一千美元的整付。
+**Stella:** Many brokers offer DRIPs — Dividend Reinvestment Plans — where this happens automatically. And some companies offer these directly, sometimes at a slight discount to market price.
 
-**小魚：** 而我今天支付的價格不一定是一千美元。
+**Horace:** The argument against just reinvesting dividends automatically is that you might be buying at a bad price. If the stock is overvalued, you'd rather take the cash and put it to work elsewhere.
 
-**陳馬：** 對。價格是今天的買方願意為那個精確現金流支付的金額。如果今日市場對十年期風險的殖利率是百分之四，你付的恰好是一千美元——面值。如果今日殖利率是百分之五，你付的少於一千美元，因為在百分之五的要求下，那二十美元的息票還不夠大方。如果今日殖利率是百分之三，你願意多付，因為每六個月二十美元已超出市場要求。
+**Stella:** Which is a valid point. But for long-term investors who believe in the company, automatic reinvestment removes emotion from the equation.
 
-**小魚：** 另一方永遠存在。
+[VISUAL: Compound growth chart showing DRIP vs no reinvestment over 30 years]
 
-**陳馬：** 這是人們最常忽略的部分。每一檔有成交的債券，都是一個人認為價格合理、另一個人不同意的結果。沒有人被迫交易。價格只是雙方願意見面的那個水準。
+**Horace:** Let's look at the math on this. If you invest $10,000 in a stock with a 3% dividend yield and 5% annual price appreciation, with reinvestment versus without.
 
----
+**Stella:** Without reinvestment, after 30 years, the $10,000 might grow to about $43,000 in stock value, plus you collected dividends along the way in cash.
 
-**[第二段：定價公式]**
+**Horace:** With full reinvestment, that same $10,000 could be worth over $76,000 because you're compounding on the dividends too.
 
-**陳馬：** 這是方程式。價格等於每一筆息票的現值，加上面值的現值。以殖利率除以付息頻率折現。就這樣。
-
-寫出來看起來很醜——從 t 等於一加總到 mN，C 除以（一加 y 除以 m）的 t 次方，再加上 F 除以（一加 y 除以 m）的 mN 次方。看起來很醜。但它並不醜。它是一個幾何數列加上一個整付。這個加總有封閉解，但你不需要背封閉解。你需要內化的是*形狀*。
-
-**小魚：** 哪種形狀？
-
-**陳馬：** 一檔債券是一串小額息票加上最後一個大額整付。息票加在一起是一個*年金*。整付本身是一個*零息債券*。世界上每一個固定收益證券，都是這兩個部件的某種加權組合。
+**Stella:** That's the power of compound interest applied to dividends. Keep it invested, and it grows much faster.
 
 ---
 
-**[第三段：價格與殖利率反向移動]**
+### [Segment 5] Tax Considerations (8 minutes)
 
-**陳馬：** 債券最常被問到的特性。現金流在發行時就固定了。息票每期永遠是二十美元。面值永遠是一千美元。每天在市場上變動的，只有市場套用在那些固定現金流上的折現率。
+**Horace:** Alright, we can't talk about dividends without touching on taxes. Taxes are critically important here.
 
-**小魚：** 折現率越高，現值越低。
+**Stella:** In the U.S., dividends are divided into two categories: qualified dividends and ordinary (non-qualified) dividends.
 
-**陳馬：** 對。所以殖利率越高，價格越低。殖利率越低，價格越高。永遠如此，沒有例外。而且這個關係不是一條直線——它是*凸的*。曲線向原點彎曲。這意味著殖利率下降百分之一所帶來的價格漲幅，*大於*殖利率上升百分之一所造成的跌幅。這個不對稱性就是凸性，對長天期債券而言相當可觀。
+**Horace:** Qualified dividends are taxed at the lower long-term capital gains rate — 0%, 15%, or 20% depending on your income. Ordinary dividends are taxed as regular income, which can be up to 37%.
 
-**小魚：** 聽起來像是免費的午餐。
+**Stella:** So the tax treatment matters a lot! To qualify for the lower rate, you generally need to hold the stock for more than 60 days around the ex-dividend date.
 
-**陳馬：** 是付費的午餐。市場知道凸性的存在，並已定價。你享受凸性效益的代價是票面利率略低。第三十二週再做數學推導。現在，先注意互動面板上的曲線是彎曲的。
+**Horace:** This is why the dividend capture strategy we mentioned earlier often doesn't work as well after tax — if you're holding the stock for just a few days, you won't get qualified dividend treatment.
 
----
+**Stella:** REITs are also special here. Most REIT dividends are not qualified — they're taxed as ordinary income. That's one reason REITs are often held in tax-advantaged accounts like IRAs.
 
-**[第四段：存續期間——你必須知道的那個數字]**
+**Horace:** Great point. For dividend-heavy portfolios, thinking about which accounts you hold different assets in — what we call asset location — can make a significant tax difference.
 
-**陳馬：** 不同的債券對利率移動百分之一的反應幅度不同。存續期間告訴你特定債券的價格對殖利率移動百分之一會移動*多少*。以下三個數字我希望你記住。
+**Stella:** So if you have both a taxable brokerage account and a Roth IRA, you might prefer to hold your high-yield REITs in the Roth IRA where dividends are tax-free.
 
-兩年期國庫券：存續期間約一點九。十年期：約八點五。三十年期：約十九。
-
-**小魚：** 所以利率上升百分之一，長天期債券就跌百分之十九。
-
-**陳馬：** 近似上是的。而這就是二○二二年的結論。十年期殖利率從百分之一點五升至百分之三點九。那是二點四個百分點的移動。乘以存續期間八點五。你得到百分之十八的虧損。
-
-**小魚：** 這正是實際發生的事。
-
-**陳馬：** 完全對。上週我們說「債券創下一九三七年以來最糟糕的年度表現」。現在你用一個乘法就知道*為什麼*了。存續期間乘以殖利率變動幅度。六四分投資組合的走勢圖沒有什麼神秘之處；那是算術。
+**Horace:** And hold your qualified dividend stocks in the taxable account where they'll be taxed at the lower rate anyway.
 
 ---
 
-**[第五段：票面利率、當期收益率、到期殖利率——三件事，不是一件]**
+### [Segment 6] Are Dividends Always Good? (7 minutes)
 
-**陳馬：** 三個人人持續搞混的數字。
+**Horace:** Okay, I want to challenge something. There's a school of thought that says dividends are actually not that great. Let's steelman that argument.
 
-票面利率。合約內容。發行時固定。永不改變。用來計算美元息票金額。
+**Stella:** I know, it sounds counterintuitive! But the argument is basically about capital allocation.
 
-當期收益率。息票美元金額除以當前價格。單靠收入流提供的報酬，忽略本金到期拉回面值的損益。
+**Horace:** The idea is: if a company pays you a dividend, that's cash leaving the company. The company could have reinvested that cash into growing the business — new products, acquisitions, R&D. Those reinvestments might generate higher returns than what you'd earn on the dividend.
 
-到期殖利率。使價格等於所有現值加總的內部報酬率。這是你在哪裡都能看到的頭條殖利率。永遠用到期殖利率比較債券，不要用票面利率。
+**Stella:** This is why companies like Amazon and Berkshire Hathaway don't pay dividends. They believe they can generate better returns by reinvesting cash into the business.
 
-**小魚：** 而當債券平價交易時……
+**Horace:** Berkshire Hathaway has never paid a dividend since Buffett took over. His argument is: Berkshire can compound capital better than shareholders could if they received the dividend.
 
-**陳馬：** 三者相等。當債券折價交易——價格低於面值——到期殖利率是三者中最高的。溢價時，到期殖利率是最低的。互動面板同時顯示這三者。
+**Stella:** And historically, that's been true — Berkshire's stock has massively outperformed over the long run.
 
----
+**Horace:** So the question isn't "does this company pay a dividend?" — it's "is the company using its capital in the highest-return way possible?"
 
-**[第六段：信用利差]**
+**Stella:** For a mature company with limited growth opportunities, paying dividends might be the best use of cash. For a high-growth company, reinvesting is usually better.
 
-[VISUAL: image/week05_credit_spreads.png]
+**Horace:** There's also the dividend irrelevance theorem — from Modigliani and Miller — which theoretically argues that in a perfect market, dividend policy doesn't affect company value. The shareholder is indifferent between getting a dividend or the stock price going up by the same amount.
 
-**陳馬：** 美國國庫券是教科書上的零違約風險資產。其他任何東西都更有風險。市場對這個額外風險定價的方式是要求更高的殖利率。差距就是信用利差。
+**Stella:** Of course, we don't live in a perfect market. Taxes, transaction costs, and behavioral factors all affect how dividends are valued in reality.
 
-這張圖是一九二八年至今的 BAA 公司債相對十年期國庫券的報酬利差。長期平均是正的但幅度不大——投資等級公司債平均每年額外賺取約百分之一至百分之二。
-
-**小魚：** 那些尖峰呢？
-
-**陳馬：** 一九三二年。一九七四年。二○○八年。二○二○年。現代史上四次最嚴重的信用崩潰。隨著違約風險重新定價，公司債單年可落後國庫券百分之十至百分之二十五。分配有厚重的左尾。
-
-**小魚：** 所以信用溢酬是……
-
-**陳馬：** 你賣給企業的保險，換取穩定的小額收入，並承擔偶發的重大損失。賣保險是一個結構上負偏態的損益分配。那不是免費的殖利率。
-
-散戶的實際結論：持有國庫券來做分散投資，不要用公司債。如果你要爭取殖利率，從股票那一側取。
+**Horace:** So the takeaway is: dividends aren't inherently good or bad. Context matters — the company's growth stage, capital allocation strategy, and your own tax situation all play a role.
 
 ---
 
-**[第七段：四十年多頭市場與二○二二年的轉折]**
+### [Segment 7] Summary and Quiz (3 minutes)
 
-[VISUAL: image/week05_yield_history.png]
+**Horace:** Alright, let's wrap up. Stella, want to run through the key takeaways?
 
-**陳馬：** 這是整個債券宇宙中最重要的一張圖。一九六二至二○二六年四月的十年期國庫券殖利率。
+**Stella:** Sure!
 
-三個政策環境階段。一九六二至一九八一年，殖利率上升。通膨、越戰、布列頓森林體系、石油衝擊。伏克爾以一九八一年十年期百分之十五點八的高峰打斷了通膨的脊梁。一九八一至二○二○年，殖利率下滑。四十年。幾乎連續不間斷。每一次衝擊的最終利率都低於前一次。十年期在二○二○年觸及百分之零點五。
+1. **Common stock** gives you ownership and voting rights, with the highest upside and highest risk in the capital structure.
+2. **Preferred stock** sits above common stock in the liquidation order, usually pays a fixed dividend, and has limited upside.
+3. The **dividend calendar** has four key dates: declaration date, ex-dividend date, record date, and payment date. The ex-dividend date is the most critical for investors.
+4. **Dividend yield** = annual dividend / stock price. High yield isn't always good — watch for dividend traps.
+5. **Dividend growth investing** targets companies with consistent dividend growth records, like the Dividend Aristocrats.
+6. **Dividend reinvestment** compounds your returns over time — this is how DRIPs work.
+7. Tax treatment matters: qualified dividends get a lower tax rate; REIT dividends are usually taxed as ordinary income.
+8. Dividends aren't always better than reinvestment — it depends on the company's capital allocation opportunities.
 
-**小魚：** 然後呢？
+**Horace:** Great! Now let's hit the quick quiz before we sign off.
 
-**陳馬：** 然後二○二二年來了。殖利率在三十個月內從百分之零點五竄升至約百分之五。截至二○二六年四月，我們坐在約百分之四點二的水準，市場正在辯論這究竟是一九八○年代式的利率正常化，還是更持久的某種開端。
+[VISUAL: Quiz overlay]
 
-**小魚：** 教訓是什麼？
+**Quiz Questions:**
 
-**陳馬：** 這就是政策環境的重點。我們在一個讓被動式指數投資看起來像免費午餐的政策環境裡已待了四十年。這個政策環境有一個特定的總體經濟特徵：殖利率下行意味著債券價格上漲、股票本益比上升，以及兩者之間良性的相關結構。打破這個政策環境的觸發條件，是長天期殖利率的*持續上升*。這個觸發條件正在我們眼前即時引爆。
+1. What is the most important date for investors wanting to receive a dividend?
+   - a) Declaration Date
+   - b) Record Date
+   - c) Ex-Dividend Date ✓
+   - d) Payment Date
 
-現在宣告政策環境已經終結還為時過早。假裝什麼都沒改變也已為時已晚。這張債券走勢圖，是第三十一週之後我們所涵蓋所有內容的政策環境背景。
+2. Which type of equity typically has fixed dividends and higher liquidation priority?
+   - a) Common Stock
+   - b) Preferred Stock ✓
+   - c) Growth Stock
+   - d) Blue Chip Stock
+
+3. A company that has increased its dividend every year for 25+ consecutive years is called:
+   - a) A REIT
+   - b) A Blue Chip
+   - c) A Dividend Aristocrat ✓
+   - d) A Preferred Issuer
+
+4. If a company pays $3/year in dividends and the stock is trading at $60, what is the dividend yield?
+   - a) 3%
+   - b) 5% ✓
+   - c) 20%
+   - d) 18x
+
+**Horace:** That's it for Week 7! Next week we're going deep into fixed income — bonds, yield curves, duration. It's going to be a meaty one. See you then!
+
+**Stella:** See you next week!
 
 ---
 
-**[第八段：互動面板]**
+## Visual / Animation Assets Required
 
-**陳馬：** 打開債券定價器面板。五個輸入值：面值、票面利率、到期年限、市場殖利率，以及每年付息次數。滑動它們。觀察價格更新。
-
-**小魚：** 我應該注意什麼？
-
-**陳馬：** 三件事。第一，將殖利率設定為等於票面利率。確認價格恰好等於面值。第二，固定其他所有條件，將到期年限從兩年調到三十年。觀察價格—殖利率曲線彎曲得更厲害。那就是凸性變得可見。第三，觀察存續期間的讀數。注意當你提高票面利率時，存續期間下降——高息票債券更快回收現金，因此對折現率的敏感度較低。
-
-**小魚：** 那存續期間的預測呢？
-
-**陳馬：** 選一檔債券。從面板讀取存續期間。將殖利率移動百分之一。相乘。和實際價格變動比較。對小幅移動，近似值相當準確；對大幅移動則會偏差。那就是凸性介入之處。嚴謹版本留到第三十二週。
-
----
-
-**[片尾]**
-
-**陳馬：** 債券是四個數字加一份行事曆。價格是現金流量折現法。殖利率與價格反向移動。存續期間是線性敏感度。信用利差是你出售的保險。四十年多頭市場是建立被動投資聲譽的政策環境，並在二○二二年終結。
-
-這就是整個債券宇宙，濃縮在一個段落裡。我們將在第三十二週進行更深入的數學推導，並在第三十一至三十四週深入探討造成這一切斷裂的總體經濟政策環境。今晚，就滑動互動面板，直到那份四個數字的合約讓你感覺理所當然。
-
-**小魚：** 下週呢？
-
-**陳馬：** 正確的分散投資方式。或者說，為什麼你不能只買二十檔股票就算了事。
+| Asset | Description | File |
+|-------|-------------|------|
+| Title card | Animated Week 7 title | animation/week07_title.py |
+| Liquidation pyramid | Tier chart showing debt/preferred/common order | animation/week07_liquidation_pyramid.py |
+| Comparison table | Common vs preferred side-by-side | animation/week07_comparison_table.py |
+| Dividend calendar | Timeline of declaration/ex-div/record/payment dates | animation/week07_dividend_calendar.py |
+| Yield formula | Animated dividend yield calculation | animation/week07_yield_formula.py |
+| DRIP chart | Compound growth with vs without dividend reinvestment | animation/week07_drip_chart.py |
+| Quiz overlay | Interactive quiz cards | animation/week07_quiz.py |
 
 ---
 
-**結尾畫面：**「下集：第六週——超越六四分的分散投資」
+## Instructor Notes
+
+- The liquidation pyramid is a key visual — make sure it clearly communicates the hierarchy.
+- Emphasize the ex-dividend date mechanics — this is the most commonly misunderstood concept.
+- The "dividends aren't always good" segment is intentionally counterintuitive. Encourage viewers to think critically.
+- When discussing taxes, note this is U.S.-centric. International viewers may have different tax treatments.
+- The Modigliani-Miller theorem mention is for more advanced viewers — don't dwell on it.
+
+---
+
+## Supplemental Reading
+
+- Graham, *The Intelligent Investor*, Chapter on Dividend Policy
+- Fama & French, "Disappearing Dividends: Changing Firm Characteristics or Lower Propensity to Pay?" (2001)
+- Damodaran, *Investment Valuation* — Chapter on Dividend Policy
+
+---
+</parameter>
+</invoke>
+</function_calls>
+<function_response>
+Successfully read file: C:\Users\hevan\AppData\Local\Temp\tmpo4fcpdex.md
+</parameter>
+</invoke>
+</function_calls>
+
+# 第七週：股票深度解析——普通股、特別股與股利
+
+## 概覽
+
+**課程：** 投資基礎
+**週次：** 第 7 週，共 20 週
+**主題：** 股票深度解析——普通股、特別股與股利
+**時長：** 約 55 分鐘
+**形式：** 雙主持人對話（陳馬 + 小魚）
+
+---
+
+## 學習目標
+
+完成本課後，學員將能夠：
+
+1. 區分普通股與特別股的差異
+2. 說明股利運作機制與股利行事曆
+3. 理解股利如何影響股票價格
+4. 比較以股利為核心的投資策略
+5. 評估各類股票的優缺點
+
+---
+
+## 腳本
+
+### [段落 1] 開場與回顧（5 分鐘）
+
+**陳馬：** 歡迎回到投資基礎！上週我們對股票做了整體概覽，也談到為什麼公司要上市。這週我們要深入探討——真正了解不同類型的股票，以及股利的運作方式。小魚，你要幫我們做個簡短回顧嗎？
+
+**小魚：** 好啊！上週我們講到什麼是股票——也就是擁有一家公司的一部分。當公司進行首次公開發行時，它首次向大眾發行股份，這些股份代表著對公司的部分所有權。
+
+**陳馬：** 對，我們也提到了市值——所有流通股份的總市場價值。這週我們要來區分股票的兩種主要類型：普通股與特別股。
+
+**小魚：** 接著我們要深入探討股利，我知道很多觀眾一直在問這個問題！
+
+**陳馬：** 沒錯。股利看起來簡單，但一旦你開始深入研究行事曆機制、它如何影響股票價格，以及它對投資人來說是否真的有利，就會發現其中有很多細節。
+
+**小魚：** 那我們就開始吧！
+
+[VISUAL: Animated title card — "Week 7: Equity Deep-Dive"]
+
+---
+
+### [段落 2] 普通股 vs 特別股（15 分鐘）
+
+**陳馬：** 好，我們先從普通股說起。當大多數人說「股票」時，他們指的就是普通股。當你開設券商帳戶並買進蘋果或特斯拉等公司的股份時，買的就是這個。
+
+**小魚：** 普通股給你公司的所有權、對重大決策的投票權——例如選舉董事會成員——以及參與公司成長的機會。
+
+**陳馬：** 普通股的上漲空間理論上是無限的。如果公司股價漲了十倍，你的股份也漲十倍，沒有上限。
+
+**小魚：** 但風險也更高。如果公司破產，普通股股東是最後一個拿到錢的。他們只有在公司償還所有債務、支付給債券持有人、再支付給特別股股東之後，才能拿到錢。
+
+**陳馬：** 這就是你必須理解的關鍵優先順序。我們來比較一下特別股。
+
+[VISUAL: Liquidation priority pyramid — show tiers: Senior Debt → Junior Debt → Preferred Stock → Common Stock]
+
+**小魚：** 所以特別股是另一種股票。在清算優先順序上，它排在普通股之上，但在債務之下。
+
+**陳馬：** 特別股通常支付固定股利。這也是人們持有它的主要原因之一——穩定、可預期的收益來源。
+
+**小魚：** 對，它介於債券和股票之間。某種程度上它的行為更像債券——固定收益、波動性較低——但它仍然是股票，不是債務。
+
+**陳馬：** 我們來並排比較兩者的主要差異。
+
+[VISUAL: Side-by-side comparison table]
+
+| 特性 | 普通股 | 特別股 |
+|------|--------|--------|
+| 投票權 | 有（通常） | 無（通常） |
+| 股利 | 不固定或無 | 固定（通常） |
+| 清算優先順序 | 最低 | 高於普通股，低於債務 |
+| 上漲潛力 | 無限 | 有限 |
+| 波動性 | 較高 | 較低 |
+| 持有者 | 多數散戶 | 機構投資人、收益導向型投資人 |
+
+**小魚：** 值得注意的一點是——特別股的股利必須在普通股股利之前支付。所以如果公司業績不佳需要削減股利，普通股股東會先被削減。
+
+**陳馬：** 沒錯。還有一種叫做累積特別股，如果公司跳過了特別股股利，這些股利會累積起來，必須全額補發，普通股股東才能收到任何股利。這保護程度更高。
+
+**小魚：** 還有可轉換特別股——可以在特定條件下轉換為普通股。在創投和新創融資中很常見。
+
+**陳馬：** 這在新創圈是非常重要的概念。身為創投，你通常拿到的是特別股，而不是普通股，因為它提供了下行保護。
+
+**小魚：** 好，總結一下：普通股風險較高、潛在報酬也較高，具備投票權。特別股風險較低、較注重收益，在清算時有優先順序，但上漲空間有限。
+
+**陳馬：** 現在，大多數個人投資人主要持有普通股。所以在本節剩餘部分討論股利時，我們主要談的是普通股股利——但請記住，特別股股利的運作方式類似，只是有固定的成分。
+
+---
+
+### [段落 3] 股利運作機制（15 分鐘）
+
+**陳馬：** 好，我們來談談股利。小魚，什麼是股利？
+
+**小魚：** 股利是公司支付給股東的款項。這是將利潤分配回公司所有者的方式。所以如果你持有某家公司的股份，而該公司支付股利，你就會收到存入你券商帳戶的現金。
+
+**陳馬：** 表面上很簡單。但有一整套日期行事曆你需要了解。
+
+[VISUAL: Timeline showing dividend calendar dates]
+
+**小魚：** 對。股利行事曆中有四個關鍵日期：
+
+1. **宣告日** — 公司董事會宣布股利的日期。他們宣布股利金額、登記日和發放日。
+2. **除息日** — 這是截止日。你需要在這個日期*之前*持有股票才能收到股利。如果你在除息日當天或之後買入，就不會收到這次的股利。
+3. **登記日** — 公司查閱帳冊確認股東名冊的日期。除息日通常在登記日的前一個交易日。
+4. **發放日** — 股利實際發放給股東的日期。
+
+**陳馬：** 除息日是投資人最需要知道的日期。我們要把這點牢牢記住。
+
+[VISUAL: Example timeline — XYZ Corp announces $0.50 dividend]
+
+**小魚：** 假設 XYZ 公司宣布每股派發 50 美分的股利，除息日定為 6 月 15 日。如果你在 6 月 14 日持有股票，就能收到股利。如果你在 6 月 15 日或之後買入，就拿不到。
+
+**陳馬：** 有個問題常常讓人搞不清楚——在除息日這天，股票價格通常會下跌約等於股利金額的幅度。為什麼？因為公司即將支出那筆現金。
+
+**小魚：** 對，股票價格反映公司的價值。一旦股利付出去，公司的現金減少，股票的價值也稍微低一點。
+
+**陳馬：** 所以如果你以為在除息日前一刻買入股票就能「撿到便宜」，那你並沒有真的佔到便宜。股價會下跌來補償。
+
+**小魚：** 沒錯。在效率市場中，這裡沒有套利空間。實務上，由於其他市場波動，股價不一定會精確下跌股利金額，但這是大致原則。
+
+**陳馬：** 其實有一種叫做「股利捕捉」的策略——試圖在除息日前買入，除息後賣出。這策略有時能獲利，但很難操作，還有交易成本和稅務影響。
+
+**小魚：** 我們來談談股利殖利率，這是另一個關鍵指標。
+
+[VISUAL: Dividend yield formula]
+
+**陳馬：** 股利殖利率 = 每股年度股利 ÷ 股票價格。所以如果一支股票每年支付 2 美元股利，股票價格是 50 美元，則股利殖利率為 4%。
+
+**小魚：** 這是投資人比較股利股票的方式。4% 的殖利率意味著你每年光從股利就能賺回投資金額的 4%，還不算股價上漲的部分。
+
+**陳馬：** 但殖利率越高並不代表越好。非常高的殖利率有時是警示訊號——可能意味著股價大幅下跌，這可能表示公司出了問題。
+
+**小魚：** 這就叫做股利陷阱。殖利率看起來很吸引人，但接著公司削減股利，你就被套在一支股價下跌的股票裡了。
+
+**陳馬：** 股利發放比率也很重要——那是支付的股利除以盈餘。50% 的發放比率表示公司將一半的盈餘作為股利發放。發放比率太高可能難以持續。
+
+---
+
+### [段落 4] 股利投資策略（12 分鐘）
+
+**陳馬：** 那我們來談談策略。股利投資主要有幾種方法。
+
+**小魚：** 第一種是**股利成長投資**策略。這不是單純追求今天最高的殖利率，而是尋找有持續增加股利歷史記錄的公司。
+
+**陳馬：** 著名的例子是股利貴族——這些是標普 500 中連續至少 25 年每年都增加股利的公司。例如可口可樂、嬌生、寶僑。
+
+**小魚：** 邏輯在於：如果一家公司的股利增長了 25 年以上，那就是非常穩健商業模式的證明。他們不只在景氣好的時候才發股利——即使在經濟衰退中，他們也致力於持續增加股利。
+
+**陳馬：** 股利成長的力量會隨時間複利累積。如果你 20 年前買了可口可樂，而股利持續增長，你的成本殖利率——也就是相對於你當初支付價格的股利收入——可以變得非常高。
+
+**小魚：** 第二種方法是**高股利殖利率**投資——就是鎖定目前殖利率最高的股票。
+
+**陳馬：** 這在以收益為導向的投資組合中更為常見——例如需要現金流的退休人士。取捨在於，你可能會持有成長較慢的公司。
+
+**小魚：** 公用事業和不動產投資信託是典型例子。這些類股通常支付高股利，但成長速度不如科技公司。
+
+**陳馬：** 順帶一提，不動產投資信託依法規定必須將至少 90% 的應稅收入作為股利發放。所以它們在結構上就有高殖利率。
+
+**小魚：** 第三種方法是**股利再投資**——將股利用來買入更多股份，而不是提取現金。
+
+**陳馬：** 這基本上是透過股利實現的定期定額投資。每一季，你的股利款項買入更多股份，這些股份再產生更多股利，股利再買入更多股份。這就是複利成長。
+
+**小魚：** 許多券商提供股利再投資計畫，可以自動執行。有些公司也直接提供這類計畫，有時還能以略低於市價的價格買入。
+
+**陳馬：** 反對自動再投資股利的論點是，你可能在不好的價位買入。如果股票被高估，你寧可拿現金，把它投資到其他地方。
+
+**小魚：** 這是個有道理的觀點。但對於長期相信公司的投資人而言，自動再投資可以排除情緒干擾。
+
+[VISUAL: Compound growth chart showing DRIP vs no reinvestment over 30 years]
+
+**陳馬：** 我們來看一下數字。假設你投資 1 萬美元在一支股利殖利率 3%、年均股價漲幅 5% 的股票上，比較有再投資和沒有再投資的情況。
+
+**小魚：** 沒有再投資的情況下，30 年後，這 1 萬美元的股票價值可能成長到約 4 萬 3 千美元，加上你一路以現金形式收到的股利。
+
+**陳馬：** 完全再投資的情況下，同樣的 1 萬美元可能價值超過 7 萬 6 千美元，因為你也在股利上複利了。
+
+**小魚：** 這就是複利應用在股利上的力量。持續投資，成長會快很多。
+
+---
+
+### [段落 5] 稅務考量（8 分鐘）
+
+**陳馬：** 好，談股利就不得不碰稅務問題。稅務在這裡非常關鍵。
+
+**小魚：** 在美國，股利分為兩類：合格股利與一般（非合格）股利。
+
+**陳馬：** 合格股利按較低的長期資本利得稅率課稅——根據收入不同，稅率為 0%、15% 或 20%。一般股利則按一般所得稅率課稅，最高可達 37%。
+
+**小魚：** 所以稅務處理方式非常重要！要符合較低稅率的資格，你通常需要在除息日前後持有股票超過 60 天。
+
+**陳馬：** 這也是我們之前提到的股利捕捉策略，在稅後往往效果不佳的原因——如果你只持有股票幾天，就無法享受合格股利的稅務優惠。
+
+**小魚：** 不動產投資信託在這裡也很特殊。大多數不動產投資信託的股利不是合格股利——它們按一般所得課稅。這就是為什麼不動產投資信託通常放在個人退休帳戶等稅務優惠帳戶中持有。
+
+**陳馬：** 說得好。對於股利比重高的投資組合，思考哪些資產放在哪種帳戶——也就是我們所說的資產位置配置——可以在稅務上產生顯著差異。
+
+**小魚：** 所以如果你同時有一般應稅券商帳戶和羅斯個人退休帳戶，你可能會傾向把高殖利率的不動產投資信託放在羅斯個人退休帳戶裡，這樣股利就是免稅的。
+
+**陳馬：** 然後把合格股利股票放在應稅帳戶裡，無論如何稅率都比較低。
+
+---
+
+### [段落 6] 股利一定是好事嗎？（7 分鐘）
+
+**陳馬：** 好，我想挑戰一個觀念。有一派思想認為股利其實並不那麼好。我們來為這個論點做一番辯護。
+
+**小魚：** 我知道，聽起來違反直覺！但論點基本上是關於資本配置的。
+
+**陳馬：** 概念是這樣的：如果公司支付給你股利，那就是現金離開公司。公司本可以將那筆現金再投入業務成長——新產品、收購、研發。這些再投資可能帶來比股利更高的報酬。
+
+**小魚：** 這就是為什麼亞馬遜和波克夏海瑟威這樣的公司不發放股利。他們相信透過將現金再投入業務，能創造更高的報酬。
+
+**陳馬：** 自巴菲特接掌以來，波克夏海瑟威從未發放過股利。他的論點是：波克夏複利增值資本的能力，勝過股東收到股利後能創造的報酬。
+
+**小魚：** 從歷史上看，這確實如此——波克夏的股票長期以來大幅跑贏大盤。
+
+**陳馬：** 所以問題不是「這家公司有沒有發放股利？」，而是「公司是否以能創造最高報酬的方式運用資金？」
+
+**小魚：** 對於成熟、成長機會有限的公司，發放股利可能是最好的現金運用方式。對於高成長型公司，再投資通常更好。
+
+**陳馬：** 還有一個股利無關緊要理論——來自莫迪利安尼和米勒——在理論上主張，在完美市場中，股利政策不影響公司價值。股東對收到股利或股價上漲同等金額是無差異的。
+
+**小魚：** 當然，我們並不是活在完美市場中。稅收、交易成本和行為因素都會影響股利在現實中的評價方式。
+
+**陳馬：** 所以結論是：股利本身並非好或壞。背景脈絡很重要——公司的成長階段、資本配置策略，以及你自身的稅務狀況，都扮演了重要角色。
+
+---
+
+### [段落 7] 總結與測驗（3 分鐘）
+
+**陳馬：** 好，我們來做個總結。小魚，要幫我們整理一下重點嗎？
+
+**小魚：** 好的！
+
+1. **普通股** 給你所有權和投票權，在資本結構中擁有最高上漲潛力和最高風險。
+2. **特別股** 在清算順序上排在普通股之上，通常支付固定股利，但上漲空間有限。
+3. **股利行事曆** 有四個關鍵日期：宣告日、除息日、登記日和發放日。除息日對投資人而言最為關鍵。
+4. **股利殖利率** = 年度股利 / 股票價格。高殖利率不一定是好事——要注意股利陷阱。
+5. **股利成長投資** 鎖定有持續股利成長記錄的公司，例如股利貴族。
+6. **股利再投資** 讓你的報酬隨時間複利增長——這就是股利再投資計畫的運作方式。
+7. 稅務處理方式很重要：合格股利適用較低稅率；不動產投資信託股利通常按一般所得課稅。
+8. 股利不一定優於再投資——這取決於公司的資本配置機會。
+
+**陳馬：** 很好！現在我們來做個簡短測驗後再結束。
+
+[VISUAL: Quiz overlay]
+
+**測驗題目：**
+
+1. 想要收到股利的投資人，最重要的日期是哪一個？
+   - a) 宣告日
+   - b) 登記日
+   - c) 除息日 ✓
+   - d) 發放日
+
+2. 哪種股票通常有固定股利且清算優先順序較高？
+   - a) 普通股
+   - b) 特別股 ✓
+   - c) 成長股
+   - d) 藍籌股
+
+3. 連續 25 年以上每年都增加股利的公司稱為：
+   - a) 不動產投資信託
+   - b) 藍籌股
+   - c) 股利貴族 ✓
+   - d) 特別股發行人
+
+4. 如果一家公司每年支付 3 美元股利，股票交易價格為 60 美元，股利殖利率是多少？
+   - a) 3%
+   - b) 5% ✓
+   - c) 20%
+   - d) 18 倍
+
+**陳馬：** 第七週就到這裡！下週我們將深入探討固定收益——債券、殖利率曲線、存續期間。內容非常豐富，下週見！
+
+**小魚：** 下週見！
+
+---
+
+## 所需視覺／動畫素材
+
+| 素材 | 說明 | 檔案 |
+|------|------|------|
+| 片頭卡 | 第七週動態片頭 | animation/week07_title.py |
+| 清算優先順序金字塔 | 顯示債務／特別股／普通股層級的圖表 | animation/week07_liquidation_pyramid.py |
+| 比較表格 | 普通股與特別股並排比較 | animation/week07_comparison_table.py |
+| 股利行事曆 | 宣告日／除息日／登記日／發放日的時間軸 | animation/week07_dividend_calendar.py |
+| 殖利率公式 | 股利殖利率計算動畫 | animation/week07_yield_formula.py |
+| 股利再投資計畫圖表 | 有無股利再投資的複利成長比較 | animation/week07_drip_chart.py |
+| 測驗疊加 | 互動式測驗卡片 | animation/week07_quiz.py |
+
+---
+
+## 講師備註
+
+- 清算優先順序金字塔是關鍵視覺素材——確保它能清楚傳達層級架構。
+- 強調除息日機制——這是最常被誤解的概念。
+- 「股利不一定是好事」的段落是刻意反直覺設計的，鼓勵觀眾批判性思考。
+- 討論稅務時，請注意這是以美國為中心。海外觀眾的稅務處理方式可能不同。
+- 提及莫迪利安尼-米勒理論是為較進階的觀眾設計的——不必深入討論。
+
+---
+
+## 補充閱讀
+
+- 葛拉漢，《智慧型股票投資人》，股利政策相關章節
+- Fama & French，〈消失的股利：公司特性改變還是發放意願降低？〉（2001）
+- 達摩達蘭，《投資估值》——股利政策相關章節
+
+---

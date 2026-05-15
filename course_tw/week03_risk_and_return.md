@@ -1,416 +1,370 @@
-# 第三週：風險與報酬——兩股力量，誠實衡量
+<function_calls>
+<invoke name="view">
+<parameter name="path">C:\Users\hevan\AppData\Local\Temp\tmp7dh_ofrt.md</parameter>
+</invoke>
+</function_calls>
+<function_response>
+# Week 8: Bond Basics — What Are Bonds and How Do They Work?
+
+**Course:** Beginner's Guide to Investing  
+**Format:** YouTube script  
+**Host:** Horace (on camera) + Stella (voice)  
+**Duration:** ~15 minutes  
 
 ---
 
-## 第一部分：閱讀章節
+## [VISUAL: Intro animation plays]
+
+**Horace:** Hey everyone, welcome back! Last week we covered stocks — today we're diving into the world of bonds. Don't worry if this sounds complicated — by the end of this video, you'll understand exactly what bonds are and why investors use them.
+
+**Stella:** And bonds are actually one of the most important parts of a complete investment portfolio. So let's get into it!
 
 ---
 
-### 1. 為什麼這很重要
+## Part 1: What Is a Bond?
 
-上週我們歸納出一個簡單的處方：指數股票型基金、每月自動轉帳、然後關掉應用程式。這個方法有效。但它也遮蓋了背後的運作機制，而正是這套機制，能讓你在下次市場給你一個40%的回撤、飯局上的朋友告訴你「這次不一樣」時，不至於恐慌性賣出。
+**Horace:** So — what is a bond? A bond is a loan. But instead of borrowing from a bank, a government or company borrows money directly from investors — and that's you.
 
-風險與報酬是驅動所有投資結果的兩股力量。大多數初學者把所有注意力放在報酬上——*「我能賺多少？」* 而專業的問題恰好相反：*「我可能虧多少？多久發生一次？這個損失是否能承受？」* 如果你對第二個問題的答案是「我不知道」，你並不是在投資，你只是在用多了幾個步驟的方式賭博。
+[VISUAL: Show animation: animation/week08_bond_basics.py scene "intro_loan"]
 
-這堂課是後續所有內容的基礎。我們將探討風險究竟是什麼（以及人們常與它混淆的三件事）、如何在不欺騙自己的前提下衡量風險、為什麼較高的預期報酬*必然*伴隨較高的風險、為什麼相同的風險數字在不同時間跨度下表現截然不同，以及為什麼風險*承受能力*與風險*承受意願*之間的差異，正是讓退休人士爆倉的那個問題。
+**Stella:** When you buy a bond, you're the lender. The bond issuer — whether that's the U.S. government, a city, or a corporation — is the borrower. They promise to pay you back the loan amount after a set period of time, plus regular interest payments along the way.
 
-先說誠實的免責聲明：**標準教科書對風險的處理假設報酬的分布呈鐘形曲線，但事實並非如此。** 市場具有肥尾特性——極端事件發生的頻率遠高於數學模型所預測的。本課後半段將深入探討為什麼「5個標準差事件」是一句值得失笑的話，而不是用來規劃的依據。
+**Horace:** That loan repayment amount is called the **face value** or **par value** — it's usually $1,000 per bond. The regular interest payments are called **coupon** payments. And the length of the loan is called the **maturity** — which could be 2 years, 10 years, even 30 years.
+
+**Stella:** So let's say you buy a 10-year bond with a face value of $1,000 and a coupon rate of 5%. That means you'll receive $50 every year for 10 years, and then at the end, you get your $1,000 back.
+
+[VISUAL: Show animation: animation/week08_bond_basics.py scene "coupon_cashflows"]
+
+**Horace:** Simple enough, right? Now let's talk about the different types of bonds.
 
 ---
 
-### 2. 你需要了解的內容
+## Part 2: Types of Bonds
 
-#### 2.1 風險是結果的不確定性——而不只是「壞事」
+**Horace:** Bonds come in three main types — government bonds, corporate bonds, and municipal bonds.
 
-在日常用語中，風險意味著*壞事發生的可能性*。在金融領域，風險有更精確的意涵：**風險是結果的不確定性**。風險性資產不一定是會讓你虧錢的資產，而是未來報酬無法預測的資產。
+[VISUAL: Show three-column table or graphic]
 
-一張殖利率為4.3%的三個月期美國國庫券被視為近乎無風險，不是因為殖利率高——它並不高——而是因為一季後合理結果的範圍本質上就是「4.3%，正負幾個基點」。一檔單一生技股則具有高度風險，因為一年後的結果範圍可能從「臨床試驗失敗跌90%」到「臨床試驗成功漲400%」。國庫券的*不確定性低*，生技股的不確定性則在兩個方向上都*極高*。
+**Stella:** First, there are **government bonds** — also called **Treasuries** in the U.S. These are issued by the federal government. They're considered the safest bonds because the U.S. government has never defaulted on its debt. Examples include T-bills, T-notes, and T-bonds, depending on their maturity.
 
-三件人們常與風險混淆卻並非風險的事：
+**Horace:** Second, **corporate bonds** — issued by companies. A company like Apple or Ford might issue a bond to raise money for a new project or expansion. Because companies are riskier than the government, they pay higher interest rates to attract investors.
 
-1. **波動性。** 波動性是風險的一種*衡量指標*——也是最常用的一種——但波動性≠風險。一個部位可以平靜五年，然後在一個月內爆炸（想想長期資本管理公司，1998年）。一個部位可以每天劇烈震盪，卻在結構上有所界限（想想深度避險的選擇權帳簿）。*已實現的價格波動*與*風險*並非同一回事。
-2. **虧損機率。** 一枚賠率為−1元/+1元的硬幣，虧損機率為50%。一枚賠率為−1元/+100元的硬幣，虧損機率同樣是50%，但在風險調整後的角度看來截然不同。單靠虧損機率，無法告訴你虧損發生時的*損失規模*。
-3. **新聞上的頭條數字。** 「市場崩盤」並不是對任何事情的量化。崩盤是股票市場的特性——大約每十年發生一次，有時是兩次——而一個把每次崩盤都當成緊急事件的投資人，將一輩子都在底部賣出。
+**Stella:** Third, **municipal bonds** — issued by states, cities, or local governments. These are used to fund things like schools, highways, and hospitals. One big advantage: the interest is often **tax-exempt** at the federal level.
 
-> *「風險來自於不知道自己在做什麼。」* ——華倫·巴菲特
+[VISUAL: Show animation: animation/week08_bond_basics.py scene "bond_types_comparison"]
 
-#### 2.2 標準差——最常用的衡量工具
+**Horace:** The riskier the bond issuer, the higher the interest rate they have to offer — that's the deal investors demand. We'll talk more about risk and **credit ratings** in Part 4.
 
-衡量風險最常見的指標是報酬的**標準差**，通常稱為**波動性**或「**vol**」。它告訴你一項資產的實際報酬偏離其平均值的幅度。
+---
 
-對於平均年報酬為$\mu$、標準差為$\sigma$的資產，*假如*報酬呈常態分布（這是個很大的假設；見§2.6）：
+## Part 3: How Bond Prices Work
 
-- 約**68%**的年份落在$[\mu - \sigma,\ \mu + \sigma]$範圍內。
-- 約**95%**的年份落在$[\mu - 2\sigma,\ \mu + 2\sigma]$範圍內。
-- 約**99.7%**的年份落在$[\mu - 3\sigma,\ \mu + 3\sigma]$範圍內。
+**Horace:** Okay, here's where it gets interesting. Bond prices and interest rates move in **opposite directions**. This is one of the most important concepts in fixed income investing.
 
-對1928年以來的標準普爾500指數實際資料套用這個模型，你會得到以下結果：
+[VISUAL: Show animation: animation/week08_bond_basics.py scene "price_yield_seesaw"]
 
-![標準普爾500指數年度總報酬直方圖，涵蓋1928年至2024年（Damodaran年度資料集）。實際平均值約為11.5%，標準差約為19.5%。具有相同均值與標準差的常態分布以平滑曲線疊加顯示。直方圖的尾部明顯比常態曲線更厚——最差年份（1931、1937、2008年）與最佳年份（1933、1954、1958年）距離中心的幅度，遠超常態分布的預測。](../image/week03_return_distribution.png)
+**Stella:** Let me explain. Imagine you own a bond that pays 3% interest. Then interest rates in the market rise to 5%. Now, new bonds are paying 5%, but yours is only paying 3%. Who wants your bond? Nobody — unless you sell it at a discount. So your bond's price drops.
 
-從這張圖可以讀出三件事：
+**Horace:** The reverse is also true. If rates fall, your 3% bond looks more attractive than new bonds paying only 2%. So your bond becomes more valuable — its price goes up.
 
-- **中心大約是每年11%。** 這是標準普爾500指數的長期名目總報酬平均值。扣除通膨後的「實質」數字接近7%——而教科書裡順暢的8%承諾，與聖誕老人的地位相當。
-- **標準差約為20%。** 六十八%的年份落在−9%到+30%之間。要規劃的是*範圍*，而非平均值。
-- **分布在兩端都比常態曲線更寬。** 1931年的−44%、2008年的−37%、1933年的+54%、1954年的+52%，這些在鐘形曲線模型下都不應該發生，但它們確實發生了。市場具有**肥尾**特性。
+**Stella:** This is why bond prices fluctuate in the market, even though the coupon payments are fixed. The **yield** — which is the return you actually get based on the price you paid — adjusts to reflect current market conditions.
 
-各資產類別波動性的通則：
+**Horace:** There's also a concept called **yield to maturity** — or YTM — which is the total return you'd get if you held the bond all the way to maturity. It factors in the coupon payments AND any difference between the price you paid and the face value.
 
-| 資產類別 | 歷史年化標準差 |
-|---|---:|
-| 美國國庫券 | ~1% |
-| 投資等級債券 | ~6% |
-| 美國大型股 | ~16–20% |
-| 美國小型股 | ~22–28% |
-| 新興市場股票 | ~24–30% |
-| 單一個股 | ~30%以上 |
-| 比特幣 | ~70%以上 |
+[VISUAL: Show animation: animation/week08_bond_basics.py scene "ytm_explained"]
 
-從表格底部往上看。比特幣的波動性約為標準普爾500指數的四倍——這意味著鐘形曲線模型對指數所說的「極端」回撤，你在比特幣上預計會遇到大約四倍的幅度。這比「比特幣今年漲了200%」這個吸引眼球的頭條所暗示的風險，要大得多。
+**Stella:** The key takeaway: when you hear "interest rates went up," that means bond prices went down. When rates go down, bond prices go up.
 
-#### 2.3 股票風險溢酬——承擔風險的報酬
+---
 
-**風險溢酬**是你為了接受不確定性而在無風險利率之上獲得的額外報酬。金融界被引用最多的數字是**股票風險溢酬（ERP）**：美國股票平均比美國國庫券多賺多少。
+## Part 4: Credit Ratings and Risk
 
-自1928年以來的長期數據顯示，這個數字約為**每年5–7%**。以國庫券長期均值約3.4%、標準普爾500指數長期均值約11%計算，兩者的差距約為7–8個百分點的名目報酬——這個差距複利累積一個世紀後，1美元的國庫券變成約23美元，而1美元的股票變成約11,000美元（名目金額；實質數字較小，但*比率*基本維持不變）。
+**Horace:** Not all bonds are created equal. The risk of a bond depends heavily on the creditworthiness of the issuer — can they actually pay you back?
 
-為什麼股票風險溢酬必然存在？兩個均衡論點：
+**Stella:** That's where **credit ratings** come in. Agencies like Moody's, S&P, and Fitch rate bond issuers based on their financial health. The ratings go from AAA — the highest quality — all the way down to D, which means the issuer has already **defaulted**.
 
-1. **投資人厭惡損失。** 面對預期報酬相同的兩項資產，幾乎所有人都偏好波動性較低的那項。為了讓投資人*願意*持有波動性較高的資產，其價格必須下跌，直到*遠期*預期報酬高到足以補償為止。這個差距就是風險溢酬。
-2. **沒有它，資產就無法出清。** 假如股票和國庫券提供相同的預期報酬，沒有理性投資人會持有股票；所有人都會賣出股票轉入債券，股價就會下跌，遠期報酬就會上升——直到差距重新開啟。風險溢酬不是勇氣的道德獎賞；它是使波動性資產得以出清的機械均衡價格。
+[VISUAL: Show animation: animation/week08_bond_basics.py scene "credit_rating_scale"]
 
-兩點重要提醒：
+**Horace:** Bonds rated BBB or above are called **investment grade**. Bonds below that are called **high yield** bonds — or more colorfully, **junk bonds**. They pay higher interest because the risk of default is higher.
 
-- **溢酬是*極長時間跨度的平均值*。** 在任何單一年份，股票的表現都可能不如國庫券。股票風險溢酬是你*在*國庫券佔優勢的年份堅持持有股票的補償。
-- **溢酬可能收窄。** 當股票已大幅上漲後，*遠期*預期報酬較低；當前股價所隱含的溢酬可能遠小於歷史平均值。席勒的景氣循環調整本益比（CAPE）是嘗試量化這一點的常見工具。2026年CAPE約在30多的高檔，所隱含的遠期股票風險溢酬接近3–4%，而非7%。這並不是預測未來十年*將會*表現不佳——而是提醒你，歷史平均值與當前預期值是不同的統計數字。
+**Stella:** This creates a tradeoff: higher risk equals higher potential return, but also a greater chance you might not get your money back.
 
-#### 2.4 系統性風險與非系統性風險
+**Horace:** As a rule of thumb — government bonds have the lowest risk. Investment-grade corporate bonds are in the middle. And high-yield bonds carry the most risk.
 
-這個區別是風險管理中最重要的單一概念性轉變。它決定了哪些風險是市場付你報酬去承擔的，哪些風險是你白白承擔的。
+[VISUAL: Risk spectrum graphic from low to high]
 
-- **非系統性（特有）風險。** 特定於某家公司、某個產業或某個部位。例如：執行長醜聞、產品召回、單一工廠火災、對某家公司的監管行動、礦難事故。**分散投資可以消除這種風險。** 持有500檔個股而非5檔，任何一檔發生執行長醜聞，對投資組合的影響不過是幾個基點，而非20%。
-- **系統性（市場）風險。** 影響整體經濟或整個市場：景氣衰退、利率變動、通膨、戰爭、疫情。**你無法透過分散投資消除它。** 即使是完全分散的股票投資組合，在1929年、1973–74年、2008年或2020年也會下跌35–55%。系統性風險就是市場透過股票風險溢酬*付你報酬*去承擔的風險。
+---
 
-馬可維茲憑此獲得諾貝爾獎的「免費午餐」洞見：**由於非系統性風險可以透過分散投資免費消除，市場不會付你報酬去承擔它。** 持有集中的五檔股票投資組合，其總風險遠高於持有標準普爾500指數，但*預期報酬*與指數基本相同（依定義，長期名目報酬約10%）。多出來的波動性是未受補償的風險，你是在*免費*承擔風險。
+## Part 5: Bonds in a Portfolio
 
-這就是指數基金的完整論據，濃縮成一句話：指數基金持有足夠多的個股，使特有風險幾乎歸零，只剩下市場確實付你報酬去承擔的系統性風險。集中型選股，*除非你具有真正的優勢*，否則只是自願承擔得不到報酬的風險。
+**Horace:** So why would you include bonds in your investment portfolio?
 
-#### 2.5 回撤——真正考驗你的風險
+**Stella:** Three main reasons: **income**, **stability**, and **diversification**.
 
-標準差是教科書上的衡量指標。**最大回撤**——權益曲線從高峰到谷底的跌幅——則是你的神經系統實際使用的指標，不管你喜不喜歡。
+[VISUAL: Show animation: animation/week08_bond_basics.py scene "bonds_in_portfolio"]
 
-下方是1950年以來標準普爾500指數的實際回撤圖。陰影部分的高峰標示出主要的空頭市場。每個事件中真正重要的數字，不只是回撤的幅度，更是*復甦所需的時間*，以及撐過那段時間所需要的心理素質。
+**Horace:** Bonds provide **income** through their regular coupon payments. If you need predictable cash flow — like in retirement — bonds can be a great source.
 
-![標準普爾500指數總報酬回撤圖，月度資料，1985–2026年（Yahoo Finance ^GSPC）。每個陰影區域代表從高峰到復甦的回撤期間。在現代資料中，四次最大的回撤分別是1987年黑色星期一（−34%）、2000–2002年網路泡沫（−49%）、2007–2009年全球金融危機（−55%），以及2020年新冠疫情崩盤（−34%）。2022年的下跌（−25%）和2018年後的波動衝擊則呈現為較小的凹陷。1973–74年的石油危機空頭（−48%）早於此月度資料序列，但包含在下方的復甦時間表中。](../image/week03_drawdowns.png)
+**Stella:** Bonds also add **stability** to a portfolio. They're generally less volatile than stocks. During stock market crashes, bonds often hold their value or even go up — especially government bonds, which investors flock to in times of uncertainty.
 
-復甦時間（從高峰到創新高），依事件分類：
+**Horace:** And **diversification** — because bonds often move differently from stocks, adding bonds to a stock portfolio can reduce your overall risk without giving up too much return.
 
-| 事件 | 回撤幅度 | 觸底月數 | 整體來回復甦時間 |
-|---|---:|---:|---:|
-| 1973–74年（石油危機） | −48% | 21 | 7.5年 |
-| 1987年黑色星期一 | −34% | 3 | 2年 |
-| 2000–02年網路泡沫 | −49% | 30 | 7年 |
-| 2007–09年全球金融危機 | −55% | 17 | 5.5年 |
-| 2020年新冠疫情 | −34% | 1 | 5個月 |
-| 2022年下跌 | −25% | 10 | 2年 |
+**Stella:** The classic "60/40 portfolio" — 60% stocks and 40% bonds — has been a standard recommendation for balanced investors for decades.
 
-從這張表格可以觀察到兩點，而這是標準差數字所無法捕捉的：
+[VISUAL: Pie chart showing 60/40 split]
 
-- **回撤對上漲年份呈現深度不對稱。** 單一年度的−48%，需要+92%才能回到原點。鐘形曲線模型將好年和壞年對稱平均，完全忽略了這一點。
-- **復甦時間與回撤深度同樣重要。** 2020年新冠崩盤的幅度與1987年崩盤相同——但1987年花了兩年復甦，2020年只花了五個月。聯準會的積極干預是背後的機械性原因。一位處於1973–74年的退休人士，必須在投資組合尚未復甦的情況下撐過*七年半*，同時還要從中提領生活費。同樣幅度的回撤，在2020年只需五個月反彈，是截然不同的問題。
+**Horace:** Of course, the right mix depends on your age, goals, and risk tolerance. Younger investors might hold more stocks; people nearing retirement might shift toward more bonds.
 
-行為層面的啟示很簡單：如果你的投資計畫無法撐過50%的回撤——意思是你會賣出——那你的計畫已經壞掉了。計畫必須是*圍繞著*回撤建立的，而不是*無視*它。
+---
 
-#### 2.6 貝塔——斜率，而非全部
+## Part 6: How to Invest in Bonds
 
-標準差衡量的是*總*風險，而**貝塔**衡量的只是*系統性*風險——與市場連動的那部分風險。
+**Horace:** Alright, so how do you actually buy bonds?
 
-正式定義：貝塔是資產報酬對市場報酬迴歸的斜率。
+**Stella:** You have a few options. First, you can buy **individual bonds** directly — through a **broker** or through TreasuryDirect.gov for U.S. government bonds.
 
-$$ \beta_i = \frac{\text{Cov}(r_i, r_M)}{\text{Var}(r_M)} $$
+**Horace:** Second, you can buy a **bond ETF** — an ETF that holds a basket of bonds. This gives you instant diversification and is easy to trade on a stock exchange, just like a stock.
 
-看斜率的意義，而非公式本身：
+**Stella:** Third, you can buy a **bond mutual fund** — similar to a bond ETF, but priced once a day instead of trading throughout the day.
 
-| 貝塔 | 意義 |
+[VISUAL: Show animation: animation/week08_bond_basics.py scene "how_to_buy_bonds"]
+
+**Horace:** For most beginning investors, bond ETFs are the simplest and most cost-effective option. Look for funds with low **expense ratios** and broad diversification.
+
+**Stella:** Some popular examples include funds that track the total U.S. bond market, short-term Treasury funds, and inflation-protected bonds, known as TIPS.
+
+---
+
+## Part 7: Common Mistakes to Avoid
+
+**Horace:** Let's wrap up with a few common mistakes beginners make with bonds.
+
+**Stella:** Mistake number one: **ignoring duration**. Duration measures how sensitive a bond's price is to interest rate changes. Longer-duration bonds drop more in price when rates rise. If you're worried about rising rates, stick to shorter-duration bonds.
+
+**Horace:** Mistake number two: **chasing yield**. It's tempting to buy the highest-yielding bond you can find. But remember — high yield means high risk. Make sure you understand WHY a bond is paying so much.
+
+**Stella:** Mistake number three: **not considering taxes**. Interest from corporate and government bonds is generally taxable. But municipal bonds may be tax-exempt. If you're in a high tax bracket, munis might be more attractive than they first appear.
+
+**Horace:** Mistake number four: **selling too early**. If you buy a bond and interest rates rise, the price drops — but if you hold to maturity, you'll still get your full face value back. Don't panic sell.
+
+[VISUAL: Show animation: animation/week08_bond_basics.py scene "common_mistakes"]
+
+---
+
+## Conclusion
+
+**Horace:** Alright, let's bring it all together. Bonds are loans you make to governments or companies in exchange for regular interest payments and the return of your principal at maturity.
+
+**Stella:** The key things to remember: bond prices move opposite to interest rates. Credit ratings tell you how risky a bond is. And bonds can add income, stability, and diversification to your portfolio.
+
+**Horace:** Next week, we'll dive deeper into bond strategies — including how to build a **bond ladder** and how to use bonds to manage interest rate risk.
+
+**Stella:** If you found this video helpful, please like and subscribe — it really helps us reach more people who are trying to learn about investing!
+
+**Horace:** See you next week!
+
+[VISUAL: End screen with subscribe button and links to previous episodes]
+
+---
+
+## Summary Table
+
+| Concept | Key Point |
 |---|---|
-| 1.0 | 與市場同步——指數基金，依定義而言 |
-| 1.5 | 波動幅度比市場大50%——典型科技股/景氣循環股 |
-| 0.5 | 波動幅度比市場小50%——公用事業、民生消費股 |
-| 0.0 | 與市場不相關——短期國庫券 |
-| < 0 | 與市場反向波動——黃金有時如此、長波動率部位 |
+| Bond | A loan to a government or company |
+| Face value / Par value | The amount repaid at maturity (usually $1,000) |
+| Coupon | Regular interest payment |
+| Maturity | When the bond expires and principal is repaid |
+| Yield | The return based on current price |
+| Yield to maturity | Total return if held to maturity |
+| Credit rating | Measures issuer's ability to repay |
+| Investment grade | Lower-risk bonds (BBB and above) |
+| High yield / Junk | Higher-risk, higher-return bonds |
+| Duration | Price sensitivity to interest rate changes |
 
-**資本資產定價模型（CAPM）**使用貝塔來計算預期報酬：
+</parameter>
+</invoke>
+</function_calls>
+<function_response>
+Successfully read file: C:\Users\hevan\AppData\Local\Temp\tmp7dh_ofrt.md
+</parameter>
+</invoke>
+</function_calls>
 
-$$ E[r_i] = r_f + \beta_i \cdot (E[r_M] - r_f) $$
+# 第八週：債券入門 — 債券是什麼？如何運作？
 
-用白話文說：一項資產的預期報酬等於無風險利率，加上該資產的貝塔乘以股票風險溢酬。資本資產定價模型出現在每一份CFA考試和每一本教科書中。**它同時也是一個在實務上表現不佳的描述框架。** 現實世界中的預期報酬截面，由其他因子（規模、價值、獲利能力、動能）的解釋力，優於貝塔——這個發現催生了整個因子投資的文獻，我們將在第23週加以介紹。請將資本資產定價模型視為每位金融從業人員都理解的正統起點，將因子模型視為實證上的精進版本。
-
-#### 2.7 時間跨度——為什麼「風險」在1年與30年的意涵截然不同
-
-金融學中討論最熱烈的議題之一，是股票在較長持有期間是否變得*風險較低*。資料給出了一個細膩的答案。
-
-對標準普爾500指數的歷史資料進行分析，計算1年、5年、10年、20年及30年滾動持有期間的*最差*與*最佳*年化報酬。結果令人印象深刻。
-
-![在標準普爾500指數上滾動持有不同期間的年化實質報酬範圍，1928–2024年（Damodaran年度資料，總報酬減去消費者物價指數）。每條線/帶狀區域顯示該持有長度的最差（紅色）、最佳（綠色）及第10至第90百分位範圍（藍色帶）。1年期間的範圍從−38%到+53%——跨度達91個百分點。30年期間的範圍則縮小至+4%到+10%。時間無法消除風險，但能大幅縮小年化結果的*合理範圍*。](../image/week03_holding_periods.png)
-
-兩件看似矛盾卻都正確的事：
-
-- **滾動報酬的範圍隨時間跨度大幅縮小。** 1年期間，歷史菜單上有從−38%到+52%的任何結果。30年期間，菜單收斂至年化約+3%到+10%。當你展望30年後，「股票從未虧錢」在過去的資料上是站得住腳的說法。
-- **不良序列的*累積美元後果*仍會複利累積。** 年化實質報酬「僅」+3%的30年期間，最終財富遠不如年化+9%的30年期間。時間縮小的是*比率*，而非*累積財富的差距*。
-
-實務意義：**時間跨度拓展了你能承擔的風險空間。** 一位25歲、收入穩定、投資期間長達40年的年輕人，可以持有比65歲退休人士高得多的股票比重——後者的投資組合必須支應未來25年的日常開銷。25歲的年輕人有時間等待50%的回撤恢復，65歲的退休人士則沒有。
-
-這就是下一段所討論的報酬序列風險。一位退休初期兩年就碰上1973–74年行情的退休人士，其財富會受到永久性損傷——在回撤期間提領的每一塊錢，都帶走了無法再複利成長的股份。一位退休15年後才遇到同樣回撤的退休人士，幾乎不受影響。**同樣的回撤、同樣的報酬分布、不同的順序、不同的結果。**
-
-#### 2.8 風險承受能力與風險承受意願——那個致命的落差
-
-最後一個區別。這是最常被忽略的，也是真正讓散戶投資組合爆倉的那一個。
-
-**風險承受能力**——你*能夠*承受多少風險，基於客觀條件：
-
-- 時間跨度
-- 收入穩定性
-- 淨資產相對於生活費的比例
-- 保險及其他緩衝機制
-- 投資組合是否支應你的生活費
-
-**風險承受意願**——你在心理上*能夠承受*多少風險：
-
-- 看到帳戶下跌30%時，你的實際反應
-- 你能否在空頭市場中安然入睡
-- 投資組合的壞消息是否影響你的人際關係、睡眠、工作
-
-落差最危險的象限是：
-
-| | 承受能力高 | 承受能力低 |
-|---|---|---|
-| **承受意願高** | *匹配。* 承擔適當風險，安然入眠。 | **危險地帶。**「我能承受波動性」＋投資組合支應你的房租＝一個壞年度就讓你一無所有。 |
-| **承受意願低** | 認知問題——你有足夠的時間跨度，但情緒驅使你在底部出場。 | *匹配。* 保守的配置是正確答案。 |
-
-兩種失敗模式：
-
-- **承受意願高，承受能力低。** 那位67歲的退休人士，看著2009–2024年的多頭市場，決定自己*相信股票*。他現在持有100%股票，已經在回撤中兩年，每年提領4%維持生活。30%的回撤迫使他在底部賣出股份以支付生活費；那些股份對他而言再也無法復甦。再多幾個壞年度，投資組合就永久受損。這是*最*常見的散戶退休爆倉方式——把自己的承受意願當成承受能力。這從來都不是同一個問題。
-- **承受意願低，承受能力高。** 那位28歲的工程師，有20年的時間跨度和健康的薪資，卻把積蓄放在高利率活存帳戶，因為「我不信任市場」。她有能力撐過50%的回撤——薪資每兩週無論如何都會入帳。她所缺乏的是讓她坐得住的*經驗*。解決之道不是「更勇敢」，而是循序漸進的曝險：小額配置、親眼看到回撤、看它恢復、再增加、如此反覆。隨著時間建立承受意願。
-
-在決定任何部位大小之前，最有用的單一問題是：**「如果這個部位下個月跌50%，我會被迫賣出嗎？」** 如果誠實的答案是肯定的，部位就太大了。削減到答案為否，不管你的「承受意願」告訴你什麼。
-
-> *「市場保持非理性的時間，可以比你維持償債能力的時間更長。」*
-> ——約翰·梅納德·凱因斯（引述）
+**課程：** 投資入門指南
+**格式：** YouTube 腳本
+**主持人：** 陳馬（鏡頭前）+ 小魚（配音）
+**時長：** 約 15 分鐘
 
 ---
 
-### 3. 常見的錯誤觀念
+## [VISUAL: Intro animation plays]
 
-**錯誤觀念1：「風險越高，報酬必然越高。」**
+**陳馬：** 大家好，歡迎回來！上週我們聊了股票 — 今天我們要進入債券的世界。不用擔心這聽起來很複雜 — 看完這支影片，你就會完全了解債券是什麼，以及投資人為什麼要用它。
 
-風險越高意味著整體*資產類別*在長期的*預期*報酬較高。這並不代表任何*單一部位*的報酬一定更高。一檔單一生技股風險極高，若臨床試驗失敗可能毫無收益。風險溢酬適用於承擔*系統性*風險的分散投資人；集中持有單一個股，承擔的是龐大的*非系統性*風險，而市場不會為此付你報酬。風險與預期報酬的正向關係，是在*資產類別層面*成立的，不是在單一部位層面。
-
-**錯誤觀念2：「只要持有夠久，股票必然上漲。」**
-
-美國股票最終總是復甦的，但「最終」可能意味著七到十五年。日本股票在1989年觸頂，直到2024年才超越那個水準——等了35年。此外還有**倖存者偏誤**的問題：我們研究美國市場，是因為它成為了20世紀最成功的股票市場。中國、俄羅斯、阿根廷、埃及在1900年都有蓬勃發展的交易所，但在隨後一個世紀中提供了−100%的實質報酬。「長期持有股票」這句話，在*已測量的樣本*上是正確的。而這個樣本是以美國為前提的。
-
-**錯誤觀念3：「標準差可以捕捉所有風險。」**
-
-它捕捉的是報酬呈常態分布假設下的*高斯型*風險。但報酬並不呈常態分布。市場具有**肥尾**特性——極端波動發生的頻率，遠高於鐘形曲線模型的預測。以高斯運算，2008年的崩盤約是一個5個標準差事件，而常態分布表示這種情況大約每14,000年才會發生一次。它發生了。1987年的崩盤（依當時模型約為22個標準差事件）也是如此。分布*主體*的標準差，無法預測*尾部*的規模或頻率——而那正是你記憶中的損失所在。這也是為什麼我們將在第47週花時間探討尾部風險避險，而非依賴鐘形曲線來決定部位大小。
-
-**錯誤觀念4：「債券是安全的。」**
-
-債券的波動性*低於*股票，但並非無風險。長期債券光是在2022年就損失了大約30%的價值——這比一般股票空頭市場的中位數回撤還要大。債券持有人也面臨通膨風險（在6%實質通膨環境下，一張4%的債券即使繳付正名目殖利率，購買力仍在縮水）以及信用風險（發行人違約）。1982–2020年的債券多頭市場，訓練了整整一個世代的投資人和顧問，讓他們習慣把「債券」和「安全」當成同義詞。它們並不是，而讓它們感覺像同義詞的那個時代，已經逆轉了。
-
-**錯誤觀念5：「低已實現波動性意味著低風險。」**
-
-有時候是，有時候不是。伯納德·馬多夫的基金從1992年起展現出出奇低的波動性和穩定的報酬——*因為那些報酬是捏造的*。長期資本管理公司的策略多年來都以極低的已實現波動性運作，然後在1998年的單一季度內爆炸，需要聯準會協調紓困。*已實現*波動性是一個觀察窗口；*風險*是所有可能結果的完整分布，包括尚未發生的那些。低波動性可能是陷阱——平靜之後是制度瓦解的前夕。
-
-**錯誤觀念6：「風險承受意願是固定的人格特質。」**
-
-它會隨著經驗、投資組合規模和人生階段而改變。一位從未見過空頭市場的25歲年輕人，往往在第一次空頭市場中發現，他在券商問卷上自我申報的承受意願只是理論上的。同一個人十年後，親眼看過兩次回撤復甦，在第三次時不假思索地安然度過。承受意願是建立出來的，不是宣告的。
-
-**錯誤觀念7：「分散投資意味著持有很多不同的基金。」**
-
-分散投資的重點在於持有*不相關的曝險*。持有十家不同投資管理公司管理的十檔美國大型股基金，幾乎什麼都改變不了——它們持有的個股大致相同，有相同的貝塔，而且在同一時間下跌。持有一檔美股基金、一檔長期國庫券基金、黃金，以及一個長波動率避險工具，才能給你*真正的*分散投資，因為這些資產對相同的總體衝擊會有不同的反應。基金數量是虛榮指標。不同的風險因子數量才是真正的指標。
+**小魚：** 而且債券其實是完整投資組合中最重要的一環。那我們就開始吧！
 
 ---
 
-### 4. 問答
+## 第一部分：什麼是債券？
 
-**問1：如果我永遠無法消除系統性風險，為什麼還要在股票內部進行分散投資？**
+**陳馬：** 那麼 — 什麼是債券？債券就是一種借貸。但不是跟銀行借錢，而是政府或企業直接向投資人借錢 — 也就是向你借。
 
-答：是為了消除你*得不到報酬*去承擔的*非系統性*風險。持有500檔個股而非5檔，可以將特有風險降至幾乎為零，只剩下股票溢酬本來就是補償*你去承擔的*系統性風險。五檔股票的投資組合比指數有更多的*總*風險，但預期報酬相同——多出來的風險是你吃反的免費午餐。
+[VISUAL: Show animation: animation/week08_bond_basics.py scene "intro_loan"]
 
-**問2：比特幣的波動性超過70%。同樣的風險溢酬邏輯適用嗎？**
+**小魚：** 當你買入一張債券，你就是放款方。債券發行人 — 不管是美國政府、某個城市，還是一家公司 — 就是借款方。他們承諾在一段時間後還給你本金，並在這段期間定期支付利息。
 
-答：原則上是的——比特幣的預期報酬必須高到足以以其波動性出清。但實際上，比特幣的預期報酬*無法*單憑價格歷史推算，因為這項資產太年輕，其貨幣制度仍在博弈過程中。標準風險溢酬計算使用100年的資料來三角定位股票溢酬；對比特幣而言，你只有15年的資料，其中前8年幾乎是零採用率，後7年才是完整的價格歷史。套用這個框架，但別假裝估計值的標準誤差很小。
+**陳馬：** 這個到期償還的金額稱為**面值**或**票面價值** — 通常每張債券是 1,000 美元。定期支付的利息稱為**票面利率**支付。而借款的期限稱為**到期日** — 可能是 2 年、10 年，甚至 30 年。
 
-**問3：如何誠實地評估自己的風險承受意願？**
+**小魚：** 舉個例子，假設你買了一張 10 年期債券，面值 1,000 美元，票面利率 5%。這代表你每年可以收到 50 美元，持續 10 年，最後還能拿回 1,000 美元的本金。
 
-答：兩個步驟，按順序進行。首先，做一個誠實的*承受能力*評估：時間跨度、收入穩定性、生活費對投資組合的依賴程度。其次，將少量資金配置到波動性較高的資產，然後*觀察自己在回撤期間的實際感受*。券商問卷上的自我申報風險承受意願，與真實空頭市場中的行為相關性很低。承受意願是觀察出來的，不是宣告的。
+[VISUAL: Show animation: animation/week08_bond_basics.py scene "coupon_cashflows"]
 
-**問4：如果債券不再是可靠的通膨避險工具，為什麼60/40還是傳統的投資組合配置？**
-
-答：60/40是圍繞著一個特定的40年視窗（1982–2020年）建立的，在那段期間：(a) 債券殖利率高於通膨，且 (b) 股票下跌時債券上漲。這兩點在2022年都打破了，當時股票和債券各自下跌約20%。傳統的60/40是一個與舊時代環境相符的*遺產型*配置。現代的替代方案，是將部分或全部的債券部分，替換為現金、黃金和長波動率避險工具（第47週，第五級）。
-
-**問5：對散戶投資人而言，最有用的單一風險數字是什麼？**
-
-答：你所採用策略的**最大回撤**，以*你的*投資組合金額計算。將你的投資組合價值乘以0.5（每十年一次的可能股票回撤），然後問自己，螢幕上出現的那個紅字金額，是否會迫使你做出糟糕的決策。如果是，你對風險的配置過高。如果不是，你可以繼續。
-
-**問6：如果標準差不夠好，教科書為什麼還一直使用它？**
-
-答：因為它有良好的數學特性（在線性組合下可加，易於從資料中估計，在模型中行為良好），而非因為它捕捉到了真正重要的風險。標準差是分布*主體*的有效*摘要*。它無法描述*尾部*——而那正是你記憶中損失實際發生的地方。誠實的專業人士同時使用標準差、最大回撤以及尾部事件分析——從來不會只單獨使用任何一個。
-
-**問7：波動性對投資人而言是好事還是壞事？**
-
-答：對於多年來定期定額投資的*買入者*而言，溫和的波動性略有好處（在下跌期間以折價買入）。對於坐擁累積財富的*持有者*而言，波動性大多是做生意的成本——在預期報酬上不是「壞事」，但卻是你必須承載的情緒負擔。對於提領階段的*賣出者*而言，波動性由於報酬序列風險而具有真實的代價。同樣的數字在不同人生階段有不同的意義。
-
-**問8：「肥尾」對我的部位大小實際上意味著什麼？**
-
-答：無論常態分布模型說什麼是「極端」回撤——設定部位大小時，要假設兩倍深度的回撤是真實可能的。2008年全球金融危機在當時盛行的風險模型下是一個5個標準差事件；有能力撐過正確量級的5個標準差事件（也就是美國大型股約50%，而非模型預測的約25%），才是讓投資人留在市場中的關鍵。速記原則：*每個十年，隨時可能無預警打五折，做好準備。*
-
-**問9：「槓鈴式」配置與標準差有什麼關係？**
-
-答：槓鈴式配置*利用*肥尾分布。透過在一端持有高確信度的安全資產（短期國庫券、黃金、現金），另一端持有下跌有限的不對稱投機工具（買權、長波動率結構），所形成的投資組合算術標準差*高於*被動分散的核心配置，但回撤特性*更佳*，對尾部事件的反應*更好*。單看標準差會讓它顯得「風險更高」；看回撤分布則顯示它實際上並非如此。這是第14週/第五級的主題，但這個框架對於理解本課很重要。
-
-**問10：這堂課與整個課程的其餘部分有什麼關聯？**
-
-答：風險與報酬是後續所有內容的基礎。第4週（60/40）和第7週（再平衡）是塑造多資產投資組合風險特性的練習。第13週起（多/空、配對交易）是關於如何去除系統性風險並隔離特定賭注。第25–30週（選擇權）是以不對稱方式*表達*風險的工具箱。第47週（尾部風險）是對本課所開啟的肥尾問題的明確處理。後續每一個策略都將以其風險特性來評估——不只是報酬。
-
-網站上的互動示範將本課延伸為一個**持有期探索工具**：一個滑桿讓你選擇任意從1到30年的滾動視窗，圖表顯示該視窗的歷史年化實質報酬分布——最佳、最差、中位數，以及期末低於零的機率。1年和20年時的分布形狀基本上就是§2.7的圖表，但你可以在兩者之間滑動，看著尾部逐漸收窄。
+**陳馬：** 很簡單吧？現在我們來聊聊不同種類的債券。
 
 ---
 
-## 第二部分：YouTube 腳本
+## 第二部分：債券的種類
+
+**陳馬：** 債券主要分三大類 — 政府公債、公司債，以及市政債券。
+
+[VISUAL: Show three-column table or graphic]
+
+**小魚：** 第一類是**政府公債** — 在美國也叫做**國庫券**。這是由聯邦政府發行的，被認為是最安全的債券，因為美國政府從未發生過**違約**。依到期期限不同，分為短期國庫券、中期公債和長期公債。
+
+**陳馬：** 第二類是**公司債** — 由企業發行。像蘋果或福特這樣的公司可能會發行債券，為新專案或擴張計畫籌資。因為企業的風險高於政府，所以必須提供更高的利率來吸引投資人。
+
+**小魚：** 第三類是**市政債券** — 由州政府、城市或地方政府發行，用來為學校、公路和醫院等建設籌資。一大優勢是：這類債券的利息在聯邦層級通常享有**免稅**待遇。
+
+[VISUAL: Show animation: animation/week08_bond_basics.py scene "bond_types_comparison"]
+
+**陳馬：** 債券發行人風險愈高，就必須提供愈高的利率 — 這是投資人要求的條件。我們在第四部分會進一步談風險和**信用評等**。
 
 ---
 
-**影片標題：** 風險與報酬——兩股力量（以及五個標準差的謊言）| 第三週
+## 第三部分：債券價格如何運作
 
-**目標時長：** 約22分鐘
+**陳馬：** 好，接下來進入有趣的部分。債券價格和利率的走向是**相反的**。這是固定收益投資中最重要的概念之一。
 
-**主持人：**
-- **陳馬**（講師）
-- **小魚**（學員）
+[VISUAL: Show animation: animation/week08_bond_basics.py scene "price_yield_seesaw"]
 
----
+**小魚：** 讓我來解釋。假設你持有一張支付 3% 利息的債券。然後市場利率上升到 5%。現在新發行的債券支付 5%，但你的只有 3%。誰會想要你的債券？沒有人 — 除非你以折價賣出。所以你的債券價格就會下跌。
 
-**[開場]**
+**陳馬：** 反過來也一樣。如果利率下降，你那 3% 的債券比起只支付 2% 的新債券就更有吸引力。所以你的債券變得更有價值 — 價格上漲。
 
-[VISUAL: title card "Week 3 — Risk and Return"]
+**小魚：** 這就是為什麼債券價格會在市場上波動，即使票面利率是固定的。**殖利率** — 也就是依照你付出的價格所能獲得的實際報酬 — 會隨著市場狀況調整。
 
-**陳馬：** 兩週下來，我們確立了兩件事：通膨是地心引力，所以你必須投資。而對幾乎所有人來說，正確的預設選項是低成本的指數股票型基金。今天這堂課，我要告訴你*持有*那檔指數股票型基金的真實感受——因為背後的運作機制，決定了你是在底部賣出，還是撐過去繼續持有。
+**陳馬：** 還有一個概念叫做**到期殖利率** — 也就是 YTM — 這是假設你持有債券直到到期日所能獲得的總報酬。它同時考慮了票面利率支付，以及你購買價格與面值之間的差額。
 
-**小魚：** 而那套機制就是風險與報酬。
+[VISUAL: Show animation: animation/week08_bond_basics.py scene "ytm_explained"]
 
-**陳馬：** 兩股力量。它們密不可分。散戶投資幾乎所有的錯誤，都來自於專注第一股力量而忽略第二股。
+**小魚：** 關鍵重點：當你聽到「利率上升」，就代表債券價格下跌。當利率下降，債券價格就上漲。
 
 ---
 
-**[第一段：風險究竟是什麼]**
+## 第四部分：信用評等與風險
 
-**陳馬：** 暫時忘掉字典的定義。在金融領域，風險是*結果的不確定性*。殖利率4.3%的國庫券——你幾乎確切知道三個月後會有多少。生技股——你可能漲400%也可能跌90%。生技股的風險不在於它*很差*；它的風險在於未來是*不可知的*。
+**陳馬：** 並非所有債券都一樣。債券的風險很大程度取決於發行人的信用狀況 — 他們真的有能力還款嗎？
 
-**小魚：** 所以波動性就是風險？
+**小魚：** 這就是**信用評等**的用途。穆迪、標普和惠譽等評等機構根據債券發行人的財務狀況進行評等。評等從 AAA — 最高品質 — 一路到 D，代表發行人已經**違約**。
 
-**陳馬：** 波動性是衡量風險的一種*指標*，它本身不等於風險。一個部位可以平靜好幾年，然後在一個月內爆炸。你在圖表上看到的已實現價格震盪，和未來結果的真實機率分布，是不同的東西。
+[VISUAL: Show animation: animation/week08_bond_basics.py scene "credit_rating_scale"]
 
-[ANIMATION: animation/week03_definitions.mp4 — three panels: T-bill range very tight, S&P 500 range medium-wide, single biotech range extremely wide.]
+**陳馬：** 評等在 BBB 以上的債券稱為**投資等級**債券。評等在此以下的稱為**高收益**債券 — 或者更生動地說，**垃圾債券**。它們支付更高的利息，因為**違約**風險更高。
 
----
+**小魚：** 這形成了一個取捨：風險越高，潛在報酬越高，但拿不回本金的可能性也越大。
 
-**[第二段：那條不存在的鐘形曲線]**
+**陳馬：** 大原則是 — 政府公債風險最低。**投資等級**公司債居中。而**高收益**債券風險最高。
 
-[VISUAL: cut to the historical-distribution image — image/week03_return_distribution.png]
-
-**陳馬：** 這是標準普爾500指數從1928年到去年的實際年度報酬。疊加的平滑曲線是常態分布，用相同的均值和標準差描繪報酬*應該*長成的樣子。
-
-**小魚：** 實際資料的尾部比曲線更厚。
-
-**陳馬：** 厚得多。看看1931年，看看2008年，再看看上漲方的1933年。這些在鐘形曲線模型下都不應該發生。但它們發生了。標準教科書對風險的處理使用鐘形曲線。誠實的處理則指出，市場具有我們所說的*肥尾*特性，而任何模型說是「5個標準差事件」的東西——常態曲線說大約每一萬四千年才會發生一次——在真實市場中大約每十年就會發生一次。
-
-**小魚：** 所以當電視上有人說「這是一個5個標準差的波動」——
-
-**陳馬：** 他們是在承認自己的模型是錯的。那句話應該讓你失笑，而不是點頭稱是。
+[VISUAL: Risk spectrum graphic from low to high]
 
 ---
 
-**[第三段：股票風險溢酬]**
+## 第五部分：債券在投資組合中的角色
 
-**陳馬：** 現在談第二股力量。為什麼股票的報酬比國庫券高？因為投資人厭惡損失。如果股票的預期報酬和債券相同，沒有理性的投資人會持有波動性較高的資產。所以股票的價格會下跌，直到*遠期*預期報酬高到足以補償那個波動性。這個差距就是股票風險溢酬。歷史上大約是每年五到七個百分點。
+**陳馬：** 那麼，為什麼要在投資組合中納入債券呢？
 
-**小魚：** 「歷史上」這兩個字在這句話裡承擔了很多重量。
+**小魚：** 主要有三個原因：**收益**、**穩定性**，以及**分散投資**。
 
-**陳馬：** 確實。*當前*股價所隱含的遠期溢酬，比長期歷史平均值要小得多。席勒的景氣循環調整本益比現在在30多的高位。在這樣的估值水準下，遠期預期實質報酬大約是3–4%，而非7%。這不代表未來十年*將會*表現不佳——但它意味著歷史平均值和當前預期值是不同的統計數字。
+[VISUAL: Show animation: animation/week08_bond_basics.py scene "bonds_in_portfolio"]
 
----
+**陳馬：** 債券透過定期的票面利率支付提供**收益**。如果你需要可預期的現金流 — 例如退休之後 — 債券可以是很好的來源。
 
-**[第四段：系統性風險與非系統性風險]**
+**小魚：** 債券也能為投資組合增添**穩定性**。它們通常比股票的波動性低。在股市崩盤時，債券往往能維持價值，甚至上漲 — 尤其是政府公債，在動盪時期會吸引資金湧入。
 
-[VISUAL: animation/week03_diversification.mp4 — five stocks → 50 stocks → 500 stocks; idiosyncratic noise melting away while a floor of systematic vol remains.]
+**陳馬：** 還有**分散投資** — 因為債券的走勢通常與股票不同，在股票投資組合中加入債券，可以在不犧牲太多報酬的情況下降低整體風險。
 
-**陳馬：** 風險有兩種。*非系統性*風險特定於某家公司——執行長醜聞、工廠火災、藥物試驗失敗。*系統性*風險是影響整體市場的——景氣衰退、通膨、戰爭。
+**小魚：** 經典的「六四投資組合」— 60% 股票加 40% 債券 — 幾十年來一直是穩健型投資人的標準建議。
 
-**小魚：** 其中一種我可以透過分散投資消除。
+[VISUAL: Pie chart showing 60/40 split]
 
-**陳馬：** 非系統性的，可以。持有500檔個股而非5檔，任何一家公司發生執行長醜聞，對投資組合的影響不過幾個基點。系統性的——2008年的35%回撤、新冠疫情的空頭、網路泡沫崩盤——你無法透過分散投資逃脫。*而且市場只為系統性風險付你報酬。*
-
-**小魚：** 所以如果我持有五檔股票的投資組合……
-
-**陳馬：** 你承擔了非系統性風險加上系統性風險，但市場只為後者付你報酬。這就是指數基金的完整論據，濃縮在一句話裡。
+**陳馬：** 當然，最適合的比例還是取決於你的年齡、目標和風險承受能力。年輕投資人可能持有更多股票；接近退休的人可能會逐漸轉向更多債券。
 
 ---
 
-**[第五段：回撤——你的神經系統真正使用的數字]**
+## 第六部分：如何投資債券
 
-[VISUAL: cut to image/week03_drawdowns.png and walk through the four big bear markets.]
+**陳馬：** 好，那你實際上要怎麼買債券呢？
 
-**陳馬：** 標準差是教科書使用的。*回撤*——從高峰到谷底——是你的神經系統使用的。看這張圖，四次主要的空頭市場：1973–74年、網路泡沫、全球金融危機、新冠疫情。
+**小魚：** 你有幾個選擇。第一，你可以直接購買**個別債券** — 透過**券商**，或者透過 TreasuryDirect.gov 購買美國政府公債。
 
-**小魚：** 新冠那次在時間軸上看起來比其他的小很多。
+**陳馬：** 第二，你可以買**債券指數股票型基金** — 也就是持有一籃子債券的指數股票型基金。這讓你立即實現分散投資，而且就像股票一樣，可以在交易所輕鬆買賣。
 
-**陳馬：** 幅度相同——約34%——但復甦只花了五個月，而非七年半。聯準會的干預是背後的機械性原因。同樣的回撤，在不同的十年體驗起來完全不同。
+**小魚：** 第三，你可以買**債券共同基金** — 類似債券指數股票型基金，但每天只定價一次，而不是全天交易。
 
-**小魚：** 如果我是1973年的退休人士呢？
+[VISUAL: Show animation: animation/week08_bond_basics.py scene "how_to_buy_bonds"]
 
-**陳馬：** 你會在投資組合未能復甦的情況下，撐過七年半，同時還要從中提領生活費。那就是報酬序列風險，也是為什麼「長期持有股票」在25歲聽起來，和在65歲聽起來截然不同。
+**陳馬：** 對大多數初學投資人來說，債券指數股票型基金是最簡單、最具成本效益的選擇。選擇費用率低、分散投資廣泛的基金。
 
----
-
-**[第六段：時間跨度壓縮了範圍]**
-
-[VISUAL: cut to image/week03_holding_periods.png]
-
-**陳馬：** 現在說好消息。看這張滾動報酬圖。1年期間，美國股票的報酬從負38%到正52%都有。30年後，最差約是正3%的實質報酬，最佳約是正10%。
-
-**小魚：** 時間壓縮了範圍。
-
-**陳馬：** 是*年化比率*的範圍。不良序列的累積美元後果仍然會複利累積——30年期間年化正3%的實質報酬，比正9%的結果要貧乏得多。但「股票在30年後一定賺錢」，在美國的樣本資料上是站得住腳的。附帶說明是*在美國的樣本上*。倖存者偏誤是真實存在的。
+**小魚：** 一些常見的例子包括追蹤美國整體債券市場的基金、短期國庫券基金，以及抗通膨債券，也就是俗稱的 TIPS。
 
 ---
 
-**[第七段：承受能力與承受意願——人們爆倉的地方]**
+## 第七部分：常見錯誤要避免
 
-**陳馬：** 最後一個概念，也是最重要的。兩個不同的想法，卻常常被混為一談。
+**陳馬：** 最後來聊聊初學者在債券投資上常犯的幾個錯誤。
 
-*風險承受能力*——你能承擔多少。時間跨度、收入、投資組合是否支應你的房租。這是客觀的。
+**小魚：** 第一個錯誤：**忽略存續期間**。存續期間衡量的是債券價格對利率變動的敏感程度。存續期間越長的債券，在利率上升時價格跌幅越大。如果你擔心利率上升，就選擇存續期間較短的債券。
 
-*風險承受意願*——你看著帳戶下跌時的實際感受。這是主觀的。
+**陳馬：** 第二個錯誤：**追逐殖利率**。買能找到的殖利率最高的債券很誘人。但記住 — 高收益代表高風險。要確保你了解為什麼這張債券支付這麼多。
 
-**小魚：** 而危險的組合是高承受意願、低承受能力。
+**小魚：** 第三個錯誤：**沒有考慮稅負**。公司債和政府公債的利息通常需要課稅。但市政債券可能享有免稅待遇。如果你處於高稅率級距，市政債券的吸引力可能比表面上看起來更高。
 
-**陳馬：** 那位67歲的退休人士，看著2010年代說他相信股票，持有100%股票，每年提領4%生活，然後遇到30%的回撤，被迫在底部賣出股份付房租。他賣掉的那些股份，*對他而言*再也無法復甦。這就是典型的散戶退休爆倉。他有承受意願——但他沒有承受損失的能力。這兩個從來都不是同一個問題。
+**陳馬：** 第四個錯誤：**過早賣出**。如果你買了一張債券後利率上升，價格雖然下跌 — 但如果你持有到到期日，你仍然可以拿回完整的面值。不要恐慌性賣出。
 
-**小魚：** 解決之道是什麼？
-
-**陳馬：** 根據你的*承受能力*決定部位大小，而非你的*承受意願*。決定任何部位大小之前，最有用的問題是：*如果這個部位下個月跌50%，我會被迫賣出嗎？* 如果是，部位就太大了。削減到答案為否，不管你自以為多麼無懼。
+[VISUAL: Show animation: animation/week08_bond_basics.py scene "common_mistakes"]
 
 ---
 
-**[結尾]**
+## 結語
 
-**陳馬：** 下週我們建立第一個多資產投資組合——經典的60/40配置。我們會看到它為什麼在四十年間有效、為什麼在2022年失效，以及人們正在用什麼來取代它。今天學到的風險與報酬概念，就是我們用來比較的視角。
+**陳馬：** 好，讓我們來做個總結。債券是你借給政府或企業的資金，換取定期利息支付，以及到期時的本金返還。
 
-**小魚：** 網站上的互動工具呢？
+**小魚：** 幾個重點要記住：債券價格與利率走向相反。信用評等告訴你債券的風險有多高。而債券能為你的投資組合帶來收益、穩定性和分散投資效果。
 
-**陳馬：** 持有期探索工具。拉動時間視窗的滑桿，看年化實質報酬的分布。在1年到30年之間滑動，看著尾部逐漸收窄。在下週之前玩玩看。
+**陳馬：** 下週，我們會深入探討債券策略 — 包括如何建立**債券梯**，以及如何用債券管理利率風險。
+
+**小魚：** 如果你覺得這支影片有幫助，請按讚並訂閱 — 這對我們觸及更多想學投資的人真的很有幫助！
+
+**陳馬：** 下週見！
+
+[VISUAL: End screen with subscribe button and links to previous episodes]
 
 ---
 
-**結尾畫面：** 「下集：第四週——60/40投資組合」
+## 摘要表格
+
+| 概念 | 重點說明 |
+|---|---|
+| 債券 | 借給政府或企業的資金 |
+| 面值／票面價值 | 到期時償還的金額（通常為 1,000 美元） |
+| 票面利率 | 定期利息支付 |
+| 到期日 | 債券到期、本金返還的時間點 |
+| 殖利率 | 依當前價格計算的報酬 |
+| 到期殖利率 | 持有至到期日的總報酬 |
+| 信用評等 | 衡量發行人償債能力的指標 |
+| 投資等級 | 較低風險的債券（BBB 以上） |
+| 高收益／垃圾債券 | 風險較高、潛在報酬較高的債券 |
+| 存續期間 | 債券價格對利率變動的敏感程度 |

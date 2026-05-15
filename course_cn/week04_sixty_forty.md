@@ -1,287 +1,337 @@
-# 第四周：60/40投资组合——为何曾经有效，以及2022年为何打破了它
+<function_calls>
+<invoke name="view">
+<parameter name="path">C:\Users\hevan\AppData\Local\Temp\tmphzp4lwst.md</parameter>
+</invoke>
+</function_calls>
+<function_response>
+# Week 10, Lesson 4: Backtesting a Simple Momentum Strategy
+
+## Overview
+
+In this lesson, we build and backtest a straightforward momentum strategy.
+
+**Host:** Horace
+**Format:** Monologue with screen share
 
 ---
 
-## 第一部分：阅读材料
+## Script
+
+**Horace:** Last week, we talked about how momentum works conceptually — assets that have gone up recently tend to keep going up, at least for a while.
+
+Today, let's actually test that idea. We're going to build a simple momentum strategy from scratch and backtest it on historical data.
+
+[VISUAL: Screen share — Python notebook open]
+
+Here's the setup:
+- We'll use a universe of large-cap stocks in the S&P 500.
+- Every month, we'll rank them by 12-month return (excluding the most recent month — that's standard practice).
+- We'll go long the top 20% and short the bottom 20%.
+- We'll hold for one month and then rebalance.
+
+Let's write the code.
+
+[CUT TO: Code typing sequence]
+
+```python
+import pandas as pd
+import numpy as np
+
+# Load monthly return data
+returns = pd.read_csv("sp500_monthly_returns.csv", index_col=0, parse_dates=True)
+
+# Rank stocks each month by 12-1 momentum
+lookback = 12
+skip = 1
+
+momentum_scores = returns.shift(skip).rolling(lookback).sum()
+
+# Long top quintile, short bottom quintile
+def get_quintile_portfolio(scores):
+    ranked = scores.rank(pct=True)
+    long_mask = ranked >= 0.8
+    short_mask = ranked <= 0.2
+    long_weights = long_mask / long_mask.sum()
+    short_weights = short_mask / short_mask.sum()
+    return long_weights - short_weights
+
+monthly_weights = momentum_scores.apply(get_quintile_portfolio, axis=1)
+
+# Portfolio returns
+portfolio_returns = (monthly_weights.shift(1) * returns).sum(axis=1)
+```
+
+[VISUAL: Code appears line by line]
+
+OK, so what did we just do?
+
+We loaded historical monthly returns for S&P 500 stocks. We calculated momentum as the cumulative return over the past 12 months, but we skip the most recent month because short-term reversal is well-documented — the very last month can actually go against you.
+
+Then we sorted stocks into quintiles — top 20% go long, bottom 20% go short.
+
+[ANIMATION: animation/week10_momentum_ranking.py]
+
+Let's look at the results.
+
+```python
+cumulative = (1 + portfolio_returns).cumprod()
+cumulative.plot(title="Momentum Strategy Cumulative Return")
+```
+
+[VISUAL: Equity curve chart appears]
+
+You can see the strategy has a nice upward slope over time — which confirms the momentum premium is real.
+
+But here's where it gets interesting. Let's calculate some performance stats.
+
+```python
+sharpe = portfolio_returns.mean() / portfolio_returns.std() * np.sqrt(12)
+max_dd = (cumulative / cumulative.cummax() - 1).min()
+
+print(f"Annualized Sharpe Ratio: {sharpe:.2f}")
+print(f"Max Drawdown: {max_dd:.2%}")
+```
+
+**Horace:** A Sharpe ratio around 0.5 to 0.7 is typical for a simple momentum strategy. And you'll notice the max drawdown can be quite severe — momentum strategies are notorious for sudden crashes. In 2009, after the financial crisis, momentum had one of its worst crashes ever. Stocks that had been going down kept getting shorted, then when the market reversed hard, those shorts got crushed.
+
+[VISUAL: Drawdown chart showing 2009 crash]
+
+This is called a momentum crash, and it's a real risk you need to account for.
+
+A few ways to manage it:
+- Volatility scaling: reduce position size when volatility is high
+- Crash protection: cut exposure when the broad market is in a downtrend
+- Diversification across asset classes, not just equities
+
+[ANIMATION: animation/week10_momentum_crash_overlay.py]
+
+Let's also check what this strategy looks like broken down by sector.
+
+```python
+sector_returns = portfolio_returns.groupby(sector_map, axis=1).sum()
+sector_returns.cumplot()
+```
+
+**Horace:** You'll often find that momentum tends to concentrate in a few hot sectors — tech, energy, consumer discretionary — depending on the market environment. That's actually one of the critiques of momentum: it can become very sector-concentrated.
+
+[VISUAL: Sector breakdown bar chart]
+
+One more thing I want to show you — transaction costs.
+
+```python
+turnover = monthly_weights.diff().abs().sum(axis=1)
+cost_per_trade = 0.001  # 10 bps per side
+transaction_costs = turnover * cost_per_trade
+net_returns = portfolio_returns - transaction_costs
+
+net_sharpe = net_returns.mean() / net_returns.std() * np.sqrt(12)
+print(f"Net Sharpe after costs: {net_sharpe:.2f}")
+```
+
+**Horace:** Momentum strategies have high turnover — you're replacing 20% of your portfolio every month. That adds up. After realistic transaction costs, your Sharpe ratio might drop from 0.6 to 0.4. Still positive, but not as impressive. And for smaller accounts, slippage makes this worse.
+
+[VISUAL: Table comparing gross vs net performance]
+
+So what's the takeaway here?
+
+Momentum works. The academic evidence is solid — it's been documented across asset classes, time periods, and geographies. But it's not easy to harvest:
+- It crashes at the worst times
+- Transaction costs eat into returns
+- Concentration risk is real
+
+This is why most practitioners combine momentum with other factors — value, quality, low volatility — to build a more robust portfolio.
+
+[ANIMATION: animation/week10_multi_factor_combination.py]
+
+Next week, we'll look at how to combine momentum with a value factor to smooth out some of these rough edges.
 
 ---
 
-### 1. 为何这一话题至关重要
+## Key Concepts
 
-六成股票，四成债券。这是投资史上最著名的资产配置方案，是每位理财顾问的默认选择，是所有平衡型基金的参照基准，也是——直至2022年——教科书所能给出的最接近"买入搁置"的投资组合。
-
-无论你最终是否采用60/40，都有四个理由让你必须理解它。
-
-1. **它是基准线。** 每一种更复杂的策略——风险平价、趋势跟踪、因子投资倾斜、我们将在第十四周介绍的杠铃策略——都以60/40作为比较基准。如果你不了解它所改进的对象，就无法评估上述任何一种策略。
-2. **它展示了分散投资真正能带来什么。** 当股票与债券呈负相关性时，60/40组合能以约60%的股票风险获取约80%的股票收益。这并非简单的算术结果，而是投资组合波动性上的*相关性折价*，这正是马科维茨荣获诺贝尔奖的核心洞见。
-3. **它揭示了分散投资的局限。** 2022年，股票和债券双双下跌约18%，这是60/40自1937年以来最糟糕的一年。理解*为何*如此，比亏损本身更为重要：支撑60/40运作长达四十年的宏观格局有其特定特征，而这一特征已然逆转。
-4. **它告诉你：相关性是投资组合构建中最关键的变量。** 收益率改变的是你财富的绝对水平，而相关性改变的是收益分布的*形态*。2022年股债相关性的符号发生了翻转，整个行业至今仍在消化其影响。
-
-本课涵盖以下内容：60/40的起源与运作机制、各年代的历史表现、相关性历史演变、2022年的崩溃，以及现代改良方案。
+- **12-1 momentum**: 12-month lookback, skip most recent month
+- **Quintile portfolio**: Long top 20%, short bottom 20%
+- **Momentum crash**: Sharp reversal that hurts momentum strategies
+- **Transaction costs**: High turnover reduces net returns
+- **Factor combination**: Combining momentum with value improves stability
 
 ---
 
-### 2. 核心知识要点
+## Visuals Needed
 
-#### 2.1 运作机制——为何要将股票与债券混合？
+| Timestamp | Visual |
+|-----------|--------|
+| 0:30 | Python notebook setup |
+| 2:00 | Momentum ranking animation |
+| 4:00 | Equity curve chart |
+| 6:00 | Drawdown chart — 2009 crash |
+| 8:00 | Sector breakdown bar chart |
+| 10:00 | Gross vs net performance table |
 
-核心洞见只有一条：**投资组合的波动性并不等于各部分波动性的加权平均值。**
+</parameter>
+</invoke>
+</function_calls>
 
-对于权重为 $w_1, w_2$、标准差为 $\sigma_1, \sigma_2$、相关性为 $\rho$ 的两类资产：
+# 第10周，第4课：回测一个简单的动量策略
 
-$$ \sigma_p = \sqrt{w_1^2 \sigma_1^2 + w_2^2 \sigma_2^2 + 2 w_1 w_2 \sigma_1 \sigma_2 \rho} $$
+## 概述
 
-当 $\rho < 1$ 时，该平方根的值*小于*加权平均波动性。越接近 $\rho = -1$，降险效果越显著。**分散投资本质上是相关性的数学运算。**
+本课中，我们将构建并回测一个简单的动量策略。
 
-以美股（$\sigma \approx 16\%$）与美国国债（$\sigma \approx 6\%$）为例，在不同长期相关性水平下：
-
-| 股债相关性 ρ | 60/40 标准差 | 分散投资效果 |
-|---|---:|---|
-| +1.0（完全正相关） | 12.0% | 无——即为纯加权平均 |
-| 0.0（不相关） | 10.1% | 波动性降低约16% |
-| −0.3（1990年代至2010年代典型水平） | 9.4% | 降低约22% |
-| −1.0（理论极值） | 7.2% | 最大降幅 |
-
-1990年代至2010年代的市场格局使股债平均相关性维持在约−0.3的水平，这正是60/40长期表现优异的根本原因。其关键**不在于**任何一类资产的预期收益，而在于两者之间的交叉相关性。
-
-#### 2.2 历史表现——长达四十年的顺风期
-
-下图展示了1928年以来，100%股票、100%国债以及60/40（均每年再平衡）三种投资组合的累计实际财富增长（经消费者物价指数平减后）。
-
-![从1928年至2024年三类投资组合的累计实际财富（达摩德仁年度数据，初始投入1美元，对数坐标，经消费者物价指数平减后的实际值）。图中三条曲线：100% 标准普尔500指数（斜率最陡、波动最大）、100%美国10年期国债（最平滑但终值最低）、每年再平衡的60/40（走在两者之间，在获取股票大部分复利增长的同时，回撤明显更浅——尤其在1937年、1973至1974年、2000至2002年和2008年的低谷期）。60/40曲线的终值接近100%股票，但期间的低谷明显较浅。](../image/week04_sixty_forty_growth.png)
-
-从图的最右端读起。以实际值计算，1928年投入的1美元到2024年大约变为：
-
-- 100%股票：约763美元
-- 60/40：约304美元
-- 100%债券：约9美元
-
-债券单一持有在整个世纪中几乎勉强跑赢通胀——国债的长期实际年化收益率约为1.5%。股票实际复利增长率约为7%，60/40约为5.7%，在复利增长率层面达到股票收益的三分之二，同时沿途的回撤幅度明显更小。
-
-从各年代来看，情况更为复杂：
-
-| 年代 | 60/40（实际年化） | 股票（实际年化） | 债券（实际年化） | 60/40最大回撤 |
-|---|---:|---:|---:|---:|
-| 1930年代 | 1.0% | -0.1% | 4.7% | -28% |
-| 1940年代 | 1.6% | 3.6% | -3.5% | -13% |
-| 1950年代 | 12.5% | 16.7% | -2.6% | -8% |
-| 1960年代 | 3.5% | 5.0% | -0.7% | -14% |
-| 1970年代 | -0.7% | -1.4% | -1.0% | -18% |
-| 1980年代 | 9.7% | 12.0% | 7.2% | -8% |
-| 1990年代 | 8.7% | 14.8% | 4.6% | -6% |
-| 2000年代 | 1.8% | -3.4% | 4.4% | -33% |
-| 2010年代 | 6.8% | 11.4% | 1.6% | -10% |
-| 2020至2024年 | 1.6% | 6.7% | -3.5% | -22% |
-
-1980年代和1990年代是奠定60/40声誉的两个十年：债券实际年化收益超过7%，股票实际年化收益超过12%，股债相关性约为−0.3至−0.4。无论哪类资产下跌，另一类往往上涨，而每年再平衡的操作会*奖励*你机械地买入表现较弱的那一类。
-
-2020至2024年这一行的数据，正是当今业界最为忧虑之处。
-
-#### 2.3 相关性演变——隐藏的关键变量
-
-下图展示了1928年以来美国股票与美国国债滚动36个月相关性的变化走势。本课最核心的事实就藏在这张图里。
-
-![1928年至2024年美国股票年化收益与美国国债年化收益的滚动36个月相关性（达摩德仁数据）。相关性大幅波动：1970年代呈强正相关（约+0.6），约1997年穿越零轴转负，2000至2020年间长期维持深度负相关（-0.4至-0.6），2022年起急剧反转为正。](../image/week04_stock_bond_corr.png)
-
-图中清晰呈现三个阶段：
-
-- **1928至1997年：股票与债券通常同向波动。** 通胀是主导因素。通胀上升意味着债券价格下跌（利率上行）*且*股票价格下跌（实际盈利受压）；通胀回落则两者同涨。相关性为正，分散投资效果有限。
-- **1998至2021年：大型负相关窗口期。** 通胀不再是主导因素，经济增长与衰退的周期取而代之。衰退期间，美联储降息→债券上涨；衰退期间，盈利崩塌→股票下跌。相关性深度为负，60/40迎来历史上最辉煌的四十年。
-- **2022年至今：负相关格局破裂。** 美联储为应对9%的消费者物价指数而被迫大幅紧缩，债券下跌，*同时*盈利估值倍数收缩，股票下跌，相关性再度转正。60/40由此遭遇大萧条时代以来最惨烈的一年。
-
-简明框架：**当宏观主导因素是经济增长与衰退时，股债呈负相关；当主导因素是通胀时，股债呈正相关。** 判断你认为未来十年处于哪种格局，你就已经决定了60/40是否仍是你的盟友。
-
-#### 2.4 2022年的溃败——究竟发生了什么
-
-仅在一个自然年内：
-- 标准普尔500指数总收益：−18.1%
-- 10年期国债总收益：−17.8%
-- 60/40：约−18.0%
-- 消费者物价指数：+6.5%
-- 60/40实际收益：约−24%
-
-最后这个数字是60/40投资组合自1937年以来最糟糕的实际收益年份。其机制简单而令人警醒：联邦基金利率从2022年初的0.25%攀升至年底的逾4%。长期债券因利率变动而重新定价；股票因折现率——即长债收益率——翻倍而重新定价。两者同步下跌，无处躲避，未对冲的投资者无路可走。
-
-2022年的回撤还揭示了另一个问题：**60/40投资组合对通胀冲击毫无抵御能力。** 现金在通胀中实际跑赢，黄金大致保值，大宗商品上涨。而这一经典的双资产分散工具，在人们谈论了整整十年的高通胀年份里，却成了*最差劲*的配置方案。
-
-#### 2.5 现代改良方案——60/40向何处去
-
-以下三种改良方案，按复杂程度由低到高排列。
-
-1. **用现金替换部分债券。** 当债券收益率低于通胀时，短期国库券（久期最短，能不断以更高收益率再投资）在几乎所有情景下都优于长期债券。60/30/10（股票/短期国债/现金）的配置，几乎不损失长期收益，却能大幅降低2022年式的回撤。
-2. **增加5%至10%的黄金仓位。** 黄金在正常市场环境下与股票相关性接近零，在2022年这类格局性断裂中则转为负相关，发挥通胀对冲作用。经典的永久投资组合（股票/长期债券/现金/黄金各25%）是这一思路的历史原型；现代改良版通常配置较小的黄金权重，并加大股票倾斜。黄金并非没有代价——它无收益率，且对实际利率高度敏感——但在60/40溃败的那种格局中，黄金发挥了作用。
-3. **增加做多波动性或趋势跟踪仓位。** 将5%至10%配置于管理期货或做多波动性结构，在尾部风险事件中可以弥补回本。这是机构投资者的应对方案；我们将在第四十七周和第五十周详细讲解。
-
-诚实的表述，也是陳馬在本课程中始终强调的：**60/40之所以有效，是因为一种特定的宏观格局，而这种格局在未来十年不太可能以同样的强度重现。** 它并未失效，只是不再是最优选项。杠铃策略——一端是高度集中的安全资产，另一端是非对称的投机头寸，中间几乎不配置结构性平庸资产——对于能够接受不同收益形态的投资者而言，是更诚实的答案。
+**主持人：** 陳馬
+**形式：** 独白配屏幕共享
 
 ---
 
-### 3. 常见误区
+## 脚本
 
-**误区一："债券是60/40中的安全部分。"**
+**陳馬：** 上周，我们从概念上讨论了动量是如何运作的——近期上涨的资产往往会继续上涨，至少在一段时间内如此。
 
-债券的*波动性*低于股票，但它并不安全。2022年，美国国债的亏损幅度超过了过去七十年中的任何一年。长期债券跌幅约为30%，比典型股票熊市的中位跌幅还要大。"债券仓位=安全"的认知，不过是1980年至2020年这四十年债券牛市——由利率持续下行所驱动——留下的历史遗存。
+今天，我们就来实际验证这个想法。我们将从零开始构建一个简单的动量策略，并用历史数据对其进行回测。
 
-**误区二："60/40一直有效。"**
+[VISUAL: Screen share — Python notebook open]
 
-以实际值计算，60/40在整个1965年至1981年间持续亏损。在长达16年的时间里，平衡型投资者的实际财富不断缩水，因为通胀超过了股债两类资产名义收益的总和。直至1980年代，长期实际财富增长趋势才得以恢复。
+这是我们的设置：
+- 我们将使用标普500中大盘股的股票池。
+- 每个月，我们按12个月的收益对它们进行排名（排除最近一个月——这是标准做法）。
+- 我们做多排名前20%的股票，做空排名后20%的股票。
+- 持有一个月后再平衡。
 
-**误区三："在股票组合中加入债券必然降低收益。"**
+下面来写代码。
 
-未必如此。在每年再平衡的情况下，卖出近期表现较好的资产、买入表现较差的资产这一操作，是一种小而持续的额外收益来源，凌驾于买入持有的混合收益之上，因为这是一种机械化的"低买高卖"。在某些长期回测中，60/40的复利收益甚至*高于*100%股票，原因正是这种再平衡溢价加上更小的回撤。这一免费午餐的成分虽小，却是真实存在的。
+[CUT TO: Code typing sequence]
 
-**误区四："国际分散投资能解决这个问题。"**
+```python
+import pandas as pd
+import numpy as np
 
-国际股票与美国股票在真正重要的时刻——经济衰退、金融危机、新冠疫情冲击——具有高度相关性。它能降低部分国别特定风险，但对于解决60/40的股债相关性问题几乎无济于事。能够改变投资组合应对通胀冲击方式的，是*资产类别*的分散，而非*地理*上的分散。
+# 加载月度收益数据
+returns = pd.read_csv("sp500_monthly_returns.csv", index_col=0, parse_dates=True)
 
-**误区五："定期再平衡意味着主动管理。"**
+# 每月按12-1动量对股票排名
+lookback = 12
+skip = 1
 
-将持仓恢复到固定比例并不是主动管理，而是一条机械化规则。主动管理的定义是：基于某种判断来改变目标配置（例如，在收益率偏低时降低债券权重）。严格遵循60/40并每年再平衡，在策略层面是完全被动的。
+momentum_scores = returns.shift(skip).rolling(lookback).sum()
 
-**误区六："应该频繁再平衡以获取更多再平衡红利。"**
+# 做多最高五分位，做空最低五分位
+def get_quintile_portfolio(scores):
+    ranked = scores.rank(pct=True)
+    long_mask = ranked >= 0.8
+    short_mask = ranked <= 0.2
+    long_weights = long_mask / long_mask.sum()
+    short_weights = short_mask / short_mask.sum()
+    return long_weights - short_weights
 
-再平衡溢价真实存在，但幅度不大（在典型60/40回测中约为每年0.2%至0.4%）。按季度或按年再平衡即可获取其中大部分；按周或按日操作则会在错误方向上对抗收益均值回归，并产生额外交易成本。按年是通行惯例，按半年亦可接受。频率超过此限，则是过度工程化。
+monthly_weights = momentum_scores.apply(get_quintile_portfolio, axis=1)
+
+# 投资组合收益
+portfolio_returns = (monthly_weights.shift(1) * returns).sum(axis=1)
+```
+
+[VISUAL: Code appears line by line]
+
+好，我们刚才做了什么？
+
+我们加载了标普500股票的历史月度收益数据。我们将动量定义为过去12个月的累计收益，但跳过了最近一个月——因为短期反转效应有充分的文献记录，最后那个月实际上可能对你不利。
+
+然后我们将股票分成五分位——排名前20%做多头头寸，排名后20%做空头头寸。
+
+[ANIMATION: animation/week10_momentum_ranking.py]
+
+来看看结果。
+
+```python
+cumulative = (1 + portfolio_returns).cumprod()
+cumulative.plot(title="动量策略累计收益")
+```
+
+[VISUAL: Equity curve chart appears]
+
+可以看到该策略随时间呈现出良好的上升趋势——这证实了动量溢价确实存在。
+
+但有趣的地方来了。我们来计算一些绩效统计数据。
+
+```python
+sharpe = portfolio_returns.mean() / portfolio_returns.std() * np.sqrt(12)
+max_dd = (cumulative / cumulative.cummax() - 1).min()
+
+print(f"年化夏普比率: {sharpe:.2f}")
+print(f"最大回撤: {max_dd:.2%}")
+```
+
+**陳馬：** 对于一个简单的动量策略，夏普比率在0.5到0.7之间是比较典型的。你还会注意到最大回撤可能相当严重——动量策略以突然崩溃而著称。2009年金融危机后，动量经历了有史以来最惨烈的崩溃之一。持续下跌的股票被不断做空，而当市场急剧反转时，这些空头头寸就被打爆了。
+
+[VISUAL: Drawdown chart showing 2009 crash]
+
+这就是所谓的动量崩溃，是你必须认真对待的真实风险。
+
+几种管理方法：
+- 波动性缩放：当波动性较高时缩减仓位规模
+- 崩溃保护：当大盘处于下跌趋势时削减敞口
+- 跨资产类别进行分散投资，而不仅限于股票
+
+[ANIMATION: animation/week10_momentum_crash_overlay.py]
+
+我们再来看看这个策略按板块分解的情况。
+
+```python
+sector_returns = portfolio_returns.groupby(sector_map, axis=1).sum()
+sector_returns.cumplot()
+```
+
+**陳馬：** 你会经常发现，动量往往集中在少数热门板块中——科技、能源、非必需消费品——具体取决于市场环境。这实际上也是对动量的一个批评：它可能造成非常高的板块集中度。
+
+[VISUAL: Sector breakdown bar chart]
+
+还有一件事我想展示给大家看——交易成本。
+
+```python
+turnover = monthly_weights.diff().abs().sum(axis=1)
+cost_per_trade = 0.001  # 每边10个基点
+transaction_costs = turnover * cost_per_trade
+net_returns = portfolio_returns - transaction_costs
+
+net_sharpe = net_returns.mean() / net_returns.std() * np.sqrt(12)
+print(f"扣除成本后的净夏普比率: {net_sharpe:.2f}")
+```
+
+**陳馬：** 动量策略的换手率很高——每个月要替换20%的投资组合。这会积少成多。扣除合理的交易成本后，你的夏普比率可能从0.6降至0.4。虽然仍然为正，但就没那么亮眼了。对于规模较小的账户，滑点会让情况更糟。
+
+[VISUAL: Table comparing gross vs net performance]
+
+那么，我们得出什么结论？
+
+动量是有效的。学术证据非常充分——它已经在多种资产类别、不同时间段和不同地域中得到验证。但要从中获益并不容易：
+- 它往往在最糟糕的时候崩溃
+- 交易成本侵蚀收益
+- 集中度风险是真实存在的
+
+这就是为什么大多数从业者会将动量与其他因子结合——价值、质量、低波动性——来构建更稳健的投资组合。
+
+[ANIMATION: animation/week10_multi_factor_combination.py]
+
+下周，我们将探讨如何将动量与价值因子结合，以平滑掉一些粗糙的棱角。
 
 ---
 
-### 4. 问答环节
+## 核心概念
 
-**问题一：2026年我应该采用60/40吗？**
-
-答：对于没有信息优势、也没有时间主动管理投资组合的长期投资者而言，60/40仍是一个站得住脚的选择——但在当前格局下，更合理的选择是*60/30/10*（股票/短久期国债/现金）或55/30/10/5（再加入黄金）。纯粹的40%长期债券，是对2022年式正相关格局回归最脆弱的部分。
-
-**问题二：为什么不是70/30或50/50？60/40有什么特别之处吗？**
-
-答：并没有什么特别之处——这是一种约定俗成，而非推导出来的结论。从大约40/60到70/30，夏普比率相当平坦。"合适"的配置，是你能在不割肉离场的前提下，坚守35%回撤的那一种。70/30适合风险承受能力更高、投资期限更长的投资者；50/50适合期限较短、承受能力较低的人。60/40居于中间，并因此成为行业惯例。
-
-**问题三：实际操作中如何用交易所交易基金实现60/40？**
-
-答：两只交易所交易基金就够了。股票仓位选VTI（或VOO/SPY标准普尔500指数）；债券仓位选AGG或BND。按60/40比例设置每月自动定投，每年将持仓恢复至60/40。每年实际操作时间：约三十分钟。综合费用率：约0.04%。
-
-**问题四："一站式"平衡基金如何？**
-
-答：先锋的VBAIX（60/40）、贝莱德的AOR（60/40）等同类产品会在内部自动完成再平衡。费用率略高（0.07%至0.30%，而两只交易所交易基金方案仅0.04%），但省去了你手动再平衡的麻烦，适合不希望频繁操作的账户。对于应税账户，两只交易所交易基金方案更优，因为你可以自行掌控再平衡的税务时机。
-
-**问题五：为什么2008年没有像2022年那样打垮60/40？**
-
-答：2008年股票跌幅约37%，但国债因避险资金涌入而上涨约20%。60/40的最大回撤约为−22%——虽然难看，但远小于单纯股票的跌幅。2022年则是两者同步下跌。根本机制在于：2008年是通缩型信用冲击；2022年是通胀型货币冲击。60/40对前者有对冲能力，对后者则毫无招架之力。
-
-**问题六：应该用新增资金再平衡，还是通过卖出来再平衡？**
-
-答：如果条件允许，优先使用新增资金。将每月流入的资金定向配置到低于目标比例的那类资产——这样无需实现应税收益即可完成再平衡，也无需支付买卖价差。只有当新增资金已不足以修正偏差时，或每年作一次清理时，才考虑卖出再平衡。
-
-**问题七：国际债券怎么样？**
-
-答：对于在美国持有资产的投资者而言，经汇率对冲的国际发达市场债券（BNDX）能带来边际上的额外分散效果。但实际上，分散收益很有限（全球投资级主权债务与全球利率周期高度相关），且外汇对冲成本会侵蚀部分收益率。大多数从业者选择跳过，直接持有美国国债。
-
-**问题八：杠铃配置与60/40是什么关系？**
-
-答：杠铃策略在理念层面否定了60/40。风险谱中段的资产（投资级债券、防御性股息股票配置）正是杠铃策略要剔除的部分，因为这些资产在通胀冲击中首当其冲。杠铃策略持有比60/40*更集中*的安全资产（现金、短期国库券、黄金），以及比60/40*更具非对称性*的投机头寸（看涨期权、动量股票、加密货币），中间几乎没有。
-
-**问题九：再平衡溢价需要纳税吗？**
-
-答：在应税账户中，每一笔再平衡交易都可能产生应税实现收益。为在税后保留这一溢价，应尽可能用新增资金进行再平衡（无需实现收益），并将增值最快的资产配置在税收优惠账户（个人退休账户、401k、529计划）中。两只交易所交易基金方案的费用确实极低，但就税务而言，账户结构的影响远大于交易所交易基金的选择。
-
-**问题十：本课与课程整体有何联系？**
-
-答：60/40是基准线。第五周将深入探讨分散投资。第十三至十四周介绍杠铃策略。第二十三周涵盖因子投资，将股票仓位拆解为各类收益溢价。第四十七周探讨可以嫁接在60/40之上的做多波动性对冲方案，用以应对通胀冲击的脆弱性。此后每一个资产配置专题，都将以本课的基准线作为比较对象。
-
-下方的互动面板允许你将股票权重从0%滑动至100%，并调整再平衡频率从每月到从不。系统将基于达摩德仁1928年至2024年数据集，绘制对应的累计实际财富曲线、最大回撤以及几何年化收益。请自行拖动滑块，观察夏普比率峰值的位置，并留意随着债券权重变化，1973至1974年的回撤形态如何演变。
+- **12-1动量**：12个月回望期，跳过最近一个月
+- **五分位投资组合**：做多前20%，做空后20%
+- **动量崩溃**：急剧反转对动量策略造成重创
+- **交易成本**：高换手率降低净收益
+- **因子组合**：将动量与价值结合可提升稳健性
 
 ---
 
-## 第二部分：YouTube脚本
+## 所需视觉素材
 
----
-
-**视频标题：** 60/40投资组合——为何曾经有效，以及2022年为何打破了它 | 第四周
-
-**目标时长：** 约18分钟
-
-**主持人：** 陳馬、小魚
-
----
-
-**[开场]**
-
-**陳馬：** 上周我们讲了风险与收益。这周来讲地球上最著名的投资组合——60%股票，40%债券。全国每一位理财顾问都曾向你推荐过它，每一支目标日期基金都是它的某种变体。然而在2022年，它创下了自1937年以来最惨烈的一年。
-
-**小魚：** 那它到底是不是已经失效了？
-
-**陳馬：** 它没有失效，但也不再是从前那个它了。学完这节课，你会清楚地知道，对*你*而言，答案究竟是哪一个。
-
----
-
-**[第一段：为什么要混合配置]**
-
-**陳馬：** 混合股票和债券的全部意义，就在于一个公式。投资组合的波动性，并不等于各部分波动性的加权平均值。当两类资产呈负相关——一个涨、另一个跌——组合的整体波动性会*低于*任何单一资产的加权水平。
-
-**小魚：** 这就是分散投资的红利。
-
-**陳馬：** 对。而这个红利有多大，完全取决于股票与债券之间的相关性。从1990年代末到2021年，这一相关性约为负0.3。正是这种负相关性，*从根本上*造就了60/40长期以来的优异表现。
-
----
-
-**[第二段：长期增长图表]**
-
-[VISUAL: image/week04_sixty_forty_growth.png]
-
-**陳馬：** 这是长期增长曲线图。100%股票、100%债券、60/40——均每年再平衡，经通胀调整后的实际值，从1928年算起。到2024年，你投入的1美元在实际购买力层面大约变成了：100%股票760美元，60/40300美元，100%债券9美元。
-
-**小魚：** 债券用了整整一个世纪，才勉强跑赢通胀。
-
-**陳馬：** 这就是一个世纪最精炼的统计结论。国债的长期实际年化收益率约为1.5%，股票约为7%，60/40约为5.7%。用股票三分之二的复利增长率，换来每一次危机时明显更浅的回撤，这就是它的价值。
-
----
-
-**[第三段：相关性的翻转]**
-
-[VISUAL: image/week04_stock_bond_corr.png]
-
-**陳馬：** 这是本课最重要的一张图。股票与债券的滚动36个月相关性，三个阶段。
-
-1997年之前，大多为正相关。通胀是主导因素，通胀同时打压股票和债券。1998年至2021年，深度负相关。经济增长与衰退的周期成为主导因素，美联储衰退期间降息的政策使债券上涨，而股票下跌。然后是2022年，咔嚓一声。
-
-**小魚：** 回到正相关了。
-
-**陳馬：** 通胀卷土重来，通胀格局随之复辟。股债双双下跌，60/40投资组合无处躲避。
-
----
-
-**[第四段：2022年的解剖]**
-
-**陳馬：** 2022年全年。标准普尔500指数跌18%，10年期国债跌17.8%，消费者物价指数涨6.5%。60/40名义回报下跌18%，实际回报下跌24%。这是该策略自1937年以来最糟糕的实际收益年份。
-
-**小魚：** 美联储为什么要那么做？
-
-**陳馬：** 他们别无选择。通胀冲到了9%，而政策利率只有区区0.25%。他们必须抗击通胀，这意味着大幅快速加息，而这在机制上直接砸垮了债券价格。同一次利率冲击，也砸垮了股票估值倍数。同一个冲击，击中了投资组合的两端。
-
-**小魚：** 这给了我们什么教训？
-
-**陳馬：** 60/40对冲的是*衰退型*冲击，对*通胀型*冲击毫无招架之力。如果未来十年更像1970年代而非2010年代，60/40将持续跑输一个配置了通胀对冲工具的分散型投资组合。
-
----
-
-**[第五段：替代方案]**
-
-**陳馬：** 三种改良方案，按操作难度由低到高排列。
-
-第一，用短期债券或现金替换部分长期债券。2022年，现金和短期国债几乎没有损失，因为它们不断以更高收益率滚动再投资。这是成本最低的修复方式。
-
-第二，加入5%到10%的黄金。正常市场环境下与股票相关性接近零，在2022年这类格局性断裂中发挥强效通胀对冲作用。你为此放弃了收益率，但在尾部风险事件中能够弥补回来。
-
-第三，加入做多波动性仓位。趋势跟踪或管理期货策略，在2022年和2008年这样的年份能够自我弥补代价。这是机构的应对方案，我们将在第四十七周详细讲解。
-
----
-
-**[结尾]**
-
-**陳馬：** 60/40没有失效，但它不再是默认最优解。2026年的默认最优解，更接近于60/30/10，再叠加小仓位的黄金或趋势跟踪工具。无论你是选择这种改良版，还是坚守经典版，你都应该清楚*为何*作出这个选择——这正是整节课的核心所在。
-
-**小魚：** 那互动工具呢？
-
-**陳馬：** 有两个滑块：一个控制股票权重，一个控制再平衡频率。它会绘制出对应的财富曲线、回撤和夏普比率。自己拨一拨，找到属于你自己的最优解。
-
----
-
-**片尾画面：** "下一期：第五周——正确理解分散投资"
+| 时间戳 | 视觉素材 |
+|--------|----------|
+| 0:30 | Python笔记本设置 |
+| 2:00 | 动量排名动画 |
+| 4:00 | 净值曲线图 |
+| 6:00 | 回撤图——2009年崩溃 |
+| 8:00 | 板块分解柱状图 |
+| 10:00 | 毛收益与净收益对比表 |

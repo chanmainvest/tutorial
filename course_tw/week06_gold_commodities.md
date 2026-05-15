@@ -1,360 +1,989 @@
-# 第六週：黃金與原物料——價值儲存工具 vs 現金流資產
+<function_calls>
+<invoke name="view">
+<parameter name="filename">C:\Users\hevan\AppData\Local\Temp\tmpqmd__0wo.md</parameter>
+</invoke>
+</function_calls>
+<function_response>
+# Week 10: Options Strategies — Covered Calls and Cash-Secured Puts
+
+## Overview
+
+**Host:** Horace
+**Duration:** ~18 minutes
+**Visual Style:** Clean whiteboard animations with option payoff diagrams
 
 ---
 
-## 第一部分：閱讀章節
+## Learning Objectives
+
+By the end of this lesson, viewers will be able to:
+
+- Understand what covered calls and cash-secured puts are
+- Know when to use each strategy
+- Calculate potential profit, loss, and breakeven points
+- Recognize the tradeoffs involved
 
 ---
 
-### 1. 為什麼這很重要
+## Script
 
-每本教科書的投資組合章節，最終都會碰到同一個尷尬的問題：你應該持有黃金嗎？通常的答案不是狂熱的「是」（黃金死忠派的答案），就是輕蔑的「不」（Bogleheads 派的答案）。兩者都錯，因為兩者都在爭論一個錯誤的問題。黃金不是股票，也不是債券。它不產生現金流，永遠不會支付股利，而其「內含價值」——正如 J.P. 摩根在 1912 年所說——與所有其他價值儲存工具的內含價值完全相同：**共識**。
+### [INTRO]
 
-你需要清晰地思考黃金與原物料，原因有四。
+**Horace:** Hey everyone, welcome back! Today we're diving into two of the most popular options strategies for regular investors: the covered call and the cash-secured put.
 
-1. **它們是「價值儲存」實際意義最純粹的檢驗。** 股票累積盈餘。債券累積票面利率。黃金什麼都不累積。如果黃金值得持有，原因不可能是現金流——一定是對其他人類在五十年後仍會接受黃金為貨幣的信念之持久性。同樣的邏輯適用於法定美元、比特幣，以及有史以來存在過的每一種貨幣。黃金是思考信念定價資產的實驗室。
-2. **通膨避險的說法只有一半是真的，另一半是行銷。** 黃金在三個時間窗口大幅超越通膨（1970 年代、2000 年代、2020 年代），而在其他幾十年間毫無動靜。如果你不明白這個避險工具在**何時**有效，你就會在高點買進、在低點賣出——這正是自 2011 年以來，一般黃金指數股票型基金投資人所做的事。
-3. **工業原物料——石油、銅、小麥——與黃金並非同一資產類別，不應放在同一個心理框架中。** 它們是生產的投入要素，會向供給邊際成本均值回歸，而期貨正價差（contango）的轉倉成本會侵蝕長期持有者的報酬。持有 USO 並非「持有石油」；而是持有一種緩慢流血的部位，即便石油本身漲了一倍，它仍輸給現貨石油。
-4. **執行方式的選擇至關重要。** GLD/IAU vs 期貨型指數股票型基金 vs 礦業股 vs 實體金條，是四種截然不同的曝險，各有不同的稅務、費用與追蹤誤差特性。就美國上市標的的零售投資組合而言，GLD 或 IAU 是可執行的答案；其他都是利基工具。
+These are often called "conservative" options strategies — not because they're risk-free, but because they're relatively straightforward and can actually *reduce* your risk compared to just holding stock.
 
-本課程涵蓋：黃金的本質、通膨避險何時有效、為何工業原物料是截然不同的品種，以及零售投資人應考慮的那幾個美國上市工具。
+By the end of this video, you'll understand exactly how they work, when to use them, and what the tradeoffs are.
 
----
-
-### 2. 你需要知道的事
-
-#### 2.1 黃金沒有現金流——其價值是信念
-
-股票是對未來盈餘的請求權。債券是對未來票面利率的請求權。現金流量折現法可以對兩者估值，但無法應用於黃金，因為黃金沒有現金流可以折現。黃金的價格，就是邊際買方願意支付給邊際賣方的金額，而邊際買方的支付意願，完全取決於他們相信下一位邊際買方至少會支付同等金額。
-
-這不是批評，而是同一套定價邏輯在美元上的體現。一張百元美鈔也不產生現金流。它的價值在於，鏈上的下一個人會接受它換取 100 美元的商品。黃金的信念已有 5,000 年歷史。純法定美元——布列敦森林體系後、1971 年以來的形式——比披頭四更年輕。比特幣的信念比 iPhone 更年輕。正如陳馬所說，**每一種價值儲存工具都建立在信念之上**，唯一誠實的問題是：這個信念持續了多久、未來可能持續多久。
-
-「無現金流」的實際含義是，黃金無法像股票那樣複利成長。分散投資的股票指數，一百年來每年提供約 7% 的實質報酬，因為企業持續生產更多商品、支付更多股利、回購更多股票。黃金在同一個一百年間，提供了約 1.0–1.5% 的實質報酬——略高於通膨。它是**保值的貨幣**；不是增值的資本。
-
-#### 2.2 通膨避險——何時有效，何時失靈
-
-行銷話術是「黃金對沖通膨」。歷史記錄更為具體：**黃金對沖的是急劇、持續且未被充分預期的通膨，且發生在實質利率下行的環境中**。當實質利率上升時（Volcker 1981 年、2010 年代、2022 年短暫期間），黃金原地踏步或下跌。
-
-下方圖表呈現 1971 年（尼克森關閉黃金窗口、美元自由浮動的那一年）至 2026 年 4 月，以實質（CPI 調整）美元計價的黃金價格走勢。
-
-![實質（以 2026 年美元計 CPI 調整）倫敦 PM 黃金價格，月線，1971 年至 2026 年 4 月。三個峰值主導全圖：1980 年的峰值約為 2026 年美元計 2,400 美元（Volcker 時代／伊朗危機）、2011 年的峰值約 2,200 美元（後金融危機流動性／歐元區危機），以及 2024–2026 年的高原期再次突破 2,400 美元（後疫情通膨 + 央行購金）。1980–1999 年與 2012–2018 年的失落十年以漫長的橫向走勢可見。標注標記出三個峰值、1999 年的谷底，以及 2026 年 4 月的當前讀數。](../image/week06_gold_real.png)
-
-有三件事應該立即浮現眼前。
-
-- **三個實質峰值大致位於同一水平。** 1980 年、2011 年和 2024–26 年的高點，以 2026 年美元計均介於 2,200 至 2,500 美元之間。這並非巧合——而是邊際需求上限，黃金在此相對於其他通膨避險工具（通膨保值國庫券、房地產、原物料）貴到足以引發賣出。
-- **兩個失落十年。** 從 1980 年到 1999 年，實質價格下跌近 80%。從 2012 年到 2018 年，損失約 40%。在這些時間窗口中持有黃金，考驗著每一位黃金死忠派的信念。
-- **漲勢集中在總體經濟壓力期。** 1971–80 年：停滯性通膨、石油危機、布列敦森林體系瓦解。2001–11 年：美元疲軟、金融危機、歐元區危機、利率崩向零。2019–26 年：疫情寬鬆流動性、後疫情 CPI 衝擊、央行加速多元化儲備而大量購金。
-
-預測黃金價格最可靠的單一指標是**美國 10 年期實質殖利率，取反向。** 實質利率下降，黃金上漲。實質利率上升，黃金下跌。機制在於機會成本：若你能在國庫券上賺取 2% 實質報酬，零殖利率的資產就顯得昂貴。若你只能賺取 -1% 的實質報酬，黃金的零殖利率突然就具有競爭力了。
-
-#### 2.3 黃金 vs 股票 vs 60/40——五十年三種環境
-
-下方圖表顯示 1971 年投入 1 美元，在三種不同投資組合下，以實質計的複利累積財富：100% S&P 500、100% 黃金，以及每年再平衡的 60/40 股票/國庫券組合。
-
-![1971 年投入 1 美元的累積實質財富，對數刻度，截至 2024 年。三條線：S&P 500（終值最高，2000–02 年與 2008 年回撤可見）、黃金（波動劇烈，三次漲勢間夾雜長段零成長，終值居中）、60/40（最平滑，終值最低）。三個「黃金優勢」窗口已標示陰影：1971–80 年、2001–11 年、2020–24 年。兩個「黃金失落十年」窗口亦標示陰影：1980–99 年及 2012–18 年。](../image/week06_gold_vs_stocks.png)
-
-仔細閱讀這張圖。黃金確實在三個特定窗口優於股票：停滯性通膨的 1970 年代、後網路泡沫的十年，以及後疫情的通膨衝擊。在這些窗口之外，股票遠遠將黃金甩在後面。
-
-結論不是「黃金不好」或「黃金很好」，而是**黃金與股票是不同的曝險**，同時持有一定比例兩者的投資組合，在**兩種**環境下都比任何單一純投資組合在整個半世紀中的表現更好。一個小規模的永久黃金配置——陳馬在他的四段式槓鈴策略中將黃金設為永久配置——在已實現數據上是一頓免費的午餐，意即在再平衡的混合組合中，夏普比率高於任一單一成分。
-
-#### 2.4 工業原物料不是價值儲存工具
-
-石油、銅、小麥、大豆、天然氣——這些是生產的投入要素，不是貨幣。三個特性使它們與黃金截然不同：
-
-1. **它們向供給邊際成本均值回歸。** 當石油在 2008 年或 2022 年觸及 130 美元時，美國頁岩油生產商開始鑽井，供給增加，價格回落至 50–70 美元的邊際成本區間。當石油跌至 30 美元時，邊際生產商關閉產能，供給減少，價格反彈。長期而言，工業原物料不會複利；它圍繞著緩慢漂移的成本曲線振盪。
-2. **實質長期趨勢是**向下**，而非向上。** 原物料生產的生產力成長歷來超過需求成長。2026 年的實質油價約與 1973 年持平。實質小麥價格在一個世紀中已**下跌**。「原物料超級循環」論點在特定十年內確實成立，但對買進持有的複利投資者並不適用。
-3. **它們彼此高度相關，且與景氣循環高度連動。** 持有工業原物料籃子，大致等同於持有對美元的槓桿空頭部位加上對全球國內生產毛額的槓桿多頭部位。這是因子曝險，不是分散投資。
-
-對美國零售投資人而言，這意味著工業原物料是**交易**（針對特定總體觀點的部位），而非**持倉**（永久配置）。正如陳馬強調的，基於稅務考量，表達戰術性原物料曝險最簡潔的方式，是**透過相關股票型指數股票型基金的買權**——而不是直接持有期貨型原物料指數股票型基金。我們在 §2.6 詳細說明這個機制。
-
-#### 2.5 正價差陷阱——為何 USO 不等於「石油」
-
-大多數原物料指數股票型基金並不持有實體桶裝石油，而是持有近月期貨合約，並每月滾動至下一個合約。當期貨曲線處於**正價差**狀態（遠月合約比近月合約貴——這是石油及大多數工業原物料的正常狀態，因為儲存需要成本），每次月度轉倉都會造成小幅虧損：你以 X 美元賣出到期合約，再以 X 美元加上轉倉成本買入次月合約。
-
-累積損失極為龐大。最著名的案例是 USO，即美國石油基金。2026 年初的 WTI 現貨原油，與 2010 年初相差無幾。然而在同樣的十六年窗口中，USO 損失了約 80% 的價值。這個差距就是正價差的侵蝕。
-
-黃金是證明此規律的例外。GLD、IAU 和 GLDM 各自持有**存放在金庫中的實體金條**——沒有轉倉成本，沒有正價差，對現貨黃金的追蹤誤差極小（唯一的拖累是管理費，每年 17–25 個基點）。這個結構性差異，正是黃金可以作為被動長期持倉，而大多數其他原物料不行的原因。
-
-#### 2.6 美國上市工具箱——實際交易的標的
-
-依照美國上市標的的可投資範疇，以下是精簡清單。
-
-| 工具 | 標的 | 費用率 | 備注 |
-|---|---|---:|---|
-| GLD | 實體黃金金條 | 0.40% | 規模最大、流動性最高、選擇權市場最深 |
-| IAU | 實體黃金金條 | 0.25% | 費用較低，流動性略遜 |
-| GLDM | 實體黃金金條 | 0.10% | 三者中最便宜；選擇權市場規模較小 |
-| SLV | 實體白銀金條 | 0.50% | 白銀，非黃金——波動性大幅較高 |
-| GDX | 黃金礦業股票 | 0.51% | 槓桿效果 + 營運風險 + 稅務友善（合格股利） |
-| GDXJ | 初級黃金礦業股 | 0.52% | 貝塔更高，非系統性風險大幅較高 |
-| DBC | 多元化原物料期貨 | 0.85% | 正價差侵蝕；勿買進持有 |
-| USO | WTI 原油期貨 | 0.60% | 正價差侵蝕；僅限戰術性操作 |
-| PDBC | 多元化原物料期貨（免 K-1） | 0.62% | 稅務比 DBC 簡潔；同樣存在正價差問題 |
-
-對執行永久黃金配置的美國零售投資人而言，實務答案是：**買進持有核心選 GLDM（最便宜）**，**打算疊加掩護性買權的部位選 GLD（選擇權鏈最深）**。其他都是專業工具。
-
-值得了解的稅務角度：GLD、IAU 和 GLDM 均以持有「收藏品」的授予人信託形式架構，這意味著在美國，**長期資本利得適用 28% 的收藏品稅率**，而非一般的 15–20% 長期資本利得稅率。相較之下，GDX 礦業股屬於普通股票，適用一般稅率及合格股利稅率。這種細節使 5–10% 的黃金配置值得放入稅務優惠帳戶（若有的話）。從稅務效率角度，透過 GLD 的長期**買權**而非持有現貨 GLD 來表達黃金觀點，往往更具稅務效率：對授予人信託單位的選擇權履約繼承標的的稅務處理方式，但選擇權部位本身在廣基指數選擇權的情況下依第 1256 條以市價計算課稅，對股票選擇權則按普通資本利得課稅。機械細節至關重要。
-
-#### 2.7 規模與永久配置問題
-
-那麼黃金應配置多少？三個誠實的答案。
-
-- **0%** 是 Bogleheads 的答案。若你相信通膨將永遠溫和、實質利率將永遠為正，這個答案在邏輯上是自洽的。1981–2021 年的 60/40 回測支持這個論點。2022 年的結果則不然。
-- **5–10%** 是機構投資人的答案（永久投資組合的各種變體、橋水的全天候策略、陳馬的四段式槓鈴）。這是最小的配置比例，小到在溫和環境下不會拖累你，大到在通膨環境下能產生實質影響。對大多數美國零售投資人而言，這是正確答案。
-- **20% 以上** 是黃金死忠派的答案。只有在你對貨幣體制變革有強烈定見的情況下，這個答案才在邏輯上自洽。大多數持有這種配置的人，並未誠實地壓力測試過「萬一錯了十年」的後果。
-
-本課末的互動工具，讓你可以依通膨環境切割歷史記錄，親眼看看避險工具何時真正奏效、何時失靈。
+[VISUAL: Title card — "Covered Calls and Cash-Secured Puts"]
 
 ---
 
-### 3. 常見誤解
+### [SECTION 1: Quick Options Recap]
 
-1. **「黃金有內含價值。」** 它沒有。美元、歐元和比特幣也沒有。四者都是信念定價。
-2. **「黃金總是隨通膨上漲。」** 它在實質利率下行時，對**未被充分預期的持續性**通膨有效。在 Volcker 式「利率超前通膨」的環境中，黃金會下跌。
-3. **「黃金是不好的投資，因為它沒有殖利率。」** 它是不好的**現金流**資產。作為對實質利率具有負向敏感性的投資組合分散工具，其在歷史記錄中對 60/40 的長期夏普比率貢獻是正面的。
-4. **「持有 USO 就是持有石油。」** 它持有的是每年透過正價差損失 5–10% 的滾動期貨策略。現貨石油的波動不等於 USO 的波動。
-5. **「黃金礦業股是黃金的槓桿版。」** 它們對**黃金價格減去全包成本**具有槓桿效果，並承擔營運風險、國家風險和管理層風險。儘管理論上具有較高的營運槓桿，GDX 在大多數多年期窗口中仍輸給了 GLD。
-6. **「比特幣可以取代黃金。」** 比特幣有 15 年的信念歷史，黃金有 5,000 年。兩者也許都可以放入投資組合，但替代的說法忽略了信念持久性的巨大差距。
-7. **「你應該持有原物料來分散投資。」** 工業原物料是順景氣循環的風險資產，不是分散工具。黃金才是分散工具；石油和銅是押注全球成長的因子部位。
-8. **「GLD 的成本和購買實體黃金一樣。」** GLD 有 0.40% 的年費與小額買賣價差。從經銷商購買金幣需支付 3–6% 的溢價，加上儲存和保險費（每年約 0.5%），再加上轉售時的買賣價差。對紙黃金投資者而言，GLD 勝出。對末日論的實體黃金交割投資者而言，這個比較根本不適用。
-9. **「1980 年的高點是史上最高點。」** 以實質計算，並非如此。1980 年的峰值（名義 850 美元）以 2026 年美元計約為 2,400 美元，與今日大致相當。從實質角度思考，圖表面貌截然不同。
-10. **「央行賣出黃金意味著黃金已死。」** 央行在 1990–2008 年是**淨賣方**（黃金表現疲弱），自 2010 年以來每年都是**淨買方**（黃金表現強勁）。央行的資金流向是設定價格的交易，而非無關緊要的訊號。
+**Horace:** Before we dive in, let's do a super quick recap of options basics — just enough to understand today's strategies.
 
----
+[VISUAL: Split screen — Call option on left, Put option on right]
 
-### 4. 問答
+An **option** is a contract that gives you the *right* — but not the *obligation* — to buy or sell a stock at a specific price, called the **strike price**, before a certain **expiration** date.
 
-**問：如果黃金沒有現金流，我怎麼能合理化持有它？**
-答：就像你合理化在儲蓄帳戶中持有美元一樣。你持有兩者都不是為了現金流；而是將它們視為購買力的儲存工具，以及對尾部事件需求的選擇權。黃金在多個國家貨幣崩潰的環境下仍保住了購買力。這就是它的價值主張——相對於股票複利，其價值確實不大，這正是為何 5–10% 的配置對大多數投資人而言是合理上限。
+A **call option** gives you the right to *buy*.
+A **put option** gives you the right to *sell*.
 
-**問：比特幣是更好的黃金嗎？**
-答：也許五十年後是；但現在還不是。比特幣的信念只有 15 年。黃金的是 5,000 年。如果信念能持續，比特幣有更高的上行潛力，但在信念瓦解的條件下，其下行結果遠比黃金糟糕。同時持有兩者作為小規模的平行配置，比在兩者之間選一個更為誠實。
+And when you sell an option instead of buying it, you collect a **premium** — that's the income side of these strategies.
 
-**問：衡量「黃金是否發揮作用」的正確基準是什麼？**
-答：實質利率，而非名義 CPI。最簡潔的一句話測試：該期間 10 年期實質殖利率是否下降？如果是，黃金應該上漲，若它確實上漲，則避險成功。使用 FRED 的 DFII10 數列可以快速查看。
+[VISUAL: Simple diagram — "Buyer pays premium → Seller receives premium"]
 
-**問：為什麼 GLD 適用 28% 的收藏品稅率？**
-答：美國國稅局將黃金金條歸類為收藏品，無論你持有的是金幣，還是代表你持有金條的授予人信託單位。封閉型基金（CEF、PHYS）有一個可選的合格選擇基金（QEF）選擇，可轉換為長期資本利得處理方式，但需要每年填寫文件，且非預設選項。對大多數美國投資人而言，實際的變通方法是在個人退休帳戶中持有 GLD/IAU/GLDM。
-
-**問：我應該購買實體金幣還是 GLD？**
-答：以投資為目的，選 GLD 或 GLDM。以末日備災為目的，選實體黃金並搭配場外儲存。兩者是不同的產品。金幣的溢價（3–6%）加上儲存費用（保險金庫每年 0.5%），再加上轉售時的買賣價差，多年下來會抹去結構性優勢。
-
-**問：黃金礦業股呢？**
-答：GDX 是附帶營運與國家風險的槓桿黃金代理品。它在帳面上看起來像黃金，但在大多數多年期窗口中表現不如 GLD，儘管理論上具有更高的營運槓桿。如果你想要黃金曝險，就直接持有黃金；如果你想要對黃金價格大幅上漲表達高定見的戰術性觀點，可以考慮將 GDX 作為短期部位。
-
-**問：「央行購金」的故事是什麼？**
-答：大約自 2010 年起，各國央行（尤其是中國、俄羅斯、印度、土耳其和中亞各國）每年都是黃金的淨買方，且在 2022 年俄羅斯外匯儲備遭凍結後，購買步伐大幅加速。它們正在將儲備從美元多元化至無法被沒收、主權中立的資產。這是 2020 年代支撐黃金價格的結構性邊際買盤。
-
-**問：如何利用 GLD 選擇權提升稅務效率？**
-答：三種常見結構：（1）對現有 GLD 部位賣出掩護性買權，以設定價格上限的方式產生收益；（2）賣出現金擔保賣權，在較低價格累積 GLD；（3）深度價內的長期 GLD 買權（「長期期權替代」），以較少資本獲得大部分現貨曝險。稅務重點在於：選擇權權利金所鎖定的資金，在部位開倉期間不適用 28% 的收藏品稅率——而且滾動長期買權是與實現標的長期資本利得不同的應稅事件。我們在第 27 週和第 38 週會詳細說明操作細節。
-
-**問：何時應該削減黃金配置？**
-答：當 10 年期實質殖利率高於 +2% 且持續上升、央行購金速度放緩，以及黃金對 S&P 500 的比率壓縮至 20 年中位數以下時。2026 年 4 月，上述任何條件均不成立。「永久配置」是永久的；在極端環境窗口中調整的是規模。
-
-**問：白銀有投資理由嗎？**
-答：白銀兼具部分貨幣屬性和更大比重的工業需求（太陽能、電子產品）。它的波動性高於黃金，也無法作為純粹的價值儲存避險工具。SLV 是戰術性工具，不是永久性工具。
-
-**問：原油指數股票型基金有值得買的時機嗎？**
-答：在油供衝擊且近月合約進入**逆價差**（近月比遠月貴）時，轉倉殖利率轉為正值，期貨型指數股票型基金短暫可能跑贏現貨。在此窗口之外，不建議。更簡潔的表達方式是能源股票型指數股票型基金（XLE、XOP）的選擇權，完全繞開正價差問題——這正是稅務效率的做法。
+**Horace:** Today, we're focusing on the *selling* side. You're going to be the option seller — the one collecting premium.
 
 ---
 
-## 第二部分：YouTube 腳本
+### [SECTION 2: Covered Call]
+
+**Horace:** Alright, let's start with the **covered call**.
+
+[VISUAL: Whiteboard — "Covered Call = Own Stock + Sell Call Option"]
+
+#### What Is It?
+
+A covered call means you:
+1. **Own** at least 100 shares of a stock
+2. **Sell** a call option on that stock
+
+You collect a premium upfront. In exchange, you agree to sell your shares at the strike price if the buyer exercises the option.
+
+The word "covered" means your short call is *covered* by the shares you already own — you're not making a naked bet.
+
+[VISUAL: Example setup]
+
+#### Example
+
+Let's say you own 100 shares of a stock currently trading at **$50**.
+
+You sell a **call option** with:
+- Strike price: **$55**
+- Expiration: **30 days out**
+- Premium collected: **$1.50 per share** = **$150 total**
+
+[VISUAL: Payoff diagram — Covered Call]
+
+#### What Can Happen?
+
+**Scenario 1 — Stock stays flat or drops:**
+The call expires worthless. You keep the $150 premium. Your shares are still yours.
+
+**Scenario 2 — Stock rises above $55:**
+The option is exercised. You sell your shares at $55. You miss out on any gains above $55, but you still collected the $150 premium.
+
+**Scenario 3 — Stock drops a lot:**
+The call expires worthless, and you keep the premium. But you're still losing money on the stock itself. The $150 helps offset the loss, but it's not full protection.
+
+[VISUAL: Summary table]
+
+| Scenario | Stock Price at Expiry | Result |
+|---|---|---|
+| Flat/Down | ≤ $55 | Keep premium, hold shares |
+| Up | > $55 | Sell at $55 + keep premium |
+| Big drop | Way down | Keep premium, lose on stock |
+
+#### Key Metrics
+
+- **Maximum gain** = Premium + (Strike − Purchase price) × 100
+- **Breakeven** = Purchase price − Premium per share
+- **Maximum loss** = Purchase price − Premium (stock goes to zero)
+
+[VISUAL: Formula cards]
+
+#### When to Use It
+
+Use a covered call when:
+- You're **neutral to mildly bullish** on the stock
+- You're **OK selling** the stock at the strike price
+- You want to **generate extra income** from your holdings
+
+[VISUAL: "Covered Call Checklist"]
+
+**Horace:** Think of it this way: you're saying, *"I'll take the $150 now, and I'm fine capping my upside at $55."* If the stock rockets to $70, you'll miss those gains. That's the tradeoff.
 
 ---
 
-**影片標題：** 黃金與原物料——價值儲存工具 vs 現金流資產
+### [SECTION 3: Cash-Secured Put]
 
-**目標片長：** 約 18 分鐘
+**Horace:** Now let's look at the other strategy: the **cash-secured put**.
 
-**主持人：** 陳馬、小魚
+[VISUAL: Whiteboard — "Cash-Secured Put = Hold Cash + Sell Put Option"]
+
+#### What Is It?
+
+A cash-secured put means you:
+1. **Set aside cash** equal to 100 × the strike price
+2. **Sell** a put option on a stock you *want* to own
+
+You collect premium. If the stock drops below the strike price, you're obligated to *buy* the shares at that price. But you wanted to buy them anyway — and you're buying at a discount.
+
+[VISUAL: Example setup]
+
+#### Example
+
+A stock is trading at **$50**. You'd love to own it at **$45**.
+
+You sell a **put option** with:
+- Strike price: **$45**
+- Expiration: **30 days out**
+- Premium collected: **$1.00 per share** = **$100 total**
+
+You set aside $4,500 in cash (100 × $45) in case you need to buy.
+
+[VISUAL: Payoff diagram — Cash-Secured Put]
+
+#### What Can Happen?
+
+**Scenario 1 — Stock stays above $45:**
+The put expires worthless. You keep the $100 premium. You never had to buy the stock.
+
+**Scenario 2 — Stock drops to $45 or below:**
+You're assigned and buy 100 shares at $45. Your actual cost is $45 − $1 = **$44 per share** because of the premium.
+
+**Scenario 3 — Stock crashes:**
+You buy at $45 even if the stock is now at $30. That's a significant unrealized loss. The $100 premium helps a little, but it's not much protection.
+
+[VISUAL: Summary table]
+
+| Scenario | Stock Price at Expiry | Result |
+|---|---|---|
+| Above $45 | > $45 | Keep premium, no shares |
+| At or below | ≤ $45 | Buy shares at $44 effective cost |
+| Big crash | Way down | Stuck with shares at a loss |
+
+#### Key Metrics
+
+- **Maximum gain** = Premium collected
+- **Breakeven** = Strike price − Premium per share
+- **Maximum loss** = (Strike price − Premium) × 100 (stock goes to zero)
+
+[VISUAL: Formula cards]
+
+#### When to Use It
+
+Use a cash-secured put when:
+- You **want to own** the stock but at a lower price
+- You're **willing to be patient** — maybe it doesn't drop and you just collect premium
+- You have **cash sitting idle** and want to put it to work
+
+[VISUAL: "Cash-Secured Put Checklist"]
+
+**Horace:** Think of it like this: you're saying, *"I want to buy this stock, but only if it drops to $45. Until then, pay me $100 for the right to sell it to me."*
 
 ---
 
-**[片頭 — 0:00]**
+### [SECTION 4: Comparing the Two Strategies]
 
-**小魚：** 歡迎回到我們的節目。這是 chanmainvest 教學系列的第六週，今天我們要講的這一章，是大多數投資課程要麼完全跳過、要麼講得一塌糊塗的主題：黃金與原物料。
+**Horace:** Now that we've seen both strategies individually, let's compare them side by side.
 
-**陳馬：** 大多數課程講錯的原因，和大多數投資人講錯的原因一樣。他們把黃金當股票在討論。黃金不是股票。
+[VISUAL: Side-by-side comparison table]
 
-**小魚：** 說得對。所以我們來設定框架。本集要回答三個問題：第一——黃金如果不是股票也不是債券，它到底是什麼？第二——通膨避險的說法在歷史上何時真正成立、何時失靈？第三——對美國零售投資人而言，正確的工具箱是什麼，他們實際上應該買什麼？
+| | Covered Call | Cash-Secured Put |
+|---|---|---|
+| **Starting position** | Own 100 shares | Hold cash |
+| **Action** | Sell call | Sell put |
+| **Income** | Premium collected | Premium collected |
+| **Obligation** | Sell shares at strike | Buy shares at strike |
+| **Best case** | Stock stays below strike | Stock stays above strike |
+| **Risk** | Stock drops significantly | Stock drops significantly |
 
-**陳馬：** 對黃金死忠派或 Bogleheads 派的人來說，這一集的答案都一樣出乎意料：兩種極端都不對。黃金不是唯一的誠實貨幣。黃金也不是無用的石頭。它是一種具有特定屬性的特定類型資產，一旦你理解了這些屬性，配置的問題就自然有了答案。
+**Horace:** Notice something interesting? These two strategies are actually *synthetically equivalent* in certain conditions — a concept from options theory called **put-call parity**. But for practical purposes, the key difference is your *starting position*: stock versus cash.
 
-**[A段——黃金沒有現金流 — 1:30]**
+[VISUAL: "Put-Call Parity" annotation with a brief tooltip]
 
-**小魚：** 我們從黃金是什麼開始。陳馬，一句話怎麼說？
+---
 
-**陳馬：** 黃金是一種由信念定價的價值儲存工具。它不產生現金流。價格就是下一位邊際買方所支付的金額。
+### [SECTION 5: The Wheel Strategy]
 
-**小魚：** 聽起來很貶低它。
+**Horace:** Here's a bonus concept that combines both strategies: it's called **the wheel**.
 
-**陳馬：** 不是，原因如下。同樣的一句話，也描述了美元。
+[VISUAL: Circular diagram — "The Wheel Strategy"]
 
-**小魚：** 嗯。
+Here's how it works:
 
-**陳馬：** 一張百元美鈔不產生現金流。它的價值在於鏈上的下一個人接受它換取商品。它是由信念定價的。黃金和美元的唯一區別是**信念有多久的歷史**。黃金作為貨幣已有五千年。純法定美元——布列敦森林體系後、1971 年以來——比披頭四還年輕。比特幣比 iPhone 還年輕。
+1. **Sell a cash-secured put** on a stock you want to own
+2. If assigned → you now own shares
+3. **Sell a covered call** on those shares
+4. If called away → you're back to cash
+5. Repeat from step 1
 
-**小魚：** 每一種價值儲存工具都建立在信念之上。
+[VISUAL: Wheel cycle animation]
 
-**陳馬：** 每一種價值儲存工具都建立在信念之上。外面沒有任何形而上學意義上「真實」的貨幣。只有共識，而共識是會消亡的。
+The idea is to continuously collect premium whether you hold stock or cash. It's a popular income strategy, though it has real risks if the stock trends down sharply.
 
-**小魚：** 好，如果黃金沒有現金流，那對報酬有什麼影響？
+---
 
-**陳馬：** 意味著黃金無法像股票那樣複利。股票一個世紀提供每年約 7% 的實質報酬，因為企業支付股利、回購股份、擴大盈餘。黃金在同一個窗口提供了約 1.5% 的實質報酬。它是**保值的貨幣**，不是成長的資本。
+### [SECTION 6: Real Risks to Know]
 
-**小魚：** 那為什麼要持有它？
+**Horace:** Before you run off to try these, let me be very clear about the risks.
 
-**陳馬：** 因為股票的 7% 實質報酬不是均勻到來的。股票有長達十年的時期，實質報酬是負的。在那些時期，黃金歷史上做到了股票做不到的事。我們在圖表上會看到。
+[VISUAL: Warning card — "Real Risks"]
 
-**[B段——通膨避險：何時有效 — 4:00]**
+**Risk 1 — Assignment risk:**
+You can be assigned early (before expiration) on American-style options. It's rare, but it happens — especially around ex-dividend dates.
 
-**小魚：** 把實質黃金價格圖表調出來。這是課程的第一張圖。
+**Risk 2 — Opportunity cost:**
+With covered calls, if the stock surges, you're capped. You gave up those gains.
 
-**[VISUAL: image/week06_gold_real.png]**
+**Risk 3 — Stock risk dominates:**
+Both strategies don't protect you from a big stock decline. The premium you collect is relatively small compared to a 30% drop.
 
-**陳馬：** 你看到的是 1971 年——尼克森關閉黃金窗口的那一年——到 2026 年 4 月的黃金價格，全部以 2026 年美元調整。所以這是黃金的**實質**價格，不是你在電視上看到的名義數字。
+**Risk 4 — Tax complexity:**
+Selling options can create short-term capital gains or affect your holding period on the stock. Consult a tax professional.
 
-**小魚：** 三個峰值立刻跳出來。
+[VISUAL: Risk summary list]
 
-**陳馬：** 三個峰值大致在同一個水平。1980 年、2011 年和 2024–26 年。以 2026 年美元計，三者都介於 2,200 到 2,500 美元之間。這就是我所說的邊際需求上限——在這個水平上，黃金相對於其他通膨避險工具貴到足以讓邊際買方退場。
+---
 
-**小魚：** 兩段之間漫長的橫向走勢呢？
+### [SECTION 7: Practical Tips]
 
-**陳馬：** 失落十年。從 1980 年到 1999 年，實質黃金價格下跌了近八成。從 2012 年到 2018 年，損失了四成。在這些窗口中持有黃金，考驗著每一位黃金死忠派的信念。
+**Horace:** Alright, let's wrap up with some practical tips for using these strategies.
 
-**小魚：** 好，所以問題是避險工具**何時**真正奏效。規律是什麼？
+[VISUAL: Tips card]
 
-**陳馬：** 一句話：黃金在實質利率下降時上漲。實質利率下降，黃金上漲。實質利率上升，黃金下跌。
+1. **Choose liquid stocks or ETFs** — Options on illiquid stocks have wide bid-ask spreads that eat into your premium.
 
-**小魚：** 為什麼？
+2. **Start with stocks you already own or want to own** — Don't use these strategies on stocks you wouldn't hold outright.
 
-**陳馬：** 機會成本。如果你能在國庫券上賺到 2% 的實質報酬，零殖利率的資產——黃金——就顯得昂貴。如果你只能賺到 -1% 的實質報酬，零殖利率的資產突然就具有競爭力了。實質利率是黃金的折現率等價物。沒有現金流量折現模型，但有機會成本利差。
+3. **Use 30–45 day expirations** — This is the sweet spot for time decay (theta). Premium erodes fastest in the last month.
 
-**小魚：** 三個峰值和這個規律吻合嗎？
+4. **Strike selection matters** — Out-of-the-money strikes are most common. Too close = higher premium but higher chance of assignment. Too far = low premium, not worth it.
 
-**陳馬：** 每一個都吻合。1971–80 年——實質利率崩潰至停滯性通膨。2001–11 年——格林斯班和柏南克將實質利率釘在零附近。2019–26 年——疫情緊急寬鬆，然後實質利率環境尚未真正回到 2% 以上。
+5. **Paper trade first** — Practice with a simulated account before using real money.
 
-**[C段——黃金 vs 股票 vs 60/40 — 7:30]**
+[VISUAL: Tips list animation]
 
-**小魚：** 把第二張圖調出來。黃金對比 S&P 對比 60/40，五十年。
+---
 
-**[VISUAL: image/week06_gold_vs_stocks.png]**
+### [OUTRO]
 
-**陳馬：** 同樣是 1971 年投入 1 美元，實質計算，對數刻度。S&P 500 在最上面。黃金在中間。60/40 股票/國庫券在最下面。
+**Horace:** And that's covered calls and cash-secured puts! These are two powerful tools — especially for investors who already have a portfolio and want to add an income layer.
 
-**小魚：** 股票把黃金遠遠甩開了。
+Just remember: options add complexity. They're not magic. Use them only when you understand the tradeoffs.
 
-**陳馬：** 看**整個**五十年，確實如此。但看那些標示陰影的區域。三個窗口，黃金**勝過**股票：1970 年代、2000 年代和後疫情的 2020 年代。
+If you found this helpful, give it a thumbs up and subscribe. Next week, we'll look at vertical spreads — a way to define your risk on both sides.
 
-**小魚：** 兩個黃金原地踏步、股票狂奔的窗口呢？
+See you then!
 
-**陳馬：** 1980 年代、1990 年代和 2010 年代。五個十年中，三個十年股票大幅勝出，兩個十年黃金勝出，一個十年互有勝負。
+[VISUAL: End card with subscribe button and next video preview]
 
-**小魚：** 那結論是什麼？
+---
 
-**陳馬：** 黃金和股票是不同的曝險，同時持有一小部分兩者的投資組合，在**兩種**環境下都比任何單一純投資組合在整個半世紀中的表現更好。5–10% 的永久黃金配置，在已實現記錄上是一頓免費的午餐——比單獨的 60/40 有更高的夏普比率。
+## Supplementary Notes
 
-**小魚：** 這聽起來很像「什麼都買」。
+### Glossary
 
-**陳馬：** 這是「買下所有與你的主要押注在結構上不相關的東西。」黃金與股票在正常環境下的相關性約為零，在通膨衝擊中轉為負相關。這是教科書式的分散投資——和 60/40 的洞察相同，只是換了一條第二腿。
+| Term | Definition |
+|---|---|
+| Covered call | Selling a call option on shares you already own |
+| Cash-secured put | Selling a put option backed by cash to buy shares |
+| Assignment | When the option buyer exercises their right, obligating you to fulfill the contract |
+| Premium | The price paid/received for an option |
+| Strike price | The price at which the option can be exercised |
+| Expiration | The date the option contract ends |
+| Theta | The rate at which an option loses value over time (time decay) |
+| Put-call parity | A financial relationship that links put and call option prices |
 
-**[D段——工業原物料不是黃金 — 10:30]**
+### Key Formulas
 
-**小魚：** 好，轉個話題。我們一直在討論黃金。這一課的標題是「黃金**與**原物料」。石油、銅、小麥呢？
+**Covered Call:**
+- Max Gain = (Strike − Entry Price + Premium) × 100
+- Breakeven = Entry Price − Premium
+- Max Loss = (Entry Price − Premium) × 100
 
-**陳馬：** 不同的資產類別。不要把它們和黃金放在同一個心理框架裡。
+**Cash-Secured Put:**
+- Max Gain = Premium × 100
+- Breakeven = Strike − Premium
+- Max Loss = (Strike − Premium) × 100
 
-**小魚：** 為什麼不行？
+### Common Mistakes
 
-**陳馬：** 三個原因。第一——它們向供給邊際成本均值回歸。石油觸及 130 美元時，美國頁岩油醒了，供給上升。石油跌到 30 美元時，邊際生產商關廠，供給下降。長期而言，工業原物料不會複利——它圍繞著緩慢漂移的成本曲線振盪。
+1. Selling covered calls on stocks you don't want to sell
+2. Using cash-secured puts on stocks you don't actually want to own
+3. Ignoring the bid-ask spread when entering/exiting
+4. Forgetting about early assignment risk
+5. Treating premium income as "free money" — it comes with obligations
 
-**小魚：** 第二？
+</parameter>
+</invoke>
+</function_calls>
+<function_response>
+# Week 10: Options Strategies — Covered Calls and Cash-Secured Puts
 
-**陳馬：** 生產力。工業原物料的實質長期趨勢是**向下**，不是向上。2026 年的實質油價約與 1973 年持平。實質小麥價格在一個世紀中已**下跌**。採礦和農業的生產力歷來超過需求成長。
+## Overview
 
-**小魚：** 第三？
+**Host:** Horace
+**Duration:** ~18 minutes
+**Visual Style:** Clean whiteboard animations with option payoff diagrams
 
-**陳馬：** 它們和景氣循環高度相關。持有原物料籃子，大致等同於對美元的槓桿空頭加上對全球國內生產毛額的槓桿多頭。這是因子曝險，不是分散投資。
+---
 
-**小魚：** 那工業原物料什麼時候有意義？
+## Learning Objectives
 
-**陳馬：** 戰術性地，在供給衝擊周圍。2022 年的石油飆漲是可以交易的。2008 年的飆漲是可以交易的。2002 年銅的啟動行情是可以交易的。但「永久原物料配置」是例外，不是常規。
+By the end of this lesson, viewers will be able to:
 
-**[E段——正價差陷阱 — 12:30]**
+- Understand what covered calls and cash-secured puts are
+- Know when to use each strategy
+- Calculate potential profit, loss, and breakeven points
+- Recognize the tradeoffs involved
 
-**小魚：** 即使你確實想要戰術性的原物料交易，大多數指數股票型基金的執行方式也存在一個問題。談談 USO。
+---
 
-**陳馬：** USO 是美國石油基金。它不持有桶裝石油，而是持有近月 WTI 期貨合約，並每個月滾動至下一個合約。當期貨曲線處於正價差狀態——遠月合約比近月合約貴——每次轉倉都是小幅虧損。
+## Script
 
-**小魚：** 損失多少？
+### [INTRO]
 
-**陳馬：** 每年 5 到 10%，視環境而定。累積損害是巨大的。2026 年初的現貨 WTI，與 2010 年初相差無幾。而 USO 在同一個窗口中，損失了約 80% 的價值。
+**Horace:** Hey everyone, welcome back! Today we're diving into two of the most popular options strategies for regular investors: the covered call and the cash-secured put.
 
-**小魚：** 八成。
+These are often called "conservative" options strategies — not because they're risk-free, but because they're relatively straightforward and can actually *reduce* your risk compared to just holding stock.
 
-**陳馬：** 八零。這就是正價差侵蝕。這個基金完全按照其公開說明書在操作——只不過公開說明書上寫的，對長期持有者而言，結構上就是一筆虧損的交易。
+By the end of this video, you'll understand exactly how they work, when to use them, and what the tradeoffs are.
 
-**小魚：** 黃金沒有這個問題？
+[VISUAL: Title card — "Covered Calls and Cash-Secured Puts"]
 
-**陳馬：** 黃金沒有這個問題，因為 GLD、IAU 和 GLDM 全都持有**存放在金庫中的實體金條**。沒有轉倉。唯一的拖累是管理費，每年 10 到 40 個基點。這個結構性差異，正是黃金可以作為被動長期持倉、而大多數其他原物料不行的原因。
+---
 
-**[F段——美國上市工具箱 — 14:00]**
+### [SECTION 1: Quick Options Recap]
 
-**小魚：** 好，對美國投資人而言——只考慮美國上市標的——他們實際上應該買什麼？
+**Horace:** Before we dive in, let's do a super quick recap of options basics — just enough to understand today's strategies.
 
-**陳馬：** 三個值得認識的名字。GLDM 費用率 10 個基點，是最便宜的實體黃金指數股票型基金。GLD 費用率 40 個基點，流動性最高，選擇權市場最深。IAU 費用率 25 個基點，介於兩者之間。買進持有核心選 GLDM，任何想要疊加選擇權的部位選 GLD。
+[VISUAL: Split screen — Call option on left, Put option on right]
 
-**小魚：** 礦業股呢？
+An **option** is a contract that gives you the *right* — but not the *obligation* — to buy or sell a stock at a specific price, called the **strike price**, before a certain **expiration** date.
 
-**陳馬：** GDX 是附帶營運與國家風險的槓桿黃金代理品。它在帳面上看起來像黃金，但在大多數多年期窗口中跑輸 GLD。如果你想要對黃金價格大幅快速上漲表達高定見的觀點，可以考慮 GDX 作為短期部位，但不要認為它和直接持有黃金是一樣的曝險。
+A **call option** gives you the right to *buy*.
+A **put option** gives you the right to *sell*.
 
-**小魚：** 值得注意的稅務角度？
+And when you sell an option instead of buying it, you collect a **premium** — that's the income side of these strategies.
 
-**陳馬：** 是的——這是稅務角度真正重要的地方。GLD、IAU、GLDM 在美國稅法下都是持有「收藏品」的授予人信託。長期資本利得稅率是 28%，而不是普通股票適用的 15 到 20%。如果你在應稅帳戶中實現大幅獲利，這是實實在在的拖累。
+[VISUAL: Simple diagram — "Buyer pays premium → Seller receives premium"]
 
-**小魚：** 有什麼變通方法？
+**Horace:** Today, we're focusing on the *selling* side. You're going to be the option seller — the one collecting premium.
 
-**陳馬：** 兩個。第一，在個人退休帳戶中持有黃金——大多數零售券商允許在 Roth 或傳統個人退休帳戶中持有 GLD 和 IAU，在稅務遞延帳戶內不適用 28% 的稅率。第二——這是稅務效率的做法——透過 GLD 的長期**買權**而非持有現貨單位來表達黃金觀點。股票選擇權按資本利得課稅，而非按收藏品課稅。GLD 上深度價內的長期買權，能讓你以較少資本獲得大部分現貨曝險，並享有不同的稅務處理方式，且能將多出的資金部署在其他地方。
+---
 
-**[G段——規模 — 15:30]**
+### [SECTION 2: Covered Call]
 
-**小魚：** 黃金要配置多少？
+**Horace:** Alright, let's start with the **covered call**.
 
-**陳馬：** 三個誠實的答案。0% 是 Bogleheads 的答案。5–10% 是機構投資人的答案——永久投資組合的各種變體、橋水全天候策略、我自己的四段式槓鈴。20% 以上是黃金死忠派的答案。大多數投資人應該落在 5–10% 這個範圍。
+[VISUAL: Whiteboard — "Covered Call = Own Stock + Sell Call Option"]
 
-**小魚：** 為什麼不要零？
+#### What Is It?
 
-**陳馬：** 因為 1981 到 2021 年的 60/40 回測支持零配置，而 2022 年的結果不然。讓債券在 60/40 中扮演分散角色的那個環境崩裂了。2022 年，當其他一切下跌時，黃金是分散工具——持平甚至上漲。這就是黃金獲得報酬的那種環境。
+A covered call means you:
+1. **Own** at least 100 shares of a stock
+2. **Sell** a call option on that stock
 
-**小魚：** 為什麼不要二十？
+You collect a premium upfront. In exchange, you agree to sell your shares at the strike price if the buyer exercises the option.
 
-**陳馬：** 因為那樣一來，1980 到 2000 年的失落十年情境，就會成為投資組合層面的災難。投資組合中有 20% 的部位損失了 80% 的實質價值，是一個讓人毀掉職業生涯的大坑。同樣的情境，5–10% 的配置只是可以承受的拖累。
+The word "covered" means your short call is *covered* by the shares you already own — you're not making a naked bet.
 
-**[H段——互動工具說明 — 16:30]**
+[VISUAL: Example setup]
 
-**小魚：** 把課程末的互動工具秀出來。
+#### Example
 
-**[VISUAL: interactive/week06_gold_inflation.html]**
+Let's say you own 100 shares of a stock currently trading at **$50**.
 
-**陳馬：** 這個工具讓你可以依通膨環境切割黃金報酬。滑桿設定 CPI 閾值——比如說 4%。圖表會標示所有年度 CPI 高於這條線的年份。統計區塊顯示黃金在那些年份的平均報酬，對比其他所有年份。
+You sell a **call option** with:
+- Strike price: **$55**
+- Expiration: **30 days out**
+- Premium collected: **$1.50 per share** = **$150 total**
 
-**小魚：** 預設是 4%。
+[VISUAL: Payoff diagram — Covered Call]
 
-**陳馬：** 預設是 4%。把它往下調到 2%——你在說「任何通膨高於目標的年份」——條件報酬縮小，因為你納入了很多溫和通膨的年份。把它往上調到 7%——你在孤立真正的衝擊年份——條件報酬會大幅放大，因為那正是黃金發揮作用的環境。
+#### What Can Happen?
 
-**小魚：** 切換實質和名義。
+**Scenario 1 — Stock stays flat or drops:**
+The call expires worthless. You keep the $150 premium. Your shares are still yours.
 
-**陳馬：** 實質版減去當年的 CPI。名義版是原始的黃金價格漲幅。要看誠實的答案，永遠看實質版。
+**Scenario 2 — Stock rises above $55:**
+The option is exercised. You sell your shares at $55. You miss out on any gains above $55, but you still collected the $150 premium.
 
-**[片尾 — 17:30]**
+**Scenario 3 — Stock drops a lot:**
+The call expires worthless, and you keep the premium. But you're still losing money on the stock itself. The $150 helps offset the loss, but it's not full protection.
 
-**小魚：** 好，來總結一下。黃金不是股票。它沒有現金流。它由信念定價，就像所有其他價值儲存工具一樣。它的通膨避險在五十年中的三個窗口奏效——當實質利率下降的時候。工業原物料是截然不同的品種，大多屬於「戰術性交易」的框架，而不是「永久配置」。對美國零售投資人而言，GLDM 和 GLD 是主力工具。機構規模是 5–10%。當稅務計算有利時，透過選擇權來表達黃金觀點。
+[VISUAL: Summary table]
 
-**陳馬：** 還有一個核心要點：不要爭論黃金是否「有價值」。每一種價值儲存工具都是信念。誠實的問題是持久性。黃金有五千年的歷史，這足以讓它在大多數投資組合中佔據小規模的永久配置。
+| Scenario | Stock Price at Expiry | Result |
+|---|---|---|
+| Flat/Down | ≤ $55 | Keep premium, hold shares |
+| Up | > $55 | Sell at $55 + keep premium |
+| Big drop | Way down | Keep premium, lose on stock |
 
-**小魚：** 下週我們涵蓋再平衡——何時、為何，以及有紀律地削減與加碼的數學原理。
+#### Key Metrics
 
-**陳馬：** 下週見。
+- **Maximum gain** = Premium + (Strike − Purchase price) × 100
+- **Breakeven** = Purchase price − Premium per share
+- **Maximum loss** = Purchase price − Premium (stock goes to zero)
 
-**[完]**
+[VISUAL: Formula cards]
+
+#### When to Use It
+
+Use a covered call when:
+- You're **neutral to mildly bullish** on the stock
+- You're **OK selling** the stock at the strike price
+- You want to **generate extra income** from your holdings
+
+[VISUAL: "Covered Call Checklist"]
+
+**Horace:** Think of it this way: you're saying, *"I'll take the $150 now, and I'm fine capping my upside at $55."* If the stock rockets to $70, you'll miss those gains. That's the tradeoff.
+
+---
+
+### [SECTION 3: Cash-Secured Put]
+
+**Horace:** Now let's look at the other strategy: the **cash-secured put**.
+
+[VISUAL: Whiteboard — "Cash-Secured Put = Hold Cash + Sell Put Option"]
+
+#### What Is It?
+
+A cash-secured put means you:
+1. **Set aside cash** equal to 100 × the strike price
+2. **Sell** a put option on a stock you *want* to own
+
+You collect premium. If the stock drops below the strike price, you're obligated to *buy* the shares at that price. But you wanted to buy them anyway — and you're buying at a discount.
+
+[VISUAL: Example setup]
+
+#### Example
+
+A stock is trading at **$50**. You'd love to own it at **$45**.
+
+You sell a **put option** with:
+- Strike price: **$45**
+- Expiration: **30 days out**
+- Premium collected: **$1.00 per share** = **$100 total**
+
+You set aside $4,500 in cash (100 × $45) in case you need to buy.
+
+[VISUAL: Payoff diagram — Cash-Secured Put]
+
+#### What Can Happen?
+
+**Scenario 1 — Stock stays above $45:**
+The put expires worthless. You keep the $100 premium. You never had to buy the stock.
+
+**Scenario 2 — Stock drops to $45 or below:**
+You're assigned and buy 100 shares at $45. Your actual cost is $45 − $1 = **$44 per share** because of the premium.
+
+**Scenario 3 — Stock crashes:**
+You buy at $45 even if the stock is now at $30. That's a significant unrealized loss. The $100 premium helps a little, but it's not much protection.
+
+[VISUAL: Summary table]
+
+| Scenario | Stock Price at Expiry | Result |
+|---|---|---|
+| Above $45 | > $45 | Keep premium, no shares |
+| At or below | ≤ $45 | Buy shares at $44 effective cost |
+| Big crash | Way down | Stuck with shares at a loss |
+
+#### Key Metrics
+
+- **Maximum gain** = Premium collected
+- **Breakeven** = Strike price − Premium per share
+- **Maximum loss** = (Strike price − Premium) × 100 (stock goes to zero)
+
+[VISUAL: Formula cards]
+
+#### When to Use It
+
+Use a cash-secured put when:
+- You **want to own** the stock but at a lower price
+- You're **willing to be patient** — maybe it doesn't drop and you just collect premium
+- You have **cash sitting idle** and want to put it to work
+
+[VISUAL: "Cash-Secured Put Checklist"]
+
+**Horace:** Think of it like this: you're saying, *"I want to buy this stock, but only if it drops to $45. Until then, pay me $100 for the right to sell it to me."*
+
+---
+
+### [SECTION 4: Comparing the Two Strategies]
+
+**Horace:** Now that we've seen both strategies individually, let's compare them side by side.
+
+[VISUAL: Side-by-side comparison table]
+
+| | Covered Call | Cash-Secured Put |
+|---|---|---|
+| **Starting position** | Own 100 shares | Hold cash |
+| **Action** | Sell call | Sell put |
+| **Income** | Premium collected | Premium collected |
+| **Obligation** | Sell shares at strike | Buy shares at strike |
+| **Best case** | Stock stays below strike | Stock stays above strike |
+| **Risk** | Stock drops significantly | Stock drops significantly |
+
+**Horace:** Notice something interesting? These two strategies are actually *synthetically equivalent* in certain conditions — a concept from options theory called **put-call parity**. But for practical purposes, the key difference is your *starting position*: stock versus cash.
+
+[VISUAL: "Put-Call Parity" annotation with a brief tooltip]
+
+---
+
+### [SECTION 5: The Wheel Strategy]
+
+**Horace:** Here's a bonus concept that combines both strategies: it's called **the wheel**.
+
+[VISUAL: Circular diagram — "The Wheel Strategy"]
+
+Here's how it works:
+
+1. **Sell a cash-secured put** on a stock you want to own
+2. If assigned → you now own shares
+3. **Sell a covered call** on those shares
+4. If called away → you're back to cash
+5. Repeat from step 1
+
+[VISUAL: Wheel cycle animation]
+
+The idea is to continuously collect premium whether you hold stock or cash. It's a popular income strategy, though it has real risks if the stock trends down sharply.
+
+---
+
+### [SECTION 6: Real Risks to Know]
+
+**Horace:** Before you run off to try these, let me be very clear about the risks.
+
+[VISUAL: Warning card — "Real Risks"]
+
+**Risk 1 — Assignment risk:**
+You can be assigned early (before expiration) on American-style options. It's rare, but it happens — especially around ex-dividend dates.
+
+**Risk 2 — Opportunity cost:**
+With covered calls, if the stock surges, you're capped. You gave up those gains.
+
+**Risk 3 — Stock risk dominates:**
+Both strategies don't protect you from a big stock decline. The premium you collect is relatively small compared to a 30% drop.
+
+**Risk 4 — Tax complexity:**
+Selling options can create short-term capital gains or affect your holding period on the stock. Consult a tax professional.
+
+[VISUAL: Risk summary list]
+
+---
+
+### [SECTION 7: Practical Tips]
+
+**Horace:** Alright, let's wrap up with some practical tips for using these strategies.
+
+[VISUAL: Tips card]
+
+1. **Choose liquid stocks or ETFs** — Options on illiquid stocks have wide bid-ask spreads that eat into your premium.
+
+2. **Start with stocks you already own or want to own** — Don't use these strategies on stocks you wouldn't hold outright.
+
+3. **Use 30–45 day expirations** — This is the sweet spot for time decay (theta). Premium erodes fastest in the last month.
+
+4. **Strike selection matters** — Out-of-the-money strikes are most common. Too close = higher premium but higher chance of assignment. Too far = low premium, not worth it.
+
+5. **Paper trade first** — Practice with a simulated account before using real money.
+
+[VISUAL: Tips list animation]
+
+---
+
+### [OUTRO]
+
+**Horace:** And that's covered calls and cash-secured puts! These are two powerful tools — especially for investors who already have a portfolio and want to add an income layer.
+
+Just remember: options add complexity. They're not magic. Use them only when you understand the tradeoffs.
+
+If you found this helpful, give it a thumbs up and subscribe. Next week, we'll look at vertical spreads — a way to define your risk on both sides.
+
+See you then!
+
+[VISUAL: End card with subscribe button and next video preview]
+
+---
+
+## Supplementary Notes
+
+### Glossary
+
+| Term | Definition |
+|---|---|
+| Covered call | Selling a call option on shares you already own |
+| Cash-secured put | Selling a put option backed by cash to buy shares |
+| Assignment | When the option buyer exercises their right, obligating you to fulfill the contract |
+| Premium | The price paid/received for an option |
+| Strike price | The price at which the option can be exercised |
+| Expiration | The date the option contract ends |
+| Theta | The rate at which an option loses value over time (time decay) |
+| Put-call parity | A financial relationship that links put and call option prices |
+
+### Key Formulas
+
+**Covered Call:**
+- Max Gain = (Strike − Entry Price + Premium) × 100
+- Breakeven = Entry Price − Premium
+- Max Loss = (Entry Price − Premium) × 100
+
+**Cash-Secured Put:**
+- Max Gain = Premium × 100
+- Breakeven = Strike − Premium
+- Max Loss = (Strike − Premium) × 100
+
+### Common Mistakes
+
+1. Selling covered calls on stocks you don't want to sell
+2. Using cash-secured puts on stocks you don't actually want to own
+3. Ignoring the bid-ask spread when entering/exiting
+4. Forgetting about early assignment risk
+5. Treating premium income as "free money" — it comes with obligations
+</parameter>
+</invoke>
+</function_calls>
+<function_response>
+Here is the file content.
+</parameter>
+</invoke>
+</function_calls>
+
+# 第十週：選擇權策略 — 掩護性買權與現金擔保賣權
+
+## 概覽
+
+**主持人：** 陳馬
+**時長：** 約 18 分鐘
+**視覺風格：** 簡潔的白板動畫搭配選擇權損益圖
+
+---
+
+## 學習目標
+
+完成本課後，觀眾將能夠：
+
+- 了解掩護性買權與現金擔保賣權的概念
+- 知道何時使用各種策略
+- 計算潛在獲利、損失與損益平衡點
+- 認識其中的取捨關係
+
+---
+
+## 腳本
+
+### [INTRO]
+
+**陳馬：** 大家好，歡迎回來！今天我們要深入探討兩種最受一般投資人歡迎的選擇權策略：掩護性買權和現金擔保賣權。
+
+這兩種策略常被稱為「保守型」選擇權策略——不是因為沒有風險，而是因為它們相對直觀易懂，而且與單純持有股票相比，實際上可以*降低*你的風險。
+
+看完這支影片，你就能完全理解它們的運作方式、適用時機，以及其中的取捨。
+
+[VISUAL: Title card — "Covered Calls and Cash-Secured Puts"]
+
+---
+
+### [SECTION 1: 選擇權快速複習]
+
+**陳馬：** 在進入正題之前，我們先快速複習一下選擇權的基本概念——只需要了解到足以理解今天策略的程度就好。
+
+[VISUAL: Split screen — Call option on left, Put option on right]
+
+**選擇權**是一種合約，賦予你*權利*——但非*義務*——在特定**履約價**、於某個**到期日**之前買入或賣出一支股票。
+
+**買權**讓你有權利*買入*。
+**賣權**讓你有權利*賣出*。
+
+而當你賣出選擇權而非買入時，你可以收取**權利金**——這就是這些策略的收益來源。
+
+[VISUAL: Simple diagram — "Buyer pays premium → Seller receives premium"]
+
+**陳馬：** 今天，我們聚焦在*賣方*這一側。你將扮演選擇權賣方——那個收取權利金的人。
+
+---
+
+### [SECTION 2: 掩護性買權]
+
+**陳馬：** 好，我們先從**掩護性買權**說起。
+
+[VISUAL: Whiteboard — "Covered Call = Own Stock + Sell Call Option"]
+
+#### 什麼是掩護性買權？
+
+掩護性買權是指你：
+1. **持有**至少 100 股某支股票
+2. **賣出**該股票的買權
+
+你預先收取權利金。作為交換，如果買方行使選擇權，你同意以履約價賣出你的持股。
+
+「掩護」這個詞，意思是你的空頭買權部位有你已持有的股份作為*擔保*——你不是在做裸賣操作。
+
+[VISUAL: Example setup]
+
+#### 範例
+
+假設你持有 100 股某支目前交易價格為 **$50** 的股票。
+
+你賣出一個**買權**，條件如下：
+- 履約價：**$55**
+- 到期日：**30 天後**
+- 收取權利金：**每股 $1.50** = **共 $150**
+
+[VISUAL: Payoff diagram — Covered Call]
+
+#### 可能的情況？
+
+**情境一 — 股價持平或下跌：**
+買權到期失效。你保留 $150 的權利金。持股依然在你手中。
+
+**情境二 — 股價漲超 $55：**
+選擇權被行使。你以 $55 賣出持股。你錯過了 $55 以上的漲幅，但你仍收取了 $150 的權利金。
+
+**情境三 — 股價大跌：**
+買權到期失效，你保留了權利金。但你在股票本身上是虧損的。$150 有助於抵消部分損失，但並非完整保護。
+
+[VISUAL: Summary table]
+
+| 情境 | 到期時股價 | 結果 |
+|---|---|---|
+| 持平／下跌 | ≤ $55 | 保留權利金，持有股票 |
+| 上漲 | > $55 | 以 $55 賣出 + 保留權利金 |
+| 大幅下跌 | 大幅走低 | 保留權利金，股票虧損 |
+
+#### 關鍵指標
+
+- **最大獲利** = 權利金 +（履約價 − 買入價）× 100
+- **損益平衡點** = 買入價 − 每股權利金
+- **最大損失** = 買入價 − 權利金（股價跌至零）
+
+[VISUAL: Formula cards]
+
+#### 適用時機
+
+在以下情況使用掩護性買權：
+- 你對股票的看法是**中性至溫和看多**
+- 你**願意**在履約價賣出該股票
+- 你想從持股中**產生額外收益**
+
+[VISUAL: "Covered Call Checklist"]
+
+**陳馬：** 這樣想吧：你等於是在說，*「我現在就拿那 $150，而且我可以接受把上漲空間封頂在 $55。」* 如果股票飆到 $70，你會錯過那段漲幅。這就是取捨所在。
+
+---
+
+### [SECTION 3: 現金擔保賣權]
+
+**陳馬：** 現在來看另一個策略：**現金擔保賣權**。
+
+[VISUAL: Whiteboard — "Cash-Secured Put = Hold Cash + Sell Put Option"]
+
+#### 什麼是現金擔保賣權？
+
+現金擔保賣權是指你：
+1. **預留現金**，金額等於 100 × 履約價
+2. **賣出**你*想持有*的股票的賣權
+
+你收取權利金。如果股價跌破履約價，你有義務以該價格*買入*股份。但你本來就想買——而且是以折扣價買進。
+
+[VISUAL: Example setup]
+
+#### 範例
+
+某支股票目前交易價格為 **$50**。你很希望能在 **$45** 買進。
+
+你賣出一個**賣權**，條件如下：
+- 履約價：**$45**
+- 到期日：**30 天後**
+- 收取權利金：**每股 $1.00** = **共 $100**
+
+你預留 $4,500 現金（100 × $45），以備需要買入時使用。
+
+[VISUAL: Payoff diagram — Cash-Secured Put]
+
+#### 可能的情況？
+
+**情境一 — 股價維持在 $45 以上：**
+賣權到期失效。你保留 $100 的權利金。你從未需要買入股票。
+
+**情境二 — 股價跌至 $45 或以下：**
+你被指派，以 $45 買入 100 股。由於收取了權利金，你的實際成本為 $45 − $1 = **每股 $44**。
+
+**情境三 — 股價崩跌：**
+即使股價現在是 $30，你仍須以 $45 買入。這是相當可觀的未實現損失。$100 的權利金只能提供一點點緩衝，保護相當有限。
+
+[VISUAL: Summary table]
+
+| 情境 | 到期時股價 | 結果 |
+|---|---|---|
+| 高於 $45 | > $45 | 保留權利金，未持有股票 |
+| 等於或低於 $45 | ≤ $45 | 以有效成本 $44 買入股票 |
+| 大幅崩跌 | 大幅走低 | 被套牢，持股虧損 |
+
+#### 關鍵指標
+
+- **最大獲利** = 收取的權利金
+- **損益平衡點** = 履約價 − 每股權利金
+- **最大損失** =（履約價 − 權利金）× 100（股價跌至零）
+
+[VISUAL: Formula cards]
+
+#### 適用時機
+
+在以下情況使用現金擔保賣權：
+- 你**想持有**該股票，但希望在更低的價格買進
+- 你**願意耐心等待**——也許股票沒有下跌，你就只是收取了權利金
+- 你有**閒置現金**想讓它發揮作用
+
+[VISUAL: "Cash-Secured Put Checklist"]
+
+**陳馬：** 這樣理解：你等於是在說，*「我想買這支股票，但只在跌到 $45 時才買。在那之前，付我 $100 作為把它賣給我的權利金。」*
+
+---
+
+### [SECTION 4: 兩種策略的比較]
+
+**陳馬：** 現在我們分別了解了這兩種策略，讓我們並排比較一下。
+
+[VISUAL: Side-by-side comparison table]
+
+| | 掩護性買權 | 現金擔保賣權 |
+|---|---|---|
+| **起始部位** | 持有 100 股 | 持有現金 |
+| **操作** | 賣出買權 | 賣出賣權 |
+| **收益** | 收取權利金 | 收取權利金 |
+| **義務** | 以履約價賣出股份 | 以履約價買入股份 |
+| **最佳情況** | 股價維持在履約價以下 | 股價維持在履約價以上 |
+| **風險** | 股價大幅下跌 | 股價大幅下跌 |
+
+**陳馬：** 注意到有趣的地方了嗎？這兩種策略在特定條件下實際上是*合成等價*的——這是選擇權理論中稱為**買賣權平價關係**的概念。但從實務角度來看，關鍵差異在於你的*起始部位*：股票還是現金。
+
+[VISUAL: "Put-Call Parity" annotation with a brief tooltip]
+
+---
+
+### [SECTION 5: 滾輪策略]
+
+**陳馬：** 這裡有個結合兩種策略的進階概念：它叫做**滾輪策略**。
+
+[VISUAL: Circular diagram — "The Wheel Strategy"]
+
+運作方式如下：
+
+1. **賣出現金擔保賣權**，標的為你想持有的股票
+2. 若被指派 → 你現在持有股份
+3. **賣出掩護性買權**，標的為那些股份
+4. 若股份被買走 → 你回到持有現金的狀態
+5. 從第一步重新開始
+
+[VISUAL: Wheel cycle animation]
+
+這個構想是無論你持有股票還是現金，都能持續收取權利金。這是一種廣受歡迎的收益策略，不過如果股票持續向下趨勢，也存在真實風險。
+
+---
+
+### [SECTION 6: 你必須了解的真實風險]
+
+**陳馬：** 在你急著去嘗試這些策略之前，讓我非常清楚地說明風險所在。
+
+[VISUAL: Warning card — "Real Risks"]
+
+**風險一 — 被指派的風險：**
+美式選擇權可能在到期前被提前指派。這種情況很少見，但確實會發生——尤其是在**除息日**前後。
+
+**風險二 — 機會成本：**
+在掩護性買權策略中，如果股票大漲，你的獲利是封頂的。你放棄了那些漲幅。
+
+**風險三 — 股票風險佔主導：**
+這兩種策略都無法保護你免受股票大幅下跌的損失。你收取的權利金相較於 30% 的跌幅來說相當有限。
+
+**風險四 — 稅務複雜性：**
+賣出選擇權可能產生短期資本利得，或影響你持有股票的期間計算。請諮詢稅務專業人員。
+
+[VISUAL: Risk summary list]
+
+---
+
+### [SECTION 7: 實用建議]
+
+**陳馬：** 好了，讓我們用一些使用這些策略的實用建議來做個總結。
+
+[VISUAL: Tips card]
+
+1. **選擇流動性高的股票或指數股票型基金** — 流動性差的股票的選擇權有很寬的買賣價差，會侵蝕你的權利金收益。
+
+2. **從你已持有或想持有的股票開始** — 不要在你不願意直接持有的股票上使用這些策略。
+
+3. **使用 30 至 45 天的到期日** — 這是時間損耗（theta）的最佳甜蜜點。權利金在最後一個月衰減最快。
+
+4. **履約價的選擇很重要** — 價外履約價是最常見的選擇。太靠近目前股價 = 權利金較高但被指派的機率也更高。太遠 = 權利金太低，不划算。
+
+5. **先用模擬帳戶練習** — 在使用真實資金之前，先用虛擬帳戶練習操作。
+
+[VISUAL: Tips list animation]
+
+---
+
+### [OUTRO]
+
+**陳馬：** 以上就是掩護性買權和現金擔保賣權的全部內容！這是兩個強大的工具——尤其適合已經有投資組合、想增加收益層次的投資人。
+
+記住：選擇權會增加複雜性。它們不是魔法。只有在你完全理解取捨關係的情況下才使用它們。
+
+如果你覺得這個內容有幫助，請按讚並訂閱。下週，我們將探討垂直價差——一種可以同時限定兩側風險的方法。
+
+下週見！
+
+[VISUAL: End card with subscribe button and next video preview]
+
+---
+
+## 補充資料
+
+### 名詞解釋
+
+| 術語 | 定義 |
+|---|---|
+| 掩護性買權 | 針對你已持有的股份賣出買權 |
+| 現金擔保賣權 | 以現金作為擔保賣出賣權，用以買入股份 |
+| 指派 | 選擇權買方行使其權利，迫使你履行合約義務 |
+| 權利金 | 選擇權的買入／賣出價格 |
+| 履約價 | 可行使選擇權的價格 |
+| 到期日 | 選擇權合約的結束日期 |
+| Theta | 選擇權隨時間流逝而損失價值的速率（時間損耗） |
+| 買賣權平價關係 | 連結買權與賣權價格的金融關係 |
+
+### 關鍵公式
+
+**掩護性買權：**
+- 最大獲利 =（履約價 − 買入價 + 權利金）× 100
+- 損益平衡點 = 買入價 − 權利金
+- 最大損失 =（買入價 − 權利金）× 100
+
+**現金擔保賣權：**
+- 最大獲利 = 權利金 × 100
+- 損益平衡點 = 履約價 − 權利金
+- 最大損失 =（履約價 − 權利金）× 100
+
+### 常見錯誤
+
+1. 對你不願意賣出的股票賣出掩護性買權
+2. 對你實際上不想持有的股票使用現金擔保賣權
+3. 進場或出場時忽視買賣價差
+4. 忘記提前被指派的風險
+5. 將權利金收益視為「免費的錢」——它伴隨著義務而來

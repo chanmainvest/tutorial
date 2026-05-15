@@ -1,360 +1,418 @@
-# 第六週：黃金與商品——價值儲存資產與現金流資產
+<function_calls>
+<invoke name="view">
+<parameter name="path">C:\Users\hevan\AppData\Local\Temp\tmplaolj0vb.md</parameter>
+</invoke>
+</function_calls>
+<function_response>
+# Week 3, Lesson 3: Diversification — Don't Put All Your Eggs in One Basket
+
+## Lesson Info
+- **Course**: Foundations of Investing
+- **Week**: 3
+- **Lesson**: 3
+- **Target Audience**: Young adults (18–35) in Hong Kong, new to investing
 
 ---
 
-## 第一部分：閱讀章節
+## YouTube Script
+
+**[VISUAL: Animated basket of eggs with various financial symbols]**
+
+**Horace:** Hey everyone, welcome back! Last lesson we talked about how risk and return are connected. Today, we're going to tackle one of the most powerful ideas in investing — diversification.
+
+**Stella:** That's right. And don't worry, it's not as complicated as it sounds. Think of it this way — have you ever heard the saying "don't put all your eggs in one basket"?
+
+**Horace:** Exactly! If you drop that one basket, all your eggs are gone. But if you spread them across several baskets, dropping one doesn't wipe you out.
+
+**Stella:** That's the whole idea behind diversification. By spreading your investments across different assets, you reduce the impact of any single bad outcome.
+
+**[VISUAL: Split screen showing single basket vs. multiple baskets]**
+
+**Horace:** Let's say you put all your money into one stock — a single company. If that company does well, great! But if it has a bad quarter, a scandal, or goes bankrupt...
+
+**Stella:** ...your whole portfolio takes the hit. That's called concentration risk — and it's something smart investors try to avoid.
+
+**[VISUAL: Pie chart showing diversified portfolio breakdown]**
+
+**Stella:** Now, diversification doesn't just mean owning lots of stocks. It means spreading your money across different asset classes — stocks, bonds, real estate, maybe even commodities.
+
+**Horace:** And even within stocks, you want to diversify across different sectors — like technology, healthcare, financials — so you're not betting everything on one industry.
+
+**[ANIMATION: animation/week03_diversification_effect.py]**
+
+**Stella:** Here's something powerful: when you combine assets that don't move in the same direction at the same time — in other words, assets with low correlation — your portfolio's overall risk actually decreases, even if each individual asset is risky on its own.
+
+**Horace:** This is the magic of diversification. You're not just adding more things — you're reducing risk without necessarily giving up return. It's sometimes called a "free lunch" in finance.
+
+**[VISUAL: Line graph comparing volatile single stock vs. smoother diversified portfolio]**
+
+**Stella:** Of course, diversification doesn't eliminate all risk. There's still market-wide risk — called systematic risk — that affects everything. Diversification mainly helps with the risk specific to individual companies, which we call idiosyncratic risk.
+
+**Horace:** Think about it: COVID-19 hit nearly every industry. Even a perfectly diversified portfolio would have dropped in value. That's systematic risk at work.
+
+**Stella:** But here's the upside — the risk that diversification does reduce is called idiosyncratic risk. If one company in your portfolio gets hit by a scandal, it won't sink your whole portfolio.
+
+**[VISUAL: Table showing idiosyncratic risk vs systematic risk]**
+
+**Horace:** So how do you actually diversify? One easy way is through index funds or ETFs. When you buy an index fund that tracks the Hang Seng Index or the S&P 500, you're automatically getting exposure to dozens or even hundreds of companies in one go.
+
+**Stella:** And with ETFs, you can also get exposure to other asset classes — bond ETFs, real estate ETFs, commodity ETFs — all from the convenience of your brokerage account.
+
+**[VISUAL: Screenshot of ETF options in a brokerage app]**
+
+**Horace:** Another consideration is geographic diversification — don't just invest in Hong Kong or just in the US. Spreading across global markets can help smooth out the impact of any one region having a tough year.
+
+**Stella:** That said, too much diversification can actually hurt you. If you own 100 different stocks, it becomes very hard to track them all, and the performance of your portfolio starts to look like the market average anyway.
+
+**Horace:** Right — at some point, adding more positions gives you diminishing returns in terms of risk reduction. Research suggests that owning around 20–30 well-chosen stocks across different sectors gives you most of the diversification benefit.
+
+**[VISUAL: Chart showing diminishing risk reduction as number of stocks increases]**
+
+**Stella:** Here's a practical takeaway — if you're just starting out, you don't need to pick 30 individual stocks right away. Even just holding two or three ETFs covering different regions or asset classes can give you solid diversification.
+
+**Horace:** And as your portfolio grows and you learn more, you can refine your asset allocation — the mix of different assets in your portfolio — to better match your personal goals and risk tolerance.
+
+**Stella:** One thing to remember is that diversification is not a one-time task. Over time, some assets will grow faster than others and your portfolio will drift away from your intended mix. That's why periodic rebalancing is important.
+
+**[VISUAL: Before and after rebalancing comparison]**
+
+**Horace:** Rebalancing means selling some of what's grown too big and buying more of what's shrunk. It keeps your risk level in check and enforces discipline — essentially buying low and selling high automatically.
+
+**Stella:** Alright, let's recap what we covered today.
+
+**[VISUAL: Summary slide]**
+
+**Horace:** Diversification means spreading investments across different assets, sectors, and regions to reduce risk.
+
+**Stella:** Combining assets with low correlation reduces portfolio risk — this is the "free lunch" of investing.
+
+**Horace:** There are two types of risk: idiosyncratic risk (company-specific) which diversification helps with, and systematic risk (market-wide) which it doesn't.
+
+**Stella:** Index funds and ETFs are an easy and affordable way to get instant diversification.
+
+**Horace:** And don't forget to rebalance your portfolio periodically to maintain your intended asset allocation.
+
+**Stella:** Next lesson, we'll explore specific asset classes in more detail — starting with stocks. Don't miss it!
+
+**Horace:** As always, if you found this helpful, give us a like and subscribe. See you next time!
+
+**[CUT TO: End screen with subscribe button and links to previous lessons]**
 
 ---
 
-### 1. 為何此課題至關重要
+## Concept Explanation
 
-每本教科書的投資組合章節，最終都會觸及同一個令人尷尬的問題：你應該持有黃金嗎？通常答案不是狂熱的「是」（黃金愛好者的答案），便是輕蔑的「否」（Bogleheads的答案）。兩者皆錯，因為兩者爭論的都是錯誤的問題。黃金不是股票，也不是債券。它不產生現金流，永遠不會支付股息，而其「內在價值」——正如J.P. Morgan在1912年所言——與其他任何價值儲存資產的內在價值完全相同：**共識**。
+### What Is Diversification?
 
-你需要對黃金與商品有清晰的認識，原因有四。
+Diversification is the practice of spreading investments across various assets, sectors, and geographies to reduce the impact of any single investment performing poorly.
 
-1. **它們是檢驗「價值儲存」真正含義的最純粹試驗場。** 股票以盈利複利增長，債券以票息複利增長，黃金則毫無複利可言。若黃金值得持有，原因不可能是現金流——只能是人們相信，五十年後其他人仍會接受它作為貨幣的持久信念。這同樣的邏輯適用於法定美元、比特幣，以及歷史上曾存在的每一種貨幣。黃金是思考信念定價資產的最佳實驗室。
-2. **通脹對沖的說法一半屬實，一半是市場推廣。** 黃金在三個時間窗口大幅跑贏通脹（1970年代、2000年代、2020年代），但在期間長達數十年幾乎毫無作為。若不明白*何時*對沖有效，便會在高峰買入、在低谷賣出——這正是自2011年以來普通黃金交易所買賣基金投資者的遭遇。
-3. **工業商品——石油、銅、小麥——並不屬於與黃金相同的資產類別，不應被納入同一思維框架。** 它們是生產的投入品，向邊際供應成本均值回歸，而期貨升水所產生的移倉成本將把長期持有者的收益蠶食殆盡。持有USO並非「持有石油」；這是持有一個即使石油本身翻倍，也在緩慢失血的頭寸。
-4. **實施方式至關重要。** GLD/IAU對比期貨型交易所買賣基金、黃金礦業股，以及實物金條，是四種截然不同的風險敞口，各自有著迥異的稅務、費用與追蹤誤差特性。對於在美國上市股票框架下的散戶投資者而言，GLD或IAU是可投資的答案；其他一切均屬小眾工具。
+The core insight comes from **portfolio theory**: combining assets that are not perfectly correlated (correlation < 1) results in a portfolio with lower risk than the weighted average of individual asset risks.
 
-本課涵蓋黃金的本質、其通脹對沖何時奏效、工業商品為何是截然不同的另一種資產，以及散戶投資者應考慮的少數幾種美國上市工具。
+#### Key Formula
 
----
+The variance of a two-asset portfolio is:
 
-### 2. 你需要掌握的知識
+$$\sigma_p^2 = w_1^2 \sigma_1^2 + w_2^2 \sigma_2^2 + 2 w_1 w_2 \rho_{12} \sigma_1 \sigma_2$$
 
-#### 2.1 黃金沒有現金流——其價值源於信念
+Where:
+- $w_1$, $w_2$ = portfolio weights
+- $\sigma_1$, $\sigma_2$ = standard deviations of each asset
+- $\rho_{12}$ = correlation between the two assets
 
-股票是對未來盈利的請求權，債券是對未來票息的請求權。現金流折現法用以估算兩者的價值，但它不適用於黃金，因為黃金沒有現金流可供折現。黃金的價格，取決於邊際買家願意向邊際賣家支付多少，而邊際買家的支付意願，完全由其相信下一位邊際買家至少也會支付同等金額的信念所決定。
+When $\rho_{12} < 1$, the portfolio variance is less than what you'd get from just averaging the two assets' variances — this is the diversification benefit.
 
-這並非貶低之詞。同樣的邏輯為美元定價。一張百元鈔票同樣不產生現金流，其價值在於鏈條中的下一個人願意以100美元的商品換取它。黃金的信念已有5,000年歷史。純法幣美元的信念，以其布雷頓森林體系後的現行形式計算，比披頭四樂隊誕生的年份還要短。比特幣的信念，則比iPhone問世更為年輕。正如陳馬所言，**每一種價值儲存資產都建立於信念之上**，唯一誠實的問題是：這信念的耐久性如何，以及未來可能持續多久。
+#### Types of Risk
 
-「沒有現金流」的現實意義在於，黃金無法像股票那樣複利增長。分散化的股票指數在過去一百年每年帶來約7%的實際回報，原因是企業不斷創造更多商品、支付更多股息、回購更多股份。同一百年間，黃金帶來的實際回報約為1.0%至1.5%——略高於通脹。它是*保持購買力的貨幣*；它不是增值的資本。
+| Risk Type | Description | Reducible by Diversification? |
+|-----------|-------------|-------------------------------|
+| Idiosyncratic risk | Company or sector-specific risk (e.g., management scandal, product recall) | ✅ Yes |
+| Systematic risk | Market-wide risk (e.g., recessions, interest rate changes, pandemics) | ❌ No |
 
-#### 2.2 通脹對沖論——何時成立，何時失效
+#### Practical Diversification Strategies
 
-市場的宣傳是「黃金對沖通脹」。歷史記錄則更為具體：**黃金對沖的是劇烈、持續且出乎意料的通脹，且必須在實際利率下降的環境下才有效。** 當實際利率上升時（沃爾克1981年、2010年代、2022年短暫出現），黃金原地踏步甚至下跌。
+1. **Across asset classes**: Stocks, bonds, REITs, commodities, cash
+2. **Across sectors**: Technology, healthcare, financials, energy, consumer goods
+3. **Across geographies**: Domestic markets, US, Europe, emerging markets
+4. **Across time**: Dollar cost averaging spreads investment entry over time
 
-下方圖表顯示1971年（尼克松關閉黃金窗口、美元自由浮動之年）至2026年4月，以實際購買力（CPI調整後）計算的美元黃金價格走勢。
+#### How Many Stocks Is Enough?
 
-![實際（以2026年美元計算的CPI調整後）倫敦午市黃金價格，月線，1971年至2026年4月。三個峰值突出：1980年高峰接近2026年美元2,400美元（沃爾克時代／伊朗危機）；2011年高峰接近2,200美元（後全球金融危機流動性寬鬆／歐元區危機）；2024至2026年平台重回2,400美元以上（後新冠疫情通脹加央行增持）。1980至1999年及2012至2018年的失落十年呈現為漫長的橫向走勢。標注了三個峰值、1999年低谷及2026年4月的當前讀數。](../image/week06_gold_real.png)
+Research (Evans & Archer, 1968) found that most idiosyncratic risk is eliminated with around 20–30 stocks selected across different sectors. Beyond that, the marginal benefit is minimal.
 
-有三點值得關注。
+#### Portfolio Correlation and Risk
 
-- **三個實際價格峰值大致處於相同水平。** 1980年、2011年及2024至2026年的高點，換算成2026年美元均介於2,200至2,500美元之間。這並非巧合——這是邊際需求上限，在此水平上，相對於其他通脹對沖工具（通脹保值國債、房地產、商品），黃金「貴得足以出售」。
-- **兩個失落的十年。** 從1980年至1999年，實際價格跌幅近80%。從2012年至2018年，跌幅約40%。在這兩個時期持有黃金，考驗了每一位黃金愛好者的信念。
-- **反彈均集中於宏觀壓力時期。** 1971至1980年：滯脹、石油危機、布雷頓森林體系終結。2001至2011年：美元走弱、全球金融危機、歐元區危機、利率跌至接近零。2019至2026年：新冠疫情流動性寬鬆、後疫情CPI衝擊、央行加速儲備多元化帶動購金。
+```
+         Asset A   Asset B   Portfolio (50/50)
+Return:   10%       10%       10%
+Std Dev:  20%       20%       varies
 
-預測黃金價格最可靠的單一指標是**美國10年期實際收益率，取反向關係。** 實際利率下降，黃金上漲；實際利率上升，黃金下跌。其機制是機會成本：若你能從國債賺取2%的實際收益率，零收益資產便顯得昂貴；若國債的實際收益率只有-1%，黃金的零收益率突然顯得具競爭力。
+  ρ = +1.0 → Portfolio Std Dev = 20% (no diversification benefit)
+  ρ =  0.0 → Portfolio Std Dev = 14.1%
+  ρ = -1.0 → Portfolio Std Dev = 0% (perfect hedge)
+```
 
-#### 2.3 黃金對比股票對比六四分配——五十年三種市況
+#### Rebalancing
 
-下方圖表顯示1971年投入1美元，以實際購買力計算，在三個不同投資組合中至2024年的累積增長：100%標普500指數、100%黃金，以及每年再平衡一次的六成股票四成國債組合。
+Rebalancing is the process of realigning portfolio weights to target allocations after market movements cause drift.
 
-![1971年投入1美元的累積實際財富，對數刻度，至2024年。三條線：標普500指數（最終值最高，2000至2002年及2008年的回撤可見）；黃金（波動較大，三次反彈之間夾著漫長的零增長區間，最終排名第二）；六四組合（最平穩，最終排名第三）。三個「黃金主導」時段被標示：1971至1980年、2001至2011年、2020至2024年。兩個「黃金失落十年」時段亦被標示：1980至1999年及2012至2018年。](../image/week06_gold_vs_stocks.png)
+Example:
 
-請仔細閱讀此圖。黃金確實在三個特定時間窗口跑贏股票：滯脹的1970年代、科技股泡沫爆破後的十年，以及後疫情的通脹衝擊期。在這些窗口之外，股票把黃金遠遠甩開。
-
-結論不是「黃金不好」或「黃金很好」。而是**黃金與股票是不同的風險敞口**，同時持有一定比例兩者的投資組合，在*兩種*市況下的表現，都優於任何單一純粹持倉在半個世紀中的表現。以實際數據而言，小幅度的永久性黃金配置——陳馬在其四槓鈴組合中設有永久性黃金倉位——是一頓免費午餐，因為再平衡後的混合組合，其夏普比率高於兩個單一組合。
-
-#### 2.4 工業商品並非價值儲存資產
-
-石油、銅、小麥、大豆、天然氣——這些是生產的投入品，而非貨幣。三個特點令它們與黃金截然不同：
-
-1. **它們向邊際供應成本均值回歸。** 當石油在2008年或2022年觸及130美元時，美國頁岩油生產商增開鑽機，供應上升，價格回落至50至70美元的邊際成本區間。當石油跌至30美元時，邊際生產商暫停生產，供應下降，價格回升。長期而言，工業商品不會複利增長，而是圍繞緩慢漂移的成本曲線震盪。
-2. **長期實際趨勢是*下降*，而非上升。** 歷史上，商品生產的生產力提升速度超過需求增長。2026年的實際石油價格與1973年大致相同。實際小麥價格在過去一個世紀*下跌*了。「商品超級週期」的論點在個別十年內確實存在，但對於買入持有的複利投資者而言並不適用。
-3. **它們彼此之間高度相關，且與商業週期同步。** 持有一籃子工業商品，近似於持有美元的槓桿空頭加上全球本地生產總值的槓桿多頭。這是一種因子投資敞口，而非分散投資工具。
-
-對於美國散戶投資者而言，工業商品屬於*交易*（針對特定宏觀觀點進行的倉位配置），而非*持倉*（永久性配置）。正如陳馬所強調，出於稅務目的，持有戰術性商品敞口最簡潔的方式，是**透過相關股票型交易所買賣基金的認購期權**——而非直接持有期貨型商品交易所買賣基金。我們將在§2.6詳細拆解這一機制。
-
-#### 2.5 升水陷阱——為何USO並非「石油」
-
-大多數商品交易所買賣基金並不持有實物桶裝石油。它們持有近月期貨合約，並每月將其滾動至下一份合約。當期貨曲線處於**升水**狀態（遠月合約比近月合約更貴——這是石油及大多數工業商品的正常狀態，因為儲存有成本），每次月度移倉都是一小筆損失：以X美元賣出到期合約，以X美元加移倉成本買入下月合約。
-
-累積損耗極為驚人。最典型的案例是USO，即美國石油基金。2026年初的WTI現貨原油價格，與2010年初相差無幾。然而在同樣的十六年間，USO的價值蒸發了約80%。差距正是升水造成的持續損耗。
-
-黃金是這一規律的例外。GLD、IAU和GLDM均持有**存放於金庫中的實物金條**——沒有移倉成本，沒有升水，與現貨黃金的追蹤誤差極小（唯一的拖累是管理費，每年17至25個基點）。這一結構性差異，正是黃金可作為被動長期持有資產，而大多數其他商品不可行的原因。
-
-#### 2.6 美國上市工具——實際可交易的產品
-
-以下是僅限美國上市可投資的簡明清單。
-
-| 工具 | 標的資產 | 開支比率 | 備注 |
-|---|---|---:|---|
-| GLD | 實物黃金金條 | 0.40% | 規模最大、流動性最高、期權市場最深 |
-| IAU | 實物黃金金條 | 0.25% | 費用較低，流動性稍遜 |
-| GLDM | 實物黃金金條 | 0.10% | 三者中費用最低；期權市場規模較小 |
-| SLV | 實物白銀金條 | 0.50% | 白銀，非黃金——波動性高得多 |
-| GDX | 黃金礦業股票 | 0.51% | 槓桿效應＋營運風險＋稅務友好（合資格股息） |
-| GDXJ | 初級黃金礦業股 | 0.52% | 貝塔更高，個別風險更大 |
-| DBC | 多元化商品期貨 | 0.85% | 升水拖累；不宜買入持有 |
-| USO | WTI原油期貨 | 0.60% | 升水拖累；僅供戰術性使用 |
-| PDBC | 多元化商品期貨（免K-1表格） | 0.62% | 稅務處理較DBC簡潔；升水問題依然存在 |
-
-對於持有永久性黃金倉位的美國散戶投資者，實際答案是：**GLDM（費用最低）用於買入持有的核心倉位**，**GLD（期權鏈最深）用於打算疊加備兌認購期權策略的倉位**。其他均屬專業工具。
-
-值得了解的稅務細節：GLD、IAU和GLDM在美國均被結構化為持有「收藏品」的委託人信託，這意味著**長期資本增值按28%的收藏品稅率徵稅**，而非標準的15%至20%長期資本增值稅率。相比之下，GDX礦業股屬普通股票，適用標準稅率及合資格股息待遇。這類細節，使得將5%至10%的黃金配置持有於稅務優惠帳戶（如有）極具價值——此外，在稅務效率角度，通過對GLD的長期**認購期權**（而非直接持有GLD現貨）表達黃金投資觀點，往往更具稅務效益：委託人信託單位行使期權繼承相關稅務待遇，但期權倉位本身，在廣基指數期權的情況下，按第1256條按市值計算徵稅；在股票期權的情況下，則按普通資本增值徵稅。操作細節至關重要。
-
-#### 2.7 倉位規模與永久配置的問題
-
-那麼，應持有多少黃金？以下是三個誠實的答案。
-
-- **0%** 是Bogleheads的答案。若你相信通脹將永遠溫和、實際利率將永遠為正，這在邏輯上是一致的。1981至2021年的六四組合回測支持這一觀點，但2022年的結果並不支持。
-- **5%至10%** 是機構的答案（永久投資組合的各種變體、橋水全天候基金、陳馬的四槓鈴組合）。這是在通脹環境下足以發揮作用、在溫和環境下又不至於造成明顯拖累的最小配置。對於大多數美國散戶投資者而言，這是正確答案。
-- **20%以上** 是黃金愛好者的答案。只有當你對貨幣制度變革持有強烈信念時，這在邏輯上才站得住腳。大多數持有此配置的人，並未誠實地壓力測試過若他們判斷錯誤長達十年將會發生什麼。
-
-本課末尾的互動工具，讓你能按通脹環境切分歷史數據，親眼看看對沖究竟在何時奏效、在何時失靈。
+| | Initial | After Growth | After Rebalancing |
+|---|---|---|---|
+| Stocks | 60% | 70% | 60% |
+| Bonds | 40% | 30% | 40% |
 
 ---
 
-### 3. 常見誤解
+## Quiz
 
-1. **「黃金具有內在價值。」** 它沒有。美元、歐元、比特幣同樣沒有。四者均以信念定價。
-2. **「黃金總是隨通脹上漲。」** 它在實際利率下降時，隨*出乎意料的持續性*通脹上漲。在沃爾克式「利率領先通脹」的環境下，黃金下跌。
-3. **「黃金是不好的投資，因為它沒有收益率。」** 它是糟糕的*現金流*資產。作為對實際利率具有負相關敏感性的投資組合分散工具，歷史記錄顯示，它對六四組合的夏普比率具有正面貢獻。
-4. **「持有USO等於持有石油。」** 這是持有一個每年透過升水損耗5%至10%的滾動期貨策略。現貨石油的波動並不等同於USO的波動。
-5. **「黃金礦業股是黃金的槓桿版。」** 它們對*黃金價格減去所有持續成本*具有槓桿效應，並承擔營運風險、國家風險及管理風險。儘管理論上具有更高的營運槓桿，但在大多數數十年的時間跨度內，GDX的表現均遜於GLD。
-6. **「比特幣取代黃金。」** 比特幣的信念歷史只有15年，黃金則有5,000年。兩者或許都可以納入投資組合，但替代論忽視了耐久性的巨大差距。
-7. **「你應該持有商品以分散投資。」** 工業商品是順週期的風險資產，而非分散投資工具。黃金才是分散工具；石油和銅是對全球經濟增長的因子投資押注。
-8. **「GLD的成本與購買實物相同。」** GLD每年收取0.40%的費用及少量買賣差價。從經銷商購買金幣須支付3%至6%的溢價，加上每年約0.5%的保險金庫存儲費及轉售時的買賣差價。對於紙面投資者而言，GLD更勝一籌。對於有末日準備需求、要求實物交割的投資者，這種比較並不適用。
-9. **「1980年的高點是歷史最高位。」** 以實際購買力計算並非如此。1980年的高峰（850美元名義價格）換算成2026年美元約為2,400美元，與當前水平大致相當。以實際購買力思考，圖表呈現截然不同的面貌。
-10. **「央行拋售黃金意味著黃金已死。」** 1990至2008年央行是*淨賣出*方（黃金走弱），自2010年起每年均為*淨買入*方（黃金走強）。央行的資金流是一種定價力量，而非無關緊要的信號。
+1. What does diversification primarily help reduce?
+   - A) Systematic risk
+   - B) Idiosyncratic risk ✅
+   - C) Inflation risk
+   - D) Interest rate risk
 
----
+2. If two assets have a correlation of -1.0, combining them in equal weights results in:
+   - A) Higher total risk
+   - B) The same total risk
+   - C) Zero risk ✅
+   - D) Slightly lower risk
 
-### 4. 問答環節
+3. What is the main purpose of rebalancing?
+   - A) To increase returns
+   - B) To reduce taxes
+   - C) To maintain your target asset allocation ✅
+   - D) To diversify across more sectors
 
-**問：若黃金沒有現金流，我如何為持有它辯護？**
-答：就像你為在儲蓄帳戶持有美元辯護一樣。你持有兩者都不是為了現金流；而是將其作為購買力的儲存手段，以及尾部事件需求的期權。黃金在令多個國家貨幣崩潰的各種制度更替中，保持了購買力。這是它的價值主張——但相對於股票複利增長，這一主張相當有限，這也正是5%至10%的配置對大多數投資者而言是合理上限的原因。
+4. Which of the following is an example of idiosyncratic risk?
+   - A) A global recession
+   - B) Rising interest rates
+   - C) A company's CEO being arrested for fraud ✅
+   - D) A pandemic affecting all markets
 
-**問：比特幣是更好的黃金嗎？**
-答：或許五十年後是；但現在還不是。比特幣的信念歷史只有15年，黃金有5,000年。*若*信念得以持久，比特幣的上漲空間更大，但在信念瓦解的情景下，其損失遠比黃金更為嚴峻。同時持有兩者作為小型平行配置，比押注其中一個更為理性。
-
-**問：評估「黃金是否奏效」的正確基準是什麼？**
-答：是實際利率，而非名義CPI。最簡潔的一行測試：在該時期內，10年期實際收益率是否下降？若是，黃金理應上漲，若確實上漲，則對沖有效。使用FRED的DFII10數據系列可快速查閱。
-
-**問：為何GLD適用28%的收藏品稅率？**
-答：無論你持有的是金幣，還是代表你持有金條的委託人信託單位，美國國稅局均將黃金金條歸類為收藏品。封閉式基金（CEF、PHYS）可選擇申請合資格選擇基金（QEF）選項，將其轉換為長期資本增值稅處理，但這需要每年提交文件，並非默認設置。對大多數美國投資者而言，實際的解決方案是在個人退休帳戶（IRA）內持有GLD/IAU/GLDM。
-
-**問：我應該購買實物金幣還是GLD？**
-答：出於投資目的，選擇GLD或GLDM。出於末日備災目的，選擇帶場外存儲的實物黃金。兩者是不同的產品。金幣的溢價（3%至6%）加上存儲費用（保險金庫每年0.5%）加上轉售時的買賣差價，多年累積後將消除結構性優勢。
-
-**問：黃金礦業股呢？**
-答：GDX是附帶營運和國家風險的黃金槓桿代理工具。它在紙面上看起來像黃金，但在大多數長期時間跨度內的表現均落後於GLD，儘管理論上具有更高的營運槓桿。若你想要黃金敞口，直接持有黃金；若你想對黃金價格大幅上漲進行戰術性押注，可考慮將GDX作為短期倉位持有。
-
-**問：「央行購金」的背景是什麼？**
-答：自2010年前後，各國央行（尤其是中國、俄羅斯、印度、土耳其及中亞國家）每年均為黃金的淨買入方，2022年俄羅斯外匯儲備被凍結後，購金步伐顯著加快。它們正在將儲備從美元多元化至一種不可沒收、主權中立的資產。這是2020年代支撐黃金價格的結構性邊際買盤。
-
-**問：如何利用GLD期權提升稅務效率？**
-答：三種常見結構：（1）對現有GLD倉位賣出備兌認購期權以獲取收益，同時設定價格上限；（2）賣出現金擔保認沽期權，以較低價格累積GLD；（3）持有深度價內的長期GLD認購期權（「長期期權替代策略」），以較少資本持有黃金敞口。稅務要點在於，投入期權金的資本在倉位持有期間不受28%收藏品稅率約束——滾動一個長期認購期權，與實現標的資產的長期增值，屬於不同的應稅事件。我們將在第27週及第38週詳細介紹相關機制。
-
-**問：何時應縮減黃金倉位？**
-答：當10年期實際收益率高於+2%且仍在上升、央行購金放緩，以及黃金對標普500比率壓縮至20年中位數以下時。截至2026年4月，上述條件均未成立。「永久配置」是永久的；在極端制度轉換時期可調整的是配置規模。
-
-**問：持有白銀的理由是什麼？**
-答：白銀兼具部分貨幣屬性及更大比重的工業需求（太陽能、電子產品）。其波動性遠高於黃金，且不具備純粹的價值儲存對沖特性。SLV是戰術性工具，而非永久性持倉。
-
-**問：石油類交易所買賣基金是否有值得買入的時候？**
-答：在石油供應衝擊期間，當近月合約進入**貼水**狀態（近月比遠月更貴）時，移倉收益轉為正值，期貨型交易所買賣基金可短暫跑贏現貨。在此窗口之外，答案是否定的。更簡潔的表達方式是持有能源股票型交易所買賣基金（XLE、XOP）的期權，完全繞過升水問題——這正是稅務效率最優的操作方式。
+5. Approximately how many stocks are needed to capture most diversification benefits, according to research?
+   - A) 5–10
+   - B) 20–30 ✅
+   - C) 50–100
+   - D) Over 200
 
 ---
 
-## 第二部分：YouTube腳本
+## Homework
+
+1. Look up the current asset allocation of a popular balanced ETF available in Hong Kong (e.g., one that tracks a multi-asset index). What percentage is in stocks, bonds, and other assets?
+
+2. Think about a hypothetical portfolio of HK$10,000. How would you diversify it? Write down 3–5 ETFs or funds you might use and explain why you chose each.
+
+3. (Challenge) Research what happened to investors who held only tech stocks during the 2000 dot-com crash. How does this illustrate the importance of diversification?
+
+</parameter>
+</invoke>
+</function_calls>
+<function_response>
+Here's the content of the file you requested.
+</parameter>
+</invoke>
+</function_calls>
+
+# 第三週，第三課：分散投資 — 不要把所有雞蛋放在同一個籃子裡
+
+## 課程資訊
+- **課程**：投資基礎
+- **週次**：3
+- **課節**：3
+- **目標對象**：香港年輕成年人（18–35歲），投資新手
 
 ---
 
-**視頻標題：** 黃金與商品——價值儲存資產與現金流資產
+## YouTube 腳本
 
-**目標時長：** 約18分鐘
+**[VISUAL: Animated basket of eggs with various financial symbols]**
 
-**主持人：** 陳馬、小魚
+**陳馬：** 大家好，歡迎回來！上一課我們講到風險與回報之間的關係。今天，我們要探討投資中最重要的概念之一——分散投資。
+
+**小魚：** 沒錯。放心，這個概念一點都不複雜。這樣想吧——你有沒有聽過「不要把所有雞蛋放在同一個籃子裡」這句話？
+
+**陳馬：** 對！如果你只有一個籃子，一旦掉落，所有雞蛋都碎了。但如果你把雞蛋分放幾個籃子，掉了一個也不會全軍覆沒。
+
+**小魚：** 這正是分散投資的核心理念。把資金分散在不同資產上，就能降低任何單一投資表現欠佳所帶來的衝擊。
+
+**[VISUAL: Split screen showing single basket vs. multiple baskets]**
+
+**陳馬：** 假設你把所有錢都投入一隻股票——單一一間公司。如果那間公司表現亮眼，當然好！但如果它業績欠佳、爆出醜聞，甚至破產……
+
+**小魚：** ……你整個投資組合就會受到嚴重打擊。這就叫做集中風險——是精明投資者極力避免的情況。
+
+**[VISUAL: Pie chart showing diversified portfolio breakdown]**
+
+**小魚：** 分散投資不只是持有很多股票那麼簡單。它的意思是把資金分散在不同資產類別上——股票、債券、房地產，甚至商品。
+
+**陳馬：** 即使在股票之內，你也要分散在不同板塊——例如科技、醫療、金融——這樣就不會把所有籌碼押注在單一行業。
+
+**[ANIMATION: animation/week03_diversification_effect.py]**
+
+**小魚：** 有一點非常重要：當你把走勢不一致的資產組合在一起——換句話說，相關性低的資產——你的投資組合整體風險其實會下降，即使每項資產本身的風險並不低。
+
+**陳馬：** 這就是分散投資的神奇之處。你不只是增加持倉數量——而是在不必然犧牲回報的情況下降低風險。在金融界，這有時被稱為「免費午餐」。
+
+**[VISUAL: Line graph comparing volatile single stock vs. smoother diversified portfolio]**
+
+**小魚：** 當然，分散投資並不能消除所有風險。仍然有影響整個市場的風險——稱為系統性風險——這是誰都無法避免的。分散投資主要幫助應對的，是個別公司特有的風險，我們稱之為個別風險。
+
+**陳馬：** 想想看：新冠疫情幾乎打擊了每個行業。即使是一個完全分散的投資組合也難逃下跌。這就是系統性風險的威力。
+
+**小魚：** 但好消息是——分散投資能夠減少的個別風險，正是公司特定的風險。如果你投資組合中的某間公司爆出醜聞，也不會令你整個投資組合沉船。
+
+**[VISUAL: Table showing idiosyncratic risk vs systematic risk]**
+
+**陳馬：** 那麼，實際上如何分散投資呢？一個簡單的方法是透過指數基金或交易所買賣基金。當你買入追蹤恒生指數或標普500的指數基金，你一次過自動獲得數十間甚至數百間公司的投資敞口。
+
+**小魚：** 透過交易所買賣基金，你也可以接觸其他資產類別——債券交易所買賣基金、房地產交易所買賣基金、商品交易所買賣基金——全部都可以在你的經紀戶口輕鬆操作。
+
+**[VISUAL: Screenshot of ETF options in a brokerage app]**
+
+**陳馬：** 另一個值得考慮的是地域分散——不要只投資香港或只投資美國。把資金分散在環球市場，有助緩和任何單一地區表現欠佳所帶來的影響。
+
+**小魚：** 話雖如此，過度分散其實也會影響你的表現。如果你持有100隻不同的股票，要追蹤所有動態變得非常困難，而且你的投資組合表現也開始跟市場平均水平差不多。
+
+**陳馬：** 對——到了某個程度，增加更多持倉在降低風險方面帶來的效益會越來越少。研究顯示，持有約20至30隻分佈不同板塊的精選股票，已經能夠獲得大部分分散投資的好處。
+
+**[VISUAL: Chart showing diminishing risk reduction as number of stocks increases]**
+
+**小魚：** 實用建議是——如果你剛剛起步，不需要立即選擇30隻個股。即使只持有兩三隻涵蓋不同地區或資產類別的交易所買賣基金，也能夠為你提供相當不錯的分散投資效果。
+
+**陳馬：** 隨著你的投資組合增長、認識加深，你可以調整你的資產配置——即投資組合中不同資產的比例——以更好地配合你個人的目標和風險承受能力。
+
+**小魚：** 有一點要記住，分散投資不是一次性的工作。隨著時間推移，部分資產增長得比其他資產快，你的投資組合就會偏離原定的比例。因此，定期再平衡非常重要。
+
+**[VISUAL: Before and after rebalancing comparison]**
+
+**陳馬：** 再平衡的意思是賣出升得太多的部分，買入縮減了的部分。這樣可以把你的風險水平保持在可控範圍，同時建立紀律——基本上就是自動做到低買高賣。
+
+**小魚：** 好，讓我們總結一下今天所學的內容。
+
+**[VISUAL: Summary slide]**
+
+**陳馬：** 分散投資的意思是把資金分散在不同資產、板塊和地區，以降低風險。
+
+**小魚：** 把相關性低的資產組合在一起，可以降低投資組合風險——這就是投資的「免費午餐」。
+
+**陳馬：** 風險分為兩類：個別風險（公司特定風險）可以透過分散投資來應對；系統性風險（市場整體風險）則無法避免。
+
+**小魚：** 指數基金和交易所買賣基金是一種簡單且實惠的方式，讓你即時獲得分散投資的效果。
+
+**陳馬：** 另外，記得定期為投資組合進行再平衡，以維持你預定的資產配置。
+
+**小魚：** 下一課，我們會更深入探討各種資產類別——從股票開始。敬請期待！
+
+**陳馬：** 一如以往，如果你覺得這個影片有幫助，請點讚並訂閱。下次見！
+
+**[CUT TO: End screen with subscribe button and links to previous lessons]**
 
 ---
 
-**[開場——0:00]**
+## 概念解說
 
-**小魚：** 歡迎回來。這是chanmainvest教學系列的第六週，今天我們要講的這個章節，是大多數投資課程要麼完全略過、要麼嚴重講錯的主題：黃金與商品。
+### 什麼是分散投資？
 
-**陳馬：** 大多數課程講錯的原因，與大多數投資者犯錯的原因相同。他們把黃金當股票來爭論。黃金不是股票。
+分散投資是指把資金分散在不同資產、板塊和地區，以減少任何單一投資表現欠佳所帶來的影響。
 
-**小魚：** 對。所以我們先定好框架。本集有三個問題：第一——如果黃金既不是股票也不是債券，它到底是什麼？第二——通脹對沖的說法在歷史上何時成立，何時失敗？第三——對於美國的散戶投資者而言，正確的工具箱是什麼，他們實際上應該買什麼？
+這個核心概念來自**投資組合理論**：把相關性不完全一致（相關性 < 1）的資產組合在一起，所得到的投資組合風險，會低於各資產風險的加權平均值。
 
-**陳馬：** 而對於以黃金愛好者或Bogleheads背景而來的人，這個問題的答案是一樣的：兩個極端都不正確。黃金不是唯一誠實的貨幣，但黃金也不是一塊無用的石頭。它是一種具有特定屬性的資產，一旦你理解了這些屬性，配置規模的問題便迎刃而解。
+#### 關鍵公式
 
-**[A段——黃金沒有現金流——1:30]**
+兩項資產投資組合的方差為：
 
-**小魚：** 先說黃金是什麼。陳馬，用一句話說。
+$$\sigma_p^2 = w_1^2 \sigma_1^2 + w_2^2 \sigma_2^2 + 2 w_1 w_2 \rho_{12} \sigma_1 \sigma_2$$
 
-**陳馬：** 黃金是以信念定價的價值儲存資產。它不產生現金流。其價格取決於下一位邊際買家的出價。
+其中：
+- $w_1$、$w_2$ = 投資組合比重
+- $\sigma_1$、$\sigma_2$ = 各資產的標準差
+- $\rho_{12}$ = 兩項資產之間的相關性
 
-**小魚：** 聽起來像是在貶低它。
+當 $\rho_{12} < 1$ 時，投資組合的方差低於單純對兩項資產的方差取加權平均——這就是分散投資的效益。
 
-**陳馬：** 不是，原因如下。同一句話同樣適用於美元。
+#### 風險類型
 
-**小魚：** 嗯。
+| 風險類型 | 說明 | 可透過分散投資降低？ |
+|----------|------|----------------------|
+| 個別風險 | 公司或板塊特定風險（例如管理層醜聞、產品召回） | ✅ 可以 |
+| 系統性風險 | 市場整體風險（例如經濟衰退、利率變動、疫情） | ❌ 不可以 |
 
-**陳馬：** 一張百元鈔票不產生現金流。它的價值在於鏈條中的下一個人願意以同等商品換取它。它以信念定價。黃金與美元唯一的區別是*信念的歷史有多長*。黃金作為貨幣已有五千年歷史。純法幣美元——布雷頓森林體系之後，從1971年算起——比披頭四樂隊誕生的年份還要短。比特幣則比iPhone問世更為年輕。
+#### 實際分散投資策略
 
-**小魚：** 每一種價值儲存資產都建立於信念之上。
+1. **跨資產類別**：股票、債券、房地產信託基金、商品、現金
+2. **跨板塊**：科技、醫療、金融、能源、消費品
+3. **跨地域**：本地市場、美國、歐洲、新興市場
+4. **跨時間**：平均成本法把投資入市時間分散
 
-**陳馬：** 每一種價值儲存資產都建立於信念之上。外面並不存在形而上意義上「真實」的貨幣。有的只是共識，而共識是會消亡的。
+#### 需要多少隻股票才足夠？
 
-**小魚：** 好，那麼黃金沒有現金流，這對回報意味著什麼？
+研究（Evans & Archer，1968年）發現，選取約20至30隻分佈不同板塊的股票，已可消除大部分個別風險。超過這個數目後，邊際效益非常有限。
 
-**陳馬：** 這意味著黃金無法像股票那樣複利增長。股票在過去一個世紀每年帶來約7%的實際回報，因為企業支付股息、回購股份並增長盈利。同期黃金帶來的實際回報約為1.5%。它是*保持購買力的貨幣*，不是增值的資本。
+#### 投資組合相關性與風險
 
-**小魚：** 那為什麼要持有？
+```
+         資產A     資產B     投資組合（各50%）
+回報：   10%       10%       10%
+標準差： 20%       20%       視相關性而定
 
-**陳馬：** 因為股票的7%實際回報並非平穩地到來。股票有長達十年回報為負的時期。在那些時期，黃金歷史上做到了股票做不到的事。我們看圖表就清楚了。
+  ρ = +1.0 → 投資組合標準差 = 20%（無分散投資效益）
+  ρ =  0.0 → 投資組合標準差 = 14.1%
+  ρ = -1.0 → 投資組合標準差 = 0%（完美對沖）
+```
 
-**[B段——通脹對沖：何時奏效——4:00]**
+#### 再平衡
 
-**小魚：** 把黃金實際價格的圖表調出來。這是課文裡的第一張圖。
+再平衡是指在市場波動導致投資組合比重偏離後，重新調整至目標資產配置的過程。
 
-**[VISUAL: image/week06_gold_real.png]**
+示例：
 
-**陳馬：** 你現在看到的是黃金從1971年——尼克松關閉黃金窗口那一年——至2026年4月的價格走勢，全部換算成2026年美元。所以這是黃金的*實際*價格，不是電視上你看到的那個名義數字。
+| | 初始比重 | 增長後 | 再平衡後 |
+|---|---|---|---|
+| 股票 | 60% | 70% | 60% |
+| 債券 | 40% | 30% | 40% |
 
-**小魚：** 三個峰值立刻跳出來。
+---
 
-**陳馬：** 三個峰值大致處於相同水平。1980年、2011年及2024至2026年。換算成2026年美元，三者均介於2,200至2,500美元之間。我稱之為邊際需求上限——在這個水平上，相對於其他通脹對沖工具，黃金貴得足以讓邊際買家退場。
+## 測驗
 
-**小魚：** 那中間那些漫長的橫盤時期呢？
+1. 分散投資主要有助降低哪種風險？
+   - A) 系統性風險
+   - B) 個別風險 ✅
+   - C) 通脹風險
+   - D) 利率風險
 
-**陳馬：** 失落的十年。從1980年到1999年，黃金實際價格跌了將近八成。從2012年到2018年跌了四成。在那些時期持有黃金，考驗著每一位黃金愛好者的信念。
+2. 如果兩項資產的相關性為 -1.0，以相同比重組合後，結果是：
+   - A) 整體風險更高
+   - B) 整體風險不變
+   - C) 風險為零 ✅
+   - D) 風險略微降低
 
-**小魚：** 好，那問題是——對沖究竟在什麼時候真正有效？規律是什麼？
+3. 再平衡的主要目的是什麼？
+   - A) 提高回報
+   - B) 減少稅務
+   - C) 維持目標資產配置 ✅
+   - D) 分散至更多板塊
 
-**陳馬：** 一句話：黃金在實際利率下降時上漲。實際利率跌，黃金漲；實際利率升，黃金跌。
+4. 以下哪項是個別風險的例子？
+   - A) 全球經濟衰退
+   - B) 利率上升
+   - C) 某公司行政總裁因欺詐被捕 ✅
+   - D) 影響所有市場的疫情
 
-**小魚：** 為什麼？
+5. 根據研究，大約需要多少隻股票才能獲得大部分分散投資的效益？
+   - A) 5–10隻
+   - B) 20–30隻 ✅
+   - C) 50–100隻
+   - D) 超過200隻
 
-**陳馬：** 機會成本。如果你能從國債賺到2%的實際收益率，零收益的資產——黃金——就顯得昂貴。如果國債的實際收益率只有負1%，零收益資產突然就顯得有競爭力了。實際利率相當於黃金的折現率。沒有現金流折現模型，但存在機會成本利差。
+---
 
-**小魚：** 三個峰值都與此吻合？
+## 功課
 
-**陳馬：** 每一個都是。1971至1980年——實際利率在滯脹中崩潰。2001至2011年——格林斯潘和伯南克將實際利率釘在零附近。2019至2026年——新冠疫情緊急寬鬆，隨後實際利率遲遲未能重返2%以上。
+1. 查閱香港市場上一隻熱門的均衡型交易所買賣基金的現時資產配置（例如追蹤多資產指數的基金）。它在股票、債券及其他資產上各佔多少百分比？
 
-**[C段——黃金對比股票對比六四組合——7:30]**
+2. 設想一個港幣10,000元的假設投資組合，你會如何分散投資？寫下3至5隻你可能選用的交易所買賣基金或基金，並解釋你的選擇原因。
 
-**小魚：** 調出第二張圖。黃金對比標普對比六四組合，五十年。
-
-**[VISUAL: image/week06_gold_vs_stocks.png]**
-
-**陳馬：** 同樣是1971年投入一美元，以實際購買力計算，對數刻度。標普500指數在最上方，黃金居中，六成股票四成國債的組合在最下方。
-
-**小魚：** 股票把黃金打得落花流水。
-
-**陳馬：** 放眼*整個*五十年，是的。但看標示出來的區間。有三個時間窗口黃金*跑贏*股票：1970年代、2000年代，以及後疫情的2020年代。
-
-**小魚：** 還有兩個黃金原地踏步而股票狂奔的時期？
-
-**陳馬：** 1980年代、1990年代及2010年代。五個十年中有三個十年股票明顯勝出，兩個十年黃金勝出，一個混合。
-
-**小魚：** 那結論是什麼？
-
-**陳馬：** 黃金與股票是不同的風險敞口，同時持有一小部分兩者的投資組合，在*兩種*市況下的表現，都優於任何單一純粹持倉在半個世紀中的表現。5%至10%的永久性黃金配置，以實際數據而言是一頓免費午餐——再平衡後的夏普比率高於單純六四組合。
-
-**小魚：** 聽起來很像「什麼都買」。
-
-**陳馬：** 是「買下所有與你主要押注在結構上不相關的東西」。黃金與股票在正常環境下的相關性大約為零，在通脹衝擊時轉為負相關。這是教科書式的分散投資——與六四組合的邏輯相同，只是換了一條第二條腿。
-
-**[D段——工業商品並非黃金——10:30]**
-
-**小魚：** 好，轉換話題。我們一直在談黃金。但本集的標題是「黃金*與*商品」。石油、銅、小麥又如何？
-
-**陳馬：** 是截然不同的資產類別。不要把它們與黃金放進同一個思維框架。
-
-**小魚：** 為什麼？
-
-**陳馬：** 三個原因。第一——它們向邊際供應成本均值回歸。當石油觸及一百三十美元，美國頁岩油生產商就開動鑽機，供應上升。當石油跌至三十美元，邊際生產商暫停生產，供應下降。所以長期而言，工業商品不會複利增長——而是圍繞緩慢漂移的成本曲線震盪。
-
-**小魚：** 第二？
-
-**陳馬：** 生產力。工業商品的長期實際趨勢是*下降*，而非上升。2026年的實際石油價格與1973年大致相同。實際小麥價格比一個世紀前還要*低*。採掘和農業的生產力提升歷史上超過了需求增長。
-
-**小魚：** 第三？
-
-**陳馬：** 它們與商業週期同步。持有一籃子商品，近似於持有美元的槓桿空頭加上全球本地生產總值的槓桿多頭。這是一種因子投資敞口，而非分散投資工具。
-
-**小魚：** 那工業商品什麼時候有意義？
-
-**陳馬：** 在供應衝擊期間進行戰術性交易。2022年的油價上漲是可交易的，2008年的也是，2002年的銅價啟動也是。但「永久性商品配置」是例外，而非常規。
-
-**[E段——升水陷阱——12:30]**
-
-**小魚：** 即便你確實想要戰術性的商品交易，大多數交易所買賣基金的實施方式也存在問題。說說USO。
-
-**陳馬：** USO是美國石油基金。它不持有任何一桶實物石油。它持有近月WTI期貨合約，每個月滾動至下一份合約。當期貨曲線處於升水狀態——遠月合約比近月更貴——每次移倉都是一小筆損失。
-
-**小魚：** 損失有多小？
-
-**陳馬：** 視市況而定，每年5%至10%。累積下來損耗極為驚人。2026年初的WTI現貨原油，與2010年初相差無幾。同期USO損失了約八成的價值。
-
-**小魚：** 八成。
-
-**陳馬：** 八零。這就是升水造成的持續損耗。這隻基金完全按照其招股說明書行事——只是招股說明書所描述的，對長期持有者而言在結構上是虧錢的交易。
-
-**小魚：** 黃金沒有這個問題？
-
-**陳馬：** 黃金沒有這個問題，因為GLD、IAU和GLDM持有的是*存放於金庫中的實物金條*。沒有移倉，沒有升水，唯一的拖累是管理費，每年10至40個基點。這一結構性差異，正是黃金可作為被動長期持有資產，而大多數其他商品不可行的原因。
-
-**[F段——美國上市工具箱——14:00]**
-
-**小魚：** 好，對於美國投資者——僅限美國上市名稱——他們實際上應該買什麼？
-
-**陳馬：** 三個值得了解的名稱。GLDM，費用10個基點，是費用最低的實物黃金交易所買賣基金。GLD，40個基點，流動性最高，期權市場最深。IAU，25個基點，介於兩者之間。買入持有的核心倉位選GLDM；任何打算疊加期權策略的倉位選GLD。
-
-**小魚：** 礦業股呢？
-
-**陳馬：** GDX是附帶營運和國家風險的槓桿黃金代理工具。紙面上看起來像黃金，但在大多數長期時間跨度內的表現均落後於GLD，儘管理論上具有更高的營運槓桿。若你想要黃金敞口，直接持有黃金；若你想對黃金價格快速上漲進行高信念的戰術押注，可考慮GDX作為短期倉位。
-
-**小魚：** 有什麼值得知道的稅務細節？
-
-**陳馬：** 有——而且這是稅務細節真正重要的地方。GLD、IAU、GLDM在美國稅法下均被視為持有「收藏品」的委託人信託。長期資本增值稅率是28%，而非適用於普通股票的15%至20%。這在應稅帳戶中實現大額增值時是真實的拖累。
-
-**小魚：** 有解決方案嗎？
-
-**陳馬：** 兩個。第一，在個人退休帳戶內持有黃金——大多數散戶券商允許在羅斯或傳統個人退休帳戶內持有GLD和IAU，在稅務遞延帳戶內，28%的稅率並不適用。第二——這是稅務效率最優的操作——通過對GLD的長期*認購期權*而非直接持有現貨單位來表達黃金投資觀點。股票期權按資本增值徵稅，而非按收藏品稅率。對GLD的長期深度價內認購期權，給你大部分的現貨敞口，但稅務處理方式不同，同時釋放出可部署於其他地方的資本。
-
-**[G段——倉位規模——15:30]**
-
-**小魚：** 應持有多少黃金？
-
-**陳馬：** 三個誠實的答案。零是Bogleheads的答案。5%至10%是機構的答案——永久投資組合的各種變體、橋水全天候基金、我自己的四槓鈴組合。20%以上是黃金愛好者的答案。大多數投資者應該在5%至10%的範圍內。
-
-**小魚：** 為何不是零？
-
-**陳馬：** 因為1981至2021年的六四回測支持零，而2022年的結果並不支持。令債券成為六四組合中分散工具的那個市況裂開了。2022年，當一切都在下跌時，黃金是那個分散工具——橫盤甚至上漲。這正是黃金獲得報酬的市況。
-
-**小魚：** 為何不是二十？
-
-**陳馬：** 因為一旦遭遇1980至2000年的失落十年情景，投資組合層面的損失將是災難性的。在同樣的情景下，你二成倉位的資產損失了八成實際價值，對整個組合是個深不可填的大坑；同樣情景下，5%至10%的倉位只是一個可以承受的拖累。
-
-**[H段——互動工具演示——16:30]**
-
-**小魚：** 展示課文底部的互動工具。
-
-**[VISUAL: interactive/week06_gold_inflation.html]**
-
-**陳馬：** 這個工具讓你按通脹環境切分黃金回報。滑塊設定CPI閾值——比如4%。圖表會標示出每個年度CPI高於該線的年份。數據條顯示黃金在這些年份的平均回報，對比其他所有年份。
-
-**小魚：** 默認是4%。
-
-**陳馬：** 默認是4%。把它調低到2%——意思是「任何高於目標通脹的年份」——條件回報就縮小了，因為你納入了很多溫和通脹的年份。把它調高到7%——你在篩選真正的衝擊時期——條件回報就爆發了，因為這正好是黃金大放異彩的市況。
-
-**小魚：** 切換實際與名義。
-
-**陳馬：** 實際回報減去當年的CPI，名義回報是黃金價格的原始變動。看誠實的答案，永遠看實際。
-
-**[結語——17:30]**
-
-**小魚：** 好，總結一下。黃金不是股票。它沒有現金流。它以信念定價，就像其他所有價值儲存資產一樣。在五十年中的三個時間窗口，當實際利率下降時，通脹對沖的故事成立了。工業商品是截然不同的另一回事，大多數應歸入「戰術交易」而非「永久配置」的框架。對於美國散戶投資者而言，GLDM和GLD是主力工具。機構的配置規模是5%至10%。當稅務計算有利時，透過期權表達投資觀點。
-
-**陳馬：** 而元層面的要點是：不要爭論黃金是否「有價值」。每一種價值儲存資產都是信念。誠實的問題是耐久性。黃金有五千年歷史。這對大多數投資組合中的一小份永久配置而言，已經足夠了。
-
-**小魚：** 下週我們講再平衡——何時做、為何做，以及紀律性增減倉的數學原理。
-
-**陳馬：** 下週見。
-
-**[完]**
+3. （挑戰題）研究一下，只持有科技股的投資者在2000年科網泡沫爆破時遭受了什麼損失。這個例子如何說明分散投資的重要性？
