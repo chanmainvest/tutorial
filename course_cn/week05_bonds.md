@@ -1,693 +1,526 @@
-<function_calls>
-<invoke name="view">
-<parameter name="path">C:\Users\hevan\AppData\Local\Temp\tmpk8cosai1.md</parameter>
-</invoke>
-</function_calls>
-<function_response>
-# Week 14 Part 1: Bond Risk Metrics – Duration and Convexity
-
-## Overview
-
-**Course:** Foundations of Investing
-**Hosts:** Horace and Stella
-**Format:** YouTube educational video script
-**Length:** ~15 minutes
-**Week:** 14, Part 1 of 2
+# 第五周：债券——票息、价格与收益率
 
 ---
 
-## Learning Objectives
-
-By the end of this lesson, students will be able to:
-
-1. Explain what duration measures and why it matters for bond investors
-2. Calculate Macaulay duration and modified duration
-3. Interpret how duration predicts price changes when interest rates shift
-4. Understand the limitations of duration and why convexity is needed
-5. Calculate and apply convexity to improve price-change predictions
+## 第一部分：阅读材料
 
 ---
 
-## Script
+### 1. 为什么这很重要
 
-### Cold Open
+债券是世界上最简单的金融工具。你以已知金额、按已知时间表、以已知的**利息支付**（即*票息*——这是债券市场的专用词，本课余下内容均沿用此称呼）借钱给对方，对方在已知日期还款。四个数字加一份日历。股票远没有这么简洁。
 
-[ANIMATION: A seesaw balancing coins on one side and a clock on the other]
+然而，正是这一最简单的工具，催生了现代金融史上持续时间最长的单一趋势（1981年至2020年长达四十年的收益率下行牛市），随后又在2022年带来了美国国债有史以来最惨烈的年度回撤。这两次波动早已蕴藏在四个数字的合约之中。§2.2给出了将合约转化为价格的那一个公式；本课其余内容不过是该公式的推论。
 
-**Horace:** Imagine you lend someone money for 10 years at 5%. Suddenly, market rates jump to 7%. Your bond's price just dropped — but by how much, exactly?
+*（题外话：同样的现值公式——将未来现金流折现至今日——也是股票、房地产及其他一切现金流资产的估值方法。这是整门课程中最重要的公式。我们在债券这里得以最清晰地接触它，因为债券的现金流最为简洁明了；第21周我们将把它应用于股票。）*
 
-**Stella:** The answer isn't just "a lot." There's a precise mathematical framework for this — and today we're diving into two of the most important bond risk metrics: duration and convexity.
+理解债券有**五**个理由。
 
-[CUT TO: Title card – "Bond Risk Metrics: Duration and Convexity"]
-
----
-
-### Section 1: Why Bond Prices Move
-
-[ANIMATION: Bond price vs. yield curve showing inverse relationship]
-
-**Stella:** Let's start with the foundation. Bonds have an inverse relationship with interest rates — when rates go up, bond prices go down, and vice versa.
-
-**Horace:** But not all bonds are equally sensitive. A 30-year bond drops far more than a 1-year bond when rates rise by 1%. Why?
-
-**Stella:** Because of time. The longer you're locked into a fixed payment, the more exposed you are to rate changes.
-
-**Horace:** And that's exactly what duration captures — the sensitivity of a bond's price to changes in interest rates.
-
-[VISUAL: Show a 1-year bond vs 30-year bond side by side, with arrows showing different price changes for the same rate increase]
+1. **它们构成一切事物折现率的基础。** 地球上每一笔现金流——你的房贷（字面意义上是你向银行发行的一只债券）、股票的盈利流、私募股权退出、养老金负债——均通过以无风险国债曲线**加上特定资产风险溢价**折现来定价。国债曲线是*基础*；溢价是市场针对特定资产风险在此之上索取的补偿。当10年期收益率从1.5%升至4.5%时，全球所有长久期资产的底层基准均随之移动，所有资产都要重新定价（上面的价差也可能移动，但基准的变动是任何人都无法回避的）。不理解折现率的走势，就无法理解任何其他资产类别。值得一提的是，债券在历史上也更为古老：有组织的主权债务市场比有组织的股票市场早了数百年（西德尼·霍默的《利率史》追溯了可连续考证的债券市场至13世纪威尼斯和热那亚；阿姆斯特丹股票交易所在1602年才姗姗来迟，而在18、19世纪的大部分时间里，股票的声誉*不如*债券——更近乎赌博而非投资）。现代人直觉上认为"股票是主要资产类别，债券不过是无聊的附属品"，这是20世纪的产物，而非永恒的真理。
+2. **债券本身就是一个独立的资产类别。** 上周60/40组合中国债提供了分散投资的功效。本周我们打开债券这个盒子，追问：我们究竟持有的是什么，它如何付息，价格如何形成？学完本课，60/40中的"40"将不再是一个黑盒子。
+3. **债券市场比股票市场更大——机构真正交易的也是它。** 全球债券市场存量约为130至140万亿美元（BIS/SIFMA，2024年估算），而全球股票市值约为110万亿美元。仅美国国债就约达27万亿美元。美国国债的*日*成交量约为9000亿美元，而全美上市股票合计约为5000亿美元。这与散户股票投资者有何关系？因为金融体系其余部分几乎所有形式的杠杆都*以国债为抵押*：银行准备金、回购（维系券商、对冲基金和一级交易商运转的隔夜融资市场）、期货交易所保证金、互换交易商抵押品、中央银行流动性工具。国债价格移动，*杠杆的成本与可得性*就会在每一类其他资产下面移动。国债市场的压力（如2020年3月、2019年9月回购市场骤紧）是全系统的压力信号。股票是可见的冰山一角；债券是其下的管道系统。
+4. **它们告诉你市场的预期。** 收益率曲线、BAA级公司债与10年期国债之间的信用利差，以及TIPS盈亏平衡通胀率，是三个每日公开报价、分别代表增长、违约风险和通胀预期的独立预测指标。债券市场是地球上最廉价的宏观情报服务。
+5. **1981至2020年债券牛市，是过去两代人几乎所有"被动投资有效"论断的政策背景。** 一代投资者从未经历过真正的债券熊市——而2022年是第一声警告。这一制度转变的框架并非本课原创：霍华德·马克斯在其2022年12月橡树资本备忘录《海变》（以及2023年5月的后续文章）中已清晰阐明，认为1980年以来四十年的利率下行是几乎所有资产的一次性顺风，我们正进入一个不同策略才能奏效的高利率时代。瑞·达利欧的《变化中的世界秩序》（2021）提出了更长周期的论据；林恩·阿尔登的《破碎的货币》（2023）提出了货币管道层面的论据；斯坦利·德鲁肯米勒自2022年以来在多次采访中持续表达债务与赤字版本的同一观点。核心在于：多位具有不同视角的严肃投资者殊途同归，得出了相同的判断：令买入持有策略看似轻松的利率制度已经终结，或至少不再是安全的默认选项。我们将在第4和第5级别中反复回顾这一主题。
 
 ---
 
-### Section 2: Macaulay Duration
+### 2. 你需要掌握的内容
 
-[ANIMATION: Timeline with cash flows weighted by time]
+#### 2.1 债券现金流——四个数字与一份日历
 
-**Stella:** There are a few versions of duration. Let's start with the original — Macaulay duration.
+**本课范围。** 以下内容全部关于*普通固定利率债券*——合约在发行时锁定，此后永不更改。可赎回债券、浮动利率票据、TIPS、抵押贷款支持证券、可转换债券和结构化信用产品均增加了额外的变动部分（发行人期权性、利率重置票息、通胀挂钩本金、提前偿还风险、与股权挂钩的回报、分层结构）。§2.5和§Q4涉及TIPS，信用/结构化产品将在第31至34周深入讲解。本周，固定住这幅图景：票息加上一笔到期偿还的气球付款。
 
-**Horace:** Macaulay duration is the weighted average time to receive a bond's cash flows. The weights are the present values of each cash flow as a fraction of the total bond price.
+一只债券由以下要素完整描述：
 
-**Stella:** Think of it like a balance point. If you laid all the cash flows out on a timeline, Macaulay duration tells you where the "center of gravity" is.
+- **面值** $F$——到期归还的金额。在美国市场几乎总是1,000美元，通常按100报价。
+- **票息率** $c$——发行时固定的年利率。面值1,000美元的债券票息率为4%，每年支付40美元。
+- **到期年数** $N$——面值偿还的时间。
+- **付息频率** $m$——每年支付几次票息。美国国债和公司债：$m = 2$（半年付息）。许多国际债券：$m = 1$（年付）。部分市政债券：$m = 4$。
 
-**Horace:** Let's walk through an example.
+每期票息为 $C = F \cdot c / m$。因此，面值1,000美元、4%半年付息债券每六个月支付20美元，持续$N$年，到期再偿还1,000美元。
 
-[VISUAL: Table showing cash flows for a 3-year bond]
+就是这些。这就是合约。其他一切——价格、收益率、久期、凸性——都是*在这四个数字加折现率基础上进行的数学运算*。
 
-| Year | Cash Flow | PV of Cash Flow | Weight | Year × Weight |
-|------|-----------|-----------------|--------|---------------|
-| 1    | $50       | $47.62          | 0.0476 | 0.0476        |
-| 2    | $50       | $45.35          | 0.0454 | 0.0907        |
-| 3    | $1,050    | $907.03         | 0.9070 | 2.7211        |
-| **Total** | | **$1,000** | **1.0000** | **2.859** |
+#### 2.2 价格不过是现金流折现
 
-**Stella:** So for a 3-year bond with a 5% coupon, priced at par, with a 5% yield — the Macaulay duration is approximately 2.86 years.
+若你要求在该债券的风险水平上获得年化收益率 $y$（即**市场收益率**或**到期收益率**），那么你今天愿意支付的价格即为所有现金流的现值：
 
-**Horace:** Notice it's less than 3 years — the maturity. That's because you're receiving coupon payments before maturity that pull the "center of gravity" forward.
+$$ P = \sum_{t=1}^{m \cdot N} \frac{C}{(1 + y/m)^{t}} + \frac{F}{(1 + y/m)^{m \cdot N}} $$
 
-**Stella:** A zero-coupon bond would have a Macaulay duration exactly equal to its maturity, since there's only one cash flow — at the end.
+该求和有封闭解：
+
+$$ P = C \cdot \frac{1 - (1 + y/m)^{-mN}}{y/m} + \frac{F}{(1 + y/m)^{mN}} $$
+
+但公式本身不如*形态*重要：债券就是一个等比级数的票息流加一笔面值气球付款。去掉任一部分，便成了另一种工具（仅等比级数部分是年金；仅气球付款部分是零息债券）。
+
+三个直接推论：
+
+- 若 $y = c$，则 $P = F$。债券**平价**交易。
+- 若 $y > c$，现金流不足以在面值处给买方提供所需回报，价格必须下降。债券以**折价**交易。
+- 若 $y < c$，买方乐意为丰厚的票息支付超过面值的价格。债券以**溢价**交易。
+
+本课后续的互动面板让你实时调节 $c$、$y$、$N$和 $m$，观察 $P$ 的重新计算。花两分钟操作一下。内化价格-收益率曲线的形态，胜过死记硬背任何公式。
+
+#### 2.3 为什么价格与收益率反向运动
+
+这是债券中被问得最多的特性，因此需要明确说明。现金流在发行时*固定不变*。票息永远是 $C$，面值永远是 $F$。在二级市场上，逐日变化的只有市场对这些固定现金流所适用的*折现率*。折现率升高 -> 现值降低 -> 价格下降。折现率降低 -> 现值升高 -> 价格上升。
+
+这一关系**单调且具有凸性**。单调性：收益率每变动1美元，价格总是朝相反方向运动。凸性：价格-收益率曲线向原点方向弯曲，这意味着**从相同收益率水平出发，收益率下降1%对价格的提升幅度，*大于*相同幅度收益率上升对价格的压制幅度**。（两次变动必须从相同的收益率水平出发，且绝对幅度相同；凸性是曲线的*局部*特性，并非对任意一对收益率变动的普遍断言。）这种不对称性就是凸性，对于长期债券而言其量级相当可观。在互动工具上观察：固定 $c$、$N$，将 $y$ 从0%滑动到15%，看曲线如何弯曲。
+
+#### 2.4 久期——"敏感度"指标
+
+30年期债券和2年期债券对收益率1%变动的反应并不相同。久期是价格因收益率变动1%而变动幅度的线性近似。
+
+**麦考利久期**是现金流的加权平均到期时间，每笔现金流的权重为该现金流的现值除以债券价格：
+
+$$ D_{\text{Mac}} = \frac{1}{P} \left[ \sum_{t=1}^{m N} \frac{(t/m) \cdot C}{(1 + y/m)^{t}} + \frac{N \cdot F}{(1 + y/m)^{m N}} \right] $$
+
+**修正久期**是价格对收益率的弹性：
+
+$$ D_{\text{mod}} = \frac{D_{\text{Mac}}}{1 + y/m} \quad \Rightarrow \quad \frac{\Delta P}{P} \approx -D_{\text{mod}} \cdot \Delta y $$
+
+值得记住的经验规则：
+
+- 2年期国债：$D_{\text{mod}} \approx 1.9$。利率上升1% -> 价格约跌1.9%。
+- 10年期国债：$D_{\text{mod}} \approx 8.5$。利率上升1% -> 价格约跌8.5%。
+- 30年期国债：$D_{\text{mod}} \approx 19$。利率上升1% -> 价格约跌19%。
+
+2022年，10年期收益率从约1.5%升至约3.9%，涨幅约2.4%。乘以久期8.5，即得实际实现的-18%总收益——与上周60/40图表中归因于"债券"的亏损几乎完全吻合。久期近似不是一个猎奇的概念，而是真正的解释。更深层的数学（凸性修正、关键利率久期、期权调整价差）留待第32周讲解。
+
+#### 2.5 到期收益率、当前收益率与票息率
+
+这三个数字经常被混淆。
+
+- **票息率**：*合约约定的*利率。发行时固定，永不更改。用于计算美元票息金额。
+- **当前收益率**：$C \cdot m / P$。仅考虑票息流所带来的收益，忽略本金向面值回归的效果。对以收入为导向的买方有参考价值，但作为收益衡量指标**并不完整**。
+- **到期收益率（YTM）**：使*所有*现金流（票息+面值）的现值等于当前价格的单一折现率 $y$，即债券的内部收益率。这是到处引用的标题收益率。
+
+当债券平价交易时，三者相等。当以折价交易时，到期收益率 > 当前收益率 > 票息率（既有票息收入，到期还有资本利得）。当以溢价交易时，到期收益率 < 当前收益率 < 票息率。
+
+比较债券时，始终应以到期收益率为准，而非票息率。票息率是合约细节；到期收益率是你实际赚到的回报——**但前提是**你（a）持有至到期，且（b）以相同收益率再投资每笔票息。这两个条件通常都不会满足。若你在到期前以不同收益率卖出，你的*实现*回报取决于当天的价格水平，而非你买入时的到期收益率。若再投资利率下降（上升），你的实现回报最终将*低于*（高于）最初的到期收益率。到期收益率是债券的报价内部收益率；对于非买入持有的投资者，它**并不**代表有保障的实现回报。
+
+**继续之前先做一个直觉检验。** 票息是印在合约上的一个数字——比如"每年40美元，直到我还你1,000美元"——它永远不变。*收益率*是买方今天为承接这份合约所要求的*回报*。这两个数字不必相同，因为*价格*在中间移动以使两者相符。若需求旺盛，价格上涨；同样40美元的年收益在更高的买入价格上给买方带来了*更低*的百分比回报；收益率下降。若需求崩溃，价格下跌；同样40美元现在给买方带来了*更高*的百分比回报；收益率上升。票息=合约；价格=市场；收益率=从两者中自然得出的百分比回报。**在继续阅读前，打开下方的互动债券定价器**：将票息固定在4%，将市场收益率从2%滑动到8%，观察价格下跌、到期收益率攀升。两分钟的操作，胜过十遍重读本段。这个公式是本课余下所有资产估值的基础——请勿跳过。
+
+#### 2.6 信用评级——以及为何不能盲目相信
+
+在了解公司债与国债之间的价差之前，你需要先弄清楚是什么让公司债*更具风险*，以及市场如何发出这一信号。
+
+当一家公司（或国家、城市）发行债券时，第三方**信用评级机构**会给它打一个字母等级，从"基本上与国债一样安全"到"濒临违约"。三大机构是穆迪、标普和惠誉。各家评级体系略有差异，但大致对应相同的区间：
+
+| 档位 | 标普/惠誉 | 穆迪 | 通俗解释 |
+|---|---|---|---|
+| 投资级——最高 | AAA | Aaa | 类国债水平（美国政府2011年前为AAA） |
+| 投资级——高 | AA / A | Aa / A | 实力强劲，违约风险低 |
+| 投资级——最低 | BBB+至BBB- | Baa1至Baa3 | 尚可；"BBB"/"BAA"——我们图表中标示的界线 |
+| **分界线** | --- | --- | 以下不再属于"投资级" |
+| 投机级/"垃圾" | BB+至CCC | Ba1至Caa | 高收益；存在实质违约风险 |
+| 违约/濒临违约 | CC, C, D | Ca, C | 重组或已经错过还款 |
+
+§2.7图表中出现的"BAA"，不过是穆迪对最低投资级档位的拼写——与标普写作"BBB"的位置相同。由于它是最完整的百年期公司债序列，我们因此选用它。
+
+**评级体系存在结构性利益冲突。** 评级机构由债券的*发行人*而非买方付费。希望让自家债务看起来更安全的公司去寻访评级，给出更高评级的机构就能拿到合同。这在金融上等同于让学生自行雇用并支付考官，再请考官来证明学生有多聪明——这并不是一个思想实验，历史记录是残酷的：
+
+- **安然**在申请当时美国最大破产保护（2001年12月）的四天前，仍持有*投资级*评级。
+- **雷曼兄弟**在2008年9月倒闭当天上午，仍持有三家机构的A级评级。
+- **2008年住房危机**是最典型的案例：数以万计的次级抵押贷款支持证券被盖上AAA的印章——与美国国债相同的评级——其中大部分最终亏损60%至100%。美国参议院常设调查小组委员会（列文-科本报告，2011年）记录了评级机构为维持发行人费用来源，不顾自身分析师反对、橡皮图章式批准交易的行为。
+- **希腊主权债务**直至2009年底仍为投资级；在遭遇评级连续下调后数月内，已跌至面值的三折交易。
+
+这对散户投资者意味着什么？**将评级视为粗略分类工具，而非定论。** AAA不意味着"安全"；它意味着"发行人为这封信付了钱，历史上这一档次的违约很少见——直到突然不再少见。"市场价格和每日收益率价差（§2.7）才能告诉你*用真金白银下注的交易者*的判断——而他们几乎总是先于评级机构行动。一只收益率价差已扩至困境水平却仍持有投资级评级的债券，是市场在告诉你评级有误；忽略那封信，读懂价差。
+
+#### 2.7 信用利差与已实现信用溢价
+
+美国国债是教科书上的无违约风险资产（它的无违约风险与美元本身一样——这是另一个哲学问题，见第31周）。其他任何资产都更具风险。市场通过要求公司债提供高于同期限国债的收益率来为这一额外风险定价。
+
+两个数字，*切勿混淆*：
+
+- **收益率信用利差。** 一种*收益率差*——例如穆迪BAA公司债收益率减去10年期国债收益率，或投资级指数的期权调整价差（OAS）。每天实时报价，单位为基点。当违约风险重新定价时**向上走阔**（2008年12月OAS峰值约600基点；2020年3月约400基点；平静市场约100至150基点）。交易员说"价差炸开"指的就是这个数字。
+- **已实现超额收益。** 公司债在同一持有期内的*收益*减去国债的*收益*（例如年化）。它综合了你从起始收益率价差中*赚取*的部分，以及当年价差变动对价格的影响。在价差大幅走阔的年份，这一数字急剧转*负*——公司债价格跌幅大于国债价格跌幅。
+
+下图展示的是第二个数字——1928年至2024年BAA级公司债相对10年期国债的年度已实现超额收益（达摩达兰年度序列，BAA为最低投资级评级）。这是散户买入持有投资者持有公司债而非国债所能*亲历*的最完整的百年代理指标。
+
+![BAA级公司债相对10年期美国国债1928年至2024年年度已实现超额收益（达摩达兰年度数据）。1932年、1974年、2008年和2020年，随着违约风险重新定价、国债因避险需求上涨，柱状图急剧转负。长期均值小幅为正；分布具有厚重的左尾。](../image/week05_credit_spreads.png)
+
+三点解读：
+
+1. **长期平均超额收益小幅为正**——投资级公司债平均每年比国债多赚约1至2%。这是无条件的*已实现*信用溢价。
+2. **分布具有厚重的左尾。** 在信用危机年份（1932、1974、2008、2020），随着违约风险重新定价（收益率价差急剧走阔，公司债价格急剧下跌）以及国债受避险买盘拉升，公司债单年可跑输国债10%至25%。
+3. **收益率价差是预警信号——但要实时读取，而非依靠本图。** 日度/周度OAS*可能*在信用周期中先于股票见底前走阔。上述年度已实现超额收益图表颗粒度过粗，无法用作领先指标：它告诉你某一糟糕年份*已经发生*，而非某年份*即将到来*。如需实时监测，请关注日度收益率价差序列（如FRED上的ICE美银美国公司债OAS）。本图的意义在于呈现长期*收益形态*，而非择时。
+
+对大多数散户投资者而言，实际答案是：**信用溢价真实存在但量级有限，且尾部风险不对称**。持有投资级公司债而非国债，正常年份可能多赚约1%，而在最关键的年份则代价高达10%以上。为与股票分散化，持有国债。若在退休阶段需要*收益提升*的收入，适量配置投资级公司债是合理的。
+
+**信用违约互换（CDS）、资本结构与更广泛的信用产品——简要预告。** 我们刚刚介绍的是普通公司债——借款人借款，你出借，你收取款项。更广泛的信用产品还包含若干你现在至少应*认识*的部分，将在第31至34周正式讲解：
+
+- **资本结构（优先级与次级）。** 一家公司可以发行多个层级的债务。*优先*（或"有担保"）债务在破产时对资产享有优先求偿权，收益率最低；*次级*债务仅在优先债务获偿后才能受偿，需提供更高收益率作为补偿。其下依次是优先股，最后是普通股。每一层级都是不同的债券，破产时回收率也各不相同。CMO和CDO等结构化产品将同一底层贷款池切分为具有相同堆叠结构的*份额*——AAA份额最后承担损失，权益份额最先。2008年的崩溃，在很大程度上是对这些份额的错误评级所致。（第33周。）
+- **债券、银行贷款与私人信贷。** *债券*是公开发行的，在二级市场交易，受债券契约约束，并有信用评级。*银行贷款*（"杠杆贷款"）是私下谈判达成的协议，通常为优先有担保、浮动利率，由银行或贷款基金持有——可交易但流动性较差。*私人信贷*/*直接借贷*是基金直接向企业发放的非银行贷款，通常无评级且持有至到期。经济逻辑相同（有人借款，有人出借），但流动性、信息披露和定价机制各异。
+- **信用违约互换（CDS）。** CDS是*债券保险*。买方支付年度保费（CDS价差，单位为基点）；如果标的债券违约，卖方进行赔付。CDS价差是对特定发行人违约风险最纯粹的市场定价视角。主权CDS市场尤其经常在评级机构行动前率先移动——希腊5年期CDS在官方评级仍为投资级时，已经发出了数月的困境信号。（第33周将讲解机制；此处散户投资者的要点是，即使几乎没有散户投资者*交易*CDS，你也可以将CDS价差作为免费的宏观信号*阅读*。）
+
+#### 2.8 长达四十年的牛市与2022年的转折
+
+下图展示了1962年至2026年美国10年期国债收益率的走势，这是我们在FRED的DGS10系列中所能获取的最长、最完整的月度数据。
+
+![美国10年期国债固定到期收益率，1962年至2026年4月（FRED DGS10，月度数据）。图中最显著的特征是1981年沃尔克抗通胀行动期间约15.8%的峰值，随后是长达四十年的下行趋势，至2020年触及约0.5%的低谷，此后急剧攀升，至2024年重回4%以上，2026年4月最新读数约为4.2%。图中标注了主要的峰谷位置。](../image/week05_yield_history.png)
+
+有三个周期阶段你必须认清。
+
+- **1962-1981年：收益率上行。** 越战、布雷顿森林体系崩溃以及两次石油危机推动通胀持续走高。这一时期债券的名义收益率表现低迷，实际收益率更是惨不忍睹——这是20世纪持续时间最长的债券熊市。持有"安全"长期国债的投资者，实际财富缩水长达二十年。
+- **1981-2020年：收益率下行，近乎不间断地延续了四十年。** 沃尔克1981年的利率峰值打破了通胀预期，此后每一次冲击——1987年、1990年、2000年、2008年、2020年——对应的终端利率都低于上一次。债券在这段时期的名义年化收益率约为7%，创下历史上最佳的四十年表现。
+- **2020年至今：收益率再度上行。** 新冠疫情引发的流动性泛滥，以及随后2022年的通胀冲击，终结了长达四十年的下行趋势。10年期国债收益率在30个月内从0.5%飙升至5%。截至2026年4月，收益率曲线徘徊在4.2%附近，市场正在争论：这究竟是1980年代式的正常化回归，还是长期世俗性上行趋势的开端？支持收益率地板上移的论据在于：美国联邦债务目前约占国内生产总值的120%，在和平时期财政赤字高达国内生产总值的6-7%，而且每年财政部都必须以当时的市场利率为数万亿美元的到期债务续借（即*债务墙*；§2.10）。当新债供给庞大且持续增加时，边际买家会要求更高的收益率来消化这些供给——财政部无法左右利率，它只能设定票息，让拍卖价格告诉它真实的收益率水平。再叠加三次主权信用评级下调（标普于2011年8月将美国AAA下调至AA+，惠誉于2023年8月跟进，穆迪于2025年5月下调），"收益率只会从这里继续下行"便不再是一个安全的假设。
+
+本课程所提出的周期转换框架，并非原创。霍华德·马克斯2022年12月的橡树资本备忘录《*沧海桑田*》及2023年5月的续篇《*沧海桑田II*》，详细论述了四十年利率下行是各类资产共同受益的一次性顺风，而未来十年将奖励截然不同的行为方式。瑞·达利欧的《*原则：应对变化中的世界秩序*》（2021年）从更长的周期维度阐述了这一论点；林恩·奥尔登的《*破碎的货币*》（2023年）则从货币管道机制的角度加以论证；斯坦利·德鲁肯米勒自2022年以来在多个访谈中反复强调债务与赤字问题；戴维·罗森伯格则持通缩反驳论点。我们在此并不倾向于支持某一方——我们只是想指出：几位视角各异、立场严肃的投资者，都不约而同地得出了同一结论："让买入持有策略看似轻而易举的利率周期，已经终结，至少不再是安全的默认选项。"被动指数投资之所以在1981-2020年有效，部分原因在于债券上涨与股票估值扩张同步发生——而这一切都受益于利率下行。打破这一周期的导火索是**长端收益率的持续上行**，而我们眼下正在实时目睹这一导火索点燃的全过程。现在宣告旧周期终结为时尚早，但假装什么都没有改变，则已为时过晚。
+
+#### 2.9 通胀保值债券、浮动利率票据与你将遇到的各类债券期限
+
+目前为止，我们讨论的都是普通的*固定利率*名义债券（面值和票息均以美元计价）。债券市场还有几种常见变体，零售投资者几乎立刻就会碰到；它们都建立在同样的现值方程之上，只是将其中一两个要素做了替换。
+
+- **TIPS（通胀保值国债）。** *本金*与CPI挂钩。票息率固定，但以经通胀调整后的本金为基础计算，因此美元票息也会随CPI增长。TIPS所报的收益率是*实际*收益率（高于CPI的部分）。你下注的是*实际*通胀将超过**盈亏平衡通胀率** = 名义国债收益率 − TIPS实际收益率。（2026年4月：约4.2% − 约1.8% ≈ 2.4%，对应10年期。）注意事项：(a) 这些债券所挂钩的CPI是*官方*劳工统计局CPI，我们在第1周已经看到，该指标自1990年以来经历了多次方法论调整，被普遍认为*低估*了实际生活通胀——因此即便是"通胀保值"债券，保护的也是*官方统计*数字，未必能覆盖你的菜篮子支出；(b) 当CPI数据高企时，美联储往往会加息，这通过久期压低TIPS价格，而本金增值则反向支撑价格——两种效应部分相互抵消，在利率上行叠加通胀超预期的情形下，TIPS可能出现亏损（2022年正是如此）；(c) **加拿大于2022年11月停止发行实际回报债券**，理由是拍卖需求不足，该决定自此持续受到养老基金批评——这是一个有力提醒：即便是主权发行人，也可能将通胀保护工具从菜单上撤下。从历史上看，TIPS盈亏平衡通胀率是随后CPI走势的大致无偏但*噪声较大*的预测指标：能把握长期方向，但通常会有1-2个百分点的偏差；在流动性压力时期（2008年四季度、2020年3月），由于TIPS的流动性远不及名义债券，盈亏平衡利率会短暂跌至荒谬的低位。
+- **浮动利率票据（FRN）。** 票息定期重置为基准利率（SOFR加固定利差，或对于许多企业浮动利率票据，为3个月SOFR加30-150个基点）。当基准利率变动时，票息随之调整，因此*价格*几乎不变——久期本质上等于距下次重置日的时间长度，对于按季度重置的票据来说约为0.25年。当你预期利率上行时，浮动利率票据是有效工具（你能持续获得更高的票息而无需承受价格损失）；当你预期利率下行时，浮动利率票据就失去吸引力（你放弃了锁定更高固定收益率的机会）。与普通名义债券相比，你用*久期风险*换取了*再投资风险*。
+- **常见债券期限。** 美国国债分为短期国库券（4、8、13、17、26、52周；零息债券，以低于面值的折价发行）、中期国债（2、3、5、7、10年）和长期国债（20、30年）。投资级公司债大量集中于5年、10年、30年期。*永续债券*（"永续债"）没有到期日——发行人永久支付票息，并可在特定日期以面值*赎回*该债券；英国18世纪发行的*统一公债*是最典型的案例（部分债券发行了逾250年，直至2015年才被赎回）。*世纪债券*（50至100年期）偶尔由主权国家和蓝筹股企业发行——迪士尼1993年发行过100年期债券，阿根廷2017年发行了美元计价的世纪债券（并在三年后违约，这足以说明一切关于在长久期主权信用上追逐收益率的风险）。
+- **可转换债券。** 债券内嵌股票看涨期权——持有人可将债券转换为发行人一定数量的股份。由于股票期权本身有价值，可转换债券的收益率低于同等条件的普通债券。可转换债券是一个独立的资产类别，有其自成体系的希腊字母定价方法；我们将在第25-30周讲解期权时涉及，届时在讨论发行人资本结构策略时还会再次提及。
+- **可赎回债券。** 发行人保留在特定价格提前赎回债券的权利。这相当于买方向发行人*卖出*了一个期权——当利率下行时，发行人以更低成本再融资并赎回旧债，压制了你的收益上限。因此，可赎回债券在相同信用/期限条件下，收益率*高于*不可赎回债券。大多数美国国债*不可提前赎回*；公司债，尤其是市政债券，则往往含有赎回条款——在构建债券阶梯之前，务必仔细阅读发行文件。
+
+#### 2.10 债务墙与再融资周期
+
+债券是有期限的——每只债券都有到期日，届时发行人必须归还本金。对于持续发行债务的主体（每一个政府、每一家大公司、每一位抵押贷款持有人），债券不断到期，必须持续*再融资*：发行人重返市场发行新债，以筹集资金偿还旧债。这一循环义务就是**再融资周期**。
+
+将某一发行人所有未偿债券按年份叠加到期情况，便形成一堵"墙"——某一年有大量债务集中到期。以下两个例子帮助你具体理解：
+
+- **美国财政部债务墙。** 每年约有7至9万亿美元的美国国债到期，必须按当日市场收益率进行滚动续借。当财政部在2020年以0.7%的收益率发行10年期国债时，该债券将于2030年到期，届时将以2030年的10年期收益率进行再融资。若届时10年期收益率为4.5%，联邦利息支出将机械性地、永久性地上升——财政部别无选择，只能续借。截至2026年，美国联邦年度利息支出已突破1万亿美元，超过了整个国防预算。这就是再融资周期实时侵蚀财政空间的真实写照。
+- **企业"到期债务墙"。** 2025-2027年窗口期内，约有1.8至2万亿美元的美国投资级和高收益公司债到期——其中大部分发行于2020-2021年零利率时期，利率仅为2-3%。当初锁定低息长期债务的企业，如今不得不以5-7%的成本进行再融资。对于利息覆盖率本已捉襟见肘的高杠杆企业而言，再融资成本上升300个基点，意味着从尚可应对到财务困境的分水岭。未来24-36个月若出现高收益债违约潮，其根本原因将主要是再融资周期事件，而非经济衰退事件。
+
+再融资周期正是"当前收益率高于过去"不只是暂时性账面事实的原因——每过一年，发行人越来越多的旧低息债务会滚入新高息债务，其*平均*支付票息会逐渐向当前市场利率靠拢。对主权国家而言，这是走向财政压力的渐进路径；对企业而言，这是走向信用重定价的渐进路径。无论哪种情况，这都是*债券的内在机制*——不是预测，而是会计上的必然结果——值得持续关注。
+
+#### 2.11 零售投资者如何实际购买债券（以及为何债券交易所交易基金有其自身问题）
+
+几乎没有零售投资者会购买单只公司债。原因有三：
+
+1. **流动性极差。** 大多数公司债CUSIP每*周*仅成交数次，而非每天。买卖价差通常高达50-200个基点——仅进出一次就要支付1-2%的成本。相比之下，国债是全球流动性最强的资产（买卖价差极小，日均成交量约9000亿美元），你可以放心单独购买。
+2. **最小交易量较大。** 许多公司债的最低交易面值为5,000或10,000美元；要构建一个包含50只公司债的分散化投资组合，至少需要二十五万美元才能起步。
+3. **单一发行人违约风险切实存在。** 某只债券因发行人破产而亏损30%，将严重拖累整个债券仓位——在持仓只有少数几个发行人的情况下，这一损失根本无法通过分散投资来化解。
+
+因此，零售投资者通常通过持有*债券交易所交易基金*（LQD、BND、AGG、HYG等）来获取债券敞口。这能解决上述三个问题，但同时也引入了一个你应当了解的新问题：
+
+**大多数债券指数按未偿债务规模加权。** 仔细想想这意味着什么。按市值加权的*股票*指数将最大权重分配给市场估值最高的公司（苹果、微软）。按市值加权的*债券*指数将最大权重分配给*借债最多*的发行人。借债最多的发行人未必是最安全的——它恰恰是偿债义务最重的那个。综合债券交易所交易基金最终对美国国债超配（这还说得过去——国债至少是拥有印钞权的借款人），但同时也对杠杆率最高的投资级公司债超配。这与股票指数投资有着本质区别，也是"买入公司债交易所交易基金然后置之不理"并不像"买入股票指数交易所交易基金然后置之不理"那么无害的原因。如果你希望获取公司债敞口，可以考虑*等权重*或*基本面加权*的债券交易所交易基金，或者有意识地接受市值加权的偏差。
+
+这也是为什么公司债交易所交易基金在信用动荡中的表现，与国债交易所交易基金在利率波动中的表现截然不同：其最大持仓恰恰是最可能遭遇评级下调和价格重估的发行人。2008年LQD的回撤（2008年下半年峰值至谷底下跌约15%）和2020年3月HYG的回撤（三周内下跌约21%）是可供参考的历史先例。
 
 ---
 
-### Section 3: Modified Duration
+### 3. 常见误区
 
-[ANIMATION: Arrow showing rate change → price change, with a magnification lens on the formula]
+**误区一："国债没有风险。"**
 
-**Horace:** Now, Macaulay duration is elegant, but what investors really care about is: if rates change, how much does my bond's price change?
+国债在*名义美元*意义上*没有信用*风险（美国政府可以印制所需的美元）。但它不是没有*价格*风险，也不是没有*购买力*风险。2022年，10年期国债价格下跌了18%。1973-1981年间，其实际价值缩水了约40%。"没有违约风险"不等于"没有任何风险"。
 
-**Stella:** That's what modified duration tells us.
+更深刻的表述是：即便是主权国家，*也*可以且确实会对本国货币债务违约。**1998年8月俄罗斯**对其国内卢布计价的GKO债券违约，尽管它本可以印制卢布偿债，但代价（汇率挂钩崩溃、恶性通胀、银行体系崩溃）被判断为比违约更为惨烈。**阿根廷**多次对比索计价债务违约；**1982年墨西哥"龙舌兰"**危机包含了对美元*和*比索债务的强制重组。"印钞偿债"是一种*政治*选择，而非数学上的必然保证。美国本身也经历了**三次AAA评级被剥夺**：标普于2011年8月（债务上限博弈）、惠誉于2023年8月（"治理侵蚀"）、穆迪于2025年5月（债务负担上升与持续财政赤字）。国债仍是全球规模最大、流动性最强的主权债券，仍是全球储备抵押品资产——但"无风险"不过是20世纪的简略说法，在字面意义上已经经不起推敲。对于任何以本国货币举债的主权国家而言，*通胀性违约*是更现实的情景：名义美元如数偿还，只是那些美元的购买力已大打折扣。
 
-**Horace:** The formula is simple:
+**误区二："持有到期就不会亏损。"**
 
-$$\text{Modified Duration} = \frac{\text{Macaulay Duration}}{1 + \frac{y}{m}}$$
+从*名义*角度而言，确实如此——你会收回面值加上票息。但这些款项的实际价值取决于购买到到期期间的通胀水平。2020年以2%收益率购买的30年期债券，如果持有期内通胀平均达到3%，合约上已锁定实际亏损。持有到期保护你免受价格波动之苦，却无法防御通胀侵蚀。（价格波动的来源——久期与收益率曲线变动——将在**第31周**收益率曲线和**第32周**久期与凸性中深入探讨。对于第一阶段，§2.4的经验法则已经足够：期限越长，每1%收益率变动对价格的冲击越大。）
 
-Where *y* is the yield and *m* is the number of compounding periods per year.
+**误区三："债券基金只是持有债券——其行为应与直接持债相同。"**
 
-**Stella:** For our example — Macaulay duration of 2.86 years, yield of 5%, annual compounding:
+债券基金通过不断卖出旧债、买入新债来维持大致恒定的久期。而单只债券的久期会随着临近到期而*自然下降*。因此，一只目标久期为20年的基金，在利率上行环境中，是结构上最糟糕的持有方式——这正是2022年TLT投资者切身体会到的教训。如果你有具体的负债日期，应持有与该日期匹配的单只债券；基金与之并不等价。
 
-$$\text{Modified Duration} = \frac{2.86}{1.05} \approx 2.724$$
+**误区四："票息越高，收益率越高。"**
 
-**Horace:** And here's the key interpretation: a modified duration of 2.724 means that for every 1% increase in yield, the bond price falls by approximately 2.724%.
+票息是合同约定；收益率是市场定价。一只10%票息的债券可以有3%的收益率（它正以大幅溢价交易），一只1%票息的债券可以有6%的收益率（它正以大幅折价交易）。比较时永远要看到期收益率，而非票息。
 
-**Stella:** The formula for price change is:
+**误区五："信用利差只是额外收益——白拿的收入。"**
 
-$$\Delta P \approx -\text{Modified Duration} \times \Delta y \times P$$
+历史上，信用溢价在平均年份约为1%-2%，而在最关键的年份则为-10%或更糟（1932年、1974年、2008年、2020年）。当你购买公司债而非国债时，你并非只是在"多拿一点收益"——你是在*承担公司违约的风险*，而额外收益（信用利差）是市场为这一风险定的价格。从功能上看，这使公司债持有人成为向该公司*出售违约保险*的一方：公司每年向你支付额外收益（"保险费"），作为交换，*如果*公司破产，你承担部分损失（"保险赔付"）。这与保险公司承保火险的风险模式完全相同：平时不断收取小额保费，偶尔一场大火将触发一笔巨额赔付。
 
-**Horace:** Let's say rates rise by 0.5%. The estimated price change would be:
+这种收益分布形态——大多数时候小赢，偶尔大亏——正是"**负偏态**"在通俗语言中的含义。想象年度收益率的分布：右侧短而肥（"正常年份，额外+1.5%"），左尾细而长（"危机年份，-15%"）。*平均*收益是正的，但任何一个坏年的损失都大于任何一个好年的盈利。因此，出售信用保险并非免费获得收益，而是有偿承担风险，且它让你付出代价的年份，恰恰是你的股票仓位*也*在下跌的年份。这就是为什么在60/40配置中，承担分散化职能的应该是国债，而非公司债。
 
-$$\Delta P \approx -2.724 \times 0.005 \times \$1000 = -\$13.62$$
+**误区六："长债收益率更高，所以更好。"**
 
-**Stella:** So our $1,000 bond would drop to about $986.38 — that's duration in action.
+更长的期限能获取*期限溢价*——但同时伴随着更高的久期风险。在大多数历史区间内，长期国债的夏普比率与中期国债相当，甚至*更差*。只有在你有具体负债与该期限相匹配，或者你在明确进行**久期押注**时（有意超配长债，因为你判断收益率将*下行*，届时高久期将推动长债价格大幅上涨；反向押注则是*规避*长债，因为你判断收益率将上行——2020年"买入TLT"的投资者在2022年领教了这一押注的反面），才值得去追求期限溢价。还需注意："把短债滚动换成长债"听起来没有代价，但并非如此。当收益率曲线*倒挂*（短端收益率 > 长端收益率）时，如2022-2024年大部分时间的情况，将短债滚换为长债实际上是在*放弃*收益率。我们将在**第31周**深入讲解曲线形态与期限溢价。
 
----
+**误区七："通胀保值债券（TIPS）始终优于名义债券。"**
 
-### Section 4: Dollar Duration and DV01
+当实际通胀*超出* TIPS定价中的盈亏平衡通胀率时，TIPS更具优势。当实际通胀低于预期，或盈亏平衡通胀率估值偏贵时，TIPS则处于劣势。TIPS是相对于名义国债的*相对价值*交易，而非免费升级。另有两点值得深入理解：(i) TIPS挂钩的是*官方* CPI——因此保护的是劳工统计局所采用的CPI方法论所反映的通胀，不一定是你实际感受到的生活成本变化（回顾第1周关于ShadowStats的讨论）；(ii) 当CPI高企而美联储以加息回应时，TIPS会因久期而承受价格损失，部分或全部抵消本金增值收益——即便通胀处于数十年高位，2022年TIPS仍然*亏损*，原因正是加息导致其实际收益率急剧上行。（§2.9介绍其运作机制；§Q4演示盈亏平衡计算过程。）
 
-[ANIMATION: Dollar sign merging with a bond certificate]
+**误区八："负收益率债券毫无道理，没人应该购买。"**
 
-**Horace:** Traders often talk about dollar duration — which is just modified duration multiplied by the bond price.
-
-**Stella:** Dollar Duration = Modified Duration × Price
-
-**Horace:** A closely related concept is DV01 — the Dollar Value of a 1 Basis Point move. It tells you exactly how much a bond's price changes when yields move by 0.01%.
-
-$$\text{DV01} = \frac{\text{Modified Duration} \times P}{10,000}$$
-
-**Stella:** For our bond:
-
-$$\text{DV01} = \frac{2.724 \times \$1000}{10,000} = \$0.2724$$
-
-**Horace:** So for every basis point rates move, this bond gains or loses about 27 cents. That seems small, but for a portfolio of millions, it adds up fast.
-
-**Stella:** DV01 is incredibly useful for hedging — you can match the DV01 of your portfolio to a hedge instrument and neutralize your rate exposure.
+2014-2021年间，欧洲和日本的机构投资者持有了数万亿美元的负收益率债券。其中部分需求是自愿的（若利率进一步走负，则有价格上涨空间；通过货币对冲将美元换回欧元后，套息收益可能为正），但相当一部分实际上是*被迫的*：欧盟针对银行、保险公司和养老金的监管规定（保险公司适用偿付能力II，银行适用巴塞尔协议III流动性覆盖率），要求机构持有最低数量的优质流动资产——实践中这意味着主权债券——无论收益率高低；而以长期实际利率作为折现率进行负债匹配的养老基金，也被要求持有匹配久期的债券，即便收益率为负。因此，"对我这个零售投资者来说毫无道理"是正确的（你可以直接持有现金）；"对任何人都毫无道理"则是错误的。请注意这一不对称性：受监管的机构可能被*迫*进入一笔你可以选择回避的交易——这是零售投资者相对于机构所具有的结构性优势之一，我们将在后续章节中继续深入探讨。
 
 ---
 
-### Section 5: Duration of a Bond Portfolio
+### 4. 问答环节
 
-[ANIMATION: Multiple bonds combining into a single portfolio, with weighted average calculated]
+**Q1：我想从债券中获取每月收入，最简洁的方式是什么？**
 
-**Horace:** When you hold multiple bonds, the portfolio duration is the weighted average of the individual durations.
+A：构建一个*债券梯*——买入在未来5至10年内逐年到期的个别国债或通胀保值债券，等权重配置。每年有一级到期，你可以按当时的收益率再投资。现金流大约等于平均收益率 × 投资组合价值。这种方式可以避免基金久期漂移，并给你一个可预测的现金流安排。富达、嘉信理财和先锋的券商工具让你在15分钟内就能点选完成操作——但在下单之前，*逐行核查*：买价/卖价价差（公司债可能较宽；国债较窄）、是否可赎回（可赎回债券不是真正的梯级——发行人可以提前赎回）、确切到期日（与你实际需要资金的时间对应）、税收处理（国债利息免州税；市政债券免联邦税；公司债全额应税），以及最低交易手数（部分债券以5,000美元或10,000美元为最低单位，可能无法均匀拆分成小额梯级）。
 
-**Stella:** Specifically:
+**Q2：我应该买个别债券还是债券交易所交易基金？**
 
-$$D_{portfolio} = \sum_{i} w_i \times D_i$$
+A：国债和公司债需区别对待。
 
-Where *w_i* is the market value weight of bond *i* in the portfolio.
+- **国债。** 现代券商（富达、嘉信理财、先锋、盈透证券，以及TreasuryDirect）让个人投资者能以低成本、高流动性的方式买入短期国库券、中期国债和长期国债，即便是小额账户也一样——买价/卖价价差紧，也没有基金费用率。对于买入持有的债券梯策略，无论账户规模大小，买入个别国债都完全可行。
+- **公司债。** 个别公司债的买价/卖价价差较宽，二级市场流动性薄，且存在显著的单一发行人违约风险。对于几乎任何规模的零售账户而言，交易所交易基金（投资级的LQD，高收益的HYG/JNK）是更好的工具。
+- **债券基金总体而言。** 交易所交易基金（BND、AGG、IEF、TLT、SHY）让你即时获得分散投资效果和固定久期敞口。代价是误解三中提到的久期漂移问题：基金永不到期，所以你无法通过"持有至到期"来摆脱价格回撤。对于特定未来资金需求，应将个别国债与具体日期匹配。
 
-**Horace:** Let's say you have:
-- 40% in a bond with duration 2
-- 35% in a bond with duration 5
-- 25% in a bond with duration 10
+**Q3：适合我的债券久期是多少？**
 
-**Stella:** Portfolio duration = 0.40×2 + 0.35×5 + 0.25×10 = 0.80 + 1.75 + 2.50 = **5.05**
+A：大致与你的投资期限匹配。五年内需要动用的资金，选1至3年期国债（SHY）。用于60/40风格投资组合中分散投资配置的，选中期（IEF，约7年）。长期债券（TLT，约20年）仅作为刻意的**久期押注**——买入长期债券*是因为*你预期收益率将下降，想要获得高久期带来的价格涨幅，*而非*作为惰性默认选择。2022年的教训：久期是一个*高度敏感*的维度；不要在无意间承担了超出预期的久期风险。
 
-**Horace:** So the portfolio behaves like a single bond with a duration of about 5 years.
+**Q4：通胀保值债券与普通国债有何不同？**
 
----
+A：通胀保值债券的本金随CPI向上调整。票息率固定，但作用于经通胀调整后的本金，因此美元票息也会随通胀增长。你在通胀保值债券上看到的"实际收益率"是*高于*CPI的收益率。**盈亏平衡通胀率**是同一到期日的名义国债收益率与通胀保值债券实际收益率之差——如果持有期内实现的CPI超过盈亏平衡点，通胀保值债券胜出；若低于，则名义债券胜出。（2026年4月：10年期名义利率约4.2%，10年期通胀保值债券实际收益率约1.8%，因此10年期盈亏平衡通胀率约为2.4%。若未来十年平均官方CPI高于2.4%，通胀保值债券将胜出。）
 
-### Section 6: Limitations of Duration
+有三点需要坦诚说明。第一，这些债券挂钩的CPI是与我们在第一周拆解过的同一套*官方*美国劳工统计局数据——包含特征调整、几何平均加权、业主等价租金等处理——因此通胀保值债券保护的是*统计数字*，不一定是你的实际生活支出。第二，当CPI上涨而美联储随之加息时，通胀保值债券会承受*久期损失*，部分抵消通胀累积收益——这正是通胀保值债券在2022年通胀达到数十年高位时仍然亏损的原因。第三，从历史来看，盈亏平衡通胀率是对未来CPI的**大致无偏但噪音较大**的预测：它追踪长期方向，但常常偏差1至2个百分点，而在流动性压力时期（2008年四季度、2020年3月），由于通胀保值债券远比名义债券市场薄，盈亏平衡率会短暂崩塌至荒谬水平。应将盈亏平衡率视为市场的*最佳中心估计*，而非精确预测。
 
-[ANIMATION: Duration prediction vs actual price change — a straight line vs a curve]
+**Q5：2022年长期债券下跌30%，但"债券是安全的"？**
 
-**Stella:** Duration is powerful, but it has a critical limitation — it assumes a linear relationship between yield changes and price changes.
+A：长期债券的久期约为19。收益率从约1.5%升至约4%。相乘：19 × 2.5% ≈ 47%的预期价格跌幅，部分被票息收入抵消，实际实现约-30%的跌幅。"债券是安全的"是"信用风险低"的简称，而非"价格波动性低"。当利率大幅变动时，长期债券具有与股票相当的价格波动性。
 
-**Horace:** In reality, that relationship is curved. Let's illustrate.
+**Q6：收益率曲线是什么，为何人们如此关注它？**
 
-[VISUAL: Price-yield curve with tangent line (duration estimate) vs actual curve]
+A：收益率曲线是将收益率按到期期限（3个月、1年、5年、10年、30年）绘制的曲线。正常情况下向上倾斜（期限越长，收益率越高）。当2年期收益率超过10年期——即*倒挂*曲线——历史上一直是最可靠的经济衰退领先指标之一，领先时间为12至24个月。该倒挂预警在1990年、2001年、2008年和2020年经济衰退前均有出现；也早于1980年代初沃尔克时代的衰退。最著名的近期案例是从2006年中至2007年中的曲线倒挂，经济衰退于2007年底到来。
 
-**Stella:** Look at this price-yield graph. The actual bond price curve is convex — it curves upward. The duration estimate is just a tangent line at the current yield.
+*截至2026年4月*（此段内容将随时间过时），曲线在经历了始于2022年中期的创纪录长时间倒挂后刚刚*恢复正常*。历史上，经济衰退往往在曲线恢复正常*之后*到来，而非在倒挂期间，因此"曲线已恢复正常"并*不*意味着危机解除。倒挂后的衰退是否已排除抑或只是延后，目前仍是争论焦点；当你读到此处时，答案或许已经揭晓。
 
-**Horace:** For small rate changes, the tangent line is a great approximation. But for large moves — say 2% or 3% — the error becomes significant.
+这确实是固定收益中交易最活跃的"信号"，第一级课程只是浅尝。**第31周**将完整讲解收益率曲线——水平/斜率/曲率、每种形态传递的信息、为何曲线各段交易特征不同，以及如何实时解读收益率曲线。目前：了解曲线形态，知道倒挂是预警信号，并使用第10周的经济周期仪表盘进行实时跟踪。
 
-**Stella:** Here's the key insight: the tangent line always *underestimates* the actual bond price. That means duration always overpredicts price drops and underpredicts price gains.
+**Q7：用一句话解释"凸性"？**
 
-**Horace:** This is actually good news for bond investors — it means bonds outperform the duration estimate in both directions.
+A：价格-收益率曲线的弯曲程度——高阶项使得利率下降时的价格涨幅大于同等幅度利率上升时的价格跌幅。长期债券和零息债券具有最大的凸性。这是一个有偿获得的期权，代价是收益率略低。第32周将进行正式推导。
 
----
+**Q8：公司债可以替代60/40组合中的国债吗？**
 
-### Section 7: Convexity
+A：不可以。公司债在危机时期与股票具有显著的相关性（§2.7中的实际超额收益图表对此有直观展示），因此它们无法提供国债在资金避险事件中给你的负相关特性。如果你想要更高的收益率，在*股票*端获取；保持债券配置在国债，以发挥分散投资的作用。
 
-[ANIMATION: Parabola fitting to the bond price-yield curve]
+**Q9：我的投资组合中应该配置多少债券？**
 
-**Stella:** To fix this, we add a second-order correction term — that's convexity.
+A：在60/40基准（第4周）之外，哑铃型结构持有的债券*少于*60/40，在安全端配置*更多*现金和短期国债，在非对称端配置*更多*股权尾部押注。一位30岁的财富积累者可能配置20至30%的短期国债；一位65岁的分配阶段投资者可能配置40至50%。确切比例不如理解债券所扮演的*角色*（价格稳定 + 经济衰退对冲）并据此配置来得重要。
 
-**Horace:** Mathematically, think of it like a Taylor expansion. Duration gives you the first derivative (slope), and convexity gives you the second derivative (curvature).
+**Q10：高收益（"垃圾"）债券怎么样？**
 
-**Stella:** The full price change formula with convexity is:
+A：高收益债券是*第三类*资产。与股票的相关性高于国债（与标普500指数的相关性约为0.7）。全周期夏普比率平平。经济衰退时违约率急剧攀升。对于注重收入的退休人士而言，小额配置或许合理，但它绝不应该取代你的国债配置——它无法完成国债所承担的分散投资职能。
 
-$$\Delta P \approx -D_{mod} \times \Delta y \times P + \frac{1}{2} \times C \times (\Delta y)^2 \times P$$
+**Q11：本课与课程其他部分有何联系？**
 
-Where *C* is the convexity.
+A：第4周将国债作为黑盒使用；本周打开这个盒子。第15周（多资产/四档/哑铃型结构）基于§2.4选择*短期*国债而非长期国债作为安全配置——在不承受2022年那样的20年久期冲击的前提下，获取降息带来的分散投资收益。第18周讲解美联储与市场利率及其对资产价格的传导。**第31周是完整的收益率曲线课程**（水平、斜率、曲率、倒挂机制详解）。**第32周**是严格的久期和凸性数学（关键利率久期、凸性调整、期权调整利差）。**第33周**是信用课程（评级机制、投资级与高收益、结构化信用分层、信用违约互换）。**第34周**是跨资产类别的利率敏感性分析（2022年案例研究全程复盘）。第47周和第50周讲解长波动率/管理期货叠加策略，对冲债券无法覆盖的通胀尾部风险。
 
-**Horace:** Convexity is always positive for regular bonds — so the second term always adds to the price, improving the estimate.
+下方互动面板让你可以滑动调节债券合约的四个参数（面值、票息、到期日、付息频率）以及市场收益率，并实时查看价格重新计算的结果。图表展示从0%到15%的价格-收益率曲线，并标注你当前所在的点。随着到期期限增加，观察曲线曲率的变化——30年期曲线的凸性远大于2年期。麦考利久期和修正久期显示在图表下方。
 
-**Stella:** Let's calculate convexity for a simple case.
+*如果你在无法渲染互动面板的设备或环境中阅读本文，下方静态图表展示了2年期、10年期和30年期债券（均为4%票息率）的相同关系——期限越长，曲线越陡、弯曲越明显，这是久期和凸性的直观呈现。*
 
-[VISUAL: Convexity calculation table]
-
-$$C = \frac{1}{P \times (1+y)^2} \sum_{t=1}^{n} \frac{t(t+1) \times CF_t}{(1+y)^t}$$
-
-**Horace:** For most practical purposes, you can approximate convexity as:
-
-$$C \approx \frac{P_{up} + P_{down} - 2P_0}{P_0 \times (\Delta y)^2}$$
-
-**Stella:** Where *P_up* and *P_down* are the bond prices when yields go up and down by some small amount Δy.
-
-**Horace:** Let's say our bond:
-- *P_0* = $1,000 (current price)
-- *P_up* = $973.77 (yield + 1%)
-- *P_down* = $1,027.75 (yield − 1%)
-
-$$C = \frac{973.77 + 1027.75 - 2(1000)}{1000 \times (0.01)^2} = \frac{1.52}{0.10} = 15.2$$
-
-**Stella:** So the convexity is approximately 15.2.
+![2年期、10年期和30年期4%半年付息债券的价格-收益率曲线，市场收益率范围从0%至15%。三条曲线均在收益率=4%时于票面价格处相交。30年期曲线远比2年期曲线更陡峭、更弯曲，后者在此尺度下几乎呈线性——直观展示了为何长期债券比短期债券承载更多久期和凸性。](../image/week05_price_yield.png)
 
 ---
 
-### Section 8: Putting It All Together
-
-[ANIMATION: Side-by-side comparison of duration-only estimate vs duration + convexity estimate]
-
-**Horace:** Now let's use both duration and convexity to estimate the price change when yields rise by 2%.
-
-**Stella:** We have:
-- Modified Duration = 2.724
-- Convexity = 15.2
-- Δy = 0.02
-- P = $1,000
-
-**Horace:** Duration-only estimate:
-
-$$\Delta P_{dur} = -2.724 \times 0.02 \times 1000 = -\$54.48$$
-
-**Stella:** Adding convexity correction:
-
-$$\Delta P_{conv} = \frac{1}{2} \times 15.2 \times (0.02)^2 \times 1000 = \$3.04$$
-
-**Horace:** Total estimated price change:
-
-$$\Delta P \approx -\$54.48 + \$3.04 = -\$51.44$$
-
-**Stella:** Compare that to the duration-only estimate of −$54.48. The convexity correction gives us a more accurate, more favorable estimate.
-
-**Horace:** And the more convex a bond, the better it performs relative to its duration in both rising and falling rate environments.
+## 第二部分：YouTube脚本
 
 ---
 
-### Section 9: Negative Convexity
+**视频标题：** 债券——票息、价格与收益率 | 第5周
 
-[ANIMATION: Mortgage-backed security vs regular bond, showing different price-yield curves]
+**时长目标：** 约18分钟
 
-**Stella:** Not all bonds have positive convexity. Bonds with embedded options — like callable bonds or mortgage-backed securities — can exhibit negative convexity.
-
-**Horace:** With a callable bond, when rates fall, the issuer can call the bond and refinance at lower rates. This caps the price upside.
-
-**Stella:** The result: the price-yield curve bends the *wrong* way in a falling rate environment — that's negative convexity.
-
-**Horace:** Mortgage-backed securities are the classic example. When rates fall, homeowners refinance — effectively "calling" the mortgage early. This creates prepayment risk and negative convexity.
-
-**Stella:** So investors in mortgage-backed securities demand higher yields to compensate for this negative convexity.
+**主持人：** 陳馬、小魚
 
 ---
 
-### Section 10: Practical Applications
+**[开场]**
 
-[ANIMATION: Portfolio manager at a desk with rate change scenarios]
+**陳馬：** 上周我们讲了60/40投资组合。我们把那40%当作一个叫"国债"的黑盒子。这周我们打开这个盒子。
 
-**Horace:** So how do professional bond managers actually use these metrics?
+**小魚：** 盒子里面是……
 
-**Stella:** First — **immunization**. If you have a liability due in 5 years, you can match your portfolio duration to 5 years. This hedges your interest rate risk.
+**陳馬：** 四个数字和一份日历。就这些。债券是世界上最简单的金融工具。面值、票息率、到期日、付息频率。完毕。股票没有这么干净的东西。
 
-**Horace:** Second — **risk measurement**. Duration and convexity tell you exactly how sensitive your portfolio is to rate movements.
+**小魚：** 那为什么这个最简单的工具在2022年崩得最惨？
 
-**Stella:** Third — **relative value**. A bond with higher convexity is more valuable, all else equal, because it outperforms in both rising and falling rate environments.
-
-**Horace:** Fourth — **hedging**. Using DV01, you can hedge your portfolio against rate movements using Treasuries, interest rate futures, or interest rate swaps.
+**陳馬：** 因为债券的*价格*不是那四个数字之一。价格是你用今天的市场收益率对那四个数字折现后得出的结果。而2022年，折现率在十二个月内的变动幅度超过了此前任何一个十二个月期间的历史记录。
 
 ---
 
-### Closing Summary
+**[第一段：四个数字]**
 
-[ANIMATION: Visual recap of all concepts]
+**陳馬：** 说具体点。一只10年期美国国债，4%票息率，1,000美元面值，半年付息。合约写明：未来十年每六个月你拿到20美元。到期时你拿回1,000美元。二十笔20美元加上一笔1,000美元的气球付款。
 
-**Horace:** Let's recap.
+**小魚：** 而我今天支付的价格不一定是1,000美元。
 
-**Stella:** Duration measures how sensitive a bond's price is to interest rate changes. Macaulay duration is the weighted average time to receive cash flows. Modified duration gives you the percentage price change per 1% yield change.
+**陳馬：** 对。价格是今天的买家愿意为那个精确现金流序列支付的金额。如果今天十年期风险的市场收益率是4%，你正好支付1,000美元——票面价格。如果今天收益率是5%，你支付低于1,000美元，因为20美元的票息在5%的标准下不够慷慨。如果今天收益率是3%，你支付高于1,000美元，因为每六个月20美元超过了市场的要求。
 
-**Horace:** DV01 tells you the dollar price change per basis point. Portfolio duration is the weighted average of individual durations.
+**小魚：** 另一边总有人存在。
 
-**Stella:** Convexity captures the curvature of the price-yield relationship, improving the duration estimate — especially for large rate moves.
-
-**Horace:** Positive convexity is good — it means the bond outperforms its duration estimate in both directions. Negative convexity, seen in callable bonds and mortgage-backed securities, is a risk.
-
-**Stella:** These metrics are foundational for any serious bond investor or portfolio manager. In Part 2, we'll look at real bond portfolios and how managers use duration targeting and convexity optimization in practice.
-
-**Horace:** If this was helpful, hit subscribe and we'll see you in Part 2!
-
-[CUT TO: End screen with subscribe button and links to Week 14 Part 2 and Week 13]
+**陳馬：** 这是人们忽略的部分。每一只交易中的债券，都是一方认为价格合理*同时*另一方认为不合理。没有人被迫交易。价格只是两方相遇的那个水平。
 
 ---
 
-## Key Formulas Reference
+**[第二段：定价公式]**
 
-| Formula | Description |
-|---------|-------------|
-| $D_{mac} = \sum \frac{t \cdot PV(CF_t)}{P}$ | Macaulay Duration |
-| $D_{mod} = \frac{D_{mac}}{1 + y/m}$ | Modified Duration |
-| $\Delta P \approx -D_{mod} \cdot \Delta y \cdot P$ | Duration price approximation |
-| $DV01 = \frac{D_{mod} \cdot P}{10000}$ | Dollar value of 1bp |
-| $D_{port} = \sum w_i D_i$ | Portfolio Duration |
-| $C \approx \frac{P_{up} + P_{down} - 2P_0}{P_0 \cdot (\Delta y)^2}$ | Convexity approximation |
-| $\Delta P \approx -D_{mod} \cdot \Delta y \cdot P + \frac{1}{2} C (\Delta y)^2 P$ | Duration + Convexity approximation |
+**陳馬：** 公式如下。价格等于每笔票息的现值之和，加上面值的现值。以收益率除以付息频率进行折现。就这样。
+
+写出来看起来很难看——从t=1到mN对C除以(1加y除以m)的t次方求和，再加上F除以(1加y除以m)的mN次方。看起来很难看，其实不难看。它是一个等比级数加上一个气球付款。求和有封闭解，但你不需要记住封闭解。你需要内化的是*形状*。
+
+**小魚：** 什么形状？
+
+**陳馬：** 债券是一串小票息加上末尾一个大气球付款。票息合在一起是一笔*年金*。气球付款本身是一笔*零息债券*。世界上所有固定收益证券都是这两个部分的某种加权组合。
 
 ---
 
-## Visual Assets Required
+**[第三段：价格与收益率方向相反]**
 
-1. **Seesaw animation** – coins vs. clock (cold open)
-2. **Price-yield curve** – inverse relationship illustration
-3. **1-year vs 30-year bond comparison** – different sensitivities
-4. **Macaulay duration timeline** – cash flows on a timeline with balance point
-5. **Modified duration arrow diagram** – rate change → price change
-6. **Dollar duration / DV01 animation** – dollar sign merging with bond
-7. **Portfolio duration bar chart** – three bonds with weights
-8. **Price-yield curve with tangent line** – showing limitation of duration
-9. **Parabola overlay on price-yield curve** – convexity correction
-10. **Callable bond vs regular bond curve** – negative convexity
-11. **Portfolio manager scenario** – practical applications
+**陳馬：** 债券被问最多的特性。现金流在发行时固定。票息永远是每期20美元。面值永远是1,000美元。每天变化的唯一因素是市场对这些固定现金流所使用的折现率。
+
+**小魚：** 折现率越高，现值越低。
+
+**陳馬：** 对。所以收益率越高，价格越低。收益率越低，价格越高。永远如此，没有例外。而且这个关系不是直线——它是*凸*的。曲线向原点弯曲。这意味着收益率下降1%带来的价格涨幅*大于*收益率上升1%带来的价格跌幅。这种不对称性就是凸性，对于长期债券而言相当显著。
+
+**小魚：** 听起来像免费的午餐。
+
+**陳馬：** 这是一顿有偿的午餐。市场知道凸性的存在并将其定价。你获得凸性收益的代价是票息略低。第32周会做具体计算。现在，只需注意互动图表中的曲线弯曲。
 
 ---
 
-## Instructor Notes
+**[第四段：久期——你必须知道的那个数字]**
 
-- Emphasize the intuition of Macaulay duration as "center of gravity" — students find this visual very helpful
-- The Taylor expansion analogy for convexity resonates with students who have calculus backgrounds; for others, just focus on "first-order vs second-order correction"
-- Negative convexity is often the most surprising concept — use the mortgage refinancing story to make it concrete
-- The immunization application is directly relevant to pension fund management — worth emphasizing for students interested in institutional investing
-</parameter>
-</invoke>
-</function_calls>
-<function_response>
-Successfully read file: C:\Users\hevan\AppData\Local\Temp\tmpk8cosai1.md
-</parameter>
-</invoke>
-</function_calls>
+**陳馬：** 不同债券对利率变动1%的反应并不相同。久期告诉你某只债券的价格对收益率变动1%会移动*多少*。以下三个数字我希望你记住。
 
-# 第14周 第1部分：债券风险指标——久期与凸性
+2年期国债：久期约1.9。10年期：约8.5。30年期：约19。
 
-## 概述
+**小魚：** 所以如果利率上涨1%，长期债券跌19%。
 
-**课程：** 投资基础
-**主持人：** 陳馬 和 小魚
-**形式：** YouTube 教育视频脚本
-**时长：** 约15分钟
-**周次：** 第14周，第1部分（共2部分）
+**陳馬：** 大致如此。以下是2022年的结论。10年期收益率从1.5%升至3.9%。变动幅度2.4%。乘以久期8.5。结果是18%的亏损。
+
+**小魚：** 这正是发生的事情。
+
+**陳馬：** 没错。上周我们说"债券经历了1937年以来最惨的一年"。现在你只需一步乘法就知道*为什么*了。久期乘以收益率变动。60/40图表没有什么神秘的，这只是算术。
 
 ---
 
-## 学习目标
+**[第五段：票息率、当期收益率、到期收益率——三件事，不是一件]**
 
-完成本课后，学员将能够：
+**陳馬：** 三个人们经常混淆的数字。
 
-1. 解释久期的衡量内容及其对债券投资者的重要意义
-2. 计算麦考利久期和修正久期
-3. 解读久期如何预测利率变动时的价格变化
-4. 理解久期的局限性以及为何需要凸性
-5. 计算并运用凸性来改善价格变动预测
+票息率。合约规定。发行时固定，永不改变。用于计算美元票息。
 
----
+当期收益率。美元票息除以当前价格。仅代表收入流的回报。忽略到期时的盈亏。
 
-## 脚本
+到期收益率。债券的内部收益率。使价格等于现值之和的折现率。这是标题收益率。比较债券时，永远使用到期收益率，而非票息率。
 
-### 冷开场
+**小魚：** 当债券按票面价格交易时……
 
-[ANIMATION: A seesaw balancing coins on one side and a clock on the other]
-
-**陳馬：** 想象一下，你以5%的利率把钱借给别人，期限10年。突然，市场利率跳升至7%。你的债券价格刚刚下跌了——但究竟跌了多少？
-
-**小魚：** 答案不只是"跌了很多"。这背后有一套精确的数学框架——今天我们将深入探讨两个最重要的债券风险指标：久期和凸性。
-
-[CUT TO: Title card – "Bond Risk Metrics: Duration and Convexity"]
+**陳馬：** 三者相等。当债券以折价交易——价格低于面值——到期收益率是三者中最高的。溢价时，到期收益率最低。互动工具同时展示三者。
 
 ---
 
-### 第一节：为什么债券价格会波动
+**[第六段：信用评级——那些欺骗你的字母]**
 
-[ANIMATION: Bond price vs. yield curve showing inverse relationship]
+**陳馬：** 在看图表之前先讲一个快速片段。当一家公司发行债券时，三家评级机构——穆迪、标普、惠誉——给它盖上字母等级。顶端是三A。往下是双A、单A、三B。那是*投资级*的底线。以下是*投机级*或*垃圾级*。
 
-**小魚：** 我们先来打好基础。债券与利率之间存在反向关系——利率上升，债券价格下跌，反之亦然。
+**小魚：** 我们即将看的图表用了BAA？
 
-**陳馬：** 但并非所有债券的敏感度都一样。利率上升1%，30年期债券的跌幅远大于1年期债券。为什么？
+**陳馬：** 对。BAA只是穆迪对最低投资级档位的写法。标普写同样的东西是BBB。
 
-**小魚：** 因为时间。你被锁定在固定支付上的时间越长，就越容易受到利率变化的影响。
+**小魚：** 好。那我应该相信那些字母吗？
 
-**陳馬：** 这正是久期所捕捉的——债券价格对利率变化的敏感程度。
+**陳馬：** 你问得好。评级机构由发行债券的*公司*付费，而不是由你——买方——付费。发行人四处寻找能得到的最好评级。这种利益冲突已经多次爆发。安然在破产前四天仍保持投资级评级。雷曼在2008年倒闭当天早上仍被评为单A。整个2008年住房危机是由数以万计的次级抵押贷款证券盖上三A印章、随后损失60%至100%价值所驱动的。希腊国债一直保持投资级，直到以30美分的价格交易。
 
-[VISUAL: Show a 1-year bond vs 30-year bond side by side, with arrows showing different price changes for the same rate increase]
+**小魚：** 所以评级毫无意义。
 
----
-
-### 第二节：麦考利久期
-
-[ANIMATION: Timeline with cash flows weighted by time]
-
-**小魚：** 久期有几个版本。我们先从最原始的——麦考利久期开始讲起。
-
-**陳馬：** 麦考利久期是收到债券现金流的加权平均时间。权重是每笔现金流的现值占债券总价格的比例。
-
-**小魚：** 把它想象成一个平衡点。如果你把所有现金流摆在时间轴上，麦考利久期就告诉你"重心"在哪里。
-
-**陳馬：** 我们来看一个例子。
-
-[VISUAL: Table showing cash flows for a 3-year bond]
-
-| 年份 | 现金流 | 现金流现值 | 权重 | 年份 × 权重 |
-|------|--------|------------|------|-------------|
-| 1    | $50    | $47.62     | 0.0476 | 0.0476   |
-| 2    | $50    | $45.35     | 0.0454 | 0.0907   |
-| 3    | $1,050 | $907.03    | 0.9070 | 2.7211   |
-| **合计** | | **$1,000** | **1.0000** | **2.859** |
-
-**小魚：** 对于一只3年期、票息率5%、按面值定价、收益率为5%的债券，麦考利久期约为2.86年。
-
-**陳馬：** 注意，这比3年的到期期限要短。原因是你在到期前就已经收到了票息支付，这些支付将"重心"向前拉动了。
-
-**小魚：** 零息债券的麦考利久期则恰好等于其到期期限，因为只有一笔现金流——在最末端。
+**陳馬：** 不是毫无意义。它是一个粗略的排序。但*信用利差*——真实交易者此刻向该发行人贷款所支付的利差——才是实时信号。当利差扩大而评级仍为投资级时，市场在告诉你评级是错的。看利差，不要看字母。
 
 ---
 
-### 第三节：修正久期
+**[第七段：信用——收益率利差与实际超额收益]**
 
-[ANIMATION: Arrow showing rate change → price change, with a magnification lens on the formula]
+[VISUAL: image/week05_credit_spreads.png]
 
-**陳馬：** 麦考利久期固然优雅，但投资者真正关心的是：利率变动时，我的债券价格会变化多少？
+**陳馬：** 美国国债是教科书上的无违约风险资产。其他一切都风险更高。市场通过要求更高收益率来为这种额外风险定价。*收益率差值*——BAA公司债收益率减去10年期国债收益率，或投资级指数的期权调整利差——这就是信用利差本身。每天实时以基点报价，情况恶化时向上扩大。
 
-**小魚：** 这正是修正久期所告诉我们的。
+**小魚：** 好。那这张图表是什么？
 
-**陳馬：** 公式很简单：
+**陳馬：** 不同的数字。请注意。这是*实际年度超额收益*——自1928年以来每年BAA公司债总收益减去10年期国债总收益的逐年数据。同一数据系列，不同的问题。收益率利差告诉你今天交易者的定价。这张图的柱状图告诉你一个买入持有投资者每年实际*获得*了多少，即持有公司债而非国债的年度收益。
 
-$$\text{修正久期} = \frac{\text{麦考利久期}}{1 + \frac{y}{m}}$$
+**小魚：** 长期均值呢？
 
-其中 *y* 为收益率，*m* 为每年的复利次数。
+**陳馬：** 小幅正值。平均每年约1至2个百分点。这是过去一个世纪以来投资级公司债高于国债所支付的实际信用溢价。
 
-**小魚：** 以我们的例子为例——麦考利久期2.86年，收益率5%，按年复利：
+**小魚：** 那些尖峰呢？
 
-$$\text{修正久期} = \frac{2.86}{1.05} \approx 2.724$$
+**陳馬：** 1932年。1974年。2008年。2020年。现代史上四次最严重的信用危机。在每一次危机中，收益率利差向上大幅扩大——公司债价格被标记*下调*，国债因资金避险需求上涨。因此那一年在图表上的实际超额收益大幅负向。公司债跑输国债10至25个百分点，就在单一年份内。肥尾左偏。
 
-**陳馬：** 关键解读是：修正久期为2.724，意味着收益率每上升1%，债券价格约下跌2.724%。
+**小魚：** 所以出售信用保险……
 
-**小魚：** 价格变动的公式为：
+**陳馬：** ……是一种结构性负偏态收益。稳定的小额收入，偶发的大额亏损。不是免费的收益率。
 
-$$\Delta P \approx -\text{修正久期} \times \Delta y \times P$$
+关于这张图表有一点需要说明：它是年度数据。不要将其用作择时工具。在信用周期中，日度收益率利差的移动可能领先于股市底部，交易者正是因此实时关注它。你正在看的年度实际收益图表对于这项工作太粗糙；它告诉你的是长期收益形态，而非下一次危机何时开始。
 
-**陳馬：** 假设利率上升0.5%，预计价格变动为：
-
-$$\Delta P \approx -2.724 \times 0.005 \times \$1000 = -\$13.62$$
-
-**小魚：** 所以我们这只1,000美元的债券将跌至约986.38美元——这就是久期的实际应用。
+零售层面的结论：持有国债而非公司债来完成分散投资的职能。如果你想要更高收益率，在股票端获取。
 
 ---
 
-### 第四节：美元久期与DV01
+**[第八段：四十年牛市与2022年的转折]**
 
-[ANIMATION: Dollar sign merging with a bond certificate]
+[VISUAL: image/week05_yield_history.png]
 
-**陳馬：** 交易员常常谈到美元久期——它就是修正久期乘以债券价格。
+**陳馬：** 这是整个债券世界中最重要的图表。1962年至2026年4月的10年期国债收益率。
 
-**小魚：** 美元久期 = 修正久期 × 价格
+三个阶段。从1962年到1981年，收益率上升。通胀、越战、布雷顿森林体系、石油冲击。沃尔克在1981年以10年期15.8%的峰值打断了通胀的脊梁。从1981年到2020年，收益率下降。四十年。几乎不间断。每次冲击后的终端利率都低于上一次冲击。10年期收益率在2020年触及0.5%。
 
-**陳馬：** 一个密切相关的概念是DV01——即1个基点变动的美元价值。它精确地告诉你，当收益率变动0.01%时，债券价格的变化幅度。
+**小魚：** 然后呢？
 
-$$\text{DV01} = \frac{\text{修正久期} \times P}{10,000}$$
+**陳馬：** 然后2022年发生了。收益率在三十个月内从0.5%飙升至约5%。截至2026年4月，我们处于约4.2%的位置，市场正在争论这究竟是1980年代式的正常化还是更持久趋势的开端。
 
-**小魚：** 对于我们这只债券：
+**小魚：** 收益率能从这里继续上升吗？
 
-$$\text{DV01} = \frac{2.724 \times \$1000}{10,000} = \$0.2724$$
+**陳馬：** 这是当下最活跃的问题。支持*长期高位*的论点具有机械性。美国联邦债务约为国内生产总值的120%。在平时，财政赤字以国内生产总值的6至7%的速度运行。而且每年财政部都需要滚动续借数万亿美元的旧债。当一只2020年发行的0.7%利率的10年期国债在2030年到期时，财政部必须以*那天*的10年期利率再融资。因此政府支付的平均利率逐年上升。联邦利息支出已超过每年一万亿美元——超过国防预算。这不是预测，这是会计核算。它对新债供给形成上行压力，对国债价格形成下行压力。评级机构已经注意到：标普于2011年撤销了AAA评级，惠誉于2023年撤销，穆迪于2025年撤销。
 
-**陳馬：** 因此，利率每变动一个基点，这只债券的价格变化约为27美分。看似不多，但对于数百万规模的投资组合而言，累积起来相当可观。
+**小魚：** 这节课的要点是什么？
 
-**小魚：** DV01在对冲上极为实用——你可以将投资组合的DV01与对冲工具进行匹配，从而消除利率风险敞口。
+**陳馬：** 这是关于市场制度的观点，不是我的原创。霍华德·马克斯在2022年12月写了一篇题为《海变》的备忘录，详细阐述了这一论点。瑞·达利欧的《变化中的世界秩序》给出了更长周期的版本。林恩·奥尔顿的《破碎的货币》给出了货币体系层面的版本。德鲁肯米勒自2022年以来一直在大声疾呼赤字问题。不同的视角，相同的结论：使买入持有看起来轻而易举的利率制度已经结束，或至少不再是安全的默认选项。
 
----
+我们在一个让被动指数投资看起来像免费午餐的制度中生活了四十年。这个制度有特定的宏观特征：收益率下降、债券价格上涨、股票估值倍数扩张，以及两者之间良性的相关性。打破这一制度的触发因素是长期收益率的*持续*上升。我们正在亲眼目睹这个触发因素扣动。
 
-### 第五节：债券投资组合的久期
-
-[ANIMATION: Multiple bonds combining into a single portfolio, with weighted average calculated]
-
-**陳馬：** 持有多只债券时，投资组合的久期是各只债券久期的加权平均值。
-
-**小魚：** 具体公式为：
-
-$$D_{投资组合} = \sum_{i} w_i \times D_i$$
-
-其中 *w_i* 是债券 *i* 在投资组合中的市值权重。
-
-**陳馬：** 假设你持有：
-- 40%配置在久期为2的债券
-- 35%配置在久期为5的债券
-- 25%配置在久期为10的债券
-
-**小魚：** 投资组合久期 = 0.40×2 + 0.35×5 + 0.25×10 = 0.80 + 1.75 + 2.50 = **5.05**
-
-**陳馬：** 所以该投资组合的表现就像一只久期约为5年的单只债券。
+现在说这个制度已经结束还为时过早。假装什么都没有变化则为时已晚。债券图表是第31周之后我们所讲一切内容的制度背景。
 
 ---
 
-### 第六节：久期的局限性
+**[第九段：通胀保值债券、浮动利率债券与债券市场的运作机制]**
 
-[ANIMATION: Duration prediction vs actual price change — a straight line vs a curve]
+**陳馬：** 再说两个部分就结束了。第一：不是所有债券都是固定利率名义债券。作为零售投资者最快接触到的两种变体是通胀保值债券和浮动利率债券。
 
-**小魚：** 久期很强大，但有一个关键局限——它假设收益率变动与价格变动之间是线性关系。
+通胀保值债券——美国财政部通胀保护证券——的本金与CPI挂钩。因此你的美元票息随通胀增长。通胀保值债券上报出的收益率是*实际*收益率，即高于CPI的部分。普通国债收益率与同期限通胀保值债券收益率之差是*盈亏平衡通胀率*——市场定价的通胀率。若实际通胀高于盈亏平衡点，通胀保值债券胜出；反之，名义债券胜出。两点警示：通胀保值债券挂钩的是*官方*CPI，我们在第1周已经看到这套数据本身存在问题；而且2022年尽管通胀高企，通胀保值债券仍然亏损，因为美联储加息导致的久期损失抹去了通胀累积收益。它们是相对于名义债券的*相对价值*交易，而非免费升级。值得了解的是：加拿大于2022年11月停止发行新的通胀保护债券，理由是拍卖需求疲弱——这提醒我们，即便是主权政府也可以将通胀保护从菜单上撤下。
 
-**陳馬：** 而实际上，这种关系是曲线型的。我们来直观说明一下。
+浮动利率债券——浮动利率票据——每季度将票息重置为SOFR等基准利率。因此当利率变动时，票息随之变动，价格几乎不动。你是在用久期风险换取再投资风险。2022年浮动利率债券是正确的持有品种，而2024年一旦利率触顶，它又成了错误的持有品种。
 
-[VISUAL: Price-yield curve with tangent line (duration estimate) vs actual curve]
+**小魚：** 还有可赎回、可转换、永久……
 
-**小魚：** 看这张价格-收益率图。实际债券价格曲线是凸形的——它向上弯曲。而久期估计只是当前收益率处的切线。
+**陳馬：** 都是真实存在的，都增加了复杂性，都在阅读材料部分。要点如下：*可赎回*意味着发行人可以在利率下降时提前赎回——这是发行人的期权，是你写出去的，所以可赎回债券收益率更高。*可转换债券*将债券与股票看涨期权捆绑在一起——我们将在期权课程周正式讲解。*永久债券*永不到期——英国旧有的*统一公债*运行了超过250年。*世纪债券*期限50至100年——阿根廷2017年发行了一只100年期美元债券，三年后违约，这足以说明一切关于在长期主权信用上追逐收益率的问题。
 
-**陳馬：** 对于小幅利率变动，切线是很好的近似。但对于大幅变动——比如2%或3%——误差就会变得相当大。
+**小魚：** 最后一个部分？
 
-**小魚：** 关键洞察在于：切线总是*低估*实际债券价格。这意味着久期总是高估价格跌幅、低估价格涨幅。
-
-**陳馬：** 这对债券投资者来说其实是个好消息——意味着债券在两个方向上的表现都优于久期估算。
+**陳馬：** 零售投资者如何实际持有债券。几乎没有人购买个别公司债。买价/卖价价差较宽，手数较大，单一发行人违约风险是真实存在的。所以零售投资者购买交易所交易基金。投资级买LQD，高收益买HYG，广泛市场买BND或AGG。这些解决了分散投资问题，但引入了另一个问题：大多数债券指数按*未偿债务金额*加权。权重最大的是借款最多的发行人。这与市值加权的股票指数在结构上不同——股票指数中权重最大的是市场估值最高的公司。"买一只债券交易所交易基金然后忘掉它"并不像股票中的同等策略那样无害。值得了解。
 
 ---
 
-### 第七节：凸性
+**[第十段：互动工具]**
 
-[ANIMATION: Parabola fitting to the bond price-yield curve]
+**陳馬：** 打开债券定价面板。五个输入项：面值、票息、剩余到期年数、市场收益率和每年付息次数。滑动它们，观察价格更新。
 
-**小魚：** 为了修正这一问题，我们加入一个二阶修正项——这就是凸性。
+**小魚：** 我应该关注什么？
 
-**陳馬：** 从数学上讲，把它想象成泰勒展开。久期给你的是一阶导数（斜率），凸性给你的是二阶导数（曲率）。
+**陳馬：** 三件事。第一，将收益率设置为与票息率相等，确认价格正好等于面值。第二，保持其他参数不变，将到期期限从2年调至30年，观察价格-收益率曲线弯曲得更为明显。这就是凸性变得可见的过程。第三，观察久期读数。注意当你提高票息率时，久期下降——高票息债券更快地返还现金，因此对折现率的敏感度更低。
 
-**小魚：** 加入凸性后，完整的价格变动公式为：
+**小魚：** 久期预测呢？
 
-$$\Delta P \approx -D_{修正} \times \Delta y \times P + \frac{1}{2} \times C \times (\Delta y)^2 \times P$$
-
-其中 *C* 为凸性。
-
-**陳馬：** 对于普通债券，凸性始终为正——因此第二项始终增加价格，改善估算结果。
-
-**小魚：** 我们来计算一个简单案例的凸性。
-
-[VISUAL: Convexity calculation table]
-
-$$C = \frac{1}{P \times (1+y)^2} \sum_{t=1}^{n} \frac{t(t+1) \times CF_t}{(1+y)^t}$$
-
-**陳馬：** 在大多数实际应用中，你可以用以下方式近似计算凸性：
-
-$$C \approx \frac{P_{上行} + P_{下行} - 2P_0}{P_0 \times (\Delta y)^2}$$
-
-**小魚：** 其中 *P_上行* 和 *P_下行* 分别是收益率上升和下降某一小幅Δy时的债券价格。
-
-**陳馬：** 假设我们的债券：
-- *P_0* = $1,000（当前价格）
-- *P_上行* = $973.77（收益率上升1%）
-- *P_下行* = $1,027.75（收益率下降1%）
-
-$$C = \frac{973.77 + 1027.75 - 2(1000)}{1000 \times (0.01)^2} = \frac{1.52}{0.10} = 15.2$$
-
-**小魚：** 所以凸性约为15.2。
+**陳馬：** 选一只债券，从面板上读出久期。将收益率移动1%，相乘，与实际价格变动比较。这个近似在小幅变动时非常准确，在大幅变动时会出现偏差。这就是凸性介入的地方。严格的版本留给第32周。
 
 ---
 
-### 第八节：综合运用
+**[结尾]**
 
-[ANIMATION: Side-by-side comparison of duration-only estimate vs duration + convexity estimate]
+**陳馬：** 债券是四个数字和一份日历。价格是现金流折现法的结果。收益率与价格方向相反。久期是线性敏感度。信用利差是市场向你收取的承担违约风险的费用——大多数年份是稳定的小额溢价，坏年份则是大额亏损，就像出售保险一样。评级给你粗略的排序，但利差才告诉你真相。四十年牛市是建立被动投资声誉的制度，它在2022年终结。
 
-**陳馬：** 现在，我们同时用久期和凸性来估算收益率上升2%时的价格变动。
+这是整个债券世界浓缩成一段话。我们将在第31周讲收益率曲线，第32周讲更深入的久期数学，第33周讲信用，第34周讲跨资产类别的利率敏感性。今晚，滑动互动工具，直到四个数字的合约感觉变得理所当然。
 
-**小魚：** 已知条件：
-- 修正久期 = 2.724
-- 凸性 = 15.2
-- Δy = 0.02
-- P = $1,000
+**小魚：** 下周？
 
-**陳馬：** 仅用久期估算：
-
-$$\Delta P_{久期} = -2.724 \times 0.02 \times 1000 = -\$54.48$$
-
-**小魚：** 加入凸性修正：
-
-$$\Delta P_{凸性} = \frac{1}{2} \times 15.2 \times (0.02)^2 \times 1000 = \$3.04$$
-
-**陳馬：** 总估算价格变动：
-
-$$\Delta P \approx -\$54.48 + \$3.04 = -\$51.44$$
-
-**小魚：** 与仅用久期的估算−$54.48相比，凸性修正给出了更精确、更有利的估算结果。
-
-**陳馬：** 债券的凸性越高，在利率上升和下降的环境中，其实际表现相对久期估算都越好。
+**陳馬：** 黄金——五千年的价值储藏手段。为什么它能进入投资组合，尽管它不付票息也不产生净资产收益率；以及黄金交易所交易基金、黄金期货合约和放在保险箱里的金币，三者究竟有什么实质性差异。
 
 ---
 
-### 第九节：负凸性
-
-[ANIMATION: Mortgage-backed security vs regular bond, showing different price-yield curves]
-
-**小魚：** 并非所有债券都具有正凸性。含有嵌入期权的债券——如可赎回债券或抵押贷款支持证券——可能呈现负凸性。
-
-**陳馬：** 对于可赎回债券，当利率下降时，发行人可以赎回债券并以更低的利率再融资。这限制了价格的上行空间。
-
-**小魚：** 结果是：在利率下降的环境中，价格-收益率曲线弯向了*错误*的方向——这就是负凸性。
-
-**陳馬：** 抵押贷款支持证券是最典型的例子。当利率下降时，房主提前还款再融资——实际上相当于提前"赎回"了抵押贷款。这产生了提前还款风险和负凸性。
-
-**小魚：** 因此，抵押贷款支持证券的投资者要求更高的收益率，以补偿这种负凸性。
-
----
-
-### 第十节：实际应用
-
-[ANIMATION: Portfolio manager at a desk with rate change scenarios]
-
-**陳馬：** 那么，专业债券基金经理实际上是如何运用这些指标的呢？
-
-**小魚：** 第一——**免疫策略**。如果你5年后有一笔负债，可以将投资组合的久期匹配至5年，从而对冲利率风险。
-
-**陳馬：** 第二——**风险度量**。久期和凸性能精确告诉你，投资组合对利率变动的敏感程度。
-
-**小魚：** 第三——**相对价值**。在其他条件相同的情况下，凸性更高的债券更有价值，因为它在利率上升和下降的环境中都有更优的表现。
-
-**陳馬：** 第四——**对冲**。利用DV01，你可以使用国债、利率期货或利率互换来对冲投资组合的利率风险敞口。
-
----
-
-### 结尾总结
-
-[ANIMATION: Visual recap of all concepts]
-
-**陳馬：** 我们来回顾一下。
-
-**小魚：** 久期衡量债券价格对利率变化的敏感程度。麦考利久期是收到现金流的加权平均时间。修正久期给出的是收益率每变动1%时价格的百分比变化。
-
-**陳馬：** DV01告诉你每个基点变动对应的美元价格变化。投资组合久期是各只债券久期的加权平均值。
-
-**小魚：** 凸性捕捉了价格-收益率关系的曲率，改善了久期估算——尤其是在利率大幅变动时。
-
-**陳馬：** 正凸性是有利的——意味着债券在两个方向上的实际表现均优于久期估算。可赎回债券和抵押贷款支持证券中出现的负凸性则是一种风险。
-
-**小魚：** 这些指标是任何认真的债券投资者或基金经理的基础工具。在第2部分中，我们将着眼于真实债券投资组合，探讨基金经理在实践中如何运用久期管理目标和凸性优化策略。
-
-**陳馬：** 如果本期内容对你有帮助，点击订阅，我们第2部分见！
-
-[CUT TO: End screen with subscribe button and links to Week 14 Part 2 and Week 13]
-
----
-
-## 核心公式参考
-
-| 公式 | 说明 |
-|------|------|
-| $D_{mac} = \sum \frac{t \cdot PV(CF_t)}{P}$ | 麦考利久期 |
-| $D_{mod} = \frac{D_{mac}}{1 + y/m}$ | 修正久期 |
-| $\Delta P \approx -D_{mod} \cdot \Delta y \cdot P$ | 久期价格近似公式 |
-| $DV01 = \frac{D_{mod} \cdot P}{10000}$ | 1个基点的美元价值 |
-| $D_{port} = \sum w_i D_i$ | 投资组合久期 |
-| $C \approx \frac{P_{up} + P_{down} - 2P_0}{P_0 \cdot (\Delta y)^2}$ | 凸性近似公式 |
-| $\Delta P \approx -D_{mod} \cdot \Delta y \cdot P + \frac{1}{2} C (\Delta y)^2 P$ | 久期+凸性近似公式 |
-
----
-
-## 所需视觉素材
-
-1. **跷跷板动画** —— 硬币与时钟（冷开场）
-2. **价格-收益率曲线** —— 反向关系图示
-3. **1年期与30年期债券对比** —— 不同敏感度展示
-4. **麦考利久期时间轴** —— 带平衡点的现金流时间轴
-5. **修正久期箭头图** —— 利率变动→价格变动
-6. **美元久期/DV01动画** —— 美元符号与债券合并
-7. **投资组合久期柱状图** —— 三只债券及其权重
-8. **带切线的价格-收益率曲线** —— 展示久期的局限性
-9. **价格-收益率曲线上叠加的抛物线** —— 凸性修正
-10. **可赎回债券与普通债券曲线对比** —— 负凸性展示
-11. **基金经理情景演示** —— 实际应用
-
----
-
-## 教师注记
-
-- 重点强调麦考利久期作为"重心"的直觉理解——学生普遍觉得这个视觉化表达非常有帮助
-- 凸性的泰勒展开类比对有微积分背景的学生很有共鸣；对于其他学生，只需聚焦于"一阶修正与二阶修正"的概念即可
-- 负凸性往往是最令人意外的概念——用抵押贷款再融资的故事来让它变得具体生动
-- 免疫策略的应用与养老基金管理直接相关——对于有志于机构投资领域的学生，值得重点强调
+**结尾画面：** "下一集：第6周——黄金：五千年的价值储藏手段"

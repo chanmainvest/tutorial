@@ -182,67 +182,114 @@ def call_gemini(provider_cfg, system, user):
     return text, in_tok, out_tok
 
 
-def call_copilot(provider_cfg, system, user):
-    """Translate via the GitHub Copilot CLI in non-interactive (-p) mode.
+def _copilot_split_sections(text, max_chars):
+    """Split *text* at top-level (## or #) section headers so that each chunk
+    is at most *max_chars* characters.  Splits only at header lines to keep
+    logical sections together.  Returns a list of non-empty chunk strings.
+    """
+    lines = text.splitlines(keepends=True)
+    chunks = []
+    current: list[str] = []
+    current_len = 0
 
-    Writes the markdown content to a temp file, then invokes:
-        copilot --model <model> --allow-all-tools --no-custom-instructions
-                --silent --prompt <system+path>
-    The CLI reads the temp file via its built-in read_file tool, translates,
-    and returns only the assistant response (-s/--silent strips stats).
+    def flush():
+        if current:
+            chunks.append("".join(current))
+            current.clear()
 
-    Requires: `copilot` CLI on PATH (GitHub Copilot CLI, e.g. installed via
-              WinGet, brew, or managed by VS Code Copilot Chat extension).
+    for line in lines:
+        is_header = line.startswith("#")  # any heading level
+        if is_header and current_len > 0 and current_len + len(line) > max_chars:
+            flush()
+            current_len = 0
+        current.append(line)
+        current_len += len(line)
+
+    flush()
+    return chunks or [text]
+
+
+def _copilot_call_once(cli_path, model, timeout, prompt_text):
+    """Send *prompt_text* to the copilot CLI via stdin and return the
+    stripped stdout string.  Raises RuntimeError on failure.
+
+    Using stdin avoids the @file / view-tool issue where the model calls
+    the view tool on the prompt file and the CLI outputs XML tool-call
+    wrappers in stdout.  Stdin content is passed directly to the model
+    as the prompt; no file reference is ever created.
+
+    A unique --name is passed for each call to ensure the CLI creates a
+    fresh session and does not load conversation history from a previous
+    invocation.
     """
     import subprocess
-    import tempfile
+    import uuid
 
+    session_name = f"translate_{uuid.uuid4().hex}"
+
+    result = subprocess.run(
+        [
+            cli_path,
+            "--model", model,
+            "--name", session_name,          # new session every call; no history
+            "--available-tools",             # no tools = model cannot make tool calls
+            "--no-ask-user",
+            "--no-custom-instructions",
+            "--silent",
+        ],
+        input=prompt_text,
+        capture_output=True,
+        text=True,
+        timeout=timeout,
+        encoding="utf-8",
+    )
+    if result.returncode != 0:
+        raise RuntimeError(
+            f"copilot CLI exited {result.returncode}: "
+            f"{(result.stderr or result.stdout).strip()}"
+        )
+    return result.stdout.strip()
+
+
+def call_copilot(provider_cfg, system, user):
+    """Translate via the GitHub Copilot CLI in non-interactive mode.
+
+    For large files (> chunk_chars) the source is split at section headers
+    and each chunk is translated in a separate CLI call, then joined.  This
+    avoids the single-call failure seen with 75 KB lesson files.
+
+    --available-tools view restricts the model to file-read only, preventing
+    it from browsing workspace files (SOUL.md, references/, etc.) before
+    translating.
+
+    Requires: `copilot` CLI on PATH.
+    """
     cli_path = provider_cfg.get("cli_path", "copilot")
     model = provider_cfg.get("model", "claude-sonnet-4.6")
     timeout = provider_cfg.get("timeout_s", 7200)
+    chunk_chars = provider_cfg.get("chunk_chars", 20_000)
 
-    # Write content to a temp file — avoids Windows CreateProcess arg-length
-    # limits (32 KB) when translating large lesson files.
-    with tempfile.NamedTemporaryFile(
-        mode="w", suffix=".md", delete=False, encoding="utf-8"
-    ) as f:
-        f.write(user)
-        tmpfile = f.name
+    chunks = _copilot_split_sections(user, chunk_chars)
+    n = len(chunks)
 
-    try:
-        prompt = (
+    translated_parts = []
+    for i, chunk in enumerate(chunks):
+        if n > 1:
+            part_note = f"(Section {i + 1} of {n} — translate only this section)\n\n"
+        else:
+            part_note = ""
+
+        prompt_text = (
             f"{system}\n\n"
-            f"Translate the file at this exact path: {tmpfile}\n\n"
-            "Output ONLY the complete translated markdown. "
+            f"{part_note}"
+            "Content to translate:\n\n"
+            f"{chunk}\n\n"
+            "Output ONLY the translated markdown. "
             "No commentary, preamble, or explanation."
         )
-        result = subprocess.run(
-            [
-                cli_path,
-                "--model", model,
-                # Limit to read-only file access — prevents agentic write/shell
-                # loops that inflate latency when only a file read + translate
-                # response is needed.
-                "--available-tools", "read",
-                "--allow-all-paths",   # temp file lives outside CWD
-                "--no-ask-user",       # never block on stdin in batch mode
-                "--no-custom-instructions",
-                "--silent",
-                "--prompt", prompt,
-            ],
-            capture_output=True,
-            text=True,
-            timeout=timeout,
-            encoding="utf-8",
-        )
-        if result.returncode != 0:
-            raise RuntimeError(
-                f"copilot CLI exited {result.returncode}: "
-                f"{(result.stderr or result.stdout).strip()}"
-            )
-        return result.stdout.strip(), 0, 0
-    finally:
-        os.unlink(tmpfile)
+        translated_parts.append(_copilot_call_once(cli_path, model, timeout, prompt_text))
+
+    return "\n\n".join(translated_parts), 0, 0
 
 
 PROVIDER_DISPATCH = {
