@@ -1,4 +1,4 @@
-# 第29週：希臘字母——Delta、Gamma、Theta、Vega、Rho
+# 第二十九週：希臘字母——Delta、Gamma、Theta、Vega、Rho
 
 ---
 

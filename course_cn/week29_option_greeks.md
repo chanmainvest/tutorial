@@ -1,4 +1,4 @@
-# 第29周：期权希腊字母——Delta、Gamma、Theta、Vega、Rho
+# 第二十九周：期权希腊字母——Delta、Gamma、Theta、Vega、Rho
 
 ---
 

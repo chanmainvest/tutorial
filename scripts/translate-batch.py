@@ -325,6 +325,37 @@ def strip_preamble(translated):
     return translated
 
 
+def _int_to_chinese(n):
+    """Convert an integer 1-99 to Chinese numeral string."""
+    units = ["", "一", "二", "三", "四", "五", "六", "七", "八", "九"]
+    if 1 <= n <= 9:
+        return units[n]
+    if 10 <= n <= 19:
+        return "十" + (units[n - 10] if n > 10 else "")
+    if 20 <= n <= 99:
+        return units[n // 10] + "十" + (units[n % 10] if n % 10 else "")
+    return str(n)
+
+
+def normalize_week_title(text):
+    """Ensure the H1 title line uses Chinese numerals for 第N週/第N周.
+
+    LLMs sometimes keep Arabic digits in week ordinals even when the rest of
+    the translation is correct.  This post-processing pass fixes any remaining
+    '第<digits>週' or '第<digits>周' patterns on the first line only.
+    """
+    import re
+    lines = text.split("\n", 1)
+    first = lines[0]
+    for char in ("週", "周"):
+        first = re.sub(
+            r"第(\d+)" + char,
+            lambda m: "第" + _int_to_chinese(int(m.group(1))) + char,
+            first,
+        )
+    return first + ("\n" + lines[1] if len(lines) > 1 else "")
+
+
 def translate_file(provider_name, provider_cfg, source_path, target_path,
                    locale, terminology, force=False, dry_run=False):
     if not force and os.path.exists(target_path) and not is_placeholder(target_path):
@@ -341,6 +372,7 @@ def translate_file(provider_name, provider_cfg, source_path, target_path,
         return {"status": "error", "error": str(e)}
 
     text = strip_preamble(text)
+    text = normalize_week_title(text)
     os.makedirs(os.path.dirname(target_path), exist_ok=True)
     with open(target_path, "w", encoding="utf-8") as f:
         f.write(text)
