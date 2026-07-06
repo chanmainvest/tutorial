@@ -1,22 +1,44 @@
 #!/usr/bin/env python3
 """
-Export Claude Code session transcript matching /export format.
+Export Claude Code OR ZCode session transcript matching /export format.
 
-Reads the JSONL session file and produces output identical to
-Claude Code's built-in /export command.
+Auto-detects which agent produced the session:
+  - Claude Code stores JSONL under ~/.claude/projects/<encoded-path>/*.jsonl
+  - ZCode stores its conversation in ~/.zcode/cli/db/db.sqlite (a SQLite
+    database with `message` + `part` tables) plus per-turn rollout files
+    under ~/.zcode/cli/rollout/model-io-sess_<id>.jsonl
 
-Usage: py -3 ~/.claude/skills/export-session.py [--project-dir <path>]
+Both backends produce the same readable transcript + metadata header.
+
+Usage: py -3 export-session.py [--project-dir <path>]
 """
 
 import json
 import os
 import re
 import sys
+import sqlite3
 import subprocess
 from pathlib import Path
 from datetime import datetime
 
 LINE_WIDTH = 76
+
+
+# ---------------------------------------------------------------------------
+# Backend detection
+# ---------------------------------------------------------------------------
+def detect_backend(project_dir):
+    """Return ('claude', jsonl_path) or ('zcode', session_id) or (None, None)."""
+    # 1. Claude Code JSONL
+    cc = find_claude_session_file(project_dir)
+    if cc:
+        return ('claude', cc)
+    # 2. ZCode SQLite
+    zc = find_zcode_session_id(project_dir)
+    if zc:
+        return ('zcode', zc)
+    return (None, None)
 
 
 def get_project_dir():
@@ -30,7 +52,7 @@ def encode_project_path(project_dir):
     return ''.join(ch if ch.isalnum() else '-' for ch in project_dir)
 
 
-def find_session_file(project_dir):
+def find_claude_session_file(project_dir):
     claude_dir = Path.home() / '.claude' / 'projects'
     candidates = [
         encode_project_path(project_dir),
@@ -55,6 +77,47 @@ def find_session_file(project_dir):
         if all_f:
             return max(all_f, key=lambda x: x.stat().st_mtime)
     return None
+
+
+# ---------------------------------------------------------------------------
+# ZCode backend
+# ---------------------------------------------------------------------------
+def _zcode_db_path():
+    return Path.home() / '.zcode' / 'cli' / 'db' / 'db.sqlite'
+
+
+def find_zcode_session_id(project_dir):
+    """Resolve the most recently active ZCode session for this project.
+
+    Matches the session table's `directory` column against the project dir
+    (case-insensitive, backslash/slash agnostic) and returns the newest
+    non-archived session id. Falls back to the single most-recent session
+    in any directory if no match.
+    """
+    db = _zcode_db_path()
+    if not db.exists():
+        return None
+    norm = project_dir.replace('\\', '/').rstrip('/').lower()
+    try:
+        con = sqlite3.connect(f'file:{db}?mode=ro', uri=True)
+        cur = con.cursor()
+        # Try a direct directory match (normalising separators in SQL).
+        cur.execute(
+            "SELECT id FROM session "
+            "WHERE LOWER(REPLACE(directory, '\\\\', '/')) = ? "
+            "ORDER BY time_updated DESC LIMIT 1",
+            (norm,),
+        )
+        row = cur.fetchone()
+        if row:
+            return row[0]
+        # Fallback: newest session overall.
+        cur.execute("SELECT id FROM session ORDER BY time_updated DESC LIMIT 1")
+        row = cur.fetchone()
+        con.close()
+        return row[0] if row else None
+    except sqlite3.Error:
+        return None
 
 
 def strip_xml_tags(text):
@@ -315,6 +378,124 @@ def parse_session(jsonl_path, project_dir=None):
     return '\n'.join(output)
 
 
+# ---------------------------------------------------------------------------
+# ZCode transcript parsing (SQLite → same output format as parse_session)
+# ---------------------------------------------------------------------------
+def _zcode_format_tool_call(tool_name, state, project_dir=None):
+    """Render a ZCode tool part like format_tool_name does for Claude Code.
+    ZCode stores the args under state['input'] (same shape as Claude's
+    tool_use input), so we adapt the input to the existing formatter."""
+    fake_block = {'name': tool_name, 'input': state.get('input') or {}}
+    return format_tool_name(fake_block, project_dir)
+
+
+# Harness-injected pseudo-user text that should not appear as a "user said"
+# line in the transcript. These are reminders/notifications the agent runtime
+# stuffs into user-role parts; they're not real user input.
+_HARNESS_NOISE_PREFIXES = (
+    "The TodoWrite tool hasn't been used recently.",
+    "[SYSTEM NOTIFICATION - NOT USER INPUT]",
+    "[tool result]",
+)
+
+
+def _is_harness_noise(text):
+    head = text.lstrip()[:80]
+    for p in _HARNESS_NOISE_PREFIXES:
+        if head.startswith(p):
+            return True
+    return False
+
+
+def parse_zcode_session(session_id, project_dir=None):
+    """Walk the message+part tables for one ZCode session and emit a
+    transcript string in the same format as parse_session (Claude Code)."""
+    db = _zcode_db_path()
+    con = sqlite3.connect(f'file:{db}?mode=ro', uri=True)
+    cur = con.cursor()
+    # Ordered (message_id, role, part_data) over the whole session. We join
+    # part→message to inherit the role, and order by part creation time so
+    # calls and their results interleave exactly as they happened.
+    cur.execute(
+        "SELECT p.message_id, json_extract(m.data, '$.role') AS role, p.data "
+        "FROM part p JOIN message m ON p.message_id = m.id "
+        "WHERE p.session_id = ? ORDER BY p.time_created ASC, p.rowid ASC",
+        (session_id,),
+    )
+    rows = cur.fetchall()
+    con.close()
+
+    output = []
+    # Group consecutive Read/Grep calls like the Claude parser does, so the
+    # transcript stays compact.
+    read_count = 0
+    search_count = 0
+
+    def flush_groups():
+        nonlocal read_count, search_count
+        if read_count > 0:
+            output.append(f"\n  Read {read_count} file{'s' if read_count > 1 else ''} (ctrl+o to expand)")
+            read_count = 0
+        if search_count > 0:
+            output.append(f"\n  Searched for {search_count} pattern{'s' if search_count > 1 else ''} (ctrl+o to expand)")
+            search_count = 0
+
+    for _mid, role, raw in rows:
+        try:
+            d = json.loads(raw) if raw else {}
+        except json.JSONDecodeError:
+            continue
+        ptype = d.get('type', '')
+
+        if ptype == 'text':
+            text = (d.get('text') or '').strip()
+            if not text:
+                continue
+            # Drop harness-injected pseudo-user messages that aren't real
+            # input: TodoWrite reminders, automated task-event notifications,
+            # and tool-result injections (which arrive as user-role text in
+            # some ZCode versions rather than as tool-result parts).
+            if _is_harness_noise(text):
+                continue
+            cleaned = strip_xml_tags(text)
+            if not cleaned:
+                continue
+            flush_groups()
+            wrapped = wrap_text(cleaned, '  ')
+            marker = '\u276f' if role == 'user' else '\u25cf'
+            output.append(f"\n{marker} {wrapped}")
+
+        elif ptype == 'tool':
+            tool_name = d.get('tool', '') or ''
+            state = d.get('state') or {}
+            # Group reads/greps for compactness, matching the Claude parser.
+            if tool_name == 'Read':
+                read_count += 1
+                continue
+            if tool_name in ('Grep', 'Glob'):
+                search_count += 1
+                continue
+            flush_groups()
+            output.append(f"\n\u25cf {_zcode_format_tool_call(tool_name, state, project_dir)}")
+            # Inline the tool result if present in the same part (ZCode
+            # stores input+output together once the call completes).
+            out = state.get('output') or ''
+            status = state.get('status')
+            if status == 'error':
+                err = state.get('error') or ''
+                if err:
+                    out = (out + '\n' + err).strip() if out else str(err)
+            if out and out.strip():
+                truncated = truncate_lines(out.strip(), 5)
+                first = truncated.split('\n')
+                output.append(f"  \u23bf  {first[0]}")
+                for line in first[1:]:
+                    output.append(f"     {line}")
+
+    flush_groups()
+    return '\n'.join(output)
+
+
 def get_git_hash(project_dir):
     try:
         result = subprocess.run(
@@ -339,6 +520,9 @@ MODEL_PRICING = {
     'claude-sonnet-4-6-20250514':{'in': 3.0,   'out': 15.0,  'cw': 3.75,  'cr': 0.30},
     'claude-haiku-4-5':          {'in': 1.0,   'out': 5.0,   'cw': 1.25,  'cr': 0.10},
     'claude-haiku-4-5-20251001': {'in': 1.0,   'out': 5.0,   'cw': 1.25,  'cr': 0.10},
+    # ZCode models. GLM-5.2 is the ZCode default; refresh as providers publish
+    # list prices. Unknown → cost shows "unknown" in the report.
+    'glm-5.2':                   {'in': 0.80,  'out': 2.0,   'cw': 1.00,  'cr': 0.08},
 }
 
 
@@ -415,6 +599,59 @@ def aggregate_usage(jsonl_path):
         bucket['cost']['total'] = sum(bucket['cost'].values())
 
     return {'per_model': per_model, 'versions': sorted(versions)}
+
+
+def _compute_costs(per_model):
+    """Fill in the `cost` dict on each bucket in per_model. Shared by both
+    backends so the cost math stays in one place."""
+    for bucket in per_model.values():
+        # Need a model id to price — caller stores it as bucket['_model'].
+        pricing = _get_pricing(bucket.get('_model'))
+        if pricing is None:
+            bucket['cost'] = None
+            continue
+        bucket['cost'] = {
+            'input':        bucket['input']        / 1_000_000 * pricing['in'],
+            'output':       bucket['output']       / 1_000_000 * pricing['out'],
+            'cache_read':   bucket['cache_read']   / 1_000_000 * pricing['cr'],
+            'cache_create': bucket['cache_create'] / 1_000_000 * pricing['cw'],
+        }
+        bucket['cost']['total'] = sum(bucket['cost'].values())
+    return per_model
+
+
+def aggregate_zcode_usage(session_id):
+    """Aggregate token usage from the ZCode model_usage table for one session.
+    Returns the same shape as aggregate_usage: {'per_model', 'versions'}."""
+    db = _zcode_db_path()
+    con = sqlite3.connect(f'file:{db}?mode=ro', uri=True)
+    cur = con.cursor()
+    cur.execute(
+        "SELECT model_id, provider_id, agent, "
+        "COALESCE(input_tokens,0), COALESCE(output_tokens,0), "
+        "COALESCE(cache_read_input_tokens,0), COALESCE(cache_creation_input_tokens,0) "
+        "FROM model_usage WHERE session_id = ?",
+        (session_id,),
+    )
+    per_model = {}
+    agent_versions = set()
+    for row in cur.fetchall():
+        model_id, provider_id, agent, inp, out, cr, cw = row
+        if not model_id:
+            continue
+        # ZCode stores model ids like 'GLM-5.2'; lowercase to match MODEL_PRICING keys.
+        key = model_id.lower()
+        b = per_model.setdefault(key, _new_bucket())
+        b['_model'] = key
+        b['input'] += inp
+        b['output'] += out
+        b['cache_read'] += cr
+        b['cache_create'] += cw
+        if agent:
+            agent_versions.add(agent)
+    con.close()
+    _compute_costs(per_model)
+    return {'per_model': per_model, 'versions': sorted(agent_versions)}
 
 
 def detect_starting_hash(jsonl_path, project_dir):
@@ -505,25 +742,70 @@ def format_metadata_header(usage_info, agent_version, starting_hash):
     return '\n'.join(lines)
 
 
+def detect_zcode_starting_hash(session_id, project_dir):
+    """Find the git short hash the session started from. ZCode's first user
+    message embeds a contextSnapshot with gitStatus containing 'Recent commits'.
+    Scan that; fall back to current HEAD."""
+    db = _zcode_db_path()
+    try:
+        con = sqlite3.connect(f'file:{db}?mode=ro', uri=True)
+        cur = con.cursor()
+        # The git status block is embedded in the first user message's data
+        # blob (contextSnapshot.gitStatus). Pull the earliest user message.
+        cur.execute(
+            "SELECT data FROM message "
+            "WHERE session_id = ? AND json_extract(data, '$.role') = 'user' "
+            "ORDER BY time_created ASC LIMIT 3",
+            (session_id,),
+        )
+        pattern = re.compile(r'([0-9a-f]{6,12})\s+\w')
+        for (raw,) in cur.fetchall():
+            if not raw or 'Recent commits' not in raw:
+                continue
+            # The gitStatus text lives nested; just scan the whole blob.
+            m = pattern.search(raw)
+            if m:
+                con.close()
+                return m.group(1)
+        con.close()
+    except sqlite3.Error:
+        pass
+    return get_git_hash(project_dir)
+
+
 def main():
     project_dir = get_project_dir()
     print(f"Project: {project_dir}")
 
-    session_file = find_session_file(project_dir)
-    if not session_file:
-        print("ERROR: Could not find session JSONL file")
+    backend, source = detect_backend(project_dir)
+    if backend is None:
+        print("ERROR: Could not find a Claude Code JSONL transcript or a "
+              "ZCode session database for this project.")
         sys.exit(1)
 
-    print(f"Session: {session_file.name}")
+    if backend == 'claude':
+        session_file = source
+        print(f"Backend: Claude Code")
+        print(f"Session: {session_file.name}")
+        transcript = parse_session(session_file, project_dir)
+        usage_info = aggregate_usage(session_file)
+        starting_hash = detect_starting_hash(session_file, project_dir)
+        agent_version = (
+            f"Claude Code v{usage_info['versions'][-1]}"
+            if usage_info['versions'] else 'Claude Code (version unknown)'
+        )
+    else:  # zcode
+        session_id = source
+        print(f"Backend: ZCode")
+        print(f"Session: {session_id}")
+        transcript = parse_zcode_session(session_id, project_dir)
+        usage_info = aggregate_zcode_usage(session_id)
+        starting_hash = detect_zcode_starting_hash(session_id, project_dir)
+        agent_version = (
+            f"ZCode ({usage_info['versions'][-1]})"
+            if usage_info['versions'] else 'ZCode'
+        )
 
-    transcript = parse_session(session_file, project_dir)
-
-    usage_info = aggregate_usage(session_file)
-    starting_hash = detect_starting_hash(session_file, project_dir)
-    agent_version = (
-        f"Claude Code v{usage_info['versions'][-1]}"
-        if usage_info['versions'] else 'Claude Code (version unknown)'
-    )
     header = format_metadata_header(usage_info, agent_version, starting_hash)
 
     today = datetime.now().strftime('%Y-%m-%d')
