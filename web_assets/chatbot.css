@@ -189,6 +189,20 @@ html[data-theme="dark"] .chat-msg.user { color: #0f1724; }
 .chat-msg.bot.markdown-rendered a:hover {
     color: var(--accent-hover);
 }
+/* Lesson-citation links the tutor emits as "[Week 5: Bonds]". Render with a
+   subtle underline + tiny arrow so they read as clickable cross-references
+   rather than inline prose. */
+.chat-msg.bot.markdown-rendered a.chat-citation {
+    text-decoration: underline;
+    text-decoration-style: dotted;
+    text-underline-offset: 2px;
+    white-space: nowrap;
+}
+.chat-msg.bot.markdown-rendered a.chat-citation::after {
+    content: " ↗";
+    font-size: 0.8em;
+    opacity: 0.8;
+}
 .chat-msg.bot.markdown-rendered code {
     font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace;
     font-size: 0.84em;

@@ -36,12 +36,24 @@ const CDN_URL = "https://cdn.jsdelivr.net/npm/@huggingface/transformers@4/+esm";
 // used and cached in IndexedDB. At query time we cosine-sim the user's
 // question against the cached embeddings and inject the top-K chunks
 // into the system prompt alongside the current page text.
-const EMBED_MODEL_ID = "Xenova/paraphrase-multilingual-MiniLM-L12-v2";
+const EMBED_MODEL_ID = "onnx-community/embeddinggemma-300m-ONNX";
 const CHUNKS_URL = "assets/chatbot_chunks.json";
 const TOP_K = 5;
 const RAG_DB_NAME = "chanma-chatbot-rag";
 const RAG_STORE = "embeddings";
-const RAG_DB_VERSION = 1;
+const RAG_DB_VERSION = 2;
+
+// Prebuilt embedding cache (shipped as a static binary so users get instant
+// cross-lesson search instead of a 30s+ in-browser indexing step). Produced
+// by scripts/build_chatbot_embeddings.mjs. See .claude/docs/chatbot-architecture.md
+// for the format. The browser still downloads the embedding model at runtime
+// to embed user queries (dynamic, can't be precomputed), but skips the slow
+// per-chunk indexing because the vectors are already in the bin.
+const EMBEDDINGS_BIN_URL = "assets/chatbot_embeddings.bin";
+const EMBED_BIN_MAGIC = 0x42454d43;   // "CMEB" read as little-endian u32
+const EMBED_BIN_VERSION = 1;
+const EMBED_BIN_DTYPE_F32 = 1;
+const EMBED_BIN_LANGS = ["en", "hk", "tw", "cn"]; // canonical order in the bin
 
 const I18N = {
     en: {
@@ -70,7 +82,7 @@ const I18N = {
         retrieved_header: "RELEVANT EXCERPTS FROM OTHER LESSONS",
         current_page_header: "CURRENT LESSON (priority — answer using this first)",
         index_section_label: "Pre-index for cross-lesson search",
-        index_section_help: "Without an index, the assistant answers from the current page only. Indexing one language adds ~5–30 seconds and ~5 MB extra memory.",
+        index_section_help: "Without an index, the assistant answers from the current page only. The index is prebuilt — it downloads once (~18 MB) and is cached for future visits.",
         chip_ready: "Cross-lesson search on",
         chip_indexing: "Indexing",
         chip_none: "Index this language",
@@ -114,7 +126,7 @@ const I18N = {
         retrieved_header: "其他課程相關摘錄",
         current_page_header: "目前課程(優先 — 請先用這部分回答)",
         index_section_label: "預先建立跨課程搜尋索引",
-        index_section_help: "未建立索引時,助手只會看當前頁面。每種語言索引約需 5–30 秒、額外約 5 MB 記憶體。",
+        index_section_help: "未建立索引時,助手只會看當前頁面。索引為預先建立——下載一次(約 18 MB)後即快取供日後使用。",
         chip_ready: "跨課搜尋已啟用",
         chip_indexing: "建立索引中",
         chip_none: "為此語言建立索引",
@@ -158,7 +170,7 @@ const I18N = {
         retrieved_header: "其他單元相關摘錄",
         current_page_header: "目前單元(優先 — 請先用這部分回答)",
         index_section_label: "預先建立跨單元搜尋索引",
-        index_section_help: "未建立索引時,助理只會看目前頁面。每種語言索引約需 5–30 秒、額外約 5 MB 記憶體。",
+        index_section_help: "未建立索引時,助理只會看目前頁面。索引為預先建立——下載一次(約 18 MB)後即快取供日後使用。",
         chip_ready: "跨單元搜尋已啟用",
         chip_indexing: "建立索引中",
         chip_none: "為此語言建立索引",
@@ -202,7 +214,7 @@ const I18N = {
         retrieved_header: "其他课程相关摘录",
         current_page_header: "当前课程(优先 — 请先用这部分回答)",
         index_section_label: "预先建立跨课程搜索索引",
-        index_section_help: "未建立索引时,助手只会看当前页面。每种语言索引约需 5–30 秒、额外约 5 MB 内存。",
+        index_section_help: "未建立索引时,助手只会看当前页面。索引为预先建立——下载一次(约 18 MB)后即缓存供日后使用。",
         chip_ready: "跨课程搜索已启用",
         chip_indexing: "建立索引中",
         chip_none: "为此语言建立索引",
@@ -322,11 +334,33 @@ function normaliseBlockText(text) {
     return String(text).replace(/\r\n?/g, "\n");
 }
 
-function applyInlineMarkdown(text) {
+function applyInlineMarkdown(text, citeIdx) {
     let html = escapeHtml(text);
     html = html.replace(/\[([^\]]+)\]\(([^)\s]+)\)/g, (match, label, url) => (
         `<a href="${escapeAttr(url)}" target="_blank" rel="noreferrer noopener">${label}</a>`
     ));
+    // Linkify bare-bracket lesson citations the tutor emits, e.g.
+    // "[Week 5: Bonds - Your Portfolio's Shock Absorber]" or the
+    // abbreviated "[Week 5: Bonds]". Only brackets that start with a
+    // Week/Side/Level citation and are NOT followed by "(" (those were
+    // already handled as markdown links above). Non-matching brackets
+    // are left untouched.
+    if (citeIdx) {
+        html = html.replace(
+            /\[(Week|Side(?:\s+Lesson)?|Level)\s+\d+:[^\]]*\](?!\()/gi,
+            (match) => {
+                // match still contains escaped entities (e.g. &#39;); decode
+                // the common ones so linkifyCitation sees real text.
+                const label = match.slice(1, -1)
+                    .replace(/&#39;/g, "'").replace(/&quot;/g, '"')
+                    .replace(/&amp;/g, "&").replace(/&lt;/g, "<").replace(/&gt;/g, ">");
+                const url = linkifyCitation(label, citeIdx);
+                if (!url) return match;
+                const safe = escapeHtml(label); // re-escape for display
+                return `<a href="${escapeAttr(url)}" target="_blank" rel="noreferrer noopener" class="chat-citation">${safe}</a>`;
+            }
+        );
+    }
     html = html.replace(/`([^`]+)`/g, "<code>$1</code>");
     html = html.replace(/\*\*\*([^*]+?)\*\*\*/g, "<strong><em>$1</em></strong>");
     html = html.replace(/\*\*([^*]+?)\*\*/g, "<strong>$1</strong>");
@@ -334,7 +368,7 @@ function applyInlineMarkdown(text) {
     return html;
 }
 
-function renderMarkdownChunk(markdown) {
+function renderMarkdownChunk(markdown, citeIdx) {
     const lines = normaliseBlockText(markdown).split("\n");
     const html = [];
     let paragraph = [];
@@ -342,9 +376,11 @@ function renderMarkdownChunk(markdown) {
     let listType = null;
     let quoteLines = [];
 
+    const inline = (t) => applyInlineMarkdown(t, citeIdx);
+
     function flushParagraph() {
         if (!paragraph.length) return;
-        html.push(`<p>${paragraph.map(applyInlineMarkdown).join("<br>")}</p>`);
+        html.push(`<p>${paragraph.map(inline).join("<br>")}</p>`);
         paragraph = [];
     }
 
@@ -358,7 +394,7 @@ function renderMarkdownChunk(markdown) {
 
     function flushQuotes() {
         if (!quoteLines.length) return;
-        html.push(`<blockquote>${quoteLines.map(applyInlineMarkdown).join("<br>")}</blockquote>`);
+        html.push(`<blockquote>${quoteLines.map(inline).join("<br>")}</blockquote>`);
         quoteLines = [];
     }
 
@@ -382,7 +418,7 @@ function renderMarkdownChunk(markdown) {
             flushList();
             flushQuotes();
             const level = heading[1].length;
-            html.push(`<h${level}>${applyInlineMarkdown(heading[2])}</h${level}>`);
+            html.push(`<h${level}>${inline(heading[2])}</h${level}>`);
             continue;
         }
 
@@ -408,7 +444,7 @@ function renderMarkdownChunk(markdown) {
             const nextType = ordered ? "ol" : "ul";
             if (listType && listType !== nextType) flushList();
             listType = nextType;
-            listItems.push(`<li>${applyInlineMarkdown((ordered || bullet)[1])}</li>`);
+            listItems.push(`<li>${inline((ordered || bullet)[1])}</li>`);
             continue;
         }
 
@@ -486,10 +522,13 @@ function renderCodeBlock(lang, code) {
     return `<pre class="chat-code-block"><code${languageClass}>${escapeHtml(normaliseBlockText(code))}</code></pre>`;
 }
 
-function renderMarkdown(text) {
+async function renderMarkdown(text) {
+    // Build the lesson-citation index once (cached) so applyInlineMarkdown
+    // can linkify "[Week 5: Bonds]"-style references in-place.
+    const citeIdx = await getLessonUrlIndex().catch(() => null);
     return splitMarkdownBlocks(text).map((block) => {
         if (block.type === "code") return renderCodeBlock(block.lang, block.content);
-        return renderMarkdownChunk(block.content);
+        return renderMarkdownChunk(block.content, citeIdx);
     }).join("\n");
 }
 
@@ -610,9 +649,9 @@ function initMermaidBlocks(root) {
     });
 }
 
-function renderBotMessage(node, text) {
+async function renderBotMessage(node, text) {
     node.classList.add("markdown-rendered");
-    node.innerHTML = renderMarkdown(text);
+    node.innerHTML = await renderMarkdown(text);
     initMermaidBlocks(node);
     renderMermaidBlocks(node);
 }
@@ -789,11 +828,14 @@ async function loadEmbedder() {
         embedderPromise = (async () => {
             const tx = await import(/* @vite-ignore */ CDN_URL);
             const { pipeline } = tx;
-            // Small multilingual model — runs on WebGPU when available, falls
-            // back to WASM. Inference is fast enough that q8 is fine.
-            const wantWebgpu = "gpu" in navigator;
+            // EmbeddingGemma is Gemma-architected; some of its ops can't be
+            // compiled to a WebGPU shader pipeline (getBindGroupLayout fails
+            // during pipeline creation), so we run the embedder on WASM.
+            // A 300M embedding model is fast enough on WASM — embeddings are
+            // computed once per query, not token-by-token like generation —
+            // and WASM avoids contending with Gemma 4 E2B for the GPU.
             embedder = await pipeline("feature-extraction", EMBED_MODEL_ID, {
-                device: wantWebgpu ? "webgpu" : "wasm",
+                device: "wasm",
                 dtype: "q8",
             });
             return embedder;
@@ -815,6 +857,178 @@ async function loadChunks() {
     return chunksPromise;
 }
 
+// ----- Lesson citation → URL index ----------------------------------------
+// Maps the bracketed lesson citations the tutor emits (e.g. "[Week 5: Bonds
+// - Your Portfolio's Shock Absorber]" or the abbreviated "[Week 5: Bonds]")
+// to the corresponding page URL, so renderMarkdown can linkify them in-place.
+// Built lazily from allChunks on first use and cached.
+let lessonUrlIndex = null;
+
+function normaliseTitleKey(s) {
+    return String(s).toLowerCase().replace(/[\s\-—–:,.!?'"`]+/g, " ").trim();
+}
+
+async function getLessonUrlIndex() {
+    if (lessonUrlIndex) return lessonUrlIndex;
+    const chunks = await loadChunks();
+    const exact = new Map();                 // normalised full title → url
+    const byNumber = new Map();              // "week05" | "side05" | "level1" → url
+    const prefixes = [];                     // { key, url }, longest first
+    for (const c of chunks) {
+        if (!c || !c.title || !c.url) continue;
+        const key = normaliseTitleKey(c.title);
+        if (key && !exact.has(key)) exact.set(key, c.url);
+        // Derive the numeric slug: "Week 5" → "week05",
+        // "Side Lesson 12" → "side12", "Level 1" → "level1".
+        const m = c.title.match(/^(Week|Side(?:\s+Lesson)?|Level)\s+(\d+)/i);
+        if (m) {
+            const kind = m[1].toLowerCase().replace(/\s+lesson/, "");
+            const slug = kind + String(Number(m[2])).padStart(2, "0");
+            if (!byNumber.has(slug)) byNumber.set(slug, c.url);
+        }
+        if (key) prefixes.push({ key, url: c.url });
+    }
+    // Longest key first so "[Week 5: Bonds]" can't match "Week 50: …".
+    prefixes.sort((a, b) => b.key.length - a.key.length);
+    lessonUrlIndex = { exact, byNumber, prefixes };
+    return lessonUrlIndex;
+}
+
+// Resolve a citation label (bracket inner text) to a lesson URL, or null.
+function linkifyCitation(label, idx) {
+    const key = normaliseTitleKey(label);
+    if (!key) return null;
+    // 1. Exact full-title match.
+    if (idx.exact.has(key)) return idx.exact.get(key);
+    // 2. Prefix match: either the label is a prefix of a canonical title
+    //    (LLM abbreviated, e.g. "[Week 5: Bonds]") or vice versa. Iterate
+    //    longest-first so "week 5 bonds" is tried before "week 50 …".
+    for (const { key: k, url } of idx.prefixes) {
+        if (k.startsWith(key) || key.startsWith(k)) return url;
+    }
+    // 3. Structured fallback: parse "Week 5" / "Side Lesson 5" / "Level 1"
+    //    → slug (week05/side05/level1). Catches very abbreviated citations
+    //    where the prefix match can't help (e.g. "[Side Lesson 01: Calculator]").
+    const m = label.match(/^(Week|Side(?:\s+Lesson)?|Level)\s+(\d+)/i);
+    if (m) {
+        const kind = m[1].toLowerCase().replace(/\s+lesson/, "");
+        const slug = kind + String(Number(m[2])).padStart(2, "0");
+        if (idx.byNumber.has(slug)) return idx.byNumber.get(slug);
+    }
+    return null;
+}
+
+// ----- Prebuilt embedding cache (shipped static binary) --------------------
+// Downloads docs/assets/chatbot_embeddings.bin (~18 MB) once and populates
+// the in-memory + IndexedDB caches for every language, replacing the old
+// 30s+ per-language indexing step. Falls back silently (returns false) if
+// the bin is missing, corrupt, stale (chunk text changed), or on any parse
+// error — callers then use the dynamic embedTexts() path.
+let prebuiltBinPromise = null;   // Promise<boolean> — tried at most once
+
+async function loadPrebuiltEmbeddings() {
+    if (prebuiltBinPromise) return prebuiltBinPromise;
+    prebuiltBinPromise = (async () => {
+        let res;
+        try {
+            res = await fetch(EMBEDDINGS_BIN_URL);
+        } catch (err) {
+            console.warn("prebuilt embeddings fetch failed", err);
+            return false;
+        }
+        if (!res.ok) {
+            // 404 when the bin hasn't been built/shipped yet — normal fallback.
+            console.warn(`prebuilt embeddings not available (${res.status})`);
+            return false;
+        }
+        const buf = await res.arrayBuffer();
+        const dv = new DataView(buf);
+        let off = 0;
+        const readU32 = () => { const v = dv.getUint32(off, true); off += 4; return v; };
+
+        // Header (52 bytes): magic, version, count, dim, dtype, 32-byte hash.
+        const magic = readU32();
+        if (magic !== EMBED_BIN_MAGIC) {
+            console.warn("prebuilt embeddings: bad magic", magic.toString(16));
+            return false;
+        }
+        const version = readU32();
+        if (version !== EMBED_BIN_VERSION) {
+            console.warn(`prebuilt embeddings: version ${version} != ${EMBED_BIN_VERSION}`);
+            return false;
+        }
+        const count = readU32();
+        const dim = readU32();
+        if (dim !== 768) {
+            console.warn(`prebuilt embeddings: unexpected dim ${dim}`);
+            return false;
+        }
+        const dtype = readU32();
+        if (dtype !== EMBED_BIN_DTYPE_F32) {
+            console.warn(`prebuilt embeddings: unsupported dtype ${dtype}`);
+            return false;
+        }
+        const binHashBytes = new Uint8Array(buf, off, 32);
+        off += 32;
+
+        // Staleness check: SHA-256 of every chunk text in ascending id order,
+        // exactly as computed by build_chatbot_embeddings.mjs. If lesson
+        // content changed, the bin is stale and we must not use it.
+        const chunks = await loadChunks();
+        const ordered = [...chunks].sort((a, b) => a.id - b.id);
+        const textBytes = new TextEncoder().encode(ordered.map((c) => c.text).join(""));
+        const digest = await crypto.subtle.digest("SHA-256", textBytes);
+        const computed = new Uint8Array(digest);
+        for (let i = 0; i < 32; i++) {
+            if (computed[i] !== binHashBytes[i]) {
+                console.warn("prebuilt embeddings: stale (chunk text changed) — falling back");
+                return false;
+            }
+        }
+
+        // Lang table: 4 langs × (u32 offset, u32 count), canonical order.
+        const langTable = [];
+        for (let i = 0; i < EMBED_BIN_LANGS.length; i++) {
+            const offset = readU32();
+            const n = readU32();
+            langTable.push({ lang: EMBED_BIN_LANGS[i], offset, count: n });
+        }
+
+        // ids: count × u32, then vectors: count × dim × f32, both grouped by lang.
+        const idsAll = new Uint32Array(buf, off, count);
+        off += count * 4;
+        const vectorsAll = new Float32Array(buf, off, count * dim);
+
+        // Slice each language's contiguous block out and hydrate caches.
+        for (const { lang, offset, count: n } of langTable) {
+            if (n === 0) {
+                langEmbeddings.set(lang, { ids: [], vectors: new Float32Array(0), dim });
+                setLangIndexState(lang, "ready");
+                continue;
+            }
+            const ids = Array.from(idsAll.subarray(offset, offset + n));
+            // Float32Array.subarray is a view into the same ArrayBuffer; copy
+            // so the entry owns its memory and survives any future GC of buf.
+            const vectors = new Float32Array(vectorsAll.subarray(offset * dim, (offset + n) * dim));
+            const entry = { ids, vectors, dim };
+            langEmbeddings.set(lang, entry);
+            setLangIndexState(lang, "ready");
+            // Persist to IndexedDB so the next visit skips the 18 MB download.
+            saveCachedEmbeddings(lang, {
+                ids,
+                vectors: vectors.buffer.slice(0),
+                dim,
+                model: EMBED_MODEL_ID,
+            }).catch((err) => console.warn("prebuilt IDB write failed", lang, err));
+        }
+        return true;
+    })().catch((err) => {
+        console.warn("prebuilt embeddings failed", err);
+        return false;
+    });
+    return prebuiltBinPromise;
+}
+
 // ----- IndexedDB cache for per-language embeddings ------------------------
 function openRagDb() {
     if (ragDb) return Promise.resolve(ragDb);
@@ -834,12 +1048,20 @@ function openRagDb() {
 async function loadCachedEmbeddings(lang) {
     try {
         const db = await openRagDb();
-        return await new Promise((resolve, reject) => {
+        const cached = await new Promise((resolve, reject) => {
             const tx = db.transaction(RAG_STORE, "readonly");
             const req = tx.objectStore(RAG_STORE).get(lang);
             req.onsuccess = () => resolve(req.result || null);
             req.onerror = () => reject(req.error);
         });
+        // Reject stale entries written by a different embedding model
+        // (e.g. after switching from MiniLM to embeddinggemma). Entries
+        // without a model stamp are also rejected now that we stamp on write.
+        if (cached && cached.model && cached.model !== EMBED_MODEL_ID) {
+            console.warn(`RAG cache for ${lang}: stale model '${cached.model}' != '${EMBED_MODEL_ID}'`);
+            return null;
+        }
+        return cached || null;
     } catch (err) {
         console.warn("RAG cache read failed", err);
         return null;
@@ -847,6 +1069,9 @@ async function loadCachedEmbeddings(lang) {
 }
 
 async function saveCachedEmbeddings(lang, payload) {
+    // Always stamp the embedding model so future loads can detect a model
+    // swap and discard incompatible vectors without a DB-version bump.
+    if (payload) payload.model = payload.model || EMBED_MODEL_ID;
     try {
         const db = await openRagDb();
         await new Promise((resolve, reject) => {
@@ -863,7 +1088,7 @@ async function saveCachedEmbeddings(lang, payload) {
 // ----- Embedding & retrieval ----------------------------------------------
 async function embedTexts(texts, onBatch) {
     const e = await loadEmbedder();
-    const dim = 384;                       // paraphrase-multilingual-MiniLM-L12-v2
+    const dim = 768;                       // embeddinggemma-300m
     const out = new Float32Array(texts.length * dim);
     const batchSize = 16;
     for (let i = 0; i < texts.length; i += batchSize) {
@@ -892,6 +1117,9 @@ function getLangIndexState(lang) {
 // Look up a previously-cached embedding set in IndexedDB and hydrate it
 // into the in-memory map without re-embedding. Called once per language
 // when the chat panel is built so the chip reflects state from past sessions.
+// On an IDB miss, opportunistically try the shipped prebuilt binary, which
+// populates every language in one ~18 MB download (and writes each back to
+// IDB so later visits skip the download).
 async function probeCachedIndex(lang) {
     if (langEmbeddings.has(lang)) return true;
     const cached = await loadCachedEmbeddings(lang);
@@ -899,11 +1127,15 @@ async function probeCachedIndex(lang) {
         const entry = {
             ids: cached.ids,
             vectors: new Float32Array(cached.vectors),
-            dim: cached.dim || 384,
+            dim: cached.dim || 768,
         };
         langEmbeddings.set(lang, entry);
         setLangIndexState(lang, "ready");
         return true;
+    }
+    // IDB miss — one-shot prebuilt bin fetch (populates all langs at once).
+    if (await loadPrebuiltEmbeddings()) {
+        return langEmbeddings.has(lang);
     }
     return false;
 }
@@ -925,13 +1157,19 @@ async function buildIndexFor(lang) {
     if (langIndexPromises.has(lang)) return langIndexPromises.get(lang);
 
     const promise = (async () => {
+        // Fast path: the shipped prebuilt binary populates every language in
+        // one ~18 MB download. Only fall through to per-chunk embedding if
+        // the bin is missing, stale, or doesn't cover this lang.
+        if (await loadPrebuiltEmbeddings() && langEmbeddings.has(lang)) {
+            return; // setLangIndexState("ready") already called inside
+        }
         setLangIndexState(lang, "indexing", { done: 0, total: 0 });
         try {
             await loadEmbedder();
             const chunks = await loadChunks();
             const subset = chunks.filter((c) => c.lang === lang);
             if (subset.length === 0) {
-                langEmbeddings.set(lang, { ids: [], vectors: new Float32Array(0), dim: 384 });
+                langEmbeddings.set(lang, { ids: [], vectors: new Float32Array(0), dim: 768 });
                 setLangIndexState(lang, "ready");
                 return;
             }
@@ -1171,13 +1409,13 @@ function setComposerEnabled(panel, enabled) {
     if (btn) btn.disabled = !enabled;
 }
 
-function renderHistoryIntoBody(body) {
+async function renderHistoryIntoBody(body) {
     for (const msg of chatHistory) {
         if (msg.role === "user") {
             appendMsg(body, "user", msg.content);
         } else if (msg.role === "assistant") {
             const node = appendMsg(body, "bot", "");
-            renderBotMessage(node, msg.content);
+            await renderBotMessage(node, msg.content);
         }
     }
 }
@@ -1186,7 +1424,7 @@ function showChatUI(panel, body) {
     body.innerHTML = "";
     body.classList.add("chat-body");
     if (chatHistory.length) {
-        renderHistoryIntoBody(body);
+        renderHistoryIntoBody(body).catch((err) => console.warn("history render failed", err));
     } else {
         body.appendChild(el("div", { class: "chat-msg system" }, t("ready")));
     }
@@ -1269,7 +1507,7 @@ async function handleSend(panel, textarea) {
             acc = (decoded && decoded[0]) || "";
             botNode.textContent = acc;
         }
-        renderBotMessage(botNode, acc);
+        await renderBotMessage(botNode, acc);
         chatHistory.push({ role: "assistant", content: acc });
         saveHistoryState();
     } catch (err) {
@@ -1327,7 +1565,7 @@ async function restoreLoadedSession(panel, body) {
 
     const progressHost = el("div", { class: "chat-intro chat-restore-host" });
     body.appendChild(progressHost);
-    if (chatHistory.length) renderHistoryIntoBody(body);
+    if (chatHistory.length) await renderHistoryIntoBody(body);
 
     ensureComposer(panel);
     setComposerEnabled(panel, false);

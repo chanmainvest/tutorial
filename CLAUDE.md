@@ -192,7 +192,7 @@ before any lesson edit/review pass.
 
 ## Build & Development
 
-All scripts are Python. **Always run them via `uv`** as the package manager (e.g. `uv run python scripts/build.py`) — `uv` resolves the project's dependencies (declared in `pyproject.toml`) without polluting the system Python. No Node.js dependencies required for the build pipeline.
+All scripts are Python. **Always run them via `uv`** as the package manager (e.g. `uv run python scripts/build.py`) — `uv` resolves the project's dependencies (declared in `pyproject.toml`) without polluting the system Python. No Node.js dependencies are required for the website build itself; the only Node-based step is the optional chatbot embedding-cache prebuild (`scripts/build_chatbot_embeddings.mjs`, see On-device AI tutor below).
 
 - **Website**: `uv run python scripts/build.py` — generates static HTML from all markdown files with multilevel hamburger navigation, breadcrumbs, country flag language selector, dark/light theme toggle, and prev/next page buttons. YouTube scripts are stripped from web output. Where a matching interactive component exists in `interactive/`, the corresponding static image is replaced with the live component (the user can toggle back to the static image).
 - **Static images**: Procedural images live under `image/` next to the Python script that generated them — run individually (e.g. `uv run python image/week01_compound_growth.py`) to regenerate the PNG.
@@ -234,12 +234,21 @@ you're editing `export-session.py` or troubleshooting the header.
 - Professional trust-building theme (serif body font, dark navy navigation, gold accents)
 - **On-device AI tutor** — floating bottom-right button on every page.
   Runs Gemma 4 E2B locally in the browser via WebGPU + transformers.js,
-  with opt-in cross-lesson RAG over a static chunk index. No data leaves
-  the device. Source: `web_assets/chatbot.{js,css}`; chunk index:
-  `scripts/build_chatbot_index.py` → `docs/assets/chatbot_chunks.json`
-  (regenerate whenever lesson content changes). Full architecture
-  (model loading, RAG pipeline, IndexedDB caching, status chip states,
-  prompt assembly, browser-support fallback): `.claude/docs/chatbot-architecture.md`.
+  with opt-in cross-lesson RAG over a static chunk index and a **prebuilt
+  embedding cache** (a shipped `docs/assets/chatbot_embeddings.bin` so the
+  slow per-language indexing step is replaced by a one-time ~18 MB download).
+  The embedding model is `onnx-community/embeddinggemma-300m-ONNX` (q8, run
+  on WASM — see chatbot-architecture.md for why). No data leaves the device.
+  Sources: `web_assets/chatbot.{js,css}`; chunk index:
+  `scripts/build_chatbot_index.py` → `docs/assets/chatbot_chunks.json`;
+  embedding cache: `scripts/build_chatbot_embeddings.mjs` (Node +
+  transformers.js, `cd scripts && npm install` once, then `node
+  build_chatbot_embeddings.mjs`) → `docs/assets/chatbot_embeddings.bin`.
+  Regeneration order after lesson edits: `build_chatbot_index.py` →
+  `build_chatbot_embeddings.mjs`. Full architecture (model loading, RAG
+  pipeline, prebuilt-cache format + staleness hash, IndexedDB caching,
+  status chip states, prompt assembly, browser-support fallback):
+  `.claude/docs/chatbot-architecture.md`.
 
 ## Language & Terminology Notes
 
