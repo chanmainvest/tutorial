@@ -222,3 +222,6 @@ __marimo__/
 # Per-commit session transcripts (see CLAUDE.md > Session History) — these
 # files are intentionally checked in despite the global *.log rule above.
 !session_history/*.log
+
+# Graphify output
+graphify-out/
