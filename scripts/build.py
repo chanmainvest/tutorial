@@ -21,6 +21,7 @@ import json
 import os
 import re
 import sys
+from pathlib import Path
 
 PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SCRIPTS_DIR = os.path.dirname(os.path.abspath(__file__))
@@ -1970,6 +1971,9 @@ def build():
 
         out_name = f"{page['slug']}.html"
         out_path = os.path.join(docs_dir, out_name)
+        # Path-traversal guard: a slug must never escape docs/.
+        if not Path(out_path).resolve().is_relative_to(Path(docs_dir).resolve()):
+            raise ValueError(f"page slug escapes docs dir: {out_name!r}")
         with open(out_path, "w", encoding="utf-8") as f:
             f.write(html)
 

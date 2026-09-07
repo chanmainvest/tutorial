@@ -33,6 +33,7 @@ import time
 from pathlib import Path
 from typing import Optional
 from urllib.parse import quote
+import urllib.parse
 
 import pandas as pd
 
@@ -40,8 +41,15 @@ try:
     import requests
     _HAS_REQUESTS = True
 except ImportError:
-    import urllib.request
     _HAS_REQUESTS = False
+import urllib.request
+
+
+class _NoRedirect(urllib.request.HTTPRedirectHandler):
+    """Redirects are refused so a check-then-fetch can't be bounced to another host."""
+
+    def redirect_request(self, req, fp, code, msg, headers, newurl):
+        return None
 
 
 CACHE_DIR = Path(__file__).resolve().parent / ".market_data_cache"
@@ -49,6 +57,11 @@ CACHE_DIR.mkdir(exist_ok=True)
 DEFAULT_TTL_SECONDS = 7 * 24 * 3600  # 7 days
 
 USER_AGENT = "chanmainvest-tutorial/1.0 (+https://chanmainvest.github.io/tutorial/)"
+
+# Fetches are restricted to these hosts; every URL in this module targets one
+# of them. Guards against a hand-edited series id redirecting a fetch
+# elsewhere (SSRF hardening).
+_ALLOWED_HOSTS = {"fred.stlouisfed.org", "stooq.com", "query1.finance.yahoo.com"}
 
 
 def cache_path(key: str) -> Path:
@@ -63,12 +76,17 @@ def _cache_fresh(p: Path, ttl: int = DEFAULT_TTL_SECONDS) -> bool:
 
 
 def _http_get(url: str, timeout: int = 30) -> bytes:
+    parsed = urllib.parse.urlparse(url)
+    if parsed.scheme != "https" or (parsed.hostname or "") not in _ALLOWED_HOSTS:
+        raise ValueError(f"fetch blocked: {url!r} is not an allowed market-data host")
     if _HAS_REQUESTS:
-        r = requests.get(url, headers={"User-Agent": USER_AGENT}, timeout=timeout)
+        r = requests.get(url, headers={"User-Agent": USER_AGENT}, timeout=timeout,
+                         allow_redirects=False)
         r.raise_for_status()
         return r.content
     req = urllib.request.Request(url, headers={"User-Agent": USER_AGENT})
-    with urllib.request.urlopen(req, timeout=timeout) as resp:
+    opener = urllib.request.build_opener(_NoRedirect)
+    with opener.open(req, timeout=timeout) as resp:
         return resp.read()
 
 

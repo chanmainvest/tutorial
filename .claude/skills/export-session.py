@@ -10,7 +10,12 @@ Auto-detects which agent produced the session:
 
 Both backends produce the same readable transcript + metadata header.
 
-Usage: py -3 export-session.py [--project-dir <path>]
+Usage: py -3 export-session.py [--project-dir <path>] [--session <id>]
+
+--session forces a specific session instead of newest-match auto-detection:
+a ``sess_*`` id picks a ZCode session; anything else matches Claude Code
+JSONL filenames by prefix. Useful when both agents have sessions for the
+same project directory.
 """
 
 import json
@@ -28,8 +33,21 @@ LINE_WIDTH = 76
 # ---------------------------------------------------------------------------
 # Backend detection
 # ---------------------------------------------------------------------------
-def detect_backend(project_dir):
-    """Return ('claude', jsonl_path) or ('zcode', session_id) or (None, None)."""
+def detect_backend(project_dir, session_override=None):
+    """Return ('claude', jsonl_path) or ('zcode', session_id) or (None, None).
+
+    ``session_override`` (from --session) forces a backend: an id starting
+    with ``sess_`` selects a ZCode session id; anything else is matched
+    against Claude Code JSONL filenames (prefix match).
+    """
+    if session_override:
+        if session_override.startswith('sess_'):
+            return ('zcode', session_override)
+        matches = [f for f in (Path.home() / '.claude' / 'projects').rglob(
+            f'{session_override}*.jsonl')] if (Path.home() / '.claude' / 'projects').exists() else []
+        if matches:
+            return ('claude', max(matches, key=lambda x: x.stat().st_mtime))
+        return (None, None)
     # 1. Claude Code JSONL
     cc = find_claude_session_file(project_dir)
     if cc:
@@ -46,6 +64,13 @@ def get_project_dir():
         if arg == '--project-dir' and i + 1 < len(sys.argv):
             return sys.argv[i + 1]
     return os.getcwd()
+
+
+def get_session_override():
+    for i, arg in enumerate(sys.argv):
+        if arg == '--session' and i + 1 < len(sys.argv):
+            return sys.argv[i + 1]
+    return None
 
 
 def encode_project_path(project_dir):
@@ -777,7 +802,7 @@ def main():
     project_dir = get_project_dir()
     print(f"Project: {project_dir}")
 
-    backend, source = detect_backend(project_dir)
+    backend, source = detect_backend(project_dir, get_session_override())
     if backend is None:
         print("ERROR: Could not find a Claude Code JSONL transcript or a "
               "ZCode session database for this project.")

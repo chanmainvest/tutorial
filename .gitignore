@@ -1,3 +1,5 @@
+.minosa
+.mimosa/
 # Script dependencies
 scripts/node_modules/
 
@@ -225,3 +227,10 @@ __marimo__/
 
 # Graphify output
 graphify-out/
+
+# External reference materials (local only, not published)
+external_references/
+
+# Editor backup files
+*~
+*.un~

@@ -37,6 +37,7 @@ import os
 import re
 import sys
 import time
+from pathlib import Path
 
 PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SCRIPTS_DIR = os.path.dirname(os.path.abspath(__file__))
@@ -357,7 +358,13 @@ def normalize_week_title(text):
 
 
 def translate_file(provider_name, provider_cfg, source_path, target_path,
-                   locale, terminology, force=False, dry_run=False):
+                   locale, terminology, force=False, dry_run=False,
+                   output_root=None):
+    if output_root is not None:
+        # Path-traversal guard: the write target must stay inside the
+        # translation output tree.
+        if not Path(target_path).resolve().is_relative_to(Path(output_root).resolve()):
+            raise ValueError(f"target escapes output root: {target_path}")
     if not force and os.path.exists(target_path) and not is_placeholder(target_path):
         return {"status": "skipped"}
     if dry_run:
@@ -491,6 +498,7 @@ def main():
             result = translate_file(
                 provider_name, provider_cfg, source_path, target_path,
                 locale, terminology, force=force, dry_run=dry_run,
+                output_root=output_root,
             )
             dt = time.time() - t0
 
