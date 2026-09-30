@@ -1,0 +1,129 @@
+Horace: Welcome to Week One of the Chanma Investment Tutorial. I am Horace, and this is the lesson where I take a hammer to the chart that every personal finance book starts with.
+
+Stella: And I am Stella. I just graduated, I have some savings sitting in a bank account, and I want to know what to actually do with them. So I am going to ask the questions you are probably asking too.
+
+Horace: Today we answer the most basic question in finance. Why invest at all? And the way I want to answer it is by first burning down the answer the textbooks give you. Because that answer is wrong, and it has been wrong for my entire investing career.
+
+Stella: Strong opening.
+
+Horace: Let us go.
+
+Stella: Okay, so before we start, you told me to pull up the chart that every investing book opens with. Ten thousand dollars, eight percent a year, thirty years, you end up a millionaire. The line is beautiful. It just curves up forever.
+
+Horace: That chart is a fairy tale. Find me, in twenty twenty-six, where you can get a steady, risk-free eight percent a year.
+
+Stella: T-bills?
+
+Horace: T-bills paid roughly half a percent for most of the decade after two thousand eight. Investment-grade bonds got crushed in twenty twenty-two, the worst bond year in modern history. The S and P five hundred averages around ten percent, sure. But it does that through thirty-percent-up years, forty-percent-down years, and entire dead-flat decades. Never as a smooth line.
+
+Stella: So the chart is not wrong, it is just not real?
+
+Horace: It was drawn straight to make investing look like a math problem with a guaranteed answer. It is not. There is no risk-free eight percent. There never was. And the moment you think there is, you underestimate risk, you panic at the first drawdown, and you think the textbook lied to you. The textbook did lie to you. Just not in the way you think.
+
+Stella: Okay, so does the Rule of Seventy-Two also go in the trash?
+
+Horace: Straight to the trash. It says your money doubles every nine years at eight percent. Mathematically correct for a constant rate of return. The problem is constant rates of return do not exist. The moment you replace the constant with the actual sequence of real returns, with a two thousand eight in the middle, the rule breaks. The order of returns matters, and the rule has nothing to say about it.
+
+Stella: Then why is it in literally every finance book?
+
+Horace: Because it makes the author's job easy and it makes the reader feel smart. Neither of those things helps you when the market is down forty percent.
+
+Stella: Okay, so if the chart is a lie and the Rule of Seventy-Two is useless, why bother investing at all? Why not just keep my savings in the bank?
+
+Horace: Because the alternative is worse. Here is the part nobody tells you when you graduate. You are already in a bet. You did not choose it. The bet is that the cash sitting in your bank account will hold its purchasing power.
+
+Stella: And it does not.
+
+Horace: It does not. Inflation is the gravitational force every investor has to fight just to stand still. The race is not against zero. It is not did my account number go up. The race is against inflation. So the question is never should I take risk, because you are already taking risk. You are taking inflation risk whether you act or not. The real question is which risk pays you to bear it.
+
+Stella: So inflation is the opponent. Not the market.
+
+Horace: Inflation is the only opponent that matters. Everything else in this course gets evaluated against one question. Does this beat inflation, after tax, after fees, on a horizon I can actually hold? If yes, it earns a place in the portfolio. If no, it does not.
+
+Stella: Okay, but when the news says inflation came in at two point six percent, what is that number?
+
+Horace: That is the Consumer Price Index. C P I. Published by the Bureau of Labor Statistics. The Fed targets about two percent of it a year. Your pension adjustments, your Social Security raise, your tax brackets, inflation-protected bonds. All of it indexed to C P I.
+
+Stella: Got it. So that number is the truth?
+
+Horace: That number is a measurement choice. And the choice has been changed, repeatedly, in ways that consistently push the printed number lower. There are three specific games you need to know about.
+
+Stella: Three games. Let us hear them.
+
+Horace: Game one. Hedonic adjustment. The new iPhone has a better camera and costs the same as last year. The Bureau says you got more product for the same price, so that counts as deflation. They adjust the iPhone's price down in C P I to reflect the extra value. But you do not buy iPhone features. You buy an iPhone. You hand over the full sticker price.
+
+Stella: Wait. The price on the shelf is the same, but in the inflation number it counts as a price decrease?
+
+Horace: Correct. The Boskin Commission's own nineteen ninety-six estimate was that these adjustments knock half a percentage point to a full percentage point off C P I. Every year. Compounding.
+
+Stella: Okay, game two.
+
+Horace: Core inflation. The Fed does not target headline C P I. It targets Core P C E, a slightly different basket that already runs about zero point three points lower. And core means strip out food and energy, on the grounds that they are volatile.
+
+Stella: Strip out food and energy. The two things every household actually buys every week.
+
+Horace: The two things every household pays for first. And game three is substitution. If beef gets expensive, the Bureau assumes you will buy chicken instead, so they reduce the weight of beef in the basket. The things you can afford less of count for less in the inflation measure, precisely because they got expensive.
+
+Stella: That is incredible. The things getting most expensive are the things that count least.
+
+Horace: Right. Now ask who pays for that understatement. Your pension adjustment is indexed to the artificially low C P I. Your tax brackets are indexed to it. Inflation-protected bonds are linked to it. The Fed sets interest rates off it. If they undercount inflation by two points a year for twenty years, that compounds into roughly a forty-nine percent real cut to anyone whose income is C P I indexed.
+
+Stella: So when I set my hurdle rate, I should not anchor it to official C P I.
+
+Horace: Take the official number and add at least a couple of points for honesty. If they say C P I is two point five, plan to need at least four and a half to five percent real return just to stay even. That is the hurdle. Anything below that, you are going backward.
+
+Stella: Okay, so where does the inflation itself come from?
+
+Horace: Central banks created the money, and governments spent it. Look at the broad money supply, M two, of every major currency over the last twenty-five years. Every single line climbs. Every line has a visible vertical jump in twenty twenty. That is the COVID-era response. Synchronised global money creation, the largest peacetime expansion in modern history.
+
+Stella: Even the Hong Kong dollar? The Taiwan dollar?
+
+Horace: Even those. There is no honest major currency to escape into. That is the regime. And here is the second half. U S Treasury debt and U S money supply, plotted together. They climb together, with the same inflection points at two thousand eight and twenty twenty. When the government runs a deficit it issues bonds. When the central bank buys those bonds with newly created reserves, which is exactly what quantitative easing is, that is monetised debt.
+
+Stella: And the debt is now thirty-six trillion dollars?
+
+Horace: Thirty-six trillion. And every one percent rise in the average yield on that debt is roughly three hundred sixty billion dollars of additional annual interest expense. About sixty percent of the entire U S defence budget. So the political incentive to keep nominal interest rates artificially low is enormous.
+
+Stella: They cannot let rates rise.
+
+Horace: They cannot let real rates rise meaningfully. Which means bonds stop being a reliable inflation hedge. There is a name for this. Financial repression. Your parents' generation lived through the longest bond bull market in history, from nineteen eighty-two to roughly twenty twenty. Rates fell from fifteen percent to near zero, so bonds rose on top of their coupons. That regime is over. So the entire sixty-forty stocks-and-bonds portfolio that worked for forty years is structurally suspect going forward.
+
+Stella: Okay. So what does actually beat inflation? Because I am getting nervous.
+
+Horace: Good. Hold onto that. Let me make it concrete with fifty-five years of actual market history, run three different ways. Three savers. They start in nineteen seventy-one, the year the U S went off the gold standard. Each one deposits exactly ten thousand dollars a year, every year, for fifty-five years. No timing the market, no clever moves. The only thing that differs is where they put it.
+
+Stella: Same plan, different vehicle.
+
+Horace: Person A keeps it in cash. Pure currency, in a drawer. Person B parks it in short-term Treasury bills, the safest interest-bearing vehicle on the planet. Person C puts it in the S and P five hundred with all dividends reinvested. Each person has put in exactly five hundred fifty thousand dollars of their own money. Person A ends up with exactly five hundred fifty thousand. Person B ends up with about one point seven three million. Person C ends up with forty-two million.
+
+Stella: Forty-two million. From the same ten thousand a year.
+
+Horace: But nominal numbers lie. Let me restate all three in nineteen seventy-one purchasing power. Person C, the stock investor. Forty-two million nominal becomes about five million in real money. Enormous gain. Person B, the T-bill saver. One point seven three million nominal becomes about two hundred eight thousand in real money. Barely positive after inflation, and that includes the nineteen eighties when T-bills paid double-digit yields.
+
+Stella: And Person A?
+
+Horace: Person A deposited five hundred fifty thousand of their own money. After fifty-five years of inflation, it has the real purchasing power of about sixty-six thousand dollars. Saving diligently for fifty-five years, ending up with about six and a half years of deposits. Cash did not fail to grow. Inflation actively shrank it while Person A was being responsible.
+
+Stella: That is brutal. The cash saver was punished for doing what feels like the safe thing.
+
+Horace: The safe thing is the most dangerous thing. It is a slow, almost imperceptible bleed. And Person C did not get there through a magical smooth ten percent. Person C lived through nineteen seventy-three to seventy-four, the nineteen eighty-seven crash, the dot-com bust, two thousand eight, and the twenty twenty COVID crash, and just kept depositing and kept holding. Stocks won not because the path was easy, but because they were the only one of the three that stayed reliably ahead of the currency debasement.
+
+Stella: So let us land this. What are the takeaways?
+
+Horace: Three things. Number one. The textbook chart is a fairy tale. There is no risk-free eight percent. Anyone who shows you a smooth exponential curve as a forecast is selling you something.
+
+Stella: Throw the smooth chart away.
+
+Horace: Number two. You are already in a bet, the bet that cash holds its value. It does not. Inflation is the opponent, and the official inflation number understates the race by a couple of points every year. Plan to need at least four to five percent real return just to stand still.
+
+Stella: And number three?
+
+Horace: Number three. Looking at the last fifty-five years of actual data, only equities, plus a few real assets, have reliably won that race. Equities. Broad ownership of productive businesses. Gold and monetary metals. Productive real estate, cash-flowing, not raw land. Selected commodities, in the right part of the cycle. They beat inflation because they are denominated in things rather than in the currency the government is debasing. Bonds used to be on this list, from nineteen eighty-two through about twenty twenty. They no longer do. Cash never has. The job of the rest of this course is to teach you how to own the things that beat the printer, and at what price they are worth holding.
+
+Stella: And next week?
+
+Horace: Next week we start answering the how. The cheapest, simplest, most-proven way for an ordinary investor to own broad equity ownership of productive businesses is index funds and E T Fs. Why most professional fund managers cannot beat them. How they actually work. What to buy and what to avoid. That is Week Two.
+
+Stella: Got it. See you next week.
+
+Horace: Thanks for listening. If this is the kind of investing course you wish someone had given you when you graduated, subscribe so you do not miss Week Two. See you then.

@@ -8,7 +8,7 @@ Investment education platform ("Chanma Investment Tutorial") that synthesizes mu
 - A 52-week core course (beginner to advanced) in Markdown, organized into 5 levels
 - 30 side lessons for supplementary topics
 - A course overview page (home page) and a level overview page for each of the 5 levels
-- YouTube scripts with two-host format: **Horace** (陳馬, experienced retail investor/teacher) and **Stella** (小魚, recent college graduate/student)
+- YouTube scripts with two-host format: **Horace** (陳馬, experienced retail investor/teacher) and **Stella** (小魚, recent college graduate/student) — one script per lesson, kept in `<locale>/YouTube/` (e.g. `course/YouTube/week01_why_invest.md`)
 - Visual explanations rendered three ways depending on output:
   - **Static images embedded in markdown** — every visual concept has a static image so the markdown reads on its own. Procedural charts use Python (matplotlib) to generate the PNG; conceptual illustrations use AI-generated images (e.g., Nano Banana).
   - **Animations / video for YouTube** — the same visuals become animated clips or short video segments referenced in the YouTube script.
@@ -36,8 +36,14 @@ course/              # English course materials
   interactive/       # Live HTML/JS interactive demos that the website
                      # can swap in for the static image (same
                      # weekNN_topic.* naming convention as image/ and animation/)
-course_hk/           # Hong Kong Chinese translations
-course_tw/           # Taiwan Chinese translations
+  YouTube/           # YouTube scripts, one .md per lesson, same basename
+                     # as the lesson file (e.g. YouTube/week01_why_invest.md).
+                     # May also hold per-lesson podcast audio (.mp3),
+                     # spoken-form podcast scripts (<lesson>_podcast.txt),
+                     # and word-level transcripts (<lesson>_transcript.json/.srt)
+                     # — see YouTube/PODCAST.md for the audio workflow.
+course_hk/           # Hong Kong Chinese translations (same layout as course/,
+course_tw/           # Taiwan Chinese translations (incl. their own YouTube/)
 course_cn/           # Mainland China Chinese translations
 docs/                # Generated static website (do not edit directly)
 scripts/             # Build and translation scripts (all Python, run via uv)
@@ -55,10 +61,10 @@ Key source documents in `references/` drive content creation:
 
 ## Lesson Format
 
-Every lesson file (core weeks, side lessons, level overviews, and course overview) is a **single markdown file** containing both parts:
+Every lesson (core weeks, side lessons, level overviews, and course overview) has **two files** that must be kept in sync:
 
-1. **Reading section (Part 1)**: four top-level sections — `### 1. Why This Is Important`, `### 2. What You Need to Know`, `### 3. Common Misconceptions`, `### 4. Q&A` — written as text plus **static images embedded in the markdown**. Where a concept also has an interactive web component, the reading section includes a short prose description of how the interactive demo behaves (so the markdown alone is still self-contained). **The reading section is the canonical source of truth** for every lesson — if the YouTube script, static image, animation, or interactive demo ever disagrees with the reading section, the reading section wins and the others must be updated to match.
-2. **YouTube script section (Part 2)**: Same material adapted for two hosts (Horace = teacher, Stella = student). Includes `[ANIMATION: ...]` cues at the right locations pointing to clips in `course/animation/`, plus visual explanation descriptions.
+1. **Reading section**: the lesson markdown itself (e.g. `course/week01_why_invest.md`) — four top-level sections — `### 1. Why This Is Important`, `### 2. What You Need to Know`, `### 3. Common Misconceptions`, `### 4. Q&A` — written as text plus **static images embedded in the markdown**. Where a concept also has an interactive web component, the reading section includes a short prose description of how the interactive demo behaves (so the markdown alone is still self-contained). **The reading section is the canonical source of truth** for every lesson — if the YouTube script, static image, animation, or interactive demo ever disagrees with the reading section, the reading section wins and the others must be updated to match.
+2. **YouTube script**: the same material adapted for two hosts (Horace = teacher, Stella = student), in the `YouTube/` folder of the same locale (e.g. `course/YouTube/week01_why_invest.md`) — same basename as the lesson file, so each lesson maps 1:1 to its script. Includes `[ANIMATION: ...]` cues at the right locations pointing to clips in `course/animation/`, plus visual explanation descriptions.
 
 **Section numbering convention.** Use **decimal-style numbering**, not letter-prefixed lists:
 
@@ -66,17 +72,18 @@ Every lesson file (core weeks, side lessons, level overviews, and course overvie
 - Subsections under §2 (the "What You Need to Know" deep dive): `#### 2.1`, `#### 2.2`, `#### 2.3`, … (NOT bare `#### 1.`, `#### 2.`, which would shadow the top-level numbers).
 - If a §3 or §4 subsection ever needs to be its own H4, use `#### 3.1`, `#### 4.1`, etc. — same dotted-decimal pattern.
 
-This keeps cross-references unambiguous (`§2.4` is one specific subsection, not the fourth bullet under any of four parallel parents) and reads cleanly in both English and Chinese translations. The build strips the now-redundant `## Part 1: Reading Section` heading from the website (Part 2 is already stripped, so naming Part 1 is meaningless on the public site); the H3/H4 numbered sections become the visible top-level structure.
+This keeps cross-references unambiguous (`§2.4` is one specific subsection, not the fourth bullet under any of four parallel parents) and reads cleanly in both English and Chinese translations. The build strips the now-redundant `## Part 1: Reading Section` heading from the website (the YouTube script lives in a separate file and is not part of the web output, so naming Part 1 is meaningless on the public site); the H3/H4 numbered sections become the visible top-level structure.
 
 **Asset layout for a lesson:**
 - Static images and the Python code that generates procedural ones live under `image/` (e.g. `image/week01_compound_growth.png` + `image/week01_compound_growth.py`).
 - Animation clips / video segments for the YouTube script live under `course/animation/` (e.g. `animation/week01_compound_growth.mp4`).
 - Interactive HTML/JS demos for the website live under `interactive/` (e.g. `interactive/week01_compound_growth.html`). Same `weekNN_topic.*` naming convention as `image/` and `animation/` so the build can match them up.
+- YouTube scripts live under `YouTube/` in the same locale (e.g. `course/YouTube/week01_why_invest.md`), one script per lesson with the same basename as the lesson file.
 - The markdown file references the static image; the website upgrade step looks for a matching interactive component and, if it exists, swaps the static image for the live demo (with a toggle to fall back to the static image).
 
-**IMPORTANT: Both parts live in the same file intentionally.** When updating or editing any lesson content, you MUST also update the corresponding YouTube script in Part 2 of that same file to keep them consistent. The reading section and YouTube script cover the same material — they must stay in sync.
+**IMPORTANT: Lesson and script live in separate files — keep them in sync.** When updating or editing any lesson content, you MUST also update the corresponding YouTube script in `<locale>/YouTube/<same-filename>.md`. The reading section and YouTube script cover the same material — they must stay in sync.
 
-The website only displays Part 1 (reading section). `scripts/build.py` strips Part 2 (everything from `## Part 2: YouTube Script` onward) and the now-redundant `## Part 1: Reading Section` header from web output. It also strips the in-markdown "interactive demo description" prose for any lesson where an interactive component is actually present (the live component replaces it); where no interactive component exists, the description is removed and only the static image remains.
+The website only displays the reading section. The YouTube scripts live in `<locale>/YouTube/` and are not part of the web build (`scripts/build.py`'s Part 2 stripping is a no-op on the new layout, kept as a safety net). The build still strips the now-redundant `## Part 1: Reading Section` header from web output. It also strips the in-markdown "interactive demo description" prose for any lesson where an interactive component is actually present (the live component replaces it); where no interactive component exists, the description is removed and only the static image remains.
 
 ## YouTube Host Characters
 
@@ -194,7 +201,7 @@ before any lesson edit/review pass.
 
 All scripts are Python. **Always run them via `uv`** as the package manager (e.g. `uv run python scripts/build.py`) — `uv` resolves the project's dependencies (declared in `pyproject.toml`) without polluting the system Python. No Node.js dependencies are required for the website build itself; the only Node-based step is the optional chatbot embedding-cache prebuild (`scripts/build_chatbot_embeddings.mjs`, see On-device AI tutor below).
 
-- **Website**: `uv run python scripts/build.py` — generates static HTML from all markdown files with multilevel hamburger navigation, breadcrumbs, country flag language selector, dark/light theme toggle, and prev/next page buttons. YouTube scripts are stripped from web output. Where a matching interactive component exists in `interactive/`, the corresponding static image is replaced with the live component (the user can toggle back to the static image).
+- **Website**: `uv run python scripts/build.py` — generates static HTML from all markdown files with multilevel hamburger navigation, breadcrumbs, country flag language selector, dark/light theme toggle, and prev/next page buttons. YouTube scripts (in `<locale>/YouTube/`) are not included in the web output. Where a matching interactive component exists in `interactive/`, the corresponding static image is replaced with the live component (the user can toggle back to the static image).
 - **Static images**: Procedural images live under `image/` next to the Python script that generated them — run individually (e.g. `uv run python image/week01_compound_growth.py`) to regenerate the PNG.
 - **Animations**: Video clips / animated segments for the YouTube script live under `course/animation/`.
 - **Interactive demos**: HTML/JS components for the website live under `interactive/`. The build script auto-detects a matching `interactive/weekNN_topic.html` and swaps it in for the static image (with a toggle so the user can fall back to the static image). Canonical chart style (file structure, toggle-button pattern, theme variables, `?lang=` handling, postMessage height sync, CJK label rules): `.claude/docs/interactive-chart-style.md` — read before creating or editing any interactive chart.

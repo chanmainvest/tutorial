@@ -10,7 +10,10 @@ and generates a static website in docs/ with:
 - Country flag language selector (rendered via Twemoji for cross-platform display)
 - Dark/light theme toggle with localStorage persistence
 - Prev/next page buttons in footer
-- YouTube script sections filtered out (article content only)
+- YouTube scripts are NOT part of the site: since the 2026-09-29
+  restructure they live in <locale>/YouTube/ (one .md per lesson, same
+  basename), separate from the lesson markdown; the build validates the
+  1:1 lesson<->script pairing and warns about mismatches
 - A Glossary page generated from scripts/terminology.json
 - Professional, trust-building visual theme (light + dark variants)
 
@@ -278,11 +281,17 @@ def markdown_to_html(md):
 # Strip YouTube script section from markdown
 # ---------------------------------------------------------------------------
 def strip_youtube_section(md):
-    """Strip Part 2 (YouTube Script) regardless of locale, AND strip the
-    now-redundant "Part 1: Reading Section" header (since Part 2 is gone,
-    naming Part 1 is meaningless on the website).
+    """Strip a legacy embedded Part 2 (YouTube Script), AND strip the
+    now-redundant "Part 1: Reading Section" header.
 
-    English uses `## Part 2: YouTube Script`; Chinese translations use the
+    Since the 2026-09-29 restructure, YouTube scripts live in separate
+    files under <locale>/YouTube/ (one per lesson, same basename as the
+    lesson file), so lesson markdown no longer contains Part 2. The
+    Part 2 pattern below is kept as a safety net: if a script section
+    ever ends up embedded in a lesson file again, it is still stripped
+    from web output.
+
+    English used `## Part 2: YouTube Script`; Chinese translations used the
     locale-translated equivalent (e.g. `## 第二部分：YouTube 腳本`,
     `## 第二部分：YouTube脚本`). All variants contain "YouTube" in the
     `## ` heading, which we use as the anchor.
@@ -303,6 +312,68 @@ def strip_youtube_section(md):
         flags=re.MULTILINE,
     )
     return md
+
+
+# ---------------------------------------------------------------------------
+# YouTube script pairing check
+# ---------------------------------------------------------------------------
+# Lesson files that intentionally have no YouTube script.
+SCRIPTLESS_FILES = {"disclaimer.md", "faq.md"}
+
+# Matches a "## ...YouTube..." section heading (any locale) at line start.
+YOUTUBE_HEADING_RE = re.compile(r"^## [^\n]*[Yy]ou[Tt]ube", re.MULTILINE)
+
+
+def check_youtube_pairing(lang_dirs):
+    """Verify the lesson <-> YouTube script 1:1 pairing.
+
+    Since the 2026-09-29 restructure, each locale keeps its YouTube
+    scripts in <locale>/YouTube/, one .md per lesson with the same
+    basename as the lesson file. This check warns (without failing the
+    build) about:
+      - scripts with no matching lesson file (orphans),
+      - lesson files with no matching script (except SCRIPTLESS_FILES),
+      - lesson files that still embed a script section (legacy layout;
+        the website would strip it, but the script belongs in YouTube/).
+    """
+    problems = 0
+    for locale, lang_dir in lang_dirs.items():
+        if not os.path.isdir(lang_dir):
+            continue
+        lessons = {
+            f for f in os.listdir(lang_dir)
+            if f.endswith(".md")
+            and os.path.isfile(os.path.join(lang_dir, f))
+            and f != "REWRITE_GUIDE.md"  # agent instructions, not a lesson
+        }
+        yt_dir = os.path.join(lang_dir, "YouTube")
+        scripts = set()
+        if os.path.isdir(yt_dir):
+            scripts = {
+                f for f in os.listdir(yt_dir)
+                if f.endswith(".md")
+                and os.path.isfile(os.path.join(yt_dir, f))
+            }
+        for s in sorted(scripts - lessons):
+            print(f"  WARNING [{locale}]: YouTube/{s} has no matching lesson file")
+            problems += 1
+        for lesson in sorted(lessons - scripts - SCRIPTLESS_FILES):
+            print(f"  WARNING [{locale}]: {lesson} has no matching YouTube script")
+            problems += 1
+        for lesson in sorted(lessons):
+            try:
+                with open(os.path.join(lang_dir, lesson), encoding="utf-8") as fh:
+                    content = fh.read()
+            except OSError:
+                continue
+            if YOUTUBE_HEADING_RE.search(content):
+                print(f"  WARNING [{locale}]: {lesson} still embeds a YouTube script section")
+                problems += 1
+    if problems:
+        print(f"  {problems} YouTube pairing warning(s): "
+              "lesson and script should stay 1:1 in sync.")
+    else:
+        print("  YouTube lesson/script pairing OK.")
 
 
 def extract_title(md):
@@ -1915,6 +1986,7 @@ def build():
 
     pages = build_page_list(course_files)
     lang_dirs = {"en": course_dir, "hk": hk_dir, "tw": tw_dir, "cn": cn_dir}
+    check_youtube_pairing(lang_dirs)
     menus = {loc: build_nav_menu(pages, loc, lang_dirs) for loc in LOCALES}
 
     glossary_en, glossary_lang = build_glossary_html()
