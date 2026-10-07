@@ -1,1 +1,19 @@
-{"dependencies":{"@remotion/cli":"^4.0.0","react":"^18.3.1","react-dom":"^18.3.1","remotion":"^4.0.0"},"description":"Remotion talking-head videos for the Chanma Investment Tutorial podcast","name":"chanma-podcast-video","private":true,"scripts":{"render":"remotion render","render:preview":"remotion render Week01Preview out/preview.mp4","render:week01":"remotion render Week01 out/week01_why_invest_video.mp4","start":"remotion studio"},"version":"1.0.0"}
+{
+  "dependencies": {
+    "@remotion/cli": "^4.0.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "remotion": "^4.0.0",
+    "@remotion/media-utils": "4.0.530"
+  },
+  "description": "Remotion talking-head videos for the Chanma Investment Tutorial podcast",
+  "name": "chanma-podcast-video",
+  "private": true,
+  "scripts": {
+    "render": "remotion render",
+    "render:preview": "remotion render Week01Preview out/preview.mp4",
+    "render:week01": "remotion render Week01 out/week01_why_invest_video.mp4",
+    "start": "remotion studio"
+  },
+  "version": "1.0.0"
+}

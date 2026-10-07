@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useMemo} from 'react';
 import {
   AbsoluteFill,
   Audio,
@@ -7,37 +7,39 @@ import {
   useCurrentFrame,
   useVideoConfig,
 } from 'remotion';
-import {Character, HostImages} from './Character';
-import {Line, getLineAt} from './transcript';
+import {Character, HostRig} from './Character';
+import {DIAGRAM_TIMELINE, Diagrams} from './Diagrams';
+import {CaptionCue, Line, buildCaptionCues, getCaptionAt} from './transcript';
 
 const FONT = 'Inter, system-ui, -apple-system, sans-serif';
 
-const Caption: React.FC<{lines: Line[]}> = ({lines}) => {
+const Caption: React.FC<{cues: CaptionCue[]}> = ({cues}) => {
   const frame = useCurrentFrame();
   const {fps} = useVideoConfig();
-  const line = getLineAt(lines, frame / fps);
-  if (!line) {
+  const cue = getCaptionAt(cues, frame / fps);
+  if (!cue) {
     return null;
   }
   return (
     <div
       style={{
         position: 'absolute',
-        bottom: 56,
+        bottom: 48,
         left: '50%',
         transform: 'translateX(-50%)',
-        maxWidth: 1050,
-        backgroundColor: 'rgba(15,12,8,0.62)',
+        maxWidth: 1240,
+        backgroundColor: 'rgba(15,12,8,0.66)',
         color: '#fff',
-        borderRadius: 18,
-        padding: '18px 34px',
+        borderRadius: 14,
+        padding: '14px 30px',
         fontFamily: FONT,
-        fontSize: 38,
-        lineHeight: 1.45,
+        fontSize: 40,
+        lineHeight: 1.3,
         textAlign: 'center',
+        whiteSpace: 'nowrap',
       }}
     >
-      {line.text}
+      {cue.text}
     </div>
   );
 };
@@ -105,13 +107,24 @@ const IntroTitle: React.FC<{weekLabel: string; title: string; subtitle: string}>
 export const PodcastVideo: React.FC<{
   lines: Line[];
   audioSrc: string;
+  /** Precomputed per-frame voice loudness (one value per frame at 30fps). */
+  loudness: number[];
   backgroundSrc: string;
-  horace: HostImages;
-  stella: HostImages;
+  horace: HostRig;
+  stella: HostRig;
   weekLabel: string;
   title: string;
   subtitle: string;
-}> = ({lines, audioSrc, backgroundSrc, horace, stella, weekLabel, title, subtitle}) => {
+}> = ({lines, audioSrc, loudness, backgroundSrc, horace, stella, weekLabel, title, subtitle}) => {
+  const cues = useMemo(() => buildCaptionCues(lines), [lines]);
+
+  // Hosts step back (shrink slightly) while a diagram takes the stage.
+  const frame = useCurrentFrame();
+  const {fps} = useVideoConfig();
+  const diagramActive = DIAGRAM_TIMELINE.some(
+    (s) => frame / fps >= s.start && frame / fps < s.end,
+  );
+
   return (
     <AbsoluteFill style={{backgroundColor: '#14100b'}}>
       <Img
@@ -129,22 +142,27 @@ export const PodcastVideo: React.FC<{
         speaker="Horace"
         displayName="Horace"
         role="Teacher"
-        images={horace}
+        rig={horace}
         lines={lines}
+        loudness={loudness}
         x={440}
-        width={560}
-        leanDir={1}
+        width={650}
+        apart={-130}
+        recessed={diagramActive}
       />
       <Character
         speaker="Stella"
         displayName="Stella"
         role="Student"
-        images={stella}
+        rig={stella}
         lines={lines}
+        loudness={loudness}
         x={1480}
-        width={560}
-        leanDir={-1}
+        width={650}
+        apart={130}
+        recessed={diagramActive}
       />
+      <Diagrams />
       {/* episode badge */}
       <div
         style={{
@@ -164,7 +182,7 @@ export const PodcastVideo: React.FC<{
       >
         {weekLabel}
       </div>
-      <Caption lines={lines} />
+      <Caption cues={cues} />
       <IntroTitle weekLabel={weekLabel} title={title} subtitle={subtitle} />
       <Audio src={audioSrc} />
     </AbsoluteFill>

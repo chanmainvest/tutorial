@@ -14,13 +14,15 @@ course/YouTube/
   assets/
     studio_background.png            # 16:9 studio backdrop
     characters/
-      horace_{base,mouth_half,mouth_open,blink}_cutout.png
-      stella_{base,mouth_half,mouth_open,blink}_cutout.png
+      horace_{base,mouth_half,mouth_open,blink}.png   # portraits (cream bg)
+      stella_{base,mouth_half,mouth_open,blink}.png
+      horace_body.png, horace_head_{base,mouth_half,mouth_open,blink}.png
+      stella_body.png, stella_head_{...}.png, stella_ponytail.png  # rig layers
   remotion/                          # this project
     src/
       Root.tsx        # compositions: Week01 (full), Week01Preview (10s)
       PodcastVideo.tsx# scene: background, hosts, captions, title, audio
-      Character.tsx   # the rig (mouth, blink, bob, lean, dimming)
+      Character.tsx   # the layered rig (static body, neck-pivot head, tail)
       transcript.ts   # timing helpers
 ```
 
@@ -28,18 +30,47 @@ Assets are imported via relative paths — no duplication into `public/`.
 
 ## The rig (`Character.tsx`)
 
-- **Mouth**: while one of the host's *words* is sounding (word-level windows
-  from the transcript), the mouth alternates `mouth_half` / `mouth_open`
-  at ~12 fps. Between words it rests on `base`.
-- **Blink**: every 4–7 s (deterministic per host, so it doesn't look synced),
-  5 frames of the `blink` variant — never while a word is sounding.
-- **Head/body**: the active speaker bobs (±7 px @ 1.4 Hz) and tilts
-  (±1.6°); both hosts breathe continuously (±0.8% scale @ 0.25 Hz).
-- **Focus**: the active speaker leans 14 px toward center and scales up
-  slightly; the listener dims (`brightness(0.8) saturate(0.9)`).
-- **Name pills** under each host; **captions** show the current line's text
-  in a bottom-center bar; an **intro title** fades in/out over the first
-  4.5 s.
+Layered sprites (built by `assets/make_rig.py`, all 1600×1600 and
+pixel-aligned): a **body** layer that never moves, a **head** layer
+that pivots at the neck, and for Stella a **ponytail** layer nested
+inside the head group. (The previous whole-portrait bob made the whole
+body — name tag included — wobble.)
+
+- **Mouth**: driven by the real voice — a per-frame RMS loudness
+  envelope is precomputed offline from the mp3
+  (`week01_loudness_envelope.json`; thresholds calibrated from the
+  actual audio) and picks the head sprite (closed / `mouth_half` /
+  `mouth_open`). Gated on the transcript's speaker turns, so only the
+  active speaker's mouth moves; pauses read as a closed mouth.
+- **Blink**: every ~3.5–5.5 s (deterministic per host, so they don't
+  blink in sync), 4 frames of the `blink` head sprite — allowed while
+  speaking, just not mid wide-open mouth.
+- **Head**: while speaking, gentle nods pivoting at the neck (±~1.7°
+  + a few px bob, amplitude scaled by loudness); while listening,
+  a barely-there idle sway. The body and name pill never move.
+- **Ponytail**: pendulum sway lagging the head nod (plus a soft idle
+  sway), pivoting at the hair tie.
+- **Focus**: the listener dims (`brightness(0.8) saturate(0.9)`).
+  While a diagram is on screen, both hosts shrink to 85% and slide
+  ±130 px apart, leaving the center to the chart.
+- **Name pills** under each host (static); **captions** show one line
+  at a time (transcript lines chunked on word boundaries: ≤7 words /
+  ≤44 chars) in a bottom-center bar; an **intro title** fades in/out
+  over the first 4.5 s.
+
+## Diagrams (`Diagrams.tsx`)
+
+Animated SVG overlays timed to the transcript, for visual learning:
+
+- the four `[ANIMATION:]` cues from the YouTube script — the textbook
+  chart draws then cracks into a jagged real chart with crash labels;
+  Rule-of-72 doubling bars; the inflation treadmill (cash / bonds /
+  stocks runners); the outro card —
+- plus the CPI "three games" cards, M2 money-supply lines with the 2020
+  jump, the cash-vs-T-bills-vs-stocks 55-year bars (morphing from
+  nominal to 1971 purchasing power), and the three-takeaways cards.
+
+To retime or add a diagram, edit `DIAGRAM_TIMELINE` and add a component.
 
 ## Commands
 

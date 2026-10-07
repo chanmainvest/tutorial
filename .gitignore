@@ -228,6 +228,10 @@ __marimo__/
 # Graphify output
 graphify-out/
 
+# Rendered video artifacts — Remotion renders and preview clips are
+# build products, not source (episode renders live outside the repo)
+course/YouTube/**/*.mp4
+
 # External reference materials (local only, not published)
 external_references/
 

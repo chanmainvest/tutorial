@@ -8,8 +8,10 @@ same style anchor so they read as one show. Designed 2026-09-29.
 
 ## The hosts
 
-- **Horace** (teacher): middle-aged East Asian man, gray-templed hair,
-  round glasses, navy cardigan over white shirt. Warm, confident.
+- **Horace** (teacher): middle-aged East Asian man, all-black hair
+  (redesigned 2026-10-06: no more gray temples), sporty Oakley-style
+  glasses with a black frame, black turtleneck like Steve Jobs.
+  Warm, confident.
 - **Stella** (student): young East Asian woman, high ponytail,
   mustard-yellow hoodie. Bright, eager, curious.
 
@@ -33,29 +35,36 @@ Variants were made as image-edits of the base portrait, so pose,
 clothing, framing and background stay identical — only the mouth/eyes
 change. To add new expressions later, edit the `_base` image the same way.
 
-## Rig plan (Remotion)
+## Rig (Remotion) — layered, head separate from body
 
-Simple 2D "lip-flap" rig — no bone animation needed:
+`make_rig.py` splits each portrait into pixel-aligned 1600×1600
+layers (same flood-fill alpha as the cutouts, no bbox crop):
 
-1. **Mouth movement** — swap between `base` / `mouth_half` / `mouth_open`
-   per active speaker. Drive it from `week01_why_invest_transcript.json`:
-   a word is being spoken inside its `[start, end]` window → cycle
-   half → open → half at ~8–10 fps; outside any word → `base`.
-   (Cheaper alternative: swap on audio amplitude buckets.)
-2. **Blinks** — swap in `*_blink.png` for ~150 ms every 3–6 s (randomized),
-   per character independently.
-3. **Head movement** — procedural: gentle vertical bob (±6 px, sine ~0.5 Hz)
-   while a character speaks; subtle tilt (±2°) on emphasis words.
-   Apply to the whole sprite (head and body move as one — reads fine at
-   this cartoon style).
-4. **Body movement** — slow sway / scale "breathing" (±1.5% scale, ~4 s
-   period) on both characters at all times; slight lean-in (translate
-   toward center ~10 px) for the active speaker.
-5. **Speaker focus** — dim/scale-down the listener slightly
-   (brightness 0.85, scale 0.97) while the other speaks; swap on turn
-   boundaries from the transcript's `speaker` field.
-6. **Layout** — `studio_background.png` full-bleed 16:9; Horace left,
-   Stella right; name captions optional.
+| File | Use |
+|---|---|
+| `characters/<name>_body.png` | Torso only (head erased; collar/hood hides the seam). Never moves. |
+| `characters/<name>_head_<variant>.png` | Head only, 4 mouth/blink variants, extends ~50 px past the split for overlap |
+| `characters/stella_ponytail.png` | Stella's ponytail as its own layer (dilated ~24 px under the head so the seam never opens) |
+
+Pivots (1600-canvas px): Horace neck (795, 950) — the turtleneck
+collar makes the seam invisible; Stella neck (770, 985), ponytail
+tie (865, 155). Stella's body layer has the ponytail region erased
+and the shoulder patched with a local-average fill.
+
+Motion (see `remotion/src/Character.tsx`):
+
+1. **Mouth** — head sprite swaps base/half/open from the precomputed
+   per-frame loudness envelope of the real audio, gated on speaker
+   turns.
+2. **Head** — only the head moves: gentle nods/tilts pivoting at the
+   neck while speaking, amplitude scaled by loudness; near-still
+   idle sway while listening. Body and name pill never move.
+3. **Ponytail** — nested in the head group (inherits head motion)
+   plus its own lagged pendulum sway at the tie.
+4. **Blinks** — blink head sprite ~130 ms every ~3.5–5.5 s per host,
+   speaking or not (skipped only mid wide-open mouth).
+5. **Focus** — listener dims; hosts shrink to 85% while a diagram
+   is on screen.
 
 ## Making more characters / expressions
 
@@ -69,8 +78,9 @@ with the `<name>_<expression>.png` naming.
 
 The portraits above have flat cream backgrounds. `make_cutouts.py`
 (edge flood-fill + 1px edge tighten) produces `*_cutout.png` variants
-with transparent backgrounds for compositing over the studio backdrop in
-the Remotion video. Re-run it after any portrait redraw.
+with transparent backgrounds. (The Remotion video itself now
+composites the `make_rig.py` layers above instead; the cutouts remain
+handy for thumbnails/stills.) Re-run after any portrait redraw.
 Implementation notes: PIL's `floodfill` must run on a grayscale copy of
 the photo (it compares against the seed pixel's own value), and the fill
 value must be far from the background luma — fill with 0, not 255,

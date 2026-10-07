@@ -4,16 +4,20 @@ import {PodcastVideo} from './PodcastVideo';
 import {Line} from './transcript';
 
 import transcriptData from '../../week01_why_invest_transcript.json';
+import envelopeData from '../../week01_loudness_envelope.json';
 import audioSrc from '../../week01_why_invest.mp3';
 import backgroundSrc from '../../assets/studio_background.png';
-import horaceBase from '../../assets/characters/horace_base_cutout.png';
-import horaceHalf from '../../assets/characters/horace_mouth_half_cutout.png';
-import horaceOpen from '../../assets/characters/horace_mouth_open_cutout.png';
-import horaceBlink from '../../assets/characters/horace_blink_cutout.png';
-import stellaBase from '../../assets/characters/stella_base_cutout.png';
-import stellaHalf from '../../assets/characters/stella_mouth_half_cutout.png';
-import stellaOpen from '../../assets/characters/stella_mouth_open_cutout.png';
-import stellaBlink from '../../assets/characters/stella_blink_cutout.png';
+import horaceBody from '../../assets/characters/horace_body.png';
+import horaceHeadBase from '../../assets/characters/horace_head_base.png';
+import horaceHeadHalf from '../../assets/characters/horace_head_mouth_half.png';
+import horaceHeadOpen from '../../assets/characters/horace_head_mouth_open.png';
+import horaceHeadBlink from '../../assets/characters/horace_head_blink.png';
+import stellaBody from '../../assets/characters/stella_body.png';
+import stellaHeadBase from '../../assets/characters/stella_head_base.png';
+import stellaHeadHalf from '../../assets/characters/stella_head_mouth_half.png';
+import stellaHeadOpen from '../../assets/characters/stella_head_mouth_open.png';
+import stellaHeadBlink from '../../assets/characters/stella_head_blink.png';
+import stellaPonytail from '../../assets/characters/stella_ponytail.png';
 
 const FPS = 30;
 const lines = (transcriptData as {lines: Line[]}).lines;
@@ -22,9 +26,26 @@ const durationSecs = (transcriptData as {duration_secs: number}).duration_secs;
 const week01Props = {
   lines,
   audioSrc,
+  loudness: (envelopeData as {envelope: number[]}).envelope,
   backgroundSrc,
-  horace: {base: horaceBase, half: horaceHalf, open: horaceOpen, blink: horaceBlink},
-  stella: {base: stellaBase, half: stellaHalf, open: stellaOpen, blink: stellaBlink},
+  horace: {
+    body: horaceBody,
+    headBase: horaceHeadBase,
+    headHalf: horaceHeadHalf,
+    headOpen: horaceHeadOpen,
+    headBlink: horaceHeadBlink,
+    neckPivot: {x: 795 / 1600, y: 950 / 1600},
+  },
+  stella: {
+    body: stellaBody,
+    headBase: stellaHeadBase,
+    headHalf: stellaHeadHalf,
+    headOpen: stellaHeadOpen,
+    headBlink: stellaHeadBlink,
+    ponytail: stellaPonytail,
+    neckPivot: {x: 770 / 1600, y: 985 / 1600},
+    tailPivot: {x: 865 / 1600, y: 155 / 1600},
+  },
   weekLabel: 'WEEK 1',
   title: 'Why Invest?',
   subtitle: 'The textbook chart is a lie',
