@@ -1,0 +1,239 @@
+Horace: Welcome to Week Two of the Chanma Investment Tutorial. I am Horace. Last week we answered the most basic question in finance: why invest at all? This week we answer the practical one: what do you actually buy?
+
+Stella: And I am Stella. Last week Horace convinced me that cash sitting in a bank account is quietly melting. So this week he has to tell me what to do instead, and apparently the answer is one single fund.
+
+Horace: If you watch this one video and do absolutely nothing else with your financial life — no books, no podcasts, no stock-picking apps — you will still beat almost every professional fund manager on Wall Street.
+
+Stella: That is a big claim.
+
+Horace: It is not my claim. It is what the data has said for forty years. The answer is a low-cost broad-market index E T F. Not your bank's wealth manager. Not your brother-in-law's hot tip. Not the structured product an insurance agent is desperate to sell you.
+
+Stella: And yet almost nobody actually does this.
+
+Horace: Because there is a multi-trillion-dollar industry whose paychecks depend on you not doing it. Today I want to show you the foundation of my own portfolio — and then, at the very end, I will tell you the one honest thing nobody else in this category will admit: this strategy has worked for forty years, and it is not guaranteed to work forever.
+
+Stella: Cliffhanger noted. Let us start with the basics.
+
+Horace: Before we talk about the fund, we have to define the index. An index is just a list of stocks that follows a set of rules. Nobody manages it. The S and P five hundred is "the five hundred largest U S companies that meet certain liquidity and listing rules, weighted by market value." That is the entire definition. A computer can run it.
+
+Stella: When the news says "the market is up two percent," they mean the S and P five hundred.
+
+Horace: Almost always. The S and P five hundred is the headline index in the U S, and it represents roughly eighty percent of the total U S market value.
+
+Stella: Are all five hundred companies weighted equally?
+
+Horace: No, and this is the part most people miss. The S and P five hundred is weighted by market capitalisation. Apple at three trillion dollars gets about a seven percent weight. The smallest constituent at ten billion gets about two hundredths of one percent.
+
+Horace: And the top ten companies — Apple, Microsoft, Nvidia, Alphabet, Amazon, Meta, and a few others — together make up roughly thirty to thirty-five percent of the entire index.
+
+Stella: So when I "buy the S and P five hundred," I am really buying a concentrated mega-cap position.
+
+Horace: A much more concentrated mega-cap-tech position than the name "five hundred stocks" suggests. Remember that. We will come back to it later in the course.
+
+Horace: The index fund did not exist until nineteen seventy-six. Before that, every mutual fund in America was actively managed — smart people in suits picking stocks and charging one to two percent per year. The math was the same then as now: most of them lost to the market average. The academic finding was there, but nobody had wrapped it in a product yet.
+
+Stella: Until somebody did.
+
+Horace: A man named Jack Bogle. Bogle had been ousted from Wellington Management in nineteen seventy-four. In nineteen seventy-five he founded a strange new fund company called Vanguard, structured as a mutual — owned by its own shareholders, no outside profit motive. In nineteen seventy-six Vanguard launched the First Index Investment Trust. It would buy all five hundred S and P five hundred names in their index weights and charge an extremely low fee.
+
+Stella: How did Wall Street take it?
+
+Horace: Wall Street mocked it. The press called it "Bogle's Folly." Brokers refused to sell it because there was no commission to earn. The launch raised eleven million dollars — a fraction of the one hundred fifty million Bogle had targeted. Competitors called it "un-American" and "a recipe for guaranteed mediocrity."
+
+Stella: And today?
+
+Horace: Vanguard manages over eight trillion dollars. The index-fund-and-E T F category is over twenty trillion globally. Bogle's "folly" became the dominant form of retail equity investing on the planet. And here is what makes him a hero of mine: because Vanguard is mutually owned, the savings flowed back to fund-holders, not to him personally. Every other founder of an eight-trillion-dollar asset manager would be on the Forbes list. Bogle wasn't. He died in twenty nineteen.
+
+Stella: A finance hero who didn't enrich himself. That is a short list.
+
+Horace: It is a list of one. His own line was the best summary: "Don't look for the needle in the haystack. Just buy the haystack."
+
+Horace: Quick wrapper distinction, because people get confused. An index fund is a strategy — track the index. That strategy can be sold in two different wrappers: a mutual fund, which prices and trades once per day at the closing N A V, or an E T F, which trades on an exchange in real time, like a stock.
+
+Stella: Which one wins?
+
+Horace: In a regular taxable brokerage account in twenty twenty-six, the E T F wins on almost every dimension that matters — lower minimums, real-time pricing, dramatically better tax efficiency from the in-kind redemption mechanism, lower expense ratios on average. The only places a mutual fund still beats the E T F are inside a four oh one k, where the menu is forced and the tax issue doesn't matter, and for set-and-forget auto-investing in a fixed dollar amount, which Vanguard's mutual funds do beautifully.
+
+Stella: Then why are mutual funds still everywhere?
+
+Horace: Inertia. Trillions of dollars of legacy money is sitting in four oh one ks, I R As, and old brokerage statements where switching out would crystallise a big taxable gain. They linger because moving them costs money, not because they are better. The new dollar should almost always go into an E T F.
+
+Horace: Here is the central data point. Every year, S and P Dow Jones Indices publishes the SPIVA scorecard — S P I V A, S and P Indices Versus Active. Over a twenty-year window, roughly ninety percent of U S large-cap fund managers underperform the S and P five hundred.
+
+Stella: Ninety out of one hundred. With teams of analysts and Ph Ds in finance. Losing to a list.
+
+Horace: And the killer follow-up: the ten who won are not the same ten next decade. S and P's persistence studies show top-quartile funds drop out of the top quartile over the next five-year window more often than not. Past performance does not predict future performance. That warning at the bottom of every fund prospectus is true.
+
+Stella: So why can't they win? They are obviously smart.
+
+Horace: Five reasons, and they are structural — not a matter of effort. One — fees. Active funds charge half a percent to one and a half percent. An index E T F charges three hundredths of a percent. The active manager has to beat the index by more than a full percent every year just to break even with the cheap option. Two — trading costs. Bid-ask, market impact, commissions. High turnover bleeds. Three — taxes. Turnover triggers capital-gains distributions in mutual funds, taxed in the year they are paid. Four — the market is mostly efficient. Tens of thousands of pros are reading the same ten-K filings and the same satellite data. Real edge is rare. Five — survivorship bias. Funds that perform badly get quietly killed or merged away. The remaining "active fund" universe looks better than it actually is, because the worst losers have been buried.
+
+Stella: Translation: of every hundred professional stock-pickers, ninety lose to a computer running a list of five hundred names.
+
+Horace: Over twenty years. Yes.
+
+Horace: Now I want to make the fee point unmissable. Imagine you put one hundred thousand dollars in at age thirty. You earn ten percent gross every year for thirty years. The only thing that changes is the fee.
+
+Horace: Look at the bottom row. A two percent wrapper costs you over seven hundred thousand dollars on a hundred-thousand-dollar investment. That is not a fee. That is a house. Possibly two houses, depending on the city.
+
+Stella: And that money goes to —
+
+Horace: The fund company's payroll. The marketing budget. The office lease. The C E O's compensation package. It is your retirement, transferred.
+
+Stella: What about the years the market drops?
+
+Horace: You still pay the fee. The year the market is down thirty percent, you pay it. The year the manager beats the index by half a percent, you still owe the full one or two. The fee is the only number on a fund prospectus that is guaranteed.
+
+Stella: And the data on lower-fee funds?
+
+Horace: Morningstar has confirmed it across asset classes and decades. Within any fund category, the cheapest fund is, on average, the best fund in the category. Lower fee, higher expected future return. That is the most replicated finding in fund research. Most consumer instinct says "you get what you pay for." In funds, the relationship is reversed.
+
+Horace: If active funds are this bad, why does every bank, every brokerage, every "wealth management" branch keep selling them? Because the advisor's compensation is structured to make selling them rational for the advisor — even when it is irrational for you.
+
+Horace: Three compensation models. Commission-based — the advisor gets paid by the fund company for every product sold. Conflict: high. Bigger fee, bigger commission, the more they steer you to it. Fee-based — a mix of fees from you plus commissions from funds. Conflict: moderate. Fee-only fiduciary — flat fee or a percentage of your assets, paid only by you, never by the fund. Conflict: low. Same pay regardless of what they pick.
+
+Stella: So there is one question that cuts through everything?
+
+Horace: One question. Memorise it. Ask every advisor who ever sits across from you: "Are you a fiduciary, and are you fee-only?" A fiduciary is legally required to act in your best interest. A non-fiduciary salesperson is required only to recommend something "suitable" — a much lower bar that has historically allowed the sale of high-fee garbage to anyone old enough to sign.
+
+Stella: And the bank's "private wealth manager"?
+
+Horace: Gets paid both ways. The bank earns the front-end load when you buy and a slice of the ongoing twelve b one marketing fee for as long as you hold it. You are not their client. You are their product. The fund company is paying them to deliver you.
+
+Stella: What if I really want to push back on one of those advisors?
+
+Horace: Say this, in writing: "Show me the all-in cost — expense ratio, sales loads, twelve b one fees, advisory fee, account fees — for me to hold this fund for ten years. And show me your firm's compensation from that fund family." If they refuse or stall, you have your answer.
+
+Stella: And the default rule for the rest of us?
+
+Horace: Unless you have several million dollars and a genuinely complex tax situation, you do not need a financial advisor. You need an E T F and an automatic monthly transfer.
+
+Horace: I want to be unusually direct here. Variable universal life. Indexed universal life. Whole life sold as an "investment." Equity-linked savings products. Structured annuities marketed to retail savers. With very rare exception, these are predatory products designed to extract fees from people who do not realise they are being charged.
+
+Stella: That is a strong line.
+
+Horace: It is a true line. The pitch is always the same — tax-advantaged growth, principal protection, stock-market upside without the downside, forced savings discipline. The reality is also always the same.
+
+Horace: Five to ten percent surrender charges if you exit in the first five to ten years. Two to four percent all-in annual fees, hidden inside opaque language — "mortality and expense charge," "rider fee," "administrative charge," "fund management fee," all stacking. Net returns that lag a basic E T F by enormous margins — often delivering two to four percent net when the underlying market gave eight to ten. And — this is the kicker — agent commissions that can equal eighty to one hundred percent of your first year's premium. That is exactly why they are pushed so hard.
+
+Stella: So what is the rule?
+
+Horace: One sentence, write it on the wall: "Insurance is for risk transfer. Investing is for wealth creation. Never mix them."
+
+Stella: What about people who genuinely need life insurance?
+
+Horace: If you have dependents who would be financially harmed by your death, buy term life. Pure, cheap, fixed-period coverage with no investment component. A healthy thirty-year-old can buy a twenty-year, one-million-dollar term policy for about twenty-five to thirty-five dollars a month.
+
+Horace: Then take the difference between the term premium and what an agent would have charged you for whole life — and put that difference into an index E T F. This is the textbook strategy: buy term and invest the difference. Over any twenty-year window it beats whole life on after-cost net worth by orders of magnitude.
+
+Stella: And the agent's response is always —
+
+Horace: "Whole life forces you to save." So does an automatic monthly transfer to your brokerage account. And that one doesn't pay them an eighty percent commission.
+
+Horace: I have spent the last several segments beating up on active management. To stay intellectually honest I have to say plainly: a small number of active managers have beaten the index, decisively, over decades. Not many. But enough to matter.
+
+Horace: Berkshire Hathaway under Buffett and Munger — roughly twenty percent per year compounded from nineteen sixty-five to the early twenty twenties, against the S and P's ten. The textbook proof that some active management works. The same Buffett, by the way, who instructed in his will that his wife's inheritance go into a low-cost S and P five hundred index fund. He is the exception telling you that you are not the exception.
+
+Horace: Peter Lynch at Fidelity Magellan, nineteen seventy-seven to nineteen ninety — about twenty-nine percent per year for thirteen years. He retired at forty-six. After Lynch, Magellan reverted to roughly tracking the index.
+
+Horace: Renaissance Technologies' Medallion Fund — reportedly forty percent per year, after a five-and-forty-four fee structure, for over three decades. And — Medallion has been closed to outside investors since nineteen ninety-three. Renaissance's public funds, the ones you and I could actually buy, sometimes lost money in years when Medallion was up seventy. Medallion is the existence proof of real, durable alpha. It is also the existence proof that real alpha gets walled off and never reaches you.
+
+Horace: Seth Klarman at Baupost — equity-like returns with structurally less volatility, by sticking to deep value and holding huge cash piles when nothing qualified. His book Margin of Safety sells used for over a thousand dollars because he refuses to reprint it.
+
+Horace: And Joel Greenblatt at Gotham Capital, nineteen eighty-five to nineteen ninety-four — about fifty percent per year for ten years on a small special-situations book. Then he gave outside capital back. Greenblatt later published his playbook in two books, explicitly betting that the strategy was too small-cap, too uncomfortable, and too patient for most readers to actually run.
+
+Stella: Is there a pattern?
+
+Horace: A clear one. The funds that beat the index over decades are either closed to new money, like Medallion. Or closed periodically at their peak, like Magellan. Or a single holding company that is its own thing, like Berkshire. Or deliberately small, like Greenblatt's early years. Or so concentrated and so patient that retail investors cannot hold them through the drawdowns, like Klarman.
+
+Stella: So the lesson is not "active never works."
+
+Horace: The lesson is: the active strategies that genuinely work are rarely the ones you can buy from your bank's product menu. And the active funds you can buy from your bank's product menu are, in aggregate, the ninety percent the SPIVA scorecard tracks losing to the index.
+
+Horace: You do not need to memorise the thousands of E T Fs that exist. You need this short list.
+
+Horace: U S large-cap: V O O and I V V both track the S and P five hundred at three hundredths of a percent. Either is fine — V O O is Vanguard, I V V is BlackRock. S P Y also tracks the S and P five hundred but charges nine hundredths — three times the fee, for the same exposure. S P Y exists because it was the first U S E T F, launched in nineteen ninety-three, so it has the deepest liquidity. Institutional traders care about that. Long-term investors do not. Don't pay three times the fee for liquidity you don't need.
+
+Stella: And V T I?
+
+Horace: V T I owns the entire U S market — about four thousand names — instead of just the largest five hundred. In practice, V O O and V T I return almost identically because the S and P five hundred is roughly eighty percent of U S market cap by value. If you want one fund and slightly more diversification, pick V T I. If you want one fund and the cleanest index everyone references, pick V O O. There is no wrong answer between these two.
+
+Stella: And the others on the list?
+
+Horace: V X U S gets you all of non-U S — developed markets and emerging — for seven hundredths of a percent. V T is the entire world in one E T F, also seven hundredths. B N D is the total U S bond market. Q Q Q is the Nasdaq one hundred — tech-heavy, twenty hundredths of a percent, more concentrated, useful as a tilt but not a core holding.
+
+Horace: Five steps. Fifteen minutes. Then you close the app.
+
+Horace: Step one — open a brokerage account. U S-resident: Fidelity, Schwab, or Vanguard. All three are free, all three have sane platforms. H K, T W, or Singapore-resident: Interactive Brokers is the standard cross-border choice for buying U S-listed E T Fs cheaply.
+
+Horace: Step two — link your bank account and transfer money. An A C H transfer is one to three business days.
+
+Horace: Step three — search for the ticker. Type V O O. The fund profile pops up.
+
+Horace: Step four — place a buy order. Market order means buy at the current price. Enter a share count or a dollar amount. Most brokers support fractional shares now, so you can put in any amount you want.
+
+Horace: Step five — set up automatic monthly investing. Five hundred dollars on the first of every month. Forget it exists.
+
+Stella: That is it?
+
+Horace: That is it. You now own a slice of the five hundred largest companies in America. No C N B C. No watching your portfolio. No stock-picking anxiety.
+
+Stella: And what comes after I press buy?
+
+Horace: The most important thing you can do after pressing buy is close the app and stop looking. The market goes up and down constantly. Watching the daily moves is the single biggest cause of bad investor behaviour — selling in panic, buying in euphoria. Every dollar of long-term return in the SPIVA-beating index strategy comes from holding through the noise, not trading around it.
+
+Horace: For most readers, a three-fund portfolio in Bogle's style is genuinely the entire portfolio.
+
+Horace: Total U S stock market — V T I — about sixty percent. Total international stock — V X U S — about twenty-five percent. Total U S bond market — B N D — about fifteen percent for a thirty-year-old. Traditional rule of thumb: bond percentage roughly equals your age minus twenty. Total blended expense ratio for the whole portfolio? About four hundredths of a percent. Four dollars per year on ten thousand. Globally diversified.
+
+Stella: That is the answer for everybody?
+
+Horace: It is the traditional answer, and it is dramatically better than not investing. But I owe you a heads-up, even in the foundation lesson, because I am not in the business of selling you a shape that is already cracking.
+
+Stella: Go ahead.
+
+Horace: The "bonds as ballast" framework was built for a world that no longer exists. It assumes two things: that bonds pay a real yield above inflation, and that bonds rally when stocks fall. Both broke in the twenty twenties. Governments are running enormous deficits financed by money printing. Central banks have been suppressing real yields below inflation as a matter of policy — that is called financial repression. Holding a long-bond fund through an inflationary cycle is not ballast. It is a slow loss of purchasing power.
+
+Stella: And twenty twenty-two —
+
+Horace: Stocks and bonds both fell roughly twenty percent together. That is exactly the scenario the sixty-forty-with-bonds shape is supposed to protect you from. It didn't.
+
+Stella: So how do you treat the B N D slice?
+
+Horace: As the textbook starting point that the rest of this course will challenge. Week Five dissects what bonds actually are and when the historical hedge worked. Week Six introduces gold as the alternative inflation hedge — gold has been the store of value across every monetary regime humans have ever run. Week Forty-Seven and Level Five rebuild the safety side of the portfolio properly, using a mix of cash, short-duration Treasuries, gold, and long-volatility option structures rather than the traditional long-duration bond bucket.
+
+Stella: For today, though —
+
+Horace: For the foundation portfolio you build today, the three-fund template is fine. Just understand that the bond slice is the part with the shortest shelf life, and we will be coming back to replace it.
+
+Horace: I have spent this whole episode telling you index E T Fs are the answer. I want to close with the one qualifier that makes me an honest teacher rather than a salesman.
+
+Horace: The buy-and-hold passive index strategy has worked extraordinarily well for forty years — since roughly the early nineteen eighties. It worked because of a specific combination of conditions: a working-age population larger than the retired population mechanically buying every payroll cycle. Falling interest rates. Dollar reserve status. Globalisation. And, since two thousand eight, a Federal Reserve that consistently steps in when financial conditions tighten too far.
+
+Stella: And none of that is guaranteed forever.
+
+Horace: None of it. When the demographic flip arrives — when the boomer generation moves from net buyers in accumulation to net sellers in decumulation — the same mechanical pipe that has bid the index up for forty years can run in reverse. Passive funds are not autonomous. They react to whether their end-investor is contributing or withdrawing. A market dominated by price-insensitive flow on the way up is a market vulnerable to price-insensitive flow on the way down.
+
+Stella: So is this a prediction?
+
+Horace: No. This is not a prediction that the index will stop working tomorrow. It is an honest acknowledgement that "it has worked for forty years" is not the same as "it will work forever." And the people on YouTube telling you to put one hundred percent of your net worth into V O O and never think about it again are not being honest with you about regime risk.
+
+Stella: What does that mean for someone watching this today?
+
+Horace: For you, today, building your first portfolio: the index E T F is the right answer. Build the foundation. Get the automatic monthly transfer running. Let it compound for the next several years while you go through the rest of the course. The advanced shape — Week Twenty-Three on factor investing, Week Forty-Three on when active management does earn its fee, Level Five on the barbell portfolio with the broad-market core deliberately removed — that is what we build on top of this foundation. Not instead of it.
+
+Stella: Quick recap, Horace.
+
+Horace: Six things. One: an index is a list of stocks; an index E T F buys all of them, in their weights, for almost no fee. Two: ninety percent of professional fund managers lose to that list over twenty years. Three: fees are the single biggest lever you control — a two percent wrapper costs you over seven hundred thousand dollars on a hundred-thousand-dollar investment over thirty years. Four: if your advisor is not a fee-only fiduciary, they are a salesperson. Five: insurance investments are almost all scams; buy term and invest the difference. Six: V O O or V T I plus V X U S plus, for now, B N D — that is the whole foundation portfolio for most people.
+
+Stella: And the cliffhanger?
+
+Horace: The index works until it doesn't. Demographics, the loss of price discovery from passive's own dominance, a Fed put that eventually fails — those are real, and the rest of this course is how we build a portfolio that survives after the forty-year passive consensus closes. Build the foundation now. We will build the upper floors together.
+
+Stella: What is next?
+
+Horace: Next week is Week Three — Risk and Return. The index E T F you just bought moves around a lot. Sometimes thirty, forty, fifty percent down. We are going to define risk precisely, separate the kind of risk that pays you from the kind that doesn't, and start building the framework that lets you stay in your seat when the foundation portfolio is down a third and the headlines are screaming.
+
+Stella: Subscribe so you do not miss it. Drop your questions in the comments — we read every one.
+
+Horace: See you next week.

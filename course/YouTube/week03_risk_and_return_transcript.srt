@@ -1,0 +1,248 @@
+1
+00:00:00,000 --> 00:00:25,360
+[Horace] Welcome to Week Three of the Chanma Investment Tutorial. I am Horace. Two weeks in, we've established two things: inflation is gravity, so you have to invest. And the right default for almost everyone is a low-cost index E T F. Today is the lesson where I tell you what it actually feels like to hold that E T F — because the machinery underneath is the part that decides whether you sell at the bottom or stay invested.
+
+2
+00:00:25,060 --> 00:00:34,080
+[Stella] And I am Stella. Last week I bought my first index fund. So this week I want to know what I've actually signed up for. And the machinery is risk and return.
+
+3
+00:00:33,780 --> 00:00:42,220
+[Horace] Two forces. They are inseparable. And almost every mistake in retail investing comes from focusing on the first and ignoring the second.
+
+4
+00:00:41,940 --> 00:01:04,500
+[Horace] Forget the dictionary definition for a moment. In finance, risk is uncertainty of outcome. A T-bill yielding four point three percent — you know almost exactly what you'll have in three months. A biotech stock — you might be up four hundred percent or down ninety percent. The biotech is risky not because it's bad; it's risky because the future is unknowable.
+
+5
+00:01:04,500 --> 00:01:07,340
+[Stella] So volatility is risk?
+
+6
+00:01:06,880 --> 00:01:21,020
+[Horace] Volatility is a measure of risk. It is not risk itself. A position can be quiet for years and then blow up in a month. The realised price wiggles you see on a chart and the actual probability distribution of future outcomes are not the same thing.
+
+7
+00:01:20,780 --> 00:01:33,180
+[Horace] Here are the actual annual returns of the S and P five hundred from nineteen twenty-eight through last year. The smooth curve overlaid is what a normal distribution with the same mean and standard deviation says the returns should look like.
+
+8
+00:01:32,940 --> 00:01:36,560
+[Stella] The actual data has fatter tails than the curve.
+
+9
+00:01:36,000 --> 00:02:04,360
+[Horace] Materially fatter. Look at nineteen thirty-one. Look at two thousand eight. Look at nineteen thirty-three on the upside. None of those should be possible under a bell-curve model. They happened. The standard textbook treatment of risk uses the bell curve. The honest treatment notes that markets have what we call fat tails, and that whatever the model says is a "five-sigma event" — which a normal curve says happens once every fourteen thousand years — happens roughly every decade in real markets.
+
+10
+00:02:04,360 --> 00:02:08,740
+[Stella] So when someone on TV says "this was a five-sigma move" —
+
+11
+00:02:08,460 --> 00:02:13,680
+[Horace] They are admitting their model is wrong. That phrase should make you laugh, not nod.
+
+12
+00:02:13,460 --> 00:02:39,700
+[Horace] Now the second force. Why do stocks return more than T-bills? Because investors are loss-averse. If stocks paid the same expected return as bonds, no rational investor would hold the volatile asset. So the price of stocks falls until the forward expected return is high enough to compensate for the volatility. That gap is the equity risk premium. Headline number: about five to seven points per year on the long-run average.
+
+13
+00:02:39,360 --> 00:02:41,040
+[Stella] And the inverse?
+
+14
+00:02:40,680 --> 00:03:09,640
+[Horace] Same fact, said honestly. The textbook calls the T-bill yield the risk-free rate of return. The accurate label is the return-free risk-free rate. You get the dollars back. You reliably lose purchasing power. In financial repression — short rates pinned below inflation — the bond holder is certainly losing ground. The risk premium isn't just compensation for bearing volatility; it's the discount the volatile asset must offer to clear against an instrument that guarantees slow decay.
+
+15
+00:03:09,420 --> 00:03:12,480
+[Stella] And the long-run average is doing a lot of work.
+
+16
+00:03:12,200 --> 00:03:48,180
+[Horace] Look at the regime split. Nineteen twenty-eight to nineteen seventy-one — gold-anchored Bretton Woods — the S and P returns about nine and a half percent nominal. Nineteen seventy-one to two thousand eight — fiat era, disinflation — about eleven. Two thousand nine to twenty twenty-four — zero rates and four rounds of Q E — about fourteen and a half percent nominal, with T-bills returning essentially zero. The Fed printed money for fifteen years and the asset that benefited most was equity. Most retail investors and most index-fund managers built their entire mental model in that single regime.
+
+17
+00:03:47,480 --> 00:03:49,860
+[Stella] And Shiller's CAPE today?
+
+18
+00:03:49,700 --> 00:04:09,300
+[Horace] High thirties. Forward expected return on U S equity at that valuation is around three to four percent real, not seven. Doesn't mean the next decade is bad. It means the historical average is a different statistic from the current expected value, and the recent regime massively over-paid — don't extrapolate it forward.
+
+19
+00:04:09,040 --> 00:04:11,940
+[Stella] And bonds, the other side of the trade?
+
+20
+00:04:11,720 --> 00:05:07,240
+[Horace] Two warnings the textbook glosses. One: bonds and stocks are not the same kind of thing. A stock is a perpetual claim on a growing business. A T-bill is a contractual promise of a fixed dollar amount. "Equally attractive expected returns" comparing them is comparing apples to a coupon clipped from an apple crate. Two: bond prices are not stable. The thirty-year Treasury lost about thirty percent in twenty twenty-two alone — deeper than most equity bear markets. T L T, the long-Treasury E T F, is still below its twenty twenty peak in twenty twenty-six. And Coca-Cola or P and G has produced steadier mark-to-market wealth over twenty years than the long bond — and paid a growing dividend on top. The line "bonds are safe" needs the asterisk: safe against which risk? Default? Mark-to-market? Purchasing power? Opportunity cost? They don't all point the same way.
+
+21
+00:05:07,240 --> 00:05:10,960
+[Stella] And how often do stocks actually beat T-bills, year by year?
+
+22
+00:05:10,760 --> 00:05:43,620
+[Horace] About sixty-five to seventy percent of calendar years since nineteen twenty-eight. T-bills only win in the bad years — nineteen twenty-nine to thirty-two, thirty-seven, seventy-three to seventy-four, dot-com, the financial crisis, twenty twenty-two. The risk premium isn't "compensation for sticking through the years T-bills win." It's compensation for absorbing those concentrated, painful years when the average loses all meaning. A minus thirty-seven in two thousand eight is a different experience from being told you under-performed by seven percent over a decade.
+
+23
+00:05:43,280 --> 00:05:56,920
+[Horace] Two kinds of risk. Unsystematic is specific to one company — a C E O scandal, a factory fire, a bad drug trial. Systematic is what affects the whole market — recession, inflation, war.
+
+24
+00:05:56,740 --> 00:05:59,820
+[Stella] And one of them I can diversify away.
+
+25
+00:05:59,140 --> 00:06:25,820
+[Horace] Unsystematic, yes. And the textbook number you'll see is "hold five hundred names" — but actually the Evans and Archer nineteen sixty-eight study, and the Statman nineteen eighty-seven follow-up, show that the bulk of the diversification benefit is captured by the first fifteen to twenty names. About twenty-five to forty well-spread names today and you've collected about ninety-five percent of it. The S and P five hundred buys you the last few percent.
+
+26
+00:06:25,660 --> 00:06:31,280
+[Stella] And the systematic kind — you said earlier the textbook calls it undiversifiable.
+
+27
+00:06:30,940 --> 00:07:19,860
+[Horace] Inside the equity sleeve, true. At the multi-asset level, that sentence is wrong. Long Treasuries rallied in the dot-com crash and in two thousand eight. Gold rallied in two thousand eight and in COVID. Long-volatility option structures are built to pay off when equities fall fast. The canonical C F A line "you can't diversify systematic risk" is only true if you've already decided your portfolio holds nothing but stocks. Week Four — the sixty-forty. Week Six — gold. Week Fifteen — multi-asset construction. Weeks Twenty-Five through Thirty — options as exposure tools. Week Forty-Seven — explicit tail-risk hedging. Each of those is an attack on the equity systematic shock that today's lesson supposedly says you can't touch.
+
+28
+00:07:19,520 --> 00:07:22,600
+[Stella] So if I hold a five-stock portfolio…
+
+29
+00:07:22,360 --> 00:07:47,040
+[Horace] Most five-stock portfolios under-perform; a small minority massively outperform; the cross-sectional average equals the index. You're not guaranteed to lag — you're taking a lottery-ticket distribution around the same mean, where the market doesn't pay you for the spread. That — the Markowitz framework, the efficient frontier, modern portfolio theory — we'll do properly in Week Fifteen and Week Twenty-Three.
+
+30
+00:07:46,680 --> 00:08:01,360
+[Horace] Standard deviation is what the textbook uses. Drawdown — peak to trough — is what your nervous system uses. Look at this chart. Four major bear markets. Nineteen seventy-three to seventy-four, dot-com, the financial crisis, COVID.
+
+31
+00:08:01,100 --> 00:08:05,480
+[Stella] The COVID one looks tiny compared to the others on the time axis.
+
+32
+00:08:05,420 --> 00:08:19,600
+[Horace] Same magnitude — about thirty-four percent — but the recovery was five months instead of seven and a half years. Federal Reserve intervention is the mechanical reason. The same drawdown felt completely different depending on which decade you happened to live through.
+
+33
+00:08:19,280 --> 00:08:23,080
+[Stella] And if I had been a retiree in nineteen seventy-three?
+
+34
+00:08:22,840 --> 00:08:37,220
+[Horace] You would have lived through seven and a half years without your portfolio recovering, while drawing down on it to live. That is sequence-of-returns risk, and it's the reason "stocks for the long run" sounds different at twenty-five than it does at sixty-five.
+
+35
+00:08:36,920 --> 00:08:51,500
+[Horace] Now the good news. Look at the rolling-return chart. At one year, U S stocks have returned anywhere from minus thirty-eight to plus fifty-two percent. At thirty years, the worst is about plus three real, the best about plus ten.
+
+36
+00:08:51,080 --> 00:08:53,340
+[Stella] Time crushes the range.
+
+37
+00:08:53,180 --> 00:09:44,380
+[Horace] Of the annualised rate. The cumulative dollar consequence of a bad sequence still compounds — a thirty-year sequence at plus three real is dramatically poorer than one at plus nine real. And then the asterisk: this is the U S sample. Two markets living in plain sight that did not behave this way — Japan, peaked in December nineteen eighty-nine at thirty-eight thousand nine hundred fifteen on the Nikkei, did not break that level until February twenty twenty-four. Thirty-five years. An entire working career with zero capital appreciation. China A-shares peaked in October two thousand seven at six thousand one hundred twenty-four on the Shanghai Composite — still forty-six percent below that peak in twenty twenty-six, almost two decades later, with two abortive recoveries that round-tripped within a year.
+
+38
+00:09:44,060 --> 00:09:47,960
+[Stella] And the Chinese economy grew enormously over that period.
+
+39
+00:09:47,700 --> 00:10:30,960
+[Horace] Right. And it didn't accrue to the minority equity holder. The growth went to private and state owners, not to public shareholders. The deeper lesson: a stock market has to bear an honest relationship to the underlying real economy and to the legal and political conditions under which minority shareholders actually get paid. Studying historical price data without asking why a market compounded for a century — and whether the conditions still hold — is the central methodological error behind "buy and hold for thirty years" applied to any market on the planet. The U S compounding rests on rule of law, dollar reserve status, productivity growth, demographic expansion, monetary regime. Some of those are weakening in twenty twenty-six.
+
+40
+00:10:30,680 --> 00:10:49,600
+[Horace] Last concept and it is the most important one. Two different ideas that get mashed together. Risk capacity — how much you can afford. Time horizon, income, whether the portfolio funds your rent. Objective. Risk tolerance — how you actually feel watching it drop. Subjective.
+
+41
+00:10:49,340 --> 00:10:53,260
+[Stella] And the dangerous combination is high tolerance, low capacity.
+
+42
+00:10:53,000 --> 00:11:18,800
+[Horace] The sixty-seven-year-old retiree who watched the twenty tens and decided he believes in stocks, runs one hundred percent equities, draws four percent a year to live, then hits a thirty percent drawdown and is forced to sell shares at the bottom to pay rent. The shares he sold never recover for him. That person is the typical retail blow-up. He had the tolerance — what he didn't have was the capacity to lose. The two were never the same question.
+
+43
+00:11:18,660 --> 00:11:19,940
+[Stella] And the fix?
+
+44
+00:11:19,580 --> 00:11:37,820
+[Horace] Position size to your capacity, not to your tolerance. The single best question to ask before sizing anything: if this position dropped fifty percent next month, would I be a forced seller? If yes, the position is too large. Cut until the answer is no. Regardless of how brave you feel.
+
+45
+00:11:37,680 --> 00:11:46,140
+[Stella] A pushback though — if I actually knew a position was going to drop fifty percent next month, I wouldn't size smaller. I'd hedge or short it.
+
+46
+00:11:45,880 --> 00:12:38,640
+[Horace] Correct. The question is a sizing tool, not a prediction tool. And the textbook reflex "you can't time the market" needs the adult version: day-to-day, the market is roughly a random walk. Decade-scale macro regime breaks are a slow-moving train wreck you can see coming if you're paying attention. Bear Stearns blew up in March two thousand eight. Lehman in September. The S and P's worst leg ran from September two thousand eight through March two thousand nine — six months after the canary was visibly dead. COVID? First Wuhan cases in December twenty nineteen, Italy lockdown March ninth, twenty twenty — the S and P peaked February nineteenth, almost two months after a novel respiratory virus was killing people across continents. The Trump–Iran scare in twenty twenty-four had carrier strike groups visibly redeploying weeks before the market flinched.
+
+47
+00:12:38,300 --> 00:12:41,280
+[Stella] None of those required insider information.
+
+48
+00:12:41,060 --> 00:13:00,360
+[Horace] Front page of the Wall Street Journal. "You can't time" is correct for the day-to-day noise that fills ninety-five percent of trading days. It is lazy when applied to visible, slow-moving regime events. We rebuild that properly in Week Forty-Seven and Level Five — hedge before the event, accept that being early is the cost of doing this at all.
+
+49
+00:13:00,180 --> 00:13:11,720
+[Horace] One more lens before we close. Howard Marks, Oaktree, four decades — has been arguing the entire toolkit we just introduced confuses an observable proxy for the actual thing.
+
+50
+00:13:11,340 --> 00:13:13,800
+[Stella] Standard deviation isn't risk?
+
+51
+00:13:13,400 --> 00:13:39,760
+[Horace] Standard deviation is the visible part of risk in ordinary regimes. Risk itself is the probability that something bad happens to your capital — and that probability is mostly invisible until it materialises. Two thousand seven felt safe. Mortgage spreads were tight, the V I X was low, every model said calm. Risk was maximal precisely because it was invisible. By the time it shows up in the vol number, the trade is already lost.
+
+52
+00:13:39,580 --> 00:13:44,400
+[Stella] So the textbook capital-market line — more risk, more return —
+
+53
+00:13:43,500 --> 00:14:06,540
+[Horace] Marks replaces each point on that line with a distribution. At T-bill risk, narrow spike around the mean. At equity risk, wide bell with a real left tail. At venture risk, enormous distribution where the left tail goes to zero. Higher risk doesn't promise higher return. It promises a wider range, including outcomes far worse than just sitting safer.
+
+54
+00:14:06,300 --> 00:14:08,180
+[Stella] And his rule on survival?
+
+55
+00:14:07,880 --> 00:14:28,740
+[Horace] First job of the investor is not to be wiped out. A fifty percent loss takes one hundred percent to recover. A ninety percent loss takes nine hundred percent. A one hundred percent loss takes a miracle. Any strategy that can blow up will, on a long enough timeline. In order to win the game, you have to be there at the end.
+
+56
+00:14:28,460 --> 00:14:30,200
+[Stella] And on judging yourself?
+
+57
+00:14:30,060 --> 00:14:47,420
+[Horace] A good decision can have a bad outcome. A bad decision can have a good outcome. The question isn't "did I make money?" It's given the information at the time, was the position appropriately sized for its risk-adjusted expected return? P and L is noise; process is signal.
+
+58
+00:14:47,200 --> 00:15:31,440
+[Horace] Next week we build the first multi-asset portfolio — the classic sixty-forty. We'll see why it worked for forty years, why it broke in twenty twenty-two, and what people are doing to replace it. The risk and return concepts from today — plus Marks's reframing — are the lens we use to compare. And one more pointer: as you go through Weeks Twenty-Five to Thirty on options, remember that volatility itself is an asset class, not just a number on the side of the page. You can buy it, sell it, hold it as a permanent allocation — Week Forty-Seven builds a Dragon-portfolio-inspired shape around that idea. "Vol is good or bad?" is the wrong question once you can trade it directly. The right question is what regime is vol in, and what side am I on.
+
+59
+00:15:31,360 --> 00:15:36,280
+[Stella] And the goal of the active trader — not just take more risk for more return?
+
+60
+00:15:35,160 --> 00:15:53,100
+[Horace] Asymmetric trades. Big upside, small downside. The barbell shape — high-conviction safety on one end, capped-downside speculation on the other. We teach the textbook "higher risk equals higher return" because you have to know it. The course's destination is the asymmetric trade.
+
+61
+00:15:52,680 --> 00:15:57,980
+[Stella] Subscribe so you do not miss it. Drop your questions in the comments — we read every one.
+
+62
+00:15:57,680 --> 00:15:58,460
+[Horace] See you next week.
+

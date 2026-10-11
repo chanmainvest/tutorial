@@ -9,6 +9,8 @@ import {
 } from 'remotion';
 import {Character, HostRig} from './Character';
 import {DIAGRAM_TIMELINE, Diagrams} from './Diagrams';
+import {DIAGRAM_TIMELINE_WEEK02, DiagramsWeek02} from './DiagramsWeek02';
+import {DIAGRAM_TIMELINE_WEEK03, DiagramsWeek03} from './DiagramsWeek03';
 import {CaptionCue, Line, buildCaptionCues, getCaptionAt} from './transcript';
 
 const FONT = 'Inter, system-ui, -apple-system, sans-serif';
@@ -115,13 +117,21 @@ export const PodcastVideo: React.FC<{
   weekLabel: string;
   title: string;
   subtitle: string;
-}> = ({lines, audioSrc, loudness, backgroundSrc, horace, stella, weekLabel, title, subtitle}) => {
+  /** Which episode's diagram set to show (default: week01). */
+  episode?: 'week01' | 'week02' | 'week03';
+}> = ({lines, audioSrc, loudness, backgroundSrc, horace, stella, weekLabel, title, subtitle, episode = 'week01'}) => {
   const cues = useMemo(() => buildCaptionCues(lines), [lines]);
 
   // Hosts step back (shrink slightly) while a diagram takes the stage.
   const frame = useCurrentFrame();
   const {fps} = useVideoConfig();
-  const diagramActive = DIAGRAM_TIMELINE.some(
+  const timeline =
+    episode === 'week03'
+      ? DIAGRAM_TIMELINE_WEEK03
+      : episode === 'week02'
+        ? DIAGRAM_TIMELINE_WEEK02
+        : DIAGRAM_TIMELINE;
+  const diagramActive = timeline.some(
     (s) => frame / fps >= s.start && frame / fps < s.end,
   );
 
@@ -162,7 +172,13 @@ export const PodcastVideo: React.FC<{
         apart={130}
         recessed={diagramActive}
       />
-      <Diagrams />
+      {episode === 'week03' ? (
+        <DiagramsWeek03 />
+      ) : episode === 'week02' ? (
+        <DiagramsWeek02 />
+      ) : (
+        <Diagrams />
+      )}
       {/* episode badge */}
       <div
         style={{
